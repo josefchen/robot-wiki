@@ -3,6 +3,13 @@
 import { useId, useMemo, useState } from 'react';
 import { ChartDescription } from '@/components/ui';
 import {
+  ControlLabel,
+  InstrumentFrame,
+  InstrumentReadout,
+  InstrumentReset,
+  PlotStage,
+} from '@/components/ui/instrument';
+import {
   FLOW_MODES,
   MAX_STEPS,
   MIN_STEPS,
@@ -87,24 +94,12 @@ export function FlowMatchingTrajectory({
   const maxMagnitude = Math.max(...arrows.map((a) => Math.hypot(a.vx, a.vy)), 1e-6);
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
+    <InstrumentFrame className={className}>
       <div className="grid gap-4 lg:grid-cols-[1fr_auto] lg:items-end">
         <div>
-          <label
-            htmlFor="fm-steps"
-            className="flex items-baseline justify-between gap-2 whitespace-nowrap font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
-          >
+          <ControlLabel htmlFor="fm-steps" value={`k = ${steps} / ${MAX_STEPS}`}>
             Integration steps
-            <span className="whitespace-nowrap font-mono text-xs normal-case tracking-normal text-text">
-              k = {steps} / {MAX_STEPS}
-            </span>
-          </label>
+          </ControlLabel>
           <input
             id="fm-steps"
             type="range"
@@ -145,24 +140,15 @@ export function FlowMatchingTrajectory({
               </button>
             ))}
           </div>
-          <button
-            data-brand-control-id="control:secondary-action"
-            data-pagefind-ignore
-            type="button"
-            onClick={() => setSteps(defaultSteps)}
-            className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
-          >
-            Reset
-          </button>
+          <InstrumentReset onClick={() => setSteps(defaultSteps)} />
         </div>
       </div>
 
-      <svg
+      <PlotStage
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-        role="img"
         aria-label={`2D action-space view with the learned vector field at mid-transport. ${field.samples.length} samples start as Gaussian noise and are transported toward two action modes along near-straight paths. With ${steps} integration steps the mean endpoint error is ${dispersion.toFixed(2)}.`}
         aria-describedby={descriptionId}
-        className="mt-4 block w-full"
+        className="mt-4"
       >
         {/* Axes */}
         <line
@@ -291,9 +277,9 @@ export function FlowMatchingTrajectory({
             </text>
           </g>
         ))}
-      </svg>
+      </PlotStage>
 
-      <p className="mt-3 font-mono text-sm text-text" aria-live="polite">
+      <InstrumentReadout>
         <span data-testid="fm-step-readout" className="text-accent">
           k = {steps} Euler {steps === 1 ? 'step' : 'steps'}
         </span>{' '}
@@ -301,7 +287,7 @@ export function FlowMatchingTrajectory({
         <span data-testid="fm-dispersion-readout" className="text-accent">
           {dispersion.toFixed(2)}
         </span>
-      </p>
+      </InstrumentReadout>
       <ChartDescription
         id={descriptionId}
         className="mt-3"
@@ -334,6 +320,6 @@ export function FlowMatchingTrajectory({
         and pi0.7 run {PI06_STEPS}. The real expert integrates a whole
         50-step action chunk jointly; this view shows 2 of its dimensions.
       </p>
-    </div>
+    </InstrumentFrame>
   );
 }

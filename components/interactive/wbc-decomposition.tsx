@@ -1,7 +1,13 @@
 'use client';
 
 import { useId, useState } from 'react';
-import { ChartDescription } from '@/components/ui';
+import {
+  ChartDescription,
+  InstrumentFrame,
+  InstrumentReadout,
+  InstrumentReset,
+  PlotStage,
+} from '@/components/ui';
 import {
   APPROACH_ORDER,
   DEFAULT_APPROACH,
@@ -75,13 +81,7 @@ export function WbcDecomposition({
   const robotY = TOP + approach.layers.length * (BOX_H + GAP);
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
+    <InstrumentFrame className={className}>
       <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
         <div
           role="group"
@@ -104,15 +104,7 @@ export function WbcDecomposition({
             </button>
           ))}
         </div>
-        <button
-          data-brand-control-id="control:secondary-action"
-          data-pagefind-ignore
-          type="button"
-          onClick={reset}
-          className={cx(buttonBase, buttonIdle)}
-        >
-          Reset
-        </button>
+        <InstrumentReset onClick={reset} />
       </div>
 
       <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1 font-mono text-xs">
@@ -136,13 +128,12 @@ export function WbcDecomposition({
         </span>
       </div>
 
-      <svg
+      <PlotStage
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-        role="img"
         aria-label={`Whole-body control stack for the ${approach.name} decomposition, representative system ${approach.representative}. ${approach.layers.length} layers from ${approach.layers[0].name} down to full-body actuators. Fastest disclosed loop ${fastest}.`}
         aria-describedby={descriptionId}
         data-testid="wbc-diagram"
-        className="mt-3 block w-full"
+        className="mt-3"
       >
         <defs>
           <marker
@@ -277,7 +268,7 @@ export function WbcDecomposition({
             full-body actuators: legs, torso, arms, hands
           </text>
         </g>
-      </svg>
+      </PlotStage>
 
       <div
         data-testid="wbc-stats"
@@ -293,14 +284,14 @@ export function WbcDecomposition({
         ))}
       </div>
 
-      <p className="mt-3 font-mono text-sm text-text" aria-live="polite">
+      <InstrumentReadout>
         <span className="text-text-dim">{approach.name}:</span>{' '}
         <span className="text-accent">{approach.representative}</span>{' '}
         <span className="text-text-dim">Layers</span>{' '}
         <span className="text-text">{approach.layers.length}</span>{' '}
         <span className="text-text-dim">Fastest loop</span>{' '}
         <span className="text-text">{fastest}</span>
-      </p>
+      </InstrumentReadout>
       <ChartDescription
         id={descriptionId}
         className="mt-3"
@@ -322,6 +313,6 @@ export function WbcDecomposition({
           ? ` Same decomposition: ${approach.lineage.join(', ')}.`
           : ''}
       </p>
-    </div>
+    </InstrumentFrame>
   );
 }

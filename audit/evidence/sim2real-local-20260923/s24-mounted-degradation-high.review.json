@@ -9,7 +9,7 @@
   "outcome": "supported",
   "scope": "part",
   "partId": "s24-mounted-degradation-high",
-  "inputDigest": "cbef4eec95a7d641fa98ceea8698804d21c94c080312def67379f97e80ee4c41",
+  "inputDigest": "549788eb619490ce4e86ea1043239693eeb4a62f4a853889fbd3cd05b68f8d29",
   "inventory": [
     {
       "id": "s24-privileged-context",

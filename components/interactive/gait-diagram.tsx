@@ -4,6 +4,13 @@ import { useEffect, useId, useRef, useState } from 'react';
 import { Pause, Play } from '@phosphor-icons/react';
 import { ChartDescription } from '@/components/ui/chart-description';
 import {
+  ControlLabel,
+  InstrumentFrame,
+  InstrumentReadout,
+  InstrumentReset,
+  PlotStage,
+} from '@/components/ui/instrument';
+import {
   DEFAULT_GAIT,
   DEFAULT_PHASE,
   GAITS,
@@ -196,13 +203,7 @@ export function GaitDiagram({
   const buttonActive = 'border-accent bg-surface-2 text-accent';
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
+    <InstrumentFrame className={className}>
       <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
         <div
           role="group"
@@ -261,28 +262,14 @@ export function GaitDiagram({
           >
             Step forward
           </button>
-          <button
-            data-brand-control-id="control:secondary-action"
-            data-pagefind-ignore
-            type="button"
-            onClick={reset}
-            className={cx(buttonBase, buttonIdle)}
-          >
-            Reset
-          </button>
+          <InstrumentReset onClick={reset} />
         </div>
       </div>
 
       <div className="mt-3">
-        <label
-          htmlFor="gait-phase"
-          className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
-        >
+        <ControlLabel htmlFor="gait-phase" value={formatPhase(phase)}>
           Gait phase
-          <span className="whitespace-nowrap font-mono text-xs normal-case tracking-normal text-text">
-            {formatPhase(phase)}
-          </span>
-        </label>
+        </ControlLabel>
         <input
           id="gait-phase"
           type="range"
@@ -334,12 +321,11 @@ export function GaitDiagram({
         </span>
       </div>
 
-      <svg
+      <PlotStage
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-        role="img"
         aria-label={`Footfall timing for the ${gait.name} gait, duty factor ${formatDuty(gait.dutyFactor)}, phase ${formatPhase(phase)}`}
         aria-describedby={descriptionId}
-        className="mt-3 block w-full"
+        className="mt-3"
       >
         <text
           x={PLOT_LEFT}
@@ -462,16 +448,16 @@ export function GaitDiagram({
             </g>
           );
         })}
-      </svg>
+      </PlotStage>
 
-      <p className="mt-3 font-mono text-sm text-text" aria-live="polite">
+      <InstrumentReadout>
         <span className="text-text-dim">{gait.name.toLowerCase()} at</span>{' '}
         <span className="text-accent">{formatPhase(phase)}</span>{' '}
         <span className="text-text-dim">feet down</span>{' '}
         <span className="text-text">{stanceText}</span>{' '}
         <span className="text-text-dim">duty</span>{' '}
         <span className="text-text">{formatDuty(gait.dutyFactor)}</span>
-      </p>
+      </InstrumentReadout>
 
       <ChartDescription
         id={descriptionId}
@@ -516,6 +502,6 @@ export function GaitDiagram({
           </>
         }
       />
-    </div>
+    </InstrumentFrame>
   );
 }

@@ -1,7 +1,7 @@
 'use client';
 
 import { useId, useState } from 'react';
-import { ChartDescription } from '@/components/ui';
+import { ChartDescription, InstrumentFrame, InstrumentReset } from '@/components/ui';
 import {
   DEFAULT_PARADIGM,
   WM_PARADIGMS,
@@ -281,13 +281,7 @@ export function WmDisambiguator({
   const reset = () => setSelectedId(DEFAULT_PARADIGM);
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
+    <InstrumentFrame className={className}>
       <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
         <div
           className="flex flex-wrap gap-x-5 gap-y-1 font-mono text-xs"
@@ -305,15 +299,7 @@ export function WmDisambiguator({
             </span>
           </span>
         </div>
-        <button
-          data-brand-control-id="control:secondary-action"
-          data-pagefind-ignore
-          type="button"
-          onClick={reset}
-          className="rounded-sm border border-border bg-surface-2 px-2.5 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
-        >
-          Reset
-        </button>
+        <InstrumentReset onClick={reset} />
       </div>
 
       <div
@@ -417,6 +403,6 @@ export function WmDisambiguator({
           { label: 'uses', value: selected.uses.length === 1 ? '1 of 4' : `${selected.uses.length} of 4` },
         ]}
       />
-    </div>
+    </InstrumentFrame>
   );
 }

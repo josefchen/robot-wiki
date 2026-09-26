@@ -35,16 +35,16 @@
     {
       "file": {
         "path": "components/interactive/friction-transfer.tsx",
-        "bytes": 16495,
-        "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f"
+        "bytes": 15549,
+        "sha256": "af16eda88835169e720e7e6a8bb79c3ede65cba005635825a0b27f9aec7d8da9"
       },
       "id": "source:components/interactive/friction-transfer.tsx",
       "offset": 0,
-      "length": 16495,
-      "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f",
+      "length": 15549,
+      "sha256": "af16eda88835169e720e7e6a8bb79c3ede65cba005635825a0b27f9aec7d8da9",
       "baseline": {
         "kind": "interactive-sources-mounts",
-        "hash": "adf1ed81484c74e9fa09777a26e1330eb8919cbd07b02fe3406898b285ffb85d"
+        "hash": "ce7562ea62ab83791ae001dddab0e74af55ed947d48b5fc2b558f7cb26b6cab6"
       }
     },
     {

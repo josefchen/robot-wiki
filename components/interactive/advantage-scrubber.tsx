@@ -1,7 +1,15 @@
 'use client';
 
 import { useId, useMemo, useState } from 'react';
-import { Badge, ChartDescription } from '@/components/ui';
+import {
+  Badge,
+  ChartDescription,
+  ControlLabel,
+  InstrumentFrame,
+  InstrumentHeader,
+  InstrumentReset,
+  PlotStage,
+} from '@/components/ui';
 import {
   CREDIT_ASSIGNMENT,
   EPISODE_LENGTH_S,
@@ -176,17 +184,12 @@ export function AdvantageScrubber({ className }: { className?: string }) {
   }
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
-      <div
+    <InstrumentFrame className={className}>
+      <InstrumentHeader
         role="group"
         aria-label="Select a view"
-        className="flex flex-wrap items-center gap-1.5"
+        className="gap-1.5"
+        meta="espresso episode, one failed attempt"
       >
         {VIEWS.map((v) => (
           <button
@@ -205,19 +208,8 @@ export function AdvantageScrubber({ className }: { className?: string }) {
             {v.label}
           </button>
         ))}
-        <button
-          data-brand-control-id="control:secondary-action"
-          data-pagefind-ignore
-          type="button"
-          onClick={reset}
-          className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
-        >
-          Reset
-        </button>
-        <span className="ml-auto font-mono text-[10px] text-text-dim">
-          espresso episode, one failed attempt
-        </span>
-      </div>
+        <InstrumentReset onClick={reset} />
+      </InstrumentHeader>
 
       <p className="mt-3 font-sans text-xs leading-relaxed text-text-dim">
         Teaching toy, not a measured Recap episode: the 40 s timeline,
@@ -230,24 +222,22 @@ export function AdvantageScrubber({ className }: { className?: string }) {
       {view === 'episode' && (
         <>
           <div className="mt-3">
-            <label
+            <ControlLabel
               htmlFor="advantage-playhead"
-              className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
+              value={
+                <span aria-live="polite">
+                  <span data-testid="time-readout">
+                    t = {playhead.toFixed(1)} s
+                  </span>
+                  {'  '}
+                  <span data-testid="value-readout">
+                    V = {value.toFixed(1)}
+                  </span>
+                </span>
+              }
             >
               Episode time
-              <span
-                aria-live="polite"
-                className="font-mono text-xs normal-case tracking-normal text-text"
-              >
-                <span data-testid="time-readout">
-                  t = {playhead.toFixed(1)} s
-                </span>
-                {'  '}
-                <span data-testid="value-readout">
-                  V = {value.toFixed(1)}
-                </span>
-              </span>
-            </label>
+            </ControlLabel>
             <input
               id="advantage-playhead"
               type="range"
@@ -263,12 +253,11 @@ export function AdvantageScrubber({ className }: { className?: string }) {
             />
           </div>
 
-          <svg
+          <PlotStage
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-            role="img"
             aria-label={`Value-function trace over a 40 second espresso episode. Playhead at ${playhead.toFixed(1)} seconds in the ${current.label} segment, tagged ${current.tag} advantage.`}
             aria-describedby={descriptionId}
-            className="mt-2 block w-full"
+            className="mt-2"
           >
             {/* Credit-assignment arc: failure at insertion blamed on the grasp. */}
             <path
@@ -386,7 +375,7 @@ export function AdvantageScrubber({ className }: { className?: string }) {
                 {`${t} s`}
               </text>
             ))}
-          </svg>
+          </PlotStage>
 
           <p className="mt-1 font-mono text-[10px] text-text-dim">
             solid outline: value rises, high advantage. dashed outline: value
@@ -534,6 +523,6 @@ export function AdvantageScrubber({ className }: { className?: string }) {
           </ul>
         </div>
       )}
-    </div>
+    </InstrumentFrame>
   );
 }

@@ -9,7 +9,7 @@
   "outcome": "supported",
   "scope": "part",
   "partId": "r5-classifier-parameters",
-  "inputDigest": "d7a6ab9967acad23131cf52ab14095105f014a51dc385feb528e1eb5f1347c46",
+  "inputDigest": "20ad586c5cd85d86adcff603f9a65d4b563271d9935831c5aedfb1922b125580",
   "inventory": [
     {
       "id": "r5-rudin-contrast",

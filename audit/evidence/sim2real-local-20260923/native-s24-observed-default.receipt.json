@@ -57,27 +57,27 @@
     {
       "file": {
         "path": "components/interactive/friction-transfer.tsx",
-        "bytes": 16495,
-        "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f"
+        "bytes": 15549,
+        "sha256": "af16eda88835169e720e7e6a8bb79c3ede65cba005635825a0b27f9aec7d8da9"
       },
       "id": "file:components/interactive/friction-transfer.tsx",
       "offset": 0,
-      "length": 16495,
-      "sha256": "6658c0524e3d1330433721906ebae0ff955bcc2a95f0f60824312f57a3cc807f"
+      "length": 15549,
+      "sha256": "af16eda88835169e720e7e6a8bb79c3ede65cba005635825a0b27f9aec7d8da9"
     },
     {
       "file": {
         "path": "components/interactive/teacher-student.tsx",
-        "bytes": 10601,
-        "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69"
+        "bytes": 9905,
+        "sha256": "9afb93ac502792bc74ed43e9b5d7a0990ebaf244f13c4af9144c1b405a9fa11a"
       },
       "id": "source:components/interactive/teacher-student.tsx",
       "offset": 0,
-      "length": 10601,
-      "sha256": "69f861f68cb03332c029a2314c9d58665df8e4c04f5f31ac7bdf37a85c32bb69",
+      "length": 9905,
+      "sha256": "9afb93ac502792bc74ed43e9b5d7a0990ebaf244f13c4af9144c1b405a9fa11a",
       "baseline": {
         "kind": "interactive-sources-mounts",
-        "hash": "ebaaa04d472869cfb97f98c55dae45dc47309eb5ac77d56716217f7ca5c2fe24"
+        "hash": "d3babd1ba61beb24cd208c65f6f5f591381e937168f12537fb84cf2ef623f06e"
       }
     },
     {

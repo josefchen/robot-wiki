@@ -9,7 +9,7 @@
   "outcome": "supported",
   "scope": "part",
   "partId": "r5-classifier-and-pose",
-  "inputDigest": "ac563d03e710216f832b9f97f9ef9172b61155447c2e27d9eb6c74ac2649c1c4",
+  "inputDigest": "84d018f3ff537654fcb4f22764284265f6804707fc7c6afb0a28f15b6bb1f98a",
   "inventory": [
     {
       "id": "r5-rudin-contrast",

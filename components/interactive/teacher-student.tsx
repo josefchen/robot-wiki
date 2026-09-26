@@ -1,7 +1,14 @@
 'use client';
 
 import { useId, useState } from 'react';
-import { ChartDescription } from '@/components/ui';
+import {
+  ChartDescription,
+  ControlLabel,
+  InstrumentFrame,
+  InstrumentReadout,
+  InstrumentReset,
+  PlotStage,
+} from '@/components/ui';
 import {
   DEFAULT_DEGRADATION,
   TERRAIN,
@@ -15,7 +22,6 @@ import {
   reconstructionMae,
   terrainColor,
 } from '@/lib/sim2real';
-import { cx } from '@/lib/utils';
 
 /**
  * TeacherStudent: an authored illustration motivated by input mismatch.
@@ -61,24 +67,15 @@ export function TeacherStudent({
   const occludedCount = occluded.filter(Boolean).length;
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
+    <InstrumentFrame className={className}>
       <div className="grid gap-4 lg:grid-cols-[1fr_auto] lg:items-end">
         <div>
-          <label
+          <ControlLabel
             htmlFor="ts-degradation"
-            className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
+            value={`${Math.round(degradation * 100)}%`}
           >
             Proprioceptive degradation
-            <span className="whitespace-nowrap font-mono text-xs normal-case tracking-normal text-text">
-              {Math.round(degradation * 100)}%
-            </span>
-          </label>
+          </ControlLabel>
           <input
             id="ts-degradation"
             type="range"
@@ -92,15 +89,7 @@ export function TeacherStudent({
             className="mt-2 w-full accent-accent"
           />
         </div>
-        <button
-          data-brand-control-id="control:secondary-action"
-          data-pagefind-ignore
-          type="button"
-          onClick={() => setDegradation(defaultDegradation)}
-          className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
-        >
-          Reset
-        </button>
+        <InstrumentReset onClick={() => setDegradation(defaultDegradation)} />
       </div>
 
       <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1 font-mono text-xs">
@@ -124,12 +113,11 @@ export function TeacherStudent({
         </span>
       </div>
 
-      <svg
+      <PlotStage
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-        role="img"
         aria-label={`Teacher-student distillation at ${Math.round(degradation * 100)} percent degradation. Top panel: the teacher's privileged terrain heightfield. Middle panel: the student's proprioceptive history, ${occludedCount} of ${TERRAIN_CELLS} channels occluded. Bottom panel: the student's reconstructed terrain, mean absolute error ${formatMeters(mae)}. Teacher-student action divergence ${formatDivergence(divergence)}.`}
         aria-describedby={descriptionId}
-        className="mt-3 block w-full"
+        className="mt-3"
       >
         {/* Teacher: privileged terrain heightfield. */}
         <text
@@ -244,16 +232,16 @@ export function TeacherStudent({
             />
           ))}
         </g>
-      </svg>
+      </PlotStage>
 
-      <p className="mt-3 font-mono text-sm text-text" aria-live="polite">
+      <InstrumentReadout>
         <span className="text-text-dim">
           degradation {Math.round(degradation * 100)}%:
         </span>{' '}
         <span className="text-text">MAE {formatMeters(mae)}</span>{' '}
         <span className="text-text-dim">divergence</span>{' '}
         <span className="text-accent">{formatDivergence(divergence)}</span>
-      </p>
+      </InstrumentReadout>
       <ChartDescription
         id={descriptionId}
         className="mt-3"
@@ -276,6 +264,6 @@ export function TeacherStudent({
         construction. The action-divergence label denotes 2.2 times MAE, not
         measured actions from trained policies.
       </p>
-    </div>
+    </InstrumentFrame>
   );
 }

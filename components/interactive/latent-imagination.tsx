@@ -1,7 +1,14 @@
 'use client';
 
 import { useId, useMemo, useState } from 'react';
-import { ChartDescription } from '@/components/ui/chart-description';
+import {
+  ChartDescription,
+  ControlLabel,
+  InstrumentFrame,
+  InstrumentReadout,
+  InstrumentReset,
+  PlotStage,
+} from '@/components/ui';
 import {
   MAX_HORIZON,
   TYPICAL_HORIZON,
@@ -247,24 +254,12 @@ export function LatentImagination({
     'border-border bg-surface-2 text-text-dim hover:border-border-strong hover:text-text';
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
+    <InstrumentFrame className={className}>
       <div className="grid gap-4 sm:grid-cols-[1fr_1fr_auto] sm:items-end">
         <div>
-          <label
-            htmlFor="li-horizon"
-            className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
-          >
+          <ControlLabel htmlFor="li-horizon" value={`${horizon} steps`}>
             Imagination horizon
-            <span className="font-mono text-xs normal-case tracking-normal text-text">
-              {horizon} steps
-            </span>
-          </label>
+          </ControlLabel>
           <input
             id="li-horizon"
             type="range"
@@ -279,15 +274,12 @@ export function LatentImagination({
           />
         </div>
         <div>
-          <label
+          <ControlLabel
             htmlFor="li-epsilon"
-            className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
+            value={`${epsilonPercent.toFixed(1)}%`}
           >
             One-step model error
-            <span className="font-mono text-xs normal-case tracking-normal text-text">
-              {epsilonPercent.toFixed(1)}%
-            </span>
-          </label>
+          </ControlLabel>
           <input
             id="li-epsilon"
             type="range"
@@ -301,15 +293,7 @@ export function LatentImagination({
             className="mt-2 w-full accent-accent"
           />
         </div>
-        <button
-          data-brand-control-id="control:secondary-action"
-          data-pagefind-ignore
-          type="button"
-          onClick={reset}
-          className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
-        >
-          Reset
-        </button>
+        <InstrumentReset onClick={reset} />
       </div>
 
       <div className="mt-3 flex flex-wrap items-center gap-2">
@@ -341,12 +325,11 @@ export function LatentImagination({
         reliability bounds. Source horizon settings are discussed in the article.
       </p>
 
-      <svg
+      <PlotStage
         viewBox={`0 0 ${ROLLOUT_W} ${ROLLOUT_H}`}
-        role="img"
         aria-label={`Imagined rollout in latent space over ${horizon} steps, peeling away from the true latent trajectory as one-step errors compound.`}
         aria-describedby={rolloutDescriptionId}
-        className="mt-4 block w-full"
+        className="mt-4"
       >
         <text x={16} y={16} fill={DIM} fontSize={10} fontFamily={MONO}>
           latent rollout view: true trajectory vs imagined
@@ -391,14 +374,13 @@ export function LatentImagination({
         >
           t = 0 to {horizon} of {MAX_HORIZON}
         </text>
-      </svg>
+      </PlotStage>
 
-      <svg
+      <PlotStage
         viewBox={`0 0 ${DEV_W} ${DEV_H}`}
-        role="img"
         aria-label={`Latent deviation versus imagination step in a deterministic toy. Deviation reaches ${formatUnits(deviationNow)} units at step ${horizon}. The shaded 3 to 15 step band is illustrative, not a published reliability bound.`}
         aria-describedby={descriptionId}
-        className="mt-2 block w-full"
+        className="mt-2"
       >
         <text x={DEV_PAD.left} y={11} fill={DIM} fontSize={10} fontFamily={MONO}>
           latent deviation vs imagination step
@@ -475,7 +457,7 @@ export function LatentImagination({
           stroke={ACCENT}
           strokeWidth={2}
         />
-      </svg>
+      </PlotStage>
 
       {mode === 'decoder' ? (
         <div data-testid="decoded-frames" className="mt-3">
@@ -535,7 +517,7 @@ export function LatentImagination({
         </div>
       )}
 
-      <p className="mt-3 font-mono text-sm text-text" aria-live="polite">
+      <InstrumentReadout>
         <span className="text-text-dim">latent deviation Δ({horizon}) =</span>{' '}
         <span data-testid="deviation-readout" className="text-accent">
           {formatUnits(deviationNow)}
@@ -550,7 +532,7 @@ export function LatentImagination({
             </span>
           </>
         )}
-      </p>
+      </InstrumentReadout>
 
       <ChartDescription
         id={rolloutDescriptionId}
@@ -579,6 +561,6 @@ export function LatentImagination({
         rows={sampleRows}
         description={descriptionText}
       />
-    </div>
+    </InstrumentFrame>
   );
 }

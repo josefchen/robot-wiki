@@ -222,15 +222,15 @@
       },
       "current": {
         "path": "components/interactive/generalist-release-timeline.tsx",
-        "bytes": 15409,
-        "sha256": "5266f4ae13b9f8ed59435d162a4059e6000cc1ab9068ad9aaa218fef259ced91"
+        "bytes": 14919,
+        "sha256": "a68326be90d5d666bcc67e855ec727b77881558628c22d9a1e47cce6dbee4f88"
       },
       "snapshot": {
         "path": "audit/evidence/residual-release-20260924/components--interactive--generalist-release-timeline.tsx.txt",
         "bytes": 15363,
         "sha256": "62ae73ae8b4e758cf4fe23e2bb2d06ea7e83c63d6cfc3727f6fc93d13b26796c"
       },
-      "rationale": "Retain the released scoped citation lookup to avoid bundling the full citation registry; preserve incoming selection disclosure, source URL and rendered canonical citation label.",
+      "rationale": "Retain the released scoped citation lookup to avoid bundling the full citation registry; preserve incoming selection disclosure, source URL and rendered canonical citation label. Later brand-v2 shared-instrument migration replaces only the frame, header, reset and plot-stage markup this component renders; selection state, disclosure text, source URL and the canonical citation label are byte-preserved in the component tests.",
       "preservedText": []
     },
     {

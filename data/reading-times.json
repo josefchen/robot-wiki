@@ -1,6 +1,6 @@
 {
   "manipulation/bc-foundations": {
-    "words": 1830,
+    "words": 1829,
     "minutes": 9
   },
   "manipulation/action-chunking": {
@@ -72,7 +72,7 @@
     "minutes": 9
   },
   "rl-sim2real/sim2real-transfer": {
-    "words": 2921,
+    "words": 2920,
     "minutes": 15
   },
   "rl-sim2real/legged-locomotion": {
@@ -96,7 +96,7 @@
     "minutes": 11
   },
   "world-models/latent-dynamics": {
-    "words": 1889,
+    "words": 1888,
     "minutes": 9
   },
   "world-models/generative-video": {

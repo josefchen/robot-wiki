@@ -1,7 +1,15 @@
 'use client';
 
 import { useId, useState } from 'react';
-import { Badge, ChartDescription } from '@/components/ui';
+import {
+  Badge,
+  ChartDescription,
+  ControlLabel,
+  InstrumentFrame,
+  InstrumentReadout,
+  InstrumentReset,
+  PlotStage,
+} from '@/components/ui';
 import {
   CONTROL_HZ,
   CONTROL_PERIOD_MS,
@@ -16,7 +24,6 @@ import {
   missedTicks,
 } from '@/lib/control-loop';
 import { EDGE_DASH } from '@/lib/semantic-mark-cues';
-import { cx } from '@/lib/utils';
 
 /**
  * One synchronous toy inference against a 20 ms budget.
@@ -94,30 +101,25 @@ export function ControlLoopBudget({
   }
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
+    <InstrumentFrame className={className}>
       <div className="grid gap-4 sm:grid-cols-[1fr_auto] sm:items-end">
         <div>
-          <label
+          <ControlLabel
             htmlFor={modelSizeId}
-            className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
+            value={
+              <span>
+                <span data-testid="params-readout">
+                  {paramsB.toFixed(1)}B params
+                </span>
+                {'  '}
+                <span data-testid="latency-readout" className="text-accent">
+                  {formatMs(inferenceMs)}
+                </span>
+              </span>
+            }
           >
             Model size
-            <span className="font-mono text-xs normal-case tracking-normal text-text">
-              <span data-testid="params-readout">
-                {paramsB.toFixed(1)}B params
-              </span>
-              {'  '}
-              <span data-testid="latency-readout" className="text-accent">
-                {formatMs(inferenceMs)}
-              </span>
-            </span>
-          </label>
+          </ControlLabel>
           <input
             id={modelSizeId}
             type="range"
@@ -132,23 +134,14 @@ export function ControlLoopBudget({
             className="mt-2 w-full accent-accent"
           />
         </div>
-        <button
-          data-brand-control-id="control:secondary-action"
-          data-pagefind-ignore
-          type="button"
-          onClick={reset}
-          className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
-        >
-          Reset
-        </button>
+        <InstrumentReset onClick={reset} />
       </div>
 
-      <svg
+      <PlotStage
         viewBox={`0 0 ${CHART.width} ${CHART.height}`}
-        role="img"
         aria-label={`Control-loop timeline at ${paramsB.toFixed(1)}B parameters`}
         aria-describedby={descriptionId}
-        className="mt-4 block w-full"
+        className="mt-4"
       >
         {/* Tick gridlines, one per 20 ms control period. */}
         {Array.from({ length: WINDOW_MS / CONTROL_PERIOD_MS + 1 }, (_, i) => {
@@ -275,9 +268,9 @@ export function ControlLoopBudget({
         >
           inference
         </text>
-      </svg>
+      </PlotStage>
 
-      <p className="mt-3 font-mono text-sm text-text" aria-live="polite">
+      <InstrumentReadout>
         <span className="text-text-dim">Synchronous toy: </span>
         <span data-testid="verdict-readout" className={closes ? 'text-ok' : 'text-err'}>
           {closes ? 'closes at 50 Hz' : 'does not close at 50 Hz'}
@@ -294,7 +287,7 @@ export function ControlLoopBudget({
           {' '}
           {missed === 1 ? 'deadline' : 'deadlines'} missed
         </span>
-      </p>
+      </InstrumentReadout>
 
       <p data-testid="model-assumption-note" className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
         Illustrative teaching model, not hardware profiling. VLA-Perf v1
@@ -369,6 +362,6 @@ export function ControlLoopBudget({
           );
         })}
       </ul>
-    </div>
+    </InstrumentFrame>
   );
 }

@@ -3,13 +3,19 @@
 import { useId, useMemo, useState } from 'react';
 import { ChartDescription } from '@/components/ui/chart-description';
 import {
+  ControlLabel,
+  InstrumentFrame,
+  InstrumentReadout,
+  InstrumentReset,
+  PlotStage,
+} from '@/components/ui/instrument';
+import {
   ACT_CHUNK_ANCHORS,
   MAX_CHUNK,
   MIN_CHUNK,
   decisionsPerEpisode,
   successAtChunkSize,
 } from '@/lib/chunk-size';
-import { cx } from '@/lib/utils';
 
 /**
  * ChunkSizeCurve: the ACT chunk-size ablation as a live dial.
@@ -117,24 +123,12 @@ export function ChunkSizeCurve({
   }
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
+    <InstrumentFrame className={className}>
       <div className="grid gap-4 sm:grid-cols-[1fr_auto] sm:items-end">
         <div>
-          <label
-            htmlFor="csc-chunk-size"
-            className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
-          >
+          <ControlLabel htmlFor="csc-chunk-size" value={`k = ${chunkSize}`}>
             Chunk size
-            <span className="font-mono text-xs normal-case tracking-normal text-text">
-              k = {chunkSize}
-            </span>
-          </label>
+          </ControlLabel>
           <input
             id="csc-chunk-size"
             type="range"
@@ -148,23 +142,14 @@ export function ChunkSizeCurve({
             className="mt-2 w-full accent-accent"
           />
         </div>
-        <button
-          data-brand-control-id="control:secondary-action"
-          data-pagefind-ignore
-          type="button"
-          onClick={reset}
-          className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
-        >
-          Reset
-        </button>
+        <InstrumentReset onClick={reset} />
       </div>
 
-      <svg
+      <PlotStage
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-        role="img"
         aria-label={`Line chart of task success rate against chunk size k. Success rises to 44 percent at k of 100, then tapers. Current position k equals ${chunkSize}, success ${formatPercent(success)}.`}
         aria-describedby={descriptionId}
-        className="mt-4 block w-full"
+        className="mt-4"
       >
         {[0.1, 0.2, 0.3, 0.4, 0.5].map((p) => {
           const y = PAD.top + (1 - p / MAX_SUCCESS) * plotHeight;
@@ -260,9 +245,9 @@ export function ChunkSizeCurve({
           stroke="var(--color-accent)"
           strokeWidth={2}
         />
-      </svg>
+      </PlotStage>
 
-      <p className="mt-3 font-mono text-sm text-text" aria-live="polite">
+      <InstrumentReadout>
         <span className="text-text-dim">k = {chunkSize}:</span>{' '}
         <span data-testid="chunk-success-readout" className="text-accent">
           {formatPercent(success)}
@@ -275,7 +260,7 @@ export function ChunkSizeCurve({
           {decisions === 1 ? 'decision' : 'decisions'} per {episodeSteps}-step
           episode
         </span>
-      </p>
+      </InstrumentReadout>
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
         Solid points are the measured ACT ablation values (1% at k=1, 44% at
         k=100, averaged over the paper&apos;s two simulated tasks with
@@ -299,6 +284,6 @@ export function ChunkSizeCurve({
         rows={sampleRows}
         description={descriptionText}
       />
-    </div>
+    </InstrumentFrame>
   );
 }

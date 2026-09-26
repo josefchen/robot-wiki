@@ -3,6 +3,13 @@
 import { useId, useMemo, useState } from 'react';
 import { ChartDescription } from '@/components/ui';
 import {
+  ControlLabel,
+  InstrumentFrame,
+  InstrumentReadout,
+  InstrumentReset,
+  PlotStage,
+} from '@/components/ui/instrument';
+import {
   CONTROL_HZ,
   DIFFUSION_POLICY_HORIZON,
   clampHorizon,
@@ -10,7 +17,6 @@ import {
   planChunks,
   replanRateHz,
 } from '@/lib/receding-horizon';
-import { cx } from '@/lib/utils';
 
 /**
  * RecedingHorizon: the T_p / T_a dial of receding-horizon control.
@@ -88,24 +94,12 @@ export function RecedingHorizon({
   };
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
+    <InstrumentFrame className={className}>
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label
-            htmlFor="rh-tp"
-            className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
-          >
+          <ControlLabel htmlFor="rh-tp" value={`T_p = ${clamped.tp}`}>
             Predicted horizon
-            <span className="font-mono text-xs normal-case tracking-normal text-text">
-              T_p = {clamped.tp}
-            </span>
-          </label>
+          </ControlLabel>
           <input
             id="rh-tp"
             type="range"
@@ -120,15 +114,9 @@ export function RecedingHorizon({
           />
         </div>
         <div>
-          <label
-            htmlFor="rh-ta"
-            className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
-          >
+          <ControlLabel htmlFor="rh-ta" value={`T_a = ${clamped.ta}`}>
             Executed horizon
-            <span className="font-mono text-xs normal-case tracking-normal text-text">
-              T_a = {clamped.ta}
-            </span>
-          </label>
+          </ControlLabel>
           <input
             id="rh-ta"
             type="range"
@@ -149,7 +137,7 @@ export function RecedingHorizon({
           data-brand-control-id="control:secondary-action"
           type="button"
           onClick={() => set(defaults.tp, defaults.ta)}
-          className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
+          className="rounded-xs border border-border bg-surface-2 px-3 py-2 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
         >
           Diffusion Policy (16/8)
         </button>
@@ -157,27 +145,18 @@ export function RecedingHorizon({
           data-brand-control-id="control:secondary-action"
           type="button"
           onClick={() => set(MAX_TP, MAX_TP)}
-          className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
+          className="rounded-xs border border-border bg-surface-2 px-3 py-2 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
         >
           Open-loop (32/32)
         </button>
-        <button
-          data-brand-control-id="control:secondary-action"
-          data-pagefind-ignore
-          type="button"
-          onClick={() => set(defaults.tp, defaults.ta)}
-          className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
-        >
-          Reset
-        </button>
+        <InstrumentReset onClick={() => set(defaults.tp, defaults.ta)} />
       </div>
 
-      <svg
+      <PlotStage
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-        role="img"
         aria-label={`Receding horizon rolling plan over ${windowSteps} control steps. ${chunks.length} chunks, each predicting T_p of ${clamped.tp} actions and committing the first T_a of ${clamped.ta}. Committed portions are solid, predicted tails are outlined.`}
         aria-describedby={descriptionId}
-        className="mt-4 block w-full"
+        className="mt-4"
       >
         {chunks.map((c) => {
           const top = f(PAD.top + c.index * (plotHeight / chunks.length));
@@ -255,9 +234,9 @@ export function RecedingHorizon({
         >
           control steps at {CONTROL_HZ} Hz
         </text>
-      </svg>
+      </PlotStage>
 
-      <p className="mt-3 font-mono text-sm text-text" aria-live="polite">
+      <InstrumentReadout>
         <span className="text-text-dim">T_p = {clamped.tp},</span>{' '}
         <span className="text-text-dim">T_a = {clamped.ta}:</span>{' '}
         <span data-testid="rh-replan-readout" className="text-accent">
@@ -268,7 +247,7 @@ export function RecedingHorizon({
           {formatSeconds(commitDurationS(clamped.ta))}
         </span>{' '}
         <span className="text-text-dim">committed per plan</span>
-      </p>
+      </InstrumentReadout>
       <ChartDescription
         id={descriptionId}
         className="mt-3"
@@ -289,6 +268,6 @@ export function RecedingHorizon({
         switch modes) often; large T_a is smooth but slow to notice the world
         changed. At T_a = T_p the policy runs open-loop between inferences.
       </p>
-    </div>
+    </InstrumentFrame>
   );
 }

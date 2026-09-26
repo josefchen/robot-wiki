@@ -9,7 +9,7 @@
   "outcome": "supported",
   "scope": "part",
   "partId": "s23-arithmetic",
-  "inputDigest": "6c29729e7ceaca8e5658a3f5d24cbff54b5637d106b81590e60fd11c4fdd55be",
+  "inputDigest": "672c42f86c4a32a4a3642541b96a5b01ff00be722c9bea90eafd5a8b78236a40",
   "inventory": [
     {
       "id": "s23-tobin-framing",

@@ -20,8 +20,13 @@ import {
   type SourceId,
 } from '@/lib/sample-efficiency';
 import { ChartDescription } from '@/components/ui';
+import {
+  ControlLabel,
+  InstrumentFrame,
+  InstrumentReadout,
+  PlotStage,
+} from '@/components/ui/instrument';
 import { CiteRef } from '@/components/article/citation-records';
-import { cx } from '@/lib/utils';
 
 /**
  * Constant-rate budget illustration. The lanes and family bands are toy
@@ -104,27 +109,21 @@ export function SampleEfficiencyLedger({ className }: { className?: string }) {
   const anchorRow = (i: number) => ANCHOR_TOP + i * ANCHOR_ROW_H;
 
   return (
-    <div
+    <InstrumentFrame
       data-testid="sample-efficiency"
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
+      className={className}
     >
       <div>
-        <label
+        <ControlLabel
           htmlFor={`${uid}-budget`}
-          className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
+          value={
+            <span data-testid="sample-budget-value">
+              {formatSteps(ledger.budgetSteps)} steps
+            </span>
+          }
         >
           environment-step budget
-          <span
-            className="whitespace-nowrap font-mono text-xs normal-case tracking-normal text-text"
-            data-testid="sample-budget-value"
-          >
-            {formatSteps(ledger.budgetSteps)} steps
-          </span>
-        </label>
+        </ControlLabel>
         <input
           id={`${uid}-budget`}
           type="range"
@@ -179,18 +178,12 @@ export function SampleEfficiencyLedger({ className }: { className?: string }) {
       </fieldset>
 
       <div className="mt-4">
-        <label
+        <ControlLabel
           htmlFor={`${uid}-fleet`}
-          className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
+          value={<span data-testid="sample-fleet-value">{params.fleetSize}</span>}
         >
           robots in the fleet
-          <span
-            className="whitespace-nowrap font-mono text-xs normal-case tracking-normal text-text"
-            data-testid="sample-fleet-value"
-          >
-            {params.fleetSize}
-          </span>
-        </label>
+        </ControlLabel>
         <input
           id={`${uid}-fleet`}
           type="range"
@@ -206,13 +199,12 @@ export function SampleEfficiencyLedger({ className }: { className?: string }) {
         />
       </div>
 
-      <svg
+      <PlotStage
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-        role="img"
         aria-label={`Modelled wall-clock time for ${formatSteps(ledger.budgetSteps)} environment steps under constant-rate assumptions. Paper anchors include different units, bounds and approximate durations, not matched benchmark runs. Selected model: ${ledger.selected.label} at ${formatDuration(ledger.selected.seconds)}.`}
         aria-describedby={descriptionId}
         data-testid="sample-chart"
-        className="mt-4 block w-full"
+        className="mt-4"
       >
         {/* The on-policy band, left of the one-hour line, and the
             offline-only band past one month. */}
@@ -372,7 +364,7 @@ export function SampleEfficiencyLedger({ className }: { className?: string }) {
             </text>
           </g>
         ))}
-      </svg>
+      </PlotStage>
 
       <div className="mt-3 flex flex-wrap items-center gap-2">
         <button
@@ -387,7 +379,7 @@ export function SampleEfficiencyLedger({ className }: { className?: string }) {
         </button>
       </div>
 
-      <p className="mt-3 font-mono text-sm text-text" aria-live="polite">
+      <InstrumentReadout>
         <span className="text-text-dim">model wall clock</span>{' '}
         <span data-testid="sample-wallclock-readout" className="text-text">
           {formatDuration(ledger.selected.seconds)}
@@ -402,7 +394,7 @@ export function SampleEfficiencyLedger({ className }: { className?: string }) {
         <span data-testid="sample-verdict-readout" className={verdictTone}>
           {ledger.selected.verdict.label}
         </span>
-      </p>
+      </InstrumentReadout>
 
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
         <span data-testid="sample-provenance-note">
@@ -483,6 +475,6 @@ export function SampleEfficiencyLedger({ className }: { className?: string }) {
         benchmarks. Keep the modelled budget fixed while switching sources
         or changing fleet size to inspect the toy assumptions.
       </p>
-    </div>
+    </InstrumentFrame>
   );
 }

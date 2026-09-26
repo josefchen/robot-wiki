@@ -9,7 +9,7 @@
   "outcome": "supported",
   "scope": "part",
   "partId": "s24-mounted-degradation-default",
-  "inputDigest": "4df24aae493f57b469d9b15d698e8dc8b69b0851b349ba2b0f181a585169a97d",
+  "inputDigest": "56b1bd5dd30499066154befacba49a97d1ea9388e5b37241bc5e8acc12f71856",
   "inventory": [
     {
       "id": "s24-privileged-context",

@@ -9,7 +9,7 @@
   "outcome": "supported",
   "scope": "part",
   "partId": "p18-authored-cost-model",
-  "inputDigest": "0643dcc7e8c34ad41666905d42f1c4b5440a87b441302cb4d1a7cc624e4cfcb1",
+  "inputDigest": "e770afcb7ad1fa81d02922cf3f3d5d4a6ddc6d330186bfa4070977668fb05c1e",
   "inventory": [
     {
       "id": "p18-rudin-flat-bound",

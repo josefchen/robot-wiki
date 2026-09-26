@@ -2,7 +2,15 @@
 
 import { useId, useState } from 'react';
 import { useCitationLookup } from '@/components/article/citation-records';
-import { ChartDescription } from '@/components/ui';
+import {
+  ChartDescription,
+  ControlLabel,
+  InstrumentFrame,
+  InstrumentLegend,
+  InstrumentReadout,
+  InstrumentReset,
+  PlotStage,
+} from '@/components/ui';
 import {
   KNOWLEDGE_INSULATION_CITATION_ID,
   LAYER_COUNT,
@@ -114,27 +122,19 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
         : `Backward pass at depth ${step} of ${LAYER_COUNT} with the stop-gradient off. Expert gradients cross into the backbone at every reached layer and the language-following score drops to ${score}.`;
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
+    <InstrumentFrame className={className}>
       <div className="grid gap-4 lg:grid-cols-[1fr_auto] lg:items-end">
         <div>
-          <label
+          <ControlLabel
             htmlFor="mot-depth"
-            className="flex items-baseline justify-between gap-2 whitespace-nowrap font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
+            value={
+              <span data-testid="step-readout">
+                {step} / {LAYER_COUNT}
+              </span>
+            }
           >
             Pass depth
-            <span
-              data-testid="step-readout"
-              className="whitespace-nowrap font-mono text-xs normal-case tracking-normal text-text"
-            >
-              {step} / {LAYER_COUNT}
-            </span>
-          </label>
+          </ControlLabel>
           <input
             id="mot-depth"
             type="range"
@@ -186,25 +186,16 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
           >
             Stop gradient: {stopGradient ? 'on' : 'off'}
           </button>
-          <button
-            data-brand-control-id="control:secondary-action"
-            data-pagefind-ignore
-            type="button"
-            onClick={reset}
-            className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
-          >
-            Reset
-          </button>
+          <InstrumentReset onClick={reset} />
         </div>
       </div>
 
-      <svg
+      <PlotStage
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-        role="img"
         aria-label={`Mixture-of-Transformers diagram. ${passDescription}`}
         aria-describedby={descriptionId}
         data-testid="mot-diagram"
-        className="mt-4 block w-full"
+        className="mt-4"
       >
         <defs>
           <marker
@@ -490,7 +481,7 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
         >
           in: action tokens + noise
         </text>
-      </svg>
+      </PlotStage>
 
       {/* Language-following meter */}
       <div className="mt-3">
@@ -554,12 +545,12 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
         </div>
       </div>
 
-      <p className="mt-3 font-mono text-sm text-text" aria-live="polite">
+      <InstrumentReadout>
         <span className="text-text-dim">backbone supervision:</span>{' '}
         <span data-testid="supervision-readout" className="text-accent">
           {SUPERVISION_LABEL[supervision]}
         </span>
-      </p>
+      </InstrumentReadout>
       <p className="mt-1.5 font-mono text-sm text-text">
         <span className="text-text-dim">measured effect:</span>{' '}
         <span data-testid="speedup-readout" className="text-accent">
@@ -585,22 +576,20 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
         ]}
       />
 
-      <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
-        <span className="font-mono text-[10px] text-text-dim">
+      <InstrumentLegend className="mt-2">
+        <span>
           <span className="text-accent">blue</span>: token and activation flow
         </span>
-        <span className="font-mono text-[10px] text-text-dim">
-          dashed blue: sideways attention (forward)
-        </span>
-        <span className="font-mono text-[10px] text-text-dim">
+        <span>dashed blue: sideways attention (forward)</span>
+        <span>
           <span className="text-err">dash-dot arrow</span>: corrupting gradient
           (backward)
         </span>
-        <span className="font-mono text-[10px] text-text-dim">
+        <span>
           <span className="text-ok">long-dashed vertical line</span>: gradient
           barrier
         </span>
-      </div>
+      </InstrumentLegend>
 
       <p className="mt-3 font-sans text-xs leading-relaxed text-text-dim">
         Schematic: {LAYER_COUNT} layers drawn per stack for legibility, and
@@ -625,6 +614,6 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
           </>
         )}
       </p>
-    </div>
+    </InstrumentFrame>
   );
 }

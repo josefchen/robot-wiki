@@ -1,7 +1,14 @@
 'use client';
 
 import { useId, useState } from 'react';
-import { ChartDescription } from '@/components/ui';
+import {
+  ChartDescription,
+  ControlLabel,
+  InstrumentFrame,
+  InstrumentReadout,
+  InstrumentReset,
+  PlotStage,
+} from '@/components/ui';
 import {
   DEFAULT_FORCE_N,
   FRICTION_MU,
@@ -146,25 +153,17 @@ export function AppearancePhysicsPush({
   ];
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
+    <InstrumentFrame className={className}>
       <div className="grid gap-4">
         <div className="grid gap-4 sm:grid-cols-[1fr_auto] sm:items-end">
           <div>
-            <label
+            <ControlLabel
               htmlFor="ap-force"
-              className="flex items-baseline justify-between gap-2 whitespace-nowrap font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
+              className="whitespace-nowrap"
+              value={formatN(forceN)}
             >
               Push force
-              <span className="font-mono text-xs normal-case tracking-normal text-text">
-                {formatN(forceN)}
-              </span>
-            </label>
+            </ControlLabel>
             <input
               id="ap-force"
               type="range"
@@ -194,15 +193,7 @@ export function AppearancePhysicsPush({
             >
               Push the mug
             </button>
-            <button
-              data-brand-control-id="control:secondary-action"
-              data-pagefind-ignore
-              type="button"
-              onClick={reset}
-              className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
-            >
-              Reset
-            </button>
+            <InstrumentReset onClick={reset} />
           </div>
         </div>
         <div role="group" aria-label="Layers" className="flex flex-wrap gap-2">
@@ -221,7 +212,7 @@ export function AppearancePhysicsPush({
         </div>
       </div>
 
-      <p className="mt-3 font-mono text-sm text-text" aria-live="polite">
+      <InstrumentReadout>
         <span className="text-text-dim">mug displacement =</span>{' '}
         <span data-testid="displacement-readout" className="text-accent">
           {formatCm(mug.position)}
@@ -238,14 +229,13 @@ export function AppearancePhysicsPush({
             nothing)
           </span>
         )}
-      </p>
+      </InstrumentReadout>
 
-      <svg
+      <PlotStage
         viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}
-        role="img"
         aria-label={`Three-layer scene. Appearance layer ${layers.appearance ? 'on' : 'off'}, physics proxy ${layers.physics ? 'on' : 'off'}, simulation layer ${layers.simulation ? 'on' : 'off'}. Mug displacement ${formatCm(mug.position)} after ${mug.effectivePushes} effective pushes.`}
         aria-describedby={descriptionId}
-        className="mt-2 block w-full"
+        className="mt-2"
       >
         <defs>
           <marker
@@ -481,7 +471,7 @@ export function AppearancePhysicsPush({
             ? 'the engine integrates: impulse, friction, rest'
             : 'rendering is not dynamics: the pixels have no mass'}
         </text>
-      </svg>
+      </PlotStage>
 
       <ChartDescription
         id={descriptionId}
@@ -543,6 +533,6 @@ export function AppearancePhysicsPush({
           {note.body}
         </p>
       </div>
-    </div>
+    </InstrumentFrame>
   );
 }

@@ -3,7 +3,13 @@
 import Link from 'next/link';
 import { useId, useRef, useState } from 'react';
 import { useCitationLookup } from '@/components/article/citation-records';
-import { ChartDescription } from '@/components/ui';
+import {
+  ChartDescription,
+  InstrumentFrame,
+  InstrumentHeader,
+  InstrumentReset,
+  PlotStage,
+} from '@/components/ui';
 import {
   GENERALIST_RELEASES,
   PROVENANCE_TIERS,
@@ -180,17 +186,26 @@ export function GeneralistReleaseTimeline({
   }
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
-      <div
+    <InstrumentFrame className={className}>
+      <InstrumentHeader
         role="group"
         aria-label="Filter by weight availability"
-        className="flex flex-wrap items-center gap-1.5"
+        className="gap-1.5"
+        meta={
+          <span
+            data-testid="provenance-legend"
+            className="flex flex-wrap items-center gap-3"
+          >
+            {PROVENANCE_TIERS.map((tier) => (
+              <span key={tier} className="flex items-center gap-1.5">
+                <svg width={12} height={12} aria-hidden="true">
+                  <TierGlyph tier={tier} x={6} y={6} size={3.5} selected={false} open={false} />
+                </svg>
+                {provenanceLabel(tier)}
+              </span>
+            ))}
+          </span>
+        }
       >
         {FILTERS.map(({ id, label }) => (
           <button
@@ -209,36 +224,14 @@ export function GeneralistReleaseTimeline({
             {label}
           </button>
         ))}
-        <button
-          data-brand-control-id="control:secondary-action"
-          data-pagefind-ignore
-          type="button"
-          onClick={reset}
-          className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
-        >
-          Reset
-        </button>
-        <span
-          data-testid="provenance-legend"
-          className="ml-auto flex flex-wrap items-center gap-3 font-mono text-[10px] text-text-dim"
-        >
-          {PROVENANCE_TIERS.map((tier) => (
-            <span key={tier} className="flex items-center gap-1.5">
-              <svg width={12} height={12} aria-hidden="true">
-                <TierGlyph tier={tier} x={6} y={6} size={3.5} selected={false} open={false} />
-              </svg>
-              {provenanceLabel(tier)}
-            </span>
-          ))}
-        </span>
-      </div>
+        <InstrumentReset onClick={reset} />
+      </InstrumentHeader>
 
-      <svg
+      <PlotStage
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-        role="img"
         aria-label={`Selected generalist robot policy records. Highlighted nodes have a reported weight download; dim nodes include unavailable and not-disclosed records, distinguished by their text labels. Node shape encodes provenance: circle for papers, square for repo release notes, triangle for lab blogs, diamond for press releases. Currently showing ${visible.length} of ${GENERALIST_RELEASES.length} releases.`}
         aria-describedby={descriptionId}
-        className="mt-3 block w-full"
+        className="mt-3"
       >
         {/* Time axis */}
         <line
@@ -321,13 +314,14 @@ export function GeneralistReleaseTimeline({
             </g>
           );
         })}
-      </svg>
+      </PlotStage>
 
-      <div
+      <InstrumentHeader
         data-testid="release-track"
         role="group"
         aria-label="Select a release"
-        className="mt-3 flex flex-wrap items-center gap-1.5"
+        className="mt-3 gap-1.5"
+        meta={`${visible.length} of ${GENERALIST_RELEASES.length} shown`}
       >
         {visible.map((r, i) => (
           <button
@@ -370,10 +364,7 @@ export function GeneralistReleaseTimeline({
             </span>
           </button>
         ))}
-        <span className="ml-auto font-mono text-[10px] text-text-dim">
-          {visible.length} of {GENERALIST_RELEASES.length} shown
-        </span>
-      </div>
+      </InstrumentHeader>
 
       <div
         data-testid="release-detail"
@@ -449,6 +440,6 @@ export function GeneralistReleaseTimeline({
           { label: 'shown', value: `${visible.length} of ${GENERALIST_RELEASES.length}` },
         ]}
       />
-    </div>
+    </InstrumentFrame>
   );
 }

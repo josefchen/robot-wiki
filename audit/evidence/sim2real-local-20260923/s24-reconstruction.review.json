@@ -9,7 +9,7 @@
   "outcome": "supported",
   "scope": "part",
   "partId": "s24-reconstruction",
-  "inputDigest": "23361c7415a686492f2d59c06806c7d48027eca735b75225208b7923556c194d",
+  "inputDigest": "f8d67f86ba502808d5947aa4cc1b15b2a496c7855a5169ea0c3e17ed6e1013e1",
   "inventory": [
     {
       "id": "s24-privileged-context",

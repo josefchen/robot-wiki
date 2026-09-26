@@ -1,6 +1,7 @@
 'use client';
 
 import { useId, useState } from 'react';
+import { InstrumentFrame, InstrumentReset } from '@/components/ui';
 import {
   EUREKA_GENERATIONS,
   EUREKA_TASK,
@@ -66,18 +67,10 @@ export function EurekaLoop({ className }: { className?: string }) {
 
   const buttonBase =
     'rounded-sm border px-2.5 py-1.5 font-sans text-xs transition-colors active:translate-y-[1px]';
-  const buttonIdle =
-    'border-border bg-surface-2 text-text-dim hover:border-border-strong hover:text-text';
   const buttonAccent = 'border-accent bg-surface-2 text-accent';
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
+    <InstrumentFrame className={className}>
       <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
         <button
           data-brand-control-id="control:secondary-action"
@@ -95,15 +88,7 @@ export function EurekaLoop({ className }: { className?: string }) {
         >
           Run next generation
         </button>
-        <button
-          data-brand-control-id="control:secondary-action"
-          data-pagefind-ignore
-          type="button"
-          onClick={() => setGen(0)}
-          className={cx(buttonBase, buttonIdle)}
-        >
-          Reset
-        </button>
+        <InstrumentReset onClick={() => setGen(0)} />
         <span
           data-testid="generation-readout"
           className="font-mono text-xs text-text-dim"
@@ -218,6 +203,6 @@ export function EurekaLoop({ className }: { className?: string }) {
         statistics, fitness scores, and reflections are authored teaching data,
         not a recording of a real run.
       </p>
-    </div>
+    </InstrumentFrame>
   );
 }

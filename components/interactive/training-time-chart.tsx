@@ -3,6 +3,14 @@
 import { useId, useState } from 'react';
 import { ChartDescription } from '@/components/ui/chart-description';
 import {
+  ControlLabel,
+  InstrumentFrame,
+  InstrumentLegend,
+  InstrumentReadout,
+  InstrumentReset,
+  PlotStage,
+} from '@/components/ui/instrument';
+import {
   DEFAULT_ENVS,
   MAX_ENVS,
   MIN_ENVS,
@@ -119,24 +127,15 @@ export function TrainingTimeChart({
   }
 
   return (
-    <div
-      data-brand-surface-id="surface:flat"
-      className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
-        className,
-      )}
-    >
+    <InstrumentFrame className={className}>
       <div className="grid gap-4 lg:grid-cols-[1fr_auto_auto] lg:items-end">
         <div>
-          <label
+          <ControlLabel
             htmlFor="ttc-envs"
-            className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
+            value={`${formatEnvs(envs)} envs`}
           >
             Parallel environments
-            <span className="whitespace-nowrap font-mono text-xs normal-case tracking-normal text-text">
-              {formatEnvs(envs)} envs
-            </span>
-          </label>
+          </ControlLabel>
           <input
             id="ttc-envs"
             type="range"
@@ -164,15 +163,7 @@ export function TrainingTimeChart({
         >
           CPU single-core bottleneck
         </button>
-        <button
-          data-brand-control-id="control:secondary-action"
-          data-pagefind-ignore
-          type="button"
-          onClick={reset}
-          className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
-        >
-          Reset
-        </button>
+        <InstrumentReset onClick={reset} />
       </div>
 
       <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1 font-mono text-xs">
@@ -203,12 +194,11 @@ export function TrainingTimeChart({
         </span>
       </div>
 
-      <svg
+      <PlotStage
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-        role="img"
         aria-label={`Wall-clock training time against parallel environments, ${formatEnvs(envs)} envs`}
         aria-describedby={descriptionId}
-        className="mt-3 block w-full"
+        className="mt-3"
       >
         {/* Axes caption. */}
         <text
@@ -347,7 +337,7 @@ export function TrainingTimeChart({
           strokeWidth={2}
           strokeDasharray={cpuBound ? EDGE_DASH.error : undefined}
         />
-      </svg>
+      </PlotStage>
 
       {/* Iteration-time breakdown bar. The CPU bucket is dotted rather than
           only red, and the legend key repeats the same tile, so the mapping
@@ -411,7 +401,7 @@ export function TrainingTimeChart({
           />
         </svg>
       </div>
-      <div className="mt-2 flex flex-wrap gap-x-5 gap-y-1 font-mono text-[11px] text-text-dim">
+      <InstrumentLegend className="mt-2">
         <span className="flex items-center gap-1.5">
           <span
             className="inline-block h-2.5 w-2.5 rounded-[1px]"
@@ -446,14 +436,14 @@ export function TrainingTimeChart({
             {Math.round(cpuPct)}%
           </span>
         </span>
-      </div>
+      </InstrumentLegend>
 
-      <p className="mt-3 font-mono text-sm text-text" aria-live="polite">
+      <InstrumentReadout>
         <span className="text-text-dim">{formatEnvs(envs)} envs:</span>{' '}
         <span className="text-accent">{formatWallClock(wallSeconds)}</span>{' '}
         <span className="text-text-dim">to target reward at</span>{' '}
         <span className="text-text">{formatFps(fps)}</span>
-      </p>
+      </InstrumentReadout>
       <p
         data-testid="cpu-explanation"
         className="mt-2 font-sans text-xs leading-relaxed text-text-dim"
@@ -510,6 +500,6 @@ export function TrainingTimeChart({
           </>
         }
       />
-    </div>
+    </InstrumentFrame>
   );
 }
