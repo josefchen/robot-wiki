@@ -139,6 +139,9 @@ const oldHash = 'e0892dbb5fefa56957931bae74c3cd2c60640f122f8587e2365db852af2680a
 const newHash = '50b49ee3f2e6b130c24367d5ed71b34bb07f2965e7a8154e9a59783ef14fc00c';
 // Endpoint of the later manipulation humanizer pass (owner decision 20260925).
 const passHash = '73bde0c3426f143ca86c66b27d5422609412bc50fae05d31e227a6c60a2a295b';
+// Endpoint of the educational cue pass (2026-09-26), which appended the
+// first-screen operating cue sentence; it is the current article.
+const cueHash = '9646ce943ff9e1a1ae4efe3f190bf6ae43f26debd0f654048cf1e5981b8ac97c';
 const selectedPlan = () => plans.find(p => p.id === planId)!;
 const section = (catalog = plans) => parseLedger('audit/manipulation.md', ledger, registry, {
   compoundPlans: catalog,
@@ -176,7 +179,7 @@ describe('hierarchy original 15 bounded synthesis correction', () => {
       expect(article.split(c.newSpan)).toHaveLength(2);
       expect(article).not.toContain(c.oldSpan);
     }
-    expect(prose(article).members[0].hash).toBe(passHash);
+    expect(prose(article).members[0].hash).toBe(cueHash);
     expect(prose(before()).members[0].hash).toBe(oldHash);
     expect(matter(article).data).toEqual(matter(before()).data);
   });
@@ -312,12 +315,20 @@ describe('hierarchy original 15 bounded synthesis correction', () => {
     expect(compareBaseline(bundle(before()), after15, []).ok).toBe(false);
     expect(compareBaseline(bundle(before()), after15, [{ ...matches[0], newHash: '0'.repeat(64) }]).ok).toBe(false);
     expect(compareBaseline(bundle(before()), bundle(before() + '\nUnapproved extra assertion.'), matches).ok).toBe(false);
-    // The manipulation humanizer pass carries after15 to the current article.
+    // The manipulation humanizer pass carries after15 to the humanizer
+    // endpoint; the educational cue pass (2026-09-26) then appends the
+    // operating cue sentence to reach the current article.
     const pass = approvals.filter(d => d.id === 'humanizer-manipulation-v3-20260925-prose-hierarchical');
     expect(pass).toHaveLength(1);
     expect(pass[0].newHash).toBe(passHash);
-    expect(compareBaseline(after15, bundle(article), [{ ...pass[0], oldHash: newHash, reconciles: undefined }])).toMatchObject({
-      ok: true, failures: [], approvedDifferences: [pass[0].id],
+    const cue = approvals.filter(d => d.id === 'educational-cue-20260926-prose-hierarchical');
+    expect(cue).toHaveLength(1);
+    expect(cue[0].newHash).toBe(cueHash);
+    expect(compareBaseline(after15, bundle(article), [
+      { ...pass[0], oldHash: newHash, reconciles: undefined },
+      { ...cue[0], oldHash: passHash, reconciles: undefined },
+    ])).toMatchObject({
+      ok: true, failures: [], approvedDifferences: [cue[0].id, pass[0].id],
     });
     expect(compareBaseline(after15, bundle(article + '\nUnapproved extra assertion.'),
       [{ ...pass[0], oldHash: newHash, reconciles: undefined }]).ok).toBe(false);

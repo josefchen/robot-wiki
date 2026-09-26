@@ -44,13 +44,41 @@ describe('merged reader corrections preserve production additions and exact appr
   it.each(paths)('preserves the reviewed combined article %s', path => {
     if (path === 'content/data-hardware/data-bottleneck.mdx') {
       expect(finalSevenBefore(path)).toBe(committedSource('ebf13b4', path));
-      expect(read(path)).toBe(committedSource('ba934e6', path));
+      // The merged endpoint from ba934e6 is preserved; the educational
+      // convergence pass (2026-09-26) carries the article to its current
+      // text through its approved-deltas entry, the way the rl-finetuning
+      // branch below pins the humanizer pass.
+      const hashOf = (text: string) => buildManifest('prose', [{
+        id: 'article:data-hardware/data-bottleneck',
+        value: { path, body: matter(text).content.trim() },
+      }]).members[0].hash;
+      const mergeEndpoint = integrated.find(a =>
+        a.manifest === 'prose' && a.memberId === 'article:data-hardware/data-bottleneck')!;
+      expect(mergeEndpoint.newHash).toBe('50ad873040d9937b43cd27cc5b15cadc2fd5d58c23c678547970881d0f17c6a8');
+      // ba934e6 is the final-seven closure endpoint of the same member.
+      const closure = approvals.find(a => a.id === 'final-seven-closure-20260923-2')!;
+      expect(hashOf(committedSource('ba934e6', path))).toBe(closure.newHash);
+      const pass = approvals.find(a => a.id === 'educational-convergence-20260926-prose-data-bottleneck')!;
+      expect(hashOf(read(path))).toBe(pass.newHash);
+      expect(read(path)).toContain('Real-world robot data is different. Every hour of it');
     } else if (path === 'content/world-models/taxonomy.mdx') {
       const before = 'The six example groups below are this article\'s selection, not an exhaustive or universally agreed scientific taxonomy.';
       const after = before.replace("article's selection", "article's authored selection");
       const source = committedSource('ebf13b4', path);
       expect(source.split(before)).toHaveLength(2);
-      expect(read(path)).toBe(source.replace(before, after));
+      // The educational cue pass (2026-09-26) appended the first-screen
+      // operating cue sentence to the panel paragraph; its approved-deltas
+      // entry carries the article to its current text.
+      const cue = ' Try each group in turn and the panel swaps what it predicts; the JEPA group carries an explicit no-decoder marker.';
+      expect(read(path)).toBe(source.replace(before, after)
+        .replace('selecting a panel is not a benchmark comparison between the named systems.',
+          `selecting a panel is not a benchmark comparison between the named systems.${cue}`));
+      const hashOf = (text: string) => buildManifest('prose', [{
+        id: 'article:world-models/taxonomy',
+        value: { path, body: matter(text).content.trim() },
+      }]).members[0].hash;
+      const pass = approvals.find(a => a.id === 'educational-cue-20260926-prose-taxonomy')!;
+      expect(hashOf(read(path))).toBe(pass.newHash);
     } else if (path === 'content/frontier/bear-case.mdx') {
       const source = committedSource('ebf13b4', path);
       expect(source).toContain('lastReviewed: "2026-08-18"');

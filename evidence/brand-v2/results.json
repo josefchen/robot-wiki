@@ -100300,7 +100300,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:classical/motion-planning moved from c35aae18b5771f207e1a3a2c7a9291d61e4fc487630469d1b88f0f77f7d4ac79 to 8a140d4967a3099abeaddc6f89bc68bd769a37a71722d4ee537090039448bf36 exactly as approved delta continuation-merge-2026-09-24-0140-prose-article-classical-motion-planning permits: Combine ba934e6 source corrections, unsupported-claim removals and explicitly authored finite models with released SEO guidance, scoped citation delivery and link safety. Preserve existing routes, main-only table components, model arithmetic, controls, sources and immutable proof history. Exact merged member, not a broad waiver.",
+      "actual": "prose member article:classical/motion-planning moved from c35aae18b5771f207e1a3a2c7a9291d61e4fc487630469d1b88f0f77f7d4ac79 to 74f2f05613777dc5794719ccb8f5243d292a3197684bf17282256033f6306bc0 exactly as approved delta educational-cue-20260926-prose-motion-planning permits: VAL-EDU-045 clause (d) operating cue on classical/motion-planning: one sentence added to the paragraph adjacent to the first interactive, naming the exploration-iteration slider as rendered inside that interactive with a second-person instruction verb. The sentence states only behaviour the adjacent disclosure already documents. No claim, number, citation, option text or mount default changes.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100312,9 +100312,9 @@
           "manifest": "prose",
           "member": "article:classical/motion-planning",
           "baselineHash": "c35aae18b5771f207e1a3a2c7a9291d61e4fc487630469d1b88f0f77f7d4ac79",
-          "currentHash": "8a140d4967a3099abeaddc6f89bc68bd769a37a71722d4ee537090039448bf36",
+          "currentHash": "74f2f05613777dc5794719ccb8f5243d292a3197684bf17282256033f6306bc0",
           "status": "approved-delta",
-          "approvedDelta": "continuation-merge-2026-09-24-0140-prose-article-classical-motion-planning"
+          "approvedDelta": "educational-cue-20260926-prose-motion-planning"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100328,7 +100328,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:classical/perception moved from 1108c88f43998e5ddfd982871ef4a55946cb9269fa5c76089d9306f8318dd9c8 to 46728743f178eced9dbab78fbc6fa9c90829a75aa8a7ea4b3284ab78cc802ff0 exactly as approved delta continuation-merge-2026-09-24-0140-prose-article-classical-perception permits: Combine ba934e6 source corrections, unsupported-claim removals and explicitly authored finite models with released SEO guidance, scoped citation delivery and link safety. Preserve existing routes, main-only table components, model arithmetic, controls, sources and immutable proof history. Exact merged member, not a broad waiver.",
+      "actual": "prose member article:classical/perception moved from 1108c88f43998e5ddfd982871ef4a55946cb9269fa5c76089d9306f8318dd9c8 to dbe83bfa480fc7417d48b26d870aefbbcfb58d1b21736ff09cd5603a405801ce exactly as approved delta educational-cue-20260926-prose-perception permits: VAL-EDU-045 clause (d) operating cue on classical/perception: one sentence added to the paragraph adjacent to the first interactive, naming the working-distance control as rendered inside that interactive with a second-person instruction verb. The sentence states only behaviour the adjacent disclosure already documents. No claim, number, citation, option text or mount default changes.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100340,9 +100340,9 @@
           "manifest": "prose",
           "member": "article:classical/perception",
           "baselineHash": "1108c88f43998e5ddfd982871ef4a55946cb9269fa5c76089d9306f8318dd9c8",
-          "currentHash": "46728743f178eced9dbab78fbc6fa9c90829a75aa8a7ea4b3284ab78cc802ff0",
+          "currentHash": "dbe83bfa480fc7417d48b26d870aefbbcfb58d1b21736ff09cd5603a405801ce",
           "status": "approved-delta",
-          "approvedDelta": "continuation-merge-2026-09-24-0140-prose-article-classical-perception"
+          "approvedDelta": "educational-cue-20260926-prose-perception"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100440,7 +100440,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:data-hardware/data-bottleneck moved from 91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2 to 8e86414dc345ffe51234adb4bb72533cbbeaf0d46b9045b179d4fb9553acdad9 exactly as approved delta final-seven-closure-20260923-2 permits: Remove OXE hours and ranking, distinguish paper trajectory counts from authored chart hour targets, and correct DROID collector versus rig units and hypothetical production rate.",
+      "actual": "prose member article:data-hardware/data-bottleneck moved from 91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2 to 22b8b3da959ec70f70e6d6a63d9b5c0d6d74952500d9c3759030f8720750cedc exactly as approved delta educational-convergence-20260926-prose-data-bottleneck permits: Prediction-step convergence on data-hardware/data-bottleneck: the two distractor labels now carry the precision their own reasoning already states (the 500 farm-hours a year arithmetic and the hundreds-of-hours assumption), so the correct label is no longer 3.4 times the longest distractor and the set stops leaking the answer by shape; the correct option’s reasoning links the hours-axis section hosting the chart. No dataset figure, hypothetical input or arithmetic result changes. Bracketed from the seal to the current value like final-seven-closure-20260923-2; the intermediate zero-credit, RoboMIND-hours and final-seven edges stay in place as history.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100452,9 +100452,9 @@
           "manifest": "prose",
           "member": "article:data-hardware/data-bottleneck",
           "baselineHash": "91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2",
-          "currentHash": "8e86414dc345ffe51234adb4bb72533cbbeaf0d46b9045b179d4fb9553acdad9",
+          "currentHash": "22b8b3da959ec70f70e6d6a63d9b5c0d6d74952500d9c3759030f8720750cedc",
           "status": "approved-delta",
-          "approvedDelta": "final-seven-closure-20260923-2"
+          "approvedDelta": "educational-convergence-20260926-prose-data-bottleneck"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100552,7 +100552,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:data-hardware/industrial-deployment moved from 2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266 to d8f091fdc26d87b8de37a8736324f0e715ad60759a23271c0ce7168661c6360a exactly as approved delta continuation-merge-2026-09-24-tech-withdrawal-prose-industrial-deployment permits: Technology.org withdrawal: industrial-deployment Stat grid keeps the three IFR operands; Unitree shipment, volume-leader ranking and hundredfold ratio are Cut. First-party replacements only.",
+      "actual": "prose member article:data-hardware/industrial-deployment moved from 2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266 to 915117232269b0ec152a0ccedd7ac8bdeb0126e40fdf1891118e84b68eabf3a8 exactly as approved delta educational-relocation-20260926-prose-industrial-deployment permits: Layout-only educational relocation on /data-hardware/industrial-deployment/: the DeploymentEconomics interactive mount moves above its prediction paragraph with a one-line operating cue, so the first interactive arrives inside the first 300 rendered words instead of after 399. Every withdrawal sentence is preserved byte-for-byte and the prediction paragraph itself is unchanged; the technology-withdrawal byte-transition seal rebinds the exact one-run relocation through the archived pre-relocation checkpoint. No cited claim, number, mount default, citation, glossary term or disclosure changes.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100564,9 +100564,9 @@
           "manifest": "prose",
           "member": "article:data-hardware/industrial-deployment",
           "baselineHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
-          "currentHash": "d8f091fdc26d87b8de37a8736324f0e715ad60759a23271c0ce7168661c6360a",
+          "currentHash": "915117232269b0ec152a0ccedd7ac8bdeb0126e40fdf1891118e84b68eabf3a8",
           "status": "approved-delta",
-          "approvedDelta": "continuation-merge-2026-09-24-tech-withdrawal-prose-industrial-deployment"
+          "approvedDelta": "educational-relocation-20260926-prose-industrial-deployment"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100608,7 +100608,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:data-hardware/teleop-rigs moved from 09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29 to 8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13 exactly as approved delta continuation-merge-2026-09-24-0305-prose-article-data-hardware-teleop-rigs permits: Reconcile the exact merged approval graph after b4c3f51 introduced unique-path validation. The current member is unchanged from the previously reviewed direct seal/current approval(s) seo-merge-20260916-prose-11, round5-closeout-teleop-rigs-prose. Those exact endpoint hashes, their prior approval records and the complete member-specific edge inventory are retained. This resolution selects the already approved merged endpoint, not a different fact, source, route or rendering. Any removed, altered or newly added edge invalidates this review.",
+      "actual": "prose member article:data-hardware/teleop-rigs moved from 09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29 to dc7c65001342ac5decfa2db1607e03a15111d92b706aa43f999e7c29ee15ab21 exactly as approved delta educational-cue-20260926-prose-teleop-rigs permits: VAL-EDU-045 clause (d) operating cue on data-hardware/teleop-rigs: one sentence added to the paragraph adjacent to the first interactive, naming the Cost highlight button as rendered inside that interactive with a second-person instruction verb. The sentence states only behaviour the adjacent disclosure already documents. No claim, number, citation, option text or mount default changes.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100620,9 +100620,9 @@
           "manifest": "prose",
           "member": "article:data-hardware/teleop-rigs",
           "baselineHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
-          "currentHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13",
+          "currentHash": "dc7c65001342ac5decfa2db1607e03a15111d92b706aa43f999e7c29ee15ab21",
           "status": "approved-delta",
-          "approvedDelta": "continuation-merge-2026-09-24-0305-prose-article-data-hardware-teleop-rigs"
+          "approvedDelta": "educational-cue-20260926-prose-teleop-rigs"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100860,7 +100860,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:manipulation/bc-foundations moved from 30edbd706c59eb1a521d39a5d6e8f6118ff2eb108b2d0fb364933d4797475a20 to 484ec5e9380b54c65b3f22285f2e11aad6be452d05bb958f58d42d41a434f4b2 exactly as approved delta humanizer-manipulation-v3-20260925-prose-bc-foundations permits: Humanizer v3 pass over the manipulation domain. Every not-X disclaimer and paper-internal locator in bc-foundations was rewritten as a plain positive statement or moved into its citation note; all audited facts, numbers and citations are preserved. The article now sits at or below the 2-tells-per-1,000-words structural floor.",
+      "actual": "prose member article:manipulation/bc-foundations moved from 30edbd706c59eb1a521d39a5d6e8f6118ff2eb108b2d0fb364933d4797475a20 to 463dec3caf678be3dff663a707008974a41944c1a273e6929b9dbbb7b9253559 exactly as approved delta educational-convergence-20260926-prose-bc-foundations permits: Prediction-step convergence on manipulation/bc-foundations: the correct option’s reasoning now carries the DAgger quadratic-bound citation chip, tracing the roughly-quadratic accumulated-deviation claim to the same registered source the article’s covariate-shift section cites. No prose claim, number or option text changes.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100872,9 +100872,9 @@
           "manifest": "prose",
           "member": "article:manipulation/bc-foundations",
           "baselineHash": "30edbd706c59eb1a521d39a5d6e8f6118ff2eb108b2d0fb364933d4797475a20",
-          "currentHash": "484ec5e9380b54c65b3f22285f2e11aad6be452d05bb958f58d42d41a434f4b2",
+          "currentHash": "463dec3caf678be3dff663a707008974a41944c1a273e6929b9dbbb7b9253559",
           "status": "approved-delta",
-          "approvedDelta": "humanizer-manipulation-v3-20260925-prose-bc-foundations"
+          "approvedDelta": "educational-convergence-20260926-prose-bc-foundations"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100888,7 +100888,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:manipulation/comparison-matrix moved from 6f904461f73d886bae381a9ebfb0172892a483066c75c270c0e365afabb7a322 to 0d16e24e51e27fde3c5399f093dc2a24436e0724c1cc417e4191adad709d2073 exactly as approved delta humanizer-manipulation-v3-20260925-prose-comparison-matrix permits: Humanizer v3 pass over the manipulation domain. Every not-X disclaimer and paper-internal locator in comparison-matrix was rewritten as a plain positive statement or moved into its citation note; all audited facts, numbers and citations are preserved. The article now sits at or below the 2-tells-per-1,000-words structural floor.",
+      "actual": "prose member article:manipulation/comparison-matrix moved from 6f904461f73d886bae381a9ebfb0172892a483066c75c270c0e365afabb7a322 to 5f7f8811411609ff6308115022674498140683ba4bbdabe2914b9e12a924d44a exactly as approved delta educational-cue-20260926-prose-comparison-matrix permits: VAL-EDU-045 clause (d) operating cue on manipulation/comparison-matrix: one sentence added to the paragraph adjacent to the first interactive, naming the Downloadable weights filter as rendered inside that interactive with a second-person instruction verb. The sentence states only behaviour the adjacent disclosure already documents. No claim, number, citation, option text or mount default changes.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100900,9 +100900,9 @@
           "manifest": "prose",
           "member": "article:manipulation/comparison-matrix",
           "baselineHash": "6f904461f73d886bae381a9ebfb0172892a483066c75c270c0e365afabb7a322",
-          "currentHash": "0d16e24e51e27fde3c5399f093dc2a24436e0724c1cc417e4191adad709d2073",
+          "currentHash": "5f7f8811411609ff6308115022674498140683ba4bbdabe2914b9e12a924d44a",
           "status": "approved-delta",
-          "approvedDelta": "humanizer-manipulation-v3-20260925-prose-comparison-matrix"
+          "approvedDelta": "educational-cue-20260926-prose-comparison-matrix"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100916,7 +100916,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:manipulation/cross-embodiment moved from 4113ccb348552a70f33b0c159dd51f3179d07ec4d5cb5d5fcabf282ab5c59eef to f1a517054daac12f2ab03dde79cd2eeb043c1398c78bf620ddd0773f44b64582 exactly as approved delta humanizer-manipulation-v3-20260925-prose-cross-embodiment permits: Humanizer v3 pass over the manipulation domain. Every not-X disclaimer and paper-internal locator in cross-embodiment was rewritten as a plain positive statement or moved into its citation note; all audited facts, numbers and citations are preserved. The article now sits at or below the 2-tells-per-1,000-words structural floor.",
+      "actual": "prose member article:manipulation/cross-embodiment moved from 4113ccb348552a70f33b0c159dd51f3179d07ec4d5cb5d5fcabf282ab5c59eef to 6573411d39867fa0bea99e5743f2860dde3fd7b5c3955af78582434c71fb224b exactly as approved delta educational-cue-20260926-prose-cross-embodiment permits: VAL-EDU-045 clause (d) operating cue on manipulation/cross-embodiment: one sentence added to the paragraph adjacent to the first interactive, naming the account selector as rendered inside that interactive with a second-person instruction verb. The sentence states only behaviour the adjacent disclosure already documents. No claim, number, citation, option text or mount default changes.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100928,9 +100928,9 @@
           "manifest": "prose",
           "member": "article:manipulation/cross-embodiment",
           "baselineHash": "4113ccb348552a70f33b0c159dd51f3179d07ec4d5cb5d5fcabf282ab5c59eef",
-          "currentHash": "f1a517054daac12f2ab03dde79cd2eeb043c1398c78bf620ddd0773f44b64582",
+          "currentHash": "6573411d39867fa0bea99e5743f2860dde3fd7b5c3955af78582434c71fb224b",
           "status": "approved-delta",
-          "approvedDelta": "humanizer-manipulation-v3-20260925-prose-cross-embodiment"
+          "approvedDelta": "educational-cue-20260926-prose-cross-embodiment"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -101000,7 +101000,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:manipulation/generalist-policies moved from 2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6 to 7c0fd3cef651f4e97cf6b32181db26d53bec8eeda1433d63db6d1d0060aebcbe exactly as approved delta humanizer-manipulation-v3-20260925-prose-generalist-policies permits: Resolution entry for the article:manipulation/generalist-policies approval graph after the humanizer v3 manipulation pass. Every prior edge for this member is inventoried exactly, with its endpoint hashes and approval records retained as history. This resolution approves the single new endpoint produced by that pass; it selects no different fact, source, route or rendering, and any removed, altered or newly added edge invalidates it.",
+      "actual": "prose member article:manipulation/generalist-policies moved from 2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6 to e8ad571aa51f67edebeef1383eb79df06f749ca8199c51693e2f3a567e6d41df exactly as approved delta educational-cue-20260926-prose-generalist-policies permits: VAL-EDU-045 clause (d) operating cue on manipulation/generalist-policies: one sentence added to the paragraph adjacent to the first interactive, naming the Downloadable filter as rendered inside that interactive with a second-person instruction verb. The sentence states only behaviour the adjacent disclosure already documents. No claim, number, citation, option text or mount default changes.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -101012,9 +101012,9 @@
           "manifest": "prose",
           "member": "article:manipulation/generalist-policies",
           "baselineHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
-          "currentHash": "7c0fd3cef651f4e97cf6b32181db26d53bec8eeda1433d63db6d1d0060aebcbe",
+          "currentHash": "e8ad571aa51f67edebeef1383eb79df06f749ca8199c51693e2f3a567e6d41df",
           "status": "approved-delta",
-          "approvedDelta": "humanizer-manipulation-v3-20260925-prose-generalist-policies"
+          "approvedDelta": "educational-cue-20260926-prose-generalist-policies"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -101028,7 +101028,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:manipulation/hierarchical moved from 1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46 to 73bde0c3426f143ca86c66b27d5422609412bc50fae05d31e227a6c60a2a295b exactly as approved delta humanizer-manipulation-v3-20260925-prose-hierarchical permits: Resolution entry for the article:manipulation/hierarchical approval graph after the humanizer v3 manipulation pass. Every prior edge for this member is inventoried exactly, with its endpoint hashes and approval records retained as history. This resolution approves the single new endpoint produced by that pass; it selects no different fact, source, route or rendering, and any removed, altered or newly added edge invalidates it.",
+      "actual": "prose member article:manipulation/hierarchical moved from 1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46 to 9646ce943ff9e1a1ae4efe3f190bf6ae43f26debd0f654048cf1e5981b8ac97c exactly as approved delta educational-cue-20260926-prose-hierarchical permits: VAL-EDU-045 clause (d) operating cue on manipulation/hierarchical: one sentence added to the paragraph adjacent to the first interactive, naming the playhead as rendered inside that interactive with a second-person instruction verb. The sentence states only behaviour the adjacent disclosure already documents. No claim, number, citation, option text or mount default changes.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -101040,9 +101040,9 @@
           "manifest": "prose",
           "member": "article:manipulation/hierarchical",
           "baselineHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
-          "currentHash": "73bde0c3426f143ca86c66b27d5422609412bc50fae05d31e227a6c60a2a295b",
+          "currentHash": "9646ce943ff9e1a1ae4efe3f190bf6ae43f26debd0f654048cf1e5981b8ac97c",
           "status": "approved-delta",
-          "approvedDelta": "humanizer-manipulation-v3-20260925-prose-hierarchical"
+          "approvedDelta": "educational-cue-20260926-prose-hierarchical"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -101112,7 +101112,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:manipulation/realtime-execution moved from 1c859d0de1372b72e6e12ac99d03ddba155faa41a8b02ede298488e6995c2902 to 675c1dd56324fa7ce37a49385669cb2fcbe1c5e99649ae5c6092c7e80d8706ca exactly as approved delta humanizer-manipulation-v3-20260925-prose-realtime-execution permits: Humanizer v3 pass over the manipulation domain. Every not-X disclaimer and paper-internal locator in realtime-execution was rewritten as a plain positive statement or moved into its citation note; all audited facts, numbers and citations are preserved. The article now sits at or below the 2-tells-per-1,000-words structural floor.",
+      "actual": "prose member article:manipulation/realtime-execution moved from 1c859d0de1372b72e6e12ac99d03ddba155faa41a8b02ede298488e6995c2902 to 241fbcd0e0966f7c2481e1c1a519e9e0a2d953d6b87b79fdfb61d64c257a01d7 exactly as approved delta educational-cue-20260926-prose-realtime-execution permits: VAL-EDU-045 clause (d) operating cue on manipulation/realtime-execution: one sentence added to the paragraph adjacent to the first interactive, naming the model-size control as rendered inside that interactive with a second-person instruction verb. The sentence states only behaviour the adjacent disclosure already documents. No claim, number, citation, option text or mount default changes.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -101124,9 +101124,9 @@
           "manifest": "prose",
           "member": "article:manipulation/realtime-execution",
           "baselineHash": "1c859d0de1372b72e6e12ac99d03ddba155faa41a8b02ede298488e6995c2902",
-          "currentHash": "675c1dd56324fa7ce37a49385669cb2fcbe1c5e99649ae5c6092c7e80d8706ca",
+          "currentHash": "241fbcd0e0966f7c2481e1c1a519e9e0a2d953d6b87b79fdfb61d64c257a01d7",
           "status": "approved-delta",
-          "approvedDelta": "humanizer-manipulation-v3-20260925-prose-realtime-execution"
+          "approvedDelta": "educational-cue-20260926-prose-realtime-execution"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -101196,7 +101196,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:manipulation/vla-models moved from a241dae507f15722c3cea4e84684f07d6773ff97fcb95c9eb6711616770b8290 to 18bfc062356bf3bde25c157d462f2d40e8d43afe92fb512c614210ac72ef46d6 exactly as approved delta humanizer-manipulation-v3-20260925-prose-vla-models permits: Humanizer v3 pass over the manipulation domain. Every not-X disclaimer and paper-internal locator in vla-models was rewritten as a plain positive statement or moved into its citation note; all audited facts, numbers and citations are preserved. The article now sits at or below the 2-tells-per-1,000-words structural floor.",
+      "actual": "prose member article:manipulation/vla-models moved from a241dae507f15722c3cea4e84684f07d6773ff97fcb95c9eb6711616770b8290 to 810c8995941937de82547872d6ea50592e3a856c8428b14d80d588d0043c0053 exactly as approved delta educational-cue-20260926-prose-vla-models permits: VAL-EDU-045 clause (d) operating cue on manipulation/vla-models: one sentence added to the paragraph adjacent to the first interactive, naming the control-step scrubber as rendered inside that interactive with a second-person instruction verb. The sentence states only behaviour the adjacent disclosure already documents. No claim, number, citation, option text or mount default changes.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -101208,9 +101208,9 @@
           "manifest": "prose",
           "member": "article:manipulation/vla-models",
           "baselineHash": "a241dae507f15722c3cea4e84684f07d6773ff97fcb95c9eb6711616770b8290",
-          "currentHash": "18bfc062356bf3bde25c157d462f2d40e8d43afe92fb512c614210ac72ef46d6",
+          "currentHash": "810c8995941937de82547872d6ea50592e3a856c8428b14d80d588d0043c0053",
           "status": "approved-delta",
-          "approvedDelta": "humanizer-manipulation-v3-20260925-prose-vla-models"
+          "approvedDelta": "educational-cue-20260926-prose-vla-models"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -101392,7 +101392,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:rl-sim2real/sim2real-transfer moved from e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b to af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656 exactly as approved delta continuation-merge-2026-09-24-0305-prose-article-rl-sim2real-sim2real-transfer permits: Reconcile the exact merged approval graph after b4c3f51 introduced unique-path validation. The current member is unchanged from the previously reviewed direct seal/current approval(s) continuation-merge-2026-09-23-0740-prose-article-rl-sim2real-sim2real-transfer. Those exact endpoint hashes, their prior approval records and the complete member-specific edge inventory are retained. This resolution selects the already approved merged endpoint, not a different fact, source, route or rendering. Any removed, altered or newly added edge invalidates this review.",
+      "actual": "prose member article:rl-sim2real/sim2real-transfer moved from e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b to 7c03a6d64301dbc245ef7f8172e316d0b28b28efd3f3bf470154341a8673c1b3 exactly as approved delta educational-convergence-20260926-prose-sim2real-transfer permits: Prediction-step convergence on rl-sim2real/sim2real-transfer: the reveal hint now names only the wrapped panel’s mounted configuration (the cross-panel reset contrast was already stated in the disclosure above the step and stays there), and the correct option’s reasoning links the authored peak-versus-half-width formula section. No cited claim, mount default, formula value, citation or disclosure changes; the audited compound rows keep their verdicts under the dependency-review rebind.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -101404,9 +101404,9 @@
           "manifest": "prose",
           "member": "article:rl-sim2real/sim2real-transfer",
           "baselineHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
-          "currentHash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656",
+          "currentHash": "7c03a6d64301dbc245ef7f8172e316d0b28b28efd3f3bf470154341a8673c1b3",
           "status": "approved-delta",
-          "approvedDelta": "continuation-merge-2026-09-24-0305-prose-article-rl-sim2real-sim2real-transfer"
+          "approvedDelta": "educational-convergence-20260926-prose-sim2real-transfer"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -101532,7 +101532,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:world-models/jepa moved from f8a16f238a17cd0a9e725c4af67c4402745c5d3e0add079c902536db3bd1b0d1 to 4529892f834ca8ca6bdb91f49e6225455638a6d579c877d6c73eaff57ec0dcac exactly as approved delta seo-merge-20260916-prose-30 permits: The SEO growth merge changed article:world-models/jepa: the union of the project continuation tree and the SEO snapshot produces a member value neither side's delta chain names. This entry approves the merged state recorded in commit ab62278 and its follow-ups.",
+      "actual": "prose member article:world-models/jepa moved from f8a16f238a17cd0a9e725c4af67c4402745c5d3e0add079c902536db3bd1b0d1 to 5889038a47a16772ec040af0a6876663dd276bcefa6d53318df95b966aa93de0 exactly as approved delta educational-cue-20260926-prose-jepa permits: VAL-EDU-045 clause (d) operating cue on world-models/jepa: one sentence added to the paragraph adjacent to the first interactive, naming the search-budget control as rendered inside that interactive with a second-person instruction verb. The sentence states only behaviour the adjacent disclosure already documents. No claim, number, citation, option text or mount default changes.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -101544,9 +101544,9 @@
           "manifest": "prose",
           "member": "article:world-models/jepa",
           "baselineHash": "f8a16f238a17cd0a9e725c4af67c4402745c5d3e0add079c902536db3bd1b0d1",
-          "currentHash": "4529892f834ca8ca6bdb91f49e6225455638a6d579c877d6c73eaff57ec0dcac",
+          "currentHash": "5889038a47a16772ec040af0a6876663dd276bcefa6d53318df95b966aa93de0",
           "status": "approved-delta",
-          "approvedDelta": "seo-merge-20260916-prose-30"
+          "approvedDelta": "educational-cue-20260926-prose-jepa"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -101616,7 +101616,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:world-models/taxonomy moved from 122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003 to e5515962013124141d8072a26618eba7e0e00852fefd93bb00f01846e47be6a2 exactly as approved delta continuation-merge-2026-09-24-0140-prose-article-world-models-taxonomy permits: Combine ba934e6 source corrections, unsupported-claim removals and explicitly authored finite models with released SEO guidance, scoped citation delivery and link safety. Preserve existing routes, main-only table components, model arithmetic, controls, sources and immutable proof history. Exact merged member, not a broad waiver.",
+      "actual": "prose member article:world-models/taxonomy moved from 122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003 to c78b87466402372401201a726c3816a29879d6836ce4611949ead0921942e9ce exactly as approved delta educational-cue-20260926-prose-taxonomy permits: VAL-EDU-045 clause (d) operating cue on world-models/taxonomy: one sentence added to the paragraph adjacent to the first interactive, naming the paradigm selectors as rendered inside that interactive with a second-person instruction verb. The sentence states only behaviour the adjacent disclosure already documents. No claim, number, citation, option text or mount default changes.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -101628,9 +101628,9 @@
           "manifest": "prose",
           "member": "article:world-models/taxonomy",
           "baselineHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
-          "currentHash": "e5515962013124141d8072a26618eba7e0e00852fefd93bb00f01846e47be6a2",
+          "currentHash": "c78b87466402372401201a726c3816a29879d6836ce4611949ead0921942e9ce",
           "status": "approved-delta",
-          "approvedDelta": "continuation-merge-2026-09-24-0140-prose-article-world-models-taxonomy"
+          "approvedDelta": "educational-cue-20260926-prose-taxonomy"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -104115,7 +104115,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/data-hardware/data-bottleneck/ ships 32 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 32 outbound anchor occurrences on it with a visible focus ring in 121 stops",
+      "actual": "/data-hardware/data-bottleneck/ ships 32 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 32 outbound anchor occurrences on it with a visible focus ring in 122 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -104134,7 +104134,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 29,
           "reachedByTab": 32,
-          "tabStops": 121,
+          "tabStops": 122,
           "keyboardRoutesWalked": 74,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -131615,7 +131615,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/classical/motion-planning/ rendered no v1 identity spelling and no v1 descriptor in 55671 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/classical/motion-planning/ rendered no v1 identity spelling and no v1 descriptor in 55839 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -131662,7 +131662,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/classical/perception/ rendered no v1 identity spelling and no v1 descriptor in 85220 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/classical/perception/ rendered no v1 identity spelling and no v1 descriptor in 85398 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -131944,7 +131944,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/data-bottleneck/ rendered no v1 identity spelling and no v1 descriptor in 30989 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/data-bottleneck/ rendered no v1 identity spelling and no v1 descriptor in 31247 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132132,7 +132132,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/industrial-deployment/ rendered no v1 identity spelling and no v1 descriptor in 47605 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/industrial-deployment/ rendered no v1 identity spelling and no v1 descriptor in 47793 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132226,7 +132226,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/teleop-rigs/ rendered no v1 identity spelling and no v1 descriptor in 29711 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/teleop-rigs/ rendered no v1 identity spelling and no v1 descriptor in 29851 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132884,7 +132884,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/comparison-matrix/ rendered no v1 identity spelling and no v1 descriptor in 57969 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/comparison-matrix/ rendered no v1 identity spelling and no v1 descriptor in 58171 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132931,7 +132931,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/cross-embodiment/ rendered no v1 identity spelling and no v1 descriptor in 31311 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/cross-embodiment/ rendered no v1 identity spelling and no v1 descriptor in 31485 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -133072,7 +133072,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/generalist-policies/ rendered no v1 identity spelling and no v1 descriptor in 44263 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/generalist-policies/ rendered no v1 identity spelling and no v1 descriptor in 44457 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -133119,7 +133119,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/hierarchical/ rendered no v1 identity spelling and no v1 descriptor in 39091 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/hierarchical/ rendered no v1 identity spelling and no v1 descriptor in 39237 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -133260,7 +133260,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/realtime-execution/ rendered no v1 identity spelling and no v1 descriptor in 35137 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/realtime-execution/ rendered no v1 identity spelling and no v1 descriptor in 35319 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -133401,7 +133401,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/vla-models/ rendered no v1 identity spelling and no v1 descriptor in 40433 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/vla-models/ rendered no v1 identity spelling and no v1 descriptor in 40621 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -134247,7 +134247,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/jepa/ rendered no v1 identity spelling and no v1 descriptor in 32864 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/jepa/ rendered no v1 identity spelling and no v1 descriptor in 33000 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -134388,7 +134388,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/taxonomy/ rendered no v1 identity spelling and no v1 descriptor in 39216 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/taxonomy/ rendered no v1 identity spelling and no v1 descriptor in 39446 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -197959,7 +197959,7 @@
             {
               "id": "/data-hardware/industrial-deployment/",
               "observed": {
-                "paragraphCount": 17,
+                "paragraphCount": 18,
                 "familyHeads": [
                   "newsreader"
                 ],
@@ -205206,7 +205206,7 @@
             {
               "id": "/data-hardware/industrial-deployment/",
               "observed": {
-                "paragraphCount": 34,
+                "paragraphCount": 36,
                 "registeredFrameParagraphCount": 34,
                 "offendingFamilies": []
               }

@@ -48,24 +48,34 @@ describe('VLA21 and comparison1 current identity and scoped introduction', () =>
     const mainArticle = committedSource(RELEASE_BASE, articlePath);
     expect(mainArticle.split(oldIntro)).toHaveLength(2);
     // The release-base article with only the authorized introduction is the
-    // transaction endpoint; the humanizer pass carries it to the current
-    // article through its approved-deltas re-anchor.
+    // transaction endpoint; the humanizer pass carries it to its endpoint
+    // and the educational cue pass (2026-09-26) appends the operating cue
+    // sentence through its approved-deltas entry.
     const truthManifests = collectArticleTruthManifests();
     const passEntry = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries
       .find((a: { id: string }) => a.id === 'humanizer-manipulation-v3-20260925-prose-comparison-matrix');
+    const cueEntry = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries
+      .find((a: { id: string }) => a.id === 'educational-cue-20260926-prose-comparison-matrix');
     expect(passEntry).toBeDefined();
+    expect(cueEntry).toBeDefined();
+    expect(cueEntry.oldHash).toBe(passEntry.newHash);
     expect(truthManifests['prose'].members.find(m => m.id === 'article:manipulation/comparison-matrix')?.hash)
-      .toBe(passEntry.newHash);
+      .toBe(cueEntry.newHash);
     expect(article).toContain(currentIntro);
     expect(article).not.toContain(oldIntro);
     expect(matter(article).data).toEqual(matter(mainArticle).data);
-    // The VLA article is likewise carried forward by the humanizer pass;
-    // its endpoint is the head re-anchor for the member.
+    // The VLA article is likewise carried forward by the humanizer pass and
+    // then the educational cue pass; the cue entry is the head re-anchor
+    // for the member.
     const vlaPass = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries
       .find((a: { id: string }) => a.id === 'humanizer-manipulation-v3-20260925-prose-vla-models');
+    const vlaCue = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries
+      .find((a: { id: string }) => a.id === 'educational-cue-20260926-prose-vla-models');
     expect(vlaPass).toBeDefined();
+    expect(vlaCue).toBeDefined();
+    expect(vlaCue.oldHash).toBe(vlaPass.newHash);
     expect(truthManifests['prose'].members.find(m => m.id === 'article:manipulation/vla-models')?.hash)
-      .toBe(vlaPass.newHash);
+      .toBe(vlaCue.newHash);
     // The original VLA packet did not alter the registry. NASA was added by
     // the later industrial packet, whose complete record has its own test.
     expect(committedSource('89cda67', 'data/citations.ts')).toBe(before('data/citations.ts'));

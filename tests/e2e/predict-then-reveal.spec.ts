@@ -81,9 +81,16 @@ function normalize(text: string): string {
   return text.toLowerCase().replace(/\s+/g, ' ').trim();
 }
 
-/** Digit-bearing tokens of a text, per the contract's definition. */
+/** Digit-bearing tokens of a text, per the contract's definition. A token
+ *  carries the VALUE the hint names, not the sentence punctuation that
+ *  happens to follow it: "RTC 100%." must match a readout rendering
+ *  "100%", so trailing [.,;:!?] is trimmed before containment. Percent
+ *  signs and brackets are part of the value and stay. */
 function digitTokens(text: string): string[] {
-  return text.split(/\s+/).filter((t) => /[0-9]/.test(t));
+  return text
+    .split(/\s+/)
+    .filter((t) => /[0-9]/.test(t))
+    .map((t) => t.replace(/[.,;:!?]+$/, ''));
 }
 
 async function region(page: Page) {
@@ -259,6 +266,11 @@ test.describe('prediction step (PredictThenReveal)', () => {
 
       // Path 2: a committed option.
       await page.goto(placement.route);
+      // Settle the client bundle before committing: a radio change that
+      // lands before hydration reaches no onChange handler, the reveal
+      // stays shut, and the failure reads as a product defect when it is
+      // a driver race. Same convention as self-check.spec.ts.
+      await page.waitForLoadState('networkidle');
       const root2 = await region(page);
       const values = await root2
         .locator('fieldset input[type="radio"]')
@@ -289,6 +301,11 @@ test.describe('prediction step (PredictThenReveal)', () => {
 
     test(`${placement.route}: hint tokens match the mounted figure and the control stays live`, async ({ page }) => {
       await page.goto(placement.route);
+      // The keyboard probe below drives the wrapped figure's primary
+      // control; a native range moves its own value without script, but
+      // the React-rendered readout only tracks it once hydrated, so an
+      // unhydrated ArrowRight changes no digit-bearing token.
+      await page.waitForLoadState('networkidle');
       const root = await region(page);
       const reveal = root.locator(':scope > details[data-reveal]');
       await root.locator(':scope > details[data-reveal] > summary').click();

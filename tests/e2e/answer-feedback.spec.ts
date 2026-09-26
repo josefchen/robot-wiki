@@ -257,11 +257,19 @@ test.describe('answer feedback (VAL-EDU-042/043/044)', () => {
   test('VAL-EDU-042: a commit marks the correct option and the reader pick, in both directions', async ({
     browser,
   }) => {
+    // The commit path settles each route to networkidle before touching the
+    // radios (see the settle below); across the full 14-region corpus that
+    // honest wait needs more than the default 30s budget.
+    test.slow();
     const complete = expectCompleteRegions(regions);
     let graded = 0;
     await forEachInOwnContext(browser, complete, async (page, { route, kind, index }) => {
       const where = `${route} ${kind}#${index}`;
       await page.goto(route);
+      // Settle the client bundle before committing: a radio change that
+      // lands before hydration reaches no onChange handler and the reveal
+      // never opens. Same convention as self-check.spec.ts.
+      await page.waitForLoadState('networkidle');
       const token = await okToken(page);
       const region = page.locator('[data-predict], [data-self-check]').nth(index);
       const radios = region.locator('fieldset input[type="radio"]');
@@ -353,12 +361,20 @@ test.describe('answer feedback (VAL-EDU-042/043/044)', () => {
     test('VAL-EDU-043: the mark survives forced colours, and no verdict word is rendered', async ({
       browser,
     }) => {
+      // Two navigations per region plus the networkidle hydration settle put
+      // the full corpus scan past the default budget; slow keeps the settle
+      // instead of racing hydration again.
+      test.slow();
       const complete = expectCompleteRegions(regions);
       let graded = 0;
       await forEachInOwnContext(browser, complete, async (page, { route, kind, index }) => {
         const where = `${route} ${kind}#${index}`;
         // (b) verdict scan across all four states, before forcing colours.
         await page.goto(route);
+        // Settle before the commit scans: without hydration the reveal
+        // stays closed, every innerText scan returns nothing, and the
+        // wrong/correct commit states pass vacuously.
+        await page.waitForLoadState('networkidle');
         const region = page.locator('[data-predict], [data-self-check]').nth(index);
         expect(await scanVerdicts(region), `${where}: verdict, unanswered`).toEqual([]);
         const summary = region.locator('details[data-reveal] > summary');

@@ -31662,6 +31662,740 @@
         "VAL-B2-BASE-011"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "educational-convergence-20260926-prose-sim2real-transfer",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/sim2real-transfer",
+      "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+      "newHash": "7c03a6d64301dbc245ef7f8172e316d0b28b28efd3f3bf470154341a8673c1b3",
+      "reason": "Prediction-step convergence on rl-sim2real/sim2real-transfer: the reveal hint now names only the wrapped panel’s mounted configuration (the cross-panel reset contrast was already stated in the disclosure above the step and stays there), and the correct option’s reasoning links the authored peak-versus-half-width formula section. No cited claim, mount default, formula value, citation or disclosure changes; the audited compound rows keep their verdicts under the dependency-review rebind.",
+      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md requires the reveal hint to name the wrapped figure’s mounted configuration, forbids option sets whose shape leaks the answer, and requires every correct answer to be traceable; the brand-v2-interactives feature brand-v2-educational-disclosures-self-checks-and-feedback was dispatched to converge exactly these assertions under the AGENTS.md brand-v2 operating authority. Fact-preserving educational-affordance repair, not new factual claims.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-EDU-014",
+        "VAL-EDU-018"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "isaac-v1-twelve-originals-3-20260908",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "b61ad004390917d5f117905e6d08747b16b21b7d1ce0d5fdfb87ca3a5340ec36"
+        },
+        {
+          "id": "rma-asynchronous-latent-1-20260909",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "ea1eebe9d2c019c630660f0c93f48569d536a39a8306a41f67948ba7bbc9db1a"
+        },
+        {
+          "id": "domain-randomization-source-1-20260909",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "e69163064966555ef0c762bf7254b51518a04b399df291c59540677bc3c1a739"
+        },
+        {
+          "id": "randomization-local-citation-placement-20260909",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "bb2ed4c749dabe4b0d34cbf9d5e8e07e2f569630f174359de5fe1599d83835d3"
+        },
+        {
+          "id": "splat-transfer-prose-1-20260909",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "9ecfc2ec34476dd0b6a32a3d41b481b5496ab255ffaa9490d43e6bc09287e8e7"
+        },
+        {
+          "id": "splat-transfer-mobile-citation-position-20260909",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "dd918afc1e63563815a79a7e8ac1296ac2e8ed326a92c84f7c5d14a9047eb03d"
+        },
+        {
+          "id": "learned-locomotion-20260909-da83a3636f6fbbbc7d",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "34c5fb9b01ec0bcd4f25f85668de7105ade19d8a32312e522c48e3e1bff9e60f"
+        },
+        {
+          "id": "humanoid-motion-20260909-160f56bf40a985daf6",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "8dffcd50cc04f689da54d3f2a8b42810413ee7126e539376b33e4f29d9782055"
+        },
+        {
+          "id": "humanoid-placement-20260909-c76fa386485b9c9a4c",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "88c4ad4d990ea57dc1f8ae0dbb7a00afc57130a337121d4fddaf96562c8bf841"
+        },
+        {
+          "id": "newton-engine-20260912-6a115dfde665c0aa65",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b"
+        },
+        {
+          "id": "sim2real-transfer-r1-20260916-1",
+          "oldHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b",
+          "newHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b"
+        },
+        {
+          "id": "sim2real-transfer-r7-20260916-1",
+          "oldHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b",
+          "newHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b"
+        },
+        {
+          "id": "sim2real-transfer-r21-20260916-1",
+          "oldHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b",
+          "newHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b"
+        },
+        {
+          "id": "sim2real-transfer-r22-20260916-1",
+          "oldHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b",
+          "newHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b"
+        },
+        {
+          "id": "sim2real-local-20260923-1",
+          "oldHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b",
+          "newHash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-0740-prose-article-rl-sim2real-sim2real-transfer",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-rl-sim2real-sim2real-transfer",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+        }
+      ]
+    },
+    {
+      "id": "educational-convergence-20260926-prose-data-bottleneck",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/data-bottleneck",
+      "oldHash": "91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2",
+      "newHash": "22b8b3da959ec70f70e6d6a63d9b5c0d6d74952500d9c3759030f8720750cedc",
+      "reason": "Prediction-step convergence on data-hardware/data-bottleneck: the two distractor labels now carry the precision their own reasoning already states (the 500 farm-hours a year arithmetic and the hundreds-of-hours assumption), so the correct label is no longer 3.4 times the longest distractor and the set stops leaking the answer by shape; the correct option’s reasoning links the hours-axis section hosting the chart. No dataset figure, hypothetical input or arithmetic result changes. Bracketed from the seal to the current value like final-seven-closure-20260923-2; the intermediate zero-credit, RoboMIND-hours and final-seven edges stay in place as history.",
+      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md requires the reveal hint to name the wrapped figure’s mounted configuration, forbids option sets whose shape leaks the answer, and requires every correct answer to be traceable; the brand-v2-interactives feature brand-v2-educational-disclosures-self-checks-and-feedback was dispatched to converge exactly these assertions under the AGENTS.md brand-v2 operating authority. Fact-preserving educational-affordance repair, not new factual claims.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-EDU-017",
+        "VAL-EDU-041",
+        "VAL-EDU-018"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "educational-convergence-20260926-prose-bc-foundations",
+      "manifest": "prose",
+      "memberId": "article:manipulation/bc-foundations",
+      "oldHash": "484ec5e9380b54c65b3f22285f2e11aad6be452d05bb958f58d42d41a434f4b2",
+      "newHash": "463dec3caf678be3dff663a707008974a41944c1a273e6929b9dbbb7b9253559",
+      "reason": "Prediction-step convergence on manipulation/bc-foundations: the correct option’s reasoning now carries the DAgger quadratic-bound citation chip, tracing the roughly-quadratic accumulated-deviation claim to the same registered source the article’s covariate-shift section cites. No prose claim, number or option text changes.",
+      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md requires the reveal hint to name the wrapped figure’s mounted configuration, forbids option sets whose shape leaks the answer, and requires every correct answer to be traceable; the brand-v2-interactives feature brand-v2-educational-disclosures-self-checks-and-feedback was dispatched to converge exactly these assertions under the AGENTS.md brand-v2 operating authority. Fact-preserving educational-affordance repair, not new factual claims.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-EDU-018"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "educational-convergence-20260926-prose-realtime-execution",
+      "manifest": "prose",
+      "memberId": "article:manipulation/realtime-execution",
+      "oldHash": "675c1dd56324fa7ce37a49385669cb2fcbe1c5e99649ae5c6092c7e80d8706ca",
+      "newHash": "d556c81a7f716cd839330337a18d640739e033c5004e576787379c95c478abfd",
+      "reason": "Prediction-step convergence on manipulation/realtime-execution: the correct option’s reasoning now links the hardware-wall section that documents the teaching curve and its 3.0B coordinate, so the toy arithmetic is traceable to its in-article provenance. No prose claim, number or option text changes.",
+      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md requires the reveal hint to name the wrapped figure’s mounted configuration, forbids option sets whose shape leaks the answer, and requires every correct answer to be traceable; the brand-v2-interactives feature brand-v2-educational-disclosures-self-checks-and-feedback was dispatched to converge exactly these assertions under the AGENTS.md brand-v2 operating authority. Fact-preserving educational-affordance repair, not new factual claims.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-EDU-018"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "educational-relocation-20260926-prose-industrial-deployment",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/industrial-deployment",
+      "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+      "newHash": "915117232269b0ec152a0ccedd7ac8bdeb0126e40fdf1891118e84b68eabf3a8",
+      "reason": "Layout-only educational relocation on /data-hardware/industrial-deployment/: the DeploymentEconomics interactive mount moves above its prediction paragraph with a one-line operating cue, so the first interactive arrives inside the first 300 rendered words instead of after 399. Every withdrawal sentence is preserved byte-for-byte and the prediction paragraph itself is unchanged; the technology-withdrawal byte-transition seal rebinds the exact one-run relocation through the archived pre-relocation checkpoint. No cited claim, number, mount default, citation, glossary term or disclosure changes.",
+      "ownerApproval": "AGENTS.md brand-v2 operating authority: the brand-v2-interactives milestone feature brand-v2-educational-disclosures-self-checks-and-feedback was dispatched to satisfy VAL-EDU-045 (article prose reaches an interactive before it becomes a wall; the 300-rendered-word bound and the named operating cue are enforced by tests/e2e/first-screen-interactive.spec.ts). Layout-only affordance repair, not new factual claims.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-EDU-045"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "content-audit-2026-09-06-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "a7ae31d224104e331b62665cad4264c944f258ab4bf05f6038894be78fefe9ba"
+        },
+        {
+          "id": "retained-cross-20260907-3",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "750d2a819dc0093fef156ec7664555225ef2ab527b2b5c477832859034aea589"
+        },
+        {
+          "id": "retained-cross-20260907-6",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "25f89d2b66a3c7cba5c35145cefaa828a445b6dccf6f55f0bb73f01932e3a9e4"
+        },
+        {
+          "id": "industrial-cost-responsibility-20260909-1",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "1c7ea96deb80f4e7c1c7d3b76cecf79a22f690a5c241230e3188bd5787870330"
+        },
+        {
+          "id": "ifr-industrial-originals-20260912-1",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "f4886dbb51051a51cba727226c04a0373213b1f97987338862f8d6bf13e01b77"
+        },
+        {
+          "id": "symbotic-a3-industrial-originals-20260913-1",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "46eb8ae18d6f630cd556e387a5a7519cb841e378274b9528627caf51eb17378b"
+        },
+        {
+          "id": "amazon-industrial-originals-20260913-1",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "499dd7bc6734ff5e01ac914b97242a49689345824b9ec9e93d3243ab2a99b97a"
+        },
+        {
+          "id": "amazon-industrial-tooltip-placement-20260913",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "18f396ad337f224e3eb055525e10eb03dc529c7e05201045de408bfc8b4f6292"
+        },
+        {
+          "id": "industrial-engineering-originals-20260913-1",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "0dd12f5fa30be2bd301761106404bce26e2ec66d6ad49269ac364ed3312d336d"
+        },
+        {
+          "id": "industrial-engineering-originals-20260913-4",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "aed44cd347de1f632a70f66416d400ff9d8b35097d2fd54ab78e1f2f8d7089f8"
+        },
+        {
+          "id": "osha-industrial-modes-38-20260915-1",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "aed44cd347de1f632a70f66416d400ff9d8b35097d2fd54ab78e1f2f8d7089f8"
+        },
+        {
+          "id": "seo-20260824-prose-349c6badf01f",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "349c6badf01fc723272a19107d627800666788f0699e068e0699ddde8ff1fbb0"
+        },
+        {
+          "id": "seo-merge-20260916-prose-9",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "d3c361e063873351e4a90bd1372d09076bd3792149cb3c9e583a7dcc7d2c9b45"
+        },
+        {
+          "id": "as0917a-industrial-ocado-scope",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "6063818cca0a9e5d84fddddd801ca6a098309f9a1b3baa6fe41cff7f735f743d"
+        },
+        {
+          "id": "mit-industrial-43-prose-20260921",
+          "oldHash": "6063818cca0a9e5d84fddddd801ca6a098309f9a1b3baa6fe41cff7f735f743d",
+          "newHash": "125ef32b92ffe8c9444379f6fc3a00caeaad89e7330c836081d91b33deec33ba"
+        },
+        {
+          "id": "continuation-merge-20260922-prose-data-hardware-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "04577b7063dd224b8a7d0ed35fa2527b17870f253c029f55f54c794e72789a49"
+        },
+        {
+          "id": "industrial-perception-zero-credit-20260922-1",
+          "oldHash": "125ef32b92ffe8c9444379f6fc3a00caeaad89e7330c836081d91b33deec33ba",
+          "newHash": "e4d07fe8707f63020473fae7a08d9796f65c26f4b1e2dee0be167486f13ad048"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-prose-article-data-hardware-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "76eee12ee99d7fedbc725d7be11966f66df5d2633e96e496011aec9b925dc909"
+        },
+        {
+          "id": "economics-local-20260923-1",
+          "oldHash": "e4d07fe8707f63020473fae7a08d9796f65c26f4b1e2dee0be167486f13ad048",
+          "newHash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1430-prose-article-data-hardware-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "b380f81feab53d71f7f5bdbd369266d90da609c486d0e225282b6ba28bb11de9"
+        },
+        {
+          "id": "industrial-closure-20260923-6",
+          "oldHash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422",
+          "newHash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1940-prose-article-data-hardware-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "1aea5cd4a2064ec784e74a5a804c5338a4c57154b6a95ee7787141fc63172afc"
+        },
+        {
+          "id": "citation-closeout-20260924-kroger-temporal-prose",
+          "oldHash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c",
+          "newHash": "f502a1a2d97d58701321a793dc285deb1e340725c3575155d7c0f38789503528"
+        },
+        {
+          "id": "main-merge-20260924-industrial-prose",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "4448010ee139b50e98f5967aa77eebcb5d842ff39a9dc1d16287a70a359b052c"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-tech-withdrawal-prose-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "d8f091fdc26d87b8de37a8736324f0e715ad60759a23271c0ce7168661c6360a"
+        }
+      ]
+    },
+    {
+      "id": "educational-cue-20260926-prose-vla-models",
+      "manifest": "prose",
+      "memberId": "article:manipulation/vla-models",
+      "oldHash": "18bfc062356bf3bde25c157d462f2d40e8d43afe92fb512c614210ac72ef46d6",
+      "newHash": "810c8995941937de82547872d6ea50592e3a856c8428b14d80d588d0043c0053",
+      "reason": "VAL-EDU-045 clause (d) operating cue on manipulation/vla-models: one sentence added to the paragraph adjacent to the first interactive, naming the control-step scrubber as rendered inside that interactive with a second-person instruction verb. The sentence states only behaviour the adjacent disclosure already documents. No claim, number, citation, option text or mount default changes.",
+      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md VAL-EDU-045 clause (d) requires an operating cue within the two paragraphs adjacent to the first interactive that names a rendered control of that interactive, and a generic reference does not satisfy it; the brand-v2-interactives feature brand-v2-educational-disclosures-self-checks-and-feedback was dispatched to close exactly this clause under the AGENTS.md brand-v2 operating authority. Fact-preserving educational-affordance repair, not new factual claims.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-EDU-045"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "educational-cue-20260926-prose-generalist-policies",
+      "manifest": "prose",
+      "memberId": "article:manipulation/generalist-policies",
+      "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+      "newHash": "e8ad571aa51f67edebeef1383eb79df06f749ca8199c51693e2f3a567e6d41df",
+      "reason": "VAL-EDU-045 clause (d) operating cue on manipulation/generalist-policies: one sentence added to the paragraph adjacent to the first interactive, naming the Downloadable filter as rendered inside that interactive with a second-person instruction verb. The sentence states only behaviour the adjacent disclosure already documents. No claim, number, citation, option text or mount default changes.",
+      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md VAL-EDU-045 clause (d) requires an operating cue within the two paragraphs adjacent to the first interactive that names a rendered control of that interactive, and a generic reference does not satisfy it; the brand-v2-interactives feature brand-v2-educational-disclosures-self-checks-and-feedback was dispatched to close exactly this clause under the AGENTS.md brand-v2 operating authority. Fact-preserving educational-affordance repair, not new factual claims.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-EDU-045"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "oft-gemini-oxe-20260908-3",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "b0d9127ac3bef7bed9b28c8f87905c443ff2f58a2daf92f1892b8895b59d0e3b"
+        },
+        {
+          "id": "go-helix-cross-transfer-20260908-5",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "68840092b1fedab94737f684e08a280476ed11a1f7103453aa0766cc7bfb761f"
+        },
+        {
+          "id": "vla-generalist-closeouts-20260908-2",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "94cc9a639c8e66f97c327f9ff916f40f6bfc558a2177a6f8a9f42cdeed08bf8e"
+        },
+        {
+          "id": "generalist-attribution-p1-20260922-1",
+          "oldHash": "94cc9a639c8e66f97c327f9ff916f40f6bfc558a2177a6f8a9f42cdeed08bf8e",
+          "newHash": "a38e7023403782407cace0c918dc1f149234149748e62e9c57fe9d03d3166951"
+        },
+        {
+          "id": "continuation-merge-20260922-prose-manipulation-generalist-policies",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "a38e7023403782407cace0c918dc1f149234149748e62e9c57fe9d03d3166951"
+        },
+        {
+          "id": "four-local-truth-repairs-20260922-1",
+          "oldHash": "a38e7023403782407cace0c918dc1f149234149748e62e9c57fe9d03d3166951",
+          "newHash": "bd4a5abdc213e0ef0102c1a3427a1eb6ad49db0f784dfdbe582d70ee0f1a1df4"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-prose-article-manipulation-generalist-policies",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "bd4a5abdc213e0ef0102c1a3427a1eb6ad49db0f784dfdbe582d70ee0f1a1df4"
+        },
+        {
+          "id": "crossdomain-closure-20260923-1",
+          "oldHash": "bd4a5abdc213e0ef0102c1a3427a1eb6ad49db0f784dfdbe582d70ee0f1a1df4",
+          "newHash": "6309e206061df1481bc9e606d5a83a26b866859b4889a2cb7f08d8772b0f0646"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0140-prose-article-manipulation-generalist-policies",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "6309e206061df1481bc9e606d5a83a26b866859b4889a2cb7f08d8772b0f0646"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-manipulation-generalist-policies",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "6309e206061df1481bc9e606d5a83a26b866859b4889a2cb7f08d8772b0f0646"
+        },
+        {
+          "id": "humanizer-manipulation-v3-20260925-prose-generalist-policies",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "7c0fd3cef651f4e97cf6b32181db26d53bec8eeda1433d63db6d1d0060aebcbe"
+        }
+      ]
+    },
+    {
+      "id": "educational-cue-20260926-prose-comparison-matrix",
+      "manifest": "prose",
+      "memberId": "article:manipulation/comparison-matrix",
+      "oldHash": "0d16e24e51e27fde3c5399f093dc2a24436e0724c1cc417e4191adad709d2073",
+      "newHash": "5f7f8811411609ff6308115022674498140683ba4bbdabe2914b9e12a924d44a",
+      "reason": "VAL-EDU-045 clause (d) operating cue on manipulation/comparison-matrix: one sentence added to the paragraph adjacent to the first interactive, naming the Downloadable weights filter as rendered inside that interactive with a second-person instruction verb. The sentence states only behaviour the adjacent disclosure already documents. No claim, number, citation, option text or mount default changes.",
+      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md VAL-EDU-045 clause (d) requires an operating cue within the two paragraphs adjacent to the first interactive that names a rendered control of that interactive, and a generic reference does not satisfy it; the brand-v2-interactives feature brand-v2-educational-disclosures-self-checks-and-feedback was dispatched to close exactly this clause under the AGENTS.md brand-v2 operating authority. Fact-preserving educational-affordance repair, not new factual claims.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-EDU-045"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "educational-cue-20260926-prose-hierarchical",
+      "manifest": "prose",
+      "memberId": "article:manipulation/hierarchical",
+      "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+      "newHash": "9646ce943ff9e1a1ae4efe3f190bf6ae43f26debd0f654048cf1e5981b8ac97c",
+      "reason": "VAL-EDU-045 clause (d) operating cue on manipulation/hierarchical: one sentence added to the paragraph adjacent to the first interactive, naming the playhead as rendered inside that interactive with a second-person instruction verb. The sentence states only behaviour the adjacent disclosure already documents. No claim, number, citation, option text or mount default changes.",
+      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md VAL-EDU-045 clause (d) requires an operating cue within the two paragraphs adjacent to the first interactive that names a rendered control of that interactive, and a generic reference does not satisfy it; the brand-v2-interactives feature brand-v2-educational-disclosures-self-checks-and-feedback was dispatched to close exactly this clause under the AGENTS.md brand-v2 operating authority. Fact-preserving educational-affordance repair, not new factual claims.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-EDU-045"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "oft-gemini-oxe-20260908-4",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "e61d22c100e301219e0ad92bda2456f5c899cc6077d308a8206a37650ed9b9f3"
+        },
+        {
+          "id": "go-helix-cross-transfer-20260908-6",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "f4d1b9e437d94d44d254a03d431af63d12c388f4514e15cba00a1f07f86a791e"
+        },
+        {
+          "id": "vla-generalist-closeouts-20260908-3",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "6653d1cddb175e5405614b0877b7847f059164ea06eb3205d17feeeafe271d4b"
+        },
+        {
+          "id": "keypoint-hierarchy-20260913-2",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "1ad8d672a630982ea64b781bcc37605f6ed105e32519b81dd2fc518fbcec95a6"
+        },
+        {
+          "id": "saycan-cap-two-20260914-1",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "c438f16829f3bc8ac358c6d6a1001e08c5fa13cda6bad5b6713e89e7af192142"
+        },
+        {
+          "id": "hierarchical-ecot-hirobot-20260914-1",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "0099fefeabfd63e0069bd671ffe7caee84c6c0398f90d8004a695cf4f9a61223"
+        },
+        {
+          "id": "hierarchy14-box-web-correction-20260921",
+          "oldHash": "0099fefeabfd63e0069bd671ffe7caee84c6c0398f90d8004a695cf4f9a61223",
+          "newHash": "e0892dbb5fefa56957931bae74c3cd2c60640f122f8587e2365db852af2680a7"
+        },
+        {
+          "id": "hierarchy15-bounded-synthesis-correction-20260921",
+          "oldHash": "e0892dbb5fefa56957931bae74c3cd2c60640f122f8587e2365db852af2680a7",
+          "newHash": "50b49ee3f2e6b130c24367d5ed71b34bb07f2965e7a8154e9a59783ef14fc00c"
+        },
+        {
+          "id": "continuation-merge-20260922-prose-manipulation-hierarchical",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "50b49ee3f2e6b130c24367d5ed71b34bb07f2965e7a8154e9a59783ef14fc00c"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-manipulation-hierarchical",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "50b49ee3f2e6b130c24367d5ed71b34bb07f2965e7a8154e9a59783ef14fc00c"
+        },
+        {
+          "id": "humanizer-manipulation-v3-20260925-prose-hierarchical",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "73bde0c3426f143ca86c66b27d5422609412bc50fae05d31e227a6c60a2a295b"
+        }
+      ]
+    },
+    {
+      "id": "educational-cue-20260926-prose-realtime-execution",
+      "manifest": "prose",
+      "memberId": "article:manipulation/realtime-execution",
+      "oldHash": "d556c81a7f716cd839330337a18d640739e033c5004e576787379c95c478abfd",
+      "newHash": "241fbcd0e0966f7c2481e1c1a519e9e0a2d953d6b87b79fdfb61d64c257a01d7",
+      "reason": "VAL-EDU-045 clause (d) operating cue on manipulation/realtime-execution: one sentence added to the paragraph adjacent to the first interactive, naming the model-size control as rendered inside that interactive with a second-person instruction verb. The sentence states only behaviour the adjacent disclosure already documents. No claim, number, citation, option text or mount default changes.",
+      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md VAL-EDU-045 clause (d) requires an operating cue within the two paragraphs adjacent to the first interactive that names a rendered control of that interactive, and a generic reference does not satisfy it; the brand-v2-interactives feature brand-v2-educational-disclosures-self-checks-and-feedback was dispatched to close exactly this clause under the AGENTS.md brand-v2 operating authority. Fact-preserving educational-affordance repair, not new factual claims.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-EDU-045"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "educational-cue-20260926-prose-cross-embodiment",
+      "manifest": "prose",
+      "memberId": "article:manipulation/cross-embodiment",
+      "oldHash": "f1a517054daac12f2ab03dde79cd2eeb043c1398c78bf620ddd0773f44b64582",
+      "newHash": "6573411d39867fa0bea99e5743f2860dde3fd7b5c3955af78582434c71fb224b",
+      "reason": "VAL-EDU-045 clause (d) operating cue on manipulation/cross-embodiment: one sentence added to the paragraph adjacent to the first interactive, naming the account selector as rendered inside that interactive with a second-person instruction verb. The sentence states only behaviour the adjacent disclosure already documents. No claim, number, citation, option text or mount default changes.",
+      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md VAL-EDU-045 clause (d) requires an operating cue within the two paragraphs adjacent to the first interactive that names a rendered control of that interactive, and a generic reference does not satisfy it; the brand-v2-interactives feature brand-v2-educational-disclosures-self-checks-and-feedback was dispatched to close exactly this clause under the AGENTS.md brand-v2 operating authority. Fact-preserving educational-affordance repair, not new factual claims.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-EDU-045"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "educational-cue-20260926-prose-taxonomy",
+      "manifest": "prose",
+      "memberId": "article:world-models/taxonomy",
+      "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+      "newHash": "c78b87466402372401201a726c3816a29879d6836ce4611949ead0921942e9ce",
+      "reason": "VAL-EDU-045 clause (d) operating cue on world-models/taxonomy: one sentence added to the paragraph adjacent to the first interactive, naming the paradigm selectors as rendered inside that interactive with a second-person instruction verb. The sentence states only behaviour the adjacent disclosure already documents. No claim, number, citation, option text or mount default changes.",
+      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md VAL-EDU-045 clause (d) requires an operating cue within the two paragraphs adjacent to the first interactive that names a rendered control of that interactive, and a generic reference does not satisfy it; the brand-v2-interactives feature brand-v2-educational-disclosures-self-checks-and-feedback was dispatched to close exactly this clause under the AGENTS.md brand-v2 operating authority. Fact-preserving educational-affordance repair, not new factual claims.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-EDU-045"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "insulation-fast-dreamer-20260907-4",
+          "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+          "newHash": "5d492c5d698299d92d3f511337411061d7becc1db61b8a09977e2d6fc027b049"
+        },
+        {
+          "id": "cross-article-closeouts-20260907-6",
+          "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+          "newHash": "8953f81082953a60956823f2e575e2a969716392038283041694caa1923f500d"
+        },
+        {
+          "id": "performance-worldmodels-20260908-5",
+          "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+          "newHash": "7f7fa05f992d3494afdba01a44809ccba0fe5e4c19500ed92cd5488d1f9cbdad"
+        },
+        {
+          "id": "jepa-source-closeouts-20260908-2",
+          "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+          "newHash": "a54fc46365387b7d831245c3c6af228446888e8bb82a9475f127784f45f44846"
+        },
+        {
+          "id": "world-model-video-continuation-20260908-3",
+          "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+          "newHash": "eb8ef715b160f90b5e6d9d3a62e87d7f614b4f3b93ba5988a3428ec292d9e900"
+        },
+        {
+          "id": "cosmos-reader-closeout-20260908-4",
+          "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+          "newHash": "b9e56d87059af3096551cae3e9d7e35ed5613122cdb8d27030a632f16b5c9aa1"
+        },
+        {
+          "id": "seo-20260824-prose-b05c76b2eb63",
+          "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+          "newHash": "b05c76b2eb63e7aa854647c74afd9fdd661f52891d2ca11717ef8f88e2d63fff"
+        },
+        {
+          "id": "taxonomy-r16-20260916-1",
+          "oldHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4",
+          "newHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4"
+        },
+        {
+          "id": "taxonomy-r17-20260916-1",
+          "oldHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4",
+          "newHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4"
+        },
+        {
+          "id": "taxonomy-r18-20260916-1",
+          "oldHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4",
+          "newHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4"
+        },
+        {
+          "id": "taxonomy-r19-20260916-1",
+          "oldHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4",
+          "newHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4"
+        },
+        {
+          "id": "taxonomy-r20-20260916-1",
+          "oldHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4",
+          "newHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4"
+        },
+        {
+          "id": "seo-merge-20260916-prose-33",
+          "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+          "newHash": "ece9a1706b66aeabd122d24e620474492ca03380cbeb28276558e676c6d118c5"
+        },
+        {
+          "id": "reader-dreamer-20260923-2",
+          "oldHash": "b9e56d87059af3096551cae3e9d7e35ed5613122cdb8d27030a632f16b5c9aa1",
+          "newHash": "825fb643cabbcf9de518c95ce1b7d389f4bb045ed1476f2d6c07458387a48c93"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1745-prose-article-world-models-taxonomy",
+          "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+          "newHash": "f944741c05733a0467b2af206480087f0874db92d5fb4ecf73d26c943e11f73c"
+        },
+        {
+          "id": "crossdomain-closure-20260923-2",
+          "oldHash": "825fb643cabbcf9de518c95ce1b7d389f4bb045ed1476f2d6c07458387a48c93",
+          "newHash": "89318d0a8e693a76d79b9c1833b04d7ad1b3509256f5e12b7180d70dbe96c795"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0140-prose-article-world-models-taxonomy",
+          "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+          "newHash": "e5515962013124141d8072a26618eba7e0e00852fefd93bb00f01846e47be6a2"
+        }
+      ]
+    },
+    {
+      "id": "educational-cue-20260926-prose-jepa",
+      "manifest": "prose",
+      "memberId": "article:world-models/jepa",
+      "oldHash": "4529892f834ca8ca6bdb91f49e6225455638a6d579c877d6c73eaff57ec0dcac",
+      "newHash": "5889038a47a16772ec040af0a6876663dd276bcefa6d53318df95b966aa93de0",
+      "reason": "VAL-EDU-045 clause (d) operating cue on world-models/jepa: one sentence added to the paragraph adjacent to the first interactive, naming the search-budget control as rendered inside that interactive with a second-person instruction verb. The sentence states only behaviour the adjacent disclosure already documents. No claim, number, citation, option text or mount default changes.",
+      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md VAL-EDU-045 clause (d) requires an operating cue within the two paragraphs adjacent to the first interactive that names a rendered control of that interactive, and a generic reference does not satisfy it; the brand-v2-interactives feature brand-v2-educational-disclosures-self-checks-and-feedback was dispatched to close exactly this clause under the AGENTS.md brand-v2 operating authority. Fact-preserving educational-affordance repair, not new factual claims.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-EDU-045"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "educational-cue-20260926-prose-teleop-rigs",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/teleop-rigs",
+      "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+      "newHash": "dc7c65001342ac5decfa2db1607e03a15111d92b706aa43f999e7c29ee15ab21",
+      "reason": "VAL-EDU-045 clause (d) operating cue on data-hardware/teleop-rigs: one sentence added to the paragraph adjacent to the first interactive, naming the Cost highlight button as rendered inside that interactive with a second-person instruction verb. The sentence states only behaviour the adjacent disclosure already documents. No claim, number, citation, option text or mount default changes.",
+      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md VAL-EDU-045 clause (d) requires an operating cue within the two paragraphs adjacent to the first interactive that names a rendered control of that interactive, and a generic reference does not satisfy it; the brand-v2-interactives feature brand-v2-educational-disclosures-self-checks-and-feedback was dispatched to close exactly this clause under the AGENTS.md brand-v2 operating authority. Fact-preserving educational-affordance repair, not new factual claims.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-EDU-045"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "pricing-provenance-20260907-2",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "c7f5ed81362bb02abcd2374d81b8e26a2019a091a19ba65ef68e13675338bc3c"
+        },
+        {
+          "id": "pricing-provenance-20260907-7",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "9eb059ec3ac376ca34210418538187aa2e29e50773116da0d55a59a47cba8caa"
+        },
+        {
+          "id": "pricing-provenance-20260907-8",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c"
+        },
+        {
+          "id": "tr-r1-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r2-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r3-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r5-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r6-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r7-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r8-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r9-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r10-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r11-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r12-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r13-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "seo-merge-20260916-prose-11",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "round5-closeout-teleop-rigs-prose",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-data-hardware-teleop-rigs",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        }
+      ]
+    },
+    {
+      "id": "educational-cue-20260926-prose-motion-planning",
+      "manifest": "prose",
+      "memberId": "article:classical/motion-planning",
+      "oldHash": "8a140d4967a3099abeaddc6f89bc68bd769a37a71722d4ee537090039448bf36",
+      "newHash": "74f2f05613777dc5794719ccb8f5243d292a3197684bf17282256033f6306bc0",
+      "reason": "VAL-EDU-045 clause (d) operating cue on classical/motion-planning: one sentence added to the paragraph adjacent to the first interactive, naming the exploration-iteration slider as rendered inside that interactive with a second-person instruction verb. The sentence states only behaviour the adjacent disclosure already documents. No claim, number, citation, option text or mount default changes.",
+      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md VAL-EDU-045 clause (d) requires an operating cue within the two paragraphs adjacent to the first interactive that names a rendered control of that interactive, and a generic reference does not satisfy it; the brand-v2-interactives feature brand-v2-educational-disclosures-self-checks-and-feedback was dispatched to close exactly this clause under the AGENTS.md brand-v2 operating authority. Fact-preserving educational-affordance repair, not new factual claims.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-EDU-045"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "educational-cue-20260926-prose-perception",
+      "manifest": "prose",
+      "memberId": "article:classical/perception",
+      "oldHash": "46728743f178eced9dbab78fbc6fa9c90829a75aa8a7ea4b3284ab78cc802ff0",
+      "newHash": "dbe83bfa480fc7417d48b26d870aefbbcfb58d1b21736ff09cd5603a405801ce",
+      "reason": "VAL-EDU-045 clause (d) operating cue on classical/perception: one sentence added to the paragraph adjacent to the first interactive, naming the working-distance control as rendered inside that interactive with a second-person instruction verb. The sentence states only behaviour the adjacent disclosure already documents. No claim, number, citation, option text or mount default changes.",
+      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md VAL-EDU-045 clause (d) requires an operating cue within the two paragraphs adjacent to the first interactive that names a rendered control of that interactive, and a generic reference does not satisfy it; the brand-v2-interactives feature brand-v2-educational-disclosures-self-checks-and-feedback was dispatched to close exactly this clause under the AGENTS.md brand-v2 operating authority. Fact-preserving educational-affordance repair, not new factual claims.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-EDU-045"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

@@ -27,7 +27,7 @@ import { JepaPlanning } from '@/components/interactive/jepa-planning';
 
 The fourth paradigm in the [taxonomy](/world-models/taxonomy) rejects the premise of the previous one. Instead of predicting future pixels, predict the *representation* of the future: train an encoder and a predictor jointly so that the predictor, given the current embedding and an action, matches the embedding a target encoder produces on the true future. The core representation and action-conditioned predictor objectives do not reconstruct pixels, and control planning compares feature maps. V-JEPA 2 separately trains an interpretability decoder in its appendix <Cite id="vjepa2-2025" />. This is the Joint-Embedding Predictive Architecture, JEPA, and it is the principal architectural alternative to generative <Term id="world-model">world models</Term>. It is also a position with an institution behind it: Yann LeCun's AMI Labs.
 
-The interactive below illustrates goal-directed replanning with a deterministic teaching model. Raising the search budget changes a prescribed candidate fan and improves alignment by construction. Its synthetic coordinates and distance trace are not learned robot embeddings or measured planning performance.
+The interactive below illustrates goal-directed replanning with a deterministic teaching model. Raising the search budget changes a prescribed candidate fan and improves alignment by construction. Its synthetic coordinates and distance trace are not learned robot embeddings or measured planning performance. Move the search budget and the prescribed candidate fan follows it.
 
 <JepaPlanning className="my-6" />
 

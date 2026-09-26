@@ -20,16 +20,16 @@
     {
       "file": {
         "path": "content/manipulation/generalist-policies.mdx",
-        "bytes": 17465,
-        "sha256": "85557fec14f8404891350edfd783b519d418ac94ce3ca90c83f4fe28b2c17f13"
+        "bytes": 17562,
+        "sha256": "3261530d017d1f7ace181107fb2004bbf8322ae7e013aa36a1a1430875322d7f"
       },
       "id": "article:manipulation/generalist-policies",
       "offset": 0,
-      "length": 17465,
-      "sha256": "85557fec14f8404891350edfd783b519d418ac94ce3ca90c83f4fe28b2c17f13",
+      "length": 17562,
+      "sha256": "3261530d017d1f7ace181107fb2004bbf8322ae7e013aa36a1a1430875322d7f",
       "baseline": {
         "kind": "prose",
-        "hash": "7c0fd3cef651f4e97cf6b32181db26d53bec8eeda1433d63db6d1d0060aebcbe"
+        "hash": "e8ad571aa51f67edebeef1383eb79df06f749ca8199c51693e2f3a567e6d41df"
       }
     },
     {

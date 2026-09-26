@@ -35,6 +35,9 @@ const currentHash = '50b49ee3f2e6b130c24367d5ed71b34bb07f2965e7a8154e9a59783ef14
 // the not-X disclaimers and paper-version locators; its endpoint is the
 // humanizer-manipulation-v3-20260925 re-anchor in the approved-deltas ledger.
 const passHash = '73bde0c3426f143ca86c66b27d5422609412bc50fae05d31e227a6c60a2a295b';
+// The educational cue pass (2026-09-26) then appended the first-screen
+// operating cue sentence; its re-anchor endpoint is the current article.
+const cueHash = '9646ce943ff9e1a1ae4efe3f190bf6ae43f26debd0f654048cf1e5981b8ac97c';
 const synthesisDeltaId = 'hierarchy15-bounded-synthesis-correction-20260921';
 // Exact separately approved row15 endpoints; rollback is in-memory only.
 const synthesisCorrections = [
@@ -84,7 +87,7 @@ describe('hierarchy original 14 source-backed correction', () => {
   it('changes exactly the authorized prose member and keeps the same citation', () => {
     expect(article.split(newSpan)).toHaveLength(2);
     expect(article).not.toContain(oldSpan);
-    expect(prose(article).members[0].hash).toBe(passHash);
+    expect(prose(article).members[0].hash).toBe(cueHash);
     for (const correction of synthesisCorrections) {
       expect(article.split(correction.newSpan)).toHaveLength(2);
       expect(article).not.toContain(correction.oldSpan);
@@ -186,14 +189,21 @@ describe('hierarchy original 14 source-backed correction', () => {
     expect(compareBaseline(after, after15, synthesis)).toMatchObject({
       ok: true, failures: [], approvedDifferences: [synthesisDeltaId],
     });
-    // The humanizer pass carries after15 to the current article; its ledger
-    // entry is a sealed re-anchor, so bind the local step through the exact
-    // endpoint hashes here.
+    // The humanizer pass carries after15 to the humanizer endpoint; the
+    // educational cue pass then appends the operating cue sentence. Both
+    // ledger entries are sealed re-anchors, so bind the local steps through
+    // the exact endpoint hashes here.
     const pass = approvals.filter(d => d.id === 'humanizer-manipulation-v3-20260925-prose-hierarchical');
     expect(pass).toHaveLength(1);
     expect(pass[0].newHash).toBe(passHash);
-    expect(compareBaseline(after15, bundle(article), [{ ...pass[0], oldHash: currentHash, reconciles: undefined }])).toMatchObject({
-      ok: true, failures: [], approvedDifferences: [pass[0].id],
+    const cue = approvals.filter(d => d.id === 'educational-cue-20260926-prose-hierarchical');
+    expect(cue).toHaveLength(1);
+    expect(cue[0].newHash).toBe(cueHash);
+    expect(compareBaseline(after15, bundle(article), [
+      { ...pass[0], oldHash: currentHash, reconciles: undefined },
+      { ...cue[0], oldHash: passHash, reconciles: undefined },
+    ])).toMatchObject({
+      ok: true, failures: [], approvedDifferences: [cue[0].id, pass[0].id],
     });
     expect(compareBaseline(after15, bundle(article + '\nUnapproved extra assertion.'), synthesis).ok).toBe(false);
   });

@@ -24,7 +24,7 @@ import { ExecutionModes } from '@/components/interactive/execution-modes';
 
 A policy that needs 60 ms per inference cannot finish a new inference within every 20 ms tick of a 50 Hz controller. Chunked execution can still provide commands at 50 Hz. The control period at 50 Hz is 20 ms, and every component in the loop, cameras, network, preprocessing, model, spends from that budget. The earlier modules treated <Term id="action-chunking">action chunking</Term> as an algorithmic choice; this module is about what happens when the algorithm meets the clock. Real-time execution turns out to be a first-class architectural problem. The way a policy hands off from one chunk to the next while inference is still running changes what the robot physically does, and the naive ways to do it fail in documented, measurable ways <Cite id="real-time-chunking-2025" />.
 
-The teaching model below compares one synchronous inference with a 20 ms tick. Its slider uses illustrative scaling and a deliberately chosen 3.0B reference coordinate; it is not a hardware profiler or a proof that a chunked 50 Hz robot controller cannot run.
+The teaching model below compares one synchronous inference with a 20 ms tick. Its slider uses illustrative scaling and a deliberately chosen 3.0B reference coordinate; it is not a hardware profiler or a proof that a chunked 50 Hz robot controller cannot run. Slide the model-size control and the missed-deadline count follows the new inference time.
 
 <ControlLoopBudget className="my-6" />
 
@@ -66,7 +66,9 @@ Server placement also depends on the modeled network <Cite id="vla-perf-2026" />
     {
       value: 'one-b',
       label: 'About 1B toy parameters',
-      why: 'The teaching rule gives 52.57 × 1.1 / 3 = 19.3 ms at the 1.1B slider setting. This is arithmetic in the toy model; no measured hardware-size limit sits behind it.'
+      why: 'The teaching rule gives 52.57 × 1.1 / 3 = 19.3 ms at the 1.1B slider setting. This is arithmetic in the toy model; no measured hardware-size limit sits behind it.',
+      anchorHref: '#the-hardware-wall',
+      anchorLabel: 'the teaching curve',
     },
     {
       value: 'nine-b',

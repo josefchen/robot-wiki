@@ -12,7 +12,7 @@
     "minutes": 9
   },
   "manipulation/vla-models": {
-    "words": 2358,
+    "words": 2374,
     "minutes": 12
   },
   "manipulation/pi-line": {
@@ -20,15 +20,15 @@
     "minutes": 16
   },
   "manipulation/generalist-policies": {
-    "words": 2566,
+    "words": 2582,
     "minutes": 13
   },
   "manipulation/comparison-matrix": {
-    "words": 3310,
+    "words": 3326,
     "minutes": 17
   },
   "manipulation/hierarchical": {
-    "words": 2195,
+    "words": 2207,
     "minutes": 11
   },
   "manipulation/rl-finetuning": {
@@ -36,11 +36,11 @@
     "minutes": 25
   },
   "manipulation/realtime-execution": {
-    "words": 2426,
+    "words": 2439,
     "minutes": 12
   },
   "manipulation/cross-embodiment": {
-    "words": 1712,
+    "words": 1727,
     "minutes": 9
   },
   "manipulation/knowledge-insulation": {
@@ -92,7 +92,7 @@
     "minutes": 8
   },
   "world-models/taxonomy": {
-    "words": 2129,
+    "words": 2149,
     "minutes": 11
   },
   "world-models/latent-dynamics": {
@@ -104,7 +104,7 @@
     "minutes": 11
   },
   "world-models/jepa": {
-    "words": 1843,
+    "words": 1854,
     "minutes": 9
   },
   "world-models/generative-sim": {
@@ -124,7 +124,7 @@
     "minutes": 11
   },
   "data-hardware/data-bottleneck": {
-    "words": 1746,
+    "words": 1768,
     "minutes": 9
   },
   "data-hardware/datasets": {
@@ -136,7 +136,7 @@
     "minutes": 18
   },
   "data-hardware/teleop-rigs": {
-    "words": 1729,
+    "words": 1741,
     "minutes": 9
   },
   "data-hardware/evaluation-crisis": {
@@ -144,7 +144,7 @@
     "minutes": 10
   },
   "data-hardware/industrial-deployment": {
-    "words": 2727,
+    "words": 2742,
     "minutes": 14
   },
   "data-hardware/robot-learning-stack": {
@@ -156,7 +156,7 @@
     "minutes": 11
   },
   "classical/motion-planning": {
-    "words": 3926,
+    "words": 3937,
     "minutes": 20
   },
   "classical/control": {
@@ -172,7 +172,7 @@
     "minutes": 12
   },
   "classical/perception": {
-    "words": 5508,
+    "words": 5522,
     "minutes": 28
   },
   "classical/scene-representation": {

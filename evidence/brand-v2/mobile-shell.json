@@ -2036,7 +2036,7 @@
     },
     {
       "route": "/classical/motion-planning/",
-      "visibleTextLength": 27625,
+      "visibleTextLength": 27709,
       "header": {
         "present": true,
         "display": "flex",
@@ -2199,7 +2199,7 @@
     },
     {
       "route": "/classical/perception/",
-      "visibleTextLength": 42403,
+      "visibleTextLength": 42492,
       "header": {
         "present": true,
         "display": "flex",
@@ -3177,7 +3177,7 @@
     },
     {
       "route": "/data-hardware/data-bottleneck/",
-      "visibleTextLength": 15305,
+      "visibleTextLength": 15434,
       "header": {
         "present": true,
         "display": "flex",
@@ -3829,7 +3829,7 @@
     },
     {
       "route": "/data-hardware/industrial-deployment/",
-      "visibleTextLength": 23613,
+      "visibleTextLength": 23707,
       "header": {
         "present": true,
         "display": "flex",
@@ -4155,7 +4155,7 @@
     },
     {
       "route": "/data-hardware/teleop-rigs/",
-      "visibleTextLength": 14666,
+      "visibleTextLength": 14736,
       "header": {
         "present": true,
         "display": "flex",
@@ -6429,7 +6429,7 @@
     },
     {
       "route": "/manipulation/comparison-matrix/",
-      "visibleTextLength": 28671,
+      "visibleTextLength": 28772,
       "header": {
         "present": true,
         "display": "flex",
@@ -6592,7 +6592,7 @@
     },
     {
       "route": "/manipulation/cross-embodiment/",
-      "visibleTextLength": 15342,
+      "visibleTextLength": 15429,
       "header": {
         "present": true,
         "display": "flex",
@@ -7081,7 +7081,7 @@
     },
     {
       "route": "/manipulation/generalist-policies/",
-      "visibleTextLength": 21818,
+      "visibleTextLength": 21915,
       "header": {
         "present": true,
         "display": "flex",
@@ -7244,7 +7244,7 @@
     },
     {
       "route": "/manipulation/hierarchical/",
-      "visibleTextLength": 19232,
+      "visibleTextLength": 19305,
       "header": {
         "present": true,
         "display": "flex",
@@ -7733,7 +7733,7 @@
     },
     {
       "route": "/manipulation/realtime-execution/",
-      "visibleTextLength": 17255,
+      "visibleTextLength": 17346,
       "header": {
         "present": true,
         "display": "flex",
@@ -8222,7 +8222,7 @@
     },
     {
       "route": "/manipulation/vla-models/",
-      "visibleTextLength": 19903,
+      "visibleTextLength": 19997,
       "header": {
         "present": true,
         "display": "flex",
@@ -11140,7 +11140,7 @@
     },
     {
       "route": "/world-models/jepa/",
-      "visibleTextLength": 16190,
+      "visibleTextLength": 16258,
       "header": {
         "present": true,
         "display": "flex",
@@ -11629,7 +11629,7 @@
     },
     {
       "route": "/world-models/taxonomy/",
-      "visibleTextLength": 19366,
+      "visibleTextLength": 19481,
       "header": {
         "present": true,
         "display": "flex",

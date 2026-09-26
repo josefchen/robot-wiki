@@ -260,8 +260,8 @@
       },
       "current": {
         "path": "content/classical/motion-planning.mdx",
-        "bytes": 24518,
-        "sha256": "9b27aeb6c7abf475c7050bad199b7f5f41cf3013c2eeda7d3575354f0b41bdfe"
+        "bytes": 24602,
+        "sha256": "42ad166e0fd577257f6f109b03ed518c8bd2c1a2847b4e7efb97fda4836fd1d8"
       },
       "snapshot": {
         "path": "audit/evidence/residual-release-20260924/content--classical--motion-planning.mdx.txt",
@@ -281,8 +281,8 @@
       },
       "current": {
         "path": "content/classical/perception.mdx",
-        "bytes": 35934,
-        "sha256": "a78229b59f433a43912821f7d18eab400cafcf0356000dbcd6a09d37d0f9f55b"
+        "bytes": 36023,
+        "sha256": "35fe776aec8b284280cdc6a64821dc0e5cd76b456320538f96cb7f29f73ad55f"
       },
       "snapshot": {
         "path": "audit/evidence/residual-release-20260924/content--classical--perception.mdx.txt",
@@ -304,8 +304,8 @@
       },
       "current": {
         "path": "content/world-models/taxonomy.mdx",
-        "bytes": 14756,
-        "sha256": "8c93a0ed162fe063370288a0088b72145accd657dcc0a37b9de8db0e613e126b"
+        "bytes": 14871,
+        "sha256": "0db6f48a8b520972a7876932bd2618b027f5863a0a151a390d5853be795a9039"
       },
       "snapshot": {
         "path": "audit/evidence/residual-release-20260924/content--world-models--taxonomy.mdx.txt",
@@ -338,6 +338,48 @@
         "with both sliders choosing 0 to 2 m/s",
         "in 0.05 m/s steps",
         "illustrative, not measurements or safety certification."
+      ]
+    },
+    {
+      "historical": {
+        "path": "content/rl-sim2real/sim2real-transfer.mdx",
+        "bytes": 21963,
+        "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c"
+      },
+      "current": {
+        "path": "content/rl-sim2real/sim2real-transfer.mdx",
+        "bytes": 22039,
+        "sha256": "50fea382b87c89aaf4a2a8c0539be972319a5eb3c198917bd0e1654f1cf236d7"
+      },
+      "snapshot": {
+        "path": "audit/evidence/residual-release-20260924/content--rl-sim2real--sim2real-transfer.mdx.txt",
+        "bytes": 21963,
+        "sha256": "c8dc42be4c4d4557f585b0712b7bf43d873ada46f93c4d638101afb94b8b671c"
+      },
+      "rationale": "Educational-convergence edit scoped to the prediction step: the reveal hint now names only this panel’s mounted configuration, and the correct option’s reasoning links the authored peak-versus-half-width formula in its section. No audited claim text, mount defaults, formulas, citations or disclosures change; the ordinary-panel and prediction-panel reset defaults stay disclosed as before.",
+      "preservedText": [
+        "The ordinary panel starts at half-width 0.35; the prediction panel starts at 0.65. Reset restores each panel’s own initial friction and half-width."
+      ]
+    },
+    {
+      "historical": {
+        "path": "content/data-hardware/data-bottleneck.mdx",
+        "bytes": 11686,
+        "sha256": "2ba75ba38276a879c4e5370c13308b437d56f245ebfa0ecd31f93b1aff1045ce"
+      },
+      "current": {
+        "path": "content/data-hardware/data-bottleneck.mdx",
+        "bytes": 11947,
+        "sha256": "d4c1dceb0ae03fc356056723f6f781d0b1c57f279091dc65a65ae1488454a5cf"
+      },
+      "snapshot": {
+        "path": "audit/evidence/residual-release-20260924/content--data-hardware--data-bottleneck.mdx.txt",
+        "bytes": 11686,
+        "sha256": "2ba75ba38276a879c4e5370c13308b437d56f245ebfa0ecd31f93b1aff1045ce"
+      },
+      "rationale": "Educational-convergence edit scoped to the prediction step options: the two distractor labels carry the precision their reasoning already states so the correct label no longer leaks by length, and the correct option’s reasoning links the hours-axis section hosting the chart. No dataset figure, hypothetical input, arithmetic result or audited claim changes.",
+      "preservedText": [
+        "Both the rate and target are authored hypothetical inputs, not measurements of DROID productivity or OXE duration."
       ]
     }
   ],
