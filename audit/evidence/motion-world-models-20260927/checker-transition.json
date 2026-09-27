@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "motion-world-models-checker-revision-v1",
+  "before": {
+    "path": "audit/evidence/motion-world-models-20260927/audit-local-basis-before.ts.txt",
+    "bytes": 107277,
+    "sha256": "9bfb922c2a2a5463e9cd7ced4f98fa4facd9625f1aa0d79eadd70ba81a6b5626"
+  },
+  "after": {
+    "path": "lib/audit-local-basis.ts",
+    "bytes": 108255,
+    "sha256": "b757fb029b43c415e10d30a6214dd7b6590ef44b0caa768f642860f7cf5a387c"
+  },
+  "reviewedBy": "Robot Wiki world-model motion implementer, not independent acceptance",
+  "rationale": "The exact archived 107,277-byte checker is retained as this transition's before source. The reviewed diff only chains a second finite checker identity to the existing RL motion checker guard, pins the prior dependency review snapshot rather than falsely equating it to the later taxonomy review, and leaves the historical proof reader and every recipe unchanged. No historical run is replayed or relabelled. Both old and new checker identities, source-review bytes and present article identity are validated independently.",
+  "observedAt": "2026-09-27T12:01:01Z"
+}

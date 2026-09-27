@@ -2467,11 +2467,11 @@
                   "The Evaluation Crisis"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 10,
+                "readingMinutes": 11,
                 "citationCount": 9,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "10 min",
+                "readingTimeText": "11 min",
                 "citationCountText": "9",
                 "bibliographyIds": [
                   "tri-lbm-2025",
@@ -3134,11 +3134,11 @@
                   "The Reliability Gap"
                 ],
                 "lastReviewed": "2026-09-24",
-                "readingMinutes": 8,
+                "readingMinutes": 9,
                 "citationCount": 10,
                 "reviewDateText": "24 September 2026",
                 "reviewDateTime": "2026-09-24",
-                "readingTimeText": "8 min",
+                "readingTimeText": "9 min",
                 "citationCountText": "10",
                 "bibliographyIds": [
                   "bessemer-robotics-2026",
@@ -5141,11 +5141,11 @@
                   "Latent-Dynamics World Models"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 9,
+                "readingMinutes": 10,
                 "citationCount": 8,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "9 min",
+                "readingTimeText": "10 min",
                 "citationCountText": "8",
                 "bibliographyIds": [
                   "dreamer-2019",
@@ -66253,11 +66253,11 @@
                   "The Evaluation Crisis"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 10,
+                "readingMinutes": 11,
                 "citationCount": 9,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "10 min",
+                "readingTimeText": "11 min",
                 "citationCountText": "9",
                 "bibliographyIds": [
                   "tri-lbm-2025",
@@ -66920,11 +66920,11 @@
                   "The Reliability Gap"
                 ],
                 "lastReviewed": "2026-09-24",
-                "readingMinutes": 8,
+                "readingMinutes": 9,
                 "citationCount": 10,
                 "reviewDateText": "24 September 2026",
                 "reviewDateTime": "2026-09-24",
-                "readingTimeText": "8 min",
+                "readingTimeText": "9 min",
                 "citationCountText": "10",
                 "bibliographyIds": [
                   "bessemer-robotics-2026",
@@ -68927,11 +68927,11 @@
                   "Latent-Dynamics World Models"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 9,
+                "readingMinutes": 10,
                 "citationCount": 8,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "9 min",
+                "readingTimeText": "10 min",
                 "citationCountText": "8",
                 "bibliographyIds": [
                   "dreamer-2019",
@@ -100066,7 +100066,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:adjacent/drones moved from 8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641 to f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89 exactly as approved delta dr-r11-20260916-1 permits: Exactly adjacent/drones original 11: assignment-layer source correction with local AND. The per-paper half is supported from the three printed scopes in the frozen packet (integrator clause-by-clause absence proof); the field-wide sentence ('not yet been demonstrated on real outdoor swarms at scale') is certified by no fetched source and was CUT from the article, not hedged. Article change: that sentence removed. Every retained passage was needle-verified by this integrator against the frozen packet's retained fetch corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-drones-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "actual": "prose member article:adjacent/drones moved from 8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641 to 57fede5c2c9e935af23c2591d021aa42217c420f53f98733fee97f4e9e1f80ab exactly as approved delta motion-frontier-adjacent-home-humanizer-v3-20260927-prose-drones permits: The drones article rephrases the flight-envelope explanation and adds the reader-paced sense-and-avoid scene beside the independent latency lab. The cited starting range, agility and latency remain source-scoped; the 200 ms example is an authored input.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100078,9 +100078,9 @@
           "manifest": "prose",
           "member": "article:adjacent/drones",
           "baselineHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
-          "currentHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89",
+          "currentHash": "57fede5c2c9e935af23c2591d021aa42217c420f53f98733fee97f4e9e1f80ab",
           "status": "approved-delta",
-          "approvedDelta": "dr-r11-20260916-1"
+          "approvedDelta": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-drones"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100094,7 +100094,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:adjacent/space moved from f61d63c0de6a60214eb0a47e3b945794279d22250cf429389b39815af9160118 to 2b5f982ecd36dfad48978f7bef97894a97de9bef6b21cbcb8b472fff52345994 exactly as approved delta sp-r2-20260916-1 permits: Exactly adjacent/space original 2: Ingenuity evidence completion plus one precise article-span correction. The article said 'in an atmosphere about one percent the density of Earth's' citing ingenuity-first-flight-2021, but that release prints 'only 1% the pressure at the surface compared to our planet'; the span now reads 'in an atmosphere with about one percent of Earth's surface pressure' (prose member f61d63c0... -> 2b5f982e...). Mission-end release verifies five-flights/30-days qualification, 72 flights, almost three years, April 19 first liftoff, January 2024 end. Every retained passage was needle-verified by this integrator against the frozen packet's retained fetch corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-space-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "actual": "prose member article:adjacent/space moved from f61d63c0de6a60214eb0a47e3b945794279d22250cf429389b39815af9160118 to c5ce8014ac91cea831a704ee442d0b22ffe270c7b0a6f139321050c953e6f723 exactly as approved delta motion-frontier-adjacent-home-humanizer-v3-20260927-prose-space permits: The space article removes repeated structural contrasts while preserving NASA communications and autonomy scope, sourced mission claims and every numeric token and citation.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100106,9 +100106,9 @@
           "manifest": "prose",
           "member": "article:adjacent/space",
           "baselineHash": "f61d63c0de6a60214eb0a47e3b945794279d22250cf429389b39815af9160118",
-          "currentHash": "2b5f982ecd36dfad48978f7bef97894a97de9bef6b21cbcb8b472fff52345994",
+          "currentHash": "c5ce8014ac91cea831a704ee442d0b22ffe270c7b0a6f139321050c953e6f723",
           "status": "approved-delta",
-          "approvedDelta": "sp-r2-20260916-1"
+          "approvedDelta": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-space"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100122,7 +100122,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:adjacent/surgical moved from f0daa44d11ccdfb1690809295c3e52b7246af89f4dbc10ec743d4e08061189c1 to c36132a65355c0f46e5b530b4626389c0127babfb418d976d982b8a2dfb942eb exactly as approved delta paywall0917a-surgical-noop permits: Exactly adjacent/surgical original 5 (Maestro row): bound as compound evidence on the registered maestro-tavac-2023 and scopilot-clearance-2025 passages (Dec 2 2022 letter vs Dec 6 2022 TAVAC date difference and the K936308 1993/1994 predicate dates disclosed in the note). No-op hash record: no article prose changed (ledger/plan evidence only); lastReviewed deliberately not moved. Every passage needle-verified by this integrator against the retained sha256-pinned fetch bytes (MLS Wayback id_ capture, MR companion transcript, dated ZN Wayback capture, CMU-hosted Qin-Badgwell PDF, arXiv abs/ar5iv HTML, PR Newswire text) or the SAGES TAVAC render retained in the preparer session log; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-an-paywall-integration-20260917a. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "actual": "prose member article:adjacent/surgical moved from f0daa44d11ccdfb1690809295c3e52b7246af89f4dbc10ec743d4e08061189c1 to 3a155398701316f5d139abfdf7b9a63f2b93467c847e48100bbef090493caa01 exactly as approved delta motion-frontier-adjacent-home-humanizer-v3-20260927-prose-surgical permits: The surgical article edits repetitive disclaimers into direct sentences while preserving named-company claims, clinical qualifiers, numeric tokens and citation order.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100134,9 +100134,9 @@
           "manifest": "prose",
           "member": "article:adjacent/surgical",
           "baselineHash": "f0daa44d11ccdfb1690809295c3e52b7246af89f4dbc10ec743d4e08061189c1",
-          "currentHash": "c36132a65355c0f46e5b530b4626389c0127babfb418d976d982b8a2dfb942eb",
+          "currentHash": "3a155398701316f5d139abfdf7b9a63f2b93467c847e48100bbef090493caa01",
           "status": "approved-delta",
-          "approvedDelta": "paywall0917a-surgical-noop"
+          "approvedDelta": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-surgical"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100402,7 +100402,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:data-hardware/data-bottleneck moved from 91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2 to 22b8b3da959ec70f70e6d6a63d9b5c0d6d74952500d9c3759030f8720750cedc exactly as approved delta educational-convergence-20260926-prose-data-bottleneck permits: Prediction-step convergence on data-hardware/data-bottleneck: the two distractor labels now carry the precision their own reasoning already states (the 500 farm-hours a year arithmetic and the hundreds-of-hours assumption), so the correct label is no longer 3.4 times the longest distractor and the set stops leaking the answer by shape; the correct option’s reasoning links the hours-axis section hosting the chart. No dataset figure, hypothetical input or arithmetic result changes. Bracketed from the seal to the current value like final-seven-closure-20260923-2; the intermediate zero-credit, RoboMIND-hours and final-seven edges stay in place as history.",
+      "actual": "prose member article:data-hardware/data-bottleneck moved from 91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2 to cdc986bcd3e8a57e6d13297065578acd964e66f98cf7161de5bf42b0072cb47d exactly as approved delta motion-data-hardware-humanizer-v3-20260927-prose-data-bottleneck permits: Fact-preserving humanizer v3 pass and a farm-throughput toy scene before the retained direct-control chart. Published data durations remain separate from authored rates and OXE's unknown duration; numeric tokens and ordered citations are checked against the prior committed article. This approval does not refresh stale audit local-basis evidence.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100414,9 +100414,9 @@
           "manifest": "prose",
           "member": "article:data-hardware/data-bottleneck",
           "baselineHash": "91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2",
-          "currentHash": "22b8b3da959ec70f70e6d6a63d9b5c0d6d74952500d9c3759030f8720750cedc",
+          "currentHash": "cdc986bcd3e8a57e6d13297065578acd964e66f98cf7161de5bf42b0072cb47d",
           "status": "approved-delta",
-          "approvedDelta": "educational-convergence-20260926-prose-data-bottleneck"
+          "approvedDelta": "motion-data-hardware-humanizer-v3-20260927-prose-data-bottleneck"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100430,7 +100430,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:data-hardware/datasets moved from a34d4a0bfceba0cc8527ef5236dd0572f7502b127498153c35374a0f47e3256c to 4d00882f8e7295cf2d2e76ef78a40360aefa639d4ece86e5f7e1b4c503b0a59c exactly as approved delta continuation-merge-2026-09-23-1745-prose-article-data-hardware-datasets permits: Integrate continuation 9a5ed06 reader-flow, source-qualified date, Dreamer/RL summary and RoboMIND cohort corrections while preserving main-only SEO prose, citations and article relationships. No model, route or source-meaning change beyond the mission corrections.",
+      "actual": "prose member article:data-hardware/datasets moved from a34d4a0bfceba0cc8527ef5236dd0572f7502b127498153c35374a0f47e3256c to 4222e402ee2d3cac77b8fc2cd03e0d4162841c4e4595f5fef1e8775c39f65562 exactly as approved delta motion-data-hardware-humanizer-v3-20260927-prose-datasets permits: Fact-preserving humanizer v3 pass with version identifiers formatted as technical labels. Unknown duration, gated-license qualifications, numeric tokens and ordered citations remain checked against the prior committed article; this does not re-audit the underlying sources.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100442,9 +100442,9 @@
           "manifest": "prose",
           "member": "article:data-hardware/datasets",
           "baselineHash": "a34d4a0bfceba0cc8527ef5236dd0572f7502b127498153c35374a0f47e3256c",
-          "currentHash": "4d00882f8e7295cf2d2e76ef78a40360aefa639d4ece86e5f7e1b4c503b0a59c",
+          "currentHash": "4222e402ee2d3cac77b8fc2cd03e0d4162841c4e4595f5fef1e8775c39f65562",
           "status": "approved-delta",
-          "approvedDelta": "continuation-merge-2026-09-23-1745-prose-article-data-hardware-datasets"
+          "approvedDelta": "motion-data-hardware-humanizer-v3-20260927-prose-datasets"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100458,7 +100458,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:data-hardware/evaluation-crisis moved from a82d68cc5fad165e3cb345da4717268cd27b0531c327e347f599310b5073d92e to 1f590be41f904826afc58ec49f47e9754a31388cc791c713a2982e32326c3c54 exactly as approved delta final-seven-closure-20260923-3 permits: State the constant-conditional-probability assumption for the episode calculator and qualify inverse values as model arithmetic, not observed per-step policy performance.",
+      "actual": "prose member article:data-hardware/evaluation-crisis moved from a82d68cc5fad165e3cb345da4717268cd27b0531c327e347f599310b5073d92e to 1bf31b1df987ef3edf435c4bb5c7280105a43e1e240544be069454c01c505923 exactly as approved delta motion-data-hardware-source-qualification-20260927-prose-evaluation-crisis permits: The retained SIMPLER paper proposes and evaluates ways to mitigate visual and control gaps. The corrected sentence describes the methods without claiming that both generally achieved a reduction. All numbers, citation markers, setup qualifications and the conditional-probability model are unchanged.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100470,9 +100470,9 @@
           "manifest": "prose",
           "member": "article:data-hardware/evaluation-crisis",
           "baselineHash": "a82d68cc5fad165e3cb345da4717268cd27b0531c327e347f599310b5073d92e",
-          "currentHash": "1f590be41f904826afc58ec49f47e9754a31388cc791c713a2982e32326c3c54",
+          "currentHash": "1bf31b1df987ef3edf435c4bb5c7280105a43e1e240544be069454c01c505923",
           "status": "approved-delta",
-          "approvedDelta": "final-seven-closure-20260923-3"
+          "approvedDelta": "motion-data-hardware-source-qualification-20260927-prose-evaluation-crisis"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100486,7 +100486,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:data-hardware/hardware-taxonomy moved from c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0 to cf5a2b851f5a0fe492dd594762d82163f02424d275e3fceb4410798aa43455af exactly as approved delta continuation-merge-2026-09-24-0305-prose-article-data-hardware-hardware-taxonomy permits: Reconcile the exact merged approval graph after b4c3f51 introduced unique-path validation. The current member is unchanged from the previously reviewed direct seal/current approval(s) continuation-merge-2026-09-23-1745-prose-article-data-hardware-hardware-taxonomy. Those exact endpoint hashes, their prior approval records and the complete member-specific edge inventory are retained. This resolution selects the already approved merged endpoint, not a different fact, source, route or rendering. Any removed, altered or newly added edge invalidates this review.",
+      "actual": "prose member article:data-hardware/hardware-taxonomy moved from c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0 to 558956d6f13ce7c7c7c1c7a37df64bc879248777c0910a0fd7caf08cbb3ed7a3 exactly as approved delta motion-data-hardware-humanizer-v3-20260927-prose-hardware-taxonomy permits: Fact-preserving humanizer v3 pass of the dated buyer's guide; filterable hardware rows and licensed photographs remain unchanged. Numeric tokens and ordered citations are checked against the prior committed article; archived photo proposals were not imported as audited facts.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100498,9 +100498,9 @@
           "manifest": "prose",
           "member": "article:data-hardware/hardware-taxonomy",
           "baselineHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
-          "currentHash": "cf5a2b851f5a0fe492dd594762d82163f02424d275e3fceb4410798aa43455af",
+          "currentHash": "558956d6f13ce7c7c7c1c7a37df64bc879248777c0910a0fd7caf08cbb3ed7a3",
           "status": "approved-delta",
-          "approvedDelta": "continuation-merge-2026-09-24-0305-prose-article-data-hardware-hardware-taxonomy"
+          "approvedDelta": "motion-data-hardware-humanizer-v3-20260927-prose-hardware-taxonomy"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100514,7 +100514,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:data-hardware/industrial-deployment moved from 2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266 to 915117232269b0ec152a0ccedd7ac8bdeb0126e40fdf1891118e84b68eabf3a8 exactly as approved delta educational-relocation-20260926-prose-industrial-deployment permits: Layout-only educational relocation on /data-hardware/industrial-deployment/: the DeploymentEconomics interactive mount moves above its prediction paragraph with a one-line operating cue, so the first interactive arrives inside the first 300 rendered words instead of after 399. Every withdrawal sentence is preserved byte-for-byte and the prediction paragraph itself is unchanged; the technology-withdrawal byte-transition seal rebinds the exact one-run relocation through the archived pre-relocation checkpoint. No cited claim, number, mount default, citation, glossary term or disclosure changes.",
+      "actual": "prose member article:data-hardware/industrial-deployment moved from 2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266 to d6912e7b80390fcfa1b2430b4fe4b0c3d8f3e01b32ec8cf7259a6800119d32f3 exactly as approved delta motion-data-hardware-source-qualification-20260927-prose-industrial-deployment permits: The retained Symbotic FY2025 filing defines backlog as unperformed contractual obligations. The corrected sentence restores its distinction from earned revenue without changing the reported backlog, fiscal revenue, contractual site scope or forecast.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100526,9 +100526,9 @@
           "manifest": "prose",
           "member": "article:data-hardware/industrial-deployment",
           "baselineHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
-          "currentHash": "915117232269b0ec152a0ccedd7ac8bdeb0126e40fdf1891118e84b68eabf3a8",
+          "currentHash": "d6912e7b80390fcfa1b2430b4fe4b0c3d8f3e01b32ec8cf7259a6800119d32f3",
           "status": "approved-delta",
-          "approvedDelta": "educational-relocation-20260926-prose-industrial-deployment"
+          "approvedDelta": "motion-data-hardware-source-qualification-20260927-prose-industrial-deployment"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100542,7 +100542,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:data-hardware/robot-learning-stack moved from null to 48ea67447c7b67fff4cdb2f233a4f0fbfc3f709b8826552987ac87db2b4d25f0 exactly as approved delta continuation-merge-2026-09-24-stack-classical-import-prose-robot-learning-stack permits: Imported-article audit packet application on data-hardware/robot-learning-stack: the DROID sentence drops the unsupported 'comparatively consistent action space' framing for the paper's 76k trajectories collected on a shared platform with one action-recording convention; the robomimic sentence now reports history-dependent models (e.g. recurrent behavior cloning) strong on the human datasets while the batch RL algorithms studied struggled to learn from them, replacing 'consistently' and 'several' overstatements; the LIBERO-Plus sentence names the seven perturbation dimensions and states that impressive success rates can mask the revealed gaps. Supersedes seo-merge-20260916-prose-10 (newHash 7d7cca7e613f91bb, the approved value before this packet) as the bracketing entry; that entry stays as history.",
+      "actual": "prose member article:data-hardware/robot-learning-stack moved from null to b89f6fdcb16a392a0671dd4b41ca8b990cef4422585e92365941fa5ade0cbf07 exactly as approved delta motion-data-hardware-humanizer-v3-20260927-prose-robot-learning-stack permits: Fact-preserving humanizer v3 pass of the seven-contract explanation and its retained self-check. Numeric tokens and ordered citations are checked against the prior committed article; no unsupported pipeline animation was added.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100554,9 +100554,9 @@
           "manifest": "prose",
           "member": "article:data-hardware/robot-learning-stack",
           "baselineHash": null,
-          "currentHash": "48ea67447c7b67fff4cdb2f233a4f0fbfc3f709b8826552987ac87db2b4d25f0",
+          "currentHash": "b89f6fdcb16a392a0671dd4b41ca8b990cef4422585e92365941fa5ade0cbf07",
           "status": "approved-addition",
-          "approvedDelta": "continuation-merge-2026-09-24-stack-classical-import-prose-robot-learning-stack"
+          "approvedDelta": "motion-data-hardware-humanizer-v3-20260927-prose-robot-learning-stack"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100570,7 +100570,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:data-hardware/teleop-rigs moved from 09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29 to dc7c65001342ac5decfa2db1607e03a15111d92b706aa43f999e7c29ee15ab21 exactly as approved delta educational-cue-20260926-prose-teleop-rigs permits: VAL-EDU-045 clause (d) operating cue on data-hardware/teleop-rigs: one sentence added to the paragraph adjacent to the first interactive, naming the Cost highlight button as rendered inside that interactive with a second-person instruction verb. The sentence states only behaviour the adjacent disclosure already documents. No claim, number, citation, option text or mount default changes.",
+      "actual": "prose member article:data-hardware/teleop-rigs moved from 09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29 to b82c876afa479ce49a0291cb4e0e41a4a7336c6d0d0f7f846a25dfb35f863ffa exactly as approved delta motion-data-hardware-humanizer-v3-20260927-prose-teleop-rigs permits: Fact-preserving humanizer v3 pass while the rig matrix, source-scoped costs and independent highlight and sort controls remain in place. Numeric tokens and ordered citations are checked against the prior committed article.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100582,9 +100582,9 @@
           "manifest": "prose",
           "member": "article:data-hardware/teleop-rigs",
           "baselineHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
-          "currentHash": "dc7c65001342ac5decfa2db1607e03a15111d92b706aa43f999e7c29ee15ab21",
+          "currentHash": "b82c876afa479ce49a0291cb4e0e41a4a7336c6d0d0f7f846a25dfb35f863ffa",
           "status": "approved-delta",
-          "approvedDelta": "educational-cue-20260926-prose-teleop-rigs"
+          "approvedDelta": "motion-data-hardware-humanizer-v3-20260927-prose-teleop-rigs"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100598,7 +100598,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:frontier/bear-case moved from 6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2 to cfdf501ea057007bf575b7f2f69a864cb984a64f592eba42f14310c4564faafd exactly as approved delta continuation-merge-2026-09-24-tech-withdrawal-prose-bear-case permits: Technology.org withdrawal: bear-case watchlist unit leg is re-scoped to inspected records; the valuation comparison is Cut. Board still reads four not met / four partial / zero met.",
+      "actual": "prose member article:frontier/bear-case moved from 6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2 to 14e01223255123acd903423c97c66fbafb9773d84d1031230616b9e92134c347 exactly as approved delta motion-frontier-adjacent-home-humanizer-v3-20260927-prose-bear-case permits: The bear-case article trims stock contrasts while keeping every skeptic attribution, milestone status, sourced number and citation in sequence.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100610,9 +100610,9 @@
           "manifest": "prose",
           "member": "article:frontier/bear-case",
           "baselineHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
-          "currentHash": "cfdf501ea057007bf575b7f2f69a864cb984a64f592eba42f14310c4564faafd",
+          "currentHash": "14e01223255123acd903423c97c66fbafb9773d84d1031230616b9e92134c347",
           "status": "approved-delta",
-          "approvedDelta": "continuation-merge-2026-09-24-tech-withdrawal-prose-bear-case"
+          "approvedDelta": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-bear-case"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100626,7 +100626,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:frontier/competing-theses moved from 27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895 to fa3f42df226fbe66e68ddfcf351079068fc6e0684bfb3a6fce4d632585911e23 exactly as approved delta continuation-merge-2026-09-24-tech-withdrawal-prose-competing-theses permits: Technology.org withdrawal: competing-theses deployment context rebinds Agility and Figure hours to first-party documents and drops Technology.org secondary figures.",
+      "actual": "prose member article:frontier/competing-theses moved from 27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895 to ec8ddfe81684a9e34321102dd6b8543ce47c81018def615e68ad16242e7e6193 exactly as approved delta motion-frontier-adjacent-home-humanizer-v3-20260927-prose-competing-theses permits: The competing-theses article makes its caveats direct without changing the six comparison rows, falsification signals, numeric tokens or citation order.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100638,9 +100638,9 @@
           "manifest": "prose",
           "member": "article:frontier/competing-theses",
           "baselineHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
-          "currentHash": "fa3f42df226fbe66e68ddfcf351079068fc6e0684bfb3a6fce4d632585911e23",
+          "currentHash": "ec8ddfe81684a9e34321102dd6b8543ce47c81018def615e68ad16242e7e6193",
           "status": "approved-delta",
-          "approvedDelta": "continuation-merge-2026-09-24-tech-withdrawal-prose-competing-theses"
+          "approvedDelta": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-competing-theses"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100654,7 +100654,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:frontier/dexterity moved from 4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4 to 0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6 exactly as approved delta dex-r30-20260915-1 permits: Exactly frontier/dexterity original 30: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. This pass commits four other endpoint corrections, so row 30's article span was already corrected by the earlier dexterity pass and is verified at target by this pass; this approval records the completion against the prose member hash this pass commits (0d8fca0aa44f...). Literal/source/review and exact endpoint evidence: validation/brand-v2-editorial/source-recovery-20260906/convergence-dexterity-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "actual": "prose member article:frontier/dexterity moved from 4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4 to e4bc7f30b385437286b631fa642bec0c209a4d0352e04530670bfd57697b4878 exactly as approved delta motion-frontier-adjacent-home-humanizer-v3-20260927-prose-dexterity permits: The dexterity article tightens source-specific qualification and adds a labelled contact-feedback schematic beside its retained hand-comparison instrument; numeric tokens and ordered citations remain unchanged.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100666,9 +100666,9 @@
           "manifest": "prose",
           "member": "article:frontier/dexterity",
           "baselineHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
-          "currentHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "currentHash": "e4bc7f30b385437286b631fa642bec0c209a4d0352e04530670bfd57697b4878",
           "status": "approved-delta",
-          "approvedDelta": "dex-r30-20260915-1"
+          "approvedDelta": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-dexterity"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100682,7 +100682,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:frontier/generalization moved from 1fee314336a48372c330af41a4f53293ca8b8c209ea8cd149ce90fff26f0e433 to f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592 exactly as approved delta single-leftovers-g17-20260917-1 permits: Exactly frontier/generalization original 17 (Goldberg 100,000-year data gap attribution): scalar evidence completion to the registered citation goldberg-data-gap-2025 at the Crossref DOI record, with the Berkeley News interview surface and the durable techxplore mirror 403 disclosed in the row; quoted phrases needle-verified against both retained bodies. No-op hash record: the article span and frontmatter are byte-unchanged; lastReviewed deliberately not moved. Every needle verified by this integrator against the retained sha256-pinned fetch bodies and the sha-matched 20260915 sweep render; zero retrieval; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-single-leftovers-4rows-integration-20260917a. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "actual": "prose member article:frontier/generalization moved from 1fee314336a48372c330af41a4f53293ca8b8c209ea8cd149ce90fff26f0e433 to eea78a462a9118f10e46b7f310674ef7a25fb91190f456056c9918582531dc6e exactly as approved delta motion-frontier-adjacent-home-humanizer-v3-20260927-prose-generalization permits: The generalization article replaces repetitive disclaimers while preserving the named system comparisons, solved-bar criteria, sourced numbers and citation order.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100694,9 +100694,9 @@
           "manifest": "prose",
           "member": "article:frontier/generalization",
           "baselineHash": "1fee314336a48372c330af41a4f53293ca8b8c209ea8cd149ce90fff26f0e433",
-          "currentHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "currentHash": "eea78a462a9118f10e46b7f310674ef7a25fb91190f456056c9918582531dc6e",
           "status": "approved-delta",
-          "approvedDelta": "single-leftovers-g17-20260917-1"
+          "approvedDelta": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-generalization"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100710,7 +100710,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:frontier/reliability-gap moved from a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c to 9ce3dbd3ed18119366400384f63fe66f9a4664bc84424c6fef6d8a2b811de0e4 exactly as approved delta continuation-merge-2026-09-24-tech-withdrawal-prose-reliability-gap permits: Technology.org withdrawal: solved-bar Stat is Cut as editorial; deployment record re-scoped to Agility hours, Figure BMW hours/parts, Tesla Q1 2026 Construction lines. G1 price and Figure/Goldman valuations are Cut.",
+      "actual": "prose member article:frontier/reliability-gap moved from a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c to 4ed073dd9969b1b13e1f42c2bb98ca36218a32aae0ea5266ed45fa4228a1a026 exactly as approved delta motion-frontier-adjacent-home-humanizer-v3-20260927-prose-reliability-gap permits: The reliability article adds a fixed-horizon reader-paced probability scene beside its independent calculator and tightens prose. The scene is an illustrative model; sourced rates, numbers and citation order are preserved.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100722,9 +100722,9 @@
           "manifest": "prose",
           "member": "article:frontier/reliability-gap",
           "baselineHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
-          "currentHash": "9ce3dbd3ed18119366400384f63fe66f9a4664bc84424c6fef6d8a2b811de0e4",
+          "currentHash": "4ed073dd9969b1b13e1f42c2bb98ca36218a32aae0ea5266ed45fa4228a1a026",
           "status": "approved-delta",
-          "approvedDelta": "continuation-merge-2026-09-24-tech-withdrawal-prose-reliability-gap"
+          "approvedDelta": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-reliability-gap"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100738,7 +100738,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:frontier/safety-and-assurance moved from 2c204df57e99f0e6aeb52ff40985cd7c7933475dd5a58ba87110adecd1280d6f to 97b468d68082e6972bea82c89dd46d6523d852f9c3a10de7073f7e5e1f2d9a55 exactly as approved delta final-seven-closure-20260923-4 permits: Distinguish Marvel-Norcross contextual intrusion/approach values from the safety instrument choices, including the 2000 mm/s counterpassage and uncertified controls.",
+      "actual": "prose member article:frontier/safety-and-assurance moved from 2c204df57e99f0e6aeb52ff40985cd7c7933475dd5a58ba87110adecd1280d6f to f3732cfd2319b505b1bcf5f83b5f742b87957a55836e1ce4276f547cff2e87e9 exactly as approved delta motion-frontier-adjacent-home-humanizer-v3-20260927-prose-safety-and-assurance permits: The safety article removes repetitive prose and a paper-internal locator; the qualified intrusion lower bound, beam distinctions, approach-speed caveat and authored instrument limits remain. Two historical local-basis proofs keep their exact old article via a separately reviewed finite successor.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100750,9 +100750,9 @@
           "manifest": "prose",
           "member": "article:frontier/safety-and-assurance",
           "baselineHash": "2c204df57e99f0e6aeb52ff40985cd7c7933475dd5a58ba87110adecd1280d6f",
-          "currentHash": "97b468d68082e6972bea82c89dd46d6523d852f9c3a10de7073f7e5e1f2d9a55",
+          "currentHash": "f3732cfd2319b505b1bcf5f83b5f742b87957a55836e1ce4276f547cff2e87e9",
           "status": "approved-delta",
-          "approvedDelta": "final-seven-closure-20260923-4"
+          "approvedDelta": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-safety-and-assurance"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -101410,7 +101410,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:world-models/evaluation moved from null to 9c15c788394d45cd1cf1632d9393d651fbf7ed3074e1ae53a1640e330ab9b85d exactly as approved delta seo-merge-20260916-prose-27 permits: The SEO growth merge adds world-models/evaluation as a new published article; this member (article:world-models/evaluation) is created by that addition and is recorded against the sealed baseline as an approved new member.",
+      "actual": "prose member article:world-models/evaluation moved from null to cfb4cd065274fdcfc56ed61f46f92419ee67c3084f339253c249f687a706c055 exactly as approved delta motion-world-models-humanizer-v3-20260927-prose-evaluation permits: Fact-preserving humanizer v3 rewrite of the evaluation article; its assessment and sourced evaluation criteria remain unchanged, and its citation occurrences and numeric tokens are checked against the prior committed article.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -101422,9 +101422,9 @@
           "manifest": "prose",
           "member": "article:world-models/evaluation",
           "baselineHash": null,
-          "currentHash": "9c15c788394d45cd1cf1632d9393d651fbf7ed3074e1ae53a1640e330ab9b85d",
+          "currentHash": "cfb4cd065274fdcfc56ed61f46f92419ee67c3084f339253c249f687a706c055",
           "status": "approved-addition",
-          "approvedDelta": "seo-merge-20260916-prose-27"
+          "approvedDelta": "motion-world-models-humanizer-v3-20260927-prose-evaluation"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -101438,7 +101438,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:world-models/generative-sim moved from 0eb812ecfb2f7f53a774fa49a124ca1162bd7cdeec42f3f2af934e5ed4adbba3 to f679ebe844f5ba56bc718abfa9e6b2821bf6eabc0cae8867f63e8797d9a838cb exactly as approved delta continuation-merge-2026-09-23-1745-prose-article-world-models-generative-sim permits: Integrate continuation 9a5ed06 reader-flow, source-qualified date, Dreamer/RL summary and RoboMIND cohort corrections while preserving main-only SEO prose, citations and article relationships. No model, route or source-meaning change beyond the mission corrections.",
+      "actual": "prose member article:world-models/generative-sim moved from 0eb812ecfb2f7f53a774fa49a124ca1162bd7cdeec42f3f2af934e5ed4adbba3 to 9459001f9f2b98c46b35e2685c671bd824993c2230f428cb6ba9f66677f29f37 exactly as approved delta motion-world-models-humanizer-v3-20260927-prose-generative-sim permits: Fact-preserving humanizer v3 rewrite and a reader-paced push-layers scene before the retained direct-control lab; source claims, toy assumptions, citation occurrences, and numeric tokens remain checked against the prior committed article.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -101450,9 +101450,9 @@
           "manifest": "prose",
           "member": "article:world-models/generative-sim",
           "baselineHash": "0eb812ecfb2f7f53a774fa49a124ca1162bd7cdeec42f3f2af934e5ed4adbba3",
-          "currentHash": "f679ebe844f5ba56bc718abfa9e6b2821bf6eabc0cae8867f63e8797d9a838cb",
+          "currentHash": "9459001f9f2b98c46b35e2685c671bd824993c2230f428cb6ba9f66677f29f37",
           "status": "approved-delta",
-          "approvedDelta": "continuation-merge-2026-09-23-1745-prose-article-world-models-generative-sim"
+          "approvedDelta": "motion-world-models-humanizer-v3-20260927-prose-generative-sim"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -101466,7 +101466,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:world-models/generative-video moved from 09a9bdcabdc1101de55d36323b52bb11cadf7d76a5a9ad57d00ed4025461cad8 to 5f8ebdbb146f958d8fc1611523f37e10359814b945b5287662ea2da53b78665a exactly as approved delta seo-merge-20260916-b3-prose-0 permits: The merged line applies both the SEO snapshot edits and the 2026-09-16 generative-video audit integration (the gv lane) to this article; the member value is the union render neither side names alone.",
+      "actual": "prose member article:world-models/generative-video moved from 09a9bdcabdc1101de55d36323b52bb11cadf7d76a5a9ad57d00ed4025461cad8 to 31334d054d21359664e0e084c071ef1e975d694301e8c513ddcdaee68d04f5de exactly as approved delta motion-world-models-humanizer-v3-20260927-prose-generative-video permits: Fact-preserving humanizer v3 rewrite and a reader-paced action-fork scene before the retained direct-control lab; sourced numbers, study scope, citation occurrences, and numeric tokens remain checked against the prior committed article.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -101478,9 +101478,9 @@
           "manifest": "prose",
           "member": "article:world-models/generative-video",
           "baselineHash": "09a9bdcabdc1101de55d36323b52bb11cadf7d76a5a9ad57d00ed4025461cad8",
-          "currentHash": "5f8ebdbb146f958d8fc1611523f37e10359814b945b5287662ea2da53b78665a",
+          "currentHash": "31334d054d21359664e0e084c071ef1e975d694301e8c513ddcdaee68d04f5de",
           "status": "approved-delta",
-          "approvedDelta": "seo-merge-20260916-b3-prose-0"
+          "approvedDelta": "motion-world-models-humanizer-v3-20260927-prose-generative-video"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -101494,7 +101494,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:world-models/jepa moved from f8a16f238a17cd0a9e725c4af67c4402745c5d3e0add079c902536db3bd1b0d1 to 5889038a47a16772ec040af0a6876663dd276bcefa6d53318df95b966aa93de0 exactly as approved delta educational-cue-20260926-prose-jepa permits: VAL-EDU-045 clause (d) operating cue on world-models/jepa: one sentence added to the paragraph adjacent to the first interactive, naming the search-budget control as rendered inside that interactive with a second-person instruction verb. The sentence states only behaviour the adjacent disclosure already documents. No claim, number, citation, option text or mount default changes.",
+      "actual": "prose member article:world-models/jepa moved from f8a16f238a17cd0a9e725c4af67c4402745c5d3e0add079c902536db3bd1b0d1 to 022dd03e2f8e84fbfd4c9b164124ff2f260cef183cca753ceb734e5d1682197b exactly as approved delta motion-world-models-humanizer-v3-20260927-prose-jepa permits: Fact-preserving humanizer v3 rewrite of the JEPA article; trained representation versus synthetic toy distinctions, source quantities, citations, and numeric tokens remain checked against the prior committed article.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -101506,9 +101506,9 @@
           "manifest": "prose",
           "member": "article:world-models/jepa",
           "baselineHash": "f8a16f238a17cd0a9e725c4af67c4402745c5d3e0add079c902536db3bd1b0d1",
-          "currentHash": "5889038a47a16772ec040af0a6876663dd276bcefa6d53318df95b966aa93de0",
+          "currentHash": "022dd03e2f8e84fbfd4c9b164124ff2f260cef183cca753ceb734e5d1682197b",
           "status": "approved-delta",
-          "approvedDelta": "educational-cue-20260926-prose-jepa"
+          "approvedDelta": "motion-world-models-humanizer-v3-20260927-prose-jepa"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -101522,7 +101522,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:world-models/latent-dynamics moved from ccf53d317fe7f3826f7281b6a9da4431f9dd9ce9276c16a063df2ebbe85ddb41 to b1eed4329763e68f974e4e1eaf43bd68880330f563b512df04bb81a762aeca6b exactly as approved delta continuation-merge-2026-09-23-1745-prose-article-world-models-latent-dynamics permits: Integrate continuation 9a5ed06 reader-flow, source-qualified date, Dreamer/RL summary and RoboMIND cohort corrections while preserving main-only SEO prose, citations and article relationships. No model, route or source-meaning change beyond the mission corrections.",
+      "actual": "prose member article:world-models/latent-dynamics moved from ccf53d317fe7f3826f7281b6a9da4431f9dd9ce9276c16a063df2ebbe85ddb41 to a85d0697bed9de5abba178bb756ec8bf574c7606c2e9052fa8e4f1bb56f74a4b exactly as approved delta motion-world-models-humanizer-v3-20260927-prose-latent-dynamics permits: Fact-preserving humanizer v3 rewrite and a reader-paced latent-drift scene before the retained direct-control lab; distinct published horizon labels, numeric tokens, and citation occurrences remain checked against the prior committed article.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -101534,9 +101534,9 @@
           "manifest": "prose",
           "member": "article:world-models/latent-dynamics",
           "baselineHash": "ccf53d317fe7f3826f7281b6a9da4431f9dd9ce9276c16a063df2ebbe85ddb41",
-          "currentHash": "b1eed4329763e68f974e4e1eaf43bd68880330f563b512df04bb81a762aeca6b",
+          "currentHash": "a85d0697bed9de5abba178bb756ec8bf574c7606c2e9052fa8e4f1bb56f74a4b",
           "status": "approved-delta",
-          "approvedDelta": "continuation-merge-2026-09-23-1745-prose-article-world-models-latent-dynamics"
+          "approvedDelta": "motion-world-models-humanizer-v3-20260927-prose-latent-dynamics"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -101550,7 +101550,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:world-models/model-based-robot-learning moved from null to 5c0229a35709c29f98b7837e41485eca68a7ab23033a4445004acd996a01215a exactly as approved delta continuation-merge-2026-09-24-world-rl-import-prose-model-based-robot-learning permits: Imported-article audit packet application on world-models/model-based-robot-learning: the survey open-problems sentence replaces 'missing modalities', which the inspected survey text does not name, with 'long-horizon reliability', which its introduction emphasizes alongside action-conditioned consistency and practical deployability (packet mbrl claim-017). The MuJoCo sentence stays bound to the IROS 2012 primary, now quoted from the author-hosted paper body. Supersedes content-integration-20260923-model-based-robot-learning-prose (newHash ad9fd12b41ca91bc, the approved value before this packet) as the bracketing entry; that entry stays as history.",
+      "actual": "prose member article:world-models/model-based-robot-learning moved from null to 250a54c1f5dfe7019a738d8002a4f04a4da66eb5dd4afedc40efc71d17409158 exactly as approved delta motion-world-models-humanizer-v3-20260927-prose-model-based-robot-learning permits: Fact-preserving humanizer v3 rewrite of the model-based robot learning article; the authored mechanisms, study qualifications, citations, and numeric tokens remain checked against the prior committed article.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -101562,9 +101562,9 @@
           "manifest": "prose",
           "member": "article:world-models/model-based-robot-learning",
           "baselineHash": null,
-          "currentHash": "5c0229a35709c29f98b7837e41485eca68a7ab23033a4445004acd996a01215a",
+          "currentHash": "250a54c1f5dfe7019a738d8002a4f04a4da66eb5dd4afedc40efc71d17409158",
           "status": "approved-addition",
-          "approvedDelta": "continuation-merge-2026-09-24-world-rl-import-prose-model-based-robot-learning"
+          "approvedDelta": "motion-world-models-humanizer-v3-20260927-prose-model-based-robot-learning"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -101578,7 +101578,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:world-models/taxonomy moved from 122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003 to c78b87466402372401201a726c3816a29879d6836ce4611949ead0921942e9ce exactly as approved delta educational-cue-20260926-prose-taxonomy permits: VAL-EDU-045 clause (d) operating cue on world-models/taxonomy: one sentence added to the paragraph adjacent to the first interactive, naming the paradigm selectors as rendered inside that interactive with a second-person instruction verb. The sentence states only behaviour the adjacent disclosure already documents. No claim, number, citation, option text or mount default changes.",
+      "actual": "prose member article:world-models/taxonomy moved from 122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003 to 4e050cc45ebadf729658228cb99d0d8e91525db0f1de3d7b89cde96a087f32f1 exactly as approved delta motion-world-models-humanizer-v3-20260927-prose-taxonomy permits: Exact complete-edge reconciliation of the 18 preceding taxonomy prose approvals. The fact-preserving humanizer v3 endpoint retains the authored six-group non-benchmark disclosure and selection behavior. Original local-basis proof bytes, source obligations, citations, numeric tokens, and all prior approval edges remain independently retained.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -101590,9 +101590,9 @@
           "manifest": "prose",
           "member": "article:world-models/taxonomy",
           "baselineHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
-          "currentHash": "c78b87466402372401201a726c3816a29879d6836ce4611949ead0921942e9ce",
+          "currentHash": "4e050cc45ebadf729658228cb99d0d8e91525db0f1de3d7b89cde96a087f32f1",
           "status": "approved-delta",
-          "approvedDelta": "educational-cue-20260926-prose-taxonomy"
+          "approvedDelta": "motion-world-models-humanizer-v3-20260927-prose-taxonomy"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -101606,7 +101606,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:world-models/world-models-vs-simulators moved from null to be16d18204298b7ea88f45b17f0edc87c54f0280349f336d48f8c8ed93bb5dae exactly as approved delta continuation-merge-2026-09-24-world-rl-import-prose-world-models-vs-simulators permits: Imported-article audit packet application on world-models/world-models-vs-simulators: the unsourced prevalence trend 'The most productive systems increasingly combine them' becomes 'Many productive systems combine them' (packet wmv claim-002); the Llama 3 sentence drops the unsourced decode-latency range, discloses the 16 GB fp16 weight size as arithmetic from the stated 8B parameters, and recasts the bandwidth-bound characterization as authored reasoning (claim-010); the KV-cache figure discloses its 32 layers x 8 KV heads x 128-dim derivation from the paper's architecture table (claim-011); the planning stack names its ~1.3B parameters instead of the bare 'fits in a few GB' (claim-012); the Predict1 sentence states that the >80 GB card row still offloads the prompt upsampler instead of claiming 'without offloading' (claim-013); the 3DGS memory sentence replaces the unsourced few-hundred-MB-to-few-GB range and hundred-million-splat/level-of-detail clause with the paper's reported 270 to 734 MB per scene at 1 to 5 million Gaussians (claim-014). Supersedes content-integration-20260923-world-models-vs-simulators-prose (newHash e44a8b784487c1b9, the approved value before this packet) as the bracketing entry; that entry stays as history.",
+      "actual": "prose member article:world-models/world-models-vs-simulators moved from null to f74ec76d3cbca579cafab41acf5bc6bcc8fc2c88cd8cbff9cb59f1c44a4125ea exactly as approved delta motion-world-models-humanizer-v3-20260927-prose-world-models-vs-simulators permits: Fact-preserving humanizer v3 rewrite of the world-model-versus-simulator article; derived-cost qualifications, numeric tokens, source links and citation occurrences remain checked against the prior committed article.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -101618,9 +101618,9 @@
           "manifest": "prose",
           "member": "article:world-models/world-models-vs-simulators",
           "baselineHash": null,
-          "currentHash": "be16d18204298b7ea88f45b17f0edc87c54f0280349f336d48f8c8ed93bb5dae",
+          "currentHash": "f74ec76d3cbca579cafab41acf5bc6bcc8fc2c88cd8cbff9cb59f1c44a4125ea",
           "status": "approved-addition",
-          "approvedDelta": "continuation-merge-2026-09-24-world-rl-import-prose-world-models-vs-simulators"
+          "approvedDelta": "motion-world-models-humanizer-v3-20260927-prose-world-models-vs-simulators"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -103354,7 +103354,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/ ships 4 outbound anchor(s) across figure-credit, footer, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 4 outbound anchor occurrences on it with a visible focus ring in 74 stops",
+      "actual": "/ ships 4 outbound anchor(s) across figure-credit, footer, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 4 outbound anchor occurrences on it with a visible focus ring in 75 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -103371,7 +103371,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 2,
           "reachedByTab": 4,
-          "tabStops": 74,
+          "tabStops": 75,
           "keyboardRoutesWalked": 74,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -103528,7 +103528,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/adjacent/drones/ ships 37 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 37 outbound anchor occurrences on it with a visible focus ring in 121 stops",
+      "actual": "/adjacent/drones/ ships 37 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 37 outbound anchor occurrences on it with a visible focus ring in 122 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -103547,7 +103547,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 34,
           "reachedByTab": 37,
-          "tabStops": 121,
+          "tabStops": 122,
           "keyboardRoutesWalked": 74,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -104077,7 +104077,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/data-hardware/data-bottleneck/ ships 32 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 32 outbound anchor occurrences on it with a visible focus ring in 122 stops",
+      "actual": "/data-hardware/data-bottleneck/ ships 32 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 32 outbound anchor occurrences on it with a visible focus ring in 123 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -104096,7 +104096,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 29,
           "reachedByTab": 32,
-          "tabStops": 122,
+          "tabStops": 123,
           "keyboardRoutesWalked": 74,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -104151,7 +104151,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/data-hardware/evaluation-crisis/ ships 39 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 39 outbound anchor occurrences on it with a visible focus ring in 138 stops",
+      "actual": "/data-hardware/evaluation-crisis/ ships 39 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 39 outbound anchor occurrences on it with a visible focus ring in 139 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -104170,7 +104170,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 36,
           "reachedByTab": 39,
-          "tabStops": 138,
+          "tabStops": 139,
           "keyboardRoutesWalked": 74,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -104480,7 +104480,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/frontier/dexterity/ ships 74 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 74 outbound anchor occurrences on it with a visible focus ring in 184 stops",
+      "actual": "/frontier/dexterity/ ships 74 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 74 outbound anchor occurrences on it with a visible focus ring in 185 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -104499,7 +104499,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 61,
           "reachedByTab": 74,
-          "tabStops": 184,
+          "tabStops": 185,
           "keyboardRoutesWalked": 74,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -104554,7 +104554,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/frontier/reliability-gap/ ships 32 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 32 outbound anchor occurrences on it with a visible focus ring in 119 stops",
+      "actual": "/frontier/reliability-gap/ ships 32 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 32 outbound anchor occurrences on it with a visible focus ring in 120 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -104573,7 +104573,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 25,
           "reachedByTab": 32,
-          "tabStops": 119,
+          "tabStops": 120,
           "keyboardRoutesWalked": 74,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -104591,7 +104591,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/frontier/safety-and-assurance/ ships 64 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 64 outbound anchor occurrences on it with a visible focus ring in 170 stops",
+      "actual": "/frontier/safety-and-assurance/ ships 64 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 64 outbound anchor occurrences on it with a visible focus ring in 171 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -104610,7 +104610,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 61,
           "reachedByTab": 64,
-          "tabStops": 170,
+          "tabStops": 171,
           "keyboardRoutesWalked": 74,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -105794,7 +105794,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/world-models/generative-sim/ ships 31 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 31 outbound anchor occurrences on it with a visible focus ring in 125 stops",
+      "actual": "/world-models/generative-sim/ ships 31 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 31 outbound anchor occurrences on it with a visible focus ring in 126 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -105813,7 +105813,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 28,
           "reachedByTab": 31,
-          "tabStops": 125,
+          "tabStops": 126,
           "keyboardRoutesWalked": 74,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -105831,7 +105831,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/world-models/generative-video/ ships 44 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 44 outbound anchor occurrences on it with a visible focus ring in 147 stops",
+      "actual": "/world-models/generative-video/ ships 44 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 44 outbound anchor occurrences on it with a visible focus ring in 148 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -105850,7 +105850,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 41,
           "reachedByTab": 44,
-          "tabStops": 147,
+          "tabStops": 148,
           "keyboardRoutesWalked": 74,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -105905,7 +105905,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/world-models/latent-dynamics/ ships 31 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 31 outbound anchor occurrences on it with a visible focus ring in 115 stops",
+      "actual": "/world-models/latent-dynamics/ ships 31 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 31 outbound anchor occurrences on it with a visible focus ring in 116 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -105924,7 +105924,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 28,
           "reachedByTab": 31,
-          "tabStops": 115,
+          "tabStops": 116,
           "keyboardRoutesWalked": 74,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -131007,7 +131007,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 11214 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 12238 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -131198,7 +131198,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/adjacent/drones/ rendered no v1 identity spelling and no v1 descriptor in 35854 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/adjacent/drones/ rendered no v1 identity spelling and no v1 descriptor in 36914 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -131245,7 +131245,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/adjacent/space/ rendered no v1 identity spelling and no v1 descriptor in 36492 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/adjacent/space/ rendered no v1 identity spelling and no v1 descriptor in 36398 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -131292,7 +131292,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/adjacent/surgical/ rendered no v1 identity spelling and no v1 descriptor in 33690 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/adjacent/surgical/ rendered no v1 identity spelling and no v1 descriptor in 33770 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -131903,7 +131903,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/data-bottleneck/ rendered no v1 identity spelling and no v1 descriptor in 31247 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/data-bottleneck/ rendered no v1 identity spelling and no v1 descriptor in 32501 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -131950,7 +131950,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/datasets/ rendered no v1 identity spelling and no v1 descriptor in 34395 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/datasets/ rendered no v1 identity spelling and no v1 descriptor in 34473 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -131997,7 +131997,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/evaluation-crisis/ rendered no v1 identity spelling and no v1 descriptor in 35439 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/evaluation-crisis/ rendered no v1 identity spelling and no v1 descriptor in 36355 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132044,7 +132044,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/hardware-taxonomy/ rendered no v1 identity spelling and no v1 descriptor in 53745 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/hardware-taxonomy/ rendered no v1 identity spelling and no v1 descriptor in 53601 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132091,7 +132091,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/industrial-deployment/ rendered no v1 identity spelling and no v1 descriptor in 47793 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/industrial-deployment/ rendered no v1 identity spelling and no v1 descriptor in 49419 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132138,7 +132138,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/robot-learning-stack/ rendered no v1 identity spelling and no v1 descriptor in 24869 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/robot-learning-stack/ rendered no v1 identity spelling and no v1 descriptor in 24963 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132185,7 +132185,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/teleop-rigs/ rendered no v1 identity spelling and no v1 descriptor in 29851 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/teleop-rigs/ rendered no v1 identity spelling and no v1 descriptor in 29833 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132373,7 +132373,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/frontier/competing-theses/ rendered no v1 identity spelling and no v1 descriptor in 49799 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/frontier/competing-theses/ rendered no v1 identity spelling and no v1 descriptor in 49891 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132420,7 +132420,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/frontier/dexterity/ rendered no v1 identity spelling and no v1 descriptor in 41483 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/frontier/dexterity/ rendered no v1 identity spelling and no v1 descriptor in 42357 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132467,7 +132467,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/frontier/generalization/ rendered no v1 identity spelling and no v1 descriptor in 34965 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/frontier/generalization/ rendered no v1 identity spelling and no v1 descriptor in 35149 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132514,7 +132514,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/frontier/reliability-gap/ rendered no v1 identity spelling and no v1 descriptor in 28787 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/frontier/reliability-gap/ rendered no v1 identity spelling and no v1 descriptor in 29987 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132561,7 +132561,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/frontier/safety-and-assurance/ rendered no v1 identity spelling and no v1 descriptor in 53871 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/frontier/safety-and-assurance/ rendered no v1 identity spelling and no v1 descriptor in 53941 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -134065,7 +134065,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/evaluation/ rendered no v1 identity spelling and no v1 descriptor in 25178 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/evaluation/ rendered no v1 identity spelling and no v1 descriptor in 24998 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -134112,7 +134112,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/generative-sim/ rendered no v1 identity spelling and no v1 descriptor in 34652 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/generative-sim/ rendered no v1 identity spelling and no v1 descriptor in 35276 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -134159,7 +134159,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/generative-video/ rendered no v1 identity spelling and no v1 descriptor in 39262 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/generative-video/ rendered no v1 identity spelling and no v1 descriptor in 40440 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -134206,7 +134206,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/jepa/ rendered no v1 identity spelling and no v1 descriptor in 33188 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/jepa/ rendered no v1 identity spelling and no v1 descriptor in 32976 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -134253,7 +134253,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/latent-dynamics/ rendered no v1 identity spelling and no v1 descriptor in 31810 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/latent-dynamics/ rendered no v1 identity spelling and no v1 descriptor in 32658 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -134300,7 +134300,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/model-based-robot-learning/ rendered no v1 identity spelling and no v1 descriptor in 21936 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/model-based-robot-learning/ rendered no v1 identity spelling and no v1 descriptor in 21956 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -134347,7 +134347,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/taxonomy/ rendered no v1 identity spelling and no v1 descriptor in 39580 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/taxonomy/ rendered no v1 identity spelling and no v1 descriptor in 39212 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -134394,7 +134394,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/world-models-vs-simulators/ rendered no v1 identity spelling and no v1 descriptor in 39826 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/world-models-vs-simulators/ rendered no v1 identity spelling and no v1 descriptor in 39756 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -184904,7 +184904,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Home renders one dominant v2 hero, the exact descriptor, black primary action treatment, lime selection/highlight treatment, and board-derived structure without fabricated metrics.",
-      "actual": "anchor:home-board-derived-structure holds on the built home page at 1440x900: {\"signatures\":[\"sheet/display-lockup/primary-action\",\"ruled-plain/index-heading/row-links\",\"plain/module-heading/live-instrument\",\"plain/module-heading/credited-figure\",\"plain/module-heading/schematic-pair\",\"plain/module-heading/ordered-link-lists\",\"ruled-plain/closing-heading/guidance-prose\"],\"registeredSignatures\":[\"plain/module-heading/credited-figure (brand-v2-home-hero-domain-index-and-structure)\",\"plain/module-heading/live-instrument (brand-v2-home-live-tools-and-responsive-convergence)\",\"plain/module-heading/ordered-link-lists (brand-v2-home-hero-domain-index-and-structure)\",\"plain/module-heading/schematic-pair (brand-v2-home-live-tools-and-responsive-convergence)\",\"ruled-plain/closing-heading/guidance-prose (brand-v2-home-hero-domain-index-and-structure)\",\"ruled-plain/index-heading/row-links (brand-v2-home-hero-domain-index-and-structure)\",\"sheet/display-lockup/primary-action (brand-v2-home-hero-domain-index-and-structure)\"],\"structuralVarietyTable\":[{\"index\":0,\"label\":\"Introduction\",\"declaredSignature\":\"sheet/display-lockup/primary-action\",\"registeredOwner\":\"brand-v2-home-hero-domain-index-and-structure\",\"registeredPurpose\":\"The opening sheet that carries the public identity, the locked descriptor and the single black primary action into the first viewport.\",\"derivedStructuralForm\":\"rgb(245, 246, 247)|1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219)|0|no-shadow + transparent|0,0,0,0|0|no-shadow || h1/92.16/600/tektur/none || a[rgb(11, 11, 12)/rgb(255, 255, 255)/1],a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/1] || p=2,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:1\",\"derivedSurfaceHeadingActionForm\":\"form:1\"},{\"index\":1,\"label\":\"Domain index\",\"declaredSignature\":\"ruled-plain/index-heading/row-links\",\"registeredOwner\":\"brand-v2-home-hero-domain-index-and-structure\",\"registeredPurpose\":\"The domain index: seven canonical destinations as ruled editorial rows rather than a grid of equal marketing cards.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow + transparent|1solidcolor(srgb 0.552863 0.569961 0.582118),0,0,0|0|no-shadow + transparent|1solidrgb(217, 218, 219),0,0,0|0|no-shadow || h2/24/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/0],a[rgba(0, 0, 0, 0)/rgb(36, 45, 51)/0] || p=7,ul=1,ol=0,li=7,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:2\",\"derivedSurfaceHeadingActionForm\":\"form:2\"},{\"index\":2,\"label\":\"Featured interactive\",\"declaredSignature\":\"plain/module-heading/live-instrument\",\"registeredOwner\":\"brand-v2-home-live-tools-and-responsive-convergence\",\"registeredPurpose\":\"The featured instrument, where the reader operates a live calculator that computes its readout instead of depicting one.\",\"derivedStructuralForm\":\"rgb(255, 255, 255)|1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219)|0|no-shadow + transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0],button[color(srgb 0.973176 0.973882 0.974588)/rgb(36, 45, 51)/1] || p=4,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=1,canvas=0,table=1,input=2,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:3\",\"derivedSurfaceHeadingActionForm\":\"form:3\"},{\"index\":3,\"label\":\"Real hardware\",\"declaredSignature\":\"plain/module-heading/credited-figure\",\"registeredOwner\":\"brand-v2-home-hero-domain-index-and-structure\",\"registeredPurpose\":\"The real-hardware figure, a credited photograph whose caption carries its source and licence.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 45, 51)/0],a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0] || p=1,ul=0,ol=0,li=0,dl=0,figure=1,img=1,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:4\",\"derivedSurfaceHeadingActionForm\":\"form:4\"},{\"index\":4,\"label\":\"Interactive tools\",\"declaredSignature\":\"plain/module-heading/schematic-pair\",\"registeredOwner\":\"brand-v2-home-live-tools-and-responsive-convergence\",\"registeredPurpose\":\"The two tool entry points, each previewing the artifact it leads to with a schematic derived from the shipped data.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/0] || p=3,ul=1,ol=0,li=6,dl=0,figure=1,img=0,svg=2,canvas=0,table=1,input=0,h3=2,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:5\",\"derivedSurfaceHeadingActionForm\":\"form:5\"},{\"index\":5,\"label\":\"Learning paths\",\"declaredSignature\":\"plain/module-heading/ordered-link-lists\",\"registeredOwner\":\"brand-v2-home-hero-domain-index-and-structure\",\"registeredPurpose\":\"The curated learning paths: three ordered reading sequences through the taxonomy, each linking its domain hub and the articles in the intended reading order.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/0] || p=4,ul=0,ol=3,li=23,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=3,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:6\",\"derivedSurfaceHeadingActionForm\":\"form:5\"},{\"index\":6,\"label\":\"How to read this wiki\",\"declaredSignature\":\"ruled-plain/closing-heading/guidance-prose\",\"registeredOwner\":\"brand-v2-home-hero-domain-index-and-structure\",\"registeredPurpose\":\"The closing guidance on how to read the wiki, prose that sets the citation-first expectation before the reader leaves home.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow + transparent|1solidrgb(217, 218, 219),0,0,0|0|no-shadow || h2/18/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0] || p=3,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:7\",\"derivedSurfaceHeadingActionForm\":\"form:6\"}],\"derivedForms\":[\"form:1\",\"form:2\",\"form:3\",\"form:4\",\"form:5\",\"form:6\",\"form:7\"],\"derivedSurfaceHeadingActionForms\":[\"form:1\",\"form:2\",\"form:3\",\"form:4\",\"form:5\",\"form:5\",\"form:6\"],\"distinctStructuralForms\":7,\"maximumAdjacentRepeatedSignatures\":1,\"maximumAdjacentSurfaceHeadingRun\":2,\"borderedCardCount\":4,\"borderedDomainRows\":0}",
+      "actual": "anchor:home-board-derived-structure holds on the built home page at 1440x900: {\"signatures\":[\"sheet/display-lockup/primary-action\",\"ruled-plain/index-heading/row-links\",\"plain/module-heading/live-instrument\",\"plain/module-heading/credited-figure\",\"plain/module-heading/schematic-pair\",\"plain/module-heading/ordered-link-lists\",\"ruled-plain/closing-heading/guidance-prose\"],\"registeredSignatures\":[\"plain/module-heading/credited-figure (brand-v2-home-hero-domain-index-and-structure)\",\"plain/module-heading/live-instrument (brand-v2-home-live-tools-and-responsive-convergence)\",\"plain/module-heading/ordered-link-lists (brand-v2-home-hero-domain-index-and-structure)\",\"plain/module-heading/schematic-pair (brand-v2-home-live-tools-and-responsive-convergence)\",\"ruled-plain/closing-heading/guidance-prose (brand-v2-home-hero-domain-index-and-structure)\",\"ruled-plain/index-heading/row-links (brand-v2-home-hero-domain-index-and-structure)\",\"sheet/display-lockup/primary-action (brand-v2-home-hero-domain-index-and-structure)\"],\"structuralVarietyTable\":[{\"index\":0,\"label\":\"Introduction\",\"declaredSignature\":\"sheet/display-lockup/primary-action\",\"registeredOwner\":\"brand-v2-home-hero-domain-index-and-structure\",\"registeredPurpose\":\"The opening sheet that carries the public identity, the locked descriptor and the single black primary action into the first viewport.\",\"derivedStructuralForm\":\"rgb(245, 246, 247)|1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219)|0|no-shadow + transparent|0,0,0,0|0|no-shadow || h1/92.16/600/tektur/none || a[rgb(11, 11, 12)/rgb(255, 255, 255)/1],a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/1] || p=2,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:1\",\"derivedSurfaceHeadingActionForm\":\"form:1\"},{\"index\":1,\"label\":\"Domain index\",\"declaredSignature\":\"ruled-plain/index-heading/row-links\",\"registeredOwner\":\"brand-v2-home-hero-domain-index-and-structure\",\"registeredPurpose\":\"The domain index: seven canonical destinations as ruled editorial rows rather than a grid of equal marketing cards.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow + transparent|1solidcolor(srgb 0.552863 0.569961 0.582118),0,0,0|0|no-shadow + transparent|1solidrgb(217, 218, 219),0,0,0|0|no-shadow || h2/24/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/0],a[rgba(0, 0, 0, 0)/rgb(36, 45, 51)/0] || p=7,ul=1,ol=0,li=7,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:2\",\"derivedSurfaceHeadingActionForm\":\"form:2\"},{\"index\":2,\"label\":\"Featured interactive\",\"declaredSignature\":\"plain/module-heading/live-instrument\",\"registeredOwner\":\"brand-v2-home-live-tools-and-responsive-convergence\",\"registeredPurpose\":\"The featured instrument, where the reader operates a live calculator that computes its readout instead of depicting one.\",\"derivedStructuralForm\":\"rgb(255, 255, 255)|1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219)|0|no-shadow + transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0],button[color(srgb 0.973176 0.973882 0.974588)/rgb(36, 45, 51)/1] || p=7,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=3,canvas=0,table=1,input=2,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:3\",\"derivedSurfaceHeadingActionForm\":\"form:3\"},{\"index\":3,\"label\":\"Real hardware\",\"declaredSignature\":\"plain/module-heading/credited-figure\",\"registeredOwner\":\"brand-v2-home-hero-domain-index-and-structure\",\"registeredPurpose\":\"The real-hardware figure, a credited photograph whose caption carries its source and licence.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 45, 51)/0],a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0] || p=1,ul=0,ol=0,li=0,dl=0,figure=1,img=1,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:4\",\"derivedSurfaceHeadingActionForm\":\"form:4\"},{\"index\":4,\"label\":\"Interactive tools\",\"declaredSignature\":\"plain/module-heading/schematic-pair\",\"registeredOwner\":\"brand-v2-home-live-tools-and-responsive-convergence\",\"registeredPurpose\":\"The two tool entry points, each previewing the artifact it leads to with a schematic derived from the shipped data.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/0] || p=3,ul=1,ol=0,li=6,dl=0,figure=1,img=0,svg=2,canvas=0,table=1,input=0,h3=2,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:5\",\"derivedSurfaceHeadingActionForm\":\"form:5\"},{\"index\":5,\"label\":\"Learning paths\",\"declaredSignature\":\"plain/module-heading/ordered-link-lists\",\"registeredOwner\":\"brand-v2-home-hero-domain-index-and-structure\",\"registeredPurpose\":\"The curated learning paths: three ordered reading sequences through the taxonomy, each linking its domain hub and the articles in the intended reading order.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/0] || p=4,ul=0,ol=3,li=23,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=3,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:6\",\"derivedSurfaceHeadingActionForm\":\"form:5\"},{\"index\":6,\"label\":\"How to read this wiki\",\"declaredSignature\":\"ruled-plain/closing-heading/guidance-prose\",\"registeredOwner\":\"brand-v2-home-hero-domain-index-and-structure\",\"registeredPurpose\":\"The closing guidance on how to read the wiki, prose that sets the citation-first expectation before the reader leaves home.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow + transparent|1solidrgb(217, 218, 219),0,0,0|0|no-shadow || h2/18/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0] || p=3,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:7\",\"derivedSurfaceHeadingActionForm\":\"form:6\"}],\"derivedForms\":[\"form:1\",\"form:2\",\"form:3\",\"form:4\",\"form:5\",\"form:6\",\"form:7\"],\"derivedSurfaceHeadingActionForms\":[\"form:1\",\"form:2\",\"form:3\",\"form:4\",\"form:5\",\"form:5\",\"form:6\"],\"distinctStructuralForms\":7,\"maximumAdjacentRepeatedSignatures\":1,\"maximumAdjacentSurfaceHeadingRun\":2,\"borderedCardCount\":6,\"borderedDomainRows\":0}",
       "selectorOrRegistryId": "contract/design-integrity.md#VAL-B2-SHELL-006:composition-anchors",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -184959,7 +184959,7 @@
               "declaredSignature": "plain/module-heading/live-instrument",
               "registeredOwner": "brand-v2-home-live-tools-and-responsive-convergence",
               "registeredPurpose": "The featured instrument, where the reader operates a live calculator that computes its readout instead of depicting one.",
-              "derivedStructuralForm": "rgb(255, 255, 255)|1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219)|0|no-shadow + transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0],button[color(srgb 0.973176 0.973882 0.974588)/rgb(36, 45, 51)/1] || p=4,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=1,canvas=0,table=1,input=2,h3=0,h4=0,blockquote=0,pre=0",
+              "derivedStructuralForm": "rgb(255, 255, 255)|1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219)|0|no-shadow + transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0],button[color(srgb 0.973176 0.973882 0.974588)/rgb(36, 45, 51)/1] || p=7,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=3,canvas=0,table=1,input=2,h3=0,h4=0,blockquote=0,pre=0",
               "derivedForm": "form:3",
               "derivedSurfaceHeadingActionForm": "form:3"
             },
@@ -185025,7 +185025,7 @@
           "distinctStructuralForms": 7,
           "maximumAdjacentRepeatedSignatures": 1,
           "maximumAdjacentSurfaceHeadingRun": 2,
-          "borderedCardCount": 4,
+          "borderedCardCount": 6,
           "borderedDomainRows": 0,
           "evidence": [
             "evidence/brand-v2/home-composition.json"
@@ -190021,7 +190021,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every product surface carries a stable variant ID whose registry row names flat/raised/floating/bounded-dark level, stacking purpose, radius, border, shadow tolerance, and allowed owners; source, registry, and rendered populations are equal.",
-      "actual": "rendered on 12 of 75 swept route states and reconciled exactly against the registry row",
+      "actual": "rendered on 21 of 75 swept route states and reconciled exactly against the registry row",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#surfaces",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -190060,17 +190060,26 @@
           "mountState": "production",
           "renderedOn": [
             "/",
+            "/adjacent/drones/",
             "/classical/kinematics/",
             "/classical/motion-planning/",
             "/classical/state-estimation/",
             "/credits/",
+            "/data-hardware/data-bottleneck/",
+            "/data-hardware/evaluation-crisis/",
+            "/data-hardware/industrial-deployment/",
+            "/frontier/dexterity/",
+            "/frontier/reliability-gap/",
             "/manipulation/action-chunking/",
             "/manipulation/bc-foundations/",
             "/manipulation/diffusion-policy/",
             "/manipulation/pi-line/",
             "/manipulation/vla-models/",
             "/rl-sim2real/legged-locomotion/",
-            "/rl-sim2real/parallel-sim-rl/"
+            "/rl-sim2real/parallel-sim-rl/",
+            "/world-models/generative-sim/",
+            "/world-models/generative-video/",
+            "/world-models/latent-dynamics/"
           ],
           "sweptRouteStates": 75,
           "reconciliationSource": "evidence/brand-v2/primitive-reconciliation.json"
@@ -199660,9 +199669,9 @@
               "id": "/",
               "observed": {
                 "monoRequiredCount": 0,
-                "interfaceControlCount": 11,
+                "interfaceControlCount": 15,
                 "controlsInProse": 0,
-                "registrationLabelCount": 1
+                "registrationLabelCount": 2
               }
             }
           ],
@@ -199812,9 +199821,9 @@
               "id": "/adjacent/drones/",
               "observed": {
                 "monoRequiredCount": 0,
-                "interfaceControlCount": 15,
-                "controlsInProse": 6,
-                "registrationLabelCount": 4
+                "interfaceControlCount": 19,
+                "controlsInProse": 10,
+                "registrationLabelCount": 5
               }
             }
           ],
@@ -200382,9 +200391,9 @@
               "id": "/data-hardware/data-bottleneck/",
               "observed": {
                 "monoRequiredCount": 0,
-                "interfaceControlCount": 22,
-                "controlsInProse": 9,
-                "registrationLabelCount": 4
+                "interfaceControlCount": 26,
+                "controlsInProse": 13,
+                "registrationLabelCount": 5
               }
             }
           ],
@@ -200419,7 +200428,7 @@
             {
               "id": "/data-hardware/datasets/",
               "observed": {
-                "monoRequiredCount": 0,
+                "monoRequiredCount": 9,
                 "interfaceControlCount": 33,
                 "controlsInProse": 22,
                 "registrationLabelCount": 4
@@ -200457,10 +200466,10 @@
             {
               "id": "/data-hardware/evaluation-crisis/",
               "observed": {
-                "monoRequiredCount": 0,
-                "interfaceControlCount": 20,
-                "controlsInProse": 6,
-                "registrationLabelCount": 4
+                "monoRequiredCount": 2,
+                "interfaceControlCount": 24,
+                "controlsInProse": 10,
+                "registrationLabelCount": 5
               }
             }
           ],
@@ -200495,7 +200504,7 @@
             {
               "id": "/data-hardware/hardware-taxonomy/",
               "observed": {
-                "monoRequiredCount": 0,
+                "monoRequiredCount": 1,
                 "interfaceControlCount": 39,
                 "controlsInProse": 29,
                 "registrationLabelCount": 4
@@ -200534,9 +200543,9 @@
               "id": "/data-hardware/industrial-deployment/",
               "observed": {
                 "monoRequiredCount": 0,
-                "interfaceControlCount": 9,
-                "controlsInProse": 1,
-                "registrationLabelCount": 4
+                "interfaceControlCount": 13,
+                "controlsInProse": 5,
+                "registrationLabelCount": 5
               }
             }
           ],
@@ -200800,9 +200809,9 @@
               "id": "/frontier/dexterity/",
               "observed": {
                 "monoRequiredCount": 0,
-                "interfaceControlCount": 24,
-                "controlsInProse": 12,
-                "registrationLabelCount": 4
+                "interfaceControlCount": 28,
+                "controlsInProse": 16,
+                "registrationLabelCount": 5
               }
             }
           ],
@@ -200876,9 +200885,9 @@
               "id": "/frontier/reliability-gap/",
               "observed": {
                 "monoRequiredCount": 0,
-                "interfaceControlCount": 18,
-                "controlsInProse": 7,
-                "registrationLabelCount": 4
+                "interfaceControlCount": 22,
+                "controlsInProse": 11,
+                "registrationLabelCount": 5
               }
             }
           ],
@@ -202168,9 +202177,9 @@
               "id": "/world-models/generative-sim/",
               "observed": {
                 "monoRequiredCount": 0,
-                "interfaceControlCount": 19,
-                "controlsInProse": 6,
-                "registrationLabelCount": 4
+                "interfaceControlCount": 23,
+                "controlsInProse": 10,
+                "registrationLabelCount": 5
               }
             }
           ],
@@ -202206,9 +202215,9 @@
               "id": "/world-models/generative-video/",
               "observed": {
                 "monoRequiredCount": 0,
-                "interfaceControlCount": 25,
-                "controlsInProse": 10,
-                "registrationLabelCount": 4
+                "interfaceControlCount": 29,
+                "controlsInProse": 14,
+                "registrationLabelCount": 5
               }
             }
           ],
@@ -202282,9 +202291,9 @@
               "id": "/world-models/latent-dynamics/",
               "observed": {
                 "monoRequiredCount": 0,
-                "interfaceControlCount": 13,
-                "controlsInProse": 5,
-                "registrationLabelCount": 5
+                "interfaceControlCount": 17,
+                "controlsInProse": 9,
+                "registrationLabelCount": 6
               }
             }
           ],
@@ -204675,7 +204684,7 @@
               "id": "/adjacent/drones/",
               "observed": {
                 "paragraphCount": 36,
-                "registeredFrameParagraphCount": 6,
+                "registeredFrameParagraphCount": 12,
                 "offendingFamilies": []
               }
             }
@@ -205119,7 +205128,7 @@
               "id": "/data-hardware/data-bottleneck/",
               "observed": {
                 "paragraphCount": 28,
-                "registeredFrameParagraphCount": 20,
+                "registeredFrameParagraphCount": 26,
                 "offendingFamilies": []
               }
             }
@@ -205193,7 +205202,7 @@
               "id": "/data-hardware/evaluation-crisis/",
               "observed": {
                 "paragraphCount": 30,
-                "registeredFrameParagraphCount": 20,
+                "registeredFrameParagraphCount": 26,
                 "offendingFamilies": []
               }
             }
@@ -205267,7 +205276,7 @@
               "id": "/data-hardware/industrial-deployment/",
               "observed": {
                 "paragraphCount": 36,
-                "registeredFrameParagraphCount": 34,
+                "registeredFrameParagraphCount": 40,
                 "offendingFamilies": []
               }
             }
@@ -205452,7 +205461,7 @@
               "id": "/frontier/dexterity/",
               "observed": {
                 "paragraphCount": 32,
-                "registeredFrameParagraphCount": 14,
+                "registeredFrameParagraphCount": 20,
                 "offendingFamilies": []
               }
             }
@@ -205526,7 +205535,7 @@
               "id": "/frontier/reliability-gap/",
               "observed": {
                 "paragraphCount": 28,
-                "registeredFrameParagraphCount": 20,
+                "registeredFrameParagraphCount": 26,
                 "offendingFamilies": []
               }
             }
@@ -206488,7 +206497,7 @@
               "id": "/world-models/generative-sim/",
               "observed": {
                 "paragraphCount": 44,
-                "registeredFrameParagraphCount": 8,
+                "registeredFrameParagraphCount": 14,
                 "offendingFamilies": []
               }
             }
@@ -206525,7 +206534,7 @@
               "id": "/world-models/generative-video/",
               "observed": {
                 "paragraphCount": 44,
-                "registeredFrameParagraphCount": 6,
+                "registeredFrameParagraphCount": 12,
                 "offendingFamilies": []
               }
             }
@@ -206599,7 +206608,7 @@
               "id": "/world-models/latent-dynamics/",
               "observed": {
                 "paragraphCount": 32,
-                "registeredFrameParagraphCount": 8,
+                "registeredFrameParagraphCount": 14,
                 "offendingFamilies": []
               }
             }
@@ -212826,27 +212835,27 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-TYPE-009:/data-hardware/hardware-taxonomy/#hands-ship-bundled-not-shelved",
+      "resultId": "result:VAL-B2-TYPE-009:/data-hardware/hardware-taxonomy/#hands-ship-bundled",
       "assertionId": "VAL-B2-TYPE-009",
-      "populationMemberId": "/data-hardware/hardware-taxonomy/#hands-ship-bundled-not-shelved",
+      "populationMemberId": "/data-hardware/hardware-taxonomy/#hands-ship-bundled",
       "coveredPopulationMemberIds": [
-        "/data-hardware/hardware-taxonomy/#hands-ship-bundled-not-shelved"
+        "/data-hardware/hardware-taxonomy/#hands-ship-bundled"
       ],
       "coverageKind": "per-member",
       "expected": "Linked article section headings expose a signal-blue underline plus a non-colour link affordance and remain keyboard focusable.",
-      "actual": "/data-hardware/hardware-taxonomy/#hands-ship-bundled-not-shelved was measured at 375x812 and 1440x900 and every clause of VAL-B2-TYPE-009 held against the reading",
+      "actual": "/data-hardware/hardware-taxonomy/#hands-ship-bundled was measured at 375x812 and 1440x900 and every clause of VAL-B2-TYPE-009 held against the reading",
       "selectorOrRegistryId": "evidence/brand-v2/article-typography.json#sectionHeadings",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "member": "/data-hardware/hardware-taxonomy/#hands-ship-bundled-not-shelved",
+          "member": "/data-hardware/hardware-taxonomy/#hands-ship-bundled",
           "measured": [
             {
-              "id": "/data-hardware/hardware-taxonomy/#hands-ship-bundled-not-shelved",
+              "id": "/data-hardware/hardware-taxonomy/#hands-ship-bundled",
               "observed": {
-                "headingId": "hands-ship-bundled-not-shelved",
+                "headingId": "hands-ship-bundled",
                 "headingTag": "h2",
                 "linked": true,
                 "colour": "rgb(11, 11, 12)",
@@ -212856,7 +212865,7 @@
                 "keyboardFocusable": true,
                 "affordance": {
                   "tag": "button",
-                  "accessibleName": "Copy link to this section, Hands ship bundled, not shelved",
+                  "accessibleName": "Copy link to this section, Hands ship bundled",
                   "widthPx": 24,
                   "heightPx": 24,
                   "opacity": 1,
@@ -224476,6 +224485,56 @@
       }
     },
     {
+      "resultId": "result:VAL-B2-TYPE-009:/world-models/generative-sim/#generate-content-inside-a-physics-engine",
+      "assertionId": "VAL-B2-TYPE-009",
+      "populationMemberId": "/world-models/generative-sim/#generate-content-inside-a-physics-engine",
+      "coveredPopulationMemberIds": [
+        "/world-models/generative-sim/#generate-content-inside-a-physics-engine"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Linked article section headings expose a signal-blue underline plus a non-colour link affordance and remain keyboard focusable.",
+      "actual": "/world-models/generative-sim/#generate-content-inside-a-physics-engine was measured at 375x812 and 1440x900 and every clause of VAL-B2-TYPE-009 held against the reading",
+      "selectorOrRegistryId": "evidence/brand-v2/article-typography.json#sectionHeadings",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "/world-models/generative-sim/#generate-content-inside-a-physics-engine",
+          "measured": [
+            {
+              "id": "/world-models/generative-sim/#generate-content-inside-a-physics-engine",
+              "observed": {
+                "headingId": "generate-content-inside-a-physics-engine",
+                "headingTag": "h2",
+                "linked": true,
+                "colour": "rgb(11, 11, 12)",
+                "decorationLine": "underline",
+                "decorationColour": "rgb(36, 95, 255)",
+                "decorationThicknessPx": 2,
+                "keyboardFocusable": true,
+                "affordance": {
+                  "tag": "button",
+                  "accessibleName": "Copy link to this section, Generate content inside a physics engine",
+                  "widthPx": 24,
+                  "heightPx": 24,
+                  "opacity": 1,
+                  "visibility": "visible"
+                }
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-typography.json"
+          ]
+        }
+      }
+    },
+    {
       "resultId": "result:VAL-B2-TYPE-009:/world-models/generative-sim/#holodeck-language-guided-environment-generation",
       "assertionId": "VAL-B2-TYPE-009",
       "populationMemberId": "/world-models/generative-sim/#holodeck-language-guided-environment-generation",
@@ -224657,56 +224716,6 @@
                 "affordance": {
                   "tag": "button",
                   "accessibleName": "Copy link to this section, RoboGen: propose, generate, learn",
-                  "widthPx": 24,
-                  "heightPx": 24,
-                  "opacity": 1,
-                  "visibility": "visible"
-                }
-              }
-            }
-          ],
-          "viewports": [
-            "375x812",
-            "1440x900"
-          ],
-          "evidence": [
-            "evidence/brand-v2/article-typography.json"
-          ]
-        }
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-TYPE-009:/world-models/generative-sim/#the-argument-generate-content-not-dynamics",
-      "assertionId": "VAL-B2-TYPE-009",
-      "populationMemberId": "/world-models/generative-sim/#the-argument-generate-content-not-dynamics",
-      "coveredPopulationMemberIds": [
-        "/world-models/generative-sim/#the-argument-generate-content-not-dynamics"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Linked article section headings expose a signal-blue underline plus a non-colour link affordance and remain keyboard focusable.",
-      "actual": "/world-models/generative-sim/#the-argument-generate-content-not-dynamics was measured at 375x812 and 1440x900 and every clause of VAL-B2-TYPE-009 held against the reading",
-      "selectorOrRegistryId": "evidence/brand-v2/article-typography.json#sectionHeadings",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "browser-state",
-        "computed": {
-          "member": "/world-models/generative-sim/#the-argument-generate-content-not-dynamics",
-          "measured": [
-            {
-              "id": "/world-models/generative-sim/#the-argument-generate-content-not-dynamics",
-              "observed": {
-                "headingId": "the-argument-generate-content-not-dynamics",
-                "headingTag": "h2",
-                "linked": true,
-                "colour": "rgb(11, 11, 12)",
-                "decorationLine": "underline",
-                "decorationColour": "rgb(36, 95, 255)",
-                "decorationThicknessPx": 2,
-                "keyboardFocusable": true,
-                "affordance": {
-                  "tag": "button",
-                  "accessibleName": "Copy link to this section, The argument: generate content, not dynamics",
                   "widthPx": 24,
                   "heightPx": 24,
                   "opacity": 1,
@@ -225226,27 +225235,27 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-TYPE-009:/world-models/jepa/#the-argument-predict-representations-not-pixels",
+      "resultId": "result:VAL-B2-TYPE-009:/world-models/jepa/#the-argument-for-representation-prediction",
       "assertionId": "VAL-B2-TYPE-009",
-      "populationMemberId": "/world-models/jepa/#the-argument-predict-representations-not-pixels",
+      "populationMemberId": "/world-models/jepa/#the-argument-for-representation-prediction",
       "coveredPopulationMemberIds": [
-        "/world-models/jepa/#the-argument-predict-representations-not-pixels"
+        "/world-models/jepa/#the-argument-for-representation-prediction"
       ],
       "coverageKind": "per-member",
       "expected": "Linked article section headings expose a signal-blue underline plus a non-colour link affordance and remain keyboard focusable.",
-      "actual": "/world-models/jepa/#the-argument-predict-representations-not-pixels was measured at 375x812 and 1440x900 and every clause of VAL-B2-TYPE-009 held against the reading",
+      "actual": "/world-models/jepa/#the-argument-for-representation-prediction was measured at 375x812 and 1440x900 and every clause of VAL-B2-TYPE-009 held against the reading",
       "selectorOrRegistryId": "evidence/brand-v2/article-typography.json#sectionHeadings",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "member": "/world-models/jepa/#the-argument-predict-representations-not-pixels",
+          "member": "/world-models/jepa/#the-argument-for-representation-prediction",
           "measured": [
             {
-              "id": "/world-models/jepa/#the-argument-predict-representations-not-pixels",
+              "id": "/world-models/jepa/#the-argument-for-representation-prediction",
               "observed": {
-                "headingId": "the-argument-predict-representations-not-pixels",
+                "headingId": "the-argument-for-representation-prediction",
                 "headingTag": "h2",
                 "linked": true,
                 "colour": "rgb(11, 11, 12)",
@@ -225256,7 +225265,7 @@
                 "keyboardFocusable": true,
                 "affordance": {
                   "tag": "button",
-                  "accessibleName": "Copy link to this section, The argument: predict representations, not pixels",
+                  "accessibleName": "Copy link to this section, The argument for representation prediction",
                   "widthPx": 24,
                   "heightPx": 24,
                   "opacity": 1,
@@ -227446,7 +227455,7 @@
             {
               "id": "/",
               "observed": {
-                "labelCount": 2,
+                "labelCount": 4,
                 "trackingEm": [
                   0.14
                 ],
@@ -227606,7 +227615,7 @@
             {
               "id": "/adjacent/drones/",
               "observed": {
-                "labelCount": 8,
+                "labelCount": 10,
                 "trackingEm": [
                   0.14
                 ],
@@ -228206,7 +228215,7 @@
             {
               "id": "/data-hardware/data-bottleneck/",
               "observed": {
-                "labelCount": 8,
+                "labelCount": 10,
                 "trackingEm": [
                   0.14
                 ],
@@ -228286,7 +228295,7 @@
             {
               "id": "/data-hardware/evaluation-crisis/",
               "observed": {
-                "labelCount": 8,
+                "labelCount": 10,
                 "trackingEm": [
                   0.14
                 ],
@@ -228366,7 +228375,7 @@
             {
               "id": "/data-hardware/industrial-deployment/",
               "observed": {
-                "labelCount": 8,
+                "labelCount": 10,
                 "trackingEm": [
                   0.14
                 ],
@@ -228646,7 +228655,7 @@
             {
               "id": "/frontier/dexterity/",
               "observed": {
-                "labelCount": 8,
+                "labelCount": 10,
                 "trackingEm": [
                   0.14
                 ],
@@ -228726,7 +228735,7 @@
             {
               "id": "/frontier/reliability-gap/",
               "observed": {
-                "labelCount": 8,
+                "labelCount": 10,
                 "trackingEm": [
                   0.14
                 ],
@@ -230086,7 +230095,7 @@
             {
               "id": "/world-models/generative-sim/",
               "observed": {
-                "labelCount": 8,
+                "labelCount": 10,
                 "trackingEm": [
                   0.14
                 ],
@@ -230126,7 +230135,7 @@
             {
               "id": "/world-models/generative-video/",
               "observed": {
-                "labelCount": 8,
+                "labelCount": 10,
                 "trackingEm": [
                   0.14
                 ],
@@ -230206,7 +230215,7 @@
             {
               "id": "/world-models/latent-dynamics/",
               "observed": {
-                "labelCount": 10,
+                "labelCount": 12,
                 "trackingEm": [
                   0.14
                 ],

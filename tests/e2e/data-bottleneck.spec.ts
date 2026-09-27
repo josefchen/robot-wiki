@@ -103,7 +103,7 @@ test.describe('data-hardware data-bottleneck module', () => {
     await expect(yTicks.first()).toHaveText('10⁹');
     await expect(yTicks.last()).toHaveText('10¹⁴');
     await expect(chart(page).getByTestId('robot-marker-oxe')).toHaveCount(0);
-    await expect(chart(page).getByTestId('oxe-duration-note')).toContainText('unknown in inspected sources');
+    await expect(chart(page).getByTestId('oxe-duration-note')).toContainText('no hour estimate and does not plot OXE');
     await expect(chart(page).getByTestId('robot-marker-droid')).toBeVisible();
     await expect(chart(page).getByTestId('robot-marker-agibot')).toBeVisible();
     await expect(chart(page).getByTestId('llm-marker-llama3')).toBeVisible();
@@ -113,7 +113,7 @@ test.describe('data-hardware data-bottleneck module', () => {
   test('teleop-farm slider is keyboard-operable with a consistent readout', async ({
     page,
   }) => {
-    await page.goto(ROUTE);
+    await page.goto(ROUTE, { waitUntil: 'networkidle' });
     const hours = chart(page).getByTestId('hours-readout');
     const oxe = chart(page).getByTestId('oxe-years-readout');
     await expect(hours).toHaveText('15,000 h/yr');

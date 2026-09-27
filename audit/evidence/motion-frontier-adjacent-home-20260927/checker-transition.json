@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "motion-frontier-checker-revision-v1",
+  "before": {
+    "path": "audit/evidence/motion-frontier-adjacent-home-20260927/audit-local-basis-before.ts.txt",
+    "bytes": 110353,
+    "sha256": "ef39b0de96ac433682a61a390998152871f2a4065c6db4a27f2fd97c66bd7660"
+  },
+  "after": {
+    "path": "lib/audit-local-basis.ts",
+    "bytes": 110673,
+    "sha256": "a2264881cb17d1c5c54f23c1178c15c4d74fe4561e431fc7fb0a5b52495b6b30"
+  },
+  "reviewedBy": "Frontier proof-dependency integrator, not independent acceptance",
+  "observedAt": "2026-09-27T18:27:35Z",
+  "rationale": "The original data-hardware checker endpoint is retained byte-for-byte as the before snapshot. This successor adds only the finite safety article reader for two existing local-basis rows and chains the previous checker review before accepting the new exact checker bytes. Old proof inputs and review events continue to read the actual archived article and checker they observed; no receipt, calculation, external evidence or mount observation was replaced. The current safety article is separately tied to its reviewed full-file hash, ordered citations and science qualifications."
+}

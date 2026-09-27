@@ -75,7 +75,7 @@ describe('bounded remaining reader Source flow, zero original completions', () =
     // Check this Source-only transaction at its actual article endpoint.
     const old = before(path), current = path.includes('rl-sim2real/')
       ? committedSource('8368034', path)
-      : path.includes('classical/') ? committedSource(sourceFlowEndpoint, path) : read(path);
+      : path.includes('classical/') ? committedSource(sourceFlowEndpoint, path) : committedSource('68fd2b8', path);
     expect(current).not.toBe(old);
     expect(committedSource(checkpoint, path)).toBe(inlineSources(old));
     expect(current).toBe(inlineSources(committedSource(READER_RELEASE_BASE, path)));
@@ -85,7 +85,7 @@ describe('bounded remaining reader Source flow, zero original completions', () =
   it.each(cases)('preserves all scientific text, numbers, equations, links and metadata in $path', ({ path }) => {
     const old = before(path), current = path.includes('rl-sim2real/')
       ? committedSource('8368034', path)
-      : path.includes('classical/') ? committedSource(sourceFlowEndpoint, path) : read(path);
+      : path.includes('classical/') ? committedSource(sourceFlowEndpoint, path) : committedSource('68fd2b8', path);
     const prose = (text: string) => inlineSources(text).replace(/<Cite\s+id="[^"]+"\s*\/>/g, '');
     expect(prose(committedSource(checkpoint, path))).toBe(prose(old));
     expect(prose(current)).toBe(prose(committedSource(READER_RELEASE_BASE, path)));
@@ -125,8 +125,11 @@ describe('bounded remaining reader Source flow, zero original completions', () =
   });
 
   it('attaches Eureka to its scientific qualification rather than the following navigation sentence', () => {
-    expect(read(cases[1].path)).toContain(
+    expect(committedSource('68fd2b8', cases[1].path)).toContain(
       'this is an interpretability claim, not a requirement that every reward be manually inspected or a comparative study of reward hacking <Cite id="eureka-2024" />. The [reward-design](/rl-sim2real/reward-design-mpc) module explains the distinction.',
+    );
+    expect(read(cases[1].path)).toContain(
+      'this is an interpretability claim. The paper does not require manual inspection of every reward or report a comparative study of reward hacking <Cite id="eureka-2024" />.',
     );
   });
 

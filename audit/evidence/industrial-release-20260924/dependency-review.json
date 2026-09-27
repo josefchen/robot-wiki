@@ -1,8 +1,8 @@
 {
   "schemaVersion": "residual-release-dependency-review-v1",
-  "observedAt": "2026-09-27T05:05:09.792Z",
-  "reviewedBy": "Robot Wiki classical implementer, not independent acceptance",
-  "rationale": "Exact continuity from 4695852: only two assertion-test identity hashes and this review path change in the checker. Both tests change only the selected correction catalog path. No computation, producer, oracle, recorded receipt, historical snapshot, source obligation or validator predicate changed. Fresh industrial runtime evidence is separately recorded at industrial-release-20260924; previous dependency review remains immutable. Classical motion/humanizer closeout: exact article-current identity review for motion-planning and perception only; historical dependency snapshots and typed-local plans, proofs, receipts and source obligations are unchanged. Earlier review bytes preserved in audit/evidence/motion-classical-20260927/dependency-review-before.json.",
+  "observedAt": "2026-09-27T12:01:01Z",
+  "reviewedBy": "Robot Wiki world-model motion implementer, not independent acceptance",
+  "rationale": "Exact continuity from 4695852: only two assertion-test identity hashes and this review path change in the checker. Both tests change only the selected correction catalog path. No computation, producer, oracle, recorded receipt, historical snapshot, source obligation or validator predicate changed. Fresh industrial runtime evidence is separately recorded at industrial-release-20260924; previous dependency review remains immutable. Classical motion/humanizer closeout: exact article-current identity review for motion-planning and perception only; historical dependency snapshots and typed-local plans, proofs, receipts and source obligations are unchanged. Earlier review bytes preserved in audit/evidence/motion-classical-20260927/dependency-review-before.json. World-model motion/humanizer closeout: the taxonomy article's current identity alone moves from the previously reviewed 14,871-byte endpoint to the exact 14,704-byte current article. The six-group authored-selection and non-benchmark disclosure remains byte-identical. No taxonomy control, local-basis plan, proof, historical dependency snapshot, source obligation or historical receipt changes. All original bindings retain their historical identities. The immediately prior complete dependency review is retained at audit/evidence/motion-world-models-20260927/dependency-review-before.json (SHA-256 e9a82ba7e4ef259dead9ec4af0e087353a286366420075ae65f5168d704002e8). The independent world-model motion continuity test verifies the review transition and exact article endpoints; this is current-state compatibility, not a new observation of a historical run.",
   "bindings": [
     {
       "historical": {
@@ -304,15 +304,15 @@
       },
       "current": {
         "path": "content/world-models/taxonomy.mdx",
-        "bytes": 14871,
-        "sha256": "0db6f48a8b520972a7876932bd2618b027f5863a0a151a390d5853be795a9039"
+        "bytes": 14704,
+        "sha256": "05b9c7e4aab79c6111146e3d7e894a9ce791f306e47e4d709a6b1b5b4cc8f793"
       },
       "snapshot": {
         "path": "audit/evidence/residual-release-20260924/content--world-models--taxonomy.mdx.txt",
         "bytes": 13606,
         "sha256": "4ee6b58843f33a444338ec8f3b13a1971aa2e9073efad54fe630482ff0925517"
       },
-      "rationale": "Retain released Stat date-range typography and main-only related guides; incoming authored finite taxonomy selection disclosure remains unchanged.",
+      "rationale": "Retain released Stat date-range typography and main-only related guides; incoming authored finite taxonomy selection disclosure remains unchanged. The current article underwent only the reviewed world-model humanizer prose pass, with the six-group authored-selection disclosure and finite taxonomy controls preserved; prior review bytes and historical dependency snapshot are retained independently.",
       "preservedText": [
         "The six example groups below are this article's authored selection, not an exhaustive or universally agreed scientific taxonomy. Their panels compare different prediction targets and uses; selecting a panel is not a benchmark comparison between the named systems."
       ]

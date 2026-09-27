@@ -799,7 +799,7 @@
       "reachedByTab": 4,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 74
+      "tabStops": 75
     },
     {
       "route": "/404/",
@@ -839,7 +839,7 @@
       "reachedByTab": 37,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 121
+      "tabStops": 122
     },
     {
       "route": "/adjacent/space/",
@@ -959,7 +959,7 @@
       "reachedByTab": 32,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 122
+      "tabStops": 123
     },
     {
       "route": "/data-hardware/datasets/",
@@ -975,7 +975,7 @@
       "reachedByTab": 39,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 138
+      "tabStops": 139
     },
     {
       "route": "/data-hardware/hardware-taxonomy/",
@@ -1047,7 +1047,7 @@
       "reachedByTab": 74,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 184
+      "tabStops": 185
     },
     {
       "route": "/frontier/generalization/",
@@ -1063,7 +1063,7 @@
       "reachedByTab": 32,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 119
+      "tabStops": 120
     },
     {
       "route": "/frontier/safety-and-assurance/",
@@ -1071,7 +1071,7 @@
       "reachedByTab": 64,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 170
+      "tabStops": 171
     },
     {
       "route": "/glossary/",
@@ -1335,7 +1335,7 @@
       "reachedByTab": 31,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 125
+      "tabStops": 126
     },
     {
       "route": "/world-models/generative-video/",
@@ -1343,7 +1343,7 @@
       "reachedByTab": 44,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 147
+      "tabStops": 148
     },
     {
       "route": "/world-models/jepa/",
@@ -1359,7 +1359,7 @@
       "reachedByTab": 31,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 115
+      "tabStops": 116
     },
     {
       "route": "/world-models/model-based-robot-learning/",

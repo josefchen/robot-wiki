@@ -438,6 +438,12 @@ describe('authored-local-basis-v1 compatibility cases', () => {
     for (const path of [
       'audit/evidence/motion-rl-sim2real-20260927/checker-transition.json',
       'audit/evidence/motion-rl-sim2real-20260927/audit-local-basis-before.ts.txt',
+      'audit/evidence/motion-world-models-20260927/checker-transition.json',
+      'audit/evidence/motion-world-models-20260927/audit-local-basis-before.ts.txt',
+      'audit/evidence/motion-data-hardware-20260927/checker-transition.json',
+      'audit/evidence/motion-data-hardware-20260927/audit-local-basis-before.ts.txt',
+      'audit/evidence/motion-frontier-adjacent-home-20260927/checker-transition.json',
+      'audit/evidence/motion-frontier-adjacent-home-20260927/audit-local-basis-before.ts.txt',
     ]) f.put(path, readFileSync(join(project, path)));
     const bind = (path: string, snapshot: string) => {
       const retained = `audit/evidence/local-proof-compat-20260923/${snapshot}`;

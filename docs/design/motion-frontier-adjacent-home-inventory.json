@@ -1,0 +1,313 @@
+[
+  {
+    "article": "frontier/bear-case",
+    "element": "MilestonesWatchlist",
+    "decision": "keep",
+    "teachingGoal": "Check each of the eight falsifiable milestones against its dated evidence and status.",
+    "reason": "A watchlist is a simultaneous editorial reference, not a sequence of measured progress."
+  },
+  {
+    "article": "frontier/bear-case",
+    "element": "Stat",
+    "occurrence": 1,
+    "decision": "keep",
+    "teachingGoal": "Read the sourced funding total with its early-June time scope.",
+    "reason": "Animating a single reported total would invent a funding time series."
+  },
+  {
+    "article": "frontier/bear-case",
+    "element": "Stat",
+    "occurrence": 2,
+    "decision": "keep",
+    "teachingGoal": "Keep the cited quarterly profit change distinct from robot shipments.",
+    "reason": "One financial period is a static datum and cannot establish unit volume."
+  },
+  {
+    "article": "frontier/bear-case",
+    "element": "Stat",
+    "occurrence": 3,
+    "decision": "keep",
+    "teachingGoal": "Compare the dated milestone count against the full eight-row watchlist.",
+    "reason": "A count at one review date is not evidence of future progress."
+  },
+  {
+    "article": "frontier/competing-theses",
+    "element": "Stat",
+    "occurrence": 1,
+    "decision": "keep",
+    "teachingGoal": "Show the exact number of theses examined in the comparison.",
+    "reason": "The count describes this article's taxonomy, not a developing process."
+  },
+  {
+    "article": "frontier/competing-theses",
+    "element": "Stat",
+    "occurrence": 2,
+    "decision": "keep",
+    "teachingGoal": "Keep the estimated data-hour total and its date visible.",
+    "reason": "An estimate from one date does not support an animated accumulation."
+  },
+  {
+    "article": "frontier/competing-theses",
+    "element": "Stat",
+    "occurrence": 3,
+    "decision": "keep",
+    "teachingGoal": "Retain the EgoScale fitted statistic in its cited validation context.",
+    "reason": "A fitted statistic has no meaningful timeline or intermediate states."
+  },
+  {
+    "article": "frontier/competing-theses",
+    "element": "Stat",
+    "occurrence": 4,
+    "decision": "keep",
+    "teachingGoal": "Show the count of theses settled as of the stated review date.",
+    "reason": "Turning a single dated judgement into progress frames would invent history."
+  },
+  {
+    "article": "frontier/competing-theses",
+    "element": "ThesisExplorer",
+    "decision": "keep",
+    "teachingGoal": "Select each thesis and compare its evidence with its falsification test.",
+    "reason": "Independent selection and concurrent counterarguments are more useful than scripted playback."
+  },
+  {
+    "article": "frontier/dexterity",
+    "element": "HandComparison",
+    "decision": "keep",
+    "teachingGoal": "Sort disclosed hand specifications while retaining unknown and dated cells.",
+    "reason": "The table compares distinct products, not one hand changing with time."
+  },
+  {
+    "article": "frontier/dexterity",
+    "element": "Stat",
+    "occurrence": 1,
+    "decision": "keep",
+    "teachingGoal": "Keep human mechanoreceptor counts beside the attributed review.",
+    "reason": "The figure is a reported anatomical reference rather than a time sample."
+  },
+  {
+    "article": "frontier/dexterity",
+    "element": "Stat",
+    "occurrence": 2,
+    "decision": "keep",
+    "teachingGoal": "Keep Brooks's description of the match demonstration explicitly attributed.",
+    "reason": "This is a described demonstration, not an independently timed experiment."
+  },
+  {
+    "article": "frontier/dexterity",
+    "element": "Stat",
+    "occurrence": 3,
+    "decision": "keep",
+    "teachingGoal": "Compare the maker's disclosed tactile threshold with the human reference.",
+    "reason": "The two fixed, differently sourced specifications need their original scope."
+  },
+  {
+    "article": "frontier/dexterity",
+    "element": "Stat",
+    "occurrence": 4,
+    "decision": "keep",
+    "teachingGoal": "Read the dated research-hand cost with support included.",
+    "reason": "A single historical quoted price should not become a market trend."
+  },
+  {
+    "article": "frontier/dexterity",
+    "element": "TactileSlip",
+    "decision": "add",
+    "sceneId": "tactile-slip",
+    "teachingGoal": "Follow one toy object slipping out of camera view and a touch-triggered correction.",
+    "reason": "A schematic paced contact loop clarifies what touch measures without claiming recovered task performance."
+  },
+  {
+    "article": "frontier/generalization",
+    "element": "EgoScaleScaling",
+    "occurrence": 1,
+    "decision": "keep",
+    "teachingGoal": "Vary human-video pretraining hours and compare the reported fitted relationship.",
+    "reason": "The direct-control study chart preserves the measured fit and its source-qualified ranges."
+  },
+  {
+    "article": "frontier/generalization",
+    "element": "Stat",
+    "occurrence": 1,
+    "decision": "keep",
+    "teachingGoal": "Keep the EgoScale pretraining-hour figure attached to its dataset.",
+    "reason": "A dataset duration is a fixed source count and not a growth animation."
+  },
+  {
+    "article": "frontier/generalization",
+    "element": "Stat",
+    "occurrence": 2,
+    "decision": "keep",
+    "teachingGoal": "Read the cited scaling fit alongside the study's validation qualifier.",
+    "reason": "The fixed statistic belongs to a particular fit, not a general learning law."
+  },
+  {
+    "article": "frontier/generalization",
+    "element": "Stat",
+    "occurrence": 3,
+    "decision": "keep",
+    "teachingGoal": "Show the task completion result at its measured pretraining amount.",
+    "reason": "The sourced observation should not be extrapolated into an invented trajectory."
+  },
+  {
+    "article": "frontier/generalization",
+    "element": "Stat",
+    "occurrence": 4,
+    "decision": "keep",
+    "teachingGoal": "Distinguish the proposed solved bar from achieved task success.",
+    "reason": "Animating an unmet editorial threshold could imply it has been reached."
+  },
+  {
+    "article": "frontier/generalization",
+    "element": "PredictThenReveal",
+    "decision": "keep",
+    "teachingGoal": "Commit a scaling prediction before seeing the study chart in the feedback.",
+    "reason": "Assessment answer and reveal are reader-triggered choices, not scene beats."
+  },
+  {
+    "article": "frontier/generalization",
+    "element": "EgoScaleScaling",
+    "occurrence": 2,
+    "decision": "keep",
+    "teachingGoal": "Test the prediction against the same measured chart after revealing the answer.",
+    "reason": "The assessment chart retains its own adjustable view and cited limits."
+  },
+  {
+    "article": "frontier/reliability-gap",
+    "element": "Stat",
+    "occurrence": 1,
+    "decision": "keep",
+    "teachingGoal": "Read the first fixed-horizon illustrative success result beside its peers.",
+    "reason": "Three static anchors permit direct comparison after the paced explanation."
+  },
+  {
+    "article": "frontier/reliability-gap",
+    "element": "Stat",
+    "occurrence": 2,
+    "decision": "keep",
+    "teachingGoal": "Compare the middle illustrative success result at the same horizon.",
+    "reason": "The static value remains available without operating the scene or calculator."
+  },
+  {
+    "article": "frontier/reliability-gap",
+    "element": "Stat",
+    "occurrence": 3,
+    "decision": "keep",
+    "teachingGoal": "Compare the final illustrative success result at the same horizon.",
+    "reason": "The rounded fixed-horizon reference stays distinct from vendor-reported reliability."
+  },
+  {
+    "article": "frontier/reliability-gap",
+    "element": "ReliabilityThreshold",
+    "decision": "add",
+    "sceneId": "reliability-threshold",
+    "teachingGoal": "Hold thirty decisions constant while per-decision success rises across three toy cases.",
+    "reason": "A paced comparison isolates compounding before independent direct controls."
+  },
+  {
+    "article": "frontier/reliability-gap",
+    "element": "ReliabilityCompounding",
+    "decision": "rethink",
+    "teachingGoal": "Vary probability and episode length independently, including boundary values.",
+    "reason": "The new scene explains one fixed horizon; the original calculator keeps its full-range controls."
+  },
+  {
+    "article": "frontier/reliability-gap",
+    "element": "DeploymentDashboard",
+    "decision": "keep",
+    "teachingGoal": "Filter vendor reports from demonstrations and inspect each dated source claim.",
+    "reason": "A dashboard of source-scoped claims has no common time axis to animate."
+  },
+  {
+    "article": "frontier/reliability-gap",
+    "element": "SelfCheck",
+    "decision": "keep",
+    "teachingGoal": "Assess whether a runtime monitor meets the customer's completion requirement.",
+    "reason": "The answer and feedback require a reader judgement rather than scripted motion."
+  },
+  {
+    "article": "frontier/safety-and-assurance",
+    "element": "CollaborativeOperationModes",
+    "decision": "keep",
+    "teachingGoal": "Compare named safety operation modes and the protections each actually provides.",
+    "reason": "The source-qualified mode distinctions must remain simultaneously readable."
+  },
+  {
+    "article": "adjacent/autonomous-vehicles",
+    "element": "AvStackTable",
+    "decision": "keep",
+    "teachingGoal": "Compare autonomy-stack layers and their failure and evidence responsibilities.",
+    "reason": "This simultaneous reference table should not become an invented drive sequence."
+  },
+  {
+    "article": "adjacent/drones",
+    "element": "SenseAvoid",
+    "decision": "add",
+    "sceneId": "sense-avoid",
+    "teachingGoal": "See how a longer authored pipeline delay consumes an obstacle-avoidance budget.",
+    "reason": "One controlled model contrast makes latency cost visible without replacing the sensor and airframe controls."
+  },
+  {
+    "article": "adjacent/drones",
+    "element": "PerceptionLatency",
+    "decision": "rethink",
+    "teachingGoal": "Change sensor latency and airframe acceleration independently in the cited model.",
+    "reason": "The paced companion fixes one airframe, while this instrument retains all comparative controls."
+  },
+  {
+    "article": "adjacent/drones",
+    "element": "SwarmControlTable",
+    "decision": "keep",
+    "teachingGoal": "Compare reactive, predictive and onboard swarm approaches with their cited limits.",
+    "reason": "The three sourced methods are alternatives, not stages of one swarm experiment."
+  },
+  {
+    "article": "adjacent/space",
+    "element": "OrbitalServicingTable",
+    "decision": "keep",
+    "teachingGoal": "Compare missions and their documented rendezvous or servicing outcomes.",
+    "reason": "Static, dated mission records should not be stitched into one invented flight."
+  },
+  {
+    "article": "adjacent/surgical",
+    "element": "SurgicalSystemsTable",
+    "decision": "keep",
+    "teachingGoal": "Compare named devices and their clearance and autonomy scope.",
+    "reason": "Medical indications and safety claims need simultaneous source-qualified reading."
+  },
+  {
+    "article": "home",
+    "element": "ReliabilityCompounding",
+    "decision": "rethink",
+    "teachingGoal": "Use independent sliders to see how small per-step errors erode episode success.",
+    "reason": "The shared scene introduces the fixed-horizon mechanism and does not take away the featured lab."
+  },
+  {
+    "article": "home",
+    "element": "ImageRef",
+    "decision": "keep",
+    "teachingGoal": "See real robot hardware in a licensed photograph with its original credit.",
+    "reason": "Recoloring or animating a sourced image would obscure its identity and provenance."
+  },
+  {
+    "article": "home",
+    "element": "So101ChainPreview",
+    "decision": "keep",
+    "teachingGoal": "Preview the real robot geometry before entering the joint-control playground.",
+    "reason": "A static model-derived preview accurately describes the linked direct-control tool."
+  },
+  {
+    "article": "home",
+    "element": "MarketMapSchematic",
+    "decision": "keep",
+    "teachingGoal": "Preview the real filter segments without inventing market-size quantities.",
+    "reason": "The teaser is a schematic route to a filterable map, not a time series or bubble chart."
+  },
+  {
+    "article": "home",
+    "element": "ReliabilityThreshold",
+    "decision": "add",
+    "sceneId": "reliability-threshold",
+    "teachingGoal": "Share the frontier's fixed-horizon compounding explanation on the home page.",
+    "reason": "One reused scene introduces the calculator and avoids a second motion grammar."
+  }
+]

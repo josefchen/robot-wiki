@@ -13,7 +13,7 @@ test.describe('world-models taxonomy module', () => {
     ).toBeVisible();
     const main = page.locator('#main-content');
     for (const name of [
-      /six example groups below are this article's selection/,
+      /six example groups below are this article's authored selection/,
       /future changes under robot-relevant actions/,
       /supports embodied decision-making/,
       /A physics engine is a world model/,

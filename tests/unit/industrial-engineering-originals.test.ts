@@ -26,7 +26,7 @@ describe('Industrial engineering originals 30 and atomic 34/45', () => {
   it('retains engineering plus learning, useful work, data, improvement and adjacent skills', () => {
     for (const text of ['combining model-based engineering with model-free learning',
       'perform useful work, collect real-world data', 'improve performance and learn adjacent skills',
-      'not a claim that engineering removes the need for learning',
+      'Goldberg does not claim that engineering removes the need for learning',
       'model-free AI eventually to enable fully general-purpose robots']) expect(article.includes(text), text).toBe(true);
     expect(article.includes('across that 100,000-year gap')).toBe(false);
     expect(committedSource('0cbdda1', 'content/data-hardware/industrial-deployment.mdx')

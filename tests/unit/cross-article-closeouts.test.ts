@@ -40,8 +40,8 @@ describe('source-scoped cross-article corrections', () => {
     const text = article('world-models/latent-dynamics');
     expect(text).toContain('H = 15');
     expect(text).toContain('T = 16');
-    expect(text).toContain('DayDreamer v1 likewise gives two labels');
-    expect(text).toContain('not a published reliable-horizon range');
+    expect(text).toContain('planning horizon H = 16, while its appendix lists imagination horizon H = 15');
+    expect(text).toContain('no paper measures that as a reliable-horizon range');
     expect(text).toContain('latent-state consistency');
   });
 

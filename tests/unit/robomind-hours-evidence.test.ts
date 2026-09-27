@@ -151,7 +151,7 @@ describe('RoboMIND paper-v3 hours correction, zero completion credit', () => {
     expect(() => assertScope(robomind, article.replace(phrase, ''))).toThrow();
   });
 
-  it('changes only the real-world qualifier in the adjacent article', () => {
+  it('preserves the real-world qualifier and approved prose chain in the adjacent article', () => {
     expect(committedSource(checkpoint, adjacentPath)).toBe(before(adjacentPath).replace(
       'Robot data is different. Every hour of it',
       'Real-world robot data is different. Every hour of it',
@@ -168,6 +168,10 @@ describe('RoboMIND paper-v3 hours correction, zero completion credit', () => {
       read('contract/brand-v2-approved-deltas.json'),
     ).entries.find((a: { id: string }) =>
       a.id === 'educational-convergence-20260926-prose-data-bottleneck')!;
+    const motion = JSON.parse(
+      read('contract/brand-v2-approved-deltas.json'),
+    ).entries.find((a: { id: string }) =>
+      a.id === 'motion-data-hardware-humanizer-v3-20260927-prose-data-bottleneck')!;
     const adjacentHash = (text: string) => buildManifest('prose', [{
       id: 'article:data-hardware/data-bottleneck',
       value: { path: adjacentPath, body: matter(text).content.trim() },
@@ -177,7 +181,8 @@ describe('RoboMIND paper-v3 hours correction, zero completion credit', () => {
         (a: { id: string }) => a.id === 'final-seven-closure-20260923-2',
       ).newHash,
     );
-    expect(adjacentHash(read(adjacentPath))).toBe(convergence.newHash);
+    expect(motion.oldHash).toBe(convergence.newHash);
+    expect(adjacentHash(read(adjacentPath))).toBe(motion.newHash);
     expect(read(adjacentPath)).toContain('Real-world robot data is different. Every hour of it');
     expect(matter(article).data).toEqual(matter(committedSource(READER_RELEASE_BASE, articlePath)).data);
     expect(committedSource(checkpoint, 'data/citations.ts')).toBe(before('data/citations.ts'));
@@ -193,9 +198,18 @@ describe('RoboMIND paper-v3 hours correction, zero completion credit', () => {
 
   it('preserves the complete licensing disclosure and unknown durations elsewhere', () => {
     const licensing = 'The inspected public card displays an Apache-2.0 license badge';
-    expect(article.slice(article.indexOf(licensing))).toBe(
-      committedSource(READER_RELEASE_BASE, articlePath).slice(committedSource(READER_RELEASE_BASE, articlePath).indexOf(licensing)),
-    );
+    const passage = article.slice(article.indexOf(licensing), article.indexOf('## How to read dataset claims'));
+    expect(passage).toContain(licensing);
+    expect(passage).toMatch(/`v1\.1`\/`v1\.2` data files or separately state code and model terms/);
+    for (const qualifier of [
+      'Release-specific data terms for the 107k version are not disclosed',
+      'the gated access conditions were not reviewed',
+      'The earlier CC BY-NC-SA 4.0 label is unsupported',
+      'Neither that label nor the badge is treated here as settled permission',
+    ]) {
+      expect(passage).toContain(qualifier);
+      expect(committedSource(READER_RELEASE_BASE, articlePath)).toContain(qualifier);
+    }
     for (const id of ['open-x-embodiment', 'bridgedata-v2', 'agibot-world-2026']) {
       expect(DATASETS.find(d => d.id === id)!.hours).toBeNull();
     }

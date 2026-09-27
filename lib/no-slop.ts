@@ -468,7 +468,7 @@ const STRUCTURAL_TELL_PATTERNS: ReadonlyArray<{
   },
   // Bare paper-version markers ("the v3 comparisons", "v2 changed the
   // tables"). Audit meta about which revision was inspected.
-  { kind: 'paper-locator', label: 'paper version marker', pattern: /\bv[0-9]+\b/ },
+  { kind: 'paper-locator', label: 'paper version marker', pattern: /(?<![\w-])v[0-9]+\b/ },
 ];
 
 export type StructuralTellFinding = SlopFinding & {

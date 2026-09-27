@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "6f976e5eafee5f213e5c610f15734bfe3a0845421e134d6b979e3cec96c1a0f0",
+  "fingerprint": "301dfe028c185fd0c1e99dc9d36c5bc412fefabed4515608d992066f10e9276d",
   "viewports": [
     "375x812",
     "1440x900"
@@ -141,7 +141,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 5496,
+      "visibleTextLength": 6008,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -380,6 +380,12 @@
           "familyHead": "ibm plex mono",
           "sizePx": 11,
           "trackingEm": 0.14
+        },
+        {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
+          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -461,6 +467,38 @@
           "text": "Sampled episode success by episo",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
           "inProse": false,
           "controlId": "control:secondary-action"
         },
@@ -1870,7 +1908,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17768,
+      "visibleTextLength": 18298,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -1997,6 +2035,33 @@
           "text": "The hardest constraint on a flying robot is below, and it is"
         },
         {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The same obstacle and agility require a lower speed when mor"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 delay 200 ms maximum speed 14.64 m/s"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Falanga et al.'s cited 8 m range, 25 m/s² agility, and stere"
+        },
+        {
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
@@ -2093,7 +2158,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Swift sits in the middle of the same spectrum. It is not one"
+          "text": "Swift sits in the middle of the same spectrum. Swift uses mu"
         },
         {
           "familyHead": "newsreader",
@@ -2120,7 +2185,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The open problem in swarms is not control but the assignment"
+          "text": "The remaining swarm problem sits at the assignment layer abo"
         },
         {
           "familyHead": "newsreader",
@@ -2416,6 +2481,12 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
+        },
+        {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
+          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -2482,6 +2553,38 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
           "controlId": "control:secondary-action"
         },
         {
@@ -2559,7 +2662,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18087,
+      "visibleTextLength": 18040,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -3124,7 +3227,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16686,
+      "visibleTextLength": 16726,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -12560,7 +12663,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 15434,
+      "visibleTextLength": 16061,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -12681,6 +12784,33 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "The chart below separates dataset counts from a teaching pro"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The same target has different collection times because the t"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 annual output 10,000 h time to target 1.0 yr"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative log-scaled hours with authored 7- and 1,000-hou"
         },
         {
           "familyHead": "ibm plex mono",
@@ -12833,7 +12963,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The strategic reading is that the bottleneck is breadth, not"
+          "text": "The strategic reading puts breadth ahead of hours. An hour o"
         },
         {
           "familyHead": "newsreader",
@@ -13113,6 +13243,12 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
+        },
+        {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
+          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -13179,6 +13315,38 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
           "controlId": "control:secondary-action"
         },
         {
@@ -13312,7 +13480,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17008,
+      "visibleTextLength": 17047,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -13437,7 +13605,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Read the table with two caveats. First, episodes are not hou"
+          "text": "Read the table with two caveats. First, episodes and hours a"
         },
         {
           "familyHead": "newsreader",
@@ -13900,7 +14068,44 @@
           "trackingEm": 0.14
         }
       ],
-      "monoRequired": [],
+      "monoRequired": [
+        {
+          "tag": "code",
+          "familyHead": "ibm plex mono"
+        },
+        {
+          "tag": "code",
+          "familyHead": "ibm plex mono"
+        },
+        {
+          "tag": "code",
+          "familyHead": "ibm plex mono"
+        },
+        {
+          "tag": "code",
+          "familyHead": "ibm plex mono"
+        },
+        {
+          "tag": "code",
+          "familyHead": "ibm plex mono"
+        },
+        {
+          "tag": "code",
+          "familyHead": "ibm plex mono"
+        },
+        {
+          "tag": "code",
+          "familyHead": "ibm plex mono"
+        },
+        {
+          "tag": "code",
+          "familyHead": "ibm plex mono"
+        },
+        {
+          "tag": "code",
+          "familyHead": "ibm plex mono"
+        }
+      ],
       "interfaceControls": [
         {
           "tag": "input",
@@ -14185,7 +14390,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17530,
+      "visibleTextLength": 17988,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -14252,11 +14457,11 @@
           "The Evaluation Crisis"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 10,
+        "readingMinutes": 11,
         "citationCount": 9,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "10 min",
+        "readingTimeText": "11 min",
         "citationCountText": "9",
         "bibliographyIds": [
           "tri-lbm-2025",
@@ -14301,7 +14506,34 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "This is an illustrative probability model, not a measured ro"
+          "text": "This illustrative probability model makes no claim about a m"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The curve depends on a constant conditional-probability assu"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 decisions 30 episode success 21.5%"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative constant conditional probability of 95% per dec"
         },
         {
           "familyHead": "ibm plex sans",
@@ -14768,9 +15000,24 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
+        },
+        {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
+          "trackingEm": 0.14
         }
       ],
-      "monoRequired": [],
+      "monoRequired": [
+        {
+          "tag": "code",
+          "familyHead": "ibm plex mono"
+        },
+        {
+          "tag": "code",
+          "familyHead": "ibm plex mono"
+        }
+      ],
       "interfaceControls": [
         {
           "tag": "input",
@@ -14834,6 +15081,38 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
           "controlId": "control:secondary-action"
         },
         {
@@ -14951,7 +15230,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26683,
+      "visibleTextLength": 26611,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -15302,7 +15581,7 @@
           }
         },
         {
-          "headingId": "hands-ship-bundled-not-shelved",
+          "headingId": "hands-ship-bundled",
           "headingTag": "h2",
           "linked": true,
           "colour": "rgb(11, 11, 12)",
@@ -15312,7 +15591,7 @@
           "keyboardFocusable": true,
           "affordance": {
             "tag": "button",
-            "accessibleName": "Copy link to this section, Hands ship bundled, not shelved",
+            "accessibleName": "Copy link to this section, Hands ship bundled",
             "widthPx": 24,
             "heightPx": 24,
             "opacity": 1,
@@ -15534,7 +15813,12 @@
           "trackingEm": 0.14
         }
       ],
-      "monoRequired": [],
+      "monoRequired": [
+        {
+          "tag": "code",
+          "familyHead": "ibm plex mono"
+        }
+      ],
       "interfaceControls": [
         {
           "tag": "input",
@@ -15867,7 +16151,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23707,
+      "visibleTextLength": 24520,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -15997,6 +16281,33 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Drag a slider such as jam-clearing time or per-pick success "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The same success rate has different economics when intervent"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 pick success 99.0% clearing 300 s output 380.0 pi"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative cell, not observed economics or a financial for"
         },
         {
           "familyHead": "newsreader",
@@ -16167,7 +16478,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "This calculator is an authored worked example, not a measure"
+          "text": "This calculator is an authored worked example with no measur"
         },
         {
           "familyHead": "newsreader",
@@ -16176,7 +16487,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "EVST supplies vendor context, not those exact inputs: its gu"
+          "text": "EVST supplies vendor context; the calculator's exact inputs "
         },
         {
           "familyHead": "newsreader",
@@ -16266,7 +16577,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Here is a separate authored arithmetic example, not a measur"
+          "text": "Here is a separate authored arithmetic example with no measu"
         },
         {
           "familyHead": "newsreader",
@@ -16571,6 +16882,12 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
+        },
+        {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
+          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -16641,6 +16958,38 @@
         },
         {
           "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
@@ -16666,7 +17015,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12245,
+      "visibleTextLength": 12292,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -16790,7 +17139,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Try the check below and choose the artifact that makes a rob"
+          "text": "Try the check below and choose the artifact that lets you re"
         },
         {
           "familyHead": "ibm plex mono",
@@ -16808,7 +17157,7 @@
           "widthPx": 277,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Store enough raw, timed and versioned context to rebuild a t"
+          "text": "Store raw, timed and versioned context to rebuild a transiti"
         },
         {
           "familyHead": "newsreader",
@@ -16943,7 +17292,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Simulation is a test surface, not a truth oracle. Use it for"
+          "text": "Simulation is a test surface with limits on what it can tell"
         },
         {
           "familyHead": "newsreader",
@@ -17015,7 +17364,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Measure end-to-end age, not only GPU kernel time. Log sensor"
+          "text": "Measure end-to-end age as well as GPU kernel time. Log senso"
         },
         {
           "familyHead": "newsreader",
@@ -17033,7 +17382,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Failures should return to the dataset with context, not as a"
+          "text": "Failures should return to the dataset with context. A folder"
         },
         {
           "familyHead": "newsreader",
@@ -17509,7 +17858,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14736,
+      "visibleTextLength": 14727,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -18931,7 +19280,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The mechanisms below are scenarios, not predictions. Each re"
+          "text": "The mechanisms below are hypothetical scenarios. Each rests "
         },
         {
           "familyHead": "newsreader",
@@ -19534,7 +19883,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24732,
+      "visibleTextLength": 24778,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -19871,7 +20220,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The evidence against is about scope, not efficacy. Every one"
+          "text": "The evidence against concerns transfer to new tasks. Every o"
         },
         {
           "familyHead": "newsreader",
@@ -20443,7 +20792,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20574,
+      "visibleTextLength": 21011,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -20638,6 +20987,33 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Select hands to compare their trade-offs."
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The same object is stable again in the toy loop; the diagram"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic toy of contact feedback, not a sensor measurement "
         },
         {
           "familyHead": "newsreader",
@@ -21052,6 +21428,12 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
+        },
+        {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
+          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -21218,6 +21600,38 @@
         },
         {
           "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Show all 11 authors",
           "familyHead": "ibm plex sans",
           "sizePx": 13,
@@ -21267,7 +21681,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17315,
+      "visibleTextLength": 17407,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -22047,7 +22461,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14226,
+      "visibleTextLength": 14826,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -22114,11 +22528,11 @@
           "The Reliability Gap"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 8,
+        "readingMinutes": 9,
         "citationCount": 10,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "8 min",
+        "readingTimeText": "9 min",
         "citationCountText": "10",
         "bibliographyIds": [
           "bessemer-robotics-2026",
@@ -22165,6 +22579,33 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "A manipulation task is a chain of decisions, and the chain s"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The same horizon exposes the last stretch; these are illustr"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 conditional rate 99.9% episode 97.0%"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative independence model, not a measured robot policy"
         },
         {
           "familyHead": "ibm plex sans",
@@ -22615,6 +23056,12 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
+        },
+        {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
+          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -22681,6 +23128,38 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
           "controlId": "control:secondary-action"
         },
         {
@@ -22782,7 +23261,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26768,
+      "visibleTextLength": 26803,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -47060,7 +47539,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 12347,
+      "visibleTextLength": 12257,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -47354,7 +47833,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Distributed real-robot systems such as RoboArena make the an"
+          "text": "Distributed real-robot systems such as RoboArena collect eva"
         },
         {
           "familyHead": "newsreader",
@@ -47363,7 +47842,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Use a factorial matrix rather than one “unseen” split:"
+          "text": "Use a factorial matrix to expose shifts that one “unseen” sp"
         },
         {
           "familyHead": "newsreader",
@@ -47846,7 +48325,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17084,
+      "visibleTextLength": 17396,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -47964,6 +48443,33 @@
           "text": "The reason that division of labor holds is below, in one sce"
         },
         {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The same push changes position only when a solver supplies d"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 toy push 4.0 N displacement 18.1 cm"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic, authored impulse and friction model, not a measur"
+        },
+        {
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
@@ -48078,7 +48584,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "RoboCasa v1 reports 120 kitchen scenes built from architectu"
+          "text": "The RoboCasa paper reports 120 kitchen scenes built from arc"
         },
         {
           "familyHead": "newsreader",
@@ -48096,7 +48602,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The scaling study is a specific simulation experiment, not a"
+          "text": "The scaling study is a specific simulation experiment coveri"
         },
         {
           "familyHead": "newsreader",
@@ -48114,7 +48620,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Isaac Lab v1 describes a related demonstration-generation wo"
+          "text": "The Isaac Lab paper describes a related demonstration-genera"
         },
         {
           "familyHead": "newsreader",
@@ -48132,7 +48638,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "This is a bounded real-to-sim authoring procedure, not a gua"
+          "text": "This bounded real-to-sim authoring procedure can produce uns"
         },
         {
           "familyHead": "newsreader",
@@ -48141,7 +48647,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The figure at the top of this module is the whole argument i"
+          "text": "The figure at the top of this module separates three layers."
         },
         {
           "familyHead": "newsreader",
@@ -48177,12 +48683,12 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Validate at the boundary, not only at the end. Check asset s"
+          "text": "Validate each boundary as well as the final outcome. Check a"
         }
       ],
       "sectionLinks": [
         {
-          "headingId": "the-argument-generate-content-not-dynamics",
+          "headingId": "generate-content-inside-a-physics-engine",
           "headingTag": "h2",
           "linked": true,
           "colour": "rgb(11, 11, 12)",
@@ -48192,7 +48698,7 @@
           "keyboardFocusable": true,
           "affordance": {
             "tag": "button",
-            "accessibleName": "Copy link to this section, The argument: generate content, not dynamics",
+            "accessibleName": "Copy link to this section, Generate content inside a physics engine",
             "widthPx": 24,
             "heightPx": 24,
             "opacity": 1,
@@ -48473,6 +48979,12 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
+        },
+        {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
+          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -48539,6 +49051,38 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
           "controlId": "control:secondary-action"
         },
         {
@@ -48648,7 +49192,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19389,
+      "visibleTextLength": 19978,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -48770,7 +49314,34 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Whether any of them is a simulator rather than a movie gener"
+          "text": "A simulator needs to respond to the action, a measurable pro"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Sharp frames keep the same toy realism score in both modes, "
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 toy sensitivity 0.017 threshold 0.30 toy realism "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative toy, not measured model performance. The two ac"
         },
         {
           "familyHead": "ibm plex mono",
@@ -48815,7 +49386,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Section 4.1.1 trains the reasoner by next-token prediction. "
+          "text": "The report trains the reasoner by next-token prediction. Its"
         },
         {
           "familyHead": "newsreader",
@@ -48833,7 +49404,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Section 2.2.2 describes three action modes. Forward dynamics"
+          "text": "The report describes three action modes. Forward dynamics de"
         },
         {
           "familyHead": "newsreader",
@@ -48842,7 +49413,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "DeepMind's Genie line approaches from play rather than from "
+          "text": "DeepMind's Genie line approaches from play, beginning with v"
         },
         {
           "familyHead": "newsreader",
@@ -49255,6 +49826,12 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
+        },
+        {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
+          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -49321,6 +49898,38 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
           "controlId": "control:secondary-action"
         },
         {
@@ -49478,7 +50087,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16352,
+      "visibleTextLength": 16246,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -49675,7 +50284,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "For motion classification, Table 4 reports 77.3% top-1 accur"
+          "text": "For motion classification, the paper reports 77.3% top-1 acc"
         },
         {
           "familyHead": "newsreader",
@@ -49684,7 +50293,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "For human-action anticipation, Table 5 reports 39.7% mean-cl"
+          "text": "For human-action anticipation, the paper reports 39.7% mean-"
         },
         {
           "familyHead": "newsreader",
@@ -49729,7 +50338,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "V-JEPA 2-AC’s goal-distance energy is a planning objective, "
+          "text": "V-JEPA 2-AC’s goal-distance energy is a planning objective w"
         },
         {
           "familyHead": "newsreader",
@@ -49770,7 +50379,7 @@
       ],
       "sectionLinks": [
         {
-          "headingId": "the-argument-predict-representations-not-pixels",
+          "headingId": "the-argument-for-representation-prediction",
           "headingTag": "h2",
           "linked": true,
           "colour": "rgb(11, 11, 12)",
@@ -49780,7 +50389,7 @@
           "keyboardFocusable": true,
           "affordance": {
             "tag": "button",
-            "accessibleName": "Copy link to this section, The argument: predict representations, not pixels",
+            "accessibleName": "Copy link to this section, The argument for representation prediction",
             "widthPx": 24,
             "heightPx": 24,
             "opacity": 1,
@@ -50184,7 +50793,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15663,
+      "visibleTextLength": 16087,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -50251,11 +50860,11 @@
           "Latent-Dynamics World Models"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 9,
+        "readingMinutes": 10,
         "citationCount": 8,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "9 min",
+        "readingTimeText": "10 min",
         "citationCountText": "8",
         "bibliographyIds": [
           "dreamer-2019",
@@ -50299,7 +50908,34 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The interactive is a deterministic toy of compounding error,"
+          "text": "The interactive is a deterministic toy of compounding error."
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The toy deviation after fifteen steps depends on the chosen "
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 toy step 15 deviation 0.301 units"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative toy, not measured Dreamer or TD-MPC performance"
         },
         {
           "familyHead": "ibm plex sans",
@@ -50741,6 +51377,12 @@
           "trackingEm": 0.14
         },
         {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
+          "trackingEm": 0.14
+        },
+        {
           "text": "decoded imagined frames",
           "familyHead": "ibm plex mono",
           "sizePx": 11,
@@ -50815,6 +51457,38 @@
         },
         {
           "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
@@ -50872,7 +51546,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 10726,
+      "visibleTextLength": 10736,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -51041,7 +51715,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "This framing prevents a common category error. “Model-based”"
+          "text": "This framing prevents a common category error. A neural netw"
         },
         {
           "familyHead": "newsreader",
@@ -51149,7 +51823,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Pure replacement is not the only design. A hybrid can keep r"
+          "text": "Pure replacement is one design. A hybrid can keep rigid-body"
         },
         {
           "familyHead": "newsreader",
@@ -51575,7 +52249,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19548,
+      "visibleTextLength": 19364,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -51748,7 +52422,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "In Section 8.1, \"Causal Conditioning Gaps,\" the survey ident"
+          "text": "In its discussion of causal conditioning gaps, the survey id"
         },
         {
           "familyHead": "newsreader",
@@ -51892,7 +52566,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Then locate the model in an actual decision loop. A model us"
+          "text": "Then locate the model in an actual decision loop. An auxilia"
         },
         {
           "familyHead": "ibm plex mono",
@@ -52561,7 +53235,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19671,
+      "visibleTextLength": 19636,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -52747,7 +53421,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The table is not a winner. It identifies where each system m"
+          "text": "The table identifies where each system makes uncertainty vis"
         },
         {
           "familyHead": "newsreader",
@@ -52774,7 +53448,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The latent column is where planning gets cheap enough to run"
+          "text": "The latent column shows the cost of planning. V-JEPA 2-AC pa"
         },
         {
           "familyHead": "newsreader",
@@ -52927,7 +53601,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Do not compare a physics engine on task success with a world"
+          "text": "Comparing a physics engine on task success with a world mode"
         },
         {
           "familyHead": "newsreader",
@@ -53430,7 +54104,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 5718,
+      "visibleTextLength": 6230,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -53669,6 +54343,12 @@
           "familyHead": "ibm plex mono",
           "sizePx": 11,
           "trackingEm": 0.14
+        },
+        {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
+          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -53750,6 +54430,38 @@
           "text": "Sampled episode success by episo",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
           "inProse": false,
           "controlId": "control:secondary-action"
         },
@@ -55159,7 +55871,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18086,
+      "visibleTextLength": 18616,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -55286,6 +55998,33 @@
           "text": "The hardest constraint on a flying robot is below, and it is"
         },
         {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The same obstacle and agility require a lower speed when mor"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 delay 200 ms maximum speed 14.64 m/s"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Falanga et al.'s cited 8 m range, 25 m/s² agility, and stere"
+        },
+        {
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
@@ -55382,7 +56121,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Swift sits in the middle of the same spectrum. It is not one"
+          "text": "Swift sits in the middle of the same spectrum. Swift uses mu"
         },
         {
           "familyHead": "newsreader",
@@ -55409,7 +56148,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The open problem in swarms is not control but the assignment"
+          "text": "The remaining swarm problem sits at the assignment layer abo"
         },
         {
           "familyHead": "newsreader",
@@ -55705,6 +56444,12 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
+        },
+        {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
+          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -55771,6 +56516,38 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
           "controlId": "control:secondary-action"
         },
         {
@@ -55848,7 +56625,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18405,
+      "visibleTextLength": 18358,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -56413,7 +57190,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17004,
+      "visibleTextLength": 17044,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -65849,7 +66626,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 15813,
+      "visibleTextLength": 16440,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -65970,6 +66747,33 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "The chart below separates dataset counts from a teaching pro"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The same target has different collection times because the t"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 annual output 10,000 h time to target 1.0 yr"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative log-scaled hours with authored 7- and 1,000-hou"
         },
         {
           "familyHead": "ibm plex mono",
@@ -66122,7 +66926,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The strategic reading is that the bottleneck is breadth, not"
+          "text": "The strategic reading puts breadth ahead of hours. An hour o"
         },
         {
           "familyHead": "newsreader",
@@ -66402,6 +67206,12 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
+        },
+        {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
+          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -66468,6 +67278,38 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
           "controlId": "control:secondary-action"
         },
         {
@@ -66601,7 +67443,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17387,
+      "visibleTextLength": 17426,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -66726,7 +67568,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Read the table with two caveats. First, episodes are not hou"
+          "text": "Read the table with two caveats. First, episodes and hours a"
         },
         {
           "familyHead": "newsreader",
@@ -67189,7 +68031,44 @@
           "trackingEm": 0.14
         }
       ],
-      "monoRequired": [],
+      "monoRequired": [
+        {
+          "tag": "code",
+          "familyHead": "ibm plex mono"
+        },
+        {
+          "tag": "code",
+          "familyHead": "ibm plex mono"
+        },
+        {
+          "tag": "code",
+          "familyHead": "ibm plex mono"
+        },
+        {
+          "tag": "code",
+          "familyHead": "ibm plex mono"
+        },
+        {
+          "tag": "code",
+          "familyHead": "ibm plex mono"
+        },
+        {
+          "tag": "code",
+          "familyHead": "ibm plex mono"
+        },
+        {
+          "tag": "code",
+          "familyHead": "ibm plex mono"
+        },
+        {
+          "tag": "code",
+          "familyHead": "ibm plex mono"
+        },
+        {
+          "tag": "code",
+          "familyHead": "ibm plex mono"
+        }
+      ],
       "interfaceControls": [
         {
           "tag": "input",
@@ -67474,7 +68353,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17909,
+      "visibleTextLength": 18367,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -67541,11 +68420,11 @@
           "The Evaluation Crisis"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 10,
+        "readingMinutes": 11,
         "citationCount": 9,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "10 min",
+        "readingTimeText": "11 min",
         "citationCountText": "9",
         "bibliographyIds": [
           "tri-lbm-2025",
@@ -67590,7 +68469,34 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "This is an illustrative probability model, not a measured ro"
+          "text": "This illustrative probability model makes no claim about a m"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The curve depends on a constant conditional-probability assu"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 decisions 30 episode success 21.5%"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative constant conditional probability of 95% per dec"
         },
         {
           "familyHead": "ibm plex sans",
@@ -68057,9 +68963,24 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
+        },
+        {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
+          "trackingEm": 0.14
         }
       ],
-      "monoRequired": [],
+      "monoRequired": [
+        {
+          "tag": "code",
+          "familyHead": "ibm plex mono"
+        },
+        {
+          "tag": "code",
+          "familyHead": "ibm plex mono"
+        }
+      ],
       "interfaceControls": [
         {
           "tag": "input",
@@ -68123,6 +69044,38 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
           "controlId": "control:secondary-action"
         },
         {
@@ -68240,7 +69193,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27062,
+      "visibleTextLength": 26990,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -68591,7 +69544,7 @@
           }
         },
         {
-          "headingId": "hands-ship-bundled-not-shelved",
+          "headingId": "hands-ship-bundled",
           "headingTag": "h2",
           "linked": true,
           "colour": "rgb(11, 11, 12)",
@@ -68601,7 +69554,7 @@
           "keyboardFocusable": true,
           "affordance": {
             "tag": "button",
-            "accessibleName": "Copy link to this section, Hands ship bundled, not shelved",
+            "accessibleName": "Copy link to this section, Hands ship bundled",
             "widthPx": 24,
             "heightPx": 24,
             "opacity": 1,
@@ -68823,7 +69776,12 @@
           "trackingEm": 0.14
         }
       ],
-      "monoRequired": [],
+      "monoRequired": [
+        {
+          "tag": "code",
+          "familyHead": "ibm plex mono"
+        }
+      ],
       "interfaceControls": [
         {
           "tag": "input",
@@ -69156,7 +70114,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24086,
+      "visibleTextLength": 24899,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -69286,6 +70244,33 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Drag a slider such as jam-clearing time or per-pick success "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The same success rate has different economics when intervent"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 pick success 99.0% clearing 300 s output 380.0 pi"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative cell, not observed economics or a financial for"
         },
         {
           "familyHead": "newsreader",
@@ -69456,7 +70441,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "This calculator is an authored worked example, not a measure"
+          "text": "This calculator is an authored worked example with no measur"
         },
         {
           "familyHead": "newsreader",
@@ -69465,7 +70450,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "EVST supplies vendor context, not those exact inputs: its gu"
+          "text": "EVST supplies vendor context; the calculator's exact inputs "
         },
         {
           "familyHead": "newsreader",
@@ -69555,7 +70540,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Here is a separate authored arithmetic example, not a measur"
+          "text": "Here is a separate authored arithmetic example with no measu"
         },
         {
           "familyHead": "newsreader",
@@ -69860,6 +70845,12 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
+        },
+        {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
+          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -69930,6 +70921,38 @@
         },
         {
           "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
@@ -69955,7 +70978,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12624,
+      "visibleTextLength": 12671,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -70079,7 +71102,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Try the check below and choose the artifact that makes a rob"
+          "text": "Try the check below and choose the artifact that lets you re"
         },
         {
           "familyHead": "ibm plex mono",
@@ -70097,7 +71120,7 @@
           "widthPx": 649,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Store enough raw, timed and versioned context to rebuild a t"
+          "text": "Store raw, timed and versioned context to rebuild a transiti"
         },
         {
           "familyHead": "newsreader",
@@ -70232,7 +71255,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Simulation is a test surface, not a truth oracle. Use it for"
+          "text": "Simulation is a test surface with limits on what it can tell"
         },
         {
           "familyHead": "newsreader",
@@ -70304,7 +71327,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Measure end-to-end age, not only GPU kernel time. Log sensor"
+          "text": "Measure end-to-end age as well as GPU kernel time. Log senso"
         },
         {
           "familyHead": "newsreader",
@@ -70322,7 +71345,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Failures should return to the dataset with context, not as a"
+          "text": "Failures should return to the dataset with context. A folder"
         },
         {
           "familyHead": "newsreader",
@@ -70798,7 +71821,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15115,
+      "visibleTextLength": 15106,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -72220,7 +73243,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The mechanisms below are scenarios, not predictions. Each re"
+          "text": "The mechanisms below are hypothetical scenarios. Each rests "
         },
         {
           "familyHead": "newsreader",
@@ -72823,7 +73846,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 25067,
+      "visibleTextLength": 25113,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -73160,7 +74183,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The evidence against is about scope, not efficacy. Every one"
+          "text": "The evidence against concerns transfer to new tasks. Every o"
         },
         {
           "familyHead": "newsreader",
@@ -73732,7 +74755,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20909,
+      "visibleTextLength": 21346,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -73927,6 +74950,33 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Select hands to compare their trade-offs."
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The same object is stable again in the toy loop; the diagram"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic toy of contact feedback, not a sensor measurement "
         },
         {
           "familyHead": "newsreader",
@@ -74341,6 +75391,12 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
+        },
+        {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
+          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -74507,6 +75563,38 @@
         },
         {
           "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Show all 11 authors",
           "familyHead": "ibm plex sans",
           "sizePx": 13,
@@ -74556,7 +75644,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17650,
+      "visibleTextLength": 17742,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -75336,7 +76424,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14561,
+      "visibleTextLength": 15161,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -75403,11 +76491,11 @@
           "The Reliability Gap"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 8,
+        "readingMinutes": 9,
         "citationCount": 10,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "8 min",
+        "readingTimeText": "9 min",
         "citationCountText": "10",
         "bibliographyIds": [
           "bessemer-robotics-2026",
@@ -75454,6 +76542,33 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "A manipulation task is a chain of decisions, and the chain s"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The same horizon exposes the last stretch; these are illustr"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 conditional rate 99.9% episode 97.0%"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative independence model, not a measured robot policy"
         },
         {
           "familyHead": "ibm plex sans",
@@ -75904,6 +77019,12 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
+        },
+        {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
+          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -75970,6 +77091,38 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
           "controlId": "control:secondary-action"
         },
         {
@@ -76071,7 +77224,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27103,
+      "visibleTextLength": 27138,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -100349,7 +101502,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 12831,
+      "visibleTextLength": 12741,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -100643,7 +101796,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Distributed real-robot systems such as RoboArena make the an"
+          "text": "Distributed real-robot systems such as RoboArena collect eva"
         },
         {
           "familyHead": "newsreader",
@@ -100652,7 +101805,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Use a factorial matrix rather than one “unseen” split:"
+          "text": "Use a factorial matrix to expose shifts that one “unseen” sp"
         },
         {
           "familyHead": "newsreader",
@@ -101135,7 +102288,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17568,
+      "visibleTextLength": 17880,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -101253,6 +102406,33 @@
           "text": "The reason that division of labor holds is below, in one sce"
         },
         {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The same push changes position only when a solver supplies d"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 toy push 4.0 N displacement 18.1 cm"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic, authored impulse and friction model, not a measur"
+        },
+        {
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
@@ -101367,7 +102547,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "RoboCasa v1 reports 120 kitchen scenes built from architectu"
+          "text": "The RoboCasa paper reports 120 kitchen scenes built from arc"
         },
         {
           "familyHead": "newsreader",
@@ -101385,7 +102565,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The scaling study is a specific simulation experiment, not a"
+          "text": "The scaling study is a specific simulation experiment coveri"
         },
         {
           "familyHead": "newsreader",
@@ -101403,7 +102583,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Isaac Lab v1 describes a related demonstration-generation wo"
+          "text": "The Isaac Lab paper describes a related demonstration-genera"
         },
         {
           "familyHead": "newsreader",
@@ -101421,7 +102601,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "This is a bounded real-to-sim authoring procedure, not a gua"
+          "text": "This bounded real-to-sim authoring procedure can produce uns"
         },
         {
           "familyHead": "newsreader",
@@ -101430,7 +102610,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The figure at the top of this module is the whole argument i"
+          "text": "The figure at the top of this module separates three layers."
         },
         {
           "familyHead": "newsreader",
@@ -101466,12 +102646,12 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Validate at the boundary, not only at the end. Check asset s"
+          "text": "Validate each boundary as well as the final outcome. Check a"
         }
       ],
       "sectionLinks": [
         {
-          "headingId": "the-argument-generate-content-not-dynamics",
+          "headingId": "generate-content-inside-a-physics-engine",
           "headingTag": "h2",
           "linked": true,
           "colour": "rgb(11, 11, 12)",
@@ -101481,7 +102661,7 @@
           "keyboardFocusable": true,
           "affordance": {
             "tag": "button",
-            "accessibleName": "Copy link to this section, The argument: generate content, not dynamics",
+            "accessibleName": "Copy link to this section, Generate content inside a physics engine",
             "widthPx": 24,
             "heightPx": 24,
             "opacity": 1,
@@ -101762,6 +102942,12 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
+        },
+        {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
+          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -101828,6 +103014,38 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
           "controlId": "control:secondary-action"
         },
         {
@@ -101937,7 +103155,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19873,
+      "visibleTextLength": 20462,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -102059,7 +103277,34 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Whether any of them is a simulator rather than a movie gener"
+          "text": "A simulator needs to respond to the action, a measurable pro"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Sharp frames keep the same toy realism score in both modes, "
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 toy sensitivity 0.017 threshold 0.30 toy realism "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative toy, not measured model performance. The two ac"
         },
         {
           "familyHead": "ibm plex mono",
@@ -102104,7 +103349,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Section 4.1.1 trains the reasoner by next-token prediction. "
+          "text": "The report trains the reasoner by next-token prediction. Its"
         },
         {
           "familyHead": "newsreader",
@@ -102122,7 +103367,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Section 2.2.2 describes three action modes. Forward dynamics"
+          "text": "The report describes three action modes. Forward dynamics de"
         },
         {
           "familyHead": "newsreader",
@@ -102131,7 +103376,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "DeepMind's Genie line approaches from play rather than from "
+          "text": "DeepMind's Genie line approaches from play, beginning with v"
         },
         {
           "familyHead": "newsreader",
@@ -102544,6 +103789,12 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
+        },
+        {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
+          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -102610,6 +103861,38 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
           "controlId": "control:secondary-action"
         },
         {
@@ -102767,7 +104050,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16836,
+      "visibleTextLength": 16730,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -102964,7 +104247,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "For motion classification, Table 4 reports 77.3% top-1 accur"
+          "text": "For motion classification, the paper reports 77.3% top-1 acc"
         },
         {
           "familyHead": "newsreader",
@@ -102973,7 +104256,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "For human-action anticipation, Table 5 reports 39.7% mean-cl"
+          "text": "For human-action anticipation, the paper reports 39.7% mean-"
         },
         {
           "familyHead": "newsreader",
@@ -103018,7 +104301,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "V-JEPA 2-AC’s goal-distance energy is a planning objective, "
+          "text": "V-JEPA 2-AC’s goal-distance energy is a planning objective w"
         },
         {
           "familyHead": "newsreader",
@@ -103059,7 +104342,7 @@
       ],
       "sectionLinks": [
         {
-          "headingId": "the-argument-predict-representations-not-pixels",
+          "headingId": "the-argument-for-representation-prediction",
           "headingTag": "h2",
           "linked": true,
           "colour": "rgb(11, 11, 12)",
@@ -103069,7 +104352,7 @@
           "keyboardFocusable": true,
           "affordance": {
             "tag": "button",
-            "accessibleName": "Copy link to this section, The argument: predict representations, not pixels",
+            "accessibleName": "Copy link to this section, The argument for representation prediction",
             "widthPx": 24,
             "heightPx": 24,
             "opacity": 1,
@@ -103473,7 +104756,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16147,
+      "visibleTextLength": 16571,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -103540,11 +104823,11 @@
           "Latent-Dynamics World Models"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 9,
+        "readingMinutes": 10,
         "citationCount": 8,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "9 min",
+        "readingTimeText": "10 min",
         "citationCountText": "8",
         "bibliographyIds": [
           "dreamer-2019",
@@ -103588,7 +104871,34 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The interactive is a deterministic toy of compounding error,"
+          "text": "The interactive is a deterministic toy of compounding error."
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The toy deviation after fifteen steps depends on the chosen "
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 toy step 15 deviation 0.301 units"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative toy, not measured Dreamer or TD-MPC performance"
         },
         {
           "familyHead": "ibm plex sans",
@@ -104030,6 +105340,12 @@
           "trackingEm": 0.14
         },
         {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
+          "trackingEm": 0.14
+        },
+        {
           "text": "decoded imagined frames",
           "familyHead": "ibm plex mono",
           "sizePx": 11,
@@ -104104,6 +105420,38 @@
         },
         {
           "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
@@ -104161,7 +105509,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 11210,
+      "visibleTextLength": 11220,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -104330,7 +105678,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "This framing prevents a common category error. “Model-based”"
+          "text": "This framing prevents a common category error. A neural netw"
         },
         {
           "familyHead": "newsreader",
@@ -104438,7 +105786,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Pure replacement is not the only design. A hybrid can keep r"
+          "text": "Pure replacement is one design. A hybrid can keep rigid-body"
         },
         {
           "familyHead": "newsreader",
@@ -104864,7 +106212,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20032,
+      "visibleTextLength": 19848,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -105037,7 +106385,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "In Section 8.1, \"Causal Conditioning Gaps,\" the survey ident"
+          "text": "In its discussion of causal conditioning gaps, the survey id"
         },
         {
           "familyHead": "newsreader",
@@ -105181,7 +106529,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Then locate the model in an actual decision loop. A model us"
+          "text": "Then locate the model in an actual decision loop. An auxilia"
         },
         {
           "familyHead": "ibm plex mono",
@@ -105850,7 +107198,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20155,
+      "visibleTextLength": 20120,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -106036,7 +107384,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The table is not a winner. It identifies where each system m"
+          "text": "The table identifies where each system makes uncertainty vis"
         },
         {
           "familyHead": "newsreader",
@@ -106063,7 +107411,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The latent column is where planning gets cheap enough to run"
+          "text": "The latent column shows the cost of planning. V-JEPA 2-AC pa"
         },
         {
           "familyHead": "newsreader",
@@ -106216,7 +107564,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Do not compare a physics engine on task success with a world"
+          "text": "Comparing a physics engine on task success with a world mode"
         },
         {
           "familyHead": "newsreader",

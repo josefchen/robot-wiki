@@ -59,8 +59,29 @@ describe('merged reader corrections preserve production additions and exact appr
       const closure = approvals.find(a => a.id === 'final-seven-closure-20260923-2')!;
       expect(hashOf(committedSource('ba934e6', path))).toBe(closure.newHash);
       const pass = approvals.find(a => a.id === 'educational-convergence-20260926-prose-data-bottleneck')!;
-      expect(hashOf(read(path))).toBe(pass.newHash);
+      const motion = approvals.find(a => a.id ===
+        'motion-data-hardware-humanizer-v3-20260927-prose-data-bottleneck')!;
+      expect(hashOf(committedSource('711118e8^', path))).toBe(pass.newHash);
+      expect(motion.oldHash).toBe(pass.newHash);
+      expect(hashOf(read(path))).toBe(motion.newHash);
       expect(read(path)).toContain('Real-world robot data is different. Every hour of it');
+    } else if (path.startsWith('content/data-hardware/')) {
+      const slug = path.slice('content/data-hardware/'.length, -4);
+      const id = `article:data-hardware/${slug}`;
+      const hashOf = (text: string) => buildManifest('prose', [{
+        id, value: { path, body: matter(text).content.trim() },
+      }]).members[0].hash;
+      const motion = approvals.find(a => a.id ===
+        `motion-data-hardware-humanizer-v3-20260927-prose-${slug}`)!;
+      const beforeMotion = hashOf(committedSource('711118e8^', path));
+      expect(motion.oldHash === beforeMotion ||
+        motion.reconciles?.some(edge => edge.newHash === beforeMotion)).toBeTruthy();
+      const qualification = approvals.find(a => a.id ===
+        `motion-data-hardware-source-qualification-20260927-prose-${slug}`);
+      if (qualification) expect(qualification.oldHash === motion.newHash ||
+        qualification.reconciles?.some(edge => edge.id === motion.id &&
+          edge.newHash === motion.newHash)).toBeTruthy();
+      expect(hashOf(read(path))).toBe((qualification ?? motion).newHash);
     } else if (path === 'content/world-models/taxonomy.mdx') {
       const before = 'The six example groups below are this article\'s selection, not an exhaustive or universally agreed scientific taxonomy.';
       const after = before.replace("article's selection", "article's authored selection");
@@ -70,7 +91,7 @@ describe('merged reader corrections preserve production additions and exact appr
       // operating cue sentence to the panel paragraph; its approved-deltas
       // entry carries the article to its current text.
       const cue = ' Try each group in turn and the panel swaps what it predicts; the JEPA group carries an explicit no-decoder marker.';
-      expect(read(path)).toBe(source.replace(before, after)
+      expect(committedSource('68fd2b8', path)).toBe(source.replace(before, after)
         .replace('selecting a panel is not a benchmark comparison between the named systems.',
           `selecting a panel is not a benchmark comparison between the named systems.${cue}`));
       const hashOf = (text: string) => buildManifest('prose', [{
@@ -78,12 +99,34 @@ describe('merged reader corrections preserve production additions and exact appr
         value: { path, body: matter(text).content.trim() },
       }]).members[0].hash;
       const pass = approvals.find(a => a.id === 'educational-cue-20260926-prose-taxonomy')!;
+      expect(hashOf(committedSource('68fd2b8', path))).toBe(pass.newHash);
+      const next = approvals.find(a => a.id === 'motion-world-models-humanizer-v3-20260927-prose-taxonomy')!;
+      expect(hashOf(read(path))).toBe(next.newHash);
+      expect(next.reconciles?.some(a => a.id === pass.id)).toBe(true);
+    } else if (path.startsWith('content/world-models/')) {
+      const id = `article:${path.slice(8, -4)}`;
+      const hashOf = (text: string) => buildManifest('prose', [{
+        id, value: { path, body: matter(text).content.trim() },
+      }]).members[0].hash;
+      const merged = integrated.find(a => a.manifest === 'prose' && a.memberId === id)!;
+      expect(hashOf(committedSource('ebf13b4', path))).toBe(merged.newHash);
+      const pass = approvals.find(a => a.id ===
+        `motion-world-models-humanizer-v3-20260927-prose-${path.slice('content/world-models/'.length, -4)}`)!;
+      expect(hashOf(committedSource('68fd2b8', path))).toBe(pass.oldHash);
       expect(hashOf(read(path))).toBe(pass.newHash);
     } else if (path === 'content/frontier/bear-case.mdx') {
       const source = committedSource('ebf13b4', path);
       expect(source).toContain('lastReviewed: "2026-08-18"');
       expect(source).toContain('technology-org-deployed-2026');
-      expect(read(path)).toBe(committedSource('b9e318b', path));
+      const beforeMotion = committedSource('b9e318b', path);
+      const hashOf = (text: string) => buildManifest('prose', [{
+        id: 'article:frontier/bear-case',
+        value: { path, body: matter(text).content.trim() },
+      }]).members[0].hash;
+      const motion = approvals.find(a => a.id ===
+        'motion-frontier-adjacent-home-humanizer-v3-20260927-prose-bear-case')!;
+      expect(motion.reconciles?.some(a => a.newHash === hashOf(beforeMotion))).toBe(true);
+      expect(hashOf(read(path))).toBe(motion.newHash);
       expect(read(path)).toContain('lastReviewed: "2026-09-24"');
       expect(read(path)).toContain('agility-digit-production');
       expect(read(path)).not.toContain('technology-org-deployed-2026');
@@ -133,10 +176,8 @@ describe('merged reader corrections preserve production additions and exact appr
       a.manifest === member.manifest && a.memberId === member.memberId));
     const currentHash = Object.values(truth).find(m => m.kind === entry.manifest)!
       .members.find(m => m.id === entry.memberId)!.hash;
-    const sealedHash = sealed.manifests[entry.manifest].members.find(m => m.id === entry.memberId)!.hash;
-    const head = graph.findLast(a => a.manifest === entry.manifest && a.memberId === entry.memberId
-      && (entry.memberId === 'article:classical/scene-representation' || entry.memberId.startsWith('article:rl-sim2real/')
-        ? a.newHash === currentHash : a.oldHash === sealedHash && a.newHash === currentHash))!;
+    const head = graph.findLast(a => a.manifest === entry.manifest && a.memberId === entry.memberId &&
+      a.newHash === currentHash)!;
     expect(head).toBeDefined();
     expect(compareBaseline(bundle(true), bundle(false), graph).ok).toBe(true);
     expect(compareBaseline(bundle(true), bundle(false), graph.filter(a => a.id !== head.id)).ok).toBe(false);

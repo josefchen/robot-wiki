@@ -90,14 +90,14 @@ function assertDisclosure(text: string, dataset: Dataset) {
   expect(text).toContain('Release-specific data terms for the 107k version are not disclosed in that inspected card');
   expect(text).toContain('The inspected public card displays an Apache-2.0 license badge');
   expect(text).toContain('gated access conditions were not reviewed');
-  expect(text).toContain('does not explicitly bind the badge to the v1.1/v1.2 data files');
-  expect(text).toContain('Those are paper dates, not established release dates');
+  expect(text).toContain('does not explicitly bind the badge to the `v1.1`/`v1.2` data files');
+  expect(text).toContain('Those are paper dates; the dataset `v1.1` and `v1.2` release dates remain unestablished');
   expect(text).not.toContain('The license is CC BY-NC-SA 4.0 on the 2026-08-09');
   expect(text).not.toContain('no currently reachable primary page prints it');
   expect(text).not.toContain('The 107k dataset is licensed under Apache-2.0.');
 }
 
-function scopedBundle(stage: 'before' | 'historical' | 'sealed' | 'current'): BaselineBundle {
+function scopedBundle(stage: 'before' | 'historical' | 'sealed' | 'preMotion' | 'current'): BaselineBundle {
   const members = [
     ['prose', 'article:data-hardware/datasets', '4d2f822a1df86e4a4a78b4fdc6bba8fd580bf78ee1ab98d5beaa45902041cf95'],
     ['relationships', 'article:data-hardware/datasets', '40bbf9cc032869ee25165c5d9b2ab3c88cc848bbdaa5f3063050409103f2cc39'],
@@ -107,7 +107,22 @@ function scopedBundle(stage: 'before' | 'historical' | 'sealed' | 'current'): Ba
     const relevant = members.filter(([k]) => k === kind).map(([, id, hash]) => {
       if (stage === 'before') return { id, hash };
       if (stage === 'sealed') return { id, hash: sealedHash(kind, id) };
-      const manifests = stage === 'historical' ? historicalTruth : Object.values(truth);
+      const manifests = stage === 'historical' ? historicalTruth
+        : stage === 'preMotion' ? [
+          buildManifest('prose', [{
+            id: 'article:data-hardware/datasets',
+            value: { path: articlePath, body: matter(committedSource('711118e8^', articlePath)).content.trim() },
+          }]),
+          buildManifest('relationships', [{
+            id: 'article:data-hardware/datasets',
+            value: {
+              seeAlso: matter(committedSource('711118e8^', articlePath)).data.seeAlso,
+              citations: [...matter(committedSource('711118e8^', articlePath)).content.matchAll(/<Cite\s+id=["']([^"']+)["']/g)].map(m => m[1]).sort(),
+              terms: [...matter(committedSource('711118e8^', articlePath)).content.matchAll(/<Term\s+id=["']([^"']+)["']/g)].map(m => m[1]).sort(),
+              internalLinks: [...matter(committedSource('711118e8^', articlePath)).content.matchAll(/\]\((\/[^)#?]+\/?)(?:#[^)]+)?\)/g)].map(m => m[1]).sort(),
+            },
+          }]),
+        ] : Object.values(truth);
       return manifests.find(m => m.kind === kind)!.members.find(m => m.id === id)!;
     });
     return [kind, { ...scaffold, members: relevant, memberCount: relevant.length }];
@@ -141,7 +156,7 @@ describe('RoboMIND original10 truthful release licensing disclosure', () => {
   it.each([
     'The inspected public card displays an Apache-2.0 license badge',
     'gated access conditions were not reviewed',
-    'does not explicitly bind the badge to the v1.1/v1.2 data files',
+    'does not explicitly bind the badge to the `v1.1`/`v1.2` data files',
   ])('rejects lost reader qualification: %s', phrase => {
     assertDisclosure(article, DATASETS.find(d => d.id === 'robomind')!);
     expect(() => assertDisclosure(article.replace(phrase, ''), DATASETS.find(d => d.id === 'robomind')!)).toThrow();
@@ -275,14 +290,19 @@ describe('RoboMIND original10 truthful release licensing disclosure', () => {
       expect(approval.ownerApproval).toContain('convergence-robomind-disclosure-integration-20260923/authorization.md');
       expect(approval.disposition).toBe('permanent');
     }
-    const relevant = ownApprovals.filter(a => ['prose', 'relationships'].includes(a.manifest));
+    const relevant = ownApprovals.filter(a => ['prose', 'relationships'].includes(a.manifest) &&
+      ['4d2f822a1df86e4a4a78b4fdc6bba8fd580bf78ee1ab98d5beaa45902041cf95',
+        '40bbf9cc032869ee25165c5d9b2ab3c88cc848bbdaa5f3063050409103f2cc39'].includes(a.oldHash));
     const reanchors = (['prose', 'relationships'] as const).map(kind =>
       headReanchorFor(approvals, kind, 'article:data-hardware/datasets')!);
+    const motion = approvals.find(a => a.id === 'motion-data-hardware-humanizer-v3-20260927-prose-datasets')!;
     for (const [previous, next, edges] of [
       [scopedBundle('before'), scopedBundle('historical'), relevant],
-      [scopedBundle('sealed'), scopedBundle('current'), reanchors],
+      [scopedBundle('sealed'), scopedBundle('preMotion'), reanchors],
+      [scopedBundle('preMotion'), scopedBundle('current'), [motion]],
     ] as const) {
-      expect(compareBaseline(previous, next, edges).ok).toBe(true);
+      const comparison = compareBaseline(previous, next, edges);
+      expect(comparison.ok, JSON.stringify(comparison)).toBe(true);
       for (const a of edges) {
         expect(compareBaseline(previous, next, edges.filter(v => v.id !== a.id)).ok).toBe(false);
         expect(compareBaseline(previous, next, edges.map(v => v.id === a.id ? { ...v, newHash: sha256('wrong') } : v)).ok).toBe(false);

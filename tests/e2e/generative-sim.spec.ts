@@ -73,7 +73,7 @@ test.describe('world-models generative-sim module', () => {
   }) => {
     await page.goto(ROUTE);
     const prose = page.locator('div.prose[data-pagefind-body]');
-    const inventory = prose.getByText(/RoboCasa v1 reports 120 kitchen scenes/);
+    const inventory = prose.getByText(/RoboCasa paper reports 120 kitchen scenes/);
     await expect(inventory).toContainText('10 floor plans combined with 12 styles');
     await expect(inventory).toContainText('2,509 objects and 153 categories');
     await expect(inventory).toContainText('25 atomic tasks and 75 composite tasks');
@@ -85,13 +85,13 @@ test.describe('world-models generative-sim module', () => {
     for (const required of [
       'language-conditioned BC-Transformer',
       'Franka Panda on an Omron mobile base',
-      '24 atomic manipulation tasks; navigation is excluded',
+      '24 atomic manipulation tasks from the larger 100-task suite; navigation is excluded',
       'Objaverse objects and AI-generated training textures',
       'human-curated textures, unseen object instances',
       '50 trials per task across five fixed kitchen scenes',
       '26.3%, 35.0%, and 47.6%',
       'Individual tasks do not improve monotonically',
-      'Section VIII-C refers broadly to datasets over 25 tasks',
+      'broadly describes datasets over 25 tasks; Figures 6 and 12 explicitly define this generated-data comparison as 24 tasks',
     ]) {
       await expect(scaling).toContainText(required);
     }
@@ -105,7 +105,7 @@ test.describe('world-models generative-sim module', () => {
     const prose = page.locator('div.prose[data-pagefind-body]');
     await expect(prose).toContainText('soft relational constraints');
     await expect(prose).toContainText('pretrained on ProcTHOR-10K');
-    await expect(prose).toContainText('not a test of physically valid manipulation');
+    await expect(prose).toContainText('does not test physically valid manipulation');
     await expect(prose).not.toContainText('without any human-constructed data');
   });
 
@@ -156,7 +156,7 @@ test.describe('world-models generative-sim module', () => {
     expect(await displacementCm(page)).toBeGreaterThan(afterOne);
 
     // Reset restores the initial state.
-    await page.getByRole('button', { name: 'Reset' }).click();
+    await page.getByRole('button', { name: 'Reset', exact: true }).click();
     expect(await displacementCm(page)).toBe(0);
     await expect(
       page.getByRole('button', { name: /^physics proxy$/i }),
@@ -178,7 +178,7 @@ test.describe('world-models generative-sim module', () => {
   test('interactive keyboard path: toggle, push, force slider', async ({
     page,
   }) => {
-    await page.goto(ROUTE);
+    await page.goto(ROUTE, { waitUntil: 'networkidle' });
 
     await page.getByRole('button', { name: /^physics proxy$/i }).focus();
     await page.keyboard.press('Enter');

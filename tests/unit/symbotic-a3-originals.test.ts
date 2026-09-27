@@ -87,10 +87,10 @@ describe('seven Symbotic and A3 industrial originals', () => {
   it('keeps Walmart contractual scope separate from operating sites and counts from duration', () => {
     expect(article).toContain('expanded in May 2022');
     expect(article).toContain('all 42 regional distribution centres');
-    expect(article).toContain('contractual scope, not a count of operating sites');
+    expect(article).toContain('that is contractual scope, without an operating-site count');
     expect(article).toContain('50 systems in deployment and 48 operational systems under software maintenance and support contracts');
     expect(article).toContain('It then expected approximately 12 percent');
-    expect(article).toContain('a revenue-recognition forecast, not an order-to-running duration');
+    expect(article).toContain('That forecast concerns revenue recognition; it gives no order-to-running duration');
     expect(article).toContain('estimates can change with terminations, contract scope');
     expect(article).not.toContain('neither the build-out nor the unwind is fast');
   });
@@ -109,7 +109,7 @@ describe('seven Symbotic and A3 industrial originals', () => {
     expect(brownfield).toContain('reduced-speed manual mode with an enabling device');
     expect(brownfield).toContain('29 CFR 1910.147 or 29 CFR 1910.333');
     expect(brownfield).toContain('Separately, Symbotic');
-    expect(brownfield).toContain('company-reported capability, not a guarantee for every retrofit');
+    expect(brownfield).toContain('this company-reported capability carries no guarantee for every retrofit');
     expect(brownfield).not.toMatch(/schedule cannot stop|flows in parallel|cannot close to be rebuilt/);
   });
 

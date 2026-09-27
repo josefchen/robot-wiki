@@ -631,11 +631,12 @@ test.describe('brand-v2 home live tools and responsive convergence', () => {
     await withPage(
       { viewport: { width: 1440, height: 900 } },
       async (page) => {
-        // Controls sealed inside a closed disclosure are deliberately out of
-        // the tab order; the summary that opens them is the control a
-        // reader tabs to, and it is in the population.
+        // Controls sealed inside a closed disclosure and disabled poster
+        // transports are deliberately out of the tab order. The summary
+        // and the poster's Play control are the reachable entry points;
+        // activating the scene makes its transport controls operable.
         const reachable =
-          ':not(details:not([open]) *)';
+          ':not(details:not([open]) *):not(:disabled)';
         const controls = page.locator(
           [
             'a[href]',

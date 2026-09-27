@@ -150,7 +150,7 @@ describe('industrial release preserves both evidence histories', () => {
       .toBe(withdrawalBefore);
     expect(verifyTechnologyWithdrawalArticleTransition(
       withdrawalBefore,
-      readFileSync('content/data-hardware/industrial-deployment.mdx', 'utf8'),
+      readFileSync('audit/evidence/motion-data-hardware-20260927/industrial-deployment-before.mdx', 'utf8'),
     )).toBe(true);
     expect(readFileSync('lib/deployment-economics.ts', 'utf8'))
       .toBe(committedSource('ac65cf4', 'lib/deployment-economics.ts'));
@@ -203,6 +203,9 @@ describe('industrial release preserves both evidence histories', () => {
           for (const path of [
             'audit/local-basis.json',
             'audit/evidence/motion-rl-sim2real-20260927',
+            'audit/evidence/motion-world-models-20260927',
+            'audit/evidence/motion-data-hardware-20260927',
+            'audit/evidence/motion-frontier-adjacent-home-20260927',
             'audit/evidence/citation-closeout-20260924/relevant-continuity.json',
             'audit/evidence/technology-withdrawal-20260924',
             'content/data-hardware/industrial-deployment.mdx',

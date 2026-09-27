@@ -22,7 +22,7 @@ function check(input: typeof defaults) {
 describe('industrial52 authored economics evidence', () => {
   it('distinguishes chosen prices, domains and constants from vendor context', () => {
     const body = readFileSync(ARTICLE, 'utf8');
-    for (const s of ['authored worked example', '80,000', '20,000', '250,000', '5,000', '730', '60-month', 'chosen 24-month', 'not a sourced arm-price quote']) expect(body).toContain(s);
+    for (const s of ['authored worked example', '80,000', '20,000', '250,000', '5,000', '730', '60-month', 'chosen 24-month', 'with no sourced arm-price quote']) expect(body).toContain(s);
     const component = readFileSync(COMPONENT, 'utf8');
     expect(component).not.toContain('no cited source publishes');
     expect(component).toContain('modeled picks per elapsed hour');

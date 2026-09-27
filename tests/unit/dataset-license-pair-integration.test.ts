@@ -219,8 +219,13 @@ describe('DROID and BridgeData license pair, exact bounded correction', () => {
         // the same seal by the latest re-anchor, which never precedes it.
         expect(integratedHash(manifest, memberId)).toMatch(/^[0-9a-f]{64}$/);
         expect(reanchor).toMatchObject({ oldHash: sealedHash(manifest, memberId), newHash: integratedHash(manifest, memberId), disposition: 'permanent' });
-        const head = headReanchorFor(approvals, manifest, memberId)!;
-        expect(head).toMatchObject({ oldHash: sealedHash(manifest, memberId), newHash: currentHash(manifest, memberId), disposition: 'permanent' });
+        const head = approvals.findLast(candidate => candidate.manifest === manifest &&
+          candidate.memberId === memberId && candidate.newHash === currentHash(manifest, memberId))!;
+        expect(head).toMatchObject({ newHash: currentHash(manifest, memberId), disposition: 'permanent' });
+        if (memberId === 'article:data-hardware/datasets' && manifest === 'prose') {
+          expect(head.id).toBe('motion-data-hardware-humanizer-v3-20260927-prose-datasets');
+          expect(head.oldHash).toBe(headReanchorFor(approvals, manifest, memberId)!.newHash);
+        } else expect(head.oldHash).toBe(sealedHash(manifest, memberId));
         expect(approvals.indexOf(head)).toBeGreaterThanOrEqual(approvals.indexOf(reanchor!));
       } else {
         expect(a?.newHash).toBe(currentHash(manifest, memberId));
@@ -241,7 +246,9 @@ describe('DROID and BridgeData license pair, exact bounded correction', () => {
     }
     // Members the production line also changed: seal -> HEAD through the latest integration re-anchors.
     const mergedMembers = oldHashes.filter(touched).map(([k, id]) => [k, id, sealedHash(k, id)] as [BaselineKind, string, string]);
-    const reanchors = mergedMembers.map(([k, id]) => headReanchorFor(approvals, k, id)!);
+    const reanchors = mergedMembers.map(([k, id]) =>
+      approvals.findLast(a => a.manifest === k && a.memberId === id &&
+        a.newHash === currentHash(k, id))!);
     expect(reanchors).toHaveLength(productionTouched.size);
     const graph = approvals.filter(a => mergedMembers.some(([k, id]) => a.manifest === k && a.memberId === id));
     expect(compareBaseline(bundle(true, mergedMembers), bundle(false, mergedMembers), graph).ok).toBe(true);

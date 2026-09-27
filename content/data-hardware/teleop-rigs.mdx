@@ -26,7 +26,7 @@ seeAlso:
 
 import { TeleopRigMatrix } from '@/components/interactive/teleop-rig-matrix';
 
-Nearly every demonstration in a robot learning dataset was produced by a human moving hardware. The human drives the robot itself, moves a scaled twin of it, holds a gripper proxy in hand, or works inside a headset while the robot mirrors them. Four rig families cover most of that collection in 2026: ALOHA-class bimanual workstations, GELLO kinematically matched exoskeletons, UMI handheld grippers, and VR <Term id="teleoperation">teleoperation</Term>. Each family is a different bet on four axes: what the rig costs, how faithfully its demonstrations map onto robot execution, how cheaply its demonstration volume scales, and how large the gap is between the recorded motion and the robot's. Cost figures do not all describe comparable purchases: GELLO's sub-\$300 paper BOM buys the controller, not its robot arm <Cite id="gello-2023" />.
+Nearly every demonstration in a robot learning dataset was produced by a human moving hardware. The human drives the robot itself, moves a scaled twin of it, holds a gripper proxy in hand, or works inside a headset while the robot mirrors them. Four rig families cover most of that collection in 2026: ALOHA-class bimanual workstations, GELLO kinematically matched exoskeletons, UMI handheld grippers, and VR <Term id="teleoperation">teleoperation</Term>. Each family is a different bet on four axes: what the rig costs, how faithfully its demonstrations map onto robot execution, how cheaply its demonstration volume scales, and how large the gap is between the recorded motion and the robot's. Cost figures do not all describe comparable purchases: GELLO's sub-\$300 paper BOM buys the controller; its robot arm costs extra <Cite id="gello-2023" />.
 
 <Cite id="lerobot-pricing-2026" /> A community issue researched in June 2026 estimates the combined “ALOHA / ALOHA 2” category at about \$17k-32k, but does not specify the currency code, configurations, or itemized inclusions and exclusions. That estimate is not a current vendor quote or a verified ALOHA 2 system total.
 
@@ -49,9 +49,9 @@ The ALOHA design seats a human at a leader arm that is a twin of the follower ar
 
 The hardware line behind these papers rebranded as Trossen AI in 2025-2026: \$23,995.95 for the bimanual Stationary AI, \$33,695.95 for Mobile AI on a base, \$4,545.95 for the single-arm WidowX AI entry point, all running 500 Hz CAN FD control on the iNerve board with LeRobot and OpenPI integration <Cite id="trossen-ai-2026" />.
 
-<Cite id="lerobot-pricing-2026" /> The community issue in alpibrusl/lex-robot, self-described as researched in June 2026, lists “ALOHA / ALOHA 2” as “research bimanual” at approximately \$17k-32k. It warns generally that DIY BOMs, assembled products, and tariffs produce wide spreads, but does not tie the two endpoints to named configurations. The currency code, included hardware, and exclusions are not itemized; this is a secondary estimate, not current vendor pricing.
+<Cite id="lerobot-pricing-2026" /> The community issue in alpibrusl/lex-robot, self-described as researched in June 2026, lists “ALOHA / ALOHA 2” as “research bimanual” at approximately \$17k-32k. It warns generally that DIY BOMs, assembled products, and tariffs produce wide spreads, but does not tie the two endpoints to named configurations. The currency code, included hardware, and exclusions are not itemized; this secondary estimate cannot stand in for current vendor pricing.
 
-The trade is throughput. Each additional collector needs another full workstation and the space to put it, so fleet scale here is bought with capital, not with cheap duplication. No fleet-scale collection numbers are published for ALOHA-class rigs; the family earns its keep on data quality instead.
+The trade is throughput. Each additional collector needs another full workstation and the space to put it, so fleet scale here takes capital and space. No fleet-scale collection numbers are published for ALOHA-class rigs; the family earns its keep on data quality instead.
 
 ## GELLO: the kinematic twin
 

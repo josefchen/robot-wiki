@@ -32857,7 +32857,7 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/data-hardware/hardware-taxonomy/#hands-ship-bundled-not-shelved",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/data-hardware/hardware-taxonomy/#hands-ship-bundled",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
@@ -34022,6 +34022,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/generative-sim/#generate-content-inside-a-physics-engine",
+          "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/generative-sim/#holodeck-language-guided-environment-generation",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
@@ -34038,11 +34043,6 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/generative-sim/#robogen-propose-generate-learn",
-          "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/generative-sim/#the-argument-generate-content-not-dynamics",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
@@ -34097,7 +34097,7 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/jepa/#the-argument-predict-representations-not-pixels",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/jepa/#the-argument-for-representation-prediction",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
@@ -34464,7 +34464,7 @@
           "result:VAL-B2-TYPE-009:/data-hardware/evaluation-crisis/#what-the-success-rate-hides-the-horizon",
           "result:VAL-B2-TYPE-009:/data-hardware/hardware-taxonomy/#arms-from-122-to-70000",
           "result:VAL-B2-TYPE-009:/data-hardware/hardware-taxonomy/#compute-closing-the-loop",
-          "result:VAL-B2-TYPE-009:/data-hardware/hardware-taxonomy/#hands-ship-bundled-not-shelved",
+          "result:VAL-B2-TYPE-009:/data-hardware/hardware-taxonomy/#hands-ship-bundled",
           "result:VAL-B2-TYPE-009:/data-hardware/hardware-taxonomy/#how-to-read-these-prices",
           "result:VAL-B2-TYPE-009:/data-hardware/hardware-taxonomy/#humanoids-shipping-beat-shouting",
           "result:VAL-B2-TYPE-009:/data-hardware/hardware-taxonomy/#sensors-touch-is-the-missing-channel",
@@ -34697,11 +34697,11 @@
           "result:VAL-B2-TYPE-009:/world-models/evaluation/#start-with-the-intended-use",
           "result:VAL-B2-TYPE-009:/world-models/evaluation/#the-minimum-credible-report",
           "result:VAL-B2-TYPE-009:/world-models/generative-sim/#draw-the-hybrid-boundary-explicitly",
+          "result:VAL-B2-TYPE-009:/world-models/generative-sim/#generate-content-inside-a-physics-engine",
           "result:VAL-B2-TYPE-009:/world-models/generative-sim/#holodeck-language-guided-environment-generation",
           "result:VAL-B2-TYPE-009:/world-models/generative-sim/#limitations-stated-plainly",
           "result:VAL-B2-TYPE-009:/world-models/generative-sim/#robocasa-a-benchmark-built-from-generated-assets",
           "result:VAL-B2-TYPE-009:/world-models/generative-sim/#robogen-propose-generate-learn",
-          "result:VAL-B2-TYPE-009:/world-models/generative-sim/#the-argument-generate-content-not-dynamics",
           "result:VAL-B2-TYPE-009:/world-models/generative-sim/#the-push-test-appearance-is-not-physics",
           "result:VAL-B2-TYPE-009:/world-models/generative-sim/#where-this-leaves-the-field",
           "result:VAL-B2-TYPE-009:/world-models/generative-video/#1x-and-odyssey-the-commercial-edges",
@@ -34712,7 +34712,7 @@
           "result:VAL-B2-TYPE-009:/world-models/generative-video/#gr-1-and-gr-2-video-pre-training-pointed-at-manipulation",
           "result:VAL-B2-TYPE-009:/world-models/generative-video/#the-conditioning-problem",
           "result:VAL-B2-TYPE-009:/world-models/jepa/#a-deployment-rule-for-representation-prediction",
-          "result:VAL-B2-TYPE-009:/world-models/jepa/#the-argument-predict-representations-not-pixels",
+          "result:VAL-B2-TYPE-009:/world-models/jepa/#the-argument-for-representation-prediction",
           "result:VAL-B2-TYPE-009:/world-models/jepa/#the-counterargument-stated-fairly",
           "result:VAL-B2-TYPE-009:/world-models/jepa/#the-institutional-bet-ami-labs",
           "result:VAL-B2-TYPE-009:/world-models/jepa/#v-jepa-2-the-arguments-strongest-artifact",

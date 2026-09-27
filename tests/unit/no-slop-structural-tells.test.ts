@@ -95,6 +95,12 @@ describe('findStructuralTells: paper-internal locators', () => {
     expect(locators.length).toBe(2);
   });
 
+  it('keeps hyphenated dataset names distinct from bare paper revisions', () => {
+    const body = 'Something-Something-v2 is a dataset. The v2 paper revised the probe.';
+    expect(findStructuralTells(body).filter((f) => f.kind === 'paper-locator').map((f) => f.match))
+      .toEqual(['v2']);
+  });
+
   it('does not flag ordinary words containing v or section prose', () => {
     const body =
       'The controller runs at 10 Hz on hardware versus simulation. See the evaluation section of the site for more.';

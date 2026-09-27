@@ -61,7 +61,7 @@ test.describe('data-hardware evaluation-crisis module', () => {
       main.getByText(/violin/i).filter({ visible: true }).first(),
     ).toBeVisible();
     await expect(
-      main.getByText(/confidence interval/i).filter({ visible: true }).first(),
+      main.getByText(/confidence[- ]interval/i).filter({ visible: true }).first(),
     ).toBeVisible();
     // Strand 2: SIMPLER-style sim-to-real evaluation correlation.
     await expect(

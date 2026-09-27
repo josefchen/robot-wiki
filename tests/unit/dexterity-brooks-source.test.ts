@@ -54,7 +54,7 @@ describe('Brooks dexterity source corrections', () => {
   test('keeps the complete qualifier and cuts the necessity-from-first-deployment inference', () => {
     expect(text).toContain('"It looks like humanoid robots will need a sense of touch');
     expect(text).toContain('for tasks such as the match demonstration');
-    expect(text).toContain('his assessment at the time of the essay');
+    expect(text).toContain('His assessment belongs to the time of the essay');
     expect(text).not.toContain('If touch-driven pipelines get there first, Brooks');
     expect(text).not.toContain("Brooks's conclusion is blunt");
   });

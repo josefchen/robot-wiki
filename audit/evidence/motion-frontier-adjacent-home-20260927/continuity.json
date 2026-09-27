@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "motion-frontier-safety-continuity-v1",
+  "before": {
+    "path": "audit/evidence/motion-frontier-adjacent-home-20260927/safety-article-before.mdx",
+    "bytes": 19566,
+    "sha256": "89c2e410795c25254a1ebdea7ccbadcddb364f6535f5ea9fe5d8ef7063113f69"
+  },
+  "after": {
+    "path": "content/frontier/safety-and-assurance.mdx",
+    "bytes": 19601,
+    "sha256": "54fa9bab160a9d52f0d9ed765c6812c40e2707fa32cc4aeec907dc71350caabd"
+  },
+  "reviewedBy": "Frontier article continuity integrator, not independent acceptance",
+  "observedAt": "2026-09-27T18:25:00Z",
+  "rationale": "Reader prose was edited to remove repeated structural contrasts and the paper-internal table locator. The source-scoped lower-bound and beam distinctions, qualified operator approach, selected rather than certified model inputs, stopping-time warning and independent original local-basis proof are all preserved. Ordered citation IDs, frontmatter and sourced numeric tokens were checked against the archived article; historical proof receipts, review events and external source pairs remain untouched. The live endpoint is pinned by its whole-file bytes and hash."
+}

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "894d4096e2bb9c6e5bbd55690c8cb44d6e76caa1430f4658dd1eb6a19c77861f",
+  "fingerprint": "f032704817bbebba339beff97edb405a7c85c61c7f1724d339f2c5d072065b32",
   "viewports": [
     "375x812",
     "1440x900"
@@ -18,7 +18,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 5496,
+      "visibleTextLength": 6008,
       "figures": [
         {
           "imageId": "spot-raf-agile-liberty-2021",
@@ -5077,7 +5077,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 26683,
+      "visibleTextLength": 26611,
       "figures": [
         {
           "imageId": "franka-emika-panda-cebit-2017",
@@ -5315,7 +5315,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 5718,
+      "visibleTextLength": 6230,
       "figures": [
         {
           "imageId": "spot-raf-agile-liberty-2021",
@@ -10374,7 +10374,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 27062,
+      "visibleTextLength": 26990,
       "figures": [
         {
           "imageId": "franka-emika-panda-cebit-2017",

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "motion-data-hardware-checker-revision-v1",
+  "before": {
+    "path": "audit/evidence/motion-data-hardware-20260927/audit-local-basis-before.ts.txt",
+    "bytes": 108255,
+    "sha256": "b757fb029b43c415e10d30a6214dd7b6590ef44b0caa768f642860f7cf5a387c"
+  },
+  "after": {
+    "path": "lib/audit-local-basis.ts",
+    "bytes": 110353,
+    "sha256": "ef39b0de96ac433682a61a390998152871f2a4065c6db4a27f2fd97c66bd7660"
+  },
+  "reviewedBy": "Data-hardware motion continuity integrator, not independent acceptance",
+  "observedAt": "2026-09-27T16:21:09Z",
+  "rationale": "The world-model checker endpoint is retained as the exact pre-motion snapshot. The successor imports a finite data-hardware current-state reader, extends the four affected article/test bindings, and chains the existing withdrawal and merged-release equations to their pre-motion bytes. An assertion-only industrial test wording update retains its prior proof-test bytes in a dedicated snapshot, with the current test hash checked separately. No derivation recipe, external pair, proof input/output, receipt, historical capture, correction child, or original four-cell identity changes. The live implementation is separately pinned by exact whole-file identity; earlier run dependencies still return archived execution bytes."
+}

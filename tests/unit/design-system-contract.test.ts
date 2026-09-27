@@ -425,7 +425,7 @@ describe('identity geometry and typography stay aligned', () => {
     // curve itself still paints through the accent token.
     expect(frictionTransfer).toContain('var(--color-accent)');
     expect(frictionTransfer).not.toMatch(/green/i);
-    expect(jepa).toContain('Its synthetic coordinates and distance trace are not learned robot embeddings');
+    expect(jepa).toContain('Its synthetic coordinates and distance trace come from the toy model; they cannot measure learned robot embeddings or planning performance');
     expect(jepaChart).toContain("const ACCENT = 'var(--color-accent)'");
     expect(jepaChart).toMatch(/stroke=\{ACCENT\}[\s\S]*?>\s*z_t\s*</);
     expect(sim2real).toContain('Widening the half-width lowers the plateau by construction; the cited papers establish no universal tradeoff of that shape');

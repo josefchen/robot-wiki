@@ -98,7 +98,7 @@ describe('five IFR and OSHA industrial originals', () => {
     expect(opening).toContain('automotive for 126,088');
     expect(opening).toContain('88,777 (16 percent)');
     expect(opening).toContain('23 percent on page 13 but 24 percent on page 16');
-    expect(opening).toContain('customer-industry categories, not application families');
+    expect(opening).toContain('These categories describe customer industries; they do not divide installations into application families.');
     expect(opening).toContain('unspecified for 14 percent');
     const p = selected.find(p => p.rowOrdinal === 3)!;
     expect(p).toBeDefined();
