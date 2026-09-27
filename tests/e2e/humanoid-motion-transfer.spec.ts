@@ -8,8 +8,8 @@ const targets = {
   'sim2real-transfer': [
     ['ASAP starts with phase-conditioned', 'asap-2025'],
     ['The evaluation separates IsaacGym-to-IsaacSim', 'asap-2025'],
-    ['Generalization is measured, not guaranteed', 'asap-2025'],
-    ["Each family's failure mode", 'asap-2025'],
+    ['ASAP reports improved tracking on the held-out', 'asap-2025'],
+    ["Each family's limits differ", 'asap-2025'],
   ],
   'legged-locomotion': [
     ["On Unitree's H1, H2O", 'h2o-2024'],
@@ -28,7 +28,7 @@ for (const width of [375, 1440]) for (const slug of ['sim2real-transfer', 'legge
     const page = await context.newPage();
     const directory = `${process.env.DR_READER_OUT ?? info.outputPath('readers')}/${process.env.DR_READER_RUN ?? 'humanoid'}/${slug}-${width}`;
     mkdirSync(directory, { recursive: true });
-    const captures: object[] = [], measures: object[] = [], errors: string[] = [], external: string[] = [];
+    const captures: object[] = [], measures: object[] = [], errors: string[] = [], external: string[] = [], missingAssets: string[] = [];
     const cdp = await context.newCDPSession(page);
     await cdp.send('DOM.enable'); await cdp.send('CSS.enable');
     await context.route('**/*', route => {
@@ -38,6 +38,9 @@ for (const width of [375, 1440]) for (const slug of ['sim2real-transfer', 'legge
     });
     page.on('pageerror', e => errors.push(e.message));
     page.on('console', e => { if (e.type() === 'error') errors.push(e.text()); });
+    page.on('response', response => {
+      if (response.status() === 404 && response.url().includes('/_next/static/')) missingAssets.push(response.url());
+    });
     async function capture(name: string) {
       const path = `${directory}/${name}.png`;
       await page.screenshot({ path });
@@ -143,9 +146,9 @@ for (const width of [375, 1440]) for (const slug of ['sim2real-transfer', 'legge
       const axe = await new AxeBuilder({ page }).analyze();
       measures.push({ axeViolations: axe.violations, axeIncomplete: axe.incomplete });
       expect.soft(axe.violations).toEqual([]);
-      expect(errors).toEqual([]); expect(external).toEqual([]);
+      expect(errors).toEqual([]); expect(external).toEqual([]); expect(missingAssets).toEqual([]);
     } finally {
-      writeFileSync(`${directory}/observations.json`, JSON.stringify({ width, height, slug, captures, measures, errors, external,
+      writeFileSync(`${directory}/observations.json`, JSON.stringify({ width, height, slug, captures, measures, errors, external, missingAssets,
         scope: 'Current source-specific development proof; not whole-P1, production export, full-state or brand-rubric acceptance' }, null, 2));
       await context.close();
     }

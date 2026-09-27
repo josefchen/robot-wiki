@@ -1,7 +1,10 @@
 import fs from 'node:fs';
+import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
 import { parseLedger, parseCompoundPlans, compoundPartDigest } from '../../lib/audit-ledger';
+import { buildManifest } from '../../lib/brand-v2-baseline';
 import { CITATIONS } from '../../data/citations';
+import { committedSource } from '../helpers/continuation-integration';
 const read = (p: string) => fs.readFileSync(p, 'utf8');
 const endpoints = [
   {
@@ -53,7 +56,26 @@ function native() {
 }
 describe('Optimal sampling and OMPL source-bound endpoints', () => {
   for (const e of endpoints) it(e.id + ' keeps its complete qualified endpoint', () => {
-    expect(read(e.path).split(e.text).length - 1).toBe(1);
+    const isHistoricalProse = e.id.startsWith('row9-optimality-') || e.id.startsWith('row10-informed-');
+    const source = isHistoricalProse ? committedSource('ebf13b4', e.path) : read(e.path);
+    expect(source.split(e.text).length - 1).toBe(1);
+    if (isHistoricalProse) {
+      const memberId = 'article:classical/motion-planning';
+      const digest = (text: string) => buildManifest('prose', [{
+        id: memberId, value: { path: e.path, body: matter(text).content.trim() },
+      }]).members[0].hash;
+      const delta = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries
+        .find((entry: { id: string }) => entry.id === 'motion-classical-humanizer-v3-20260927-prose-motion-planning');
+      expect(delta.oldHash).toBe(digest(committedSource('34ab0a9', e.path)));
+      expect(delta.newHash).toBe(digest(read(e.path)));
+      if (e.id.startsWith('row9-')) {
+        expect(read(e.path)).toContain('Differential constraints fall outside this setup');
+        expect(read(e.path)).toContain('The latter\'s conservative condition is');
+      } else {
+        expect(read(e.path)).toContain('Its linear expected-cost convergence calculation assumes no obstacles');
+        expect(read(e.path)).toContain('when the informed set covers the planning domain, the heuristic supplies no focusing advantage');
+      }
+    }
   });
   it('retains the article review date and exact ten-source population', () => {
     const article = read('content/classical/motion-planning.mdx');

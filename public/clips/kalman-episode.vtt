@@ -1,0 +1,16 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.000
+A target wanders through one dimension; the dashed line is its true position, step by step.
+
+00:00:03.000 --> 00:00:06.000
+A noisy position sensor reports on most steps and stays silent on about one in five.
+
+00:00:06.000 --> 00:00:09.000
+One fusion up close: the wide predicted belief meets a reading, and the gain K narrows the posterior between them.
+
+00:00:09.000 --> 00:00:15.500
+Run the whole episode: the estimate drifts through each dropout and corrects on each reading, staying close to the truth.
+
+00:00:15.500 --> 00:00:18.000
+Predict smears the belief, update sharpens it; that alternation, repeated forever, is the filter.

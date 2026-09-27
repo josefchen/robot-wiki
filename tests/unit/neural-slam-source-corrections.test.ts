@@ -158,6 +158,6 @@ describe('source-scoped neural SLAM prose', () => {
     expect(block).toContain('remains configurable <Cite id="layered-costmaps-2014" />.');
     expect(block).toContain('Navigation2 uses a layered costmap <Cite id="nav2-2020" />.');
     expect(block).not.toMatch(/Source:|<br\b|className="block"/);
-    expect(source).toContain('In Section II, Cadena and colleagues separate a sensor-dependent front end');
+    expect(source).toContain('Cadena and colleagues separate a sensor-dependent front end');
   });
 });

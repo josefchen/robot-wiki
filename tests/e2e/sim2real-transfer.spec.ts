@@ -169,12 +169,12 @@ test.describe('sim2real-transfer module', () => {
       for (const text of [
         'PyBullet supplies the physics', '40 trials per task', 'training augmentations',
         'Robotiq 2F-85', 'two RealSense D455', 'manual robot segmentation', 'ICP alignment',
-        'CAD-derived link bounds', 'Figure 2 lists RGB observations plus end-effector position and orientation',
-        'solely on RGB at test time', 'Those descriptions disagree', 'August 2025 v2',
+        'CAD-derived link bounds', 'lists RGB observations plus end-effector position and orientation',
+        'solely on RGB at test time', 'Those descriptions disagree', 'August 2025 revision',
         'Gaussian Reconstructor', 'Digital Twins Builder', 'Scene Composer', 'Interactive Engine',
         'mesh assets and measured layout alignment', 'inverse kinematics', 'collisions',
         'resulting state drives the next rendering', 'ten trials with up to three grasp attempts per trial',
-        '90% placement', '30% in RoboGSim', 'not a demonstrated safety guarantee',
+        '90% placement', '30% in RoboGSim', 'no demonstrated safety guarantee',
         'trajectory replay separately from closed-loop policy evaluation',
       ]) await expect(prose).toContainText(text);
       await expect(prose).not.toContainText("SplatSim replaces the simulator's mesh renderer");

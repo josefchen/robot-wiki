@@ -2,6 +2,13 @@
   "schemaVersion": 1,
   "assets": [
     {
+      "path": "clips/kalman-episode.png",
+      "sha256": "e94802c88dd60176857a744324a56688fd449ada335eff295ce47e2be282496e",
+      "byteCount": 225941,
+      "owner": "robot-wiki-editorial",
+      "purpose": "First-party schematic final-frame poster for the owner-authorized Kalman pilot clip; the seeded truth, sensor readings, estimate and uncertainty band are shown with separate leaders and a typeset recursion."
+    },
+    {
       "path": "images/anymal-anybotics-2022.jpg",
       "sha256": "65bd6998719c0f2f7c65c492072fb66bb3a78ec501d7e00a1e9555c9cf5d8a5b",
       "byteCount": 706854,

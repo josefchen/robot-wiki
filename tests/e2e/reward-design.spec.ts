@@ -24,7 +24,7 @@ test.describe('RL reward-design and MPC module', () => {
   });
 
   test('a dominant torque weight flips the behavior readout; reset restores it', async ({ page }) => {
-    await page.goto(ROUTE);
+    await page.goto(ROUTE, { waitUntil: 'networkidle' });
     await expect(page.getByTestId('behavior-status')).toContainText(/balanced/i);
     // Find the torque slider by its accessible name and push it high.
     const torque = page.getByRole('slider', { name: /torque/i });

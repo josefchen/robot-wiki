@@ -51,7 +51,7 @@ describe('perception foundation corrections', () => {
     expect(article).toContain('52.5 AP on COCO 2017 validation');
     expect(article).toContain('Swin-L');
     expect(article).toContain('O365');
-    expect(article).toContain('not that its object categories were absent from pretraining');
+    expect(article).toContain('Its object categories may still occur in pretraining');
   });
   it('distinguishes frozen DINOv2 encoders from trained predictors', () => {
     expect(article).toContain('while training task-specific predictors');
@@ -72,7 +72,9 @@ describe('perception foundation corrections', () => {
     for (const text of ['SAM 2.1', 'nine densely annotated video datasets',
       'SAM+XMem++', 'SAM+Cutie', '130.1 versus 21.7', 'image batches of 10',
       'PyTorch 2.3.1', 'CUDA 12.1', 'bfloat16', '61.4', '61.9',
-      'Appendix F.1.4', 'OVIS']) expect(article).toContain(text);
+      'OVIS']) expect(article).toContain(text);
+    expect(article).toContain('the appendix instead reconstructs masks with clicks until IoU exceeds 0.8');
+    expect(readFileSync('audit/classical.md', 'utf8')).toContain('Appendix F.1.4 click reconstruction to IoU>0.8');
     expect(article).not.toContain('running six times faster than SAM on images');
   });
   it('couples the glossary, evidenced editions and unchanged canonical URLs/date', () => {

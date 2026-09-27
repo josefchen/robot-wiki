@@ -6,6 +6,7 @@
 import { z } from 'zod';
 import { createHash } from 'node:crypto';
 import { createLocalArtifactReader, parseOriginalLedgerSection, verifyKrogerSourceBody } from './audit-local-basis.ts';
+import { currentClassicalCorrectionArticle, loadClassicalCorrectionContinuity } from './audit-classical-continuity.ts';
 import { originalClaimDigest, type ClaimRecord } from './audit-ledger.ts';
 
 const text = z.string().min(1);
@@ -98,7 +99,10 @@ export function validateCorrectedDisposition(value: CorrectedDisposition, curren
     need(original && originalClaimDigest(original) === r.originalTupleDigest &&
       originalClaimDigest(r.originalCells) === r.originalTupleDigest, 'correction original history drift');
     need(r.article.path === `content/${target.ledger.slice(6, -3)}/${target.slug}.mdx`, 'wrong correction article');
-    const article = read(r.article).toString();
+    const article = target.ledger === 'audit/classical.md'
+      ? currentClassicalCorrectionArticle(context.root, r.article,
+        loadClassicalCorrectionContinuity(context.root), r.requiredPresent, r.requiredAbsent)
+      : read(r.article).toString();
     for (const dependency of r.dependencies) read(dependency);
     for (const s of r.requiredPresent) need(article.includes(s), 'retained correction text missing');
     for (const s of r.requiredAbsent) need(!article.includes(s), 'withdrawn assertion still active');

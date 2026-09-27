@@ -215,8 +215,8 @@ describe('registered first-party asset verdicts', () => {
       expect(verdict.basis).not.toBe('undecidable');
     }
 
-    // Two bases, and each carries the limitation that belongs to it: the
-    // decoded ones read content, the raster ones rest on external origin.
+    // Decoded containers, externally sourced rasters and registered local
+    // clip stills each carry the limitation that belongs to their evidence.
     const raster = verdicts.filter(({ basis }) => basis === 'external-provenance');
     expect(raster.length).toBeGreaterThan(0);
     for (const verdict of raster) {
@@ -225,6 +225,79 @@ describe('registered first-party asset verdicts', () => {
     for (const verdict of verdicts.filter(({ decodedFormat }) => decodedFormat === 'glb')) {
       expect(verdict.limitations).toContain(ASSET_CONTENT_LIMITATIONS.model);
     }
+    const poster = verdicts.find(({ path }) => path === 'clips/kalman-episode.png');
+    expect(poster?.basis).toBe('registered-clip');
+    expect(poster?.established.join(' ')).toMatch(/1280x720.*kalman-episode/);
+    expect(poster?.limitations).toContain(ASSET_CONTENT_LIMITATIONS.clipPoster);
+  });
+
+  it('requires an exact local clip registration, render source, encodings and dimensions for an owned poster', () => {
+    const poster = readFileSync(join(ROOT, 'public/clips/kalman-episode.png'));
+    const manifest = readFileSync(join(ROOT, 'motion-clips.json'), 'utf8');
+    const baseFiles: Record<string, string | Buffer> = {
+      'public/models/so101/so101.urdf': MINIMAL_URDF,
+      'public/clips/kalman-episode.png': poster,
+      'public/clips/kalman-episode.mp4': Buffer.from('placeholder'),
+      'public/clips/kalman-episode.webm': Buffer.from('placeholder'),
+      'scripts/motion/clips/kalman_episode.py': '# locally authored clip',
+      'motion-clips.json': manifest,
+    };
+    const assets = [
+      {
+        id: 'asset:clips/kalman-episode.png',
+        path: 'clips/kalman-episode.png',
+        category: 'static-asset',
+        byteHash: hash(poster),
+        sourceRegistryId: null,
+      },
+      {
+        id: 'asset:models/so101/so101.urdf',
+        path: 'models/so101/so101.urdf',
+        category: 'playground-model',
+        byteHash: hash(MINIMAL_URDF),
+        sourceRegistryId: null,
+      },
+    ];
+    const verdictFor = (files: Record<string, string | Buffer>) =>
+      assetContentVerdicts({
+        root: scratchRoot(files),
+        assets,
+        provenanceById: new Map(),
+        identitySourcePaths: [],
+      })[0];
+
+    expect(verdictFor(baseFiles).failures).toEqual([]);
+    for (const missing of [
+      'motion-clips.json',
+      'scripts/motion/clips/kalman_episode.py',
+      'public/clips/kalman-episode.mp4',
+      'public/clips/kalman-episode.webm',
+    ]) {
+      const files = Object.fromEntries(
+        Object.entries(baseFiles).filter(([path]) => path !== missing),
+      );
+      expect(verdictFor(files).failures.join(' ')).toMatch(/clip.*(registration|source|encoding)/i);
+    }
+    const wrongSize = JSON.parse(manifest) as {
+      clips: Array<{ id: string; width: number }>;
+    };
+    wrongSize.clips[0].width = 640;
+    expect(
+      verdictFor({
+        ...baseFiles,
+        'motion-clips.json': JSON.stringify(wrongSize),
+      }).failures.join(' '),
+    ).toMatch(/dimensions/);
+    const wrongId = JSON.parse(manifest) as {
+      clips: Array<{ id: string }>;
+    };
+    wrongId.clips[0].id = 'another-episode';
+    expect(
+      verdictFor({
+        ...baseFiles,
+        'motion-clips.json': JSON.stringify(wrongId),
+      }).failures.join(' '),
+    ).toMatch(/registration/);
   });
 
   it('describes a monogram registered under an innocent name and leaves the refusal to the seal', () => {

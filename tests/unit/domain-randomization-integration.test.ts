@@ -58,12 +58,12 @@ describe('Domain randomization source integration', () => {
     expect(transfer).not.toMatch(/optimal for none|papers almost never quantify|every DR paper reports/);
     expect(transfer).toContain('maximize expected return');
     expect(transfer).toContain('authored assumptions');
-    expect(transfer).toContain('not Peng paper results');
+    expect(transfer).toContain('do not come from Peng paper results');
     const prediction = transfer.split('<PredictThenReveal')[1].split('</PredictThenReveal>')[0];
     expect(prediction).not.toContain("cite: 'peng-2018'");
   });
   it('preserves RMA inference and does not complete held original 23', () => {
-    expect(transfer).toContain('These are inference processes, not online gradient updates.');
+    expect(transfer).toContain('These processes perform inference without online gradient updates.');
     expect(transfer).toContain("label: 'A separately trained adaptation module'");
     expect(transfer).toContain('answer="latent-adaptation"');
     const held = parseLedger('audit/rl-sim2real.md', ledger, ids, { compoundPlans: plans })

@@ -1,6 +1,5 @@
 import { expect, test, type Page } from './helpers/state-smoothing-fixture';
 import AxeBuilder from '@axe-core/playwright';
-import { extractXAxis } from './helpers/table-agreement';
 
 const ROUTE = '/classical/state-estimation/';
 
@@ -24,44 +23,6 @@ async function visibleArticleText(page: Page): Promise<string> {
     }
     return clone.textContent ?? '';
   });
-}
-
-async function readout(page: Page, id: string): Promise<string> {
-  return (await page.getByTestId(id).textContent()) ?? '';
-}
-
-/**
- * Advance the tracker deterministically through the Step control.
- *
- * The previous shape here was run, waitForTimeout, pause: it slept on the
- * wall clock and then assumed the tracker was still running so that a
- * pause control existed. Under full-suite load that assumption breaks at
- * both ends (the run can complete and revert the control to Run, or the
- * label swap can lag behind the click), and the pause locator never
- * resolves. The Step control advances the same pure filter one step per
- * click with no timers involved, so the helper is state-driven end to
- * end. The first advance is pinned on the step readout to prove the
- * control is live before the remaining clicks.
- */
-async function advanceSteps(page: Page, count: number) {
-  const stepButton = page.getByRole('button', {
-    name: /step the tracker/i,
-  });
-  await stepButton.click();
-  await expect(page.getByTestId('kalman-step-readout')).toHaveText(
-    '61 / 600',
-  );
-  for (let i = 1; i < count; i++) await stepButton.click();
-}
-
-async function captureRun(page: Page) {
-  return [
-    await readout(page, 'kalman-step-readout'),
-    await readout(page, 'kalman-sigma-readout'),
-    await readout(page, 'kalman-gain-readout'),
-    await readout(page, 'kalman-rms-readout'),
-    await page.getByTestId('kalman-truth-line').getAttribute('points'),
-  ];
 }
 
 test.describe('classical state-estimation module', () => {
@@ -116,7 +77,7 @@ test.describe('classical state-estimation module', () => {
     // No raw MDX or component source leaks into the rendered page.
     expect(visibleText).not.toContain('import {');
     expect(visibleText).not.toContain('<Cite');
-    expect(visibleText).not.toContain('<KalmanTracker');
+    expect(visibleText).not.toContain('<KalmanPredictUpdate');
     expect(errors).toEqual([]);
   });
 
@@ -198,291 +159,156 @@ test.describe('classical state-estimation module', () => {
     expect(visibleText).not.toContain('\\propto');
   });
 
-  test('Kalman tracker renders series, band, sliders, and readouts (VAL-CLASS-024)', async ({
+  test('motion scene poster renders and never autoplays (VAL-CLASS-024)', async ({
     page,
   }) => {
     await page.goto(ROUTE);
-    const scene = page.getByTestId('kalman-scene');
+    const scene = page.locator('[data-motion-scene="kalman-predict-update"]');
     await expect(scene).toBeVisible();
-    await expect(page.getByTestId('kalman-band')).toBeVisible();
-    await expect(page.getByTestId('kalman-truth-line')).toBeVisible();
-    await expect(page.getByTestId('kalman-estimate-line')).toBeVisible();
-    await expect(
-      page.getByRole('slider', { name: /process noise/i }),
-    ).toBeVisible();
-    await expect(
-      page.getByRole('slider', { name: /measurement noise/i }),
-    ).toBeVisible();
-    await expect(
-      page.getByRole('button', { name: /run the tracker/i }),
-    ).toBeVisible();
-    await expect(
-      page.getByRole('button', { name: /reseed/i }),
-    ).toBeVisible();
-    await expect(page.getByRole('button', { name: /reset/i })).toBeVisible();
-    // Initial readouts: the tracker opens paused mid-run at the known
-    // opening step of the default seeded world, so all three series and the
-    // band are visible before any interaction.
-    await expect(page.getByTestId('kalman-step-readout')).toHaveText(
-      '60 / 600',
+    // The poster is the prerendered final beat inside the instrument
+    // chrome, wrapped in the click that plays. No live controls.
+    const poster = scene.getByTestId('motion-poster');
+    await expect(poster).toBeVisible();
+    await expect(poster).toHaveAccessibleName(
+      /play the motion scene: kalman filter/i,
     );
-    await expect(page.getByTestId('kalman-seed-readout')).toHaveText('1');
-    await expect(page.getByTestId('kalman-sigma-readout')).toHaveText(/\d/);
+    await expect(scene.getByTestId('motion-scrubber')).toHaveCount(0);
+    await expect(scene.locator('[data-motion-stage] svg').first()).toBeVisible();
+    // The poster caption is the recap beat's caption.
+    await expect(scene.getByTestId('motion-caption')).toHaveText(/written out/i);
+  });
 
-    // No layout shift: the scene box is stable before and after interaction.
-    const before = await scene.boundingBox();
-    await page.getByRole('button', { name: /run the tracker/i }).click();
-    const after = await scene.boundingBox();
+  test('activation steps the five predict-update beats with honest numbers (VAL-CLASS-025)', async ({
+    page,
+  }) => {
+    await page.goto(ROUTE, { waitUntil: 'networkidle' });
+    const scene = page.locator('[data-motion-scene="kalman-predict-update"]');
+    const poster = scene.getByTestId('motion-poster');
+
+    // The stage keeps its exact box across activation; the frame grows
+    // only below it, where the live scrubber appears. Pin the frame to
+    // the viewport top first, so the activation click itself cannot
+    // scroll the page; a click that races hydration is retried once.
+    await scene.evaluate((node) => node.scrollIntoView({ block: 'start' }));
+    const stageBox = () =>
+      scene.locator('[data-motion-stage] svg').first().boundingBox();
+    const before = await stageBox();
+    await poster.click();
+    let mounted = false;
+    for (let attempt = 0; attempt < 2 && !mounted; attempt += 1) {
+      try {
+        await expect(scene.getByTestId('motion-scrubber')).toBeVisible({
+          timeout: attempt === 0 ? 4_000 : 10_000,
+        });
+        mounted = true;
+      } catch {
+        await poster.click();
+      }
+    }
+    expect(mounted).toBe(true);
+    const after = await stageBox();
     expect(after?.width).toBe(before?.width);
-    expect(after?.height).toBe(before?.height);
-    await page.getByRole('button', { name: /pause the tracker/i }).click();
+    expect(after?.x).toBe(before?.x);
+    expect(after?.y).toBe(before?.y);
+    const caption = scene.getByTestId('motion-caption');
+
+    // Pause the activation autoplay, then walk every beat by keyboard
+    // from the top; the caption names each beat the reader arrives at.
+    await page.keyboard.press('k');
+    await page.keyboard.press('Home');
+    await expect(caption).toHaveText(/prior belief/i);
+    await expect(scene.getByTestId('motion-beat-count')).toHaveText(
+      'beat 1 / 5',
+    );
+    for (const [step, pattern] of [
+      [1, /prior belief/i],
+      [2, /predict/i],
+      [3, /measurement arrives/i],
+      [4, /update/i],
+      [5, /written out/i],
+    ] as const) {
+      await page.keyboard.press('ArrowRight');
+      await expect(caption).toHaveText(pattern);
+      await expect(scene.getByTestId('motion-beat-count')).toHaveText(
+        `beat ${step} / 5`,
+      );
+    }
+
+    // The readout carries the filter's own numbers for the demonstrated
+    // step: the gain and the reading, and the sigma walk.
+    await expect(scene.getByTestId('kalman-gain-value')).toHaveText('0.62');
+    const readout = await scene.getByTestId('motion-readout').textContent();
+    expect(readout).toContain('0.94');
+    expect(readout).toContain('1.27');
+    expect(readout).toContain('0.79');
+
+    // The scrubber is a labelled slider whose valuetext is the caption.
+    const scrubber = scene.getByTestId('motion-scrubber');
+    await expect(scrubber).toHaveAttribute('aria-label', 'Scene timeline');
+    await expect(scrubber).toHaveAttribute(
+      'aria-valuetext',
+      (await caption.textContent()) ?? '',
+    );
+
+    // Reset returns to the poster still.
+    await scene
+      .getByRole('button', { name: /reset the scene to its poster still/i })
+      .click();
+    await expect(caption).toHaveText(/written out/i);
   });
 
-  test('noise sliders drive the band and gain live; reset restores (VAL-CLASS-025)', async ({
+  test('runs are reproducible: reload lands on the identical poster still (VAL-CLASS-032)', async ({
     page,
   }) => {
-    await page.goto(ROUTE);
-    // Advance deterministically past the filter's initialization
-    // transient: 60 Step-control clicks from the opening step, no timers.
-    await advanceSteps(page, 60);
-    await expect(page.getByTestId('kalman-step-readout')).toHaveText(
-      '120 / 600',
-    );
-
-    const bandPoints = () =>
-      page.getByTestId('kalman-band').getAttribute('points');
-    const sigma = async () =>
-      Number.parseFloat(await readout(page, 'kalman-sigma-readout'));
-    const gain = async () =>
-      Number.parseFloat(await readout(page, 'kalman-gain-readout'));
-
-    const baseBand = await bandPoints();
-    const baseSigma = await sigma();
-    const baseGain = await gain();
-
-    // Raise the assumed measurement noise: the band widens and the gain
-    // falls (the estimate trusts the sensor less).
-    const rSlider = page.getByRole('slider', { name: /measurement noise/i });
-    await rSlider.focus();
-    await rSlider.press('End');
-    await expect(page.getByTestId('kalman-sigmar-value')).toHaveText('3.00');
-    expect(await sigma()).toBeGreaterThan(baseSigma);
-    expect(await gain()).toBeLessThan(baseGain);
-    expect(await bandPoints()).not.toBe(baseBand);
-
-    // Lower the assumed measurement noise below default: band narrows.
-    await rSlider.press('Home');
-    await expect(page.getByTestId('kalman-sigmar-value')).toHaveText('0.20');
-    expect(await sigma()).toBeLessThan(baseSigma);
-
-    // Raise the assumed process noise: the gain climbs (the estimate hugs
-    // each reading).
-    const qSlider = page.getByRole('slider', { name: /process noise/i });
-    await qSlider.focus();
-    await qSlider.press('End');
-    await expect(page.getByTestId('kalman-sigmaq-value')).toHaveText('1.00');
-    expect(await gain()).toBeGreaterThan(baseGain);
-
-    // Reset restores the default world, settings, and the opening step.
-    await page.getByRole('button', { name: /reset/i }).click();
-    await expect(page.getByTestId('kalman-step-readout')).toHaveText(
-      '60 / 600',
-    );
-    await expect(page.getByTestId('kalman-sigmar-value')).toHaveText('1.00');
-    await expect(page.getByTestId('kalman-sigmaq-value')).toHaveText('0.20');
-    await expect(
-      page.getByRole('button', { name: /run the tracker/i }),
-    ).toBeVisible();
+    await page.goto(ROUTE, { waitUntil: 'networkidle' });
+    const scene = page.locator('[data-motion-scene="kalman-predict-update"]');
+    const posterSvg = () =>
+      scene.locator('[data-motion-stage] svg').first().innerHTML();
+    const initial = await posterSvg();
+    await page.reload({ waitUntil: 'networkidle' });
+    await expect(scene.getByTestId('motion-poster')).toBeVisible();
+    expect(await posterSvg()).toBe(initial);
   });
 
-  test('runs are reproducible: reset replays the identical run (VAL-CLASS-032)', async ({
-    page,
-  }) => {
-    await page.goto(ROUTE);
-    const initial = await captureRun(page);
-
-    // Deterministic replay: the Step button advances the tracker without
-    // wall-clock timers, so the same number of steps from the same seed
-    // must reproduce every readout and the trajectory exactly.
-    const stepTen = async () => {
-      const stepButton = page.getByRole('button', {
-        name: /step the tracker/i,
-      });
-      for (let i = 0; i < 10; i++) await stepButton.click();
-    };
-    await stepTen();
-    const first = await captureRun(page);
-    await expect(page.getByTestId('kalman-step-readout')).toHaveText(
-      '70 / 600',
-    );
-
-    // Reseed changes the world and restarts at the known opening step.
-    await page.getByRole('button', { name: /reseed/i }).click();
-    await expect(page.getByTestId('kalman-seed-readout')).toHaveText('2');
-    await expect(page.getByTestId('kalman-step-readout')).toHaveText(
-      '60 / 600',
-    );
-    expect(
-      await page.getByTestId('kalman-truth-line').getAttribute('points'),
-    ).not.toBe(first[4]);
-
-    // Reset returns to the default seed; replaying the same ten steps
-    // reproduces the identical readouts and the identical trajectory.
-    await page.getByRole('button', { name: /reset/i }).click();
-    await expect(page.getByTestId('kalman-seed-readout')).toHaveText('1');
-    await stepTen();
-    const second = await captureRun(page);
-    expect(second).toEqual(first);
-
-    // A fresh page load lands on the identical initial state.
-    await page.reload();
-    expect(await captureRun(page)).toEqual(initial);
-  });
-
-  test('the interactive is keyboard-operable', async ({ page }) => {
-    await page.goto(ROUTE);
-    const qSlider = page.getByRole('slider', { name: /process noise/i });
-    await qSlider.focus();
-    await expect(qSlider).toBeFocused();
-    await qSlider.press('ArrowRight');
-    await expect(page.getByTestId('kalman-sigmaq-value')).toHaveText('0.25');
-    // The step control advances exactly one step from the keyboard.
-    const step = page.getByRole('button', { name: /step the tracker/i });
-    await step.focus();
-    await page.keyboard.press('Enter');
-    await expect(page.getByTestId('kalman-step-readout')).toHaveText(
-      '61 / 600',
-    );
-  });
-
-  test('reduced motion: no advance before the first coarse tick, then 4-step jumps', async ({
+  test('reduced motion: activation stays on the poster, stepping jumps end-states', async ({
     browser,
-  }, info) => {
-    // The previous shape polled the step readout for greaterThan(10), but
-    // the tracker OPENS paused at step 60, so the poll passed instantly
-    // and proved nothing about reduced-motion gating. This rewrite pins
-    // the gate itself, in two halves:
-    //   1. Absence of smooth advance: after Run, inside a window that
-    //      comfortably spans a smooth-cadence tick (80 ms) but stays well
-    //      inside the coarse first tick (320 ms), the readout must still
-    //      read exactly 60. Timers never fire early, so load can only
-    //      push the coarse tick later, never flake this half red.
-    //   2. Coarse advancement: the readout then leaves 60 in multiples of
-    //      the 4-step coarse jump, proving the gate selects the coarse
-    //      cadence rather than disabling playback.
-    // Mutation-checked: forcing playbackCadence onto the smooth cadence
-    // (gate disabled) makes half 1 fail immediately (step 61 at 80 ms).
-    const context = await browser.newContext({ reducedMotion: 'reduce', viewport: info.project.use.viewport });
+  }) => {
+    const context = await browser.newContext({ reducedMotion: 'reduce' });
     const page = await context.newPage();
-    await page.goto(ROUTE);
-    const stepReadout = page.getByTestId('kalman-step-readout');
-    await expect(stepReadout).toHaveText('60 / 600');
-    await page.getByRole('button', { name: /run the tracker/i }).click();
-    // One immediate read, deliberately NOT an auto-retrying assertion:
-    // absence-of-advance must be measured once, inside the window.
-    await page.waitForTimeout(150);
-    expect(await stepReadout.textContent()).toBe('60 / 600');
-    await expect
-      .poll(async () => (await stepReadout.textContent()) ?? '', {
-        timeout: 5_000,
-      })
-      .not.toBe('60 / 600');
-    const advanced = Number.parseInt(
-      (await stepReadout.textContent()) ?? '60',
-      10,
-    );
-    expect(advanced - 60).toBeGreaterThanOrEqual(4);
-    expect((advanced - 60) % 4).toBe(0);
+    await page.goto(ROUTE, { waitUntil: 'networkidle' });
+    const scene = page.locator('[data-motion-scene="kalman-predict-update"]');
+    const poster = scene.getByTestId('motion-poster');
+    await expect(poster).toBeVisible();
+    await poster.click();
+    try {
+      await expect(scene.getByTestId('motion-scrubber')).toBeVisible({
+        timeout: 4_000,
+      });
+    } catch {
+      await poster.click();
+      await expect(scene.getByTestId('motion-scrubber')).toBeVisible({
+        timeout: 10_000,
+      });
+    }
+    const caption = scene.getByTestId('motion-caption');
+    // No autoplay under reduced motion: still the poster beat.
+    await expect(
+      scene.getByRole('button', { name: /play the scene/i }),
+    ).toBeVisible();
+    await expect(caption).toHaveText(/written out/i);
+    // Stepping jumps between beat end-states with no tweening.
+    await scene
+      .getByRole('button', { name: /step back one beat/i })
+      .click();
+    await expect(caption).toHaveText(/update/i);
+    // The scrubber still works.
+    const scrubber = scene.getByTestId('motion-scrubber');
+    await scrubber.focus();
+    await scrubber.fill('1000');
+    await expect(caption).toHaveText(/prior belief/i);
     await context.close();
   });
 
-  test('x-axis tick labels span the plotted window and agree with the sampled table (VAL-EDU-023 clause (a))', async ({
-    page,
-  }) => {
-    await page.goto(ROUTE);
-    const scene = page.getByTestId('kalman-scene');
-    // Tick row via the shared table-agreement extractor (which handles
-    // this chart's gridline-less case), not a hand-rolled y>340 geometry
-    // filter: the standing convention is that module specs import the
-    // helper for tick-row assertions so a fix to the extractor reaches
-    // every spec, not only the corpus gate. Collection mirrors
-    // chart-table-agreement.spec.ts; the pure helper runs in Node.
-    const ticks = async () => {
-      const captured = await scene.evaluate((svg: SVGElement) => ({
-        texts: Array.from(svg.querySelectorAll('text')).map((t) => ({
-          content: (t.textContent ?? '').trim(),
-          x: parseFloat(t.getAttribute('x') ?? '0'),
-          y: parseFloat(t.getAttribute('y') ?? '0'),
-        })),
-        vLineXs: Array.from(svg.querySelectorAll('line'))
-          .filter((l) => l.getAttribute('x1') === l.getAttribute('x2'))
-          .map((l) => parseFloat(l.getAttribute('x1') ?? '0')),
-      }));
-      return extractXAxis(captured.texts, captured.vLineXs).ticks;
-    };
-    // First and last th of the KALMAN chart's sampled table, reached
-    // through the scene's own aria-describedby chain instead of a
-    // document-wide details[data-chart-form="table"] query: the document-
-    // wide form was correct only while this route carried a single
-    // table-form disclosure, and a second one would silently cross-pair
-    // tables.
-    const tableEndLabels = () =>
-      scene.evaluate((svg: SVGElement) => {
-        const descId = svg.getAttribute('aria-describedby');
-        const desc = descId ? document.getElementById(descId) : null;
-        const rows = (desc?.parentElement ?? document).querySelectorAll(
-          'details[data-chart-data][data-chart-form="table"] tbody tr',
-        );
-        return [
-          rows[0]?.querySelector('th')?.textContent?.trim() ?? '',
-          rows[rows.length - 1]?.querySelector('th')?.textContent?.trim() ?? '',
-        ];
-      });
-
-    // Opening state: the plotted range is steps 0 through 60 and the
-    // table samples exactly that range, so endpoint ticks and endpoint
-    // rows agree.
-    await expect(page.getByTestId('kalman-step-readout')).toHaveText(
-      '60 / 600',
-    );
-    expect(await ticks()).toEqual(['0', '30', '60']);
-    expect(await tableEndLabels()).toEqual(['0', '60']);
-    // The axis carries a unit note naming the row-axis quantity.
-    await expect(scene.getByText('steps')).toBeVisible();
-
-    // Past the 120-step window the frame slides: the endpoint ticks
-    // still carry the plotted range the table samples.
-    await advanceSteps(page, 60);
-    await expect(page.getByTestId('kalman-step-readout')).toHaveText(
-      '120 / 600',
-    );
-    expect(await ticks()).toEqual(['1', '61', '120']);
-    expect(await tableEndLabels()).toEqual(['1', '120']);
-  });
-
-  test('the noise labels render sigma glyphs, not uppercased lookalikes', async ({
-    page,
-  }) => {
-    await page.goto(ROUTE);
-    // The slider labels keep the uppercase convention for their Latin text
-    // while the σq/σr symbols are exempted inside a normal-case span.
-    // innerText reflects the RENDERED text (text-transform applied), which
-    // textContent-based assertions cannot see: pre-fix these read "ΣQ ..."
-    // and "ΣR ..." even though the DOM always held σq/σr.
-    for (const [forId, glyph, lookalike, words] of [
-      ['kalman-sigmaQ', 'σq', 'ΣQ', 'PROCESS NOISE'],
-      ['kalman-sigmaR', 'σr', 'ΣR', 'MEASUREMENT NOISE'],
-    ] as const) {
-      const label = page.locator(`label[for="${forId}"]`);
-      await expect(label).toHaveCSS('text-transform', 'uppercase');
-      const rendered = await label.evaluate(
-        (el) => (el as HTMLElement).innerText,
-      );
-      expect(rendered).toContain(glyph);
-      expect(rendered).not.toContain(lookalike);
-      expect(rendered).toContain(words);
-    }
-  });
 
   test('no horizontal page scroll at 375px', async ({ browser }) => {
     const context = await browser.newContext({

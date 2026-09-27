@@ -15,12 +15,12 @@ describe('named-device depth specification corrections', () => {
       'D450/D455/D455f/D456', 'up to 4 m', 'D401/D405', 'up to 0.5 m',
       'valid pixels', 'ground truth', 'typical conditions', 'auto exposure',
       '150 mW', '250 lux']) expect(depth).toContain(text);
-    expect(depth).toContain('not a whole-image guarantee');
+    expect(depth).toContain('leaving the rest outside that guarantee');
   });
 
   it('separates PhoXi L fields without family ranking or uniform-range inference', () => {
     for (const text of ['PhoXi 3D Scanner L', '0.200 mm (1 σ)', '0.190 mm (1 σ)',
-      '870 to 2150 mm', '250 to 2750 ms', 'not a family-wide ranking',
+      '870 to 2150 mm', '250 to 2750 ms', 'no family-wide ranking',
       'not establish uniform accuracy throughout']) expect(depth).toContain(text);
     expect(depth).not.toMatch(/Three families of depth sensor|accurate option and the slow one|rules out closing a control loop/);
     expect(depth).toContain('named devices');
@@ -29,7 +29,7 @@ describe('named-device depth specification corrections', () => {
   it('preserves both D400 and D400f saturation statements and Azure citation', () => {
     const specular = depth.split('- **Specular')[1].split('\n')[0];
     for (const text of ['D400f', 'May cause image saturation', 'Saturation mitigated',
-      'does not mean eliminated', 'azure-kinect-depth-docs-2026']) expect(specular).toContain(text);
+      'Saturation can still occur', 'azure-kinect-depth-docs-2026']) expect(specular).toContain(text);
   });
 
   it('removes the opaque guarantee without changing teaching constants or defaults', () => {

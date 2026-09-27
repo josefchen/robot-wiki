@@ -38,10 +38,10 @@ describe('pointmaps, simulation and layered-costmap source corrections', () => {
   });
 
   it('keeps SplatSim physics, preparation and the conflicting input descriptions', () => {
-    const block = article.split('\n\n').find((text) => text.includes('SplatSim replaces'));
+    const block = article.split('\n\n').find((text) => text.startsWith('SplatSim uses splats'));
     expect(block).toBeDefined();
     for (const text of [
-      'PyBullet still supplies the physics',
+      'PyBullet supplies the physics',
       'four tasks using a UR5 and Robotiq 2F-85 gripper',
       'manual robot segmentation',
       'CAD-derived link bounds and ICP alignment',
@@ -88,7 +88,7 @@ describe('pointmaps, simulation and layered-costmap source corrections', () => {
     ]) expect(definition.definition).toContain(text);
     for (const [claim, id] of [
       ["DUSt3R's network", 'dust3r-2024'],
-      ['SplatSim replaces', 'splatsim-2024'],
+      ['SplatSim uses splats', 'splatsim-2024'],
       ['RoboGSim combines', 'robogsim-2024'],
       ['proposed and implemented layered costmaps in the ROS Navigation stack', 'layered-costmaps-2014'],
     ]) {

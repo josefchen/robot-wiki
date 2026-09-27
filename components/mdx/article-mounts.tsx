@@ -44,7 +44,6 @@ export {
   ControlLoopBudget,
   DataScaleChart,
   DatasetTable,
-  DenoisingLoop,
   DeploymentEconomics,
   EgoScaleScaling,
   EurekaLoop,
@@ -56,7 +55,6 @@ export {
   GraspWrenchLab,
   HardwareGuide,
   JepaPlanning,
-  KalmanTracker,
   LatencyComparison,
   LatentImagination,
   MpcVsRl,
@@ -74,6 +72,15 @@ export {
   WmDisambiguator,
   PolicyChunkingTable,
   RlMethodsTable,
+  KalmanPredictUpdate,
+  DiffusionDenoising,
+  ActionDecode,
+  FlowTransport,
+  FkChain,
+  RrtGrowth,
+  BatchScale,
+  GaitSupport,
+  Clip,
 } from './lazy-mounts';
 
 /**

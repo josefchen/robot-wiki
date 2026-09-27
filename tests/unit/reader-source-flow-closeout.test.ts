@@ -14,6 +14,7 @@ import { readerTruthAt, READER_RELEASE_BASE } from '../helpers/reader-integratio
 const root = resolve(import.meta.dirname, '../..');
 const base = '328ae3600521c094c464b3ddc7ba62c159f95882';
 const checkpoint = '9a5ed060c65721201674bbd2bb1e59f58e5c637a';
+const sourceFlowEndpoint = 'ebf13b4';
 const read = (path: string) => readFileSync(resolve(root, path), 'utf8');
 const before = (path: string) => showAt(base, path);
 const cases = [
@@ -70,7 +71,11 @@ describe('bounded remaining reader Source flow, zero original completions', () =
   });
 
   it.each(cases)('changes only demonstrated Source separators and their terminators in $path', ({ path }) => {
-    const old = before(path), current = read(path);
+    // Later scene/humanizer passes have their own reviewed continuity.
+    // Check this Source-only transaction at its actual article endpoint.
+    const old = before(path), current = path.includes('rl-sim2real/')
+      ? committedSource('8368034', path)
+      : path.includes('classical/') ? committedSource(sourceFlowEndpoint, path) : read(path);
     expect(current).not.toBe(old);
     expect(committedSource(checkpoint, path)).toBe(inlineSources(old));
     expect(current).toBe(inlineSources(committedSource(READER_RELEASE_BASE, path)));
@@ -78,7 +83,9 @@ describe('bounded remaining reader Source flow, zero original completions', () =
   });
 
   it.each(cases)('preserves all scientific text, numbers, equations, links and metadata in $path', ({ path }) => {
-    const old = before(path), current = read(path);
+    const old = before(path), current = path.includes('rl-sim2real/')
+      ? committedSource('8368034', path)
+      : path.includes('classical/') ? committedSource(sourceFlowEndpoint, path) : read(path);
     const prose = (text: string) => inlineSources(text).replace(/<Cite\s+id="[^"]+"\s*\/>/g, '');
     expect(prose(committedSource(checkpoint, path))).toBe(prose(old));
     expect(prose(current)).toBe(prose(committedSource(READER_RELEASE_BASE, path)));

@@ -22,14 +22,14 @@ seeAlso:
   - "manipulation/vla-models"
 ---
 
-import { DenoisingLoop } from '@/components/interactive/denoising-loop';
+import { DiffusionDenoising } from '@/components/motion/scenes/diffusion-denoising';
 import { RecedingHorizon } from '@/components/interactive/receding-horizon';
 
 Human demonstrations are multimodal: faced with an obstacle, one operator goes left, another goes right, and both are correct. A policy trained with mean-squared error on that data learns the average of the modes, and the average of "left" and "right" is "straight into the obstacle." <Term id="diffusion-policy">Diffusion Policy</Term>, introduced by Chi et al. in 2023, sidesteps the averaging problem by changing what the policy outputs: a conditional denoising process over a whole action sequence instead of a single action <Cite id="diffusion-policy-2023" />. The extended journal version describes a 15-task evaluation. It reports a 46.9% average relative improvement for its simulation comparisons; the paper's baseline selection takes the strongest baseline and diffusion backbone per reported column and excludes multi-human results <Cite id="diffusion-policy-2023" />.
 
-Drag the denoising step slider below from k=0 to k=10. The cloud starts as pure Gaussian noise and collapses onto two separate action modes instead of the average of them, which is the property MSE regression destroys and this whole architecture exists to keep.
+Play the scene below and step through its beats. Sixty action samples start clustered on two demonstrated strategies, jitter into one shared Gaussian cloud, and are transported back onto the two modes over the paper's 10-step DDIM inference schedule, conditioned on the observed state. Each sample lands on one strategy or the other instead of the average of them, which is the property MSE regression destroys and this whole architecture exists to keep.
 
-<DenoisingLoop className="my-6" />
+<DiffusionDenoising className="my-6" />
 
 ## Denoising in action space
 
@@ -48,7 +48,7 @@ repeated until the sample lands on a valid action chunk <Cite id="diffusion-poli
   <Stat label="DDIM steps" value="10 / 16" note="real-world main text / appendix" />
 </div>
 
-Because sampling is stochastic, the policy can commit to a mode instead of averaging modes. That is what the figure at the top of this module shows on a bimodal demonstration set: each sample lands on one strategy or the other, and the distribution of samples reproduces the distribution of demonstrations.
+Because sampling is stochastic, the policy can commit to a mode instead of averaging modes. That is what the scene at the top of this module shows on a bimodal demonstration set: each sample lands on one strategy or the other, and the distribution of samples reproduces the distribution of demonstrations.
 
 <Callout variant="info">
   The first three cards show the CNN Lift/Can/Square simulation configuration, which uses 100 iDDPM inference iterations; the fourth reports the unresolved real-world DDIM discrepancy. These horizons are not universal: real-world Push-T executes 6 of 16 predicted actions, transformer Lift/Can/Square predicts 10 actions, and transformer Kitchen uses four observations. Training diffusion timesteps, optimizer updates, predicted actions and executed actions are different counts. The cited sampler and evaluation passages do not establish a matched 100-versus-10-step quality comparison <Cite id="diffusion-policy-2023" />.

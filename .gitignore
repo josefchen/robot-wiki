@@ -40,3 +40,10 @@ public/search-index.json
 .crossref-cache/
 # arXiv Atom response cache (scripts/check-crossref-authors.ts); same policy as the Crossref cache above.
 .arxiv-cache/
+
+# Offline cinematic-clip rendering: the pinned Python venv (never shipped,
+# never invoked by any build step) and the per-clip render scratch tree.
+.motion-venv/
+scripts/motion/build/
+__pycache__/
+*.pyc

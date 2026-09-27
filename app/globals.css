@@ -1,4 +1,8 @@
 @import 'tailwindcss';
+@import 'katex/dist/katex.min.css';
+@import '../components/motion/motion-tokens.css';
+@import '../components/motion/stage.css';
+@import '../components/motion/scene-equation.css';
 
 /*
  * Robot Wiki brand-v2 runtime tokens (Tailwind v4 CSS-first).

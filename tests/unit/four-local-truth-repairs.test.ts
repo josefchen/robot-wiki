@@ -180,7 +180,7 @@ describe('four bounded local truth repairs without completion credit', () => {
     expect(hash(read('lib/perception-error.ts')))
       .toBe('33241424af80e2790481d2836f30682dd35ffd942246d4df43a08238920209b5');
     expect(perception).toContain('does not establish that calibration, depth and pose errors are statistically independent');
-    expect(perception).toContain('not a full three-dimensional hand-eye error model');
+    expect(perception).toContain('It does not calculate the full three-dimensional hand-eye error');
     expect(perception).toContain('\n$$\ne_\\theta(d) = d \\, \\tan \\theta\n$$\n');
   });
 

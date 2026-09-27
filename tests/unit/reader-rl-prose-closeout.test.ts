@@ -144,10 +144,15 @@ describe('bounded RL reader prose closeout, zero original completions', () => {
 
   it('replaces the DextrAH duplicate with a qualified teacher-student summary and its detailed destination', () => {
     const old = paragraph(before(paths[1]), 'In its DextrAH-RGB example');
-    const summary = paragraph(why, "Isaac Lab v1 describes DextrAH-RGB's");
+    const summary = paragraph(why, "Isaac Lab describes DextrAH-RGB's");
     expect(summary).toBeDefined();
     expect(why).not.toContain(old);
-    expect(read(destinations[1])).toContain(old);
+    // The relocation is pinned in the reviewed pre-humanizer article. The
+    // live destination keeps the same teacher, student, hardware and source.
+    expect(read('audit/evidence/motion-rl-sim2real-20260927/sim2real-transfer-before.mdx')).toContain(old);
+    for (const phrase of ['DextrAH-RGB example', 'privileged state', 'KUKA arm and Allegro hand',
+      'stereo RGB pairs', '<Cite id="isaac-lab-2025" />'])
+      expect(read(destinations[1])).toContain(phrase);
     expect(summary.split(/\s+/).length).toBeLessThan(old.split(/\s+/).length);
     for (const phrase of [
       'privileged-state RL teacher', 'stereo-RGB student',

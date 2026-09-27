@@ -4,7 +4,6 @@ import { ActionTokenization } from '@/components/interactive/action-tokenization
 import { AdvantageScrubber } from '@/components/interactive/advantage-scrubber';
 import { CompoundingError } from '@/components/interactive/compounding-error';
 import { CrossEmbodimentStrategies } from '@/components/interactive/cross-embodiment-strategies';
-import { DenoisingLoop } from '@/components/interactive/denoising-loop';
 import { FlowMatchingTrajectory } from '@/components/interactive/flow-matching-trajectory';
 import { GraspWrenchLab } from '@/components/interactive/grasp-wrench-lab';
 import { ContactGeometry } from '@/components/interactive/contact-geometry';
@@ -171,17 +170,6 @@ describe('state-form chart descriptions', () => {
       container.querySelector(
         `[id="${CSS.escape(rollout.getAttribute('aria-describedby')!)}"]`,
       )?.textContent ?? '';
-    expect(moved).not.toBe(text);
-  });
-
-  it('DenoisingLoop describes the cloud', () => {
-    const { container } = render(<DenoisingLoop />);
-    const { text } = assertDescribed(screen.getByRole('img'), container);
-    expect(text).toMatch(/Gaussian noise|step 0/);
-    fireEvent.change(screen.getByRole('slider', { name: /denoising step/i }), {
-      target: { value: '10' },
-    });
-    const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
     expect(moved).not.toBe(text);
   });
 

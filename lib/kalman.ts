@@ -244,3 +244,126 @@ export function playbackCadence(reducedMotion: boolean): {
     ? { tickMs: 320, stepsPerTick: 4 }
     : { tickMs: 80, stepsPerTick: 1 };
 }
+
+/** A 2x2 symmetric covariance matrix over (position, velocity). */
+export interface Cov2 {
+  p00: number;
+  p01: number;
+  p11: number;
+}
+
+export interface KalmanStepDetail {
+  t: number;
+  /** Posterior belief at t - 1: the prior for this step. */
+  prior: { mean: [number, number]; cov: Cov2 };
+  /** Predicted belief at t after the motion model and process noise. */
+  predicted: { mean: [number, number]; cov: Cov2 };
+  /** The sensor reading fused at t, or null on a dropout step. */
+  measurement: number | null;
+  /** Posterior belief after fusing the measurement. */
+  posterior: { mean: [number, number]; cov: Cov2 };
+  /** Position Kalman gain of the predicted covariance. */
+  gain: number;
+}
+
+/**
+ * The full picture of one filter step: prior, prediction, measurement,
+ * posterior and gain, computed by the same recursion as runFilter so the
+ * numbers are byte-identical. Pure in (episode, settings, t); the motion
+ * scene renders exactly these values.
+ */
+export function stepDetail(
+  ep: Episode,
+  settings: KalmanSettings,
+  t: number,
+): KalmanStepDetail {
+  const q = settings.sigmaQ * settings.sigmaQ;
+  const r = settings.sigmaR * settings.sigmaR;
+  const last = Math.min(Math.max(1, Math.floor(t)), ep.steps - 1);
+
+  let x0 = 0;
+  let x1 = 0;
+  let p00 = P0_POS;
+  let p01 = 0;
+  let p11 = P0_VEL;
+
+  // Run the identical recursion up to (and including) t - 1, then expose
+  // the internals of step t itself.
+  for (let step = 0; step <= last; step += 1) {
+    if (step > 0) {
+      x0 = x0 + x1;
+      const np00 = p00 + 2 * p01 + p11 + q * 0.25;
+      const np01 = p01 + p11 + q * 0.5;
+      const np11 = p11 + q;
+      p00 = np00;
+      p01 = np01;
+      p11 = np11;
+    }
+    if (step === last - 1) {
+      const z = ep.measurements[step];
+      const s = p00 + r;
+      const k0 = p00 / s;
+      if (z !== null) {
+        const k1 = p01 / s;
+        const innovation = z - x0;
+        x0 += k0 * innovation;
+        x1 += k1 * innovation;
+        const np01 = p01 * (1 - k0);
+        p00 = p00 * (1 - k0);
+        p11 = p11 - k1 * p01;
+        p01 = np01;
+      }
+      break;
+    }
+    const z = ep.measurements[step];
+    const s = p00 + r;
+    const k0 = p00 / s;
+    if (z !== null) {
+      const k1 = p01 / s;
+      const innovation = z - x0;
+      x0 += k0 * innovation;
+      x1 += k1 * innovation;
+      const np01 = p01 * (1 - k0);
+      p00 = p00 * (1 - k0);
+      p11 = p11 - k1 * p01;
+      p01 = np01;
+    }
+  }
+
+  const prior = { mean: [x0, x1] as [number, number], cov: { p00, p01, p11 } };
+  // Predict: x = F x, P = F P F' + Q with G = [0.5, 1].
+  const px0 = x0 + x1;
+  const px1 = x1;
+  const q00 = p00 + 2 * p01 + p11 + q * 0.25;
+  const q01 = p01 + p11 + q * 0.5;
+  const q11 = p11 + q;
+  const predicted = {
+    mean: [px0, px1] as [number, number],
+    cov: { p00: q00, p01: q01, p11: q11 },
+  };
+  const z = ep.measurements[last];
+  const s = q00 + r;
+  const gain = q00 / s;
+  let fx0 = px0;
+  let fx1 = px1;
+  let f00 = q00;
+  let f01 = q01;
+  let f11 = q11;
+  if (z !== null) {
+    const k1 = q01 / s;
+    const innovation = z - px0;
+    fx0 += gain * innovation;
+    fx1 += k1 * innovation;
+    f01 = q01 * (1 - gain);
+    f00 = q00 * (1 - gain);
+    f11 = q11 - k1 * q01;
+  }
+  return {
+    t: last,
+    prior,
+    predicted,
+    measurement: z,
+    posterior: { mean: [fx0, fx1] as [number, number], cov: { p00: f00, p01: f01, p11: f11 } },
+    gain,
+  };
+}

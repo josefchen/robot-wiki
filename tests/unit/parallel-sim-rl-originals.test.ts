@@ -184,7 +184,7 @@ describe('parallel-sim-rl originals integration (2026-09-16k evidence completion
     // rows 3, 5, 6, 18 spans stay byte-identical
     expect(mdx).toContain('The paper links its released training code, `legged_gym`; the pinned October 2021 repository identifies itself as the Isaac Gym environment used to train ANYmal on rough terrain');
     expect(mdx).toContain('Brax, from Google in 2021, wrote the physics and the learning algorithms in JAX so both compile onto the same accelerator, training performant policies on MuJoCo-like tasks in minutes <Cite id="brax-2021" />');
-    expect(mdx).toContain('The curve is an illustrative fixed-transitions model, not a benchmark.');
+    expect(mdx).toContain('This authored fixed-transitions model is not a benchmark.');
   });
 
   it('reuses registered citations with no new registrations', () => {

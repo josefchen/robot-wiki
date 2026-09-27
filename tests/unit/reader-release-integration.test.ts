@@ -102,6 +102,19 @@ describe('merged reader corrections preserve production additions and exact appr
       const pass = approvals.find(a => a.id === 'humanizer-manipulation-v3-20260925-prose-rl-finetuning')!;
       expect(hashOf(read(path))).toBe(pass.newHash);
       expect(read(path)).toContain('EXPO-FT');
+    } else if (path === 'content/classical/scene-representation.mdx' || path.startsWith('content/rl-sim2real/')) {
+      const id = `article:${path.slice(8, -4)}`;
+      const hashOf = (text: string) => buildManifest('prose', [{
+        id, value: { path, body: matter(text).content.trim() },
+      }]).members[0].hash;
+      const prior = integrated.find(a => a.manifest === 'prose' && a.memberId === id)!;
+      expect(hashOf(committedSource('ebf13b4', path))).toBe(prior.newHash);
+      const isClassical = path.startsWith('content/classical/');
+      const pass = approvals.find(a => a.id === (isClassical
+        ? 'motion-classical-humanizer-v3-20260927-prose-scene-representation'
+        : `motion-rl-sim2real-humanizer-v3-20260927-prose-${path.slice('content/rl-sim2real/'.length, -4)}`))!;
+      expect(pass.oldHash).toBe(hashOf(committedSource(isClassical ? 'ebf13b4' : '8368034', path)));
+      expect(hashOf(read(path))).toBe(pass.newHash);
     } else expect(read(path)).toBe(committedSource('ebf13b4', path));
   });
 
@@ -122,7 +135,8 @@ describe('merged reader corrections preserve production additions and exact appr
       .members.find(m => m.id === entry.memberId)!.hash;
     const sealedHash = sealed.manifests[entry.manifest].members.find(m => m.id === entry.memberId)!.hash;
     const head = graph.findLast(a => a.manifest === entry.manifest && a.memberId === entry.memberId
-      && a.oldHash === sealedHash && a.newHash === currentHash)!;
+      && (entry.memberId === 'article:classical/scene-representation' || entry.memberId.startsWith('article:rl-sim2real/')
+        ? a.newHash === currentHash : a.oldHash === sealedHash && a.newHash === currentHash))!;
     expect(head).toBeDefined();
     expect(compareBaseline(bundle(true), bundle(false), graph).ok).toBe(true);
     expect(compareBaseline(bundle(true), bundle(false), graph.filter(a => a.id !== head.id)).ok).toBe(false);

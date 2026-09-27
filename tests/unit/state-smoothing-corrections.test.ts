@@ -76,7 +76,7 @@ describe('state smoothing scientific corrections', () => {
 
   it('preserves dates, adjacent iSAM/GTSAM/Forster citations and estimator mount', () => {
     expect(article).toContain('lastReviewed: "2026-08-17"');
-    expect(article).toContain('<KalmanTracker className="my-6" />');
+    expect(article).toContain('<KalmanPredictUpdate className="my-6" />');
     for (const id of ['kaess-2008', 'gtsam-2026', 'forster-2017', 'mcgee-schmidt-1985']) {
       expect(article).toContain(`<Cite id="${id}" />`);
     }

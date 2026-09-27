@@ -18,6 +18,8 @@ import type { Locator, Page } from '@playwright/test';
 
 const INTERACTIVE_IMPORT =
   /import\s+\{\s*([A-Z][A-Za-z0-9]*)\s*\}\s+from\s+['"]@\/components\/interactive\/[^'"]+['"]/g;
+const RESET_BUTTONS =
+  'main [data-brand-module-signature="instrument-frame"]:not([data-motion-scene]):not([data-motion-clip]) button';
 
 function filesUnder(path: string): string[] {
   return readdirSync(path, { withFileTypes: true }).flatMap((entry) => {
@@ -59,7 +61,7 @@ function deriveMountIdsFromSource(): string[] {
 
 function pairwiseRoot(page: Page, resetIndex: number): Locator {
   const reset = page
-    .locator('main button')
+    .locator(RESET_BUTTONS)
     .filter({ hasText: /^\s*Reset\s*$/ })
     .nth(resetIndex);
   return reset.locator(
@@ -124,7 +126,7 @@ async function activateDiscrete(discrete: Locator) {
 
 async function exerciseReset(page: Page, resetIndex: number) {
   const reset = page
-    .locator('main button')
+    .locator(RESET_BUTTONS)
     .filter({ hasText: /^\s*Reset\s*$/ })
     .nth(resetIndex);
   expect(
