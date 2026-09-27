@@ -120,7 +120,7 @@ describe('single-leftovers 4-row integration (2026-09-17a)', () => {
     expect(article).not.toContain('note="documented MTBF; no system publishes one"');
     expect(article).not.toContain('none of the deployed systems we surveyed publishes one');
     expect(article).toContain('This wiki proposes a testable yardstick');
-    expect(article).toContain('This is an editorial test, not an industry-standard threshold');
+    expect(article).toContain('This is an editorial test; the industry has not adopted this threshold and no survey of every system is claimed');
   });
 
   it('completes generalization:17 as scalar Goldberg evidence without a plan binding', () => {

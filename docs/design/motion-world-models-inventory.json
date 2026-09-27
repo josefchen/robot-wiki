@@ -1,0 +1,277 @@
+[
+  {
+    "article": "evaluation",
+    "element": "SelfCheck",
+    "decision": "keep",
+    "teachingGoal": "Commit a judgement about action sensitivity before the explanation is revealed.",
+    "reason": "This is an assessment with answer feedback, not a state evolving in time."
+  },
+  {
+    "article": "evaluation",
+    "element": "EvalShiftTable",
+    "decision": "keep",
+    "teachingGoal": "Compare what each rung of evaluation can and cannot establish.",
+    "reason": "The source-qualified matrix needs simultaneous rows, not playback."
+  },
+  {
+    "article": "generative-sim",
+    "element": "AppearancePhysicsPush",
+    "decision": "rethink",
+    "teachingGoal": "Toggle appearance, collision and simulation, then test the same push with and without a solver.",
+    "reason": "The reader's force and layer choices remain a direct-manipulation lab; a paused overview introduces the causal contrast."
+  },
+  {
+    "article": "generative-sim",
+    "element": "PushLayers",
+    "decision": "add",
+    "sceneId": "push-layers",
+    "teachingGoal": "Reveal why a renderer cannot answer a push until a physics proxy supplies dynamics.",
+    "reason": "A reader-paced sequence shows one unchanged object before and after the authored solver is enabled."
+  },
+  {
+    "article": "generative-sim",
+    "element": "Stat",
+    "occurrence": 1,
+    "decision": "keep",
+    "teachingGoal": "Keep the published RoboCasa v1 kitchen-scene count beside its source context.",
+    "reason": "A source value is easier to compare as static reference than as an animated counter."
+  },
+  {
+    "article": "generative-sim",
+    "element": "Stat",
+    "occurrence": 2,
+    "decision": "keep",
+    "teachingGoal": "Keep the published RoboCasa v1 task count visible with the scene count.",
+    "reason": "The task total describes a corpus, not a process."
+  },
+  {
+    "article": "generative-sim",
+    "element": "Stat",
+    "occurrence": 3,
+    "decision": "keep",
+    "teachingGoal": "Preserve the published object count and its category scope.",
+    "reason": "Moving the count would obscure the v1 source distinction in the surrounding paragraph."
+  },
+  {
+    "article": "generative-sim",
+    "element": "Stat",
+    "occurrence": 4,
+    "decision": "keep",
+    "teachingGoal": "Contrast the RoboCasa365 kitchen population with the earlier v1 counts.",
+    "reason": "The adjacent static values keep the releases distinct."
+  },
+  {
+    "article": "generative-video",
+    "element": "ActionConditioning",
+    "decision": "rethink",
+    "teachingGoal": "Choose both actions and conditioning strength to measure whether predicted futures respond to the commands.",
+    "reason": "Independent action controls and exact sensitivity readouts remain in the lab after a four-beat causal overview."
+  },
+  {
+    "article": "generative-video",
+    "element": "ActionFork",
+    "decision": "add",
+    "sceneId": "action-fork",
+    "teachingGoal": "Show two toy futures splitting under strong conditioning and collapsing under weak conditioning while realism stays fixed.",
+    "reason": "The same block and gripper keep identity across the fork instead of swapping static filmstrips."
+  },
+  {
+    "article": "generative-video",
+    "element": "Stat",
+    "occurrence": 1,
+    "decision": "keep",
+    "teachingGoal": "Show the source-scoped Cosmos 3 Nano parameter note without implying throughput.",
+    "reason": "A static source value avoids turning architecture metadata into fake telemetry."
+  },
+  {
+    "article": "generative-video",
+    "element": "Stat",
+    "occurrence": 2,
+    "decision": "keep",
+    "teachingGoal": "Keep the reported Genie 3 frame rate with its resolution and time caveat.",
+    "reason": "The reported value and qualifier must be read together."
+  },
+  {
+    "article": "generative-video",
+    "element": "Stat",
+    "occurrence": 3,
+    "decision": "keep",
+    "teachingGoal": "Keep the reported IWS rollout time distinct from interactive control rate.",
+    "reason": "No animation should recast this source measure as a runtime prediction."
+  },
+  {
+    "article": "generative-video",
+    "element": "Stat",
+    "occurrence": 4,
+    "decision": "keep",
+    "teachingGoal": "Read RoboWorld's aggregate correlation with its eight-policy scope.",
+    "reason": "The source figure stays static to protect the denominator and comparison context."
+  },
+  {
+    "article": "jepa",
+    "element": "JepaPlanning",
+    "decision": "keep",
+    "teachingGoal": "Change goal and candidate budget and execute one synthetic planning step at a time.",
+    "reason": "Its reader-triggered Plan step is already the clock, so a second playback timeline would hide the candidate search."
+  },
+  {
+    "article": "jepa",
+    "element": "Stat",
+    "occurrence": 1,
+    "decision": "keep",
+    "teachingGoal": "Separate action-free pretraining video hours from robot-control training.",
+    "reason": "The paper's pretraining scope is a static source statement."
+  },
+  {
+    "article": "jepa",
+    "element": "Stat",
+    "occurrence": 2,
+    "decision": "keep",
+    "teachingGoal": "Show the smaller robot-video input used for action-conditioned training.",
+    "reason": "The comparison relies on source scoping rather than an animated scale."
+  },
+  {
+    "article": "jepa",
+    "element": "Stat",
+    "occurrence": 3,
+    "decision": "keep",
+    "teachingGoal": "Keep the frozen-encoder SSv2 result tied to the stated probe protocol.",
+    "reason": "A single published metric has no meaningful time evolution."
+  },
+  {
+    "article": "jepa",
+    "element": "Stat",
+    "occurrence": 4,
+    "decision": "keep",
+    "teachingGoal": "Distinguish AMI's funding report from a model-performance claim.",
+    "reason": "A static datum keeps its financial provenance separate from technical results."
+  },
+  {
+    "article": "latent-dynamics",
+    "element": "LatentImagination",
+    "decision": "rethink",
+    "teachingGoal": "Change error and horizon independently while reading the authored deviation and decoded-versus-decoder-free states.",
+    "reason": "The full direct-control lab remains; a reader-paced scene first traces the same recurrence."
+  },
+  {
+    "article": "latent-dynamics",
+    "element": "LatentDrift",
+    "decision": "add",
+    "sceneId": "latent-drift",
+    "teachingGoal": "Watch a predicted latent depart from a reference as one-step toy error compounds in model time.",
+    "reason": "A single identity-preserving path makes accumulation easier to see than two static plots alone."
+  },
+  {
+    "article": "latent-dynamics",
+    "element": "Stat",
+    "occurrence": 1,
+    "decision": "keep",
+    "teachingGoal": "Keep DreamerV3's task population tied to its fixed-hyperparameter protocol.",
+    "reason": "A fixed published result remains a static reference."
+  },
+  {
+    "article": "latent-dynamics",
+    "element": "Stat",
+    "occurrence": 2,
+    "decision": "keep",
+    "teachingGoal": "Read TD-MPC2's agent size beside the scope of its offline task set.",
+    "reason": "The source-scoped quantities should not become an animated comparison."
+  },
+  {
+    "article": "latent-dynamics",
+    "element": "Stat",
+    "occurrence": 3,
+    "decision": "keep",
+    "teachingGoal": "Keep DayDreamer's reported hardware training run distinct from toy rollout time.",
+    "reason": "The article's source qualification is integral to this static datum."
+  },
+  {
+    "article": "latent-dynamics",
+    "element": "Stat",
+    "occurrence": 4,
+    "decision": "keep",
+    "teachingGoal": "Show both published horizon labels without treating them as interchangeable.",
+    "reason": "The two values refer to distinct definitions in the cited versions."
+  },
+  {
+    "article": "model-based-robot-learning",
+    "element": "SelfCheck",
+    "decision": "keep",
+    "teachingGoal": "Test whether the reader can identify when predicted consequences enter action selection.",
+    "reason": "The question is an assessment with a delayed answer, not a sequence to animate."
+  },
+  {
+    "article": "taxonomy",
+    "element": "WmDisambiguator",
+    "decision": "keep",
+    "teachingGoal": "Select one of six paradigms and inspect its predicted representation and actual uses.",
+    "reason": "These are alternative architectures, not successive phases of one rollout."
+  },
+  {
+    "article": "taxonomy",
+    "element": "Stat",
+    "occurrence": 1,
+    "decision": "keep",
+    "teachingGoal": "State that the article compares six selected example groups.",
+    "reason": "The editorial grouping is a fixed count, not a process."
+  },
+  {
+    "article": "taxonomy",
+    "element": "Stat",
+    "occurrence": 2,
+    "decision": "keep",
+    "teachingGoal": "Keep DreamerV3's task result paired with the fixed configuration caveat.",
+    "reason": "This reported scope is best read as a static datum."
+  },
+  {
+    "article": "taxonomy",
+    "element": "Stat",
+    "occurrence": 3,
+    "decision": "keep",
+    "teachingGoal": "Show TD-MPC2's published agent size and task count together.",
+    "reason": "Animating the fixed source facts would add no causal explanation."
+  },
+  {
+    "article": "taxonomy",
+    "element": "Stat",
+    "occurrence": 4,
+    "decision": "keep",
+    "teachingGoal": "Scope the V-JEPA 2 video hours to action-free pretraining.",
+    "reason": "This remains a static source comparison."
+  },
+  {
+    "article": "taxonomy",
+    "element": "WmTaxonomyTable",
+    "decision": "keep",
+    "teachingGoal": "Compare predicted representation, training signal and use across all six paradigms at once.",
+    "reason": "The entire table is a reference, not one temporal sequence."
+  },
+  {
+    "article": "taxonomy",
+    "element": "SelfCheck",
+    "decision": "keep",
+    "teachingGoal": "Choose the world-model boundary before reading the answer.",
+    "reason": "Assessment feedback must remain reader-triggered."
+  },
+  {
+    "article": "world-models-vs-simulators",
+    "element": "SelfCheck",
+    "decision": "keep",
+    "teachingGoal": "Test which abstraction supplies action-dependent state transitions.",
+    "reason": "The question is an assessment, not a figure with an independent timeline."
+  },
+  {
+    "article": "world-models-vs-simulators",
+    "element": "SimVsModelTable",
+    "decision": "keep",
+    "teachingGoal": "Compare explicit physics, learned prediction and hybrid error modes without losing qualifiers.",
+    "reason": "Rows need to be visible together to support a method choice."
+  },
+  {
+    "article": "world-models-vs-simulators",
+    "element": "WorldModelCostTable",
+    "decision": "keep",
+    "teachingGoal": "Keep source-scoped compute, memory and latency comparisons visible simultaneously.",
+    "reason": "The numbers come from different configurations and should not masquerade as a common animated benchmark."
+  }
+]

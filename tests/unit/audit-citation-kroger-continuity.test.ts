@@ -11,6 +11,7 @@ import {
   verifyTechnologyWithdrawalRegistryTransition,
 } from '../../lib/audit-local-basis';
 import { verifyKrogerReaderObservation } from '../../lib/audit-corrected-disposition';
+import { currentDataHardwareMotionArtifact } from '../../lib/audit-data-hardware-motion-continuity';
 import {
   compoundPartDigest,
   compoundPlanDigest,
@@ -94,8 +95,12 @@ describe('finite Kroger source and historical correction continuation', () => {
       review.beforeClause, review.afterClause, review.preservedDisclosure)).toBe(true);
     expect(after.replace('2021–2024 each above 500k', '2021-2024 each above 500k'))
       .toBe(withdrawalBefore);
-    expect(verifyTechnologyWithdrawalArticleTransition(withdrawalBefore, read(review.articleAfter.path)))
+    const live = readFileSync(review.articleAfter.path);
+    const preMotion = currentDataHardwareMotionArtifact(process.cwd(), 2, live).toString();
+    expect(verifyTechnologyWithdrawalArticleTransition(withdrawalBefore, preMotion))
       .toBe(true);
+    expect(verifyTechnologyWithdrawalArticleTransition(withdrawalBefore, live.toString()))
+      .toBe(false);
     expect(verifyIndustrialArticleTransition(before, after,
       review.beforeClause, review.afterClause, review.preservedDisclosure)).toBe(true);
     expect(verifyIndustrialArticleTransition(before, after.replace('would close three', 'closed three'),

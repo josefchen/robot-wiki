@@ -117,7 +117,7 @@ test.describe('data-hardware datasets module', () => {
   test('filter buttons and sort headers are keyboard operable', async ({
     page,
   }) => {
-    await page.goto(ROUTE);
+    await page.goto(ROUTE, { waitUntil: 'networkidle' });
     const singlePlatform = page.getByRole('button', {
       name: 'Single platform',
     });

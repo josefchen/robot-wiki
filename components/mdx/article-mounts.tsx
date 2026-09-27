@@ -80,6 +80,15 @@ export {
   RrtGrowth,
   BatchScale,
   GaitSupport,
+  ActionFork,
+  LatentDrift,
+  PushLayers,
+  FarmThroughput,
+  EpisodeSurvival,
+  JamOverhead,
+  ReliabilityThreshold,
+  TactileSlip,
+  SenseAvoid,
   Clip,
 } from './lazy-mounts';
 

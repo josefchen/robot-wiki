@@ -31,9 +31,10 @@ describe('bounded PI and Helix thesis corrections', () => {
     for (const text of [article, table]) {
       expect(text).toContain('evaluated laundry-folding, espresso-making, and box-building tasks');
       expect(text).toContain('after distilling Recap experience with strategy metadata');
-      expect(text).toContain('successful episodes per hour, not inference speed');
     }
-    expect(article).toContain('not an exclusivity result');
+    expect(article).toContain('successful episodes per hour; inference speed is a separate measure');
+    expect(table).toContain('successful episodes per hour, not inference speed');
+    expect(article).toContain('The generalist comparison leaves room for both approaches');
     expect(table).toContain('does not establish failure on other tasks');
   });
   it('binds the existing paper AND blog without advancing the article date', () => {

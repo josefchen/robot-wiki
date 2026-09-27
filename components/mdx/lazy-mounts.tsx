@@ -212,6 +212,33 @@ export const BatchScale = dynamic(() =>
 export const GaitSupport = dynamic(() =>
   import('@/components/motion/scenes/gait-support').then((m) => m.GaitSupport),
 );
+export const ActionFork = dynamic(() =>
+  import('@/components/motion/scenes/action-fork').then((m) => m.ActionFork),
+);
+export const LatentDrift = dynamic(() =>
+  import('@/components/motion/scenes/latent-drift').then((m) => m.LatentDrift),
+);
+export const PushLayers = dynamic(() =>
+  import('@/components/motion/scenes/push-layers').then((m) => m.PushLayers),
+);
+export const FarmThroughput = dynamic(() =>
+  import('@/components/motion/scenes/farm-throughput').then((m) => m.FarmThroughput),
+);
+export const EpisodeSurvival = dynamic(() =>
+  import('@/components/motion/scenes/episode-survival').then((m) => m.EpisodeSurvival),
+);
+export const JamOverhead = dynamic(() =>
+  import('@/components/motion/scenes/jam-overhead').then((m) => m.JamOverhead),
+);
+export const ReliabilityThreshold = dynamic(() =>
+  import('@/components/motion/scenes/reliability-threshold').then((m) => m.ReliabilityThreshold),
+);
+export const TactileSlip = dynamic(() =>
+  import('@/components/motion/scenes/tactile-slip').then((m) => m.TactileSlip),
+);
+export const SenseAvoid = dynamic(() =>
+  import('@/components/motion/scenes/sense-avoid').then((m) => m.SenseAvoid),
+);
 
 // The clip player: no scene model or rAF loop, just a native video under
 // the instrument chrome; still its own chunk so a page with no clip

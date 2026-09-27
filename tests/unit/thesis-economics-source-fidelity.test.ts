@@ -25,7 +25,8 @@ describe('two economics originals retain the source position and its scope', () 
   it('discloses portfolio interests and does not certify a financing law', () => {
     expect(article).toContain('Bessemer lists both companies in its portfolio');
     expect(flywheel.text).toContain('Both are disclosed portfolio companies');
-    for (const text of [article, flywheel.text]) expect(text).toContain('an attributed investment thesis, not evidence that deployment revenue');
+    expect(article).toContain('The attributed investment thesis supplies no evidence that deployment revenue');
+    expect(flywheel.text).toContain('an attributed investment thesis, not evidence that deployment revenue');
   });
   it('keeps Glow’s named scale AND diversity argument about teleop ALONE', () => {
     for (const text of [article, glow.text]) {

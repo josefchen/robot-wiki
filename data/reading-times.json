@@ -92,39 +92,39 @@
     "minutes": 8
   },
   "world-models/taxonomy": {
-    "words": 2159,
+    "words": 2110,
     "minutes": 11
   },
   "world-models/latent-dynamics": {
-    "words": 1888,
-    "minutes": 9
+    "words": 1943,
+    "minutes": 10
   },
   "world-models/generative-video": {
-    "words": 2199,
+    "words": 2280,
     "minutes": 11
   },
   "world-models/jepa": {
-    "words": 1866,
+    "words": 1837,
     "minutes": 9
   },
   "world-models/generative-sim": {
-    "words": 2052,
+    "words": 2091,
     "minutes": 10
   },
   "world-models/model-based-robot-learning": {
-    "words": 1134,
+    "words": 1128,
     "minutes": 6
   },
   "world-models/evaluation": {
-    "words": 1193,
+    "words": 1178,
     "minutes": 6
   },
   "world-models/world-models-vs-simulators": {
-    "words": 2245,
+    "words": 2229,
     "minutes": 11
   },
   "data-hardware/data-bottleneck": {
-    "words": 1768,
+    "words": 1871,
     "minutes": 9
   },
   "data-hardware/datasets": {
@@ -132,23 +132,23 @@
     "minutes": 10
   },
   "data-hardware/hardware-taxonomy": {
-    "words": 3517,
+    "words": 3502,
     "minutes": 18
   },
   "data-hardware/teleop-rigs": {
-    "words": 1741,
+    "words": 1739,
     "minutes": 9
   },
   "data-hardware/evaluation-crisis": {
-    "words": 2040,
-    "minutes": 10
+    "words": 2102,
+    "minutes": 11
   },
   "data-hardware/industrial-deployment": {
-    "words": 2742,
+    "words": 2862,
     "minutes": 14
   },
   "data-hardware/robot-learning-stack": {
-    "words": 1219,
+    "words": 1230,
     "minutes": 6
   },
   "classical/kinematics": {
@@ -188,27 +188,27 @@
     "minutes": 7
   },
   "frontier/reliability-gap": {
-    "words": 1625,
-    "minutes": 8
+    "words": 1717,
+    "minutes": 9
   },
   "frontier/dexterity": {
-    "words": 2421,
+    "words": 2488,
     "minutes": 12
   },
   "frontier/generalization": {
-    "words": 2203,
+    "words": 2208,
     "minutes": 11
   },
   "frontier/competing-theses": {
-    "words": 2924,
+    "words": 2929,
     "minutes": 15
   },
   "frontier/bear-case": {
-    "words": 1812,
+    "words": 1808,
     "minutes": 9
   },
   "frontier/safety-and-assurance": {
-    "words": 3208,
+    "words": 3198,
     "minutes": 16
   },
   "adjacent/autonomous-vehicles": {
@@ -216,15 +216,15 @@
     "minutes": 18
   },
   "adjacent/drones": {
-    "words": 2330,
+    "words": 2407,
     "minutes": 12
   },
   "adjacent/surgical": {
-    "words": 2063,
+    "words": 2064,
     "minutes": 10
   },
   "adjacent/space": {
-    "words": 2190,
+    "words": 2178,
     "minutes": 11
   }
 }

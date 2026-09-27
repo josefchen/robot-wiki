@@ -201,7 +201,7 @@ describe('generative-video originals: article spans and citations', () => {
     );
     expect(article).not.toContain('at 360p');
     expect(article).toContain(
-      'The original Genie learned latent actions from video-game footage and generated 2D worlds at about one frame per second <Cite id="genie-1-2024" />',
+      'The original Genie learned latent actions and generated 2D worlds at about one frame per second <Cite id="genie-1-2024" />',
     );
   });
 

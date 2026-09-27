@@ -14,7 +14,7 @@ describe('VLA-Perf source context', () => {
     expect(realtime()).toContain('hypothetical variant');
     expect(realtime()).toContain('baseline is 2.7B parameters');
     expect(hardware()).toContain('batch-one analytical predictions');
-    expect(hardware()).toContain('not measurements from running the policy on all five GPUs');
+    expect(hardware()).toContain('have no measurements from running the policy on all five GPUs');
     for (const text of [realtime(), hardware()]) {
       expect(text).toContain('224×224');
       expect(text).toContain('32 language tokens');
@@ -56,7 +56,7 @@ describe('VLA-Perf source context', () => {
       expect(entry.highlight).toContain('Price not established by this source.');
       expect(entry.highlight).not.toContain('runs pi0');
     }
-    expect(hardware()).toContain('not because no manufacturer or seller publishes prices');
+    expect(hardware()).toContain('a manufacturer or seller may still publish prices');
     expect(hardware()).not.toContain('The paper publishes no card prices');
   });
 

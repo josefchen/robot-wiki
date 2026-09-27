@@ -11,7 +11,7 @@ describe('Cosmos exact-body closeouts', () => {
     expect(sections.find(s => s.slug === slug)!.claimRecords[ordinal - 1].evidenceFailures).toEqual([]);
   });
   it('preserves asymmetric attention, specialization, loss disagreement and model-scale scope', () => {
-    for (const phrase of ['the reasoning stream is not updated from diffusion tokens', 'one unchanged checkpoint', 'freshly initializes the action encoder', 'Policy mode jointly denoises future video and actions', 'Section 2.5 reports Cosmos 3 Nano at 16B', 'Cosmos 3 Super at 64B', 'rectified flow matching', 'EDM loss']) expect(video).toContain(phrase);
+    for (const phrase of ['the reasoning stream is not updated from diffusion tokens', 'one unchanged checkpoint', 'freshly initializes the action encoder', 'Policy mode jointly denoises future video and actions', 'The report lists Cosmos 3 Nano at 16B', 'Cosmos 3 Super at 64B', 'rectified flow matching', 'EDM loss']) expect(video).toContain(phrase);
     expect(video).not.toContain('Two sizes are public at launch');
   });
   it('preserves the full observed corporate-plus-contributor population', () => {

@@ -48,7 +48,7 @@ describe('evaluation statistics originals 2–7', () => {
   });
 
   it('separates STEP savings and assumptions from TRI’s Lai adoption', () => {
-    for (const text of ['up to 32%', 'Lai', 'SAVI', 'i.i.d.', 'uniform risk', 'Welch', 'rather than STEP']) {
+    for (const text of ['up to 32%', 'Lai', 'SAVI', 'i.i.d.', 'uniform risk', 'Welch', 'while STEP is a separate method']) {
       expect(prose).toContain(text);
     }
     expect(prose).not.toContain('up to 40%');

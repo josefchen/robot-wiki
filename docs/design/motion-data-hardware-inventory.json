@@ -1,0 +1,321 @@
+[
+  {
+    "article": "data-bottleneck",
+    "element": "DataScaleChart",
+    "occurrence": 1,
+    "decision": "rethink",
+    "teachingGoal": "Compare published robot and human hours with language tokens, then vary hypothetical farm inputs directly.",
+    "reason": "The source-scoped dual axes and two slider choices remain intact; an independent scene walks through how rate changes accumulation."
+  },
+  {
+    "article": "data-bottleneck",
+    "element": "FarmThroughput",
+    "decision": "add",
+    "sceneId": "farm-throughput",
+    "teachingGoal": "Watch a fixed, authored hour target accumulate at two explicit hypothetical per-rig rates.",
+    "reason": "A paced accumulation makes rate, fleet and target distinct without turning DROID collectors into annual rig exposure."
+  },
+  {
+    "article": "data-bottleneck",
+    "element": "Stat",
+    "occurrence": 1,
+    "decision": "keep",
+    "teachingGoal": "Keep Llama pretraining tokens beside the robot-hour scale as a source-scoped datum.",
+    "reason": "A fixed source number does not imply a conversion between tokens and hours."
+  },
+  {
+    "article": "data-bottleneck",
+    "element": "Stat",
+    "occurrence": 2,
+    "decision": "keep",
+    "teachingGoal": "Keep DROID interaction hours next to their dataset name and citation context.",
+    "reason": "The reported total is a static reference, not a per-rig annual collection rate."
+  },
+  {
+    "article": "data-bottleneck",
+    "element": "Stat",
+    "occurrence": 3,
+    "decision": "keep",
+    "teachingGoal": "Preserve Lin's environment-by-demonstration recipe as a reported result.",
+    "reason": "Animating these source counts would make them look like a measured growth trajectory."
+  },
+  {
+    "article": "data-bottleneck",
+    "element": "Stat",
+    "occurrence": 4,
+    "decision": "keep",
+    "teachingGoal": "Keep EgoScale human-video hours visibly separate from robot interaction hours.",
+    "reason": "The publication reports a fixed amount of differently sourced supervision."
+  },
+  {
+    "article": "data-bottleneck",
+    "element": "PredictThenReveal",
+    "decision": "keep",
+    "teachingGoal": "Commit a prediction about farm throughput before the explanation and adjustable chart are revealed.",
+    "reason": "The reader's answer and feedback are assessment controls, not a timeline to take away."
+  },
+  {
+    "article": "data-bottleneck",
+    "element": "DataScaleChart",
+    "occurrence": 2,
+    "decision": "keep",
+    "teachingGoal": "Let the reader correct the farm prediction by choosing fleet size and hypothetical rate.",
+    "reason": "This second mount lives in assessment feedback and must retain its independently adjustable controls."
+  },
+  {
+    "article": "data-bottleneck",
+    "element": "ScalingLawsTable",
+    "decision": "keep",
+    "teachingGoal": "Compare diversity dimensions and saturation across the two cited scaling studies at once.",
+    "reason": "The table is a source-qualified multi-row reference, not a temporal observation."
+  },
+  {
+    "article": "datasets",
+    "element": "Stat",
+    "occurrence": 1,
+    "decision": "keep",
+    "teachingGoal": "Show OXE trajectory count without inventing a duration from it.",
+    "reason": "The source publishes a count, but the inspected source does not establish total hours."
+  },
+  {
+    "article": "datasets",
+    "element": "Stat",
+    "occurrence": 2,
+    "decision": "keep",
+    "teachingGoal": "Keep DROID's duration in the scope of its one-platform collection effort.",
+    "reason": "The fixed duration should not be animated into a generalized collection rate."
+  },
+  {
+    "article": "datasets",
+    "element": "Stat",
+    "occurrence": 3,
+    "decision": "keep",
+    "teachingGoal": "Read BridgeData environment count next to the other source-scoped dataset facts.",
+    "reason": "A static count serves the cross-dataset comparison without implying a common timeline."
+  },
+  {
+    "article": "datasets",
+    "element": "Stat",
+    "occurrence": 4,
+    "decision": "keep",
+    "teachingGoal": "Keep RoboMIND embodiment count alongside its mixed-cohort qualifications.",
+    "reason": "The count alone does not describe duration by robot or by release."
+  },
+  {
+    "article": "datasets",
+    "element": "DatasetTable",
+    "decision": "keep",
+    "teachingGoal": "Filter and sort dataset cohorts while reading license, count, duration and disclosure scope together.",
+    "reason": "Independent sorting and unknown cells are useful direct controls; playback would flatten incompatible release scopes."
+  },
+  {
+    "article": "evaluation-crisis",
+    "element": "Stat",
+    "occurrence": 1,
+    "decision": "keep",
+    "teachingGoal": "Read small feasible sample examples without treating them as a field-wide census.",
+    "reason": "The visible scope note is integral to interpreting this static statistic."
+  },
+  {
+    "article": "evaluation-crisis",
+    "element": "Stat",
+    "occurrence": 2,
+    "decision": "keep",
+    "teachingGoal": "Keep the TRI blind-comparison real-rollout count distinct from simulation.",
+    "reason": "The published protocol count is a fixed reference, not a changing episode rate."
+  },
+  {
+    "article": "evaluation-crisis",
+    "element": "Stat",
+    "occurrence": 3,
+    "decision": "keep",
+    "teachingGoal": "Keep RoboArena pairwise comparisons distinct from oracle rollouts.",
+    "reason": "Animating one headline number could collapse two different populations."
+  },
+  {
+    "article": "evaluation-crisis",
+    "element": "Stat",
+    "occurrence": 4,
+    "decision": "keep",
+    "teachingGoal": "Keep the LIBERO-Plus benchmark shift tied to the clean-condition comparator.",
+    "reason": "A reported before-and-after comparison needs its perturbation context, not invented motion."
+  },
+  {
+    "article": "evaluation-crisis",
+    "element": "EpisodeSurvival",
+    "decision": "add",
+    "sceneId": "episode-survival",
+    "teachingGoal": "Follow conditional success through an authored horizon before changing the probability and steps directly.",
+    "reason": "The one-timeline scene shows multiplication, while the calculator below keeps exact boundary cases and independent sliders."
+  },
+  {
+    "article": "evaluation-crisis",
+    "element": "ReliabilityCompounding",
+    "occurrence": 1,
+    "decision": "rethink",
+    "teachingGoal": "Set per-decision success and horizon to inspect the model's episode-level probability.",
+    "reason": "The scene introduces compounding but does not replace the full-range sliders or imply measured per-step reliability."
+  },
+  {
+    "article": "evaluation-crisis",
+    "element": "PredictThenReveal",
+    "decision": "keep",
+    "teachingGoal": "Predict where the authored success curve crosses one half before seeing its dedicated calculator.",
+    "reason": "Answer commitment and feedback are reader-triggered assessment states."
+  },
+  {
+    "article": "evaluation-crisis",
+    "element": "ReliabilityCompounding",
+    "occurrence": 2,
+    "decision": "keep",
+    "teachingGoal": "Test the predicted crossing with its own per-step and horizon sliders.",
+    "reason": "The assessment instance starts at a different state and must stay independent."
+  },
+  {
+    "article": "evaluation-crisis",
+    "element": "SelfCheck",
+    "decision": "keep",
+    "teachingGoal": "Check whether identical reported rates establish equivalent policy performance.",
+    "reason": "This is a scored judgement with explicit uncertainty feedback, not a process illustration."
+  },
+  {
+    "article": "hardware-taxonomy",
+    "element": "Stat",
+    "occurrence": 1,
+    "decision": "keep",
+    "teachingGoal": "Keep the source-scoped SO-101 parts bill distinct from assembled rig prices.",
+    "reason": "The date and build-cost qualification remain visible beside the static value."
+  },
+  {
+    "article": "hardware-taxonomy",
+    "element": "Stat",
+    "occurrence": 2,
+    "decision": "keep",
+    "teachingGoal": "Show the Bumi presale price with its original-currency context.",
+    "reason": "A dated presale value should not become a changing market ticker."
+  },
+  {
+    "article": "hardware-taxonomy",
+    "element": "Stat",
+    "occurrence": 3,
+    "decision": "keep",
+    "teachingGoal": "Keep Atlas joint count tied to the electric robot configuration.",
+    "reason": "A published hardware specification is a static reference."
+  },
+  {
+    "article": "hardware-taxonomy",
+    "element": "Stat",
+    "occurrence": 4,
+    "decision": "keep",
+    "teachingGoal": "Keep Thor's vendor performance figure distinct from modeled VLA frequencies.",
+    "reason": "Animating the fixed specification could falsely imply measured policy throughput."
+  },
+  {
+    "article": "hardware-taxonomy",
+    "element": "HardwareGuide",
+    "decision": "keep",
+    "teachingGoal": "Filter, sort and inspect dated hardware rows with source-scoped missing prices.",
+    "reason": "Selection across five families is a direct-control reference task, not one robot changing over time; the archived photo proposal is not audited source truth."
+  },
+  {
+    "article": "hardware-taxonomy",
+    "element": "Image",
+    "occurrence": 1,
+    "decision": "keep",
+    "teachingGoal": "Identify the historically photographed Franka platform with its existing license and credit.",
+    "reason": "A sourced external photograph retains its caption and bytes; recoloring or moving it would obscure provenance."
+  },
+  {
+    "article": "hardware-taxonomy",
+    "element": "Image",
+    "occurrence": 2,
+    "decision": "keep",
+    "teachingGoal": "Identify the historical Atlas photograph separately from current electric Atlas specs.",
+    "reason": "The image is a licensed historical reference and must not masquerade as a current product render."
+  },
+  {
+    "article": "industrial-deployment",
+    "element": "Stat",
+    "occurrence": 1,
+    "decision": "keep",
+    "teachingGoal": "Keep IFR operational stock separate from annual installations.",
+    "reason": "The global installed-base figure is a fixed reported count, not a projected growth animation."
+  },
+  {
+    "article": "industrial-deployment",
+    "element": "Stat",
+    "occurrence": 2,
+    "decision": "keep",
+    "teachingGoal": "Show the IFR annual installation count with the year in its note.",
+    "reason": "A static value prevents accidental conflation with stock or customer-industry shares."
+  },
+  {
+    "article": "industrial-deployment",
+    "element": "Stat",
+    "occurrence": 3,
+    "decision": "keep",
+    "teachingGoal": "Show China's IFR share in its global-installation denominator.",
+    "reason": "The percentage belongs to the cited year and scope, not a running tally."
+  },
+  {
+    "article": "industrial-deployment",
+    "element": "JamOverhead",
+    "decision": "add",
+    "sceneId": "jam-overhead",
+    "teachingGoal": "Hold pick success constant while a longer authored jam clearance consumes cell time and changes payback.",
+    "reason": "A paced breakdown makes the intervention-cost mechanism legible before the seven-input calculator."
+  },
+  {
+    "article": "industrial-deployment",
+    "element": "DeploymentEconomics",
+    "decision": "rethink",
+    "teachingGoal": "Change seven authored economic inputs and inspect throughput, time use and payback independently.",
+    "reason": "The companion scene traces one controlled contrast, while all calculator sliders and source qualifications remain available."
+  },
+  {
+    "article": "robot-learning-stack",
+    "element": "SelfCheck",
+    "decision": "keep",
+    "teachingGoal": "Identify a versioned episode artifact that can reconstruct a policy transition.",
+    "reason": "A reader-triggered answer and explanation better tests the seven-contract prose than forced playback."
+  },
+  {
+    "article": "teleop-rigs",
+    "element": "Stat",
+    "occurrence": 1,
+    "decision": "keep",
+    "teachingGoal": "Keep the GELLO controller parts bill separate from the robot-arm purchase.",
+    "reason": "The source's BOM scope must remain visible next to the static price."
+  },
+  {
+    "article": "teleop-rigs",
+    "element": "Stat",
+    "occurrence": 2,
+    "decision": "keep",
+    "teachingGoal": "Keep the task-specific UMI demonstration-rate comparison together.",
+    "reason": "Published rates from a particular task should not turn into generic animated collection throughput."
+  },
+  {
+    "article": "teleop-rigs",
+    "element": "Stat",
+    "occurrence": 3,
+    "decision": "keep",
+    "teachingGoal": "Keep DROID trajectory and operator totals tied to its multi-institution collection scope.",
+    "reason": "Counts of trajectories and collectors do not establish a per-rig annual yield."
+  },
+  {
+    "article": "teleop-rigs",
+    "element": "Stat",
+    "occurrence": 4,
+    "decision": "keep",
+    "teachingGoal": "Show that the configuration-specific workstation total has not been disclosed.",
+    "reason": "Unknown stays unknown instead of being inferred from the secondary community estimate."
+  },
+  {
+    "article": "teleop-rigs",
+    "element": "TeleopRigMatrix",
+    "decision": "keep",
+    "teachingGoal": "Highlight an axis and sort all four rig families to compare cost, fidelity, throughput and embodiment gap.",
+    "reason": "The axis changes are independent reader choices; motion would hide simultaneous notes and unknown costs."
+  }
+]

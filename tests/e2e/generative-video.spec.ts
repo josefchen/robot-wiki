@@ -62,7 +62,7 @@ test.describe('world-models generative-video module', () => {
       /Nano at 16B/,
       /Super at 64B/,
       // Genie 2/3 with the honest limitations and the 60-second cap.
-      /Genie 2 \(December 2024\) moved to 3D at 360p/,
+      /Genie 2 \(December 2024\) moved to 3D, with consistent worlds for up to a minute/,
       /real time at 24 fps and 720p/,
       /Limited action space/,
       /60 seconds per world/,
@@ -75,13 +75,13 @@ test.describe('world-models generative-video module', () => {
       /new frame every 50 ms/,
       // Evidence, both directions.
       /more than 10 minutes of visually stable generated-video interaction at up to 15 FPS on a single RTX 4090/,
-      /192 steps \(19\.2 seconds\), not the ten-minute horizon/,
-      /not robot-control frequencies/,
+      /192 steps \(19\.2 seconds\), a shorter test than the ten-minute interaction/,
+      /establish neither robot-control frequency nor physically accurate dynamics/,
       /87\.9% versus 90\.3% for DP and 76\.2% versus 73\.6% for ACT/,
       /eight policy-level aggregate scores/,
       /26 February 2026 RoboArena leaderboard/,
       /Pearson r = 0\.989 and Spearman rho = 0\.970/,
-      /neither a per-task correlation nor 4,186 independent correlation points/,
+      /4,186 rollouts are neither independent points nor a per-task correlation/,
       /not calibrated success probability or absolute agreement/,
       /visual plausibility is only a weak proxy for control utility/,
       /top open challenge/,
@@ -154,7 +154,7 @@ test.describe('world-models generative-video module', () => {
     await expect(prose).toContainText('one unchanged checkpoint');
     await expect(prose).toContainText('freshly initializes the action encoder');
     await expect(prose).toContainText('Policy mode jointly denoises future video and actions');
-    await expect(prose).toContainText('Section 2.5 reports Cosmos 3 Nano at 16B');
+    await expect(prose).toContainText('report lists Cosmos 3 Nano at 16B');
     await expect(prose).toContainText('Cosmos 3 Super at 64B');
     await expect(prose).toContainText('rectified flow matching');
     await expect(prose).toContainText('EDM loss');
@@ -239,7 +239,7 @@ test.describe('world-models generative-video module', () => {
     expect(await sensitivity(page)).toBe(0);
     // Reset restores the initial frame, default actions, strong conditioning.
     await page.getByRole('button', { name: 'Weak conditioning' }).click();
-    await page.getByRole('button', { name: 'Reset' }).click();
+    await page.getByRole('button', { name: 'Reset', exact: true }).click();
     expect(await sensitivity(page)).toBe(initial);
     await expect(page.getByTestId('initial-frame')).toBeVisible();
     await expect(
@@ -254,7 +254,7 @@ test.describe('world-models generative-video module', () => {
   });
 
   test('interactive: keyboard path toggles conditioning', async ({ page }) => {
-    await page.goto(ROUTE);
+    await page.goto(ROUTE, { waitUntil: 'networkidle' });
     const strong = await sensitivity(page);
     const weakButton = page.getByRole('button', { name: 'Weak conditioning' });
     await weakButton.focus();

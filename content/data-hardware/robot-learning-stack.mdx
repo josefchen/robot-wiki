@@ -27,7 +27,7 @@ A robot-learning system is a pipeline from physical events to decisions and back
 
 The stack is easiest to reason about as seven contracts. Each contract has an artifact, an owner and a test. If a policy failure cannot be localized to one of them, the system is not yet observable enough.
 
-Try the check below and choose the artifact that makes a robot episode reproducible rather than merely replayable as video.
+Try the check below and choose the artifact that lets you reconstruct a robot episode. Video alone lets you watch it again.
 
 <SelfCheck
   prompt="Which dataset record is sufficient to reconstruct one policy transition after the camera mount and training code have changed?"
@@ -49,7 +49,7 @@ Try the check below and choose the artifact that makes a robot episode reproduci
     }
   ]}
   answer="versioned-episode"
-  takeaway="Store enough raw, timed and versioned context to rebuild a transition, not only enough pixels to watch it."
+  takeaway="Store raw, timed and versioned context to rebuild a transition; pixels alone let you watch it."
 />
 
 ## Contract 1: hardware and calibration
@@ -90,7 +90,7 @@ The artifact is an addressable model package containing weights plus preprocessi
 
 ## Contract 5: simulation and offline evaluation
 
-Simulation is a test surface, not a truth oracle. Use it for deterministic regression, safety envelopes, parameter sweeps and scenarios too expensive to repeat physically. Isaac Lab supports large batches of robot-learning environments and sensor modalities <Cite id="isaac-lab-2025" />.
+Simulation is a test surface with limits on what it can tell you about hardware. Use it for deterministic regression, safety envelopes, parameter sweeps and scenarios too expensive to repeat physically. Isaac Lab supports large batches of robot-learning environments and sensor modalities <Cite id="isaac-lab-2025" />.
 
 Calibrate simulation utility against hardware. SIMPLER measures how simulated policy performance correlates with real robot performance under matched tasks <Cite id="simpler-2024" />. If the rank order disagrees, more simulated episodes can increase confidence in the wrong selection.
 
@@ -110,13 +110,13 @@ The artifact is a signed evaluation record linking model version, environment ve
 
 Production inference needs an observation assembler, model server, command gate, controller bridge and supervisor. The [ROS 2 guide](/classical/ros2-for-ml-engineers) defines their runtime interfaces. Keep safety and high-rate feedback below the learned policy where possible.
 
-Measure end-to-end age, not only GPU kernel time. Log sensor timestamp, inference start and end, command publish and controller acceptance. Specify what happens on deadline miss, invalid observation, NaN output, out-of-range action and lost communication.
+Measure end-to-end age as well as GPU kernel time. Log sensor timestamp, inference start and end, command publish and controller acceptance. Specify what happens on deadline miss, invalid observation, NaN output, out-of-range action and lost communication.
 
 The artifact is a deployable model bundle plus interface declaration and rollback target. The test injects each failure and proves the supervisor reaches a safe, observable state.
 
 ## The data loop after deployment
 
-Failures should return to the dataset with context, not as a folder of interesting clips. Tag the failure stage, operator intervention, hardware state and suspected cause. Separate correction data from ordinary demonstrations so its sampling weight can be controlled.
+Failures should return to the dataset with context. A folder of interesting clips loses the failure stage, operator intervention, hardware state and suspected cause. Tag those fields and separate correction data from ordinary demonstrations so its sampling weight can be controlled.
 
 Promotion should be gated. A new checkpoint must pass offline regression, simulation where predictive, a small physical canary set, then the full evaluation matrix. Keep the previous package deployable until the new one has survived realistic duty cycles.
 

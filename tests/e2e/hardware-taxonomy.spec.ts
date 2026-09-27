@@ -160,7 +160,7 @@ test.describe('data-hardware hardware-taxonomy module', () => {
   test('filter buttons and sort headers are keyboard operable', async ({
     page,
   }) => {
-    await page.goto(ROUTE);
+    await page.goto(ROUTE, { waitUntil: 'networkidle' });
     const arms = page.getByRole('button', { name: 'Arms', exact: true });
     await arms.focus();
     await page.keyboard.press('Enter');

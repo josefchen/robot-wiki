@@ -108,7 +108,7 @@ test.describe('world-models latent-dynamics module', () => {
     expect(reward).toBeGreaterThan(0);
 
     // Reset restores the default state.
-    await page.getByRole('button', { name: 'Reset' }).click();
+    await page.getByRole('button', { name: 'Reset', exact: true }).click();
     expect(await deviationReadout(page)).toBeCloseTo(initial, 3);
     await expect(
       page.getByRole('button', { name: /with decoder/ }),
@@ -119,7 +119,7 @@ test.describe('world-models latent-dynamics module', () => {
   });
 
   test('interactive: keyboard path and error slider', async ({ page }) => {
-    await page.goto(ROUTE);
+    await page.goto(ROUTE, { waitUntil: 'networkidle' });
     const horizon = page.getByRole('slider', {
       name: /imagination horizon/i,
     });

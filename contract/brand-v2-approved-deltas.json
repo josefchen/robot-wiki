@@ -34177,6 +34177,1097 @@
           "newHash": "4338a48ae8fe68e1eaf2b27357aebe4863e7de19abbe840ef36f135d0eece376"
         }
       ]
+    },
+    {
+      "id": "motion-world-models-humanizer-v3-20260927-prose-evaluation",
+      "manifest": "prose",
+      "memberId": "article:world-models/evaluation",
+      "oldHash": "9c15c788394d45cd1cf1632d9393d651fbf7ed3074e1ae53a1640e330ab9b85d",
+      "newHash": "cfb4cd065274fdcfc56ed61f46f92419ee67c3084f339253c249f687a706c055",
+      "reason": "Fact-preserving humanizer v3 rewrite of the evaluation article; its assessment and sourced evaluation criteria remain unchanged, and its citation occurrences and numeric tokens are checked against the prior committed article.",
+      "ownerApproval": "Owner decisions owner-decision-humanizer-pass-20260925 and owner-decision-motion-language-20260926 authorize fact-preserving article prose and the world-model scene rethink. This is not independent source certification or release approval.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": ["VAL-HUMAN-001", "VAL-MOTION-023", "VAL-B2-BASE-012"],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-world-models-humanizer-v3-20260927-prose-generative-sim",
+      "manifest": "prose",
+      "memberId": "article:world-models/generative-sim",
+      "oldHash": "f679ebe844f5ba56bc718abfa9e6b2821bf6eabc0cae8867f63e8797d9a838cb",
+      "newHash": "9459001f9f2b98c46b35e2685c671bd824993c2230f428cb6ba9f66677f29f37",
+      "reason": "Fact-preserving humanizer v3 rewrite and a reader-paced push-layers scene before the retained direct-control lab; source claims, toy assumptions, citation occurrences, and numeric tokens remain checked against the prior committed article.",
+      "ownerApproval": "Owner decisions owner-decision-humanizer-pass-20260925 and owner-decision-motion-language-20260926 authorize fact-preserving article prose and the world-model scene rethink. This is not independent source certification or release approval.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": ["VAL-HUMAN-001", "VAL-MOTION-023", "VAL-B2-BASE-012"],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-world-models-humanizer-v3-20260927-prose-generative-video",
+      "manifest": "prose",
+      "memberId": "article:world-models/generative-video",
+      "oldHash": "5f8ebdbb146f958d8fc1611523f37e10359814b945b5287662ea2da53b78665a",
+      "newHash": "31334d054d21359664e0e084c071ef1e975d694301e8c513ddcdaee68d04f5de",
+      "reason": "Fact-preserving humanizer v3 rewrite and a reader-paced action-fork scene before the retained direct-control lab; sourced numbers, study scope, citation occurrences, and numeric tokens remain checked against the prior committed article.",
+      "ownerApproval": "Owner decisions owner-decision-humanizer-pass-20260925 and owner-decision-motion-language-20260926 authorize fact-preserving article prose and the world-model scene rethink. This is not independent source certification or release approval.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": ["VAL-HUMAN-001", "VAL-MOTION-023", "VAL-B2-BASE-012"],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-world-models-humanizer-v3-20260927-prose-jepa",
+      "manifest": "prose",
+      "memberId": "article:world-models/jepa",
+      "oldHash": "5889038a47a16772ec040af0a6876663dd276bcefa6d53318df95b966aa93de0",
+      "newHash": "022dd03e2f8e84fbfd4c9b164124ff2f260cef183cca753ceb734e5d1682197b",
+      "reason": "Fact-preserving humanizer v3 rewrite of the JEPA article; trained representation versus synthetic toy distinctions, source quantities, citations, and numeric tokens remain checked against the prior committed article.",
+      "ownerApproval": "Owner decisions owner-decision-humanizer-pass-20260925 and owner-decision-motion-language-20260926 authorize fact-preserving article prose and the world-model scene rethink. This is not independent source certification or release approval.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": ["VAL-HUMAN-001", "VAL-MOTION-023", "VAL-B2-BASE-012"],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-world-models-humanizer-v3-20260927-prose-latent-dynamics",
+      "manifest": "prose",
+      "memberId": "article:world-models/latent-dynamics",
+      "oldHash": "b1eed4329763e68f974e4e1eaf43bd68880330f563b512df04bb81a762aeca6b",
+      "newHash": "a85d0697bed9de5abba178bb756ec8bf574c7606c2e9052fa8e4f1bb56f74a4b",
+      "reason": "Fact-preserving humanizer v3 rewrite and a reader-paced latent-drift scene before the retained direct-control lab; distinct published horizon labels, numeric tokens, and citation occurrences remain checked against the prior committed article.",
+      "ownerApproval": "Owner decisions owner-decision-humanizer-pass-20260925 and owner-decision-motion-language-20260926 authorize fact-preserving article prose and the world-model scene rethink. This is not independent source certification or release approval.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": ["VAL-HUMAN-001", "VAL-MOTION-023", "VAL-B2-BASE-012"],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-world-models-humanizer-v3-20260927-prose-model-based-robot-learning",
+      "manifest": "prose",
+      "memberId": "article:world-models/model-based-robot-learning",
+      "oldHash": "5c0229a35709c29f98b7837e41485eca68a7ab23033a4445004acd996a01215a",
+      "newHash": "250a54c1f5dfe7019a738d8002a4f04a4da66eb5dd4afedc40efc71d17409158",
+      "reason": "Fact-preserving humanizer v3 rewrite of the model-based robot learning article; the authored mechanisms, study qualifications, citations, and numeric tokens remain checked against the prior committed article.",
+      "ownerApproval": "Owner decisions owner-decision-humanizer-pass-20260925 and owner-decision-motion-language-20260926 authorize fact-preserving article prose and the world-model scene rethink. This is not independent source certification or release approval.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": ["VAL-HUMAN-001", "VAL-MOTION-023", "VAL-B2-BASE-011", "VAL-B2-BASE-012"],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-world-models-humanizer-v3-20260927-prose-taxonomy",
+      "manifest": "prose",
+      "memberId": "article:world-models/taxonomy",
+      "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+      "newHash": "4e050cc45ebadf729658228cb99d0d8e91525db0f1de3d7b89cde96a087f32f1",
+      "reason": "Exact complete-edge reconciliation of the 18 preceding taxonomy prose approvals. The fact-preserving humanizer v3 endpoint retains the authored six-group non-benchmark disclosure and selection behavior. Original local-basis proof bytes, source obligations, citations, numeric tokens, and all prior approval edges remain independently retained.",
+      "ownerApproval": "Owner decisions owner-decision-humanizer-pass-20260925 and owner-decision-motion-language-20260926 authorize fact-preserving article prose and the world-model scene rethink. This is not independent source certification or release approval.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": ["VAL-HUMAN-001", "VAL-MOTION-023", "VAL-B2-BASE-010", "VAL-B2-BASE-012"],
+      "disposition": "permanent",
+      "reconciles": [
+        {"id":"insulation-fast-dreamer-20260907-4","oldHash":"122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003","newHash":"5d492c5d698299d92d3f511337411061d7becc1db61b8a09977e2d6fc027b049"},
+        {"id":"cross-article-closeouts-20260907-6","oldHash":"122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003","newHash":"8953f81082953a60956823f2e575e2a969716392038283041694caa1923f500d"},
+        {"id":"performance-worldmodels-20260908-5","oldHash":"122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003","newHash":"7f7fa05f992d3494afdba01a44809ccba0fe5e4c19500ed92cd5488d1f9cbdad"},
+        {"id":"jepa-source-closeouts-20260908-2","oldHash":"122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003","newHash":"a54fc46365387b7d831245c3c6af228446888e8bb82a9475f127784f45f44846"},
+        {"id":"world-model-video-continuation-20260908-3","oldHash":"122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003","newHash":"eb8ef715b160f90b5e6d9d3a62e87d7f614b4f3b93ba5988a3428ec292d9e900"},
+        {"id":"cosmos-reader-closeout-20260908-4","oldHash":"122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003","newHash":"b9e56d87059af3096551cae3e9d7e35ed5613122cdb8d27030a632f16b5c9aa1"},
+        {"id":"seo-20260824-prose-b05c76b2eb63","oldHash":"122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003","newHash":"b05c76b2eb63e7aa854647c74afd9fdd661f52891d2ca11717ef8f88e2d63fff"},
+        {"id":"taxonomy-r16-20260916-1","oldHash":"6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4","newHash":"6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4"},
+        {"id":"taxonomy-r17-20260916-1","oldHash":"6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4","newHash":"6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4"},
+        {"id":"taxonomy-r18-20260916-1","oldHash":"6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4","newHash":"6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4"},
+        {"id":"taxonomy-r19-20260916-1","oldHash":"6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4","newHash":"6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4"},
+        {"id":"taxonomy-r20-20260916-1","oldHash":"6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4","newHash":"6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4"},
+        {"id":"seo-merge-20260916-prose-33","oldHash":"122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003","newHash":"ece9a1706b66aeabd122d24e620474492ca03380cbeb28276558e676c6d118c5"},
+        {"id":"reader-dreamer-20260923-2","oldHash":"b9e56d87059af3096551cae3e9d7e35ed5613122cdb8d27030a632f16b5c9aa1","newHash":"825fb643cabbcf9de518c95ce1b7d389f4bb045ed1476f2d6c07458387a48c93"},
+        {"id":"continuation-merge-2026-09-23-1745-prose-article-world-models-taxonomy","oldHash":"122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003","newHash":"f944741c05733a0467b2af206480087f0874db92d5fb4ecf73d26c943e11f73c"},
+        {"id":"crossdomain-closure-20260923-2","oldHash":"825fb643cabbcf9de518c95ce1b7d389f4bb045ed1476f2d6c07458387a48c93","newHash":"89318d0a8e693a76d79b9c1833b04d7ad1b3509256f5e12b7180d70dbe96c795"},
+        {"id":"continuation-merge-2026-09-24-0140-prose-article-world-models-taxonomy","oldHash":"122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003","newHash":"e5515962013124141d8072a26618eba7e0e00852fefd93bb00f01846e47be6a2"},
+        {"id":"educational-cue-20260926-prose-taxonomy","oldHash":"122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003","newHash":"c78b87466402372401201a726c3816a29879d6836ce4611949ead0921942e9ce"}
+      ]
+    },
+    {
+      "id": "motion-world-models-humanizer-v3-20260927-prose-world-models-vs-simulators",
+      "manifest": "prose",
+      "memberId": "article:world-models/world-models-vs-simulators",
+      "oldHash": "be16d18204298b7ea88f45b17f0edc87c54f0280349f336d48f8c8ed93bb5dae",
+      "newHash": "f74ec76d3cbca579cafab41acf5bc6bcc8fc2c88cd8cbff9cb59f1c44a4125ea",
+      "reason": "Fact-preserving humanizer v3 rewrite of the world-model-versus-simulator article; derived-cost qualifications, numeric tokens, source links and citation occurrences remain checked against the prior committed article.",
+      "ownerApproval": "Owner decisions owner-decision-humanizer-pass-20260925 and owner-decision-motion-language-20260926 authorize fact-preserving article prose and the world-model scene rethink. This is not independent source certification or release approval.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": ["VAL-HUMAN-001", "VAL-MOTION-023", "VAL-B2-BASE-011", "VAL-B2-BASE-012"],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-data-hardware-humanizer-v3-20260927-prose-data-bottleneck",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/data-bottleneck",
+      "oldHash": "22b8b3da959ec70f70e6d6a63d9b5c0d6d74952500d9c3759030f8720750cedc",
+      "newHash": "cdc986bcd3e8a57e6d13297065578acd964e66f98cf7161de5bf42b0072cb47d",
+      "reason": "Fact-preserving humanizer v3 pass and a farm-throughput toy scene before the retained direct-control chart. Published data durations remain separate from authored rates and OXE's unknown duration; numeric tokens and ordered citations are checked against the prior committed article. This approval does not refresh stale audit local-basis evidence.",
+      "ownerApproval": "Owner decisions owner-decision-humanizer-pass-20260925 and owner-decision-motion-language-20260926 authorize the fact-preserving prose pass and data-hardware scene rethink; they do not certify sources or release readiness.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": ["VAL-HUMAN-001", "VAL-MOTION-024", "VAL-B2-BASE-012"],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-data-hardware-humanizer-v3-20260927-prose-datasets",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/datasets",
+      "oldHash": "4d00882f8e7295cf2d2e76ef78a40360aefa639d4ece86e5f7e1b4c503b0a59c",
+      "newHash": "4222e402ee2d3cac77b8fc2cd03e0d4162841c4e4595f5fef1e8775c39f65562",
+      "reason": "Fact-preserving humanizer v3 pass with version identifiers formatted as technical labels. Unknown duration, gated-license qualifications, numeric tokens and ordered citations remain checked against the prior committed article; this does not re-audit the underlying sources.",
+      "ownerApproval": "Owner decisions owner-decision-humanizer-pass-20260925 and owner-decision-motion-language-20260926 authorize the fact-preserving prose pass and data-hardware scene rethink; they do not certify sources or release readiness.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": ["VAL-HUMAN-001", "VAL-MOTION-024", "VAL-B2-BASE-012"],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-data-hardware-humanizer-v3-20260927-prose-evaluation-crisis",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/evaluation-crisis",
+      "oldHash": "1f590be41f904826afc58ec49f47e9754a31388cc791c713a2982e32326c3c54",
+      "newHash": "12b7ec104b9f9442022f40d6908e8234c25a4cee63f2d4dd423b0d0e385a97e2",
+      "reason": "Fact-preserving humanizer v3 pass and an illustrative compounding scene before the independently adjustable calculator. The model's conditional assumption, benchmark caveats, numeric tokens and ordered citations are checked against the prior committed article; the stale audit local-basis hash is not re-certified here.",
+      "ownerApproval": "Owner decisions owner-decision-humanizer-pass-20260925 and owner-decision-motion-language-20260926 authorize the fact-preserving prose pass and data-hardware scene rethink; they do not certify sources or release readiness.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": ["VAL-HUMAN-001", "VAL-MOTION-024", "VAL-B2-BASE-012"],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-data-hardware-humanizer-v3-20260927-prose-hardware-taxonomy",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/hardware-taxonomy",
+      "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+      "newHash": "558956d6f13ce7c7c7c1c7a37df64bc879248777c0910a0fd7caf08cbb3ed7a3",
+      "reason": "Fact-preserving humanizer v3 pass of the dated buyer's guide; filterable hardware rows and licensed photographs remain unchanged. Numeric tokens and ordered citations are checked against the prior committed article; archived photo proposals were not imported as audited facts.",
+      "ownerApproval": "Owner decisions owner-decision-humanizer-pass-20260925 and owner-decision-motion-language-20260926 authorize the fact-preserving prose pass and data-hardware scene rethink; they do not certify sources or release readiness.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-MOTION-024",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "pricing-provenance-20260907-1",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "e3b64b8c4cff51a0b9c577fd501a95e6ef67bc82ea1723cdd2390cfae13fa4c9"
+        },
+        {
+          "id": "pricing-provenance-20260907-9",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "a1637546f18dfb48550d5cef0d0a68f17367192f788fdf5fa56012c79cd75c20"
+        },
+        {
+          "id": "performance-worldmodels-20260908-1",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "754695d09e014226b660fab2d3f30997506f223495a06157a752f6306d4c260d"
+        },
+        {
+          "id": "hardware-taxonomy-r1-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r2-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r3-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r4-20260915-1",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r5-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r6-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r7-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r8-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r9-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r10-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r11-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r12-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r13-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r14-20260915-1",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r15-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r16-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r17-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r18-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r19-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r20-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r25-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "reader-f20-dates-20260923-2",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "cf5a2b851f5a0fe492dd594762d82163f02424d275e3fceb4410798aa43455af"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1745-prose-article-data-hardware-hardware-taxonomy",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "cf5a2b851f5a0fe492dd594762d82163f02424d275e3fceb4410798aa43455af"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-data-hardware-hardware-taxonomy",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "cf5a2b851f5a0fe492dd594762d82163f02424d275e3fceb4410798aa43455af"
+        }
+      ]
+    },
+    {
+      "id": "motion-data-hardware-humanizer-v3-20260927-prose-industrial-deployment",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/industrial-deployment",
+      "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+      "newHash": "f76ec68e7881c2c2e748561fcebb76d6829909e3827711484fb0f591dc1662fe",
+      "reason": "Fact-preserving humanizer v3 pass and jam-overhead toy scene ahead of the retained seven-input calculator. Authored economic assumptions, source scopes, numeric tokens and ordered citations are checked against the prior committed article. Existing audit gaps and stale local-basis hashes are not claimed to be repaired.",
+      "ownerApproval": "Owner decisions owner-decision-humanizer-pass-20260925 and owner-decision-motion-language-20260926 authorize the fact-preserving prose pass and data-hardware scene rethink; they do not certify sources or release readiness.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-MOTION-024",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "content-audit-2026-09-06-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "a7ae31d224104e331b62665cad4264c944f258ab4bf05f6038894be78fefe9ba"
+        },
+        {
+          "id": "retained-cross-20260907-3",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "750d2a819dc0093fef156ec7664555225ef2ab527b2b5c477832859034aea589"
+        },
+        {
+          "id": "retained-cross-20260907-6",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "25f89d2b66a3c7cba5c35145cefaa828a445b6dccf6f55f0bb73f01932e3a9e4"
+        },
+        {
+          "id": "industrial-cost-responsibility-20260909-1",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "1c7ea96deb80f4e7c1c7d3b76cecf79a22f690a5c241230e3188bd5787870330"
+        },
+        {
+          "id": "ifr-industrial-originals-20260912-1",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "f4886dbb51051a51cba727226c04a0373213b1f97987338862f8d6bf13e01b77"
+        },
+        {
+          "id": "symbotic-a3-industrial-originals-20260913-1",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "46eb8ae18d6f630cd556e387a5a7519cb841e378274b9528627caf51eb17378b"
+        },
+        {
+          "id": "amazon-industrial-originals-20260913-1",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "499dd7bc6734ff5e01ac914b97242a49689345824b9ec9e93d3243ab2a99b97a"
+        },
+        {
+          "id": "amazon-industrial-tooltip-placement-20260913",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "18f396ad337f224e3eb055525e10eb03dc529c7e05201045de408bfc8b4f6292"
+        },
+        {
+          "id": "industrial-engineering-originals-20260913-1",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "0dd12f5fa30be2bd301761106404bce26e2ec66d6ad49269ac364ed3312d336d"
+        },
+        {
+          "id": "industrial-engineering-originals-20260913-4",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "aed44cd347de1f632a70f66416d400ff9d8b35097d2fd54ab78e1f2f8d7089f8"
+        },
+        {
+          "id": "osha-industrial-modes-38-20260915-1",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "aed44cd347de1f632a70f66416d400ff9d8b35097d2fd54ab78e1f2f8d7089f8"
+        },
+        {
+          "id": "seo-20260824-prose-349c6badf01f",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "349c6badf01fc723272a19107d627800666788f0699e068e0699ddde8ff1fbb0"
+        },
+        {
+          "id": "seo-merge-20260916-prose-9",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "d3c361e063873351e4a90bd1372d09076bd3792149cb3c9e583a7dcc7d2c9b45"
+        },
+        {
+          "id": "as0917a-industrial-ocado-scope",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "6063818cca0a9e5d84fddddd801ca6a098309f9a1b3baa6fe41cff7f735f743d"
+        },
+        {
+          "id": "mit-industrial-43-prose-20260921",
+          "oldHash": "6063818cca0a9e5d84fddddd801ca6a098309f9a1b3baa6fe41cff7f735f743d",
+          "newHash": "125ef32b92ffe8c9444379f6fc3a00caeaad89e7330c836081d91b33deec33ba"
+        },
+        {
+          "id": "continuation-merge-20260922-prose-data-hardware-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "04577b7063dd224b8a7d0ed35fa2527b17870f253c029f55f54c794e72789a49"
+        },
+        {
+          "id": "industrial-perception-zero-credit-20260922-1",
+          "oldHash": "125ef32b92ffe8c9444379f6fc3a00caeaad89e7330c836081d91b33deec33ba",
+          "newHash": "e4d07fe8707f63020473fae7a08d9796f65c26f4b1e2dee0be167486f13ad048"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-prose-article-data-hardware-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "76eee12ee99d7fedbc725d7be11966f66df5d2633e96e496011aec9b925dc909"
+        },
+        {
+          "id": "economics-local-20260923-1",
+          "oldHash": "e4d07fe8707f63020473fae7a08d9796f65c26f4b1e2dee0be167486f13ad048",
+          "newHash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1430-prose-article-data-hardware-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "b380f81feab53d71f7f5bdbd369266d90da609c486d0e225282b6ba28bb11de9"
+        },
+        {
+          "id": "industrial-closure-20260923-6",
+          "oldHash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422",
+          "newHash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1940-prose-article-data-hardware-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "1aea5cd4a2064ec784e74a5a804c5338a4c57154b6a95ee7787141fc63172afc"
+        },
+        {
+          "id": "citation-closeout-20260924-kroger-temporal-prose",
+          "oldHash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c",
+          "newHash": "f502a1a2d97d58701321a793dc285deb1e340725c3575155d7c0f38789503528"
+        },
+        {
+          "id": "main-merge-20260924-industrial-prose",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "4448010ee139b50e98f5967aa77eebcb5d842ff39a9dc1d16287a70a359b052c"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-tech-withdrawal-prose-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "d8f091fdc26d87b8de37a8736324f0e715ad60759a23271c0ce7168661c6360a"
+        },
+        {
+          "id": "educational-relocation-20260926-prose-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "915117232269b0ec152a0ccedd7ac8bdeb0126e40fdf1891118e84b68eabf3a8"
+        }
+      ]
+    },
+    {
+      "id": "motion-data-hardware-humanizer-v3-20260927-prose-robot-learning-stack",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/robot-learning-stack",
+      "oldHash": "48ea67447c7b67fff4cdb2f233a4f0fbfc3f709b8826552987ac87db2b4d25f0",
+      "newHash": "b89f6fdcb16a392a0671dd4b41ca8b990cef4422585e92365941fa5ade0cbf07",
+      "reason": "Fact-preserving humanizer v3 pass of the seven-contract explanation and its retained self-check. Numeric tokens and ordered citations are checked against the prior committed article; no unsupported pipeline animation was added.",
+      "ownerApproval": "Owner decisions owner-decision-humanizer-pass-20260925 and owner-decision-motion-language-20260926 authorize the fact-preserving prose pass and data-hardware scene rethink; they do not certify sources or release readiness.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": ["VAL-HUMAN-001", "VAL-MOTION-024", "VAL-B2-BASE-012"],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-data-hardware-humanizer-v3-20260927-prose-teleop-rigs",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/teleop-rigs",
+      "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+      "newHash": "b82c876afa479ce49a0291cb4e0e41a4a7336c6d0d0f7f846a25dfb35f863ffa",
+      "reason": "Fact-preserving humanizer v3 pass while the rig matrix, source-scoped costs and independent highlight and sort controls remain in place. Numeric tokens and ordered citations are checked against the prior committed article.",
+      "ownerApproval": "Owner decisions owner-decision-humanizer-pass-20260925 and owner-decision-motion-language-20260926 authorize the fact-preserving prose pass and data-hardware scene rethink; they do not certify sources or release readiness.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-MOTION-024",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "pricing-provenance-20260907-2",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "c7f5ed81362bb02abcd2374d81b8e26a2019a091a19ba65ef68e13675338bc3c"
+        },
+        {
+          "id": "pricing-provenance-20260907-7",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "9eb059ec3ac376ca34210418538187aa2e29e50773116da0d55a59a47cba8caa"
+        },
+        {
+          "id": "pricing-provenance-20260907-8",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c"
+        },
+        {
+          "id": "tr-r1-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r2-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r3-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r5-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r6-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r7-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r8-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r9-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r10-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r11-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r12-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r13-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "seo-merge-20260916-prose-11",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "round5-closeout-teleop-rigs-prose",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-data-hardware-teleop-rigs",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "educational-cue-20260926-prose-teleop-rigs",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "dc7c65001342ac5decfa2db1607e03a15111d92b706aa43f999e7c29ee15ab21"
+        }
+      ]
+    },
+    {
+      "id": "motion-data-hardware-source-qualification-20260927-prose-evaluation-crisis",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/evaluation-crisis",
+      "oldHash": "12b7ec104b9f9442022f40d6908e8234c25a4cee63f2d4dd423b0d0e385a97e2",
+      "newHash": "1bf31b1df987ef3edf435c4bb5c7280105a43e1e240544be069454c01c505923",
+      "reason": "The retained SIMPLER paper proposes and evaluates ways to mitigate visual and control gaps. The corrected sentence describes the methods without claiming that both generally achieved a reduction. All numbers, citation markers, setup qualifications and the conditional-probability model are unchanged.",
+      "ownerApproval": "The source-backed correction rule in contract/content-audit.md and the owner-delegated September 23 closure decision require the current article to state only what its cited primary source supports.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": ["VAL-B2-BASE-002", "VAL-B2-BASE-012", "VAL-AUDIT-005", "VAL-MOTION-024"],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-data-hardware-source-qualification-20260927-prose-industrial-deployment",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/industrial-deployment",
+      "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+      "newHash": "d6912e7b80390fcfa1b2430b4fe4b0c3d8f3e01b32ec8cf7259a6800119d32f3",
+      "reason": "The retained Symbotic FY2025 filing defines backlog as unperformed contractual obligations. The corrected sentence restores its distinction from earned revenue without changing the reported backlog, fiscal revenue, contractual site scope or forecast.",
+      "ownerApproval": "The source-backed correction rule in contract/content-audit.md and the owner-delegated September 23 closure decision require the current article to preserve the filing's backlog and earned-revenue distinction.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": ["VAL-B2-BASE-002", "VAL-B2-BASE-012", "VAL-AUDIT-004", "VAL-MOTION-024"],
+      "disposition": "permanent",
+      "reconciles": [
+        { "id": "content-audit-2026-09-06-industrial-deployment", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "a7ae31d224104e331b62665cad4264c944f258ab4bf05f6038894be78fefe9ba" },
+        { "id": "retained-cross-20260907-3", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "750d2a819dc0093fef156ec7664555225ef2ab527b2b5c477832859034aea589" },
+        { "id": "retained-cross-20260907-6", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "25f89d2b66a3c7cba5c35145cefaa828a445b6dccf6f55f0bb73f01932e3a9e4" },
+        { "id": "industrial-cost-responsibility-20260909-1", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "1c7ea96deb80f4e7c1c7d3b76cecf79a22f690a5c241230e3188bd5787870330" },
+        { "id": "ifr-industrial-originals-20260912-1", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "f4886dbb51051a51cba727226c04a0373213b1f97987338862f8d6bf13e01b77" },
+        { "id": "symbotic-a3-industrial-originals-20260913-1", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "46eb8ae18d6f630cd556e387a5a7519cb841e378274b9528627caf51eb17378b" },
+        { "id": "amazon-industrial-originals-20260913-1", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "499dd7bc6734ff5e01ac914b97242a49689345824b9ec9e93d3243ab2a99b97a" },
+        { "id": "amazon-industrial-tooltip-placement-20260913", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "18f396ad337f224e3eb055525e10eb03dc529c7e05201045de408bfc8b4f6292" },
+        { "id": "industrial-engineering-originals-20260913-1", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "0dd12f5fa30be2bd301761106404bce26e2ec66d6ad49269ac364ed3312d336d" },
+        { "id": "industrial-engineering-originals-20260913-4", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "aed44cd347de1f632a70f66416d400ff9d8b35097d2fd54ab78e1f2f8d7089f8" },
+        { "id": "osha-industrial-modes-38-20260915-1", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "aed44cd347de1f632a70f66416d400ff9d8b35097d2fd54ab78e1f2f8d7089f8" },
+        { "id": "seo-20260824-prose-349c6badf01f", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "349c6badf01fc723272a19107d627800666788f0699e068e0699ddde8ff1fbb0" },
+        { "id": "seo-merge-20260916-prose-9", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "d3c361e063873351e4a90bd1372d09076bd3792149cb3c9e583a7dcc7d2c9b45" },
+        { "id": "as0917a-industrial-ocado-scope", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "6063818cca0a9e5d84fddddd801ca6a098309f9a1b3baa6fe41cff7f735f743d" },
+        { "id": "mit-industrial-43-prose-20260921", "oldHash": "6063818cca0a9e5d84fddddd801ca6a098309f9a1b3baa6fe41cff7f735f743d", "newHash": "125ef32b92ffe8c9444379f6fc3a00caeaad89e7330c836081d91b33deec33ba" },
+        { "id": "continuation-merge-20260922-prose-data-hardware-industrial-deployment", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "04577b7063dd224b8a7d0ed35fa2527b17870f253c029f55f54c794e72789a49" },
+        { "id": "industrial-perception-zero-credit-20260922-1", "oldHash": "125ef32b92ffe8c9444379f6fc3a00caeaad89e7330c836081d91b33deec33ba", "newHash": "e4d07fe8707f63020473fae7a08d9796f65c26f4b1e2dee0be167486f13ad048" },
+        { "id": "continuation-merge-2026-09-23-prose-article-data-hardware-industrial-deployment", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "76eee12ee99d7fedbc725d7be11966f66df5d2633e96e496011aec9b925dc909" },
+        { "id": "economics-local-20260923-1", "oldHash": "e4d07fe8707f63020473fae7a08d9796f65c26f4b1e2dee0be167486f13ad048", "newHash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422" },
+        { "id": "continuation-merge-2026-09-23-1430-prose-article-data-hardware-industrial-deployment", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "b380f81feab53d71f7f5bdbd369266d90da609c486d0e225282b6ba28bb11de9" },
+        { "id": "industrial-closure-20260923-6", "oldHash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422", "newHash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c" },
+        { "id": "continuation-merge-2026-09-23-1940-prose-article-data-hardware-industrial-deployment", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "1aea5cd4a2064ec784e74a5a804c5338a4c57154b6a95ee7787141fc63172afc" },
+        { "id": "citation-closeout-20260924-kroger-temporal-prose", "oldHash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c", "newHash": "f502a1a2d97d58701321a793dc285deb1e340725c3575155d7c0f38789503528" },
+        { "id": "main-merge-20260924-industrial-prose", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "4448010ee139b50e98f5967aa77eebcb5d842ff39a9dc1d16287a70a359b052c" },
+        { "id": "continuation-merge-2026-09-24-tech-withdrawal-prose-industrial-deployment", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "d8f091fdc26d87b8de37a8736324f0e715ad60759a23271c0ce7168661c6360a" },
+        { "id": "educational-relocation-20260926-prose-industrial-deployment", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "915117232269b0ec152a0ccedd7ac8bdeb0126e40fdf1891118e84b68eabf3a8" },
+        { "id": "motion-data-hardware-humanizer-v3-20260927-prose-industrial-deployment", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "f76ec68e7881c2c2e748561fcebb76d6829909e3827711484fb0f591dc1662fe" }
+      ]
+    },
+    {
+      "id": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-drones",
+      "manifest": "prose",
+      "memberId": "article:adjacent/drones",
+      "oldHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89",
+      "newHash": "57fede5c2c9e935af23c2591d021aa42217c420f53f98733fee97f4e9e1f80ab",
+      "reason": "The drones article rephrases the flight-envelope explanation and adds the reader-paced sense-and-avoid scene beside the independent latency lab. The cited starting range, agility and latency remain source-scoped; the 200 ms example is an authored input.",
+      "ownerApproval": "Owner decisions owner-decision-humanizer-pass-20260925 and owner-decision-motion-language-20260926 authorize the fact-preserving prose pass and frontier/adjacent/home scene rethink; they do not certify sources or release readiness.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-MOTION-025",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-space",
+      "manifest": "prose",
+      "memberId": "article:adjacent/space",
+      "oldHash": "2b5f982ecd36dfad48978f7bef97894a97de9bef6b21cbcb8b472fff52345994",
+      "newHash": "c5ce8014ac91cea831a704ee442d0b22ffe270c7b0a6f139321050c953e6f723",
+      "reason": "The space article removes repeated structural contrasts while preserving NASA communications and autonomy scope, sourced mission claims and every numeric token and citation.",
+      "ownerApproval": "Owner decisions owner-decision-humanizer-pass-20260925 and owner-decision-motion-language-20260926 authorize the fact-preserving prose pass and frontier/adjacent/home scene rethink; they do not certify sources or release readiness.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-MOTION-025",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-surgical",
+      "manifest": "prose",
+      "memberId": "article:adjacent/surgical",
+      "oldHash": "f0daa44d11ccdfb1690809295c3e52b7246af89f4dbc10ec743d4e08061189c1",
+      "newHash": "3a155398701316f5d139abfdf7b9a63f2b93467c847e48100bbef090493caa01",
+      "reason": "The surgical article edits repetitive disclaimers into direct sentences while preserving named-company claims, clinical qualifiers, numeric tokens and citation order.",
+      "ownerApproval": "Owner decisions owner-decision-humanizer-pass-20260925 and owner-decision-motion-language-20260926 authorize the fact-preserving prose pass and frontier/adjacent/home scene rethink; they do not certify sources or release readiness.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-MOTION-025",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-bear-case",
+      "manifest": "prose",
+      "memberId": "article:frontier/bear-case",
+      "oldHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
+      "newHash": "14e01223255123acd903423c97c66fbafb9773d84d1031230616b9e92134c347",
+      "reason": "The bear-case article trims stock contrasts while keeping every skeptic attribution, milestone status, sourced number and citation in sequence.",
+      "ownerApproval": "Owner decisions owner-decision-humanizer-pass-20260925 and owner-decision-motion-language-20260926 authorize the fact-preserving prose pass and frontier/adjacent/home scene rethink; they do not certify sources or release readiness.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-MOTION-025",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "bc-b1-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b2-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b3-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b4-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b5-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b6-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b7-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b8-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b9-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b10-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b11-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b13-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b14-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b15-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b16-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "seo-merge-20260916-prose-12",
+          "oldHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
+          "newHash": "ee25c44e69bb54344a189f648839e85a1ee7556d3bb06124f036739d4bc2aebc"
+        },
+        {
+          "id": "single-leftovers-b12-20260917-1",
+          "oldHash": "ee25c44e69bb54344a189f648839e85a1ee7556d3bb06124f036739d4bc2aebc",
+          "newHash": "ee25c44e69bb54344a189f648839e85a1ee7556d3bb06124f036739d4bc2aebc"
+        },
+        {
+          "id": "round5-closeout-bear-case-prose",
+          "oldHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
+          "newHash": "ee25c44e69bb54344a189f648839e85a1ee7556d3bb06124f036739d4bc2aebc"
+        },
+        {
+          "id": "reader-f20-dates-20260923-3",
+          "oldHash": "ee25c44e69bb54344a189f648839e85a1ee7556d3bb06124f036739d4bc2aebc",
+          "newHash": "1f985fdf9b73c9df01b5ea32141641e7b1c953073fa2a986560661970d22c68f"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1745-prose-article-frontier-bear-case",
+          "oldHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
+          "newHash": "1f985fdf9b73c9df01b5ea32141641e7b1c953073fa2a986560661970d22c68f"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-frontier-bear-case",
+          "oldHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
+          "newHash": "1f985fdf9b73c9df01b5ea32141641e7b1c953073fa2a986560661970d22c68f"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-tech-withdrawal-prose-bear-case",
+          "oldHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
+          "newHash": "cfdf501ea057007bf575b7f2f69a864cb984a64f592eba42f14310c4564faafd"
+        }
+      ]
+    },
+    {
+      "id": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-competing-theses",
+      "manifest": "prose",
+      "memberId": "article:frontier/competing-theses",
+      "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+      "newHash": "ec8ddfe81684a9e34321102dd6b8543ce47c81018def615e68ad16242e7e6193",
+      "reason": "The competing-theses article makes its caveats direct without changing the six comparison rows, falsification signals, numeric tokens or citation order.",
+      "ownerApproval": "Owner decisions owner-decision-humanizer-pass-20260925 and owner-decision-motion-language-20260926 authorize the fact-preserving prose pass and frontier/adjacent/home scene rethink; they do not certify sources or release readiness.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-MOTION-025",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "cosmos-reader-closeout-20260908-1",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "503e83d1c6a6a04167a7a00aaef3abd3b24e09a9fa7e2de4eda6468e65a82adf"
+        },
+        {
+          "id": "brooks-theses-20260913-1",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "a56425425bd904d6c36138657bc0b46a1a2203bc4ed0544de1010258a37aa77f"
+        },
+        {
+          "id": "pi-helix-theses-20260913-1",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "da08b089142a4649e8ce859ab1301328b9ffc3e5ac7d2d1b61d3ccf1c138c8c3"
+        },
+        {
+          "id": "thesis-economics-two-20260914-1",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de"
+        },
+        {
+          "id": "ct-r1-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r2-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r9-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r7-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r8-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r12-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r13-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r14-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r17-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r18-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r20-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r23-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r25-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "seo-merge-20260916-prose-13",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "round5-closeout-competing-theses-prose",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-frontier-competing-theses",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-tech-withdrawal-prose-competing-theses",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "fa3f42df226fbe66e68ddfcf351079068fc6e0684bfb3a6fce4d632585911e23"
+        }
+      ]
+    },
+    {
+      "id": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-dexterity",
+      "manifest": "prose",
+      "memberId": "article:frontier/dexterity",
+      "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+      "newHash": "e4bc7f30b385437286b631fa642bec0c209a4d0352e04530670bfd57697b4878",
+      "reason": "The dexterity article tightens source-specific qualification and adds a labelled contact-feedback schematic beside its retained hand-comparison instrument; numeric tokens and ordered citations remain unchanged.",
+      "ownerApproval": "Owner decisions owner-decision-humanizer-pass-20260925 and owner-decision-motion-language-20260926 authorize the fact-preserving prose pass and frontier/adjacent/home scene rethink; they do not certify sources or release readiness.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-MOTION-025",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-generalization",
+      "manifest": "prose",
+      "memberId": "article:frontier/generalization",
+      "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+      "newHash": "eea78a462a9118f10e46b7f310674ef7a25fb91190f456056c9918582531dc6e",
+      "reason": "The generalization article replaces repetitive disclaimers while preserving the named system comparisons, solved-bar criteria, sourced numbers and citation order.",
+      "ownerApproval": "Owner decisions owner-decision-humanizer-pass-20260925 and owner-decision-motion-language-20260926 authorize the fact-preserving prose pass and frontier/adjacent/home scene rethink; they do not certify sources or release readiness.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-MOTION-025",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-reliability-gap",
+      "manifest": "prose",
+      "memberId": "article:frontier/reliability-gap",
+      "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+      "newHash": "4ed073dd9969b1b13e1f42c2bb98ca36218a32aae0ea5266ed45fa4228a1a026",
+      "reason": "The reliability article adds a fixed-horizon reader-paced probability scene beside its independent calculator and tightens prose. The scene is an illustrative model; sourced rates, numbers and citation order are preserved.",
+      "ownerApproval": "Owner decisions owner-decision-humanizer-pass-20260925 and owner-decision-motion-language-20260926 authorize the fact-preserving prose pass and frontier/adjacent/home scene rethink; they do not certify sources or release readiness.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-MOTION-025",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "go-helix-cross-transfer-20260908-2",
+          "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+          "newHash": "66f7598571453b8f06b1921bdcd1e680d7f73b978964bd5130011ee1088ec298"
+        },
+        {
+          "id": "rg-r1-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r2-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r3-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r4-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r5-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r7-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r8-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r9-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r10-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r11-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r12-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r13-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r14-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r15-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "seo-merge-20260916-prose-14",
+          "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+          "newHash": "6ec59fccefe91eb94a2846cea3866b9adcb101c11d2563a3b082bc42517225f4"
+        },
+        {
+          "id": "single-leftovers-rg6-20260917-1",
+          "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+          "newHash": "1012cebc53f29bf427e082a33890db54ca636a35965e31d7ec06b9e70e41a3dc"
+        },
+        {
+          "id": "round5-closeout-reliability-gap-prose",
+          "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+          "newHash": "1012cebc53f29bf427e082a33890db54ca636a35965e31d7ec06b9e70e41a3dc"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-tech-withdrawal-prose-reliability-gap",
+          "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+          "newHash": "9ce3dbd3ed18119366400384f63fe66f9a4664bc84424c6fef6d8a2b811de0e4"
+        }
+      ]
+    },
+    {
+      "id": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-safety-and-assurance",
+      "manifest": "prose",
+      "memberId": "article:frontier/safety-and-assurance",
+      "oldHash": "97b468d68082e6972bea82c89dd46d6523d852f9c3a10de7073f7e5e1f2d9a55",
+      "newHash": "f3732cfd2319b505b1bcf5f83b5f742b87957a55836e1ce4276f547cff2e87e9",
+      "reason": "The safety article removes repetitive prose and a paper-internal locator; the qualified intrusion lower bound, beam distinctions, approach-speed caveat and authored instrument limits remain. Two historical local-basis proofs keep their exact old article via a separately reviewed finite successor.",
+      "ownerApproval": "Owner decisions owner-decision-humanizer-pass-20260925 and owner-decision-motion-language-20260926 authorize the fact-preserving prose pass and frontier/adjacent/home scene rethink; they do not certify sources or release readiness.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-MOTION-025",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

@@ -188,7 +188,7 @@ describe('Isaac original whole-record bindings', () => {
   it('separates human-seeded Mimic, dexterous embodiment and illustrative CPU costs', () => {
     const sim = readFileSync('content/world-models/generative-sim.mdx', 'utf8');
     expect(sim).toContain('Mimic segments human demonstrations into object-centric subtasks');
-    expect(sim).toContain('not a promise of unlimited successful demonstrations');
+    expect(sim).toContain('Success still depends on the trial counts, environment counts, and planner settings exposed by its SkillGen integration');
     const why = readFileSync('content/rl-sim2real/why-rl-locomotion.mdx', 'utf8');
     expect(why).toContain('KUKA arm with an Allegro hand');
     expect(why).toContain('privileged-state RL teacher');

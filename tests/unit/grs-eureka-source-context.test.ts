@@ -16,8 +16,8 @@ describe('GRS and Eureka retained source scope', () => {
   });
 
   it('distinguishes human feedback from a universal manual-inspection requirement', () => {
-    expect(simulation()).toContain('Task fitness need not capture human intent');
-    expect(simulation()).toContain('this is an interpretability claim, not a requirement');
+    expect(simulation()).toContain('Task fitness may miss human intent');
+    expect(simulation()).toContain('this is an interpretability claim. The paper does not require manual inspection of every reward');
     expect(simulation()).not.toContain("Eureka's own accounting includes the need for human inspection");
   });
 

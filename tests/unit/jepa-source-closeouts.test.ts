@@ -25,7 +25,7 @@ describe('JEPA retained-primary closeouts', () => {
   it('cuts the unsupported value follow-up without deleting its historical registry identity', () => {
     expect(jepa).not.toContain('jepa-value-planning-2026');
     expect(getCitation('jepa-value-planning-2026')).toBeDefined();
-    expect(jepa).toContain('not a demonstrated calibration');
+    expect(jepa).toContain('without demonstrated calibration to a goal-conditioned value function');
     expect(jepa).toContain('interpretability decoder');
     expect(jepa).toContain('Fast-WAM separates video co-training');
   });
@@ -34,7 +34,7 @@ describe('JEPA retained-primary closeouts', () => {
     for (const phrase of [
       '22M', '300M', '77.3%', '76.5', 'best of 20 classifier heads',
       'two temporal crops', 'three spatial crops', '39.7%',
-      '32 frames at 8 fps', 'one second', 'not robot control',
+      '32 frames at 8 fps', 'one second', 'does not measure robot control',
     ]) expect(jepa, phrase).toContain(phrase);
     expect(jepa).toContain('value=">1M"');
     expect(taxonomy).toContain('value=">1M"');
@@ -45,17 +45,17 @@ describe('JEPA retained-primary closeouts', () => {
       'state changes', 'filtered left-camera', 'over a million hours',
     ]) expect(taxonomy, phrase).toContain(phrase);
     for (const phrase of [
-      'not robot state information', 'manually selected camera',
+      'uses end-effector position, orientation, and gripper state', 'manually selected camera',
       '800 candidate samples', 'ten refinement iterations', 'planning horizon one',
-      'supplied subgoals', 'not evidence of arbitrary new-embodiment transfer',
+      'supplied subgoals', 'little about arbitrary new-embodiment transfer',
     ]) expect(jepa, phrase).toContain(phrase);
   });
 
   it('identifies the toy geometry instead of claiming measured latent control', () => {
-    expect(jepa).toContain('not a projection of learned V-JEPA 2 features');
+    expect(jepa).toContain('neither projects learned V-JEPA 2 features');
     expect(jepa).toContain('guaranteed by construction');
     expect(jepa).toContain('Euclidean distance');
-    expect(jepa).toContain('not a measured robot result');
+    expect(jepa).toContain('nor measures a robot result');
   });
 
   it('does not erase duplicate mounted citation obligations or permit a wrong source', () => {

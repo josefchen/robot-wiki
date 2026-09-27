@@ -86,7 +86,7 @@ describe('Brooks dexterity original4 (eWeek report) correction', () => {
   test('article span reports the eWeek text as reproduced by Brooks, not Tesla specifications', () => {
     expect(text).toContain('Brooks reproduces an eWeek report that describes Tesla as moving Optimus training toward a "vision-only approach" instead of motion capture suits and teleoperation.');
     expect(text).toContain('record tasks such as folding a t-shirt or picking up an object, and use the videos to train Optimus to mimic those actions <Cite id="brooks-dexterity-2025" />.');
-    expect(text).toContain('This is the report as reproduced in Brooks\'s essay, not a verified account of Tesla\'s complete training pipeline or evidence of tested dexterity.');
+    expect(text).toContain('This is the report as reproduced in Brooks\'s essay, without verifying Tesla\'s complete training pipeline or tested dexterity.');
     expect(text).not.toContain('Tesla has shifted Optimus training to a vision-only approach');
   });
 });
