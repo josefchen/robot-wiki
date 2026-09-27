@@ -58,7 +58,7 @@ describe('industrial residual finite economics', () => {
     expect(article).toContain('<DeploymentEconomics');
     expect(article).toContain('lei-takt-time-definition');
     expect(article).toContain('lei-cycle-time-definition');
-    expect(article).toContain('not a measured intervention rate');
+    expect(article).toContain('no measured intervention rate behind it');
   });
 });
 

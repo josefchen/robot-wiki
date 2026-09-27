@@ -77,7 +77,7 @@ describe('industrial32 and perception2/19: zero-completion truth repairs', () =>
     expect(industrial).toContain('NASA distinguishes inherent availability');
     expect(industrial).toContain('The inherent measure excludes administrative and logistics delays and preventive maintenance');
     expect(industrial).toContain('the operational measure includes corrective and preventive maintenance');
-    expect(industrial).toContain(`time in an operable state, not necessarily time spent producing <Cite id="${nasaId}" />`);
+    expect(industrial).toContain(`time in an operable state, which need not be time spent producing <Cite id="${nasaId}" />`);
     expect(industrial).not.toContain('MTBF over MTBF plus MTTR');
     expect(industrial).not.toContain('a cell that fails weekly buries any per-pick success rate');
   });
@@ -95,7 +95,7 @@ describe('industrial32 and perception2/19: zero-completion truth repairs', () =>
   it('labels the calculator capital-only without changing either implementation file', () => {
     expect(industrial).toContain('capital cost per modeled pick: robot price times the integration multiple');
     expect(industrial).toContain('It does not include running costs.');
-    expect(industrial).toContain('not a measured deployment result');
+    expect(industrial).toContain('does not report a measured deployment result');
     expect(industrial).not.toContain("capital plus running cost over its lifetime of good picks");
     expect(hash(read('lib/deployment-economics.ts')))
       .toBe('ddf25da06dd0a3b26230ea183aaccc9a2574679612fca2292e8cd8437e37113e');

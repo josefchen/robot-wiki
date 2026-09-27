@@ -44,10 +44,23 @@ it('retains all four exact historical articles and independently pins active dis
     expect(rlMotionContinuityDigest(input)).toBe(review.inputDigest);
   }
   const before = readFileSync(join(root, 'audit/evidence/motion-rl-sim2real-20260927/dependency-review-before.json'));
-  expect(before).toEqual(readFileSync(join(root, 'audit/evidence/industrial-release-20260924/dependency-review.json')));
+  expect(before).toEqual(readFileSync(join(root, 'audit/evidence/motion-world-models-20260927/dependency-review-before.json')));
   const checker = JSON.parse(readFileSync(join(root,
     'audit/evidence/motion-rl-sim2real-20260927/checker-transition.json'), 'utf8'));
-  for (const artifact of [checker.before, checker.after]) {
+  const worldChecker = JSON.parse(readFileSync(join(root,
+    'audit/evidence/motion-world-models-20260927/checker-transition.json'), 'utf8'));
+  const dataHardwareChecker = JSON.parse(readFileSync(join(root,
+    'audit/evidence/motion-data-hardware-20260927/checker-transition.json'), 'utf8'));
+  const frontierChecker = JSON.parse(readFileSync(join(root,
+    'audit/evidence/motion-frontier-adjacent-home-20260927/checker-transition.json'), 'utf8'));
+  expect(checker.after.bytes).toBe(worldChecker.before.bytes);
+  expect(checker.after.sha256).toBe(worldChecker.before.sha256);
+  expect(worldChecker.after.bytes).toBe(dataHardwareChecker.before.bytes);
+  expect(worldChecker.after.sha256).toBe(dataHardwareChecker.before.sha256);
+  expect(dataHardwareChecker.after.bytes).toBe(frontierChecker.before.bytes);
+  expect(dataHardwareChecker.after.sha256).toBe(frontierChecker.before.sha256);
+  for (const artifact of [checker.before, worldChecker.before, dataHardwareChecker.before,
+    frontierChecker.before, frontierChecker.after]) {
     const bytes = readFileSync(join(root, artifact.path));
     expect(bytes.length).toBe(artifact.bytes);
     expect(createHash('sha256').update(bytes).digest('hex')).toBe(artifact.sha256);

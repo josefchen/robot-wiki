@@ -1,17 +1,17 @@
 {
   "version": 1,
-  "fingerprint": "bdbad43236a98fd53d930b18e464d4fa72ad3ea4f722ec54c6999388f4325335",
+  "fingerprint": "f0a0114128564551c0efb0809a379172d45405dd67a9e877b1135a14bb70c065",
   "viewport": "1440x900",
   "surfaces": [
     {
       "route": "/",
-      "visibleTextLength": 5884,
+      "visibleTextLength": 6373,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Robot Wiki",
       "h1FontFamilyHead": "tektur",
       "h1SizePx": 92.16,
-      "monoMetadataCount": 43,
+      "monoMetadataCount": 47,
       "rowLists": [
         {
           "key": "home-domain-index",

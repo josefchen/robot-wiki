@@ -149,7 +149,7 @@ describe('Holson keyring original28 correction', () => {
   test('applies both atomic article endpoints together', () => {
     expect(text).toContain('a keyring with at least two keys and a keychain is dropped into the robot\'s waiting palm or gripper');
     expect(text).toContain('Without putting the keys down, the robot must align, insert, and turn the correct key in a lock');
-    expect(text).toContain('These are challenge rules, not a report that a robot completed the task.');
+    expect(text).toContain('The challenge rules do not report a completed robot run.');
     expect(text).toContain('Each is a task or a task family with its own training run.');
     expect(text).not.toContain('the key-in-lock gold medal sat unclaimed');
     expect(text).not.toContain('the robot is handed a keyring and must align and turn the correct key without putting it down');

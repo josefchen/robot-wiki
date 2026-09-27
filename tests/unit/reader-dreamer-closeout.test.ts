@@ -90,13 +90,13 @@ describe('bounded Dreamer reader closeout, zero original completions', () => {
       expect(text).toContain('The 2024 revision and 2025 Nature article also use T = 16');
       expect(text).toContain('<Cite id="dreamerv3-2023" />');
     }
-    expect(latent).toContain('not a published reliable-horizon range');
+    expect(latent).toContain('no paper measures that as a reliable-horizon range');
     expect(latent).toContain('value="H=15 / T=16" note="2023 preprint: table / actor-critic"');
-    expect(horizon).toContain('DayDreamer v1 likewise gives two labels');
-    expect(horizon).toContain('planning horizon H = 16, while Appendix D lists imagination horizon H = 15');
+    expect(horizon).toContain("DayDreamer's first manuscript likewise gives two labels");
+    expect(horizon).toContain('planning horizon H = 16, while its appendix lists imagination horizon H = 15');
     expect(horizon).toContain('<Cite id="daydreamer-2022" />');
-    expect(horizon).toContain('In TD-MPC2 v2, Table 8 lists planning horizon H = 3');
-    expect(horizon).toContain('step counts, not control frequencies or universal bounds on reliable prediction');
+    expect(horizon).toContain('The second TD-MPC2 manuscript lists planning horizon H = 3');
+    expect(horizon).toContain('neither control frequencies nor universal bounds on reliable prediction');
     expect(horizon).not.toMatch(/off.by.one|counting convention|equivalent horizons/i);
   });
 
@@ -146,7 +146,7 @@ describe('bounded Dreamer reader closeout, zero original completions', () => {
     const latentHeading = "## Pick the model's role before its architecture";
     const releasedLatent = matter(committedSource(READER_RELEASE_BASE, paths[0])).content;
     expect(releasedLatent.split(latentHeading)).toHaveLength(2);
-    expect(matter(read(paths[0])).content.trim()).toBe(
+    expect(matter(committedSource('68fd2b8', paths[0])).content.trim()).toBe(
       `${matter(atReader(paths[0])).content.trim()}\n\n${latentHeading}${releasedLatent.split(latentHeading)[1]}`.trim(),
     );
     const taxonomyHeading = '## Three tests before believing a world-model claim';
@@ -158,7 +158,7 @@ describe('bounded Dreamer reader closeout, zero original completions', () => {
     // operating cue sentence to the panel paragraph; it is the only text
     // this closeout preserves beyond the released reconstruction.
     const taxonomyCue = ' Try each group in turn and the panel swaps what it predicts; the JEPA group carries an explicit no-decoder marker.';
-    expect(matter(read(paths[1])).content).toBe(matter(atReader(paths[1])).content.replace(
+    expect(matter(committedSource('68fd2b8', paths[1])).content).toBe(matter(atReader(paths[1])).content.replace(
       "The six example groups below are this article's selection",
       "The six example groups below are this article's authored selection",
     ).replace(

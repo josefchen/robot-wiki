@@ -104,10 +104,10 @@ describe('Figure Go-Big dexterity original12 correction', () => {
 
   test('article span narrows the result to navigation and cuts the coupled full-scale lead', () => {
     expect(text).not.toContain('Two of the best-funded humanoid programs are running that experiment at full scale.');
-    expect(text).toContain("Figure's September 2025 Project Go-Big announcement describes a pretraining data-collection initiative rather than a general-dexterity result");
+    expect(text).toContain("Figure's September 2025 Project Go-Big announcement describes a pretraining data-collection initiative; it reports no general-dexterity result");
     expect(text).toContain('its initial human-video result is navigation, with Helix trained on 100% egocentric human video, no robot demonstrations for that approach, mapping images and language to low-level SE(2) velocity commands');
     expect(text).toContain("a transfer Figure calls zero-shot and, \"to our knowledge\", a first");
-    expect(text).toContain("the announcement's more than 100,000 residential units describe Brookfield's portfolio, not homes or trajectories collected");
+    expect(text).toContain("the announcement's more than 100,000 residential units describe Brookfield's portfolio, without stating that those units were homes or trajectories collected");
     expect(text).not.toContain('trains its Helix model on 100% egocentric human video with no robot demonstrations at all');
   });
 
@@ -192,7 +192,7 @@ describe('Helix 02 dexterity original25 correction', () => {
   });
 
   test('article span attributes out-of-reach to Figure and titles the syringe task', () => {
-    expect(text).toContain("Figure says Helix 02, using Figure 03's fingertip sensors and palm cameras, performs four tasks it describes as manipulation previously out of reach for its stack, in videos it calls fully autonomous rather than teleoperated");
+    expect(text).toContain("Figure says Helix 02, using Figure 03's fingertip sensors and palm cameras, performs four tasks it describes as manipulation previously out of reach for its stack, in videos it calls fully autonomous and without teleoperation");
     expect(text).toContain('a task titled "Push exactly 5 ml from a syringe"');
     expect(text).toContain('The announcement publishes no task-level success rates, volume calibration, or sensor-ablation results');
     expect(text).not.toContain('dispensing exactly 5 ml from a syringe');

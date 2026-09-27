@@ -8,18 +8,18 @@ describe('Generative simulation retained-source corrections', () => {
   it('keeps RoboCasa v1 inventory separate from the held 365 figures', () => {
     expect(prose).toContain('2,509 objects and 153 categories');
     expect(prose).toContain('25 atomic tasks and 75 composite tasks');
-    expect(prose).toContain('not RoboCasa365 <Cite id="robocasa-2024" />');
+    expect(prose).toContain('RoboCasa365 reports a separate, larger set <Cite id="robocasa-2024" />');
   });
 
   it('binds generated-data scaling to the task, robot and evaluation protocol', () => {
     for (const value of [
       'Franka Panda on an Omron mobile base',
       '100, 300, or 3,000 generated demonstrations per task',
-      '24 atomic manipulation tasks; navigation is excluded',
+      '24 atomic manipulation tasks from the larger 100-task suite; navigation is excluded',
       '50 trials per task across five fixed kitchen scenes',
       '26.3%, 35.0%, and 47.6%',
       'Individual tasks do not improve monotonically',
-      'Section VIII-C refers broadly to datasets over 25 tasks',
+      'The paper also broadly describes datasets over 25 tasks',
     ]) expect(prose).toContain(value);
   });
 
@@ -33,7 +33,7 @@ describe('Generative simulation retained-source corrections', () => {
   it('does not turn Holodeck navigation and soft constraints into physical guarantees', () => {
     expect(prose).toContain('soft relational constraints');
     expect(prose).toContain('pretrained on ProcTHOR-10K');
-    expect(prose).toContain('not a test of physically valid manipulation');
+    expect(prose).toContain('does not test physically valid manipulation');
     expect(prose).not.toContain('without any human-constructed data');
   });
 

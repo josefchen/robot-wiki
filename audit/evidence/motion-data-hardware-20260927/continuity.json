@@ -1,0 +1,115 @@
+{
+  "schemaVersion": "motion-data-hardware-continuity-v1",
+  "reviewedBy": "Data-hardware motion integrator, not independent acceptance",
+  "observedAt": "2026-09-27T16:21:09Z",
+  "rationale": "The previous release review remains byte-identical. Four pre-motion endpoints are retained as historical snapshots; the active articles are separate exact successors. Citation identities and article metadata are unchanged. OXE and DROID rates remain authored, the episode equation remains conditional and illustrative, the industrial calculator remains an authored model, and the SEC backlog is not conflated with earned revenue. The browser test changes a locator and one checked sentence but does not retroactively rerun the old Playwright receipts. Every old source, proof, correction child, and run dependency remains necessary.",
+  "priorReviewSha256": "13a1ddc93ea7a585bef3b546a2207666e9362c1aaccbf1281ec3e175d7b813d4",
+  "entries": [
+    {
+      "before": {
+        "path": "content/data-hardware/data-bottleneck.mdx",
+        "bytes": 11947,
+        "sha256": "d4c1dceb0ae03fc356056723f6f781d0b1c57f279091dc65a65ae1488454a5cf"
+      },
+      "snapshot": {
+        "path": "audit/evidence/motion-data-hardware-20260927/data-bottleneck-before.mdx",
+        "bytes": 11947,
+        "sha256": "d4c1dceb0ae03fc356056723f6f781d0b1c57f279091dc65a65ae1488454a5cf"
+      },
+      "current": {
+        "path": "content/data-hardware/data-bottleneck.mdx",
+        "bytes": 12009,
+        "sha256": "c87047808f50813c39b006870e3d66127dedcd65bb660f37a5908911be30ff6d"
+      },
+      "requiredPresent": [
+        "<FarmThroughput className=\"my-6\" />",
+        "The 10,000-hour and 1,000,000-hour targets are hypothetical too; neither is OXE duration or a measured frontier requirement.",
+        "Both the rate and target are authored hypothetical inputs. Neither measures DROID productivity or OXE duration.",
+        "The reported collector count and elapsed collection period do not establish each robot’s annual working exposure."
+      ],
+      "requiredAbsent": [
+        "Both the rate and target are authored hypothetical inputs, not measurements of DROID productivity or OXE duration."
+      ]
+    },
+    {
+      "before": {
+        "path": "content/data-hardware/evaluation-crisis.mdx",
+        "bytes": 17449,
+        "sha256": "7f30bc80d8f82bf2b596f7e2e916abe9663b572933454402571cad85255d8ac8"
+      },
+      "snapshot": {
+        "path": "audit/evidence/motion-data-hardware-20260927/evaluation-crisis-before.mdx",
+        "bytes": 17449,
+        "sha256": "7f30bc80d8f82bf2b596f7e2e916abe9663b572933454402571cad85255d8ac8"
+      },
+      "current": {
+        "path": "content/data-hardware/evaluation-crisis.mdx",
+        "bytes": 17487,
+        "sha256": "de0c03cf91532b2145f60f3ecab1ebe23a02cfd75b484432ff93f2261b2df9d4"
+      },
+      "requiredPresent": [
+        "<EpisodeSurvival className=\"my-6\" />",
+        "the same probability p of success conditional on all earlier decisions succeeding",
+        "These are methods for reducing the gaps, not guarantees that they are closed",
+        "These model-dependent derivations do not infer per-step reliability from real benchmark results."
+      ],
+      "requiredAbsent": [
+        "Both methods reduce gaps without guaranteeing that they are closed"
+      ]
+    },
+    {
+      "before": {
+        "path": "content/data-hardware/industrial-deployment.mdx",
+        "bytes": 19372,
+        "sha256": "aa5785f903044c8bd12f0e3e4034401381e2a0f945e9812c2790fa0a5cef9016"
+      },
+      "snapshot": {
+        "path": "audit/evidence/motion-data-hardware-20260927/industrial-deployment-before.mdx",
+        "bytes": 19372,
+        "sha256": "aa5785f903044c8bd12f0e3e4034401381e2a0f945e9812c2790fa0a5cef9016"
+      },
+      "current": {
+        "path": "content/data-hardware/industrial-deployment.mdx",
+        "bytes": 19645,
+        "sha256": "945af0fafede79706cccb8c644d118051e5de7015c8ce290d170ac4126f33457"
+      },
+      "requiredPresent": [
+        "<JamOverhead className=\"my-6\" />",
+        "Backlog means unperformed obligations under existing contracts, not revenue already earned.",
+        "42 regional distribution centres; that is contractual scope, without an operating-site count",
+        "This calculator is an authored worked example with no measured deployment or financial forecast behind it.",
+        "The coverage figure describes item types; pick success and independently validated reliability remain unknown",
+        "Kroger said it would close three robotic warehouses",
+        "Ocado said it expected compensation of around £190 million"
+      ],
+      "requiredAbsent": [
+        "Backlog is the unperformed part of existing contracts; revenue has already been earned."
+      ]
+    },
+    {
+      "before": {
+        "path": "tests/e2e/industrial-deployment.spec.ts",
+        "bytes": 19936,
+        "sha256": "68507097ee09a5598fc3eff5b4da29d9dd61b3620a00a35a52aa9140e282aecb"
+      },
+      "snapshot": {
+        "path": "audit/evidence/motion-data-hardware-20260927/industrial-deployment-spec-before.ts.txt",
+        "bytes": 19936,
+        "sha256": "68507097ee09a5598fc3eff5b4da29d9dd61b3620a00a35a52aa9140e282aecb"
+      },
+      "current": {
+        "path": "tests/e2e/industrial-deployment.spec.ts",
+        "bytes": 19972,
+        "sha256": "8e6864787ba4df19332ce4c08d08c475e68b7999f701f367b9b0c607bd05720d"
+      },
+      "requiredPresent": [
+        "[data-brand-module-signature=\"instrument-frame\"]:has([data-testid=\"payback-months\"])",
+        "no measured intervention rate behind it",
+        "no published success rate"
+      ],
+      "requiredAbsent": [
+        "div.prose > div.rounded-md:has([data-testid=\"payback-months\"])"
+      ]
+    }
+  ]
+}

@@ -191,9 +191,26 @@ const motionRlReconciliations = [
   'humanoid-wbc', 'parallel-sim-rl', 'reward-design-mpc',
   'sim2real-transfer', 'why-rl-locomotion',
 ].map(slug => `motion-rl-sim2real-20260927-reconcile-${slug}`);
+const motionWorldModelAppends = [
+  'evaluation', 'generative-sim', 'generative-video', 'jepa',
+  'latent-dynamics', 'model-based-robot-learning', 'taxonomy',
+  'world-models-vs-simulators',
+].map(slug => `motion-world-models-humanizer-v3-20260927-prose-${slug}`);
+const motionDataHardwareAppends = [
+  ...['data-bottleneck', 'datasets', 'evaluation-crisis', 'hardware-taxonomy',
+    'industrial-deployment', 'robot-learning-stack', 'teleop-rigs']
+    .map(slug => `motion-data-hardware-humanizer-v3-20260927-prose-${slug}`),
+  'motion-data-hardware-source-qualification-20260927-prose-evaluation-crisis',
+  'motion-data-hardware-source-qualification-20260927-prose-industrial-deployment',
+];
+const motionFrontierAdjacentHomeAppends = [
+  ...['drones', 'space', 'surgical', 'bear-case', 'competing-theses',
+    'dexterity', 'generalization', 'reliability-gap', 'safety-and-assurance']
+    .map(slug => `motion-frontier-adjacent-home-humanizer-v3-20260927-prose-${slug}`),
+];
 
 describe('two-parent exact approval reconciliation', () => {
-  it('retains every main approval in order and appends exactly seven local-only approvals', () => {
+  it('retains every main approval and the nine scoped frontier/adjacent successors in order', () => {
     const mainIds = new Set(main.map(x => x.id));
     const localOnly = local.filter(x => !mainIds.has(x.id));
     // The 20260925 manipulation humanizer pass and EXPO-FT intake appended
@@ -207,11 +224,11 @@ describe('two-parent exact approval reconciliation', () => {
     // The subsequent domain passes add nine classical article endpoints,
     // two manipulation mounts, eight RL article endpoints and five RL
     // reconciliation edges, all named below in ledger order.
-    expect([main.length, local.length, localOnly.length, merged.length]).toEqual([1558, 1104, 7, 1722]);
+    expect([main.length, local.length, localOnly.length, merged.length]).toEqual([1558, 1104, 7, 1748]);
     expect(merged.slice(0, main.length)).toEqual(main);
     expect(merged.slice(main.length, main.length + localOnly.length)).toEqual(localOnly);
     expect(merged.slice(main.length + localOnly.length).map(x => x.id))
-      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations]);
+      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends]);
     expect(new Set(merged.map(x => x.id)).size).toBe(merged.length);
     expect(validateApprovedDeltas(merged)).toEqual([]);
   });
@@ -263,7 +280,8 @@ describe('two-parent exact approval reconciliation', () => {
     }
     expect(merged.filter(x => x.manifest === 'prose'
       && x.memberId === 'article:data-hardware/industrial-deployment').at(-1)?.id)
-      .toBe('educational-relocation-20260926-prose-industrial-deployment');
+      .toBe('motion-data-hardware-source-qualification-20260927-prose-industrial-deployment');
+    expect(merged.some(x => x.id === 'educational-relocation-20260926-prose-industrial-deployment')).toBe(true);
     // citation-rendering was later re-anchored by the 20260925 EXPO-FT
     // intake; the merge entry stays the last LOCAL merge for the member.
     expect(merged.filter(x => x.manifest === 'article-metadata'
@@ -275,6 +293,6 @@ describe('two-parent exact approval reconciliation', () => {
       .toBe('motion-classical-humanizer-v3-20260927-prose-calibration');
     expect(merged.filter(x => x.manifest === 'prose'
       && x.memberId === 'article:world-models/world-models-vs-simulators').at(-1)?.id)
-      .toBe('continuation-merge-2026-09-24-world-rl-import-prose-world-models-vs-simulators');
+      .toBe('motion-world-models-humanizer-v3-20260927-prose-world-models-vs-simulators');
   });
 });

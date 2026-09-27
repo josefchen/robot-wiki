@@ -198,7 +198,7 @@ test.describe('data-hardware teleop-rigs module', () => {
   test('highlight buttons and sort headers are keyboard operable', async ({
     page,
   }) => {
-    await page.goto(ROUTE);
+    await page.goto(ROUTE, { waitUntil: 'networkidle' });
     const throughput = page.getByRole('button', {
       name: 'Throughput',
       exact: true,

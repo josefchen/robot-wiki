@@ -296,12 +296,19 @@ describe('industrial deployment originals 51 and 43: bounded MIT closeout', () =
     expect(proseHash(laneArticle)).toBe(newProseHash);
     expect(proseHash(laneArticle.replace(newSpan, oldSpan))).toBe(oldProseHash);
     // Integrated line: the merged member is re-anchored from its seal.
-    expect(
-      headReanchorFor(approvals, 'prose', 'article:data-hardware/industrial-deployment'),
-    ).toMatchObject({
-      oldHash: sealedHash('prose', 'article:data-hardware/industrial-deployment'),
-      newHash: proseHash(article),
-    });
+    const preMotion = headReanchorFor(approvals, 'prose', 'article:data-hardware/industrial-deployment')!;
+    expect(preMotion.oldHash).toBe(sealedHash('prose', 'article:data-hardware/industrial-deployment'));
+    const motion = approvals.find(delta =>
+      delta.id === 'motion-data-hardware-humanizer-v3-20260927-prose-industrial-deployment')!;
+    const qualification = approvals.find(delta =>
+      delta.id === 'motion-data-hardware-source-qualification-20260927-prose-industrial-deployment')!;
+    expect(motion.oldHash).toBe(preMotion.oldHash);
+    expect(motion.reconciles?.some(edge => edge.id === preMotion.id &&
+      edge.newHash === preMotion.newHash)).toBe(true);
+    expect(qualification.oldHash).toBe(preMotion.oldHash);
+    expect(qualification.reconciles?.some(edge => edge.id === motion.id &&
+      edge.newHash === motion.newHash)).toBe(true);
+    expect(qualification.newHash).toBe(proseHash(article));
     expect(laneArticle.match(/<Cite\s/g)).toHaveLength(32);
     expect(showAt('ac65cf4', articlePath).match(/<Cite\s/g)).toHaveLength(33);
     expect(showAt('0cbdda1', articlePath).match(/<Cite\s/g)).toHaveLength(34);

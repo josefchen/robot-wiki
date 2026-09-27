@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "62e1d9582465082657d3e8f2bff84c9656103b8be68854889cf5dc04616f91ca",
+  "fingerprint": "f0de3c5346bedeebaad8be21e70608a274e813bf435468006b2410b5757f4e14",
   "route": "/",
   "viewport": "1440x900",
   "featured": {
@@ -70,7 +70,7 @@
       "Reset"
     ],
     "revealedByControls": [],
-    "claimText": "A 95% per-step success rate sounds strong. Compounded over a 30-step episode it is not. Move the sliders to see how small per-step errors erode end-to-end reliability; the frontier essays develop the argument.",
+    "claimText": "A 95% per-step success rate sounds strong. Compounded over a 30-step episode it is not. Move the sliders to see how small per-step errors erode end-to-end reliability, then step through a fixed-horizon example. The frontier essays develop the argument.",
     "currentStateText": "PER-STEP SUCCESS 95.0%",
     "graphicTopPx": 1134.66,
     "graphicHeightPx": 376.19,
@@ -3145,7 +3145,7 @@
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "failures": [],
-      "measuredMembers": 50
+      "measuredMembers": 51
     },
     {
       "id": "profile:home-forced-colours",
@@ -3167,7 +3167,7 @@
       "documentScrollWidthPx": 320,
       "documentClientWidthPx": 320,
       "failures": [],
-      "measuredMembers": 311
+      "measuredMembers": 349
     },
     {
       "id": "profile:home-zoom-200-equivalent",
@@ -3178,7 +3178,7 @@
       "documentScrollWidthPx": 720,
       "documentClientWidthPx": 720,
       "failures": [],
-      "measuredMembers": 311
+      "measuredMembers": 349
     },
     {
       "id": "profile:home-text-200",
@@ -3189,7 +3189,7 @@
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "failures": [],
-      "measuredMembers": 170
+      "measuredMembers": 192
     }
   ],
   "progressCounters": [
@@ -3357,9 +3357,14 @@
         "text": "EPISODE LENGTH",
         "fontSizePx": 11,
         "family": "IBM Plex Mono"
+      },
+      {
+        "text": "MOTION SCENE",
+        "fontSizePx": 10,
+        "family": "IBM Plex Mono"
       }
     ],
-    "borderedBoxCount": 4,
+    "borderedBoxCount": 6,
     "chartDisclosureSummary": {
       "text": "Sampled episode success by episode length",
       "textTransform": "none",

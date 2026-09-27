@@ -4,6 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { CITATIONS, citationLabel } from '../../data/citations';
 import {
   BASELINE_KINDS,
+  approvedDeltaPath,
   buildManifest,
   compareBaseline,
   sha256,
@@ -85,8 +86,21 @@ describe('content integration of 2026-09-23', () => {
         disposition: 'permanent',
       });
       expect(entry).toEqual(ledgerAt(CONTINUATION_RELEASE_BASE).find(prior => prior.id === entry.id));
-      expect(headReanchorFor(approvals, entry.manifest, entry.memberId)?.newHash)
-        .toBe(currentHash(entry.manifest, entry.memberId));
+      const head = headReanchorFor(approvals, entry.manifest, entry.memberId)!;
+      if (entry.manifest === 'prose' && entry.memberId.startsWith('article:world-models/')) {
+        // A later, exact world-model humanizer edge moves the live prose.
+        // The imported-article endpoint remains the preceding historical
+        // approval, not an approval for the rewritten current body.
+        const next = approvals.find(a => a.id ===
+          `motion-world-models-humanizer-v3-20260927-prose-${entry.memberId.slice('article:world-models/'.length)}`);
+        expect(approvedDeltaPath(approvals.filter(a =>
+          a.manifest === entry.manifest && a.memberId === entry.memberId &&
+          a.id !== next?.id), sealedHash(entry.manifest, entry.memberId), next!.oldHash).status)
+          .toBe('approved');
+        expect(next?.newHash).toBe(currentHash(entry.manifest, entry.memberId));
+      } else {
+        expect(head.newHash).toBe(currentHash(entry.manifest, entry.memberId));
+      }
       expect(entry.ownerApproval).toMatch(/^Owner-delegated approval: Josef Chen delegated release decisions to the delegated release reviewer on 2026-09-22\/23 \('you think and decide all'\); approved after primary-source verification of \S/);
     }
     expect(headReanchorFor(approvals, 'article-metadata', 'citation-rendering:label-and-meta')?.id)
@@ -210,7 +224,7 @@ describe('content integration of 2026-09-23', () => {
     expect(table).toContain("'~10x per latent step; ~10^5x per planned action (800 samples x 10 refinements)'");
     expect(table).not.toContain('10^2 to 10^3x per planned action');
     expect(read('content/world-models/world-models-vs-simulators.mdx')).toContain(
-      'the FLOP row is a derived order-of-magnitude estimate, not a measurement',
+      'the FLOP row is a derived order-of-magnitude estimate rather than a measurement',
     );
   });
 });

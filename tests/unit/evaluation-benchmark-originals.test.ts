@@ -45,7 +45,7 @@ describe('evaluation benchmark originals 8,10,11,12,13', () => {
   expect(prose).not.toContain('which is 21.5%');
  });
  it('distinguishes benchmark populations, protocols and bounded conclusions', () => {
-  for (const text of ['90 short-horizon','50 human-expert','not guarantees that they are closed','approximately 1,500','not an established 1,500 one-to-one','Mean Maximum Rank Violation','612','4,284','model inference remains with the submitting user']) expect(prose.includes(text), text).toBe(true);
+  for (const text of ['90 short-horizon','50 human-expert','methods for reducing the gaps, not guarantees that they are closed','approximately 1,500','does not establish 1,500 one-to-one','Mean Maximum Rank Violation','612','4,284','model inference remains with the submitting user']) expect(prose.includes(text), text).toBe(true);
   expect(prose.includes('is a standard testbed for vision-language-action models')).toBe(false);
   expect(prose.includes('closes the second by calibrating')).toBe(false);
  });

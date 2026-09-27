@@ -5134,3 +5134,25 @@ interactive, proof, original row, `lastReviewed` or protected owner file
 changed. This is a local scoped checkpoint, not release readiness; do not
 publish while the content gate is red. No browser/build/OG corpus or
 independent acceptance was run.
+
+### Data-hardware motion continuation, 2026-09-27
+
+The earlier checkpoints above are historical, not current acceptance reports.
+After the reader-paced motion scenes and prose pass, eleven exact historical
+article/test bindings needed a finite successor review. Their original four
+cells, primary-source passages, proof inputs/outputs, receipts and old browser
+captures remain unchanged. The active data-bottleneck, evaluation and
+industrial articles have separately reviewed whole-file endpoints; the
+industrial withdrawal and checker revision still verify their earlier exact
+checkpoints. The active Symbotic paragraph keeps backlog distinct from earned
+revenue, and SIMPLER's gap-reduction techniques are methods rather than
+guaranteed general outcomes. No new source retrieval or independent audit
+acceptance is claimed.
+
+`check:audit-coverage -- --write-summaries` now reports **136/136** complete
+data-hardware originals and **1080/1080** complete originals across the 57
+published articles, with **448/448** citations inventoried. These are native
+evidence-structure outcomes, not certification that every source claim or
+reader interaction has independently passed the remaining gates. Exact
+current-versus-historical review inputs are in
+`audit/evidence/motion-data-hardware-20260927/`.

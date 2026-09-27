@@ -57,6 +57,42 @@ const SCENES: Record<string, SceneTarget> = {
     url: '/rl-sim2real/legged-locomotion',
     beats: 4,
   },
+  'action-fork': {
+    url: '/world-models/generative-video',
+    beats: 4,
+  },
+  'latent-drift': {
+    url: '/world-models/latent-dynamics',
+    beats: 4,
+  },
+  'push-layers': {
+    url: '/world-models/generative-sim',
+    beats: 4,
+  },
+  'farm-throughput': {
+    url: '/data-hardware/data-bottleneck',
+    beats: 4,
+  },
+  'episode-survival': {
+    url: '/data-hardware/evaluation-crisis',
+    beats: 4,
+  },
+  'jam-overhead': {
+    url: '/data-hardware/industrial-deployment',
+    beats: 4,
+  },
+  'reliability-threshold': {
+    url: '/frontier/reliability-gap',
+    beats: 4,
+  },
+  'tactile-slip': {
+    url: '/frontier/dexterity',
+    beats: 4,
+  },
+  'sense-avoid': {
+    url: '/adjacent/drones',
+    beats: 4,
+  },
 };
 
 const VIEWPORTS = [

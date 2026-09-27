@@ -10,6 +10,10 @@ import matter from 'gray-matter';
 import { buildManifest, sha256, stableJson, type JsonValue } from './brand-v2-baseline.ts';
 import { originalClaimDigest, parseLedger, validateExternalPairs, type ClaimEvidence } from './audit-ledger.ts';
 import { currentRlMotionArticle, loadRlMotionContinuity } from './audit-rl-motion-continuity.ts';
+import { currentFrontierSafetyArticle, reviewedFrontierChecker } from './audit-frontier-motion-continuity.ts';
+import {
+  currentDataHardwareMotionArtifact,
+} from './audit-data-hardware-motion-continuity.ts';
 import * as eureka from './eureka.ts';
 import * as reward from './reward-shaping.ts';
 import * as sim from './sim2real.ts';
@@ -777,15 +781,30 @@ function reviewedRlCheckerRevision(root: string, current: Buffer): boolean {
       reviewedBy: string; rationale: string; observedAt: string;
     };
   const before = readBoundedLocalFile(root, record.before.path);
+  const next = JSON.parse(readBoundedLocalFile(root,
+    'audit/evidence/motion-world-models-20260927/checker-transition.json').toString()) as {
+      schemaVersion: string; before: LocalArtifact; after: LocalArtifact;
+      reviewedBy: string; rationale: string; observedAt: string;
+    };
+  const preserved = readBoundedLocalFile(root, next.before.path);
   return record.schemaVersion === 'motion-rl-checker-revision-v1' &&
     record.before.path === 'audit/evidence/motion-rl-sim2real-20260927/audit-local-basis-before.ts.txt' &&
     record.before.bytes === 105169 &&
     record.before.sha256 === '7bd97adebae059fdc60f62622fcff87aadce22e798b617c4cb4a1f96e646216c' &&
     before.length === record.before.bytes && sha256(before) === record.before.sha256 &&
     record.after.path === 'lib/audit-local-basis.ts' &&
-    record.after.bytes === current.length && record.after.sha256 === sha256(current) &&
+    next.schemaVersion === 'motion-world-models-checker-revision-v1' &&
+    next.before.path === 'audit/evidence/motion-world-models-20260927/audit-local-basis-before.ts.txt' &&
+    next.before.bytes === record.after.bytes && next.before.sha256 === record.after.sha256 &&
+    preserved.length === next.before.bytes && sha256(preserved) === next.before.sha256 &&
+    next.after.path === 'lib/audit-local-basis.ts' &&
+    next.after.bytes === 108255 &&
+    next.after.sha256 === 'b757fb029b43c415e10d30a6214dd7b6590ef44b0caa768f642860f7cf5a387c' &&
+    reviewedFrontierChecker(root, current) &&
     Boolean(record.reviewedBy && record.rationale.length > 80) &&
-    Date.parse(record.observedAt) <= Date.now();
+    Date.parse(record.observedAt) <= Date.now() &&
+    Boolean(next.reviewedBy && next.rationale.length > 80) &&
+    Date.parse(next.observedAt) <= Date.now();
 }
 /** Reconcile only the inspected Kroger/Control changes against the two exact parents. */
 export function verifyMergedCitationTransition(main: string, local: string, merged: string,
@@ -818,7 +837,8 @@ function verifyMergedArticle(root: string, current: Buffer, continuity: Relevant
     verifyIndustrialArticleTransition(main, withdrawalBefore.toString(), continuity.beforeClause,
       continuity.afterClause, continuity.preservedDisclosure) &&
     local.replace('2021–2024 each above 500k', '2021-2024 each above 500k') === withdrawalBefore.toString() &&
-    verifyTechnologyWithdrawalArticleTransition(withdrawalBefore.toString(), current.toString()),
+    verifyTechnologyWithdrawalArticleTransition(withdrawalBefore.toString(),
+      currentDataHardwareMotionArtifact(root, 2, current).toString()),
   'merged industrial article drift');
 }
 function verifyMergedChecker(root: string, current: Buffer, continuity: RelevantContinuity): void {
@@ -870,6 +890,11 @@ function verifyMergedControlArticle(root: string, current: Buffer): Buffer {
 function readRetainedDependency(root: string, ref: LocalArtifact): Buffer {
   const current = readBoundedLocalFile(root, ref.path);
   if (current.length === ref.bytes && sha256(current) === ref.sha256) return current;
+  if (ref.path === 'content/frontier/safety-and-assurance.mdx' &&
+    ref.sha256 === '89c2e410795c25254a1ebdea7ccbadcddb364f6535f5ea9fe5d8ef7063113f69' &&
+    ref.bytes === 19566) {
+    return currentFrontierSafetyArticle(root, current);
+  }
   if (['content/rl-sim2real/parallel-sim-rl.mdx',
     'content/rl-sim2real/legged-locomotion.mdx',
     'content/rl-sim2real/reward-design-mpc.mdx'].includes(ref.path)) {
@@ -878,10 +903,26 @@ function readRetainedDependency(root: string, ref: LocalArtifact): Buffer {
   if (ref.path === 'tests/e2e/industrial-deployment.spec.ts' &&
     ref.sha256 === WITHDRAWAL_E2E_SPEC_HASH && ref.bytes === WITHDRAWAL_E2E_SPEC_BYTES) {
     const before = readBoundedLocalFile(root, `${WITHDRAWAL_INPUTS}pre-industrial-deployment-spec.ts.txt`);
+    const preMotion = currentDataHardwareMotionArtifact(root, 3, current);
     requireThat(before.length === ref.bytes && sha256(before) === ref.sha256 &&
-      verifyTechnologyWithdrawalE2eSpecTransition(before.toString(), current.toString()),
+      verifyTechnologyWithdrawalE2eSpecTransition(before.toString(), preMotion.toString()),
     'withdrawal e2e spec drift');
     return before;
+  }
+  if (ref.path === 'tests/e2e/industrial-deployment.spec.ts' &&
+    ref.sha256 === '68507097ee09a5598fc3eff5b4da29d9dd61b3620a00a35a52aa9140e282aecb' &&
+    ref.bytes === 19936) {
+    return currentDataHardwareMotionArtifact(root, 3, current);
+  }
+  if (ref.path === 'content/data-hardware/evaluation-crisis.mdx' &&
+    ref.sha256 === '7f30bc80d8f82bf2b596f7e2e916abe9663b572933454402571cad85255d8ac8' &&
+    ref.bytes === 17449) {
+    return currentDataHardwareMotionArtifact(root, 1, current);
+  }
+  if (ref.path === 'content/data-hardware/data-bottleneck.mdx' &&
+    ref.sha256 === 'd4c1dceb0ae03fc356056723f6f781d0b1c57f279091dc65a65ae1488454a5cf' &&
+    ref.bytes === 11947) {
+    return currentDataHardwareMotionArtifact(root, 0, current);
   }
   if (ref.path === 'tests/e2e/industrial-citation-refresh.spec.ts' &&
     ref.sha256 === WITHDRAWAL_REFRESH_SPEC_HASH && ref.bytes === WITHDRAWAL_REFRESH_SPEC_BYTES) {
@@ -1080,11 +1121,16 @@ function readRetainedDependency(root: string, ref: LocalArtifact): Buffer {
   } else if (ref.path === 'content/rl-sim2real/sim2real-transfer.mdx') {
     const priorReview = readBoundedLocalFile(root,
       'audit/evidence/motion-rl-sim2real-20260927/dependency-review-before.json');
-    requireThat(sha256(priorReview) === sha256(readBoundedLocalFile(root,
-      'audit/evidence/industrial-release-20260924/dependency-review.json')),
+    requireThat(sha256(priorReview) === 'e9a82ba7e4ef259dead9ec4af0e087353a286366420075ae65f5168d704002e8' &&
+      priorReview.equals(readBoundedLocalFile(root,
+        'audit/evidence/motion-world-models-20260927/dependency-review-before.json')),
     'RL motion prior review drift');
     currentRlMotionArticle(root, expectedCurrent,
       loadRlMotionContinuity(root), ref);
+  } else if (ref.path === 'content/data-hardware/data-bottleneck.mdx') {
+    const preMotion = currentDataHardwareMotionArtifact(root, 0, current);
+    requireThat(expectedCurrent.bytes === preMotion.length &&
+      expectedCurrent.sha256 === sha256(preMotion), 'stale data-bottleneck predecessor review');
   } else {
     requireThat(expectedCurrent.bytes === current.length && expectedCurrent.sha256 === sha256(current),
       'stale dependency review');
@@ -1093,7 +1139,13 @@ function readRetainedDependency(root: string, ref: LocalArtifact): Buffer {
   const archived = readBoundedLocalFile(root, artifact.parse(binding.snapshot).path);
   requireThat(archived.length === ref.bytes && sha256(archived) === ref.sha256 &&
     binding.snapshot.sha256 === ref.sha256, 'historical dependency snapshot drift');
-  for (const disclosure of binding.preservedText ?? []) requireThat(current.toString().includes(disclosure), 'current disclosure drift');
+  for (const disclosure of binding.preservedText ?? []) {
+    const checked = ref.path === 'content/data-hardware/data-bottleneck.mdx'
+      ? currentDataHardwareMotionArtifact(root, 0, current).toString()
+      : ref.path === INDUSTRIAL_ARTICLE
+        ? currentDataHardwareMotionArtifact(root, 2, current).toString() : current.toString();
+    requireThat(checked.includes(disclosure), 'current disclosure drift');
+  }
   return archived;
 }
 export function createLocalArtifactReader(root: string): (ref: LocalArtifact) => Buffer {
@@ -1109,7 +1161,7 @@ export function createLocalArtifactReader(root: string): (ref: LocalArtifact) =>
 }
 
 // These inert snapshots describe actual past runs, not replacement executions.
-// Only the checker and three reviewed assertion-only test edits are compatible.
+// Only the checker and reviewed assertion-only test edits are compatible.
 // Models, imports, disclosures, captures, receipts and all other files stay live.
 const HISTORICAL_VERIFICATION_INPUTS: Readonly<Record<string, {
   bytes: number; sha256: string; snapshot: string; currentTestHash?: string;
@@ -1143,13 +1195,19 @@ const HISTORICAL_VERIFICATION_INPUTS: Readonly<Record<string, {
     snapshot: 'crossdomain-closure.pre-residual-release.test.ts.txt',
     currentTestHash: 'dad134ee4b31f36461d413da7ac4bedfca06af91b7500e721953d812f4027a9c',
   },
+  'tests/unit/industrial-closure-evidence.test.ts': {
+    bytes: 5617, sha256: '831b9c5551e4f384efbc13c0b6fcf22ef968fbb349b31d151355ec24486bcaf7',
+    snapshot: 'audit/evidence/motion-data-hardware-20260927/industrial-closure-evidence-before.test.ts.txt',
+    currentTestHash: '079ccd797d22a484d739d33243cab5df0e84062c243b8e059b3108481316d094',
+  },
 };
 function readVerificationInput(ref: LocalArtifact, root: string, read: (a: LocalArtifact) => Buffer): Buffer {
   const history = HISTORICAL_VERIFICATION_INPUTS[ref.path];
   if (!history || ref.bytes !== history.bytes || ref.sha256 !== history.sha256) return read(ref);
   const current = readBoundedLocalFile(root, ref.path);
   if (current.length === ref.bytes && sha256(current) === ref.sha256) return read(ref);
-  const retained = read({ ...ref, path: `audit/evidence/local-proof-compat-20260923/${history.snapshot}` });
+  const retained = read({ ...ref, path: history.snapshot.startsWith('audit/')
+    ? history.snapshot : `audit/evidence/local-proof-compat-20260923/${history.snapshot}` });
   if (ref.path === 'lib/audit-local-basis.ts') {
     const boundary = ['/** Reject every symlink and bound reads,', ' including catalogs without known hashes. */'].join('');
     const prefix = (bytes: Buffer) => {

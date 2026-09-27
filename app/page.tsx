@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { So101ChainPreview } from '@/components/home/so101-chain-preview';
 import { ReliabilityCompounding } from '@/components/interactive/reliability-compounding';
+import { ReliabilityThreshold } from '@/components/motion/scenes/reliability-threshold';
 import { ImageRef } from '@/components/mdx/image-ref';
 import { Action } from '@/components/ui';
 import { IntentLink } from '@/components/ui/intent-link';
@@ -305,7 +306,7 @@ export default function Home() {
         <p className="mt-3 max-w-[65ch] leading-relaxed text-text-dim">
           A 95% per-step success rate sounds strong. Compounded over a 30-step
           episode it is not. Move the sliders to see how small per-step errors
-          erode end-to-end reliability; the{' '}
+          erode end-to-end reliability, then step through a fixed-horizon example. The{' '}
           <IntentLink
             data-brand-control-id="control:link-focus"
             href="/frontier"
@@ -316,6 +317,7 @@ export default function Home() {
           develop the argument.
         </p>
         <ReliabilityCompounding className="mt-5" />
+        <ReliabilityThreshold className="mt-5" />
       </section>
 
       {/* Real hardware: the encyclopedia's subject, photographed and credited. */}
