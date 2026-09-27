@@ -2658,6 +2658,16 @@
   ],
   "assets": [
     {
+      "id": "asset:clips/kalman-episode.png",
+      "path": "clips/kalman-episode.png",
+      "category": "static-asset",
+      "ownershipId": "owner:static-asset",
+      "sourceRegistryId": null,
+      "byteHash": "e94802c88dd60176857a744324a56688fd449ada335eff295ce47e2be282496e",
+      "semanticHash": null,
+      "fingerprint": "e2c54d134725ea56c13279c0d5965f95d0864b13197b99a91d24f15596f3cf69"
+    },
+    {
       "id": "asset:fonts/Tektur-latin-wdth-wght.woff2",
       "path": "fonts/Tektur-latin-wdth-wght.woff2",
       "category": "font",
@@ -3990,6 +4000,7 @@
   ],
   "assetExceptions": [],
   "assetUses": [
+    "asset:clips/kalman-episode.png",
     "asset:fonts/Tektur-latin-wdth-wght.woff2",
     "asset:images/anymal-anybotics-2022.jpg",
     "asset:images/atlas-darpa-frontview-2013.jpg",
@@ -4919,61 +4930,6 @@
         "fingerprint": "2904be3a5b8b7c32c41204db90c163f900733424c27dd4e3753842e690b503ed"
       },
       {
-        "id": "interactive:DenoisingLoop",
-        "component": "DenoisingLoop",
-        "sourcePath": "components/interactive/denoising-loop.tsx",
-        "cases": [
-          {
-            "id": "default",
-            "kind": "default"
-          },
-          {
-            "id": "focus-each-control",
-            "kind": "focus",
-            "selector": "button, input, select, summary, [tabindex]",
-            "expectedEnumeration": "every rendered enabled control independently"
-          },
-          {
-            "id": "meaningful-hover",
-            "kind": "hover",
-            "selector": "button:not(:disabled)",
-            "expectedEnumeration": "every rendered button with a hover treatment"
-          },
-          {
-            "id": "slider-boundaries-and-anchors",
-            "kind": "slider-boundaries",
-            "selector": "input[type=\"range\"]",
-            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
-          },
-          {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
-            "id": "loading-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a loading state."
-          },
-          {
-            "id": "error-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a error state."
-          },
-          {
-            "id": "empty-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a empty state."
-          },
-          {
-            "id": "unavailable-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a unavailable state."
-          }
-        ],
-        "expectedCaseCount": 9,
-        "fingerprint": "9212f0cf0f87db83f06211d06a851c92c74f73e4581ddc61b0782175d8cac45b"
-      },
-      {
         "id": "interactive:DeploymentDashboard",
         "component": "DeploymentDashboard",
         "sourcePath": "components/interactive/deployment-dashboard.tsx",
@@ -5890,61 +5846,6 @@
         ],
         "expectedCaseCount": 11,
         "fingerprint": "28fb775fda558162bc60a3eba90247348dfb9ebe3c42efe23e0bc7c0eaf5df5e"
-      },
-      {
-        "id": "interactive:KalmanTracker",
-        "component": "KalmanTracker",
-        "sourcePath": "components/interactive/kalman-tracker.tsx",
-        "cases": [
-          {
-            "id": "default",
-            "kind": "default"
-          },
-          {
-            "id": "focus-each-control",
-            "kind": "focus",
-            "selector": "button, input, select, summary, [tabindex]",
-            "expectedEnumeration": "every rendered enabled control independently"
-          },
-          {
-            "id": "meaningful-hover",
-            "kind": "hover",
-            "selector": "button:not(:disabled)",
-            "expectedEnumeration": "every rendered button with a hover treatment"
-          },
-          {
-            "id": "slider-boundaries-and-anchors",
-            "kind": "slider-boundaries",
-            "selector": "input[type=\"range\"]",
-            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
-          },
-          {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
-            "id": "loading-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a loading state."
-          },
-          {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
-          },
-          {
-            "id": "empty-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a empty state."
-          },
-          {
-            "id": "unavailable-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a unavailable state."
-          }
-        ],
-        "expectedCaseCount": 9,
-        "fingerprint": "d0397ef6b4681c87773f9b5e1477f8037531dca48cf12b4253a723b043171235"
       },
       {
         "id": "interactive:LatencyComparison",
@@ -7878,65 +7779,6 @@
         "fingerprint": "c53bf0f85d89e8c1ac9cdf557e2073a3f1745d5b4b2bac75697ece9732e90ce7"
       },
       {
-        "id": "mount:/classical/state-estimation/:KalmanTracker:1",
-        "sourceId": "interactive:KalmanTracker",
-        "route": "/classical/state-estimation/",
-        "ownerPath": "content/classical/state-estimation.mdx",
-        "ordinal": 1,
-        "props": "className=\"my-6\" /",
-        "containers": [],
-        "cases": [
-          {
-            "id": "default",
-            "kind": "default"
-          },
-          {
-            "id": "focus-each-control",
-            "kind": "focus",
-            "selector": "button, input, select, summary, [tabindex]",
-            "expectedEnumeration": "every rendered enabled control independently"
-          },
-          {
-            "id": "meaningful-hover",
-            "kind": "hover",
-            "selector": "button:not(:disabled)",
-            "expectedEnumeration": "every rendered button with a hover treatment"
-          },
-          {
-            "id": "slider-boundaries-and-anchors",
-            "kind": "slider-boundaries",
-            "selector": "input[type=\"range\"]",
-            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
-          },
-          {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
-            "id": "loading-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a loading state."
-          },
-          {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
-          },
-          {
-            "id": "empty-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a empty state."
-          },
-          {
-            "id": "unavailable-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a unavailable state."
-          }
-        ],
-        "expectedCaseCount": 9,
-        "fingerprint": "1be46ea44847af1a773f6858fb74fd8441e1af34e6630ad3a44ab55aa8d2b918"
-      },
-      {
         "id": "mount:/data-hardware/data-bottleneck/:DataScaleChart:1",
         "sourceId": "interactive:DataScaleChart",
         "route": "/data-hardware/data-bottleneck/",
@@ -9387,65 +9229,6 @@
         ],
         "expectedCaseCount": 9,
         "fingerprint": "d0b83a85528e057be46477b0a14dd473414da476b5279718aa8456980b7593a6"
-      },
-      {
-        "id": "mount:/manipulation/diffusion-policy/:DenoisingLoop:1",
-        "sourceId": "interactive:DenoisingLoop",
-        "route": "/manipulation/diffusion-policy/",
-        "ownerPath": "content/manipulation/diffusion-policy.mdx",
-        "ordinal": 1,
-        "props": "className=\"my-6\" /",
-        "containers": [],
-        "cases": [
-          {
-            "id": "default",
-            "kind": "default"
-          },
-          {
-            "id": "focus-each-control",
-            "kind": "focus",
-            "selector": "button, input, select, summary, [tabindex]",
-            "expectedEnumeration": "every rendered enabled control independently"
-          },
-          {
-            "id": "meaningful-hover",
-            "kind": "hover",
-            "selector": "button:not(:disabled)",
-            "expectedEnumeration": "every rendered button with a hover treatment"
-          },
-          {
-            "id": "slider-boundaries-and-anchors",
-            "kind": "slider-boundaries",
-            "selector": "input[type=\"range\"]",
-            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
-          },
-          {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
-            "id": "loading-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a loading state."
-          },
-          {
-            "id": "error-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a error state."
-          },
-          {
-            "id": "empty-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a empty state."
-          },
-          {
-            "id": "unavailable-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a unavailable state."
-          }
-        ],
-        "expectedCaseCount": 9,
-        "fingerprint": "6a93b8f8c60a7d2946c1946d7d4c224485c0740028f39a7db25d9fa205ca7697"
       },
       {
         "id": "mount:/manipulation/diffusion-policy/:RecedingHorizon:1",
@@ -11845,14 +11628,12 @@
         "components/interactive/appearance-physics-push.tsx",
         "components/interactive/comparison-matrix.tsx",
         "components/interactive/dataset-table.tsx",
-        "components/interactive/denoising-loop.tsx",
         "components/interactive/eureka-loop.tsx",
         "components/interactive/gait-diagram.tsx",
         "components/interactive/grasp-wrench-lab.tsx",
         "components/interactive/hand-comparison.tsx",
         "components/interactive/hardware-guide.tsx",
         "components/interactive/jepa-planning.tsx",
-        "components/interactive/kalman-tracker.tsx",
         "components/interactive/pendulum-controller.tsx",
         "components/interactive/receding-horizon.tsx",
         "components/interactive/reward-shaping.tsx",
@@ -11862,6 +11643,8 @@
         "components/market-map/filter-bar.tsx",
         "components/market-map/funding-timeline.tsx",
         "components/market-map/market-map.tsx",
+        "components/motion/scene-mount.tsx",
+        "components/motion/scene-player.tsx",
         "components/nav/nav-tree.tsx",
         "components/nav/search-box.tsx",
         "components/nav/site-shell.tsx",
@@ -11882,14 +11665,12 @@
         "components/interactive/appearance-physics-push.tsx",
         "components/interactive/comparison-matrix.tsx",
         "components/interactive/dataset-table.tsx",
-        "components/interactive/denoising-loop.tsx",
         "components/interactive/eureka-loop.tsx",
         "components/interactive/gait-diagram.tsx",
         "components/interactive/grasp-wrench-lab.tsx",
         "components/interactive/hand-comparison.tsx",
         "components/interactive/hardware-guide.tsx",
         "components/interactive/jepa-planning.tsx",
-        "components/interactive/kalman-tracker.tsx",
         "components/interactive/pendulum-controller.tsx",
         "components/interactive/receding-horizon.tsx",
         "components/interactive/reward-shaping.tsx",
@@ -11899,6 +11680,8 @@
         "components/market-map/filter-bar.tsx",
         "components/market-map/funding-timeline.tsx",
         "components/market-map/market-map.tsx",
+        "components/motion/scene-mount.tsx",
+        "components/motion/scene-player.tsx",
         "components/nav/nav-tree.tsx",
         "components/nav/search-box.tsx",
         "components/nav/site-shell.tsx",
@@ -11924,7 +11707,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "656d5b86d67d6ee53b2d6938678de94f76206e6ce3e06e8fdce4c25dd6be5a4a"
+      "fingerprint": "e230a47183087e29c5132c2edd788e9f229c30955edc0be6e5fd9879f136a412"
     },
     {
       "id": "control:selection",
@@ -12217,7 +12000,6 @@
         "components/interactive/contact-geometry.tsx",
         "components/interactive/control-loop-budget.tsx",
         "components/interactive/data-scale-chart.tsx",
-        "components/interactive/denoising-loop.tsx",
         "components/interactive/deployment-economics.tsx",
         "components/interactive/egoscale-scaling.tsx",
         "components/interactive/execution-modes.tsx",
@@ -12228,7 +12010,6 @@
         "components/interactive/hierarchy-timescales.tsx",
         "components/interactive/impedance-contact-lab.tsx",
         "components/interactive/jepa-planning.tsx",
-        "components/interactive/kalman-tracker.tsx",
         "components/interactive/latency-comparison.tsx",
         "components/interactive/latent-imagination.tsx",
         "components/interactive/mot-insulation.tsx",
@@ -12245,6 +12026,7 @@
         "components/interactive/teacher-student.tsx",
         "components/interactive/training-time-chart.tsx",
         "components/market-map/filter-bar.tsx",
+        "components/motion/scene-player.tsx",
         "components/nav/search-box.tsx",
         "components/search/search-interface.tsx",
         "components/three/ik-target-form.tsx",
@@ -12263,7 +12045,6 @@
         "components/interactive/contact-geometry.tsx",
         "components/interactive/control-loop-budget.tsx",
         "components/interactive/data-scale-chart.tsx",
-        "components/interactive/denoising-loop.tsx",
         "components/interactive/deployment-economics.tsx",
         "components/interactive/egoscale-scaling.tsx",
         "components/interactive/execution-modes.tsx",
@@ -12274,7 +12055,6 @@
         "components/interactive/hierarchy-timescales.tsx",
         "components/interactive/impedance-contact-lab.tsx",
         "components/interactive/jepa-planning.tsx",
-        "components/interactive/kalman-tracker.tsx",
         "components/interactive/latency-comparison.tsx",
         "components/interactive/latent-imagination.tsx",
         "components/interactive/mot-insulation.tsx",
@@ -12291,6 +12071,7 @@
         "components/interactive/teacher-student.tsx",
         "components/interactive/training-time-chart.tsx",
         "components/market-map/filter-bar.tsx",
+        "components/motion/scene-player.tsx",
         "components/nav/search-box.tsx",
         "components/search/search-interface.tsx",
         "components/three/ik-target-form.tsx",
@@ -12311,7 +12092,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "5ca48c5e413c0656a1122a05ceeacd4036b63d0c480d45216c4bae5bd320ded1"
+      "fingerprint": "3f2929965720bfff03b626bfb0c36dc0b0d547d75c080f95378c4a06ceaa6fc6"
     },
     {
       "id": "control:disabled",
@@ -12365,5 +12146,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "bf2196957411814c123fd55d664ad33b830f828e9c89a52cd06bb9feb422a3ba"
+  "rootFingerprint": "391d0797dc5aaa232d05ce290d6b916ffc617ef2cb3a9aac09927bfa93b11c25"
 }

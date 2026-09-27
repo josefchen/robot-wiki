@@ -57,7 +57,7 @@ describe('constrained reward originals', () => {
   });
   it('keeps penalty sign and counterevidence without a universal ROGER guarantee', () => {
     expect(article).toContain('penalties are subtracted from the primary reward');
-    expect(article).toContain('not a universal constraint-satisfaction guarantee');
+    expect(article).toContain('no universal constraint-satisfaction guarantee');
     expect(article).toContain('exploration-induced violation');
     expect(article).toContain('zero-penalty optimality and gentle system and learning dynamics');
     expect(article).not.toContain('any fixed offline choice cannot guarantee');

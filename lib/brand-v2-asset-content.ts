@@ -26,14 +26,14 @@ import { extname, join } from 'node:path';
  *   census, the label text, the node and mesh names and the embedded-image
  *   count are read out of the file, and a mesh is required to be one the
  *   shipped kinematic description builds its chain from.
- * - **Raster containers are not decoded past their header.** JPEG pixels
- *   need a decoder this repository does not carry, so the mechanism reads
- *   the frame header and stops. The content claim therefore rests on the
- *   registered external origin: a source URL, creator, licence and retrieval
- *   date, with the decoded frame size matching the registered one, so the
- *   record provably describes this file. A raster with no external origin is
- *   recorded as `undecidable` and **fails**, which is the fail-closed
- *   direction.
+ * - **Raster containers are not decoded past their header.** External
+ *   images need a registered origin, creator, licence and retrieval date;
+ *   frame dimensions must match the record. The locally rendered clip
+ *   poster instead needs its exact manifest entry, source and shipped
+ *   encodings, with matching frame dimensions. Other rasters with no
+ *   external origin remain `undecidable` and fail. Neither path claims to
+ *   classify pixels; the separately reconciled byte seal decides what
+ *   first-party artwork may ship.
  *
  * The limitation that remains is named rather than papered over: within a
  * decoded model, mesh geometry is not classified, so the shape a mesh draws
@@ -44,7 +44,9 @@ import { extname, join } from 'node:path';
  */
 export const ASSET_CONTENT_LIMITATIONS = {
   raster:
-    'JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header and rests the content claim on the registered external origin',
+    'JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header, not the depicted subject',
+  clipPoster:
+    'Clip registration and shipped encodings identify a locally authored poster, not what its pixels depict; exact-byte editorial approval is checked separately by the asset seal',
   model:
     'glTF mesh geometry is read as counts, names and accessor extents, not as shape: what a mesh draws is not classified',
   vector:
@@ -133,7 +135,7 @@ export type AssetContentVerdict = {
   formatMatchesExtension: boolean;
   decode: AssetDecode;
   /** How the claim about this asset is supported. */
-  basis: 'decoded-content' | 'external-provenance' | 'undecidable';
+  basis: 'decoded-content' | 'external-provenance' | 'registered-clip' | 'undecidable';
   /** What the mechanism established about this asset, in its own terms. */
   established: string[];
   /** What it did not establish, named. */
@@ -365,6 +367,88 @@ function sha256(bytes: Buffer): string {
   return createHash('sha256').update(bytes).digest('hex');
 }
 
+/**
+ * A clip poster has a first-party origin rather than an external image URL.
+ * Use the existing clip registry and its on-disk render inputs to describe
+ * it, not a filename-only exemption. The separate seal still decides whether
+ * these exact bytes are approved. This does not attest to the depicted pixels.
+ */
+function registeredClipPoster(
+  root: string,
+  path: string,
+  frame: RasterDecode,
+): { description: string | null; failure: string | null } {
+  const match = path.match(/^clips\/([a-z0-9]+(?:-[a-z0-9]+)*)\.png$/);
+  if (!match) {
+    return {
+      description: null,
+      failure: `${path} is not a registered clip poster path`,
+    };
+  }
+  const manifestPath = join(root, 'motion-clips.json');
+  if (!existsSync(manifestPath)) {
+    return {
+      description: null,
+      failure: `${path} has no local clip registration in motion-clips.json`,
+    };
+  }
+  let clips: Array<{ id: string; width: number; height: number }>;
+  try {
+    const manifest = JSON.parse(readFileSync(manifestPath, 'utf8')) as {
+      clips: Array<{ id: string; width: number; height: number }>;
+    };
+    if (!Array.isArray(manifest.clips)) throw new Error('missing clips array');
+    clips = manifest.clips;
+  } catch {
+    return {
+      description: null,
+      failure: `${path} has an unreadable local clip registration`,
+    };
+  }
+  const matching = clips.filter(({ id }) => id === match[1]);
+  if (matching.length !== 1) {
+    return {
+      description: null,
+      failure: `${path} has ${matching.length} local clip registration(s), not exactly one`,
+    };
+  }
+  const clip = matching[0];
+  if (
+    !Number.isSafeInteger(clip.width) ||
+    clip.width <= 0 ||
+    !Number.isSafeInteger(clip.height) ||
+    clip.height <= 0 ||
+    frame.widthPx !== clip.width ||
+    frame.heightPx !== clip.height
+  ) {
+    return {
+      description: null,
+      failure: `${path} frame dimensions ${frame.widthPx}x${frame.heightPx} do not match local clip registration ${clip.width}x${clip.height}`,
+    };
+  }
+  const source = `scripts/motion/clips/${match[1].replace(/-/g, '_')}.py`;
+  if (!existsSync(join(root, source))) {
+    return {
+      description: null,
+      failure: `${path} has no local clip render source ${source}`,
+    };
+  }
+  const encodings = ['mp4', 'webm'].map((ext) => `clips/${match[1]}.${ext}`);
+  const missing = encodings.filter(
+    (file) => !existsSync(join(root, 'public', file)),
+  );
+  if (missing.length > 0) {
+    return {
+      description: null,
+      failure: `${path} has no shipped clip encoding(s): ${missing.join(', ')}`,
+    };
+  }
+  return {
+    description: `decoded a ${frame.widthPx}x${frame.heightPx} png frame for locally registered clip ${match[1]} with render source ${source} and shipped ${encodings.join(' and ')}`,
+    failure: null,
+  };
+}
+
 /** Words that mark the surrounding code as an identity slot rather than content. */
 const IDENTITY_SLOT_CONTEXT =
   /\b(icons?|favicon|apple-?touch|shortcut|manifest|lockup|wordmark|logo|mascot|monogram|brand-?mark|emblem)\b/i;
@@ -586,10 +670,19 @@ export function assetContentVerdicts(
           ? provenance.sourceUrl.trim()
           : '';
       if (externalOrigin.length === 0) {
-        basis = 'undecidable';
-        failures.push(
-          `${asset.path} is a ${decodedFormat} asset with no registered external origin, and its pixels are not decoded, so nothing establishes whether it is a first-party symbol`,
-        );
+        const local = decodedFormat === 'png' && asset.path.startsWith('clips/')
+          ? registeredClipPoster(input.root, asset.path, raster)
+          : null;
+        if (local?.description) {
+          basis = 'registered-clip';
+          established.push(local.description);
+          limitations.push(ASSET_CONTENT_LIMITATIONS.clipPoster);
+        } else {
+          basis = 'undecidable';
+          failures.push(
+            `${asset.path} is a ${decodedFormat} asset with no registered external origin${local?.failure ? `; ${local.failure}` : ''}, and its pixels are not decoded, so its content is undecidable`,
+          );
+        }
       } else {
         basis = 'external-provenance';
         if (

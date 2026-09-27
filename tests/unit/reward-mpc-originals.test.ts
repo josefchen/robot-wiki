@@ -57,9 +57,9 @@ describe('three independently whole reward and MPC originals', () => {
   }
   it('scopes Jeon to its fixed PPO experiment and non-invariant practical discount', () => {
     const text = read('legged-locomotion');
-    for (const phrase of ['compared reward formulations, not RL algorithms', 'ten leg joints controlled',
+    for (const phrase of ['compared reward formulations with PPO-Clip', 'ten leg joints controlled',
       'Ten runs per nominal case', '0.1 to 10 times', "PPO's discount of 0.99",
-      'sacrifices policy invariance', 'not proof that algorithm choice is irrelevant']) {
+      'sacrifices policy invariance', 'does not establish that algorithm choice is irrelevant']) {
       expect(text.includes(phrase), phrase).toBe(true);
     }
     expect(text.includes('the training recipe is the commodity')).toBe(false);
@@ -69,7 +69,7 @@ describe('three independently whole reward and MPC originals', () => {
     for (const phrase of ['same GPT-5 backbone', 'SAC with SimbaV2', '0.70 versus',
       '0.47', 'success at 0.42', 'GPT-4.1 ratings of five rollout videos',
       'each queried four times', 'human-written reward reflection',
-      'not the discovery of a previously unacknowledged limitation']) {
+      'Eureka acknowledged the underlying limitation earlier']) {
       expect(text.includes(phrase), phrase).toBe(true);
     }
     expect(text.includes('which is an admission')).toBe(false);

@@ -27,7 +27,7 @@ describe('Splat transfer bounded integration', () => {
     expect(article).not.toContain('replaces the simulator\'s mesh renderer');
   });
   it('retains the conflicting SplatSim observation descriptions without reconciling them', () => {
-    for (const s of ['Figure 2 lists RGB observations plus end-effector position and orientation', 'Section IV-A says', 'solely on RGB at test time', 'Those descriptions disagree']) expect(article).toContain(s);
+    for (const s of ['setup figure', 'RGB observations plus end-effector position and orientation', 'evaluation section', 'solely on RGB at test time', 'Those descriptions disagree']) expect(article).toContain(s);
     expect(record(18).note).toContain('85%');
     expect(record(18).note).toContain('95%');
   });
@@ -38,10 +38,10 @@ describe('Splat transfer bounded integration', () => {
     expect(record(4).sourceChecked).not.toContain('2409.09961');
     expect(record(4).note).toContain('SplatSim paper, arXiv 2409.09961 abstract');
     expect(record(4).note).toContain('Immediate-before tuple (history, not proof)');
-    expect(article).toContain('August 2025 v2');
+    expect(article).toContain('August 2025 revision');
   });
   it('retains the RoboGSim closed loop, denominator and non-equivalence limits', () => {
-    for (const s of ['Gaussian Reconstructor', 'Digital Twins Builder', 'Scene Composer', 'Interactive Engine', 'MDH parameters', 'mesh assets', 'measured layout alignment', 'inverse kinematics', 'collisions', 'resulting state drives the next rendering', 'ten trials with up to three grasp attempts per trial', '90% placement', '30% in RoboGSim', 'not a demonstrated safety guarantee', 'trajectory replay separately']) expect(article).toContain(s);
+    for (const s of ['Gaussian Reconstructor', 'Digital Twins Builder', 'Scene Composer', 'Interactive Engine', 'MDH parameters', 'mesh assets', 'measured layout alignment', 'inverse kinematics', 'collisions', 'resulting state drives the next rendering', 'ten trials with up to three grasp attempts per trial', '90% placement', '30% in RoboGSim', 'no demonstrated safety guarantee', 'trajectory replay separately']) expect(article).toContain(s);
     expect(article).not.toContain('RoboGSim packages the same loop');
     expect(record(19).note).toContain('Table 1 and Section 4.3');
   });

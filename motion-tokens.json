@@ -1,0 +1,117 @@
+{
+  "version": 1,
+  "description": "Single source of truth for the site motion language. Generated into lib/motion-tokens.ts (TypeScript), components/motion/motion-tokens.css (CSS custom properties), and scripts/motion/motion_theme.py (offline clip theme). Edit this file, then run npm run generate:motion-tokens. The binding design input is docs/design/motion-language.md.",
+  "stage": {
+    "background": "#242D33",
+    "backgroundToken": "var(--color-instrument)",
+    "axes": "#D9DADB",
+    "axesOpacity": 0.45,
+    "grid": "#D9DADB",
+    "gridOpacity": 0.08,
+    "label": "#FFFFFF",
+    "labelSecondary": "#D9DADB",
+    "labelFont": "var(--font-sans)",
+    "labelMinPx": 12
+  },
+  "roles": {
+    "state": {
+      "means": "estimate, belief, position, the main object",
+      "stage": "#58C4DD",
+      "stageContrast": 6.9,
+      "lightText": "#00829A",
+      "lightGraphic": "#2EA1B9",
+      "encoding": "solid 2 px stroke"
+    },
+    "measurement": {
+      "means": "observation, sensor reading, data point",
+      "stage": "#E8C11C",
+      "stageContrast": 8.1,
+      "lightText": "#956F00",
+      "lightGraphic": "#B69000",
+      "encoding": "cross or dot markers"
+    },
+    "action": {
+      "means": "policy output, control input, command",
+      "stage": "#B189C6",
+      "stageContrast": 4.9,
+      "lightText": "#8D67A1",
+      "lightGraphic": "#AE86C3",
+      "encoding": "arrows, arrowheads"
+    },
+    "value": {
+      "means": "reward, return, value, cost, score",
+      "stage": "#A6CF8C",
+      "stageContrast": 8.0,
+      "lightText": "#5B8141",
+      "lightGraphic": "#789F5F",
+      "encoding": "filled bars or areas"
+    },
+    "constraint": {
+      "means": "obstacle, collision, error, limit, failure",
+      "stage": "#FC6255",
+      "stageContrast": 4.7,
+      "lightText": "#D63E35",
+      "lightGraphic": "#FA6053",
+      "encoding": "45 degree hatch fill"
+    },
+    "reference": {
+      "means": "ground truth, target, baseline",
+      "stage": "#D9DADB",
+      "stageContrast": 10.0,
+      "lightText": "#767778",
+      "lightGraphic": "#949595",
+      "encoding": "dashed 1.5 px"
+    },
+    "highlight": {
+      "means": "Indicate, selection, the thing to look at now",
+      "stage": "#C6FF19",
+      "stageContrast": 11.8,
+      "lightText": "#548200",
+      "lightGraphic": "#C6FF19",
+      "lightGraphicTreatment": "lime underlay behind ink",
+      "encoding": "underlay or halo, never a stroke on light"
+    }
+  },
+  "uncertainty": {
+    "fillAlpha": 0.22,
+    "edge": "dashed"
+  },
+  "easing": {
+    "smooth": {
+      "formula": "t^3 * (10*(1-t)^2 + 5*t*(1-t) + t^2)",
+      "note": "The single eased-motion curve for every beat; simulation time runs linearly in model time and is never eased."
+    },
+    "thereAndBack": {
+      "formula": "smooth(2t) for t < 0.5, smooth(2 - 2t) after",
+      "use": "Indicate"
+    },
+    "cssLinearStops": 24
+  },
+  "timing": {
+    "unit": "ms",
+    "beat": 1000,
+    "beatShort": 500,
+    "beatLong": 2000,
+    "indicate": 800,
+    "create": 1000,
+    "createFillTail": 0.3,
+    "write": 1000,
+    "writePerGlyph": 100,
+    "writeMax": 2000,
+    "reducedMotionHold": 800
+  },
+  "lag": {
+    "default": 0.1,
+    "dense": 0.05,
+    "denseThreshold": 12
+  },
+  "camera": {
+    "focusMaxZoom": 2.5
+  },
+  "type": {
+    "stageLabelFont": "var(--font-sans)",
+    "stageLabelMinPx": 12,
+    "stageLabelFill": "#FFFFFF",
+    "stageSecondaryFill": "#D9DADB"
+  }
+}

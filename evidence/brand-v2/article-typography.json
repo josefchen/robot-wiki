@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "0839117371491a075c52f19aad4f298a5ff626464c639d831c76cf2254c288c2",
+  "fingerprint": "6f976e5eafee5f213e5c610f15734bfe3a0845421e134d6b979e3cec96c1a0f0",
   "viewports": [
     "375x812",
     "1440x900"
@@ -3903,7 +3903,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 11847,
+      "visibleTextLength": 11756,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -4145,7 +4145,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Nominal link lengths and joint zeroes describe the design, n"
+          "text": "Nominal link lengths and joint zeroes describe the design. E"
         },
         {
           "familyHead": "newsreader",
@@ -4262,7 +4262,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The final output is not “calibrated.” It is a set of measure"
+          "text": "Record the measured residuals, operating range and owner as "
         }
       ],
       "sectionLinks": [
@@ -4671,7 +4671,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 25416,
+      "visibleTextLength": 25199,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -5213,7 +5213,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A learned action is a controller request, not a motor comman"
+          "text": "A learned action reaches the motors through a controller. Sp"
         },
         {
           "familyHead": "newsreader",
@@ -5743,7 +5743,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17105,
+      "visibleTextLength": 17093,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -6022,7 +6022,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Force closure is binary, but grasps are not. Two closed gras"
+          "text": "Force closure is binary, while the disturbance a closed gras"
         },
         {
           "familyHead": "newsreader",
@@ -6049,7 +6049,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Now the lab above reads as mechanics rather than shapes. On "
+          "text": "Read the lab above as mechanics. On the left is the object w"
         },
         {
           "familyHead": "newsreader",
@@ -6085,7 +6085,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "For the eight known, 3D-printed adversarial objects, Table I"
+          "text": "For the eight known, 3D-printed adversarial objects, Dex-Net"
         },
         {
           "familyHead": "newsreader",
@@ -6505,7 +6505,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15077,
+      "visibleTextLength": 15304,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -6572,11 +6572,11 @@
           "Kinematics"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 11,
+        "readingMinutes": 12,
         "citationCount": 6,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "11 min",
+        "readingTimeText": "12 min",
         "citationCountText": "6",
         "bibliographyIds": [
           "lavalle-2006",
@@ -6609,7 +6609,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Kinematics describes robot motion without asking what causes"
+          "text": "Kinematics describes the geometry of a robot's motion withou"
         },
         {
           "familyHead": "newsreader",
@@ -6627,7 +6627,34 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The asymmetry is easiest to feel with an arm in front of you"
+          "text": "The chain below reveals the ordered transformations. In the "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Moving an upstream joint changes every downstream position; "
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 opening angles 110°, -45°, -35° tip (0.45, 1.89)"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic, authored link lengths and angles from the planar "
         },
         {
           "familyHead": "ibm plex sans",
@@ -6870,7 +6897,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The forward direction is a product of transforms; the invers"
+          "text": "Forward kinematics multiplies transforms in order. Inverse k"
         },
         {
           "familyHead": "newsreader",
@@ -7159,6 +7186,12 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
+        },
+        {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
+          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -7229,6 +7262,38 @@
         },
         {
           "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
@@ -7262,7 +7327,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27709,
+      "visibleTextLength": 27654,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -7370,7 +7435,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Motion planning answers a deceptively simple question: given"
+          "text": "Motion planning finds a route from the robot's current confi"
         },
         {
           "familyHead": "newsreader",
@@ -7388,7 +7453,34 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The interactive below uses an authored 2D scene: a 100 by 64"
+          "text": "The paused overview and the lab below use the same authored "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Only after a goal connection exists does the selected start-"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 authored world 100 × 64 goal connection 288 accep"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Authored fixed-seed planning scene, not a published benchmar"
         },
         {
           "familyHead": "ibm plex mono",
@@ -7595,7 +7687,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Section V describes the Sample routine more strongly, as if "
+          "text": "The Sample routine describes each sampled state as admitting"
         },
         {
           "familyHead": "newsreader",
@@ -7694,7 +7786,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "These are Table I's arm results. In particular, single-initi"
+          "text": "The arm results show single-initialization TrajOpt solving a"
         },
         {
           "familyHead": "newsreader",
@@ -7703,7 +7795,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Table II contains no CHOMP full-body result: the authors lac"
+          "text": "The full-body results omit CHOMP: the authors lacked the doc"
         },
         {
           "familyHead": "newsreader",
@@ -7730,7 +7822,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Classical planning did not disappear when learned policies a"
+          "text": "Sampling planners still label demonstration data, verify tha"
         },
         {
           "familyHead": "newsreader",
@@ -8089,6 +8181,12 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
+        },
+        {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
+          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -8159,6 +8257,38 @@
         },
         {
           "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Run",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
@@ -8208,7 +8338,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 42492,
+      "visibleTextLength": 42042,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -8275,11 +8405,11 @@
           "Perception for Manipulation"
         ],
         "lastReviewed": "2026-08-22",
-        "readingMinutes": 28,
+        "readingMinutes": 27,
         "citationCount": 28,
         "reviewDateText": "22 August 2026",
         "reviewDateTime": "2026-08-22",
-        "readingTimeText": "28 min",
+        "readingTimeText": "27 min",
         "citationCountText": "28",
         "bibliographyIds": [
           "zhang-2000-calibration",
@@ -8478,7 +8608,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The instrument uses an illustrative ray-to-plane model, not "
+          "text": "The instrument uses an illustrative ray-to-plane model. It d"
         },
         {
           "familyHead": "newsreader",
@@ -8541,7 +8671,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Two things about the numbers above should be said out loud. "
+          "text": "The 2 percent is measured against a texture-less white targe"
         },
         {
           "familyHead": "newsreader",
@@ -8577,7 +8707,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A box is the wrong output for manipulation. A box around a m"
+          "text": "A box around a mug also contains the table behind it. A gras"
         },
         {
           "familyHead": "newsreader",
@@ -8613,7 +8743,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The image-speed comparison is different. Tables 5 and 15 com"
+          "text": "The image-speed comparison is different. The paper compares "
         },
         {
           "familyHead": "newsreader",
@@ -8658,7 +8788,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "RoboPoint instead instruction-tunes a VLM to predict image-s"
+          "text": "RoboPoint instruction-tunes a VLM to predict image-space aff"
         },
         {
           "familyHead": "newsreader",
@@ -8685,7 +8815,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Dex-Net 2.0 instead learns to score candidate parallel-jaw g"
+          "text": "Dex-Net 2.0 learns to score candidate parallel-jaw grasps. T"
         },
         {
           "familyHead": "newsreader",
@@ -9390,7 +9520,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 11765,
+      "visibleTextLength": 11643,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -10211,7 +10341,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28501,
+      "visibleTextLength": 27898,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -10278,11 +10408,11 @@
           "Scene Representation and Mapping"
         ],
         "lastReviewed": "2026-08-22",
-        "readingMinutes": 17,
+        "readingMinutes": 16,
         "citationCount": 24,
         "reviewDateText": "22 August 2026",
         "reviewDateTime": "2026-08-22",
-        "readingTimeText": "17 min",
+        "readingTimeText": "16 min",
         "citationCountText": "24",
         "bibliographyIds": [
           "moravec-elfes-1985",
@@ -10486,7 +10616,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "First, view-synthesis quality, which is what the original re"
+          "text": "The original result demonstrated view-synthesis quality. Ins"
         },
         {
           "familyHead": "newsreader",
@@ -10522,7 +10652,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "That makes the appropriate uses specific rather than general"
+          "text": "SplatSim uses splats for rendering while PyBullet supplies t"
         },
         {
           "familyHead": "newsreader",
@@ -10540,7 +10670,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Dex-NeRF is the honest bridge and worth reading as the excep"
+          "text": "Dex-NeRF uses a radiance field to render transparency-aware "
         },
         {
           "familyHead": "newsreader",
@@ -10549,7 +10679,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The symbolic end of the ladder deserves a mention for the sa"
+          "text": "OccWorld predicts how a 3D occupancy grid evolves and gets c"
         },
         {
           "familyHead": "newsreader",
@@ -10567,7 +10697,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "In Section II, Cadena and colleagues separate a sensor-depen"
+          "text": "Cadena and colleagues separate a sensor-dependent front end,"
         },
         {
           "familyHead": "newsreader",
@@ -10684,7 +10814,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Notice what the deployed stack chose. Not the representation"
+          "text": "The deployed stack uses a representation that can answer the"
         },
         {
           "familyHead": "newsreader",
@@ -11157,7 +11287,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19897,
+      "visibleTextLength": 20383,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -11224,11 +11354,11 @@
           "State Estimation"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 14,
+        "readingMinutes": 15,
         "citationCount": 12,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "14 min",
+        "readingTimeText": "15 min",
         "citationCountText": "12",
         "bibliographyIds": [
           "kalman-1960-filter",
@@ -11285,34 +11415,16 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The lab below is that idea running. A target wanders in one "
+          "text": "The scene below is that idea, one step at a time. A target w"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 11,
-          "lineHeightRatio": 1.38,
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
           "widthPx": 301,
-          "zeroAdvancePx": 7,
+          "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "What the filter assumes about the target’s per-step accelera"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 11,
-          "lineHeightRatio": 1.38,
-          "widthPx": 301,
-          "zeroAdvancePx": 7,
-          "insideRegisteredFrame": true,
-          "text": "What the filter assumes about the sensor’s scatter. Raise it"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.33,
-          "widthPx": 301,
-          "zeroAdvancePx": 7,
-          "insideRegisteredFrame": true,
-          "text": "Generated world: every reseed generates a new true path and "
+          "text": "The step, written out: the posterior becomes the next prior,"
         },
         {
           "familyHead": "ibm plex mono",
@@ -11321,7 +11433,7 @@
           "widthPx": 301,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "step 60 / 600 seed 1 sigma 0.72 gain 0.52 rms err 0.90"
+          "text": "beat 5 / 5 σ 0.94 → 1.27 → 0.79 K 0.62 z 0.82"
         },
         {
           "familyHead": "ibm plex sans",
@@ -11330,16 +11442,7 @@
           "widthPx": 301,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
-          "text": "A constant-velocity Kalman filter tracking a wandering targe"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "Over the 61-step window ending at step 60, the estimate stay"
+          "text": "Schematic of step 41 of the seeded constant-velocity filter "
         },
         {
           "familyHead": "newsreader",
@@ -11348,7 +11451,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The full probabilistic answer starts with a belief: not a gu"
+          "text": "The full probabilistic answer starts with a belief, a probab"
         },
         {
           "familyHead": "newsreader",
@@ -11411,7 +11514,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The gain is the whole idea in one ratio: prior uncertainty o"
+          "text": "The gain is prior uncertainty over prior-plus-sensor uncerta"
         },
         {
           "familyHead": "newsreader",
@@ -11429,7 +11532,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "That is what the lab at the top of this module is showing. T"
+          "text": "That is what the scene at the top of this module is showing."
         },
         {
           "familyHead": "newsreader",
@@ -11438,7 +11541,43 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "One more thing to notice: the band is a claim the filter mak"
+          "text": "One more thing to notice: the ellipse is a claim the filter "
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "A single fusion is worth stepping through; a whole run is wo"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The same seeded filter as the step-through scene, played ove"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Seeded toy filter; schematic, not measured hardware."
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 1,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "Schematic cinematic clip, 18 seconds: one Kalman filter over"
         },
         {
           "familyHead": "newsreader",
@@ -11806,6 +11945,18 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
+        },
+        {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
+          "trackingEm": 0.14
+        },
+        {
+          "text": "cinematic clip",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
+          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -11876,7 +12027,7 @@
         },
         {
           "tag": "button",
-          "text": "Run",
+          "text": "Play",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "inProse": true,
@@ -11884,7 +12035,7 @@
         },
         {
           "tag": "button",
-          "text": "Step",
+          "text": "Step back",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "inProse": true,
@@ -11892,7 +12043,7 @@
         },
         {
           "tag": "button",
-          "text": "Reseed",
+          "text": "Step forward",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "inProse": true,
@@ -11903,14 +12054,6 @@
           "text": "Reset",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "summary",
-          "text": "Sampled truth, estimate and unce",
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         }
@@ -28271,7 +28414,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14165,
+      "visibleTextLength": 14421,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -28387,7 +28530,16 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Drag the denoising step slider below from k=0 to k=10. The c"
+          "text": "Play the scene below and step through its beats. Sixty actio"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Recap: ten steps of denoising conditioned on o recover both "
         },
         {
           "familyHead": "ibm plex mono",
@@ -28396,16 +28548,7 @@
           "widthPx": 301,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "step 0 of 10 (pure Gaussian noise) mean distance to mode 1.7"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "At denoising step 0 of 10 the 60-sample cloud is pure Gaussi"
+          "text": "beat 4 / 4 samples 60 steps 10 dispersion 1.79 → 0.27"
         },
         {
           "familyHead": "ibm plex sans",
@@ -28414,7 +28557,7 @@
           "widthPx": 301,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
-          "text": "Illustrative model: 60 samples with a fixed seed, transporte"
+          "text": "Illustrative action-space model (status: illustrative): the "
         },
         {
           "familyHead": "newsreader",
@@ -28879,6 +29022,12 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
+        },
+        {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
+          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -28949,6 +29098,14 @@
         },
         {
           "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
@@ -28968,14 +29125,6 @@
           "text": "Reset",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "summary",
-          "text": "Current denoising cloud",
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -32515,7 +32664,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 25571,
+      "visibleTextLength": 26151,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -32627,6 +32776,33 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "The VLA module ended on a bottleneck: discrete action tokens"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Two action clusters remain after transport; the step-count l"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 toy samples 48 ten-step mean endpoint error 0.05"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative seeded two-dimensional transport, not learned p"
         },
         {
           "familyHead": "newsreader",
@@ -33266,6 +33442,12 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
+        },
+        {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
+          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -33332,6 +33514,38 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
           "controlId": "control:secondary-action"
         },
         {
@@ -36363,7 +36577,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19997,
+      "visibleTextLength": 20620,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -36471,6 +36685,33 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "The modules so far covered policies trained from scratch on "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The token stream retains the bin choice, while seven sequent"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 toy value -0.056 → bin 120 → <a120>"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic, illustrative action vector: normalized bounds and"
         },
         {
           "familyHead": "newsreader",
@@ -37038,6 +37279,12 @@
           "trackingEm": 0.14
         },
         {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
+          "trackingEm": 0.14
+        },
+        {
           "text": "Serialized action tokens at t = ",
           "familyHead": "ibm plex mono",
           "sizePx": 11,
@@ -37108,6 +37355,38 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
           "controlId": "control:secondary-action"
         },
         {
@@ -39302,7 +39581,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 20865,
+      "visibleTextLength": 20815,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -40080,7 +40359,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18537,
+      "visibleTextLength": 19073,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -40147,11 +40426,11 @@
           "Legged Locomotion Lineage"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 11,
+        "readingMinutes": 12,
         "citationCount": 13,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "11 min",
+        "readingTimeText": "12 min",
         "citationCountText": "13",
         "bibliographyIds": [
           "hwangbo-2019",
@@ -40201,6 +40480,33 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Underneath all of it sits an older idea that learning did no"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The authored pronk puts all four feet down together and then"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 new pattern Pronk minimum support 0 feet"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic, authored gait duty factors and phase offsets from"
         },
         {
           "familyHead": "ibm plex sans",
@@ -40299,7 +40605,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Learned policies are not handed these patterns. Foot-air-tim"
+          "text": "Learned policies discover whichever gait the foot-air-time a"
         },
         {
           "familyHead": "newsreader",
@@ -40335,7 +40641,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Jeon and colleagues compared reward formulations, not RL alg"
+          "text": "Jeon and colleagues compared reward formulations with PPO-Cl"
         },
         {
           "familyHead": "newsreader",
@@ -40651,6 +40957,12 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
+        },
+        {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
+          "trackingEm": 0.14
         }
       ],
       "monoRequired": [
@@ -40722,6 +41034,38 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
           "controlId": "control:secondary-action"
         },
         {
@@ -40823,7 +41167,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 13605,
+      "visibleTextLength": 13555,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -41891,7 +42235,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15576,
+      "visibleTextLength": 16325,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -41958,11 +42302,11 @@
           "Massively Parallel Sim RL"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 9,
+        "readingMinutes": 10,
         "citationCount": 8,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "9 min",
+        "readingTimeText": "10 min",
         "citationCountText": "8",
         "bibliographyIds": [
           "rudin-2021",
@@ -41997,7 +42341,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The four-minute training run from the previous module was no"
+          "text": "The four-minute training run from the previous module came f"
         },
         {
           "familyHead": "newsreader",
@@ -42006,7 +42350,34 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The chart below illustrates the cost arithmetic before the h"
+          "text": "The scene and chart below illustrate the cost arithmetic bef"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "At 16,384 environments, the two toy curves show why parallel"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 envs 16,384 toy time 1.5 min"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative fixed-transition calculation, not a measured tr"
         },
         {
           "familyHead": "ibm plex mono",
@@ -42069,7 +42440,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "NVIDIA's stack was not the only path. Brax, from Google in 2"
+          "text": "Brax, from Google in 2021, wrote the physics and the learnin"
         },
         {
           "familyHead": "newsreader",
@@ -42087,7 +42458,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The CPU toggle illustrates a possible bottleneck; it does no"
+          "text": "The CPU toggle illustrates a possible bottleneck; it draws n"
         },
         {
           "familyHead": "ibm plex sans",
@@ -42105,7 +42476,7 @@
           "widthPx": 300,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "The curve is an illustrative fixed-transitions model, not a "
+          "text": "The curve uses an illustrative fixed-transitions model, with"
         },
         {
           "familyHead": "newsreader",
@@ -42114,7 +42485,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The 2025 Isaac Lab v1 paper describes OpenUSD scene graphs, "
+          "text": "The 2025 Isaac Lab paper describes OpenUSD scene graphs, Phy"
         },
         {
           "familyHead": "newsreader",
@@ -42195,7 +42566,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The v1 paper identifies CPU bottlenecks in its tested system"
+          "text": "The Isaac Lab paper identifies CPU bottlenecks in its tested"
         },
         {
           "familyHead": "newsreader",
@@ -42204,7 +42575,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Newton's differentiability is advertised, but its practical "
+          "text": "Newton's differentiability is advertised, but practical use "
         }
       ],
       "sectionLinks": [
@@ -42464,6 +42835,12 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
+        },
+        {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
+          "trackingEm": 0.14
         }
       ],
       "monoRequired": [
@@ -42543,6 +42920,38 @@
         },
         {
           "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "CPU single-core bottleneck",
           "familyHead": "ibm plex mono",
           "sizePx": 12,
@@ -42608,7 +43017,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27643,
+      "visibleTextLength": 27638,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -42975,7 +43384,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "For population-based training, Isaac Lab v1 describes DexPBT"
+          "text": "For population-based training, Isaac Lab describes DexPBT wo"
         },
         {
           "familyHead": "newsreader",
@@ -43658,7 +44067,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 30376,
+      "visibleTextLength": 30053,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -43725,11 +44134,11 @@
           "RL for Robotics"
         ],
         "lastReviewed": "2026-08-22",
-        "readingMinutes": 18,
+        "readingMinutes": 17,
         "citationCount": 27,
         "reviewDateText": "22 August 2026",
         "reviewDateTime": "2026-08-22",
-        "readingTimeText": "18 min",
+        "readingTimeText": "17 min",
         "citationCountText": "27",
         "bibliographyIds": [
           "sutton-barto-2018",
@@ -43864,7 +44273,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The MDP formulation admits two families of method, and the u"
+          "text": "The MDP formulation admits two families of method. Their pra"
         },
         {
           "familyHead": "newsreader",
@@ -43972,7 +44381,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Behavior-regularized approaches constrain the policy rather "
+          "text": "Behavior-regularized approaches constrain the policy. TD3+BC"
         },
         {
           "familyHead": "newsreader",
@@ -43990,7 +44399,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "This is where the field genuinely disagrees, and the disagre"
+          "text": "The results leave a disagreement worth examining."
         },
         {
           "familyHead": "newsreader",
@@ -44044,7 +44453,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The pragmatic settlement is to stop choosing. RLPD initializ"
+          "text": "Offline data can also seed online learning. RLPD initializes"
         },
         {
           "familyHead": "newsreader",
@@ -44628,7 +45037,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24335,
+      "visibleTextLength": 24116,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -44695,11 +45104,11 @@
           "Sim-to-Real Transfer"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 15,
+        "readingMinutes": 14,
         "citationCount": 12,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "15 min",
+        "readingTimeText": "14 min",
         "citationCountText": "12",
         "bibliographyIds": [
           "tobin-2017",
@@ -44756,7 +45165,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The figure below is a deterministic toy, not a learned polic"
+          "text": "The figure below is a deterministic toy. No policy was train"
         },
         {
           "familyHead": "ibm plex mono",
@@ -44810,7 +45219,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Two details rarely make it into the textbook version. First,"
+          "text": "The implementation matters. In the 2025 Isaac Lab paper, sim"
         },
         {
           "familyHead": "newsreader",
@@ -44918,7 +45327,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "In its DextrAH-RGB example, the Isaac Lab v1 paper reports a"
+          "text": "In its DextrAH-RGB example, the Isaac Lab paper reports an R"
         },
         {
           "familyHead": "newsreader",
@@ -45008,7 +45417,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Generalization is measured, not guaranteed. ASAP reports imp"
+          "text": "ASAP reports improved tracking on the held-out \"Silencer\" mo"
         },
         {
           "familyHead": "newsreader",
@@ -45035,7 +45444,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "This evaluation is not interchangeable with real-robot testi"
+          "text": "This evaluation uses simulated trials as well as real-robot "
         },
         {
           "familyHead": "newsreader",
@@ -45062,7 +45471,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Each family's failure mode is worth holding onto. The fricti"
+          "text": "Each family's limits differ. The friction chart's conservati"
         },
         {
           "familyHead": "ibm plex mono",
@@ -45531,7 +45940,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12431,
+      "visibleTextLength": 12138,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -45598,11 +46007,11 @@
           "Why RL Won Locomotion but Not Manipulation"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 7,
+        "readingMinutes": 6,
         "citationCount": 7,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "7 min",
+        "readingTimeText": "6 min",
         "citationCountText": "7",
         "bibliographyIds": [
           "rudin-2021",
@@ -45681,7 +46090,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The tempting explanation is that RL is somehow bad at manipu"
+          "text": "The 2026 reality-gap survey describes the manipulation MDP a"
         },
         {
           "familyHead": "newsreader",
@@ -45708,7 +46117,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The Isaac Lab v1 paper says dexterous manipulation with mult"
+          "text": "The Isaac Lab paper says dexterous manipulation with multi-f"
         },
         {
           "familyHead": "newsreader",
@@ -45726,7 +46135,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Three things to take from it. First, contact count: four nea"
+          "text": "The figure compares four near-point foot contacts with fourt"
         },
         {
           "familyHead": "newsreader",
@@ -45735,7 +46144,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Sim-to-real RL has produced real dexterous results, and hone"
+          "text": "Sim-to-real RL has produced real dexterous results. In OpenA"
         },
         {
           "familyHead": "newsreader",
@@ -45744,7 +46153,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Isaac Lab v1 describes DextrAH-RGB's privileged-state RL tea"
+          "text": "Isaac Lab describes DextrAH-RGB's privileged-state RL teache"
         },
         {
           "familyHead": "newsreader",
@@ -45762,7 +46171,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The sharpest 2026 evidence that manipulation remains the bot"
+          "text": "Gemini Robotics 2 offers a separate 2026 view of the manipul"
         },
         {
           "familyHead": "ibm plex sans",
@@ -45785,7 +46194,7 @@
       ],
       "sectionLinks": [
         {
-          "headingId": "the-asymmetry-is-in-the-mdp-not-the-algorithm",
+          "headingId": "the-asymmetry-is-in-the-mdp",
           "headingTag": "h2",
           "linked": true,
           "colour": "rgb(11, 11, 12)",
@@ -45795,7 +46204,7 @@
           "keyboardFocusable": true,
           "affordance": {
             "tag": "button",
-            "accessibleName": "Copy link to this section, The asymmetry is in the MDP, not the algorithm",
+            "accessibleName": "Copy link to this section, The asymmetry is in the MDP",
             "widthPx": 24,
             "heightPx": 24,
             "opacity": 1,
@@ -56783,7 +57192,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 12268,
+      "visibleTextLength": 12177,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -57025,7 +57434,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Nominal link lengths and joint zeroes describe the design, n"
+          "text": "Nominal link lengths and joint zeroes describe the design. E"
         },
         {
           "familyHead": "newsreader",
@@ -57142,7 +57551,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The final output is not “calibrated.” It is a set of measure"
+          "text": "Record the measured residuals, operating range and owner as "
         }
       ],
       "sectionLinks": [
@@ -57551,7 +57960,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 25837,
+      "visibleTextLength": 25620,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -58093,7 +58502,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A learned action is a controller request, not a motor comman"
+          "text": "A learned action reaches the motors through a controller. Sp"
         },
         {
           "familyHead": "newsreader",
@@ -58623,7 +59032,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17526,
+      "visibleTextLength": 17514,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -58902,7 +59311,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Force closure is binary, but grasps are not. Two closed gras"
+          "text": "Force closure is binary, while the disturbance a closed gras"
         },
         {
           "familyHead": "newsreader",
@@ -58929,7 +59338,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Now the lab above reads as mechanics rather than shapes. On "
+          "text": "Read the lab above as mechanics. On the left is the object w"
         },
         {
           "familyHead": "newsreader",
@@ -58965,7 +59374,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "For the eight known, 3D-printed adversarial objects, Table I"
+          "text": "For the eight known, 3D-printed adversarial objects, Dex-Net"
         },
         {
           "familyHead": "newsreader",
@@ -59385,7 +59794,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15498,
+      "visibleTextLength": 15725,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -59452,11 +59861,11 @@
           "Kinematics"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 11,
+        "readingMinutes": 12,
         "citationCount": 6,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "11 min",
+        "readingTimeText": "12 min",
         "citationCountText": "6",
         "bibliographyIds": [
           "lavalle-2006",
@@ -59489,7 +59898,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Kinematics describes robot motion without asking what causes"
+          "text": "Kinematics describes the geometry of a robot's motion withou"
         },
         {
           "familyHead": "newsreader",
@@ -59507,7 +59916,34 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The asymmetry is easiest to feel with an arm in front of you"
+          "text": "The chain below reveals the ordered transformations. In the "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Moving an upstream joint changes every downstream position; "
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 opening angles 110°, -45°, -35° tip (0.45, 1.89)"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic, authored link lengths and angles from the planar "
         },
         {
           "familyHead": "ibm plex sans",
@@ -59750,7 +60186,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The forward direction is a product of transforms; the invers"
+          "text": "Forward kinematics multiplies transforms in order. Inverse k"
         },
         {
           "familyHead": "newsreader",
@@ -60039,6 +60475,12 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
+        },
+        {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
+          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -60109,6 +60551,38 @@
         },
         {
           "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
@@ -60142,7 +60616,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28130,
+      "visibleTextLength": 28075,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -60250,7 +60724,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Motion planning answers a deceptively simple question: given"
+          "text": "Motion planning finds a route from the robot's current confi"
         },
         {
           "familyHead": "newsreader",
@@ -60268,7 +60742,34 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The interactive below uses an authored 2D scene: a 100 by 64"
+          "text": "The paused overview and the lab below use the same authored "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Only after a goal connection exists does the selected start-"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 authored world 100 × 64 goal connection 288 accep"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Authored fixed-seed planning scene, not a published benchmar"
         },
         {
           "familyHead": "ibm plex mono",
@@ -60475,7 +60976,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Section V describes the Sample routine more strongly, as if "
+          "text": "The Sample routine describes each sampled state as admitting"
         },
         {
           "familyHead": "newsreader",
@@ -60574,7 +61075,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "These are Table I's arm results. In particular, single-initi"
+          "text": "The arm results show single-initialization TrajOpt solving a"
         },
         {
           "familyHead": "newsreader",
@@ -60583,7 +61084,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Table II contains no CHOMP full-body result: the authors lac"
+          "text": "The full-body results omit CHOMP: the authors lacked the doc"
         },
         {
           "familyHead": "newsreader",
@@ -60610,7 +61111,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Classical planning did not disappear when learned policies a"
+          "text": "Sampling planners still label demonstration data, verify tha"
         },
         {
           "familyHead": "newsreader",
@@ -60969,6 +61470,12 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
+        },
+        {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
+          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -61039,6 +61546,38 @@
         },
         {
           "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Run",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
@@ -61088,7 +61627,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 42906,
+      "visibleTextLength": 42456,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -61155,11 +61694,11 @@
           "Perception for Manipulation"
         ],
         "lastReviewed": "2026-08-22",
-        "readingMinutes": 28,
+        "readingMinutes": 27,
         "citationCount": 28,
         "reviewDateText": "22 August 2026",
         "reviewDateTime": "2026-08-22",
-        "readingTimeText": "28 min",
+        "readingTimeText": "27 min",
         "citationCountText": "28",
         "bibliographyIds": [
           "zhang-2000-calibration",
@@ -61358,7 +61897,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The instrument uses an illustrative ray-to-plane model, not "
+          "text": "The instrument uses an illustrative ray-to-plane model. It d"
         },
         {
           "familyHead": "newsreader",
@@ -61421,7 +61960,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Two things about the numbers above should be said out loud. "
+          "text": "The 2 percent is measured against a texture-less white targe"
         },
         {
           "familyHead": "newsreader",
@@ -61457,7 +61996,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A box is the wrong output for manipulation. A box around a m"
+          "text": "A box around a mug also contains the table behind it. A gras"
         },
         {
           "familyHead": "newsreader",
@@ -61493,7 +62032,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The image-speed comparison is different. Tables 5 and 15 com"
+          "text": "The image-speed comparison is different. The paper compares "
         },
         {
           "familyHead": "newsreader",
@@ -61538,7 +62077,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "RoboPoint instead instruction-tunes a VLM to predict image-s"
+          "text": "RoboPoint instruction-tunes a VLM to predict image-space aff"
         },
         {
           "familyHead": "newsreader",
@@ -61565,7 +62104,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Dex-Net 2.0 instead learns to score candidate parallel-jaw g"
+          "text": "Dex-Net 2.0 learns to score candidate parallel-jaw grasps. T"
         },
         {
           "familyHead": "newsreader",
@@ -62270,7 +62809,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12186,
+      "visibleTextLength": 12064,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -63091,7 +63630,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28922,
+      "visibleTextLength": 28319,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -63158,11 +63697,11 @@
           "Scene Representation and Mapping"
         ],
         "lastReviewed": "2026-08-22",
-        "readingMinutes": 17,
+        "readingMinutes": 16,
         "citationCount": 24,
         "reviewDateText": "22 August 2026",
         "reviewDateTime": "2026-08-22",
-        "readingTimeText": "17 min",
+        "readingTimeText": "16 min",
         "citationCountText": "24",
         "bibliographyIds": [
           "moravec-elfes-1985",
@@ -63366,7 +63905,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "First, view-synthesis quality, which is what the original re"
+          "text": "The original result demonstrated view-synthesis quality. Ins"
         },
         {
           "familyHead": "newsreader",
@@ -63402,7 +63941,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "That makes the appropriate uses specific rather than general"
+          "text": "SplatSim uses splats for rendering while PyBullet supplies t"
         },
         {
           "familyHead": "newsreader",
@@ -63420,7 +63959,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Dex-NeRF is the honest bridge and worth reading as the excep"
+          "text": "Dex-NeRF uses a radiance field to render transparency-aware "
         },
         {
           "familyHead": "newsreader",
@@ -63429,7 +63968,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The symbolic end of the ladder deserves a mention for the sa"
+          "text": "OccWorld predicts how a 3D occupancy grid evolves and gets c"
         },
         {
           "familyHead": "newsreader",
@@ -63447,7 +63986,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "In Section II, Cadena and colleagues separate a sensor-depen"
+          "text": "Cadena and colleagues separate a sensor-dependent front end,"
         },
         {
           "familyHead": "newsreader",
@@ -63564,7 +64103,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Notice what the deployed stack chose. Not the representation"
+          "text": "The deployed stack uses a representation that can answer the"
         },
         {
           "familyHead": "newsreader",
@@ -64037,7 +64576,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20316,
+      "visibleTextLength": 20802,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -64104,11 +64643,11 @@
           "State Estimation"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 14,
+        "readingMinutes": 15,
         "citationCount": 12,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "14 min",
+        "readingTimeText": "15 min",
         "citationCountText": "12",
         "bibliographyIds": [
           "kalman-1960-filter",
@@ -64165,34 +64704,16 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The lab below is that idea running. A target wanders in one "
+          "text": "The scene below is that idea, one step at a time. A target w"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 11,
-          "lineHeightRatio": 1.38,
-          "widthPx": 324.5,
-          "zeroAdvancePx": 7,
-          "insideRegisteredFrame": true,
-          "text": "What the filter assumes about the target’s per-step accelera"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 11,
-          "lineHeightRatio": 1.38,
-          "widthPx": 324.5,
-          "zeroAdvancePx": 7,
-          "insideRegisteredFrame": true,
-          "text": "What the filter assumes about the sensor’s scatter. Raise it"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.33,
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
           "widthPx": 665,
-          "zeroAdvancePx": 7,
+          "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Generated world: every reseed generates a new true path and "
+          "text": "The step, written out: the posterior becomes the next prior,"
         },
         {
           "familyHead": "ibm plex mono",
@@ -64201,7 +64722,7 @@
           "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "step 60 / 600 seed 1 sigma 0.72 gain 0.52 rms err 0.90"
+          "text": "beat 5 / 5 σ 0.94 → 1.27 → 0.79 K 0.62 z 0.82"
         },
         {
           "familyHead": "ibm plex sans",
@@ -64210,16 +64731,7 @@
           "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
-          "text": "A constant-velocity Kalman filter tracking a wandering targe"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "Over the 61-step window ending at step 60, the estimate stay"
+          "text": "Schematic of step 41 of the seeded constant-velocity filter "
         },
         {
           "familyHead": "newsreader",
@@ -64228,7 +64740,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The full probabilistic answer starts with a belief: not a gu"
+          "text": "The full probabilistic answer starts with a belief, a probab"
         },
         {
           "familyHead": "newsreader",
@@ -64291,7 +64803,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The gain is the whole idea in one ratio: prior uncertainty o"
+          "text": "The gain is prior uncertainty over prior-plus-sensor uncerta"
         },
         {
           "familyHead": "newsreader",
@@ -64309,7 +64821,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "That is what the lab at the top of this module is showing. T"
+          "text": "That is what the scene at the top of this module is showing."
         },
         {
           "familyHead": "newsreader",
@@ -64318,7 +64830,43 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "One more thing to notice: the band is a claim the filter mak"
+          "text": "One more thing to notice: the ellipse is a claim the filter "
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "A single fusion is worth stepping through; a whole run is wo"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The same seeded filter as the step-through scene, played ove"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Seeded toy filter; schematic, not measured hardware."
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 1,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "Schematic cinematic clip, 18 seconds: one Kalman filter over"
         },
         {
           "familyHead": "newsreader",
@@ -64686,6 +65234,18 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
+        },
+        {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
+          "trackingEm": 0.14
+        },
+        {
+          "text": "cinematic clip",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
+          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -64756,7 +65316,7 @@
         },
         {
           "tag": "button",
-          "text": "Run",
+          "text": "Play",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "inProse": true,
@@ -64764,7 +65324,7 @@
         },
         {
           "tag": "button",
-          "text": "Step",
+          "text": "Step back",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "inProse": true,
@@ -64772,7 +65332,7 @@
         },
         {
           "tag": "button",
-          "text": "Reseed",
+          "text": "Step forward",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "inProse": true,
@@ -64783,14 +65343,6 @@
           "text": "Reset",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "summary",
-          "text": "Sampled truth, estimate and unce",
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         }
@@ -81151,7 +81703,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14792,
+      "visibleTextLength": 15048,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -81267,7 +81819,16 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Drag the denoising step slider below from k=0 to k=10. The c"
+          "text": "Play the scene below and step through its beats. Sixty actio"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Recap: ten steps of denoising conditioned on o recover both "
         },
         {
           "familyHead": "ibm plex mono",
@@ -81276,16 +81837,7 @@
           "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "step 0 of 10 (pure Gaussian noise) mean distance to mode 1.7"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "At denoising step 0 of 10 the 60-sample cloud is pure Gaussi"
+          "text": "beat 4 / 4 samples 60 steps 10 dispersion 1.79 → 0.27"
         },
         {
           "familyHead": "ibm plex sans",
@@ -81294,7 +81846,7 @@
           "widthPx": 665,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
-          "text": "Illustrative model: 60 samples with a fixed seed, transporte"
+          "text": "Illustrative action-space model (status: illustrative): the "
         },
         {
           "familyHead": "newsreader",
@@ -81759,6 +82311,12 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
+        },
+        {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
+          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -81829,6 +82387,14 @@
         },
         {
           "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
@@ -81848,14 +82414,6 @@
           "text": "Reset",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "summary",
-          "text": "Current denoising cloud",
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -85395,7 +85953,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26198,
+      "visibleTextLength": 26778,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -85507,6 +86065,33 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "The VLA module ended on a bottleneck: discrete action tokens"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Two action clusters remain after transport; the step-count l"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 toy samples 48 ten-step mean endpoint error 0.05"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative seeded two-dimensional transport, not learned p"
         },
         {
           "familyHead": "newsreader",
@@ -86146,6 +86731,12 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
+        },
+        {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
+          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -86212,6 +86803,38 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
           "controlId": "control:secondary-action"
         },
         {
@@ -89243,7 +89866,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20624,
+      "visibleTextLength": 21247,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -89351,6 +89974,33 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "The modules so far covered policies trained from scratch on "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The token stream retains the bin choice, while seven sequent"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 toy value -0.056 → bin 120 → <a120>"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic, illustrative action vector: normalized bounds and"
         },
         {
           "familyHead": "newsreader",
@@ -89918,6 +90568,12 @@
           "trackingEm": 0.14
         },
         {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
+          "trackingEm": 0.14
+        },
+        {
           "text": "Serialized action tokens at t = ",
           "familyHead": "ibm plex mono",
           "sizePx": 11,
@@ -89988,6 +90644,38 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
           "controlId": "control:secondary-action"
         },
         {
@@ -92182,7 +92870,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 21340,
+      "visibleTextLength": 21290,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -92960,7 +93648,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19012,
+      "visibleTextLength": 19548,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -93027,11 +93715,11 @@
           "Legged Locomotion Lineage"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 11,
+        "readingMinutes": 12,
         "citationCount": 13,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "11 min",
+        "readingTimeText": "12 min",
         "citationCountText": "13",
         "bibliographyIds": [
           "hwangbo-2019",
@@ -93081,6 +93769,33 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Underneath all of it sits an older idea that learning did no"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The authored pronk puts all four feet down together and then"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 new pattern Pronk minimum support 0 feet"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic, authored gait duty factors and phase offsets from"
         },
         {
           "familyHead": "ibm plex sans",
@@ -93179,7 +93894,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Learned policies are not handed these patterns. Foot-air-tim"
+          "text": "Learned policies discover whichever gait the foot-air-time a"
         },
         {
           "familyHead": "newsreader",
@@ -93215,7 +93930,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Jeon and colleagues compared reward formulations, not RL alg"
+          "text": "Jeon and colleagues compared reward formulations with PPO-Cl"
         },
         {
           "familyHead": "newsreader",
@@ -93531,6 +94246,12 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
+        },
+        {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
+          "trackingEm": 0.14
         }
       ],
       "monoRequired": [
@@ -93602,6 +94323,38 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
           "controlId": "control:secondary-action"
         },
         {
@@ -93703,7 +94456,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14080,
+      "visibleTextLength": 14030,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -94771,7 +95524,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16051,
+      "visibleTextLength": 16800,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -94838,11 +95591,11 @@
           "Massively Parallel Sim RL"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 9,
+        "readingMinutes": 10,
         "citationCount": 8,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "9 min",
+        "readingTimeText": "10 min",
         "citationCountText": "8",
         "bibliographyIds": [
           "rudin-2021",
@@ -94877,7 +95630,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The four-minute training run from the previous module was no"
+          "text": "The four-minute training run from the previous module came f"
         },
         {
           "familyHead": "newsreader",
@@ -94886,7 +95639,34 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The chart below illustrates the cost arithmetic before the h"
+          "text": "The scene and chart below illustrate the cost arithmetic bef"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "At 16,384 environments, the two toy curves show why parallel"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 envs 16,384 toy time 1.5 min"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative fixed-transition calculation, not a measured tr"
         },
         {
           "familyHead": "ibm plex mono",
@@ -94949,7 +95729,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "NVIDIA's stack was not the only path. Brax, from Google in 2"
+          "text": "Brax, from Google in 2021, wrote the physics and the learnin"
         },
         {
           "familyHead": "newsreader",
@@ -94967,7 +95747,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The CPU toggle illustrates a possible bottleneck; it does no"
+          "text": "The CPU toggle illustrates a possible bottleneck; it draws n"
         },
         {
           "familyHead": "ibm plex sans",
@@ -94985,7 +95765,7 @@
           "widthPx": 680,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "The curve is an illustrative fixed-transitions model, not a "
+          "text": "The curve uses an illustrative fixed-transitions model, with"
         },
         {
           "familyHead": "newsreader",
@@ -94994,7 +95774,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The 2025 Isaac Lab v1 paper describes OpenUSD scene graphs, "
+          "text": "The 2025 Isaac Lab paper describes OpenUSD scene graphs, Phy"
         },
         {
           "familyHead": "newsreader",
@@ -95075,7 +95855,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The v1 paper identifies CPU bottlenecks in its tested system"
+          "text": "The Isaac Lab paper identifies CPU bottlenecks in its tested"
         },
         {
           "familyHead": "newsreader",
@@ -95084,7 +95864,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Newton's differentiability is advertised, but its practical "
+          "text": "Newton's differentiability is advertised, but practical use "
         }
       ],
       "sectionLinks": [
@@ -95344,6 +96124,12 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
+        },
+        {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
+          "trackingEm": 0.14
         }
       ],
       "monoRequired": [
@@ -95423,6 +96209,38 @@
         },
         {
           "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "CPU single-core bottleneck",
           "familyHead": "ibm plex mono",
           "sizePx": 12,
@@ -95488,7 +96306,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28118,
+      "visibleTextLength": 28113,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -95855,7 +96673,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "For population-based training, Isaac Lab v1 describes DexPBT"
+          "text": "For population-based training, Isaac Lab describes DexPBT wo"
         },
         {
           "familyHead": "newsreader",
@@ -96538,7 +97356,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 30851,
+      "visibleTextLength": 30528,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -96605,11 +97423,11 @@
           "RL for Robotics"
         ],
         "lastReviewed": "2026-08-22",
-        "readingMinutes": 18,
+        "readingMinutes": 17,
         "citationCount": 27,
         "reviewDateText": "22 August 2026",
         "reviewDateTime": "2026-08-22",
-        "readingTimeText": "18 min",
+        "readingTimeText": "17 min",
         "citationCountText": "27",
         "bibliographyIds": [
           "sutton-barto-2018",
@@ -96744,7 +97562,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The MDP formulation admits two families of method, and the u"
+          "text": "The MDP formulation admits two families of method. Their pra"
         },
         {
           "familyHead": "newsreader",
@@ -96852,7 +97670,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Behavior-regularized approaches constrain the policy rather "
+          "text": "Behavior-regularized approaches constrain the policy. TD3+BC"
         },
         {
           "familyHead": "newsreader",
@@ -96870,7 +97688,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "This is where the field genuinely disagrees, and the disagre"
+          "text": "The results leave a disagreement worth examining."
         },
         {
           "familyHead": "newsreader",
@@ -96924,7 +97742,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The pragmatic settlement is to stop choosing. RLPD initializ"
+          "text": "Offline data can also seed online learning. RLPD initializes"
         },
         {
           "familyHead": "newsreader",
@@ -97508,7 +98326,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24810,
+      "visibleTextLength": 24591,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -97575,11 +98393,11 @@
           "Sim-to-Real Transfer"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 15,
+        "readingMinutes": 14,
         "citationCount": 12,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "15 min",
+        "readingTimeText": "14 min",
         "citationCountText": "12",
         "bibliographyIds": [
           "tobin-2017",
@@ -97636,7 +98454,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The figure below is a deterministic toy, not a learned polic"
+          "text": "The figure below is a deterministic toy. No policy was train"
         },
         {
           "familyHead": "ibm plex mono",
@@ -97690,7 +98508,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Two details rarely make it into the textbook version. First,"
+          "text": "The implementation matters. In the 2025 Isaac Lab paper, sim"
         },
         {
           "familyHead": "newsreader",
@@ -97798,7 +98616,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "In its DextrAH-RGB example, the Isaac Lab v1 paper reports a"
+          "text": "In its DextrAH-RGB example, the Isaac Lab paper reports an R"
         },
         {
           "familyHead": "newsreader",
@@ -97888,7 +98706,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Generalization is measured, not guaranteed. ASAP reports imp"
+          "text": "ASAP reports improved tracking on the held-out \"Silencer\" mo"
         },
         {
           "familyHead": "newsreader",
@@ -97915,7 +98733,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "This evaluation is not interchangeable with real-robot testi"
+          "text": "This evaluation uses simulated trials as well as real-robot "
         },
         {
           "familyHead": "newsreader",
@@ -97942,7 +98760,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Each family's failure mode is worth holding onto. The fricti"
+          "text": "Each family's limits differ. The friction chart's conservati"
         },
         {
           "familyHead": "ibm plex mono",
@@ -98411,7 +99229,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12906,
+      "visibleTextLength": 12613,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -98478,11 +99296,11 @@
           "Why RL Won Locomotion but Not Manipulation"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 7,
+        "readingMinutes": 6,
         "citationCount": 7,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "7 min",
+        "readingTimeText": "6 min",
         "citationCountText": "7",
         "bibliographyIds": [
           "rudin-2021",
@@ -98561,7 +99379,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The tempting explanation is that RL is somehow bad at manipu"
+          "text": "The 2026 reality-gap survey describes the manipulation MDP a"
         },
         {
           "familyHead": "newsreader",
@@ -98588,7 +99406,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The Isaac Lab v1 paper says dexterous manipulation with mult"
+          "text": "The Isaac Lab paper says dexterous manipulation with multi-f"
         },
         {
           "familyHead": "newsreader",
@@ -98606,7 +99424,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Three things to take from it. First, contact count: four nea"
+          "text": "The figure compares four near-point foot contacts with fourt"
         },
         {
           "familyHead": "newsreader",
@@ -98615,7 +99433,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Sim-to-real RL has produced real dexterous results, and hone"
+          "text": "Sim-to-real RL has produced real dexterous results. In OpenA"
         },
         {
           "familyHead": "newsreader",
@@ -98624,7 +99442,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Isaac Lab v1 describes DextrAH-RGB's privileged-state RL tea"
+          "text": "Isaac Lab describes DextrAH-RGB's privileged-state RL teache"
         },
         {
           "familyHead": "newsreader",
@@ -98642,7 +99460,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The sharpest 2026 evidence that manipulation remains the bot"
+          "text": "Gemini Robotics 2 offers a separate 2026 view of the manipul"
         },
         {
           "familyHead": "ibm plex sans",
@@ -98665,7 +99483,7 @@
       ],
       "sectionLinks": [
         {
-          "headingId": "the-asymmetry-is-in-the-mdp-not-the-algorithm",
+          "headingId": "the-asymmetry-is-in-the-mdp",
           "headingTag": "h2",
           "linked": true,
           "colour": "rgb(11, 11, 12)",
@@ -98675,7 +99493,7 @@
           "keyboardFocusable": true,
           "affordance": {
             "tag": "button",
-            "accessibleName": "Copy link to this section, The asymmetry is in the MDP, not the algorithm",
+            "accessibleName": "Copy link to this section, The asymmetry is in the MDP",
             "widthPx": 24,
             "heightPx": 24,
             "opacity": 1,

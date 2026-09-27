@@ -48,13 +48,13 @@ describe('Newton engine source-scoped corrections', () => {
   it('keeps the solver inventory and example-specific SDF band', () => {
     for (const phrase of ['SemiImplicit, XPBD, and Kamino', 'limited joint support',
       'Style3D for cloth', 'narrow_band_range=(-0.01, 0.01)',
-      'example configuration, not a stated engine-wide requirement']) expect(parallel()).toContain(phrase);
+      'That band belongs to the example configuration; the post makes no engine-wide requirement']) expect(parallel()).toContain(phrase);
     expect(parallel()).not.toContain('the accuracy reference');
     expect(parallel()).not.toContain('that standard articulation solvers cannot represent');
   });
   it('distinguishes vendor workflows, future Samsung use and simulation', () => {
     for (const phrase of ['NVIDIA says Skild AI', 'Samsung "will use Newton"',
-      'simulated RB-Y1', 'water-hose connector', "NVIDIA's accounts"]) expect(parallel()).toContain(phrase);
+      'simulated RB-Y1', 'water-hose connector', 'These workflow descriptions come from NVIDIA; independent production-deployment results are not established here']) expect(parallel()).toContain(phrase);
   });
   it('keeps the two task ratios, comparator, hardware and missing protocol together', () => {
     for (const phrase of ['value="252x / 475x"', 'locomotion / manipulation',
@@ -65,7 +65,7 @@ describe('Newton engine source-scoped corrections', () => {
   });
   it('attributes the Drake opinion and avoids productization claims', () => {
     expect(parallel()).toContain('Johnny Nuñez Cano and his NVIDIA coauthors call Drake');
-    expect(parallel()).toContain("overview authors' positioning, not a comparative benchmark");
+    expect(parallel()).toContain('The overview positions Drake in this way; it reports no comparative benchmark');
     expect(transfer()).toContain('ray-tracing backend supports both triangle meshes and Gaussian splats');
     expect(transfer()).not.toContain('which is this idea productized');
   });

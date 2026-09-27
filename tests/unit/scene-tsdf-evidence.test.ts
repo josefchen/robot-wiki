@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
-import { preservedApprovalPacket, preservedCompoundPacket } from '../helpers/continuation-integration';
+import { committedSource, preservedApprovalPacket, preservedCompoundPacket } from '../helpers/continuation-integration';
 import { headReanchorFor } from './helpers/continuation-merge-ledger';
 import matter from 'gray-matter';
 import { beforeAll, describe, expect, it } from 'vitest';
@@ -194,9 +194,24 @@ describe('scene original 10: source-scoped TSDF correction', () => {
       // Preserve this exact approval and require an unbroken member chain,
       // rather than pretending the scene checkpoint remains the latest one.
       let latestHash = delta.newHash;
+      if (delta.manifest === 'prose') {
+        const merge = entries.find(entry =>
+          entry.id === 'continuation-merge-2026-09-23-1745-prose-article-classical-scene-representation')!;
+        expect(merge).toBeDefined();
+        expect(merge.newHash).toBe(buildManifest('prose', [{
+          id: delta.memberId,
+          value: { path: scenePath, body: matter(committedSource('ebf13b4', scenePath)).content.trim() },
+        }]).members[0].hash);
+        // The source-flow edge ends at its historical endpoint. The later
+        // merge re-anchors the combined article before the humanizer edge.
+        const sourceFlow = entries.find(entry => entry.id === 'reader-source-flow-20260923-1')!;
+        expect(sourceFlow.oldHash).toBe(delta.newHash);
+        expect(sourceFlow.newHash).not.toBe(merge.newHash);
+        latestHash = merge.newHash;
+      }
       for (const later of entries.slice(entries.indexOf(delta) + 1).filter((entry) =>
         entry.manifest === delta.manifest && entry.memberId === delta.memberId &&
-        !entry.id.startsWith('continuation-merge-'))) {
+        !entry.id.startsWith('continuation-merge-') && entry.id !== 'reader-source-flow-20260923-1')) {
         expect(later.oldHash).toBe(latestHash);
         latestHash = later.newHash;
       }

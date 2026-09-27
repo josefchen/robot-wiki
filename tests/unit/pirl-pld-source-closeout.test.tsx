@@ -33,7 +33,7 @@ describe('retained pi_RL v3 and PLD v1 source corrections', () => {
     expect(article).toContain('one randomly chosen denoising step stochastic');
     expect(article).toContain('40% real-world success without stating an evaluation-trial denominator');
     expect(article).toContain('five unseen tasks in MetaWorld ML45');
-    expect(overview).toContain('not the supervised flow-matching regression loss');
+    expect(overview).toContain('a policy-gradient update in place of supervised flow-matching regression');
     expect(article).not.toContain('most complete treatment');
     expect(article).not.toContain('log-likelihood fix');
   });

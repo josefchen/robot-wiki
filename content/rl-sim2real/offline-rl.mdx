@@ -49,7 +49,7 @@ Try the check below. Choose the dataset in which offline RL has the clearest rea
     }
   ]}
   answer="mixed-quality"
-  takeaway="Offline RL earns its complexity when reward-bearing data contains meaningful quality variation or long-horizon fragments, not simply because the dataset is large."
+  takeaway="Offline RL earns its complexity when reward-bearing data contains meaningful quality variation or long-horizon fragments. Dataset size alone cannot supply either condition."
 />
 
 ## The fixed-data bargain
@@ -66,7 +66,7 @@ An offline-RL project should begin with four maps.
 
 ### Behavior coverage
 
-Identify who or what generated each episode: expert teleoperator, novice, scripted controller, older policy or exploration process. Plot action distributions by task stage rather than only over the full corpus. Measure coverage near contacts, failures and resets. If all successful trajectories occupy one narrow mode, extrapolating away from it is a claim, not an automatic benefit.
+Identify who or what generated each episode: expert teleoperator, novice, scripted controller, older policy or exploration process. Plot action distributions by task stage as well as over the full corpus. Measure coverage near contacts, failures and resets. If all successful trajectories occupy one narrow mode, extrapolating away from it needs evidence.
 
 ### Outcome coverage
 
@@ -88,7 +88,7 @@ Offline-RL algorithms differ mainly in how they stop policy improvement from exp
 
 ### Conservative value estimation
 
-Conservative Q-Learning penalizes high values on actions sampled outside the dataset while preserving values for observed actions. Its objective is designed to learn a conservative estimate of policy value rather than the optimistic estimate produced by ordinary off-policy learning <Cite id="cql-2020" />. The tradeoff is deliberate pessimism: excessive conservatism can prevent a policy from combining useful behavior already present in the data.
+Conservative Q-Learning penalizes high values on actions sampled outside the dataset while preserving values for observed actions. Its objective targets a conservative estimate of policy value and counters the optimistic estimates ordinary off-policy learning can produce <Cite id="cql-2020" />. The tradeoff is deliberate pessimism: excessive conservatism can prevent a policy from combining useful behavior already present in the data.
 
 ### Avoiding unseen-action queries
 
@@ -133,7 +133,7 @@ Train behavior cloning, a sequence-aware or recurrent cloning model when history
 
 ### 3. Report support-aware diagnostics
 
-Alongside return or task success, report action distance from the dataset, critic disagreement, saturation rate and performance by behavior-source cohort. These diagnostics do not prove safety, but they reveal when an apparent improvement depends on unsupported commands.
+Alongside return or task success, report action distance from the dataset, critic disagreement, saturation rate and performance by behavior-source cohort. These diagnostics can expose dependence on unsupported commands. They do not by themselves establish safety.
 
 ### 4. Use simulation only where it is predictive
 
@@ -141,7 +141,7 @@ Simulation can reject obviously unstable policies and test perturbations at scal
 
 ### 5. Run blinded physical trials
 
-Choose the final protocol before seeing policy identities. Randomize conditions, include failure recovery, report uncertainty and count interventions. Evaluate not only nominal success but collision, force, deadline miss and reset burden.
+Choose the final protocol before seeing policy identities. Randomize conditions, include failure recovery, report uncertainty and count interventions. Evaluate nominal success alongside collision, force, deadline miss and reset burden.
 
 ### 6. Keep a fixed canary set
 

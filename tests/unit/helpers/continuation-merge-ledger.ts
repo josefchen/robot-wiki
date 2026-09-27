@@ -304,6 +304,10 @@ export const LATER_REANCHOR_PREFIXES = [
   'instrument-migration-20260926-',
   'educational-relocation-20260926-',
   'educational-cue-20260926-',
+  'motion-classical-humanizer-v3-20260927-',
+  'motion-manipulation-20260927-',
+  'motion-rl-sim2real-humanizer-v3-20260927-',
+  'motion-rl-sim2real-20260927-reconcile-',
 ] as const;
 
 let integratedObservations: Map<string, string | undefined> | undefined;

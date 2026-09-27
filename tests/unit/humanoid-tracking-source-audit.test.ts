@@ -28,22 +28,22 @@ function rowFor(plan: CompoundPlan) {
 
 describe('PHC, OmniH2O and HumanPlus source corrections', () => {
   it('scopes PHC to simulated avatars and progressive failed subsets', () => {
-    for (const phrase of ['simulated avatars, not a physical robot', '98.9%',
+    for (const phrase of ['simulated avatars; it did not test a physical robot', '98.9%',
       '11,313 filtered AMASS training clips', 'training-set result',
       'progressively harder failed subsets', 'separate recovery primitive',
       'multiplicative composer', 'recovery artifacts']) expect(body()).toContain(phrase);
     expect(body()).not.toContain('as the motion set grew');
   });
   it('separates OmniH2O goal generation localization and low-level control', () => {
-    for (const phrase of ['privileged RL teacher', 'Robot root odometry',
-      'without an explicit global-linear-velocity input', 'Appendix A describes torque outputs',
-      'demonstrated GPT-4o setup', 'selection among motion primitives',
-      'not direct low-level motor control', 'four of the six recorded tasks',
+    for (const phrase of ['privileged RL teacher', 'robot root odometry',
+      'no explicit global-linear-velocity input', 'Appendix A describes torque outputs',
+      'demonstrated GPT-4o setup', 'select among motion primitives',
+      'too slowly for direct low-level motor control', 'four of the six recorded tasks',
       'ten runs per task', 'no safety guarantees']) expect(body()).toContain(phrase);
     expect(body()).not.toContain('OmniH2O generalized the interface');
   });
   it('separates HumanPlus human observation robot sensing shadowing and BC', () => {
-    for (const phrase of ['not as the robot’s only sensor', 'IMU and joint-encoder',
+    for (const phrase of ['The robot has other sensors', 'IMU and joint-encoder',
       'body-joint position setpoints', 'seated operation bypasses',
       'two head-mounted RGB cameras', 'Humanoid Imitation Transformer',
       'binocular images and proprioception', 'limited locomotion scope']) expect(body()).toContain(phrase);

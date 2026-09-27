@@ -266,12 +266,6 @@ export const NA_CELL_FAMILIES: ReadonlyArray<NaCellFamily> = [
     justification:
       'The paper reports completion only inside its measured range; beyond it there is no reported score to disclose, and the region column says extrapolated.',
   },
-  {
-    sourceId: 'interactive:KalmanTracker',
-    column: 'reading',
-    justification:
-      'The sensor drops out on seeded steps; with no measurement taken there is no reading to print for that step.',
-  },
 ];
 
 /**
@@ -415,13 +409,6 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
     // authored. Header vocabulary already carries the disclosure.
     kind: 'authored-model',
   },
-  'interactive:KalmanTracker': {
-    // The tracked world is generated on the client ("Reseed: generate the
-    // next world"); the filter math itself is real.
-    kind: 'authored-model',
-    leadSeriesId: 'estimate',
-    leadPaints: ['accent'],
-  },
   'interactive:LatencyComparison': {
     // Temporal-ensembling vs RTC under an injected delay model.
     kind: 'authored-model',
@@ -482,10 +469,6 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
   },
   'interactive:CrossEmbodimentStrategies': {
     // "Original deterministic slot-layout illustration".
-    kind: 'schematic',
-  },
-  'interactive:DenoisingLoop': {
-    // Step-through of the denoising recurrence.
     kind: 'schematic',
   },
   'interactive:FlowMatchingTrajectory': {

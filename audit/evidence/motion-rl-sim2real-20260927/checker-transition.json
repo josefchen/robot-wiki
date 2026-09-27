@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "motion-rl-checker-revision-v1",
+  "before": {
+    "path": "audit/evidence/motion-rl-sim2real-20260927/audit-local-basis-before.ts.txt",
+    "bytes": 105169,
+    "sha256": "7bd97adebae059fdc60f62622fcff87aadce22e798b617c4cb4a1f96e646216c"
+  },
+  "after": {
+    "path": "lib/audit-local-basis.ts",
+    "bytes": 107277,
+    "sha256": "9bfb922c2a2a5463e9cd7ced4f98fa4facd9625f1aa0d79eadd70ba81a6b5626"
+  },
+  "reviewedBy": "Robot Wiki RL motion implementer, not independent acceptance",
+  "rationale": "Inspected the whole checker diff against the exact 105,169-byte archived prior checker: one finite four-article continuity loader, a three-article historical-archive dispatch, one sim2real second-stage historical binding, and this exact revision guard. Historical computation recipes, proof execution, source registries, input expectations and claim verdicts are not modified. The old checker remains an archived historical input; this review does not relabel old receipts as current runs.",
+  "observedAt": "2026-09-27T08:38:26.700Z"
+}

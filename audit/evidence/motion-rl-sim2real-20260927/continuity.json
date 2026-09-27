@@ -1,0 +1,199 @@
+{
+  "schemaVersion": "motion-rl-sim2real-continuity-v1",
+  "entries": [
+    {
+      "article": "content/rl-sim2real/parallel-sim-rl.mdx",
+      "historical": {
+        "path": "content/rl-sim2real/parallel-sim-rl.mdx",
+        "bytes": 12773,
+        "sha256": "887b44cea4151231d7037a9b911d7e96e2d6f405d09522ce6baf3884031e5045"
+      },
+      "snapshot": {
+        "path": "audit/evidence/motion-rl-sim2real-20260927/parallel-sim-rl-before.mdx",
+        "bytes": 12773,
+        "sha256": "887b44cea4151231d7037a9b911d7e96e2d6f405d09522ce6baf3884031e5045"
+      },
+      "current": {
+        "path": "content/rl-sim2real/parallel-sim-rl.mdx",
+        "bytes": 13046,
+        "sha256": "7a252cd960fe74991fa071ad9aea9634f2fd397b58216950247de436f475eca7"
+      },
+      "proofIds": [
+        "p18-16384-off",
+        "p18-16384-on",
+        "p18-4096-off",
+        "p18-4096-on",
+        "p18-64-off",
+        "p18-64-on",
+        "p18-observed-16384-off",
+        "p18-observed-16384-on",
+        "p18-observed-4096-off",
+        "p18-observed-4096-on",
+        "p18-observed-64-off",
+        "p18-observed-64-on",
+        "p18-parameters"
+      ],
+      "requiredPresent": [
+        "<BatchScale className=\"my-6\" />",
+        "<TrainingTimeChart className=\"my-6\" />",
+        "This authored fixed-transitions model is not a benchmark. We choose a budget of 220 million transitions and 24 rollout steps per environment per iteration, with 4,096 environments and the CPU toggle off by default. Each iteration costs 0.02 seconds plus 0.000004 seconds per environment for simulation, 0.04 seconds for learning, and 0.03 seconds for CPU and transfer work. The toggle adds 0.000022 seconds per environment to the CPU bucket. These costs and the fixed budget are illustrative choices, not estimates recovered from either paper. The curve uses 49 logarithmically spaced environment counts from 64 to 16,384, rounded to integers, and sample times rounded to 0.01 minute. Its near-four-minute default is a chosen calibration, not validation by the flat-terrain result. The flat diamond also uses a chosen 4,096-environment position; only the separate rough-run protocol establishes that count.",
+        "The flat diamond is placed at 4,096 environments for illustration",
+        "<Cite id=\"rudin-2021\" />"
+      ],
+      "review": {
+        "reviewedBy": "Robot Wiki RL motion implementer, not independent acceptance",
+        "rationale": "Compared the edited infrastructure article against the archived exact 2026-09-27 proof input. The original model disclosure, distinct flat and rough result bounds, article lab, citation order, and corrected 4,096-environment caveat remain. BatchScale is an explicitly illustrative reader-paced explanation ahead of the unchanged direct-control lab. Old screenshots and receipts describe the archived article, not this revision.",
+        "observedAt": "2026-09-27T08:35:46.757Z",
+        "inputDigest": "97e8ad89a81552f133ea99bc7ac70a0e46ff53e61cdfc9f16d201a99d71d7f5e"
+      }
+    },
+    {
+      "article": "content/rl-sim2real/legged-locomotion.mdx",
+      "historical": {
+        "path": "content/rl-sim2real/legged-locomotion.mdx",
+        "bytes": 15209,
+        "sha256": "7dc98b117c3ab4907c273dbfd7bf206d9fd057b483dd8f9e153d0c2facca1de4"
+      },
+      "snapshot": {
+        "path": "audit/evidence/motion-rl-sim2real-20260927/legged-locomotion-before.mdx",
+        "bytes": 15209,
+        "sha256": "7dc98b117c3ab4907c273dbfd7bf206d9fd057b483dd8f9e153d0c2facca1de4"
+      },
+      "current": {
+        "path": "content/rl-sim2real/legged-locomotion.mdx",
+        "bytes": 15213,
+        "sha256": "1eb02d57d099db1c3fc3b61e3828ddc3e0a2591daed6ae047e031190f12d9703"
+      },
+      "proofIds": [
+        "final-seven-rl-sim2real-legged-locomotion-17-20260923-17-derivation",
+        "final-seven-rl-sim2real-legged-locomotion-17-20260923-17-mounted-0",
+        "final-seven-rl-sim2real-legged-locomotion-17-20260923-17-mounted-1",
+        "final-seven-rl-sim2real-legged-locomotion-17-20260923-17-mounted-2",
+        "final-seven-rl-sim2real-legged-locomotion-17-20260923-17-parameters",
+        "final-seven-rl-sim2real-legged-locomotion-8-20260923-8-derivation",
+        "final-seven-rl-sim2real-legged-locomotion-8-20260923-8-mounted-0",
+        "final-seven-rl-sim2real-legged-locomotion-8-20260923-8-mounted-1",
+        "final-seven-rl-sim2real-legged-locomotion-8-20260923-8-mounted-2",
+        "final-seven-rl-sim2real-legged-locomotion-8-20260923-8-parameters"
+      ],
+      "requiredPresent": [
+        "<GaitSupport className=\"my-6\" />",
+        "<GaitDiagram className=\"my-6\" />",
+        "The diagram fixes authored illustrative duty factors: walk 0.75, trot 0.50, bound 0.45, and pronk 0.35. Its phase offsets and support readouts describe those chosen timing examples, not a universal gait law or a measured controller’s response to speed.",
+        "so the stance-time scaling is one classical controller’s schedule rather than a universal timing law",
+        "<Cite id=\"park-2017-bounding\" />",
+        "<Image id=\"anymal-anybotics-2022\" />"
+      ],
+      "review": {
+        "reviewedBy": "Robot Wiki RL motion implementer, not independent acceptance",
+        "rationale": "Compared the active gait article with the archived proof input: the universal duty-factor claim remains cut, the four local duty factors retain their exact disclosure, and Park’s stance-time/side-wall qualification and citations remain. GaitSupport adds authored stance samples ahead of the unchanged lab and does not turn a depicted footfall into a measured controller run. Historical receipt bytes are not claimed as a new execution.",
+        "observedAt": "2026-09-27T08:35:46.757Z",
+        "inputDigest": "ea4d8318c345bd97078c10ba3ab85dfe8254bbcfb92864f249b6a41691bbd080"
+      }
+    },
+    {
+      "article": "content/rl-sim2real/reward-design-mpc.mdx",
+      "historical": {
+        "path": "content/rl-sim2real/reward-design-mpc.mdx",
+        "bytes": 20078,
+        "sha256": "3bbc8c14f6898c5eaf6e7576abfddd909a342623468e2ebeab076d6e5bd1b12d"
+      },
+      "snapshot": {
+        "path": "audit/evidence/motion-rl-sim2real-20260927/reward-design-mpc-before.mdx",
+        "bytes": 20078,
+        "sha256": "3bbc8c14f6898c5eaf6e7576abfddd909a342623468e2ebeab076d6e5bd1b12d"
+      },
+      "current": {
+        "path": "content/rl-sim2real/reward-design-mpc.mdx",
+        "bytes": 20073,
+        "sha256": "f5df1d861c9f42b628fa2073a66f9114b887aa0b84c284aaae85739a13b90261"
+      },
+      "proofIds": [
+        "r11-generation-0",
+        "r11-generation-1",
+        "r11-generation-2",
+        "r11-observed-0",
+        "r11-observed-1",
+        "r11-observed-2",
+        "r11-observed-reset",
+        "r11-parameters",
+        "r4-default",
+        "r4-mounted",
+        "r4-parameters",
+        "r5-chatter",
+        "r5-default",
+        "r5-dominanceCounterexample",
+        "r5-freeze",
+        "r5-observed-chatter",
+        "r5-observed-freeze",
+        "r5-observed-prance",
+        "r5-observed-reset",
+        "r5-parameters",
+        "r5-prance",
+        "r5-priorityTie"
+      ],
+      "requiredPresent": [
+        "<RewardShaping className=\"my-6\" />",
+        "<EurekaLoop className=\"my-6\" />",
+        "This local teaching model uses twelve authored terms, weights and fixed per-term magnitudes. Its signed weighted total is dimensionless per step, not a measured reward. Freeze, prance and chatter are chosen classification rules and drawn poses, not trained policies, measured control frequencies or actuator-damage predictions.",
+        "The panel below is a scripted teaching example of the Eureka loop, not a recorded Eureka or PPO experiment. All three generations, reward code, statistics, fitness scores and reflections are authored fixtures. The sequence illustrates sprinting and falling, standing still, then tracking a command; clicking advances the script without training a policy or calling a language model.",
+        "<Cite id=\"rudin-2021\" />"
+      ],
+      "review": {
+        "reviewedBy": "Robot Wiki RL motion implementer, not independent acceptance",
+        "rationale": "Compared the active reward article with its archived exact proof input. The twelve-term dimensionless, non-measured disclosure and the three-generation scripted, non-training disclosure remain exact, as do the existing controls, source citation order, and paper-versus-local distinction. Prose edits do not replace the original typed parameter calculations or observed old browser receipts.",
+        "observedAt": "2026-09-27T08:35:46.758Z",
+        "inputDigest": "c8d12e04a2dd5c971713cf56cd95573ae30eb0c04629fb94dcac994edc0be62a"
+      }
+    },
+    {
+      "article": "content/rl-sim2real/sim2real-transfer.mdx",
+      "historical": {
+        "path": "content/rl-sim2real/sim2real-transfer.mdx",
+        "bytes": 22039,
+        "sha256": "50fea382b87c89aaf4a2a8c0539be972319a5eb3c198917bd0e1654f1cf236d7"
+      },
+      "snapshot": {
+        "path": "audit/evidence/motion-rl-sim2real-20260927/sim2real-transfer-before.mdx",
+        "bytes": 22039,
+        "sha256": "50fea382b87c89aaf4a2a8c0539be972319a5eb3c198917bd0e1654f1cf236d7"
+      },
+      "current": {
+        "path": "content/rl-sim2real/sim2real-transfer.mdx",
+        "bytes": 21813,
+        "sha256": "95b7637c9af2f670dcc3a92632e0712d1438a17d08f268a3ecffe1338736898d"
+      },
+      "proofIds": [
+        "s23-default",
+        "s23-observed-default",
+        "s23-observed-tail",
+        "s23-observed-wide",
+        "s23-parameters",
+        "s23-tail",
+        "s23-wide",
+        "s24-default",
+        "s24-high",
+        "s24-observed-default",
+        "s24-observed-high",
+        "s24-observed-zero",
+        "s24-parameters",
+        "s24-zero"
+      ],
+      "requiredPresent": [
+        "<FrictionTransfer className=\"my-6\" />",
+        "<FrictionTransfer defaultRange={0.65} className=\"mt-3\" />",
+        "<TeacherStudent className=\"my-6\" />",
+        "Both curves and every plotted success value are authored assumptions, not paper measurements. The point curve is a Gaussian centered at friction 0.80, with peak 0.97 and width 0.09. The DR curve has height 0.93 minus 0.55 times the selected half-width, stays flat inside that range, and has Gaussian tails of width 0.10. The ordinary panel starts at half-width 0.35; the prediction panel starts at 0.65. Reset restores each panel’s own initial friction and half-width. Changing friction selects a position on fixed formulas; changing half-width redraws the DR formula.",
+        "The panel below is an authored toy, not measured robot data. It uses chosen terrain and noise, not a trained teacher or student. Its 24 terrain cells combine two sine waves with a step and a depression. Two seeded sequences (123456789 and 987654321) fix the noise and channel-dropout thresholds. A Gaussian blur of width three cells, a noise coefficient of 0.06, and a same-sign occlusion error of 0.12 define the reconstruction error; the degradation control scales that error from zero to one and starts at 0.15. The reconstruction is calculated directly from this terrain and error field, not inferred from the displayed input strip.",
+        "<Cite id=\"tobin-2017\" />",
+        "<Cite id=\"peng-2018\" />"
+      ],
+      "review": {
+        "reviewedBy": "Robot Wiki RL motion implementer, not independent acceptance",
+        "rationale": "Compared the active transfer article against the exact previously reviewed 22,039-byte article. The authored friction curve, two distinct reset defaults, selected terrain/noise and reconstruction disclosure all remain verbatim. Source citations remain in their old order and the two existing labs retain direct controls. The earlier review still binds 21,963-byte proof input to that intermediate article; this review binds the intermediate to the edited article, without replaying receipts.",
+        "observedAt": "2026-09-27T08:35:46.758Z",
+        "inputDigest": "48478aa47df7f1a58c71c69b1f34d67bccadd9cde945c5e546433cbe4da1dcb3"
+      }
+    }
+  ]
+}

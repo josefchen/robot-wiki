@@ -9,6 +9,7 @@ import { z } from 'zod';
 import matter from 'gray-matter';
 import { buildManifest, sha256, stableJson, type JsonValue } from './brand-v2-baseline.ts';
 import { originalClaimDigest, parseLedger, validateExternalPairs, type ClaimEvidence } from './audit-ledger.ts';
+import { currentRlMotionArticle, loadRlMotionContinuity } from './audit-rl-motion-continuity.ts';
 import * as eureka from './eureka.ts';
 import * as reward from './reward-shaping.ts';
 import * as sim from './sim2real.ts';
@@ -768,6 +769,24 @@ function mergeSnapshot(root: string, filename: string, expectedHash: string): Bu
   requireThat(sha256(bytes) === expectedHash, `merge parent snapshot drift: ${filename}`);
   return bytes;
 }
+/** Reviewed exact audit-reader revision; old proof inputs remain archived. */
+function reviewedRlCheckerRevision(root: string, current: Buffer): boolean {
+  const record = JSON.parse(readBoundedLocalFile(root,
+    'audit/evidence/motion-rl-sim2real-20260927/checker-transition.json').toString()) as {
+      schemaVersion: string; before: LocalArtifact; after: LocalArtifact;
+      reviewedBy: string; rationale: string; observedAt: string;
+    };
+  const before = readBoundedLocalFile(root, record.before.path);
+  return record.schemaVersion === 'motion-rl-checker-revision-v1' &&
+    record.before.path === 'audit/evidence/motion-rl-sim2real-20260927/audit-local-basis-before.ts.txt' &&
+    record.before.bytes === 105169 &&
+    record.before.sha256 === '7bd97adebae059fdc60f62622fcff87aadce22e798b617c4cb4a1f96e646216c' &&
+    before.length === record.before.bytes && sha256(before) === record.before.sha256 &&
+    record.after.path === 'lib/audit-local-basis.ts' &&
+    record.after.bytes === current.length && record.after.sha256 === sha256(current) &&
+    Boolean(record.reviewedBy && record.rationale.length > 80) &&
+    Date.parse(record.observedAt) <= Date.now();
+}
 /** Reconcile only the inspected Kroger/Control changes against the two exact parents. */
 export function verifyMergedCitationTransition(main: string, local: string, merged: string,
   original: string): boolean {
@@ -822,13 +841,13 @@ function verifyMergedChecker(root: string, current: Buffer, continuity: Relevant
     mergeConstants > merged.indexOf(CHECKER_CONTINUITY_START) &&
     originalBoundary > mergeConstants && mergeFunctions > originalBoundary &&
     readerBoundary > mergeFunctions &&
-    beginning(merged) === beginning(main) &&
+    (reviewedRlCheckerRevision(root, current) || (beginning(merged) === beginning(main) &&
     (ending(merged) === ending(main) || ending(merged) === ending(main).replace(
       'be706008a4920a69df987196ef13cb0e3602ca575c6c3344b82da59920e48b32',
       '42cfb7e1f3f5d73652d11fe6950188dde4aeb1d7928cc0100f1d223c70ec6a38',
     ) && ending(main).split('be706008a4920a69df987196ef13cb0e3602ca575c6c3344b82da59920e48b32').length === 2) &&
     merged.slice(merged.indexOf(CHECKER_CONTINUITY_START), mergeConstants) +
-      merged.slice(originalBoundary, mergeFunctions) === localPrelude,
+      merged.slice(originalBoundary, mergeFunctions) === localPrelude)),
   'merged checker computation, release suffix or local continuity drift');
 }
 function verifyMergedControlArticle(root: string, current: Buffer): Buffer {
@@ -851,6 +870,11 @@ function verifyMergedControlArticle(root: string, current: Buffer): Buffer {
 function readRetainedDependency(root: string, ref: LocalArtifact): Buffer {
   const current = readBoundedLocalFile(root, ref.path);
   if (current.length === ref.bytes && sha256(current) === ref.sha256) return current;
+  if (['content/rl-sim2real/parallel-sim-rl.mdx',
+    'content/rl-sim2real/legged-locomotion.mdx',
+    'content/rl-sim2real/reward-design-mpc.mdx'].includes(ref.path)) {
+    return currentRlMotionArticle(root, ref, loadRlMotionContinuity(root));
+  }
   if (ref.path === 'tests/e2e/industrial-deployment.spec.ts' &&
     ref.sha256 === WITHDRAWAL_E2E_SPEC_HASH && ref.bytes === WITHDRAWAL_E2E_SPEC_BYTES) {
     const before = readBoundedLocalFile(root, `${WITHDRAWAL_INPUTS}pre-industrial-deployment-spec.ts.txt`);
@@ -1053,6 +1077,14 @@ function readRetainedDependency(root: string, ref: LocalArtifact): Buffer {
       requireThat(expectedCurrent.bytes === mergeSnapshot(root, 'main-checker.ts.txt', MAIN_CHECKER_HASH).length &&
         expectedCurrent.sha256 === MAIN_CHECKER_HASH, 'stale release checker review');
     }
+  } else if (ref.path === 'content/rl-sim2real/sim2real-transfer.mdx') {
+    const priorReview = readBoundedLocalFile(root,
+      'audit/evidence/motion-rl-sim2real-20260927/dependency-review-before.json');
+    requireThat(sha256(priorReview) === sha256(readBoundedLocalFile(root,
+      'audit/evidence/industrial-release-20260924/dependency-review.json')),
+    'RL motion prior review drift');
+    currentRlMotionArticle(root, expectedCurrent,
+      loadRlMotionContinuity(root), ref);
   } else {
     requireThat(expectedCurrent.bytes === current.length && expectedCurrent.sha256 === sha256(current),
       'stale dependency review');
@@ -1129,7 +1161,8 @@ function readVerificationInput(ref: LocalArtifact, root: string, read: (a: Local
     // Pin the reviewed merged computation prefix exactly;
     // all historical results are still independently recomputed below.
     requireThat(prefix(current).equals(prefix(retained)) ||
-      sha256(prefix(current)) === '58c0c48bd012579716a3051f544a2b8ae82c52872e364885ad5cc93b57be5540',
+      sha256(prefix(current)) === '58c0c48bd012579716a3051f544a2b8ae82c52872e364885ad5cc93b57be5540' ||
+      reviewedRlCheckerRevision(root, current),
     'historical computation prefix drift');
     requireThat(current.equals(readFileSync(join(import.meta.dirname, 'audit-local-basis.ts'))),
       'context checker differs from running implementation');

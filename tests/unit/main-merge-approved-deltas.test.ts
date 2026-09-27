@@ -153,6 +153,44 @@ const educationalCueAppends = [
   'educational-cue-20260926-prose-motion-planning',
   'educational-cue-20260926-prose-perception',
 ] as const;
+// The motion-language pass of 2026-09-26 replaced the Kalman tracker and
+// denoising-loop interactives with the two motion scenes and re-anchored
+// every sealed member the swap moved (sources, mounts, prose, metadata,
+// accessible names, behavioral defaults, one value-state site).
+const motionLanguageAppends = Array.from({ length: 45 }, (_, index) =>
+  `motion-language-scene-swap-${index + 1}`) as unknown as readonly string[];
+// The motion-language clip pipeline (2026-09-26) mounted the Kalman
+// cinematic clip on classical/state-estimation: two bridge sentences of
+// prose and the two accessible names the clip instrument and its native
+// video carry.
+const motionLanguageClipAppends = [
+  'motion-language-clip-pilot-state-estimation-prose',
+  'motion-language-clip-frame-region-name',
+  'motion-language-clip-video-player-name',
+] as const;
+// The owner-reviewed scene equation now names its typeset TeX for readers
+// using an accessible alternative.
+const motionSceneEquationAppends = [
+  'motion-scene-typeset-equation-name',
+] as const;
+const motionClassicalAppends = [
+  'calibration', 'control', 'grasp-planning', 'kinematics',
+  'motion-planning', 'perception', 'ros2-for-ml-engineers',
+  'scene-representation', 'state-estimation',
+].map(slug => `motion-classical-humanizer-v3-20260927-prose-${slug}`);
+const motionManipulationAppends = [
+  'motion-manipulation-20260927-prose-pi-line-mount',
+  'motion-manipulation-20260927-prose-vla-models-mount',
+];
+const motionRlAppends = [
+  'why-rl-locomotion', 'parallel-sim-rl', 'legged-locomotion',
+  'sim2real-transfer', 'reward-design-mpc', 'rl-for-robotics',
+  'humanoid-wbc', 'offline-rl',
+].map(slug => `motion-rl-sim2real-humanizer-v3-20260927-prose-${slug}`);
+const motionRlReconciliations = [
+  'humanoid-wbc', 'parallel-sim-rl', 'reward-design-mpc',
+  'sim2real-transfer', 'why-rl-locomotion',
+].map(slug => `motion-rl-sim2real-20260927-reconcile-${slug}`);
 
 describe('two-parent exact approval reconciliation', () => {
   it('retains every main approval in order and appends exactly seven local-only approvals', () => {
@@ -162,12 +200,18 @@ describe('two-parent exact approval reconciliation', () => {
     // 25 more approvals after the merge, the 20260926 instrument
     // migration appended one more, the 20260926 educational convergence
     // pass appended four more, the educational relocation pass appended
-    // one more, and the educational cue pass appended eleven more.
-    expect([main.length, local.length, localOnly.length, merged.length]).toEqual([1558, 1104, 7, 1649]);
+    // one more, the educational cue pass appended eleven more, the
+    // motion-language scene swap appended forty-five more, and the
+    // motion-language clip pipeline appended three more, followed by the
+    // accessible typeset-equation name required by the foundation review.
+    // The subsequent domain passes add nine classical article endpoints,
+    // two manipulation mounts, eight RL article endpoints and five RL
+    // reconciliation edges, all named below in ledger order.
+    expect([main.length, local.length, localOnly.length, merged.length]).toEqual([1558, 1104, 7, 1722]);
     expect(merged.slice(0, main.length)).toEqual(main);
     expect(merged.slice(main.length, main.length + localOnly.length)).toEqual(localOnly);
     expect(merged.slice(main.length + localOnly.length).map(x => x.id))
-      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends]);
+      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations]);
     expect(new Set(merged.map(x => x.id)).size).toBe(merged.length);
     expect(validateApprovedDeltas(merged)).toEqual([]);
   });
@@ -228,7 +272,7 @@ describe('two-parent exact approval reconciliation', () => {
       .toBe('continuation-merge-2026-09-24-tech-withdrawal-citation-rendering');
     expect(merged.filter(x => x.manifest === 'prose'
       && x.memberId === 'article:classical/calibration').at(-1)?.id)
-      .toBe('continuation-merge-2026-09-24-stack-classical-import-prose-calibration');
+      .toBe('motion-classical-humanizer-v3-20260927-prose-calibration');
     expect(merged.filter(x => x.manifest === 'prose'
       && x.memberId === 'article:world-models/world-models-vs-simulators').at(-1)?.id)
       .toBe('continuation-merge-2026-09-24-world-rl-import-prose-world-models-vs-simulators');

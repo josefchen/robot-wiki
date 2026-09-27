@@ -296,7 +296,7 @@ test.describe('rl-for-robotics module', () => {
     expect(offline!.text).toMatch(/simulated drawer-manipulation/i);
     expect(offline!.text).toMatch(/offline tuning matters/i);
     expect(offline!.text).toMatch(/editorial recommendation/i);
-    expect(offline!.text).toMatch(/not Kumar and colleagues' endorsement of BC/i);
+    expect(offline!.text).toMatch(/neither endorses BC as a default nor guarantees/i);
 
     // And that comparison is signposted with its own subheading, so it is
     // a stated position rather than a clause buried mid-section.
@@ -432,7 +432,7 @@ test.describe('rl-for-robotics module', () => {
   test('the budget slider moves under arrow keys and the readout follows (VAL-RL-040)', async ({
     page,
   }) => {
-    await page.goto(ROUTE);
+    await page.goto(ROUTE, { waitUntil: 'networkidle' });
     const budget = slider(page, 'budget');
     await budget.focus();
     await expect(budget).toBeFocused();
