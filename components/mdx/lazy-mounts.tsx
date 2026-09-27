@@ -65,13 +65,9 @@ export const DataScaleChart = dynamic(() =>
 export const DatasetTable = dynamic(() =>
   import('@/components/interactive/dataset-table').then((m) => m.DatasetTable),
 );
-export const DenoisingLoop = dynamic(() =>
-  import('@/components/interactive/denoising-loop').then((m) => m.DenoisingLoop),
-);
 export const DeploymentDashboard = dynamic(() =>
   import('@/components/interactive/deployment-dashboard').then((m) => m.DeploymentDashboard),
-);
-export const DeploymentEconomics = dynamic(() =>
+);export const DeploymentEconomics = dynamic(() =>
   import('@/components/interactive/deployment-economics').then((m) => m.DeploymentEconomics),
 );
 export const EgoScaleScaling = dynamic(() =>
@@ -115,9 +111,6 @@ export const ImpedanceContactLab = dynamic(() =>
 );
 export const JepaPlanning = dynamic(() =>
   import('@/components/interactive/jepa-planning').then((m) => m.JepaPlanning),
-);
-export const KalmanTracker = dynamic(() =>
-  import('@/components/interactive/kalman-tracker').then((m) => m.KalmanTracker),
 );
 export const LatencyComparison = dynamic(() =>
   import('@/components/interactive/latency-comparison').then((m) => m.LatencyComparison),
@@ -190,4 +183,39 @@ export const PolicyChunkingTable = dynamic(() =>
 );
 export const RlMethodsTable = dynamic(() =>
   import('@/components/mdx/rl-methods-table').then((m) => m.RlMethodsTable),
+);
+
+// Motion-language scenes: client components outside components/interactive/
+// that articles import directly; each splits into its own chunk and keeps
+// its server-rendered poster (same markup as an eager import).
+export const KalmanPredictUpdate = dynamic(() =>
+  import('@/components/motion/scenes/kalman-predict-update').then((m) => m.KalmanPredictUpdate),
+);
+export const DiffusionDenoising = dynamic(() =>
+  import('@/components/motion/scenes/diffusion-denoising').then((m) => m.DiffusionDenoising),
+);
+export const ActionDecode = dynamic(() =>
+  import('@/components/motion/scenes/action-decode').then((m) => m.ActionDecode),
+);
+export const FlowTransport = dynamic(() =>
+  import('@/components/motion/scenes/flow-transport').then((m) => m.FlowTransport),
+);
+export const FkChain = dynamic(() =>
+  import('@/components/motion/scenes/fk-chain').then((m) => m.FkChain),
+);
+export const RrtGrowth = dynamic(() =>
+  import('@/components/motion/scenes/rrt-growth').then((m) => m.RrtGrowth),
+);
+export const BatchScale = dynamic(() =>
+  import('@/components/motion/scenes/batch-scale').then((m) => m.BatchScale),
+);
+export const GaitSupport = dynamic(() =>
+  import('@/components/motion/scenes/gait-support').then((m) => m.GaitSupport),
+);
+
+// The clip player: no scene model or rAF loop, just a native video under
+// the instrument chrome; still its own chunk so a page with no clip
+// never loads it.
+export const Clip = dynamic(() =>
+  import('@/components/motion/clip').then((m) => m.Clip),
 );

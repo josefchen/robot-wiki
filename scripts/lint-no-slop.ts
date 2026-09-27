@@ -46,8 +46,8 @@ import { NO_SLOP_EXCEPTIONS } from '../data/no-slop-exceptions.ts';
 import { CITATIONS } from '../data/citations.ts';
 
 const sourceOnly = process.argv.includes('--source-only');
-// Report mode (VAL-HUMAN-001): print the structural-tell rate for every
-// manipulation-domain article and fail any article above the 2/1k floor.
+// Report mode (VAL-HUMAN-001, VAL-MOTION-021/022): print the structural-tell
+// rate for every manipulation, classical and RL article and enforce 2/1k.
 // The same sweep also runs inside every normal invocation, so postbuild
 // keeps enforcing the floor; the flag exists so the report can be asked
 // for on its own.
@@ -167,53 +167,45 @@ if (!reportOnly) {
   console.log(`no-slop: AI-writing lint over ${mdxFiles.length} MDX files`);
 }
 
-// --- 2b. Structural-tell report over the manipulation domain (VAL-HUMAN-001).
+// --- 2b. Structural-tell report over the edited domains.
 // Counts humanizer v3 §1 not-X disclaimers and paper-internal locators per
-// 1,000 words of MDX source prose, prints the rate for every manipulation
-// article, and fails any article above the 2/1k floor. Runs in every mode
+// 1,000 words of MDX source prose, prints the rate for every article
+// in the edited domains, and fails any article above the 2/1k floor. Runs in every mode
 // (source-only, full, report-structural-only) so the floor binds wherever
 // the lint runs, including postbuild.
 {
-  const manipulationDir = join(contentDir, 'manipulation');
-  const manipulationFiles: string[] = [];
-  (function walk(dir: string) {
-    for (const entry of readdirSync(dir, { withFileTypes: true })) {
-      const full = join(dir, entry.name);
-      if (entry.isDirectory()) walk(full);
-      else if (/\.mdx?$/.test(entry.name)) manipulationFiles.push(full);
-    }
-  })(manipulationDir);
+  for (const domain of ['manipulation', 'classical', 'rl-sim2real']) {
+    const dir = join(contentDir, domain);
+    const files = readdirSync(dir).filter((file) => /\.mdx?$/.test(file));
+    const rows = files.map((file) => {
+      const body = readFileSync(join(dir, file), 'utf8');
+      return {
+        rel: `/${domain}/${file}`,
+        report: structuralTellReport(body, NO_SLOP_EXCEPTIONS),
+        findings: findStructuralTells(body, NO_SLOP_EXCEPTIONS),
+      };
+    }).sort((a, b) => b.report.density - a.report.density);
 
-  const rows = manipulationFiles
-    .map((file) => {
-      const rel = file.replace(manipulationDir, '');
-      const body = readFileSync(file, 'utf8');
-      const report = structuralTellReport(body, NO_SLOP_EXCEPTIONS);
-      const findings = findStructuralTells(body, NO_SLOP_EXCEPTIONS);
-      return { rel, report, findings };
-    })
-    .sort((a, b) => b.report.density - a.report.density);
-
-  console.log(
-    `no-slop: structural-tell report over ${rows.length} manipulation articles (floor ${STRUCTURAL_TELL_LIMIT}/1k; counted: not-X disclaimers, paper-internal locators)`,
-  );
-  for (const { rel, report } of rows) {
-    const rate = report.density.toFixed(1);
-    const state = !report.measured
-      ? 'sub-floor (informational)'
-      : report.density > STRUCTURAL_TELL_LIMIT
-        ? 'FAIL'
-        : 'ok';
     console.log(
-      `  ${rel}: ${rate} tells/1k (${report.words} words; ${report.notX} not-X + ${report.paperLocator} locators) ${state}`,
+      `no-slop: structural-tell report over ${rows.length} ${domain} articles (floor ${STRUCTURAL_TELL_LIMIT}/1k; counted: not-X disclaimers, paper-internal locators)`,
     );
-  }
-  for (const { rel, report, findings } of rows) {
-    if (!report.measured || report.density <= STRUCTURAL_TELL_LIMIT) continue;
-    for (const finding of findings) {
-      problems.push(
-        `${rel}:${finding.line}: structural tell ${finding.kind} [${finding.label}] "${finding.match}" (article rate ${report.density.toFixed(1)}/1k exceeds ${STRUCTURAL_TELL_LIMIT}/1k; state the finding plainly once and move the locator into the citation note)`,
+    for (const { rel, report } of rows) {
+      const state = !report.measured
+        ? 'sub-floor (informational)'
+        : report.density > STRUCTURAL_TELL_LIMIT
+          ? 'FAIL'
+          : 'ok';
+      console.log(
+        `  ${rel}: ${report.density.toFixed(1)} tells/1k (${report.words} words; ${report.notX} not-X + ${report.paperLocator} locators) ${state}`,
       );
+    }
+    for (const { rel, report, findings } of rows) {
+      if (!report.measured || report.density <= STRUCTURAL_TELL_LIMIT) continue;
+      for (const finding of findings) {
+        problems.push(
+          `${rel}:${finding.line}: structural tell ${finding.kind} [${finding.label}] "${finding.match}" (article rate ${report.density.toFixed(1)}/1k exceeds ${STRUCTURAL_TELL_LIMIT}/1k; state the finding plainly once and move the locator into the citation note)`,
+        );
+      }
     }
   }
 }

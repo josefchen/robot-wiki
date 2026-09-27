@@ -33,7 +33,7 @@ describe('H2O and ASAP source-backed corrections', () => {
   it('distinguishes PPO residual training, frozen simulation and deployed policy', () => {
     const body = article('sim2real-transfer');
     for (const phrase of ['phase-conditioned tracking policies', 'second PPO policy',
-      'not supplied as a measured residual-action label', 'model is then frozen',
+      'without measured residual-action labels', 'model is then frozen',
       'delta model stays in simulation', 'four ankle DoFs']) expect(body).toContain(phrase);
     expect(body).not.toContain('The cleanest modern formulation');
   });
@@ -65,7 +65,7 @@ describe('H2O and ASAP source-backed corrections', () => {
     const body = article('legged-locomotion');
     for (const phrase of ['G1 with fixed wrists', 'ankle delta-action model',
       'without the residual model', 'Ronaldo-', 'Kobe-inspired',
-      'not a success-rate study of every illustrated skill']) expect(body).toContain(phrase);
+      'does not report success rates for every illustrated skill']) expect(body).toContain(phrase);
   });
   it('uses the observed body spelling and preserves the metadata disagreement and URL', () => {
     const citation = CITATIONS.find(c => c.id === 'asap-2025')!;

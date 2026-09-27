@@ -21,7 +21,7 @@ test.describe('why-rl-locomotion module', () => {
       main.getByText(/default production approach for quadruped locomotion/i),
     ).toBeVisible();
     await expect(
-      main.getByText(/not cheaply simulatable/i).first(),
+      main.getByText(/difficult to simulate cheaply/i).first(),
     ).toBeVisible();
     // The six MDP property rows render with both cells populated.
     for (const key of [

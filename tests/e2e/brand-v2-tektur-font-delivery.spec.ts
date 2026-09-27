@@ -127,6 +127,13 @@ function measureDocument(input: {
   const familyHeads = new Set<string>();
   const headsOutsideMath = new Set<string>();
   for (const element of document.querySelectorAll('*')) {
+    // A video's source and track children carry no text and no cascade:
+    // Chromium resolves an empty computed font-family for them whatever
+    // the stylesheet says, so they are skipped rather than counted as a
+    // fifth family. The video element itself is still measured.
+    if (element.tagName === 'SOURCE' || element.tagName === 'TRACK') {
+      continue;
+    }
     const stack = getComputedStyle(element).fontFamily;
     // Recorded as measured apart from the quoting CSS serialization adds.
     // The quote characters are escapes for the reason given below, where the

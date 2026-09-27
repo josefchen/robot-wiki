@@ -126,7 +126,7 @@ export async function splatTransferReaderProof(page: Page, info: TestInfo) {
       await capture(`changed-section-${index}`);
     }
     steps.push({ changedSection: section, sliceStride: stride, visualCoverage: 'Changed section only; remaining article is a section-start survey.' });
-    const sourceParagraphs = prose.locator('p').filter({ hasText: /The newest family attacks|The setup uses a Robotiq|This evaluation is not interchangeable|Keep the division of labor straight/ });
+    const sourceParagraphs = prose.locator('p').filter({ hasText: /The newest family attacks|The setup uses a Robotiq|This evaluation uses simulated trials|Keep the division of labor straight/ });
     await expect(sourceParagraphs).toHaveCount(4);
     for (let index = 0; index < 4; index++) {
       const paragraph = sourceParagraphs.nth(index);

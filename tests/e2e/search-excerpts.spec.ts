@@ -530,9 +530,35 @@ test.describe('excerpt chrome: figure credits and interactive controls', () => {
   }) => {
     await page.goto(`${BASE}/manipulation/diffusion-policy/`);
 
-    // Every transport/action button on the page carries the attribute.
-    for (const name of ['Step back', 'Step forward', 'Reset']) {
-      const buttons = page.getByRole('button', { name, exact: true });
+    // Every transport/action button on the page carries the attribute:
+    // the motion scene's poster is the click that plays, and once active
+    // its step and reset controls are transport.
+    const poster = page.getByRole('button', {
+      name: /play the motion scene/i,
+    });
+    await expect(poster).toHaveAttribute('data-pagefind-ignore', 'true');
+    await poster.click();
+    // The player chunk mounts asynchronously; a click that races
+    // hydration is retried once.
+    try {
+      await expect(page.getByTestId('motion-scrubber')).toBeVisible({
+        timeout: 4_000,
+      });
+    } catch {
+      await poster.click();
+      await expect(page.getByTestId('motion-scrubber')).toBeVisible({
+        timeout: 10_000,
+      });
+    }
+    for (const name of [
+      /step back one beat/i,
+      /step forward one beat/i,
+      /reset the scene to its poster still/i,
+    ]) {
+      const buttons = page.getByRole('button', { name });
+      // Retry the presence check itself: `.all()` is a non-retrying
+      // snapshot, and hydration can re-create the nodes underneath it.
+      await expect(buttons.first(), `page has a "${name}" button`).toBeAttached();
       const all = await buttons.all();
       expect(all.length, `page has a "${name}" button`).toBeGreaterThan(0);
       for (const button of all) {
@@ -540,8 +566,8 @@ test.describe('excerpt chrome: figure credits and interactive controls', () => {
       }
     }
     // The readout keeps its index presence: it carries the substance.
-    const readout = page.getByTestId('denoise-step-readout');
-    await expect(readout).toContainText('step 0 of 10');
+    const readout = page.getByTestId('motion-readout');
+    await expect(readout).toContainText('beat');
     expect(await readout.getAttribute('data-pagefind-ignore')).toBeNull();
 
     // Selector chips are concept nouns and stay indexed (gait names on

@@ -404,8 +404,16 @@ describe('identity geometry and typography stay aligned', () => {
     const jepaChart = read('components/interactive/jepa-planning.tsx');
     const frictionChart = read('components/interactive/friction-transfer.tsx');
     const advantage = read('components/interactive/advantage-scrubber.tsx');
+    // The 20260926 motion-language pass replaced the tracking lab with the
+    // predict-update scene, whose uncertainty is the belief ellipse painted
+    // by the motion state role. The article no longer narrates colours at
+    // all; the scene keeps the estimate on the state token and never says
+    // green.
+    const kalmanScene = read('components/motion/scenes/kalman-predict-update.tsx');
     expect(stateEst).not.toMatch(/green band/i);
-    expect(stateEst.toLowerCase()).toContain('blue band');
+    expect(stateEst).not.toMatch(/blue band/i);
+    expect(kalmanScene).toContain('var(--role-state-stage)');
+    expect(kalmanScene).not.toMatch(/green/i);
     // The JEPA article no longer narrates the marker's colour; the
     // current-latent marker itself still renders through ACCENT (signal
     // blue) in the latent-imagination chart, and nothing calls it green.
@@ -420,7 +428,7 @@ describe('identity geometry and typography stay aligned', () => {
     expect(jepa).toContain('Its synthetic coordinates and distance trace are not learned robot embeddings');
     expect(jepaChart).toContain("const ACCENT = 'var(--color-accent)'");
     expect(jepaChart).toMatch(/stroke=\{ACCENT\}[\s\S]*?>\s*z_t\s*</);
-    expect(sim2real).toContain('the plateau because that relationship is built into this model');
+    expect(sim2real).toContain('Widening the half-width lowers the plateau by construction; the cited papers establish no universal tradeoff of that shape');
     expect(frictionChart).toMatch(/points=\{polyline\(drCurvePoints\(range\)\)\}[\s\S]*?stroke="var\(--color-accent\)"/);
     expect(advantage).not.toContain('elapsed portion green');
     expect(advantage).not.toMatch(/green (?:line|trace)/i);

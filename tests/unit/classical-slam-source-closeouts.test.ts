@@ -23,7 +23,7 @@ const records = (catalog = plans) =>
 
 describe('classical SLAM source corrections', () => {
   it('keeps sensor-dependent abstraction, association and back-end feedback together', () => {
-    const block = article.split('\n\n').find((text) => text.startsWith('In Section II, Cadena'));
+    const block = article.split('\n\n').find((text) => text.startsWith('Cadena and colleagues separate a sensor-dependent front end'));
     expect(block).toBeDefined();
     for (const text of [
       'sensor-dependent front end',

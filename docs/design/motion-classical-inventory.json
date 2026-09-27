@@ -1,0 +1,146 @@
+[
+  {
+    "article": "calibration",
+    "element": "SelfCheck",
+    "decision": "keep",
+    "teachingGoal": "Diagnose a distance-dependent, systematic miss before changing the learner.",
+    "reason": "The question and its explanation are a reader-controlled assessment, not an unfolding physical sequence."
+  },
+  {
+    "article": "control",
+    "element": "PendulumController",
+    "decision": "keep",
+    "teachingGoal": "Retune a deterministic PID plant and observe its response to a disturbance.",
+    "reason": "The gain sliders and Run, Push and Reset controls are the experiment; an authored beat cannot replace live retuning."
+  },
+  {
+    "article": "control",
+    "element": "PendulumController",
+    "occurrence": 2,
+    "decision": "keep",
+    "teachingGoal": "Test the prediction prompt at its separate initial proportional gain.",
+    "reason": "The second mount has a different initial condition and must keep that independent reader-driven control path."
+  },
+  {
+    "article": "control",
+    "element": "PredictThenReveal",
+    "decision": "keep",
+    "teachingGoal": "Ask the reader to predict the threshold behavior before revealing the second pendulum lab.",
+    "reason": "Its disclosure is a decision point, not a timeline, and replacing it would erase the answer-before-observation exercise."
+  },
+  {
+    "article": "control",
+    "element": "ImpedanceContactLab",
+    "decision": "keep",
+    "teachingGoal": "Compare position control with programmable contact stiffness and its force limits.",
+    "reason": "The direct parameter experiment retains its biomechanical source qualification and cannot be reduced to one scripted contact."
+  },
+  {
+    "article": "control",
+    "element": "SelfCheck",
+    "decision": "keep",
+    "teachingGoal": "Check the control distinction after manipulating the two labs.",
+    "reason": "The answer feedback is a reader-triggered assessment with no animated data marks."
+  },
+  {
+    "article": "grasp-planning",
+    "element": "GraspWrenchLab",
+    "decision": "keep",
+    "teachingGoal": "Change friction and contact placement while watching force closure and the wrench hull.",
+    "reason": "The simultaneous object and wrench views make each slider intervention measurable without implying a timed grasp."
+  },
+  {
+    "article": "kinematics",
+    "element": "PlanarFkArm",
+    "decision": "rethink",
+    "teachingGoal": "See how an upstream rotation carries downstream links before using all three joint sliders.",
+    "reason": "Retain the independently controlled arm and put a paused scene-kit chain composition before it."
+  },
+  {
+    "article": "kinematics",
+    "element": "FkChain",
+    "decision": "add",
+    "sceneId": "fk-chain",
+    "teachingGoal": "Reveal each link's cumulative angle and indicate the resulting tip position in four beats.",
+    "reason": "The order of transformations is the mechanism, while the original lab remains available for arbitrary poses."
+  },
+  {
+    "article": "kinematics",
+    "element": "DhParameterTable",
+    "decision": "keep",
+    "teachingGoal": "Read the source-qualified four-parameter frame convention alongside the planar zero offsets.",
+    "reason": "The parameters are a simultaneous reference table; sequencing them would hide the chosen convention."
+  },
+  {
+    "article": "kinematics",
+    "element": "Image:puma-560-nasa-ames",
+    "decision": "keep",
+    "teachingGoal": "Identify the real arm photograph with its registered source and license.",
+    "reason": "An external historical photograph must retain its own visual identity and attribution."
+  },
+  {
+    "article": "motion-planning",
+    "element": "RrtExplorer",
+    "decision": "rethink",
+    "teachingGoal": "See the accepted tree extend and reveal the first feasible route, then explore each iteration.",
+    "reason": "A paused scene-kit overview precedes the full seeded exploration lab without replacing its exact controls."
+  },
+  {
+    "article": "motion-planning",
+    "element": "RrtGrowth",
+    "decision": "add",
+    "sceneId": "rrt-growth",
+    "teachingGoal": "Distinguish accepted extensions, the wall detour and goal connection from the eventual route.",
+    "reason": "Timed revelation teaches the causal order; the full lab still exposes all accepted iterations."
+  },
+  {
+    "article": "motion-planning",
+    "element": "TrajOptArmTable",
+    "decision": "keep",
+    "teachingGoal": "Compare arm-planning results under each named initialization and tested protocol.",
+    "reason": "Sourced table cells need simultaneous comparison and visible qualifications rather than a staged ranking."
+  },
+  {
+    "article": "motion-planning",
+    "element": "TrajOptFullBodyTable",
+    "decision": "keep",
+    "teachingGoal": "Read full-body planning results without inventing a missing CHOMP comparison.",
+    "reason": "The table preserves source-specific budget and missing-data qualifications in a static reference."
+  },
+  {
+    "article": "perception",
+    "element": "PerceptionErrorBudget",
+    "decision": "keep",
+    "teachingGoal": "Vary authored error terms and inspect their composed magnitude against the model band.",
+    "reason": "Its native controls and explicit source-derived depth floor matter more than a preselected motion sequence."
+  },
+  {
+    "article": "ros2-for-ml-engineers",
+    "element": "SelfCheck",
+    "decision": "keep",
+    "teachingGoal": "Choose the correct typed interface for a cancellable task with progress.",
+    "reason": "The answer explains topics, services and actions as alternatives rather than a temporal progression."
+  },
+  {
+    "article": "scene-representation",
+    "element": "SceneRepresentationLadder",
+    "decision": "keep",
+    "teachingGoal": "Switch storage representations and resolution independently to inspect unknown space.",
+    "reason": "The five representations are parallel alternatives; animation would imply unsupported transitions between stores."
+  },
+  {
+    "article": "state-estimation",
+    "element": "KalmanPredictUpdate",
+    "decision": "keep",
+    "sceneId": "kalman-predict-update",
+    "teachingGoal": "Follow prior, prediction, measurement and update with uncertainty on one shared timeline.",
+    "reason": "The existing classical reference scene already uses the bounded stage, captions, controls and reduced-motion end-states."
+  },
+  {
+    "article": "state-estimation",
+    "element": "Clip:kalman-episode",
+    "decision": "keep",
+    "teachingGoal": "Watch the offline-rendered filter episode with native video controls and a text alternative.",
+    "reason": "Its inspected native clip demonstrates the longer episode while the live scene explains one filter update."
+  }
+]

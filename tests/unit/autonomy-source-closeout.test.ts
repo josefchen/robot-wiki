@@ -35,14 +35,14 @@ describe('source-scoped autonomous and reset-free RL corrections', () => {
       '**deployed-policy evaluation**',
       '**continuing-policy evaluation**',
       '`h - c(s,a) <= 0`',
-      'Interventions are therefore constrained costs, not the evaluation metric',
+      'Interventions enter as constrained costs; the evaluation metric stays separate',
       'scheduled resets during training',
       'final deployed-policy returns',
       'designer-provided task graph',
       'motion capture',
       'scripted arm motion',
       'frozen fingers',
-      'does not guarantee coverage of every downstream starting state',
+      'coverage of every downstream starting state remains unproven',
     ]) expect(article).toContain(phrase);
     expect(article).not.toContain('missing pieces are mostly not the learning algorithm');
     expect(article).not.toContain('the system trains without human intervention');

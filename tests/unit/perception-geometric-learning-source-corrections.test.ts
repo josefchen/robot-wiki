@@ -9,7 +9,7 @@ describe('perception geometric-learning source boundaries', () => {
     const article = read('content/classical/perception.mdx');
     const glossary = read('data/glossary.ts');
     expect(article).toContain('PointNet solved that with a shared per-point encoder and a symmetric pooling function');
-    expect(article).toContain('pooling summarizes these local features rather than preserving all geometry');
+    expect(article).toContain('pooling summarizes the local features, losing some geometry');
     expect(article).toContain('Small neighbourhoods can contain too few samples');
     expect(glossary).toContain('not a guarantee that all geometry survives pooling');
     expect(article).not.toContain('so local geometry survives the pooling');
@@ -19,10 +19,10 @@ describe('perception geometric-learning source boundaries', () => {
     const article = read('content/classical/perception.mdx');
     for (const phrase of [
       '20-minute estimate is for learning a new object',
-      'including collection of a handful of scenes', '3500 optimization steps',
+      'including collection of a handful of scenes', '3500 steps',
       'about 13 minutes', 'single Nvidia 1080 Ti or Titan Xp',
-      'about 70 seconds for one static-scene scan', 'moderately deformable',
-      'Humans often rearranged objects', "does not itself specify the gripper's 6-DoF orientation",
+      'about 70 seconds', 'moderately deformable',
+      'Humans often rearranged objects', "the gripper's 6-DoF orientation requires additional information",
     ]) expect(article).toContain(phrase);
     expect(article).not.toContain('trained in about twenty minutes per object');
     expect(article).not.toContain('same descriptor across viewpoints and deformations');

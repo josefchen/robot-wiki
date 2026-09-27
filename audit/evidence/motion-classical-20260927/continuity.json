@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "motion-classical-correction-continuity-v1",
+  "entries": [
+    {
+      "article": "content/classical/control.mdx",
+      "historical": {
+        "path": "content/classical/control.mdx",
+        "bytes": 20291,
+        "sha256": "f51112180bbd196de53d4d6ddabec8e62eac7709051c971b0d84c3f2f970a618"
+      },
+      "snapshot": {
+        "path": "audit/evidence/motion-classical-20260927/control-before.mdx",
+        "bytes": 20291,
+        "sha256": "f51112180bbd196de53d4d6ddabec8e62eac7709051c971b0d84c3f2f970a618"
+      },
+      "current": {
+        "path": "content/classical/control.mdx",
+        "bytes": 21029,
+        "sha256": "939fecc899a9a3dcf93ab8d37e43104666c53aa3e4ad6e30d90042ffe5629766"
+      },
+      "requiredPresent": [
+        "<PendulumController",
+        "<ImpedanceContactLab",
+        "<SelfCheck",
+        "<PredictThenReveal",
+        "<Cite id=\"ziegler-nichols-1942\" />",
+        "<Cite id=\"tedrake-underactuated\" />",
+        "A^{\\top} P + P A - P B R^{-1} B^{\\top} P + Q = 0"
+      ],
+      "requiredAbsent": [
+        "astrom-murray-2008",
+        "kalman-1960",
+        ">95%",
+        "more than 95%",
+        "Kalman's 1960"
+      ],
+      "review": {
+        "reviewedBy": "Robot Wiki classical implementer, not independent acceptance",
+        "rationale": "Compared the active control article with its exact archived correction input and reviewed the original cut rows. The unsupported attribution and withdrawn source IDs remain absent; the retained lab, mathematical treatment and cited claims remain present. The prior browser receipt describes its historical input; the current source and route receive separate motion-scene checks. No withdrawn assertion has been restored or assigned a fabricated source passage.",
+        "observedAt": "2026-09-27T05:05:09.790Z",
+        "inputDigest": "cbbe6982de1dccdbdd8e04b50a72db96976715d205db3f5e52482724599d37bf"
+      }
+    },
+    {
+      "article": "content/classical/kinematics.mdx",
+      "historical": {
+        "path": "content/classical/kinematics.mdx",
+        "bytes": 12030,
+        "sha256": "cbe5049818b17aa9e1ef546e2fe71806fc8735fed30d6d08a2158b6f1e5f3551"
+      },
+      "snapshot": {
+        "path": "audit/evidence/motion-classical-20260927/kinematics-before.mdx",
+        "bytes": 12030,
+        "sha256": "cbe5049818b17aa9e1ef546e2fe71806fc8735fed30d6d08a2158b6f1e5f3551"
+      },
+      "current": {
+        "path": "content/classical/kinematics.mdx",
+        "bytes": 11838,
+        "sha256": "c7b826733e2b09b53441139ddb644a86608aa73a2e807a79c7a52f8f3100db58"
+      },
+      "requiredPresent": [
+        "<PlanarFkArm",
+        "<DhParameterTable",
+        "/playground",
+        "±0.5mm",
+        "product-of-exponentials",
+        "A_i = \\begin{bmatrix}"
+      ],
+      "requiredAbsent": [
+        "Wampler",
+        "Levenberg-Marquardt",
+        "\\lambda^2 I",
+        "residual decreases monotonically",
+        "wampler-1986",
+        "levenberg-1944",
+        "marquardt-1963"
+      ],
+      "review": {
+        "reviewedBy": "Robot Wiki classical implementer, not independent acceptance",
+        "rationale": "Compared the active kinematics article with its exact archived correction input and reviewed the original cut rows. The unsupported attribution and withdrawn source IDs remain absent; the retained lab, mathematical treatment and cited claims remain present. The prior browser receipt describes its historical input; the current source and route receive separate motion-scene checks. No withdrawn assertion has been restored or assigned a fabricated source passage.",
+        "observedAt": "2026-09-27T05:05:09.791Z",
+        "inputDigest": "7b1a5c2db46a2b1356aa078d43720e090d9a088aa7463232cb2ab3188a56e943"
+      }
+    }
+  ]
+}

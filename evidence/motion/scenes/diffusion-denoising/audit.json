@@ -1,0 +1,446 @@
+{
+  "375 reduced poster": {
+    "textCount": 11,
+    "markCount": 65,
+    "intersections": [],
+    "overflow": [],
+    "contrast": [
+      {
+        "control": "Play the motion scene: Diffusion policy: denoising actions",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Step back one beat",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Step forward one beat",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Reset the scene to its poster still",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      }
+    ],
+    "lowContrast": []
+  },
+  "375 poster": {
+    "textCount": 11,
+    "markCount": 65,
+    "intersections": [],
+    "overflow": [],
+    "contrast": [
+      {
+        "control": "Play the motion scene: Diffusion policy: denoising actions",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Step back one beat",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Step forward one beat",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Reset the scene to its poster still",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      }
+    ],
+    "lowContrast": []
+  },
+  "375 beat 1": {
+    "textCount": 9,
+    "markCount": 65,
+    "intersections": [],
+    "overflow": [],
+    "contrast": [
+      {
+        "control": "Play the scene",
+        "ratio": 14.29,
+        "foreground": "rgb(32, 39, 44)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Step back one beat",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Step forward one beat",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Reset the scene to its poster still",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Scene timeline",
+        "ratio": 5.05,
+        "foreground": "rgb(36, 95, 255)",
+        "background": "rgb(255, 255, 255)"
+      }
+    ],
+    "lowContrast": []
+  },
+  "375 beat 2": {
+    "textCount": 10,
+    "markCount": 63,
+    "intersections": [],
+    "overflow": [],
+    "contrast": [
+      {
+        "control": "Play the scene",
+        "ratio": 18.58,
+        "foreground": "rgb(11, 11, 12)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Step back one beat",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Step forward one beat",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Reset the scene to its poster still",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Scene timeline",
+        "ratio": 5.05,
+        "foreground": "rgb(36, 95, 255)",
+        "background": "rgb(255, 255, 255)"
+      }
+    ],
+    "lowContrast": []
+  },
+  "375 beat 3": {
+    "textCount": 10,
+    "markCount": 65,
+    "intersections": [],
+    "overflow": [],
+    "contrast": [
+      {
+        "control": "Play the scene",
+        "ratio": 18.58,
+        "foreground": "rgb(11, 11, 12)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Step back one beat",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Step forward one beat",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Reset the scene to its poster still",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Scene timeline",
+        "ratio": 5.05,
+        "foreground": "rgb(36, 95, 255)",
+        "background": "rgb(255, 255, 255)"
+      }
+    ],
+    "lowContrast": []
+  },
+  "375 beat 4": {
+    "textCount": 11,
+    "markCount": 65,
+    "intersections": [],
+    "overflow": [],
+    "contrast": [
+      {
+        "control": "Play the scene",
+        "ratio": 18.58,
+        "foreground": "rgb(11, 11, 12)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Step back one beat",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Step forward one beat",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Reset the scene to its poster still",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Scene timeline",
+        "ratio": 5.05,
+        "foreground": "rgb(36, 95, 255)",
+        "background": "rgb(255, 255, 255)"
+      }
+    ],
+    "lowContrast": []
+  },
+  "1440 reduced poster": {
+    "textCount": 11,
+    "markCount": 65,
+    "intersections": [],
+    "overflow": [],
+    "contrast": [
+      {
+        "control": "Play the motion scene: Diffusion policy: denoising actions",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Step back one beat",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Step forward one beat",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Reset the scene to its poster still",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      }
+    ],
+    "lowContrast": []
+  },
+  "1440 poster": {
+    "textCount": 11,
+    "markCount": 65,
+    "intersections": [],
+    "overflow": [],
+    "contrast": [
+      {
+        "control": "Play the motion scene: Diffusion policy: denoising actions",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Step back one beat",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Step forward one beat",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Reset the scene to its poster still",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      }
+    ],
+    "lowContrast": []
+  },
+  "1440 beat 1": {
+    "textCount": 9,
+    "markCount": 65,
+    "intersections": [],
+    "overflow": [],
+    "contrast": [
+      {
+        "control": "Play the scene",
+        "ratio": 14.29,
+        "foreground": "rgb(32, 39, 44)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Step back one beat",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Step forward one beat",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Reset the scene to its poster still",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Scene timeline",
+        "ratio": 5.05,
+        "foreground": "rgb(36, 95, 255)",
+        "background": "rgb(255, 255, 255)"
+      }
+    ],
+    "lowContrast": []
+  },
+  "1440 beat 2": {
+    "textCount": 10,
+    "markCount": 63,
+    "intersections": [],
+    "overflow": [],
+    "contrast": [
+      {
+        "control": "Play the scene",
+        "ratio": 13.93,
+        "foreground": "rgb(33, 41, 47)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Step back one beat",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Step forward one beat",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Reset the scene to its poster still",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Scene timeline",
+        "ratio": 5.05,
+        "foreground": "rgb(36, 95, 255)",
+        "background": "rgb(255, 255, 255)"
+      }
+    ],
+    "lowContrast": []
+  },
+  "1440 beat 3": {
+    "textCount": 10,
+    "markCount": 65,
+    "intersections": [],
+    "overflow": [],
+    "contrast": [
+      {
+        "control": "Play the scene",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Step back one beat",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Step forward one beat",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Reset the scene to its poster still",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Scene timeline",
+        "ratio": 5.05,
+        "foreground": "rgb(36, 95, 255)",
+        "background": "rgb(255, 255, 255)"
+      }
+    ],
+    "lowContrast": []
+  },
+  "1440 beat 4": {
+    "textCount": 11,
+    "markCount": 65,
+    "intersections": [],
+    "overflow": [],
+    "contrast": [
+      {
+        "control": "Play the scene",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Step back one beat",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Step forward one beat",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Reset the scene to its poster still",
+        "ratio": 13.23,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(248, 248, 249)"
+      },
+      {
+        "control": "Scene timeline",
+        "ratio": 5.05,
+        "foreground": "rgb(36, 95, 255)",
+        "background": "rgb(255, 255, 255)"
+      }
+    ],
+    "lowContrast": []
+  }
+}

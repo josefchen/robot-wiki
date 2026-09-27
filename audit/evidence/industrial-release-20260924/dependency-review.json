@@ -1,8 +1,8 @@
 {
   "schemaVersion": "residual-release-dependency-review-v1",
-  "observedAt": "2026-09-24T04:21:51.419317+00:00",
-  "reviewedBy": "Robot Wiki release steward, not independent project acceptance",
-  "rationale": "Exact continuity from 4695852: only two assertion-test identity hashes and this review path change in the checker. Both tests change only the selected correction catalog path. No computation, producer, oracle, recorded receipt, historical snapshot, source obligation or validator predicate changed. Fresh industrial runtime evidence is separately recorded at industrial-release-20260924; previous dependency review remains immutable.",
+  "observedAt": "2026-09-27T05:05:09.792Z",
+  "reviewedBy": "Robot Wiki classical implementer, not independent acceptance",
+  "rationale": "Exact continuity from 4695852: only two assertion-test identity hashes and this review path change in the checker. Both tests change only the selected correction catalog path. No computation, producer, oracle, recorded receipt, historical snapshot, source obligation or validator predicate changed. Fresh industrial runtime evidence is separately recorded at industrial-release-20260924; previous dependency review remains immutable. Classical motion/humanizer closeout: exact article-current identity review for motion-planning and perception only; historical dependency snapshots and typed-local plans, proofs, receipts and source obligations are unchanged. Earlier review bytes preserved in audit/evidence/motion-classical-20260927/dependency-review-before.json.",
   "bindings": [
     {
       "historical": {
@@ -260,17 +260,17 @@
       },
       "current": {
         "path": "content/classical/motion-planning.mdx",
-        "bytes": 24602,
-        "sha256": "42ad166e0fd577257f6f109b03ed518c8bd2c1a2847b4e7efb97fda4836fd1d8"
+        "bytes": 24125,
+        "sha256": "b94cf433b92a75b20bedb995572739f3bb4a915938b903a471eed4dc76d15465"
       },
       "snapshot": {
         "path": "audit/evidence/residual-release-20260924/content--classical--motion-planning.mdx.txt",
         "bytes": 24250,
         "sha256": "945069f1b69d2b369e87fe143eb3e7748bd3893a0e5ebf3549f9547eed063890"
       },
-      "rationale": "Retain main-only learning-stack integration prose and see-also links alongside the incoming authored RRT disclosure; the recipe, widget and complete disclosure remain.",
+      "rationale": "Retain main-only learning-stack integration prose and see-also links alongside the incoming authored RRT disclosure; the recipe, widget and complete disclosure remain. Current classical prose now states the same authored scope in the inspected active article; historical snapshot and actual observations stay pinned to their original bytes, with no recomputation or source-verdict substitution.",
       "preservedText": [
-        "The interactive below uses an authored 2D scene: a 100 by 64 world with five obstacles."
+        "The paused overview and the lab below use the same authored 2D scene: a 100 by 64 world with five obstacles."
       ]
     },
     {
@@ -281,19 +281,19 @@
       },
       "current": {
         "path": "content/classical/perception.mdx",
-        "bytes": 36023,
-        "sha256": "35fe776aec8b284280cdc6a64821dc0e5cd76b456320538f96cb7f29f73ad55f"
+        "bytes": 35573,
+        "sha256": "c8bb4dbf082baca8081d81b253cccfd009528353056d2a8c26e243df3e5b8a36"
       },
       "snapshot": {
         "path": "audit/evidence/residual-release-20260924/content--classical--perception.mdx.txt",
         "bytes": 34910,
         "sha256": "87710571b88af31384b9a13bf2687a66ada0b892007211845bc6877bf074873e"
       },
-      "rationale": "Retain main-only geometric-error guidance and calibration/ROS links alongside the incoming source corrections and model disclosures. No selected source or equation changes.",
+      "rationale": "Retain main-only geometric-error guidance and calibration/ROS links alongside the incoming source corrections and model disclosures. No selected source or equation changes. Current classical prose now states the same authored scope in the inspected active article; historical snapshot and actual observations stay pinned to their original bytes, with no recomputation or source-verdict substitution.",
       "preservedText": [
         "That authored grouping is an editorial guide, not an exhaustive subsystem count or proof that their errors form one statistical budget.",
         "The instrument combines three authored input magnitudes labelled hand-eye, depth and pose.",
-        "The instrument uses an illustrative ray-to-plane model, not a full three-dimensional hand-eye error model."
+        "The instrument uses an illustrative ray-to-plane model. It does not calculate the full three-dimensional hand-eye error."
       ]
     },
     {

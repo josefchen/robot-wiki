@@ -178,7 +178,7 @@ describe('two source-backed verdict reconciliations, not structural completions'
     );
     const perception = readFileSync('content/classical/perception.mdx', 'utf8');
     expect(perception).not.toContain('Three families of depth sensor');
-    expect(perception).toContain('not a family-wide ranking');
+    expect(perception).toContain('no family-wide ranking');
     expect(perception).toContain('not establish uniform accuracy throughout that range');
   });
 

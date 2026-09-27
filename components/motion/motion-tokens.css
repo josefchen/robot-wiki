@@ -1,0 +1,51 @@
+/*
+ * Generated from motion-tokens.json by scripts/generate-motion-tokens.ts.
+ * Do not edit: change motion-tokens.json and regenerate. This is the only
+ * file under components/motion/ allowed to carry colour literals; the
+ * token check enforces that everywhere else.
+ */
+:root {
+  --role-state-stage: #58C4DD;
+  --role-state-text: #00829A;
+  --role-state-graphic: #2EA1B9;
+  --role-measurement-stage: #E8C11C;
+  --role-measurement-text: #956F00;
+  --role-measurement-graphic: #B69000;
+  --role-action-stage: #B189C6;
+  --role-action-text: #8D67A1;
+  --role-action-graphic: #AE86C3;
+  --role-value-stage: #A6CF8C;
+  --role-value-text: #5B8141;
+  --role-value-graphic: #789F5F;
+  --role-constraint-stage: #FC6255;
+  --role-constraint-text: #D63E35;
+  --role-constraint-graphic: #FA6053;
+  --role-reference-stage: #D9DADB;
+  --role-reference-text: #767778;
+  --role-reference-graphic: #949595;
+  --role-highlight-stage: #C6FF19;
+  --role-highlight-text: #548200;
+  --role-highlight-graphic: #C6FF19;
+  --motion-stage: var(--color-instrument);
+  --motion-stage-axes: var(--color-concrete);
+  --motion-stage-axes-opacity: 0.45;
+  --motion-stage-grid: var(--color-concrete);
+  --motion-stage-grid-opacity: 0.08;
+  --motion-stage-label: var(--color-white);
+  --motion-stage-label-secondary: var(--color-concrete);
+  --motion-stage-label-font: var(--font-sans);
+  --motion-uncertainty-fill-alpha: 0.22;
+  --motion-beat: 1000ms;
+  --motion-beat-short: 500ms;
+  --motion-beat-long: 2000ms;
+  --motion-indicate: 800ms;
+  --motion-create: 1000ms;
+  --motion-write: 1000ms;
+  --motion-write-per-glyph: 100ms;
+  --motion-write-max: 2000ms;
+  --motion-reduced-hold: 800ms;
+  --motion-lag: 0.1;
+  --motion-lag-dense: 0.05;
+  --motion-camera-focus-max-zoom: 2.5;
+  --motion-ease-smooth: linear(0, 0.0008, 0.0057, 0.0181, 0.0398, 0.0721, 0.1153, 0.1689, 0.2318, 0.3025, 0.3791, 0.4593, 0.5407, 0.6209, 0.6975, 0.7682, 0.8311, 0.8847, 0.9279, 0.9602, 0.9819, 0.9943, 0.9992, 1);
+}

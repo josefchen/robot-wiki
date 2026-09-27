@@ -25,7 +25,7 @@ describe('retained primary-source depth corrections', () => {
   it('retains all five Azure invalidations and distinguishes missing data from distance', () => {
     for (const cause of ['outside the active IR illumination mask', 'saturated IR signal',
       'low IR signal', 'filter outlier', 'multi-path interference']) expect(depth).toContain(cause);
-    expect(depth).toContain('not a measured zero-distance surface');
+    expect(depth).toContain('the surface has not been measured at zero distance');
   });
 
   it('keeps corner, mixed-edge and motion-exposure qualifications together', () => {
@@ -37,23 +37,23 @@ describe('retained primary-source depth corrections', () => {
   it('distinguishes weak IR, exposure and active illumination from visible darkness', () => {
     expect(depth).toContain('underexposure and overexposure');
     expect(depth).toContain('leaving the projector on');
-    expect(depth).toContain('not a claim that every visibly dark object loses depth');
+    expect(depth).toContain('a visibly dark object does not always lose depth');
     expect(depth).not.toContain('return never clears the noise floor');
   });
 
   it('uses similar match scores and a rejection threshold, not universal thin-object failure', () => {
     expect(depth).toContain('DSSecondPeakThreshold');
-    expect(depth).toContain('not necessarily two exactly equal matches');
-    expect(depth).toContain('not a blanket failure claim for every thin object');
+    expect(depth).toContain('similar scores can indicate aliasing even when they differ');
+    expect(depth).toContain('makes no blanket failure claim for every thin object');
     expect(depth).not.toContain('two equally good matches');
   });
 
   it('corrects the taxonomy and viewpoint inference while preserving the unassigned ToF lead', () => {
-    expect(depth).toContain('not a rule that every listed surface defeats every depth-sensing family');
-    expect(depth).toContain('not a demonstration about generic self-occlusion');
+    expect(depth).toContain('A universal accuracy or speed ranking across sensing technologies would need different evidence');
+    expect(depth).toContain('does not establish recovery of every missing surface by multi-view capture or describe generic self-occlusion');
     expect(depth).not.toContain('which is why multi-view capture is a standard answer');
     // This held lead is preserved, not scientifically certified by this test.
-    expect(depth).toContain('It does not need texture at all, which is its advantage, and it has a characteristic failure the other two do not');
+    expect(depth).toContain('It works without texture, but multi-path interference can cause one pixel to integrate light that arrived by more than one route');
     expect(article).toContain('lastReviewed: "2026-08-22"');
   });
 

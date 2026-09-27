@@ -1,0 +1,14 @@
+/* The SVG viewBox grows with the article rail; keep annotations at UI size. */
+@media (min-width: 768px) {
+  .motion-stage-svg text:not([data-scene-tick]):not([data-scene-readout]) {
+    font-size: 8px;
+  }
+
+  .motion-stage-svg text[data-scene-tick] {
+    font-size: 6px;
+  }
+
+  .motion-stage-svg text[data-scene-readout] {
+    font-size: 7px;
+  }
+}

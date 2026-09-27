@@ -276,8 +276,10 @@ describe('RL reader route, viewport and assertion preservation', () => {
     // reader keeps every Term/widget/reset/table call inside its route
     // guard, and the other 282 calls are byte-identical.
     expect(inventory.calls).toHaveLength(298);
-    expect(digest(inventory)).toBe('7a12f93d4ebe309a3a606d08c37e8a405f2a68e6a079efa737dbb233633c093e');
-    expect(digest(routeBody)).toBe('d58f803cb3faa7484c6b0fb13b427b7f7ba118e23927a8b953f18e5dfbd8ff8e');
+    // The three navigation URLs now use the Playwright localhost host; all
+    // routes, assertions, viewport loops and capture calls remain in place.
+    expect(digest(inventory)).toBe('7911f2c386f011fd25bafc4ca6c972a719fd436c7e5442eabdad83ea8b701f91');
+    expect(digest(routeBody)).toBe('73a932194807a99d8b271d4f2835666c508ee0b512ac439dd2ee9b09e21d4f4f');
     expect(helpers).toHaveLength(1);
     expect(helpers[0].arguments[0].getText(source)).toBe('browser');
     expect(helpers[0].arguments[1].getText(source)).toBe('affected');

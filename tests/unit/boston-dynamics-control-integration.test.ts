@@ -46,25 +46,25 @@ describe('Boston Dynamics control source corrections', () => {
   it('separates the production policy from the over-70-cm research architecture', () => {
     for (const phrase of ['retaining the existing model-based locomotion controller',
       'multiple MPC instances in parallel', 'does not supply a numerical fall-rate reduction',
-      'separately describes research', 'not stated as a capability of the shipped production policy']) {
+      'separately describes research', 'does not attribute that example to the shipped production policy']) {
       expect(legged()).toContain(phrase);
     }
     expect(legged()).not.toContain('no more parallel MPC instances');
   });
   it('keeps fleet units, staged testing and the training-or-evaluation alternative', () => {
     for (const phrase of ['first benchmarks policies in simulation', 'cumulative runtime of over 2,000 hours a week',
-      'fleet total, not a per-robot runtime', 'reproducible in a physics simulation',
+      'This runtime is a fleet total; the account gives no per-robot figure', 'reproducible in a physics simulation',
       'either the training or evaluation set']) expect(legged()).toContain(phrase);
   });
   it('keeps the RAI date, approximate per-maneuver runs and zero-shot limits', () => {
     for (const phrase of ['On March 19, 2025', 'each maneuver created from data from about 150 million simulator runs',
-      'does not define their duration', 'not evidence of calibration-free deployment']) expect(legged()).toContain(phrase);
+      'does not define their duration', 'Calibration-free deployment cannot be inferred from the zero-shot report']) expect(legged()).toContain(phrase);
     expect(legged()).not.toContain('new electric Atlas');
     expect(legged()).not.toContain('each maneuver distilled');
   });
   it('distinguishes Atlas action rate, chunked inference, demonstrations and interface', () => {
     for (const phrase of ['450M-parameter diffusion transformer', '30 Hz', '48 actions (1.6 seconds)',
-      '24 actions (0.8 seconds at 1x speed)', 'not a network inference on every control tick',
+      '24 actions (0.8 seconds at 1x speed)', 'The network does not infer on every control tick',
       'teleoperated demonstrations from hardware and simulation', 'same robot control interface',
       'reported research policies deployed on hardware']) expect(legged()).toContain(phrase);
     expect(legged()).not.toContain('Neither step threw out');

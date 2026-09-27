@@ -62,7 +62,7 @@ test.describe('parallel-sim-rl module', () => {
   test('training-time chart: slider, Rudin markers, CPU toggle, and reset', async ({
     page,
   }) => {
-    await page.goto(ROUTE);
+    await page.goto(ROUTE, { waitUntil: 'networkidle' });
 
     // Default: 4,096 envs at the four-minute anchor.
     await expect(page.getByTestId('envs-readout')).toHaveText('4,096');
@@ -93,7 +93,9 @@ test.describe('parallel-sim-rl module', () => {
     await slider.focus();
     await page.keyboard.press('ArrowLeft');
     await expect(page.getByTestId('envs-readout')).toHaveText('8,192');
-    await page.getByRole('button', { name: 'Reset' }).click();
+    const lab = page.getByTestId('wallclock-readout')
+      .locator('xpath=ancestor::*[@data-brand-module-signature][1]');
+    await lab.getByRole('button', { name: 'Reset' }).click();
     await expect(page.getByTestId('envs-readout')).toHaveText('4,096');
     await expect(page.getByTestId('wallclock-readout')).toHaveText('4.0 min');
     await expect(toggle).toHaveAttribute('aria-pressed', 'false');

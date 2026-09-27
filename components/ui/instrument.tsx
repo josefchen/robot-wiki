@@ -22,6 +22,8 @@ import { cx } from '@/lib/utils';
  */
 
 const INSTRUMENT_SIGNATURE = 'instrument-frame';
+export const INSTRUMENT_SECONDARY_CONTROL_CLASS =
+  'rounded-xs border border-border bg-surface-2 px-3 py-2 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]';
 
 type InstrumentFrameProps = HTMLAttributes<HTMLDivElement> & {
   children: ReactNode;
@@ -243,7 +245,7 @@ export function InstrumentReset({
       type="button"
       onClick={onClick}
       className={cx(
-        'rounded-xs border border-border bg-surface-2 px-3 py-2 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]',
+        INSTRUMENT_SECONDARY_CONTROL_CLASS,
         className,
       )}
       {...rest}

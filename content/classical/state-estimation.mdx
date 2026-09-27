@@ -1,6 +1,6 @@
 ---
 title: "State Estimation"
-description: "The Kalman filter, the extended Kalman filter, and factor-graph smoothing: how a robot turns noisy, intermittent sensor readings into a state estimate with an honest uncertainty attached. Includes a live tracking lab with adjustable noise and a reseedable world."
+description: "The Kalman filter, the extended Kalman filter, and factor-graph smoothing: how a robot turns noisy, intermittent sensor readings into a state estimate with an honest uncertainty attached. Includes a step-through motion scene of one predict-and-update cycle."
 domain: classical
 slug: state-estimation
 order: 4
@@ -26,15 +26,16 @@ seeAlso:
   - "world-models/latent-dynamics"
 ---
 
-import { KalmanTracker } from '@/components/interactive/kalman-tracker';
+import { KalmanPredictUpdate } from '@/components/motion/scenes/kalman-predict-update';
+import { Clip } from '@/components/motion/clip';
 
 [Control](/classical/control) closes the loop under one quiet assumption: that someone knows the state. The pole's angle, the arm's configuration, the quadruped's velocity over ground. Nobody does. What the robot actually has is a stream of sensor readings, each one noisy, some biased, a few missing outright. State estimation is the discipline that turns that stream into a usable estimate, with an honest number attached describing how wrong the estimate might be.
 
 The honest number is what separates the field from curve fitting. A controller that knows the estimate's uncertainty can act cautiously when the number is large and aggressively when it is small; a controller handed a bare guess cannot. Every estimator in this module is built to carry both.
 
-The lab below is that idea running. A target wanders in one dimension, a position sensor drops about one reading in five, and the blue band is the filter's own claim about how wrong it might be. Move the measurement-noise slider up and the estimate smooths and lags while the band widens; move the process-noise slider up instead and the estimate hugs every reading. Nothing about the world changed either time. Only what the filter believes about it.
+The scene below is that idea, one step at a time. A target wanders in one dimension and a position sensor drops about one reading in five; the scene holds one measured step of the seeded filter and walks it beat by beat: the prior belief as a dot with its two-sigma ellipse, the predict step smearing both along the motion model, the arriving reading with its own wider, position-only ellipse, and the update that fuses the two through the gain K. Step through it with the arrow keys; the numbers in the readout are the filter's own.
 
-<KalmanTracker className="my-6" />
+<KalmanPredictUpdate className="my-6" />
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="Kalman filter" value="1960" note="Kalman's recursive linear estimator" />
@@ -45,7 +46,7 @@ The lab below is that idea running. A target wanders in one dimension, a positio
 
 ## The Bayes filter
 
-The full probabilistic answer starts with a belief: not a guess at the state, but a probability distribution over it, $bel(x_t)$. Two alternating steps keep the belief current <Cite id="thrun-2005" />.
+The full probabilistic answer starts with a belief, a probability distribution over the state $bel(x_t)$. Two alternating steps keep the belief current <Cite id="thrun-2005" />.
 
 The predict step pushes the belief through the process model. Given the control $u_t$, the distribution over the new state convolves yesterday's belief with the motion's uncertainty:
 
@@ -85,13 +86,17 @@ $$
 \mu_t = \bar{\mu}_t + K_t \left( z_t - C_t \bar{\mu}_t \right), \qquad \Sigma_t = \left( I - K_t C_t \right) \bar{\Sigma}_t
 $$
 
-The gain is the whole idea in one ratio: prior uncertainty over prior-plus-sensor uncertainty. A filter that trusts its model gets a small gain and mostly ignores the sensor; a filter that trusts its sensor gets a gain near one and jumps to the reading. Under the linear-Gaussian assumptions this recursion is the minimum-variance estimator outright, and Kalman's projection-based derivation still makes it the best linear estimator when the noise is merely white rather than Gaussian <Cite id="kalman-1960-filter" />.
+The gain is prior uncertainty over prior-plus-sensor uncertainty. A filter that trusts its model gets a small gain and mostly ignores the sensor; a filter that trusts its sensor gets a gain near one and jumps to the reading. Under the linear-Gaussian assumptions this recursion is the minimum-variance estimator outright. Kalman's projection-based derivation still makes it the best linear estimator with white noise even without Gaussian noise <Cite id="kalman-1960-filter" />.
 
 McGee and Schmidt's November 1985 NASA history credits Schmidt's Ames group with adapting Kalman's linear filter to nonlinear circumlunar navigation in the early 1960s. By early 1961, their simulations supported the approach, but operation on available flight computers had not yet been verified. The report distinguishes this work from Battin's Apollo navigation studies at MIT and Potter's square-root implementation used in Apollo. It also records the decision to use ground radar for primary Apollo navigation, with an onboard backup. This is the participants' retrospective account, not a claim that Ames alone engineered the flight system<br className="lg:hidden" /><Cite id="mcgee-schmidt-1985" />.
 
-That is what the lab at the top of this module is showing. The near-black trace is the truth, the gray dots are the readings, the blue trace is the estimate, and the band is the filter's own $\pm 2\sigma$ position uncertainty. The world's noise is fixed by the seed in the readout; the sliders set what the filter *believes* about the noise, and the defaults are matched to the truth. Raising $\sigma_r$ drops the gain, and raising $\sigma_q$ climbs it: the band then swells across each measurement gap, the predict-update sawtooth made visible.
+That is what the scene at the top of this module is showing. The belief is the dot with its two-sigma ellipse, the reading z is the cross with the wider, position-only ellipse, and the gain K is the point on the segment between the prediction and the reading. On the demonstrated step the filter weighs its prediction against the sensor at 0.62 to 0.38, so the posterior lands most of the way toward z, and the posterior ellipse comes out narrower than either parent: the one-sigma position uncertainty in the readout reads 0.94 before the predict, 1.27 after it, and 0.79 once z is fused. The world's noise is fixed by the seed named in the status line, and the filter's assumed noise is matched to it, which is why the gain lands where it does. Believing the sensor more shrinks the ellipse toward the reading; believing the motion model more leaves it drifting with the prediction.
 
-One more thing to notice: the band is a claim the filter makes about itself. Set the sliders too low for the world it actually lives in and the estimate draws a narrow band that the truth keeps escaping. An overconfident filter is worse than no filter, because nothing downstream knows to distrust it.
+One more thing to notice: the ellipse is a claim the filter makes about itself. Assume noise quieter than the world the filter actually lives in and it draws a narrow ellipse that the truth keeps escaping. An overconfident filter is worse than no filter, because nothing downstream knows to distrust it.
+
+A single fusion is worth stepping through; a whole run is worth watching. The clip below plays the same seeded filter from step 0 to step 240, and the band tells the story: it widens across every dropout and tightens on every reading.
+
+<Clip id="kalman-episode" className="my-6" />
 
 ## The extended Kalman filter
 
@@ -135,4 +140,4 @@ With estimation in place, the classical stack closes: [kinematics](/classical/ki
 
 Many apparent estimator failures begin before the filter. A camera exposure, encoder reading and inertial sample that carry the same receipt time may describe different physical instants. Feeding them into a precise model creates a confident estimate of a state that never existed. Clock offset, transport delay and rolling-shutter timing belong in the measurement contract beside frame and covariance.
 
-Test the pipeline in that order: verify clock domains and timestamp monotonicity, measure sensor latency, validate transforms, then tune process and measurement noise. Replay a recorded motion and inspect innovations by sensor; persistent directional residuals suggest calibration or timing bias rather than random noise. The [calibration guide](/classical/calibration) covers spatial and temporal residuals, while the [ROS 2 guide](/classical/ros2-for-ml-engineers) covers timestamped message and transform interfaces. A larger covariance can express uncertainty. It cannot repair misassociated time.
+Test the pipeline in that order: verify clock domains and timestamp monotonicity, measure sensor latency, validate transforms, then tune process and measurement noise. Replay a recorded motion and inspect innovations by sensor; persistent directional residuals suggest calibration or timing bias instead of random noise. The [calibration guide](/classical/calibration) covers spatial and temporal residuals, while the [ROS 2 guide](/classical/ros2-for-ml-engineers) covers timestamped message and transform interfaces. A larger covariance can express uncertainty. It cannot repair misassociated time.

@@ -74,7 +74,7 @@ for (const width of [1440, 375]) {
       page.on('console', (message) => { if (message.type() === 'error') errors.push(message.text()); });
       page.on('pageerror', (error) => errors.push(error.message));
       page.on('request', (request) => requests.push(request.url()));
-      expect((await page.goto(`http://127.0.0.1:3200${route}`))?.ok()).toBe(true);
+      expect((await page.goto(`http://localhost:3200${route}`))?.ok()).toBe(true);
       await expect(page.getByRole('heading', { name: AFFECTED_TITLES[route], exact: true, level: 1 })).toBeVisible();
       const capturePrefix = route === RL_READER ? `${width}` : `${width}-${route.split('/').filter(Boolean).join('-')}`;
       const observed = await page.locator('[data-cite-id]').evaluateAll((nodes) =>
@@ -176,7 +176,7 @@ test('inherited Gemini mobile full author entry, unmasked viewport slices only',
   try {
     const routes = [...graph.keys()].filter((route) => route.endsWith('/generalist-policies/'));
     expect(routes).toHaveLength(1);
-    expect((await page.goto(`http://127.0.0.1:3200${routes[0]}`))?.ok()).toBe(true);
+    expect((await page.goto(`http://localhost:3200${routes[0]}`))?.ok()).toBe(true);
     await expect(page.locator('h1')).not.toHaveText('Page not found');
     const reference = page.locator('ol [data-reference-id="gemini-robotics-2025"]');
     const button = reference.getByRole('button', { name: /authors/i });
@@ -200,7 +200,7 @@ for (const width of [1440, 375]) {
     mkdirSync(directory, { recursive: true });
     const measurements = [];
     try {
-      expect((await page.goto('http://127.0.0.1:3200/rl-sim2real/rl-for-robotics/'))?.ok()).toBe(true);
+      expect((await page.goto('http://localhost:3200/rl-sim2real/rl-for-robotics/'))?.ok()).toBe(true);
       await expect(page.getByRole('heading', { level: 1, name: 'RL for Robotics', exact: true })).toBeVisible();
       for (const id of [...changed, 'offline-rl-tutorial-2020']) {
         const chip = page.locator(`.prose [data-cite-id="${id}"]`).first();

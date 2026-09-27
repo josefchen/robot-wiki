@@ -33,7 +33,7 @@ Try the check below and choose the ROS interface that matches a long-running rob
     {
       value: 'topic',
       label: 'Publish the request repeatedly on a sensor topic',
-      why: 'Topics fit continuous streams, not one task with acceptance, feedback, completion and cancellation semantics.'
+      why: 'Topics fit continuous streams. This task needs acceptance, feedback, completion and cancellation semantics.'
     },
     {
       value: 'service',
@@ -74,7 +74,7 @@ Record message age at the policy boundary. The tensor may have the right shape w
 
 ## Time and synchronization
 
-Every observation used together should refer to a defensible time. Camera, depth, joint state and force streams arrive at different rates and latencies. Use message timestamps from acquisition, not only arrival time. Decide whether to use exact synchronization, approximate synchronization or interpolation of the robot state to the image timestamp.
+Every observation used together should refer to a defensible time. Camera, depth, joint state and force streams arrive at different rates and latencies. Use acquisition timestamps alongside arrival times. Decide whether to use exact synchronization, approximate synchronization or interpolation of the robot state to the image timestamp.
 
 Separate three clocks in logs: source timestamp, receipt timestamp and inference completion. Then you can decompose latency into sensing, transport, preprocessing, model execution and command delivery.
 
@@ -111,7 +111,7 @@ rosbag2 records topic messages with timestamps for replay. It is invaluable for 
 
 Record the raw sensor topics, transforms, joint state, commands, controller state, task events, software version and calibration identity. Preserve QoS information and verify that high-bandwidth topics were actually recorded. Replay a small bag through preprocessing in continuous integration so schema drift fails early.
 
-Convert bags into immutable training shards with a versioned transformation. Keep the bag URI and message timestamps in provenance. That lets a suspicious sample be traced back to raw traffic rather than only to a tensor file.
+Convert bags into immutable training shards with a versioned transformation. Keep the bag URI and message timestamps in provenance so a suspicious sample can be traced back to raw traffic as well as its tensor file.
 
 ## A production policy layout
 
@@ -130,9 +130,9 @@ Publish diagnostics for model version, observation age, inference duration, acti
 
 ## Navigation uses the same architecture
 
-Nav2 is the reference ROS 2 navigation stack and applies a similar split: global planning over a map, local control against current obstacles, behavior coordination and recovery <Cite id="nav2-2020" />. For an ML engineer, it is a useful example of learned components living inside a larger system rather than replacing the whole graph.
+Nav2 is the reference ROS 2 navigation stack and applies a similar split: global planning over a map, local control against current obstacles, behavior coordination and recovery <Cite id="nav2-2020" />. Learned components can work within this graph.
 
-A learned local controller can consume the same costmap and goal interface as a classical one. That preserves test harnesses and fallback behavior. The [scene-representation module](/classical/scene-representation) explains why the map used for planning is not necessarily the representation used for rendering or learning.
+A learned local controller can consume the same costmap and goal interface as a classical one. That preserves test harnesses and fallback behavior. The [scene-representation module](/classical/scene-representation) explains why planning, rendering and learning can call for different representations of the map.
 
 ## Common integration failures
 

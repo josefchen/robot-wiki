@@ -106,7 +106,7 @@ test.describe('legged-locomotion module', () => {
   test('gait diagram: selector, patterns, stepping, playback, reset', async ({
     page,
   }) => {
-    await page.goto(ROUTE);
+    await page.goto(ROUTE, { waitUntil: 'networkidle' });
 
     // Default: walk at cycle start, three feet down.
     await expect(page.getByTestId('duty-readout')).toHaveText('0.75');
@@ -125,7 +125,7 @@ test.describe('legged-locomotion module', () => {
 
     // Step halfway: the other diagonal takes over.
     for (let i = 0; i < 10; i++) {
-      await page.getByRole('button', { name: 'Step forward' }).click();
+      await page.getByRole('button', { name: 'Step forward', exact: true }).click();
     }
     await expect(page.getByTestId('phase-readout')).toHaveText('50%');
     await expect(page.getByTestId('stance-readout')).toHaveText('RF + LH');
@@ -158,7 +158,9 @@ test.describe('legged-locomotion module', () => {
     await expect(page.getByTestId('phase-readout')).toHaveText(/\d+%/);
 
     // Reset restores the default gait and phase.
-    await page.getByRole('button', { name: 'Reset' }).click();
+    const lab = page.getByTestId('duty-readout')
+      .locator('xpath=ancestor::*[@data-brand-module-signature][1]');
+    await lab.getByRole('button', { name: 'Reset' }).click();
     await expect(page.getByTestId('phase-readout')).toHaveText('0%');
     await expect(page.getByTestId('duty-readout')).toHaveText('0.75');
     await expect(page.getByRole('button', { name: 'Walk' })).toHaveAttribute(
@@ -170,7 +172,7 @@ test.describe('legged-locomotion module', () => {
   test('reduced motion: playback steps discretely', async ({ browser }) => {
     const context = await browser.newContext({ reducedMotion: 'reduce' });
     const page = await context.newPage();
-    await page.goto(ROUTE);
+    await page.goto(ROUTE, { waitUntil: 'networkidle' });
     // Wait for the observable phase change instead of sleeping on the
     // wall clock; under reduced motion playback advances the playhead in
     // discrete 10% jumps.
@@ -192,7 +194,7 @@ test.describe('legged-locomotion module', () => {
   test('reduced motion changes before and during playback rebuild the gait cadence', async ({
     page,
   }) => {
-    await page.goto(ROUTE);
+    await page.goto(ROUTE, { waitUntil: 'networkidle' });
     const phase = page.getByTestId('phase-readout');
     const phaseNumber = async () =>
       Number(((await phase.textContent()) ?? '0').replace('%', ''));
@@ -207,7 +209,9 @@ test.describe('legged-locomotion module', () => {
     expect((await phaseNumber()) % 10).toBe(0);
 
     // Preference changed again while smooth playback is active.
-    await page.getByRole('button', { name: 'Reset' }).click();
+    const lab = page.getByTestId('duty-readout')
+      .locator('xpath=ancestor::*[@data-brand-module-signature][1]');
+    await lab.getByRole('button', { name: 'Reset' }).click();
     await page.emulateMedia({ reducedMotion: 'no-preference' });
     await page.getByRole('button', { name: 'Play gait cycle' }).click();
     await expect

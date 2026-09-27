@@ -26,7 +26,8 @@ const required = [
   '96 eighteen-DoF full-body problems', 'three seconds per CHOMP initialization',
   'thirty-second full-body OMPL limit', 'not a separate smoothness measurement',
   '<TrajOptArmTable', '<TrajOptFullBodyTable',
-  'Table II contains no CHOMP full-body result', "not evidence that sampling followed by refinement is the standard industrial pipeline today",
+  'The full-body results omit CHOMP: the authors lacked the documentation or data needed to run that comparison',
+  'These papers describe research methods; they do not establish a standard industrial pipeline today',
 ];
 describe('trajectory corrections retain their scientific counterconditions', () => {
   for (const text of required) it(text, () => expect(article).toContain(text));

@@ -28,10 +28,10 @@ describe('GRS and Eureka retained source scope', () => {
   });
 
   it('preserves headline-versus-detailed result and normalization distinctions', () => {
-    expect(reward()).toContain('not strict wins everywhere');
+    expect(reward()).toContain('Some were ties');
     expect(reward()).toContain('maximum task fitness over ten fixed-interval checkpoints');
-    expect(reward()).toContain('adjusts each score to lie in `[0, 3]`');
-    expect(reward()).toContain('not a 52-percentage-point increase');
+    expect(reward()).toContain('adjust each score to lie in `[0, 3]`');
+    expect(reward()).toContain('does not express a 52-percentage-point increase');
     expect(reward()).not.toContain('label="Eureka wins"');
   });
 

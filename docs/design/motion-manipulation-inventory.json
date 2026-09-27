@@ -1,0 +1,204 @@
+[
+  {
+    "article": "action-chunking",
+    "element": "ChunkSizeCurve",
+    "decision": "keep",
+    "teachingGoal": "Compare the measured ACT chunk-size ablation without losing the falloff at larger open-loop horizons.",
+    "reason": "A source-backed curve is best read as a static comparison with direct inspection, not replayed as if the experiment unfolded over time."
+  },
+  {
+    "article": "action-chunking",
+    "element": "Image:temporal-ensembling",
+    "decision": "keep",
+    "teachingGoal": "Show overlapping ACT predictions and the oldest-to-newest weighted action at the current time.",
+    "reason": "The already-corrected brand-v2 SVG distinguishes illustration m=0.5 from reference m=0.01; changing its sealed semantics risks reversing the ordering again."
+  },
+  {
+    "article": "action-chunking",
+    "element": "LatencyComparison",
+    "occurrence": 2,
+    "decision": "keep",
+    "teachingGoal": "Reveal the same toy delay dial at a 100 ms starting position after the reader predicts the outcome.",
+    "reason": "This is the second mount in the prediction exercise, with its own default and feedback context; it must keep the interactive dial and toy disclaimer."
+  },
+  {
+    "article": "action-chunking",
+    "element": "LatencyComparison",
+    "decision": "keep",
+    "teachingGoal": "Let the reader test the normalized toy hand-off under different injected delays.",
+    "reason": "Its delay dial makes the intervention explicit and labels the assumed score; playing a fixed animation would hide the beyond-experiment slider range."
+  },
+  {
+    "article": "action-chunking",
+    "element": "PolicyChunkingTable",
+    "decision": "keep",
+    "teachingGoal": "Keep planned horizon, executed horizon, control rate, and source scopes separate by policy.",
+    "reason": "This is a reference table with explicit unavailable fields, not a sequence; preserving its data and citations prevents false cross-model comparisons."
+  },
+  {
+    "article": "action-spaces",
+    "element": "ActionSpaceTable",
+    "decision": "keep",
+    "teachingGoal": "Compare representation conventions while retaining the separate assumptions and limitations of each action space.",
+    "reason": "The sourced table is a parallel reference, and motion would imply an ordering that the choices do not have."
+  },
+  {
+    "article": "bc-foundations",
+    "element": "CompoundingError",
+    "occurrence": 2,
+    "decision": "keep",
+    "teachingGoal": "Compare the toy deviation at the prediction exercise's fixed error and longer starting horizon.",
+    "reason": "The second mount exists for the reader's before-and-after answer; its specified defaults are part of the teaching interaction."
+  },
+  {
+    "article": "bc-foundations",
+    "element": "CompoundingError",
+    "decision": "keep",
+    "teachingGoal": "Explore the horizon and error probability in the explicit illustrative behavioral-cloning model.",
+    "reason": "The parameter controls are the lesson; a canned rollout would obscure which values are adjustable and which are cited bounds."
+  },
+  {
+    "article": "bc-foundations",
+    "element": "Image:covariate-shift",
+    "decision": "keep",
+    "teachingGoal": "Identify the point where a policy rollout leaves the demonstration corridor.",
+    "reason": "The sealed brand-v2 SVG already uses lime only for the observed divergence and gives the causal relationship in one readable still."
+  },
+  {
+    "article": "comparison-matrix",
+    "element": "ComparisonMatrix",
+    "decision": "keep",
+    "teachingGoal": "Filter the sourced policy comparison without collapsing different inference, control, and availability claims.",
+    "reason": "This table needs reader-controlled filters and visible qualification per row; staged motion could conceal cross-source scope differences."
+  },
+  {
+    "article": "cross-embodiment",
+    "element": "CrossEmbodimentStrategies",
+    "decision": "keep",
+    "teachingGoal": "Inspect distinct transfer strategies and their citations without implying one strategy succeeds everywhere.",
+    "reason": "Its selectable evidence cards keep alternatives independently legible; no common causal timeline is supported by the sources."
+  },
+  {
+    "article": "diffusion-policy",
+    "element": "DiffusionDenoising",
+    "decision": "keep",
+    "sceneId": "diffusion-denoising",
+    "teachingGoal": "Distinguish demonstration modes, forward noising, and conditional reverse denoising over model time.",
+    "reason": "This is the already-approved scene-kit manipulation reference: poster, four captions, one scrubbed timeline and reduced-motion step states."
+  },
+  {
+    "article": "diffusion-policy",
+    "element": "RecedingHorizon",
+    "decision": "keep",
+    "teachingGoal": "Inspect predicted versus executed action spans while changing the commitment horizon.",
+    "reason": "The existing reader-controlled horizon makes replanning concrete and should not be replaced by an autoplay sequence."
+  },
+  {
+    "article": "foundation-models",
+    "element": "FoundationModelFamiliesTable",
+    "decision": "keep",
+    "teachingGoal": "Compare foundation-model families by the same documented fields and caveats.",
+    "reason": "A static reference table preserves the simultaneous comparison; animation would introduce an unsupported family ranking."
+  },
+  {
+    "article": "generalist-policies",
+    "element": "GeneralistReleaseTimeline",
+    "decision": "keep",
+    "teachingGoal": "Select a named release to inspect its primary-source evidence and availability scope.",
+    "reason": "This is a reader-driven release lookup rather than simulated runtime time; its source drawer must stay usable."
+  },
+  {
+    "article": "hierarchical",
+    "element": "HierarchyTimescales",
+    "decision": "keep",
+    "teachingGoal": "Compare high-level and low-level policy frequencies without treating their schedules as one universal rate.",
+    "reason": "The selectable timescale instrument carries different policies and source caveats; a fixed clip would erase that distinction."
+  },
+  {
+    "article": "knowledge-insulation",
+    "element": "MotInsulation",
+    "decision": "keep",
+    "teachingGoal": "Compare the gradient-routing alternatives in the stated knowledge-insulation setup.",
+    "reason": "The side-by-side mechanism and named ablations are a comparison, not an unfolding training trace with measured time."
+  },
+  {
+    "article": "pi-line",
+    "element": "FlowMatchingTrajectory",
+    "decision": "rethink",
+    "teachingGoal": "Show what one integrator step misses and how additional steps move toy samples toward action modes.",
+    "reason": "Retain the source-aware step-count lab for direct exploration, and add a paused scene-kit sequence ahead of it to make transport legible."
+  },
+  {
+    "article": "pi-line",
+    "element": "PiGenerationTimeline",
+    "decision": "keep",
+    "teachingGoal": "Inspect each named generation with its separately scoped primary source and checkpoint note.",
+    "reason": "A user-selected release timeline prevents inferred availability or licensing claims; it is not runtime motion."
+  },
+  {
+    "article": "realtime-execution",
+    "element": "ControlLoopBudget",
+    "occurrence": 2,
+    "decision": "keep",
+    "teachingGoal": "Use the same toy control-budget model to check the prediction with a 1.1B starting coordinate.",
+    "reason": "This second mount supplies a different starting value inside the reveal exercise and retains its explicitly illustrative assumptions."
+  },
+  {
+    "article": "realtime-execution",
+    "element": "ControlLoopBudget",
+    "decision": "keep",
+    "teachingGoal": "Test the timing budget against sensing, inference, and actuation without conflating their measured rates.",
+    "reason": "Direct controls and explicit units matter more than a preselected timed story for this budget exercise."
+  },
+  {
+    "article": "realtime-execution",
+    "element": "ExecutionModes",
+    "decision": "keep",
+    "teachingGoal": "Compare synchronous and asynchronous execution with their respective latency and control assumptions.",
+    "reason": "The mode selector already lets the reader contrast hypotheses; a single animated mode could imply generality across setups."
+  },
+  {
+    "article": "rl-finetuning",
+    "element": "AdvantageScrubber",
+    "decision": "keep",
+    "teachingGoal": "Scrub a toy advantage trajectory to understand how a threshold selects training samples.",
+    "reason": "The input is a reader-driven mathematical dial, explicitly illustrative; it should not be mistaken for a sourced measured run."
+  },
+  {
+    "article": "rl-finetuning",
+    "element": "ExpoFtResults",
+    "decision": "keep",
+    "teachingGoal": "Read each EXPO-FT task result and the tested baseline under the same named protocol.",
+    "reason": "The comparison is source-backed data with important task-level exceptions; reveal animation could obscure those values."
+  },
+  {
+    "article": "rl-finetuning",
+    "element": "RlMethodsTable",
+    "decision": "keep",
+    "teachingGoal": "Preserve algorithmic differences, release scope, and explicit unknowns in the method matrix.",
+    "reason": "A table is the appropriate simultaneous reference; motion does not establish missing measurements or release details."
+  },
+  {
+    "article": "vla-models",
+    "element": "ActionTokenization",
+    "decision": "rethink",
+    "teachingGoal": "Map one continuous toy action coordinate to a bin and show why a vector needs sequential token decodes.",
+    "reason": "Retain the full coordinate and timestep lab with its sources, then add an opt-in scene-kit sequence to teach the order without replacing controls."
+  },
+  {
+    "article": "vla-models",
+    "element": "ActionDecode",
+    "decision": "add",
+    "sceneId": "action-decode",
+    "teachingGoal": "Introduce quantization and autoregressive decoding in four reader-paced beats before the full toy lab.",
+    "reason": "A sequence makes the transition from scalar value to discrete bin to token stream visible; a labelled toy keeps it distinct from a rollout."
+  },
+  {
+    "article": "pi-line",
+    "element": "FlowTransport",
+    "decision": "add",
+    "sceneId": "flow-transport",
+    "teachingGoal": "Show seeded noise becoming two action modes along the flow field before the step-count lab.",
+    "reason": "A reader-paced scene exposes temporal integration without replacing the lab's measured configuration notes and direct step slider."
+  }
+]

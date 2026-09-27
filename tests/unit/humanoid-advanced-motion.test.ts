@@ -14,12 +14,12 @@ const expected = [
   {
     "id": "humanoid-7",
     "citationId": "kungfubot-2025",
-    "span": "KungfuBot trains a separate policy for each processed reference motion rather than one policy for the whole repertoire. Its adaptive tracking rule tightens the exponential reward’s error tolerance from an exponential moving average of tracking error, with a non-increasing update. Separate curricula lower the early-termination threshold and increase regularization penalties. The authors demonstrate dynamic motions on Unitree G1; their quantitative hardware comparison covers ten Tai Chi trials with the robot root fixed to the origin for evaluation <Cite id=\"kungfubot-2025\" />."
+    "span": "KungfuBot trains a separate policy for each processed reference motion. Its adaptive tracking rule tightens the exponential reward’s error tolerance from an exponential moving average of tracking error, with a non-increasing update. Separate curricula lower the early-termination threshold and increase regularization penalties. The authors demonstrate dynamic motions on Unitree G1; their quantitative hardware comparison covers ten Tai Chi trials with the robot root fixed to the origin for evaluation <Cite id=\"kungfubot-2025\" />."
   },
   {
     "id": "humanoid-8",
     "citationId": "gmt-2025",
-    "span": "GMT trains a unified motion-tracking controller rather than merging already-trained per-skill policies. Adaptive sampling re-clips long motions and adjusts sampling probabilities using completion and tracking errors. Its privileged teacher uses a learned soft mixture-of-experts: a gating network combines expert action outputs, and a deployable student learns from the teacher through DAgger. The authors demonstrate tracking on Unitree G1, but report the baseline comparisons and ablations in simulation. The controller does not support getting up after a fall or rolling, and is not designed for tracking on slopes and stairs <Cite id=\"gmt-2025\" />."
+    "span": "GMT takes the other approach: it trains a unified motion-tracking controller from scratch without merging already-trained per-skill policies. Adaptive sampling re-clips long motions and adjusts sampling probabilities using completion and tracking errors. Its privileged teacher uses a learned soft mixture-of-experts: a gating network combines expert action outputs, and a deployable student learns from the teacher through DAgger. The authors demonstrate tracking on Unitree G1, but report the baseline comparisons and ablations in simulation. The controller does not support getting up after a fall or rolling, and is not designed for tracking on slopes and stairs <Cite id=\"gmt-2025\" />."
   }
 ];
 describe('Humanoid advanced motion source scope', () => {

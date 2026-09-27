@@ -37,7 +37,9 @@ import { xFor } from '../../components/interactive/egoscale-scaling';
  * worker); every assertion below reads the same evidence.
  */
 const VIEWPORT = { width: 1440, height: 900 } as const;
-const FRAME_SELECTOR = '[data-brand-module-signature="instrument-frame"]';
+// This corpus grades registered exploratory labs. Paused motion scenes and
+// clips own separate teaching/evidence contracts and share the frame primitive.
+const FRAME_SELECTOR = '[data-brand-module-signature="instrument-frame"]:not([data-motion-scene]):not([data-motion-clip])';
 
 const TOKEN_VARS = [
   '--color-accent',
@@ -620,7 +622,12 @@ test.describe('brand-v2 interactive data legends and render parity', () => {
     for (const [sourceId, spec] of leadRows) {
       const leadId = spec.leadSeriesId!;
       const allowed = spec.leadPaints ?? ['accent'];
-      for (const frame of frameFor(sourceId, frames)) {
+      const mountedFrames = frameFor(sourceId, frames);
+      expect(
+        mountedFrames.length,
+        `${sourceId} lead series has a rendered mount`,
+      ).toBeGreaterThan(0);
+      for (const frame of mountedFrames) {
         const row = frame.series[leadId];
         if (!row) {
           violations.push(`${frame.mountId}: lead series "${leadId}" carries no data-series marks`);
@@ -640,7 +647,7 @@ test.describe('brand-v2 interactive data legends and render parity', () => {
     expect(
       leadRows.length,
       'the classification registers lead-series charts (population is not vacuous)',
-    ).toBeGreaterThanOrEqual(4);
+    ).toBeGreaterThanOrEqual(3);
 
     const limeViolations: string[] = [];
     for (const frame of frames) {

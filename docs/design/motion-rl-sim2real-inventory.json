@@ -1,0 +1,145 @@
+[
+  {
+    "article": "humanoid-wbc",
+    "element": "WbcDecomposition",
+    "decision": "keep",
+    "teachingGoal": "Compare how the named whole-body policies divide planning and tracking without implying one shared controller.",
+    "reason": "The selectable architectures are source-qualified alternatives, not successive states in a rollout."
+  },
+  {
+    "article": "humanoid-wbc",
+    "element": "Gr2ResultsTable",
+    "decision": "keep",
+    "teachingGoal": "Read the source-published task results and denominators together.",
+    "reason": "A static table keeps the exact protocol and values visible for comparison."
+  },
+  {
+    "article": "legged-locomotion",
+    "element": "GaitDiagram",
+    "decision": "rethink",
+    "teachingGoal": "Read each authored stance interval and manipulate gait and phase independently after a support-pattern overview.",
+    "reason": "Keep the full reader-controlled lab; a paused scene ahead of it reveals how support changes by gait."
+  },
+  {
+    "article": "legged-locomotion",
+    "element": "GaitSupport",
+    "decision": "add",
+    "sceneId": "gait-support",
+    "teachingGoal": "Reveal walk, diagonal trot, bounding flight and pronking flight in four reader-paced stills.",
+    "reason": "The order shows the loss of continuous support without presenting the examples as measured robot footfalls."
+  },
+  {
+    "article": "legged-locomotion",
+    "element": "Image:anymal-anybotics-2022",
+    "decision": "keep",
+    "teachingGoal": "Show the actual robot in its sourced photograph with credit and license.",
+    "reason": "External historical imagery retains its native identity and attribution, not the scene palette."
+  },
+  {
+    "article": "offline-rl",
+    "element": "SelfCheck",
+    "decision": "keep",
+    "teachingGoal": "Test whether the reader can identify the dataset support problem before seeing an explanation.",
+    "reason": "This is a deliberate assessment, not a time-evolving figure."
+  },
+  {
+    "article": "parallel-sim-rl",
+    "element": "TrainingTimeChart",
+    "decision": "rethink",
+    "teachingGoal": "Change the environment count and CPU assumption directly while comparing reported time bounds with a toy curve.",
+    "reason": "The source-qualified chart and its controls remain; a paused scene first exposes the fixed-budget arithmetic."
+  },
+  {
+    "article": "parallel-sim-rl",
+    "element": "BatchScale",
+    "decision": "add",
+    "sceneId": "batch-scale",
+    "teachingGoal": "See the same fixed experience budget pass through fewer iterations as parallel count rises, then reveal the CPU-cost caveat.",
+    "reason": "A scene makes the change in model time causal without recasting paper bounds as measured points."
+  },
+  {
+    "article": "reward-design-mpc",
+    "element": "RewardShaping",
+    "decision": "keep",
+    "teachingGoal": "Inspect the authored reward terms and failure attractors by adjusting each term.",
+    "reason": "Direct parameter changes disclose which attractor each toy weight selects; a fixed sequence would hide interactions."
+  },
+  {
+    "article": "reward-design-mpc",
+    "element": "EurekaLoop",
+    "decision": "keep",
+    "teachingGoal": "Inspect the source-qualified propose, train, reflect and mutate sequence with code differences.",
+    "reason": "Its reader-selected states already express the loop; a second playback clock would duplicate the teaching path."
+  },
+  {
+    "article": "reward-design-mpc",
+    "element": "MpcComparison",
+    "decision": "keep",
+    "teachingGoal": "Compare model-based and learned controls without fabricating a universal winner.",
+    "reason": "The simultaneous reference preserves qualifications across methods."
+  },
+  {
+    "article": "reward-design-mpc",
+    "element": "MpcVsRl",
+    "decision": "keep",
+    "teachingGoal": "Choose disturbances and inspect how each controller responds in the explicit toy.",
+    "reason": "The reader's disturbance choice is the experiment, rather than an authored disturbance schedule."
+  },
+  {
+    "article": "rl-for-robotics",
+    "element": "SampleEfficiencyLedger",
+    "decision": "keep",
+    "teachingGoal": "Convert a chosen interaction budget into simulator and hardware collection times.",
+    "reason": "The calculator needs independent budget and source choices and source-qualified anchors."
+  },
+  {
+    "article": "sim2real-transfer",
+    "element": "FrictionTransfer",
+    "decision": "keep",
+    "teachingGoal": "Move the robot-friction line across point-trained and randomized toy policies.",
+    "reason": "The reader's friction and range choices make the assumed peak-versus-plateau trade inspectable."
+  },
+  {
+    "article": "sim2real-transfer",
+    "element": "PredictThenReveal",
+    "decision": "keep",
+    "teachingGoal": "Ask for the wider-range prediction before exposing its separate initial-condition chart.",
+    "reason": "The disclosure preserves the answer-before-figure decision rather than autoplaying it."
+  },
+  {
+    "article": "sim2real-transfer",
+    "element": "FrictionTransfer",
+    "occurrence": 2,
+    "decision": "keep",
+    "teachingGoal": "Inspect the prediction exercise with its distinct, wider default randomization range.",
+    "reason": "This second mount keeps independent state and an explicit starting range."
+  },
+  {
+    "article": "sim2real-transfer",
+    "element": "TeacherStudent",
+    "decision": "keep",
+    "teachingGoal": "Change authored proprioceptive degradation while comparing privileged terrain to the student's reconstruction.",
+    "reason": "The slider's constructed error and unmeasured action-divergence readout must remain directly inspectable."
+  },
+  {
+    "article": "sim2real-transfer",
+    "element": "SelfCheck",
+    "decision": "keep",
+    "teachingGoal": "Check which transfer intervention addresses the missing observation rather than learning a fixed sequence.",
+    "reason": "The self-check is an assessment with answer feedback, not a graphical rollout."
+  },
+  {
+    "article": "why-rl-locomotion",
+    "element": "ContactGeometry",
+    "decision": "keep",
+    "teachingGoal": "Switch between authored locomotion and manipulation contacts to inspect the simulation gap.",
+    "reason": "The two contact hypotheses are comparison states under reader control, not time steps."
+  },
+  {
+    "article": "why-rl-locomotion",
+    "element": "MdpComparison",
+    "decision": "keep",
+    "teachingGoal": "Compare the six MDP properties side by side without collapsing their caveats.",
+    "reason": "The static matrix supports simultaneous comparison and needs no playback."
+  }
+]

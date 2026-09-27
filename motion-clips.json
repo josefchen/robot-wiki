@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "description": "Single source of truth for the site's cinematic clips, tier (b) of the motion language. scripts/generate-motion-clips.ts regenerates lib/motion-clips.ts (the registry the <Clip> component reads) and scripts/render-clips.ts reads the beats to build captions and the text alternative. Edit this file, then run npm run generate:motion-clips. The binding design input is docs/design/motion-language.md.",
+  "budgetBytes": 3145728,
+  "clips": [
+    {
+      "id": "kalman-episode",
+      "title": "One Kalman filter, a whole run",
+      "route": "/classical/state-estimation",
+      "teaches": "The same seeded filter as the step-through scene, played over a whole run: the estimate tracks the wandering target through readings and dropouts while its uncertainty band breathes.",
+      "status": "schematic",
+      "statusNote": "Seeded toy filter; schematic, not measured hardware.",
+      "width": 1280,
+      "height": 720,
+      "beats": [
+        {
+          "caption": "A target wanders through one dimension; the dashed line is its true position, step by step.",
+          "durationMs": 3000
+        },
+        {
+          "caption": "A noisy position sensor reports on most steps and stays silent on about one in five.",
+          "durationMs": 3000
+        },
+        {
+          "caption": "One fusion up close: the wide predicted belief meets a reading, and the gain K narrows the posterior between them.",
+          "durationMs": 3000
+        },
+        {
+          "caption": "Run the whole episode: the estimate drifts through each dropout and corrects on each reading, staying close to the truth.",
+          "durationMs": 6500
+        },
+        {
+          "caption": "Predict smears the belief, update sharpens it; that alternation, repeated forever, is the filter.",
+          "durationMs": 2500
+        }
+      ],
+      "textAlternative": "Schematic cinematic clip, 18 seconds: one Kalman filter over a whole run. A target wanders in one dimension; the dashed line is its true position. A noisy position sensor reports on most steps and drops about one in five; its readings are the scattered markers. One fusion up close: the wide predicted belief meets a reading, and the gain K narrows the posterior between them. Run the whole episode: the estimate drifts through each dropout and corrects on each reading, staying close to the truth. Predict smears the belief, update sharpens it; that alternation, repeated forever, is the filter. Seeded toy filter; schematic, not measured hardware."
+    }
+  ]
+}

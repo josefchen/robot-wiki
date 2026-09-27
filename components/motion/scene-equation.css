@@ -1,0 +1,4 @@
+.prose .motion-equation .katex,
+.motion-equation .katex {
+  color: var(--motion-stage-label);
+}

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "949400e9c7303afe87a9db91a6a52c8705abfae69104bb0b3ad3e2be8881d9be",
+  "fingerprint": "5bb14bcc252e57753fef7eb05433999da34ec55075007309d86c41ac1bd279c3",
   "viewport": "375x812",
   "routes": [
     "/",
@@ -1384,7 +1384,7 @@
     },
     {
       "route": "/classical/calibration/",
-      "visibleTextLength": 11847,
+      "visibleTextLength": 11756,
       "header": {
         "present": true,
         "display": "flex",
@@ -1547,7 +1547,7 @@
     },
     {
       "route": "/classical/control/",
-      "visibleTextLength": 25416,
+      "visibleTextLength": 25199,
       "header": {
         "present": true,
         "display": "flex",
@@ -1710,7 +1710,7 @@
     },
     {
       "route": "/classical/grasp-planning/",
-      "visibleTextLength": 17105,
+      "visibleTextLength": 17093,
       "header": {
         "present": true,
         "display": "flex",
@@ -1873,7 +1873,7 @@
     },
     {
       "route": "/classical/kinematics/",
-      "visibleTextLength": 15077,
+      "visibleTextLength": 15304,
       "header": {
         "present": true,
         "display": "flex",
@@ -2036,7 +2036,7 @@
     },
     {
       "route": "/classical/motion-planning/",
-      "visibleTextLength": 27709,
+      "visibleTextLength": 27654,
       "header": {
         "present": true,
         "display": "flex",
@@ -2199,7 +2199,7 @@
     },
     {
       "route": "/classical/perception/",
-      "visibleTextLength": 42492,
+      "visibleTextLength": 42042,
       "header": {
         "present": true,
         "display": "flex",
@@ -2362,7 +2362,7 @@
     },
     {
       "route": "/classical/ros2-for-ml-engineers/",
-      "visibleTextLength": 11765,
+      "visibleTextLength": 11643,
       "header": {
         "present": true,
         "display": "flex",
@@ -2525,7 +2525,7 @@
     },
     {
       "route": "/classical/scene-representation/",
-      "visibleTextLength": 28501,
+      "visibleTextLength": 27898,
       "header": {
         "present": true,
         "display": "flex",
@@ -2688,7 +2688,7 @@
     },
     {
       "route": "/classical/state-estimation/",
-      "visibleTextLength": 19897,
+      "visibleTextLength": 20383,
       "header": {
         "present": true,
         "display": "flex",
@@ -6755,7 +6755,7 @@
     },
     {
       "route": "/manipulation/diffusion-policy/",
-      "visibleTextLength": 14165,
+      "visibleTextLength": 14421,
       "header": {
         "present": true,
         "display": "flex",
@@ -7570,7 +7570,7 @@
     },
     {
       "route": "/manipulation/pi-line/",
-      "visibleTextLength": 25571,
+      "visibleTextLength": 26151,
       "header": {
         "present": true,
         "display": "flex",
@@ -8222,7 +8222,7 @@
     },
     {
       "route": "/manipulation/vla-models/",
-      "visibleTextLength": 19997,
+      "visibleTextLength": 20620,
       "header": {
         "present": true,
         "display": "flex",
@@ -9029,7 +9029,7 @@
     },
     {
       "route": "/rl-sim2real/humanoid-wbc/",
-      "visibleTextLength": 20865,
+      "visibleTextLength": 20815,
       "header": {
         "present": true,
         "display": "flex",
@@ -9192,7 +9192,7 @@
     },
     {
       "route": "/rl-sim2real/legged-locomotion/",
-      "visibleTextLength": 18537,
+      "visibleTextLength": 19073,
       "header": {
         "present": true,
         "display": "flex",
@@ -9355,7 +9355,7 @@
     },
     {
       "route": "/rl-sim2real/offline-rl/",
-      "visibleTextLength": 13605,
+      "visibleTextLength": 13555,
       "header": {
         "present": true,
         "display": "flex",
@@ -9518,7 +9518,7 @@
     },
     {
       "route": "/rl-sim2real/parallel-sim-rl/",
-      "visibleTextLength": 15576,
+      "visibleTextLength": 16325,
       "header": {
         "present": true,
         "display": "flex",
@@ -9681,7 +9681,7 @@
     },
     {
       "route": "/rl-sim2real/reward-design-mpc/",
-      "visibleTextLength": 27643,
+      "visibleTextLength": 27638,
       "header": {
         "present": true,
         "display": "flex",
@@ -9844,7 +9844,7 @@
     },
     {
       "route": "/rl-sim2real/rl-for-robotics/",
-      "visibleTextLength": 30376,
+      "visibleTextLength": 30053,
       "header": {
         "present": true,
         "display": "flex",
@@ -10007,7 +10007,7 @@
     },
     {
       "route": "/rl-sim2real/sim2real-transfer/",
-      "visibleTextLength": 24335,
+      "visibleTextLength": 24116,
       "header": {
         "present": true,
         "display": "flex",
@@ -10170,7 +10170,7 @@
     },
     {
       "route": "/rl-sim2real/why-rl-locomotion/",
-      "visibleTextLength": 12431,
+      "visibleTextLength": 12138,
       "header": {
         "present": true,
         "display": "flex",

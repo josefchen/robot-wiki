@@ -29,7 +29,7 @@ describe('grasp source fidelity', () => {
     for (const text of ['Dex-Net 2.0 training datapoints', 'not robot trials',
       '1,500 3D object models', 'over 6.7 million aligned grasp images',
       'expected epsilon quality above 0.002', 'no modeled collision with the object or table',
-      'rather than regressing the raw epsilon score', 'not be treated as a threshold for the lab above'])
+      'It does not regress the raw epsilon score', 'label threshold does not apply to the lab above'])
       expect(article).toContain(text);
   });
   it('separates prediction, constrained planning and physical execution', () => {

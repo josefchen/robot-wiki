@@ -1,0 +1,147 @@
+import { execFileSync } from 'node:child_process';
+import { readFileSync, readdirSync } from 'node:fs';
+import { join } from 'node:path';
+import { describe, expect, it } from 'vitest';
+import { beatSpans, posterTime } from '@/components/motion/timeline';
+import { BATCH_SCALE_SCENE, batchScaleFrame } from '@/components/motion/scenes/batch-scale';
+import { GAIT_SUPPORT_SAMPLES, GAIT_SUPPORT_SCENE, gaitSupportFrame } from '@/components/motion/scenes/gait-support';
+import { DEFAULT_GAIT, GAITS, GAIT_ORDER, minStanceCount, stanceLegs } from '@/lib/gait';
+import { DEFAULT_ENVS, MAX_ENVS, MIN_ENVS, wallClockSeconds } from '@/lib/parallel-sim';
+import { NO_SLOP_EXCEPTIONS } from '@/data/no-slop-exceptions';
+import { findStructuralTells, structuralTellReport, STRUCTURAL_TELL_LIMIT } from '@/lib/no-slop';
+
+type Decision = 'keep' | 'restyle' | 'rethink' | 'replace' | 'remove' | 'add';
+interface Row {
+  article: string;
+  element: string;
+  occurrence?: number;
+  decision: Decision;
+  sceneId?: string;
+  teachingGoal: string;
+  reason: string;
+}
+
+const root = process.cwd();
+const folder = join(root, 'content/rl-sim2real');
+const articles = readdirSync(folder).filter((file) => file.endsWith('.mdx'));
+const inventory = JSON.parse(
+  readFileSync(join(root, 'docs/design/motion-rl-sim2real-inventory.json'), 'utf8'),
+) as Row[];
+
+describe('RL and sim-to-real motion inventory', () => {
+  it('accounts for every figure, assessment, and repeated mount in the domain', () => {
+    const mounts: string[] = [];
+    const globalTags = new Set(['SelfCheck', 'PredictThenReveal']);
+    for (const file of articles) {
+      const article = file.slice(0, -4);
+      const body = readFileSync(join(folder, file), 'utf8');
+      const imported = [...body.matchAll(
+        /import\s*\{([^}]+)\}\s*from\s*'@\/components\/(?:interactive|motion\/scenes|motion\/clip|mdx)\//g,
+      )].flatMap((match) => match[1].split(',').map((name) => name.trim()).filter(Boolean));
+      const widgets = new Set([...imported, ...globalTags]);
+      for (const tag of imported) expect(body, `${article}:${tag} is imported but not mounted`).toContain(`<${tag}`);
+      for (const match of body.matchAll(/<([A-Z]\w+)\b[^>]*>/g)) {
+        const tag = match[1];
+        if (tag === 'Image' || tag === 'Clip') {
+          const id = match[0].match(/\bid="([^"]+)"/)?.[1];
+          expect(id, `${article}:${tag} needs an id`).toBeTruthy();
+          mounts.push(`${article}:${tag}:${id}`);
+          continue;
+        }
+        if (!widgets.has(tag)) continue;
+        if (inventory.some((row) => row.article === article && row.element === tag && row.decision === 'add')) continue;
+        mounts.push(`${article}:${tag}`);
+      }
+    }
+    expect(inventory.filter((row) => row.decision !== 'add')
+      .map((row) => `${row.article}:${row.element}`).sort()).toEqual(mounts.sort());
+    const keys = inventory.map((row) => `${row.article}:${row.element}:${row.occurrence ?? 1}`);
+    expect(new Set(keys).size).toBe(keys.length);
+    for (const row of inventory) {
+      expect(articles).toContain(`${row.article}.mdx`);
+      expect(row.teachingGoal.length).toBeGreaterThan(25);
+      expect(row.reason.length).toBeGreaterThan(25);
+      if (row.decision === 'add') {
+        expect(['batch-scale', 'gait-support']).toContain(row.sceneId);
+        expect(readFileSync(join(folder, `${row.article}.mdx`), 'utf8')).toContain(`<${row.element}`);
+      }
+    }
+  });
+});
+
+describe('RL and sim-to-real scene models', () => {
+  it('keeps the original fixed-transition time arithmetic and linear model-time reveal', () => {
+    const spans = beatSpans(BATCH_SCALE_SCENE.beats);
+    const first = batchScaleFrame(spans[0].end);
+    const second = batchScaleFrame(spans[1].end);
+    const final = batchScaleFrame(posterTime(spans));
+    expect(first.environments).toBe(MIN_ENVS);
+    expect(second.environments).toBe(DEFAULT_ENVS);
+    expect(final.environments).toBe(MAX_ENVS);
+    expect(first.wallSeconds).toBe(wallClockSeconds(MIN_ENVS, false));
+    expect(second.wallSeconds).toBe(wallClockSeconds(DEFAULT_ENVS, false));
+    expect(final.wallSeconds).toBe(wallClockSeconds(MAX_ENVS, false));
+    expect(spans[1].linear).toBe(true);
+    expect(batchScaleFrame(posterTime(spans))).toEqual(final);
+  });
+
+  it('uses the authored gait definitions without presenting a measured footfall trace', () => {
+    const spans = beatSpans(GAIT_SUPPORT_SCENE.beats);
+    expect(GAIT_SUPPORT_SCENE.beats).toHaveLength(GAIT_ORDER.length);
+    expect(gaitSupportFrame(spans[0].end).visibleGaits).toEqual([DEFAULT_GAIT]);
+    expect(gaitSupportFrame(posterTime(spans)).visibleGaits).toEqual(GAIT_ORDER);
+    for (const id of GAIT_ORDER) {
+      expect(gaitSupportFrame(posterTime(spans)).minimumSupport[id])
+        .toBe(minStanceCount(GAITS[id]));
+      expect(gaitSupportFrame(posterTime(spans)).stanceAtQuarter[id])
+        .toEqual(stanceLegs(GAITS[id], 0.25));
+    }
+    const pair = (id: 'trot' | 'bound') =>
+      GAIT_SUPPORT_SAMPLES.map((phase) => stanceLegs(GAITS[id], phase));
+    expect(pair('trot')).toEqual([
+      ['lf', 'rh'], ['lf', 'rh'], ['rf', 'lh'], ['rf', 'lh'],
+    ]);
+    expect(pair('bound')).toEqual([
+      ['lf', 'rf'], [], ['lh', 'rh'], [],
+    ]);
+  });
+
+  it('gives every beat a standalone sentence and a still final overview', () => {
+    for (const scene of [BATCH_SCALE_SCENE, GAIT_SUPPORT_SCENE]) {
+      expect(scene.beats).toHaveLength(4);
+      for (const beat of scene.beats) expect(beat.caption).toMatch(/[.!?]$/);
+    }
+  });
+});
+
+describe('RL and sim-to-real prose truth', () => {
+  it('preserves the original numeric tokens and citation mounts per article', () => {
+    for (const file of articles) {
+      const current = readFileSync(join(folder, file), 'utf8');
+      const before = execFileSync('git', ['show', `8368034:content/rl-sim2real/${file}`], {
+        cwd: root, encoding: 'utf8',
+      });
+      // Paper-internal locators are moved out of reader prose by the
+      // humanizer pass. Compare the exact remaining quantity strings as a
+      // multiset: moving a sentence does not change a sourced measurement.
+      const numbers = (text: string) => text
+        .replace(/\b(?:Tables?|Tab\.|Figures?|Fig\.|Equation|Eq\.|Algorithm|Sections?)\s*\(?\s*(?:\d+(?:\.\d+)*[a-z]?|[IVXL]+)\b|\bAppendix\s+[A-Z]\d*(?:\.\d+)?\b|\bv\d+\b/g, '')
+        .match(/(?<![\w-])\d(?:[\d,]*\d)?(?:\.\d+)?(?:%|x|Hz|ms|s|m|M|k)?/g)
+        ?.sort() ?? [];
+      const citations = (text: string) => [...text.matchAll(/<Cite id="([^"]+)"/g)].map((match) => match[1]);
+      expect(numbers(current), `${file} numeric tokens`).toEqual(numbers(before));
+      expect(citations(current), `${file} citations`).toEqual(citations(before));
+    }
+  });
+
+  it('measures all eight articles at no more than two structural tells per thousand words', () => {
+    expect(articles).toHaveLength(8);
+    for (const file of articles) {
+      const body = readFileSync(join(folder, file), 'utf8');
+      const report = structuralTellReport(body, NO_SLOP_EXCEPTIONS);
+      expect(report.measured, file).toBe(true);
+      expect(report.tells, file).toBe(findStructuralTells(body, NO_SLOP_EXCEPTIONS).length);
+      expect(report.density, file).toBeLessThanOrEqual(STRUCTURAL_TELL_LIMIT);
+    }
+  });
+});

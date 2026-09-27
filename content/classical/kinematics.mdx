@@ -22,13 +22,15 @@ seeAlso:
 
 import { PlanarFkArm } from '@/components/interactive/planar-fk-arm';
 import { DhParameterTable } from '@/components/mdx/dh-parameter-table';
+import { FkChain } from '@/components/motion/scenes/fk-chain';
 
-Kinematics describes robot motion without asking what causes it. No forces and no torques: just the geometry of the links, the angles of the joints, and where the end of the arm lands. Every other layer of the stack assumes it. A simulator integrates dynamics on top of a kinematic chain. A <Term id="teleoperation">teleoperation</Term> rig maps the operator's hand into joint space through one. Every learned manipulation policy, whatever its size, eventually emits numbers that must make sense in some robot's kinematic coordinates.
+Kinematics describes the geometry of a robot's motion without modelling its forces or torques. Joint angles and link lengths determine where the end of an arm lands. Simulators integrate dynamics on top of a kinematic chain, <Term id="teleoperation">teleoperation</Term> rigs map an operator's hand through one, and learned manipulation policies eventually emit commands in the robot's coordinates.
 
 Two directions dominate. <Term id="forward-kinematics">Forward kinematics</Term> takes joint angles and computes the <Term id="end-effector">end-effector</Term> pose. <Term id="inverse-kinematics">Inverse kinematics</Term> asks the reverse question: which joint angles place the end effector here? The first direction is a plain composition of transforms, cheap and unique. The second is a nonlinear inverse problem that can have no solution, one solution, or many. Most of the classical machinery, and most of this module, concerns that asymmetry.
 
-The asymmetry is easiest to feel with an arm in front of you. Move the base joint slider below and every downstream link moves with it, because one joint angle enters every downstream position. Then try to put the fingertip at a chosen point using the sliders alone: that difficulty is the inverse problem, and most of this module is about it.
+The chain below reveals the ordered transformations. In the arm lab, move the base joint slider and watch every downstream link move with it. Then try to put the fingertip at a chosen point using the sliders alone. That is the inverse problem.
 
+<FkChain className="my-6" />
 <PlanarFkArm className="my-6" />
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
@@ -141,7 +143,7 @@ $$
 
 It is fair to ask how much of this matters once policies learn end to end. The learned part still lives inside the kinematic structure, in practice. [Action chunking](/manipulation/action-chunking) with ACT predicts continuous joint-space targets, fourteen dimensions across two 6-DoF arms and their grippers <Cite id="act-aloha-2023" />. GR00T's recent releases shifted to a shared relative end-effector action space so that human hand data and robot grippers live in one frame, a coordinate choice with direct consequences for what pretraining data is usable <Cite id="isaac-gr00t-repo-2026" />. Simulators integrate a kinematic chain under their dynamics either way, teleoperation rigs still retarget human motion into joint space, and a residual policy trained on top of a classical controller inherits its coordinate system. The policies changed who picks the numbers. They did not change what the numbers mean.
 
-The forward direction is a product of transforms; the inverse direction searches for joint angles that reach a target. Planning, control, and learning in the rest of this domain all run on top of those two operations.
+Forward kinematics multiplies transforms in order. Inverse kinematics searches for joint angles that reach a target. Planning, control, and learning use both operations.
 
 ## Treat coordinate frames as an API
 

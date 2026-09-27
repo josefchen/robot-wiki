@@ -12,7 +12,7 @@ const plan = (ordinal: number) => {
 
 describe('motion originals 3, 6 and 8', () => {
   it('replaces dimensional impossibility with scoped complexity and constructive limits', () => {
-    expect(article).toContain('not a universal cutoff at a few dimensions');
+    expect(article).toContain('does not establish impossibility for every seven-joint arm');
     expect(article).toContain('semi-algebraic models for chains and trees can be generated automatically');
     expect(article).toContain('PSPACE-hardness');
     expect(article).toContain('Closed-chain constraints can also make efficient sampling difficult');
@@ -21,7 +21,7 @@ describe('motion originals 3, 6 and 8', () => {
   it('distinguishes Voronoi selection, dense sampling and query success from speed', () => {
     expect(article).toContain("In the report's planar holonomic example");
     expect(article).toContain("book's step-size-free dense-tree construction assumes an infinite dense sample sequence");
-    expect(article).toContain('not a guarantee of fast coverage on every problem');
+    expect(article).toContain('The report leaves convergence-rate analysis open');
     expect(article).toContain('distinguishes exploring free space from solving a start-goal query');
     expect(article).not.toContain('canopy spreads through free space fast');
   });

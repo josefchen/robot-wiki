@@ -74,8 +74,12 @@ describe('VLA21 and comparison1 current identity and scoped introduction', () =>
     expect(vlaPass).toBeDefined();
     expect(vlaCue).toBeDefined();
     expect(vlaCue.oldHash).toBe(vlaPass.newHash);
+    const vlaSceneMount = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries
+      .find((a: { id: string }) => a.id === 'motion-manipulation-20260927-prose-vla-models-mount');
+    expect(vlaSceneMount).toBeDefined();
+    expect(vlaSceneMount.oldHash).toBe(vlaCue.newHash);
     expect(truthManifests['prose'].members.find(m => m.id === 'article:manipulation/vla-models')?.hash)
-      .toBe(vlaCue.newHash);
+      .toBe(vlaSceneMount.newHash);
     // The original VLA packet did not alter the registry. NASA was added by
     // the later industrial packet, whose complete record has its own test.
     expect(committedSource('89cda67', 'data/citations.ts')).toBe(before('data/citations.ts'));

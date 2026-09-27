@@ -202,6 +202,7 @@ describe('industrial release preserves both evidence histories', () => {
           for (const path of [currentReviewPath, binding.current.path, binding.snapshot.path]) put(path, readFileSync(path));
           for (const path of [
             'audit/local-basis.json',
+            'audit/evidence/motion-rl-sim2real-20260927',
             'audit/evidence/citation-closeout-20260924/relevant-continuity.json',
             'audit/evidence/technology-withdrawal-20260924',
             'content/data-hardware/industrial-deployment.mdx',

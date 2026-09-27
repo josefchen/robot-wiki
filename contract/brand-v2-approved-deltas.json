@@ -32396,6 +32396,1787 @@
         "VAL-EDU-045"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-1",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/kalman-tracker.tsx",
+      "oldHash": "9abe9a26471244702762f15e2b808f56255f7b034cb090a8105d7ec420e9c38e",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Kalman tracker interactive source removed: the owner motion-language spec replaces its look with the components/motion/scenes reference scene. The model is unchanged and still lives in lib/kalman.ts (or lib/denoising.ts) with byte-identical seeded numbers; the scene renders exactly those values and its readout repeats them.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-2",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/denoising-loop.tsx",
+      "oldHash": "e939087e8cc06a556e527011854873961959a2165ac99571197eb9acbdb7e963",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Denoising loop interactive source removed: the owner motion-language spec replaces its look with the components/motion/scenes reference scene. The model is unchanged and still lives in lib/kalman.ts (or lib/denoising.ts) with byte-identical seeded numbers; the scene renders exactly those values and its readout repeats them.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-013"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-3",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "mount:content/classical/state-estimation.mdx:KalmanTracker:1",
+      "oldHash": "abc1179bcc34b4f3e71befa333c92470e323aaf42bbf2caa431eeddb31837172",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Mount removed with the interactive it mounted: the article now mounts the motion-language reference scene for the same teaching point, imported from components/motion/scenes (outside the interactive registry by design, code-split behind its own poster).",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-012",
+        "VAL-MOTION-013"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-4",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "mount:content/manipulation/diffusion-policy.mdx:DenoisingLoop:1",
+      "oldHash": "f18c9f4c433e2e1a4fc8125024cab69733dcec2ad04fa9cd904ce17e24bf89df",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Mount removed with the interactive it mounted: the article now mounts the motion-language reference scene for the same teaching point, imported from components/motion/scenes (outside the interactive registry by design, code-split behind its own poster).",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-012",
+        "VAL-MOTION-013"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-5",
+      "manifest": "prose",
+      "memberId": "article:classical/state-estimation",
+      "oldHash": "0a3d05d164d257621456fbbde3b93245d08c6fc8bb08d79b6c2b6487cf6db6d7",
+      "newHash": "6b88e829ef52136001b56e9419d229daa6f5fc67960b24358d6fbe4b93bc1bdb",
+      "reason": "Article body changed only around the replaced interactive: the two paragraphs that described the tracker/denoiser slider controls now describe the mounted motion scene (its beats, its keyboard stepping, and the same filter/sampler numbers restated from the unchanged model). Every citation, claim, equation and date in the rest of the body is byte-identical.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-012",
+        "VAL-MOTION-012",
+        "VAL-MOTION-013"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-6",
+      "manifest": "prose",
+      "memberId": "article:manipulation/diffusion-policy",
+      "oldHash": "e306e7bc393b1f46637b4eae6bd7e83b3f9eeff0174e4bbf658b83560a9ecba2",
+      "newHash": "2ed97162a04e8b619a5360fcd51957fd61d07dedc306df39bc12d4107aa4db62",
+      "reason": "Article body changed only around the replaced interactive: the two paragraphs that described the tracker/denoiser slider controls now describe the mounted motion scene (its beats, its keyboard stepping, and the same filter/sampler numbers restated from the unchanged model). Every citation, claim, equation and date in the rest of the body is byte-identical.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-012",
+        "VAL-MOTION-012",
+        "VAL-MOTION-013"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-7",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:classical/state-estimation",
+      "oldHash": "97c78bd1edad18b047a17f25c141766e31deb93b908948743322984dbff4b952",
+      "newHash": "e672f6622bbdddaad206fb8f6174c0b87c24508773356428ddef5efcb78f389b",
+      "reason": "Frontmatter description updated to name the step-through motion scene instead of the removed adjustable-noise lab; title, registry summary and all factual metadata are unchanged.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-012",
+        "VAL-MOTION-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-8",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/denoising-loop.tsx:aria-label:1",
+      "oldHash": "59ea71d7216b98e231870581e7b4e07756eb94bd21f6b0f74c4ef68d46464ffd",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Accessible-name expressions and literals removed with the deleted tracker/denoiser sources; the replacement scene ships its own names, sealed in the companion entries below.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-9",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/denoising-loop.tsx:aria-label:2",
+      "oldHash": "b5184c545082f57fe746eaeee2e4b0932ede549f951202b379c32089f863df7d",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Accessible-name expressions and literals removed with the deleted tracker/denoiser sources; the replacement scene ships its own names, sealed in the companion entries below.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-10",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/kalman-tracker.tsx:aria-label:1",
+      "oldHash": "60e792adb1f37d670cb225094ef26f3edf154e394366fdc9f081a72d537a5519",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Accessible-name expressions and literals removed with the deleted tracker/denoiser sources; the replacement scene ships its own names, sealed in the companion entries below.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-11",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/kalman-tracker.tsx:aria-label:2",
+      "oldHash": "fb3891647cbed3dce0a972822bfbdcd65ec2f6cd0207563b7035e9e130c207cd",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Accessible-name expressions and literals removed with the deleted tracker/denoiser sources; the replacement scene ships its own names, sealed in the companion entries below.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-12",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/kalman-tracker.tsx:aria-label:3",
+      "oldHash": "45b7ff8578fdc102c022cdffed74ed76e415b5ac1f61f617d893292491c1367a",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Accessible-name expressions and literals removed with the deleted tracker/denoiser sources; the replacement scene ships its own names, sealed in the companion entries below.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-13",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/kalman-tracker.tsx:aria-label:1",
+      "oldHash": "14ac8b449b0d55d7faf28a5a340288a8db212a66fb110471e757950afc0a7289",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Accessible-name expressions and literals removed with the deleted tracker/denoiser sources; the replacement scene ships its own names, sealed in the companion entries below.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-14",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/kalman-tracker.tsx:aria-label:2",
+      "oldHash": "16a082f8729dceb25c3d93d4acd25a5745108f375e0fda356fe885f597ac88df",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Accessible-name expressions and literals removed with the deleted tracker/denoiser sources; the replacement scene ships its own names, sealed in the companion entries below.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-15",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/kalman-tracker.tsx:aria-label:3",
+      "oldHash": "59645f14d9c6044126cbaeec8cb393f1f375e626f0bc57835e18692b3ae72b98",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Accessible-name expressions and literals removed with the deleted tracker/denoiser sources; the replacement scene ships its own names, sealed in the companion entries below.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-16",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/motion/scene-mount.tsx:aria-label:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "39858a9f45a5773940d74c19bcad2c7c7f59b5d4d41c8f8e05b414811d274326",
+      "reason": "New accessible names of the motion scene player and poster: the click-to-play poster label, the scene group label, the play/pause expression, and the step/reset/scraper control names that the motion-language player contract requires.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-17",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/motion/scene-player.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "1f70ad639a9c4723a68ebfad5e39155570fcbd468d8139c78fc0c8fc3415169a",
+      "reason": "New accessible names of the motion scene player and poster: the click-to-play poster label, the scene group label, the play/pause expression, and the step/reset/scraper control names that the motion-language player contract requires.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-18",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/motion/scene-player.tsx:aria-label:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "05fb91751e2fcafdf40de6c93297ff4f79c9c2060422bc39fca2863aba791c5d",
+      "reason": "New accessible names of the motion scene player and poster: the click-to-play poster label, the scene group label, the play/pause expression, and the step/reset/scraper control names that the motion-language player contract requires.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-19",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/motion/scene-player.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "d729e9af7e0bf181b8821126c38258b7386bd62ef5c15665460adc392327f091",
+      "reason": "New accessible names of the motion scene player and poster: the click-to-play poster label, the scene group label, the play/pause expression, and the step/reset/scraper control names that the motion-language player contract requires.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-20",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/motion/scene-player.tsx:aria-label:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "3e3db4c8be2dac98ee002860afd2d8a2ffaab25bad980003960a8d07cb2a1557",
+      "reason": "New accessible names of the motion scene player and poster: the click-to-play poster label, the scene group label, the play/pause expression, and the step/reset/scraper control names that the motion-language player contract requires.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-21",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/motion/scene-player.tsx:aria-label:3",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "f8115f5056fd92ac30679fefe02dd9cbb9be7607043b4706aeb6f691bee23058",
+      "reason": "New accessible names of the motion scene player and poster: the click-to-play poster label, the scene group label, the play/pause expression, and the step/reset/scraper control names that the motion-language player contract requires.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-22",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/motion/scene-player.tsx:aria-label:4",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "9884ce0c38fc45bc8206fcb3943a9aa2b2acf37532adebe23178605d7dcea3fa",
+      "reason": "New accessible names of the motion scene player and poster: the click-to-play poster label, the scene group label, the play/pause expression, and the step/reset/scraper control names that the motion-language player contract requires.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-23",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/denoising-loop.tsx:1",
+      "oldHash": "a242fbce8910f0ded6211ff47ae5dda39759094aff66c5837281e1d0f55e07fb",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Behavioral default (initial state expression) removed with the deleted interactive; the replacement scene opens on its deterministic poster still, which carries no default of its own.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-008"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-24",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/denoising-loop.tsx:2",
+      "oldHash": "26f78555d820208889fbe4abb46efb9b8a5558833b3502915d15a66ce9b3f609",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Behavioral default (initial state expression) removed with the deleted interactive; the replacement scene opens on its deterministic poster still, which carries no default of its own.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-008"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-25",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/denoising-loop.tsx:3",
+      "oldHash": "1f07fc60e3e4bed8bc0d32d752e8b6ed037335c0333a5fd68843352cea6717fb",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Behavioral default (initial state expression) removed with the deleted interactive; the replacement scene opens on its deterministic poster still, which carries no default of its own.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-008"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-26",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/denoising-loop.tsx:4",
+      "oldHash": "3cbe527c44c76bb27ac8caef96226874a66d06d6cc06fd82808b309e3767cdff",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Behavioral default (initial state expression) removed with the deleted interactive; the replacement scene opens on its deterministic poster still, which carries no default of its own.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-008"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-27",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/kalman-tracker.tsx:1",
+      "oldHash": "046f65e1850690db9be651e925d909dcb8fa21fd491f32432cddb1e32e0d4c55",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Behavioral default (initial state expression) removed with the deleted interactive; the replacement scene opens on its deterministic poster still, which carries no default of its own.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-008"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-28",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/kalman-tracker.tsx:10",
+      "oldHash": "b46fe4dee2576648c12f51c7b6ce95153455a23fc0180b75ef3407d85fb089fe",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Behavioral default (initial state expression) removed with the deleted interactive; the replacement scene opens on its deterministic poster still, which carries no default of its own.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-008"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-29",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/kalman-tracker.tsx:11",
+      "oldHash": "4737bd0f72ee3668b2a0489db95691888ab5f444fda130a16861f1aa068c8c1b",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Behavioral default (initial state expression) removed with the deleted interactive; the replacement scene opens on its deterministic poster still, which carries no default of its own.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-008"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-30",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/kalman-tracker.tsx:12",
+      "oldHash": "64b8d7c67938cc00cc4516fa5374a9828d741ff439c59ad4f3a6652400814598",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Behavioral default (initial state expression) removed with the deleted interactive; the replacement scene opens on its deterministic poster still, which carries no default of its own.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-008"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-31",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/kalman-tracker.tsx:13",
+      "oldHash": "ab9c957359b31d632f28dd398c1105fb42beedd82973fb35af47ff90abc8675c",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Behavioral default (initial state expression) removed with the deleted interactive; the replacement scene opens on its deterministic poster still, which carries no default of its own.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-008"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-32",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/kalman-tracker.tsx:14",
+      "oldHash": "df13c4db484931b0fe2a2e00d7ad04a296a2d2afc1b09bf4853fe07070ba3cec",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Behavioral default (initial state expression) removed with the deleted interactive; the replacement scene opens on its deterministic poster still, which carries no default of its own.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-008"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-33",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/kalman-tracker.tsx:2",
+      "oldHash": "9999d91540529a4c9f702dbffbfabbbfa49ff3fd1f87777218607939e31f6234",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Behavioral default (initial state expression) removed with the deleted interactive; the replacement scene opens on its deterministic poster still, which carries no default of its own.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-008"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-34",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/kalman-tracker.tsx:3",
+      "oldHash": "8704cfc570fb62991f90a49068cf52b0f5cd687e77c0a4148e20c32488954da2",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Behavioral default (initial state expression) removed with the deleted interactive; the replacement scene opens on its deterministic poster still, which carries no default of its own.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-008"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-35",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/kalman-tracker.tsx:4",
+      "oldHash": "4d946797b64e62329e50886200aa5bd000fe9e26836e8a44fd55a1896e2593c6",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Behavioral default (initial state expression) removed with the deleted interactive; the replacement scene opens on its deterministic poster still, which carries no default of its own.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-008"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-36",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/kalman-tracker.tsx:5",
+      "oldHash": "b46fe4dee2576648c12f51c7b6ce95153455a23fc0180b75ef3407d85fb089fe",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Behavioral default (initial state expression) removed with the deleted interactive; the replacement scene opens on its deterministic poster still, which carries no default of its own.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-008"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-37",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/kalman-tracker.tsx:6",
+      "oldHash": "4737bd0f72ee3668b2a0489db95691888ab5f444fda130a16861f1aa068c8c1b",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Behavioral default (initial state expression) removed with the deleted interactive; the replacement scene opens on its deterministic poster still, which carries no default of its own.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-008"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-38",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/kalman-tracker.tsx:7",
+      "oldHash": "4737bd0f72ee3668b2a0489db95691888ab5f444fda130a16861f1aa068c8c1b",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Behavioral default (initial state expression) removed with the deleted interactive; the replacement scene opens on its deterministic poster still, which carries no default of its own.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-008"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-39",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/kalman-tracker.tsx:8",
+      "oldHash": "4737bd0f72ee3668b2a0489db95691888ab5f444fda130a16861f1aa068c8c1b",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Behavioral default (initial state expression) removed with the deleted interactive; the replacement scene opens on its deterministic poster still, which carries no default of its own.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-008"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-40",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/kalman-tracker.tsx:9",
+      "oldHash": "4d946797b64e62329e50886200aa5bd000fe9e26836e8a44fd55a1896e2593c6",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Behavioral default (initial state expression) removed with the deleted interactive; the replacement scene opens on its deterministic poster still, which carries no default of its own.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-008"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-41",
+      "manifest": "value-states",
+      "memberId": "state-site:components/interactive/kalman-tracker.tsx:not-applicable:1",
+      "oldHash": "b879afa27cca54232a17799fc5850d06df2c5748b9b10960d9ec5d07bb0cece7",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "The n/a render site removed with the tracker (its dropout-step reading cell); the motion scene renders the measured step only, so no n/a state remains on this route.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-013",
+        "VAL-MOTION-016"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-42",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/motion/scene-mount.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "1f70ad639a9c4723a68ebfad5e39155570fcbd468d8139c78fc0c8fc3415169a",
+      "reason": "New accessible names of the motion scene poster: the scene group label expression, and the poster transport's step and reset control names, all required by the motion-language player contract.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-43",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/motion/scene-mount.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "d729e9af7e0bf181b8821126c38258b7386bd62ef5c15665460adc392327f091",
+      "reason": "New accessible names of the motion scene poster: the scene group label expression, and the poster transport's step and reset control names, all required by the motion-language player contract.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-44",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/motion/scene-mount.tsx:aria-label:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "3e3db4c8be2dac98ee002860afd2d8a2ffaab25bad980003960a8d07cb2a1557",
+      "reason": "New accessible names of the motion scene poster: the scene group label expression, and the poster transport's step and reset control names, all required by the motion-language player contract.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-scene-swap-45",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/motion/scene-mount.tsx:aria-label:3",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "f8115f5056fd92ac30679fefe02dd9cbb9be7607043b4706aeb6f691bee23058",
+      "reason": "New accessible names of the motion scene poster: the scene group label expression, and the poster transport's step and reset control names, all required by the motion-language player contract.",
+      "ownerApproval": "library/motion-language-spec-20260926.md (owner motion-language spec, 2026-09-26) section 9 replaces the kalman-tracker and denoising-loop looks with motion-language scenes that keep each model and its numbers; sections 5-7 define the replacement player, caption and craft contract on the bounded dark instrument stage.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-clip-pilot-state-estimation-prose",
+      "manifest": "prose",
+      "memberId": "article:classical/state-estimation",
+      "oldHash": "0a3d05d164d257621456fbbde3b93245d08c6fc8bb08d79b6c2b6487cf6db6d7",
+      "newHash": "8f6e9510b73b6652bb0460ddbbdf8fa35dd5d458f438dab8d9d600fbcc6dec8f",
+      "reason": "Fact-preserving motion-language mount. `classical/state-estimation` gained two sentences and one mount after the step-through fusion demo: the sentences bridge from the stepped scene to a cinematic clip of the same seeded filter (the clip plays step 0 to step 240 and the uncertainty band widens across dropouts and tightens on readings), and the mount is the `Clip` instrument. The clip replays the identical `lib/kalman.ts` model, seed and numbers the article and the live scene already show; no claim, citation, number, heading, link or reference changed. Added by the motion-language clip pipeline (motion-clips.json `kalman-episode`).",
+      "ownerApproval": "library/motion-language-spec-20260926.md tier (b) authorizes cinematic clips of whole runs where a clip teaches better than a live scene, at most about two per domain; contract/motion-language.md VAL-MOTION-017 and VAL-MOTION-018 pin the artifact and mounting requirements this mount satisfies. The prose states only what the shipped clip shows.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012",
+        "VAL-MOTION-017",
+        "VAL-MOTION-018"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-clip-frame-region-name",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/motion/clip.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "2907dfa0ed63c2fb9c013f7f95cd37319c4134ecda5cc41b9da8147edba4c2ae",
+      "reason": "Fact-preserving accessible-name addition in a new component. `components/motion/clip.tsx` labels its instrument frame region `Cinematic clip: ` followed by the clip title from motion-clips.json (currently `One Kalman filter, a whole run`), so the mounted video instrument is announced as the region it is. The title restates what the frame holds; nothing else on any page changed. Added by the motion-language clip pipeline.",
+      "ownerApproval": "contract/motion-language.md VAL-MOTION-018 requires a mounted clip to be a labelled region carrying the status vocabulary and a screen-reader transcript; contract/design-integrity.md requires every named surface to announce itself rather than render anonymously.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-018"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-language-clip-video-player-name",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/motion/clip.tsx:aria-label:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "cc6d3237bd4bdab63fd61ac0e5fa0683ae82aeb51efef48d04c2afe01042bca9",
+      "reason": "Fact-preserving accessible-name addition in a new component. The native `<video controls>` the clip mounts is a focusable scroll stop, so it carries the clip title followed by its status vocabulary term (currently `One Kalman filter, a whole run (schematic)`), giving screen readers a named boundary where the media region starts instead of an anonymous focus stop. The name restates facts the frame already prints; nothing else changed. Added by the motion-language clip pipeline.",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-ART-008 analogue: a focusable scrolling region must be keyboard reachable and carry an accessible name; contract/motion-language.md VAL-MOTION-018 pins the clip player's labelling and status-vocabulary duties.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-018"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-scene-typeset-equation-name",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/motion/scene-equation.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "7f273f2d73314454dd5b2a5d4601fa0740fb786e821bcc6656ee6113a415e8aa",
+      "reason": "The new scene equation primitive forwards the registered TeX source as the accessible name of its typeset SVG foreignObject. The rendered mathematical relation already appeared in the reference scene; the name makes that same relation available without introducing a new claim or changing its symbols.",
+      "ownerApproval": "The owner review of the motion foundation requires the Kalman and diffusion equations to be typeset; contract/design-integrity.md VAL-B2-ART-007 requires an accessible equation text or equivalent explanation. This records only the new name on that approved primitive.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-007",
+        "VAL-MOTION-033"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-classical-humanizer-v3-20260927-prose-calibration",
+      "manifest": "prose",
+      "memberId": "article:classical/calibration",
+      "oldHash": "77183aee81bb1fa15bb07d5db869842554c1a47782321784b247a6ac560fe7b4",
+      "newHash": "0f3ef3f7a06c48fddbbf317fae69fe6665589ed302b33ffa25c97c35cc47b383",
+      "reason": "Humanizer v3 pass over classical/calibration.mdx. Rephrases negative boilerplate and paper-internal locators without changing the audited claims, reported figures or citation mounts. The article meets the structural-tell floor.",
+      "ownerApproval": "Owner decision owner-decision-humanizer-pass-20260925 permits plain fact-preserving prose, removal of paper-internal locators from reader prose, and a maximum of two structural tells per 1,000 words per article. Owner decision owner-decision-motion-language-20260926 authorizes a scene-kit rethink of article figures with a keep/rethink inventory and preserved source truth. This is a prose/mount approval only, not release approval.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-MOTION-021"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-classical-humanizer-v3-20260927-prose-control",
+      "manifest": "prose",
+      "memberId": "article:classical/control",
+      "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+      "newHash": "7ae2310f358c571397744a43cde65fe2ea18e6b924053b66b33deb0136f747e8",
+      "reason": "Resolution entry for the classical control article approval graph after the humanizer v3 pass. Every prior prose edge for this member is reconciled exactly, preserving its endpoint hashes and approval records as history. This single endpoint changes only fact-preserving reader prose; the two independent pendulum labs, their cited limitations and audit dispositions remain intact.",
+      "ownerApproval": "Owner decision owner-decision-humanizer-pass-20260925 permits plain fact-preserving prose, removal of paper-internal locators from reader prose, and a maximum of two structural tells per 1,000 words per article. Owner decision owner-decision-motion-language-20260926 authorizes a scene-kit rethink of article figures with a keep/rethink inventory and preserved source truth. This is a prose/mount approval only, not release approval.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-MOTION-021"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "control-r5-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r6-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r7-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r8-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r9-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r12-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r14-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r15-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r17-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r18-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r19-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r1-20260916-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r2-20260916-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r3-20260916-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r11-20260916-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r13-20260916-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r16-20260916-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "seo-20260824-prose-cb9819bd8941",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "cb9819bd89410c690abfd9d28151e3a776c02f2682be21a19bc26c6adbab3781"
+        },
+        {
+          "id": "paywall0917a-control-prose",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "01b71ccc454f6d269a643986f989cbd0106f43ccda566f29ad0603ca16bae820"
+        },
+        {
+          "id": "continuation-merge-20260922-prose-classical-control",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "5cd1041d01e82fc7fdb80072da6bb9b4b518a354f34c452088e0b25a846ff7da"
+        },
+        {
+          "id": "control-citation-20260924-prose",
+          "oldHash": "01b71ccc454f6d269a643986f989cbd0106f43ccda566f29ad0603ca16bae820",
+          "newHash": "2f6d4267bd07f34ca2c5acc683f5c4a3b29ae09d79e944b12e41983df5cccda0"
+        },
+        {
+          "id": "main-merge-20260924-control-prose",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "3c11df73fbabb49f9a6d8fe7626f9392f09b4558e107c9a2d51a4e683644d28c"
+        }
+      ]
+    },
+    {
+      "id": "motion-classical-humanizer-v3-20260927-prose-grasp-planning",
+      "manifest": "prose",
+      "memberId": "article:classical/grasp-planning",
+      "oldHash": "094ae01324cb912ca4af66054b0e975411dd8156836b0d6fe818a7f9921a6858",
+      "newHash": "8fb57c891c3e697de91058cdaa57202c8add7cacda1532793450c5d351979358",
+      "reason": "Humanizer v3 pass over classical/grasp-planning.mdx. Rephrases negative boilerplate and paper-internal locators without changing the audited claims, reported figures or citation mounts. The article meets the structural-tell floor.",
+      "ownerApproval": "Owner decision owner-decision-humanizer-pass-20260925 permits plain fact-preserving prose, removal of paper-internal locators from reader prose, and a maximum of two structural tells per 1,000 words per article. Owner decision owner-decision-motion-language-20260926 authorizes a scene-kit rethink of article figures with a keep/rethink inventory and preserved source truth. This is a prose/mount approval only, not release approval.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-MOTION-021"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-classical-humanizer-v3-20260927-prose-kinematics",
+      "manifest": "prose",
+      "memberId": "article:classical/kinematics",
+      "oldHash": "90574079bd963c088343d4728bbea0044ce437db5226f9b352204ac027089fda",
+      "newHash": "6384fcd878d487039ac2492bd1090c3e49de43140822fb0f5e8c6ea13b6295ad",
+      "reason": "Humanizer v3 pass over classical/kinematics.mdx. Rephrases negative boilerplate and paper-internal locators without changing the audited claims, reported figures or citation mounts. Adds the paused FkChain scene before the independently controlled lab, retaining the exact lab and its sourced data. The article meets the structural-tell floor.",
+      "ownerApproval": "Owner decision owner-decision-humanizer-pass-20260925 permits plain fact-preserving prose, removal of paper-internal locators from reader prose, and a maximum of two structural tells per 1,000 words per article. Owner decision owner-decision-motion-language-20260926 authorizes a scene-kit rethink of article figures with a keep/rethink inventory and preserved source truth. This is a prose/mount approval only, not release approval.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-MOTION-021"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-classical-humanizer-v3-20260927-prose-motion-planning",
+      "manifest": "prose",
+      "memberId": "article:classical/motion-planning",
+      "oldHash": "74f2f05613777dc5794719ccb8f5243d292a3197684bf17282256033f6306bc0",
+      "newHash": "040f1702175cf8527aaa76ec43be0590301c96ae19242814331f7f06053195c4",
+      "reason": "Humanizer v3 pass over classical/motion-planning.mdx. Rephrases negative boilerplate and paper-internal locators without changing the audited claims, reported figures or citation mounts. Adds the paused RrtGrowth scene before the independently controlled lab, retaining the exact lab and its sourced data. The article meets the structural-tell floor.",
+      "ownerApproval": "Owner decision owner-decision-humanizer-pass-20260925 permits plain fact-preserving prose, removal of paper-internal locators from reader prose, and a maximum of two structural tells per 1,000 words per article. Owner decision owner-decision-motion-language-20260926 authorizes a scene-kit rethink of article figures with a keep/rethink inventory and preserved source truth. This is a prose/mount approval only, not release approval.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-MOTION-021"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-classical-humanizer-v3-20260927-prose-perception",
+      "manifest": "prose",
+      "memberId": "article:classical/perception",
+      "oldHash": "dbe83bfa480fc7417d48b26d870aefbbcfb58d1b21736ff09cd5603a405801ce",
+      "newHash": "705982adff6141e5b24f3472f6c6fa9a0a4a7ab508637b7d8587bd5a267c4685",
+      "reason": "Humanizer v3 pass over classical/perception.mdx. Rephrases negative boilerplate and paper-internal locators without changing the audited claims, reported figures or citation mounts. The article meets the structural-tell floor.",
+      "ownerApproval": "Owner decision owner-decision-humanizer-pass-20260925 permits plain fact-preserving prose, removal of paper-internal locators from reader prose, and a maximum of two structural tells per 1,000 words per article. Owner decision owner-decision-motion-language-20260926 authorizes a scene-kit rethink of article figures with a keep/rethink inventory and preserved source truth. This is a prose/mount approval only, not release approval.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-MOTION-021"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-classical-humanizer-v3-20260927-prose-ros2-for-ml-engineers",
+      "manifest": "prose",
+      "memberId": "article:classical/ros2-for-ml-engineers",
+      "oldHash": "18bcf32e88431b498a7e7e219dff30b360d798b17cafdd827177a2ccdbad0a8c",
+      "newHash": "d68d9ca5c0cb992207f7e9e9b67bda3623a87d6b5ac6c896b1bbf5ab5470484d",
+      "reason": "Humanizer v3 pass over classical/ros2-for-ml-engineers.mdx. Rephrases negative boilerplate and paper-internal locators without changing the audited claims, reported figures or citation mounts. The article meets the structural-tell floor.",
+      "ownerApproval": "Owner decision owner-decision-humanizer-pass-20260925 permits plain fact-preserving prose, removal of paper-internal locators from reader prose, and a maximum of two structural tells per 1,000 words per article. Owner decision owner-decision-motion-language-20260926 authorizes a scene-kit rethink of article figures with a keep/rethink inventory and preserved source truth. This is a prose/mount approval only, not release approval.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-MOTION-021"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-classical-humanizer-v3-20260927-prose-scene-representation",
+      "manifest": "prose",
+      "memberId": "article:classical/scene-representation",
+      "oldHash": "98e2f850f69583eff158eb31f745487bc44df874178297b24a9a30cfe4f2ec01",
+      "newHash": "1808ec0d8ee1dba288e213721a181e810b537a5689c92f65093e1956af2dd875",
+      "reason": "Humanizer v3 pass over classical/scene-representation.mdx. Rephrases negative boilerplate and paper-internal locators without changing the audited claims, reported figures or citation mounts. The article meets the structural-tell floor.",
+      "ownerApproval": "Owner decision owner-decision-humanizer-pass-20260925 permits plain fact-preserving prose, removal of paper-internal locators from reader prose, and a maximum of two structural tells per 1,000 words per article. Owner decision owner-decision-motion-language-20260926 authorizes a scene-kit rethink of article figures with a keep/rethink inventory and preserved source truth. This is a prose/mount approval only, not release approval.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-MOTION-021"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-classical-humanizer-v3-20260927-prose-state-estimation",
+      "manifest": "prose",
+      "memberId": "article:classical/state-estimation",
+      "oldHash": "8f6e9510b73b6652bb0460ddbbdf8fa35dd5d458f438dab8d9d600fbcc6dec8f",
+      "newHash": "66ff07c4d8909d3ca2468e0047dce4bf9cf453c18bc5005db836974d036b5532",
+      "reason": "Humanizer v3 pass over classical/state-estimation.mdx. Rephrases negative boilerplate and paper-internal locators without changing the audited claims, reported figures or citation mounts. The article meets the structural-tell floor.",
+      "ownerApproval": "Owner decision owner-decision-humanizer-pass-20260925 permits plain fact-preserving prose, removal of paper-internal locators from reader prose, and a maximum of two structural tells per 1,000 words per article. Owner decision owner-decision-motion-language-20260926 authorizes a scene-kit rethink of article figures with a keep/rethink inventory and preserved source truth. This is a prose/mount approval only, not release approval.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-MOTION-021"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-manipulation-20260927-prose-pi-line-mount",
+      "manifest": "prose",
+      "memberId": "article:manipulation/pi-line",
+      "oldHash": "6ba3093209f07abab39d6d8669e1e9cbaaff27cc982d1ff4b17da87ecadc75f1",
+      "newHash": "f0f3afb7ce11afa404d1b8584e8039f9c007da277a6a9d0651ea0aeecf52b3e6",
+      "reason": "The manipulation motion pass adds only the FlowTransport import and paused scene mount before the retained FlowMatchingTrajectory lab in pi-line.mdx. Existing paragraphs, source values, citations, frontmatter and the controllable lab are unchanged. This exact transition records the previously omitted mount against its humanizer endpoint.",
+      "ownerApproval": "Owner decision owner-decision-motion-language-20260926 authorizes illustrative scene-kit additions before retained interactive labs, with an inventory and unchanged source truth. This is an exact prose/mount transition, not personal visual review or release approval.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-MOTION-020"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-manipulation-20260927-prose-vla-models-mount",
+      "manifest": "prose",
+      "memberId": "article:manipulation/vla-models",
+      "oldHash": "810c8995941937de82547872d6ea50592e3a856c8428b14d80d588d0043c0053",
+      "newHash": "58887645ef7e2449eace762c4f2e89581eda98ec5c9adaa88b6c16ff690d2303",
+      "reason": "The manipulation motion pass adds only the ActionDecode import and paused scene mount before the retained ActionTokenization lab in vla-models.mdx. Existing paragraphs, source values, citations, frontmatter and the controllable lab are unchanged. This exact transition records the previously omitted mount against its educational-cue endpoint.",
+      "ownerApproval": "Owner decision owner-decision-motion-language-20260926 authorizes illustrative scene-kit additions before retained interactive labs, with an inventory and unchanged source truth. This is an exact prose/mount transition, not personal visual review or release approval.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-MOTION-020"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-rl-sim2real-humanizer-v3-20260927-prose-why-rl-locomotion",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/why-rl-locomotion",
+      "oldHash": "a618ffaad4991637c93386a59dae2ddde60563b47a4326636c542d0fbd4ee91e",
+      "newHash": "4338a48ae8fe68e1eaf2b27357aebe4863e7de19abbe840ef36f135d0eece376",
+      "reason": "Humanizer v3 pass over content/rl-sim2real/why-rl-locomotion.mdx: MDP and contact prose. Sourced quantities, citation order, toy disclosures and retained direct controls are checked against committed input. Structural-tell density is at most two per 1,000 words.",
+      "ownerApproval": "Owner decision owner-decision-humanizer-pass-20260925 authorizes fact-preserving prose revisions at most two structural tells per 1,000 words. Owner decision owner-decision-motion-language-20260926 authorizes the domain inventory and scene-kit rethink while preserving source truth. This exact prose transition is not independent validation or release approval.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-MOTION-022"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-rl-sim2real-humanizer-v3-20260927-prose-parallel-sim-rl",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/parallel-sim-rl",
+      "oldHash": "ee5038d71f1c6d9a5a3369386d0f4c69a9e2ba0866d21ab401680b2a187ef3a5",
+      "newHash": "18f11b1e97665df80a0928345e98952d3e6b01e1d590035418bd9fafb53ac6e5",
+      "reason": "Humanizer v3 pass over content/rl-sim2real/parallel-sim-rl.mdx: infrastructure prose and a paused BatchScale scene before TrainingTimeChart. Sourced quantities, citation order, toy disclosures and retained direct controls are checked against committed input. Structural-tell density is at most two per 1,000 words.",
+      "ownerApproval": "Owner decision owner-decision-humanizer-pass-20260925 authorizes fact-preserving prose revisions at most two structural tells per 1,000 words. Owner decision owner-decision-motion-language-20260926 authorizes the domain inventory and scene-kit rethink while preserving source truth. This exact prose transition is not independent validation or release approval.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-MOTION-022"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-rl-sim2real-humanizer-v3-20260927-prose-legged-locomotion",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/legged-locomotion",
+      "oldHash": "1354cb035dab064e54d3595b701ba66a940332a5593b716f7c58fda74198650b",
+      "newHash": "e531e02d9f41cda0e58185a4db70fff208823776508ae05ebbcbf7bd5270236e",
+      "reason": "Humanizer v3 pass over content/rl-sim2real/legged-locomotion.mdx: gait prose and a paused GaitSupport scene before GaitDiagram. Sourced quantities, citation order, toy disclosures and retained direct controls are checked against committed input. Structural-tell density is at most two per 1,000 words.",
+      "ownerApproval": "Owner decision owner-decision-humanizer-pass-20260925 authorizes fact-preserving prose revisions at most two structural tells per 1,000 words. Owner decision owner-decision-motion-language-20260926 authorizes the domain inventory and scene-kit rethink while preserving source truth. This exact prose transition is not independent validation or release approval.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-MOTION-022"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-rl-sim2real-humanizer-v3-20260927-prose-sim2real-transfer",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/sim2real-transfer",
+      "oldHash": "7c03a6d64301dbc245ef7f8172e316d0b28b28efd3f3bf470154341a8673c1b3",
+      "newHash": "e2d60b86f053241afc7ddcc3565bb56d4322ccb399c807f0265b80479f6bab9e",
+      "reason": "Humanizer v3 pass over content/rl-sim2real/sim2real-transfer.mdx: transfer explanations. Sourced quantities, citation order, toy disclosures and retained direct controls are checked against committed input. Structural-tell density is at most two per 1,000 words.",
+      "ownerApproval": "Owner decision owner-decision-humanizer-pass-20260925 authorizes fact-preserving prose revisions at most two structural tells per 1,000 words. Owner decision owner-decision-motion-language-20260926 authorizes the domain inventory and scene-kit rethink while preserving source truth. This exact prose transition is not independent validation or release approval.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-MOTION-022"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-rl-sim2real-humanizer-v3-20260927-prose-reward-design-mpc",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/reward-design-mpc",
+      "oldHash": "5cc01cf4a70baf7859f446625a5bea1526804792850b74ec8dde9dfcee858737",
+      "newHash": "95aeac1878a4aa21e4361bb20cf56438b3ba3ffc4c712743f3eedc78c2abfe29",
+      "reason": "Humanizer v3 pass over content/rl-sim2real/reward-design-mpc.mdx: reward and planning explanations. Sourced quantities, citation order, toy disclosures and retained direct controls are checked against committed input. Structural-tell density is at most two per 1,000 words.",
+      "ownerApproval": "Owner decision owner-decision-humanizer-pass-20260925 authorizes fact-preserving prose revisions at most two structural tells per 1,000 words. Owner decision owner-decision-motion-language-20260926 authorizes the domain inventory and scene-kit rethink while preserving source truth. This exact prose transition is not independent validation or release approval.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-MOTION-022"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-rl-sim2real-humanizer-v3-20260927-prose-rl-for-robotics",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/rl-for-robotics",
+      "oldHash": "0ad5e5747b16d5911e293affa4f0b374009f40a47775991589f43b4447d00bb9",
+      "newHash": "6637ebeb354e370d1d3d1a00caddc6c5ad93bb960ad1d5eca0a24475e5436143",
+      "reason": "Humanizer v3 pass over content/rl-sim2real/rl-for-robotics.mdx: method and budget explanations. Sourced quantities, citation order, toy disclosures and retained direct controls are checked against committed input. Structural-tell density is at most two per 1,000 words.",
+      "ownerApproval": "Owner decision owner-decision-humanizer-pass-20260925 authorizes fact-preserving prose revisions at most two structural tells per 1,000 words. Owner decision owner-decision-motion-language-20260926 authorizes the domain inventory and scene-kit rethink while preserving source truth. This exact prose transition is not independent validation or release approval.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-MOTION-022"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-rl-sim2real-humanizer-v3-20260927-prose-humanoid-wbc",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/humanoid-wbc",
+      "oldHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5",
+      "newHash": "eb000da1b9ee4e934f861b6448d6cdf58a38993b91e2208dea2f2ce6d057a74b",
+      "reason": "Humanizer v3 pass over content/rl-sim2real/humanoid-wbc.mdx: motion-transfer and controller prose. Sourced quantities, citation order, toy disclosures and retained direct controls are checked against committed input. Structural-tell density is at most two per 1,000 words.",
+      "ownerApproval": "Owner decision owner-decision-humanizer-pass-20260925 authorizes fact-preserving prose revisions at most two structural tells per 1,000 words. Owner decision owner-decision-motion-language-20260926 authorizes the domain inventory and scene-kit rethink while preserving source truth. This exact prose transition is not independent validation or release approval.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-MOTION-022"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-rl-sim2real-humanizer-v3-20260927-prose-offline-rl",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/offline-rl",
+      "oldHash": "e35ed0bbceb3251be59564baeb80af489954f3bb7e31f94a04cef1fef3bbb625",
+      "newHash": "ad9fb520dfaefddfa1fbf9ae2c9d1c2bd6fb6b0dbd68a4c045b16a84746b40aa",
+      "reason": "Humanizer v3 pass over content/rl-sim2real/offline-rl.mdx: offline learning and dataset explanations. Sourced quantities, citation order, toy disclosures and retained direct controls are checked against committed input. Structural-tell density is at most two per 1,000 words.",
+      "ownerApproval": "Owner decision owner-decision-humanizer-pass-20260925 authorizes fact-preserving prose revisions at most two structural tells per 1,000 words. Owner decision owner-decision-motion-language-20260926 authorizes the domain inventory and scene-kit rethink while preserving source truth. This exact prose transition is not independent validation or release approval.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-MOTION-022"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-rl-sim2real-20260927-reconcile-humanoid-wbc",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/humanoid-wbc",
+      "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+      "newHash": "eb000da1b9ee4e934f861b6448d6cdf58a38993b91e2208dea2f2ce6d057a74b",
+      "reason": "Exact complete-edge reconciliation of 21 historical prose approvals for article:rl-sim2real/humanoid-wbc. The inspected endpoint is the fact-preserving humanizer and motion pass; all older transition IDs, including earlier resolutions, remain separately recorded. No claim verdict, source quantity or citation target is waived.",
+      "ownerApproval": "Owner decision owner-decision-humanizer-pass-20260925 authorizes fact-preserving prose revisions at most two structural tells per 1,000 words. Owner decision owner-decision-motion-language-20260926 authorizes the domain inventory and scene-kit rethink while preserving source truth. This exact prose transition is not independent validation or release approval.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-MOTION-022"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "humanoid-motion-20260909-a23d20d64ea736f000",
+          "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+          "newHash": "892e08801025df819f1cad25d541bc8ee4b6f66ed7e4e0d37ac3eb2262b00f97"
+        },
+        {
+          "id": "humanoid-placement-20260909-e63998046475510500",
+          "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+          "newHash": "98a85d01809b619ce821fea6490be0d6e27f25d282f088fbc88e6ad5bca36560"
+        },
+        {
+          "id": "humanoid-tracking-20260912-7cafdd67a0649db61f",
+          "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+          "newHash": "041f005709bad57c91f6d6aec0e365d6001f7fde18faae417baeff811067c935"
+        },
+        {
+          "id": "humanoid-advanced-motion-20260912-6b67ecef9f56bb3866",
+          "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+          "newHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13"
+        },
+        {
+          "id": "hwbc-r1-20260915-1",
+          "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "hwbc-r9-20260915-1",
+          "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "hwbc-r10-20260915-1",
+          "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "hwbc-r11-20260915-1",
+          "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "hwbc-r12-20260915-1",
+          "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "hwbc-r13-20260915-1",
+          "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "hwbc-r14-20260915-1",
+          "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "hwbc-r15-20260915-1",
+          "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "hwbc-r16-20260915-1",
+          "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "hwbc-r17-20260915-1",
+          "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "hwbc-r18-20260915-1",
+          "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "hwbc-r19-20260915-1",
+          "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "seo-merge-20260916-prose-23",
+          "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "sweeps-registry-hwbc20-20260917-1",
+          "oldHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "round5-closeout-humanoid-wbc-prose",
+          "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-rl-sim2real-humanoid-wbc",
+          "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "motion-rl-sim2real-humanizer-v3-20260927-prose-humanoid-wbc",
+          "oldHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5",
+          "newHash": "eb000da1b9ee4e934f861b6448d6cdf58a38993b91e2208dea2f2ce6d057a74b"
+        }
+      ]
+    },
+    {
+      "id": "motion-rl-sim2real-20260927-reconcile-parallel-sim-rl",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/parallel-sim-rl",
+      "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+      "newHash": "18f11b1e97665df80a0928345e98952d3e6b01e1d590035418bd9fafb53ac6e5",
+      "reason": "Exact complete-edge reconciliation of 15 historical prose approvals for article:rl-sim2real/parallel-sim-rl. The inspected endpoint is the fact-preserving humanizer and motion pass; all older transition IDs, including earlier resolutions, remain separately recorded. No claim verdict, source quantity or citation target is waived.",
+      "ownerApproval": "Owner decision owner-decision-humanizer-pass-20260925 authorizes fact-preserving prose revisions at most two structural tells per 1,000 words. Owner decision owner-decision-motion-language-20260926 authorizes the domain inventory and scene-kit rethink while preserving source truth. This exact prose transition is not independent validation or release approval.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-MOTION-022"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "isaac-v1-twelve-originals-1-20260908",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "03922c2d4ac019087ce635755701f7f6fb1c70c582880393a7b3cb46586a4831"
+        },
+        {
+          "id": "rudin-protocol-20260909-b1d210de386473c2d5",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "06bd5d64a999f11ab74db05d4bf9a112a0c6c2b213fa45680559c2f4016f85c8"
+        },
+        {
+          "id": "rudin-four-placement-20260909-a981a05d2fe91c6e7d",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "b6827e2ea6b4cfac9e072192741290dd270ff1460007d6130312771ee9242caf"
+        },
+        {
+          "id": "newton-engine-20260912-2f6e8bc798bf35e18a",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4"
+        },
+        {
+          "id": "parallel-sim-rl-r3-20260916-1",
+          "oldHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4",
+          "newHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4"
+        },
+        {
+          "id": "parallel-sim-rl-r5-20260916-1",
+          "oldHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4",
+          "newHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4"
+        },
+        {
+          "id": "parallel-sim-rl-r6-20260916-1",
+          "oldHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4",
+          "newHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4"
+        },
+        {
+          "id": "parallel-sim-rl-r18-20260916-1",
+          "oldHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4",
+          "newHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4"
+        },
+        {
+          "id": "parallel-sim-rl-r1-20260916-1",
+          "oldHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4",
+          "newHash": "0a3c06a2d19b52530c88d39ac49fdabfa3654d2706eb9b868f403b1d10eae7d6"
+        },
+        {
+          "id": "seo-merge-20260916-prose-parallel-sim-rl",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "0a3c06a2d19b52530c88d39ac49fdabfa3654d2706eb9b868f403b1d10eae7d6"
+        },
+        {
+          "id": "round5-closeout-parallel-sim-rl-prose",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "0a3c06a2d19b52530c88d39ac49fdabfa3654d2706eb9b868f403b1d10eae7d6"
+        },
+        {
+          "id": "parallel-local-20260923-1",
+          "oldHash": "0a3c06a2d19b52530c88d39ac49fdabfa3654d2706eb9b868f403b1d10eae7d6",
+          "newHash": "ee5038d71f1c6d9a5a3369386d0f4c69a9e2ba0866d21ab401680b2a187ef3a5"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-0740-prose-article-rl-sim2real-parallel-sim-rl",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "ee5038d71f1c6d9a5a3369386d0f4c69a9e2ba0866d21ab401680b2a187ef3a5"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-rl-sim2real-parallel-sim-rl",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "ee5038d71f1c6d9a5a3369386d0f4c69a9e2ba0866d21ab401680b2a187ef3a5"
+        },
+        {
+          "id": "motion-rl-sim2real-humanizer-v3-20260927-prose-parallel-sim-rl",
+          "oldHash": "ee5038d71f1c6d9a5a3369386d0f4c69a9e2ba0866d21ab401680b2a187ef3a5",
+          "newHash": "18f11b1e97665df80a0928345e98952d3e6b01e1d590035418bd9fafb53ac6e5"
+        }
+      ]
+    },
+    {
+      "id": "motion-rl-sim2real-20260927-reconcile-reward-design-mpc",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/reward-design-mpc",
+      "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+      "newHash": "95aeac1878a4aa21e4361bb20cf56438b3ba3ffc4c712743f3eedc78c2abfe29",
+      "reason": "Exact complete-edge reconciliation of 28 historical prose approvals for article:rl-sim2real/reward-design-mpc. The inspected endpoint is the fact-preserving humanizer and motion pass; all older transition IDs, including earlier resolutions, remain separately recorded. No claim verdict, source quantity or citation target is waived.",
+      "ownerApproval": "Owner decision owner-decision-humanizer-pass-20260925 authorizes fact-preserving prose revisions at most two structural tells per 1,000 words. Owner decision owner-decision-motion-language-20260926 authorizes the domain inventory and scene-kit rethink while preserving source truth. This exact prose transition is not independent validation or release approval.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-MOTION-022"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "grs-eureka-reader-reward-design-mpc-prose-20260908",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "3cc02c9876910ad0d7d014a115979ae85b6a704d83138961e13cea26e1a0d3d1"
+        },
+        {
+          "id": "isaac-v1-twelve-originals-2-20260908",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "8e8c37b7988f1083b86578c6decea5eb3fa742292f49aa6cd5ac1a753a3a3dba"
+        },
+        {
+          "id": "rudin-kl-mechanism-not-retuning-guarantee-20260909",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "ba535f68160576457aeac8b92033ef6dde238e2a08556507f5fedb8fff5efc22"
+        },
+        {
+          "id": "rudin-protocol-20260909-a9893b9fc4acd773ff",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "d0a6bc89c25c4a5fda53db79fd68731aeedadc6ae88d79732026f50648a88b7e"
+        },
+        {
+          "id": "rudin-reader-url-20260909-13235a0b243d5d1c3d",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "8b79b01b618d57ffe376326cdc946a1cf3d5d154f27c0b9fe6ed5e82dddecab4"
+        },
+        {
+          "id": "rudin-four-placement-20260909-13235a0b243d5d1c3d",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "5beb6292b9c784c6fc668a90b487810a474647c57edc748616c3b480741a0d46"
+        },
+        {
+          "id": "boston-control-20260909-e150053faaf2a173b2",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "2dc621b6cddc664b82cc81109556b9dc2b9e4f1c9bf8fe622ef95b6357cad8c5"
+        },
+        {
+          "id": "constrained-reward-20260909-51505e7b4ec4027936",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "cb5ee935e65175ff82dc5fa6daf03900266f45da1f6fd61e1decfe9e8597e370"
+        },
+        {
+          "id": "reward-mpc-20260912-a9893b9fc4acd773ff",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "d09142ee8e120a36dd3042bd2fbce5b25d444e6d4f977d9d10edc7ad4dd53092"
+        },
+        {
+          "id": "rdm-r1-20260916-1",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "f205e3a831c19fac32c06c121457483b5e4a7bbaf4c2db9022d4e73275bae3b3"
+        },
+        {
+          "id": "rdm-r4-20260916-1",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "f205e3a831c19fac32c06c121457483b5e4a7bbaf4c2db9022d4e73275bae3b3"
+        },
+        {
+          "id": "rdm-r5-20260916-1",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "f205e3a831c19fac32c06c121457483b5e4a7bbaf4c2db9022d4e73275bae3b3"
+        },
+        {
+          "id": "rdm-r11-20260916-1",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "f205e3a831c19fac32c06c121457483b5e4a7bbaf4c2db9022d4e73275bae3b3"
+        },
+        {
+          "id": "rdm-r14-20260916-1",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "f205e3a831c19fac32c06c121457483b5e4a7bbaf4c2db9022d4e73275bae3b3"
+        },
+        {
+          "id": "rdm-r19-20260916-1",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "f205e3a831c19fac32c06c121457483b5e4a7bbaf4c2db9022d4e73275bae3b3"
+        },
+        {
+          "id": "rdm-r20-20260916-1",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "f205e3a831c19fac32c06c121457483b5e4a7bbaf4c2db9022d4e73275bae3b3"
+        },
+        {
+          "id": "rdm-r21-20260916-1",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "f205e3a831c19fac32c06c121457483b5e4a7bbaf4c2db9022d4e73275bae3b3"
+        },
+        {
+          "id": "rdm-r22-20260916-1",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "f205e3a831c19fac32c06c121457483b5e4a7bbaf4c2db9022d4e73275bae3b3"
+        },
+        {
+          "id": "rdm-r23-20260916-1",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "f205e3a831c19fac32c06c121457483b5e4a7bbaf4c2db9022d4e73275bae3b3"
+        },
+        {
+          "id": "seo-merge-20260916-prose-25",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "465542f1a53444e09d7207911699fdfcebfd91b6088424d4d7d767d5fe893f64"
+        },
+        {
+          "id": "seo-merge-20260916-rudin-code-surface-annotation",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "f39497e372345f689495dc29380f8bbb501d4e1f98b2201883bf4c10a75e700b"
+        },
+        {
+          "id": "rdm16-r16-20260917-1",
+          "oldHash": "f205e3a831c19fac32c06c121457483b5e4a7bbaf4c2db9022d4e73275bae3b3",
+          "newHash": "443226d4b6cdcf8f82187e710a7fe50af530d2f441a9ded61103865b1a36900f"
+        },
+        {
+          "id": "round5-closeout-reward-design-mpc-prose",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "443226d4b6cdcf8f82187e710a7fe50af530d2f441a9ded61103865b1a36900f"
+        },
+        {
+          "id": "round5-closeout2-reward-design-mpc-prose-digest",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "c0ea4af78b9d3d049fff81a73274f338f68e8e98d69e16953fc34ec64086b384"
+        },
+        {
+          "id": "reward-local-20260923-1",
+          "oldHash": "c0ea4af78b9d3d049fff81a73274f338f68e8e98d69e16953fc34ec64086b384",
+          "newHash": "5cc01cf4a70baf7859f446625a5bea1526804792850b74ec8dde9dfcee858737"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-0740-prose-article-rl-sim2real-reward-design-mpc",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "5cc01cf4a70baf7859f446625a5bea1526804792850b74ec8dde9dfcee858737"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-rl-sim2real-reward-design-mpc",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "5cc01cf4a70baf7859f446625a5bea1526804792850b74ec8dde9dfcee858737"
+        },
+        {
+          "id": "motion-rl-sim2real-humanizer-v3-20260927-prose-reward-design-mpc",
+          "oldHash": "5cc01cf4a70baf7859f446625a5bea1526804792850b74ec8dde9dfcee858737",
+          "newHash": "95aeac1878a4aa21e4361bb20cf56438b3ba3ffc4c712743f3eedc78c2abfe29"
+        }
+      ]
+    },
+    {
+      "id": "motion-rl-sim2real-20260927-reconcile-sim2real-transfer",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/sim2real-transfer",
+      "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+      "newHash": "e2d60b86f053241afc7ddcc3565bb56d4322ccb399c807f0265b80479f6bab9e",
+      "reason": "Exact complete-edge reconciliation of 19 historical prose approvals for article:rl-sim2real/sim2real-transfer. The inspected endpoint is the fact-preserving humanizer and motion pass; all older transition IDs, including earlier resolutions, remain separately recorded. No claim verdict, source quantity or citation target is waived.",
+      "ownerApproval": "Owner decision owner-decision-humanizer-pass-20260925 authorizes fact-preserving prose revisions at most two structural tells per 1,000 words. Owner decision owner-decision-motion-language-20260926 authorizes the domain inventory and scene-kit rethink while preserving source truth. This exact prose transition is not independent validation or release approval.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-MOTION-022"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "isaac-v1-twelve-originals-3-20260908",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "b61ad004390917d5f117905e6d08747b16b21b7d1ce0d5fdfb87ca3a5340ec36"
+        },
+        {
+          "id": "rma-asynchronous-latent-1-20260909",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "ea1eebe9d2c019c630660f0c93f48569d536a39a8306a41f67948ba7bbc9db1a"
+        },
+        {
+          "id": "domain-randomization-source-1-20260909",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "e69163064966555ef0c762bf7254b51518a04b399df291c59540677bc3c1a739"
+        },
+        {
+          "id": "randomization-local-citation-placement-20260909",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "bb2ed4c749dabe4b0d34cbf9d5e8e07e2f569630f174359de5fe1599d83835d3"
+        },
+        {
+          "id": "splat-transfer-prose-1-20260909",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "9ecfc2ec34476dd0b6a32a3d41b481b5496ab255ffaa9490d43e6bc09287e8e7"
+        },
+        {
+          "id": "splat-transfer-mobile-citation-position-20260909",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "dd918afc1e63563815a79a7e8ac1296ac2e8ed326a92c84f7c5d14a9047eb03d"
+        },
+        {
+          "id": "learned-locomotion-20260909-da83a3636f6fbbbc7d",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "34c5fb9b01ec0bcd4f25f85668de7105ade19d8a32312e522c48e3e1bff9e60f"
+        },
+        {
+          "id": "humanoid-motion-20260909-160f56bf40a985daf6",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "8dffcd50cc04f689da54d3f2a8b42810413ee7126e539376b33e4f29d9782055"
+        },
+        {
+          "id": "humanoid-placement-20260909-c76fa386485b9c9a4c",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "88c4ad4d990ea57dc1f8ae0dbb7a00afc57130a337121d4fddaf96562c8bf841"
+        },
+        {
+          "id": "newton-engine-20260912-6a115dfde665c0aa65",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b"
+        },
+        {
+          "id": "sim2real-transfer-r1-20260916-1",
+          "oldHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b",
+          "newHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b"
+        },
+        {
+          "id": "sim2real-transfer-r7-20260916-1",
+          "oldHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b",
+          "newHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b"
+        },
+        {
+          "id": "sim2real-transfer-r21-20260916-1",
+          "oldHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b",
+          "newHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b"
+        },
+        {
+          "id": "sim2real-transfer-r22-20260916-1",
+          "oldHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b",
+          "newHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b"
+        },
+        {
+          "id": "sim2real-local-20260923-1",
+          "oldHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b",
+          "newHash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-0740-prose-article-rl-sim2real-sim2real-transfer",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-rl-sim2real-sim2real-transfer",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+        },
+        {
+          "id": "educational-convergence-20260926-prose-sim2real-transfer",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "7c03a6d64301dbc245ef7f8172e316d0b28b28efd3f3bf470154341a8673c1b3"
+        },
+        {
+          "id": "motion-rl-sim2real-humanizer-v3-20260927-prose-sim2real-transfer",
+          "oldHash": "7c03a6d64301dbc245ef7f8172e316d0b28b28efd3f3bf470154341a8673c1b3",
+          "newHash": "e2d60b86f053241afc7ddcc3565bb56d4322ccb399c807f0265b80479f6bab9e"
+        }
+      ]
+    },
+    {
+      "id": "motion-rl-sim2real-20260927-reconcile-why-rl-locomotion",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/why-rl-locomotion",
+      "oldHash": "25fb300e0579d47d5d1505846b1bc869c4b15e1e2669d6e591b97e4dfa83501b",
+      "newHash": "4338a48ae8fe68e1eaf2b27357aebe4863e7de19abbe840ef36f135d0eece376",
+      "reason": "Exact complete-edge reconciliation of 13 historical prose approvals for article:rl-sim2real/why-rl-locomotion. The inspected endpoint is the fact-preserving humanizer and motion pass; all older transition IDs, including earlier resolutions, remain separately recorded. No claim verdict, source quantity or citation target is waived.",
+      "ownerApproval": "Owner decision owner-decision-humanizer-pass-20260925 authorizes fact-preserving prose revisions at most two structural tells per 1,000 words. Owner decision owner-decision-motion-language-20260926 authorizes the domain inventory and scene-kit rethink while preserving source truth. This exact prose transition is not independent validation or release approval.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-MOTION-022"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "isaac-v1-twelve-originals-4-20260908",
+          "oldHash": "25fb300e0579d47d5d1505846b1bc869c4b15e1e2669d6e591b97e4dfa83501b",
+          "newHash": "e3021d9e898e14975dad869d49e4fc12df28947848e9bdd973dd44c177e0083d"
+        },
+        {
+          "id": "domain-randomization-source-2-20260909",
+          "oldHash": "25fb300e0579d47d5d1505846b1bc869c4b15e1e2669d6e591b97e4dfa83501b",
+          "newHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670"
+        },
+        {
+          "id": "why-rl-locomotion-r2-20260916-1",
+          "oldHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670",
+          "newHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670"
+        },
+        {
+          "id": "why-rl-locomotion-r4-20260916-1",
+          "oldHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670",
+          "newHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670"
+        },
+        {
+          "id": "why-rl-locomotion-r7-20260916-1",
+          "oldHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670",
+          "newHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670"
+        },
+        {
+          "id": "why-rl-locomotion-r9-20260916-1",
+          "oldHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670",
+          "newHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670"
+        },
+        {
+          "id": "why-rl-locomotion-r10-20260916-1",
+          "oldHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670",
+          "newHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670"
+        },
+        {
+          "id": "why-rl-locomotion-r11-20260916-1",
+          "oldHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670",
+          "newHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670"
+        },
+        {
+          "id": "why-rl-locomotion-r12-20260916-1",
+          "oldHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670",
+          "newHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670"
+        },
+        {
+          "id": "reader-rl-prose-20260923-2",
+          "oldHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670",
+          "newHash": "a618ffaad4991637c93386a59dae2ddde60563b47a4326636c542d0fbd4ee91e"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1745-prose-article-rl-sim2real-why-rl-locomotion",
+          "oldHash": "25fb300e0579d47d5d1505846b1bc869c4b15e1e2669d6e591b97e4dfa83501b",
+          "newHash": "a618ffaad4991637c93386a59dae2ddde60563b47a4326636c542d0fbd4ee91e"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-rl-sim2real-why-rl-locomotion",
+          "oldHash": "25fb300e0579d47d5d1505846b1bc869c4b15e1e2669d6e591b97e4dfa83501b",
+          "newHash": "a618ffaad4991637c93386a59dae2ddde60563b47a4326636c542d0fbd4ee91e"
+        },
+        {
+          "id": "motion-rl-sim2real-humanizer-v3-20260927-prose-why-rl-locomotion",
+          "oldHash": "a618ffaad4991637c93386a59dae2ddde60563b47a4326636c542d0fbd4ee91e",
+          "newHash": "4338a48ae8fe68e1eaf2b27357aebe4863e7de19abbe840ef36f135d0eece376"
+        }
+      ]
     }
   ]
 }

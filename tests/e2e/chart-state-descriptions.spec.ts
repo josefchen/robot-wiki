@@ -64,14 +64,6 @@ const CHARTS: Array<{
   },
   {
     route: '/manipulation/diffusion-policy',
-    name: 'denoising',
-    control: 'range',
-    moves: ['10', '5'],
-    def: '0',
-    match: 'denoising step',
-  },
-  {
-    route: '/manipulation/diffusion-policy',
     name: 'receding',
     control: 'range',
     moves: ['24', '8'],

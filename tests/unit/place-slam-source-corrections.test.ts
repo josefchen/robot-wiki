@@ -149,8 +149,8 @@ describe('retained visual place and SLAM backend corrections', () => {
       expect(p.adjudications).toHaveLength(p.parts.length);
       expect(current[ordinal - 1].evidenceFailures, `later complete original ${ordinal}`).toEqual([]);
     }
-    expect(source).toContain('In Section II, Cadena and colleagues separate a sensor-dependent front end');
+    expect(source).toContain('Cadena and colleagues separate a sensor-dependent front end');
     expect(source).toContain('The MLP is the dense scene map, not the system\'s only stored data');
-    expect(source).toContain('does not perform loop closure');
+    expect(source).toContain('the system does not perform loop closure');
   });
 });

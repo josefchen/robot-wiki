@@ -26,7 +26,7 @@ describe('source-scoped keypoint interfaces', () => {
     for (const phrase of ['Where2Place', '100 real-world images', '46.77%', '29.06%', 'means over three runs', 'robot grasp success is a separate quantity']) {
       expect(hierarchyBlock.includes(phrase), phrase).toBe(true);
     }
-    expect(perceptionBlock.includes('does not require an external detector at test time')).toBe(true);
-    expect(perceptionBlock.includes('not by itself a grasp pose or a complete control policy')).toBe(true);
+    expect(perceptionBlock.includes('point predictor works without an external detector at test time')).toBe(true);
+    expect(perceptionBlock.includes('A predicted point needs those additional steps to become a grasp pose or control policy')).toBe(true);
   });
 });

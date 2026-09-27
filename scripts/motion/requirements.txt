@@ -1,0 +1,4 @@
+# The offline cinematic-clip renderer, pinned. Installed into the local
+# .motion-venv by scripts/motion/setup-venv.sh; never installed by, or
+# invoked from, any build or deployment step.
+manim==0.21.0

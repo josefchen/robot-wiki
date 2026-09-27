@@ -50,7 +50,7 @@ describe('source-scoped neural scene originals 12 through 16', () => {
     for (const text of ['separate radiance field to a static scene', 'camera poses, intrinsics and scene bounds',
       'smaller networks and fully fused CUDA kernels', '128 samples in 5 seconds at 1080p',
       'RTX 3090', 'separate large natural 360-degree scene', '10 frames per second',
-      'not a robot reconstruction or control rate', "dataset's native image resolution",
+      'no robot reconstruction or control rate measured', "dataset's native image resolution",
       'not an explicit triangle surface carrying contact normals', 'surface extraction impossible'])
       expect(prose).toContain(text);
     expect(prose).not.toContain('collapsed training from hours to seconds');

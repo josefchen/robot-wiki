@@ -219,7 +219,7 @@ function collectTablesAndMath(): Omit<
    * their content and their role from their tag.
    */
   const CONTROL_SELECTOR =
-    'a[href], button, input, select, textarea, summary, [contenteditable], [role="button"], [role="link"], [role="tab"]';
+    'a[href], button, input, select, textarea, summary, video[controls], audio[controls], [contenteditable], [role="button"], [role="link"], [role="tab"]';
   const scrollRegions = Array.from(
     document.querySelectorAll<HTMLElement>('body *'),
   )

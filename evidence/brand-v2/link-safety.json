@@ -895,7 +895,7 @@
       "reachedByTab": 21,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 113
+      "tabStops": 114
     },
     {
       "route": "/classical/motion-planning/",
@@ -903,7 +903,7 @@
       "reachedByTab": 53,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 178
+      "tabStops": 179
     },
     {
       "route": "/classical/perception/",
@@ -935,7 +935,7 @@
       "reachedByTab": 34,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 135
+      "tabStops": 132
     },
     {
       "route": "/credits/",
@@ -1135,7 +1135,7 @@
       "reachedByTab": 31,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 129
+      "tabStops": 126
     },
     {
       "route": "/manipulation/foundation-models/",
@@ -1175,7 +1175,7 @@
       "reachedByTab": 54,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 190
+      "tabStops": 191
     },
     {
       "route": "/manipulation/realtime-execution/",
@@ -1207,7 +1207,7 @@
       "reachedByTab": 40,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 160
+      "tabStops": 161
     },
     {
       "route": "/market-map/",
@@ -1255,7 +1255,7 @@
       "reachedByTab": 33,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 118
+      "tabStops": 119
     },
     {
       "route": "/rl-sim2real/offline-rl/",
@@ -1271,7 +1271,7 @@
       "reachedByTab": 31,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 117
+      "tabStops": 118
     },
     {
       "route": "/rl-sim2real/reward-design-mpc/",
@@ -1287,7 +1287,7 @@
       "reachedByTab": 77,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 209
+      "tabStops": 208
     },
     {
       "route": "/rl-sim2real/sim2real-transfer/",

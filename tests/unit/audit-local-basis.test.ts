@@ -435,6 +435,10 @@ function withAuthoredCase(recipe: LocalProof['recipe'], pointers: Record<string,
 describe('authored-local-basis-v1 compatibility cases', () => {
   function historicalFixture(testName?: 'reward' | 'sim2real' | 'parallel') {
     const f = fixture(true);
+    for (const path of [
+      'audit/evidence/motion-rl-sim2real-20260927/checker-transition.json',
+      'audit/evidence/motion-rl-sim2real-20260927/audit-local-basis-before.ts.txt',
+    ]) f.put(path, readFileSync(join(project, path)));
     const bind = (path: string, snapshot: string) => {
       const retained = `audit/evidence/local-proof-compat-20260923/${snapshot}`;
       f.put(retained, readFileSync(join(project, retained)));

@@ -128,12 +128,12 @@ describe('industrial32 and perception2/19: zero-completion truth repairs', () =>
   });
 
   it('states the ray-plane geometry while retaining formula and numerical examples as local evaluations', () => {
-    expect(perception).toContain('not a full three-dimensional hand-eye error model');
+    expect(perception).toContain('It does not calculate the full three-dimensional hand-eye error');
     expect(perception).toContain('separation along the normal to a target plane');
     expect(perception).toContain('inclination of a ray relative to that normal');
     expect(perception).toContain('\n$$\ne_\\theta(d) = d \\, \\tan \\theta\n$$\n');
     expect(perception).toContain('about 1.7 mm at 10 cm and 17 mm at 1 m');
-    expect(perception).toContain('not measurements reported by the calibration paper');
+    expect(perception).toContain('The calibration paper does not report them as measurements');
     expect(perception).toContain('not a general norm of a rigid-transform error');
     expect(perception).not.toContain('which is a missed grasp');
   });

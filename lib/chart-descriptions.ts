@@ -89,13 +89,6 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     text: 'A 3.0B-parameter model takes 52.6 ms of inference against the 20 ms budget of a 50 Hz loop, missing 2 deadlines and running at 19 Hz; inference stays under budget only below about 1.1B parameters, and beyond the pi0 3B and pi0-L 9.1B measured anchors the scaling is modeled rather than measured.',
   },
   {
-    component: 'KalmanTracker',
-    file: 'components/interactive/kalman-tracker.tsx',
-    route: '/classical/state-estimation/',
-    quantityNames: ['estimate', 'position'],
-    text: "Over the 61-step window ending at step 60, the estimate stays within 0.90 units rms of the true path while roughly one reading in five drops out, and the shaded band is the filter's own plus or minus two sigma position uncertainty under the assumed noise levels (sigma q 0.20, sigma r 1.00), not a measured error bar, so it swells wherever the estimate coasted between fixes.",
-  },
-  {
     component: 'ChunkSizeCurve',
     file: 'components/interactive/chunk-size-curve.tsx',
     route: '/manipulation/action-chunking/',
@@ -248,13 +241,6 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     route: '/manipulation/bc-foundations/',
     quantityNames: ['rollout', 'deviation'],
     text: 'Per-timestep prediction at 5.0 percent per-step error over 120 steps, DAgger relabeling off, leaves the rollout drifting from the demonstrated path with accumulated deviation 370 units.',
-  },
-  {
-    component: 'DenoisingLoop',
-    file: 'components/interactive/denoising-loop.tsx',
-    route: '/manipulation/diffusion-policy/',
-    quantityNames: ['step', 'mode'],
-    text: 'At denoising step 0 of 10 the 60-sample cloud is pure Gaussian noise, mean distance to mode 1.79; DDIM inference is pulling mass toward the two target crosses.',
   },
   {
     component: 'RecedingHorizon',

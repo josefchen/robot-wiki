@@ -8,15 +8,15 @@
     "minutes": 14
   },
   "manipulation/diffusion-policy": {
-    "words": 1746,
+    "words": 1800,
     "minutes": 9
   },
   "manipulation/vla-models": {
-    "words": 2374,
+    "words": 2484,
     "minutes": 12
   },
   "manipulation/pi-line": {
-    "words": 3139,
+    "words": 3226,
     "minutes": 16
   },
   "manipulation/generalist-policies": {
@@ -60,35 +60,35 @@
     "minutes": 6
   },
   "rl-sim2real/rl-for-robotics": {
-    "words": 3554,
-    "minutes": 18
+    "words": 3474,
+    "minutes": 17
   },
   "rl-sim2real/why-rl-locomotion": {
-    "words": 1342,
-    "minutes": 7
+    "words": 1294,
+    "minutes": 6
   },
   "rl-sim2real/parallel-sim-rl": {
-    "words": 1857,
-    "minutes": 9
+    "words": 1959,
+    "minutes": 10
   },
   "rl-sim2real/sim2real-transfer": {
-    "words": 2920,
-    "minutes": 15
+    "words": 2862,
+    "minutes": 14
   },
   "rl-sim2real/legged-locomotion": {
-    "words": 2253,
-    "minutes": 11
+    "words": 2342,
+    "minutes": 12
   },
   "rl-sim2real/humanoid-wbc": {
-    "words": 2417,
+    "words": 2409,
     "minutes": 12
   },
   "rl-sim2real/reward-design-mpc": {
-    "words": 3342,
+    "words": 3323,
     "minutes": 17
   },
   "rl-sim2real/offline-rl": {
-    "words": 1598,
+    "words": 1586,
     "minutes": 8
   },
   "world-models/taxonomy": {
@@ -152,39 +152,39 @@
     "minutes": 6
   },
   "classical/kinematics": {
-    "words": 2277,
-    "minutes": 11
+    "words": 2309,
+    "minutes": 12
   },
   "classical/motion-planning": {
-    "words": 3937,
+    "words": 3917,
     "minutes": 20
   },
   "classical/control": {
-    "words": 3415,
+    "words": 3379,
     "minutes": 17
   },
   "classical/state-estimation": {
-    "words": 2868,
-    "minutes": 14
+    "words": 2969,
+    "minutes": 15
   },
   "classical/grasp-planning": {
-    "words": 2434,
+    "words": 2429,
     "minutes": 12
   },
   "classical/perception": {
-    "words": 5522,
-    "minutes": 28
+    "words": 5406,
+    "minutes": 27
   },
   "classical/scene-representation": {
-    "words": 3392,
-    "minutes": 17
+    "words": 3284,
+    "minutes": 16
   },
   "classical/calibration": {
-    "words": 1241,
+    "words": 1221,
     "minutes": 6
   },
   "classical/ros2-for-ml-engineers": {
-    "words": 1344,
+    "words": 1321,
     "minutes": 7
   },
   "frontier/reliability-gap": {

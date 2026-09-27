@@ -71,7 +71,7 @@ describe('source-scoped pose metrics and BOP corrections', () => {
     for (const text of [
       '$e < \\theta_e$', '0 to 100', 'equally', 'seven core datasets',
       'VSD', 'MSSD', 'MSPD', 'multiple correctness thresholds',
-      'object-first averaging', 'not ADD-S distance',
+      'object-first averaging', 'ADD-S distance, millimetres and robot success are separate quantities',
       'LM-O, T-LESS, ITODD, HB, YCB-V, TUD-L and IC-BIN',
     ]) expect(has(text), text).toBe(true);
   });
@@ -81,9 +81,9 @@ describe('source-scoped pose metrics and BOP corrections', () => {
       '56.9 to 85.6', 'relative improvement of more than 50 percent',
       'Vidal-Sensors18', '2019', 'Figure 1', '2017',
       'GenFlow-MultiHypo16', '67.4', 'CosyPose-ECCV20-SYNT+REAL-ICP',
-      '69.8', 'comparable, not identical', '34.58 and 13.74 seconds',
-      '5 minutes per object on one GPU', 'different training and onboarding conditions',
-      'not a matched-hardware speed ratio or a robot control frequency',
+      '69.8', 'comparable, with distinct evaluation tracks', '34.58 and 13.74 seconds',
+      '5 minutes per object on one GPU', 'distinct training and onboarding conditions',
+      'Hardware is not matched for a speed ratio, and these times do not measure robot control frequency',
       'heavy object occlusion',
     ]) expect(has(text), text).toBe(true);
     expect(has('Three years erased')).toBe(false);
