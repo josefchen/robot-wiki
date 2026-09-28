@@ -66,7 +66,8 @@ function FarmThroughputStage() {
       <text x={LEFT} y={64} fontSize={13} fill="var(--motion-stage-label)">low-rate hypothetical</text>
       <text x={LEFT} y={123} fontSize={13} fill="var(--motion-stage-label)">dedicated-farm hypothetical</text>
       <AnimatedElement as="rect" data-scene-mark="low-rate-year" data-legend-series="farm-low"
-        x={LEFT} y={78} height={17} fill="var(--role-constraint-stage)"
+        x={LEFT} y={78} height={17} fill="var(--role-value-stage)"
+        stroke="var(--role-value-stage)" strokeWidth={1} strokeDasharray="3 2"
         bindings={{ width: (t) => hoursWidth(farmThroughputFrame(t).lowYear) }} />
       <AnimatedElement as="rect" data-scene-mark="dedicated-year" data-legend-series="farm-dedicated"
         x={LEFT} y={137} height={17} fill="var(--role-value-stage)"
@@ -92,7 +93,7 @@ export function FarmThroughput({ className }: { className?: string }) {
       stage={<FarmThroughputStage />}
       className={className}
       legend={<>
-        <LegendItem series="farm-low" swatch={<span aria-hidden className="inline-block h-2.5 w-3" style={{ backgroundColor: 'var(--role-constraint-graphic)' }} />}>low-rate year</LegendItem>
+        <LegendItem series="farm-low" swatch={<span aria-hidden className="inline-block h-2.5 w-3 border border-dashed" style={{ backgroundColor: 'var(--role-value-graphic)', borderColor: 'var(--role-value-graphic)' }} />}>low-rate year</LegendItem>
         <LegendItem series="farm-dedicated" swatch={<span aria-hidden className="inline-block h-2.5 w-3" style={{ backgroundColor: 'var(--role-value-graphic)' }} />}>dedicated year</LegendItem>
       </>}
       readout={({ beatIndex }) => {

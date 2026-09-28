@@ -59,7 +59,8 @@ function JamOverheadStage() {
           width: (t) => partWidth(jamOverheadFrame(t).outputs.timeBreakdown.jamClearing),
         }} />
       <AnimatedElement as="rect" data-scene-mark="downtime" data-legend-series="cell-downtime"
-        y={91} height={28} fill="var(--role-reference-stage)"
+        y={91} height={28} fill="var(--role-constraint-stage)" fillOpacity={0.45}
+        stroke="var(--role-constraint-stage)" strokeWidth={1} strokeDasharray="3 2"
         bindings={{
           x: (t) => LEFT + partWidth(
             jamOverheadFrame(t).outputs.timeBreakdown.productive +
@@ -89,7 +90,7 @@ export function JamOverhead({ className }: { className?: string }) {
       legend={<>
         <LegendItem series="cell-productive" swatch={<span aria-hidden className="inline-block h-2.5 w-3" style={{ backgroundColor: 'var(--role-value-graphic)' }} />}>productive cycles</LegendItem>
         <LegendItem series="cell-clearing" swatch={<span aria-hidden className="inline-block h-2.5 w-3" style={{ backgroundColor: 'var(--role-constraint-graphic)' }} />}>jam clearing</LegendItem>
-        <LegendItem series="cell-downtime" swatch={<span aria-hidden className="inline-block h-2.5 w-3" style={{ backgroundColor: 'var(--role-reference-graphic)' }} />}>downtime</LegendItem>
+        <LegendItem series="cell-downtime" swatch={<span aria-hidden className="inline-block h-2.5 w-3 border border-dashed" style={{ backgroundColor: 'var(--role-constraint-graphic)', borderColor: 'var(--role-constraint-graphic)', opacity: 0.6 }} />}>downtime</LegendItem>
       </>}
       readout={({ beatIndex }) => {
         const frame = jamOverheadFrame(SPANS[beatIndex].end);

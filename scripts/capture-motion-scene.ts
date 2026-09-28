@@ -16,84 +16,7 @@ import { chromium, expect } from '@playwright/test';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { auditSceneElement, type SceneAudit } from '../lib/motion-scene-audit.ts';
-
-interface SceneTarget {
-  /** Article route the scene is mounted in. */
-  url: string;
-  beats: number;
-}
-
-
-const SCENES: Record<string, SceneTarget> = {
-  'kalman-predict-update': {
-    url: '/classical/state-estimation',
-    beats: 5,
-  },
-  'fk-chain': {
-    url: '/classical/kinematics',
-    beats: 4,
-  },
-  'rrt-growth': {
-    url: '/classical/motion-planning',
-    beats: 4,
-  },
-  'diffusion-denoising': {
-    url: '/manipulation/diffusion-policy',
-    beats: 4,
-  },
-  'action-decode': {
-    url: '/manipulation/vla-models',
-    beats: 4,
-  },
-  'flow-transport': {
-    url: '/manipulation/pi-line',
-    beats: 4,
-  },
-  'batch-scale': {
-    url: '/rl-sim2real/parallel-sim-rl',
-    beats: 4,
-  },
-  'gait-support': {
-    url: '/rl-sim2real/legged-locomotion',
-    beats: 4,
-  },
-  'action-fork': {
-    url: '/world-models/generative-video',
-    beats: 4,
-  },
-  'latent-drift': {
-    url: '/world-models/latent-dynamics',
-    beats: 4,
-  },
-  'push-layers': {
-    url: '/world-models/generative-sim',
-    beats: 4,
-  },
-  'farm-throughput': {
-    url: '/data-hardware/data-bottleneck',
-    beats: 4,
-  },
-  'episode-survival': {
-    url: '/data-hardware/evaluation-crisis',
-    beats: 4,
-  },
-  'jam-overhead': {
-    url: '/data-hardware/industrial-deployment',
-    beats: 4,
-  },
-  'reliability-threshold': {
-    url: '/frontier/reliability-gap',
-    beats: 4,
-  },
-  'tactile-slip': {
-    url: '/frontier/dexterity',
-    beats: 4,
-  },
-  'sense-avoid': {
-    url: '/adjacent/drones',
-    beats: 4,
-  },
-};
+import { SCENE_TARGETS, type SceneTarget } from '../lib/motion-scene-registry.ts';
 
 const VIEWPORTS = [
   { name: '375', width: 375, height: 800 },
@@ -128,7 +51,7 @@ async function captureScene(
       reducedMotion: 'reduce',
     });
     const reducedPage = await reducedContext.newPage();
-    await reducedPage.goto(BASE_URL + target.url, { waitUntil: 'networkidle' });
+    await reducedPage.goto(BASE_URL + target.route, { waitUntil: 'networkidle' });
     // The development badge can intrude into a narrow component screenshot.
     await reducedPage.addStyleTag({ content: 'nextjs-portal { display: none !important; }' });
     await reducedPage.locator(selector).waitFor();
@@ -143,7 +66,7 @@ async function captureScene(
       viewport: { width: viewport.width, height: viewport.height },
     });
     const page = await context.newPage();
-    await page.goto(BASE_URL + target.url, { waitUntil: 'networkidle' });
+    await page.goto(BASE_URL + target.route, { waitUntil: 'networkidle' });
     await page.addStyleTag({ content: 'nextjs-portal { display: none !important; }' });
     const scene = page.locator(selector);
     await scene.waitFor();
@@ -210,18 +133,18 @@ async function main() {
   const requested = process.argv.slice(2).filter((arg) => arg !== '--');
   const ids =
     requested.length === 0 || requested.includes('all')
-      ? Object.keys(SCENES)
+      ? SCENE_TARGETS.map((scene) => scene.id)
       : requested;
   for (const id of ids) {
-    if (!(id in SCENES)) {
-      console.error(`unknown scene id: ${id} (known: ${Object.keys(SCENES).join(', ')})`);
+    if (!SCENE_TARGETS.some((scene) => scene.id === id)) {
+      console.error(`unknown scene id: ${id} (known: ${SCENE_TARGETS.map((scene) => scene.id).join(', ')})`);
       process.exit(1);
     }
   }
   const browser = await chromium.launch();
   try {
     for (const id of ids) {
-      const written = await captureScene(browser, id, SCENES[id]);
+      const written = await captureScene(browser, id, SCENE_TARGETS.find((scene) => scene.id === id)!);
       for (const file of written) {
         console.log(`wrote ${file}`);
       }

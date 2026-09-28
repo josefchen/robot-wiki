@@ -45,6 +45,7 @@
     "clips:render": "node scripts/render-clips.ts",
     "clips:capture": "node scripts/capture-motion-clip.ts",
     "scene:capture": "node scripts/capture-motion-scene.ts",
+    "scene:converge": "node scripts/motion-convergence.ts",
     "check:audit-coverage": "node scripts/check-audit-coverage.ts",
     "check:neutral-tooling": "node scripts/check-neutral-tooling.ts",
     "check:e2e-navigation-budget": "node scripts/check-e2e-navigation-budget.ts",
