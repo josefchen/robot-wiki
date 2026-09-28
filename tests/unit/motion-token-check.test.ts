@@ -78,9 +78,71 @@ describe('motion token check', () => {
   });
 
   it.each([
+    'transition: opacity var(--motion-beat)\n  ease;',
+    'transition:\n  opacity var(--motion-beat)\n  ease-out;',
+    'animation: reveal var(--motion-beat)\n  ease;',
+    'animation:\n  reveal var(--motion-beat)\n  linear;',
+    'animation: reveal var(--motion-beat)\n  steps(4, end);',
+    'transition: opacity var(--motion-beat)\n  linear(0, 1);',
+    "style={{ transition: 'opacity var(--motion-beat)\\n  ease' }}",
+    "style={{ animation: 'reveal var(--motion-beat)\\n  ease' }}",
+    'style={{ animation: `reveal var(--motion-beat)\n  ease` }}',
+    "const css = 'transition: opacity var(--motion-beat)\\n  ease';",
+  ])('rejects literal easing in a complete multiline declaration: %s', (source) => {
+    const path = write('components/motion/multiline.tsx', source);
+    const violations = scanMotionSourcesForViolations([path], {
+      exemptPaths: new Set(),
+    });
+    expect(violations).toContainEqual(expect.objectContaining({
+      rule: 'easing',
+      line: source.includes('\\n') ? 1 : source.split('\n').length,
+    }));
+  });
+
+  it.each([
+    { source: "style={{ 'transition': 'opacity var(--motion-beat) ease' }}", line: 1, literal: 'ease' },
+    { source: 'style={{ "transition": "opacity var(--motion-beat) linear" }}', line: 1, literal: 'linear' },
+    { source: "style={{ 'animation': 'reveal var(--motion-beat) ease' }}", line: 1, literal: 'ease' },
+    { source: 'style={{ "animation": `reveal var(--motion-beat)\n  steps(4, end)` }}', line: 2, literal: 'steps(' },
+    { source: "style={{\n  'transition': `opacity var(--motion-beat)\n    ease`\n}}", line: 3, literal: 'ease' },
+    { source: 'style={{\n  "animation": `reveal var(--motion-beat)\n    linear`\n}}', line: 3, literal: 'linear' },
+    { source: "style={{ 'transition-timing-function': `\n  ease` }}", line: 2, literal: 'ease' },
+    { source: 'style={{ "animationTimingFunction": `reveal\n  steps(2, end)` }}', line: 2, literal: 'steps(' },
+  ])('rejects literal easing inside a quoted timing key: $source', ({ source, line, literal }) => {
+    const path = write('components/motion/quoted-key.tsx', source);
+    const violations = scanMotionSourcesForViolations([path], {
+      exemptPaths: new Set(),
+    });
+    expect(violations, source).toContainEqual(expect.objectContaining({
+      rule: 'easing',
+      line,
+      snippet: expect.stringContaining(literal),
+    }));
+  });
+
+  it.each([
+    "style={{ 'transition': 'opacity var(--motion-beat) var(--motion-ease-smooth)' }}",
+    'style={{ "animation": `reveal var(--motion-beat)\n  var(--motion-ease-smooth)` }}',
+    "style={{ 'transition-timing-function': 'var(--motion-ease-smooth)' }}",
+    'style={{ "animationTimingFunction": "var(--motion-ease-smooth)" }}',
+    "style={{ 'transition-duration': 'var(--motion-beat)' }}",
+    'style={{ "animationDuration": "var(--motion-beat)" }}',
+    "style={{ 'transition': 'opacity var(--motion-beat) var(--motion-ease-smooth)' }}; const linear = (x: number) => x; const value = linear(1) + steps(2); <use href=\"#aabbcc\" />",
+  ])('keeps token-backed quoted timing and non-timing math/IDs: %s', (source) => {
+    const path = write('components/motion/quoted-positive.tsx', source);
+    expect(scanMotionSourcesForViolations([path], { exemptPaths: new Set() })).toEqual([]);
+  });
+
+  it.each([
     'transition: opacity var(--motion-beat) var(--motion-ease-smooth);',
     'transition: opacity var(--brand-transition-short) var(--brand-ease-out);',
+    'transition: opacity var(--motion-beat)\n  var(--motion-ease-smooth);',
+    'animation:\n  reveal var(--motion-beat)\n  var(--motion-ease-smooth);',
+    "style={{ transition: 'opacity var(--motion-beat)\\n  var(--motion-ease-smooth)' }}",
+    'style={{ animation: `reveal var(--motion-beat)\n  var(--motion-ease-smooth)` }}',
     "style={{ transition: 'opacity var(--motion-beat) var(--motion-ease-smooth)' }}",
+    "const css = 'transition: opacity var(--motion-beat)'; const value = linear(x);",
+    'transition: opacity var(--motion-beat) var(--motion-ease-smooth);\nconst value = linear(x) + steps(y);',
     'const steps = (n: number) => n + 1; const linear = (t: number) => t;',
     'const value = linear(x) + steps(y);',
     '<use href="#aabbcc" />',

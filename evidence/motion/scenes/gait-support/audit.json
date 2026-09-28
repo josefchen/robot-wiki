@@ -73,8 +73,8 @@
     "contrast": [
       {
         "control": "Play the scene",
-        "ratio": 14.29,
-        "foreground": "rgb(32, 39, 44)",
+        "ratio": 16,
+        "foreground": "rgb(25, 29, 33)",
         "background": "rgb(248, 248, 249)"
       },
       {
@@ -112,8 +112,8 @@
     "contrast": [
       {
         "control": "Play the scene",
-        "ratio": 18.46,
-        "foreground": "rgb(12, 12, 13)",
+        "ratio": 18.58,
+        "foreground": "rgb(11, 11, 12)",
         "background": "rgb(248, 248, 249)"
       },
       {
@@ -334,8 +334,8 @@
     "contrast": [
       {
         "control": "Play the scene",
-        "ratio": 15.18,
-        "foreground": "rgb(28, 34, 38)",
+        "ratio": 13.57,
+        "foreground": "rgb(35, 43, 49)",
         "background": "rgb(248, 248, 249)"
       },
       {

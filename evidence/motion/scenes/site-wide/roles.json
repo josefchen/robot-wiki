@@ -102,7 +102,6 @@
           "hex": "#D9DADB",
           "beats": [
             1,
-            4,
             5
           ]
         },
@@ -124,7 +123,6 @@
           "hex": "#D9DADB",
           "beats": [
             1,
-            4,
             5
           ]
         }
@@ -277,6 +275,14 @@
             1,
             2,
             3,
+            4
+          ]
+        },
+        {
+          "mark": "selected-route",
+          "role": "highlight",
+          "hex": "#C6FF19",
+          "beats": [
             4
           ]
         },
@@ -1457,7 +1463,6 @@
           "role": "reference",
           "hex": "#D9DADB",
           "beats": [
-            2,
             3,
             4
           ]
@@ -1467,7 +1472,6 @@
           "role": "reference",
           "hex": "#D9DADB",
           "beats": [
-            2,
             3,
             4
           ]
@@ -1477,7 +1481,6 @@
           "role": "reference",
           "hex": "#D9DADB",
           "beats": [
-            2,
             3,
             4
           ]
@@ -1487,7 +1490,6 @@
           "role": "reference",
           "hex": "#D9DADB",
           "beats": [
-            2,
             3,
             4
           ]
@@ -1497,7 +1499,6 @@
           "role": "reference",
           "hex": "#D9DADB",
           "beats": [
-            2,
             3,
             4
           ]
@@ -1507,7 +1508,6 @@
           "role": "reference",
           "hex": "#D9DADB",
           "beats": [
-            2,
             3,
             4
           ]
@@ -1517,7 +1517,6 @@
           "role": "reference",
           "hex": "#D9DADB",
           "beats": [
-            2,
             3,
             4
           ]
@@ -1527,7 +1526,6 @@
           "role": "reference",
           "hex": "#D9DADB",
           "beats": [
-            2,
             3,
             4
           ]
@@ -1537,7 +1535,6 @@
           "role": "reference",
           "hex": "#D9DADB",
           "beats": [
-            2,
             3,
             4
           ]
@@ -1547,7 +1544,6 @@
           "role": "reference",
           "hex": "#D9DADB",
           "beats": [
-            2,
             3,
             4
           ]
@@ -1557,7 +1553,6 @@
           "role": "reference",
           "hex": "#D9DADB",
           "beats": [
-            2,
             3,
             4
           ]
@@ -1567,7 +1562,6 @@
           "role": "reference",
           "hex": "#D9DADB",
           "beats": [
-            2,
             3,
             4
           ]
@@ -1577,7 +1571,6 @@
           "role": "highlight",
           "hex": "#C6FF19",
           "beats": [
-            2,
             3,
             4
           ]
@@ -1587,7 +1580,6 @@
           "role": "reference",
           "hex": "#D9DADB",
           "beats": [
-            2,
             3,
             4
           ]
@@ -1597,7 +1589,6 @@
           "role": "reference",
           "hex": "#D9DADB",
           "beats": [
-            2,
             3,
             4
           ]
@@ -2574,7 +2565,7 @@
     {
       "id": "batch-scale",
       "route": "/rl-sim2real/parallel-sim-rl/",
-      "sourceSha256": "3f3187d8998fc575d18be8352b9486cfa2507c88185764649c3f92ec4b80f23b",
+      "sourceSha256": "e5d79ee3c46825cd1889dc500ababf0fd9fee2ee5ddda44ae1988caf82f029d0",
       "marks": [
         {
           "mark": "cpu-cost-time",
@@ -2611,14 +2602,13 @@
     {
       "id": "gait-support",
       "route": "/rl-sim2real/legged-locomotion/",
-      "sourceSha256": "fd219e3e0834cf7b1eeba8549155ee436a8d8e6c3ac08724ff1ebdfc1ca15e54",
+      "sourceSha256": "11d3cb8e43009eba7ef4e9afc3e4eb8ad8a3c40317d12d139557fcdd33fef22d",
       "marks": [
         {
           "mark": "bound-phase-0",
           "role": "state",
           "hex": "#58C4DD",
           "beats": [
-            3,
             4
           ]
         },
@@ -2627,7 +2617,6 @@
           "role": "constraint",
           "hex": "#FC6255",
           "beats": [
-            3,
             4
           ]
         },
@@ -2636,45 +2625,11 @@
           "role": "state",
           "hex": "#58C4DD",
           "beats": [
-            3,
             4
           ]
         },
         {
           "mark": "bound-phase-3",
-          "role": "constraint",
-          "hex": "#FC6255",
-          "beats": [
-            3,
-            4
-          ]
-        },
-        {
-          "mark": "pronk-phase-0",
-          "role": "state",
-          "hex": "#58C4DD",
-          "beats": [
-            4
-          ]
-        },
-        {
-          "mark": "pronk-phase-1",
-          "role": "constraint",
-          "hex": "#FC6255",
-          "beats": [
-            4
-          ]
-        },
-        {
-          "mark": "pronk-phase-2",
-          "role": "constraint",
-          "hex": "#FC6255",
-          "beats": [
-            4
-          ]
-        },
-        {
-          "mark": "pronk-phase-3",
           "role": "constraint",
           "hex": "#FC6255",
           "beats": [
@@ -2686,7 +2641,6 @@
           "role": "state",
           "hex": "#58C4DD",
           "beats": [
-            2,
             3,
             4
           ]
@@ -2696,7 +2650,6 @@
           "role": "state",
           "hex": "#58C4DD",
           "beats": [
-            2,
             3,
             4
           ]
@@ -2706,7 +2659,6 @@
           "role": "state",
           "hex": "#58C4DD",
           "beats": [
-            2,
             3,
             4
           ]
@@ -2716,7 +2668,6 @@
           "role": "state",
           "hex": "#58C4DD",
           "beats": [
-            2,
             3,
             4
           ]
@@ -2923,6 +2874,7 @@
           "role": "constraint",
           "hex": "#FC6255",
           "beats": [
+            3,
             4
           ]
         },
@@ -2931,6 +2883,7 @@
           "role": "state",
           "hex": "#58C4DD",
           "beats": [
+            3,
             4
           ]
         },
@@ -3146,6 +3099,7 @@
           "role": "measurement",
           "hex": "#E8C11C",
           "beats": [
+            3,
             4
           ]
         },
@@ -3154,6 +3108,7 @@
           "role": "measurement",
           "hex": "#E8C11C",
           "beats": [
+            3,
             4
           ]
         }
