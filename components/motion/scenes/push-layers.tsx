@@ -70,7 +70,7 @@ function PushLayersStage() {
         points="77,153 69,148 69,158" fill="var(--role-action-stage)"
         bindings={{ opacity: (t) => pushLayersFrame(t).attempted }} />
       <AnimatedLine data-scene-mark="displacement" x1={106} y1={195}
-        y2={195} stroke="var(--role-value-stage)" strokeWidth={2}
+        y2={195} stroke="var(--role-state-stage)" strokeWidth={2}
         bindings={{
           x2: (t) => mugX(pushLayersFrame(t).position) + 18,
           opacity: (t) => pushLayersFrame(t).physics,
@@ -93,7 +93,7 @@ export function PushLayers({ className }: { className?: string }) {
         <LegendItem series="push-object" swatch={<span aria-hidden className="inline-block h-2.5 w-2.5 border-2" style={{ borderColor: 'var(--role-state-graphic)' }} />}>rendered mug</LegendItem>
         <LegendItem series="push-action" swatch={<span aria-hidden className="inline-block h-0.5 w-4" style={{ backgroundColor: 'var(--role-action-graphic)' }} />}>push action</LegendItem>
         <LegendItem series="push-constraint" swatch={<span aria-hidden className="inline-block h-2.5 w-2.5 border border-dashed" style={{ borderColor: 'var(--role-constraint-graphic)' }} />}>collision hull</LegendItem>
-        <LegendItem series="push-result" swatch={<span aria-hidden className="inline-block h-0.5 w-4" style={{ backgroundColor: 'var(--role-value-graphic)' }} />}>integrated displacement</LegendItem>
+        <LegendItem series="push-result" swatch={<span aria-hidden className="inline-block h-0.5 w-4" style={{ backgroundColor: 'var(--role-state-graphic)' }} />}>integrated displacement</LegendItem>
       </>}
       readout={({ beatIndex }) => <><span className="text-text-dim">toy push</span> {DEFAULT_FORCE_N.toFixed(1)} N{' '}
         <span className="text-text-dim">displacement</span> {formatCm(pushLayersFrame(SPANS[beatIndex].end).position)}</>}
