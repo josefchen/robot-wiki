@@ -169,6 +169,14 @@ describe('authored-local-basis-v1 immutable synthetic fixtures (never real evide
     expect(section.claimRecords[3].citationId).toBe('');
     expect(ledgerSummary([section])).toContain('Complete evidence records: 1');
   });
+  it('revalidates artifacts on a separate ledger parse rather than caching a passing plan', () => {
+    const f = fixture();
+    const parse = () => parseLedger(f.plan.ledgerPath, f.markdown, new Set(),
+      { localBasis: f.context })[0].claimRecords[3].evidenceFailures;
+    expect(parse()).toEqual([]);
+    f.put('lib/reward-shaping.ts', 'SYNTHETIC changed computation');
+    expect(parse().join(' ')).toMatch(/artifact bytes\/hash/);
+  });
   it.each(['claim', 'sourceChecked', 'verdict', 'note'] as const)('rejects current native cell drift: %s', key => {
     const f = fixture(); f.plan.currentCells = { ...f.currentCells, [key]: 'changed' };
     f.plan.currentTupleDigest = originalClaimDigest(f.plan.currentCells); f.sealReviews();
@@ -444,6 +452,12 @@ describe('authored-local-basis-v1 compatibility cases', () => {
       'audit/evidence/motion-data-hardware-20260927/audit-local-basis-before.ts.txt',
       'audit/evidence/motion-frontier-adjacent-home-20260927/checker-transition.json',
       'audit/evidence/motion-frontier-adjacent-home-20260927/audit-local-basis-before.ts.txt',
+      'audit/evidence/motion-domain-pairs-20260928/checker-transition.json',
+      'audit/evidence/motion-domain-pairs-20260928/audit-local-basis-before.ts.txt',
+      'audit/evidence/motion-proof-reader-efficiency-20260928/checker-transition.json',
+      'audit/evidence/motion-proof-reader-efficiency-20260928/audit-local-basis-before.ts.txt',
+      'audit/evidence/motion-article-truth-efficiency-20260928/checker-transition.json',
+      'audit/evidence/motion-article-truth-efficiency-20260928/audit-local-basis-before.ts.txt',
     ]) f.put(path, readFileSync(join(project, path)));
     const bind = (path: string, snapshot: string) => {
       const retained = `audit/evidence/local-proof-compat-20260923/${snapshot}`;
@@ -496,6 +510,33 @@ describe('authored-local-basis-v1 compatibility cases', () => {
       expect(f.validate().failures.length).toBeGreaterThan(0);
     },
   );
+  it.each(['missing', 'corrupt'] as const)('rejects %s domain-pairs checker input', change => {
+    const f = historicalFixture();
+    const snapshot = 'audit/evidence/motion-domain-pairs-20260928/audit-local-basis-before.ts.txt';
+    if (change === 'missing') rmSync(join(f.root, snapshot));
+    else f.put(snapshot, 'corrupt retained checker');
+    expect(f.validate().failures.join(' ')).toMatch(change === 'missing'
+      ? /ENOENT.*motion-domain-pairs-20260928\/audit-local-basis-before\.ts\.txt/
+      : /motion domain-pairs checker continuity drift/);
+  });
+  it.each(['missing', 'corrupt'] as const)('rejects %s proof-reader predecessor input', change => {
+    const f = historicalFixture();
+    const snapshot = 'audit/evidence/motion-proof-reader-efficiency-20260928/audit-local-basis-before.ts.txt';
+    if (change === 'missing') rmSync(join(f.root, snapshot));
+    else f.put(snapshot, 'corrupt retained checker');
+    expect(f.validate().failures.join(' ')).toMatch(change === 'missing'
+      ? /ENOENT.*motion-proof-reader-efficiency-20260928\/audit-local-basis-before\.ts\.txt/
+      : /motion domain-pairs checker continuity drift/);
+  });
+  it.each(['missing', 'corrupt'] as const)('rejects %s article-truth predecessor input', change => {
+    const f = historicalFixture();
+    const snapshot = 'audit/evidence/motion-article-truth-efficiency-20260928/audit-local-basis-before.ts.txt';
+    if (change === 'missing') rmSync(join(f.root, snapshot));
+    else f.put(snapshot, 'corrupt retained checker');
+    expect(f.validate().failures.join(' ')).toMatch(change === 'missing'
+      ? /ENOENT.*motion-article-truth-efficiency-20260928\/audit-local-basis-before\.ts\.txt/
+      : /motion domain-pairs checker continuity drift/);
+  });
   it.each(['reward', 'sim2real', 'parallel'] as const)('rejects later %s test changes and corrupt test snapshots', testName => {
     const f = historicalFixture(testName);
     const path = f.proof.provenance.test.path;

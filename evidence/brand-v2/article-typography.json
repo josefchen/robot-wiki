@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "24781085285101e00a3563f7d776b8706d116f3737e5c739a9b3377be7f13c87",
+  "fingerprint": "33431d3dd21554ce1f6ddf71dcac1f512137dff60f747261e8aeb1d30095ca81",
   "viewports": [
     "375x812",
     "1440x900"
@@ -141,7 +141,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 6008,
+      "visibleTextLength": 6003,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -1908,7 +1908,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18298,
+      "visibleTextLength": 18336,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -2050,7 +2050,7 @@
           "widthPx": 301,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "beat 4 / 4 delay 200 ms maximum speed 14.64 m/s"
+          "text": "beat 4 / 4 delay 200 ms avoidance 346 ms maximum speed 14.64"
         },
         {
           "familyHead": "ibm plex sans",
@@ -2060,6 +2060,15 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Falanga et al.'s cited 8 m range, 25 m/s² agility, and stere"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "Perception delay lowers the safe speed. Beat 1: An obstacle "
         },
         {
           "familyHead": "ibm plex mono",
@@ -6760,6 +6769,15 @@
           "text": "Schematic, authored link lengths and angles from the planar "
         },
         {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "A joint turns every link downstream. Beat 1: The base joint "
+        },
+        {
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.33,
@@ -7584,6 +7602,15 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Authored fixed-seed planning scene, not a published benchmar"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "A seeded tree finds a path around obstacles. Beat 1: A fixed"
         },
         {
           "familyHead": "ibm plex mono",
@@ -11551,6 +11578,15 @@
           "familyHead": "newsreader",
           "sizePx": 19,
           "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "Kalman filter: predict and update. A five-beat scene in the "
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
@@ -12811,6 +12847,15 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Illustrative log-scaled hours with authored 7- and 1,000-hou"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "How a farm rate changes time to an authored target. Beat 1: "
         },
         {
           "familyHead": "ibm plex mono",
@@ -14534,6 +14579,15 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Illustrative constant conditional probability of 95% per dec"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "Conditional success compounds over an illustrative episode. "
         },
         {
           "familyHead": "ibm plex sans",
@@ -16308,6 +16362,15 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Illustrative cell, not observed economics or a financial for"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "Clearing time takes capacity from an authored picking cell. "
         },
         {
           "familyHead": "newsreader",
@@ -21019,6 +21082,15 @@
           "familyHead": "newsreader",
           "sizePx": 19,
           "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "A contact channel can reveal slip. Beat 1: A schematic gripp"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
@@ -22461,7 +22533,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14826,
+      "visibleTextLength": 14821,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -22606,6 +22678,15 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Illustrative independence model, not a measured robot policy"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "The last stretch of episode reliability. Beat 1: At 95% succ"
         },
         {
           "familyHead": "ibm plex sans",
@@ -29042,6 +29123,15 @@
           "familyHead": "newsreader",
           "sizePx": 19,
           "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "Diffusion policy: denoising actions. A four-beat scene in a "
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
@@ -33287,6 +33377,15 @@
           "familyHead": "newsreader",
           "sizePx": 19,
           "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "Flow matching transports action samples. Beat 1: A seeded to"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
@@ -37056,7 +37155,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20620,
+      "visibleTextLength": 20616,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -37191,6 +37290,15 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Schematic, illustrative action vector: normalized bounds and"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "From continuous action to token. Beat 1: A toy continuous ac"
         },
         {
           "familyHead": "newsreader",
@@ -40988,6 +41096,15 @@
           "text": "Schematic, authored gait duty factors and phase offsets from"
         },
         {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "Foot support over an authored stride cycle. Beat 1: The auth"
+        },
+        {
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.33,
@@ -42857,6 +42974,15 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Illustrative fixed-transition calculation, not a measured tr"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "Parallel rollouts change a fixed training budget. Beat 1: At"
         },
         {
           "familyHead": "ibm plex mono",
@@ -48325,7 +48451,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17396,
+      "visibleTextLength": 17415,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -48468,6 +48594,15 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Schematic, authored impulse and friction model, not a measur"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "A rendered scene needs a solver to answer a push. Beat 1: Th"
         },
         {
           "familyHead": "ibm plex mono",
@@ -48879,7 +49014,7 @@
         },
         {
           "kind": "citation",
-          "count": 40,
+          "count": 42,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -48889,7 +49024,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 40,
+              "count": 42,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -49342,6 +49477,15 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Illustrative toy, not measured model performance. The two ac"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "Two actions fork one predicted future. Beat 1: The same tabl"
         },
         {
           "familyHead": "ibm plex mono",
@@ -50936,6 +51080,15 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Illustrative toy, not measured Dreamer or TD-MPC performance"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "Small model errors accumulate in imagination. Beat 1: An ima"
         },
         {
           "familyHead": "ibm plex sans",
@@ -54104,7 +54257,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 6230,
+      "visibleTextLength": 6225,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -55871,7 +56024,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18616,
+      "visibleTextLength": 18654,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -56013,7 +56166,7 @@
           "widthPx": 665,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "beat 4 / 4 delay 200 ms maximum speed 14.64 m/s"
+          "text": "beat 4 / 4 delay 200 ms avoidance 346 ms maximum speed 14.64"
         },
         {
           "familyHead": "ibm plex sans",
@@ -56023,6 +56176,15 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Falanga et al.'s cited 8 m range, 25 m/s² agility, and stere"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "Perception delay lowers the safe speed. Beat 1: An obstacle "
         },
         {
           "familyHead": "ibm plex mono",
@@ -60723,6 +60885,15 @@
           "text": "Schematic, authored link lengths and angles from the planar "
         },
         {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "A joint turns every link downstream. Beat 1: The base joint "
+        },
+        {
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.33,
@@ -61547,6 +61718,15 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Authored fixed-seed planning scene, not a published benchmar"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "A seeded tree finds a path around obstacles. Beat 1: A fixed"
         },
         {
           "familyHead": "ibm plex mono",
@@ -65514,6 +65694,15 @@
           "familyHead": "newsreader",
           "sizePx": 19,
           "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "Kalman filter: predict and update. A five-beat scene in the "
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
@@ -66774,6 +66963,15 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Illustrative log-scaled hours with authored 7- and 1,000-hou"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "How a farm rate changes time to an authored target. Beat 1: "
         },
         {
           "familyHead": "ibm plex mono",
@@ -68497,6 +68695,15 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Illustrative constant conditional probability of 95% per dec"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "Conditional success compounds over an illustrative episode. "
         },
         {
           "familyHead": "ibm plex sans",
@@ -70271,6 +70478,15 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Illustrative cell, not observed economics or a financial for"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "Clearing time takes capacity from an authored picking cell. "
         },
         {
           "familyHead": "newsreader",
@@ -74982,6 +75198,15 @@
           "familyHead": "newsreader",
           "sizePx": 19,
           "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "A contact channel can reveal slip. Beat 1: A schematic gripp"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
@@ -76424,7 +76649,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15161,
+      "visibleTextLength": 15156,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -76569,6 +76794,15 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Illustrative independence model, not a measured robot policy"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "The last stretch of episode reliability. Beat 1: At 95% succ"
         },
         {
           "familyHead": "ibm plex sans",
@@ -83005,6 +83239,15 @@
           "familyHead": "newsreader",
           "sizePx": 19,
           "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "Diffusion policy: denoising actions. A four-beat scene in a "
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
@@ -87250,6 +87493,15 @@
           "familyHead": "newsreader",
           "sizePx": 19,
           "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "Flow matching transports action samples. Beat 1: A seeded to"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
@@ -91019,7 +91271,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21247,
+      "visibleTextLength": 21243,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -91154,6 +91406,15 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Schematic, illustrative action vector: normalized bounds and"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "From continuous action to token. Beat 1: A toy continuous ac"
         },
         {
           "familyHead": "newsreader",
@@ -94951,6 +95212,15 @@
           "text": "Schematic, authored gait duty factors and phase offsets from"
         },
         {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "Foot support over an authored stride cycle. Beat 1: The auth"
+        },
+        {
           "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.33,
@@ -96820,6 +97090,15 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Illustrative fixed-transition calculation, not a measured tr"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "Parallel rollouts change a fixed training budget. Beat 1: At"
         },
         {
           "familyHead": "ibm plex mono",
@@ -102288,7 +102567,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17880,
+      "visibleTextLength": 17899,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -102431,6 +102710,15 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Schematic, authored impulse and friction model, not a measur"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "A rendered scene needs a solver to answer a push. Beat 1: Th"
         },
         {
           "familyHead": "ibm plex mono",
@@ -102842,7 +103130,7 @@
         },
         {
           "kind": "citation",
-          "count": 40,
+          "count": 42,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -102852,7 +103140,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 40,
+              "count": 42,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -103305,6 +103593,15 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Illustrative toy, not measured model performance. The two ac"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "Two actions fork one predicted future. Beat 1: The same tabl"
         },
         {
           "familyHead": "ibm plex mono",
@@ -104899,6 +105196,15 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Illustrative toy, not measured Dreamer or TD-MPC performance"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "Small model errors accumulate in imagination. Beat 1: An ima"
         },
         {
           "familyHead": "ibm plex sans",

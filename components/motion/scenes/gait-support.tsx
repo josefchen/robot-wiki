@@ -47,8 +47,8 @@ function GaitSupportStage() {
       <text x={26} y={25} fontSize={13} fill="var(--motion-stage-label)">feet on ground · sampled cycle</text>
       {GAIT_ORDER.map((id, row) => (
         <g key={id}>
-          <AnimatedElement as="text" x={27} y={59 + row * 40}
-            fontSize={13} fill="var(--motion-stage-label)"
+          <AnimatedElement as="text" data-scene-stage-label="gait-name" x={27} y={59 + row * 40}
+            fontSize={16} fill="var(--motion-stage-label)"
             bindings={{ opacity: (t) => progress(t, row) }}>
             {GAITS[id].name}
           </AnimatedElement>
@@ -60,16 +60,17 @@ function GaitSupportStage() {
               <g key={phase}>
                 <AnimatedElement as="rect"
                   data-scene-mark={`${id}-phase-${column}`}
-                  x={115 + column * 51} y={baseline - Math.max(count, 1) * 5}
-                  width={27} height={Math.max(count, 1) * 5}
+                  x={115 + column * 51} y={baseline - Math.max(count, 1) * 4}
+                  width={27} height={Math.max(count, 1) * 4}
                   fill={count ? 'var(--role-state-stage)' : 'url(#gait-flight-hatch)'}
                   stroke={count ? 'var(--role-state-stage)' : 'var(--role-constraint-stage)'}
                   strokeWidth={1}
                   bindings={{ opacity: (t) => progress(t, row) }}
                 />
                 {count === 2 && (
-                  <AnimatedElement as="text" x={128.5 + column * 51} y={baseline + 16}
-                    textAnchor="middle" fontSize={12} fill="var(--motion-stage-label-secondary)"
+                  <AnimatedElement as="text" data-scene-stage-label="stance-pair"
+                    x={128.5 + column * 51} y={baseline + 18}
+                    textAnchor="middle" fontSize={16} fill="var(--motion-stage-label-secondary)"
                     bindings={{ opacity: (t) => progress(t, row) }}>
                     {stance.map((leg) => leg.toUpperCase()).join('+')}
                   </AnimatedElement>
@@ -84,8 +85,9 @@ function GaitSupportStage() {
           stroke="var(--motion-stage-axes)" opacity="var(--motion-stage-axes-opacity)" />
       </g>
       {['10%', '48%', '60%', '98%'].map((label, column) => (
-        <text key={label} x={128 + column * 51} y={209} textAnchor="middle"
-          fontSize={12} fill="var(--motion-stage-label-secondary)">{label}</text>
+        <text key={label} data-scene-stage-label="sample-phase"
+          x={128 + column * 51} y={210} textAnchor="middle"
+          fontSize={16} fill="var(--motion-stage-label-secondary)">{label}</text>
       ))}
       <text x={26} y={230} fontSize={13} fill="var(--motion-stage-label-secondary)">
         illustrative phases · no measured footfall data

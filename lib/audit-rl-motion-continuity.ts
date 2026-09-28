@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, resolve } from 'node:path';
 import { z } from 'zod';
 import { createLocalArtifactReader, type LocalArtifact } from './audit-local-basis.ts';
 
@@ -59,6 +59,7 @@ export function currentRlMotionArticle(
   historical: LocalArtifact,
   entries: readonly Continuity[],
   proofReference: LocalArtifact = historical,
+  parsedInputCache?: Map<string, unknown>,
 ): Buffer {
   const entry = entries.find((candidate) => candidate.article === historical.path);
   if (!entry || entry.historical.path !== historical.path ||
@@ -66,9 +67,17 @@ export function currentRlMotionArticle(
     entry.historical.sha256 !== historical.sha256) {
     throw Error('RL motion continuity identity drift');
   }
-  const catalog = JSON.parse(readFileSync(join(root, 'audit/local-basis.json'), 'utf8')) as {
+  // Fresh bytes and the root are compared before reusing only the pure parse.
+  // Population, article, citation and review checks still run for this member.
+  const catalogBytes = readFileSync(join(root, 'audit/local-basis.json'));
+  const key = resolve(root);
+  type ProofIndex = {
     proofs: { id: string; artifacts: { file: LocalArtifact }[] }[];
   };
+  const cached = parsedInputCache?.get(key) as { bytes: Buffer; catalog: ProofIndex } | undefined;
+  const unchanged = cached?.bytes.equals(catalogBytes) ?? false;
+  const catalog: ProofIndex = unchanged ? cached!.catalog : JSON.parse(catalogBytes.toString()) as ProofIndex;
+  if (!unchanged) parsedInputCache?.set(key, { bytes: catalogBytes, catalog });
   const bound = catalog.proofs.filter((proof) => proof.artifacts.some(({ file }) =>
     file.path === proofReference.path && file.bytes === proofReference.bytes &&
     file.sha256 === proofReference.sha256)).map((proof) => proof.id).sort();

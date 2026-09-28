@@ -84,6 +84,7 @@ describe('frontier and adjacent scene truth', () => {
     expect(reliabilityThresholdFrame(spans[1].end).episodeSuccess)
       .toBeLessThan(reliabilityThresholdFrame(spans[2].end).episodeSuccess);
     expect(spans[1].linear).toBe(true);
+    expect(RELIABILITY_THRESHOLD_SCENE.beats[0].caption).toMatch(/95%.*21\.5%/);
   });
 
   it('shows a toy slip and a distinct tactile correction, without a performance claim', () => {
@@ -101,6 +102,14 @@ describe('frontier and adjacent scene truth', () => {
     const delayed = senseAvoidFrame(spans[2].end);
     expect(first.outcome).toEqual(latencyOutcome(SENSORS[0].latencyS, DEFAULT_AGILITY, SENSORS[0].rangeM));
     expect(delayed.outcome.maxSpeedMs).toBeLessThan(first.outcome.maxSpeedMs);
+    expect(first.latency).toBeCloseTo(0.07);
+    expect(delayed.latency).toBeCloseTo(0.2);
+    expect(first.outcome.avoidanceTimeS).toBeCloseTo(delayed.outcome.avoidanceTimeS);
+    const middle = senseAvoidFrame((spans[2].start + spans[2].end) / 2);
+    expect(middle.latency).toBeCloseTo(0.135);
+    expect(middle.outcome.avoidanceTimeS).toBeCloseTo(first.outcome.avoidanceTimeS);
+    expect(middle.outcome.maxSpeedMs).toBeLessThan(first.outcome.maxSpeedMs);
+    expect(middle.outcome.maxSpeedMs).toBeGreaterThan(delayed.outcome.maxSpeedMs);
     expect(spans[2].linear).toBe(true);
   });
 

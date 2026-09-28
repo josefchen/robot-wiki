@@ -37,6 +37,7 @@ describe('frontier safety prose continuation', () => {
   it('chains the historical checker revision without rewriting its review', () => {
     const checker = readFileSync(`${root}/lib/audit-local-basis.ts`);
     expect(reviewedFrontierChecker(root, checker)).toBe(true);
-    expect(reviewedFrontierChecker(root, Buffer.from(`${checker.toString()}\n`))).toBe(false);
+    expect(() => reviewedFrontierChecker(root, Buffer.from(`${checker.toString()}\n`)))
+      .toThrow(/motion domain-pairs checker continuity drift/);
   });
 });

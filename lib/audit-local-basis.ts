@@ -11,6 +11,7 @@ import { buildManifest, sha256, stableJson, type JsonValue } from './brand-v2-ba
 import { originalClaimDigest, parseLedger, validateExternalPairs, type ClaimEvidence } from './audit-ledger.ts';
 import { currentRlMotionArticle, loadRlMotionContinuity } from './audit-rl-motion-continuity.ts';
 import { currentFrontierSafetyArticle, reviewedFrontierChecker } from './audit-frontier-motion-continuity.ts';
+import { retainedDomainPairSource } from './audit-motion-domain-pairs-continuity.ts';
 import {
   currentDataHardwareMotionArtifact,
 } from './audit-data-hardware-motion-continuity.ts';
@@ -701,7 +702,7 @@ type RelevantContinuity = {
   beforeClause: string; afterClause: string; preservedDisclosure: string;
   affectedProofIds: string[]; checkerCheckpointProofIds: string[];
 };
-function readKrogerContinuity(root: string): RelevantContinuity {
+function readKrogerContinuity(root: string, parsedInputCache?: Map<string, unknown>): RelevantContinuity {
   const value = JSON.parse(readBoundedLocalFile(root, KROGER_CONTINUITY).toString()) as RelevantContinuity;
   requireThat(value.schemaVersion === 'citation-kroger-relevant-continuity-v1' && value.reviewedBy &&
     value.rationale && Date.parse(value.reviewedAt) <= Date.now(), 'missing relevant continuity review');
@@ -716,9 +717,19 @@ function readKrogerContinuity(root: string): RelevantContinuity {
     value.sourceBody.path === 'audit/evidence/citation-closeout-20260924/kroger-archive-webfetch.txt' &&
     value.sourceBody.sha256 === '1d08cbc02e62c5f75816f3facfac80fd78735a3ebb83de6da3d5d6160c9263ae',
   'wrong relevant continuity paths');
-  const catalog = JSON.parse(readBoundedLocalFile(root, 'audit/local-basis.json').toString()) as {
+  // Re-read and compare complete current bytes on every obligation. Reuse only the
+  // pure JSON parse when the exact bytes and root were already seen here.
+  const catalogBytes = readBoundedLocalFile(root, 'audit/local-basis.json');
+  const key = resolve(root);
+  type ProofIndex = {
     proofs: { id: string; artifacts: { file: { path: string; sha256: string } }[] }[];
   };
+  const cached = parsedInputCache?.get(key) as { bytes: Buffer; catalog: ProofIndex } | undefined;
+  const catalog: ProofIndex = cached?.bytes.equals(catalogBytes) ? cached.catalog :
+    JSON.parse(catalogBytes.toString()) as ProofIndex;
+  if (!cached || !cached.bytes.equals(catalogBytes)) {
+    parsedInputCache?.set(key, { bytes: catalogBytes, catalog });
+  }
   const affected = catalog.proofs.filter(p =>
     p.artifacts.some(a => a.file.path === INDUSTRIAL_ARTICLE)).map(p => p.id).sort();
   requireThat(affected.length === 21 && same(affected, value.affectedProofIds), 'affected proof population drift');
@@ -887,9 +898,16 @@ function verifyMergedControlArticle(root: string, current: Buffer): Buffer {
   'merged Control article changed beyond the approved main section and see-also link');
   return local;
 }
-function readRetainedDependency(root: string, ref: LocalArtifact): Buffer {
+function readRetainedDependency(root: string, ref: LocalArtifact, parsedInputCache?: Map<string, unknown>): Buffer {
   const current = readBoundedLocalFile(root, ref.path);
+  const readContinuity = () => readKrogerContinuity(root, parsedInputCache);
   if (current.length === ref.bytes && sha256(current) === ref.sha256) return current;
+  if ((ref.path === 'components/interactive/gait-diagram.tsx' &&
+    ref.bytes === 16503 && ref.sha256 === '23ebfff6f843bdacde32e0bac3ed77a494ac0da441af43aa27c7ad281fc9763e') ||
+    (ref.path === 'components/interactive/training-time-chart.tsx' &&
+    ref.bytes === 17843 && ref.sha256 === '4da47ae4cf73f7fe15f1c0347b5df7174e98680a2bc3e97525169e293c017ec8')) {
+    return retainedDomainPairSource(root, ref.path, current);
+  }
   if (ref.path === 'content/frontier/safety-and-assurance.mdx' &&
     ref.sha256 === '89c2e410795c25254a1ebdea7ccbadcddb364f6535f5ea9fe5d8ef7063113f69' &&
     ref.bytes === 19566) {
@@ -898,7 +916,7 @@ function readRetainedDependency(root: string, ref: LocalArtifact): Buffer {
   if (['content/rl-sim2real/parallel-sim-rl.mdx',
     'content/rl-sim2real/legged-locomotion.mdx',
     'content/rl-sim2real/reward-design-mpc.mdx'].includes(ref.path)) {
-    return currentRlMotionArticle(root, ref, loadRlMotionContinuity(root));
+    return currentRlMotionArticle(root, ref, loadRlMotionContinuity(root), ref, parsedInputCache);
   }
   if (ref.path === 'tests/e2e/industrial-deployment.spec.ts' &&
     ref.sha256 === WITHDRAWAL_E2E_SPEC_HASH && ref.bytes === WITHDRAWAL_E2E_SPEC_BYTES) {
@@ -949,7 +967,7 @@ function readRetainedDependency(root: string, ref: LocalArtifact): Buffer {
     return verifyMergedControlArticle(root, current);
   }
   if (ref.path === KROGER_REGISTRY && ref.sha256 === LOCAL_REGISTRY_HASH && ref.bytes === 300677) {
-    const continuity = readKrogerContinuity(root);
+    const continuity = readContinuity();
     const main = mergeSnapshot(root, 'main-citations.ts.txt', MAIN_REGISTRY_HASH);
     const local = mergeSnapshot(root, 'local-citations.ts.txt', LOCAL_REGISTRY_HASH);
     const before = readBoundedLocalFile(root, continuity.citationBefore.path);
@@ -969,7 +987,7 @@ function readRetainedDependency(root: string, ref: LocalArtifact): Buffer {
     return local;
   }
   if (ref.path === KROGER_REGISTRY && ref.sha256 === MAIN_REGISTRY_HASH && ref.bytes === 305677) {
-    const continuity = readKrogerContinuity(root);
+    const continuity = readContinuity();
     const main = mergeSnapshot(root, 'main-citations.ts.txt', MAIN_REGISTRY_HASH);
     const local = mergeSnapshot(root, 'local-citations.ts.txt', LOCAL_REGISTRY_HASH);
     const before = readBoundedLocalFile(root, continuity.citationBefore.path);
@@ -989,13 +1007,13 @@ function readRetainedDependency(root: string, ref: LocalArtifact): Buffer {
     return main;
   }
   if (ref.path === INDUSTRIAL_ARTICLE && ref.sha256 === MAIN_ARTICLE_HASH && ref.bytes === 19397) {
-    verifyMergedArticle(root, current, readKrogerContinuity(root));
+    verifyMergedArticle(root, current, readContinuity());
     const main = mergeSnapshot(root, 'main-article.mdx.txt', MAIN_ARTICLE_HASH);
     requireThat(main.length === ref.bytes, 'main release article dependency length');
     return main;
   }
   if (ref.path === INDUSTRIAL_ARTICLE && ref.sha256 === LOCAL_ARTICLE_HASH && ref.bytes === 19478) {
-    const continuity = readKrogerContinuity(root);
+    const continuity = readContinuity();
     verifyMergedArticle(root, current, continuity);
     const local = mergeSnapshot(root, 'local-article.mdx.txt', LOCAL_ARTICLE_HASH);
     requireThat(local.length === ref.bytes && local.length === continuity.articleAfter.bytes &&
@@ -1009,14 +1027,14 @@ function readRetainedDependency(root: string, ref: LocalArtifact): Buffer {
     // continuation of those bytes, so the reader verifies the live article
     // through the full merged-article equation and returns the archived
     // withdrawal output those runs actually observed.
-    verifyMergedArticle(root, current, readKrogerContinuity(root));
+    verifyMergedArticle(root, current, readContinuity());
     const withdrawalOutput = readBoundedLocalFile(root, `${WITHDRAWAL_INPUTS}pre-educational-relocation-article.mdx`);
     requireThat(withdrawalOutput.length === ref.bytes && sha256(withdrawalOutput) === ref.sha256,
       'withdrawal output article dependency drift');
     return withdrawalOutput;
   }
   if (ref.path === INDUSTRIAL_CHECKER && ref.sha256 === MAIN_CHECKER_HASH && ref.bytes === 63495) {
-    verifyMergedChecker(root, current, readKrogerContinuity(root));
+    verifyMergedChecker(root, current, readContinuity());
     const main = mergeSnapshot(root, 'main-checker.ts.txt', MAIN_CHECKER_HASH);
     requireThat(main.length === ref.bytes, 'main release checker dependency length');
     return main;
@@ -1026,7 +1044,7 @@ function readRetainedDependency(root: string, ref: LocalArtifact): Buffer {
     (ref.sha256 === '23cc7a08ea940819eed563ce7ff95b174246d4d023032c5c3c221a8082baca85' &&
       ref.bytes === 301139)
   )) {
-    const continuity = readKrogerContinuity(root);
+    const continuity = readContinuity();
     const old = readBoundedLocalFile(root, ref.sha256 === CONTROL_REGISTRY_SNAPSHOT_SHA
       ? CONTROL_REGISTRY_SNAPSHOT : continuity.citationBefore.path);
     const original = readBoundedLocalFile(root, continuity.citationBefore.path);
@@ -1108,7 +1126,7 @@ function readRetainedDependency(root: string, ref: LocalArtifact): Buffer {
   requireThat(binding && binding.current.path === ref.path && binding.rationale, 'stale dependency review');
   const expectedCurrent = binding.current as LocalArtifact;
   if (ref.path === INDUSTRIAL_ARTICLE || ref.path === INDUSTRIAL_CHECKER) {
-    const continuity = readKrogerContinuity(root);
+    const continuity = readContinuity();
     if (ref.path === INDUSTRIAL_ARTICLE) {
       verifyMergedArticle(root, current, continuity);
       requireThat(expectedCurrent.bytes === mergeSnapshot(root, 'main-article.mdx.txt', MAIN_ARTICLE_HASH).length &&
@@ -1126,7 +1144,7 @@ function readRetainedDependency(root: string, ref: LocalArtifact): Buffer {
         'audit/evidence/motion-world-models-20260927/dependency-review-before.json')),
     'RL motion prior review drift');
     currentRlMotionArticle(root, expectedCurrent,
-      loadRlMotionContinuity(root), ref);
+      loadRlMotionContinuity(root), ref, parsedInputCache);
   } else if (ref.path === 'content/data-hardware/data-bottleneck.mdx') {
     const preMotion = currentDataHardwareMotionArtifact(root, 0, current);
     requireThat(expectedCurrent.bytes === preMotion.length &&
@@ -1148,13 +1166,13 @@ function readRetainedDependency(root: string, ref: LocalArtifact): Buffer {
   }
   return archived;
 }
-export function createLocalArtifactReader(root: string): (ref: LocalArtifact) => Buffer {
+export function createLocalArtifactReader(root: string, parsedInputCache?: Map<string, unknown>): (ref: LocalArtifact) => Buffer {
   let consumed = 0;
   return (input) => {
     const ref = artifact.parse(input);
     consumed += ref.bytes;
     requireThat(consumed <= 64 * 1024 * 1024, 'artifact read budget exceeded');
-    const bytes = readRetainedDependency(root, ref);
+    const bytes = readRetainedDependency(root, ref, parsedInputCache);
     requireThat(bytes.length === ref.bytes && sha256(bytes) === ref.sha256, `artifact bytes/hash: ${ref.path}`);
     return bytes;
   };
@@ -1431,11 +1449,11 @@ export function parseOriginalLedgerSection(ledgerPath: string, articleSlug: stri
 }
 export type LocalBasisResult = { planId: string; kind: 'authored-local' | 'mixed-local'; failures: string[] };
 export function validateLocalBasisPlan(plan: LocalPlan, current: CellTuple, binding: string, scalar: ClaimEvidence,
-  registryIds: ReadonlySet<string>, context: LocalBasisContext): LocalBasisResult {
+  registryIds: ReadonlySet<string>, context: LocalBasisContext, parsedInputCache?: Map<string, unknown>): LocalBasisResult {
   const failures: string[] = [];
   const result: LocalBasisResult = { planId: plan.id, kind: plan.parts.some(p => p.kind === 'external-source') ? 'mixed-local' : 'authored-local', failures };
   try {
-    const read = createLocalArtifactReader(context.root);
+    const read = createLocalArtifactReader(context.root, parsedInputCache);
     requireThat(binding === plan.id && !Object.values(scalar).some(Boolean), 'missing binding or mixed scalar fields');
     requireThat(same(current, plan.currentCells) && originalClaimDigest(current) === plan.currentTupleDigest, 'current native identity drift');
     requireThat(context.publishedRoutes.includes(routeFor(plan)), 'unpublished target');

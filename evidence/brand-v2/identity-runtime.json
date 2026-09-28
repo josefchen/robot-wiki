@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "b5ffdb7143eabf1273ef98356e6021e154ba138e00157c27841517acad6a29a7",
+  "fingerprint": "510014a1006295478f5ec5ce0503f72c184025ffdc759d2b000bd943aa4ad680",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -252,7 +252,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 6230,
+      "visibleTextLength": 6225,
       "route": "/",
       "viewport": "1440x900"
     },
@@ -760,7 +760,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18616,
+      "visibleTextLength": 18654,
       "route": "/adjacent/drones/",
       "viewport": "1440x900"
     },
@@ -4316,7 +4316,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 15161,
+      "visibleTextLength": 15156,
       "route": "/frontier/reliability-gap/",
       "viewport": "1440x900"
     },
@@ -6602,7 +6602,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 21247,
+      "visibleTextLength": 21243,
       "route": "/manipulation/vla-models/",
       "viewport": "1440x900"
     },
@@ -8634,7 +8634,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17880,
+      "visibleTextLength": 17899,
       "route": "/world-models/generative-sim/",
       "viewport": "1440x900"
     },
@@ -9569,7 +9569,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 6008,
+      "visibleTextLength": 6003,
       "route": "/",
       "viewport": "375x812"
     },
@@ -10077,7 +10077,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18298,
+      "visibleTextLength": 18336,
       "route": "/adjacent/drones/",
       "viewport": "375x812"
     },
@@ -13633,7 +13633,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 14826,
+      "visibleTextLength": 14821,
       "route": "/frontier/reliability-gap/",
       "viewport": "375x812"
     },
@@ -15919,7 +15919,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 20620,
+      "visibleTextLength": 20616,
       "route": "/manipulation/vla-models/",
       "viewport": "375x812"
     },
@@ -17951,7 +17951,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17396,
+      "visibleTextLength": 17415,
       "route": "/world-models/generative-sim/",
       "viewport": "375x812"
     },

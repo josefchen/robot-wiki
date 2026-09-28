@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "0bdcd292688c083279cc1bf42af079f6e7515a938cdee690554ee166dc198539",
+  "fingerprint": "627d6aec81ffe5975625c30fa1e759a333c90722b924c3c4f3691a0e3f09d0f2",
   "viewports": [
     "375x812",
     "1440x900"
@@ -123,7 +123,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18298,
+      "visibleTextLength": 18336,
       "tables": [
         {
           "index": 0,
@@ -4535,7 +4535,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14826,
+      "visibleTextLength": 14821,
       "tables": [
         {
           "index": 0,
@@ -6716,7 +6716,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 20620,
+      "visibleTextLength": 20616,
       "tables": [
         {
           "index": 0,
@@ -7303,7 +7303,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17396,
+      "visibleTextLength": 17415,
       "tables": [],
       "equations": [
         {
@@ -7615,7 +7615,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18616,
+      "visibleTextLength": 18654,
       "tables": [
         {
           "index": 0,
@@ -12027,7 +12027,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15161,
+      "visibleTextLength": 15156,
       "tables": [
         {
           "index": 0,
@@ -14208,7 +14208,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 21247,
+      "visibleTextLength": 21243,
       "tables": [
         {
           "index": 0,
@@ -14795,7 +14795,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17880,
+      "visibleTextLength": 17899,
       "tables": [],
       "equations": [
         {

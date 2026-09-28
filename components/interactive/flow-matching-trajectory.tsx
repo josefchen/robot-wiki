@@ -226,13 +226,9 @@ export function FlowMatchingTrajectory({
               <polyline
                 points={points.map((p) => `${x(p.x)},${y(p.y)}`).join(' ')}
                 fill="none"
-                stroke={
-                  sample.mode === 0
-                    ? 'var(--color-accent)'
-                    : 'var(--color-text-dim)'
-                }
+                stroke="var(--role-action-graphic)"
                 strokeWidth={1}
-                opacity={0.3}
+                opacity={sample.mode === 0 ? 0.45 : 0.32}
               />
               <circle
                 cx={x(sample.noise.x)}
@@ -247,11 +243,7 @@ export function FlowMatchingTrajectory({
                 cx={x(end.x)}
                 cy={y(end.y)}
                 r={3}
-                fill={
-                  sample.mode === 0
-                    ? 'var(--color-accent)'
-                    : 'var(--color-text)'
-                }
+                fill="var(--role-action-graphic)"
                 opacity={0.9}
               />
             </g>
@@ -263,13 +255,14 @@ export function FlowMatchingTrajectory({
           <g key={i}>
             <path
               d={`M${x(m.x) - 7},${y(m.y)} L${x(m.x) + 7},${y(m.y)} M${x(m.x)},${y(m.y) - 7} L${x(m.x)},${y(m.y) + 7}`}
-              stroke="var(--color-accent)"
+              stroke="var(--role-reference-graphic)"
               strokeWidth={1.5}
+              strokeDasharray="3 2"
             />
             <text
               x={x(m.x) + 10}
               y={y(m.y) - 10}
-              fill="var(--color-text)"
+              fill="var(--role-reference-text)"
               fontSize={10}
               fontFamily="var(--font-mono)"
             >

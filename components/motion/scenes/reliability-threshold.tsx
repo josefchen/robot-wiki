@@ -18,7 +18,7 @@ export const RELIABILITY_THRESHOLD_SCENE: SceneDefinition = {
   id: 'reliability-threshold',
   title: 'The last stretch of episode reliability',
   beats: [
-    { id: 'episode', caption: 'A toy episode requires every one of its thirty decisions to succeed.' },
+    { id: 'episode', caption: 'At 95% success per decision, this thirty-decision toy episode succeeds about 21.5% of the time.' },
     { id: 'ninety-five', duration: 'long', linear: true, caption: 'Raising conditional success from 95% to 99% changes the thirty-step outcome from 21.5% to 74.0%.' },
     { id: 'ninety-nine-nine', duration: 'long', linear: true, caption: 'At 99.9% per decision, the same model gives 97.0% for thirty steps.' },
     { id: 'recap', caption: 'The same horizon exposes the last stretch; these are illustrative probabilities, not measured policies.' },
@@ -64,14 +64,14 @@ function ReliabilityThresholdStage() {
               fill="var(--role-value-stage)"
               bindings={{ height: (t) => height * visibility(t),
                 y: (t) => BAR_BASE - height * visibility(t) }} />
-            <text x={X[index] + 22} y={195} textAnchor="middle" fontSize={14}
-              fill="var(--motion-stage-label)">
+            <AnimatedElement as="text" x={X[index] + 22} y={195} textAnchor="middle" fontSize={14}
+              fill="var(--motion-stage-label)" bindings={{ opacity: visibility }}>
               {['95%', '99%', '99.9%'][index]}
-            </text>
-            <text x={X[index] + 22} y={215} textAnchor="middle" fontSize={14}
-              fill="var(--motion-stage-label-secondary)">
+            </AnimatedElement>
+            <AnimatedElement as="text" x={X[index] + 22} y={215} textAnchor="middle" fontSize={14}
+              fill="var(--motion-stage-label-secondary)" bindings={{ opacity: visibility }}>
               {`${(compoundedSuccessRate(rate, HORIZON) * 100).toFixed(1)}%`}
-            </text>
+            </AnimatedElement>
           </g>
         );
       })}
@@ -99,7 +99,7 @@ export function ReliabilityThreshold({ className }: { className?: string }) {
         return <><span className="text-text-dim">conditional rate</span> {(frame.perStep * 100).toFixed(1)}%{' '}
           <span className="text-text-dim">episode</span> {(frame.episodeSuccess * 100).toFixed(1)}%</>;
       }}
-      statusLine="Illustrative independence model, not a measured robot policy. The calculator below keeps independent probability and horizon controls."
+      statusLine="Illustrative independence model, not a measured robot policy. A separate calculator lets you vary probability and episode length."
       textAlternative={`${RELIABILITY_THRESHOLD_SCENE.title}. ${RELIABILITY_THRESHOLD_SCENE.beats.map((beat, index) => `Beat ${index + 1}: ${beat.caption}`).join(' ')}`}
     />
   );

@@ -329,6 +329,7 @@ export function TrainingTimeChart({
         {/* Current slider position on the active curve. */}
         <circle
           data-testid="position-marker"
+          data-selection="current environment count"
           cx={xFor(envs)}
           cy={yFor(f(wallSeconds / 60))}
           r={5}

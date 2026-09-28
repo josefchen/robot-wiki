@@ -3,7 +3,7 @@ import { resolve } from 'node:path';
 import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
 import {
-  BASELINE_KINDS, buildManifest, compareBaseline, sha256,
+  BASELINE_KINDS, approvedDeltaPath, buildManifest, compareBaseline, sha256,
   type ApprovedDelta, type BaselineBundle,
 } from '../../lib/brand-v2-baseline';
 import { collectArticleTruthManifests } from '../../scripts/brand-v2-baseline';
@@ -113,7 +113,36 @@ describe('merged reader corrections preserve production additions and exact appr
       const pass = approvals.find(a => a.id ===
         `motion-world-models-humanizer-v3-20260927-prose-${path.slice('content/world-models/'.length, -4)}`)!;
       expect(hashOf(committedSource('68fd2b8', path))).toBe(pass.oldHash);
-      expect(hashOf(read(path))).toBe(pass.newHash);
+      if (path === 'content/world-models/generative-sim.mdx') {
+        expect(hashOf(committedSource('a6298625', path))).toBe(pass.newHash);
+        const prose = approvals.find(a => a.id ===
+          'motion-scrutiny-s12-20260928-prose-generative-sim-citation-attachment')!;
+        expect(prose).toMatchObject({
+          manifest: 'prose', memberId: id, oldHash: pass.newHash,
+          newHash: '4b18ebca49f3165a16d99e7cf26f234067e41ab20c4c2f20da24ca5408e2a32d',
+        });
+        expect(hashOf(read(path))).toBe(prose.newHash);
+
+        const relationship = approvals.find(a => a.id ===
+          'motion-scrutiny-s12-20260928-relationships-generative-sim-citation')!;
+        expect(relationship).toMatchObject({
+          manifest: 'relationships', memberId: id,
+          oldHash: 'b6dec2d3600c39707607ef01d9a9657493939964398d1ab46d6733983451a34d',
+          newHash: 'fe9ee3b3cce0506268f5f916dc5c7577bdf11418014d355d30aa5e4b2dd76c3d',
+        });
+        expect(truth.relationships.members.find(m => m.id === id)?.hash).toBe(relationship.newHash);
+        const relationshipEdges = approvals.filter(a => a.manifest === 'relationships' && a.memberId === id);
+        const sealedHash = sealed.manifests.relationships.members.find(m => m.id === id)!.hash;
+        expect(approvedDeltaPath(relationshipEdges, sealedHash, relationship.newHash).status).toBe('approved');
+        expect(approvedDeltaPath(relationshipEdges.filter(a => a !== relationship),
+          sealedHash, relationship.newHash).status).not.toBe('approved');
+        expect(approvedDeltaPath(relationshipEdges.map(a => a === relationship
+          ? { ...a, oldHash: sha256('wrong S12 relationship predecessor') } : a),
+        sealedHash, relationship.newHash).status).not.toBe('approved');
+        expect(approvedDeltaPath(relationshipEdges.map(a => a === relationship
+          ? { ...a, newHash: sha256('wrong S12 relationship endpoint') } : a),
+        sealedHash, relationship.newHash).status).not.toBe('approved');
+      } else expect(hashOf(read(path))).toBe(pass.newHash);
     } else if (path === 'content/frontier/bear-case.mdx') {
       const source = committedSource('ebf13b4', path);
       expect(source).toContain('lastReviewed: "2026-08-18"');

@@ -10,9 +10,10 @@ export interface SceneAudit {
 
 /**
  * Runs inside the page, after fonts and the named beat have settled.
- * `getBoundingClientRect` includes SVG transforms, unlike raw path/ellipse
- * coordinates. Every shape is a mark unless explicitly structural; axes,
- * grid and label leaders are structural, not observations.
+ * `getBoundingClientRect` includes SVG transforms but not stroke paint.
+ * Expand visible geometry by its stroke in CSS pixels, including lines
+ * whose geometric rectangle has zero width or height. Axes, grid and label
+ * leaders remain structural rather than observations.
  */
 export function auditSceneElement(root: Element): SceneAudit {
   const intersections: string[] = [];
@@ -38,13 +39,61 @@ export function auditSceneElement(root: Element): SceneAudit {
       }))
       .filter(({ rect }) => rect.width > 0.01 && rect.height > 0.01);
   const text = boxes('text, [data-scene-equation]');
+  const paintedRect = (element: SVGGraphicsElement): DOMRect | null => {
+    const geometry = element.getBoundingClientRect();
+    const style = getComputedStyle(element);
+    const line = element instanceof SVGLineElement;
+    // A zero-length line, or a zero-area filled shape, paints nothing.
+    if (geometry.width <= 0.01 && geometry.height <= 0.01) return null;
+    const filled = !line && style.fill !== 'none' && Number(style.fillOpacity) > 0.01 &&
+      geometry.width > 0.01 && geometry.height > 0.01;
+    const stroked = style.stroke !== 'none' && Number(style.strokeOpacity) > 0.01 &&
+      Number.parseFloat(style.strokeWidth) > 0;
+    if (!filled && !stroked) return null;
+    if (!stroked) return geometry;
+    const matrix = element.getScreenCTM();
+    if (!matrix) return null;
+    const half = Number.parseFloat(style.strokeWidth) / 2;
+    const nonScaling = style.vectorEffect === 'non-scaling-stroke';
+    let dx: number;
+    let dy: number;
+    if (line) {
+      const lengthX = element.x2.baseVal.value - element.x1.baseVal.value;
+      const lengthY = element.y2.baseVal.value - element.y1.baseVal.value;
+      const length = Math.hypot(lengthX, lengthY);
+      if (length <= 0.01) return null;
+      const nx = -lengthY / length;
+      const ny = lengthX / length;
+      if (nonScaling) {
+        const screenLength = Math.hypot(matrix.a * lengthX + matrix.c * lengthY,
+          matrix.b * lengthX + matrix.d * lengthY);
+        dx = half * Math.abs((matrix.b * lengthX + matrix.d * lengthY) / screenLength);
+        dy = half * Math.abs((matrix.a * lengthX + matrix.c * lengthY) / screenLength);
+      } else {
+        dx = half * Math.abs(matrix.a * nx + matrix.c * ny);
+        dy = half * Math.abs(matrix.b * nx + matrix.d * ny);
+      }
+      if (style.strokeLinecap !== 'butt') {
+        // Round/square caps extend by half a stroke along the tangent.
+        const scale = nonScaling ? 1 / Math.hypot(matrix.a * lengthX + matrix.c * lengthY,
+          matrix.b * lengthX + matrix.d * lengthY) * length : 1;
+        dx += half * Math.abs(matrix.a * lengthX / length + matrix.c * lengthY / length) * scale;
+        dy += half * Math.abs(matrix.b * lengthX / length + matrix.d * lengthY / length) * scale;
+      }
+    } else {
+      dx = half * (nonScaling ? 1 : Math.hypot(matrix.a, matrix.c));
+      dy = half * (nonScaling ? 1 : Math.hypot(matrix.b, matrix.d));
+    }
+    return new DOMRect(geometry.left - dx, geometry.top - dy,
+      geometry.width + 2 * dx, geometry.height + 2 * dy);
+  };
   const marks = [...svg.querySelectorAll<Element>('circle, ellipse, line, path, polygon, polyline, rect')]
     .filter((element) => !element.closest('[data-scene-structure]') && visible(element))
     .map((element, index) => ({
       name: `${element.getAttribute('data-scene-mark') ?? element.tagName.toLowerCase()}#${index}`,
-      rect: element.getBoundingClientRect(),
+      rect: paintedRect(element as SVGGraphicsElement),
     }))
-    .filter(({ rect }) => rect.width > 0.01 && rect.height > 0.01);
+    .filter((item): item is { name: string; rect: DOMRect } => item.rect !== null);
   const intersects = (a: DOMRect, b: DOMRect) =>
     Math.min(a.right, b.right) - Math.max(a.left, b.left) > 0.1 &&
     Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top) > 0.1;

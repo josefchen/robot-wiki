@@ -8,7 +8,7 @@ describe('Generative simulation retained-source corrections', () => {
   it('keeps RoboCasa v1 inventory separate from the held 365 figures', () => {
     expect(prose).toContain('2,509 objects and 153 categories');
     expect(prose).toContain('25 atomic tasks and 75 composite tasks');
-    expect(prose).toContain('RoboCasa365 reports a separate, larger set <Cite id="robocasa-2024" />');
+    expect(prose).toContain('2024 RoboCasa release <Cite id="robocasa-2024" />. RoboCasa365 reports a separate, larger set <Cite id="robocasa365-2026" />');
   });
 
   it('binds generated-data scaling to the task, robot and evaluation protocol', () => {

@@ -45,8 +45,14 @@ interface Rule {
   id: TokenViolation['rule'];
   pattern: RegExp;
   /** Further excludes context the rule must not flag (id references). */
-  except?: (line: string, match: string) => boolean;
+  except?: (line: string, match: string, index: number) => boolean;
 }
+
+const timingValue = (line: string, index: number) =>
+  /(?:transition|animation)(?:TimingFunction|-timing-function)?\s*:\s*[^;]*$/i
+    .test(line.slice(0, index));
+const tokenProperty = (line: string, match: string, index: number) =>
+  /^(?:\s*:\s*['"]?)var\(--[\w-]+\)/.test(line.slice(index + match.length));
 
 const RULES: Rule[] = [
   {
@@ -68,12 +74,18 @@ const RULES: Rule[] = [
   {
     id: 'easing',
     pattern:
-      /\bease-(?:in-out|in|out|linear)\b|cubic-bezier\s*\(|transition-timing-function|animation-timing-function/g,
+      /(?<![\w-])ease(?:-(?:in-out|in|out|linear))?(?![\w-])|(?<![\w-])(?:steps|linear)\s*\(|cubic-bezier\s*\(|(?:transition|animation)(?:-timing-function|TimingFunction)/g,
+    except: (line, match, index) =>
+      /^(?:ease|steps|linear)/.test(match) && !timingValue(line, index) &&
+        !/^ease-(?:in-out|in|out|linear)$/.test(match) ||
+      /^(?:transition|animation)/.test(match) && tokenProperty(line, match, index),
   },
   {
     id: 'duration',
     pattern:
-      /\btransition-duration\b|\banimation-duration\b|\bduration-\d|\bdelay-\d|\b\d+(?:\.\d+)?ms\b|\b\d+\.\d+s\b/g,
+      /\b(?:transition|animation)(?:-duration|Duration)\b|\bduration-\d|\bdelay-\d|\b\d+(?:\.\d+)?(?:ms|s)\b/g,
+    except: (line, match, index) =>
+      /^(?:transition|animation)/.test(match) && tokenProperty(line, match, index),
   },
 ];
 
@@ -93,7 +105,7 @@ export function scanMotionSourcesForViolations(
         rule.pattern.lastIndex = 0;
         let match: RegExpExecArray | null;
         while ((match = rule.pattern.exec(line)) !== null) {
-          if (rule.except?.(line, match[0])) continue;
+          if (rule.except?.(line, match[0], match.index)) continue;
           violations.push({
             file: path,
             line: lineNumber + 1,

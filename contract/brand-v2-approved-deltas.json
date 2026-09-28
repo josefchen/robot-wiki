@@ -35268,6 +35268,30 @@
         "VAL-B2-BASE-012"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "motion-scrutiny-s12-20260928-prose-generative-sim-citation-attachment",
+      "manifest": "prose",
+      "memberId": "article:world-models/generative-sim",
+      "oldHash": "9459001f9f2b98c46b35e2685c671bd824993c2230f428cb6ba9f66677f29f37",
+      "newHash": "4b18ebca49f3165a16d99e7cf26f234067e41ab20c4c2f20da24ca5408e2a32d",
+      "reason": "S12 citation attachment only: keep robocasa-2024 beside the v1 inventory and place robocasa365-2026 beside the separately named release. The complete preserved RoboCasa365 PDF (SHA-256 3253894415c1470ee63aae7f65198d9bd0cfd0563851a2bb7418c3f9519bc99d) identifies the paper and reports 365 tasks across 2,500 kitchen environments in the abstract; its retained extraction was verified against fresh local pdftotext output. Original packet retrieval 2026-09-24T08:30:39Z, not a new fetch. No numbers, unrelated prose, frontmatter or audit verdicts changed; not whole-article review or release acceptance.",
+      "ownerApproval": "Owner-assigned Robot Wiki Mission mis_2b1673fa batch-3 S12 source-attachment correction, bounded to the verified retained primary document and exact approved prose edge.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": ["VAL-MOTION-023", "VAL-B2-BASE-012"],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-scrutiny-s12-20260928-relationships-generative-sim-citation",
+      "manifest": "relationships",
+      "memberId": "article:world-models/generative-sim",
+      "oldHash": "b6dec2d3600c39707607ef01d9a9657493939964398d1ab46d6733983451a34d",
+      "newHash": "fe9ee3b3cce0506268f5f916dc5c7577bdf11418014d355d30aa5e4b2dd76c3d",
+      "reason": "S12 adds one robocasa365-2026 citation occurrence adjacent to the larger-release sentence while preserving the RoboCasa v1 citation and all other article citation, link, term and see-also edges. The prior digest equals the same current relationships member with exactly that single 365 occurrence removed. This is a bounded relationship transition, not whole-article source certification or release acceptance.",
+      "ownerApproval": "Owner-assigned Robot Wiki Mission mis_2b1673fa batch-3 S12 primary-document citation correction, limited to the exact retained PDF evidence and original source identity.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": ["VAL-B2-BASE-002", "VAL-B2-BASE-011", "VAL-MOTION-023"],
+      "disposition": "permanent"
     }
   ]
 }

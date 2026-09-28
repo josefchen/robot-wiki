@@ -1,0 +1,505 @@
+'use client';
+
+import { useId, useState } from 'react';
+import { ChartDescription } from '@/components/ui/chart-description';
+import {
+  ControlLabel,
+  InstrumentFrame,
+  InstrumentLegend,
+  InstrumentReadout,
+  InstrumentReset,
+  PlotStage,
+} from '@/components/ui/instrument';
+import {
+  DEFAULT_ENVS,
+  MAX_ENVS,
+  MIN_ENVS,
+  RUDIN_MARKERS,
+  curvePoints,
+  formatEnvs,
+  formatFps,
+  formatWallClock,
+  iterationBreakdown,
+  iterationsToTarget,
+  simulationOvertakeEnvs,
+  throughputFps,
+  wallClockSeconds,
+} from '@/lib/parallel-sim';
+import { EDGE_DASH, SERIES_DASH } from '@/lib/semantic-mark-cues';
+import { cx } from '@/lib/utils';
+
+/**
+ * TrainingTimeChart: wall-clock time-to-target-reward against parallel
+ * environment count, on a log-log chart.
+ *
+ * The curve is an illustrative fixed-transitions model tuned to pass through
+ * a four-minute illustrative reference. The flat marker x-coordinate is a
+ * teaching choice, not a recovered flat-run environment count. The diamonds
+ * show reported time bounds, not measured equalities. A stacked bar
+ * splits one training iteration into simulation, learning update, and
+ * CPU + transfer work, recomposing as the env count moves. The CPU
+ * single-core bottleneck toggle adds an assumed per-environment CPU cost,
+ * motivated by the task-specific Isaac Lab v1 CPU comparison, and overlays
+ * the toy GPU-scaling curve as a dashed reference; neither curve is measured.
+ *
+ * Interactive contract: deterministic initial render, native range input and
+ * aria-pressed toggle (keyboard-accessible), visible monospace readouts,
+ * reset control, fixed SVG viewport (no layout shift), no JS-driven motion
+ * (scrub-only, so reduced-motion safe by construction).
+ */
+
+const WIDTH = 640;
+const HEIGHT = 360;
+const PLOT = { left: 64, right: 624, top: 16, bottom: 316 } as const;
+
+const MIN_LOG2 = Math.log2(MIN_ENVS); // 6
+const MAX_LOG2 = Math.log2(MAX_ENVS); // 14
+const Y_MIN_MINUTES = 1;
+const Y_MAX_MINUTES = 300;
+
+/** Round to 2 decimals so SSR HTML and client hydration serialize identically. */
+const f = (v: number) => Number(v.toFixed(2));
+
+function xFor(envs: number): number {
+  const t = (Math.log2(envs) - MIN_LOG2) / (MAX_LOG2 - MIN_LOG2);
+  return f(PLOT.left + t * (PLOT.right - PLOT.left));
+}
+
+function yFor(minutes: number): number {
+  const t =
+    Math.log10(minutes) / Math.log10(Y_MAX_MINUTES / Y_MIN_MINUTES);
+  return f(PLOT.bottom - t * (PLOT.bottom - PLOT.top));
+}
+
+const Y_TICKS: Array<{ minutes: number; label: string }> = [
+  { minutes: 1, label: '1 min' },
+  { minutes: 10, label: '10 min' },
+  { minutes: 60, label: '1 h' },
+  { minutes: 300, label: '5 h' },
+];
+
+const X_TICKS = [64, 256, 1024, 4096, 16384] as const;
+
+/**
+ * User-space width of the breakdown bar. The bar stretches to its container,
+ * so the coordinate system only has to be wide enough that the dot tile is
+ * not distorted out of recognition at the narrowest layout.
+ */
+const BAR_UNITS = 640;
+
+function polylinePoints(cpuBound: boolean): string {
+  return curvePoints(cpuBound)
+    .map((p) => `${xFor(p.envs)},${yFor(p.minutes)}`)
+    .join(' ');
+}
+
+export function TrainingTimeChart({
+  defaultEnvs = DEFAULT_ENVS,
+  className,
+}: {
+  defaultEnvs?: number;
+  className?: string;
+}) {
+  const uid = useId();
+  const descriptionId = `${uid}-description`;
+  const cpuTileId = `${uid}-cpu-tile`;
+  const [log2Envs, setLog2Envs] = useState(Math.log2(defaultEnvs));
+  const [cpuBound, setCpuBound] = useState(false);
+
+  const envs = 2 ** log2Envs;
+  const breakdown = iterationBreakdown(envs, cpuBound);
+  const wallSeconds = wallClockSeconds(envs, cpuBound);
+  const fps = throughputFps(envs, cpuBound);
+  const iterations = iterationsToTarget(envs);
+
+  const simPct = f((breakdown.simSeconds / breakdown.totalSeconds) * 100);
+  const learnPct = f((breakdown.learnSeconds / breakdown.totalSeconds) * 100);
+  const cpuPct = f((breakdown.cpuSeconds / breakdown.totalSeconds) * 100);
+  // Where simulation draws level with the rest of one iteration. Exists
+  // only in the default mode; in cpuBound mode there is no crossover, so
+  // the description states that instead of quoting a number that cannot
+  // be right in both states.
+  const overtakeEnvs = simulationOvertakeEnvs(false) ?? 0;
+
+  function reset() {
+    setLog2Envs(Math.log2(defaultEnvs));
+    setCpuBound(false);
+  }
+
+  return (
+    <InstrumentFrame className={className}>
+      <div className="grid gap-4 lg:grid-cols-[1fr_auto_auto] lg:items-end">
+        <div>
+          <ControlLabel
+            htmlFor="ttc-envs"
+            value={`${formatEnvs(envs)} envs`}
+          >
+            Parallel environments
+          </ControlLabel>
+          <input
+            id="ttc-envs"
+            type="range"
+            data-brand-control-id="control:input"
+            min={MIN_LOG2}
+            max={MAX_LOG2}
+            step={1}
+            value={log2Envs}
+            onChange={(e) => setLog2Envs(Number(e.target.value))}
+            aria-label={`Parallel environments, currently ${formatEnvs(envs)}`}
+            className="mt-2 w-full accent-accent"
+          />
+        </div>
+        <button
+          data-brand-control-id="control:selection"
+          type="button"
+          aria-pressed={cpuBound}
+          onClick={() => setCpuBound((v) => !v)}
+          className={cx(
+            'rounded-sm border px-3 py-1.5 font-mono text-xs transition-colors active:translate-y-[1px]',
+            cpuBound
+              ? 'border-accent text-text'
+              : 'border-border bg-surface-2 text-text-dim hover:border-border-strong hover:text-text',
+          )}
+        >
+          CPU single-core bottleneck
+        </button>
+        <InstrumentReset onClick={reset} />
+      </div>
+
+      <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1 font-mono text-xs">
+        <span className="text-text-dim">
+          envs:{' '}
+          <span data-testid="envs-readout" className="text-text">
+            {formatEnvs(envs)}
+          </span>
+        </span>
+        <span className="text-text-dim">
+          wall-clock:{' '}
+          <span data-testid="wallclock-readout" className="text-accent">
+            {formatWallClock(wallSeconds)}
+          </span>
+        </span>
+        <span className="text-text-dim">
+          throughput:{' '}
+          <span data-testid="fps-readout" className="text-text">
+            {formatFps(fps)}
+          </span>
+        </span>
+        <span className="text-text-dim">
+          iteration:{' '}
+          <span data-testid="iter-readout" className="text-text">
+            {Math.round(breakdown.totalSeconds * 1000)} ms x{' '}
+            {formatEnvs(Math.round(iterations))} iters
+          </span>
+        </span>
+      </div>
+
+      <PlotStage
+        viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
+        aria-label={`Wall-clock training time against parallel environments, ${formatEnvs(envs)} envs`}
+        aria-describedby={descriptionId}
+        className="mt-3"
+      >
+        {/* Axes caption. */}
+        <text
+          x={PLOT.left}
+          y={10}
+          fill="var(--color-text-dim)"
+          fontSize={10}
+          fontFamily="var(--font-mono)"
+        >
+          wall-clock to target reward (log)
+        </text>
+        {/* Horizontal gridlines and y tick labels. */}
+        {Y_TICKS.map((t) => (
+          <g key={t.minutes}>
+            <line
+              x1={PLOT.left}
+              x2={PLOT.right}
+              y1={yFor(t.minutes)}
+              y2={yFor(t.minutes)}
+              stroke="var(--color-border)"
+              strokeWidth={1}
+            />
+            <text
+              x={PLOT.left - 8}
+              y={f(yFor(t.minutes) + 3)}
+              textAnchor="end"
+              fill="var(--color-text-dim)"
+              fontSize={10}
+              fontFamily="var(--font-mono)"
+            >
+              {t.label}
+            </text>
+          </g>
+        ))}
+        {/* Vertical gridlines and x tick labels. */}
+        {X_TICKS.map((n) => (
+          <g key={n}>
+            <line
+              x1={xFor(n)}
+              x2={xFor(n)}
+              y1={PLOT.top}
+              y2={PLOT.bottom}
+              stroke="var(--color-border)"
+              strokeWidth={1}
+            />
+            <text
+              x={xFor(n)}
+              y={f(PLOT.bottom + 14)}
+              textAnchor={n === MAX_ENVS ? 'end' : 'middle'}
+              fill="var(--color-text-dim)"
+              fontSize={10}
+              fontFamily="var(--font-mono)"
+            >
+              {formatEnvs(n)}
+            </text>
+          </g>
+        ))}
+        <text
+          x={f((PLOT.left + PLOT.right) / 2)}
+          y={HEIGHT - 8}
+          textAnchor="middle"
+          fill="var(--color-text-dim)"
+          fontSize={10}
+          fontFamily="var(--font-mono)"
+        >
+          parallel environments (log2)
+        </text>
+
+        {/* GPU-scaling reference curve, shown only in bottleneck mode. */}
+        {cpuBound && (
+          <polyline
+            data-testid="reference-curve"
+            points={polylinePoints(false)}
+            fill="none"
+            stroke="var(--color-border-strong)"
+            strokeWidth={1.5}
+            strokeDasharray="4 4"
+          />
+        )}
+
+        {/* Active curve. Dash-dot in the bottleneck regime, so the regime is
+            legible from the line itself and not only from its hue. */}
+        <polyline
+          data-testid="active-curve"
+          points={polylinePoints(cpuBound)}
+          fill="none"
+          stroke={cpuBound ? 'var(--color-err)' : 'var(--color-accent)'}
+          strokeWidth={2}
+          strokeDasharray={cpuBound ? SERIES_DASH.error : undefined}
+        />
+        <text
+          x={f(PLOT.right - 4)}
+          y={f(yFor(wallClockSeconds(MAX_ENVS, cpuBound) / 60) - 10)}
+          textAnchor="end"
+          fill={cpuBound ? 'var(--color-err)' : 'var(--color-accent)'}
+          fontSize={10}
+          fontFamily="var(--font-mono)"
+        >
+          {cpuBound ? 'CPU-bound' : 'GPU-scaling'}
+        </text>
+
+        {/* Reported time bounds; flat x-coordinate is illustrative. */}
+        {RUDIN_MARKERS.map((m) => {
+          const x = xFor(m.envs);
+          const y = yFor(m.minutes);
+          return (
+            <g key={m.id} data-testid={`rudin-marker-${m.id}`}>
+              <path
+                d={`M ${x},${f(y - 5)} L ${f(x + 5)},${y} L ${x},${f(y + 5)} L ${f(x - 5)},${y} Z`}
+                fill="var(--color-bg)"
+                stroke="var(--color-text)"
+                strokeWidth={1.5}
+              />
+              <text
+                x={f(x - 10)}
+                y={f(m.id === 'uneven' ? y - 8 : y + 16)}
+                textAnchor="end"
+                fill="var(--color-text-dim)"
+                fontSize={10}
+                fontFamily="var(--font-mono)"
+              >
+                {m.label}
+              </text>
+            </g>
+          );
+        })}
+
+        {/* Current slider position on the active curve. */}
+        <circle
+          data-testid="position-marker"
+          cx={xFor(envs)}
+          cy={yFor(f(wallSeconds / 60))}
+          r={5}
+          fill={cpuBound ? 'var(--color-err)' : 'var(--color-accent)'}
+          stroke="var(--color-bg)"
+          strokeWidth={2}
+          strokeDasharray={cpuBound ? EDGE_DASH.error : undefined}
+        />
+      </PlotStage>
+
+      {/* Iteration-time breakdown bar. The CPU bucket is dotted rather than
+          only red, and the legend key repeats the same tile, so the mapping
+          from key to segment survives desaturation.
+
+          The bar itself is decorative: the legend immediately below states
+          each bucket by name and share as text, so naming the graphic as
+          well would announce the same three numbers twice. */}
+      <div
+        data-brand-surface-id="surface:flat"
+        className="mt-3 h-[18px] overflow-hidden rounded-sm border border-border"
+      >
+        <svg
+          viewBox={`0 0 ${BAR_UNITS} 18`}
+          preserveAspectRatio="none"
+          aria-hidden
+          className="block h-full w-full"
+        >
+          <defs>
+            <pattern
+              id={cpuTileId}
+              width={5}
+              height={5}
+              patternUnits="userSpaceOnUse"
+              patternTransform="rotate(45)"
+            >
+              <line
+                x1={2.5}
+                y1={0}
+                x2={2.5}
+                y2={5}
+                stroke="var(--color-err)"
+                strokeWidth={2.6}
+                strokeDasharray="2.6 2.4"
+              />
+            </pattern>
+          </defs>
+          <rect
+            data-testid="breakdown-sim"
+            x={0}
+            y={0}
+            width={f((simPct / 100) * BAR_UNITS)}
+            height={18}
+            fill="var(--color-accent)"
+          />
+          <rect
+            data-testid="breakdown-learn"
+            x={f((simPct / 100) * BAR_UNITS)}
+            y={0}
+            width={f((learnPct / 100) * BAR_UNITS)}
+            height={18}
+            fill="var(--color-text-dim)"
+          />
+          <rect
+            data-testid="breakdown-cpu"
+            x={f(((simPct + learnPct) / 100) * BAR_UNITS)}
+            y={0}
+            width={f((cpuPct / 100) * BAR_UNITS)}
+            height={18}
+            fill={`url(#${cpuTileId})`}
+          />
+        </svg>
+      </div>
+      <InstrumentLegend className="mt-2">
+        <span className="flex items-center gap-1.5">
+          <span
+            className="inline-block h-2.5 w-2.5 rounded-[1px]"
+            style={{ background: 'var(--color-accent)' }}
+          />
+          simulation{' '}
+          <span data-testid="share-sim" className="text-text">
+            {Math.round(simPct)}%
+          </span>
+        </span>
+        <span className="flex items-center gap-1.5">
+          <span
+            className="inline-block h-2.5 w-2.5 rounded-[1px]"
+            style={{ background: 'var(--color-text-dim)' }}
+          />
+          learning update{' '}
+          <span data-testid="share-learn" className="text-text">
+            {Math.round(learnPct)}%
+          </span>
+        </span>
+        <span className="flex items-center gap-1.5">
+          <svg
+            width={10}
+            height={10}
+            aria-hidden
+            className="inline-block shrink-0 rounded-[1px]"
+          >
+            <rect width={10} height={10} fill={`url(#${cpuTileId})`} />
+          </svg>
+          CPU + transfer{' '}
+          <span data-testid="share-cpu" className="text-text">
+            {Math.round(cpuPct)}%
+          </span>
+        </span>
+      </InstrumentLegend>
+
+      <InstrumentReadout>
+        <span className="text-text-dim">{formatEnvs(envs)} envs:</span>{' '}
+        <span className="text-accent">{formatWallClock(wallSeconds)}</span>{' '}
+        <span className="text-text-dim">to target reward at</span>{' '}
+        <span className="text-text">{formatFps(fps)}</span>
+      </InstrumentReadout>
+      <p
+        data-testid="cpu-explanation"
+        className="mt-2 font-sans text-xs leading-relaxed text-text-dim"
+      >
+        {cpuBound
+          ? 'This toy adds an assumed per-environment CPU cost, so the dash-dot curve flattens; the fine evenly dashed curve is the same toy without that cost. Isaac Lab v1 motivates the comparison with a specific benchmark: a 5090 / AMD 9800X3D workstation approaches a 2x RTX PRO 6000 server on the Franka cabinet task. Neither this curve nor its CPU-cost constant is measured by that benchmark.'
+          : 'At low env counts the fixed per-iteration costs (learning update, host-device transfer, the Python loop) dominate and the GPU idles; at high counts simulation takes over and wall-clock falls from hours to minutes. Diamonds show reported time bounds, not measured equalities. The rough/deployment run used 4,096 robots and an i9-11900k / RTX A6000; the flat diamond x-coordinate is illustrative.'}
+      </p>
+
+      <ChartDescription
+        id={descriptionId}
+        className="mt-3"
+        form="table"
+        summary="Sampled wall-clock by parallel environment count"
+        rowHeader="parallel envs"
+        columns={[
+          { header: 'wall-clock', numeric: true },
+          { header: 'throughput', numeric: true },
+        ]}
+        rows={X_TICKS.map((n) => ({
+          label: formatEnvs(n),
+          values: [
+            formatWallClock(wallClockSeconds(n, cpuBound)),
+            formatFps(throughputFps(n, cpuBound)),
+          ],
+        }))}
+        description={
+          <>
+            Wall-clock to the target reward falls steeply from{' '}
+            {formatWallClock(wallClockSeconds(MIN_ENVS, cpuBound))} at {formatEnvs(MIN_ENVS)}{' '}
+            envs to {formatWallClock(wallClockSeconds(envs, cpuBound))} at the current{' '}
+            {formatEnvs(envs)} envs, then flattens toward{' '}
+            {formatWallClock(wallClockSeconds(MAX_ENVS, cpuBound))} at{' '}
+            {formatEnvs(MAX_ENVS)}:{' '}
+            {cpuBound ? (
+              <>
+                the per-environment CPU cost outgrows simulation at every env
+                count, so simulation never draws level with the rest of the
+                iteration
+              </>
+            ) : (
+              <>
+                simulation draws level with the fixed learn-and-transfer costs
+                near {formatEnvs(Math.round(overtakeEnvs))} envs, between the
+                8,192 and 16,384 stops, and is the larger bucket beyond
+              </>
+            )}
+            , and the flat-terrain time bound (under 4 min) is shown at an illustrative
+            4,096-env position, not a source-established flat-run environment count
+            {cpuBound
+              ? '; with the CPU single-core bottleneck on, the curve flattens earlier and higher'
+              : ''}
+            .
+          </>
+        }
+      />
+    </InstrumentFrame>
+  );
+}

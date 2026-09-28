@@ -105,6 +105,10 @@ function ActionDecodeStage() {
       </AnimatedElement>
       {ACTION_DIMS.map((dimension, index) => {
         const x = VIEW.left + index * 44;
+        const token = tokenForBin(binIndex(CHUNK[index][STEP]));
+        const tokenOpacity = (t: number) => Number(
+          (actionDecodeFrame(t).visibleTokens.length > index ? 1 : 0).toFixed(3),
+        );
         return (
           <g key={dimension.id}>
             <AnimatedCircle
@@ -115,10 +119,11 @@ function ActionDecodeStage() {
                 opacity: (t) => Number(clamp01(actionDecodeFrame(t).decodeProgress * ACTION_DIMS.length - index).toFixed(3)),
               }}
             />
-            <AnimatedElement as="text" x={x + 6} y={207} textAnchor="middle"
-              fontSize={13} fill="var(--motion-stage-label-secondary)"
-              bindings={{ opacity: (t) => Number(clamp01(actionDecodeFrame(t).decodeProgress * ACTION_DIMS.length - index).toFixed(3)) }}>
-              {index + 1}
+            <AnimatedElement as="text" data-scene-token={index + 1}
+              x={x + 6} y={index % 2 === 0 ? 207 : 226}
+              textAnchor="middle" fontSize={14}
+              fill="var(--role-action-stage)" bindings={{ opacity: tokenOpacity }}>
+              {token}
             </AnimatedElement>
           </g>
         );
@@ -126,11 +131,6 @@ function ActionDecodeStage() {
       <AnimatedLine data-scene-structure="decode-sequence" x1={VIEW.left} x2={VIEW.right - 2}
         y1={183} y2={183} stroke="var(--role-action-stage)" strokeWidth={1}
         bindings={{ opacity: (t) => Number((actionDecodeFrame(t).recap * 0.5).toFixed(3)) }} />
-      <AnimatedElement as="text" x={35} y={229} fontSize={13}
-        fill="var(--motion-stage-label)"
-        bindings={{ opacity: (t) => actionDecodeFrame(t).recap }}>
-        seven sequential decodes for one step
-      </AnimatedElement>
     </StageSvg>
   );
 }
@@ -149,7 +149,7 @@ export function ActionDecode({ className }: { className?: string }) {
       }
       readout={() => <><span className="text-text-dim">toy value</span> {VALUE.toFixed(3)} <span className="text-text-dim">→</span> bin {BIN} <span className="text-text-dim">→</span> {tokenForBin(BIN)}</>}
       statusLine="Schematic, illustrative action vector: normalized bounds and token labels are a toy, not a measured rollout or literal vocabulary. The 256-bin mechanism and sequential decoding are the subject; the lab below exposes all coordinates."
-      textAlternative={`${ACTION_DECODE_SCENE.title}. ${ACTION_DECODE_SCENE.beats.map((beat, index) => `Beat ${index + 1}: ${beat.caption}`).join(' ')} The selected coordinate is ${ACTION_DIMS[DIMENSION].label} at step ${STEP}, assigned to bin ${BIN} of ${BIN_COUNT - 1}.`}
+      textAlternative={`${ACTION_DECODE_SCENE.title}. ${ACTION_DECODE_SCENE.beats.map((beat, index) => `Beat ${index + 1}: ${beat.caption}`).join(' ')} The selected coordinate is ${ACTION_DIMS[DIMENSION].label} at step ${STEP}, assigned to bin ${BIN} of ${BIN_COUNT - 1}. The illustrative token sequence is ${ACTION_DIMS.map((dimension, index) => `${dimension.label} ${tokenForBin(binIndex(CHUNK[index][STEP]))}`).join(', ')}.`}
     />
   );
 }

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "6bdbefee8014a28492cf7729eb9d3f6598fbda9ad12dd94e26065ac902a30460",
+  "fingerprint": "a0d1b804f8f12e838c3fb6af3406b7b0d4f20ffb51a5b3e679bb1136baa15d47",
   "source": "out/ static export",
   "routes": [
     {
@@ -704,7 +704,7 @@
     },
     {
       "route": "/world-models/generative-sim/",
-      "outboundAnchors": 31,
+      "outboundAnchors": 32,
       "distinctHrefs": 11,
       "shapes": [
         "citation-chip",
@@ -781,17 +781,17 @@
     }
   ],
   "routesSwept": 74,
-  "outboundAnchors": 3131,
+  "outboundAnchors": 3132,
   "distinctOutboundHrefs": 857,
   "anchorsByShape": {
     "figure-credit": 246,
     "footer": 148,
-    "citation-chip": 1382,
+    "citation-chip": 1383,
     "reference-entry": 751,
     "other": 604
   },
   "anchorsWithoutNoopener": 0,
-  "anchorsWithNoreferrer": 2596,
+  "anchorsWithNoreferrer": 2597,
   "keyboard": [
     {
       "route": "/",
@@ -1331,11 +1331,11 @@
     },
     {
       "route": "/world-models/generative-sim/",
-      "outboundInDom": 31,
-      "reachedByTab": 31,
+      "outboundInDom": 32,
+      "reachedByTab": 32,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 126
+      "tabStops": 128
     },
     {
       "route": "/world-models/generative-video/",

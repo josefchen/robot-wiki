@@ -1,10 +1,12 @@
 import { execFileSync } from 'node:child_process';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
+import { createElement } from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
 import { beatSpans, posterTime } from '@/components/motion/timeline';
-import { BATCH_SCALE_SCENE, batchScaleFrame } from '@/components/motion/scenes/batch-scale';
-import { GAIT_SUPPORT_SAMPLES, GAIT_SUPPORT_SCENE, gaitSupportFrame } from '@/components/motion/scenes/gait-support';
+import { BatchScale, BATCH_SCALE_SCENE, batchScaleFrame } from '@/components/motion/scenes/batch-scale';
+import { GaitSupport, GAIT_SUPPORT_SAMPLES, GAIT_SUPPORT_SCENE, gaitSupportFrame } from '@/components/motion/scenes/gait-support';
 import { DEFAULT_GAIT, GAITS, GAIT_ORDER, minStanceCount, stanceLegs } from '@/lib/gait';
 import { DEFAULT_ENVS, MAX_ENVS, MIN_ENVS, wallClockSeconds } from '@/lib/parallel-sim';
 import { NO_SLOP_EXCEPTIONS } from '@/data/no-slop-exceptions';
@@ -111,6 +113,14 @@ describe('RL and sim-to-real scene models', () => {
       expect(scene.beats).toHaveLength(4);
       for (const beat of scene.beats) expect(beat.caption).toMatch(/[.!?]$/);
     }
+  });
+
+  it('marks the gait pair/phase and batch axis labels for rendered-size checks', () => {
+    const gait = renderToStaticMarkup(createElement(GaitSupport));
+    const batch = renderToStaticMarkup(createElement(BatchScale));
+    const count = (html: string) => [...html.matchAll(/data-scene-stage-label=/g)].length;
+    expect(count(gait)).toBeGreaterThanOrEqual(10);
+    expect(count(batch)).toBeGreaterThanOrEqual(4);
   });
 });
 

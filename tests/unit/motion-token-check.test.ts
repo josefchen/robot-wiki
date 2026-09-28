@@ -63,6 +63,34 @@ describe('motion token check', () => {
     expect(rules).toContain('easing');
   });
 
+  it.each([
+    'transition: opacity 1s ease;',
+    'animation: reveal 2s steps(4, end);',
+    'transition: transform 3s linear(0, 1);',
+    "style={{ transition: 'opacity 1s ease-in-out' }}",
+  ])('rejects literal timing in shorthand: %s', (source) => {
+    const path = write('components/motion/shorthand.tsx', source);
+    const rules = scanMotionSourcesForViolations([path], {
+      exemptPaths: new Set(),
+    }).map((violation) => violation.rule);
+    expect(rules).toContain('duration');
+    expect(rules).toContain('easing');
+  });
+
+  it.each([
+    'transition: opacity var(--motion-beat) var(--motion-ease-smooth);',
+    'transition: opacity var(--brand-transition-short) var(--brand-ease-out);',
+    "style={{ transition: 'opacity var(--motion-beat) var(--motion-ease-smooth)' }}",
+    'const steps = (n: number) => n + 1; const linear = (t: number) => t;',
+    'const value = linear(x) + steps(y);',
+    '<use href="#aabbcc" />',
+  ])('keeps token timing, math, and references: %s', (source) => {
+    const path = write('components/motion/positive.tsx', source);
+    expect(scanMotionSourcesForViolations([path], {
+      exemptPaths: new Set(),
+    })).toEqual([]);
+  });
+
   it('passes files that use tokens', () => {
     const path = write(
       'components/motion/scenes/example.tsx',

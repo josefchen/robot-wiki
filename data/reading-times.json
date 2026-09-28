@@ -12,7 +12,7 @@
     "minutes": 9
   },
   "manipulation/vla-models": {
-    "words": 2484,
+    "words": 2478,
     "minutes": 12
   },
   "manipulation/pi-line": {
@@ -108,7 +108,7 @@
     "minutes": 9
   },
   "world-models/generative-sim": {
-    "words": 2091,
+    "words": 2095,
     "minutes": 10
   },
   "world-models/model-based-robot-learning": {
@@ -188,7 +188,7 @@
     "minutes": 7
   },
   "frontier/reliability-gap": {
-    "words": 1717,
+    "words": 1718,
     "minutes": 9
   },
   "frontier/dexterity": {
@@ -216,7 +216,7 @@
     "minutes": 18
   },
   "adjacent/drones": {
-    "words": 2407,
+    "words": 2414,
     "minutes": 12
   },
   "adjacent/surgical": {

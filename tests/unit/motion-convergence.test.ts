@@ -21,7 +21,7 @@ describe('site-wide motion convergence', () => {
     for (const scene of SCENE_TARGETS) {
       const source = readFileSync(join(ROOT, 'components/motion/scenes', `${scene.id}.tsx`), 'utf8');
       expect(source).toContain(`id: '${scene.id}'`);
-      expect((source.match(/\bcaption:\s*['\n]/g) ?? []).length, scene.id).toBe(scene.beats);
+      expect((source.match(/\bcaption:\s*['`\n]/g) ?? []).length, scene.id).toBe(scene.beats);
       expect(source).toContain('<SceneMount');
       expect(scene.route).toMatch(/^\/[a-z0-9-/]+\/$/);
     }

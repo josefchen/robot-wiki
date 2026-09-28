@@ -3,7 +3,7 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { beatSpans, posterTime } from '@/components/motion/timeline';
 import { DEFAULT_ANGLES_DEG, LINK_LENGTHS, planarForwardKinematics } from '@/lib/planar-fk';
-import { RRT_SCENE, buildRrt, pathIfReached } from '@/lib/rrt';
+import { RRT_SCENE, buildRrt, edgesUpTo, pathIfReached } from '@/lib/rrt';
 import { NO_SLOP_EXCEPTIONS } from '@/data/no-slop-exceptions';
 import { findStructuralTells, structuralTellReport, STRUCTURAL_TELL_LIMIT } from '@/lib/no-slop';
 import { FK_CHAIN_SCENE, fkChainFrame } from '@/components/motion/scenes/fk-chain';
@@ -95,6 +95,24 @@ describe('classical scene models', () => {
     expect(rrtGrowthFrame(posterTime(spans))).toEqual(after);
     expect(RRT_GROWTH_SCENE.beats).toHaveLength(4);
     expect(RRT_GROWTH_SCENE.beats[1].linear).toBe(true);
+  });
+
+  it('reports connection only when the actual accepted tree reaches the goal', () => {
+    const result = buildRrt(RRT_SCENE);
+    const goal = result.goalNodeId!;
+    const spans = beatSpans(RRT_GROWTH_SCENE.beats);
+    const middle = rrtGrowthFrame(spans[2].start + spans[2].duration / 2);
+    expect(goal).toBe(288);
+    expect(middle.iteration).toBeLessThan(goal);
+    expect(middle.edges.length).toBeLessThan(result.nodes.length - 1);
+    expect(middle.goalReached).toBe(false);
+    expect(middle.path).toEqual([]);
+    const reached = rrtGrowthFrame(spans[2].end);
+    expect(reached.iteration).toBe(goal);
+    expect(reached.goalReached).toBe(true);
+    expect(reached.edges).toEqual(edgesUpTo(result, goal));
+    expect(reached.path).toEqual([]);
+    expect(rrtGrowthFrame(spans[3].end).path).toEqual(pathIfReached(result, goal));
   });
 
   it('keeps every beat caption a sentence', () => {

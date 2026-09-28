@@ -8,6 +8,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { createHash } from 'node:crypto';
 import { reviewedDataHardwareChecker } from './audit-data-hardware-motion-continuity.ts';
+import { reviewedDomainPairsChecker } from './audit-motion-domain-pairs-continuity.ts';
 
 const directory = 'audit/evidence/motion-frontier-adjacent-home-20260927/';
 const sha256 = (bytes: Buffer) => createHash('sha256').update(bytes).digest('hex');
@@ -71,6 +72,7 @@ export function reviewedFrontierChecker(root: string, live: Buffer): boolean {
   };
   const beforePath = `${directory}audit-local-basis-before.ts.txt`;
   const old = readFileSync(join(root, beforePath));
+  const predecessor = reviewedDomainPairsChecker(root, live);
   return review.schemaVersion === 'motion-frontier-checker-revision-v1' &&
     review.before.path === beforePath &&
     review.before.bytes === 110353 &&
@@ -79,8 +81,8 @@ export function reviewedFrontierChecker(root: string, live: Buffer): boolean {
     sha256(old) === review.before.sha256 &&
     reviewedDataHardwareChecker(root, old) &&
     review.after.path === 'lib/audit-local-basis.ts' &&
-    live.length === review.after.bytes &&
-    sha256(live) === review.after.sha256 &&
+    predecessor.length === review.after.bytes &&
+    sha256(predecessor) === review.after.sha256 &&
     Boolean(review.reviewedBy && review.rationale.length > 80) &&
     Number.isFinite(Date.parse(review.observedAt)) &&
     Date.parse(review.observedAt) <= Date.now();
