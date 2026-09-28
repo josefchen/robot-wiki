@@ -45,14 +45,66 @@ interface Rule {
   id: TokenViolation['rule'];
   pattern: RegExp;
   /** Further excludes context the rule must not flag (id references). */
-  except?: (line: string, match: string, index: number) => boolean;
+  except?: (
+    line: string,
+    match: string,
+    index: number,
+    source: string,
+    offset: number,
+    timingDeclarations: { start: number; end: number }[],
+  ) => boolean;
 }
 
-const timingValue = (line: string, index: number) =>
-  /(?:transition|animation)(?:TimingFunction|-timing-function)?\s*:\s*[^;]*$/i
-    .test(line.slice(0, index));
-const tokenProperty = (line: string, match: string, index: number) =>
-  /^(?:\s*:\s*['"]?)var\(--[\w-]+\)/.test(line.slice(index + match.length));
+/** CSS declarations may span lines; TS/JSX style properties may be quoted. */
+function timingDeclarationRanges(source: string): { start: number; end: number }[] {
+  const timingKey = '(?:transition|animation)(?:-timing-function|TimingFunction)?';
+  const starts = new RegExp(
+    // A quoted object key closes before its colon; a CSS declaration inside
+    // a quoted string has only the opening quote before the property name.
+    `(?:^|[;{},\\n])\\s*(?:(['"\`])${timingKey}\\1|${timingKey})\\s*:|['"\`]${timingKey}\\s*:`,
+    'gm',
+  );
+  const ranges: { start: number; end: number }[] = [];
+  for (const match of source.matchAll(starts)) {
+    let cursor = match.index + match[0].length;
+    while (/\s/.test(source[cursor] ?? '')) cursor += 1;
+    const start = cursor;
+    const quote = source[cursor];
+    const outerQuote = /['"`]/.test(source[match.index]) ? source[match.index] : null;
+    if (quote === '"' || quote === "'" || quote === '`') {
+      cursor += 1;
+      while (cursor < source.length) {
+        if (source[cursor] === '\\') cursor += 2;
+        else if (source[cursor++] === quote) break;
+      }
+    } else {
+      while (cursor < source.length && !/[;}]/.test(source[cursor])) {
+        if (outerQuote && source[cursor] === outerQuote) break;
+        // A comma introducing another style object property ends the value;
+        // a comma separating CSS transitions/animations does not.
+        if (source[cursor] === ',' && /^\s*[\w-]+\s*:/.test(source.slice(cursor + 1))) break;
+        cursor += 1;
+      }
+    }
+    ranges.push({ start, end: cursor });
+  }
+  return ranges;
+}
+
+const timingValue = (ranges: { start: number; end: number }[], index: number) =>
+  ranges.some(({ start, end }) => index >= start && index < end);
+const tokenProperty = (source: string, match: string, index: number) => {
+  let tail = source.slice(index + match.length);
+  const keyQuote = source[index - 1];
+  if (keyQuote === "'" || keyQuote === '"' || keyQuote === '`') {
+    const closing = tail.match(/^\s*(['"`])/);
+    if (closing) {
+      if (closing[1] !== keyQuote) return false;
+      tail = tail.slice(closing[0].length);
+    }
+  }
+  return /^\s*:\s*['"`]?\s*var\(--[\w-]+\)/.test(tail);
+};
 
 const RULES: Rule[] = [
   {
@@ -74,18 +126,18 @@ const RULES: Rule[] = [
   {
     id: 'easing',
     pattern:
-      /(?<![\w-])ease(?:-(?:in-out|in|out|linear))?(?![\w-])|(?<![\w-])(?:steps|linear)\s*\(|cubic-bezier\s*\(|(?:transition|animation)(?:-timing-function|TimingFunction)/g,
-    except: (line, match, index) =>
-      /^(?:ease|steps|linear)/.test(match) && !timingValue(line, index) &&
+      /(?<![\w-])ease(?:-(?:in-out|in|out|linear))?(?![\w-])|(?<![\w-])(?:steps\s*\(|linear(?:\s*\(|(?![\w-])))|cubic-bezier\s*\(|(?:transition|animation)(?:-timing-function|TimingFunction)/g,
+    except: (_line, match, _index, source, offset, declarations) =>
+      /^(?:ease|steps|linear)/.test(match) && !timingValue(declarations, offset) &&
         !/^ease-(?:in-out|in|out|linear)$/.test(match) ||
-      /^(?:transition|animation)/.test(match) && tokenProperty(line, match, index),
+      /^(?:transition|animation)/.test(match) && tokenProperty(source, match, offset),
   },
   {
     id: 'duration',
     pattern:
       /\b(?:transition|animation)(?:-duration|Duration)\b|\bduration-\d|\bdelay-\d|\b\d+(?:\.\d+)?(?:ms|s)\b/g,
-    except: (line, match, index) =>
-      /^(?:transition|animation)/.test(match) && tokenProperty(line, match, index),
+    except: (_line, match, _index, source, offset) =>
+      /^(?:transition|animation)/.test(match) && tokenProperty(source, match, offset),
   },
 ];
 
@@ -99,13 +151,15 @@ export function scanMotionSourcesForViolations(
     if (options.exemptPaths.has(path)) continue;
     const text = readFileSync(path, 'utf8');
     const lines = text.split('\n');
+    const declarations = timingDeclarationRanges(text);
     for (const rule of RULES) {
+      let lineOffset = 0;
       for (let lineNumber = 0; lineNumber < lines.length; lineNumber += 1) {
         const line = lines[lineNumber];
         rule.pattern.lastIndex = 0;
         let match: RegExpExecArray | null;
         while ((match = rule.pattern.exec(line)) !== null) {
-          if (rule.except?.(line, match[0], match.index)) continue;
+          if (rule.except?.(line, match[0], match.index, text, lineOffset + match.index, declarations)) continue;
           violations.push({
             file: path,
             line: lineNumber + 1,
@@ -113,6 +167,7 @@ export function scanMotionSourcesForViolations(
             snippet: line.trim().slice(0, 120),
           });
         }
+        lineOffset += line.length + 1;
       }
     }
   }

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "510014a1006295478f5ec5ce0503f72c184025ffdc759d2b000bd943aa4ad680",
+  "fingerprint": "994cf361c189751ccad5573908e2209dc033f8a35008651b609bf494d3d0bb30",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -7618,7 +7618,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 16800,
+      "visibleTextLength": 16790,
       "route": "/rl-sim2real/parallel-sim-rl/",
       "viewport": "1440x900"
     },
@@ -16935,7 +16935,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 16325,
+      "visibleTextLength": 16315,
       "route": "/rl-sim2real/parallel-sim-rl/",
       "viewport": "375x812"
     },

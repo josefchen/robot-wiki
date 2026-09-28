@@ -72,7 +72,7 @@ const cpuCurve = curve(true);
 function BatchScaleStage() {
   return (
     <StageSvg viewBox="0 0 340 240">
-      <text x={28} y={25} fontSize={13} fill="var(--motion-stage-label)">toy fixed-transition budget</text>
+      <text x={28} y={25} fontSize={16} fill="var(--motion-stage-label)">toy fixed-transition budget</text>
       <g data-scene-structure="axes">
         <line x1={LEFT} y1={TOP} x2={LEFT} y2={BOTTOM}
           stroke="var(--motion-stage-axes)" opacity="var(--motion-stage-axes-opacity)" />
@@ -96,10 +96,10 @@ function BatchScaleStage() {
           cy: (t) => y(batchScaleFrame(t).wallSeconds),
           opacity: (t) => eased(t, 0),
         }} />
-      <AnimatedElement as="text" x={28} y={226} fontSize={13}
+      <AnimatedElement as="text" x={28} y={226} fontSize={16}
         fill="var(--motion-stage-label)"
         bindings={{ opacity: (t) => batchScaleFrame(t).recap }}>
-        same experience budget, different iteration cost
+        same budget · different iteration cost
       </AnimatedElement>
     </StageSvg>
   );

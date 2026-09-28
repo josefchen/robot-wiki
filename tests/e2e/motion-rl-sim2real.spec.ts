@@ -148,14 +148,41 @@ test('paired RL stage labels render at least twelve CSS pixels across every reve
         await page.evaluate(() => document.fonts.ready);
         const scene = page.locator(`[data-motion-scene="${id}"]`);
         const measure = async (beat: string) => {
-          const sizes = await scene.locator('[data-scene-stage-label]').evaluateAll((labels) => labels
-            .filter((label) => Number(getComputedStyle(label).opacity) > 0)
-            .map((label) => {
+          const sizes = await scene.locator('svg.motion-stage-svg text').evaluateAll((labels) => labels
+            .filter((label) => {
               const svg = (label as SVGTextElement).ownerSVGElement!;
-              const viewBox = svg.viewBox.baseVal;
-              return { text: label.textContent, px: Number.parseFloat(getComputedStyle(label).fontSize) * svg.getBoundingClientRect().width / viewBox.width };
+              const box = label.getBoundingClientRect();
+              if (!box.width || !box.height) return false;
+              for (let element: Element | null = label; element && element !== svg.parentElement; element = element.parentElement) {
+                const style = getComputedStyle(element);
+                if (style.display === 'none' || style.visibility !== 'visible' || Number(style.opacity) <= 0) return false;
+              }
+              return true;
+            })
+            .map((label) => {
+              const text = label as SVGTextElement;
+              const scale = text.getScreenCTM();
+              return {
+                text: text.textContent?.trim(),
+                annotated: text.hasAttribute('data-scene-stage-label'),
+                px: Number.parseFloat(getComputedStyle(text).fontSize) * (scale ? Math.hypot(scale.a, scale.b) : 0),
+              };
             }));
           expect(sizes.length, `${id} ${width} ${beat} labels`).toBeGreaterThan(0);
+          expect(sizes.some((label) => !label.annotated), `${id} ${width} ${beat} unannotated text covered`).toBe(true);
+          const texts = sizes.map((label) => label.text);
+          expect(texts, `${id} ${width} ${beat} stage heading`).toContain(
+            id === 'gait-support' ? 'feet on ground · sampled cycle' : 'toy fixed-transition budget',
+          );
+          if (id === 'gait-support') {
+            expect(texts, `${id} ${width} ${beat} toy disclosure`).toContain(
+              'illustrative phases · no measured footfall data',
+            );
+          } else if (beat === 'poster' || beat === 'beat 4') {
+            expect(texts, `${id} ${width} ${beat} recap`).toContain(
+              'same budget · different iteration cost',
+            );
+          }
           for (const label of sizes) expect(label.px, `${id} ${width} ${beat} ${label.text}`).toBeGreaterThanOrEqual(12);
           const audit = await scene.evaluate(auditSceneElement);
           expect(audit.intersections, `${id} ${width} ${beat} intersections`).toEqual([]);
