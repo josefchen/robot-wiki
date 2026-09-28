@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "42cbd96cb84a2ceecf83d93929425bd557b8064463787c499d6ef4ae09d5739f",
+  "fingerprint": "342e7146771ece3940bcf9a24da0b65936dc2b29baabf38fdcd288f1be6a13b7",
   "route": "/",
   "viewport": "1440x900",
   "featured": {
@@ -3167,7 +3167,7 @@
       "documentScrollWidthPx": 320,
       "documentClientWidthPx": 320,
       "failures": [],
-      "measuredMembers": 349
+      "measuredMembers": 350
     },
     {
       "id": "profile:home-zoom-200-equivalent",
@@ -3178,7 +3178,7 @@
       "documentScrollWidthPx": 720,
       "documentClientWidthPx": 720,
       "failures": [],
-      "measuredMembers": 349
+      "measuredMembers": 350
     },
     {
       "id": "profile:home-text-200",

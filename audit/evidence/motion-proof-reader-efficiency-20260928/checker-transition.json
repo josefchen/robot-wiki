@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "motion-proof-reader-checker-revision-v1",
+  "before": {
+    "path": "audit/evidence/motion-proof-reader-efficiency-20260928/audit-local-basis-before.ts.txt",
+    "bytes": 111186,
+    "sha256": "4b1007a7e78d9ea05c34415cc869d0c11ef937c1e9158136041b4c102afdf84d"
+  },
+  "after": {
+    "path": "lib/audit-local-basis.ts",
+    "bytes": 111934,
+    "sha256": "7ffcf091f4fd8bdf8652eca51919d941c77aeae6f55e6cdc755e7e200dbdbcd6"
+  },
+  "reviewedBy": "Proof-reader efficiency implementer (not independent acceptance)",
+  "observedAt": "2026-09-28T06:07:12Z",
+  "rationale": "The predecessor is the exact committed domain-pairs checker with its existing finite transition and old proof receipts untouched. The successor only passes an invocation-local parsed-input cache from the whole ledger reader into local-basis proof validation. Each continuity lookup still reads and compares the current complete catalog bytes, and all per-plan artifact byte/hash, original-cell, external-pair, local-proof, review and adjudication checks remain. The finite routine replays exact source edits and binds the new checker bytes; this is an implementation continuity record, not source truth or native acceptance."
+}

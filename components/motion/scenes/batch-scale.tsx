@@ -79,10 +79,10 @@ function BatchScaleStage() {
         <line x1={LEFT} y1={BOTTOM} x2={RIGHT} y2={BOTTOM}
           stroke="var(--motion-stage-axes)" opacity="var(--motion-stage-axes-opacity)" />
       </g>
-      <text x={LEFT} y={181} fontSize={12} fill="var(--motion-stage-label-secondary)">64</text>
-      <text x={RIGHT} y={181} fontSize={12} textAnchor="end" fill="var(--motion-stage-label-secondary)">16,384</text>
-      <text x={174} y={202} textAnchor="middle" fontSize={13} fill="var(--motion-stage-label)">parallel environments</text>
-      <text x={155} y={43} fontSize={12} fill="var(--motion-stage-label-secondary)">time ↓</text>
+      <text data-scene-stage-label="axis-tick" x={LEFT} y={182} fontSize={16} fill="var(--motion-stage-label-secondary)">64</text>
+      <text data-scene-stage-label="axis-tick" x={RIGHT} y={182} fontSize={16} textAnchor="end" fill="var(--motion-stage-label-secondary)">16,384</text>
+      <text data-scene-stage-label="axis-caption" x={174} y={205} textAnchor="middle" fontSize={16} fill="var(--motion-stage-label)">parallel environments</text>
+      <text data-scene-stage-label="time-axis" x={RIGHT} y={25} textAnchor="end" fontSize={16} fill="var(--motion-stage-label-secondary)">time ↓</text>
       <AnimatedPath data-scene-mark="fixed-budget-time" d={gpuCurve}
         fill="none" stroke="var(--role-value-stage)" strokeWidth={2.4}
         bindings={{ opacity: () => 1 }} />

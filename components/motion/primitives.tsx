@@ -29,8 +29,10 @@ export type Progress = (t: number) => number;
 
 /**
  * The lagged-start progress of item i of count, given the group's overall
- * progress. Items complete one by one after the lag window; the ratio comes
- * from the tokens and tightens for dense groups.
+ * progress. Each item occupies one unit of local time; successive starts
+ * are separated by the token lag ratio of that unit. Normalize the full
+ * schedule (one unit plus count-1 lags) into the group's 0..1 interval,
+ * so even the last item finishes at the beat boundary.
  */
 export function laggedProgress(
   progress: number,
@@ -41,8 +43,7 @@ export function laggedProgress(
     : MOTION_LAG.default,
 ): number {
   if (count <= 1) return clamp01(progress);
-  const span = 1 - lag;
-  const local = (clamp01(progress) * count - index) / Math.max(1, count * span);
+  const local = clamp01(progress) * (1 + (count - 1) * lag) - index * lag;
   return clamp01(local);
 }
 

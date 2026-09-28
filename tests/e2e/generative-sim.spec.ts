@@ -68,6 +68,20 @@ test.describe('world-models generative-sim module', () => {
     expect(await chips.count()).toBeGreaterThanOrEqual(8);
   });
 
+  test('binds the v1 and RoboCasa365 release sentences to different papers', async ({ page }) => {
+    await page.goto(ROUTE);
+    const sentence = page.locator('div.prose[data-pagefind-body] p')
+      .filter({ hasText: 'RoboCasa365 reports a separate, larger set' });
+    await expect(sentence).toHaveCount(1);
+    await expect(sentence.getByRole('link', { name: /Nasiriany 2024/ }))
+      .toHaveAttribute('href', 'https://arxiv.org/abs/2406.02523');
+    await expect(sentence.getByRole('link', { name: /Nasiriany 2026/ }))
+      .toHaveAttribute('href', 'https://robocasa.ai/assets/robocasa365_iclr26.pdf');
+    const sequence = await sentence.innerText();
+    expect(sequence.indexOf('Nasiriany 2024')).toBeLessThan(sequence.indexOf('RoboCasa365 reports'));
+    expect(sequence.indexOf('Nasiriany 2026')).toBeGreaterThan(sequence.indexOf('RoboCasa365 reports'));
+  });
+
   test('RoboCasa v1 inventory and scaling keep their source scope', async ({
     page,
   }) => {

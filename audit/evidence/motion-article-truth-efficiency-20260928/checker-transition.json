@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "motion-article-truth-checker-revision-v1",
+  "before": {
+    "path": "audit/evidence/motion-article-truth-efficiency-20260928/audit-local-basis-before.ts.txt",
+    "bytes": 111934,
+    "sha256": "7ffcf091f4fd8bdf8652eca51919d941c77aeae6f55e6cdc755e7e200dbdbcd6"
+  },
+  "after": {
+    "path": "lib/audit-local-basis.ts",
+    "bytes": 111975,
+    "sha256": "c74133b3c4435b396ec29acc1bd659f1dfdcc2dbd7b10709c15862ba3dce184c"
+  },
+  "reviewedBy": "Article-truth efficiency implementer (not independent acceptance)",
+  "observedAt": "2026-09-28T06:46:54Z",
+  "rationale": "The predecessor is the exact committed proof-reader checker with its earlier finite transition and all original/historical receipts untouched. The successor changes exactly two article-truth call sites to pass one parseLedger-invocation cache. The RL motion helper still freshly reads the complete catalog, compares exact bytes and root before reusing only parsed JSON, and separately verifies each article and historical reference, source and snapshot hashes, proof population, citations, required disclosures and review digest. Fixed source replacements and pinned complete checker bytes bind this implementation review; this is not source truth or independent native acceptance."
+}

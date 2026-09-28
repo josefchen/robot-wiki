@@ -14304,7 +14304,7 @@
                 },
                 {
                   "kind": "citation",
-                  "count": 40,
+                  "count": 42,
                   "colour": "rgb(36, 95, 255)",
                   "decorationLine": "underline",
                   "decorationStyle": "solid",
@@ -14314,7 +14314,7 @@
                   "variants": [
                     {
                       "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-                      "count": 40,
+                      "count": 42,
                       "colour": "rgb(36, 95, 255)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -73653,6 +73653,7 @@
                 ],
                 "citationMarkers": [
                   "robocasa-2024",
+                  "robocasa365-2026",
                   "world-model-survey-2026",
                   "robogen-2024",
                   "robogen-2024",
@@ -101438,7 +101439,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:world-models/generative-sim moved from 0eb812ecfb2f7f53a774fa49a124ca1162bd7cdeec42f3f2af934e5ed4adbba3 to 9459001f9f2b98c46b35e2685c671bd824993c2230f428cb6ba9f66677f29f37 exactly as approved delta motion-world-models-humanizer-v3-20260927-prose-generative-sim permits: Fact-preserving humanizer v3 rewrite and a reader-paced push-layers scene before the retained direct-control lab; source claims, toy assumptions, citation occurrences, and numeric tokens remain checked against the prior committed article.",
+      "actual": "prose member article:world-models/generative-sim moved from 0eb812ecfb2f7f53a774fa49a124ca1162bd7cdeec42f3f2af934e5ed4adbba3 to 4b18ebca49f3165a16d99e7cf26f234067e41ab20c4c2f20da24ca5408e2a32d exactly as approved delta motion-scrutiny-s12-20260928-prose-generative-sim-citation-attachment permits: S12 citation attachment only: keep robocasa-2024 beside the v1 inventory and place robocasa365-2026 beside the separately named release. The complete preserved RoboCasa365 PDF (SHA-256 3253894415c1470ee63aae7f65198d9bd0cfd0563851a2bb7418c3f9519bc99d) identifies the paper and reports 365 tasks across 2,500 kitchen environments in the abstract; its retained extraction was verified against fresh local pdftotext output. Original packet retrieval 2026-09-24T08:30:39Z, not a new fetch. No numbers, unrelated prose, frontmatter or audit verdicts changed; not whole-article review or release acceptance.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -101450,9 +101451,9 @@
           "manifest": "prose",
           "member": "article:world-models/generative-sim",
           "baselineHash": "0eb812ecfb2f7f53a774fa49a124ca1162bd7cdeec42f3f2af934e5ed4adbba3",
-          "currentHash": "9459001f9f2b98c46b35e2685c671bd824993c2230f428cb6ba9f66677f29f37",
+          "currentHash": "4b18ebca49f3165a16d99e7cf26f234067e41ab20c4c2f20da24ca5408e2a32d",
           "status": "approved-delta",
-          "approvedDelta": "motion-world-models-humanizer-v3-20260927-prose-generative-sim"
+          "approvedDelta": "motion-scrutiny-s12-20260928-prose-generative-sim-citation-attachment"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -103034,7 +103035,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:world-models/generative-sim moved from 4205e6c9b9b4451ebe2f6743657ad89556d88721674996d40597559e6d4826d1 to b6dec2d3600c39707607ef01d9a9657493939964398d1ab46d6733983451a34d exactly as approved delta seo-merge-20260916-relationships-57 permits: The SEO growth merge changed article:world-models/generative-sim: the union of the project continuation tree and the SEO snapshot produces a member value neither side's delta chain names. This entry approves the merged state recorded in commit ab62278 and its follow-ups.",
+      "actual": "relationships member article:world-models/generative-sim moved from 4205e6c9b9b4451ebe2f6743657ad89556d88721674996d40597559e6d4826d1 to fe9ee3b3cce0506268f5f916dc5c7577bdf11418014d355d30aa5e4b2dd76c3d exactly as approved delta motion-scrutiny-s12-20260928-relationships-generative-sim-citation permits: S12 adds one robocasa365-2026 citation occurrence adjacent to the larger-release sentence while preserving the RoboCasa v1 citation and all other article citation, link, term and see-also edges. The prior digest equals the same current relationships member with exactly that single 365 occurrence removed. This is a bounded relationship transition, not whole-article source certification or release acceptance.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -103046,9 +103047,9 @@
           "manifest": "relationships",
           "member": "article:world-models/generative-sim",
           "baselineHash": "4205e6c9b9b4451ebe2f6743657ad89556d88721674996d40597559e6d4826d1",
-          "currentHash": "b6dec2d3600c39707607ef01d9a9657493939964398d1ab46d6733983451a34d",
+          "currentHash": "fe9ee3b3cce0506268f5f916dc5c7577bdf11418014d355d30aa5e4b2dd76c3d",
           "status": "approved-delta",
-          "approvedDelta": "seo-merge-20260916-relationships-57"
+          "approvedDelta": "motion-scrutiny-s12-20260928-relationships-generative-sim-citation"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -105794,7 +105795,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/world-models/generative-sim/ ships 31 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 31 outbound anchor occurrences on it with a visible focus ring in 126 stops",
+      "actual": "/world-models/generative-sim/ ships 32 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 32 outbound anchor occurrences on it with a visible focus ring in 128 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -105802,7 +105803,7 @@
         "kind": "browser-state",
         "computed": {
           "route": "/world-models/generative-sim/",
-          "outboundAnchors": 31,
+          "outboundAnchors": 32,
           "distinctHrefs": 11,
           "shapes": [
             "citation-chip",
@@ -105811,9 +105812,9 @@
             "reference-entry"
           ],
           "anchorsWithoutNoopener": 0,
-          "anchorsWithNoreferrer": 28,
-          "reachedByTab": 31,
-          "tabStops": 126,
+          "anchorsWithNoreferrer": 29,
+          "reachedByTab": 32,
+          "tabStops": 128,
           "keyboardRoutesWalked": 74,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -121041,7 +121042,7 @@
               ]
             },
             {
-              "id": "components/interactive/training-time-chart.tsx#367:line:error",
+              "id": "components/interactive/training-time-chart.tsx#368:line:error",
               "element": "line",
               "binding": "inline",
               "via": null,
@@ -131007,7 +131008,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 12238 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 12228 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -131198,7 +131199,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/adjacent/drones/ rendered no v1 identity spelling and no v1 descriptor in 36914 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/adjacent/drones/ rendered no v1 identity spelling and no v1 descriptor in 36990 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132514,7 +132515,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/frontier/reliability-gap/ rendered no v1 identity spelling and no v1 descriptor in 29987 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/frontier/reliability-gap/ rendered no v1 identity spelling and no v1 descriptor in 29977 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -133360,7 +133361,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/vla-models/ rendered no v1 identity spelling and no v1 descriptor in 41867 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/vla-models/ rendered no v1 identity spelling and no v1 descriptor in 41859 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -134112,7 +134113,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/generative-sim/ rendered no v1 identity spelling and no v1 descriptor in 35276 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/generative-sim/ rendered no v1 identity spelling and no v1 descriptor in 35314 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -184904,7 +184905,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Home renders one dominant v2 hero, the exact descriptor, black primary action treatment, lime selection/highlight treatment, and board-derived structure without fabricated metrics.",
-      "actual": "anchor:home-board-derived-structure holds on the built home page at 1440x900: {\"signatures\":[\"sheet/display-lockup/primary-action\",\"ruled-plain/index-heading/row-links\",\"plain/module-heading/live-instrument\",\"plain/module-heading/credited-figure\",\"plain/module-heading/schematic-pair\",\"plain/module-heading/ordered-link-lists\",\"ruled-plain/closing-heading/guidance-prose\"],\"registeredSignatures\":[\"plain/module-heading/credited-figure (brand-v2-home-hero-domain-index-and-structure)\",\"plain/module-heading/live-instrument (brand-v2-home-live-tools-and-responsive-convergence)\",\"plain/module-heading/ordered-link-lists (brand-v2-home-hero-domain-index-and-structure)\",\"plain/module-heading/schematic-pair (brand-v2-home-live-tools-and-responsive-convergence)\",\"ruled-plain/closing-heading/guidance-prose (brand-v2-home-hero-domain-index-and-structure)\",\"ruled-plain/index-heading/row-links (brand-v2-home-hero-domain-index-and-structure)\",\"sheet/display-lockup/primary-action (brand-v2-home-hero-domain-index-and-structure)\"],\"structuralVarietyTable\":[{\"index\":0,\"label\":\"Introduction\",\"declaredSignature\":\"sheet/display-lockup/primary-action\",\"registeredOwner\":\"brand-v2-home-hero-domain-index-and-structure\",\"registeredPurpose\":\"The opening sheet that carries the public identity, the locked descriptor and the single black primary action into the first viewport.\",\"derivedStructuralForm\":\"rgb(245, 246, 247)|1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219)|0|no-shadow + transparent|0,0,0,0|0|no-shadow || h1/92.16/600/tektur/none || a[rgb(11, 11, 12)/rgb(255, 255, 255)/1],a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/1] || p=2,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:1\",\"derivedSurfaceHeadingActionForm\":\"form:1\"},{\"index\":1,\"label\":\"Domain index\",\"declaredSignature\":\"ruled-plain/index-heading/row-links\",\"registeredOwner\":\"brand-v2-home-hero-domain-index-and-structure\",\"registeredPurpose\":\"The domain index: seven canonical destinations as ruled editorial rows rather than a grid of equal marketing cards.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow + transparent|1solidcolor(srgb 0.552863 0.569961 0.582118),0,0,0|0|no-shadow + transparent|1solidrgb(217, 218, 219),0,0,0|0|no-shadow || h2/24/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/0],a[rgba(0, 0, 0, 0)/rgb(36, 45, 51)/0] || p=7,ul=1,ol=0,li=7,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:2\",\"derivedSurfaceHeadingActionForm\":\"form:2\"},{\"index\":2,\"label\":\"Featured interactive\",\"declaredSignature\":\"plain/module-heading/live-instrument\",\"registeredOwner\":\"brand-v2-home-live-tools-and-responsive-convergence\",\"registeredPurpose\":\"The featured instrument, where the reader operates a live calculator that computes its readout instead of depicting one.\",\"derivedStructuralForm\":\"rgb(255, 255, 255)|1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219)|0|no-shadow + transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0],button[color(srgb 0.973176 0.973882 0.974588)/rgb(36, 45, 51)/1] || p=7,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=3,canvas=0,table=1,input=2,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:3\",\"derivedSurfaceHeadingActionForm\":\"form:3\"},{\"index\":3,\"label\":\"Real hardware\",\"declaredSignature\":\"plain/module-heading/credited-figure\",\"registeredOwner\":\"brand-v2-home-hero-domain-index-and-structure\",\"registeredPurpose\":\"The real-hardware figure, a credited photograph whose caption carries its source and licence.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 45, 51)/0],a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0] || p=1,ul=0,ol=0,li=0,dl=0,figure=1,img=1,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:4\",\"derivedSurfaceHeadingActionForm\":\"form:4\"},{\"index\":4,\"label\":\"Interactive tools\",\"declaredSignature\":\"plain/module-heading/schematic-pair\",\"registeredOwner\":\"brand-v2-home-live-tools-and-responsive-convergence\",\"registeredPurpose\":\"The two tool entry points, each previewing the artifact it leads to with a schematic derived from the shipped data.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/0] || p=3,ul=1,ol=0,li=6,dl=0,figure=1,img=0,svg=2,canvas=0,table=1,input=0,h3=2,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:5\",\"derivedSurfaceHeadingActionForm\":\"form:5\"},{\"index\":5,\"label\":\"Learning paths\",\"declaredSignature\":\"plain/module-heading/ordered-link-lists\",\"registeredOwner\":\"brand-v2-home-hero-domain-index-and-structure\",\"registeredPurpose\":\"The curated learning paths: three ordered reading sequences through the taxonomy, each linking its domain hub and the articles in the intended reading order.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/0] || p=4,ul=0,ol=3,li=23,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=3,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:6\",\"derivedSurfaceHeadingActionForm\":\"form:5\"},{\"index\":6,\"label\":\"How to read this wiki\",\"declaredSignature\":\"ruled-plain/closing-heading/guidance-prose\",\"registeredOwner\":\"brand-v2-home-hero-domain-index-and-structure\",\"registeredPurpose\":\"The closing guidance on how to read the wiki, prose that sets the citation-first expectation before the reader leaves home.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow + transparent|1solidrgb(217, 218, 219),0,0,0|0|no-shadow || h2/18/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0] || p=3,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:7\",\"derivedSurfaceHeadingActionForm\":\"form:6\"}],\"derivedForms\":[\"form:1\",\"form:2\",\"form:3\",\"form:4\",\"form:5\",\"form:6\",\"form:7\"],\"derivedSurfaceHeadingActionForms\":[\"form:1\",\"form:2\",\"form:3\",\"form:4\",\"form:5\",\"form:5\",\"form:6\"],\"distinctStructuralForms\":7,\"maximumAdjacentRepeatedSignatures\":1,\"maximumAdjacentSurfaceHeadingRun\":2,\"borderedCardCount\":6,\"borderedDomainRows\":0}",
+      "actual": "anchor:home-board-derived-structure holds on the built home page at 1440x900: {\"signatures\":[\"sheet/display-lockup/primary-action\",\"ruled-plain/index-heading/row-links\",\"plain/module-heading/live-instrument\",\"plain/module-heading/credited-figure\",\"plain/module-heading/schematic-pair\",\"plain/module-heading/ordered-link-lists\",\"ruled-plain/closing-heading/guidance-prose\"],\"registeredSignatures\":[\"plain/module-heading/credited-figure (brand-v2-home-hero-domain-index-and-structure)\",\"plain/module-heading/live-instrument (brand-v2-home-live-tools-and-responsive-convergence)\",\"plain/module-heading/ordered-link-lists (brand-v2-home-hero-domain-index-and-structure)\",\"plain/module-heading/schematic-pair (brand-v2-home-live-tools-and-responsive-convergence)\",\"ruled-plain/closing-heading/guidance-prose (brand-v2-home-hero-domain-index-and-structure)\",\"ruled-plain/index-heading/row-links (brand-v2-home-hero-domain-index-and-structure)\",\"sheet/display-lockup/primary-action (brand-v2-home-hero-domain-index-and-structure)\"],\"structuralVarietyTable\":[{\"index\":0,\"label\":\"Introduction\",\"declaredSignature\":\"sheet/display-lockup/primary-action\",\"registeredOwner\":\"brand-v2-home-hero-domain-index-and-structure\",\"registeredPurpose\":\"The opening sheet that carries the public identity, the locked descriptor and the single black primary action into the first viewport.\",\"derivedStructuralForm\":\"rgb(245, 246, 247)|1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219)|0|no-shadow + transparent|0,0,0,0|0|no-shadow || h1/92.16/600/tektur/none || a[rgb(11, 11, 12)/rgb(255, 255, 255)/1],a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/1] || p=2,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:1\",\"derivedSurfaceHeadingActionForm\":\"form:1\"},{\"index\":1,\"label\":\"Domain index\",\"declaredSignature\":\"ruled-plain/index-heading/row-links\",\"registeredOwner\":\"brand-v2-home-hero-domain-index-and-structure\",\"registeredPurpose\":\"The domain index: seven canonical destinations as ruled editorial rows rather than a grid of equal marketing cards.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow + transparent|1solidcolor(srgb 0.552863 0.569961 0.582118),0,0,0|0|no-shadow + transparent|1solidrgb(217, 218, 219),0,0,0|0|no-shadow || h2/24/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/0],a[rgba(0, 0, 0, 0)/rgb(36, 45, 51)/0] || p=7,ul=1,ol=0,li=7,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:2\",\"derivedSurfaceHeadingActionForm\":\"form:2\"},{\"index\":2,\"label\":\"Featured interactive\",\"declaredSignature\":\"plain/module-heading/live-instrument\",\"registeredOwner\":\"brand-v2-home-live-tools-and-responsive-convergence\",\"registeredPurpose\":\"The featured instrument, where the reader operates a live calculator that computes its readout instead of depicting one.\",\"derivedStructuralForm\":\"rgb(255, 255, 255)|1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219)|0|no-shadow + transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0],button[color(srgb 0.973176 0.973882 0.974588)/rgb(36, 45, 51)/1] || p=8,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=3,canvas=0,table=1,input=2,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:3\",\"derivedSurfaceHeadingActionForm\":\"form:3\"},{\"index\":3,\"label\":\"Real hardware\",\"declaredSignature\":\"plain/module-heading/credited-figure\",\"registeredOwner\":\"brand-v2-home-hero-domain-index-and-structure\",\"registeredPurpose\":\"The real-hardware figure, a credited photograph whose caption carries its source and licence.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 45, 51)/0],a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0] || p=1,ul=0,ol=0,li=0,dl=0,figure=1,img=1,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:4\",\"derivedSurfaceHeadingActionForm\":\"form:4\"},{\"index\":4,\"label\":\"Interactive tools\",\"declaredSignature\":\"plain/module-heading/schematic-pair\",\"registeredOwner\":\"brand-v2-home-live-tools-and-responsive-convergence\",\"registeredPurpose\":\"The two tool entry points, each previewing the artifact it leads to with a schematic derived from the shipped data.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/0] || p=3,ul=1,ol=0,li=6,dl=0,figure=1,img=0,svg=2,canvas=0,table=1,input=0,h3=2,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:5\",\"derivedSurfaceHeadingActionForm\":\"form:5\"},{\"index\":5,\"label\":\"Learning paths\",\"declaredSignature\":\"plain/module-heading/ordered-link-lists\",\"registeredOwner\":\"brand-v2-home-hero-domain-index-and-structure\",\"registeredPurpose\":\"The curated learning paths: three ordered reading sequences through the taxonomy, each linking its domain hub and the articles in the intended reading order.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/0] || p=4,ul=0,ol=3,li=23,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=3,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:6\",\"derivedSurfaceHeadingActionForm\":\"form:5\"},{\"index\":6,\"label\":\"How to read this wiki\",\"declaredSignature\":\"ruled-plain/closing-heading/guidance-prose\",\"registeredOwner\":\"brand-v2-home-hero-domain-index-and-structure\",\"registeredPurpose\":\"The closing guidance on how to read the wiki, prose that sets the citation-first expectation before the reader leaves home.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow + transparent|1solidrgb(217, 218, 219),0,0,0|0|no-shadow || h2/18/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0] || p=3,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:7\",\"derivedSurfaceHeadingActionForm\":\"form:6\"}],\"derivedForms\":[\"form:1\",\"form:2\",\"form:3\",\"form:4\",\"form:5\",\"form:6\",\"form:7\"],\"derivedSurfaceHeadingActionForms\":[\"form:1\",\"form:2\",\"form:3\",\"form:4\",\"form:5\",\"form:5\",\"form:6\"],\"distinctStructuralForms\":7,\"maximumAdjacentRepeatedSignatures\":1,\"maximumAdjacentSurfaceHeadingRun\":2,\"borderedCardCount\":6,\"borderedDomainRows\":0}",
       "selectorOrRegistryId": "contract/design-integrity.md#VAL-B2-SHELL-006:composition-anchors",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -184959,7 +184960,7 @@
               "declaredSignature": "plain/module-heading/live-instrument",
               "registeredOwner": "brand-v2-home-live-tools-and-responsive-convergence",
               "registeredPurpose": "The featured instrument, where the reader operates a live calculator that computes its readout instead of depicting one.",
-              "derivedStructuralForm": "rgb(255, 255, 255)|1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219)|0|no-shadow + transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0],button[color(srgb 0.973176 0.973882 0.974588)/rgb(36, 45, 51)/1] || p=7,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=3,canvas=0,table=1,input=2,h3=0,h4=0,blockquote=0,pre=0",
+              "derivedStructuralForm": "rgb(255, 255, 255)|1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219)|0|no-shadow + transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0],button[color(srgb 0.973176 0.973882 0.974588)/rgb(36, 45, 51)/1] || p=8,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=3,canvas=0,table=1,input=2,h3=0,h4=0,blockquote=0,pre=0",
               "derivedForm": "form:3",
               "derivedSurfaceHeadingActionForm": "form:3"
             },
@@ -204684,7 +204685,7 @@
               "id": "/adjacent/drones/",
               "observed": {
                 "paragraphCount": 36,
-                "registeredFrameParagraphCount": 12,
+                "registeredFrameParagraphCount": 14,
                 "offendingFamilies": []
               }
             }
@@ -204906,7 +204907,7 @@
               "id": "/classical/kinematics/",
               "observed": {
                 "paragraphCount": 52,
-                "registeredFrameParagraphCount": 18,
+                "registeredFrameParagraphCount": 20,
                 "offendingFamilies": []
               }
             }
@@ -204943,7 +204944,7 @@
               "id": "/classical/motion-planning/",
               "observed": {
                 "paragraphCount": 82,
-                "registeredFrameParagraphCount": 12,
+                "registeredFrameParagraphCount": 14,
                 "offendingFamilies": []
               }
             }
@@ -205091,7 +205092,7 @@
               "id": "/classical/state-estimation/",
               "observed": {
                 "paragraphCount": 54,
-                "registeredFrameParagraphCount": 12,
+                "registeredFrameParagraphCount": 14,
                 "offendingFamilies": []
               }
             }
@@ -205128,7 +205129,7 @@
               "id": "/data-hardware/data-bottleneck/",
               "observed": {
                 "paragraphCount": 28,
-                "registeredFrameParagraphCount": 26,
+                "registeredFrameParagraphCount": 28,
                 "offendingFamilies": []
               }
             }
@@ -205202,7 +205203,7 @@
               "id": "/data-hardware/evaluation-crisis/",
               "observed": {
                 "paragraphCount": 30,
-                "registeredFrameParagraphCount": 26,
+                "registeredFrameParagraphCount": 28,
                 "offendingFamilies": []
               }
             }
@@ -205276,7 +205277,7 @@
               "id": "/data-hardware/industrial-deployment/",
               "observed": {
                 "paragraphCount": 36,
-                "registeredFrameParagraphCount": 40,
+                "registeredFrameParagraphCount": 42,
                 "offendingFamilies": []
               }
             }
@@ -205461,7 +205462,7 @@
               "id": "/frontier/dexterity/",
               "observed": {
                 "paragraphCount": 32,
-                "registeredFrameParagraphCount": 20,
+                "registeredFrameParagraphCount": 22,
                 "offendingFamilies": []
               }
             }
@@ -205535,7 +205536,7 @@
               "id": "/frontier/reliability-gap/",
               "observed": {
                 "paragraphCount": 28,
-                "registeredFrameParagraphCount": 26,
+                "registeredFrameParagraphCount": 28,
                 "offendingFamilies": []
               }
             }
@@ -205794,7 +205795,7 @@
               "id": "/manipulation/diffusion-policy/",
               "observed": {
                 "paragraphCount": 28,
-                "registeredFrameParagraphCount": 26,
+                "registeredFrameParagraphCount": 28,
                 "offendingFamilies": []
               }
             }
@@ -205979,7 +205980,7 @@
               "id": "/manipulation/pi-line/",
               "observed": {
                 "paragraphCount": 54,
-                "registeredFrameParagraphCount": 32,
+                "registeredFrameParagraphCount": 34,
                 "offendingFamilies": []
               }
             }
@@ -206127,7 +206128,7 @@
               "id": "/manipulation/vla-models/",
               "observed": {
                 "paragraphCount": 48,
-                "registeredFrameParagraphCount": 24,
+                "registeredFrameParagraphCount": 26,
                 "offendingFamilies": []
               }
             }
@@ -206201,7 +206202,7 @@
               "id": "/rl-sim2real/legged-locomotion/",
               "observed": {
                 "paragraphCount": 42,
-                "registeredFrameParagraphCount": 12,
+                "registeredFrameParagraphCount": 14,
                 "offendingFamilies": []
               }
             }
@@ -206275,7 +206276,7 @@
               "id": "/rl-sim2real/parallel-sim-rl/",
               "observed": {
                 "paragraphCount": 38,
-                "registeredFrameParagraphCount": 16,
+                "registeredFrameParagraphCount": 18,
                 "offendingFamilies": []
               }
             }
@@ -206497,7 +206498,7 @@
               "id": "/world-models/generative-sim/",
               "observed": {
                 "paragraphCount": 44,
-                "registeredFrameParagraphCount": 14,
+                "registeredFrameParagraphCount": 16,
                 "offendingFamilies": []
               }
             }
@@ -206534,7 +206535,7 @@
               "id": "/world-models/generative-video/",
               "observed": {
                 "paragraphCount": 44,
-                "registeredFrameParagraphCount": 12,
+                "registeredFrameParagraphCount": 14,
                 "offendingFamilies": []
               }
             }
@@ -206608,7 +206609,7 @@
               "id": "/world-models/latent-dynamics/",
               "observed": {
                 "paragraphCount": 32,
-                "registeredFrameParagraphCount": 14,
+                "registeredFrameParagraphCount": 16,
                 "offendingFamilies": []
               }
             }

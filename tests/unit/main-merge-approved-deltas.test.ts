@@ -208,6 +208,10 @@ const motionFrontierAdjacentHomeAppends = [
     'dexterity', 'generalization', 'reliability-gap', 'safety-and-assurance']
     .map(slug => `motion-frontier-adjacent-home-humanizer-v3-20260927-prose-${slug}`),
 ];
+const motionScrutinyS12Appends = [
+  'motion-scrutiny-s12-20260928-prose-generative-sim-citation-attachment',
+  'motion-scrutiny-s12-20260928-relationships-generative-sim-citation',
+] as const;
 
 describe('two-parent exact approval reconciliation', () => {
   it('retains every main approval and the nine scoped frontier/adjacent successors in order', () => {
@@ -224,11 +228,25 @@ describe('two-parent exact approval reconciliation', () => {
     // The subsequent domain passes add nine classical article endpoints,
     // two manipulation mounts, eight RL article endpoints and five RL
     // reconciliation edges, all named below in ledger order.
-    expect([main.length, local.length, localOnly.length, merged.length]).toEqual([1558, 1104, 7, 1748]);
+    expect([main.length, local.length, localOnly.length, merged.length]).toEqual([1558, 1104, 7, 1750]);
     expect(merged.slice(0, main.length)).toEqual(main);
     expect(merged.slice(main.length, main.length + localOnly.length)).toEqual(localOnly);
     expect(merged.slice(main.length + localOnly.length).map(x => x.id))
-      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends]);
+      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends]);
+    expect(merged.slice(-2)).toMatchObject([
+      {
+        id: motionScrutinyS12Appends[0], manifest: 'prose',
+        memberId: 'article:world-models/generative-sim',
+        oldHash: '9459001f9f2b98c46b35e2685c671bd824993c2230f428cb6ba9f66677f29f37',
+        newHash: '4b18ebca49f3165a16d99e7cf26f234067e41ab20c4c2f20da24ca5408e2a32d',
+      },
+      {
+        id: motionScrutinyS12Appends[1], manifest: 'relationships',
+        memberId: 'article:world-models/generative-sim',
+        oldHash: 'b6dec2d3600c39707607ef01d9a9657493939964398d1ab46d6733983451a34d',
+        newHash: 'fe9ee3b3cce0506268f5f916dc5c7577bdf11418014d355d30aa5e4b2dd76c3d',
+      },
+    ]);
     expect(new Set(merged.map(x => x.id)).size).toBe(merged.length);
     expect(validateApprovedDeltas(merged)).toEqual([]);
   });

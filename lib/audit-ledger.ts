@@ -635,6 +635,9 @@ export function parseLedger(
   const plans = parseCompoundPlans(context.compoundPlans === undefined ? [] : context.compoundPlans);
   const localContext = context.localBasis ? { ...context.localBasis,
     catalog: parseLocalBasisCatalog(context.localBasis.catalog) } : undefined;
+  // Only parsed immutable inputs may be shared between plans in this invocation.
+  // Each plan still reads and hashes its own artifact and validates every proof.
+  const parsedInputCache = new Map<string, unknown>();
   const typedPlans = localContext?.catalog.plans ?? [];
   for (const typed of typedPlans) {
     if (plans.some(p => p.id === typed.id || (p.ledgerPath === typed.ledgerPath &&
@@ -731,7 +734,7 @@ export function parseLedger(
     if (typedPlan && localContext) {
       usedPlans.add(typedPlan.id);
       localBasis = validateLocalBasisPlan(typedPlan, { claim, sourceChecked: source, verdict, note },
-        binding, fields, registryIds, localContext);
+        binding, fields, registryIds, localContext, parsedInputCache);
       evidenceFailures = [...localBasis.failures];
       if (P1_BATCH.test(claim)) evidenceFailures.push('P1 batch cannot use typed local evidence');
     } else if (plan) {

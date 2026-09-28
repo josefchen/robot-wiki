@@ -1,7 +1,7 @@
 {
   "375 reduced poster": {
     "textCount": 8,
-    "markCount": 3,
+    "markCount": 4,
     "intersections": [],
     "overflow": [],
     "contrast": [
@@ -34,7 +34,7 @@
   },
   "375 poster": {
     "textCount": 8,
-    "markCount": 3,
+    "markCount": 4,
     "intersections": [],
     "overflow": [],
     "contrast": [
@@ -66,15 +66,15 @@
     "lowContrast": []
   },
   "375 beat 1": {
-    "textCount": 7,
-    "markCount": 1,
+    "textCount": 3,
+    "markCount": 2,
     "intersections": [],
     "overflow": [],
     "contrast": [
       {
         "control": "Play the scene",
-        "ratio": 14.29,
-        "foreground": "rgb(32, 39, 44)",
+        "ratio": 13.42,
+        "foreground": "rgb(35, 44, 50)",
         "background": "rgb(248, 248, 249)"
       },
       {
@@ -105,15 +105,15 @@
     "lowContrast": []
   },
   "375 beat 2": {
-    "textCount": 7,
-    "markCount": 2,
+    "textCount": 5,
+    "markCount": 3,
     "intersections": [],
     "overflow": [],
     "contrast": [
       {
         "control": "Play the scene",
-        "ratio": 18.58,
-        "foreground": "rgb(11, 11, 12)",
+        "ratio": 18.46,
+        "foreground": "rgb(12, 12, 13)",
         "background": "rgb(248, 248, 249)"
       },
       {
@@ -145,7 +145,7 @@
   },
   "375 beat 3": {
     "textCount": 7,
-    "markCount": 3,
+    "markCount": 4,
     "intersections": [],
     "overflow": [],
     "contrast": [
@@ -184,7 +184,7 @@
   },
   "375 beat 4": {
     "textCount": 8,
-    "markCount": 3,
+    "markCount": 4,
     "intersections": [],
     "overflow": [],
     "contrast": [
@@ -223,7 +223,7 @@
   },
   "1440 reduced poster": {
     "textCount": 8,
-    "markCount": 3,
+    "markCount": 4,
     "intersections": [],
     "overflow": [],
     "contrast": [
@@ -256,7 +256,7 @@
   },
   "1440 poster": {
     "textCount": 8,
-    "markCount": 3,
+    "markCount": 4,
     "intersections": [],
     "overflow": [],
     "contrast": [
@@ -288,15 +288,15 @@
     "lowContrast": []
   },
   "1440 beat 1": {
-    "textCount": 7,
-    "markCount": 1,
+    "textCount": 3,
+    "markCount": 2,
     "intersections": [],
     "overflow": [],
     "contrast": [
       {
         "control": "Play the scene",
-        "ratio": 14.29,
-        "foreground": "rgb(32, 39, 44)",
+        "ratio": 13.42,
+        "foreground": "rgb(35, 44, 50)",
         "background": "rgb(248, 248, 249)"
       },
       {
@@ -327,15 +327,15 @@
     "lowContrast": []
   },
   "1440 beat 2": {
-    "textCount": 7,
-    "markCount": 2,
+    "textCount": 5,
+    "markCount": 3,
     "intersections": [],
     "overflow": [],
     "contrast": [
       {
         "control": "Play the scene",
-        "ratio": 18.58,
-        "foreground": "rgb(11, 11, 12)",
+        "ratio": 18.46,
+        "foreground": "rgb(12, 12, 13)",
         "background": "rgb(248, 248, 249)"
       },
       {
@@ -367,7 +367,7 @@
   },
   "1440 beat 3": {
     "textCount": 7,
-    "markCount": 3,
+    "markCount": 4,
     "intersections": [],
     "overflow": [],
     "contrast": [
@@ -406,7 +406,7 @@
   },
   "1440 beat 4": {
     "textCount": 8,
-    "markCount": 3,
+    "markCount": 4,
     "intersections": [],
     "overflow": [],
     "contrast": [

@@ -24,7 +24,7 @@ const slugs = [
 const truth = collectArticleTruthManifests();
 
 describe('world-model motion prose and retained local-basis continuity', () => {
-  it.each(slugs)('records one exact new approved endpoint for %s without erasing earlier edges', (slug) => {
+  it.each(slugs)('retains the humanizer endpoint and exact subsequent edges for %s', (slug) => {
     const id = `article:world-models/${slug}`;
     const path = `content/world-models/${slug}.mdx`;
     const previous = execFileSync('git', ['show', `68fd2b8:${path}`], { cwd: root, encoding: 'utf8' });
@@ -32,11 +32,20 @@ describe('world-model motion prose and retained local-basis continuity', () => {
     const currentHash = truth.prose.members.find((member) => member.id === id)?.hash;
     const edges = approvals.filter((entry) => entry.manifest === 'prose' && entry.memberId === id);
     const latest = edges.at(-1)!;
+    const humanizer = edges.find((entry) =>
+      entry.id === `motion-world-models-humanizer-v3-20260927-prose-${slug}`)!;
     const sealed = baseline.manifests.prose.members.find((member) => member.id === id)?.hash ?? sha256('missing');
-    expect(latest.id).toBe(`motion-world-models-humanizer-v3-20260927-prose-${slug}`);
+    expect(humanizer).toBeDefined();
+    if (slug === 'generative-sim') {
+      expect(latest.id).toBe('motion-scrutiny-s12-20260928-prose-generative-sim-citation-attachment');
+      expect(latest.oldHash).toBe(humanizer.newHash);
+      expect(approvedDeltaPath(edges.slice(0, -1), sealed, currentHash!).status).not.toBe('approved');
+    } else {
+      expect(latest).toBe(humanizer);
+    }
     expect(latest.newHash).toBe(currentHash);
-    expect(latest.oldHash).toBe(slug === 'taxonomy' ? sealed : oldHash);
-    expect(approvedDeltaPath(edges.slice(0, -1), sealed, oldHash).status).toBe('approved');
+    expect(humanizer.oldHash).toBe(slug === 'taxonomy' ? sealed : oldHash);
+    expect(approvedDeltaPath(edges.filter((entry) => entry !== humanizer && entry !== latest), sealed, oldHash).status).toBe('approved');
     expect(approvedDeltaPath(edges, sealed, currentHash!).status).toBe('approved');
     expect(approvedDeltaPath(edges.slice(0, -1), sealed, currentHash!).status).not.toBe('approved');
     expect(approvedDeltaPath([...edges.slice(0, -1), { ...latest, newHash: sha256('wrong endpoint') }],

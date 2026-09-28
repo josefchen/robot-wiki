@@ -79,3 +79,58 @@ for (const { id, route, captions } of scenes) {
     }
   });
 }
+
+test('paired data/hardware labs retain semantic roles under both schemes and changed controls', async ({ browser }) => {
+  test.setTimeout(150_000);
+  for (const colorScheme of ['light', 'dark'] as const) {
+    for (const width of [375, 1440]) {
+      const context = await browser.newContext({ colorScheme, viewport: { width, height: 900 } });
+      try {
+        const page = await context.newPage();
+        const role = (name: string) => page.evaluate((value) => {
+          const probe = document.createElement('span');
+          probe.style.color = `var(--role-${value})`;
+          document.body.append(probe);
+          const result = getComputedStyle(probe).color;
+          probe.remove();
+          return result;
+        }, name);
+        const style = (selector: string, property: string) =>
+          page.locator(selector).first().evaluate((node, field) =>
+            getComputedStyle(node).getPropertyValue(field), property);
+
+        await page.goto('/data-hardware/industrial-deployment/', { waitUntil: 'networkidle' });
+        expect(await style('[data-testid="time-breakdown"] > div:first-child', 'background-color')).toBe(await role('value-graphic'));
+        expect(await style('[data-testid="time-breakdown"] > div:nth-child(2)', 'background-color')).toBe(await role('constraint-graphic'));
+        expect(await style('[data-testid="breakdown-productive"]', 'color')).toBe(await role('value-text'));
+        expect(await style('[data-testid="breakdown-jams"]', 'color')).not.toBe(await role('value-text'));
+        await page.getByRole('slider', { name: /jam-clearing time/i }).fill('45');
+        expect(await style('[data-testid="time-breakdown"] > div:nth-child(2)', 'background-color')).toBe(await role('constraint-graphic'));
+        await expect(page.getByTestId('breakdown-jams')).toContainText('jam clearing');
+
+        await page.goto('/data-hardware/data-bottleneck/', { waitUntil: 'networkidle' });
+        expect(await style('[data-testid="projection-marker"]', 'fill')).toBe(await role('value-graphic'));
+        expect(await style('[data-testid="projection-marker"] + text', 'fill')).toBe(await role('value-text'));
+        expect(await style('[data-instrument-legend] > span:nth-child(4) > span', 'background-color')).toBe(await role('value-graphic'));
+        expect(await style('[data-testid="hours-readout"]', 'color')).toBe(await role('value-text'));
+        expect(await style('[data-testid="rigs-readout"]', 'color')).toBe(await role('highlight-text'));
+        await page.getByRole('slider', { name: /teleoperation rigs/i }).fill('11');
+        expect(await style('[data-testid="projection-marker"]', 'fill')).toBe(await role('value-graphic'));
+        await expect(page.getByTestId('rigs-readout').first()).toHaveText('11');
+
+        await page.goto('/data-hardware/evaluation-crisis/', { waitUntil: 'networkidle' });
+        const lab = page.locator('[data-brand-module-signature="instrument-frame"]:has([data-testid="episode-success-readout"])').first();
+        expect(await lab.locator('svg path[stroke="var(--color-accent)"]').evaluate((node) => getComputedStyle(node).stroke))
+          .toBe(await role('value-graphic'));
+        expect(await lab.getByTestId('episode-success-readout').evaluate((node) => getComputedStyle(node).color))
+          .toBe(await role('value-text'));
+        await lab.getByRole('slider', { name: /per-step success probability/i }).fill('99');
+        expect(await lab.locator('svg path[stroke="var(--color-accent)"]').evaluate((node) => getComputedStyle(node).stroke))
+          .toBe(await role('value-graphic'));
+        await expect(lab.getByTestId('episode-success-readout')).not.toBeEmpty();
+      } finally {
+        await context.close();
+      }
+    }
+  }
+});

@@ -593,7 +593,7 @@ export function KalmanPredictUpdate({ className }: { className?: string }) {
       }
       textAlternative={`${SCENE.title}. A five-beat scene in the position-velocity belief space. ${SCENE.beats
         .map((beat, index) => `Beat ${index + 1}: ${beat.caption}`)
-        .join(' ')} Posterior position sigma ${SIGMA_POST.toFixed(2)} against the predicted ${SIGMA_PRED.toFixed(2)}, gain K ${GAIN.toFixed(2)}, reading z ${READING.toFixed(2)}.`}
+        .join(' ')} The posterior estimate x-hat at step k equals the predicted estimate x-hat-minus at step k plus gain K times the difference between reading z and that predicted estimate x-hat-minus at step k. Posterior position sigma ${SIGMA_POST.toFixed(2)} against the predicted ${SIGMA_PRED.toFixed(2)}, gain K ${GAIN.toFixed(2)}, reading z ${READING.toFixed(2)}.`}
     />
   );
 }

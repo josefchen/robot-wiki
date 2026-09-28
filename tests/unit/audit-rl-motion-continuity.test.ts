@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto';
 import { copyFileSync, mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { dirname, join } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
 import { afterEach, expect, it } from 'vitest';
 import {
   currentRlMotionArticle,
@@ -53,15 +53,39 @@ it('retains all four exact historical articles and independently pins active dis
     'audit/evidence/motion-data-hardware-20260927/checker-transition.json'), 'utf8'));
   const frontierChecker = JSON.parse(readFileSync(join(root,
     'audit/evidence/motion-frontier-adjacent-home-20260927/checker-transition.json'), 'utf8'));
+  const domainPairsChecker = JSON.parse(readFileSync(join(root,
+    'audit/evidence/motion-domain-pairs-20260928/checker-transition.json'), 'utf8'));
+  const proofReaderChecker = JSON.parse(readFileSync(join(root,
+    'audit/evidence/motion-proof-reader-efficiency-20260928/checker-transition.json'), 'utf8'));
+  const articleTruthChecker = JSON.parse(readFileSync(join(root,
+    'audit/evidence/motion-article-truth-efficiency-20260928/checker-transition.json'), 'utf8'));
   expect(checker.after.bytes).toBe(worldChecker.before.bytes);
   expect(checker.after.sha256).toBe(worldChecker.before.sha256);
   expect(worldChecker.after.bytes).toBe(dataHardwareChecker.before.bytes);
   expect(worldChecker.after.sha256).toBe(dataHardwareChecker.before.sha256);
   expect(dataHardwareChecker.after.bytes).toBe(frontierChecker.before.bytes);
   expect(dataHardwareChecker.after.sha256).toBe(frontierChecker.before.sha256);
+  expect(frontierChecker.after.bytes).toBe(domainPairsChecker.before.bytes);
+  expect(frontierChecker.after.sha256).toBe(domainPairsChecker.before.sha256);
+  expect(domainPairsChecker.after.bytes).toBe(proofReaderChecker.before.bytes);
+  expect(domainPairsChecker.after.sha256).toBe(proofReaderChecker.before.sha256);
+  expect(proofReaderChecker.after.bytes).toBe(articleTruthChecker.before.bytes);
+  expect(proofReaderChecker.after.sha256).toBe(articleTruthChecker.before.sha256);
+  expect(domainPairsChecker.before.path)
+    .toBe('audit/evidence/motion-domain-pairs-20260928/audit-local-basis-before.ts.txt');
+  expect(domainPairsChecker.after.path).toBe('lib/audit-local-basis.ts');
+  expect(proofReaderChecker.before.path)
+    .toBe('audit/evidence/motion-proof-reader-efficiency-20260928/audit-local-basis-before.ts.txt');
+  expect(proofReaderChecker.after.path).toBe('lib/audit-local-basis.ts');
+  expect(articleTruthChecker.before.path)
+    .toBe('audit/evidence/motion-article-truth-efficiency-20260928/audit-local-basis-before.ts.txt');
+  expect(articleTruthChecker.after.path).toBe('lib/audit-local-basis.ts');
   for (const artifact of [checker.before, worldChecker.before, dataHardwareChecker.before,
-    frontierChecker.before, frontierChecker.after]) {
-    const bytes = readFileSync(join(root, artifact.path));
+    frontierChecker.before, domainPairsChecker.before, domainPairsChecker.after,
+    proofReaderChecker.before, proofReaderChecker.after, articleTruthChecker.before, articleTruthChecker.after]) {
+    const path = artifact === domainPairsChecker.after ? proofReaderChecker.before.path :
+      artifact === proofReaderChecker.after ? articleTruthChecker.before.path : artifact.path;
+    const bytes = readFileSync(join(root, path));
     expect(bytes.length).toBe(artifact.bytes);
     expect(createHash('sha256').update(bytes).digest('hex')).toBe(artifact.sha256);
   }
@@ -85,4 +109,36 @@ it('rejects population changes, unreviewed claims and active article drift', () 
     'This model is a measured benchmark.',
   ));
   expect(() => currentRlMotionArticle(destination, entries[0].historical, entries)).toThrow(/identity drift|artifact bytes\/hash/);
+});
+
+it('rechecks each member, root and fresh article/catalog bytes with one parsed-input cache', () => {
+  const cache = new Map<string, unknown>();
+  const verify = (location: string, index: number, bindings = entries, shared = cache) =>
+    currentRlMotionArticle(location, bindings[index].historical, bindings,
+      bindings[index].historical, shared);
+  expect(verify(root, 0)).toEqual(readFileSync(join(root, entries[0].snapshot.path)));
+  expect(cache.has(resolve(root))).toBe(true);
+  expect(verify(root, 1)).toEqual(readFileSync(join(root, entries[1].snapshot.path)));
+  const wrongPopulation = structuredClone(entries);
+  wrongPopulation[1].proofIds.pop();
+  expect(() => verify(root, 1, wrongPopulation)).toThrow(/proof population drift/);
+  const missingApproval = structuredClone(entries);
+  missingApproval[1].review.inputDigest = '0'.repeat(64);
+  expect(() => verify(root, 1, missingApproval)).toThrow(/review drift/);
+
+  const destination = fixture();
+  expect(verify(destination, 0)).toEqual(readFileSync(join(destination, entries[0].snapshot.path)));
+  expect(cache.has(resolve(destination))).toBe(true);
+  const articlePath = join(destination, entries[0].current.path);
+  const original = readFileSync(articlePath);
+  writeFileSync(articlePath, original.toString().replace(
+    'This authored fixed-transitions model is not a benchmark.', 'This model is a measured benchmark.',
+  ));
+  expect(() => verify(destination, 0)).toThrow(/identity drift|artifact bytes\/hash/);
+  expect(() => verify(destination, 0, entries, new Map())).toThrow(/identity drift|artifact bytes\/hash/);
+  writeFileSync(articlePath, original);
+  const catalogPath = join(destination, 'audit/local-basis.json');
+  const catalog = JSON.parse(readFileSync(catalogPath, 'utf8'));
+  writeFileSync(catalogPath, JSON.stringify({ ...catalog, proofs: [] }));
+  expect(() => verify(destination, 0)).toThrow(/proof population drift/);
 });

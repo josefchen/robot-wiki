@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "5de298ac643d3e90ccf2a783250417d2c9b3164f7294928c69ba6d5f3c3bbfc2",
+  "fingerprint": "f937e53eca5f3debbfba3f5d033798db987c3890c14631580a8c2c061ed4db00",
   "viewports": [
     "375x812",
     "1440x900"
@@ -18,7 +18,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 6008,
+      "visibleTextLength": 6003,
       "figures": [
         {
           "imageId": "spot-raf-agile-liberty-2021",
@@ -5315,7 +5315,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 6230,
+      "visibleTextLength": 6225,
       "figures": [
         {
           "imageId": "spot-raf-agile-liberty-2021",

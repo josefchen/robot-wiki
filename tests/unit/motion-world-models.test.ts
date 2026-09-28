@@ -114,6 +114,12 @@ describe('world-models scene truth', () => {
 });
 
 describe('world-models prose truth', () => {
+  it('attaches each RoboCasa release to its own primary document', () => {
+    const prose = readFileSync(join(folder, 'generative-sim.mdx'), 'utf8');
+    expect(prose).toMatch(/120-scene, 100-task, and 2,500-plus-object figures above belong to the RSS 2024 RoboCasa release <Cite id="robocasa-2024" \/>\. RoboCasa365 reports a separate, larger set <Cite id="robocasa365-2026" \/>/);
+    expect(prose).not.toMatch(/RoboCasa365 reports a separate, larger set <Cite id="robocasa-2024" \/>/);
+  });
+
   it('preserves prior numeric and citation tokens in every article', () => {
     for (const file of articles) {
       const current = readFileSync(join(folder, file), 'utf8');
@@ -126,7 +132,22 @@ describe('world-models prose truth', () => {
         ?.sort() ?? [];
       const citations = (text: string) => [...text.matchAll(/<Cite id="([^"]+)"/g)].map((match) => match[1]);
       expect(numbers(current), `${file} numeric tokens`).toEqual(numbers(before));
-      expect(citations(current), `${file} citations`).toEqual(citations(before));
+      const prior = citations(before);
+      if (file === 'generative-sim.mdx') {
+        const preRepair = execFileSync('git', ['show', 'a6298625:content/world-models/generative-sim.mdx'], {
+          cwd: root, encoding: 'utf8',
+        });
+        const target = preRepair.indexOf('RoboCasa365 reports a separate, larger set');
+        expect(target).toBeGreaterThan(0);
+        const insertion = citations(preRepair.slice(0, target)).length + 1;
+        // The existing v1 citation moves within the sentence; the new 365
+        // citation follows it. All other occurrences keep their order.
+        const expected = [...prior];
+        expected.splice(insertion, 0, 'robocasa365-2026');
+        expect(citations(current), `${file} citations`).toEqual(expected);
+      } else {
+        expect(citations(current), `${file} citations`).toEqual(prior);
+      }
     }
   });
 

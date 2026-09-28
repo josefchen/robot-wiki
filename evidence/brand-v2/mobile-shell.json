@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "5bb14bcc252e57753fef7eb05433999da34ec55075007309d86c41ac1bd279c3",
+  "fingerprint": "33c212de59758fc365f1b92d79a99c5149be323072d94e2b6f0e8416827dbb25",
   "viewport": "375x812",
   "routes": [
     "/",
@@ -80,7 +80,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 6008,
+      "visibleTextLength": 6003,
       "header": {
         "present": true,
         "display": "flex",
@@ -732,7 +732,7 @@
     },
     {
       "route": "/adjacent/drones/",
-      "visibleTextLength": 18298,
+      "visibleTextLength": 18336,
       "header": {
         "present": true,
         "display": "flex",
@@ -5288,7 +5288,7 @@
     },
     {
       "route": "/frontier/reliability-gap/",
-      "visibleTextLength": 14826,
+      "visibleTextLength": 14821,
       "header": {
         "present": true,
         "display": "flex",
@@ -8222,7 +8222,7 @@
     },
     {
       "route": "/manipulation/vla-models/",
-      "visibleTextLength": 20620,
+      "visibleTextLength": 20616,
       "header": {
         "present": true,
         "display": "flex",
@@ -10814,7 +10814,7 @@
     },
     {
       "route": "/world-models/generative-sim/",
-      "visibleTextLength": 17396,
+      "visibleTextLength": 17415,
       "header": {
         "present": true,
         "display": "flex",

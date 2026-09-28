@@ -182,9 +182,11 @@ describe('industrial release preserves both evidence histories', () => {
     expect(current[2].children).toHaveLength(51);
   });
 
-  it.each(['current', 'snapshot', 'review', 'unknown-hash'] as const)(
+  it.each(['current', 'snapshot', 'review', 'unknown-hash', 'catalog'] as const)(
     'rejects each reviewed dependency after %s drift', mutation => {
       for (const binding of currentReview.bindings) {
+        if (mutation === 'catalog' && binding !== currentReview.bindings.find(
+          b => b.historical.path === 'content/data-hardware/industrial-deployment.mdx')) continue;
         const root = mkdtempSync(join(tmpdir(), 'industrial-release-test-'));
         const put = (path: string, data: string | Buffer) => {
           mkdirSync(dirname(join(root, path)), { recursive: true });
@@ -206,6 +208,9 @@ describe('industrial release preserves both evidence histories', () => {
             'audit/evidence/motion-world-models-20260927',
             'audit/evidence/motion-data-hardware-20260927',
             'audit/evidence/motion-frontier-adjacent-home-20260927',
+            'audit/evidence/motion-domain-pairs-20260928',
+            'audit/evidence/motion-proof-reader-efficiency-20260928',
+            'audit/evidence/motion-article-truth-efficiency-20260928',
             'audit/evidence/citation-closeout-20260924/relevant-continuity.json',
             'audit/evidence/technology-withdrawal-20260924',
             'content/data-hardware/industrial-deployment.mdx',
@@ -219,13 +224,20 @@ describe('industrial release preserves both evidence histories', () => {
               'local-article.mdx.txt', 'main-checker.ts.txt', 'local-checker.ts.txt']
               .map(name => `${mergeDir}${name}`),
           ]) copy(path);
-          expect(createLocalArtifactReader(root)(binding.historical)).toEqual(readFileSync(binding.snapshot.path));
+          const parsedInputCache = new Map<string, unknown>();
+          const read = createLocalArtifactReader(root, parsedInputCache);
+          expect(read(binding.historical)).toEqual(readFileSync(binding.snapshot.path));
           const ref = { ...binding.historical };
           if (mutation === 'current') put(binding.current.path, Buffer.concat([readFileSync(binding.current.path), Buffer.from('\nchanged')]));
           if (mutation === 'snapshot') put(binding.snapshot.path, 'corrupt');
           if (mutation === 'review') put(currentReviewPath, JSON.stringify({ ...currentReview, bindings: [] }));
           if (mutation === 'unknown-hash') ref.sha256 = '0'.repeat(64);
-          expect(() => createLocalArtifactReader(root)(ref)).toThrow();
+          if (mutation === 'catalog') {
+            expect(parsedInputCache.has(root)).toBe(true);
+            put('audit/local-basis.json', JSON.stringify({ ...catalog, proofs: [] }));
+          }
+          if (mutation === 'catalog') expect(() => read(ref)).toThrow(/affected proof population drift/);
+          else expect(() => read(ref)).toThrow();
         } finally {
           rmSync(root, { recursive: true, force: true });
         }
