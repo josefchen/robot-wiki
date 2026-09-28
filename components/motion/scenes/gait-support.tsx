@@ -44,7 +44,7 @@ function GaitSupportStage() {
             stroke="var(--role-constraint-stage)" strokeWidth={2} />
         </pattern>
       </defs>
-      <text x={26} y={25} fontSize={13} fill="var(--motion-stage-label)">feet on ground · sampled cycle</text>
+      <text x={26} y={25} fontSize={16} fill="var(--motion-stage-label)">feet on ground · sampled cycle</text>
       {GAIT_ORDER.map((id, row) => (
         <g key={id}>
           <AnimatedElement as="text" data-scene-stage-label="gait-name" x={27} y={59 + row * 40}
@@ -89,7 +89,7 @@ function GaitSupportStage() {
           x={128 + column * 51} y={210} textAnchor="middle"
           fontSize={16} fill="var(--motion-stage-label-secondary)">{label}</text>
       ))}
-      <text x={26} y={230} fontSize={13} fill="var(--motion-stage-label-secondary)">
+      <text x={26} y={230} fontSize={14} fill="var(--motion-stage-label-secondary)">
         illustrative phases · no measured footfall data
       </text>
     </StageSvg>
