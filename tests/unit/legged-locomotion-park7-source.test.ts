@@ -32,8 +32,9 @@ describe('legged locomotion Park bounding original 7', () => {
     expect(plan!.evidence).toHaveLength(4);
     expect(plan!.evidence.every(e => e.citationId === 'park-2017-bounding'
       && e.sourceUrl === 'https://journals.sagepub.com/doi/10.1177/0278364917694244')).toBe(true);
-    expect(parse().claimRecords[6].evidenceFailures).toEqual([]);
-    expect(parse().claimRecords[6].compound?.planId).toBe(planId);
+    const record = parse().claimRecords[6];
+    expect(record.evidenceFailures).toEqual([]);
+    expect(record.compound?.planId).toBe(planId);
   });
 
   it('keeps the preserved mechanism and rejects the drift gloss and proposal artifacts', () => {

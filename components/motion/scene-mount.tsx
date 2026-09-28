@@ -15,7 +15,7 @@
  * motion the click activates the scene paused on the poster still; the
  * reader then steps between beat end-states.
  */
-import { useState, type ReactNode } from 'react';
+import { useId, useState, type ReactNode } from 'react';
 import { StaticTimeProvider } from './scene-context';
 import {
   beatSpans,
@@ -64,6 +64,7 @@ export function SceneMount({
 }: SceneMountProps) {
   const [active, setActive] = useState(false);
   const [autoPlay, setAutoPlay] = useState(false);
+  const descriptionId = `${useId()}-motion-poster-alt`;
   const reducedMotion = usePrefersReducedMotion();
   const poster = posterTime(beatSpans(scene.beats));
   const beatCount = scene.beats.length;
@@ -87,6 +88,7 @@ export function SceneMount({
         data-motion-scene={scene.id}
         role="group"
         aria-label={`Motion scene: ${scene.title}`}
+        aria-describedby={descriptionId}
         className={className}
       >
         <InstrumentHeader
@@ -158,19 +160,24 @@ export function SceneMount({
           <InstrumentLegend className="mt-3">{legend}</InstrumentLegend>
         ) : null}
 
-        <InstrumentReadout data-testid="motion-readout">
-          <span className="text-text-dim">beat</span>{' '}
-          <span data-testid="motion-beat-readout" className="text-text">
-            {posterState.beatLabel}
-          </span>{' '}
-          {readout ? readout(posterState) : null}
-        </InstrumentReadout>
+        <StaticTimeProvider value={poster}>
+          <InstrumentReadout data-testid="motion-readout">
+            <span className="text-text-dim">beat</span>{' '}
+            <span data-testid="motion-beat-readout" className="text-text">
+              {posterState.beatLabel}
+            </span>{' '}
+            {readout ? readout(posterState) : null}
+          </InstrumentReadout>
+        </StaticTimeProvider>
 
         {statusLine ? (
           <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
             {statusLine}
           </p>
         ) : null}
+        <p id={descriptionId} className="sr-only" hidden>
+          {textAlternative}
+        </p>
       </InstrumentFrame>
   );
 

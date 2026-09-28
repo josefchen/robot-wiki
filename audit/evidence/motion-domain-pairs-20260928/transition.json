@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "motion-domain-pairs-source-continuity-v1",
+  "reviewedBy": "Batch-2 implementer (not independent acceptance)",
+  "observedAt": "2026-09-28T01:48:11.420Z",
+  "rationale": "Scoped implementer inspection of the two full-file exact transitions: only the currently selected gait playhead and the current training-count point acquire data-selection semantics. Historical source snapshots retain the bytes observed by 23 existing proofs; their tests, receipts, captions, model values, paths, and article claims are not changed. This is not independent acceptance or a new observation.",
+  "sources": [
+    {
+      "before": {
+        "path": "audit/evidence/motion-domain-pairs-20260928/gait-diagram-before.tsx.txt",
+        "bytes": 16503,
+        "sha256": "23ebfff6f843bdacde32e0bac3ed77a494ac0da441af43aa27c7ad281fc9763e"
+      },
+      "after": {
+        "path": "components/interactive/gait-diagram.tsx",
+        "bytes": 16539,
+        "sha256": "7669fccc115fcc41953e3f8b47ce19d3e707a568f5d116c423ac0622cee449db"
+      },
+      "proofIds": [
+        "final-seven-rl-sim2real-legged-locomotion-17-20260923-17-derivation",
+        "final-seven-rl-sim2real-legged-locomotion-17-20260923-17-mounted-0",
+        "final-seven-rl-sim2real-legged-locomotion-17-20260923-17-mounted-1",
+        "final-seven-rl-sim2real-legged-locomotion-17-20260923-17-mounted-2",
+        "final-seven-rl-sim2real-legged-locomotion-17-20260923-17-parameters",
+        "final-seven-rl-sim2real-legged-locomotion-8-20260923-8-derivation",
+        "final-seven-rl-sim2real-legged-locomotion-8-20260923-8-mounted-0",
+        "final-seven-rl-sim2real-legged-locomotion-8-20260923-8-mounted-1",
+        "final-seven-rl-sim2real-legged-locomotion-8-20260923-8-mounted-2",
+        "final-seven-rl-sim2real-legged-locomotion-8-20260923-8-parameters"
+      ]
+    },
+    {
+      "before": {
+        "path": "audit/evidence/motion-domain-pairs-20260928/training-time-chart-before.tsx.txt",
+        "bytes": 17843,
+        "sha256": "4da47ae4cf73f7fe15f1c0347b5df7174e98680a2bc3e97525169e293c017ec8"
+      },
+      "after": {
+        "path": "components/interactive/training-time-chart.tsx",
+        "bytes": 17896,
+        "sha256": "6d5f42e269641c661b8a79b3a7e4d7ecc9960ae541f6e68085239319918951fe"
+      },
+      "proofIds": [
+        "p18-16384-off",
+        "p18-16384-on",
+        "p18-4096-off",
+        "p18-4096-on",
+        "p18-64-off",
+        "p18-64-on",
+        "p18-observed-16384-off",
+        "p18-observed-16384-on",
+        "p18-observed-4096-off",
+        "p18-observed-4096-on",
+        "p18-observed-64-off",
+        "p18-observed-64-on",
+        "p18-parameters"
+      ]
+    }
+  ]
+}

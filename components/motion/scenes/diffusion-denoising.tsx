@@ -457,7 +457,7 @@ export function DiffusionDenoising({ className }: { className?: string }) {
         (beat, index) => `Beat ${index + 1}: ${beat.caption}`,
       ).join(
         ' ',
-      )} Mean distance from a sample to its mode falls from ${NOISE_DISPERSION.toFixed(2)} to ${FINAL_DISPERSION.toFixed(2)} over the ten steps.`}
+      )} The relation a ~ p(a | o) means an action a is sampled from a distribution of actions conditioned on the observed state o. Mean distance from a sample to its mode falls from ${NOISE_DISPERSION.toFixed(2)} to ${FINAL_DISPERSION.toFixed(2)} over the ten steps.`}
     />
   );
 }

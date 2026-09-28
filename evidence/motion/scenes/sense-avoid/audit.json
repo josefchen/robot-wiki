@@ -1,12 +1,12 @@
 {
   "375 reduced poster": {
-    "textCount": 6,
-    "markCount": 3,
+    "textCount": 7,
+    "markCount": 4,
     "intersections": [],
     "overflow": [],
     "contrast": [
       {
-        "control": "Play the motion scene: Perception delay consumes the avoidance budget",
+        "control": "Play the motion scene: Perception delay lowers the safe speed",
         "ratio": 13.23,
         "foreground": "rgb(36, 45, 51)",
         "background": "rgb(248, 248, 249)"
@@ -33,13 +33,13 @@
     "lowContrast": []
   },
   "375 poster": {
-    "textCount": 6,
-    "markCount": 3,
+    "textCount": 7,
+    "markCount": 4,
     "intersections": [],
     "overflow": [],
     "contrast": [
       {
-        "control": "Play the motion scene: Perception delay consumes the avoidance budget",
+        "control": "Play the motion scene: Perception delay lowers the safe speed",
         "ratio": 13.23,
         "foreground": "rgb(36, 45, 51)",
         "background": "rgb(248, 248, 249)"
@@ -66,8 +66,8 @@
     "lowContrast": []
   },
   "375 beat 1": {
-    "textCount": 5,
-    "markCount": 1,
+    "textCount": 6,
+    "markCount": 2,
     "intersections": [],
     "overflow": [],
     "contrast": [
@@ -105,15 +105,15 @@
     "lowContrast": []
   },
   "375 beat 2": {
-    "textCount": 5,
-    "markCount": 3,
+    "textCount": 6,
+    "markCount": 4,
     "intersections": [],
     "overflow": [],
     "contrast": [
       {
         "control": "Play the scene",
-        "ratio": 18.58,
-        "foreground": "rgb(11, 11, 12)",
+        "ratio": 18.46,
+        "foreground": "rgb(12, 12, 13)",
         "background": "rgb(248, 248, 249)"
       },
       {
@@ -144,8 +144,8 @@
     "lowContrast": []
   },
   "375 beat 3": {
-    "textCount": 5,
-    "markCount": 3,
+    "textCount": 6,
+    "markCount": 4,
     "intersections": [],
     "overflow": [],
     "contrast": [
@@ -183,8 +183,8 @@
     "lowContrast": []
   },
   "375 beat 4": {
-    "textCount": 6,
-    "markCount": 3,
+    "textCount": 7,
+    "markCount": 4,
     "intersections": [],
     "overflow": [],
     "contrast": [
@@ -222,13 +222,13 @@
     "lowContrast": []
   },
   "1440 reduced poster": {
-    "textCount": 6,
-    "markCount": 3,
+    "textCount": 7,
+    "markCount": 4,
     "intersections": [],
     "overflow": [],
     "contrast": [
       {
-        "control": "Play the motion scene: Perception delay consumes the avoidance budget",
+        "control": "Play the motion scene: Perception delay lowers the safe speed",
         "ratio": 13.23,
         "foreground": "rgb(36, 45, 51)",
         "background": "rgb(248, 248, 249)"
@@ -255,13 +255,13 @@
     "lowContrast": []
   },
   "1440 poster": {
-    "textCount": 6,
-    "markCount": 3,
+    "textCount": 7,
+    "markCount": 4,
     "intersections": [],
     "overflow": [],
     "contrast": [
       {
-        "control": "Play the motion scene: Perception delay consumes the avoidance budget",
+        "control": "Play the motion scene: Perception delay lowers the safe speed",
         "ratio": 13.23,
         "foreground": "rgb(36, 45, 51)",
         "background": "rgb(248, 248, 249)"
@@ -288,15 +288,15 @@
     "lowContrast": []
   },
   "1440 beat 1": {
-    "textCount": 5,
-    "markCount": 1,
+    "textCount": 6,
+    "markCount": 2,
     "intersections": [],
     "overflow": [],
     "contrast": [
       {
         "control": "Play the scene",
-        "ratio": 14.29,
-        "foreground": "rgb(32, 39, 44)",
+        "ratio": 13.42,
+        "foreground": "rgb(35, 44, 50)",
         "background": "rgb(248, 248, 249)"
       },
       {
@@ -327,15 +327,15 @@
     "lowContrast": []
   },
   "1440 beat 2": {
-    "textCount": 5,
-    "markCount": 3,
+    "textCount": 6,
+    "markCount": 4,
     "intersections": [],
     "overflow": [],
     "contrast": [
       {
         "control": "Play the scene",
-        "ratio": 18.58,
-        "foreground": "rgb(11, 11, 12)",
+        "ratio": 18.46,
+        "foreground": "rgb(12, 12, 13)",
         "background": "rgb(248, 248, 249)"
       },
       {
@@ -366,8 +366,8 @@
     "lowContrast": []
   },
   "1440 beat 3": {
-    "textCount": 5,
-    "markCount": 3,
+    "textCount": 6,
+    "markCount": 4,
     "intersections": [],
     "overflow": [],
     "contrast": [
@@ -405,8 +405,8 @@
     "lowContrast": []
   },
   "1440 beat 4": {
-    "textCount": 6,
-    "markCount": 3,
+    "textCount": 7,
+    "markCount": 4,
     "intersections": [],
     "overflow": [],
     "contrast": [

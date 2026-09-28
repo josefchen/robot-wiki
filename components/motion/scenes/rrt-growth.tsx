@@ -1,6 +1,8 @@
 'use client';
 
+import { useSyncExternalStore } from 'react';
 import { AnimatedCircle, AnimatedPath } from '@/components/motion/animated';
+import { useSceneTime, useStaticTime } from '@/components/motion/scene-context';
 import { SceneMount } from '@/components/motion/scene-mount';
 import { StageSvg } from '@/components/motion/stage';
 import { beatSpans, type SceneDefinition } from '@/components/motion/timeline';
@@ -20,7 +22,7 @@ export const RRT_GROWTH_SCENE: SceneDefinition = {
   beats: [
     { id: 'world', caption: 'A fixed-seed authored planning world places a start, a goal and obstacles in the same 2D space as the lab.' },
     { id: 'explore', duration: 'long', linear: true, caption: 'Accepted extensions grow outward from the start; the same seeded tree is revealed in linear model time.' },
-    { id: 'connect', duration: 'long', linear: true, caption: 'Later accepted extensions reach around the partial wall and connect to the goal region.' },
+    { id: 'connect', duration: 'long', linear: true, caption: `The growing tree works around the partial wall; its goal connection occurs only at accepted extension ${GOAL_ITERATION}.` },
     { id: 'path', caption: 'Only after a goal connection exists does the selected start-to-goal route appear along tree edges.' },
   ],
 };
@@ -37,9 +39,23 @@ export function rrtGrowthFrame(t: number) {
   return {
     iteration,
     edges: edgesUpTo(RESULT, iteration),
+    goalReached: RESULT.goalNodeId !== null && iteration >= RESULT.goalNodeId,
     path: progress(t, 3) > 0 ? pathIfReached(RESULT, iteration) : [],
     routeOpacity: smooth(progress(t, 3)),
   };
+}
+
+function RrtConnectionReadout() {
+  const time = useSceneTime();
+  const poster = useStaticTime();
+  // Only the reached/not-reached boundary changes the React snapshot.
+  // The path and accepted tree still follow the same scene clock in SVG.
+  const reached = useSyncExternalStore(
+    (notify) => time ? time.on('change', notify) : () => {},
+    () => rrtGrowthFrame(time?.get() ?? poster).goalReached,
+    () => rrtGrowthFrame(poster).goalReached,
+  );
+  return <><span className="text-text-dim">authored world</span> {RRT_SCENE.width} × {RRT_SCENE.height} {reached ? <><span className="text-text-dim">goal connection</span> {GOAL_ITERATION} accepted extensions</> : null}</>;
 }
 
 const treePath = (t: number) => rrtGrowthFrame(t).edges.map(({ from, to }) =>
@@ -99,7 +115,7 @@ export function RrtGrowth({ className }: { className?: string }) {
         <LegendItem series="rrt-obstacle" swatch={<span aria-hidden className="inline-block h-2.5 w-3 border" style={{ borderColor: 'var(--role-constraint-graphic)' }} />}>obstacle</LegendItem>
         <LegendItem series="rrt-route" swatch={<span aria-hidden className="inline-block h-0.5 w-4" style={{ backgroundColor: 'var(--role-highlight-graphic)' }} />}>selected route</LegendItem>
       </>}
-      readout={({ beatIndex }) => <><span className="text-text-dim">authored world</span> {RRT_SCENE.width} × {RRT_SCENE.height} {beatIndex >= 2 ? <><span className="text-text-dim">goal connection</span> {GOAL_ITERATION} accepted extensions</> : null}</>}
+      readout={() => <RrtConnectionReadout />}
       statusLine="Authored fixed-seed planning scene, not a published benchmark. The route is one feasible result, not an optimality or success-rate claim. The lab below retains the exact controls and sampling settings."
       textAlternative={`${RRT_GROWTH_SCENE.title}. ${RRT_GROWTH_SCENE.beats.map((beat, index) => `Beat ${index + 1}: ${beat.caption}`).join(' ')}`}
     />

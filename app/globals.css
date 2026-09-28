@@ -643,3 +643,187 @@ article > hr {
     fill: CanvasText;
   }
 }
+
+/*
+ * Paired RL figures share semantic paint with their motion scenes. Scope
+ * these presentation-only rules to the retained instrument mounts; their
+ * authored arithmetic, controls and proof-bound source bytes stay unchanged.
+ * The existing dash/dot cues and explanatory text remain independent of hue.
+ */
+[data-brand-module-signature='instrument-frame']:has(#ttc-envs) {
+  [data-testid='wallclock-readout'],
+  > p[aria-live='polite'] > span:nth-of-type(2) {
+    color: var(--role-value-text);
+  }
+
+  [data-testid='reference-curve'],
+  [data-testid^='rudin-marker-'] path {
+    stroke: var(--role-reference-graphic);
+  }
+
+  [data-testid^='rudin-marker-'] text {
+    fill: var(--role-reference-text);
+  }
+
+  [data-testid='active-curve'] {
+    stroke: var(--role-value-graphic);
+  }
+
+  [data-testid='active-curve'] + text {
+    fill: var(--role-value-text);
+  }
+
+  [data-testid='position-marker'],
+  [data-brand-control-id='control:input'] {
+    fill: var(--role-highlight-graphic);
+    accent-color: var(--role-highlight-graphic);
+  }
+
+  [data-testid='breakdown-sim'] {
+    fill: var(--role-value-graphic);
+  }
+
+  [data-instrument-legend] > span:first-child > span:first-child {
+    background: var(--role-value-graphic) !important;
+  }
+
+  pattern line {
+    stroke: var(--role-constraint-graphic);
+  }
+
+  button[aria-pressed='true'] {
+    border-color: var(--role-highlight-graphic);
+    color: color-mix(in srgb, var(--role-highlight-text) 85%, var(--color-ink));
+  }
+}
+
+[data-brand-module-signature='instrument-frame']:has(#ttc-envs):has(button[aria-pressed='true']) {
+  [data-testid='active-curve'] {
+    stroke: var(--role-constraint-graphic);
+  }
+
+  [data-testid='active-curve'] + text {
+    fill: var(--role-constraint-text);
+  }
+}
+
+[data-brand-module-signature='instrument-frame']:has(#gait-phase) {
+  [data-testid='gait-name-readout'],
+  [data-testid='phase-readout'],
+  > p[aria-live='polite'] > span:nth-of-type(2) {
+    color: var(--role-highlight-text);
+  }
+
+  [data-testid='stance-readout'],
+  > p[aria-live='polite'] > span:nth-of-type(4) {
+    color: var(--role-state-text);
+  }
+
+  [data-testid^='row-'] text[fill='var(--color-accent)'] {
+    fill: var(--role-state-text);
+  }
+
+  [data-testid^='row-'] rect[opacity] {
+    fill: var(--role-state-graphic);
+  }
+
+  [data-testid='playhead'] line {
+    stroke: var(--role-highlight-graphic);
+  }
+
+  [data-testid='playhead'] circle {
+    fill: var(--role-highlight-graphic);
+  }
+
+  #gait-phase {
+    accent-color: var(--role-highlight-graphic);
+  }
+
+  button[aria-pressed='true'] {
+    border-color: var(--role-highlight-graphic);
+    color: color-mix(in srgb, var(--role-highlight-text) 85%, var(--color-ink));
+  }
+}
+
+/*
+ * The three retained data/hardware calculators are local source-proof
+ * dependencies. Paint their existing marks, readouts and legend in the
+ * same roles as their companion scenes, without altering their model,
+ * default values, controls or proof-bound component bytes.
+ */
+[data-brand-module-signature='instrument-frame']:has([data-testid='time-breakdown']) {
+  [data-testid='time-breakdown'] > div:first-child {
+    background-color: var(--role-value-graphic);
+  }
+
+  [data-testid='time-breakdown'] > div:nth-child(2) {
+    background-color: var(--role-constraint-graphic);
+  }
+
+  [data-testid='time-breakdown'] > div:nth-child(3) {
+    background-color: color-mix(in srgb, var(--role-constraint-graphic) 55%, var(--color-white));
+  }
+
+  [data-testid='breakdown-productive'] {
+    color: var(--role-value-text);
+  }
+
+  [data-testid='breakdown-jams'],
+  [data-testid='breakdown-downtime'] {
+    color: color-mix(in srgb, var(--role-constraint-text) 85%, var(--color-ink));
+  }
+}
+
+[data-brand-module-signature='instrument-frame']:has([data-testid='projection-marker']) {
+  [data-testid='rigs-readout'] {
+    color: var(--role-highlight-text);
+  }
+
+  [data-testid='hours-readout'] {
+    color: var(--role-value-text);
+  }
+
+  input[data-brand-control-id='control:input'] {
+    accent-color: var(--role-highlight-graphic);
+  }
+
+  button[aria-pressed='true'] {
+    border-color: var(--role-highlight-graphic);
+    background-color: color-mix(in srgb, var(--role-highlight-graphic) 20%, var(--color-white));
+  }
+
+  svg line[stroke='var(--color-accent)'] {
+    stroke: var(--role-value-graphic);
+  }
+
+  [data-testid='projection-marker'] {
+    fill: var(--role-value-graphic);
+  }
+
+  [data-testid='projection-marker'] + text {
+    fill: var(--role-value-text);
+  }
+
+  [data-instrument-legend] > span:nth-child(4) > span:first-child {
+    background: var(--role-value-graphic) !important;
+  }
+
+  [data-testid='projection-summary'] > span:nth-child(2) {
+    color: var(--role-value-text);
+  }
+}
+
+[data-brand-module-signature='instrument-frame']:has([data-testid='episode-success-readout']) {
+  input[data-brand-control-id='control:input'] {
+    accent-color: var(--role-highlight-graphic);
+  }
+
+  svg path[stroke='var(--color-accent)'],
+  svg circle[stroke='var(--color-accent)'] {
+    stroke: var(--role-value-graphic);
+  }
+
+  [data-testid='episode-success-readout'] {
+    color: var(--role-value-text);
+  }
+}

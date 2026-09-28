@@ -376,13 +376,17 @@ export function ScenePlayer({
           <InstrumentLegend className="mt-3">{legend}</InstrumentLegend>
         ) : null}
 
-        <InstrumentReadout data-testid="motion-readout">
-          <span className="text-text-dim">beat</span>{' '}
-          <span data-testid="motion-beat-readout" className="text-text">
-            {state.beatLabel}
-          </span>{' '}
-          {readout ? readout(state) : null}
-        </InstrumentReadout>
+        <SceneTimeProvider value={time}>
+          <StaticTimeProvider value={poster}>
+            <InstrumentReadout data-testid="motion-readout">
+              <span className="text-text-dim">beat</span>{' '}
+              <span data-testid="motion-beat-readout" className="text-text">
+                {state.beatLabel}
+              </span>{' '}
+              {readout ? readout(state) : null}
+            </InstrumentReadout>
+          </StaticTimeProvider>
+        </SceneTimeProvider>
 
         {statusLine ? (
           <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">

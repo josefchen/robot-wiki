@@ -209,7 +209,7 @@ export function ActionTokenization({
                 x={PAD.left - 8}
                 y={f(top + LANE_H / 2 + 3)}
                 textAnchor="end"
-                fill={selected ? 'var(--color-text)' : 'var(--color-text-dim)'}
+                fill={selected ? 'var(--role-highlight-text)' : 'var(--role-action-text)'}
                 fontSize={10}
                 fontFamily="var(--font-mono)"
               >
@@ -218,15 +218,16 @@ export function ActionTokenization({
               <polyline
                 points={points}
                 fill="none"
-                stroke={selected ? 'var(--color-accent)' : 'var(--color-text-dim)'}
+                stroke="var(--role-action-graphic)"
                 strokeWidth={selected ? 1.8 : 1}
                 opacity={selected ? 1 : 0.55}
               />
               <circle
+                data-selection={selected ? 'current coordinate' : undefined}
                 cx={chunkX(step)}
                 cy={laneValueY(i, chunk[i][step])}
                 r={selected ? 4 : 2.5}
-                fill={selected ? 'var(--color-accent)' : 'var(--color-text-dim)'}
+                fill={selected ? 'var(--role-highlight-graphic)' : 'var(--role-action-graphic)'}
               />
             </g>
           );
@@ -236,8 +237,9 @@ export function ActionTokenization({
           x2={chunkX(step)}
           y1={CHART_TOP - 4}
           y2={CHART_TOP + ACTION_DIMS.length * LANE_H}
-          stroke="var(--color-accent)"
+          stroke="var(--role-action-graphic)"
           strokeWidth={1}
+          strokeDasharray="3 3"
           opacity={0.6}
         />
         {[0, 5, 10, 15].map((t) => (
@@ -290,11 +292,12 @@ export function ActionTokenization({
         {Array.from({ length: BIN_COUNT }, (_, i) => (
           <rect
             key={i}
+            data-selection={i === bin ? 'assigned bin' : undefined}
             x={f(PAD.left + (i / BIN_COUNT) * PLOT_W)}
             y={DETAIL_TOP}
             width={f(PLOT_W / BIN_COUNT) + 0.3}
             height={STRIP_H}
-            fill={i === bin ? 'var(--color-accent)' : 'var(--color-surface-2)'}
+            fill={i === bin ? 'var(--role-highlight-graphic)' : 'var(--color-surface-2)'}
             stroke="var(--color-border)"
             strokeWidth={0.25}
           />
@@ -336,11 +339,12 @@ export function ActionTokenization({
           return (
             <g key={i}>
               <rect
+                data-selection={i === bin ? 'assigned bin' : undefined}
                 x={zx}
                 y={DETAIL_TOP + STRIP_H + ZOOM_GAP}
                 width={zw}
                 height={ZOOM_H}
-                fill={i === bin ? 'var(--color-accent)' : 'var(--color-surface-2)'}
+                fill={i === bin ? 'var(--role-highlight-graphic)' : 'var(--color-surface-2)'}
                 stroke="var(--color-border)"
                 strokeWidth={0.5}
               />
@@ -349,7 +353,7 @@ export function ActionTokenization({
                   x={f(zx + zw / 2)}
                   y={DETAIL_TOP + STRIP_H + ZOOM_GAP + ZOOM_H + 14}
                   textAnchor={k === ZOOM_BINS - 1 ? 'end' : 'middle'}
-                  fill={i === bin ? 'var(--color-text)' : 'var(--color-text-dim)'}
+                  fill={i === bin ? 'var(--role-highlight-text)' : 'var(--color-text-dim)'}
                   fontSize={10}
                   fontFamily="var(--font-mono)"
                 >
@@ -434,7 +438,7 @@ export function ActionTokenization({
             >
               <span className="text-[10px] text-text-dim">{i + 1}</span>
               <span>{d.label}</span>
-              <span className={i === dim ? 'text-accent' : 'text-text'}>
+              <span style={{ color: 'color-mix(in srgb, var(--role-action-text) 85%, var(--color-ink))' }}>
                 {tokenForBin(stepBins[i])}
               </span>
             </span>
@@ -447,15 +451,15 @@ export function ActionTokenization({
       </div>
 
       <InstrumentReadout>
-        <span data-testid="tok-value-readout" className="text-accent">
+        <span data-testid="tok-value-readout" style={{ color: 'var(--role-action-text)' }}>
           {ACTION_DIMS[dim].label} = {value.toFixed(3)}
         </span>{' '}
         <span className="text-text-dim">→</span>{' '}
-        <span data-testid="tok-bin-readout" className="text-accent">
+        <span data-testid="tok-bin-readout" style={{ color: 'var(--role-highlight-text)' }}>
           bin {bin} of {BIN_COUNT - 1}
         </span>{' '}
         <span className="text-text-dim">→</span>{' '}
-        <span data-testid="tok-token-readout" className="text-accent">
+        <span data-testid="tok-token-readout" style={{ color: 'var(--role-action-text)' }}>
           {token}
         </span>{' '}
         <span data-testid="tok-error-readout" className="text-text-dim">

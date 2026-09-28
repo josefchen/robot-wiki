@@ -92,3 +92,81 @@ test('home shares the reliability scene and keeps its independent calculator', a
   await scene.getByRole('button', { name: /step back one beat/i }).click();
   await expect(scene.getByTestId('motion-caption')).toContainText('99.9%');
 });
+
+test('sense-and-avoid keeps a fixed maneuver against 70, 135 and 200 ms delay', async ({ browser }) => {
+  test.setTimeout(150_000);
+  for (const colorScheme of ['light', 'dark'] as const) {
+    for (const width of [375, 1440]) {
+      const context = await browser.newContext({ colorScheme, viewport: { width, height: 900 } });
+      try {
+        const page = await context.newPage();
+        await page.goto('/adjacent/drones/', { waitUntil: 'networkidle' });
+        const scene = page.locator('[data-motion-scene="sense-avoid"]');
+        await scene.getByTestId('motion-poster').click();
+        const scrub = scene.getByTestId('motion-scrubber');
+        await expect(scrub).toBeVisible();
+        await page.keyboard.press('k');
+        const widthOf = (mark: string) => scene.locator(`[data-scene-mark="${mark}"]`)
+          .evaluate((node) => Number(node.getAttribute('width')));
+        const readout = scene.getByTestId('motion-readout');
+        const speeds: number[] = [];
+        for (const [time, delay] of [[3000, 70], [4000, 135], [5000, 200]] as const) {
+          await scrub.fill(String(time));
+          await expect(readout).toContainText(`${delay} ms`);
+          await expect(readout).toContainText('346 ms');
+          expect(await widthOf('latency-budget')).toBeCloseTo(delay * 0.43, 1);
+          expect(await widthOf('avoidance-budget')).toBeCloseTo(2 * Math.sqrt(0.75 / 25) * 430, 1);
+          const label = await readout.innerText();
+          speeds.push(Number(label.match(/maximum speed ([\d.]+) m\/s/)?.[1]));
+          const audit = await scene.evaluate(auditSceneElement);
+          expect([...audit.intersections, ...audit.overflow, ...audit.lowContrast], `${colorScheme} ${width} ${delay} ms`).toEqual([]);
+        }
+        expect(speeds[0]).toBeGreaterThan(speeds[1]);
+        expect(speeds[1]).toBeGreaterThan(speeds[2]);
+        await expect(scene).toContainText('≈346 ms');
+      } finally {
+        await context.close();
+      }
+    }
+  }
+});
+
+test('reliability labels arrive with their bars, including on home', async ({ browser }) => {
+  test.setTimeout(150_000);
+  for (const colorScheme of ['light', 'dark'] as const) {
+    for (const width of [375, 1440]) {
+      const context = await browser.newContext({ colorScheme, viewport: { width, height: 900 } });
+      try {
+        const page = await context.newPage();
+        for (const route of ['/frontier/reliability-gap/', '/']) {
+          await page.goto(route, { waitUntil: 'networkidle' });
+          const scene = page.locator('[data-motion-scene="reliability-threshold"]');
+          await scene.getByTestId('motion-poster').click();
+          const scrub = scene.getByTestId('motion-scrubber');
+          await expect(scrub).toBeVisible();
+          await page.keyboard.press('k');
+          const label = (value: string) => scene.locator('svg text').filter({ hasText: new RegExp(`^${value.replace('.', '\\.')}$`) });
+          await scrub.fill('1000');
+          await expect(scene.getByTestId('motion-caption')).toContainText('21.5%');
+          expect(await label('95%').getAttribute('opacity')).toBe('1');
+          for (const value of ['99%', '74.0%', '99.9%', '97.0%']) {
+            expect(await label(value).getAttribute('opacity'), `${route} ${value} before its bar`).toBe('0');
+          }
+          await scrub.fill('3000');
+          expect(await label('99%').getAttribute('opacity')).toBe('1');
+          expect(await label('74.0%').getAttribute('opacity')).toBe('1');
+          expect(await label('99.9%').getAttribute('opacity')).toBe('0');
+          await scrub.fill('5000');
+          expect(await label('99.9%').getAttribute('opacity')).toBe('1');
+          expect(await label('97.0%').getAttribute('opacity')).toBe('1');
+          await expect(scene).toContainText('A separate calculator');
+          await expect(scene).not.toContainText('calculator below');
+          const audit = await scene.evaluate(auditSceneElement);
+          expect([...audit.intersections, ...audit.overflow, ...audit.lowContrast], `${route} ${colorScheme} ${width}`).toEqual([]);
+        }
+      } finally {
+        await context.close();
+      }
+    }
+  }
+});

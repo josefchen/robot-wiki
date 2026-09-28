@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "4cbd4aa101bcf26ed8533338da9fbc51128ddd54947f2177808e7addbfa024f4",
+  "fingerprint": "aeccb2da512edbf0a48ffa6e8ddc4ee44e2efb9d352c7dbb3edb0c9aa56a6f02",
   "viewports": [
     "375x812",
     "1440x900"
@@ -1152,7 +1152,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 18298,
+      "visibleTextLength": 18336,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -20613,7 +20613,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 14826,
+      "visibleTextLength": 14821,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -33026,7 +33026,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 20620,
+      "visibleTextLength": 20616,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -40559,7 +40559,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 17396,
+      "visibleTextLength": 17415,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -40603,7 +40603,7 @@
         }
       ],
       "hasMatchingNavLink": true,
-      "focusableCount": 103,
+      "focusableCount": 105,
       "references": {
         "present": true,
         "headingId": "references-heading",
@@ -40734,6 +40734,16 @@
           "tooltipText": "RoboCasa: Large-Scale Simulation of Everyday Tasks for Generalist RobotsSoroush Nasiriany, Abhiram Maddukuri, Lance Zhang et al., RSS 2024",
           "describedByResolves": true,
           "referenceHref": "#ref-robocasa-2024",
+          "inProse": true
+        },
+        {
+          "id": "robocasa365-2026",
+          "label": "Nasiriany 2026",
+          "href": "https://robocasa.ai/assets/robocasa365_iclr26.pdf",
+          "opensExternally": true,
+          "tooltipText": "RoboCasa365: A Large-Scale Simulation Framework for Training and Benchmarking Generalist RobotsSoroush Nasiriany, Sepehr Nasiriany, Abhiram Maddukuri et al., ICLR 2026",
+          "describedByResolves": true,
+          "referenceHref": "#ref-robocasa365-2026",
           "inProse": true
         },
         {
@@ -40967,28 +40977,6 @@
           "section": "see-also",
           "href": "/world-models/generative-video/",
           "text": "Generative Video World Models",
-          "documentOrder": 76,
-          "tabStop": 77,
-          "tabPresses": 100,
-          "restingRing": "none|3px|none",
-          "focusedRing": "solid|2px|none",
-          "focusVisible": true
-        },
-        {
-          "section": "see-also",
-          "href": "/rl-sim2real/sim2real-transfer/",
-          "text": "Sim-to-Real Transfer",
-          "documentOrder": 77,
-          "tabStop": 78,
-          "tabPresses": 100,
-          "restingRing": "none|3px|none",
-          "focusedRing": "solid|2px|none",
-          "focusVisible": true
-        },
-        {
-          "section": "see-also",
-          "href": "/world-models/world-models-vs-simulators/",
-          "text": "World Models vs Physics Simulators",
           "documentOrder": 78,
           "tabStop": 79,
           "tabPresses": 100,
@@ -40998,8 +40986,8 @@
         },
         {
           "section": "see-also",
-          "href": "/world-models/evaluation/",
-          "text": "World Model Evaluation for Robotics",
+          "href": "/rl-sim2real/sim2real-transfer/",
+          "text": "Sim-to-Real Transfer",
           "documentOrder": 79,
           "tabStop": 80,
           "tabPresses": 100,
@@ -41008,9 +40996,9 @@
           "focusVisible": true
         },
         {
-          "section": "linked-from",
-          "href": "/rl-sim2real/sim2real-transfer/",
-          "text": "Sim-to-Real Transfer",
+          "section": "see-also",
+          "href": "/world-models/world-models-vs-simulators/",
+          "text": "World Models vs Physics Simulators",
           "documentOrder": 80,
           "tabStop": 81,
           "tabPresses": 100,
@@ -41019,9 +41007,9 @@
           "focusVisible": true
         },
         {
-          "section": "linked-from",
-          "href": "/world-models/generative-video/",
-          "text": "Generative Video World Models",
+          "section": "see-also",
+          "href": "/world-models/evaluation/",
+          "text": "World Model Evaluation for Robotics",
           "documentOrder": 81,
           "tabStop": 82,
           "tabPresses": 100,
@@ -41031,8 +41019,8 @@
         },
         {
           "section": "linked-from",
-          "href": "/world-models/world-models-vs-simulators/",
-          "text": "World Models vs Physics Simulators",
+          "href": "/rl-sim2real/sim2real-transfer/",
+          "text": "Sim-to-Real Transfer",
           "documentOrder": 82,
           "tabStop": 83,
           "tabPresses": 100,
@@ -41042,10 +41030,32 @@
         },
         {
           "section": "linked-from",
-          "href": "/classical/motion-planning/",
-          "text": "Motion Planning",
+          "href": "/world-models/generative-video/",
+          "text": "Generative Video World Models",
           "documentOrder": 83,
           "tabStop": 84,
+          "tabPresses": 100,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "linked-from",
+          "href": "/world-models/world-models-vs-simulators/",
+          "text": "World Models vs Physics Simulators",
+          "documentOrder": 84,
+          "tabStop": 85,
+          "tabPresses": 100,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "linked-from",
+          "href": "/classical/motion-planning/",
+          "text": "Motion Planning",
+          "documentOrder": 85,
+          "tabStop": 86,
           "tabPresses": 100,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
@@ -41055,17 +41065,6 @@
           "section": "references",
           "href": "https://arxiv.org/abs/2311.01455",
           "text": "RoboGen: Towards Unleashing Infinite Data for Automated Robot Learning via Generative Simulation",
-          "documentOrder": 84,
-          "tabStop": 85,
-          "tabPresses": 100,
-          "restingRing": "none|3px|none",
-          "focusedRing": "solid|2px|none",
-          "focusVisible": true
-        },
-        {
-          "section": "references",
-          "href": "https://arxiv.org/abs/2312.09067",
-          "text": "Holodeck: Language Guided Generation of 3D Embodied AI Environments",
           "documentOrder": 86,
           "tabStop": 87,
           "tabPresses": 100,
@@ -41075,8 +41074,8 @@
         },
         {
           "section": "references",
-          "href": "https://arxiv.org/abs/2406.02523",
-          "text": "RoboCasa: Large-Scale Simulation of Everyday Tasks for Generalist Robots",
+          "href": "https://arxiv.org/abs/2312.09067",
+          "text": "Holodeck: Language Guided Generation of 3D Embodied AI Environments",
           "documentOrder": 88,
           "tabStop": 89,
           "tabPresses": 100,
@@ -41086,19 +41085,8 @@
         },
         {
           "section": "references",
-          "href": "https://robocasa.ai/assets/robocasa365_iclr26.pdf",
-          "text": "RoboCasa365: A Large-Scale Simulation Framework for Training and Benchmarking Generalist Robots",
-          "documentOrder": 89,
-          "tabStop": 90,
-          "tabPresses": 100,
-          "restingRing": "none|3px|none",
-          "focusedRing": "solid|2px|none",
-          "focusVisible": true
-        },
-        {
-          "section": "references",
-          "href": "https://arxiv.org/abs/2410.15536",
-          "text": "GRS: Generating Robotic Simulation Tasks from Real-World Images",
+          "href": "https://arxiv.org/abs/2406.02523",
+          "text": "RoboCasa: Large-Scale Simulation of Everyday Tasks for Generalist Robots",
           "documentOrder": 90,
           "tabStop": 91,
           "tabPresses": 100,
@@ -41108,8 +41096,8 @@
         },
         {
           "section": "references",
-          "href": "https://arxiv.org/abs/2511.04831",
-          "text": "Isaac Lab: A GPU-Accelerated Simulation Framework for Multi-Modal Robot Learning",
+          "href": "https://robocasa.ai/assets/robocasa365_iclr26.pdf",
+          "text": "RoboCasa365: A Large-Scale Simulation Framework for Training and Benchmarking Generalist Robots",
           "documentOrder": 91,
           "tabStop": 92,
           "tabPresses": 100,
@@ -41119,8 +41107,19 @@
         },
         {
           "section": "references",
-          "href": "https://arxiv.org/abs/2605.00080",
-          "text": "World Model for Robot Learning: A Comprehensive Survey",
+          "href": "https://arxiv.org/abs/2410.15536",
+          "text": "GRS: Generating Robotic Simulation Tasks from Real-World Images",
+          "documentOrder": 92,
+          "tabStop": 93,
+          "tabPresses": 100,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "references",
+          "href": "https://arxiv.org/abs/2511.04831",
+          "text": "Isaac Lab: A GPU-Accelerated Simulation Framework for Multi-Modal Robot Learning",
           "documentOrder": 93,
           "tabStop": 94,
           "tabPresses": 100,
@@ -41130,10 +41129,21 @@
         },
         {
           "section": "references",
-          "href": "https://arxiv.org/abs/2310.12931",
-          "text": "Eureka: Human-Level Reward Design via Coding Large Language Models",
+          "href": "https://arxiv.org/abs/2605.00080",
+          "text": "World Model for Robot Learning: A Comprehensive Survey",
           "documentOrder": 95,
           "tabStop": 96,
+          "tabPresses": 100,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "references",
+          "href": "https://arxiv.org/abs/2310.12931",
+          "text": "Eureka: Human-Level Reward Design via Coding Large Language Models",
+          "documentOrder": 97,
+          "tabStop": 98,
           "tabPresses": 100,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
@@ -46235,7 +46245,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 18616,
+      "visibleTextLength": 18654,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -65696,7 +65706,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 15161,
+      "visibleTextLength": 15156,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -78109,7 +78119,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 21247,
+      "visibleTextLength": 21243,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -85642,7 +85652,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 17880,
+      "visibleTextLength": 17899,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -85686,7 +85696,7 @@
         }
       ],
       "hasMatchingNavLink": true,
-      "focusableCount": 125,
+      "focusableCount": 127,
       "references": {
         "present": true,
         "headingId": "references-heading",
@@ -85817,6 +85827,16 @@
           "tooltipText": "RoboCasa: Large-Scale Simulation of Everyday Tasks for Generalist RobotsSoroush Nasiriany, Abhiram Maddukuri, Lance Zhang et al., RSS 2024",
           "describedByResolves": true,
           "referenceHref": "#ref-robocasa-2024",
+          "inProse": true
+        },
+        {
+          "id": "robocasa365-2026",
+          "label": "Nasiriany 2026",
+          "href": "https://robocasa.ai/assets/robocasa365_iclr26.pdf",
+          "opensExternally": true,
+          "tooltipText": "RoboCasa365: A Large-Scale Simulation Framework for Training and Benchmarking Generalist RobotsSoroush Nasiriany, Sepehr Nasiriany, Abhiram Maddukuri et al., ICLR 2026",
+          "describedByResolves": true,
+          "referenceHref": "#ref-robocasa365-2026",
           "inProse": true
         },
         {
@@ -86050,28 +86070,6 @@
           "section": "see-also",
           "href": "/world-models/generative-video/",
           "text": "Generative Video World Models",
-          "documentOrder": 98,
-          "tabStop": 98,
-          "tabPresses": 125,
-          "restingRing": "none|3px|none",
-          "focusedRing": "solid|2px|none",
-          "focusVisible": true
-        },
-        {
-          "section": "see-also",
-          "href": "/rl-sim2real/sim2real-transfer/",
-          "text": "Sim-to-Real Transfer",
-          "documentOrder": 99,
-          "tabStop": 99,
-          "tabPresses": 125,
-          "restingRing": "none|3px|none",
-          "focusedRing": "solid|2px|none",
-          "focusVisible": true
-        },
-        {
-          "section": "see-also",
-          "href": "/world-models/world-models-vs-simulators/",
-          "text": "World Models vs Physics Simulators",
           "documentOrder": 100,
           "tabStop": 100,
           "tabPresses": 125,
@@ -86081,8 +86079,8 @@
         },
         {
           "section": "see-also",
-          "href": "/world-models/evaluation/",
-          "text": "World Model Evaluation for Robotics",
+          "href": "/rl-sim2real/sim2real-transfer/",
+          "text": "Sim-to-Real Transfer",
           "documentOrder": 101,
           "tabStop": 101,
           "tabPresses": 125,
@@ -86091,9 +86089,9 @@
           "focusVisible": true
         },
         {
-          "section": "linked-from",
-          "href": "/rl-sim2real/sim2real-transfer/",
-          "text": "Sim-to-Real Transfer",
+          "section": "see-also",
+          "href": "/world-models/world-models-vs-simulators/",
+          "text": "World Models vs Physics Simulators",
           "documentOrder": 102,
           "tabStop": 102,
           "tabPresses": 125,
@@ -86102,9 +86100,9 @@
           "focusVisible": true
         },
         {
-          "section": "linked-from",
-          "href": "/world-models/generative-video/",
-          "text": "Generative Video World Models",
+          "section": "see-also",
+          "href": "/world-models/evaluation/",
+          "text": "World Model Evaluation for Robotics",
           "documentOrder": 103,
           "tabStop": 103,
           "tabPresses": 125,
@@ -86114,8 +86112,8 @@
         },
         {
           "section": "linked-from",
-          "href": "/world-models/world-models-vs-simulators/",
-          "text": "World Models vs Physics Simulators",
+          "href": "/rl-sim2real/sim2real-transfer/",
+          "text": "Sim-to-Real Transfer",
           "documentOrder": 104,
           "tabStop": 104,
           "tabPresses": 125,
@@ -86125,10 +86123,32 @@
         },
         {
           "section": "linked-from",
-          "href": "/classical/motion-planning/",
-          "text": "Motion Planning",
+          "href": "/world-models/generative-video/",
+          "text": "Generative Video World Models",
           "documentOrder": 105,
           "tabStop": 105,
+          "tabPresses": 125,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "linked-from",
+          "href": "/world-models/world-models-vs-simulators/",
+          "text": "World Models vs Physics Simulators",
+          "documentOrder": 106,
+          "tabStop": 106,
+          "tabPresses": 125,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "linked-from",
+          "href": "/classical/motion-planning/",
+          "text": "Motion Planning",
+          "documentOrder": 107,
+          "tabStop": 107,
           "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
@@ -86138,17 +86158,6 @@
           "section": "references",
           "href": "https://arxiv.org/abs/2311.01455",
           "text": "RoboGen: Towards Unleashing Infinite Data for Automated Robot Learning via Generative Simulation",
-          "documentOrder": 106,
-          "tabStop": 106,
-          "tabPresses": 125,
-          "restingRing": "none|3px|none",
-          "focusedRing": "solid|2px|none",
-          "focusVisible": true
-        },
-        {
-          "section": "references",
-          "href": "https://arxiv.org/abs/2312.09067",
-          "text": "Holodeck: Language Guided Generation of 3D Embodied AI Environments",
           "documentOrder": 108,
           "tabStop": 108,
           "tabPresses": 125,
@@ -86158,8 +86167,8 @@
         },
         {
           "section": "references",
-          "href": "https://arxiv.org/abs/2406.02523",
-          "text": "RoboCasa: Large-Scale Simulation of Everyday Tasks for Generalist Robots",
+          "href": "https://arxiv.org/abs/2312.09067",
+          "text": "Holodeck: Language Guided Generation of 3D Embodied AI Environments",
           "documentOrder": 110,
           "tabStop": 110,
           "tabPresses": 125,
@@ -86169,19 +86178,8 @@
         },
         {
           "section": "references",
-          "href": "https://robocasa.ai/assets/robocasa365_iclr26.pdf",
-          "text": "RoboCasa365: A Large-Scale Simulation Framework for Training and Benchmarking Generalist Robots",
-          "documentOrder": 111,
-          "tabStop": 111,
-          "tabPresses": 125,
-          "restingRing": "none|3px|none",
-          "focusedRing": "solid|2px|none",
-          "focusVisible": true
-        },
-        {
-          "section": "references",
-          "href": "https://arxiv.org/abs/2410.15536",
-          "text": "GRS: Generating Robotic Simulation Tasks from Real-World Images",
+          "href": "https://arxiv.org/abs/2406.02523",
+          "text": "RoboCasa: Large-Scale Simulation of Everyday Tasks for Generalist Robots",
           "documentOrder": 112,
           "tabStop": 112,
           "tabPresses": 125,
@@ -86191,8 +86189,8 @@
         },
         {
           "section": "references",
-          "href": "https://arxiv.org/abs/2511.04831",
-          "text": "Isaac Lab: A GPU-Accelerated Simulation Framework for Multi-Modal Robot Learning",
+          "href": "https://robocasa.ai/assets/robocasa365_iclr26.pdf",
+          "text": "RoboCasa365: A Large-Scale Simulation Framework for Training and Benchmarking Generalist Robots",
           "documentOrder": 113,
           "tabStop": 113,
           "tabPresses": 125,
@@ -86202,8 +86200,19 @@
         },
         {
           "section": "references",
-          "href": "https://arxiv.org/abs/2605.00080",
-          "text": "World Model for Robot Learning: A Comprehensive Survey",
+          "href": "https://arxiv.org/abs/2410.15536",
+          "text": "GRS: Generating Robotic Simulation Tasks from Real-World Images",
+          "documentOrder": 114,
+          "tabStop": 114,
+          "tabPresses": 125,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "references",
+          "href": "https://arxiv.org/abs/2511.04831",
+          "text": "Isaac Lab: A GPU-Accelerated Simulation Framework for Multi-Modal Robot Learning",
           "documentOrder": 115,
           "tabStop": 115,
           "tabPresses": 125,
@@ -86213,10 +86222,21 @@
         },
         {
           "section": "references",
-          "href": "https://arxiv.org/abs/2310.12931",
-          "text": "Eureka: Human-Level Reward Design via Coding Large Language Models",
+          "href": "https://arxiv.org/abs/2605.00080",
+          "text": "World Model for Robot Learning: A Comprehensive Survey",
           "documentOrder": 117,
           "tabStop": 117,
+          "tabPresses": 125,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "references",
+          "href": "https://arxiv.org/abs/2310.12931",
+          "text": "Eureka: Human-Level Reward Design via Coding Large Language Models",
+          "documentOrder": 119,
+          "tabStop": 119,
           "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",

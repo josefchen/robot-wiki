@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "motion-domain-pairs-checker-revision-v1",
+  "before": {
+    "path": "audit/evidence/motion-domain-pairs-20260928/audit-local-basis-before.ts.txt",
+    "bytes": 110673,
+    "sha256": "a2264881cb17d1c5c54f23c1178c15c4d74fe4561e431fc7fb0a5b52495b6b30"
+  },
+  "after": {
+    "path": "lib/audit-local-basis.ts",
+    "bytes": 111186,
+    "sha256": "4b1007a7e78d9ea05c34415cc869d0c11ef937c1e9158136041b4c102afdf84d"
+  },
+  "reviewedBy": "Batch-2 implementer (not independent acceptance)",
+  "observedAt": "2026-09-28T01:48:11.420Z",
+  "rationale": "The historical checker snapshot is the exact frontier-reviewed successor. The live checker differs by one import and one source-reader branch limited to the two old fingerprints. The finite compatibility routine compares complete source files against a single exact annotation edit each and checks all pinned proofs. No old proof receipt, archived source, scientific calculation or citation is rewritten; this is an implementation review, not independent acceptance."
+}

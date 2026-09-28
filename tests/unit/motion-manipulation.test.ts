@@ -1,8 +1,11 @@
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
+import { createElement } from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
 import { beatSpans, posterTime } from '@/components/motion/timeline';
 import {
+  ActionDecode,
   ACTION_DECODE_SCENE,
   actionDecodeFrame,
 } from '@/components/motion/scenes/action-decode';
@@ -89,6 +92,19 @@ describe('manipulation scene models', () => {
     expect(ACTION_DECODE_SCENE.beats.map((b) => b.caption)).toEqual(
       ACTION_DECODE_SCENE.beats.map(() => expect.stringMatching(/[.!?]$/)),
     );
+  });
+
+  it('prints all seven computed tokens on the scene at partial reveal and on the poster', () => {
+    const chunk = generateActionChunk();
+    const tokens = ACTION_DIMS.map((_, i) => tokenForBin(binIndex(chunk[i][7])));
+    const spans = beatSpans(ACTION_DECODE_SCENE.beats);
+    const partial = actionDecodeFrame(spans[2].start + spans[2].duration / 2);
+    expect(partial.visibleTokens).toEqual(tokens.slice(0, 4));
+    expect(actionDecodeFrame(spans[2].end).visibleTokens).toEqual(tokens);
+    const poster = renderToStaticMarkup(createElement(ActionDecode));
+    const printed = [...poster.matchAll(/data-scene-token="(\d+)"[^>]*>([^<]*)<\/text>/g)]
+      .map((match) => ({ position: Number(match[1]), token: match[2].replaceAll('&lt;', '<').replaceAll('&gt;', '>') }));
+    expect(printed).toEqual(tokens.map((token, index) => ({ position: index + 1, token })));
   });
 
   it('moves the same seeded action samples through model time without easing them', () => {

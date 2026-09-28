@@ -395,7 +395,7 @@ export function GaitDiagram({
         })}
 
         {/* Playhead */}
-        <g data-testid="playhead">
+        <g data-testid="playhead" data-selection="current gait phase">
           <line
             x1={playheadX}
             x2={playheadX}

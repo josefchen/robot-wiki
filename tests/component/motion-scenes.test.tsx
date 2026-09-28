@@ -1,4 +1,5 @@
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { renderToString } from 'react-dom/server';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { KalmanPredictUpdate, KALMAN_SCENE, KALMAN_STEP_DETAIL, covarianceEllipse, kalmanFrameAt } from '@/components/motion/scenes/kalman-predict-update';
 import {
@@ -70,6 +71,45 @@ describe('motion scene mount', () => {
       covarianceEllipse(KALMAN_STEP_DETAIL.posterior.cov).rx,
       6,
     );
+  });
+
+  it('links the complete alternative in SSR and remains unique across poster mounts', () => {
+    const html = renderToString(<><KalmanPredictUpdate /><KalmanPredictUpdate /><DiffusionDenoising /></>);
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    const groups = [...doc.querySelectorAll<HTMLElement>('[data-motion-scene]')];
+    expect(groups).toHaveLength(3);
+    const ids = groups.map((group) => group.getAttribute('aria-describedby'));
+    expect(ids.every(Boolean)).toBe(true);
+    expect(new Set(ids).size).toBe(groups.length);
+    for (const [index, group] of groups.entries()) {
+      const alternative = doc.getElementById(ids[index]!);
+      expect(alternative?.getAttribute('class')).toContain('sr-only');
+      const beats = index === 2 ? DIFFUSION_SCENE.beats : KALMAN_SCENE.beats;
+      for (const beat of beats) expect(alternative?.textContent).toContain(beat.caption);
+      expect(group.querySelector('[data-motion-stage] svg')?.getAttribute('aria-hidden')).toBe('true');
+      expect(group.querySelector('[data-testid="motion-caption"]')?.textContent).toContain(beats.at(-1)!.caption);
+    }
+    expect(doc.querySelectorAll('[data-testid="motion-scrubber"]')).toHaveLength(0);
+  });
+
+  it('exposes full reference equations before and after activation', async () => {
+    render(<><KalmanPredictUpdate /><DiffusionDenoising /></>);
+    const groups = screen.getAllByRole('group', { name: /^motion scene:/i });
+    const descriptions = () => screen.getAllByRole('group', { name: /^motion scene:/i }).map((group) =>
+      document.getElementById(group.getAttribute('aria-describedby')!)?.textContent ?? '');
+    const assertRelations = () => {
+      expect(descriptions()[0]).toMatch(/posterior.*predicted.*gain K.*reading z.*predicted/i);
+      expect(descriptions()[1]).toMatch(/action.*distribution.*conditioned on.*observed state/i);
+    };
+    assertRelations();
+    fireEvent.click(groups[0].querySelector('[data-testid="motion-poster"]')!);
+    fireEvent.click(groups[1].querySelector('[data-testid="motion-poster"]')!);
+    await waitFor(() => expect(screen.getAllByTestId('motion-scrubber')).toHaveLength(2));
+    assertRelations();
+    for (const group of screen.getAllByRole('group', { name: /^motion scene:/i })) {
+      expect(group.querySelector('[data-motion-stage] svg')).toHaveAttribute('aria-hidden', 'true');
+      expect(group.querySelector('[data-scene-equation] .katex')).not.toBeNull();
+    }
   });
 
   it('the poster click mounts the player with the full control set', async () => {
