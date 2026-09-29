@@ -275,7 +275,6 @@ export function ScenePlayer({
     >
       <div ref={frameRef} onKeyDown={onKeyDown}>
         <InstrumentHeader
-          label="motion scene"
           meta={
             <span data-testid="motion-beat-count">
               beat {state.beatLabel}

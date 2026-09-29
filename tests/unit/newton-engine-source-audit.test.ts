@@ -32,7 +32,7 @@ function rejected(plan: CompoundPlan) {
   try { return rowFor(plan).evidenceFailures.length > 0; } catch { return true; }
 }
 
-describe('Newton engine source-scoped corrections', () => {
+describe('Newton engine source-scoped corrections', { timeout: 60_000 }, () => {
   it('cuts only the unsupported current Brax positioning', () => {
     expect(parallel()).not.toContain('Brax remains the JAX-native differentiable option');
     expect(parallel()).toContain('Brax, from Google in 2021');

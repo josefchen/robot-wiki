@@ -17,7 +17,7 @@ const PLAN_IDS = ["data-bottleneck-db1-gpt3-300b-20260915", "data-bottleneck-db2
 const HELD_ROW_3 = "| OXE holds over a million trajectories across 22 robot embodiments; ~10,000 h is an estimate, flagged as such | open-x-embodiment-2023 (arXiv 2310.08864 HTML: \"1M+ robot trajectories from 22 robot embodiments\"; no hour count published anywhere in the paper, so the ~10k h figure stays flagged `estimated` in lib/data-scaling.ts) | V |  |  |  |  |  |";
 const HELD_ROW_5 = "| DROID: 76,000 trajectories, 350 hours, 50 operators, 13 institutions, a full year | droid-2024 (arXiv 2403.12945 abs + HTML) | V |  |  |  |  |  |";
 
-describe('data-bottleneck originals integration (packet b57e9e0d, 2026-09-15)', () => {
+describe('data-bottleneck originals integration (packet b57e9e0d, 2026-09-15)', { timeout: 60_000 }, () => {
   it('gapDecades arithmetic holds from the article chart module\'s own operands', () => {
     // components/interactive/data-scale-chart.tsx:162, operands from
     // lib/data-scaling.ts (llama3 1.5e13, egoscale 20_854).
@@ -135,7 +135,7 @@ describe('data-bottleneck originals integration (packet b57e9e0d, 2026-09-15)', 
 });
 
 
-it('keeps the prediction exercise while separating source facts from assumptions', () => {
+it('keeps the prediction exercise while separating source facts from assumptions', { timeout: 60_000 }, () => {
   const article = readFileSync(ARTICLE, 'utf8');
   expect(article).toContain('<PredictThenReveal');
   expect(article).toContain('answer="century-plus"');

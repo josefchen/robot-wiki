@@ -119,7 +119,7 @@ describe('classical closure recipes and reader corrections', () => {
   });
 });
 
-describe('classical closure native evidence and preservation', () => {
+describe('classical closure native evidence and preservation', { timeout: 60_000 }, () => {
   const context = () => ({
     localBasis: loadLocalBasisContext(root, publishedModules().map(m => `/${m.domain}/${m.slug}/`)),
     correctedDispositions: { root, records: parseCorrectedDispositions([

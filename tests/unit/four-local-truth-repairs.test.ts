@@ -285,6 +285,14 @@ describe('four bounded local truth repairs without completion credit', { timeout
       ['interactive-sources-mounts', 'source:components/interactive/rrt-explorer.tsx'],
     ]);
     expect(validateApprovedDeltas(mine)).toEqual([]);
+    // The 2026-09-29 motion-planning plain restore is the one prose edge
+    // after the head re-anchor of these members.
+    const restores = entries.filter(({ id, manifest, memberId }) =>
+      id.startsWith('round6-prose-restores-20260929-') &&
+      mine.some((delta) => delta.manifest === manifest && delta.memberId === memberId));
+    expect(restores.map(({ manifest, memberId }) => [manifest, memberId])).toEqual([
+      ['prose', 'article:classical/motion-planning'],
+    ]);
     const missionEntries = preservedApprovalPacket(CONTINUATION_CHECKPOINT);
     for (const delta of mine) {
       const path = delta.manifest === 'prose'
@@ -308,7 +316,9 @@ describe('four bounded local truth repairs without completion credit', { timeout
         ? { path, body: matter(currentSource).content.trim() }
         : { path, source: currentSource };
       const merged = headReanchorFor(entries, delta.manifest, delta.memberId);
-      expect(merged?.newHash ?? delta.newHash).toBe(buildManifest(delta.manifest, [
+      const restore = restores.find((entry) => entry.memberId === delta.memberId);
+      if (restore) expect(restore.oldHash).toBe(merged!.newHash);
+      expect(restore?.newHash ?? merged?.newHash ?? delta.newHash).toBe(buildManifest(delta.manifest, [
         { id: delta.memberId, value: currentValue },
       ]).members[0].hash);
       if (delta.manifest === 'prose') {

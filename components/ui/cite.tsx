@@ -224,6 +224,12 @@ export function Cite({ href, label, title, meta, citeId, referenceHref }: CitePr
           // anchor, its aria-label, and keyboard behavior are untouched.
           <a
             href={referenceHref}
+            onClick={() => {
+              // The jump scrolls the entry under the fixed popup, which a
+              // pending hover grace would otherwise keep over its title.
+              clearTimeout(leaveTimer.current);
+              setHovered(false);
+            }}
             aria-label={`Jump to the full reference for ${title}`}
             data-pagefind-ignore
             data-brand-control-id="control:link-focus"

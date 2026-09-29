@@ -219,7 +219,9 @@ const ROWS: Method[] = [
     crossEmbodiment: 'yes',
     hierarchy: 'internal',
     openWeights: true,
-    weightsNote: 'openpi snapshot lists pi05_base; download availability does not establish license terms',
+    // The checkpoint identifier stays out of rendered text: it is this row's
+    // search alias, and aliases must not appear in their own entity row.
+    weightsNote: 'openpi snapshot lists the base π0.5 checkpoint; download availability does not establish license terms',
     sources: ['pi05-2025', 'openpi-repo-2024'],
   },
   {

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "b6967774ad948a99bd47f4787e594a8f06813fab621aa570bb4f4099f13631cb",
+  "fingerprint": "b8c529e9d8b34e38a92ab81c09e8b56e7f0cbba0b1e63a21f46f8c95a9d11ddd",
   "viewports": [
     "375x812",
     "1440x900"
@@ -141,7 +141,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 6003,
+      "visibleTextLength": 5990,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -379,12 +379,6 @@
           "text": "Search",
           "familyHead": "ibm plex mono",
           "sizePx": 11,
-          "trackingEm": 0.14
-        },
-        {
-          "text": "motion scene",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
           "trackingEm": 0.14
         }
       ],
@@ -1908,7 +1902,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18336,
+      "visibleTextLength": 18323,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -2487,12 +2481,6 @@
         },
         {
           "text": "Citations",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
-        },
-        {
-          "text": "motion scene",
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
@@ -6617,7 +6605,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15304,
+      "visibleTextLength": 15291,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -6684,11 +6672,11 @@
           "Kinematics"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 12,
+        "readingMinutes": 11,
         "citationCount": 6,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "12 min",
+        "readingTimeText": "11 min",
         "citationCountText": "6",
         "bibliographyIds": [
           "lavalle-2006",
@@ -7307,12 +7295,6 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
-        },
-        {
-          "text": "motion scene",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -7448,7 +7430,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27654,
+      "visibleTextLength": 27843,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -7817,7 +7799,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The Sample routine describes each sampled state as admitting"
+          "text": "The paper's description of its Sample routine says every sam"
         },
         {
           "familyHead": "newsreader",
@@ -8308,12 +8290,6 @@
         },
         {
           "text": "Citations",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
-        },
-        {
-          "text": "motion scene",
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
@@ -10471,7 +10447,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27898,
+      "visibleTextLength": 27819,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -11417,7 +11393,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20383,
+      "visibleTextLength": 20394,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -12086,12 +12062,6 @@
           "trackingEm": 0.14
         },
         {
-          "text": "motion scene",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
-        },
-        {
           "text": "cinematic clip",
           "familyHead": "ibm plex mono",
           "sizePx": 10,
@@ -12699,7 +12669,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 16069,
+      "visibleTextLength": 16056,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -13285,12 +13255,6 @@
         },
         {
           "text": "Citations",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
-        },
-        {
-          "text": "motion scene",
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
@@ -14435,7 +14399,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17987,
+      "visibleTextLength": 17974,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -14502,11 +14466,11 @@
           "The Evaluation Crisis"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 11,
+        "readingMinutes": 10,
         "citationCount": 9,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "11 min",
+        "readingTimeText": "10 min",
         "citationCountText": "9",
         "bibliographyIds": [
           "tri-lbm-2025",
@@ -15054,12 +15018,6 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
-        },
-        {
-          "text": "motion scene",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
         }
       ],
       "monoRequired": [
@@ -15351,11 +15309,11 @@
           "Hardware Taxonomy"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 18,
+        "readingMinutes": 17,
         "citationCount": 23,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "18 min",
+        "readingTimeText": "17 min",
         "citationCountText": "23",
         "bibliographyIds": [
           "so-arm100-repo-2026",
@@ -16205,7 +16163,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24529,
+      "visibleTextLength": 24516,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -16942,12 +16900,6 @@
         },
         {
           "text": "Citations",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
-        },
-        {
-          "text": "motion scene",
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
@@ -19946,7 +19898,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24775,
+      "visibleTextLength": 24696,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -20855,7 +20807,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21011,
+      "visibleTextLength": 20998,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -21497,12 +21449,6 @@
         },
         {
           "text": "Citations",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
-        },
-        {
-          "text": "motion scene",
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
@@ -22533,7 +22479,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14833,
+      "visibleTextLength": 14820,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -23134,12 +23080,6 @@
         },
         {
           "text": "Citations",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
-        },
-        {
-          "text": "motion scene",
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
@@ -24695,7 +24635,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 22736,
+      "visibleTextLength": 22751,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -27327,7 +27267,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28772,
+      "visibleTextLength": 28787,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -28974,7 +28914,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14498,
+      "visibleTextLength": 14485,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -29591,12 +29531,6 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
-        },
-        {
-          "text": "motion scene",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -29772,7 +29706,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 11741,
+      "visibleTextLength": 11662,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -32277,24 +32211,6 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
-        },
-        {
-          "text": "schematic",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
-        },
-        {
-          "text": "schematic",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
-        },
-        {
-          "text": "schematic",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -33233,7 +33149,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26151,
+      "visibleTextLength": 26138,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -34017,12 +33933,6 @@
         },
         {
           "text": "Citations",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
-        },
-        {
-          "text": "motion scene",
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
@@ -37155,7 +37065,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20616,
+      "visibleTextLength": 20603,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -37869,12 +37779,6 @@
           "text": "Serialized action tokens at t = ",
           "familyHead": "ibm plex mono",
           "sizePx": 11,
-          "trackingEm": 0.14
-        },
-        {
-          "text": "motion scene",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
           "trackingEm": 0.14
         }
       ],
@@ -40946,7 +40850,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19073,
+      "visibleTextLength": 19060,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -41550,12 +41454,6 @@
         },
         {
           "text": "Citations",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
-        },
-        {
-          "text": "motion scene",
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
@@ -42831,7 +42729,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16315,
+      "visibleTextLength": 16302,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -43437,12 +43335,6 @@
         },
         {
           "text": "Citations",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
-        },
-        {
-          "text": "motion scene",
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
@@ -47429,7 +47321,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 1779,
+      "visibleTextLength": 1700,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -47665,7 +47557,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 12257,
+      "visibleTextLength": 12099,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -48451,7 +48343,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17415,
+      "visibleTextLength": 17402,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -49114,12 +49006,6 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
-        },
-        {
-          "text": "motion scene",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -49327,7 +49213,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19978,
+      "visibleTextLength": 19886,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -49970,12 +49856,6 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
-        },
-        {
-          "text": "motion scene",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -50231,7 +50111,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16246,
+      "visibleTextLength": 16088,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -50937,7 +50817,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16087,
+      "visibleTextLength": 15916,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -51534,12 +51414,6 @@
           "familyHead": "ibm plex mono",
           "sizePx": 11,
           "trackingEm": 0.14
-        },
-        {
-          "text": "motion scene",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -51699,7 +51573,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 10736,
+      "visibleTextLength": 10657,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -52402,7 +52276,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19364,
+      "visibleTextLength": 19285,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -52462,7 +52336,7 @@
         "h1Count": 1,
         "h1Text": "What Is a World Model?",
         "summaryCount": 1,
-        "summaryText": "An editorial comparison of six world-model example groups: what they predict, in",
+        "summaryText": "A world model predicts how an environment evolves in a form useful for a robot's",
         "breadcrumbLabels": [
           "Home",
           "World Models",
@@ -53388,7 +53262,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19636,
+      "visibleTextLength": 19557,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -54257,7 +54131,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 6225,
+      "visibleTextLength": 6212,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -54495,12 +54369,6 @@
           "text": "Search",
           "familyHead": "ibm plex mono",
           "sizePx": 11,
-          "trackingEm": 0.14
-        },
-        {
-          "text": "motion scene",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
           "trackingEm": 0.14
         }
       ],
@@ -56024,7 +55892,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18654,
+      "visibleTextLength": 18641,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -56603,12 +56471,6 @@
         },
         {
           "text": "Citations",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
-        },
-        {
-          "text": "motion scene",
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
@@ -60733,7 +60595,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15725,
+      "visibleTextLength": 15712,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -60800,11 +60662,11 @@
           "Kinematics"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 12,
+        "readingMinutes": 11,
         "citationCount": 6,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "12 min",
+        "readingTimeText": "11 min",
         "citationCountText": "6",
         "bibliographyIds": [
           "lavalle-2006",
@@ -61423,12 +61285,6 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
-        },
-        {
-          "text": "motion scene",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -61564,7 +61420,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28075,
+      "visibleTextLength": 28264,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -61933,7 +61789,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The Sample routine describes each sampled state as admitting"
+          "text": "The paper's description of its Sample routine says every sam"
         },
         {
           "familyHead": "newsreader",
@@ -62424,12 +62280,6 @@
         },
         {
           "text": "Citations",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
-        },
-        {
-          "text": "motion scene",
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
@@ -64587,7 +64437,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28319,
+      "visibleTextLength": 28240,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -65533,7 +65383,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20802,
+      "visibleTextLength": 20813,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -66202,12 +66052,6 @@
           "trackingEm": 0.14
         },
         {
-          "text": "motion scene",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
-        },
-        {
           "text": "cinematic clip",
           "familyHead": "ibm plex mono",
           "sizePx": 10,
@@ -66815,7 +66659,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 16448,
+      "visibleTextLength": 16435,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -67401,12 +67245,6 @@
         },
         {
           "text": "Citations",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
-        },
-        {
-          "text": "motion scene",
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
@@ -68551,7 +68389,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18366,
+      "visibleTextLength": 18353,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -68618,11 +68456,11 @@
           "The Evaluation Crisis"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 11,
+        "readingMinutes": 10,
         "citationCount": 9,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "11 min",
+        "readingTimeText": "10 min",
         "citationCountText": "9",
         "bibliographyIds": [
           "tri-lbm-2025",
@@ -69170,12 +69008,6 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
-        },
-        {
-          "text": "motion scene",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
         }
       ],
       "monoRequired": [
@@ -69467,11 +69299,11 @@
           "Hardware Taxonomy"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 18,
+        "readingMinutes": 17,
         "citationCount": 23,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "18 min",
+        "readingTimeText": "17 min",
         "citationCountText": "23",
         "bibliographyIds": [
           "so-arm100-repo-2026",
@@ -70321,7 +70153,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24908,
+      "visibleTextLength": 24895,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -71058,12 +70890,6 @@
         },
         {
           "text": "Citations",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
-        },
-        {
-          "text": "motion scene",
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
@@ -74062,7 +73888,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 25110,
+      "visibleTextLength": 25031,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -74971,7 +74797,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21346,
+      "visibleTextLength": 21333,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -75613,12 +75439,6 @@
         },
         {
           "text": "Citations",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
-        },
-        {
-          "text": "motion scene",
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
@@ -76649,7 +76469,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15168,
+      "visibleTextLength": 15155,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -77250,12 +77070,6 @@
         },
         {
           "text": "Citations",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
-        },
-        {
-          "text": "motion scene",
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
@@ -78811,7 +78625,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 23363,
+      "visibleTextLength": 23378,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -81443,7 +81257,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 29399,
+      "visibleTextLength": 29414,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -83090,7 +82904,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15125,
+      "visibleTextLength": 15112,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -83707,12 +83521,6 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
-        },
-        {
-          "text": "motion scene",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -83888,7 +83696,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12368,
+      "visibleTextLength": 12289,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -86393,24 +86201,6 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
-        },
-        {
-          "text": "schematic",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
-        },
-        {
-          "text": "schematic",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
-        },
-        {
-          "text": "schematic",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -87349,7 +87139,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26778,
+      "visibleTextLength": 26765,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -88133,12 +87923,6 @@
         },
         {
           "text": "Citations",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
-        },
-        {
-          "text": "motion scene",
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
@@ -91271,7 +91055,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21243,
+      "visibleTextLength": 21230,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -91985,12 +91769,6 @@
           "text": "Serialized action tokens at t = ",
           "familyHead": "ibm plex mono",
           "sizePx": 11,
-          "trackingEm": 0.14
-        },
-        {
-          "text": "motion scene",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
           "trackingEm": 0.14
         }
       ],
@@ -95062,7 +94840,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19548,
+      "visibleTextLength": 19535,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -95666,12 +95444,6 @@
         },
         {
           "text": "Citations",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
-        },
-        {
-          "text": "motion scene",
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
@@ -96947,7 +96719,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16790,
+      "visibleTextLength": 16777,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -97553,12 +97325,6 @@
         },
         {
           "text": "Citations",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
-        },
-        {
-          "text": "motion scene",
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
@@ -101545,7 +101311,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 2263,
+      "visibleTextLength": 2184,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -101781,7 +101547,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 12741,
+      "visibleTextLength": 12583,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -102567,7 +102333,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17899,
+      "visibleTextLength": 17886,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -103230,12 +102996,6 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
-        },
-        {
-          "text": "motion scene",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -103443,7 +103203,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20462,
+      "visibleTextLength": 20370,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -104086,12 +103846,6 @@
           "familyHead": "ibm plex mono",
           "sizePx": 10,
           "trackingEm": 0.14
-        },
-        {
-          "text": "motion scene",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -104347,7 +104101,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16730,
+      "visibleTextLength": 16572,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -105053,7 +104807,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16571,
+      "visibleTextLength": 16400,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -105650,12 +105404,6 @@
           "familyHead": "ibm plex mono",
           "sizePx": 11,
           "trackingEm": 0.14
-        },
-        {
-          "text": "motion scene",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -105815,7 +105563,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 11220,
+      "visibleTextLength": 11141,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -106518,7 +106266,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19848,
+      "visibleTextLength": 19769,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -106578,7 +106326,7 @@
         "h1Count": 1,
         "h1Text": "What Is a World Model?",
         "summaryCount": 1,
-        "summaryText": "An editorial comparison of six world-model example groups: what they predict, in",
+        "summaryText": "A world model predicts how an environment evolves in a form useful for a robot's",
         "breadcrumbLabels": [
           "Home",
           "World Models",
@@ -107504,7 +107252,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20120,
+      "visibleTextLength": 20041,
       "tekturRoles": [
         {
           "role": "shell-wordmark",

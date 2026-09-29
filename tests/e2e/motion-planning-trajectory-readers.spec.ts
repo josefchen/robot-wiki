@@ -40,8 +40,9 @@ test('trajectory benchmark tables retain every value and keyboard-reachable righ
       ]);
       const rows = table.locator('tbody tr');
       await expect(rows).toHaveCount(expected.rows.length);
+      // The method name is each row's header cell, so the row reads as th + td.
       for (const [row, cells] of expected.rows.entries()) {
-        await expect(rows.nth(row).getByRole('cell')).toHaveText(cells);
+        await expect(rows.nth(row).locator('th, td')).toHaveText(cells);
       }
       await region.scrollIntoViewIfNeeded();
       await region.evaluate(el => window.scrollBy(0, el.getBoundingClientRect().top - 100));
@@ -66,7 +67,7 @@ test('trajectory benchmark tables retain every value and keyboard-reachable righ
         await expect.poll(() => region.evaluate(el => el.scrollWidth - el.clientWidth - el.scrollLeft))
           .toBeLessThanOrEqual(1);
       }
-      const end = await table.locator('th').last().boundingBox();
+      const end = await table.locator('thead th').last().boundingBox();
       expect(end!.x + end!.width).toBeLessThanOrEqual(page.viewportSize()!.width);
       states.push({ name: expected.name, before, end, scrollLeft: await region.evaluate(el => el.scrollLeft) });
       save();
@@ -75,7 +76,7 @@ test('trajectory benchmark tables retain every value and keyboard-reachable righ
       await expect(region).not.toBeFocused();
     }
     const prose = page.locator('div.prose[data-pagefind-body]');
-    for (const text of ['Table II contains no CHOMP full-body result', 'three seconds per CHOMP initialization',
+    for (const text of ['The full-body results omit CHOMP', 'three seconds per CHOMP initialization',
       'thirty-second full-body OMPL limit', 'not a separate smoothness measurement',
       'does not identify the processor']) {
       await expect(prose).toContainText(text);

@@ -2575,7 +2575,7 @@
       "ownerSourceFingerprint": "516871597340fc4edbb4a833d206b7ae6e788a585ac5478dfdf304ccf4477058",
       "canonical": "https://robot-wiki.com/world-models/taxonomy/",
       "title": "What Is a World Model?",
-      "description": "An editorial comparison of six world-model example groups: what they predict, in what representation, and for what purpose. The survey-defined functional criterion is decision-relevant prediction, not visual plausibility alone.",
+      "description": "A world model predicts how an environment evolves in a form useful for a robot's decisions. Six example groups compared, from DreamerV3 to V-JEPA 2.",
       "openGraph": {
         "type": "article",
         "url": "https://robot-wiki.com/world-models/taxonomy/",
@@ -2594,7 +2594,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "c68f51460b474b7ce38ed392ccb28fb04f3482cf7c1720754cbe9d752413211e"
+      "fingerprint": "0133c4903a92b788ec81ccee7f9513e23e4b8f256411506e2babcba431a72407"
     },
     {
       "id": "metadata:/world-models/world-models-vs-simulators/",
@@ -12146,5 +12146,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "b5e24345ca5e2424f096fe5db7cfb7de2711eeff5a183e688c1a8b7b2ecbb57b"
+  "rootFingerprint": "6d6b5ac44cb44a34eb6c4bcba00f6d2336b534ddbf194021caf3541a252e8ea1"
 }

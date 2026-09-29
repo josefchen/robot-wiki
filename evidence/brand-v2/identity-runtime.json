@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "9e7ca229cba9adbeabed6ff86e7ecb9cf3f66a118488f8137a2188677b869662",
+  "fingerprint": "5238e6d7cba2f70999edc71c64be4dc431f113cc2b4ca0c3e53b5529c56dac33",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -252,7 +252,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 6225,
+      "visibleTextLength": 6212,
       "route": "/",
       "viewport": "1440x900"
     },
@@ -760,7 +760,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18654,
+      "visibleTextLength": 18641,
       "route": "/adjacent/drones/",
       "viewport": "1440x900"
     },
@@ -1649,7 +1649,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 15725,
+      "visibleTextLength": 15712,
       "route": "/classical/kinematics/",
       "viewport": "1440x900"
     },
@@ -1776,7 +1776,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 28075,
+      "visibleTextLength": 28264,
       "route": "/classical/motion-planning/",
       "viewport": "1440x900"
     },
@@ -2157,7 +2157,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 28319,
+      "visibleTextLength": 28240,
       "route": "/classical/scene-representation/",
       "viewport": "1440x900"
     },
@@ -2284,7 +2284,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 20802,
+      "visibleTextLength": 20813,
       "route": "/classical/state-estimation/",
       "viewport": "1440x900"
     },
@@ -2665,7 +2665,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 16448,
+      "visibleTextLength": 16435,
       "route": "/data-hardware/data-bottleneck/",
       "viewport": "1440x900"
     },
@@ -2919,7 +2919,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18366,
+      "visibleTextLength": 18353,
       "route": "/data-hardware/evaluation-crisis/",
       "viewport": "1440x900"
     },
@@ -3173,7 +3173,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24908,
+      "visibleTextLength": 24895,
       "route": "/data-hardware/industrial-deployment/",
       "viewport": "1440x900"
     },
@@ -3935,7 +3935,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 25110,
+      "visibleTextLength": 25031,
       "route": "/frontier/competing-theses/",
       "viewport": "1440x900"
     },
@@ -4062,7 +4062,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 21346,
+      "visibleTextLength": 21333,
       "route": "/frontier/dexterity/",
       "viewport": "1440x900"
     },
@@ -4316,7 +4316,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 15168,
+      "visibleTextLength": 15155,
       "route": "/frontier/reliability-gap/",
       "viewport": "1440x900"
     },
@@ -4824,7 +4824,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 23363,
+      "visibleTextLength": 23378,
       "route": "/manipulation/action-chunking/",
       "viewport": "1440x900"
     },
@@ -5205,7 +5205,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 29399,
+      "visibleTextLength": 29414,
       "route": "/manipulation/comparison-matrix/",
       "viewport": "1440x900"
     },
@@ -5459,7 +5459,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 15125,
+      "visibleTextLength": 15112,
       "route": "/manipulation/diffusion-policy/",
       "viewport": "1440x900"
     },
@@ -5586,7 +5586,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 12368,
+      "visibleTextLength": 12289,
       "route": "/manipulation/foundation-models/",
       "viewport": "1440x900"
     },
@@ -6094,7 +6094,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 26778,
+      "visibleTextLength": 26765,
       "route": "/manipulation/pi-line/",
       "viewport": "1440x900"
     },
@@ -6602,7 +6602,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 21243,
+      "visibleTextLength": 21230,
       "route": "/manipulation/vla-models/",
       "viewport": "1440x900"
     },
@@ -7364,7 +7364,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 19548,
+      "visibleTextLength": 19535,
       "route": "/rl-sim2real/legged-locomotion/",
       "viewport": "1440x900"
     },
@@ -7618,7 +7618,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 16790,
+      "visibleTextLength": 16777,
       "route": "/rl-sim2real/parallel-sim-rl/",
       "viewport": "1440x900"
     },
@@ -8380,7 +8380,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 2263,
+      "visibleTextLength": 2184,
       "route": "/world-models/",
       "viewport": "1440x900"
     },
@@ -8507,7 +8507,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 12741,
+      "visibleTextLength": 12583,
       "route": "/world-models/evaluation/",
       "viewport": "1440x900"
     },
@@ -8634,7 +8634,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17899,
+      "visibleTextLength": 17886,
       "route": "/world-models/generative-sim/",
       "viewport": "1440x900"
     },
@@ -8761,7 +8761,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 20462,
+      "visibleTextLength": 20370,
       "route": "/world-models/generative-video/",
       "viewport": "1440x900"
     },
@@ -8888,7 +8888,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 16730,
+      "visibleTextLength": 16572,
       "route": "/world-models/jepa/",
       "viewport": "1440x900"
     },
@@ -9015,7 +9015,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 16571,
+      "visibleTextLength": 16400,
       "route": "/world-models/latent-dynamics/",
       "viewport": "1440x900"
     },
@@ -9142,7 +9142,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 11220,
+      "visibleTextLength": 11141,
       "route": "/world-models/model-based-robot-learning/",
       "viewport": "1440x900"
     },
@@ -9257,19 +9257,19 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "World Models for Robotics: Definition and Taxonomy | Robot Wiki",
-        "description": "An editorial comparison of six world-model example groups: what they predict, in what representation, and for what purpose. The survey-defined functional criterion is decision-relevant prediction, not visual plausibility alone.",
+        "description": "A world model predicts how an environment evolves in a form useful for a robot's decisions. Six example groups compared, from DreamerV3 to V-JEPA 2.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "What Is a World Model?",
-        "ogDescription": "An editorial comparison of six world-model example groups: what they predict, in what representation, and for what purpose. The survey-defined functional criterion is decision-relevant prediction, not visual plausibility alone.",
+        "ogDescription": "A world model predicts how an environment evolves in a form useful for a robot's decisions. Six example groups compared, from DreamerV3 to V-JEPA 2.",
         "ogImageAlt": "Open graph card for the Robot Wiki article What Is a World Model?",
         "ogImage": "https://robot-wiki.com/og/world-models/taxonomy.png",
         "twitterTitle": "What Is a World Model?",
-        "twitterDescription": "An editorial comparison of six world-model example groups: what they predict, in what representation, and for what purpose. The survey-defined functional criterion is decision-relevant prediction, not visual plausibility alone.",
+        "twitterDescription": "A world model predicts how an environment evolves in a form useful for a robot's decisions. Six example groups compared, from DreamerV3 to V-JEPA 2.",
         "canonical": "https://robot-wiki.com/world-models/taxonomy/"
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 19848,
+      "visibleTextLength": 19769,
       "route": "/world-models/taxonomy/",
       "viewport": "1440x900"
     },
@@ -9396,7 +9396,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 20120,
+      "visibleTextLength": 20041,
       "route": "/world-models/world-models-vs-simulators/",
       "viewport": "1440x900"
     },
@@ -9569,7 +9569,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 6003,
+      "visibleTextLength": 5990,
       "route": "/",
       "viewport": "375x812"
     },
@@ -10077,7 +10077,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18336,
+      "visibleTextLength": 18323,
       "route": "/adjacent/drones/",
       "viewport": "375x812"
     },
@@ -10966,7 +10966,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 15304,
+      "visibleTextLength": 15291,
       "route": "/classical/kinematics/",
       "viewport": "375x812"
     },
@@ -11093,7 +11093,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27654,
+      "visibleTextLength": 27843,
       "route": "/classical/motion-planning/",
       "viewport": "375x812"
     },
@@ -11474,7 +11474,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27898,
+      "visibleTextLength": 27819,
       "route": "/classical/scene-representation/",
       "viewport": "375x812"
     },
@@ -11601,7 +11601,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 20383,
+      "visibleTextLength": 20394,
       "route": "/classical/state-estimation/",
       "viewport": "375x812"
     },
@@ -11982,7 +11982,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 16069,
+      "visibleTextLength": 16056,
       "route": "/data-hardware/data-bottleneck/",
       "viewport": "375x812"
     },
@@ -12236,7 +12236,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17987,
+      "visibleTextLength": 17974,
       "route": "/data-hardware/evaluation-crisis/",
       "viewport": "375x812"
     },
@@ -12490,7 +12490,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24529,
+      "visibleTextLength": 24516,
       "route": "/data-hardware/industrial-deployment/",
       "viewport": "375x812"
     },
@@ -13252,7 +13252,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24775,
+      "visibleTextLength": 24696,
       "route": "/frontier/competing-theses/",
       "viewport": "375x812"
     },
@@ -13379,7 +13379,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 21011,
+      "visibleTextLength": 20998,
       "route": "/frontier/dexterity/",
       "viewport": "375x812"
     },
@@ -13633,7 +13633,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 14833,
+      "visibleTextLength": 14820,
       "route": "/frontier/reliability-gap/",
       "viewport": "375x812"
     },
@@ -14141,7 +14141,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 22736,
+      "visibleTextLength": 22751,
       "route": "/manipulation/action-chunking/",
       "viewport": "375x812"
     },
@@ -14522,7 +14522,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 28772,
+      "visibleTextLength": 28787,
       "route": "/manipulation/comparison-matrix/",
       "viewport": "375x812"
     },
@@ -14776,7 +14776,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 14498,
+      "visibleTextLength": 14485,
       "route": "/manipulation/diffusion-policy/",
       "viewport": "375x812"
     },
@@ -14903,7 +14903,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 11741,
+      "visibleTextLength": 11662,
       "route": "/manipulation/foundation-models/",
       "viewport": "375x812"
     },
@@ -15411,7 +15411,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 26151,
+      "visibleTextLength": 26138,
       "route": "/manipulation/pi-line/",
       "viewport": "375x812"
     },
@@ -15919,7 +15919,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 20616,
+      "visibleTextLength": 20603,
       "route": "/manipulation/vla-models/",
       "viewport": "375x812"
     },
@@ -16681,7 +16681,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 19073,
+      "visibleTextLength": 19060,
       "route": "/rl-sim2real/legged-locomotion/",
       "viewport": "375x812"
     },
@@ -16935,7 +16935,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 16315,
+      "visibleTextLength": 16302,
       "route": "/rl-sim2real/parallel-sim-rl/",
       "viewport": "375x812"
     },
@@ -17697,7 +17697,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 1779,
+      "visibleTextLength": 1700,
       "route": "/world-models/",
       "viewport": "375x812"
     },
@@ -17824,7 +17824,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 12257,
+      "visibleTextLength": 12099,
       "route": "/world-models/evaluation/",
       "viewport": "375x812"
     },
@@ -17951,7 +17951,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17415,
+      "visibleTextLength": 17402,
       "route": "/world-models/generative-sim/",
       "viewport": "375x812"
     },
@@ -18078,7 +18078,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 19978,
+      "visibleTextLength": 19886,
       "route": "/world-models/generative-video/",
       "viewport": "375x812"
     },
@@ -18205,7 +18205,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 16246,
+      "visibleTextLength": 16088,
       "route": "/world-models/jepa/",
       "viewport": "375x812"
     },
@@ -18332,7 +18332,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 16087,
+      "visibleTextLength": 15916,
       "route": "/world-models/latent-dynamics/",
       "viewport": "375x812"
     },
@@ -18459,7 +18459,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 10736,
+      "visibleTextLength": 10657,
       "route": "/world-models/model-based-robot-learning/",
       "viewport": "375x812"
     },
@@ -18574,19 +18574,19 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "World Models for Robotics: Definition and Taxonomy | Robot Wiki",
-        "description": "An editorial comparison of six world-model example groups: what they predict, in what representation, and for what purpose. The survey-defined functional criterion is decision-relevant prediction, not visual plausibility alone.",
+        "description": "A world model predicts how an environment evolves in a form useful for a robot's decisions. Six example groups compared, from DreamerV3 to V-JEPA 2.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "What Is a World Model?",
-        "ogDescription": "An editorial comparison of six world-model example groups: what they predict, in what representation, and for what purpose. The survey-defined functional criterion is decision-relevant prediction, not visual plausibility alone.",
+        "ogDescription": "A world model predicts how an environment evolves in a form useful for a robot's decisions. Six example groups compared, from DreamerV3 to V-JEPA 2.",
         "ogImageAlt": "Open graph card for the Robot Wiki article What Is a World Model?",
         "ogImage": "https://robot-wiki.com/og/world-models/taxonomy.png",
         "twitterTitle": "What Is a World Model?",
-        "twitterDescription": "An editorial comparison of six world-model example groups: what they predict, in what representation, and for what purpose. The survey-defined functional criterion is decision-relevant prediction, not visual plausibility alone.",
+        "twitterDescription": "A world model predicts how an environment evolves in a form useful for a robot's decisions. Six example groups compared, from DreamerV3 to V-JEPA 2.",
         "canonical": "https://robot-wiki.com/world-models/taxonomy/"
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 19364,
+      "visibleTextLength": 19285,
       "route": "/world-models/taxonomy/",
       "viewport": "375x812"
     },
@@ -18713,7 +18713,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 19636,
+      "visibleTextLength": 19557,
       "route": "/world-models/world-models-vs-simulators/",
       "viewport": "375x812"
     }

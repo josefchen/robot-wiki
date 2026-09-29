@@ -10,6 +10,7 @@ import {
 import { collectArticleTruthManifests } from '@/scripts/brand-v2-baseline';
 import { createLocalArtifactReader } from '@/lib/audit-local-basis';
 import { reviewedDataHardwareChecker } from '@/lib/audit-data-hardware-motion-continuity';
+import { round6RemainingRepairPredecessor } from '@/lib/audit-round6-remaining-repairs-continuity';
 
 const root = resolve(import.meta.dirname, '../..');
 const read = (path: string) => readFileSync(resolve(root, path));
@@ -79,17 +80,20 @@ describe('world-model motion prose and retained local-basis continuity', () => {
     const current = review.bindings.find((binding: { historical: { path: string } }) =>
       binding.historical.path === 'content/world-models/taxonomy.mdx');
     expect(prior).toBeDefined();
+    // The round-6 search-snippet repair changed only the live description;
+    // its reviewed successor returns the article this binding still names.
+    const bound = round6RemainingRepairPredecessor(root, current.current, read('content/world-models/taxonomy.mdx'));
     expect(current).toEqual({ ...prior, current: {
       path: 'content/world-models/taxonomy.mdx',
-      bytes: read('content/world-models/taxonomy.mdx').length,
-      sha256: sha256(read('content/world-models/taxonomy.mdx')),
+      bytes: bound.length,
+      sha256: sha256(bound),
     }, rationale: expect.stringContaining(prior.rationale) });
     expect(review.bindings.filter((binding: { historical: { path: string } }) =>
       binding.historical.path !== 'content/world-models/taxonomy.mdx')).toEqual(
         previous.bindings.filter((binding: { historical: { path: string } }) =>
           binding.historical.path !== 'content/world-models/taxonomy.mdx'),
       );
-    expect(sha256(read('content/world-models/taxonomy.mdx'))).toBe(current.current.sha256);
+    expect(sha256(bound)).toBe(current.current.sha256);
     expect(current.current.sha256).not.toBe(prior.current.sha256);
     expect(current.preservedText.every((text: string) =>
       read('content/world-models/taxonomy.mdx').toString().includes(text))).toBe(true);

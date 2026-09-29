@@ -97,7 +97,7 @@ test.describe('classical motion-planning module', () => {
     expect(visibleText).toContain('CHOMP: a smoothness metric, not a local step-size rule');
     expect(visibleText).toContain('three seconds per CHOMP initialization');
     expect(visibleText).toContain('thirty-second full-body OMPL limit');
-    expect(visibleText).toContain('Table II contains no CHOMP full-body result');
+    expect(visibleText).toContain('The full-body results omit CHOMP');
     expect(visibleText).not.toContain('thin obstacles cannot slip between samples');
     expect(visibleText).not.toContain('trusting the answer only within a shrinking region');
     expect(visibleText).not.toContain('The standard industrial pipeline therefore');
@@ -139,11 +139,13 @@ test.describe('classical motion-planning module', () => {
     await expect(
       main.getByRole('link', { name: 'Karaman 2011' }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/1105.1186');
+    // The registry keeps the audited www.ri.cmu.edu URL, which redirects
+    // (301, 301) to the same CMU publication page (audit/citations.md).
     await expect(
       main.getByRole('link', { name: 'Ratliff 2009' }).first(),
     ).toHaveAttribute(
       'href',
-      'https://publications.ri.cmu.edu/chomp-gradient-optimization-techniques-for-efficient-motion-planning',
+      'https://www.ri.cmu.edu/publications/chomp-gradient-optimization-techniques-for-efficient-motion-planning/',
     );
     await expect(
       main.getByRole('link', { name: 'Schulman 2013' }).first(),
@@ -164,9 +166,10 @@ test.describe('classical motion-planning module', () => {
     // A chip is keyboard-focusable and reveals its metadata on focus.
     const rrtChip = main.getByRole('link', { name: 'LaValle 1998' }).first();
     await rrtChip.focus();
-    // Three legitimate current occurrences share this source title. Bind the
-    // popup to the focused chip rather than querying every hidden sibling.
-    await expect(main.locator('[data-cite-id="lavalle-1998"]')).toHaveCount(3);
+    // Five legitimate current occurrences share this source title (the RRT
+    // algorithm correction added two). Bind the popup to the focused chip
+    // rather than querying every hidden sibling.
+    await expect(main.locator('[data-cite-id="lavalle-1998"]')).toHaveCount(5);
     const tooltipId = await rrtChip.getAttribute('aria-describedby');
     expect(tooltipId).toBeTruthy();
     const tooltip = main.locator(`[id="${tooltipId}"]`);

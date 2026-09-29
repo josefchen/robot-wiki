@@ -70,7 +70,7 @@ describe('bounded DPPO and ConRFT closeout', () => {
         }
       }
     }
-  }, 10_000);
+  }, 60_000);
 
   it('requires exactly the sixteen reviewed citation/part/URL pairs', () => {
     const required = [

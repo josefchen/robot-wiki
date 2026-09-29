@@ -294,10 +294,35 @@ const round6ProseRestoreEndpoints: ReadonlyArray<readonly [string, string, strin
   ['article:frontier/competing-theses',
     'ec8ddfe81684a9e34321102dd6b8543ce47c81018def615e68ad16242e7e6193',
     'cde24c4b7e4837954bd1a539bedad8f5f9b6c0a1144454dbf847f59bc4d01149'],
+  ['article:classical/motion-planning',
+    'a74f0a8a4d1997310fcd85f3a92d2518cd1236e2ad7a7673fdf2ae3752050d84',
+    '2adda289cb9e9894cbd0d2c24b7dca521678b48bd3a6ca80359e423c315b583c'],
 ];
 const round6ProseRestoreAppends = round6ProseRestoreEndpoints.map(
   ([memberId]) => `round6-prose-restores-20260929-prose-${memberId.split('/')[1]}`);
-const beforeRound6 = merged.slice(0, merged.length - round6ProseRestoreAppends.length);
+// The round-6 remaining repairs of 2026-09-29 name a rendered control in the
+// state-estimation cue and shorten the taxonomy search description in its
+// frontmatter and in the module registry. Each tuple is the manifest, the
+// member, its endpoint before the repair and its endpoint after it. None of
+// these members has a reconciling resolution, so each gets a plain edge.
+const round6RemainingRepairEndpoints: ReadonlyArray<readonly [string, string, string, string]> = [
+  ['article-metadata', 'article-metadata:world-models/taxonomy',
+    '4e12b547a06b9062f0f455222a5e7f117aacac5beabe67b4c21e4ff190ea76f9',
+    '78576631a0b0df9778906ba498e6cd917eda3ca078bc3108dd804cf03d7462f8'],
+  ['article-metadata', 'canonical-metadata-source:data/modules.ts',
+    'cb42852ed8067761ad6c4b2cc9b6181524c34a8952134f793f78acf55ae285e3',
+    '2b267908e3aba5449d21c513bfc85fecbc4adf623f0e0b1c7ce098c76c51806a'],
+  ['prose', 'article:classical/state-estimation',
+    '66ff07c4d8909d3ca2468e0047dce4bf9cf453c18bc5005db836974d036b5532',
+    '44e67a418495fda3d5386e3f5f03a80a968f0e1140e744bdf92b215e061cb01e'],
+];
+const round6RemainingRepairAppends = [
+  'round6-remaining-repairs-20260929-article-metadata-taxonomy',
+  'round6-remaining-repairs-20260929-article-metadata-modules-taxonomy',
+  'round6-remaining-repairs-20260929-prose-state-estimation',
+] as const;
+const afterRound6Prose = merged.length - round6RemainingRepairAppends.length;
+const beforeRound6 = merged.slice(0, afterRound6Prose - round6ProseRestoreAppends.length);
 
 describe('two-parent exact approval reconciliation', () => {
   it('retains every main approval and the nine scoped frontier/adjacent successors in order', () => {
@@ -313,15 +338,20 @@ describe('two-parent exact approval reconciliation', () => {
     // accessible typeset-equation name required by the foundation review.
     // The subsequent domain passes add nine classical article endpoints,
     // two manipulation mounts, eight RL article endpoints and five RL
-    // reconciliation edges, all named below in ledger order.
-    expect([main.length, local.length, localOnly.length, merged.length]).toEqual([1558, 1104, 7, 1771]);
+    // reconciliation edges, all named below in ledger order, and the round-6
+    // prose restores and remaining repairs add the edges named above.
+    expect([main.length, local.length, localOnly.length, merged.length]).toEqual([1558, 1104, 7, 1775]);
     expect(merged.slice(0, main.length)).toEqual(main);
     expect(merged.slice(main.length, main.length + localOnly.length)).toEqual(localOnly);
     expect(merged.slice(main.length + localOnly.length).map(x => x.id))
-      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends]);
-    expect(merged.slice(beforeRound6.length)).toMatchObject(round6ProseRestoreEndpoints.map(
+      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends]);
+    expect(merged.slice(beforeRound6.length, afterRound6Prose)).toMatchObject(round6ProseRestoreEndpoints.map(
       ([memberId, , newHash], index) => ({
         id: round6ProseRestoreAppends[index], manifest: 'prose', memberId, newHash,
+      })));
+    expect(merged.slice(afterRound6Prose)).toMatchObject(round6RemainingRepairEndpoints.map(
+      ([manifest, memberId, oldHash, newHash], index) => ({
+        id: round6RemainingRepairAppends[index], manifest, memberId, oldHash, newHash,
       })));
     expect(beforeRound6.slice(-1)).toMatchObject([{
       id: sharedReaderLayoutAppends[0], manifest: 'article-metadata',
@@ -460,8 +490,12 @@ describe('two-parent exact approval reconciliation', () => {
     parallelResolution.oldHash, parallelResolution.newHash).status).toBe('ambiguous');
     const sealedProse: { members: Array<{ id: string; hash: string }> } = JSON.parse(
       readFileSync('evidence/brand-v2/baseline/prose.json', 'utf8'));
-    for (const [memberId, oldHash, newHash] of round5FirstScreenCdEndpoints) {
-      const edges = merged.filter(x => x.manifest === 'prose' && x.memberId === memberId);
+    for (const [index, [memberId, oldHash, newHash]] of round5FirstScreenCdEndpoints.entries()) {
+      const all = merged.filter(x => x.manifest === 'prose' && x.memberId === memberId);
+      // Only a named round-6 restore may follow the move's own edge.
+      const edges = all.slice(0, all.findIndex(x => x.id === round5FirstScreenCdAppends[index]) + 1);
+      expect(all.slice(edges.length).map(x => x.id)).toEqual(round6ProseRestoreAppends
+        .filter((_, restore) => round6ProseRestoreEndpoints[restore][0] === memberId));
       const sealed = sealedProse.members.find(x => x.id === memberId)!.hash;
       expect(edges.at(-1)?.newHash).toBe(newHash);
       expect(approvedDeltaPath(edges, sealed, newHash).status).toBe('approved');
@@ -527,6 +561,26 @@ describe('two-parent exact approval reconciliation', () => {
         expect(entry.oldHash).toBe(previous);
         expect(entry.reconciles).toBeUndefined();
       }
+    }
+  });
+
+  it('binds each round-6 remaining repair to its previous endpoint and to the sealed hash', () => {
+    for (const [index, [manifest, memberId, previous, current]] of round6RemainingRepairEndpoints.entries()) {
+      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(
+        readFileSync(`evidence/brand-v2/baseline/${manifest}.json`, 'utf8'));
+      const edges = merged.filter(x => x.manifest === manifest && x.memberId === memberId);
+      const sealed = sealedManifest.members.find(x => x.id === memberId)!.hash;
+      const entry = edges.at(-1)!;
+      const prior = edges.slice(0, -1);
+      expect(entry.id).toBe(round6RemainingRepairAppends[index]);
+      expect(entry.oldHash).toBe(previous);
+      expect(entry.newHash).toBe(current);
+      expect(entry.reconciles).toBeUndefined();
+      expect(prior.some(x => x.reconciles !== undefined)).toBe(false);
+      expect(prior.at(-1)?.newHash).toBe(previous);
+      expect(approvedDeltaPath(prior, sealed, previous).status).toBe('approved');
+      expect(approvedDeltaPath(edges, sealed, current).status).toBe('approved');
+      expect(approvedDeltaPath(prior, sealed, current).status).toBe('missing');
     }
   });
 });

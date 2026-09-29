@@ -33,7 +33,7 @@ import { Clip } from '@/components/motion/clip';
 
 The honest number is what separates the field from curve fitting. A controller that knows the estimate's uncertainty can act cautiously when the number is large and aggressively when it is small; a controller handed a bare guess cannot. Every estimator in this module is built to carry both.
 
-The scene below is that idea, one step at a time. A target wanders in one dimension and a position sensor drops about one reading in five; the scene holds one measured step of the seeded filter and walks it beat by beat: the prior belief as a dot with its two-sigma ellipse, the predict step smearing both along the motion model, the arriving reading with its own wider, position-only ellipse, and the update that fuses the two through the gain K. Step through it with the arrow keys; the numbers in the readout are the filter's own.
+The scene below is that idea, one step at a time. A target wanders in one dimension and a position sensor drops about one reading in five; the scene holds one measured step of the seeded filter and walks it beat by beat: the prior belief as a dot with its two-sigma ellipse, the predict step smearing both along the motion model, the arriving reading with its own wider, position-only ellipse, and the update that fuses the two through the gain K. Try the Play button, or step through it with the arrow keys; the numbers in the readout are the filter's own.
 
 <KalmanPredictUpdate className="my-6" />
 

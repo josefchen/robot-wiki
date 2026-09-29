@@ -1,17 +1,17 @@
 {
   "version": 1,
-  "fingerprint": "1c08cf183b679a1bfbfa638059667aa30376d22dc764fec9016213cdfacdb046",
+  "fingerprint": "a76fe892df6776bf1fdc97b0d4000c43de775fc78cd18480ece56769d9c088c5",
   "viewport": "1440x900",
   "surfaces": [
     {
       "route": "/",
-      "visibleTextLength": 6805,
+      "visibleTextLength": 6793,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Robot Wiki",
       "h1FontFamilyHead": "tektur",
       "h1SizePx": 92.16,
-      "monoMetadataCount": 47,
+      "monoMetadataCount": 46,
       "rowLists": [
         {
           "key": "home-domain-index",
@@ -98,7 +98,7 @@
     },
     {
       "route": "/world-models/",
-      "visibleTextLength": 5303,
+      "visibleTextLength": 5145,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "World Models",

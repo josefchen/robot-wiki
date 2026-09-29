@@ -13,7 +13,7 @@ test('visual-servo origin pair has bounded reader, glossary and control evidence
   const hash = (path: string) => createHash('sha256').update(readFileSync(path)).digest('hex');
   const inputSha256 = inputPath ? hash(inputPath) : null;
   const population = termConsumerInventory();
-  expect(population).toHaveLength(47);
+  expect(population).toHaveLength(57);
   expect(population.flatMap(article => article.unresolved)).toEqual([]);
   const consumers = population.flatMap(article => article.occurrences
     .filter(term => term.termId === 'visual-servoing')
