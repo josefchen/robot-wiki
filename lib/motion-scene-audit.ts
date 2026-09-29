@@ -122,10 +122,25 @@ export function auditSceneElement(root: Element): SceneAudit {
   }
 
   const rgba = (value: string): [number, number, number, number] => {
+    const srgb = value.startsWith('color(srgb ');
+    // Only sRGB notations convert to channels here. A mid-transition
+    // `oklab(0.98 -0.0001 ...)` once read as near-black, so any other
+    // notation fails closed rather than producing a ratio.
+    if (!srgb && !/^rgba?\(/.test(value)) throw new Error(`unresolved control color: ${value}`);
     const values = value.match(/[\d.]+/g)?.map(Number) ?? [];
     if (values.length < 3) throw new Error(`unresolved control color: ${value}`);
-    const scale = value.startsWith('color(srgb ') ? 255 : 1;
+    const scale = srgb ? 255 : 1;
     return [values[0] * scale, values[1] * scale, values[2] * scale, values[3] ?? 1];
+  };
+  // A colour read while a CSS transition runs is an interpolation frame,
+  // not the state the reader settles on, so every element whose colour or
+  // opacity is read below finishes its transitions first.
+  const settle = (element: Element) => {
+    for (let node: Element | null = element; node; node = node.parentElement) {
+      for (const animation of node.getAnimations()) {
+        if ('transitionProperty' in animation) animation.finish();
+      }
+    }
   };
   const over = (top: number[], bottom: number[]): number[] => {
     const alpha = top[3] + bottom[3] * (1 - top[3]);
@@ -154,6 +169,7 @@ export function auditSceneElement(root: Element): SceneAudit {
   };
   const controls = root.querySelectorAll<HTMLElement>('[data-brand-control-id]');
   for (const control of controls) {
+    settle(control);
     if (!visible(control)) continue;
     const label = control.getAttribute('aria-label') ?? control.textContent?.trim() ?? control.tagName;
     const bg = background(control);

@@ -22,8 +22,20 @@ import { cx } from '@/lib/utils';
  */
 
 const INSTRUMENT_SIGNATURE = 'instrument-frame';
-export const INSTRUMENT_SECONDARY_CONTROL_CLASS =
-  'rounded-xs border border-border bg-surface-2 px-3 py-2 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]';
+
+/*
+ * Instrument controls sit inside the frame's own hairline, so neither
+ * treatment draws a four-sided box: a control framed inside the frame is
+ * the redundant nested boxing the design contract counts as a defect. The
+ * border stays in the box model but transparent, which keeps both
+ * treatments the same height and still paints a boundary under forced
+ * colours. The secondary control's ink hairline is its underline, which
+ * hover strengthens; a disabled control drops it.
+ */
+const INSTRUMENT_CONTROL_BASE =
+  'inline-flex min-h-9 items-center justify-center gap-1.5 rounded-xs border border-transparent py-1.5 font-sans text-sm font-medium transition-colors active:translate-y-[1px]';
+export const INSTRUMENT_PRIMARY_CONTROL_CLASS = `${INSTRUMENT_CONTROL_BASE} bg-action px-3 text-on-action hover:bg-graphite`;
+export const INSTRUMENT_SECONDARY_CONTROL_CLASS = `${INSTRUMENT_CONTROL_BASE} justify-self-start bg-transparent px-2 text-text underline decoration-border-strong decoration-1 underline-offset-4 hover:decoration-text disabled:cursor-not-allowed disabled:text-text-dim disabled:no-underline disabled:active:translate-y-0`;
 
 type InstrumentFrameProps = HTMLAttributes<HTMLDivElement> & {
   children: ReactNode;
