@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "b8c529e9d8b34e38a92ab81c09e8b56e7f0cbba0b1e63a21f46f8c95a9d11ddd",
+  "fingerprint": "385252414e244a2f2b67bd660ffea33fc07db0e226f6b260e82def572d33acd9",
   "viewports": [
     "375x812",
     "1440x900"
@@ -452,7 +452,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:secondary-action"
         },
@@ -468,15 +468,15 @@
           "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:secondary-action"
         },
@@ -484,7 +484,7 @@
           "tag": "button",
           "text": "Step forward",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:secondary-action"
         },
@@ -492,7 +492,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:secondary-action"
         },
@@ -2588,7 +2588,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -2604,15 +2604,15 @@
           "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -2620,7 +2620,7 @@
           "tag": "button",
           "text": "Step forward",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -2628,7 +2628,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -5740,7 +5740,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -5780,7 +5780,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -5796,7 +5796,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -6566,7 +6566,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -7367,7 +7367,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -7383,15 +7383,15 @@
           "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -7399,7 +7399,7 @@
           "tag": "button",
           "text": "Step forward",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -7407,7 +7407,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         }
@@ -8381,7 +8381,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -8397,15 +8397,15 @@
           "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -8413,7 +8413,7 @@
           "tag": "button",
           "text": "Step forward",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -8421,7 +8421,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         }
@@ -9547,7 +9547,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -11346,7 +11346,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -12138,15 +12138,15 @@
           "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -12154,7 +12154,7 @@
           "tag": "button",
           "text": "Step forward",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -12162,7 +12162,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         }
@@ -13330,7 +13330,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -13362,15 +13362,15 @@
           "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -13378,7 +13378,7 @@
           "tag": "button",
           "text": "Step forward",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -13386,7 +13386,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -13402,7 +13402,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -14288,7 +14288,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -15099,7 +15099,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -15115,15 +15115,15 @@
           "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -15131,7 +15131,7 @@
           "tag": "button",
           "text": "Step forward",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -15139,7 +15139,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -15155,7 +15155,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -16084,7 +16084,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -16975,15 +16975,15 @@
           "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -16991,7 +16991,7 @@
           "tag": "button",
           "text": "Step forward",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -16999,7 +16999,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -17007,7 +17007,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         }
@@ -18483,7 +18483,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -19731,7 +19731,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -20648,7 +20648,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -21524,7 +21524,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -21620,15 +21620,15 @@
           "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -21636,7 +21636,7 @@
           "tag": "button",
           "text": "Step forward",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -21644,7 +21644,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -22376,7 +22376,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -22400,7 +22400,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -23155,7 +23155,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -23171,15 +23171,15 @@
           "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -23187,7 +23187,7 @@
           "tag": "button",
           "text": "Step forward",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -23195,7 +23195,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -23227,7 +23227,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -24124,7 +24124,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -25501,7 +25501,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -25517,7 +25517,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -25549,7 +25549,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -27132,7 +27132,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -27188,7 +27188,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -28015,7 +28015,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -28843,7 +28843,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -29603,7 +29603,7 @@
           "tag": "button",
           "text": "Diffusion Policy (16/8)",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -29611,7 +29611,7 @@
           "tag": "button",
           "text": "Open-loop (32/32)",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -29619,7 +29619,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -29635,15 +29635,15 @@
           "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -29651,7 +29651,7 @@
           "tag": "button",
           "text": "Step forward",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -29659,7 +29659,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -31223,7 +31223,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -32315,7 +32315,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -33070,7 +33070,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -34072,7 +34072,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -34088,15 +34088,15 @@
           "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -34104,7 +34104,7 @@
           "tag": "button",
           "text": "Step forward",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -34112,7 +34112,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -34288,7 +34288,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -35096,7 +35096,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -35120,7 +35120,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -35136,7 +35136,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -36227,7 +36227,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -37908,7 +37908,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -37932,15 +37932,15 @@
           "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -37948,7 +37948,7 @@
           "tag": "button",
           "text": "Step forward",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -37956,7 +37956,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -40771,7 +40771,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -41590,7 +41590,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -41606,15 +41606,15 @@
           "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -41622,7 +41622,7 @@
           "tag": "button",
           "text": "Step forward",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -41630,7 +41630,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -43427,7 +43427,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -43443,15 +43443,15 @@
           "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -43459,7 +43459,7 @@
           "tag": "button",
           "text": "Step forward",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -43467,7 +43467,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -44437,7 +44437,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -44461,7 +44461,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -44501,7 +44501,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -46318,7 +46318,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -46342,7 +46342,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -46358,7 +46358,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -47016,7 +47016,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -49086,7 +49086,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -49126,15 +49126,15 @@
           "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -49142,7 +49142,7 @@
           "tag": "button",
           "text": "Step forward",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -49150,7 +49150,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -49944,7 +49944,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -50008,15 +50008,15 @@
           "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -50024,7 +50024,7 @@
           "tag": "button",
           "text": "Step forward",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -50032,7 +50032,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -50754,7 +50754,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -51486,7 +51486,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -51526,15 +51526,15 @@
           "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -51542,7 +51542,7 @@
           "tag": "button",
           "text": "Step forward",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -51550,7 +51550,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         }
@@ -53087,7 +53087,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -54442,7 +54442,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:secondary-action"
         },
@@ -54458,15 +54458,15 @@
           "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:secondary-action"
         },
@@ -54474,7 +54474,7 @@
           "tag": "button",
           "text": "Step forward",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:secondary-action"
         },
@@ -54482,7 +54482,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:secondary-action"
         },
@@ -56578,7 +56578,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -56594,15 +56594,15 @@
           "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -56610,7 +56610,7 @@
           "tag": "button",
           "text": "Step forward",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -56618,7 +56618,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -59730,7 +59730,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -59770,7 +59770,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -59786,7 +59786,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -60556,7 +60556,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -61357,7 +61357,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -61373,15 +61373,15 @@
           "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -61389,7 +61389,7 @@
           "tag": "button",
           "text": "Step forward",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -61397,7 +61397,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         }
@@ -62371,7 +62371,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -62387,15 +62387,15 @@
           "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -62403,7 +62403,7 @@
           "tag": "button",
           "text": "Step forward",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -62411,7 +62411,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         }
@@ -63537,7 +63537,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -65336,7 +65336,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -66128,15 +66128,15 @@
           "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -66144,7 +66144,7 @@
           "tag": "button",
           "text": "Step forward",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -66152,7 +66152,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         }
@@ -67320,7 +67320,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -67352,15 +67352,15 @@
           "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -67368,7 +67368,7 @@
           "tag": "button",
           "text": "Step forward",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -67376,7 +67376,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -67392,7 +67392,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -68278,7 +68278,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -69089,7 +69089,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -69105,15 +69105,15 @@
           "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -69121,7 +69121,7 @@
           "tag": "button",
           "text": "Step forward",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -69129,7 +69129,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -69145,7 +69145,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -70074,7 +70074,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -70965,15 +70965,15 @@
           "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -70981,7 +70981,7 @@
           "tag": "button",
           "text": "Step forward",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -70989,7 +70989,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -70997,7 +70997,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         }
@@ -72473,7 +72473,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -73721,7 +73721,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -74638,7 +74638,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -75514,7 +75514,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -75610,15 +75610,15 @@
           "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -75626,7 +75626,7 @@
           "tag": "button",
           "text": "Step forward",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -75634,7 +75634,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -76366,7 +76366,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -76390,7 +76390,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -77145,7 +77145,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -77161,15 +77161,15 @@
           "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -77177,7 +77177,7 @@
           "tag": "button",
           "text": "Step forward",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -77185,7 +77185,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -77217,7 +77217,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -78114,7 +78114,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -79491,7 +79491,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -79507,7 +79507,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -79539,7 +79539,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -81122,7 +81122,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -81178,7 +81178,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -82005,7 +82005,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -82833,7 +82833,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -83593,7 +83593,7 @@
           "tag": "button",
           "text": "Diffusion Policy (16/8)",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -83601,7 +83601,7 @@
           "tag": "button",
           "text": "Open-loop (32/32)",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -83609,7 +83609,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -83625,15 +83625,15 @@
           "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -83641,7 +83641,7 @@
           "tag": "button",
           "text": "Step forward",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -83649,7 +83649,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -85213,7 +85213,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -86305,7 +86305,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -87060,7 +87060,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -88062,7 +88062,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -88078,15 +88078,15 @@
           "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -88094,7 +88094,7 @@
           "tag": "button",
           "text": "Step forward",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -88102,7 +88102,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -88278,7 +88278,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -89086,7 +89086,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -89110,7 +89110,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -89126,7 +89126,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -90217,7 +90217,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -91898,7 +91898,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -91922,15 +91922,15 @@
           "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -91938,7 +91938,7 @@
           "tag": "button",
           "text": "Step forward",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -91946,7 +91946,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -94761,7 +94761,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -95580,7 +95580,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -95596,15 +95596,15 @@
           "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -95612,7 +95612,7 @@
           "tag": "button",
           "text": "Step forward",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -95620,7 +95620,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -97417,7 +97417,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -97433,15 +97433,15 @@
           "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -97449,7 +97449,7 @@
           "tag": "button",
           "text": "Step forward",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -97457,7 +97457,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -98427,7 +98427,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -98451,7 +98451,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -98491,7 +98491,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -100308,7 +100308,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -100332,7 +100332,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -100348,7 +100348,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -101006,7 +101006,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -103076,7 +103076,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -103116,15 +103116,15 @@
           "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -103132,7 +103132,7 @@
           "tag": "button",
           "text": "Step forward",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -103140,7 +103140,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -103934,7 +103934,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -103998,15 +103998,15 @@
           "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -104014,7 +104014,7 @@
           "tag": "button",
           "text": "Step forward",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -104022,7 +104022,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -104744,7 +104744,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -105476,7 +105476,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -105516,15 +105516,15 @@
           "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -105532,7 +105532,7 @@
           "tag": "button",
           "text": "Step forward",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -105540,7 +105540,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         }
@@ -107077,7 +107077,7 @@
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },

@@ -11593,9 +11593,13 @@
         "disabled"
       ],
       "definedIn": [
+        "components/motion/scene-mount.tsx",
+        "components/motion/scene-player.tsx",
         "components/ui/action.tsx"
       ],
       "ownerRouteOrMount": [
+        "components/motion/scene-mount.tsx",
+        "components/motion/scene-player.tsx",
         "components/ui/action.tsx"
       ],
       "mountState": "production",
@@ -11606,7 +11610,7 @@
         "exceptions": []
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "1bc718beaaeb090725ce3d47b9e89dd606945d51da639a20281c21791d3ef695"
+      "fingerprint": "82dd34ae5f8d197271bba64a11d46bc2a8b3c03bb11ddc189f23c8e89a468470"
     },
     {
       "id": "control:secondary-action",
@@ -12146,5 +12150,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "6d6b5ac44cb44a34eb6c4bcba00f6d2336b534ddbf194021caf3541a252e8ea1"
+  "rootFingerprint": "234f4ee5b637a3fb164f4d3f32c30f1aa75c4b666c651e0b3c958e9ba45e78f2"
 }
