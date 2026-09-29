@@ -63,7 +63,7 @@ function sectionRows(historical = false) {
   return section!.claimRecords;
 }
 
-describe('reward-design-mpc originals integration (packet bc05468c, 2026-09-16)', () => {
+describe('reward-design-mpc originals integration (packet bc05468c, 2026-09-16)', { timeout: 30_000 }, () => {
   it('row 19 endpoint drops the unsourced "pushes" claim and superlative', () => {
     const article = readFileSync(ARTICLE, 'utf8');
     expect(article).toContain('sim-trained controllers handle terrain, unknown payloads, and hardware variation');

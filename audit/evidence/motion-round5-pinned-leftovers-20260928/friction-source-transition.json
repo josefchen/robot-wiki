@@ -23,7 +23,7 @@
     "s24-observed-high",
     "s24-observed-zero"
   ],
-  "reviewedBy": "Round-5 pinned-leftovers implementer (GLM 5.3 max; not independent acceptance)",
+  "reviewedBy": "Round-5 pinned-leftovers implementer (not independent acceptance)",
   "rationale": "The two FrictionTransfer mounts on /rl-sim2real/sim2real-transfer/ rendered digit-normalised-identical chart descriptions, failing VAL-EDU-036(d): every number differed (0.35 vs 0.65 half-width, 74% vs 57% plateau) but masked to the same text. The successor adds one computed width-regime mark, exactly the latency-comparison marked-status pattern: range >= 0.5 renders 'The randomization band is marked wide at the selected half-width.', otherwise 'marked ordinary'. No number, formula, or mount prop changes; the ten proofs that pinned the predecessor bytes keep reading them via this named transition.",
   "observedAt": "2026-09-28T22:46:31Z"
 }

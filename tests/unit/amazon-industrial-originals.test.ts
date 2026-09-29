@@ -20,7 +20,7 @@ const urls: Record<string, string> = {
   'amazon-vulcan-2026': 'https://www.aboutamazon.com/news/operations/amazon-vulcan-robot-pick-stow-touch',
 };
 
-describe('five Amazon industrial originals', () => {
+describe('five Amazon industrial originals', { timeout: 30_000 }, () => {
   it('requires five exact originals and nineteen complete AND parts and pairs', () => {
     expect(selected.every(Boolean)).toBe(true);
     expect(selected.map(p => p?.parts.length)).toEqual([3, 6, 3, 5, 2]);

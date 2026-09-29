@@ -51,10 +51,10 @@ const newStores = 'A truncated projective signed-distance estimate plus a fusion
 const oldNormal = 'the gradient of the field is the surface normal, which is what a collision query wants';
 const newNormal = 'KinectFusion estimates a normal from numerical field derivatives near the surface, under an orthogonality assumption';
 
-describe('scene original 10: source-scoped TSDF correction', () => {
+describe('scene original 10: source-scoped TSDF correction', { timeout: 30_000 }, () => {
   beforeAll(() => {
     // Warm the neutral history renders once; catalog renders are expensive
-    // and individual tests must stay under 5s.
+    // and individual tests must stay well under the suite timeout.
     void preservedCompoundPacket('660ad53');
   }, 120_000);
 

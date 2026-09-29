@@ -411,20 +411,24 @@ const checkerEdits: readonly (readonly [string, string])[] = [
   ],
 ];
 
+const historicalCheckers = new Map([
+  ['65e58379b7b6a1eec832ee82cf3c6cd9c5f33f5f2fe626129b2c6323e7aa405b', 112672],
+  ['8e377d397001f936b4bc21583db07c0317d1431c757b4359501e1dd64bd8c507', 112303],
+  ['c74133b3c4435b396ec29acc1bd659f1dfdcc2dbd7b10709c15862ba3dce184c', 111975],
+  ['7ffcf091f4fd8bdf8652eca51919d941c77aeae6f55e6cdc755e7e200dbdbcd6', 111934],
+  ['4b1007a7e78d9ea05c34415cc869d0c11ef937c1e9158136041b4c102afdf84d', 111186],
+]);
+
 /**
  * Older checker bytes pass through. The current checker is admitted only as
  * the exact reader revision above the preserved round5 first-screen c/d head.
  */
 export function round5ReaderPinsCheckerPredecessor(root: string, live: Buffer): Buffer {
-  if (digest(live) === checkerBefore.sha256 && live.length === checkerBefore.bytes) return live;
-  const historicalHashes = new Map([
-    ['65e58379b7b6a1eec832ee82cf3c6cd9c5f33f5f2fe626129b2c6323e7aa405b', 112672],
-    ['8e377d397001f936b4bc21583db07c0317d1431c757b4359501e1dd64bd8c507', 112303],
-    ['c74133b3c4435b396ec29acc1bd659f1dfdcc2dbd7b10709c15862ba3dce184c', 111975],
-    ['7ffcf091f4fd8bdf8652eca51919d941c77aeae6f55e6cdc755e7e200dbdbcd6', 111934],
-    ['4b1007a7e78d9ea05c34415cc869d0c11ef937c1e9158136041b4c102afdf84d', 111186],
-  ]);
-  if (historicalHashes.get(digest(live)) === live.length) return live;
+  // The chain runs this for every proof that pins the checker, so the live
+  // bytes are hashed once rather than once per comparison.
+  const liveHash = digest(live);
+  if (liveHash === checkerBefore.sha256 && live.length === checkerBefore.bytes) return live;
+  if (historicalCheckers.get(liveHash) === live.length) return live;
   const review = JSON.parse(readFileSync(join(root, `${directory}checker-transition.json`), 'utf8')) as Review;
   const historical = readFileSync(join(root, checkerBefore.path));
   reviewed(review, 'round5-reader-pins-checker-revision-v1', checkerDrift);
@@ -433,7 +437,7 @@ export function round5ReaderPinsCheckerPredecessor(root: string, live: Buffer): 
     review.before.sha256 !== checkerBefore.sha256 ||
     review.after.path !== 'lib/audit-local-basis.ts' ||
     historical.length !== checkerBefore.bytes || digest(historical) !== checkerBefore.sha256 ||
-    live.length !== review.after.bytes || digest(live) !== review.after.sha256 ||
+    live.length !== review.after.bytes || liveHash !== review.after.sha256 ||
     applyExact(historical.toString(), checkerEdits, checkerDrift) !== live.toString()) {
     throw new Error(checkerDrift);
   }

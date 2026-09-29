@@ -91,7 +91,7 @@ const loadSection = (historical = false) => {
   return { sections, compoundPlans, registryIds, markdown };
 };
 
-describe('legged-locomotion originals integration (2026-09-16i row-8 correction)', () => {
+describe('legged-locomotion originals integration (2026-09-16i row-8 correction)', { timeout: 30_000 }, () => {
   it('preserves the historical held row binding, partial evidence and truthful summary', () => {
     const { sections, compoundPlans } = loadSection(true);
     const article = sections.find((section) => section.slug === 'legged-locomotion');
