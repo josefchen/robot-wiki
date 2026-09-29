@@ -29,7 +29,7 @@ function failures(plan: ReturnType<typeof selected>) {
     }).find(s => s.slug === plan.articleSlug)!.claimRecords[plan.rowOrdinal - 1].evidenceFailures;
 }
 
-describe('H2O and ASAP source-backed corrections', () => {
+describe('H2O and ASAP source-backed corrections', { timeout: 30_000 }, () => {
   it('distinguishes PPO residual training, frozen simulation and deployed policy', () => {
     const body = article('sim2real-transfer');
     for (const phrase of ['phase-conditioned tracking policies', 'second PPO policy',

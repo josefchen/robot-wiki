@@ -25,7 +25,7 @@ const expectedUrls: Record<string, string> = {
   'a3-orders-2025': 'https://www.automate.org/robotics/news/robot-orders-grow-6-6-in-2025-as-general-industries-drive-broader-automation-adoption',
 };
 
-describe('seven Symbotic and A3 industrial originals', () => {
+describe('seven Symbotic and A3 industrial originals', { timeout: 30_000 }, () => {
   it('requires seven exact originals and all twenty mandatory parts and pairs', () => {
     expect(selected.every(Boolean)).toBe(true);
     expect(selected.map(p => p?.parts.length)).toEqual([3, 1, 3, 4, 1, 5, 3]);

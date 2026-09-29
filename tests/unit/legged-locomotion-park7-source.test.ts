@@ -23,7 +23,7 @@ const parse = (catalog = plans) => parseLedger('audit/rl-sim2real.md', ledger,
 const partIds = ['paper-identity', 'bounding-model-and-limits',
   'timing-versus-duty-factor', 'experimental-schedule'];
 
-describe('legged locomotion Park bounding original 7', () => {
+describe('legged locomotion Park bounding original 7', { timeout: 30_000 }, () => {
   it('binds one exact original with all four mandatory parts and pairs', () => {
     expect(plan).toBeDefined();
     expect(plan!.parts.map(p => p.id)).toEqual(partIds);

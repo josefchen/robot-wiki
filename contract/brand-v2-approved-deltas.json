@@ -35517,7 +35517,7 @@
       "oldHash": "9459001f9f2b98c46b35e2685c671bd824993c2230f428cb6ba9f66677f29f37",
       "newHash": "4b18ebca49f3165a16d99e7cf26f234067e41ab20c4c2f20da24ca5408e2a32d",
       "reason": "S12 citation attachment only: keep robocasa-2024 beside the v1 inventory and place robocasa365-2026 beside the separately named release. The complete preserved RoboCasa365 PDF (SHA-256 3253894415c1470ee63aae7f65198d9bd0cfd0563851a2bb7418c3f9519bc99d) identifies the paper and reports 365 tasks across 2,500 kitchen environments in the abstract; its retained extraction was verified against fresh local pdftotext output. Original packet retrieval 2026-09-24T08:30:39Z, not a new fetch. No numbers, unrelated prose, frontmatter or audit verdicts changed; not whole-article review or release acceptance.",
-      "ownerApproval": "Owner-assigned Robot Wiki Mission mis_2b1673fa batch-3 S12 source-attachment correction, bounded to the verified retained primary document and exact approved prose edge.",
+      "ownerApproval": "Owner-assigned batch-3 S12 source-attachment correction, bounded to the verified retained primary document and exact approved prose edge.",
       "responsibleMilestone": "motion-language",
       "affectedAssertions": [
         "VAL-MOTION-023",
@@ -35532,7 +35532,7 @@
       "oldHash": "b6dec2d3600c39707607ef01d9a9657493939964398d1ab46d6733983451a34d",
       "newHash": "fe9ee3b3cce0506268f5f916dc5c7577bdf11418014d355d30aa5e4b2dd76c3d",
       "reason": "S12 adds one robocasa365-2026 citation occurrence adjacent to the larger-release sentence while preserving the RoboCasa v1 citation and all other article citation, link, term and see-also edges. The prior digest equals the same current relationships member with exactly that single 365 occurrence removed. This is a bounded relationship transition, not whole-article source certification or release acceptance.",
-      "ownerApproval": "Owner-assigned Robot Wiki Mission mis_2b1673fa batch-3 S12 primary-document citation correction, limited to the exact retained PDF evidence and original source identity.",
+      "ownerApproval": "Owner-assigned batch-3 S12 primary-document citation correction, limited to the exact retained PDF evidence and original source identity.",
       "responsibleMilestone": "motion-language",
       "affectedAssertions": [
         "VAL-B2-BASE-002",
@@ -35548,7 +35548,7 @@
       "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
       "newHash": "1e39b6186e098ed948aa36770562e9041be8283a9956f7396b472529fd661a90",
       "reason": "Resolution from the sealed member to the current bytes, required because this member's approval history already ends in reconciling resolutions; it binds all 20 prior approvals by ID and both hashes. The pre-change current bytes are the motion-frontier-adjacent-home-humanizer-v3-20260927-prose-reliability-gap endpoint 4ed073dd. The only change from that endpoint is a VAL-EDU-045 layout repair on /frontier/reliability-gap/: the ReliabilityCompounding calculator mount now precedes the ReliabilityThreshold scene mount, so the first interactive directly follows its cue paragraph instead of the scene (pre-change export: 352 preceding rendered words, top edge 1950 px, no cue in the adjacent paragraphs). The cue sentence now names the per-step success slider first and the fixed-horizon example second; its 95% and 100 values, the citation order, both mount props and every other sentence are unchanged.",
-      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md VAL-EDU-045, enforced by tests/e2e/first-screen-interactive.spec.ts, assigned to this worker as the Mission mis_2b1673fa round-5 chart and first-screen repair. Layout and cue-order repair only; no new factual claim, source certification or release acceptance.",
+      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md VAL-EDU-045, enforced by tests/e2e/first-screen-interactive.spec.ts, assigned as the round-5 chart and first-screen repair. Layout and cue-order repair only; no new factual claim, source certification or release acceptance.",
       "responsibleMilestone": "motion-language",
       "affectedAssertions": [
         "VAL-EDU-045",
@@ -35666,7 +35666,7 @@
       "oldHash": "57fede5c2c9e935af23c2591d021aa42217c420f53f98733fee97f4e9e1f80ab",
       "newHash": "fa823b5469df1868ac25fd324077b5aa44a2075fef250591e1ba46373cd78e29",
       "reason": "VAL-EDU-045 layout repair on /adjacent/drones/: the PerceptionLatency instrument mount now directly follows its cue paragraph and precedes the SenseAvoid scene mount (pre-change export: 357 preceding rendered words, top edge 1914 px). Only the order of the two adjacent mount lines changes; every sentence, number, citation and mount prop is unchanged.",
-      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md VAL-EDU-045, enforced by tests/e2e/first-screen-interactive.spec.ts, assigned to this worker as the Mission mis_2b1673fa round-5 chart and first-screen repair. Layout and cue-order repair only; no new factual claim, source certification or release acceptance.",
+      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md VAL-EDU-045, enforced by tests/e2e/first-screen-interactive.spec.ts, assigned as the round-5 chart and first-screen repair. Layout and cue-order repair only; no new factual claim, source certification or release acceptance.",
       "responsibleMilestone": "motion-language",
       "affectedAssertions": [
         "VAL-EDU-045",
@@ -35682,7 +35682,7 @@
       "oldHash": "2ed97162a04e8b619a5360fcd51957fd61d07dedc306df39bc12d4107aa4db62",
       "newHash": "67925c3ecc80d2e381175f6eee29423df7adfa9afec379db9192810eb45f61f2",
       "reason": "VAL-EDU-045 layout repair on /manipulation/diffusion-policy/: the Receding-horizon control section (its heading, two paragraphs and the RecedingHorizon mount) moves ahead of Denoising in action space, and the scene cue paragraph with the DiffusionDenoising mount moves to the start of that section (pre-change export: 932 preceding rendered words, 2 preceding h2, top edge 3380 px, no adjacent cue). One cue sentence naming the executed horizon slider is added and \"the scene at the top of this module\" becomes \"the scene at the start of this section\". Every other sentence, number, citation and mount prop is unchanged; citation order moves only with the relocated section.",
-      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md VAL-EDU-045, enforced by tests/e2e/first-screen-interactive.spec.ts, assigned to this worker as the Mission mis_2b1673fa round-5 chart and first-screen repair. Layout and cue-order repair only; no new factual claim, source certification or release acceptance.",
+      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md VAL-EDU-045, enforced by tests/e2e/first-screen-interactive.spec.ts, assigned as the round-5 chart and first-screen repair. Layout and cue-order repair only; no new factual claim, source certification or release acceptance.",
       "responsibleMilestone": "motion-language",
       "affectedAssertions": [
         "VAL-EDU-045",

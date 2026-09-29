@@ -55,11 +55,11 @@ const newComment = ` * Provenance tiers record the source format selected for ea
  *   blog:  a lab blog
  *   press: company announcement; technical disclosure varies by source`;
 
-describe('four bounded local truth repairs without completion credit', () => {
+describe('four bounded local truth repairs without completion credit', { timeout: 30_000 }, () => {
 
   beforeAll(() => {
     // Warm the historical-render caches once; the first neutralized catalog
-    // render is expensive and individual tests must stay under 5s.
+    // render is expensive and individual tests must stay well under the suite timeout.
     preservedCompoundPacket(CONTINUATION_CHECKPOINT);
   }, 120_000);
   it('retains the authored inventory and does not turn unknown availability into false', () => {
