@@ -159,10 +159,16 @@ it('rejects a pinned path whose recorded hash no reviewed predecessor carries', 
 });
 
 it('admits only the exact named reader revision above the round5 first-screen cd head', () => {
+  // This revision's output is now preserved as the input of the later
+  // round6 kinematics reader revision, which the live checker reaches first.
+  const reviewedAfter = read('audit/evidence/motion-round6-kinematics-reader-20260929/audit-local-basis-before.ts.txt');
+  expect(reviewedAfter.length).toBe(113447);
+  expect(digest(reviewedAfter)).toBe('0efa34b7fe0e0e021ca5e7811a642398e79aa636ac607e85affe77e7a5abf756');
   const live = read('lib/audit-local-basis.ts');
   const archived = read(`${directory}audit-local-basis-before.ts.txt`);
   expect(archived.length).toBe(113223);
   expect(digest(archived)).toBe('4287a7e100aab9fe914d4b19b38773910b723f7c98dcc80849c069d0bfe8aa69');
+  expect(round5ReaderPinsCheckerPredecessor(root, reviewedAfter)).toEqual(archived);
   expect(round5ReaderPinsCheckerPredecessor(root, live)).toEqual(archived);
   expect(round5ReaderPinsCheckerPredecessor(root, archived)).toEqual(archived);
   const cdArchived = read('audit/evidence/motion-round5-first-screen-cd-20260929/audit-local-basis-before.ts.txt');
@@ -170,11 +176,12 @@ it('admits only the exact named reader revision above the round5 first-screen cd
   expect(round5FirstScreenCdCheckerPredecessor(root, live)).toEqual(cdArchived);
   const branch = '  if (round5ReaderPinEndpoint(ref)) {\n    return retainedRound5ReaderPinSource(root, ref.path, current);\n  }\n';
   const importLine = "import { retainedRound5ReaderPinSource, round5ReaderPinEndpoint } from './audit-round5-reader-pins-continuity.ts';\n";
-  expect(live.toString().split(branch).length).toBe(2);
-  expect(live.toString().replace(branch, '').replace(importLine, '')).toBe(archived.toString());
-  for (const changed of [Buffer.concat([live, Buffer.from('\n')]), Buffer.from(live.toString().replace(branch, ''))]) {
+  expect(reviewedAfter.toString().split(branch).length).toBe(2);
+  expect(reviewedAfter.toString().replace(branch, '').replace(importLine, '')).toBe(archived.toString());
+  for (const changed of [Buffer.concat([reviewedAfter, Buffer.from('\n')]),
+    Buffer.from(reviewedAfter.toString().replace(branch, ''))]) {
     expect(() => round5ReaderPinsCheckerPredecessor(root, changed)).toThrow(
-      /round5 reader pins checker continuity drift/,
+      /round6 prose restores checker continuity drift/,
     );
   }
 });
@@ -184,7 +191,11 @@ it.each(['missing-review', 'missing-predecessor', 'corrupt-predecessor', 'review
   'rejects %s in the reader-pins checker transition', mutation => {
     const reviewPath = `${directory}checker-transition.json`;
     const predecessorPath = `${directory}audit-local-basis-before.ts.txt`;
-    const destination = copied([reviewPath, predecessorPath]);
+    const destination = copied([reviewPath, predecessorPath,
+      'audit/evidence/motion-round6-kinematics-reader-20260929/checker-transition.json',
+      'audit/evidence/motion-round6-kinematics-reader-20260929/audit-local-basis-before.ts.txt',
+      'audit/evidence/motion-round6-prose-restores-20260929/checker-transition.json',
+      'audit/evidence/motion-round6-prose-restores-20260929/audit-local-basis-before.ts.txt']);
     try {
       const live = read('lib/audit-local-basis.ts');
       expect(round5ReaderPinsCheckerPredecessor(destination, live)).toEqual(read(predecessorPath));

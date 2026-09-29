@@ -4,7 +4,7 @@
     "minutes": 9
   },
   "manipulation/action-chunking": {
-    "words": 2821,
+    "words": 2819,
     "minutes": 14
   },
   "manipulation/diffusion-policy": {
@@ -72,7 +72,7 @@
     "minutes": 10
   },
   "rl-sim2real/sim2real-transfer": {
-    "words": 2872,
+    "words": 2868,
     "minutes": 14
   },
   "rl-sim2real/legged-locomotion": {
@@ -80,11 +80,11 @@
     "minutes": 12
   },
   "rl-sim2real/humanoid-wbc": {
-    "words": 2409,
+    "words": 2407,
     "minutes": 12
   },
   "rl-sim2real/reward-design-mpc": {
-    "words": 3323,
+    "words": 3317,
     "minutes": 17
   },
   "rl-sim2real/offline-rl": {
@@ -144,7 +144,7 @@
     "minutes": 11
   },
   "data-hardware/industrial-deployment": {
-    "words": 2862,
+    "words": 2864,
     "minutes": 14
   },
   "data-hardware/robot-learning-stack": {

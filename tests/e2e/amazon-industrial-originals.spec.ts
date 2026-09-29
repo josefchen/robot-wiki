@@ -41,7 +41,7 @@ test('Amazon current quantities and source scopes', async ({ page }, info) => {
     'reduce the time to process an order through a fulfillment center by up to 25 percent',
     'published May 7, 2025 and updated June 4, 2026', 'approximately 75 percent of the types of items',
     'Spokane and Hamburg', 'handoff to employees', 'further European and US deployment as planned',
-    'not pick success or independently validated reliability', 'not a simultaneous active-fleet count']) {
+    'the post reports no pick-success rate or independently validated reliability', 'not a simultaneous active-fleet count']) {
     await expect(paragraph).toContainText(text, { useInnerText: true });
   }
   await expect(paragraph).not.toContainText('process orders up to 25 percent faster');

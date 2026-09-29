@@ -36,7 +36,7 @@ test('IFR retained science, chronology, disagreement and Stat values', async ({ 
     '4,663,698', '2021 through 2024', '542,076', '2,027,190', '450,530',
     '4.5 times', '295,045', '54 percent', 'May 5, 2026', '128,899',
     '126,088', '88,777', '23 percent on page 13 but 24 percent on page 16',
-    'customer-industry categories, not application families', '14 percent',
+    'describe customer industries', '14 percent',
   ]) await expect(lead).toContainText(text, { useInnerText: true });
   const stats = prose.locator(':scope > div.grid').first();
   for (const text of ['4,663,698', '542,076', '2021-2024 each above 500k', '54%', 'in 2024']) {

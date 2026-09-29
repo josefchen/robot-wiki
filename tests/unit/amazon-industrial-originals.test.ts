@@ -85,7 +85,8 @@ describe('five Amazon industrial originals', { timeout: 30_000 }, () => {
   it('scopes Vulcan coverage, contact sensing, operating sites and human handoff', () => {
     for (const text of ['force-feedback picking and stowing', 'approximately 75 percent of the types of items',
       'speeds comparable to front-line employees', 'Spokane and Hamburg', 'handoff to employees',
-      'further European and US deployment as planned', 'pick success and independently validated reliability remain unknown']) expect(article).toContain(text);
+      'further European and US deployment as planned',
+      'the post reports no pick-success rate or independently validated reliability']) expect(article).toContain(text);
   });
 
   it('corrects bylines and separates publication years from June 2026 updates without changing titles', () => {

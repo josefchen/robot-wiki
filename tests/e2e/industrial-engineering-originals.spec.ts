@@ -67,7 +67,7 @@ test('Engineering originals: corrected positions, citations and navigation', asy
     ]],
     ['goldberg-data-gap-2025', 'Ken Goldberg proposes combining model-based engineering with model-free learning', [
       'perform useful work, collect real-world data', 'improve performance and learn adjacent skills',
-      'not a claim that engineering removes the need for learning',
+      'Goldberg does not claim that engineering removes the need for learning',
       'model-free AI eventually to enable fully general-purpose robots',
     ]],
   ] as const) {

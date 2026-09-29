@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "round6-prose-restores-article-continuity-v1",
+  "name": "robogsim-evaluation-scope",
+  "before": {
+    "path": "audit/evidence/motion-round6-prose-restores-20260929/sim2real-transfer-before.mdx",
+    "bytes": 21813,
+    "sha256": "95b7637c9af2f670dcc3a92632e0712d1438a17d08f268a3ecffe1338736898d"
+  },
+  "after": {
+    "path": "content/rl-sim2real/sim2real-transfer.mdx",
+    "bytes": 21785,
+    "sha256": "41ee8c98aa44551dfd2c747223fb9a4e4f8a688c634bd856a49da275df07813c"
+  },
+  "reviewedBy": "Round-6 prose repair implementer, not independent acceptance",
+  "rationale": "The 2026-09-27 RL motion pass replaced the RoboGSim sentence 'This evaluation is not interchangeable with real-robot testing.' with 'This evaluation uses simulated trials as well as real-robot testing, with different outcomes.', which puts real-robot testing inside the simulated evaluation. The retained RoboGSim v2 body, as the corrected robogsim-2024 row of audit/rl-sim2real.md records, keeps the two apart and reports 90% real-robot versus 30% RoboGSim placement for the same real-data-trained model. The restore replaces only that sentence with 'This simulated evaluation cannot stand in for real-robot testing.'. Every other sentence, number, citation (in order), mount and the frontmatter are byte-preserved. The archived pre-restore bytes are exactly the current endpoint the unchanged RL motion continuity review records, and that review still gates them; the live article keeps every phrase that review and the industrial-release dependency review require of this page. No proof, receipt, verdict or ledger cell changed.",
+  "observedAt": "2026-09-29T09:07:00Z"
+}

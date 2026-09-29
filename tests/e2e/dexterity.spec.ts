@@ -44,7 +44,7 @@ test.describe('frontier dexterity module', () => {
     expect(mainText).toContain("These are the essay's descriptions of the demonstration");
     expect(mainText).toContain('an imagined inner dialogue');
     expect(mainText).toContain('will likely require the right sensory data and the right thing to learn');
-    expect(mainText).toContain('his assessment at the time of the essay');
+    expect(mainText).toContain('His assessment belongs to the time of the essay');
     expect(mainText).not.toContain('Her vision is intact');
     expect(mainText).not.toContain('Nothing about her plan changed');
     expect(mainText).not.toContain('If touch-driven pipelines get there first');
@@ -82,7 +82,9 @@ test.describe('frontier dexterity module', () => {
     await expect(
       main.getByRole('heading', { level: 2, name: 'The bet against touch' }),
     ).toBeVisible();
-    expect(mainText).toMatch(/Tesla has shifted Optimus training to a vision-only approach/);
+    expect(mainText).toContain(
+      'Brooks reproduces an eWeek report that describes Tesla as moving Optimus training toward a "vision-only approach"',
+    );
     expect(mainText).toMatch(/Project Go-Big/);
     expect(mainText).toMatch(/100% egocentric human video/);
 
@@ -164,7 +166,7 @@ test.describe('frontier dexterity module', () => {
     );
     await expect(page.getByTestId('hand-row-figure-02-03')).toContainText('16');
     await expect(page.getByTestId('hand-row-figure-02-03')).toContainText('3 g');
-    await expect(page.getByTestId('hand-row-sanctuary-phoenix')).toContainText('~5 mN');
+    await expect(page.getByTestId('hand-row-sanctuary-phoenix')).toContainText('approx. 5 mN');
     await expect(page.getByTestId('hand-row-sanctuary-phoenix')).toContainText(
       'Hydraulic',
     );

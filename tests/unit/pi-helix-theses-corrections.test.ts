@@ -34,7 +34,7 @@ describe('bounded PI and Helix thesis corrections', () => {
     }
     expect(article).toContain('successful episodes per hour; inference speed is a separate measure');
     expect(table).toContain('successful episodes per hour, not inference speed');
-    expect(article).toContain('The generalist comparison leaves room for both approaches');
+    expect(article).toContain('The generalist comparison is not an exclusivity result');
     expect(table).toContain('does not establish failure on other tasks');
   });
   it('binds the existing paper AND blog without advancing the article date', () => {

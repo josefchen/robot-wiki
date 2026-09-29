@@ -96,9 +96,9 @@ test('industrial closure paired cases and complete reader surfaces', async ({ pa
     }
     const sliders = mount.getByRole('slider'); expect(await sliders.count()).toBe(7);
     for (const slider of await sliders.all()) await expect(slider.locator('xpath=following-sibling::p')).toContainText(/assumption|sourced/i);
-    await expect(page.locator('#main-content')).toContainText('not a measured intervention rate');
+    await expect(page.locator('#main-content')).toContainText('no measured intervention rate behind it');
     await expect(page.locator('#main-content')).toContainText('no published success rate');
-    checkedText.push('not a measured intervention rate', 'no published success rate');
+    checkedText.push('no measured intervention rate behind it', 'no published success rate');
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
     const axe = await new AxeBuilder({ page }).include('#main-content').analyze();
     expect(axe.violations).toEqual([]);

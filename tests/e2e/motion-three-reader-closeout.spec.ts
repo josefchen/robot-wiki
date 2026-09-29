@@ -5,6 +5,7 @@ import { createHash } from 'node:crypto';
 import AxeBuilder from '@axe-core/playwright';
 import pinned from '../fixtures/term-consumer-identities.json' with { type: 'json' };
 import { ownedEvidencePath } from './helpers/keypoint-reader-oracle';
+import { readerGateInputs } from './helpers/reader-gate-inputs';
 
 const PROSE = 'div.prose[data-pagefind-body]';
 // Literal reader expectations from the preserved article/registry. Not source certification.
@@ -16,8 +17,8 @@ const SOURCES = [
 ] as const;
 
 function evidence(page: Page, info: TestInfo) {
-  const states: object[] = [], root = process.env.ROBOT_WIKI_EVIDENCE_ROOT;
-  const inputPath = process.env.ROBOT_WIKI_GATE_INPUTS!;
+  const states: object[] = [];
+  const { root, inputPath } = readerGateInputs(info, 'motion-planning');
   const hash = (path: string) => createHash('sha256').update(readFileSync(path)).digest('hex');
   const record = (state: object) => {
     states.push(state);
@@ -134,7 +135,7 @@ test('competing-theses mounts the exact post-PI ordered Term population and chan
   expect(ids).toEqual(expected.termIds); await expect(page.locator(`${PROSE} [data-term-id="imitation-learning"]`)).toHaveCount(0);
   const paragraph = page.locator(`${PROSE} > p`).filter({ hasText: 'The generalist comparison is not an exclusivity result' });
   await expect(paragraph).toHaveCount(1);
-  for (const text of ['one π0.7 model', 'evaluated laundry-folding, espresso-making, and box-building tasks', 'distilling Recap experience with strategy metadata', 'successful episodes per hour, not inference speed']) await expect(paragraph).toContainText(text);
+  for (const text of ['one π0.7 model', 'evaluated laundry-folding, espresso-making, and box-building tasks', 'distilling Recap experience with strategy metadata', 'successful episodes per hour; inference speed is a separate measure']) await expect(paragraph).toContainText(text);
   await e.slices(paragraph, 'thesis-replacement', 'another round of per-task training');
   const teleoperation = page.locator(`${PROSE} [data-term-id="teleoperation"]`);
   await e.slices(teleoperation.locator('..'), 'thesis-surviving-teleoperation');

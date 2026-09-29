@@ -14,6 +14,7 @@
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { round6KinematicsReaderCheckerPredecessor } from './audit-round6-kinematics-reader-continuity.ts';
 
 const directory = 'audit/evidence/motion-round5-reader-pins-20260929/';
 const digest = (bytes: Buffer) => createHash('sha256').update(bytes).digest('hex');
@@ -420,15 +421,17 @@ const historicalCheckers = new Map([
 ]);
 
 /**
- * Older checker bytes pass through. The current checker is admitted only as
- * the exact reader revision above the preserved round5 first-screen c/d head.
+ * Older checker bytes pass through. The reader revision above the preserved
+ * round5 first-screen c/d head is admitted exactly, as it reaches this level
+ * through the round6 kinematics reader revision.
  */
 export function round5ReaderPinsCheckerPredecessor(root: string, live: Buffer): Buffer {
-  // The chain runs this for every proof that pins the checker, so the live
+  const through = round6KinematicsReaderCheckerPredecessor(root, live);
+  // The chain runs this for every proof that pins the checker, so these
   // bytes are hashed once rather than once per comparison.
-  const liveHash = digest(live);
-  if (liveHash === checkerBefore.sha256 && live.length === checkerBefore.bytes) return live;
-  if (historicalCheckers.get(liveHash) === live.length) return live;
+  const liveHash = digest(through);
+  if (liveHash === checkerBefore.sha256 && through.length === checkerBefore.bytes) return through;
+  if (historicalCheckers.get(liveHash) === through.length) return through;
   const review = JSON.parse(readFileSync(join(root, `${directory}checker-transition.json`), 'utf8')) as Review;
   const historical = readFileSync(join(root, checkerBefore.path));
   reviewed(review, 'round5-reader-pins-checker-revision-v1', checkerDrift);
@@ -437,8 +440,8 @@ export function round5ReaderPinsCheckerPredecessor(root: string, live: Buffer): 
     review.before.sha256 !== checkerBefore.sha256 ||
     review.after.path !== 'lib/audit-local-basis.ts' ||
     historical.length !== checkerBefore.bytes || digest(historical) !== checkerBefore.sha256 ||
-    live.length !== review.after.bytes || liveHash !== review.after.sha256 ||
-    applyExact(historical.toString(), checkerEdits, checkerDrift) !== live.toString()) {
+    through.length !== review.after.bytes || liveHash !== review.after.sha256 ||
+    applyExact(historical.toString(), checkerEdits, checkerDrift) !== through.toString()) {
     throw new Error(checkerDrift);
   }
   return historical;

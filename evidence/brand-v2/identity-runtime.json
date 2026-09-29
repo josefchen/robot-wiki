@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "91b00dcd43206352995b1bdd8644df5069ce89fd3263ea73b0e6d422fee00839",
+  "fingerprint": "9e7ca229cba9adbeabed6ff86e7ecb9cf3f66a118488f8137a2188677b869662",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -3173,7 +3173,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24899,
+      "visibleTextLength": 24908,
       "route": "/data-hardware/industrial-deployment/",
       "viewport": "1440x900"
     },
@@ -3935,7 +3935,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 25113,
+      "visibleTextLength": 25110,
       "route": "/frontier/competing-theses/",
       "viewport": "1440x900"
     },
@@ -4824,7 +4824,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 23377,
+      "visibleTextLength": 23363,
       "route": "/manipulation/action-chunking/",
       "viewport": "1440x900"
     },
@@ -7237,7 +7237,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 21290,
+      "visibleTextLength": 21277,
       "route": "/rl-sim2real/humanoid-wbc/",
       "viewport": "1440x900"
     },
@@ -7745,7 +7745,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 28113,
+      "visibleTextLength": 28077,
       "route": "/rl-sim2real/reward-design-mpc/",
       "viewport": "1440x900"
     },
@@ -7999,7 +7999,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24661,
+      "visibleTextLength": 24633,
       "route": "/rl-sim2real/sim2real-transfer/",
       "viewport": "1440x900"
     },
@@ -12490,7 +12490,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24520,
+      "visibleTextLength": 24529,
       "route": "/data-hardware/industrial-deployment/",
       "viewport": "375x812"
     },
@@ -13252,7 +13252,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24778,
+      "visibleTextLength": 24775,
       "route": "/frontier/competing-theses/",
       "viewport": "375x812"
     },
@@ -14141,7 +14141,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 22750,
+      "visibleTextLength": 22736,
       "route": "/manipulation/action-chunking/",
       "viewport": "375x812"
     },
@@ -16554,7 +16554,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 20815,
+      "visibleTextLength": 20802,
       "route": "/rl-sim2real/humanoid-wbc/",
       "viewport": "375x812"
     },
@@ -17062,7 +17062,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27638,
+      "visibleTextLength": 27602,
       "route": "/rl-sim2real/reward-design-mpc/",
       "viewport": "375x812"
     },
@@ -17316,7 +17316,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24186,
+      "visibleTextLength": 24158,
       "route": "/rl-sim2real/sim2real-transfer/",
       "viewport": "375x812"
     },

@@ -117,7 +117,7 @@ test('parallel: changed Stat and source-scoped prose retain readable geometry', 
   for (const text of ['Isaac Sim 6.0 and Isaac Lab 3.0 early access releases',
     'differentiation support differs between solvers', 'example configuration',
     'Samsung "will use Newton"', 'simulated RB-Y1', '252x for locomotion and 475x for manipulation',
-    'RTX PRO 6000 Blackwell Series', 'not a comparative benchmark']) await expect(prose).toContainText(text);
+    'RTX PRO 6000 Blackwell Series', 'it reports no comparative benchmark']) await expect(prose).toContainText(text);
   const value = prose.getByText('252x / 475x', { exact: true });
   await center(value);
   const stat = value.locator('..'), box = await stat.boundingBox();
@@ -136,7 +136,7 @@ test('transfer: current Newton statement preserves the separate paper context', 
   for (const text of ['86.25%', 'Those descriptions disagree',
     'Only the fine-tuned tracking policy is deployed', '90% placement', '30% in RoboGSim',
     'ray-tracing backend supports both triangle meshes and Gaussian splats']) await expect(prose).toContainText(text);
-  await center(prose.getByText(/This evaluation is not interchangeable with real-robot testing/));
+  await center(prose.getByText(/This simulated evaluation cannot stand in for real-robot testing/));
   await capture(page, 'transfer-context');
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });

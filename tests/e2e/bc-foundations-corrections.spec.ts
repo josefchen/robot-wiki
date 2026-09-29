@@ -13,7 +13,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     await expect(prose).toContainText('camera and laser-range inputs');
     await expect(prose).toContainText('trained on simulated road images');
     await expect(prose).toContainText('proposed future work');
-    await expect(prose).toContainText('not a promise that every iterate improves');
+    await expect(prose).toContainText('it promises no improvement for any particular iterate');
     await expect(prose).toContainText('strongly convex');
     await expect(prose).toContainText('uninterrupted control');
     await expect(prose.locator('.katex-error')).toHaveCount(0);
@@ -26,7 +26,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     };
     await capture('top');
     await page.screenshot({ path: testInfo.outputPath(`${viewport.width}-full.png`), fullPage: true });
-    const toy = page.locator('div.prose > div.rounded-md:has([data-testid="accumulated-deviation-readout"])').first();
+    const toy = page.locator('div.prose > div.rounded-md:has([data-testid="accumulated-deviation-readout"]), div.prose > div.rounded-none:has([data-testid="accumulated-deviation-readout"])').first();
     await toy.scrollIntoViewIfNeeded();
     await expect(toy).toContainText('not a task-cost theorem');
     await expect(toy.getByTestId('accumulated-deviation-readout')).toHaveText('370');

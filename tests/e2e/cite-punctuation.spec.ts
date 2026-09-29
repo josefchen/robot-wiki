@@ -150,7 +150,7 @@ test.describe('cite punctuation binding', () => {
     ).toEqual([]);
   });
 
-  test('dexterity renders exactly the 32 plugin wrappers that replaced the hand-fix', async ({
+  test('dexterity renders exactly the 33 plugin wrappers that replaced the hand-fix', async ({
     page,
   }) => {
     await page.goto(`${BASE}/frontier/dexterity/`, { waitUntil: 'networkidle' });
@@ -163,7 +163,7 @@ test.describe('cite punctuation binding', () => {
         ).length,
     );
     // The 32 hand-written wrappers were stripped from the MDX; the plugin
-    // regenerates exactly one wrapper per cluster-end (32 on this article).
-    expect(count).toBe(32);
+    // regenerates exactly one wrapper per cluster-end (33 on this article).
+    expect(count).toBe(33);
   });
 });

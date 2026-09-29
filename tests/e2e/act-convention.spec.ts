@@ -23,9 +23,9 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     await hardware.scrollIntoViewIfNeeded();
     await page.screenshot({ caret: 'initial', path: join(dir, `act-${viewport.width}-hardware-loss.png`) });
     const loss = page.locator('p').filter({ hasText: 'The objective in the card follows' });
-    await expect(loss).toContainText('Section IV-C specifies L1 reconstruction');
-    await expect(loss).toContainText('Algorithm 1 prints MSE');
-    await expect(loss).toContainText('not a universal ACT objective');
+    await expect(loss).toContainText('implementation description, which specifies L1 reconstruction');
+    await expect(loss).toContainText('the printed algorithm uses MSE');
+    await expect(loss).toContainText('claims nothing about a universal ACT objective');
     await loss.screenshot({ caret: 'initial', path: join(dir, `act-${viewport.width}-loss-conflict.png`) });
     const heading = page.getByRole('heading', { name: 'Temporal ensembling and its limits', exact: true });
     await heading.scrollIntoViewIfNeeded();
@@ -109,7 +109,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     expect(metrics.proseFamily).toContain('Newsreader');
     expect(metrics.h1Family.toLowerCase()).toContain('tektur');
     expect(metrics.katexErrors).toBe(0);
-    expect(metrics.sourceCount).toBe(7);
+    expect(metrics.sourceCount).toBe(16);
     const axe = await new AxeBuilder({ page }).analyze();
     writeFileSync(join(dir, `act-${viewport.width}-metrics.json`), JSON.stringify({ viewport, metrics, errors, axeViolations: axe.violations, svgSha256: createHash('sha256').update(svg).digest('hex') }, null, 2));
     expect(errors).toEqual([]);

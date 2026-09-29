@@ -47,7 +47,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     await capture('home-full', true);
     const promise = page.locator('p').filter({ has: page.locator('mark[data-brand-highlight="home-premise"]') });
     await promise.scrollIntoViewIfNeeded();
-    await expect(promise).toContainText('a citation is not a guarantee that a claim has been verified');
+    await expect(promise).toContainText('a citation is not a guarantee of verification');
     await capture('home-source-strength');
     await inspect('/');
 

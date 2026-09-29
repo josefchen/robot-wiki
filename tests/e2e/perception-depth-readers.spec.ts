@@ -122,7 +122,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
                         "low IR signal",
                         "filter outlier",
                         "multi-path interference",
-                        "not a measured zero-distance surface",
+                        "the surface has not been measured at zero distance",
                         "one wall onto another in a corner",
                         "mixed foreground/background",
                         "raw-depth exposure interval"
@@ -131,7 +131,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
         {
                 "start": "The examples below distinguish",
                 "parts": [
-                        "not a rule that every listed surface defeats every depth-sensing family"
+                        "Other depth-sensing families need their own evaluation on these surfaces"
                 ]
         },
         {
@@ -140,7 +140,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
                         "IR signal is too weak",
                         "underexposure and overexposure",
                         "leaving the projector on",
-                        "not a claim that every visibly dark object loses depth"
+                        "a visibly dark object does not always lose depth"
                 ]
         },
         {
@@ -148,17 +148,16 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
                 "parts": [
                         "fences and wire grids",
                         "best and second-best",
-                        "not necessarily two exactly equal matches",
+                        "even when they differ",
                         "DSSecondPeakThreshold",
-                        "not a blanket failure claim for every thin object"
+                        "it makes no blanket failure claim for every thin object"
                 ]
         },
         {
                 "start": "Self-occlusion versus view-dependent invalidation.",
                 "parts": [
                         "may reappear from another",
-                        "not a demonstration about generic self-occlusion",
-                        "multi-view capture recovers every missing surface"
+                        "does not establish recovery of every missing surface by multi-view capture or describe generic self-occlusion"
                 ]
         }
 ];
@@ -262,15 +261,15 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
       // Actual dynamic mount is reached, not inferred from authored markers.
       const budget = page.getByTestId('perception-budget');
       await expect(budget).toBeVisible();
-      for (const id of ['realsense-d400-datasheet-2026', 'cleargrasp-2020']) {
-        await expect(budget.locator(`[data-cite-id="${id}"]`)).toHaveCount(1);
-        groups.push({ id, attr: 'data-cite-id', count: 1 });
-      }
+      await expect(budget.locator('[data-cite-id="realsense-d400-datasheet-2026"]')).toHaveCount(1);
+      groups.push({ id: 'realsense-d400-datasheet-2026', attr: 'data-cite-id', count: 1 });
+      // The classical closeout removed the unsupported ClearGrasp budget claim and its chip.
+      await expect(budget.locator('[data-cite-id="cleargrasp-2020"]')).toHaveCount(0);
       const observations = [], failures: string[] = [];
       try {
         for (const group of groups) {
           expect(group.count).toBeGreaterThan(0);
-          const dynamic = ['realsense-d400-datasheet-2026', 'cleargrasp-2020'].includes(group.id);
+          const dynamic = group.id === 'realsense-d400-datasheet-2026';
           const roots = (dynamic ? budget : page.locator('div.prose')).locator(`[${group.attr}="${group.id}"]`);
           await expect(roots).toHaveCount(group.count);
           for (let occurrence = 0; occurrence < group.count; occurrence++) {

@@ -38,6 +38,6 @@ describe('frontier safety prose continuation', () => {
     const checker = readFileSync(`${root}/lib/audit-local-basis.ts`);
     expect(reviewedFrontierChecker(root, checker)).toBe(true);
     expect(() => reviewedFrontierChecker(root, Buffer.from(`${checker.toString()}\n`)))
-      .toThrow(/round5 reader pins checker continuity drift/);
+      .toThrow(/round6 prose restores checker continuity drift/);
   });
 });

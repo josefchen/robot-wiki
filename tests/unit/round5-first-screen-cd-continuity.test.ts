@@ -173,7 +173,7 @@ it('admits only the exact named reader revision above the round5 pinned-leftover
   expect(withoutPlanningBranch.toString()).not.toBe(reviewedAfter.toString());
   for (const changed of [Buffer.concat([reviewedAfter, Buffer.from('\n')]), withoutPlanningBranch]) {
     expect(() => round5FirstScreenCdCheckerPredecessor(root, changed)).toThrow(
-      /round5 reader pins checker continuity drift/,
+      /round6 prose restores checker continuity drift/,
     );
   }
 });
@@ -185,7 +185,11 @@ it.each(['missing-review', 'missing-predecessor', 'corrupt-predecessor', 'review
     const predecessorPath = `${directory}audit-local-basis-before.ts.txt`;
     const destination = copied([reviewPath, predecessorPath,
       'audit/evidence/motion-round5-reader-pins-20260929/checker-transition.json',
-      'audit/evidence/motion-round5-reader-pins-20260929/audit-local-basis-before.ts.txt']);
+      'audit/evidence/motion-round5-reader-pins-20260929/audit-local-basis-before.ts.txt',
+      'audit/evidence/motion-round6-kinematics-reader-20260929/checker-transition.json',
+      'audit/evidence/motion-round6-kinematics-reader-20260929/audit-local-basis-before.ts.txt',
+      'audit/evidence/motion-round6-prose-restores-20260929/checker-transition.json',
+      'audit/evidence/motion-round6-prose-restores-20260929/audit-local-basis-before.ts.txt']);
     try {
       const live = read('lib/audit-local-basis.ts');
       expect(round5FirstScreenCdCheckerPredecessor(destination, live)).toEqual(read(predecessorPath));

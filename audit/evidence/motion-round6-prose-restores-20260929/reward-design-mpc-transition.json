@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "round6-prose-restores-article-continuity-v1",
+  "name": "eureka-detailed-results",
+  "before": {
+    "path": "audit/evidence/motion-round6-prose-restores-20260929/reward-design-mpc-before.mdx",
+    "bytes": 20073,
+    "sha256": "f5df1d861c9f42b628fa2073a66f9114b887aa0b84c284aaae85739a13b90261"
+  },
+  "after": {
+    "path": "content/rl-sim2real/reward-design-mpc.mdx",
+    "bytes": 20037,
+    "sha256": "dbfaee9f08f18608e2853f2c6572bcb42fc13d3cb2e4f62e9add3f4452cafd13"
+  },
+  "reviewedBy": "Round-6 prose repair implementer, not independent acceptance",
+  "rationale": "The 2026-09-27 RL motion pass replaced the qualification ', not strict wins everywhere' after the Eureka detailed-results clause with the sentence 'Some were ties.'. No retained Eureka passage reports ties: the corrected eureka-2024 row of audit/rl-sim2real.md records only that the detailed results match or exceed the human reward on all nine Isaac tasks and 15 of the 20 Dexterity tasks, which is not a strict win everywhere. The restore deletes that one sentence, so the retained matching-or-exceeding wording again carries the qualification. That three-word deletion alone would lift the article from 1.999 to 2.002 structural tells per 1,000 words, above the 2-per-1,000 floor the build and the RL prose unit test enforce, so the terrain-curriculum sentence also drops its 'rather than guessed' contrast and states only that thousands of parallel robots make the difficulty frontier measurable, which the retained Rudin curriculum passage of audit/rl-sim2real.md:424 supports; the article then measures 1.60. Every other sentence, number, citation (in order), mount and the frontmatter are byte-preserved. The archived pre-restore bytes are exactly the current endpoint the unchanged RL motion continuity review records, and that review still gates them; the live article keeps every phrase that review requires. No proof, receipt, verdict or ledger cell changed.",
+  "observedAt": "2026-09-29T11:06:59Z"
+}

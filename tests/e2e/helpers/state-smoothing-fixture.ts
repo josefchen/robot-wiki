@@ -2,15 +2,13 @@ import { test as base, expect } from '@playwright/test';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { ownedEvidencePath } from './keypoint-reader-oracle';
+import { readerGateInputs } from './reader-gate-inputs';
 export { expect, type Locator, type Page } from '@playwright/test';
 
 // Instrument all contexts, including the existing spec's explicit browser.newContext cases.
 export const test = base.extend<{ stateOffline: void }>({
   stateOffline: [async ({ browser }, runFixture, testInfo) => {
-    const root = process.env.ROBOT_WIKI_EVIDENCE_ROOT;
-    const inputPath = process.env.ROBOT_WIKI_GATE_INPUTS;
-    if (!inputPath) throw new Error('ROBOT_WIKI_GATE_INPUTS is required');
-    const inputSha256 = createHash('sha256').update(readFileSync(inputPath)).digest('hex');
+    const { root, inputPath, inputSha256 } = readerGateInputs(testInfo, 'state-smoothing');
     const manifest = JSON.parse(readFileSync(inputPath, 'utf8'));
     for (const path of [testInfo.file, 'tests/e2e/helpers/state-smoothing-fixture.ts', 'tests/e2e/helpers/keypoint-reader-oracle.ts'].map(path => path.startsWith('/') ? path : process.cwd() + '/' + path)) {
       const expected = manifest.inputs[path];

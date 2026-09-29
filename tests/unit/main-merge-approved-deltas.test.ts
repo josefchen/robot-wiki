@@ -270,6 +270,34 @@ const round5FirstScreenCdEndpoints: ReadonlyArray<readonly [string, string, stri
 const sharedReaderLayoutAppends = [
   'shared-reader-20260928-article-metadata-root-layout-author-toggle',
 ] as const;
+// The round-6 prose restores of 2026-09-29 return sentences whose meaning an
+// earlier prose pass changed to their audited source wording. Each tuple is
+// the member, its endpoint before the restore and its endpoint after it. A
+// member whose history already ended in a reconciling resolution gets a new
+// resolution from the sealed hash; the others get a plain edge.
+const round6ProseRestoreEndpoints: ReadonlyArray<readonly [string, string, string]> = [
+  ['article:manipulation/action-chunking',
+    'f5176397b03c912dff965b2f0c91354f59723076730a1522ae16b537d005e49e',
+    'b5ae41bc08dbcd436221ae13da11a0345f423d804998f22c18a51333a4ad6c5b'],
+  ['article:rl-sim2real/humanoid-wbc',
+    'eb000da1b9ee4e934f861b6448d6cdf58a38993b91e2208dea2f2ce6d057a74b',
+    '2a4a04969819d9d38e75c4ae07d975a1a3fc1ee0f4af833d631c6947c053515e'],
+  ['article:rl-sim2real/sim2real-transfer',
+    'e2d60b86f053241afc7ddcc3565bb56d4322ccb399c807f0265b80479f6bab9e',
+    '281dc1bf11a08eee65687477ea62fd20b84b3513c89329fe87dd30ef3719e7c5'],
+  ['article:rl-sim2real/reward-design-mpc',
+    '95aeac1878a4aa21e4361bb20cf56438b3ba3ffc4c712743f3eedc78c2abfe29',
+    'db56f22183bfa1784a4dad8aef1c9414244c7c7f1c33aba6b816548cd47ad155'],
+  ['article:data-hardware/industrial-deployment',
+    'd6912e7b80390fcfa1b2430b4fe4b0c3d8f3e01b32ec8cf7259a6800119d32f3',
+    'd52ef321eaa188ee867b49f827b0f8445992ed79e8399ee577ffb47b84542249'],
+  ['article:frontier/competing-theses',
+    'ec8ddfe81684a9e34321102dd6b8543ce47c81018def615e68ad16242e7e6193',
+    'cde24c4b7e4837954bd1a539bedad8f5f9b6c0a1144454dbf847f59bc4d01149'],
+];
+const round6ProseRestoreAppends = round6ProseRestoreEndpoints.map(
+  ([memberId]) => `round6-prose-restores-20260929-prose-${memberId.split('/')[1]}`);
+const beforeRound6 = merged.slice(0, merged.length - round6ProseRestoreAppends.length);
 
 describe('two-parent exact approval reconciliation', () => {
   it('retains every main approval and the nine scoped frontier/adjacent successors in order', () => {
@@ -286,22 +314,26 @@ describe('two-parent exact approval reconciliation', () => {
     // The subsequent domain passes add nine classical article endpoints,
     // two manipulation mounts, eight RL article endpoints and five RL
     // reconciliation edges, all named below in ledger order.
-    expect([main.length, local.length, localOnly.length, merged.length]).toEqual([1558, 1104, 7, 1765]);
+    expect([main.length, local.length, localOnly.length, merged.length]).toEqual([1558, 1104, 7, 1771]);
     expect(merged.slice(0, main.length)).toEqual(main);
     expect(merged.slice(main.length, main.length + localOnly.length)).toEqual(localOnly);
     expect(merged.slice(main.length + localOnly.length).map(x => x.id))
-      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends]);
-    expect(merged.slice(-1)).toMatchObject([{
+      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends]);
+    expect(merged.slice(beforeRound6.length)).toMatchObject(round6ProseRestoreEndpoints.map(
+      ([memberId, , newHash], index) => ({
+        id: round6ProseRestoreAppends[index], manifest: 'prose', memberId, newHash,
+      })));
+    expect(beforeRound6.slice(-1)).toMatchObject([{
       id: sharedReaderLayoutAppends[0], manifest: 'article-metadata',
       memberId: 'canonical-metadata-source:app/layout.tsx',
       oldHash: '539ab11a4ab2cdf715f036dc9aafe8b4bdb757dc63ef804f4e4214dea3bfacb4',
       newHash: '4f8ee54d1de53be8f180bd901e31f1ae42dd719ce13df60286fc6f26338046be',
     }]);
-    expect(merged.slice(-10, -1)).toMatchObject(round5FirstScreenCdEndpoints.map(
+    expect(beforeRound6.slice(-10, -1)).toMatchObject(round5FirstScreenCdEndpoints.map(
       ([memberId, oldHash, newHash], index) => ({
         id: round5FirstScreenCdAppends[index], manifest: 'prose', memberId, oldHash, newHash,
       })));
-    expect(merged.slice(-12, -10)).toMatchObject([
+    expect(beforeRound6.slice(-12, -10)).toMatchObject([
       {
         id: round5PinnedLeftoversAppends[0], manifest: 'prose',
         memberId: 'article:data-hardware/data-bottleneck',
@@ -315,7 +347,7 @@ describe('two-parent exact approval reconciliation', () => {
         newHash: '58eb66a343de12e685e540f7840313f33b841fa233b26462d428b2a298459557',
       },
     ]);
-    expect(merged.slice(-15, -12)).toMatchObject([
+    expect(beforeRound6.slice(-15, -12)).toMatchObject([
       {
         id: round5FirstScreenAppends[0], manifest: 'prose',
         memberId: 'article:frontier/reliability-gap',
@@ -335,7 +367,7 @@ describe('two-parent exact approval reconciliation', () => {
         newHash: '67925c3ecc80d2e381175f6eee29423df7adfa9afec379db9192810eb45f61f2',
       },
     ]);
-    expect(merged.slice(-17, -15)).toMatchObject([
+    expect(beforeRound6.slice(-17, -15)).toMatchObject([
       {
         id: motionScrutinyS12Appends[0], manifest: 'prose',
         memberId: 'article:world-models/generative-sim',
@@ -449,8 +481,10 @@ describe('two-parent exact approval reconciliation', () => {
     expect(approvedDeltaPath(layoutEdges.slice(0, -1), layoutSealed, layoutCurrent).status)
       .toBe('missing');
     expect(approvedDeltaPath(layoutEdges, layoutSealed, '0'.repeat(64)).status).toBe('missing');
-    expect(merged.filter(x => x.manifest === 'prose'
-      && x.memberId === 'article:data-hardware/industrial-deployment').at(-1)?.id)
+    const industrialProse = merged.filter(x => x.manifest === 'prose'
+      && x.memberId === 'article:data-hardware/industrial-deployment');
+    expect(industrialProse.at(-1)?.id).toBe('round6-prose-restores-20260929-prose-industrial-deployment');
+    expect(industrialProse.at(-2)?.id)
       .toBe('motion-data-hardware-source-qualification-20260927-prose-industrial-deployment');
     expect(merged.some(x => x.id === 'educational-relocation-20260926-prose-industrial-deployment')).toBe(true);
     // citation-rendering was later re-anchored by the 20260925 EXPO-FT
@@ -465,5 +499,34 @@ describe('two-parent exact approval reconciliation', () => {
     expect(merged.filter(x => x.manifest === 'prose'
       && x.memberId === 'article:world-models/world-models-vs-simulators').at(-1)?.id)
       .toBe('motion-world-models-humanizer-v3-20260927-prose-world-models-vs-simulators');
+  });
+
+  it('binds each round-6 prose restore to its previous endpoint and to the sealed hash', () => {
+    const sealedProse: { members: Array<{ id: string; hash: string }> } = JSON.parse(
+      readFileSync('evidence/brand-v2/baseline/prose.json', 'utf8'));
+    for (const [index, [memberId, previous, current]] of round6ProseRestoreEndpoints.entries()) {
+      const edges = merged.filter(x => x.manifest === 'prose' && x.memberId === memberId);
+      const sealed = sealedProse.members.find(x => x.id === memberId)!.hash;
+      const entry = edges.at(-1)!;
+      const prior = edges.slice(0, -1);
+      expect(entry.id).toBe(round6ProseRestoreAppends[index]);
+      expect(entry.newHash).toBe(current);
+      expect(prior.at(-1)?.newHash).toBe(previous);
+      expect(approvedDeltaPath(prior, sealed, previous).status).toBe('approved');
+      expect(approvedDeltaPath(edges, sealed, current).status).toBe('approved');
+      expect(approvedDeltaPath(prior, sealed, current).status).not.toBe('approved');
+      if (prior.some(x => x.reconciles !== undefined)) {
+        expect(entry.oldHash).toBe(sealed);
+        expect(entry.reconciles).toEqual(prior.map(x => ({
+          id: x.id, oldHash: x.oldHash, newHash: x.newHash,
+        })));
+        expect(approvedDeltaPath(edges, sealed, previous).status).toBe('ambiguous');
+        expect(approvedDeltaPath(edges.map((edge, edgeIndex) => edgeIndex === 0
+          ? { ...edge, newHash: '0'.repeat(64) } : edge), sealed, current).status).toBe('ambiguous');
+      } else {
+        expect(entry.oldHash).toBe(previous);
+        expect(entry.reconciles).toBeUndefined();
+      }
+    }
   });
 });

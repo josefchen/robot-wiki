@@ -14,7 +14,7 @@ test('PI and Helix qualifications survive interactive selection and reset', asyn
   await expect(prose).toContainText('S0 executes at 1 kHz');
   await expect(prose).toContainText('Figure reports that Helix 02 completed');
   await expect(prose).toContainText('dishwasher unloading-and-reloading');
-  await expect(prose).toContainText('successful episodes per hour, not inference speed');
+  await expect(prose).toContainText('successful episodes per hour; inference speed is a separate measure');
   const explorer = page.getByTestId('thesis-explorer');
   const detail = page.getByTestId('thesis-detail');
   for (const [name, qualification] of [

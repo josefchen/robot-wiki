@@ -100515,7 +100515,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:data-hardware/industrial-deployment moved from 2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266 to d6912e7b80390fcfa1b2430b4fe4b0c3d8f3e01b32ec8cf7259a6800119d32f3 exactly as approved delta motion-data-hardware-source-qualification-20260927-prose-industrial-deployment permits: The retained Symbotic FY2025 filing defines backlog as unperformed contractual obligations. The corrected sentence restores its distinction from earned revenue without changing the reported backlog, fiscal revenue, contractual site scope or forecast.",
+      "actual": "prose member article:data-hardware/industrial-deployment moved from 2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266 to d52ef321eaa188ee867b49f827b0f8445992ed79e8399ee577ffb47b84542249 exactly as approved delta round6-prose-restores-20260929-prose-industrial-deployment permits: Round-6 prose restore of the Amazon Vulcan coverage scope (adjudication group G5, case n3, owner option b). The 2026-09-27 data-hardware motion pass replaced 'The coverage figure describes item types, not pick success or independently validated reliability' with a clause saying pick success and independently validated reliability remain unknown, a general unknown the cited Amazon post does not establish. Ledger row amazon-vulcan-2026 (audit/data-hardware.md) records only that the figure is item-type coverage and does not measure pick success or independently validated reliability. The clause now reads 'The coverage figure describes item types; the post reports no pick-success rate or independently validated reliability'; nothing else changes. Because this member's history already ends in reconciling resolutions, the entry is a resolution from the sealed hash that binds all twenty-eight prior prose edges; its predecessor endpoint is motion-data-hardware-source-qualification-20260927-prose-industrial-deployment (d6912e7b80390fcfa1b2430b4fe4b0c3d8f3e01b32ec8cf7259a6800119d32f3).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100527,9 +100527,9 @@
           "manifest": "prose",
           "member": "article:data-hardware/industrial-deployment",
           "baselineHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
-          "currentHash": "d6912e7b80390fcfa1b2430b4fe4b0c3d8f3e01b32ec8cf7259a6800119d32f3",
+          "currentHash": "d52ef321eaa188ee867b49f827b0f8445992ed79e8399ee577ffb47b84542249",
           "status": "approved-delta",
-          "approvedDelta": "motion-data-hardware-source-qualification-20260927-prose-industrial-deployment"
+          "approvedDelta": "round6-prose-restores-20260929-prose-industrial-deployment"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100627,7 +100627,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:frontier/competing-theses moved from 27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895 to ec8ddfe81684a9e34321102dd6b8543ce47c81018def615e68ad16242e7e6193 exactly as approved delta motion-frontier-adjacent-home-humanizer-v3-20260927-prose-competing-theses permits: The competing-theses article makes its caveats direct without changing the six comparison rows, falsification signals, numeric tokens or citation order.",
+      "actual": "prose member article:frontier/competing-theses moved from 27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895 to cde24c4b7e4837954bd1a539bedad8f5f9b6c0a1144454dbf847f59bc4d01149 exactly as approved delta round6-prose-restores-20260929-prose-competing-theses permits: Round-6 prose restore of the Physical Intelligence generalist-comparison qualification (round-6 mechanical triage case n69, discovered issue 1). The 2026-09-27 frontier motion rewrite 076eb457 replaced the audited opening 'The generalist comparison is not an exclusivity result', added by the 2026-09-13 audit integration 6af0bdd7, with 'The generalist comparison leaves room for both approaches'. The restore returns that opening verbatim from the parent of 076eb457; the throughput sentence keeps its current wording under the recorded n97 decision, and nothing else changes. Because this member's history already contains reconciling resolutions, the entry is a resolution from the sealed hash that binds all twenty-two prior prose edges; its predecessor endpoint is motion-frontier-adjacent-home-humanizer-v3-20260927-prose-competing-theses (ec8ddfe81684a9e34321102dd6b8543ce47c81018def615e68ad16242e7e6193).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100639,9 +100639,9 @@
           "manifest": "prose",
           "member": "article:frontier/competing-theses",
           "baselineHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
-          "currentHash": "ec8ddfe81684a9e34321102dd6b8543ce47c81018def615e68ad16242e7e6193",
+          "currentHash": "cde24c4b7e4837954bd1a539bedad8f5f9b6c0a1144454dbf847f59bc4d01149",
           "status": "approved-delta",
-          "approvedDelta": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-competing-theses"
+          "approvedDelta": "round6-prose-restores-20260929-prose-competing-theses"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100767,7 +100767,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:manipulation/action-chunking moved from 9fac1c749a4c2690fce47604d856938472e6154f696e92670de0d83368ee74db to f5176397b03c912dff965b2f0c91354f59723076730a1522ae16b537d005e49e exactly as approved delta humanizer-manipulation-v3-20260925-prose-action-chunking permits: Humanizer v3 pass over the manipulation domain. Every not-X disclaimer and paper-internal locator in action-chunking was rewritten as a plain positive statement or moved into its citation note; all audited facts, numbers and citations are preserved. The article now sits at or below the 2-tells-per-1,000-words structural floor.",
+      "actual": "prose member article:manipulation/action-chunking moved from 9fac1c749a4c2690fce47604d856938472e6154f696e92670de0d83368ee74db to b5ae41bc08dbcd436221ae13da11a0345f423d804998f22c18a51333a4ad6c5b exactly as approved delta round6-prose-restores-20260929-prose-action-chunking permits: Round-6 prose restore of the ACT loss attribution (adjudication group G1, cases n1 and n2). The 2026-09-25 manipulation prose pass credited the L1 reconstruction choice to 'the experiments'. ACT's implementation description (Section IV-C) is the passage that specifies L1, and the printed algorithm uses MSE, as recorded in ledger row ACT-CURRENT-12-20260907 (audit/manipulation.md). The sentence again names the implementation description as the source of the L1 choice; the MSE statement, the weighted KL regularizer, the citation and the following sentence are unchanged. The pre-change bytes are the humanizer-manipulation-v3-20260925-prose-action-chunking endpoint.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100779,9 +100779,9 @@
           "manifest": "prose",
           "member": "article:manipulation/action-chunking",
           "baselineHash": "9fac1c749a4c2690fce47604d856938472e6154f696e92670de0d83368ee74db",
-          "currentHash": "f5176397b03c912dff965b2f0c91354f59723076730a1522ae16b537d005e49e",
+          "currentHash": "b5ae41bc08dbcd436221ae13da11a0345f423d804998f22c18a51333a4ad6c5b",
           "status": "approved-delta",
-          "approvedDelta": "humanizer-manipulation-v3-20260925-prose-action-chunking"
+          "approvedDelta": "round6-prose-restores-20260929-prose-action-chunking"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -101187,7 +101187,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:rl-sim2real/humanoid-wbc moved from 1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0 to eb000da1b9ee4e934f861b6448d6cdf58a38993b91e2208dea2f2ce6d057a74b exactly as approved delta motion-rl-sim2real-20260927-reconcile-humanoid-wbc permits: Exact complete-edge reconciliation of 21 historical prose approvals for article:rl-sim2real/humanoid-wbc. The inspected endpoint is the fact-preserving humanizer and motion pass; all older transition IDs, including earlier resolutions, remain separately recorded. No claim verdict, source quantity or citation target is waived.",
+      "actual": "prose member article:rl-sim2real/humanoid-wbc moved from 1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0 to 2a4a04969819d9d38e75c4ae07d975a1a3fc1ee0f4af833d631c6947c053515e exactly as approved delta round6-prose-restores-20260929-prose-humanoid-wbc permits: Round-6 prose restore of the GMT training description (adjudication group G2, case n38). The 2026-09-27 RL motion pass added 'from scratch' to the GMT sentence; no retained GMT passage states it, and ledger row audit/rl-sim2real.md GMT (plan humanoid-advanced-motion-8-20260908) records only that GMT learns one unified controller across reference motions without merging already-trained per-skill policies. The two words are deleted and nothing else changes. Because this member's history already ends in reconciling resolutions, the entry is a resolution from the sealed hash that binds all twenty-two prior prose edges; its predecessor endpoint is motion-rl-sim2real-20260927-reconcile-humanoid-wbc (eb000da1b9ee4e934f861b6448d6cdf58a38993b91e2208dea2f2ce6d057a74b).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -101199,9 +101199,9 @@
           "manifest": "prose",
           "member": "article:rl-sim2real/humanoid-wbc",
           "baselineHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
-          "currentHash": "eb000da1b9ee4e934f861b6448d6cdf58a38993b91e2208dea2f2ce6d057a74b",
+          "currentHash": "2a4a04969819d9d38e75c4ae07d975a1a3fc1ee0f4af833d631c6947c053515e",
           "status": "approved-delta",
-          "approvedDelta": "motion-rl-sim2real-20260927-reconcile-humanoid-wbc"
+          "approvedDelta": "round6-prose-restores-20260929-prose-humanoid-wbc"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -101299,7 +101299,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:rl-sim2real/reward-design-mpc moved from aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699 to 95aeac1878a4aa21e4361bb20cf56438b3ba3ffc4c712743f3eedc78c2abfe29 exactly as approved delta motion-rl-sim2real-20260927-reconcile-reward-design-mpc permits: Exact complete-edge reconciliation of 28 historical prose approvals for article:rl-sim2real/reward-design-mpc. The inspected endpoint is the fact-preserving humanizer and motion pass; all older transition IDs, including earlier resolutions, remain separately recorded. No claim verdict, source quantity or citation target is waived.",
+      "actual": "prose member article:rl-sim2real/reward-design-mpc moved from aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699 to db56f22183bfa1784a4dad8aef1c9414244c7c7f1c33aba6b816548cd47ad155 exactly as approved delta round6-prose-restores-20260929-prose-reward-design-mpc permits: Round-6 prose restore of the Eureka detailed results (adjudication group G4, cases n32 and n34). The 2026-09-27 RL motion pass replaced the qualification ', not strict wins everywhere' with the sentence 'Some were ties.' No retained Eureka passage reports ties; ledger row eureka-2024 (audit/rl-sim2real.md) records only that the detailed results match or exceed the human reward on all nine Isaac tasks and 15 of the 20 Dexterity tasks. The sentence is deleted. That three-word deletion alone would lift the article just above the 2-per-1,000-word structural-tell floor, so the terrain-curriculum sentence also drops its 'rather than guessed' contrast and keeps its sourced claim that thousands of parallel robots make the difficulty frontier measurable (ledger row audit/rl-sim2real.md:424); that edit is a fact-preserving prose revision. Nothing else changes. Because this member's history already ends in reconciling resolutions, the entry is a resolution from the sealed hash that binds all twenty-nine prior prose edges; its predecessor endpoint is motion-rl-sim2real-20260927-reconcile-reward-design-mpc (95aeac1878a4aa21e4361bb20cf56438b3ba3ffc4c712743f3eedc78c2abfe29).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -101311,9 +101311,9 @@
           "manifest": "prose",
           "member": "article:rl-sim2real/reward-design-mpc",
           "baselineHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
-          "currentHash": "95aeac1878a4aa21e4361bb20cf56438b3ba3ffc4c712743f3eedc78c2abfe29",
+          "currentHash": "db56f22183bfa1784a4dad8aef1c9414244c7c7f1c33aba6b816548cd47ad155",
           "status": "approved-delta",
-          "approvedDelta": "motion-rl-sim2real-20260927-reconcile-reward-design-mpc"
+          "approvedDelta": "round6-prose-restores-20260929-prose-reward-design-mpc"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -101355,7 +101355,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:rl-sim2real/sim2real-transfer moved from e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b to e2d60b86f053241afc7ddcc3565bb56d4322ccb399c807f0265b80479f6bab9e exactly as approved delta motion-rl-sim2real-20260927-reconcile-sim2real-transfer permits: Exact complete-edge reconciliation of 19 historical prose approvals for article:rl-sim2real/sim2real-transfer. The inspected endpoint is the fact-preserving humanizer and motion pass; all older transition IDs, including earlier resolutions, remain separately recorded. No claim verdict, source quantity or citation target is waived.",
+      "actual": "prose member article:rl-sim2real/sim2real-transfer moved from e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b to 281dc1bf11a08eee65687477ea62fd20b84b3513c89329fe87dd30ef3719e7c5 exactly as approved delta round6-prose-restores-20260929-prose-sim2real-transfer permits: Round-6 prose restore of the RoboGSim evaluation scope (adjudication group G3, case n71). The 2026-09-27 RL motion pass replaced 'This evaluation is not interchangeable with real-robot testing.' with a sentence saying the evaluation uses simulated trials as well as real-robot testing. The retained RoboGSim v2 body, as ledger row robogsim-2024 (audit/rl-sim2real.md) records, keeps simulated and real-robot evaluation apart and reports 90% real-robot versus 30% RoboGSim placement for the same model. The sentence now reads 'This simulated evaluation cannot stand in for real-robot testing.'; nothing else changes. Because this member's history already ends in reconciling resolutions, the entry is a resolution from the sealed hash that binds all twenty prior prose edges; its predecessor endpoint is motion-rl-sim2real-20260927-reconcile-sim2real-transfer (e2d60b86f053241afc7ddcc3565bb56d4322ccb399c807f0265b80479f6bab9e).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -101367,9 +101367,9 @@
           "manifest": "prose",
           "member": "article:rl-sim2real/sim2real-transfer",
           "baselineHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
-          "currentHash": "e2d60b86f053241afc7ddcc3565bb56d4322ccb399c807f0265b80479f6bab9e",
+          "currentHash": "281dc1bf11a08eee65687477ea62fd20b84b3513c89329fe87dd30ef3719e7c5",
           "status": "approved-delta",
-          "approvedDelta": "motion-rl-sim2real-20260927-reconcile-sim2real-transfer"
+          "approvedDelta": "round6-prose-restores-20260929-prose-sim2real-transfer"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -132092,7 +132092,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/industrial-deployment/ rendered no v1 identity spelling and no v1 descriptor in 49419 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/industrial-deployment/ rendered no v1 identity spelling and no v1 descriptor in 49437 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132374,7 +132374,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/frontier/competing-theses/ rendered no v1 identity spelling and no v1 descriptor in 49891 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/frontier/competing-theses/ rendered no v1 identity spelling and no v1 descriptor in 49885 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132703,7 +132703,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/action-chunking/ rendered no v1 identity spelling and no v1 descriptor in 46127 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/action-chunking/ rendered no v1 identity spelling and no v1 descriptor in 46099 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -133596,7 +133596,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/rl-sim2real/humanoid-wbc/ rendered no v1 identity spelling and no v1 descriptor in 42105 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/rl-sim2real/humanoid-wbc/ rendered no v1 identity spelling and no v1 descriptor in 42079 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -133784,7 +133784,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/rl-sim2real/reward-design-mpc/ rendered no v1 identity spelling and no v1 descriptor in 55751 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/rl-sim2real/reward-design-mpc/ rendered no v1 identity spelling and no v1 descriptor in 55679 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -133878,7 +133878,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/rl-sim2real/sim2real-transfer/ rendered no v1 identity spelling and no v1 descriptor in 48847 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/rl-sim2real/sim2real-transfer/ rendered no v1 identity spelling and no v1 descriptor in 48791 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",

@@ -3829,7 +3829,7 @@
     },
     {
       "route": "/data-hardware/industrial-deployment/",
-      "visibleTextLength": 24520,
+      "visibleTextLength": 24529,
       "header": {
         "present": true,
         "display": "flex",
@@ -4799,7 +4799,7 @@
     },
     {
       "route": "/frontier/competing-theses/",
-      "visibleTextLength": 24778,
+      "visibleTextLength": 24775,
       "header": {
         "present": true,
         "display": "flex",
@@ -5940,7 +5940,7 @@
     },
     {
       "route": "/manipulation/action-chunking/",
-      "visibleTextLength": 22750,
+      "visibleTextLength": 22736,
       "header": {
         "present": true,
         "display": "flex",
@@ -9029,7 +9029,7 @@
     },
     {
       "route": "/rl-sim2real/humanoid-wbc/",
-      "visibleTextLength": 20815,
+      "visibleTextLength": 20802,
       "header": {
         "present": true,
         "display": "flex",
@@ -9681,7 +9681,7 @@
     },
     {
       "route": "/rl-sim2real/reward-design-mpc/",
-      "visibleTextLength": 27638,
+      "visibleTextLength": 27602,
       "header": {
         "present": true,
         "display": "flex",
@@ -10007,7 +10007,7 @@
     },
     {
       "route": "/rl-sim2real/sim2real-transfer/",
-      "visibleTextLength": 24186,
+      "visibleTextLength": 24158,
       "header": {
         "present": true,
         "display": "flex",

@@ -7,8 +7,8 @@ import { GLOSSARY } from '../../data/glossary';
 import { termConsumerInventory } from './helpers/term-consumer-inventory';
 import { setSlider } from './slider';
 import { assertFullReferenceAuthors, assertShortMetadata, KEYPOINT_SHORT_META, ownedEvidencePath } from './helpers/keypoint-reader-oracle';
+import { readerGateInputs } from './helpers/reader-gate-inputs';
 
-const lane = process.env.ROBOT_WIKI_EVIDENCE_ROOT;
 let freshNavigations = 0;
 const ids = ['moka-2024', 'rekep-2024', 'robopoint-2024'];
 for (const route of ['/classical/perception/', '/manipulation/hierarchical/']) {
@@ -22,7 +22,7 @@ for (const route of ['/classical/perception/', '/manipulation/hierarchical/']) {
       const url = new URL(frame.url()), document = url.origin + url.pathname;
       if (document !== previousDocument) { previousDocument = document; navigations.push(frame.url()); freshNavigations++; }
     });
-    const inputPath = process.env.ROBOT_WIKI_GATE_INPUTS!;
+    const { root: lane, inputPath } = readerGateInputs(testInfo, 'keypoint');
     const hash = (p: string) => createHash('sha256').update(readFileSync(p)).digest('hex');
     const contained = (path: string) => ownedEvidencePath(lane, path);
     const save = () => writeFileSync(contained(testInfo.outputPath('reader-state.json')), JSON.stringify({ route, viewport, inputPath, inputSha256: hash(inputPath), states, errors, navigations, freshNavigations, navigationCap: 16, fullProfilesAccepted: false }, null, 2));

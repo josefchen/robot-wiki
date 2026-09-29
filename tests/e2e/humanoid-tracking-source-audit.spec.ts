@@ -33,11 +33,11 @@ test.beforeEach(async ({ page }) => {
 });
 
 test('current corrected prose preserves scope, limitations and peer lineage', async ({ page }) => {
-  for (const text of ['simulated avatars, not a physical robot',
+  for (const text of ['simulated avatars; it did not test a physical robot',
     '11,313 filtered AMASS training clips', '0.5 m at any point',
-    'progressively harder failed subsets', 'Robot root odometry',
+    'progressively harder failed subsets', 'robot root odometry',
     'Appendix A describes torque outputs', 'four of the six recorded tasks',
-    'not as the robot’s only sensor', 'seated operation bypasses',
+    'The robot has other sensors.', 'seated operation bypasses',
     'Humanoid Imitation Transformer', 'H2O adapts ideas', 'ASAP then attacked']) {
     await expect(page.locator('main')).toContainText(text);
   }

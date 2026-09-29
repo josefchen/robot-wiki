@@ -308,7 +308,17 @@ describe('industrial deployment originals 51 and 43: bounded MIT closeout', () =
     expect(qualification.oldHash).toBe(preMotion.oldHash);
     expect(qualification.reconciles?.some(edge => edge.id === motion.id &&
       edge.newHash === motion.newHash)).toBe(true);
-    expect(qualification.newHash).toBe(proseHash(article));
+    // The 2026-09-29 Vulcan coverage restore is the one later prose edge; it
+    // starts from the article the qualification edge approved.
+    const restore = approvals.find(delta =>
+      delta.id === 'round6-prose-restores-20260929-prose-industrial-deployment')!;
+    expect(qualification.newHash).toBe(proseHash(readFileSync(
+      'audit/evidence/motion-round6-prose-restores-20260929/industrial-deployment-before.mdx', 'utf8')));
+    expect(restore.oldHash).toBe(preMotion.oldHash);
+    expect(restore.reconciles?.at(-1)).toEqual({
+      id: qualification.id, oldHash: qualification.oldHash, newHash: qualification.newHash,
+    });
+    expect(restore.newHash).toBe(proseHash(article));
     expect(laneArticle.match(/<Cite\s/g)).toHaveLength(32);
     expect(showAt('ac65cf4', articlePath).match(/<Cite\s/g)).toHaveLength(33);
     expect(showAt('0cbdda1', articlePath).match(/<Cite\s/g)).toHaveLength(34);

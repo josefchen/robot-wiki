@@ -37,7 +37,7 @@ test('current corrected prose preserves scope, limitations and peer lineage', as
     'lower-body tracking error', 'student using observation history',
     'transitions between specialists unresolved', 'separate policy for each processed reference motion',
     'non-increasing update', 'ten Tai Chi trials', 'root fixed to the origin',
-    'rather than merging already-trained per-skill policies', 'expert action outputs',
+    'without merging already-trained per-skill policies', 'expert action outputs',
     'baseline comparisons and ablations in simulation', 'getting up after a fall or rolling',
     'not designed for tracking on slopes and stairs', 'H2O adapts ideas', 'ASAP then attacked']) {
     await expect(page.locator('main')).toContainText(text);

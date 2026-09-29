@@ -94,7 +94,7 @@ test('final ECoT prose, Hi Robot bullet and coupled Stat remain readable', async
   await expect(paragraphs[1]).toContainText('66% versus 44%');
   await expect(paragraphs[1]).toContainText('64% versus 30%');
   await expect(paragraphs[1]).toContainText('314 trials per approach');
-  await expect(paragraphs[2]).toContainText('not the recipe behind the main Table 1');
+  await expect(paragraphs[2]).toContainText('the main evaluation follows the recipe above, and this variant stays outside it');
   await expect(paragraphs[3]).toContainText('low-level instruction violations');
   const stat = page.getByText('learned hierarchies', { exact: true });
   await expect(stat).toHaveCount(1);

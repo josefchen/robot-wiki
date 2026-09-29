@@ -19,7 +19,7 @@ const expected = [
   {
     "id": "humanoid-8",
     "citationId": "gmt-2025",
-    "span": "GMT takes the other approach: it trains a unified motion-tracking controller from scratch without merging already-trained per-skill policies. Adaptive sampling re-clips long motions and adjusts sampling probabilities using completion and tracking errors. Its privileged teacher uses a learned soft mixture-of-experts: a gating network combines expert action outputs, and a deployable student learns from the teacher through DAgger. The authors demonstrate tracking on Unitree G1, but report the baseline comparisons and ablations in simulation. The controller does not support getting up after a fall or rolling, and is not designed for tracking on slopes and stairs <Cite id=\"gmt-2025\" />."
+    "span": "GMT takes the other approach: it trains a unified motion-tracking controller without merging already-trained per-skill policies. Adaptive sampling re-clips long motions and adjusts sampling probabilities using completion and tracking errors. Its privileged teacher uses a learned soft mixture-of-experts: a gating network combines expert action outputs, and a deployable student learns from the teacher through DAgger. The authors demonstrate tracking on Unitree G1, but report the baseline comparisons and ablations in simulation. The controller does not support getting up after a fall or rolling, and is not designed for tracking on slopes and stairs <Cite id=\"gmt-2025\" />."
   }
 ];
 describe('Humanoid advanced motion source scope', () => {
