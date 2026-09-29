@@ -3,6 +3,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import AxeBuilder from '@axe-core/playwright';
 import { setSlider } from './slider';
+import { waitForHydration } from './interaction-ready';
 
 for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 }]) {
   test(`named-device depth specifications and calculator at ${viewport.width}px`, async ({ page }, testInfo) => {
@@ -84,6 +85,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
 
     const menu = page.getByRole('button', { name: 'Open navigation menu' });
     if (viewport.width === 375) {
+      await waitForHydration(menu);
       await menu.focus(); await page.keyboard.press('Enter');
       const dialog = page.getByRole('dialog');
       const close = dialog.getByRole('button', { name: 'Close navigation menu' });
@@ -109,7 +111,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     }
 
     const budget = page.getByTestId('perception-budget');
-    await expect(page.getByTestId('perception-target-note')).toContainText('not a material-specific accuracy guarantee');
+    await expect(page.getByTestId('perception-target-note')).toContainText('it is not a measured property of that material.');
     await expect(budget).toContainText('D410/D415 and D43x');
     const opening = await page.getByTestId('perception-total-readout').innerText();
     for (const [target, expected] of [['specular', '6.0%'], ['transparent', '16.0%']] as const) {
@@ -139,8 +141,8 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
       for (const check of checks) await expect(paragraph).toContainText(check);
       await captureText(paragraph, name);
     }
-    const specular = prose.locator('li').filter({ hasText: 'Table 3-50' });
-    for (const text of ['D400f', 'May cause image saturation', 'Saturation mitigated', 'does not mean eliminated']) await expect(specular).toContainText(text);
+    const specular = prose.locator('li').filter({ hasText: 'Specular reflections' });
+    for (const text of ['D400f', 'May cause image saturation', 'Saturation mitigated', 'Saturation can still occur']) await expect(specular).toContainText(text);
     await expect(specular.locator('[data-cite-id="azure-kinect-depth-docs-2026"]')).toHaveCount(1);
     await captureText(specular, 'paired-saturation-statements');
 

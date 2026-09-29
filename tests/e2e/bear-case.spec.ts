@@ -217,7 +217,7 @@ test.describe('frontier bear-case module', () => {
     expect(await main.getByText(/^Speculation:/).count()).toBeGreaterThanOrEqual(3);
     expect(await main.getByText(/^Evidence:/).count()).toBeGreaterThanOrEqual(3);
     const text = (await main.textContent()) ?? '';
-    expect(text).toMatch(/scenarios, not predictions/);
+    expect(text).toMatch(/hypothetical scenarios/);
   });
 
   test('contested claims name proponents on both sides (VAL-FRONT-019)', async ({

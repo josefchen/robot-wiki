@@ -1,6 +1,7 @@
 import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { setSlider } from './slider';
+import { waitForHydration } from './interaction-ready';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { join } from 'node:path';
@@ -44,6 +45,9 @@ test('classical closure mounted observations at desktop and mobile', async ({ pa
     expect((await page.goto(route))?.status()).toBe(200);
     await page.waitForFunction(() => [...document.querySelectorAll('button,input')].some(el =>
       Object.keys(el).some(k => k.startsWith('__reactFiber$'))));
+    // A fiber can attach before Next commits the initial route, and a slider
+    // event dispatched in that window is lost.
+    await page.waitForFunction(() => history.state !== null);
     await page.evaluate(async () => { await document.fonts.ready; });
   };
   await page.clock.install();
@@ -288,7 +292,7 @@ test.describe('classical kinematics module', () => {
     await expect(page.getByTestId('fk-theta-3')).toBeVisible();
     await expect(page.getByTestId('fk-ee-x')).toBeVisible();
     await expect(page.getByTestId('fk-ee-y')).toBeVisible();
-    await expect(page.getByRole('button', { name: /reset/i })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Reset', exact: true })).toBeVisible();
     // The arm itself renders as SVG links with the effector marker.
     await expect(page.getByTestId('fk-link-1')).toBeVisible();
     await expect(page.getByTestId('fk-link-3')).toBeVisible();
@@ -307,6 +311,7 @@ test.describe('classical kinematics module', () => {
     await expect(theta1).toHaveText('110°');
     const initialX = await eeValue(page, 'x');
     const initialY = await eeValue(page, 'y');
+    await waitForHydration(base);
 
     // One slider change re-poses the arm and updates both readouts.
     await setSlider(base, 160);
@@ -341,7 +346,7 @@ test.describe('classical kinematics module', () => {
     await expect(theta1).toHaveText('101°');
 
     // Reset restores the initial pose and readout values.
-    await page.getByRole('button', { name: /reset/i }).click();
+    await page.getByRole('button', { name: 'Reset', exact: true }).click();
     await expect(theta1).toHaveText('110°');
     expect(await eeValue(page, 'x')).toBeCloseTo(initialX, 2);
     expect(await eeValue(page, 'y')).toBeCloseTo(initialY, 2);

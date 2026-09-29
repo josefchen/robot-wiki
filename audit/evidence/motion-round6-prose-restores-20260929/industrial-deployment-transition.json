@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "round6-prose-restores-article-continuity-v1",
+  "name": "vulcan-coverage-scope",
+  "before": {
+    "path": "audit/evidence/motion-round6-prose-restores-20260929/industrial-deployment-before.mdx",
+    "bytes": 19645,
+    "sha256": "945af0fafede79706cccb8c644d118051e5de7015c8ce290d170ac4126f33457"
+  },
+  "after": {
+    "path": "content/data-hardware/industrial-deployment.mdx",
+    "bytes": 19654,
+    "sha256": "5360b9b7ffb541b73f4abf67e0a664a22327eba7fce29d4696c4d795d28c1550"
+  },
+  "reviewedBy": "Round-6 prose repair implementer, not independent acceptance",
+  "rationale": "The 2026-09-27 data-hardware motion pass replaced the Vulcan scope clause 'The coverage figure describes item types, not pick success or independently validated reliability' with '...; pick success and independently validated reliability remain unknown', which states a general unknown that the cited Amazon post does not establish. The amazon-vulcan-2026 row of audit/data-hardware.md records only that the figure is item-type coverage and does not measure pick success or independently validated reliability. The restore replaces that one clause with 'The coverage figure describes item types; the post reports no pick-success rate or independently validated reliability'. Every other sentence, number, citation (in order), mount and the frontmatter are byte-preserved. The archived pre-restore bytes are exactly the current endpoint the unchanged data-hardware motion continuity review records, and that review still gates them. The live article keeps every other phrase that review requires, carries the restored clause in place of the one reviewed phrase it replaces, and still omits every phrase the review requires absent. No proof, receipt, verdict or ledger cell changed.",
+  "observedAt": "2026-09-29T09:39:24Z"
+}

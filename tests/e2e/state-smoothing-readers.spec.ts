@@ -4,6 +4,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import AxeBuilder from '@axe-core/playwright';
 import { ownedEvidencePath } from './helpers/keypoint-reader-oracle';
+import { readerGateInputs } from './helpers/reader-gate-inputs';
 import { termConsumerInventory } from './helpers/term-consumer-inventory';
 import { collectBrowserReferenceFeatures, type BrowserReferenceFeatureConfig } from '../../lib/brand-v2-reference-rubric';
 const ROUTE = '/classical/state-estimation/';
@@ -27,8 +28,7 @@ async function open(page: Page, route = ROUTE) {
   await page.evaluate(async () => { await document.fonts.ready; await new Promise<void>(done => requestAnimationFrame(() => requestAnimationFrame(() => done()))); });
 }
 function evidence(page: Page, info: TestInfo) {
-  const root = process.env.ROBOT_WIKI_EVIDENCE_ROOT;
-  const inputPath = process.env.ROBOT_WIKI_GATE_INPUTS!;
+  const { root, inputPath } = readerGateInputs(info, 'state-smoothing');
   const hash = (path: string) => createHash('sha256').update(readFileSync(path)).digest('hex');
   const states: object[] = [];
   const save = () => writeFileSync(ownedEvidencePath(root, info.outputPath('reader-state.json')),

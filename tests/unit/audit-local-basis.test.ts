@@ -466,6 +466,10 @@ describe('authored-local-basis-v1 compatibility cases', () => {
       'audit/evidence/motion-round5-first-screen-cd-20260929/audit-local-basis-before.ts.txt',
       'audit/evidence/motion-round5-reader-pins-20260929/checker-transition.json',
       'audit/evidence/motion-round5-reader-pins-20260929/audit-local-basis-before.ts.txt',
+      'audit/evidence/motion-round6-kinematics-reader-20260929/checker-transition.json',
+      'audit/evidence/motion-round6-kinematics-reader-20260929/audit-local-basis-before.ts.txt',
+      'audit/evidence/motion-round6-prose-restores-20260929/checker-transition.json',
+      'audit/evidence/motion-round6-prose-restores-20260929/audit-local-basis-before.ts.txt',
     ]) f.put(path, readFileSync(join(project, path)));
     const bind = (path: string, snapshot: string) => {
       const retained = `audit/evidence/local-proof-compat-20260923/${snapshot}`;
@@ -571,6 +575,24 @@ describe('authored-local-basis-v1 compatibility cases', () => {
     expect(f.validate().failures.join(' ')).toMatch(change === 'missing'
       ? /ENOENT.*motion-round5-reader-pins-20260929\/audit-local-basis-before\.ts\.txt/
       : /round5 reader pins checker continuity drift/);
+  });
+  it.each(['missing', 'corrupt'] as const)('rejects %s round6 kinematics reader checker input', change => {
+    const f = historicalFixture();
+    const snapshot = 'audit/evidence/motion-round6-kinematics-reader-20260929/audit-local-basis-before.ts.txt';
+    if (change === 'missing') rmSync(join(f.root, snapshot));
+    else f.put(snapshot, 'corrupt retained checker');
+    expect(f.validate().failures.join(' ')).toMatch(change === 'missing'
+      ? /ENOENT.*motion-round6-kinematics-reader-20260929\/audit-local-basis-before\.ts\.txt/
+      : /round6 kinematics reader checker continuity drift/);
+  });
+  it.each(['missing', 'corrupt'] as const)('rejects %s round6 prose restores checker input', change => {
+    const f = historicalFixture();
+    const snapshot = 'audit/evidence/motion-round6-prose-restores-20260929/audit-local-basis-before.ts.txt';
+    if (change === 'missing') rmSync(join(f.root, snapshot));
+    else f.put(snapshot, 'corrupt retained checker');
+    expect(f.validate().failures.join(' ')).toMatch(change === 'missing'
+      ? /ENOENT.*motion-round6-prose-restores-20260929\/audit-local-basis-before\.ts\.txt/
+      : /round6 prose restores checker continuity drift/);
   });
   it.each(['missing', 'corrupt'] as const)('rejects %s article-truth predecessor input', change => {
     const f = historicalFixture();

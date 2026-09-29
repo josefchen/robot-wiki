@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "round6-prose-restores-checker-revision-v1",
+  "name": "prose-restores-reader",
+  "before": {
+    "path": "audit/evidence/motion-round6-prose-restores-20260929/audit-local-basis-before.ts.txt",
+    "bytes": 113723,
+    "sha256": "ab4e3d50ed3961a293d1e8b8a664d8e8de1f2f1e5cd93ee08785d5402a9465c6"
+  },
+  "after": {
+    "path": "lib/audit-local-basis.ts",
+    "bytes": 113858,
+    "sha256": "647d182bb6090f369f13a9a7076f2b6fad242f09ff0886d08c40b51fe01043e0"
+  },
+  "reviewedBy": "Round-6 prose repair implementer, not independent acceptance",
+  "rationale": "readRetainedDependency passes the bytes it reads through one named successor before any comparison. The successor returns them unchanged unless the path has a named round-6 prose restore, the reference does not already name those bytes, and the bytes are exactly that restore's reviewed after-hash. Only then does it verify the live article as the exact edit list over the archived pre-restore article, confirm that the prior review still names that archive as its current endpoint and that the live article keeps every phrase the prior review requires, and return the archive, so every later branch sees the bytes the prior review gates. Every existing branch, historical hash list, release binding, residual binding, review reader and mutation rule is byte-identical; the revision is one import plus one changed line.",
+  "observedAt": "2026-09-29T09:07:00Z"
+}

@@ -30,7 +30,7 @@ describe('historical RL proof dependency continuity', () => {
     const archived = read('audit/evidence/motion-domain-pairs-20260928/audit-local-basis-before.ts.txt');
     expect(reviewedDomainPairsChecker(root, current)).toEqual(archived);
     expect(() => reviewedDomainPairsChecker(root, Buffer.concat([current, Buffer.from('\n')]))).toThrow(
-      /round5 reader pins checker continuity drift/,
+      /round6 prose restores checker continuity drift/,
     );
   });
   it.each(['review-before-hash', 'review-after-hash', 'missing-review', 'missing-predecessor',
@@ -50,6 +50,10 @@ describe('historical RL proof dependency continuity', () => {
         'audit/evidence/motion-round5-first-screen-cd-20260929/audit-local-basis-before.ts.txt',
         'audit/evidence/motion-round5-reader-pins-20260929/checker-transition.json',
         'audit/evidence/motion-round5-reader-pins-20260929/audit-local-basis-before.ts.txt',
+        'audit/evidence/motion-round6-kinematics-reader-20260929/checker-transition.json',
+        'audit/evidence/motion-round6-kinematics-reader-20260929/audit-local-basis-before.ts.txt',
+        'audit/evidence/motion-round6-prose-restores-20260929/checker-transition.json',
+        'audit/evidence/motion-round6-prose-restores-20260929/audit-local-basis-before.ts.txt',
         'audit/evidence/motion-domain-pairs-20260928/checker-transition.json',
         'audit/evidence/motion-domain-pairs-20260928/audit-local-basis-before.ts.txt']) {
         mkdirSync(dirname(join(destination, path)), { recursive: true });
@@ -86,6 +90,10 @@ describe('historical RL proof dependency continuity', () => {
           'audit/evidence/motion-round5-first-screen-cd-20260929/audit-local-basis-before.ts.txt',
           'audit/evidence/motion-round5-reader-pins-20260929/checker-transition.json',
           'audit/evidence/motion-round5-reader-pins-20260929/audit-local-basis-before.ts.txt',
+          'audit/evidence/motion-round6-kinematics-reader-20260929/checker-transition.json',
+          'audit/evidence/motion-round6-kinematics-reader-20260929/audit-local-basis-before.ts.txt',
+          'audit/evidence/motion-round6-prose-restores-20260929/checker-transition.json',
+          'audit/evidence/motion-round6-prose-restores-20260929/audit-local-basis-before.ts.txt',
           'audit/evidence/motion-proof-reader-efficiency-20260928/checker-transition.json',
           'audit/evidence/motion-proof-reader-efficiency-20260928/audit-local-basis-before.ts.txt',
           'audit/evidence/motion-domain-pairs-20260928/checker-transition.json',

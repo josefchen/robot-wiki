@@ -188,7 +188,7 @@ test.describe('classical perception module', () => {
       'valid pixels', 'ground truth', 'PhoXi 3D Scanner L', '0.200 mm (1 σ)',
       '0.190 mm (1 σ)', '870 to 2150 mm', '250 to 2750 ms',
       'May cause image saturation', 'D400f', 'Saturation mitigated',
-      'Mitigated does not mean eliminated']) expect(depth!.text).toContain(text);
+      'Saturation can still occur']) expect(depth!.text).toContain(text);
     expect(depth!.text).not.toMatch(/Three families of depth sensor|accurate option and the slow one|rules out closing a control loop/);
     await expect(page.getByTestId('perception-target-note')).toContainText(
       'not a measured property of that material',
@@ -204,12 +204,12 @@ test.describe('classical perception module', () => {
     for (const cause of ['outside the active IR illumination mask', 'saturated IR signal', 'low IR signal', 'filter outlier', 'multi-path interference']) {
       expect(depth!.text.toLowerCase()).toContain(cause.toLowerCase());
     }
-    expect(depth!.text).toMatch(/not a measured zero-distance surface/);
+    expect(depth!.text).toMatch(/the surface has not been measured at zero distance/);
     expect(depth!.text).toMatch(/underexposure and overexposure/);
     expect(depth!.text).toMatch(/leaving the projector on/);
-    expect(depth!.text).toMatch(/not necessarily two exactly equal matches/);
-    expect(depth!.text).toMatch(/not a blanket failure claim for every thin object/);
-    expect(depth!.text).toMatch(/not a demonstration about generic self-occlusion/);
+    expect(depth!.text).toMatch(/even when they differ/);
+    expect(depth!.text).toMatch(/it makes no blanket failure claim for every thin object/);
+    expect(depth!.text).toMatch(/does not establish recovery of every missing surface by multi-view capture or describe generic self-occlusion/);
     expect(depth!.text).not.toMatch(/which is why multi-view capture is a standard answer|return never clears the noise floor/);
     // Preserved unassigned row34 display oracle, not source acceptance of absence.
     expect(depth!.text).toMatch(/not disclosed/i);
@@ -263,7 +263,7 @@ test.describe('classical perception module', () => {
     // What is simplified.
     expect(text).toMatch(/range-independent/i);
     // And why, including what the faithful model would do instead.
-    expect(text).toMatch(/square of distance/i);
+    expect(text).toMatch(/isolates the chosen ray-to-plane term/);
     expect(text).toMatch(/Root-sum-of-squares is an authored rule/i);
     expect(text).toMatch(/not established standard deviations/i);
     expect(text).toMatch(/does\s+not establish independence or a real-system error bound/i);
@@ -533,7 +533,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     await expect(prose).toContainText('Equality counts as correct');
     await expect(prose).toContainText('strict correctness test');
     await expect(prose).toContainText('0 to 100 scale');
-    await expect(prose).toContainText('comparable, not identical');
+    await expect(prose).toContainText('comparable, with distinct evaluation tracks');
     await expect(prose).not.toContainText('Three years erased');
     await expect(prose.locator('[data-cite-id="hinterstoisser-2012"]')).toHaveCount(4);
     await expect(prose.locator('[data-cite-id="bop-challenge-2023"]')).toHaveCount(3);
@@ -542,6 +542,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     const menu = page.getByRole('button', { name: 'Open navigation menu' });
     if (viewport.width === 375) {
       await expect(menu).toBeVisible();
+      await waitForHydration(menu);
       await menu.focus();
       await page.keyboard.press('Enter');
       const dialog = page.getByRole('dialog');

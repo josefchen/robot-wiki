@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "be54a2e031f8b702fe352d1c91f7911106c57f0422f05e4689b9f3eca1690e45",
+  "fingerprint": "e71082c23e2015dbd2e70c8b5657130c3d0a1885db1e5da384ca03fef216049e",
   "viewports": [
     "375x812",
     "1440x900"
@@ -4168,7 +4168,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 24520,
+      "visibleTextLength": 24529,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -4298,7 +4298,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 24778,
+      "visibleTextLength": 24775,
       "tables": [
         {
           "index": 0,
@@ -4684,7 +4684,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 22750,
+      "visibleTextLength": 22736,
       "tables": [
         {
           "index": 0,
@@ -6767,7 +6767,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 20815,
+      "visibleTextLength": 20802,
       "tables": [
         {
           "index": 0,
@@ -6967,7 +6967,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 27638,
+      "visibleTextLength": 27602,
       "tables": [
         {
           "index": 0,
@@ -7115,7 +7115,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 24186,
+      "visibleTextLength": 24158,
       "tables": [
         {
           "index": 0,
@@ -11660,7 +11660,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 24899,
+      "visibleTextLength": 24908,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -11790,7 +11790,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 25113,
+      "visibleTextLength": 25110,
       "tables": [
         {
           "index": 0,
@@ -12176,7 +12176,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 23377,
+      "visibleTextLength": 23363,
       "tables": [
         {
           "index": 0,
@@ -14259,7 +14259,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 21290,
+      "visibleTextLength": 21277,
       "tables": [
         {
           "index": 0,
@@ -14459,7 +14459,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 28113,
+      "visibleTextLength": 28077,
       "tables": [
         {
           "index": 0,
@@ -14607,7 +14607,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 24661,
+      "visibleTextLength": 24633,
       "tables": [
         {
           "index": 0,

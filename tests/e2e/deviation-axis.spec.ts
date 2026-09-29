@@ -31,12 +31,14 @@ interface Geometry {
   readout: string;
 }
 
+const DEVIATION_CHART = 'svg[role="img"][aria-label*="Accumulated toy deviation"]';
+
 /**
- * The bounds chart of one CompoundingError mount: the SVG whose
- * accessible name names the regret bounds.
+ * The accumulated-deviation chart of one CompoundingError mount, found by
+ * its accessible name.
  */
 function boundsChart(mount: Locator): Locator {
-  return mount.locator('svg[role="img"][aria-label*="regret bounds"]');
+  return mount.locator(DEVIATION_CHART);
 }
 
 async function readGeometry(mount: Locator): Promise<Geometry> {
@@ -85,12 +87,12 @@ async function mounts(page: Page): Promise<{ lab: Locator; predict: Locator }> {
   await expect(predict).toHaveCount(1);
   // Open the prediction step so its seeded figure is measurable.
   await predict.locator('details[data-reveal] > summary').click();
-  const all = page.locator('svg[aria-label*="regret bounds"]');
+  const all = page.locator(DEVIATION_CHART);
   await expect(all).toHaveCount(2);
   // The lab is the mount NOT inside the prediction step.
   const lab = page
     .locator('[data-pagefind-body] > div')
-    .filter({ has: page.locator('svg[aria-label*="regret bounds"]') })
+    .filter({ has: page.locator(DEVIATION_CHART) })
     .first();
   return { lab, predict };
 }

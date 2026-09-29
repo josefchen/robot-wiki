@@ -1,6 +1,7 @@
 import { test, expect } from './helpers/motion-planning-offline-fixture';
 import { writeFileSync } from 'node:fs';
 import AxeBuilder from '@axe-core/playwright';
+import { readerGateInputs } from './helpers/reader-gate-inputs';
 
 const TABLES = [
   { name: 'TrajOpt arm benchmark results', first: 'Arm method', rows: [
@@ -23,8 +24,9 @@ test('trajectory benchmark tables retain every value and keyboard-reachable righ
   await page.goto('/classical/motion-planning/');
   await page.evaluate(() => document.fonts.ready);
   const states: object[] = [];
+  const { inputPath } = readerGateInputs(info, 'motion-planning');
   const save = () => writeFileSync(info.outputPath('trajectory-tables.json'), JSON.stringify({
-    project: info.project.name, viewport: page.viewportSize(), inputPath: process.env.ROBOT_WIKI_GATE_INPUTS,
+    project: info.project.name, viewport: page.viewportSize(), inputPath,
     states, sourceTruth: 'Retained predecessor result; these assertions are reader proof, not new source certification.',
   }, null, 2));
   try {

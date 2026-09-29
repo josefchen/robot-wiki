@@ -215,6 +215,8 @@ describe('industrial release preserves both evidence histories', () => {
             'audit/evidence/motion-round5-pinned-leftovers-20260928',
             'audit/evidence/motion-round5-first-screen-cd-20260929',
             'audit/evidence/motion-round5-reader-pins-20260929',
+            'audit/evidence/motion-round6-kinematics-reader-20260929',
+            'audit/evidence/motion-round6-prose-restores-20260929',
             'audit/evidence/citation-closeout-20260924/relevant-continuity.json',
             'audit/evidence/technology-withdrawal-20260924',
             'content/data-hardware/industrial-deployment.mdx',

@@ -9,7 +9,8 @@ describe('ACT current source qualifications', () => {
     expect(article).toContain('7+7=14');
   });
   it('represents the paper L1 versus MSE inconsistency rather than a universal objective', () => {
-    expect(article).toContain('the experiments specify L1 reconstruction');
+    expect(article).toContain("ACT's implementation description, which specifies L1 reconstruction");
+    expect(article).not.toContain('the experiments specify L1 reconstruction');
     expect(article).toContain('the printed algorithm uses MSE');
   });
   it('separates added delay, base model latency and experiment scope', () => {

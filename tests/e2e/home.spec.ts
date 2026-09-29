@@ -388,7 +388,7 @@ test.describe('home page', () => {
     const homeText = await page.locator('#main-content').textContent();
     expect(homeText).not.toMatch(/atlas/i);
     const howTo = page.getByRole('region', { name: /how to read this wiki/i });
-    await expect(howTo.getByText(/citation chip/)).toBeVisible();
+    await expect(howTo.getByText(/citation chips/i)).toBeVisible();
     const link = howTo
       .getByRole('link', { name: /Action Chunking \(ACT and ALOHA\)/ })
       .first();

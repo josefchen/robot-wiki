@@ -294,7 +294,7 @@ for (const width of [375, 1440]) {
         const choice = quiz.getByRole('radio', { name: 'A separately trained adaptation module', exact: true });
         await choice.focus(); await choice.press('Space');
         await expect(choice).toBeFocused();
-        await expect(quiz).toContainText('not a control-frequency or gradient-update claim');
+        await expect(quiz).toContainText('Sub-second adaptation describes the estimate, with no online gradient update');
         await expect(quiz).toContainText('50 state-action steps');
         await expect(quiz).toContainText('asynchronously using the latest estimate');
         row.steps.push({ preservedRmaFeedback: true });

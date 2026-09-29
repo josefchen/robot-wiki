@@ -159,7 +159,7 @@ for (const width of [375, 1440]) {
       await expect(page.getByRole('heading', { name: 'Small samples limit comparison' })).toBeVisible();
       const prose = page.locator('div.prose[data-pagefind-body]');
       for (const phrase of ['10 or 50', '1,700 demonstration hours', 'up to 32%',
-        'uniform risk-accumulation schedule', 'rather than STEP', 'significant risk',
+        'uniform risk-accumulation schedule', 'while STEP is a separate method', 'significant risk',
         'variation from stochastic training', 'Simulation used automated predicates']) {
         await expect(prose).toContainText(phrase);
       }
@@ -183,7 +183,7 @@ for (const width of [375, 1440]) {
       await answer.focus();
       await page.keyboard.press('Space');
       await expect(answer).toBeChecked();
-      await expect(check.locator('[data-reason="b-signals"]')).toContainText('not a universal threshold');
+      await expect(check.locator('[data-reason="b-signals"]')).toContainText('there is no universal threshold');
       await capture(page, `self-check-${width}`);
       const term = page.locator('div.prose [data-term-id="success-rate"]').first();
       await term.locator('a').focus();

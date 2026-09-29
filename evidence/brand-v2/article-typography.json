@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "9f72fc304cb3fcf94532ce114c3d130fd5cc3dc443308c4682715f64d7067e93",
+  "fingerprint": "b6967774ad948a99bd47f4787e594a8f06813fab621aa570bb4f4099f13631cb",
   "viewports": [
     "375x812",
     "1440x900"
@@ -16205,7 +16205,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24520,
+      "visibleTextLength": 24529,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -19946,7 +19946,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24778,
+      "visibleTextLength": 24775,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -24695,7 +24695,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 22750,
+      "visibleTextLength": 22736,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -40168,7 +40168,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 20815,
+      "visibleTextLength": 20802,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -43622,7 +43622,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27638,
+      "visibleTextLength": 27602,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -45642,7 +45642,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24186,
+      "visibleTextLength": 24158,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -46049,7 +46049,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "This evaluation uses simulated trials as well as real-robot "
+          "text": "This simulated evaluation cannot stand in for real-robot tes"
         },
         {
           "familyHead": "newsreader",
@@ -70321,7 +70321,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24899,
+      "visibleTextLength": 24908,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -74062,7 +74062,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 25113,
+      "visibleTextLength": 25110,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -78811,7 +78811,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 23377,
+      "visibleTextLength": 23363,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -94284,7 +94284,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 21290,
+      "visibleTextLength": 21277,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -97738,7 +97738,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28113,
+      "visibleTextLength": 28077,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -99758,7 +99758,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24661,
+      "visibleTextLength": 24633,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -100165,7 +100165,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "This evaluation uses simulated trials as well as real-robot "
+          "text": "This simulated evaluation cannot stand in for real-robot tes"
         },
         {
           "familyHead": "newsreader",

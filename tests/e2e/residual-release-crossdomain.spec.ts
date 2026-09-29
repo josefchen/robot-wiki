@@ -2,9 +2,12 @@ import { expect, test } from '@playwright/test';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 
-test('crossdomain selected counts and removal at desktop and mobile', async ({ page }) => {
+// The committed evidence files are create-only; ordinary runs write their captures to the test output directory.
+const producing = process.env.CROSSDOMAIN_WRITE_BROWSER === '1';
+
+test('crossdomain selected counts and removal at desktop and mobile', async ({ page }, testInfo) => {
   test.setTimeout(180_000);
-  const directory = 'audit/evidence/residual-release-20260924/crossdomain';
+  const directory = producing ? 'audit/evidence/residual-release-20260924/crossdomain' : testInfo.outputPath();
   const startedAt = new Date().toISOString();
   const errors: string[] = [];
   const observations: object[] = [];

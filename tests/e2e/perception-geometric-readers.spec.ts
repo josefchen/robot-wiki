@@ -105,7 +105,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
   {
     "start": "Once you have depth you have a point",
     "parts": [
-      "all geometry. Small neighbourhoods can contain too few samples, so its density-adaptive variants combine information across scales"
+      "losing some geometry. Small neighbourhoods can contain too few samples, so its density-adaptive variants combine information across scales"
     ]
   },
   {
@@ -117,11 +117,11 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
   {
     "start": "The paper's 20-minute estimate is for learning a",
     "parts": [
-      "mapped into depth geometry for grasp planning; the descriptor does not itself specify the gripper's 6-DoF orientation"
+      "mapped into depth geometry for grasp planning; the gripper's 6-DoF orientation requires additional information"
     ]
   },
   {
-    "start": "Dex-Net 2.0 instead learns to score candidate parallel-jaw",
+    "start": "Dex-Net 2.0 learns to score candidate parallel-jaw grasps",
     "parts": [
       "camera. Its labels use thresholded robust epsilon quality and collision constraints; physical grasp success is evaluated separately"
     ]
@@ -233,15 +233,15 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
       // Actual dynamic mount is reached, not inferred from authored markers.
       const budget = page.getByTestId('perception-budget');
       await expect(budget).toBeVisible();
-      for (const id of ['realsense-d400-datasheet-2026', 'cleargrasp-2020']) {
-        await expect(budget.locator(`[data-cite-id="${id}"]`)).toHaveCount(1);
-        groups.push({ id, attr: 'data-cite-id', count: 1 });
-      }
+      await expect(budget.locator('[data-cite-id="realsense-d400-datasheet-2026"]')).toHaveCount(1);
+      groups.push({ id: 'realsense-d400-datasheet-2026', attr: 'data-cite-id', count: 1 });
+      // The classical closeout removed the unsupported ClearGrasp budget claim and its chip.
+      await expect(budget.locator('[data-cite-id="cleargrasp-2020"]')).toHaveCount(0);
       const observations = [], failures: string[] = [];
       try {
         for (const group of groups) {
           expect(group.count).toBeGreaterThan(0);
-          const dynamic = ['realsense-d400-datasheet-2026', 'cleargrasp-2020'].includes(group.id);
+          const dynamic = group.id === 'realsense-d400-datasheet-2026';
           const roots = (dynamic ? budget : page.locator('div.prose')).locator(`[${group.attr}="${group.id}"]`);
           await expect(roots).toHaveCount(group.count);
           for (let occurrence = 0; occurrence < group.count; occurrence++) {
