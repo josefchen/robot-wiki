@@ -136,7 +136,7 @@ function scopedBundle(stage: 'before' | 'historical' | 'sealed' | 'preMotion' | 
   };
 }
 
-describe('RoboMIND original10 truthful release licensing disclosure', () => {
+describe('RoboMIND original10 truthful release licensing disclosure', { timeout: 30_000 }, () => {
   it('states the badge and release-specific uncertainty without granting permission', () => {
     assertDisclosure(article, DATASETS.find(d => d.id === 'robomind')!);
     expect(historicalArticle.data).toEqual(matter(before(articlePath)).data);

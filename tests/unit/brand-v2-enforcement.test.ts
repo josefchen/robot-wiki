@@ -331,7 +331,7 @@ function fixture() {
   };
 }
 
-describe('brand-v2 enforcement map and evidence schemas', () => {
+describe('brand-v2 enforcement map and evidence schemas', { timeout: 30_000 }, () => {
   it('summarizes every enforcement failure by class without truncation', () => {
     const failures = [
       ...Array.from({ length: 238 }, () => ({

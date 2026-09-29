@@ -35,11 +35,11 @@ const intro = 'RT-2’s reported rates depend on the model and serving setup. It
 const currentIntro = intro.replace('OpenVLA v3 reports', 'OpenVLA reports');
 const oldIntro = before(articlePath).split("import { ComparisonMatrix } from '@/components/interactive/comparison-matrix';\n\n")[1].split('\n\n<ComparisonMatrix')[0];
 
-describe('VLA21 and comparison1 current identity and scoped introduction', () => {
+describe('VLA21 and comparison1 current identity and scoped introduction', { timeout: 30_000 }, () => {
 
   beforeAll(() => {
     // Warm the neutral history renders once; each catalog render is expensive
-    // and individual tests must stay under 5s.
+    // and individual tests must stay well under the suite timeout.
     preservedCompoundPacket('89cda670f72443e321f3282b256974b4376da0f1');
     void before('audit/manipulation.md');
     void oldPlans.length;

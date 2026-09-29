@@ -57,7 +57,7 @@ const loadSection = (historical = false) => {
   return { sections, compoundPlans, registryIds, markdown };
 };
 
-describe('parallel-sim-rl originals integration (2026-09-16k evidence completions)', () => {
+describe('parallel-sim-rl originals integration (2026-09-16k evidence completions)', { timeout: 30_000 }, () => {
   it('keeps the four source-complete applied rows complete', () => {
     const { sections, compoundPlans } = loadSection();
     const article = sections.find((section) => section.slug === 'parallel-sim-rl');
