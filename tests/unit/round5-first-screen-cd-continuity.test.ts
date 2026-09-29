@@ -10,6 +10,7 @@ import {
   retainedRound5FirstScreenCdArticle, round5FirstScreenCdCheckerPredecessor, round5FirstScreenCdEndpoint,
 } from '../../lib/audit-round5-first-screen-cd-continuity.ts';
 import { round5PinnedLeftoversCheckerPredecessor } from '../../lib/audit-round5-pinned-leftovers-continuity.ts';
+import { round6ProseRestorePredecessor } from '../../lib/audit-round6-prose-restores-continuity.ts';
 
 const root = resolve(import.meta.dirname, '../..');
 const directory = 'audit/evidence/motion-round5-first-screen-cd-20260929/';
@@ -72,9 +73,14 @@ function priorEndpoint(path: string) {
   return review.bindings.find((binding) => binding.current?.path === path)!.current;
 }
 
+// The 2026-09-29 round-6 restore later rewrote motion-planning sentences; its
+// named successor hands back the moved article the restore starts from.
+const moved = (path: string) => round6ProseRestorePredecessor(root, priorEndpoint(path), read(path));
+
 it('returns each archived pre-move article exactly where its unchanged prior review still points', () => {
   for (const move of moves) {
-    const live = read(move.path);
+    const live = moved(move.path);
+    expect(live.equals(read(move.path))).toBe(move.path !== 'content/classical/motion-planning.mdx');
     const archived = read(move.snapshot);
     const endpoint = priorEndpoint(move.path);
     expect(endpoint).toEqual({ path: move.path, bytes: archived.length, sha256: digest(archived) });
@@ -111,7 +117,7 @@ it.each(['reverted-move', 'dropped-citation', 'missing-review', 'missing-snapsho
     const destination = copied(articlePaths);
     try {
       const move = mutation === 'prior-endpoint' || mutation === 'preserved-text' ? moves[3] : moves[0];
-      const live = read(move.path);
+      const live = moved(move.path);
       expect(retainedRound5FirstScreenCdArticle(destination, move.path, live)).toEqual(read(move.snapshot));
       const reviewPath = join(destination, `${directory}first-screen-transition.json`);
       let candidate = live;
@@ -173,7 +179,7 @@ it('admits only the exact named reader revision above the round5 pinned-leftover
   expect(withoutPlanningBranch.toString()).not.toBe(reviewedAfter.toString());
   for (const changed of [Buffer.concat([reviewedAfter, Buffer.from('\n')]), withoutPlanningBranch]) {
     expect(() => round5FirstScreenCdCheckerPredecessor(root, changed)).toThrow(
-      /round6 prose restores checker continuity drift/,
+      /round6 remaining repairs checker continuity drift/,
     );
   }
 });
@@ -189,7 +195,10 @@ it.each(['missing-review', 'missing-predecessor', 'corrupt-predecessor', 'review
       'audit/evidence/motion-round6-kinematics-reader-20260929/checker-transition.json',
       'audit/evidence/motion-round6-kinematics-reader-20260929/audit-local-basis-before.ts.txt',
       'audit/evidence/motion-round6-prose-restores-20260929/checker-transition.json',
-      'audit/evidence/motion-round6-prose-restores-20260929/audit-local-basis-before.ts.txt']);
+      'audit/evidence/motion-round6-prose-restores-20260929/audit-local-basis-before.ts.txt',
+      'audit/evidence/motion-round6-remaining-repairs-20260929/checker-transition.json',
+      'audit/evidence/motion-round6-remaining-repairs-20260929/audit-local-basis-before.ts.txt',
+      'audit/evidence/motion-round6-remaining-repairs-20260929/classical-closure-evidence-before.test.ts.txt']);
     try {
       const live = read('lib/audit-local-basis.ts');
       expect(round5FirstScreenCdCheckerPredecessor(destination, live)).toEqual(read(predecessorPath));

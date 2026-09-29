@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "2fdb3173bf5d17a4d137d558cac22ef0fe11247a9995537c9045ded48805a8ed",
+  "fingerprint": "9ac36931a56032ffcc1777da0ca9677a4e3122d461be39e24f988f9f0286b2d4",
   "route": "/",
   "viewport": "1440x900",
   "featured": {
@@ -3167,7 +3167,7 @@
       "documentScrollWidthPx": 320,
       "documentClientWidthPx": 320,
       "failures": [],
-      "measuredMembers": 350
+      "measuredMembers": 349
     },
     {
       "id": "profile:home-zoom-200-equivalent",
@@ -3178,7 +3178,7 @@
       "documentScrollWidthPx": 720,
       "documentClientWidthPx": 720,
       "failures": [],
-      "measuredMembers": 350
+      "measuredMembers": 349
     },
     {
       "id": "profile:home-text-200",
@@ -3189,7 +3189,7 @@
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "failures": [],
-      "measuredMembers": 192
+      "measuredMembers": 191
     }
   ],
   "progressCounters": [
@@ -3356,11 +3356,6 @@
       {
         "text": "EPISODE LENGTH",
         "fontSizePx": 11,
-        "family": "IBM Plex Mono"
-      },
-      {
-        "text": "MOTION SCENE",
-        "fontSizePx": 10,
         "family": "IBM Plex Mono"
       }
     ],

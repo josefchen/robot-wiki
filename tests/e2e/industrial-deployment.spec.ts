@@ -1,6 +1,6 @@
 import { expect, test } from './servo-apollo-fixture';
 import AxeBuilder from '@axe-core/playwright';
-import { setSlider } from './slider';
+import { setHydratedSlider as setSlider } from './interaction-ready';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { CITATIONS } from '../../data/citations';
 import { GLOSSARY } from '../../data/glossary';

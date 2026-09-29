@@ -32,11 +32,10 @@ const ROUTES = publishedModules()
   .map((m) => ({ route: `/manipulation/${m.slug}/`, title: m.title }));
 
 /**
- * The registry's manipulation count at the time this suite was written.
- * Publishing a thirteenth article is a one-line update here; losing one
- * silently is what this exists to catch.
+ * The registry's current manipulation count. Publishing another article is
+ * a one-line update here; losing one silently is what this exists to catch.
  */
-const EXPECTED_ROUTE_COUNT = 12;
+const EXPECTED_ROUTE_COUNT = 15;
 
 /**
  * Text that only ever appears in the App Router's client-side error or

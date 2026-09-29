@@ -1,6 +1,8 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { setSlider } from './slider';
+// A value written into the server HTML before React attaches is dropped,
+// so every slider set waits for hydration first.
+import { setHydratedSlider as setSlider } from './interaction-ready';
 import type { Page } from '@playwright/test';
 import { writeFileSync } from 'node:fs';
 import { splatTransferReaderProof } from './splat-transfer-reader-proof';

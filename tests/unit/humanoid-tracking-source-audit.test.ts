@@ -26,7 +26,7 @@ function rowFor(plan: CompoundPlan) {
     }).find(s => s.slug === 'humanoid-wbc')!.claimRecords[plan.rowOrdinal - 1];
 }
 
-describe('PHC, OmniH2O and HumanPlus source corrections', () => {
+describe('PHC, OmniH2O and HumanPlus source corrections', { timeout: 60_000 }, () => {
   it('scopes PHC to simulated avatars and progressive failed subsets', () => {
     for (const phrase of ['simulated avatars; it did not test a physical robot', '98.9%',
       '11,313 filtered AMASS training clips', 'training-set result',

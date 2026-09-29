@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "round6-remaining-repairs-checker-revision-v1",
+  "name": "remaining-repairs-reader",
+  "before": {
+    "path": "audit/evidence/motion-round6-remaining-repairs-20260929/audit-local-basis-before.ts.txt",
+    "bytes": 113858,
+    "sha256": "647d182bb6090f369f13a9a7076f2b6fad242f09ff0886d08c40b51fe01043e0"
+  },
+  "after": {
+    "path": "lib/audit-local-basis.ts",
+    "bytes": 114006,
+    "sha256": "a5bce56232d1ac63ce3f94add1bdc7d2a7964bf1f40bb6bd431b746ccb510a1a"
+  },
+  "reviewedBy": "Round-6 repair implementer, not independent acceptance",
+  "rationale": "readRetainedDependency passes the bytes it reads through one more named successor, inside the round-6 prose-restores successor. It returns them unchanged unless the path has a named round-6 remaining repair, the reference does not already name those bytes, and the bytes are exactly that repair's reviewed after-hash. Only then does it verify the live file as the exact edit list over its archive, confirm that the prior record still names that archive, and return the archive, so every later branch sees the bytes the prior record gates. The reviewed live hash of tests/unit/classical-closure-evidence.test.ts moves from 42cfb7e1f3f5d73652d11fe6950188dde4aeb1d7928cc0100f1d223c70ec6a38 to cf53d3e938e03ddeef8028aa289edecaee34eb30e5a943756fad8d3bf35b4eb9, which the successor admits only while it is the exact 60-second budget edit of the archived suite with the same assertion lines. Every other branch, historical hash list, release binding, residual binding, review reader and mutation rule is byte-identical; the revision is one import, one wrapped line and one hash.",
+  "observedAt": "2026-09-29T14:13:00Z"
+}

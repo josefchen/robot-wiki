@@ -74,6 +74,8 @@ it('retains all four exact historical articles and independently pins active dis
     'audit/evidence/motion-round6-kinematics-reader-20260929/checker-transition.json'), 'utf8'));
   const proseRestoresChecker = JSON.parse(readFileSync(join(root,
     'audit/evidence/motion-round6-prose-restores-20260929/checker-transition.json'), 'utf8'));
+  const remainingRepairsChecker = JSON.parse(readFileSync(join(root,
+    'audit/evidence/motion-round6-remaining-repairs-20260929/checker-transition.json'), 'utf8'));
   expect(checker.after.bytes).toBe(worldChecker.before.bytes);
   expect(checker.after.sha256).toBe(worldChecker.before.sha256);
   expect(worldChecker.after.bytes).toBe(dataHardwareChecker.before.bytes);
@@ -98,6 +100,8 @@ it('retains all four exact historical articles and independently pins active dis
   expect(readerPinsChecker.after.sha256).toBe(kinematicsChecker.before.sha256);
   expect(kinematicsChecker.after.bytes).toBe(proseRestoresChecker.before.bytes);
   expect(kinematicsChecker.after.sha256).toBe(proseRestoresChecker.before.sha256);
+  expect(proseRestoresChecker.after.bytes).toBe(remainingRepairsChecker.before.bytes);
+  expect(proseRestoresChecker.after.sha256).toBe(remainingRepairsChecker.before.sha256);
   expect(domainPairsChecker.before.path)
     .toBe('audit/evidence/motion-domain-pairs-20260928/audit-local-basis-before.ts.txt');
   expect(domainPairsChecker.after.path).toBe('lib/audit-local-basis.ts');
@@ -125,13 +129,17 @@ it('retains all four exact historical articles and independently pins active dis
   expect(proseRestoresChecker.before.path)
     .toBe('audit/evidence/motion-round6-prose-restores-20260929/audit-local-basis-before.ts.txt');
   expect(proseRestoresChecker.after.path).toBe('lib/audit-local-basis.ts');
+  expect(remainingRepairsChecker.before.path)
+    .toBe('audit/evidence/motion-round6-remaining-repairs-20260929/audit-local-basis-before.ts.txt');
+  expect(remainingRepairsChecker.after.path).toBe('lib/audit-local-basis.ts');
   for (const artifact of [checker.before, worldChecker.before, dataHardwareChecker.before,
     frontierChecker.before, domainPairsChecker.before, domainPairsChecker.after,
     proofReaderChecker.before, proofReaderChecker.after, articleTruthChecker.before,
     articleTruthChecker.after, sharedUiChecker.before, sharedUiChecker.after,
     round5Checker.before, round5Checker.after, round5CdChecker.before, round5CdChecker.after,
     readerPinsChecker.before, readerPinsChecker.after, kinematicsChecker.before, kinematicsChecker.after,
-    proseRestoresChecker.before, proseRestoresChecker.after]) {
+    proseRestoresChecker.before, proseRestoresChecker.after,
+    remainingRepairsChecker.before, remainingRepairsChecker.after]) {
     const path = artifact === domainPairsChecker.after ? proofReaderChecker.before.path :
       artifact === proofReaderChecker.after ? articleTruthChecker.before.path :
       artifact === articleTruthChecker.after ? sharedUiChecker.before.path :
@@ -139,7 +147,8 @@ it('retains all four exact historical articles and independently pins active dis
       artifact === round5Checker.after ? round5CdChecker.before.path :
       artifact === round5CdChecker.after ? readerPinsChecker.before.path :
       artifact === readerPinsChecker.after ? kinematicsChecker.before.path :
-      artifact === kinematicsChecker.after ? proseRestoresChecker.before.path : artifact.path;
+      artifact === kinematicsChecker.after ? proseRestoresChecker.before.path :
+      artifact === proseRestoresChecker.after ? remainingRepairsChecker.before.path : artifact.path;
     const bytes = readFileSync(join(root, path));
     expect(bytes.length).toBe(artifact.bytes);
     expect(createHash('sha256').update(bytes).digest('hex')).toBe(artifact.sha256);

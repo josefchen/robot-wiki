@@ -1,6 +1,7 @@
 import { expect, test, type Page } from '@playwright/test';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
+import { citationLabel, getCitation } from '../../data/citations';
 import { DATASETS } from '../../data/datasets';
 import { METHODS } from '../../data/methods';
 import {
@@ -29,6 +30,7 @@ const ALIASED = [
     id: method.id,
     title: method.name,
     aliases: method.aka,
+    sources: method.sources,
     route: '/manipulation/comparison-matrix/',
     anchor: `method-${method.id}`,
   })),
@@ -37,6 +39,7 @@ const ALIASED = [
     id: dataset.id,
     title: dataset.name,
     aliases: dataset.aka,
+    sources: dataset.sources,
     route: '/data-hardware/datasets/',
     anchor: `dataset-${dataset.id}`,
   })),
@@ -144,11 +147,53 @@ test.describe('aliases reach methods and datasets (VAL-SEARCH-020)', () => {
         const row = page.locator(`[data-entity-id="${entry.anchor}"]`);
         await expect(row).toHaveCount(1);
         const rowText = (await row.innerText()).toLowerCase();
+        // A method row links its primary sources by their registered titles,
+        // and a vendor's own title can contain the alias verbatim (AgiBot's
+        // GO-2 announcement names Genie Operator-2). The rest of the row is
+        // read with those links hidden in the live tree; inside the row the
+        // alias may survive only in the exact registered title of one of the
+        // entity's own sources.
+        const { bare, links } = await row.evaluate((node) => {
+          const anchors = Array.from(
+            node.querySelectorAll<HTMLElement>('a[data-method-source-id]'),
+          );
+          const links = anchors.map((anchor) => ({
+            id: anchor.getAttribute('data-method-source-id') ?? '',
+            text: anchor.innerText,
+          }));
+          const display = anchors.map((anchor) => anchor.style.display);
+          anchors.forEach((anchor) => {
+            anchor.style.display = 'none';
+          });
+          const bare = (node as HTMLElement).innerText.toLowerCase();
+          anchors.forEach((anchor, index) => {
+            anchor.style.display = display[index];
+          });
+          return { bare, links };
+        });
         for (const alias of entry.aliases) {
+          const needle = alias.toLowerCase();
           expect(
-            rowText,
+            bare,
             `alias "${alias}" rendered inside the ${entry.title} row`,
-          ).not.toContain(alias.toLowerCase());
+          ).not.toContain(needle);
+          if (!rowText.includes(needle)) continue;
+          const carriers = links.filter((link) =>
+            link.text.toLowerCase().includes(needle),
+          );
+          expect(
+            carriers.length,
+            `alias "${alias}" rendered inside the ${entry.title} row`,
+          ).toBeGreaterThan(0);
+          for (const link of carriers) {
+            const citation = getCitation(link.id);
+            expect(citation, `${link.id} is a registered citation`).toBeTruthy();
+            expect(entry.sources, `${link.id} is a source of ${entry.title}`).toContain(link.id);
+            expect(link.text, `${link.id} link text`).toBe(
+              `${citationLabel(citation!)}: ${citation!.title}`,
+            );
+            expect(citation!.title.toLowerCase()).toContain(needle);
+          }
         }
       }
 

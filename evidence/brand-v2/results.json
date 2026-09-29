@@ -1903,11 +1903,11 @@
                   "Kinematics"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 12,
+                "readingMinutes": 11,
                 "citationCount": 6,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "12 min",
+                "readingTimeText": "11 min",
                 "citationCountText": "6",
                 "bibliographyIds": [
                   "lavalle-2006",
@@ -2467,11 +2467,11 @@
                   "The Evaluation Crisis"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 11,
+                "readingMinutes": 10,
                 "citationCount": 9,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "11 min",
+                "readingTimeText": "10 min",
                 "citationCountText": "9",
                 "bibliographyIds": [
                   "tri-lbm-2025",
@@ -2533,11 +2533,11 @@
                   "Hardware Taxonomy"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 18,
+                "readingMinutes": 17,
                 "citationCount": 23,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "18 min",
+                "readingTimeText": "17 min",
                 "citationCountText": "23",
                 "bibliographyIds": [
                   "so-arm100-repo-2026",
@@ -5264,7 +5264,7 @@
                 "h1Count": 1,
                 "h1Text": "What Is a World Model?",
                 "summaryCount": 1,
-                "summaryText": "An editorial comparison of six world-model example groups: what they predict, in",
+                "summaryText": "A world model predicts how an environment evolves in a form useful for a robot's",
                 "breadcrumbLabels": [
                   "Home",
                   "World Models",
@@ -65689,11 +65689,11 @@
                   "Kinematics"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 12,
+                "readingMinutes": 11,
                 "citationCount": 6,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "12 min",
+                "readingTimeText": "11 min",
                 "citationCountText": "6",
                 "bibliographyIds": [
                   "lavalle-2006",
@@ -66253,11 +66253,11 @@
                   "The Evaluation Crisis"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 11,
+                "readingMinutes": 10,
                 "citationCount": 9,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "11 min",
+                "readingTimeText": "10 min",
                 "citationCountText": "9",
                 "bibliographyIds": [
                   "tri-lbm-2025",
@@ -66319,11 +66319,11 @@
                   "Hardware Taxonomy"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 18,
+                "readingMinutes": 17,
                 "citationCount": 23,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "18 min",
+                "readingTimeText": "17 min",
                 "citationCountText": "23",
                 "bibliographyIds": [
                   "so-arm100-repo-2026",
@@ -69050,7 +69050,7 @@
                 "h1Count": 1,
                 "h1Text": "What Is a World Model?",
                 "summaryCount": 1,
-                "summaryText": "An editorial comparison of six world-model example groups: what they predict, in",
+                "summaryText": "A world model predicts how an environment evolves in a form useful for a robot's",
                 "breadcrumbLabels": [
                   "Home",
                   "World Models",
@@ -87187,7 +87187,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "article-metadata member article-metadata:world-models/taxonomy moved from 4248092203c13e88f70b1a1bd07c2b06f4de98a1fe7f34c3e112e93d85ff7971 to 4e12b547a06b9062f0f455222a5e7f117aacac5beabe67b4c21e4ff190ea76f9 exactly as approved delta performance-worldmodels-20260908-15 permits: Taxonomy1-4: description identifies six selected editorial example groups rather than a universal taxonomy; title, lastReviewed, route, source union and social-card fact inputs unchanged. Immediate-before hash 4248092203c13e88f70b1a1bd07c2b06f4de98a1fe7f34c3e112e93d85ff7971. Original/current tuples and exact source conjunctions: validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/row-history.json. Retained text identity, original retrieval provenance and supporting passages: validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/source-proof.json. Sources: https://arxiv.org/pdf/2602.18397 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://arxiv.org/pdf/2501.10100 ; https://arxiv.org/pdf/2603.16666 ; https://arxiv.org/html/2605.00080 ; https://arxiv.org/pdf/2605.04568. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "actual": "article-metadata member article-metadata:world-models/taxonomy moved from 4248092203c13e88f70b1a1bd07c2b06f4de98a1fe7f34c3e112e93d85ff7971 to 78576631a0b0df9778906ba498e6cd917eda3ca078bc3108dd804cf03d7462f8 exactly as approved delta round6-remaining-repairs-20260929-article-metadata-taxonomy permits: Round-6 remaining repair of the world-model taxonomy search description (round-6 browser case n74). The 227-character description exceeded the 200-character og:description bound of tests/e2e/og-card-metadata.spec.ts and the 155-character owner limit. It now reads \"A world model predicts how an environment evolves in a form useful for a robot's decisions. Six example groups compared, from DreamerV3 to V-JEPA 2.\" (148 characters): the functional definition the article gives first, and the six authored example groups it compares, named by the first and last systems. The owner-sweep wording 'Six types compared, from Dreamer and TD-MPC2 to Cosmos, Genie 3 and V-JEPA 2' was not used, because 'types' would recast the authored selection of example groups as a taxonomy of types. Title, lastReviewed, route, sources, article body and social-card fact inputs are unchanged. Its predecessor endpoint is performance-worldmodels-20260908-15 (4e12b547a06b9062f0f455222a5e7f117aacac5beabe67b4c21e4ff190ea76f9).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -87199,9 +87199,9 @@
           "manifest": "article-metadata",
           "member": "article-metadata:world-models/taxonomy",
           "baselineHash": "4248092203c13e88f70b1a1bd07c2b06f4de98a1fe7f34c3e112e93d85ff7971",
-          "currentHash": "4e12b547a06b9062f0f455222a5e7f117aacac5beabe67b4c21e4ff190ea76f9",
+          "currentHash": "78576631a0b0df9778906ba498e6cd917eda3ca078bc3108dd804cf03d7462f8",
           "status": "approved-delta",
-          "approvedDelta": "performance-worldmodels-20260908-15"
+          "approvedDelta": "round6-remaining-repairs-20260929-article-metadata-taxonomy"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -87355,7 +87355,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "article-metadata member canonical-metadata-source:data/modules.ts moved from ee8deb0734c9849d5df3823b235a877cdfa45191c3e606ecaf4b6073be9c5098 to cb42852ed8067761ad6c4b2cc9b6181524c34a8952134f793f78acf55ae285e3 exactly as approved delta seo-merge-20260916-article-metadata-140 permits: The SEO growth merge changed canonical-metadata-source:data/modules.ts: the union of the project continuation tree and the SEO snapshot produces a member value neither side's delta chain names. This entry approves the merged state recorded in commit ab62278 and its follow-ups.",
+      "actual": "article-metadata member canonical-metadata-source:data/modules.ts moved from ee8deb0734c9849d5df3823b235a877cdfa45191c3e606ecaf4b6073be9c5098 to 2b267908e3aba5449d21c513bfc85fecbc4adf623f0e0b1c7ce098c76c51806a exactly as approved delta round6-remaining-repairs-20260929-article-metadata-modules-taxonomy permits: Round-6 remaining repair of the world-model taxonomy search description (round-6 browser case n74). The taxonomy entry in data/modules.ts carries the same description as the article frontmatter and changes with it, to the same 148-character text, written in double quotes because it contains an apostrophe. No other module entry, title, slug, domain or order changes. Its predecessor endpoint is seo-merge-20260916-article-metadata-140 (cb42852ed8067761ad6c4b2cc9b6181524c34a8952134f793f78acf55ae285e3).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -87367,9 +87367,9 @@
           "manifest": "article-metadata",
           "member": "canonical-metadata-source:data/modules.ts",
           "baselineHash": "ee8deb0734c9849d5df3823b235a877cdfa45191c3e606ecaf4b6073be9c5098",
-          "currentHash": "cb42852ed8067761ad6c4b2cc9b6181524c34a8952134f793f78acf55ae285e3",
+          "currentHash": "2b267908e3aba5449d21c513bfc85fecbc4adf623f0e0b1c7ce098c76c51806a",
           "status": "approved-delta",
-          "approvedDelta": "seo-merge-20260916-article-metadata-140"
+          "approvedDelta": "round6-remaining-repairs-20260929-article-metadata-modules-taxonomy"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100263,7 +100263,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:classical/motion-planning moved from c35aae18b5771f207e1a3a2c7a9291d61e4fc487630469d1b88f0f77f7d4ac79 to a74f0a8a4d1997310fcd85f3a92d2518cd1236e2ad7a7673fdf2ae3752050d84 exactly as approved delta round5-first-screen-cd-20260929-prose-motion-planning permits: VAL-EDU-045 layout repair on /classical/motion-planning/: the RrtGrowth motion scene sat between the operating-cue paragraph and the first reader-operated interactive (293 preceding rendered words, lab SVG top edge 1805 px, no cue in the two adjacent paragraphs). The RrtExplorer mount line now precedes the RrtGrowth scene mount line, so the lab directly follows the paragraph that says to drag its exploration-iteration slider; the scene follows the lab. The move is a pure block swap: every sentence, number, citation marker (in order), mount prop and the frontmatter are unchanged, and the sorted line inventory of the article is identical. The pre-change bytes are the motion-classical-humanizer-v3-20260927-prose-motion-planning endpoint.",
+      "actual": "prose member article:classical/motion-planning moved from c35aae18b5771f207e1a3a2c7a9291d61e4fc487630469d1b88f0f77f7d4ac79 to 2adda289cb9e9894cbd0d2c24b7dca521678b48bd3a6ca80359e423c315b583c exactly as approved delta round6-prose-restores-20260929-prose-motion-planning permits: Round-6 plain restore of four motion-planning qualifications (round-6 mechanical triage cases n51 and n67; the CHOMP scope of case n56 already reads plainly and is unchanged). The 2026-09-27 classical motion rewrite 5763e443 dropped four audited scopes: that constructing the collision-constrained space does not become impossible beyond a fixed number of dimensions (audit/classical.md motion-planning row 3), that the RRT exploration properties do not guarantee fast coverage on every problem (row 6), that the informed-sampling experiments do not establish a universal speedup (row 10), and that the improving-path statement is the paper's own description of its Sample routine, stronger than its admissible-superset construction supports (row 10). The verbatim pre-rewrite sentences put the article over the 2-per-1,000-word structural-tell floor and were reverted in a5b40f30, so each scope returns as a plain statement of the same limit without a contrast or section locator; the article measures 1.6 tells per 1,000 words. Nothing else changes. Its predecessor endpoint is round5-first-screen-cd-20260929-prose-motion-planning (a74f0a8a4d1997310fcd85f3a92d2518cd1236e2ad7a7673fdf2ae3752050d84).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100275,9 +100275,9 @@
           "manifest": "prose",
           "member": "article:classical/motion-planning",
           "baselineHash": "c35aae18b5771f207e1a3a2c7a9291d61e4fc487630469d1b88f0f77f7d4ac79",
-          "currentHash": "a74f0a8a4d1997310fcd85f3a92d2518cd1236e2ad7a7673fdf2ae3752050d84",
+          "currentHash": "2adda289cb9e9894cbd0d2c24b7dca521678b48bd3a6ca80359e423c315b583c",
           "status": "approved-delta",
-          "approvedDelta": "round5-first-screen-cd-20260929-prose-motion-planning"
+          "approvedDelta": "round6-prose-restores-20260929-prose-motion-planning"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100375,7 +100375,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:classical/state-estimation moved from 0a3d05d164d257621456fbbde3b93245d08c6fc8bb08d79b6c2b6487cf6db6d7 to 66ff07c4d8909d3ca2468e0047dce4bf9cf453c18bc5005db836974d036b5532 exactly as approved delta motion-classical-humanizer-v3-20260927-prose-state-estimation permits: Humanizer v3 pass over classical/state-estimation.mdx. Rephrases negative boilerplate and paper-internal locators without changing the audited claims, reported figures or citation mounts. The article meets the structural-tell floor.",
+      "actual": "prose member article:classical/state-estimation moved from 0a3d05d164d257621456fbbde3b93245d08c6fc8bb08d79b6c2b6487cf6db6d7 to 44e67a418495fda3d5386e3f5f03a80a968f0e1140e744bdf92b215e061cb01e exactly as approved delta round6-remaining-repairs-20260929-prose-state-estimation permits: Round-6 remaining repair of the state-estimation operating cue (round-6 browser cases n28 and n29, VAL-EDU-045 clause d). The cue after the one-step Kalman scene read 'Step through it with the arrow keys', which names no rendered control. It now reads 'Try the Play button, or step through it with the arrow keys', so the adjacent prose names the scene's rendered Play button outside any closed details. No figure, claim, citation or other sentence changes. Its predecessor endpoint is motion-classical-humanizer-v3-20260927-prose-state-estimation (66ff07c4d8909d3ca2468e0047dce4bf9cf453c18bc5005db836974d036b5532).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100387,9 +100387,9 @@
           "manifest": "prose",
           "member": "article:classical/state-estimation",
           "baselineHash": "0a3d05d164d257621456fbbde3b93245d08c6fc8bb08d79b6c2b6487cf6db6d7",
-          "currentHash": "66ff07c4d8909d3ca2468e0047dce4bf9cf453c18bc5005db836974d036b5532",
+          "currentHash": "44e67a418495fda3d5386e3f5f03a80a968f0e1140e744bdf92b215e061cb01e",
           "status": "approved-delta",
-          "approvedDelta": "motion-classical-humanizer-v3-20260927-prose-state-estimation"
+          "approvedDelta": "round6-remaining-repairs-20260929-prose-state-estimation"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -131008,7 +131008,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 12228 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 12202 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -131199,7 +131199,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/adjacent/drones/ rendered no v1 identity spelling and no v1 descriptor in 36990 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/adjacent/drones/ rendered no v1 identity spelling and no v1 descriptor in 36964 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -131528,7 +131528,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/classical/kinematics/ rendered no v1 identity spelling and no v1 descriptor in 31029 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/classical/kinematics/ rendered no v1 identity spelling and no v1 descriptor in 31003 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -131575,7 +131575,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/classical/motion-planning/ rendered no v1 identity spelling and no v1 descriptor in 55729 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/classical/motion-planning/ rendered no v1 identity spelling and no v1 descriptor in 56107 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -131716,7 +131716,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/classical/scene-representation/ rendered no v1 identity spelling and no v1 descriptor in 56217 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/classical/scene-representation/ rendered no v1 identity spelling and no v1 descriptor in 56059 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -131763,7 +131763,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/classical/state-estimation/ rendered no v1 identity spelling and no v1 descriptor in 41185 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/classical/state-estimation/ rendered no v1 identity spelling and no v1 descriptor in 41207 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -131904,7 +131904,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/data-bottleneck/ rendered no v1 identity spelling and no v1 descriptor in 32517 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/data-bottleneck/ rendered no v1 identity spelling and no v1 descriptor in 32491 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -131998,7 +131998,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/evaluation-crisis/ rendered no v1 identity spelling and no v1 descriptor in 36353 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/evaluation-crisis/ rendered no v1 identity spelling and no v1 descriptor in 36327 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132092,7 +132092,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/industrial-deployment/ rendered no v1 identity spelling and no v1 descriptor in 49437 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/industrial-deployment/ rendered no v1 identity spelling and no v1 descriptor in 49411 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132374,7 +132374,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/frontier/competing-theses/ rendered no v1 identity spelling and no v1 descriptor in 49885 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/frontier/competing-theses/ rendered no v1 identity spelling and no v1 descriptor in 49727 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132421,7 +132421,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/frontier/dexterity/ rendered no v1 identity spelling and no v1 descriptor in 42357 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/frontier/dexterity/ rendered no v1 identity spelling and no v1 descriptor in 42331 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132515,7 +132515,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/frontier/reliability-gap/ rendered no v1 identity spelling and no v1 descriptor in 30001 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/frontier/reliability-gap/ rendered no v1 identity spelling and no v1 descriptor in 29975 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132703,7 +132703,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/action-chunking/ rendered no v1 identity spelling and no v1 descriptor in 46099 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/action-chunking/ rendered no v1 identity spelling and no v1 descriptor in 46129 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132844,7 +132844,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/comparison-matrix/ rendered no v1 identity spelling and no v1 descriptor in 58171 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/comparison-matrix/ rendered no v1 identity spelling and no v1 descriptor in 58201 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132938,7 +132938,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/diffusion-policy/ rendered no v1 identity spelling and no v1 descriptor in 29623 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/diffusion-policy/ rendered no v1 identity spelling and no v1 descriptor in 29597 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132985,7 +132985,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/foundation-models/ rendered no v1 identity spelling and no v1 descriptor in 24109 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/foundation-models/ rendered no v1 identity spelling and no v1 descriptor in 23951 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -133173,7 +133173,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/pi-line/ rendered no v1 identity spelling and no v1 descriptor in 52929 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/pi-line/ rendered no v1 identity spelling and no v1 descriptor in 52903 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -133361,7 +133361,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/vla-models/ rendered no v1 identity spelling and no v1 descriptor in 41859 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/vla-models/ rendered no v1 identity spelling and no v1 descriptor in 41833 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -133643,7 +133643,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/rl-sim2real/legged-locomotion/ rendered no v1 identity spelling and no v1 descriptor in 38621 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/rl-sim2real/legged-locomotion/ rendered no v1 identity spelling and no v1 descriptor in 38595 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -133737,7 +133737,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/rl-sim2real/parallel-sim-rl/ rendered no v1 identity spelling and no v1 descriptor in 33105 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/rl-sim2real/parallel-sim-rl/ rendered no v1 identity spelling and no v1 descriptor in 33079 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -134019,7 +134019,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/ rendered no v1 identity spelling and no v1 descriptor in 4042 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/ rendered no v1 identity spelling and no v1 descriptor in 3884 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -134066,7 +134066,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/evaluation/ rendered no v1 identity spelling and no v1 descriptor in 24998 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/evaluation/ rendered no v1 identity spelling and no v1 descriptor in 24682 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -134113,7 +134113,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/generative-sim/ rendered no v1 identity spelling and no v1 descriptor in 35314 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/generative-sim/ rendered no v1 identity spelling and no v1 descriptor in 35288 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -134160,7 +134160,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/generative-video/ rendered no v1 identity spelling and no v1 descriptor in 40440 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/generative-video/ rendered no v1 identity spelling and no v1 descriptor in 40256 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -134207,7 +134207,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/jepa/ rendered no v1 identity spelling and no v1 descriptor in 32976 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/jepa/ rendered no v1 identity spelling and no v1 descriptor in 32660 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -134254,7 +134254,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/latent-dynamics/ rendered no v1 identity spelling and no v1 descriptor in 32658 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/latent-dynamics/ rendered no v1 identity spelling and no v1 descriptor in 32316 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -134301,7 +134301,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/model-based-robot-learning/ rendered no v1 identity spelling and no v1 descriptor in 21956 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/model-based-robot-learning/ rendered no v1 identity spelling and no v1 descriptor in 21798 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -134348,7 +134348,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/taxonomy/ rendered no v1 identity spelling and no v1 descriptor in 39212 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/taxonomy/ rendered no v1 identity spelling and no v1 descriptor in 39054 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -134395,7 +134395,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/world-models-vs-simulators/ rendered no v1 identity spelling and no v1 descriptor in 39756 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/world-models-vs-simulators/ rendered no v1 identity spelling and no v1 descriptor in 39598 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -199672,7 +199672,7 @@
                 "monoRequiredCount": 0,
                 "interfaceControlCount": 15,
                 "controlsInProse": 0,
-                "registrationLabelCount": 2
+                "registrationLabelCount": 1
               }
             }
           ],
@@ -199824,7 +199824,7 @@
                 "monoRequiredCount": 0,
                 "interfaceControlCount": 19,
                 "controlsInProse": 10,
-                "registrationLabelCount": 5
+                "registrationLabelCount": 4
               }
             }
           ],
@@ -200090,7 +200090,7 @@
                 "monoRequiredCount": 0,
                 "interfaceControlCount": 14,
                 "controlsInProse": 6,
-                "registrationLabelCount": 5
+                "registrationLabelCount": 4
               }
             }
           ],
@@ -200128,7 +200128,7 @@
                 "monoRequiredCount": 0,
                 "interfaceControlCount": 16,
                 "controlsInProse": 8,
-                "registrationLabelCount": 5
+                "registrationLabelCount": 4
               }
             }
           ],
@@ -200280,7 +200280,7 @@
                 "monoRequiredCount": 0,
                 "interfaceControlCount": 12,
                 "controlsInProse": 4,
-                "registrationLabelCount": 6
+                "registrationLabelCount": 5
               }
             }
           ],
@@ -200394,7 +200394,7 @@
                 "monoRequiredCount": 0,
                 "interfaceControlCount": 26,
                 "controlsInProse": 13,
-                "registrationLabelCount": 5
+                "registrationLabelCount": 4
               }
             }
           ],
@@ -200470,7 +200470,7 @@
                 "monoRequiredCount": 2,
                 "interfaceControlCount": 24,
                 "controlsInProse": 10,
-                "registrationLabelCount": 5
+                "registrationLabelCount": 4
               }
             }
           ],
@@ -200546,7 +200546,7 @@
                 "monoRequiredCount": 0,
                 "interfaceControlCount": 13,
                 "controlsInProse": 5,
-                "registrationLabelCount": 5
+                "registrationLabelCount": 4
               }
             }
           ],
@@ -200812,7 +200812,7 @@
                 "monoRequiredCount": 0,
                 "interfaceControlCount": 28,
                 "controlsInProse": 16,
-                "registrationLabelCount": 5
+                "registrationLabelCount": 4
               }
             }
           ],
@@ -200888,7 +200888,7 @@
                 "monoRequiredCount": 0,
                 "interfaceControlCount": 22,
                 "controlsInProse": 11,
-                "registrationLabelCount": 5
+                "registrationLabelCount": 4
               }
             }
           ],
@@ -201230,7 +201230,7 @@
                 "monoRequiredCount": 0,
                 "interfaceControlCount": 19,
                 "controlsInProse": 8,
-                "registrationLabelCount": 5
+                "registrationLabelCount": 4
               }
             }
           ],
@@ -201344,7 +201344,7 @@
                 "monoRequiredCount": 0,
                 "interfaceControlCount": 20,
                 "controlsInProse": 6,
-                "registrationLabelCount": 7
+                "registrationLabelCount": 4
               }
             }
           ],
@@ -201420,7 +201420,7 @@
                 "monoRequiredCount": 0,
                 "interfaceControlCount": 55,
                 "controlsInProse": 37,
-                "registrationLabelCount": 5
+                "registrationLabelCount": 4
               }
             }
           ],
@@ -201572,7 +201572,7 @@
                 "monoRequiredCount": 0,
                 "interfaceControlCount": 28,
                 "controlsInProse": 14,
-                "registrationLabelCount": 6
+                "registrationLabelCount": 5
               }
             }
           ],
@@ -201800,7 +201800,7 @@
                 "monoRequiredCount": 1,
                 "interfaceControlCount": 22,
                 "controlsInProse": 13,
-                "registrationLabelCount": 5
+                "registrationLabelCount": 4
               }
             }
           ],
@@ -201876,7 +201876,7 @@
                 "monoRequiredCount": 2,
                 "interfaceControlCount": 18,
                 "controlsInProse": 7,
-                "registrationLabelCount": 5
+                "registrationLabelCount": 4
               }
             }
           ],
@@ -202180,7 +202180,7 @@
                 "monoRequiredCount": 0,
                 "interfaceControlCount": 23,
                 "controlsInProse": 10,
-                "registrationLabelCount": 5
+                "registrationLabelCount": 4
               }
             }
           ],
@@ -202218,7 +202218,7 @@
                 "monoRequiredCount": 0,
                 "interfaceControlCount": 29,
                 "controlsInProse": 14,
-                "registrationLabelCount": 5
+                "registrationLabelCount": 4
               }
             }
           ],
@@ -202294,7 +202294,7 @@
                 "monoRequiredCount": 0,
                 "interfaceControlCount": 17,
                 "controlsInProse": 9,
-                "registrationLabelCount": 6
+                "registrationLabelCount": 5
               }
             }
           ],
@@ -227456,7 +227456,7 @@
             {
               "id": "/",
               "observed": {
-                "labelCount": 4,
+                "labelCount": 2,
                 "trackingEm": [
                   0.14
                 ],
@@ -227616,7 +227616,7 @@
             {
               "id": "/adjacent/drones/",
               "observed": {
-                "labelCount": 10,
+                "labelCount": 8,
                 "trackingEm": [
                   0.14
                 ],
@@ -227896,7 +227896,7 @@
             {
               "id": "/classical/kinematics/",
               "observed": {
-                "labelCount": 10,
+                "labelCount": 8,
                 "trackingEm": [
                   0.14
                 ],
@@ -227936,7 +227936,7 @@
             {
               "id": "/classical/motion-planning/",
               "observed": {
-                "labelCount": 10,
+                "labelCount": 8,
                 "trackingEm": [
                   0.14
                 ],
@@ -228096,7 +228096,7 @@
             {
               "id": "/classical/state-estimation/",
               "observed": {
-                "labelCount": 12,
+                "labelCount": 10,
                 "trackingEm": [
                   0.14
                 ],
@@ -228216,7 +228216,7 @@
             {
               "id": "/data-hardware/data-bottleneck/",
               "observed": {
-                "labelCount": 10,
+                "labelCount": 8,
                 "trackingEm": [
                   0.14
                 ],
@@ -228296,7 +228296,7 @@
             {
               "id": "/data-hardware/evaluation-crisis/",
               "observed": {
-                "labelCount": 10,
+                "labelCount": 8,
                 "trackingEm": [
                   0.14
                 ],
@@ -228376,7 +228376,7 @@
             {
               "id": "/data-hardware/industrial-deployment/",
               "observed": {
-                "labelCount": 10,
+                "labelCount": 8,
                 "trackingEm": [
                   0.14
                 ],
@@ -228656,7 +228656,7 @@
             {
               "id": "/frontier/dexterity/",
               "observed": {
-                "labelCount": 10,
+                "labelCount": 8,
                 "trackingEm": [
                   0.14
                 ],
@@ -228736,7 +228736,7 @@
             {
               "id": "/frontier/reliability-gap/",
               "observed": {
-                "labelCount": 10,
+                "labelCount": 8,
                 "trackingEm": [
                   0.14
                 ],
@@ -229096,7 +229096,7 @@
             {
               "id": "/manipulation/diffusion-policy/",
               "observed": {
-                "labelCount": 10,
+                "labelCount": 8,
                 "trackingEm": [
                   0.14
                 ],
@@ -229216,7 +229216,7 @@
             {
               "id": "/manipulation/hierarchical/",
               "observed": {
-                "labelCount": 14,
+                "labelCount": 8,
                 "trackingEm": [
                   0.14
                 ],
@@ -229296,7 +229296,7 @@
             {
               "id": "/manipulation/pi-line/",
               "observed": {
-                "labelCount": 10,
+                "labelCount": 8,
                 "trackingEm": [
                   0.14
                 ],
@@ -229456,7 +229456,7 @@
             {
               "id": "/manipulation/vla-models/",
               "observed": {
-                "labelCount": 12,
+                "labelCount": 10,
                 "trackingEm": [
                   0.14
                 ],
@@ -229696,7 +229696,7 @@
             {
               "id": "/rl-sim2real/legged-locomotion/",
               "observed": {
-                "labelCount": 10,
+                "labelCount": 8,
                 "trackingEm": [
                   0.14
                 ],
@@ -229776,7 +229776,7 @@
             {
               "id": "/rl-sim2real/parallel-sim-rl/",
               "observed": {
-                "labelCount": 10,
+                "labelCount": 8,
                 "trackingEm": [
                   0.14
                 ],
@@ -230096,7 +230096,7 @@
             {
               "id": "/world-models/generative-sim/",
               "observed": {
-                "labelCount": 10,
+                "labelCount": 8,
                 "trackingEm": [
                   0.14
                 ],
@@ -230136,7 +230136,7 @@
             {
               "id": "/world-models/generative-video/",
               "observed": {
-                "labelCount": 10,
+                "labelCount": 8,
                 "trackingEm": [
                   0.14
                 ],
@@ -230216,7 +230216,7 @@
             {
               "id": "/world-models/latent-dynamics/",
               "observed": {
-                "labelCount": 12,
+                "labelCount": 10,
                 "trackingEm": [
                   0.14
                 ],

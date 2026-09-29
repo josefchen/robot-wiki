@@ -74,13 +74,21 @@ describe('Optimal sampling and OMPL source-bound endpoints', () => {
         'audit/evidence/motion-round5-first-screen-cd-20260929/motion-planning-first-screen-before.mdx')));
       const moved = entries.find((entry) => entry.id === 'round5-first-screen-cd-20260929-prose-motion-planning')!;
       expect(moved.oldHash).toBe(delta.newHash);
-      expect(moved.newHash).toBe(digest(read(e.path)));
+      expect(moved.newHash).toBe(digest(read(
+        'audit/evidence/motion-round6-prose-restores-20260929/motion-planning-before.mdx')));
+      // The round-6 plain restore returned four dropped scopes; its plain
+      // edge starts from the move.
+      const restored = entries.find((entry) => entry.id === 'round6-prose-restores-20260929-prose-motion-planning')!;
+      expect(restored.oldHash).toBe(moved.newHash);
+      expect(restored.newHash).toBe(digest(read(e.path)));
       if (e.id.startsWith('row9-')) {
         expect(read(e.path)).toContain('Differential constraints fall outside this setup');
         expect(read(e.path)).toContain('The latter\'s conservative condition is');
       } else {
         expect(read(e.path)).toContain('Its linear expected-cost convergence calculation assumes no obstacles');
+        expect(read(e.path)).toContain('They do not establish a universal speedup');
         expect(read(e.path)).toContain('when the informed set covers the planning domain, the heuristic supplies no focusing advantage');
+        expect(read(e.path)).toContain('The paper\'s description of its Sample routine says every sampled state admits an improving path');
       }
     }
   });

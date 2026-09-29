@@ -73,6 +73,12 @@ test('RRT report correction, bibliography date and full configuration-space defi
   await capture('configuration-space-definition-top');
   await tip.evaluate(el => { el.scrollTop = el.scrollHeight; });
   await capture('configuration-space-definition-bottom');
+  // A definition taller than the space beside its term is a tab stop of its
+  // own, so keyboard readers can scroll it; Tab passes through it first.
+  if (await tip.evaluate(el => el.tabIndex === 0)) {
+    await page.keyboard.press('Tab');
+    await expect(tip).toBeFocused();
+  }
   await page.keyboard.press('Tab');
   await expect(tip).not.toBeVisible();
   // Tab exit is tested here; this is not a claim to repair the separate Term Escape debt.

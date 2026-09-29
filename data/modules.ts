@@ -224,7 +224,7 @@ const entries: Array<[Domain, string, string, string]> = [
     'world-models',
     'taxonomy',
     'What Is a World Model?',
-    'An editorial comparison of six world-model example groups: what they predict, in what representation, and for what purpose. The survey-defined functional criterion is decision-relevant prediction, not visual plausibility alone.',
+    "A world model predicts how an environment evolves in a form useful for a robot's decisions. Six example groups compared, from DreamerV3 to V-JEPA 2.",
   ],
   [
     'world-models',

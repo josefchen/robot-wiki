@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "round6-prose-restores-article-continuity-v1",
+  "name": "motion-planning-plain-qualifications",
+  "before": {
+    "path": "audit/evidence/motion-round6-prose-restores-20260929/motion-planning-before.mdx",
+    "bytes": 24125,
+    "sha256": "45481dc51d0971859f0d002a2bfe6c7556d32d357501217f12dac0bec5323d2e"
+  },
+  "after": {
+    "path": "content/classical/motion-planning.mdx",
+    "bytes": 24327,
+    "sha256": "2bef2a93acfbaef49fd1db39b51c317a877b0d9607f1517584a1996259b238ce"
+  },
+  "reviewedBy": "Round-6 repair implementer, not independent acceptance",
+  "rationale": "The 2026-09-27 classical motion pass dropped four audited scopes from this article: that constructing the collision-constrained space does not become impossible beyond a fixed number of dimensions (motion-planning row 3 of audit/classical.md), that the RRT exploration properties do not guarantee fast coverage on every problem (row 6), that the Informed RRT* experiments do not establish a universal speedup (row 10), and that the improving-path statement is the paper's own description of its Sample routine, stronger than its admissible-superset construction supports (row 10). The verbatim pre-rewrite sentences put the article over the 2-per-1,000-word structural-tell floor and were reverted, so these four exact edits state the same limits plainly, without contrasts or section locators; the measured rate is 1.6 per 1,000 words. Every other sentence, number, citation (in order), mount and the frontmatter are byte-preserved. The archived pre-restore bytes are exactly the after endpoint of the round-5 first-screen mount move, whose review still gates them against the release dependency review; the live article keeps that review's preserved text. No proof, receipt, verdict or ledger cell changed.",
+  "observedAt": "2026-09-29T12:48:16Z"
+}

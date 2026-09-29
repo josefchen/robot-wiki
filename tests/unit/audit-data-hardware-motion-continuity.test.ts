@@ -7,12 +7,14 @@ import {
 } from '../../lib/audit-data-hardware-motion-continuity.ts';
 import { retainedRound5FirstScreenArticle } from '../../lib/audit-round5-pinned-leftovers-continuity.ts';
 import { round6ProseRestorePredecessor } from '../../lib/audit-round6-prose-restores-continuity.ts';
+import { round6RemainingRepairPredecessor } from '../../lib/audit-round6-remaining-repairs-continuity.ts';
 import { createLocalArtifactReader } from '../../lib/audit-local-basis.ts';
 import { reviewedFrontierChecker } from '../../lib/audit-frontier-motion-continuity.ts';
 
 const root = join(import.meta.dirname, '../..');
 const directory = 'audit/evidence/motion-data-hardware-20260927/';
 const restores = 'audit/evidence/motion-round6-prose-restores-20260929/';
+const repairs = 'audit/evidence/motion-round6-remaining-repairs-20260929/';
 const temporary: string[] = [];
 afterEach(() => {
   for (const path of temporary.splice(0)) rmSync(path, { recursive: true, force: true });
@@ -34,6 +36,7 @@ function fixture() {
     'audit/evidence/motion-round5-pinned-leftovers-20260928/data-bottleneck-first-screen-before.mdx',
     'audit/evidence/motion-round5-pinned-leftovers-20260928/evaluation-crisis-first-screen-before.mdx',
     `${restores}industrial-deployment-transition.json`, `${restores}industrial-deployment-before.mdx`,
+    `${repairs}source-transition.json`, `${repairs}industrial-deployment-spec-before.ts.txt`,
     ...review.entries.flatMap(entry => [entry.snapshot.path, entry.current.path]),
   ]) {
     const target = join(destination, path);
@@ -50,13 +53,16 @@ describe('data-hardware motion continuity', () => {
     for (const [index, entry] of review.entries.entries()) {
       const current = readFileSync(join(root, entry.current.path));
       // The 2026-09-28 pinned-leftover round moved the data-bottleneck and
-      // evaluation-crisis first screens, and the 2026-09-29 prose restores
-      // rewrote one industrial-deployment clause; those live articles are
-      // gated by the named successors chained on this unchanged review.
+      // evaluation-crisis first screens, the 2026-09-29 prose restores
+      // rewrote one industrial-deployment clause, and the round-6 remaining
+      // repairs moved the industrial spec to the hydration-safe slider; those
+      // live files are gated by the named successors chained on this
+      // unchanged review.
       const verify = index === 0 || index === 1
         ? retainedRound5FirstScreenArticle(root, index as 0 | 1, current)
         : currentDataHardwareMotionArtifact(root, index, index === 2
-          ? round6ProseRestorePredecessor(root, entry.current, current) : current);
+          ? round6ProseRestorePredecessor(root, entry.current, current)
+          : round6RemainingRepairPredecessor(root, entry.current, current));
       expect(verify).toEqual(readFileSync(join(root, entry.snapshot.path)));
       if (index !== 2) expect(createLocalArtifactReader(root)(entry.before)).toEqual(
         readFileSync(join(root, entry.snapshot.path)));
@@ -80,7 +86,8 @@ describe('data-hardware motion continuity', () => {
       const verify = (live: Buffer) => index === 0 || index === 1
         ? retainedRound5FirstScreenArticle(destination, index as 0 | 1, live)
         : currentDataHardwareMotionArtifact(destination, index, index === 2
-          ? round6ProseRestorePredecessor(destination, entry.current, live) : live);
+          ? round6ProseRestorePredecessor(destination, entry.current, live)
+          : round6RemainingRepairPredecessor(destination, entry.current, live));
       const changed = Buffer.concat([readFileSync(join(destination, entry.current.path)), Buffer.from('\nchanged')]);
       expect(() => verify(changed)).toThrow(/endpoint identity|first-screen article continuity/);
       put(destination, entry.current.path, changed);

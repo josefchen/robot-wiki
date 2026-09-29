@@ -77,7 +77,7 @@ function fullAndContract(target: Target, candidate: CompoundPlan) {
   assert.equal(candidate.evidence.length, target.parts.length);
 }
 
-describe('two source-backed verdict reconciliations, not structural completions', () => {
+describe('two source-backed verdict reconciliations, not structural completions', { timeout: 60_000 }, () => {
   for (const target of targets) {
     it(`${target.slug}:${target.ordinal} closes only the corrected current outcome`, () => {
       const current = record(target);

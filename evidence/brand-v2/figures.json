@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "fc036e07dc500c463e44ad03b38b5b5dea402858bac79c4928c4164cb1c9897d",
+  "fingerprint": "4fb8e1527ccfb78b377c4ecf7ad49e577dfdd4a1b4f396b45a935901847f3981",
   "viewports": [
     "375x812",
     "1440x900"
@@ -18,7 +18,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 6003,
+      "visibleTextLength": 5990,
       "figures": [
         {
           "imageId": "spot-raf-agile-liberty-2021",
@@ -69,7 +69,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 15304,
+      "visibleTextLength": 15291,
       "figures": [
         {
           "imageId": "puma-560-nasa-ames",
@@ -5170,7 +5170,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 22736,
+      "visibleTextLength": 22751,
       "figures": [
         {
           "imageId": "temporal-ensembling",
@@ -5264,7 +5264,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 19073,
+      "visibleTextLength": 19060,
       "figures": [
         {
           "imageId": "anymal-anybotics-2022",
@@ -5315,7 +5315,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 6225,
+      "visibleTextLength": 6212,
       "figures": [
         {
           "imageId": "spot-raf-agile-liberty-2021",
@@ -5366,7 +5366,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 15725,
+      "visibleTextLength": 15712,
       "figures": [
         {
           "imageId": "puma-560-nasa-ames",
@@ -10467,7 +10467,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 23363,
+      "visibleTextLength": 23378,
       "figures": [
         {
           "imageId": "temporal-ensembling",
@@ -10561,7 +10561,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 19548,
+      "visibleTextLength": 19535,
       "figures": [
         {
           "imageId": "anymal-anybotics-2022",

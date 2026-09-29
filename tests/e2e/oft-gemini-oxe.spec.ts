@@ -219,7 +219,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
           await button.focus();
           await page.keyboard.press('Enter');
           await expect(button).toBeFocused();
-          await expect(page.getByTestId('lane-row-instruction')).toContainText('schematic');
+          await expect(page.getByTestId('lane-row-instruction')).toContainText('Schematic');
           const slider = page.getByRole('slider', { name: /playhead/i });
           await slider.focus();
           await page.keyboard.press('End');
@@ -230,7 +230,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
         }
         await page.getByRole('button', { name: 'Reset', exact: true }).click();
         await expect(page.getByTestId('playhead-readout')).toHaveText('t = 0 ms');
-        await expect(page.getByTestId('lane-row-chunk')).toContainText('schematic');
+        await expect(page.getByTestId('lane-row-chunk')).toContainText('Schematic');
       }
       expect.soft(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBe(0);
       expect.soft(await page.locator('.katex-error').count()).toBe(0);

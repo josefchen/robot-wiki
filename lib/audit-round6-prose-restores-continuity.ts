@@ -1,7 +1,7 @@
 /**
  * Exact successor reviews for the round-6 prose restores of 2026-09-29. An
- * earlier prose pass changed what one sentence on each of these pinned
- * articles claims, and each restore returns that sentence to its audited
+ * earlier prose pass changed what audited sentences on each of these pinned
+ * articles claim, and each restore returns those sentences to their audited
  * source meaning. Every restore is a named exact edit list over the archived
  * pre-restore article, and that archived article is exactly the endpoint the
  * unchanged prior review still gates. The artifact reader admits the live
@@ -15,6 +15,8 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { loadDataHardwareMotionReview } from './audit-data-hardware-motion-continuity.ts';
 import { loadRlMotionContinuity } from './audit-rl-motion-continuity.ts';
+import { retainedRound5FirstScreenCdArticle } from './audit-round5-first-screen-cd-continuity.ts';
+import { round6RemainingRepairsCheckerPredecessor } from './audit-round6-remaining-repairs-continuity.ts';
 
 const directory = 'audit/evidence/motion-round6-prose-restores-20260929/';
 const digest = (bytes: Buffer) => createHash('sha256').update(bytes).digest('hex');
@@ -35,7 +37,7 @@ type Restore = {
   beforeHash: string;
   afterBytes: number;
   afterHash: string;
-  prior: 'rl-motion' | 'data-hardware';
+  prior: 'rl-motion' | 'data-hardware' | 'first-screen-cd';
   edits: readonly (readonly [string, string])[];
   /** Prior-review phrases the restore itself rewrites, each with its replacement. */
   replacedDisclosures?: readonly (readonly [string, string])[];
@@ -124,6 +126,39 @@ const restores: readonly Restore[] = [
       'The coverage figure describes item types; the post reports no pick-success rate or independently validated reliability',
     ]],
   },
+  {
+    name: 'motion-planning-plain-qualifications',
+    path: 'content/classical/motion-planning.mdx',
+    snapshot: `${directory}motion-planning-before.mdx`,
+    review: `${directory}motion-planning-transition.json`,
+    beforeBytes: 24125,
+    beforeHash: '45481dc51d0971859f0d002a2bfe6c7556d32d357501217f12dac0bec5323d2e',
+    afterBytes: 24327,
+    afterHash: '2bef2a93acfbaef49fd1db39b51c317a877b0d9607f1517584a1996259b238ce',
+    prior: 'first-screen-cd',
+    // The pre-rewrite wording of these qualifications carried not-X
+    // contrasts and section locators that put the article over the
+    // 2-per-1,000-word structural-tell floor, so each scope returns as a
+    // plain statement of the same audited limit.
+    edits: [
+      [
+        'Constructing the collision-constrained space is difficult.',
+        'Constructing the collision-constrained space is difficult, but it does not become impossible beyond a fixed number of dimensions.',
+      ],
+      [
+        'The report leaves convergence-rate analysis open, and the book distinguishes exploring free space from solving a start-goal query',
+        'These properties do not guarantee fast coverage on every problem: the report leaves convergence-rate analysis open, and the book distinguishes exploring free space from solving a start-goal query',
+      ],
+      [
+        'Those experiments found faster refinement than RRT\\* in that setup; when the informed set covers the planning domain,',
+        'Those experiments found faster refinement than RRT\\* in that setup. They do not establish a universal speedup, and when the informed set covers the planning domain,',
+      ],
+      [
+        'The Sample routine describes each sampled state as admitting an improving path, a stronger claim than the admissible-superset construction in the paper\'s algorithm.',
+        'The paper\'s description of its Sample routine says every sampled state admits an improving path, a stronger claim than the admissible-superset construction in its algorithm supports.',
+      ],
+    ],
+  },
 ];
 
 const citations = (source: string) =>
@@ -131,6 +166,15 @@ const citations = (source: string) =>
 const frontmatter = (source: string) => source.match(/^---\n[\s\S]*?\n---\n/)?.[0];
 const same = (artifact: Artifact | undefined, path: string, bytes: number, sha256: string) =>
   artifact?.path === path && artifact.bytes === bytes && artifact.sha256 === sha256;
+
+function releasePreservedText(root: string, path: string): string[] {
+  const dependencies = JSON.parse(readFileSync(join(root,
+    'audit/evidence/industrial-release-20260924/dependency-review.json'), 'utf8')) as {
+    bindings: { current?: Artifact; preservedText?: string[] }[];
+  };
+  return dependencies.bindings.filter((binding) => binding.current?.path === path)
+    .flatMap((binding) => binding.preservedText ?? []);
+}
 
 /**
  * The prior review must still name the archived pre-restore bytes as its
@@ -147,13 +191,24 @@ function priorDisclosures(root: string, restore: Restore): { present: string[]; 
     if (!entry || !same(entry.current, restore.path, restore.beforeBytes, restore.beforeHash)) {
       throw new Error(articleDrift);
     }
-    const dependencies = JSON.parse(readFileSync(join(root,
-      'audit/evidence/industrial-release-20260924/dependency-review.json'), 'utf8')) as {
-      bindings: { current?: Artifact; preservedText?: string[] }[];
+    required = [...entry.requiredPresent, ...releasePreservedText(root, restore.path)];
+  } else if (restore.prior === 'first-screen-cd') {
+    // The round-5 move review records the archived bytes as its after
+    // endpoint, and its own reader still verifies them against the pre-move
+    // snapshot the release dependency review gates.
+    const moves = JSON.parse(readFileSync(join(root,
+      'audit/evidence/motion-round5-first-screen-cd-20260929/first-screen-transition.json'), 'utf8')) as {
+      sources?: { after?: Artifact }[];
     };
-    const preserved = dependencies.bindings.filter((binding) => binding.current?.path === restore.path)
-      .flatMap((binding) => binding.preservedText ?? []);
-    required = [...entry.requiredPresent, ...preserved];
+    const move = moves.sources?.filter((source) => source.after?.path === restore.path) ?? [];
+    const archived = readFileSync(join(root, restore.snapshot));
+    if (move.length !== 1 || !same(move[0].after, restore.path, restore.beforeBytes, restore.beforeHash) ||
+      archived.length !== restore.beforeBytes || digest(archived) !== restore.beforeHash) {
+      throw new Error(articleDrift);
+    }
+    retainedRound5FirstScreenCdArticle(root, restore.path, archived);
+    required = releasePreservedText(root, restore.path);
+    if (required.length === 0) throw new Error(articleDrift);
   } else {
     // The dependency review's preserved text for this article is matched by
     // the reader against the pre-motion snapshot, never the live article.
@@ -238,13 +293,15 @@ const historicalCheckers = new Map([
 ]);
 
 /**
- * Older checker bytes pass through. The current checker is admitted only as
- * the exact prose-restore reader revision above the round6 kinematics head.
+ * Older checker bytes pass through. The prose-restore reader revision above
+ * the round6 kinematics head is admitted exactly, as it reaches this level
+ * through the round6 remaining-repairs reader revision.
  */
 export function round6ProseRestoresCheckerPredecessor(root: string, live: Buffer): Buffer {
-  const liveHash = digest(live);
-  if (liveHash === checkerBefore.sha256 && live.length === checkerBefore.bytes) return live;
-  if (historicalCheckers.get(liveHash) === live.length) return live;
+  const through = round6RemainingRepairsCheckerPredecessor(root, live);
+  const liveHash = digest(through);
+  if (liveHash === checkerBefore.sha256 && through.length === checkerBefore.bytes) return through;
+  if (historicalCheckers.get(liveHash) === through.length) return through;
   const review = JSON.parse(readFileSync(join(root, `${directory}checker-transition.json`), 'utf8')) as Review;
   const historical = readFileSync(join(root, checkerBefore.path));
   reviewed(review, 'round6-prose-restores-checker-revision-v1', checkerDrift);
@@ -252,8 +309,8 @@ export function round6ProseRestoresCheckerPredecessor(root: string, live: Buffer
     !same(review.before, checkerBefore.path, checkerBefore.bytes, checkerBefore.sha256) ||
     review.after?.path !== 'lib/audit-local-basis.ts' ||
     historical.length !== checkerBefore.bytes || digest(historical) !== checkerBefore.sha256 ||
-    live.length !== review.after.bytes || liveHash !== review.after.sha256 ||
-    applyExact(historical.toString(), checkerEdits, checkerDrift) !== live.toString()) {
+    through.length !== review.after.bytes || liveHash !== review.after.sha256 ||
+    applyExact(historical.toString(), checkerEdits, checkerDrift) !== through.toString()) {
     throw new Error(checkerDrift);
   }
   return historical;

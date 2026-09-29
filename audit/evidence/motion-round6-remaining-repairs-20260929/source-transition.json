@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "round6-remaining-repairs-source-continuity-v1",
+  "name": "remaining-repairs",
+  "reviewedBy": "Round-6 repair implementer, not independent acceptance",
+  "rationale": "Six files that an earlier review, a recorded browser run or the checker pins at exact bytes changed in the round-6 repairs. The citation chip's jump link now clears the pending hover grace and closes the popup, as an insertion only. The industrial citation-refresh spec and the economics spec check the current article wording ('no measured intervention rate behind it', 'no sourced arm-price quote'), the economics spec finds the calculator by its instrument-frame signature, and the industrial-deployment spec imports the hydration-safe slider helper under its old local name. The world-model taxonomy frontmatter description is shortened to 148 characters; the article body is byte-identical and keeps the release review's preserved disclosure. The classical-closure suite gains a 60-second budget and nothing else. Each archived predecessor is byte-identical to the endpoint its prior record names, each live file is exactly the named edit list applied to it, assertion-line counts are unchanged, and every preserved check and every phrase the prior record requires still reads in the live file. No run was repeated and no verdict, claim, citation or ledger cell changed. This review claims only these exact edits; it records no new browser run.",
+  "observedAt": "2026-09-29T14:13:00Z",
+  "sources": [
+    {
+      "name": "cite-jump-closes-hover",
+      "before": {
+        "path": "audit/evidence/motion-round6-remaining-repairs-20260929/cite-before.tsx.txt",
+        "bytes": 11289,
+        "sha256": "acc039e8d5913e5356bd2c00d989cfa29d9722470d5f0e2a6b17fe102d78e50a"
+      },
+      "after": {
+        "path": "components/ui/cite.tsx",
+        "bytes": 11563,
+        "sha256": "96b9f9cd9dcc0eb9bf16246b9828879955bd8b53260679ea9381d95746709507"
+      }
+    },
+    {
+      "name": "citation-refresh-current-wording",
+      "before": {
+        "path": "audit/evidence/motion-round6-remaining-repairs-20260929/industrial-citation-refresh-spec-before.ts.txt",
+        "bytes": 7755,
+        "sha256": "95600b9dab16e74280ccd31ef3ae25f0b8374c95c9e37fe8a870000488598777"
+      },
+      "after": {
+        "path": "tests/e2e/industrial-citation-refresh.spec.ts",
+        "bytes": 7769,
+        "sha256": "2299b9b4fe4d46fb12981693d5f3212b8f1c61484a72527d8140027b65ab9be5"
+      }
+    },
+    {
+      "name": "economics-instrument-frame",
+      "before": {
+        "path": "audit/evidence/motion-round6-remaining-repairs-20260929/economics-release-evidence-spec-before.ts.txt",
+        "bytes": 6921,
+        "sha256": "08a18673e6d717979eab85b3eb5f5b637d80dd1c8c042f4785630b12118daf70"
+      },
+      "after": {
+        "path": "tests/e2e/economics-release-evidence.spec.ts",
+        "bytes": 6952,
+        "sha256": "0ec2a0eae15a7507aec8b53cd9a48a213fbeeede42be3a73ab33cbffcb03ae5e"
+      }
+    },
+    {
+      "name": "industrial-deployment-hydrated-slider",
+      "before": {
+        "path": "audit/evidence/motion-round6-remaining-repairs-20260929/industrial-deployment-spec-before.ts.txt",
+        "bytes": 19972,
+        "sha256": "8e6864787ba4df19332ce4c08d08c475e68b7999f701f367b9b0c607bd05720d"
+      },
+      "after": {
+        "path": "tests/e2e/industrial-deployment.spec.ts",
+        "bytes": 20004,
+        "sha256": "7dd10d5236af121c4d612064030943a2123d454c28dc6fb9d0f8f6e2645f4c8b"
+      }
+    },
+    {
+      "name": "taxonomy-search-description",
+      "before": {
+        "path": "audit/evidence/motion-round6-remaining-repairs-20260929/taxonomy-before.mdx",
+        "bytes": 14704,
+        "sha256": "05b9c7e4aab79c6111146e3d7e894a9ce791f306e47e4d709a6b1b5b4cc8f793"
+      },
+      "after": {
+        "path": "content/world-models/taxonomy.mdx",
+        "bytes": 14625,
+        "sha256": "5001d094d742e151f4226a370f945a6629633b213b5497ab42dbcf80d7d511c0"
+      }
+    },
+    {
+      "name": "classical-closure-suite-budget",
+      "before": {
+        "path": "audit/evidence/motion-round6-remaining-repairs-20260929/classical-closure-evidence-before.test.ts.txt",
+        "bytes": 16267,
+        "sha256": "42cfb7e1f3f5d73652d11fe6950188dde4aeb1d7928cc0100f1d223c70ec6a38"
+      },
+      "after": {
+        "path": "tests/unit/classical-closure-evidence.test.ts",
+        "bytes": 16288,
+        "sha256": "cf53d3e938e03ddeef8028aa289edecaee34eb30e5a943756fad8d3bf35b4eb9"
+      }
+    }
+  ]
+}

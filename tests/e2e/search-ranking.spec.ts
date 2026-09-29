@@ -242,6 +242,13 @@ test.describe('VAL-SEARCH-025: the cap is applied after the genuineness filter',
       'system',
       'training',
       'action',
+      // Pagefind stems these to a form that also matches pages carrying
+      // only "policy" or "bodies", which the genuineness rule rejects. That
+      // puts rejected hits inside the cap, the shape the post-cap rescue
+      // assertion below needs; the singular words above no longer produce
+      // it on the current index.
+      'policies',
+      'body',
     ];
     saturating = [];
     for (const query of candidates) {

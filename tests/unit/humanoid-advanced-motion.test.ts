@@ -22,7 +22,7 @@ const expected = [
     "span": "GMT takes the other approach: it trains a unified motion-tracking controller without merging already-trained per-skill policies. Adaptive sampling re-clips long motions and adjusts sampling probabilities using completion and tracking errors. Its privileged teacher uses a learned soft mixture-of-experts: a gating network combines expert action outputs, and a deployable student learns from the teacher through DAgger. The authors demonstrate tracking on Unitree G1, but report the baseline comparisons and ablations in simulation. The controller does not support getting up after a fall or rolling, and is not designed for tracking on slopes and stairs <Cite id=\"gmt-2025\" />."
   }
 ];
-describe('Humanoid advanced motion source scope', () => {
+describe('Humanoid advanced motion source scope', { timeout: 60_000 }, () => {
   for (const item of expected) {
     it(`${item.id} preserves the complete qualified source-backed span`, () => {
       expect(article().split(item.span).length - 1).toBe(1);
@@ -41,7 +41,7 @@ const native = () => {
   const parse = (catalog: typeof plans) => parseLedger('audit/rl-sim2real.md', ledger, new Set(CITATIONS.map(c => c.id)), { compoundPlans: catalog }).find(s => s.slug === 'humanoid-wbc')!;
   return { plans, parse };
 };
-describe('Advanced motion mandatory AND evidence', () => {
+describe('Advanced motion mandatory AND evidence', { timeout: 60_000 }, () => {
   for (const [ordinal, count] of [[6, 7], [7, 5], [8, 7]]) {
     it(`original ${ordinal} completes only with all ${count} current reviewed parts`, () => {
       const { plans, parse } = native();

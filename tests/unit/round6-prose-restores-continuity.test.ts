@@ -9,11 +9,13 @@ import {
 } from '../../lib/audit-data-hardware-motion-continuity.ts';
 import { createLocalArtifactReader } from '../../lib/audit-local-basis.ts';
 import { loadRlMotionContinuity } from '../../lib/audit-rl-motion-continuity.ts';
+import { retainedRound5FirstScreenCdArticle } from '../../lib/audit-round5-first-screen-cd-continuity.ts';
 import { round6KinematicsReaderCheckerPredecessor } from '../../lib/audit-round6-kinematics-reader-continuity.ts';
 import {
   round6ProseRestorePredecessor, round6ProseRestoresCheckerPredecessor,
 } from '../../lib/audit-round6-prose-restores-continuity.ts';
 import { STRUCTURAL_TELL_LIMIT, structuralTellReport } from '../../lib/no-slop.ts';
+import { committedSource } from '../helpers/continuation-integration';
 
 const root = resolve(import.meta.dirname, '../..');
 const directory = 'audit/evidence/motion-round6-prose-restores-20260929/';
@@ -35,6 +37,33 @@ type DataHardwareReview = {
 };
 const oldCoverage = 'The coverage figure describes item types; pick success and independently validated reliability remain unknown';
 const newCoverage = 'The coverage figure describes item types; the post reports no pick-success rate or independently validated reliability';
+const firstScreenDirectory = 'audit/evidence/motion-round5-first-screen-cd-20260929/';
+const firstScreenReviewPath = `${firstScreenDirectory}first-screen-transition.json`;
+const planningPreMovePath = `${firstScreenDirectory}motion-planning-first-screen-before.mdx`;
+// The 2026-09-27 classical motion rewrite that dropped these scopes.
+const planningRewrite = '5763e443';
+const planningEdits = [
+  ['Constructing the collision-constrained space is difficult.',
+    'Constructing the collision-constrained space is difficult, but it does not become impossible beyond a fixed number of dimensions.'],
+  ['The report leaves convergence-rate analysis open, and the book distinguishes exploring free space from solving a start-goal query',
+    'These properties do not guarantee fast coverage on every problem: the report leaves convergence-rate analysis open, and the book distinguishes exploring free space from solving a start-goal query'],
+  ['Those experiments found faster refinement than RRT\\* in that setup; when the informed set covers the planning domain,',
+    'Those experiments found faster refinement than RRT\\* in that setup. They do not establish a universal speedup, and when the informed set covers the planning domain,'],
+  ['The Sample routine describes each sampled state as admitting an improving path, a stronger claim than the admissible-superset construction in the paper\'s algorithm.',
+    'The paper\'s description of its Sample routine says every sampled state admits an improving path, a stronger claim than the admissible-superset construction in its algorithm supports.'],
+] as const;
+// Each pre-rewrite sentence that carried the scope, and the scope phrase it
+// used, beside the plain phrase the restore now states.
+const planningScopes = [
+  ['The difficulty is constructing the collision-constrained space, not a universal cutoff at a few dimensions.',
+    'does not become impossible beyond a fixed number of dimensions'],
+  ['This is not a guarantee of fast coverage on every problem: the report leaves convergence-rate analysis open',
+    'do not guarantee fast coverage on every problem'],
+  ['The paper reports the underlying RRT\\* completeness and optimality guarantees, not a universal speedup.',
+    'They do not establish a universal speedup'],
+  ['Section V describes the Sample routine more strongly, as if every sampled state admits an improving path.',
+    'The paper\'s description of its Sample routine says every sampled state admits an improving path'],
+] as const;
 const restores = [
   {
     slug: 'sim2real-transfer',
@@ -66,14 +95,25 @@ const restores = [
       `${newCoverage} <Cite id="amazon-vulcan-2026" />.`,
     ]],
   },
+  {
+    slug: 'motion-planning',
+    path: 'content/classical/motion-planning.mdx',
+    prior: 'first-screen-cd',
+    name: 'motion-planning-plain-qualifications',
+    edits: planningEdits,
+  },
 ] as const;
 const reviewOf = (slug: string) => JSON.parse(read(`${directory}${slug}-transition.json`).toString()) as Review;
 const endpointOf = (review: Review): Artifact =>
   ({ path: review.after.path, bytes: review.before.bytes, sha256: review.before.sha256 });
 const citations = (text: string) => [...text.matchAll(/<Cite\s+id="([^"]+)"/g)].map((match) => match[1]);
+const firstScreenAfter = (path: string, from = root) => (JSON.parse(readFileSync(join(from, firstScreenReviewPath), 'utf8')) as {
+  sources: { after: Artifact }[];
+}).sources.find((source) => source.after.path === path)!.after;
 const priorEndpoint = (prior: string, path: string, from = root) => prior === 'rl-motion'
   ? loadRlMotionContinuity(from).find((candidate) => candidate.article === path)!.current
-  : loadDataHardwareMotionReview(from).entries.find((candidate) => candidate.current.path === path)!.current;
+  : prior === 'first-screen-cd' ? firstScreenAfter(path, from)
+    : loadDataHardwareMotionReview(from).entries.find((candidate) => candidate.current.path === path)!.current;
 
 function copied(paths: readonly string[]) {
   const destination = mkdtempSync(join(tmpdir(), 'round6-prose-restores-'));
@@ -111,6 +151,15 @@ it('hands the data-hardware motion review the pre-restore article it still gates
     .toEqual(preMotion);
 });
 
+it('hands the round-5 first-screen move review the pre-restore article it still gates', () => {
+  const path = 'content/classical/motion-planning.mdx';
+  const live = read(path);
+  expect(() => retainedRound5FirstScreenCdArticle(root, path, live))
+    .toThrow(/round5 first-screen cd article continuity drift/);
+  expect(retainedRound5FirstScreenCdArticle(root, path,
+    round6ProseRestorePredecessor(root, firstScreenAfter(path), live))).toEqual(read(planningPreMovePath));
+});
+
 it.each(restores)('changes only the named $name sentences', ({ slug, edits }) => {
   const review = reviewOf(slug);
   const before = read(review.before.path).toString();
@@ -139,6 +188,32 @@ it('keeps the Eureka restore under the structural-tell floor it would otherwise 
   expect(deletedOnly.density).toBeGreaterThan(STRUCTURAL_TELL_LIMIT);
   expect(structuralTellReport(after, NO_SLOP_EXCEPTIONS).notX).toBe(deletedOnly.notX - 1);
   expect(structuralTellReport(after, NO_SLOP_EXCEPTIONS).density).toBeLessThanOrEqual(STRUCTURAL_TELL_LIMIT);
+});
+
+it('states each motion-planning scope the classical rewrite dropped, without adding a structural tell', () => {
+  const path = 'content/classical/motion-planning.mdx';
+  const original = committedSource(`${planningRewrite}^`, path);
+  const rewritten = committedSource(planningRewrite, path);
+  const live = read(path).toString();
+  for (const [preRewrite, plain] of planningScopes) {
+    expect(original.split(preRewrite)).toHaveLength(2);
+    expect(rewritten).not.toContain(preRewrite);
+    expect(read(`${directory}motion-planning-before.mdx`).toString()).not.toContain(plain);
+    expect(live.split(plain)).toHaveLength(2);
+  }
+  const before = structuralTellReport(read(`${directory}motion-planning-before.mdx`).toString(), NO_SLOP_EXCEPTIONS);
+  const after = structuralTellReport(live, NO_SLOP_EXCEPTIONS);
+  expect([after.notX, after.paperLocator]).toEqual([before.notX, before.paperLocator]);
+  expect(after.density).toBeLessThanOrEqual(STRUCTURAL_TELL_LIMIT);
+});
+
+it('keeps the release preserved text on the live motion-planning article', () => {
+  const path = 'content/classical/motion-planning.mdx';
+  const dependencies = JSON.parse(read(dependencyPath).toString()) as Bindings;
+  const preserved = dependencies.bindings.filter((binding) => binding.current?.path === path)
+    .flatMap((binding) => binding.preservedText ?? []);
+  expect(preserved).toHaveLength(1);
+  for (const phrase of preserved) expect(read(path).toString()).toContain(phrase);
 });
 
 it('keeps every phrase the RL motion and release reviews require on each live RL article', () => {
@@ -195,19 +270,26 @@ it('passes every other reference and byte string through to the exact checks', (
 
 const articleMutations = ['missing-review', 'missing-snapshot', 'corrupt-snapshot', 'wrong-schema', 'wrong-name',
   'wrong-before-hash', 'wrong-after-hash', 'future-observation', 'short-rationale', 'prior-endpoint',
-  'prior-disclosure', 'release-disclosure', 'prior-absent', 'replaced-disclosure'] as const;
+  'prior-disclosure', 'release-disclosure', 'prior-absent', 'replaced-disclosure', 'prior-snapshot'] as const;
 const dataHardwareOnly: readonly string[] = ['prior-absent', 'replaced-disclosure'];
+const firstScreenOnly: readonly string[] = ['prior-snapshot'];
 
 it.each(restores.flatMap(({ slug, prior }) => articleMutations
-  .filter((mutation) => slug === 'sim2real-transfer' || mutation !== 'release-disclosure')
+  .filter((mutation) => slug === 'sim2real-transfer' || prior === 'first-screen-cd' || mutation !== 'release-disclosure')
   .filter((mutation) => prior === 'data-hardware' || !dataHardwareOnly.includes(mutation))
+  .filter((mutation) => prior === 'first-screen-cd' || !firstScreenOnly.includes(mutation))
+  // The move review adds no disclosures beyond the release text mutated above.
+  .filter((mutation) => prior !== 'first-screen-cd' || mutation !== 'prior-disclosure')
   .map((mutation) => [slug, mutation] as const)))('rejects a %s successor with %s', (slug, mutation) => {
   const reviewPath = `${directory}${slug}-transition.json`;
   const review = reviewOf(slug);
-  const dataHardware = slug === 'industrial-deployment';
+  const { prior } = restores.find((restore) => restore.slug === slug)!;
+  const dataHardware = prior === 'data-hardware';
   const destination = copied(dataHardware
     ? [reviewPath, review.before.path, dataHardwarePath, dataHardwarePriorPath, dependencyPath]
-    : [reviewPath, review.before.path, continuityPath, dependencyPath]);
+    : prior === 'first-screen-cd'
+      ? [reviewPath, review.before.path, firstScreenReviewPath, planningPreMovePath, dependencyPath]
+      : [reviewPath, review.before.path, continuityPath, dependencyPath]);
   try {
     const live = read(review.after.path);
     expect(round6ProseRestorePredecessor(destination, endpointOf(review), live)).toEqual(read(review.before.path));
@@ -236,7 +318,15 @@ it.each(restores.flatMap(({ slug, prior }) => articleMutations
       }
       writeFileSync(join(destination, dataHardwarePath), JSON.stringify(continuity));
     }
-    if (!dataHardware && (mutation === 'prior-endpoint' || mutation === 'prior-disclosure')) {
+    if (prior === 'first-screen-cd' && mutation === 'prior-endpoint') {
+      const moves = JSON.parse(readFileSync(join(destination, firstScreenReviewPath), 'utf8')) as {
+        sources: { after: Artifact }[];
+      };
+      moves.sources.find((source) => source.after.path === review.after.path)!.after.sha256 = '0'.repeat(64);
+      writeFileSync(join(destination, firstScreenReviewPath), JSON.stringify(moves));
+    }
+    if (mutation === 'prior-snapshot') writeFileSync(join(destination, planningPreMovePath), 'corrupt');
+    if (prior === 'rl-motion' && (mutation === 'prior-endpoint' || mutation === 'prior-disclosure')) {
       const continuity = JSON.parse(readFileSync(join(destination, continuityPath), 'utf8')) as {
         entries: { article: string; current: Artifact; requiredPresent: string[] }[];
       };
@@ -251,20 +341,30 @@ it.each(restores.flatMap(({ slug, prior }) => articleMutations
         .push('A phrase the restored article does not carry.');
       writeFileSync(join(destination, dependencyPath), JSON.stringify(dependencies));
     }
-    expect(() => round6ProseRestorePredecessor(destination, endpointOf(review), live))
-      .toThrow(/round6 prose restores article continuity drift|ENOENT/);
+    // The move review's own reader rejects drift in the inputs it gates.
+    const gatedByMove = prior === 'first-screen-cd' && ['prior-snapshot', 'release-disclosure'].includes(mutation);
+    expect(() => round6ProseRestorePredecessor(destination, endpointOf(review), live)).toThrow(gatedByMove
+      ? /round5 first-screen cd article continuity drift/ : /round6 prose restores article continuity drift|ENOENT/);
   } finally {
     rmSync(destination, { recursive: true, force: true });
   }
 });
 
 it('admits only the exact prose-restores reader revision above the round6 kinematics head', () => {
+  // This revision's output is now preserved as the input of the later
+  // round6 remaining-repairs reader revision, which the live checker reaches first.
+  const reviewedAfter = read('audit/evidence/motion-round6-remaining-repairs-20260929/audit-local-basis-before.ts.txt');
+  expect(reviewedAfter.length).toBe(113858);
+  expect(digest(reviewedAfter)).toBe('647d182bb6090f369f13a9a7076f2b6fad242f09ff0886d08c40b51fe01043e0');
   const live = read('lib/audit-local-basis.ts');
   const archived = read(`${directory}audit-local-basis-before.ts.txt`);
   expect(archived.length).toBe(113723);
   expect(digest(archived)).toBe('ab4e3d50ed3961a293d1e8b8a664d8e8de1f2f1e5cd93ee08785d5402a9465c6');
   const review = JSON.parse(read(`${directory}checker-transition.json`).toString()) as Review;
-  expect(review.after).toEqual({ path: 'lib/audit-local-basis.ts', bytes: live.length, sha256: digest(live) });
+  expect(review.after).toEqual({
+    path: 'lib/audit-local-basis.ts', bytes: reviewedAfter.length, sha256: digest(reviewedAfter),
+  });
+  expect(round6ProseRestoresCheckerPredecessor(root, reviewedAfter)).toEqual(archived);
   expect(round6ProseRestoresCheckerPredecessor(root, live)).toEqual(archived);
   expect(round6ProseRestoresCheckerPredecessor(root, archived)).toEqual(archived);
   const kinematicsArchived = read('audit/evidence/motion-round6-kinematics-reader-20260929/audit-local-basis-before.ts.txt');
@@ -273,12 +373,13 @@ it('admits only the exact prose-restores reader revision above the round6 kinema
   const hook = '  const current = round6ProseRestorePredecessor(root, ref, readBoundedLocalFile(root, ref.path));\n';
   const original = '  const current = readBoundedLocalFile(root, ref.path);\n';
   const importLine = "import { round6ProseRestorePredecessor } from './audit-round6-prose-restores-continuity.ts';\n";
-  expect(live.toString().split(hook)).toHaveLength(2);
-  expect(live.toString().split(importLine)).toHaveLength(2);
-  expect(live.toString().replace(hook, original).replace(importLine, '')).toBe(archived.toString());
-  for (const changed of [Buffer.concat([live, Buffer.from('\n')]), Buffer.from(live.toString().replace(hook, original))]) {
+  expect(reviewedAfter.toString().split(hook)).toHaveLength(2);
+  expect(reviewedAfter.toString().split(importLine)).toHaveLength(2);
+  expect(reviewedAfter.toString().replace(hook, original).replace(importLine, '')).toBe(archived.toString());
+  for (const changed of [Buffer.concat([reviewedAfter, Buffer.from('\n')]),
+    Buffer.from(reviewedAfter.toString().replace(hook, original))]) {
     expect(() => round6ProseRestoresCheckerPredecessor(root, changed)).toThrow(
-      /round6 prose restores checker continuity drift/,
+      /round6 remaining repairs checker continuity drift/,
     );
   }
 });
@@ -288,7 +389,10 @@ it.each(['missing-review', 'missing-predecessor', 'corrupt-predecessor', 'review
   'rejects %s in the prose-restores checker transition', mutation => {
     const reviewPath = `${directory}checker-transition.json`;
     const predecessorPath = `${directory}audit-local-basis-before.ts.txt`;
-    const destination = copied([reviewPath, predecessorPath]);
+    const destination = copied([reviewPath, predecessorPath,
+      'audit/evidence/motion-round6-remaining-repairs-20260929/checker-transition.json',
+      'audit/evidence/motion-round6-remaining-repairs-20260929/audit-local-basis-before.ts.txt',
+      'audit/evidence/motion-round6-remaining-repairs-20260929/classical-closure-evidence-before.test.ts.txt']);
     try {
       const live = read('lib/audit-local-basis.ts');
       expect(round6ProseRestoresCheckerPredecessor(destination, live)).toEqual(read(predecessorPath));

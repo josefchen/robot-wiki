@@ -29,7 +29,9 @@ for (const viewport of [{width:375,height:812},{width:1440,height:900}]) {
         expect(await paragraphs.count()).toBeGreaterThanOrEqual(3);
         for(let i=0;i<await paragraphs.count();i++)await text(paragraphs.nth(i),'servo-prose-'+(i+1));
         const term=prose.locator('[data-term-id="visual-servoing"]');await term.locator('a, button').first().focus();await expect(term.getByRole('tooltip')).toBeVisible();
-        await expect(term.getByRole('tooltip')).toContainText('local stability conditions');await term.evaluate(el=>window.scrollBy(0,el.getBoundingClientRect().top-(innerHeight-120)));const glossaryBox=await term.getByRole('tooltip').boundingBox();expect(glossaryBox!.y).toBeGreaterThanOrEqual(56);expect(glossaryBox!.y+glossaryBox!.height).toBeLessThanOrEqual(viewport.height);await capture('servo-glossary-focus',{glossaryBox});await page.keyboard.press('Escape');await page.keyboard.press('Tab');
+        await expect(term.getByRole('tooltip')).toContainText('local stability conditions');await term.evaluate(el=>window.scrollBy(0,el.getBoundingClientRect().top-(innerHeight-120)));
+        // The term re-places its tooltip in the next frame after a scroll, before that frame paints.
+        await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));const glossaryBox=await term.getByRole('tooltip').boundingBox();expect(glossaryBox!.y).toBeGreaterThanOrEqual(56);expect(glossaryBox!.y+glossaryBox!.height).toBeLessThanOrEqual(viewport.height);await capture('servo-glossary-focus',{glossaryBox});await page.keyboard.press('Escape');await page.keyboard.press('Tab');
       }else{
         await text(page.getByText('Ames nonlinear navigation studies',{exact:true}),'apollo-stat');
         const paragraphs=prose.locator('p').filter({has:page.locator('[data-cite-id="mcgee-schmidt-1985"]')});

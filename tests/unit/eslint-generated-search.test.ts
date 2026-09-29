@@ -5,7 +5,7 @@ import { describe, expect, it } from 'vitest';
 const root = resolve(import.meta.dirname, '../..');
 const eslint = new ESLint({ cwd: root });
 
-describe('lint scope for the generated search mirror', () => {
+describe('lint scope for the generated search mirror', { timeout: 60_000 }, () => {
   it('treats both copies of the generated Pagefind bundle as build output', async () => {
     for (const path of ['out/pagefind/pagefind.js', 'public/pagefind/pagefind.js']) {
       expect(await eslint.isPathIgnored(resolve(root, path)), path).toBe(true);

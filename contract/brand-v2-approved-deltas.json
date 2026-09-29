@@ -36672,6 +36672,74 @@
           "newHash": "ec8ddfe81684a9e34321102dd6b8543ce47c81018def615e68ad16242e7e6193"
         }
       ]
+    },
+    {
+      "id": "round6-prose-restores-20260929-prose-motion-planning",
+      "manifest": "prose",
+      "memberId": "article:classical/motion-planning",
+      "oldHash": "a74f0a8a4d1997310fcd85f3a92d2518cd1236e2ad7a7673fdf2ae3752050d84",
+      "newHash": "2adda289cb9e9894cbd0d2c24b7dca521678b48bd3a6ca80359e423c315b583c",
+      "reason": "Round-6 plain restore of four motion-planning qualifications (round-6 mechanical triage cases n51 and n67; the CHOMP scope of case n56 already reads plainly and is unchanged). The 2026-09-27 classical motion rewrite 5763e443 dropped four audited scopes: that constructing the collision-constrained space does not become impossible beyond a fixed number of dimensions (audit/classical.md motion-planning row 3), that the RRT exploration properties do not guarantee fast coverage on every problem (row 6), that the informed-sampling experiments do not establish a universal speedup (row 10), and that the improving-path statement is the paper's own description of its Sample routine, stronger than its admissible-superset construction supports (row 10). The verbatim pre-rewrite sentences put the article over the 2-per-1,000-word structural-tell floor and were reverted in a5b40f30, so each scope returns as a plain statement of the same limit without a contrast or section locator; the article measures 1.6 tells per 1,000 words. Nothing else changes. Its predecessor endpoint is round5-first-screen-cd-20260929-prose-motion-planning (a74f0a8a4d1997310fcd85f3a92d2518cd1236e2ad7a7673fdf2ae3752050d84).",
+      "ownerApproval": "Owner decision owner-decision-humanizer-pass-20260925 and owner decision owner-decision-motion-language-20260926 authorize fact-preserving prose revisions only; the round-6 mechanical triage of 2026-09-29 found that this motion rewrite removed audited qualifications, and the parent decided for the round-6 repair batch to restore them in plain wording that stays under the structural-tell floor. Prose restore only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-AUDIT-004",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "round6-remaining-repairs-20260929-article-metadata-taxonomy",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:world-models/taxonomy",
+      "oldHash": "4e12b547a06b9062f0f455222a5e7f117aacac5beabe67b4c21e4ff190ea76f9",
+      "newHash": "78576631a0b0df9778906ba498e6cd917eda3ca078bc3108dd804cf03d7462f8",
+      "reason": "Round-6 remaining repair of the world-model taxonomy search description (round-6 browser case n74). The 227-character description exceeded the 200-character og:description bound of tests/e2e/og-card-metadata.spec.ts and the 155-character owner limit. It now reads \"A world model predicts how an environment evolves in a form useful for a robot's decisions. Six example groups compared, from DreamerV3 to V-JEPA 2.\" (148 characters): the functional definition the article gives first, and the six authored example groups it compares, named by the first and last systems. The owner-sweep wording 'Six types compared, from Dreamer and TD-MPC2 to Cosmos, Genie 3 and V-JEPA 2' was not used, because 'types' would recast the authored selection of example groups as a taxonomy of types. Title, lastReviewed, route, sources, article body and social-card fact inputs are unchanged. Its predecessor endpoint is performance-worldmodels-20260908-15 (4e12b547a06b9062f0f455222a5e7f117aacac5beabe67b4c21e4ff190ea76f9).",
+      "ownerApproval": "The owner SEO decision of 2026-09-29 (owner-decision-seo-20260929.md, item 2) requires meta descriptions of 70 to 155 characters that state the page's answer and names /world-models/taxonomy/ among the worst cases; the parent assigned this repair to the round-6 remaining repairs batch (round-6 browser case n74). Description wording only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "round6-remaining-repairs-20260929-article-metadata-modules-taxonomy",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/modules.ts",
+      "oldHash": "cb42852ed8067761ad6c4b2cc9b6181524c34a8952134f793f78acf55ae285e3",
+      "newHash": "2b267908e3aba5449d21c513bfc85fecbc4adf623f0e0b1c7ce098c76c51806a",
+      "reason": "Round-6 remaining repair of the world-model taxonomy search description (round-6 browser case n74). The taxonomy entry in data/modules.ts carries the same description as the article frontmatter and changes with it, to the same 148-character text, written in double quotes because it contains an apostrophe. No other module entry, title, slug, domain or order changes. Its predecessor endpoint is seo-merge-20260916-article-metadata-140 (cb42852ed8067761ad6c4b2cc9b6181524c34a8952134f793f78acf55ae285e3).",
+      "ownerApproval": "The owner SEO decision of 2026-09-29 (owner-decision-seo-20260929.md, item 2) requires meta descriptions of 70 to 155 characters that state the page's answer and names /world-models/taxonomy/ among the worst cases; the parent assigned this repair to the round-6 remaining repairs batch (round-6 browser case n74). Description wording only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "round6-remaining-repairs-20260929-prose-state-estimation",
+      "manifest": "prose",
+      "memberId": "article:classical/state-estimation",
+      "oldHash": "66ff07c4d8909d3ca2468e0047dce4bf9cf453c18bc5005db836974d036b5532",
+      "newHash": "44e67a418495fda3d5386e3f5f03a80a968f0e1140e744bdf92b215e061cb01e",
+      "reason": "Round-6 remaining repair of the state-estimation operating cue (round-6 browser cases n28 and n29, VAL-EDU-045 clause d). The cue after the one-step Kalman scene read 'Step through it with the arrow keys', which names no rendered control. It now reads 'Try the Play button, or step through it with the arrow keys', so the adjacent prose names the scene's rendered Play button outside any closed details. No figure, claim, citation or other sentence changes. Its predecessor endpoint is motion-classical-humanizer-v3-20260927-prose-state-estimation (66ff07c4d8909d3ca2468e0047dce4bf9cf453c18bc5005db836974d036b5532).",
+      "ownerApproval": "Owner decision owner-decision-humanizer-pass-20260925 and owner decision owner-decision-motion-language-20260926 authorize fact-preserving prose revisions; the parent assigned this reader-cue repair to the round-6 remaining repairs batch (cases n28 and n29). Reader-cue wording only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-EDU-045",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

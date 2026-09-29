@@ -154,15 +154,25 @@ test.describe('References bibliography', () => {
         expect(href).toBe(citation.url);
         expect(href ?? '').toMatch(/^https:\/\//);
 
-        // The meta line is the registry record rendered verbatim: full
+        // The meta line is the registry record rendered verbatim: the
         // author list, venue only when the registry records one, and the
         // year, rendered once when the venue already states it ("RSS 2023."
-        // rather than "RSS 2023, 2023."). The derivation is inlined here so
-        // the spec does not grade the renderer with the renderer's own rule.
-        const expectedMeta = `${citation.authors.join(', ')}${
-          citation.venue ? `, ${citation.venue}` : ''
-        }${citation.venue?.includes(String(citation.year)) ? '' : `, ${citation.year}`}.`;
-        await expect(item.locator('p').first()).toHaveText(expectedMeta);
+        // rather than "RSS 2023, 2023."). A list longer than eight names
+        // shows the first eight and a count, and its toggle swaps in the
+        // full registry list. The derivation is inlined here so the spec
+        // does not grade the renderer with the renderer's own rule.
+        const trailing = `${citation.venue ? `, ${citation.venue}` : ''}${
+          citation.venue?.includes(String(citation.year)) ? '' : `, ${citation.year}`}.`;
+        const meta = item.locator('p').first();
+        const count = citation.authors.length;
+        if (count > 8) {
+          await expect(meta).toHaveText(
+            `${citation.authors.slice(0, 8).join(', ')}, and ${count - 8} more${trailing} Show all ${count} authors`);
+          await meta.getByRole('button', { name: `Show all ${count} authors`, exact: true }).click();
+          await expect(meta).toHaveText(`${citation.authors.join(', ')}${trailing} Show 8 authors`);
+        } else {
+          await expect(meta).toHaveText(`${citation.authors.join(', ')}${trailing}`);
+        }
         if (!citation.venue) sawVenuelessEntry = true;
 
         // The primary-source URL is visible and wraps inside the column.

@@ -283,8 +283,8 @@ export function HierarchyTimescales({
                   {lane.rate}
                 </span>
                 {!lane.disclosed && (
-                  <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-warn">
-                    schematic
+                  <span className="font-mono text-[10px] text-warn">
+                    Schematic
                   </span>
                 )}
                 <span className="ml-auto font-mono text-xs text-text-dim">

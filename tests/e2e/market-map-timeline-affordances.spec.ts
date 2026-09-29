@@ -200,9 +200,11 @@ test.describe('timeline view roving keyboard affordances', () => {
         title: '1.5B yuan / $222M',
       },
       {
+        // The owner-approved 2026-08-25 source repair replaced the Ola China
+        // report with Pandaily's report of the same round.
         id: 'tars-robotics',
-        href: 'https://olachina.org/tars-ai/',
-        title: "China's TARS AI Raises $455M",
+        href: 'https://pandaily.com/tars-raises-455-m-pre-a-round-setting-record-in-china-s-embodied-ai-sector',
+        title: 'TARS Raises $455M Pre-A Round',
       },
       {
         id: 'carbon-robotics',
