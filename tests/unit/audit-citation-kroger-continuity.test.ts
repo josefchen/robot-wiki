@@ -11,7 +11,8 @@ import {
   verifyTechnologyWithdrawalRegistryTransition,
 } from '../../lib/audit-local-basis';
 import { verifyKrogerReaderObservation } from '../../lib/audit-corrected-disposition';
-import { currentDataHardwareMotionArtifact } from '../../lib/audit-data-hardware-motion-continuity';
+import { currentDataHardwareMotionArtifact, loadDataHardwareMotionReview } from '../../lib/audit-data-hardware-motion-continuity';
+import { round6ProseRestorePredecessor } from '../../lib/audit-round6-prose-restores-continuity';
 import {
   compoundPartDigest,
   compoundPlanDigest,
@@ -96,7 +97,11 @@ describe('finite Kroger source and historical correction continuation', () => {
     expect(after.replace('2021–2024 each above 500k', '2021-2024 each above 500k'))
       .toBe(withdrawalBefore);
     const live = readFileSync(review.articleAfter.path);
-    const preMotion = currentDataHardwareMotionArtifact(process.cwd(), 2, live).toString();
+    // The live article is the reviewed 2026-09-29 prose restore; the motion
+    // review still gates the pre-restore bytes that restore was made from.
+    const preRestore = round6ProseRestorePredecessor(process.cwd(),
+      loadDataHardwareMotionReview(process.cwd()).entries[2].current, live);
+    const preMotion = currentDataHardwareMotionArtifact(process.cwd(), 2, preRestore).toString();
     expect(verifyTechnologyWithdrawalArticleTransition(withdrawalBefore, preMotion))
       .toBe(true);
     expect(verifyTechnologyWithdrawalArticleTransition(withdrawalBefore, live.toString()))

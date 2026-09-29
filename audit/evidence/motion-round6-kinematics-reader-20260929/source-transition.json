@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "round6-kinematics-reader-source-continuity-v1",
+  "name": "retained-kinematics-reader",
+  "reviewedBy": "Round-6 repair implementer, not independent acceptance",
+  "rationale": "Thirty-seven classical-closure observed-behavior proofs (the five RRT states for motion-planning 15 and the eight error-budget states for perception 1, 2, 3 and 7) pin tests/e2e/kinematics.spec.ts, as an artifact and as their run's test, at the bytes their recorded 2026-09-23 browser run used. The FK-chain motion scene now on the kinematics page has a poster reset control whose name also matches /reset/i, so the FK visualizer tests resolved two buttons; and a slider event sent after React attaches fibers but before Next commits the initial route was lost, which left the base joint at 110 degrees and once left the perception budget at its opening total. The repair names the lab's exact Reset control in the two FK visualizer tests, waits for hydration before the base-joint slider is operated, and makes the closure test's page readiness also wait for the committed route. The archived predecessor is byte-identical to the endpoint the proofs pin, and the live file is exactly the named edit list applied to it. The edits keep the same number of assertion lines and every derivation, readout and slider-bound check the proofs rely on. No run was repeated for any proof, and no verdict, claim, citation or ledger cell changed; the recorded run stays historical. This review claims only these exact edits.",
+  "observedAt": "2026-09-29T07:55:30Z",
+  "sources": [
+    {
+      "name": "kinematics-spec-exact-reset-hydrated",
+      "before": {
+        "path": "audit/evidence/motion-round6-kinematics-reader-20260929/kinematics-spec-before.ts.txt",
+        "bytes": 20967,
+        "sha256": "80dfdd9bf5871b7bf57af3aba585268367c06e0333a5ad496200a67d1d9cf286"
+      },
+      "after": {
+        "path": "tests/e2e/kinematics.spec.ts",
+        "bytes": 21269,
+        "sha256": "9119b301459511dffd0708f878072974d7c49d21cdc79c95aab7f494ab31e12e"
+      },
+      "consumers": [
+        "rrt15-observed-opening",
+        "rrt15-observed-step",
+        "rrt15-observed-playback",
+        "rrt15-observed-scrub",
+        "rrt15-observed-reset",
+        "p1-observed-opening",
+        "p1-observed-near",
+        "p1-observed-far",
+        "p1-observed-zeroFar",
+        "p1-observed-zeroNear",
+        "p1-observed-specular",
+        "p1-observed-transparent",
+        "p1-observed-reset",
+        "p2-observed-opening",
+        "p2-observed-near",
+        "p2-observed-far",
+        "p2-observed-zeroFar",
+        "p2-observed-zeroNear",
+        "p2-observed-specular",
+        "p2-observed-transparent",
+        "p2-observed-reset",
+        "p3-observed-opening",
+        "p3-observed-near",
+        "p3-observed-far",
+        "p3-observed-zeroFar",
+        "p3-observed-zeroNear",
+        "p3-observed-specular",
+        "p3-observed-transparent",
+        "p3-observed-reset",
+        "p7-observed-opening",
+        "p7-observed-near",
+        "p7-observed-far",
+        "p7-observed-zeroFar",
+        "p7-observed-zeroNear",
+        "p7-observed-specular",
+        "p7-observed-transparent",
+        "p7-observed-reset"
+      ]
+    }
+  ]
+}

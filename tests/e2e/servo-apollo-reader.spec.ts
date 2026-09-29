@@ -1,11 +1,11 @@
 import { test, expect, type Locator } from './servo-apollo-fixture';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
+import { readerGateInputs } from './helpers/reader-gate-inputs';
 for (const viewport of [{width:375,height:812},{width:1440,height:900}]) {
   test(`servo and Apollo source reader at ${viewport.width}px`, async ({page},testInfo) => {
     const captures: object[] = []; const errors: string[] = [];
-    const inputPath=process.env.ROBOT_WIKI_GATE_INPUTS!;
-    const inputSha256=createHash('sha256').update(readFileSync(inputPath)).digest('hex');
+    const {inputPath,inputSha256}=readerGateInputs(testInfo,'servo-apollo');
     page.on('pageerror',e=>errors.push(e.message)); page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
     await page.setViewportSize(viewport);
     const capture=async(name:string,state:object={})=>{

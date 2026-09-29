@@ -16,6 +16,8 @@ import { retainedCommitToRevealSource } from './audit-shared-ui-local-basis-cont
 import { retainedFrictionTransferSource, retainedRound5FirstScreenArticle } from './audit-round5-pinned-leftovers-continuity.ts';
 import { retainedRound5FirstScreenCdArticle, round5FirstScreenCdEndpoint } from './audit-round5-first-screen-cd-continuity.ts';
 import { retainedRound5ReaderPinSource, round5ReaderPinEndpoint } from './audit-round5-reader-pins-continuity.ts';
+import { retainedRound6KinematicsReaderSource, round6KinematicsReaderEndpoint } from './audit-round6-kinematics-reader-continuity.ts';
+import { round6ProseRestorePredecessor } from './audit-round6-prose-restores-continuity.ts';
 import {
   currentDataHardwareMotionArtifact,
 } from './audit-data-hardware-motion-continuity.ts';
@@ -903,7 +905,7 @@ function verifyMergedControlArticle(root: string, current: Buffer): Buffer {
   return local;
 }
 function readRetainedDependency(root: string, ref: LocalArtifact, parsedInputCache?: Map<string, unknown>): Buffer {
-  const current = readBoundedLocalFile(root, ref.path);
+  const current = round6ProseRestorePredecessor(root, ref, readBoundedLocalFile(root, ref.path));
   const readContinuity = () => readKrogerContinuity(root, parsedInputCache);
   if (current.length === ref.bytes && sha256(current) === ref.sha256) return current;
   if ((ref.path === 'components/interactive/gait-diagram.tsx' &&
@@ -930,6 +932,9 @@ function readRetainedDependency(root: string, ref: LocalArtifact, parsedInputCac
   }
   if (round5ReaderPinEndpoint(ref)) {
     return retainedRound5ReaderPinSource(root, ref.path, current);
+  }
+  if (round6KinematicsReaderEndpoint(ref)) {
+    return retainedRound6KinematicsReaderSource(root, ref.path, current, parsedInputCache);
   }
   if (['content/rl-sim2real/parallel-sim-rl.mdx',
     'content/rl-sim2real/legged-locomotion.mdx',

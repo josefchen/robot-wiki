@@ -3,11 +3,11 @@ import { getTerm } from '../../data/glossary';
 import { writeFileSync, readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { ownedEvidencePath } from './helpers/keypoint-reader-oracle';
+import { readerGateInputs } from './helpers/reader-gate-inputs';
 
 test('RRT report correction, bibliography date and full configuration-space definition render together', async ({ page }, info) => {
   const states: object[] = [];
-  const inputPath = process.env.ROBOT_WIKI_GATE_INPUTS!;
-  const root = process.env.ROBOT_WIKI_EVIDENCE_ROOT;
+  const { root, inputPath } = readerGateInputs(info, 'motion-planning');
   const capture = async (name: string) => {
     const path = ownedEvidencePath(root, info.outputPath(`${name}.png`));
     await page.screenshot({ path, animations: 'disabled' });

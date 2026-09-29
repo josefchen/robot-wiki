@@ -28,7 +28,8 @@ describe('GRS and Eureka retained source scope', () => {
   });
 
   it('preserves headline-versus-detailed result and normalization distinctions', () => {
-    expect(reward()).toContain('Some were ties');
+    expect(reward()).toContain('matching or exceeding the human reward on all nine Isaac tasks');
+    expect(reward()).not.toContain('Some were ties');
     expect(reward()).toContain('maximum task fitness over ten fixed-interval checkpoints');
     expect(reward()).toContain('adjust each score to lie in `[0, 3]`');
     expect(reward()).toContain('does not express a 52-percentage-point increase');

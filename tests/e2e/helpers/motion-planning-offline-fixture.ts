@@ -1,16 +1,13 @@
 import { test as base, expect } from '@playwright/test';
-import { readFileSync, writeFileSync } from 'node:fs';
-import { createHash } from 'node:crypto';
+import { writeFileSync } from 'node:fs';
 import { ownedEvidencePath } from './keypoint-reader-oracle';
+import { readerGateInputs } from './reader-gate-inputs';
 export { expect, type Locator, type Page } from '@playwright/test';
 
 // Instrument all contexts, including the existing spec's explicit browser.newContext cases.
 export const test = base.extend<{ motionOffline: void }>({
   motionOffline: [async ({ browser }, runFixture, testInfo) => {
-    const root = process.env.ROBOT_WIKI_EVIDENCE_ROOT;
-    const inputPath = process.env.ROBOT_WIKI_GATE_INPUTS;
-    if (!inputPath) throw new Error('ROBOT_WIKI_GATE_INPUTS is required');
-    const inputSha256 = createHash('sha256').update(readFileSync(inputPath)).digest('hex');
+    const { root, inputPath, inputSha256 } = readerGateInputs(testInfo, 'motion-planning');
     const contexts: { viewport: object | null; external: string[]; errors: string[]; navigations: string[]; overflow: number[] }[] = [];
     const original = browser.newContext.bind(browser);
     browser.newContext = async options => {

@@ -106,14 +106,14 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
           'feature enhancer, language-guided query selection and cross-modality decoder',
           'weak referring-expression performance without REC training data', '52.5 AP on COCO 2017 validation',
           'Grounding DINO L with a Swin-L backbone', 'O365, OpenImage and GoldG',
-          'not that its object categories were absent from pretraining',
+          'Its object categories may still occur in pretraining',
         ] },
         { start: 'DINOv2 learns', parts: ['LVD-142M', 'image encoder frozen while training task-specific predictors',
-          'linear or DPT depth heads', 'does not mean that no downstream predictor is trained'] },
+          'linear or DPT depth heads', 'downstream predictors are trained'] },
         { start: 'Segment Anything (SAM, 2023)', parts: ['1.1 billion automatically generated masks from 11 million images',
-          'samples and filters masks', 'rather than establishing that every mask is used', 'multiple candidate masks'] },
+          'samples and filters masks', 'with no accounting of every mask used', 'multiple candidate masks'] },
         { start: 'The paper evaluates zero-shot', parts: ["ground-truth mask's center", "SAM's most confident mask",
-          '16 of those 23 datasets, not all', 'oracle result selects the best mask using ground truth',
+          '16 of those 23 datasets', 'oracle result selects the best mask using ground truth',
           'separately trained, CLIP-conditioned proof of concept', 'precomputed image embedding',
           'heavy image encoder prevents overall real-time performance'] },
         { start: 'SAM 2 extends', parts: ['28 October 2024', 'SAM 2.1', 'simulated comparison on nine',
@@ -121,7 +121,8 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
           'IoU exceeds 0.8', 'Those baseline descriptions do not fully agree'] },
         { start: 'The image-speed comparison', parts: ['SA-1B-only', 'Hiera-B+', 'ViT-H', '58.9 versus 58.1',
           '130.1 versus 21.7 images per second', 'one A100, with image batches of 10',
-          'PyTorch 2.3.1, CUDA 12.1, bfloat16', 'not single-image latency',
+          'PyTorch 2.3.1, CUDA 12.1, bfloat16',
+          'single-image latency, video-tracking speed and robot control frequency need separate measurements',
           '37 datasets', '17 datasets'] },
         { start: 'These are model- and protocol-specific', parts: ['61.4', '61.9', 'unresolved source inconsistency',
           'OVIS is not strictly zero-shot', 'MOSE training data'] },
@@ -226,15 +227,15 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
       // Actual dynamic mount is reached, not inferred from authored markers.
       const budget = page.getByTestId('perception-budget');
       await expect(budget).toBeVisible();
-      for (const id of ['realsense-d400-datasheet-2026', 'cleargrasp-2020']) {
-        await expect(budget.locator(`[data-cite-id="${id}"]`)).toHaveCount(1);
-        groups.push({ id, attr: 'data-cite-id', count: 1 });
-      }
+      await expect(budget.locator('[data-cite-id="realsense-d400-datasheet-2026"]')).toHaveCount(1);
+      groups.push({ id: 'realsense-d400-datasheet-2026', attr: 'data-cite-id', count: 1 });
+      // The classical closeout removed the unsupported ClearGrasp budget claim and its chip.
+      await expect(budget.locator('[data-cite-id="cleargrasp-2020"]')).toHaveCount(0);
       const observations = [], failures: string[] = [];
       try {
         for (const group of groups) {
           expect(group.count).toBeGreaterThan(0);
-          const dynamic = ['realsense-d400-datasheet-2026', 'cleargrasp-2020'].includes(group.id);
+          const dynamic = group.id === 'realsense-d400-datasheet-2026';
           const roots = (dynamic ? budget : page.locator('div.prose')).locator(`[${group.attr}="${group.id}"]`);
           await expect(roots).toHaveCount(group.count);
           for (let occurrence = 0; occurrence < group.count; occurrence++) {

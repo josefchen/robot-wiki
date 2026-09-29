@@ -35,9 +35,9 @@ test('Symbotic A3 current quantities and source scopes', async ({ page }, info) 
   const financial = prose.locator('p').filter({ hasText: "Symbotic's FY2025 Form 10-K distinguishes" });
   const a3 = prose.locator('p').filter({ hasText: "In A3's North American order data" });
   const brownfield = prose.locator('p').filter({ hasText: 'non-collaborative robot applications during automatic operation' });
-  for (const text of ['approximately $22.5 billion', 'September 27, 2025', '$2.246922 billion', 'not revenue already earned', 'May 2022', 'all 42', 'contractual scope, not a count of operating sites', '50 systems in deployment and 48 operational systems under software maintenance and support contracts', 'then expected approximately 12 percent', 'not an order-to-running duration', 'estimates can change']) await expect(financial).toContainText(text, { useInnerText: true });
+  for (const text of ['approximately $22.5 billion', 'September 27, 2025', '$2.246922 billion', 'not revenue already earned', 'May 2022', 'all 42', 'contractual scope, without an operating-site count', '50 systems in deployment and 48 operational systems under software maintenance and support contracts', 'then expected approximately 12 percent', 'That forecast concerns revenue recognition; it gives no order-to-running duration.', 'estimates can change']) await expect(financial).toContainText(text, { useInnerText: true });
   for (const text of ['North American order data for 2025', '7,212', '$241 million', '19.6 percent of the 36,766', '10.7 percent of the $2.25 billion', 'Q1 2025']) await expect(a3).toContainText(text, { useInnerText: true });
-  for (const text of ['interlocked guards', 'enabling device', 'lockout/tagout', '29 CFR 1910.147 or 29 CFR 1910.333', 'Separately, Symbotic', 'company-reported capability, not a guarantee']) await expect(brownfield).toContainText(text, { useInnerText: true });
+  for (const text of ['interlocked guards', 'enabling device', 'lockout/tagout', '29 CFR 1910.147 or 29 CFR 1910.333', 'Separately, Symbotic', 'this company-reported capability carries no guarantee for every retrofit']) await expect(brownfield).toContainText(text, { useInnerText: true });
   await expect(brownfield).not.toContainText('schedule cannot stop');
   await expect(a3).not.toContainText('lower-volume shops');
   const captures = [];

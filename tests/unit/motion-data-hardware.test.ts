@@ -135,15 +135,24 @@ describe('data-hardware prose truth', () => {
         entry.id === `motion-data-hardware-source-qualification-20260927-prose-${slug}`)!;
       // The round-5 pinned-leftover repair later moved evaluation-crisis's
       // first interactive with one plain edge from the qualification endpoint.
-      const later = slug === 'evaluation-crisis'
-        ? edges.filter((entry) => entry.id === 'round5-pinned-leftovers-20260928-prose-evaluation-crisis')
-        : [];
+      // The round-6 prose restore of the Vulcan coverage scope re-resolved
+      // industrial-deployment from its seal, reconciling the qualification.
+      const later = edges.filter((entry) => entry.id === (slug === 'evaluation-crisis'
+        ? 'round5-pinned-leftovers-20260928-prose-evaluation-crisis'
+        : 'round6-prose-restores-20260929-prose-industrial-deployment'));
       expect(edges.slice(edges.indexOf(qualification))).toEqual([qualification, ...later]);
       for (const [index, edge] of later.entries()) {
-        expect(edge.reconciles).toBeUndefined();
-        expect(edge.oldHash).toBe((index === 0 ? qualification : later[index - 1]).newHash);
+        if (slug === 'evaluation-crisis') {
+          expect(edge.reconciles).toBeUndefined();
+          expect(edge.oldHash).toBe((index === 0 ? qualification : later[index - 1]).newHash);
+        } else {
+          expect(edge.oldHash).toBe(sealed);
+          expect(edge.reconciles?.at(-1)).toEqual({
+            id: qualification.id, oldHash: qualification.oldHash, newHash: qualification.newHash,
+          });
+        }
       }
-      expect(later).toHaveLength(slug === 'evaluation-crisis' ? 1 : 0);
+      expect(later).toHaveLength(1);
       expect(latest.newHash).toBe(current);
       expect(approvedDeltaPath(edges, sealed, current).status).toBe('approved');
       expect(approvedDeltaPath(edges.slice(0, -1), sealed, current).status).not.toBe('approved');

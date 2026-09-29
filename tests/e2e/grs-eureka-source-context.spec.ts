@@ -30,14 +30,14 @@ for (const width of [1440, 375]) {
     await page.goto('/world-models/generative-sim/');
     const prose = page.locator('div.prose[data-pagefind-body]');
     const mechanism = prose.locator('p').filter({ hasText: /^GRS starts from/ });
-    const limits = prose.locator('p').filter({ hasText: /^This is a bounded real-to-sim authoring/ });
+    const limits = prose.locator('p').filter({ hasText: /^This bounded real-to-sim authoring procedure/ });
     await expect(mechanism).toHaveCount(1);
     await expect(limits).toContainText('exclude runtime-error cases');
     await expect(limits).toContainText('Sim-to-real training and transfer remain future work');
     for (const paragraph of [mechanism, limits]) {
       await expect(paragraph.locator('[data-cite-id="grs-2024"] a[href="https://arxiv.org/abs/2410.15536"]')).toHaveCount(1);
     }
-    const eureka = prose.locator('li').filter({ hasText: 'Task fitness need not capture human intent.' })
+    const eureka = prose.locator('li').filter({ hasText: 'Task fitness may miss human intent.' })
       .locator('[data-cite-id="eureka-2024"]');
     await eureka.locator('a[href^="http"]').focus();
     const popup = await eureka.getByRole('tooltip').boundingBox();
@@ -64,9 +64,10 @@ for (const width of [1440, 375]) {
     page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); });
     await page.goto('/rl-sim2real/reward-design-mpc/');
     const prose = page.locator('div.prose[data-pagefind-body]');
-    await expect(prose).toContainText('not strict wins everywhere');
+    await expect(prose).toContainText(
+      'matching or exceeding the human reward on all nine Isaac tasks and 15 of the 20 Dexterity tasks');
     await expect(prose).toContainText('maximum task fitness over ten fixed-interval checkpoints');
-    await expect(prose).toContainText('not a 52-percentage-point increase');
+    await expect(prose).toContainText('does not express a 52-percentage-point increase');
     const eureka = prose.locator('p').filter({ hasText: /^Eureka searches over reward code/ })
       .locator('[data-cite-id="eureka-2024"]');
     await eureka.locator('a[href^="http"]').focus();

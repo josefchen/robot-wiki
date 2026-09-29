@@ -70,7 +70,7 @@ Action Chunking with Transformers (ACT), introduced together with the ALOHA bima
 
 The 14 action coordinates are six arm joints and one gripper coordinate per arm. The ACT hardware description names two six-DoF ViperX arms; the paper's “7+7=14 DoF” shorthand counts the gripper coordinates too, so it never means seven arm joints <Cite id="act-aloha-2023" />. Mobile ALOHA explicitly describes its 14 arm-action coordinates as including two continuous gripper actions <Cite id="mobile-aloha-2024" />.
 
-The objective in the card follows ACT's implementation description: the experiments specify L1 reconstruction, while the printed algorithm uses MSE, with a weighted KL regularizer in both accounts <Cite id="act-aloha-2023" />. The paper is internally inconsistent here; the card pins the L1 choice for this implementation and claims nothing about a universal ACT objective.
+The objective in the card follows ACT's implementation description, which specifies L1 reconstruction; the printed algorithm uses MSE, with a weighted KL regularizer in both accounts <Cite id="act-aloha-2023" />. The paper is internally inconsistent here; the card pins the L1 choice for this implementation and claims nothing about a universal ACT objective.
 
 ### The chunk-size dial
 

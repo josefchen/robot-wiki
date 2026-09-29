@@ -1,6 +1,7 @@
 import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { setSlider } from './slider';
+import { CITATIONS } from '../../data/citations';
 import {
   SLIDER_MAX,
   SLIDER_MIN,
@@ -88,7 +89,7 @@ test.describe('frontier generalization module', () => {
     const main = page.locator('#main-content');
     await expect(
       main.getByRole('link', { name: 'Black 2025' }).first(),
-    ).toHaveAttribute('href', 'https://arxiv.org/abs/2504.16054');
+    ).toHaveAttribute('href', CITATIONS.find((c) => c.id === 'pi05-2025')!.url);
     await expect(
       main.getByRole('link', { name: 'Zheng 2026' }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2602.16710');
