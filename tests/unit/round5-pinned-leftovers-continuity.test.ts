@@ -149,7 +149,7 @@ it('admits only the exact named checker revision above the shared-ui predecessor
   expect(round5PinnedLeftoversCheckerPredecessor(root, archived)).toEqual(archived);
   expect(() => round5PinnedLeftoversCheckerPredecessor(root,
     Buffer.concat([reviewedAfter, Buffer.from('\n')]))).toThrow(
-    /round6 prose restores checker continuity drift/,
+    /round6 remaining repairs checker continuity drift/,
   );
 });
 
@@ -164,7 +164,10 @@ it.each(['missing-review', 'missing-predecessor', 'corrupt-predecessor', 'wrong-
       'audit/evidence/motion-round6-kinematics-reader-20260929/checker-transition.json',
       'audit/evidence/motion-round6-kinematics-reader-20260929/audit-local-basis-before.ts.txt',
       'audit/evidence/motion-round6-prose-restores-20260929/checker-transition.json',
-      'audit/evidence/motion-round6-prose-restores-20260929/audit-local-basis-before.ts.txt']);
+      'audit/evidence/motion-round6-prose-restores-20260929/audit-local-basis-before.ts.txt',
+      'audit/evidence/motion-round6-remaining-repairs-20260929/checker-transition.json',
+      'audit/evidence/motion-round6-remaining-repairs-20260929/audit-local-basis-before.ts.txt',
+      'audit/evidence/motion-round6-remaining-repairs-20260929/classical-closure-evidence-before.test.ts.txt']);
     try {
       const live = read('lib/audit-local-basis.ts');
       expect(round5PinnedLeftoversCheckerPredecessor(destination, live))

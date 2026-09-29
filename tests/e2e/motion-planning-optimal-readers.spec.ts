@@ -132,12 +132,12 @@ test('optimal corrections retain qualifications, three repaired display blocks a
     ['forest-building version', 'rejects connections within an already connected component', 'fixed-radius simplified PRM'],
     ['keeps its feasible nearest parent', 'collision-free route through the new vertex lowers their cost'],
     ['print different sufficient bounds', 'not a claim that the coefficient is minimal'],
-    ['bounded Euclidean domain', 'not differential constraints', 'weak clearance', 'bounded-variation norm'],
-    ['not a promise of an exact optimum after a finite budget', 'measure zero'],
+    ['bounded Euclidean domain', 'Differential constraints fall outside this setup', 'weak clearance', 'bounded-variation norm'],
+    ['a finite budget may still leave a suboptimal path', 'measure zero'],
     ["not bound every iteration's elapsed time", 'collision-check count grows'],
     ['admissible lower bound', 'need not be collision-free', 'Before the first finite-cost solution, it samples globally'],
-    ['not a universal speedup', '100 runs per variation', '60 seconds', 'no focusing advantage'],
-    ['wording exceeds the admissible-superset construction', 'ongoing work', 'does not supply a settled new threshold', 'project documentation lists implementations', 'external collision-checking and visualization components'],
+    ['do not establish a universal speedup', '100 runs per variation', '60 seconds', 'no focusing advantage'],
+    ['a stronger claim than the admissible-superset construction', 'ongoing work', 'without a settled new threshold', 'project documentation lists implementations', 'external collision-checking and visualization components'],
   ];
   for (const [index, expected] of groups.entries()) {
     const paragraph = prose.locator(':scope > p').filter({ hasText: expected[0] });

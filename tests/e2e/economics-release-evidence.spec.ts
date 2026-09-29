@@ -32,7 +32,7 @@ test('industrial52 actual default robot-cost endpoints and reset', async ({ page
   await page.setViewportSize({ width: 1440, height: 1100 });
   expect((await page.goto(`${staticBase}${ROUTE}`))?.status()).toBe(200);
   await page.evaluate(() => document.fonts.ready);
-  const mount = page.locator('div.prose > div.rounded-md:has([data-testid="payback-months"])');
+  const mount = page.locator('div.prose > [data-brand-module-signature="instrument-frame"]:has([data-testid="payback-months"])');
   await expect(mount).toHaveCount(1);
   const slider = mount.getByRole('slider', { name: /robot cost/i });
   const controls = [/robot cost/i, /integration multiple/i, /cycle time/i, /uptime/i, /per-pick success/i, /jam-clearing time/i, /displaced wage/i];
@@ -62,7 +62,7 @@ test('industrial52 actual default robot-cost endpoints and reset', async ({ page
       ['breakdown-jams', 'jamClearing', 'jam clearing'],
       ['breakdown-downtime', 'downtime', 'downtime'],
     ] as const) await expect(mount.getByTestId(id)).toHaveText(`${label} ${o.timeBreakdown[key].toFixed(0)} s`);
-    await expect(page.locator('p').filter({ hasText: /^This calculator is an authored worked example/ })).toContainText('not a sourced arm-price quote');
+    await expect(page.locator('p').filter({ hasText: /^This calculator is an authored worked example/ })).toContainText('no sourced arm-price quote');
     await expect(page.locator('p').filter({ hasText: 'The calculator above reports capital cost per modeled pick' })).toContainText('It does not include running costs.');
     await mount.evaluate(el => window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - 100));
     observations.push({ name, input, mountId: 'mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1',

@@ -67,7 +67,7 @@ for (const width of [375, 1440]) {
       await page.screenshot({ caret: 'initial', path: info.outputPath('header.png') });
       const prose = page.locator('div.prose[data-pagefind-body]');
       if (route.slug === 'taxonomy') {
-        await expect(page.getByText('An editorial comparison of six world-model example groups:', { exact: false }).first()).toBeVisible();
+        await expect(page.getByText('Six example groups compared, from DreamerV3 to V-JEPA 2.', { exact: false }).first()).toBeVisible();
         await expect(page.locator('#the-six-paradigms')).toHaveCount(1);
       }
       const correction = prose.getByText(route.text, { exact: false }).first();

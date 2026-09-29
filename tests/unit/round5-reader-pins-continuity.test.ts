@@ -8,6 +8,7 @@ import { round5FirstScreenCdCheckerPredecessor } from '../../lib/audit-round5-fi
 import {
   retainedRound5ReaderPinSource, round5ReaderPinEndpoint, round5ReaderPinsCheckerPredecessor,
 } from '../../lib/audit-round5-reader-pins-continuity.ts';
+import { round6RemainingRepairPredecessor } from '../../lib/audit-round6-remaining-repairs-continuity.ts';
 
 const root = resolve(import.meta.dirname, '../..');
 const directory = 'audit/evidence/motion-round5-reader-pins-20260929/';
@@ -21,6 +22,10 @@ type Source = { name: string; before: Artifact; after: Artifact; consumers: stri
 const review = JSON.parse(read(`${directory}source-transition.json`).toString()) as { sources: Source[] };
 const endpoint = (source: Source): Artifact =>
   ({ path: source.after.path, bytes: source.before.bytes, sha256: source.before.sha256 });
+// The round-6 remaining repairs later edited the citation chip and the
+// citation-refresh spec; their reviewed successor returns this revision's
+// output, which is what the reader-pins review still names.
+const reviewedLive = (artifact: Artifact) => round6RemainingRepairPredecessor(root, artifact, read(artifact.path));
 
 const sourcePaths = [
   `${directory}source-transition.json`,
@@ -49,7 +54,7 @@ it('returns each archived predecessor exactly where the correction records and t
     'cite-single-open-tooltip', 'term-overflow-keys',
   ]);
   for (const source of review.sources) {
-    const live = read(source.after.path);
+    const live = reviewedLive(source.after);
     const archived = read(source.before.path);
     expect({ bytes: archived.length, sha256: digest(archived) })
       .toEqual({ bytes: source.before.bytes, sha256: source.before.sha256 });
@@ -87,14 +92,14 @@ it('keeps every recorded check in the specs and only inserts reader code in the 
     expect(once(controlBefore, line) && once(controlAfter, line)).toBe(true);
   }
   const refreshBefore = read(refresh.before.path).toString();
-  const refreshAfter = read(refresh.after.path).toString();
+  const refreshAfter = reviewedLive(refresh.after).toString();
   expect(assertions(refreshAfter)).toBe(assertions(refreshBefore));
   expect(refreshAfter.split('\n').length).toBe(refreshBefore.split('\n').length);
   expect(refreshBefore.split('\n').filter((line, index) => line !== refreshAfter.split('\n')[index]))
     .toEqual(["  return page.locator('div.prose > div.rounded-md:has([data-testid=\"payback-months\"])');"]);
   for (const component of components) {
     const before = read(component.before.path).toString().split('\n');
-    const after = read(component.after.path).toString().split('\n');
+    const after = reviewedLive(component.after).toString().split('\n');
     let cursor = 0;
     for (const line of after) if (line === before[cursor]) cursor += 1;
     expect(cursor).toBe(before.length);
@@ -181,7 +186,7 @@ it('admits only the exact named reader revision above the round5 first-screen cd
   for (const changed of [Buffer.concat([reviewedAfter, Buffer.from('\n')]),
     Buffer.from(reviewedAfter.toString().replace(branch, ''))]) {
     expect(() => round5ReaderPinsCheckerPredecessor(root, changed)).toThrow(
-      /round6 prose restores checker continuity drift/,
+      /round6 remaining repairs checker continuity drift/,
     );
   }
 });
@@ -195,7 +200,10 @@ it.each(['missing-review', 'missing-predecessor', 'corrupt-predecessor', 'review
       'audit/evidence/motion-round6-kinematics-reader-20260929/checker-transition.json',
       'audit/evidence/motion-round6-kinematics-reader-20260929/audit-local-basis-before.ts.txt',
       'audit/evidence/motion-round6-prose-restores-20260929/checker-transition.json',
-      'audit/evidence/motion-round6-prose-restores-20260929/audit-local-basis-before.ts.txt']);
+      'audit/evidence/motion-round6-prose-restores-20260929/audit-local-basis-before.ts.txt',
+      'audit/evidence/motion-round6-remaining-repairs-20260929/checker-transition.json',
+      'audit/evidence/motion-round6-remaining-repairs-20260929/audit-local-basis-before.ts.txt',
+      'audit/evidence/motion-round6-remaining-repairs-20260929/classical-closure-evidence-before.test.ts.txt']);
     try {
       const live = read('lib/audit-local-basis.ts');
       expect(round5ReaderPinsCheckerPredecessor(destination, live)).toEqual(read(predecessorPath));

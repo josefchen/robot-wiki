@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { waitForHydration } from './interaction-ready';
 
 test.beforeEach(async ({ context }) => {
   await context.route('**/*', route => {
@@ -47,6 +48,9 @@ for (const width of [1440, 375]) {
     const authors = page.locator('[data-reference-id="grs-2024"] [data-author-names]');
     await expect(authors).toHaveText('Alex Zook, Fan-Yun Sun, Josef Spjut, Valts Blukis, Stan Birchfield, Jonathan Tremblay');
     const physics = page.getByRole('button', { name: /^physics proxy$/i });
+    // Nothing earlier in this test needs a hydrated control, so the first
+    // key press can arrive before the handler exists.
+    await waitForHydration(physics);
     await physics.focus();
     await page.keyboard.press('Enter');
     await expect(physics).toHaveAttribute('aria-pressed', 'true');

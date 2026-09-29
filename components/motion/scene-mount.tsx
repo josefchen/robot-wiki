@@ -92,7 +92,6 @@ export function SceneMount({
         className={className}
       >
         <InstrumentHeader
-          label="motion scene"
           meta={
             <span data-testid="motion-beat-count">
               beat {posterState.beatLabel}

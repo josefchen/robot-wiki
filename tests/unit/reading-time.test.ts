@@ -247,6 +247,47 @@ describe('countVisibleWords', () => {
       expect(countVisibleWords(markup), `formula ${tex}`).toBe(innerTextTokens);
     }
   });
+
+  it('does not split words at the comments React puts between text nodes', () => {
+    // react-dom/server renders `{angle}°` as `110<!-- -->°`; innerText reads
+    // "110°" because comments are not rendered.
+    expect(countVisibleWords('<p>a joint limit of 110<!-- -->°</p>')).toBe(5);
+    expect(countVisibleWords('<p>see<!-- --> <!-- -->openpi</p>')).toBe(2);
+  });
+
+  it('keeps closing punctuation on a word that ends inside inline markup', () => {
+    // Expected counts in this test and the next were measured with
+    // Chromium innerText on the same markup (2026-09-29).
+    expect(
+      countVisibleWords('<p>the manipulator <a href="/glossary/#jacobian">Jacobian</a>.</p>'),
+    ).toBe(3);
+    expect(countVisibleWords('<p>and <strong>gain</strong>; next</p>')).toBe(3);
+    // A glossary Term: an inline-block wrapper, the link, and a tooltip
+    // hidden at rest. The comma after it still belongs to the last word.
+    expect(
+      countVisibleWords(
+        '<p>temporal ' +
+          '<span class="group relative inline-block align-baseline">' +
+          '<a class="term-link" href="/glossary/#temporal-ensembling">ensembling</a>' +
+          '<span role="tooltip" class="absolute bottom-full hidden w-64">definition words here</span>' +
+          '</span>, next</p>',
+      ),
+    ).toBe(3);
+  });
+
+  it('still separates punctuation that follows a flex item, a block or math', () => {
+    // A citation chip's links are flex items, which innerText breaks after.
+    expect(
+      countVisibleWords(
+        '<p>claim <span class="inline-flex items-stretch">' +
+          '<a class="inline-flex items-center" href="https://example.com">Zhao 2023</a>' +
+          '</span>.</p>',
+      ),
+    ).toBe(4);
+    expect(countVisibleWords('<div><span class="block">label</span>.</div>')).toBe(2);
+    const formula = katex.renderToString('a_i', { displayMode: false, throwOnError: true });
+    expect(countVisibleWords(`${formula},`)).toBe(countVisibleWords(formula) + 1);
+  });
 });
 
 describe('countWordsInMdxSource', () => {

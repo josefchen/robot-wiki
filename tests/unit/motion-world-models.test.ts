@@ -121,6 +121,14 @@ describe('world-models prose truth', () => {
   });
 
   it('preserves prior numeric and citation tokens in every article', () => {
+    // The shortened taxonomy search description names the V-JEPA 2 model; its
+    // version number is the one token it adds, and only this exact text may add it.
+    const approvedDescriptions: Record<string, { description: string; tokens: string[] }> = {
+      'taxonomy.mdx': {
+        description: "A world model predicts how an environment evolves in a form useful for a robot's decisions. Six example groups compared, from DreamerV3 to V-JEPA 2.",
+        tokens: ['2'],
+      },
+    };
     for (const file of articles) {
       const current = readFileSync(join(folder, file), 'utf8');
       const before = execFileSync('git', ['show', `68fd2b8:content/world-models/${file}`], {
@@ -131,7 +139,15 @@ describe('world-models prose truth', () => {
         .match(/(?<![\w-])\d(?:[\d,]*\d)?(?:\.\d+)?(?:%|x|Hz|ms|s|m|M|k)?/g)
         ?.sort() ?? [];
       const citations = (text: string) => [...text.matchAll(/<Cite id="([^"]+)"/g)].map((match) => match[1]);
-      expect(numbers(current), `${file} numeric tokens`).toEqual(numbers(before));
+      const descriptionLine = (text: string) => text.match(/^description: "(.*)"$/m)?.[1];
+      const approved = approvedDescriptions[file];
+      if (approved) {
+        expect(descriptionLine(current), `${file} description`).toBe(approved.description);
+        expect(numbers(approved.description), `${file} description tokens`).toEqual(approved.tokens);
+        expect(numbers(descriptionLine(before) ?? ''), `${file} prior description tokens`).toEqual([]);
+      }
+      expect(numbers(current), `${file} numeric tokens`)
+        .toEqual([...numbers(before), ...(approved?.tokens ?? [])].sort());
       const prior = citations(before);
       if (file === 'generative-sim.mdx') {
         const preRepair = execFileSync('git', ['show', 'a6298625:content/world-models/generative-sim.mdx'], {

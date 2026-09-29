@@ -73,8 +73,8 @@
     "contrast": [
       {
         "control": "Play the scene",
-        "ratio": 16,
-        "foreground": "rgb(25, 29, 33)",
+        "ratio": 17.27,
+        "foreground": "rgb(19, 21, 24)",
         "background": "rgb(248, 248, 249)"
       },
       {
@@ -295,8 +295,8 @@
     "contrast": [
       {
         "control": "Play the scene",
-        "ratio": 14.29,
-        "foreground": "rgb(32, 39, 44)",
+        "ratio": 16,
+        "foreground": "rgb(25, 29, 33)",
         "background": "rgb(248, 248, 249)"
       },
       {
@@ -334,8 +334,8 @@
     "contrast": [
       {
         "control": "Play the scene",
-        "ratio": 14.65,
-        "foreground": "rgb(30, 37, 42)",
+        "ratio": 18.58,
+        "foreground": "rgb(11, 11, 12)",
         "background": "rgb(248, 248, 249)"
       },
       {
@@ -373,8 +373,8 @@
     "contrast": [
       {
         "control": "Play the scene",
-        "ratio": 13.23,
-        "foreground": "rgb(36, 45, 51)",
+        "ratio": 18.58,
+        "foreground": "rgb(11, 11, 12)",
         "background": "rgb(248, 248, 249)"
       },
       {
@@ -412,8 +412,8 @@
     "contrast": [
       {
         "control": "Play the scene",
-        "ratio": 13.23,
-        "foreground": "rgb(36, 45, 51)",
+        "ratio": 18.58,
+        "foreground": "rgb(11, 11, 12)",
         "background": "rgb(248, 248, 249)"
       },
       {

@@ -25,7 +25,7 @@ const previous: LocalCatalog = JSON.parse(committedSource('ac65cf4', 'audit/loca
 const incoming: LocalCatalog = JSON.parse(committedSource('0a45942', 'audit/local-basis.json'));
 const ids = new Set(previous.plans.map(p => p.id));
 
-describe('industrial release preserves both evidence histories', () => {
+describe('industrial release preserves both evidence histories', { timeout: 60_000 }, () => {
   it('changes the pinned verification tests only to select fresh correction evidence', () => {
     for (const name of ['classical-closure-evidence', 'crossdomain-closure-evidence']) {
       const path = `tests/unit/${name}.test.ts`;
@@ -217,6 +217,7 @@ describe('industrial release preserves both evidence histories', () => {
             'audit/evidence/motion-round5-reader-pins-20260929',
             'audit/evidence/motion-round6-kinematics-reader-20260929',
             'audit/evidence/motion-round6-prose-restores-20260929',
+            'audit/evidence/motion-round6-remaining-repairs-20260929',
             'audit/evidence/citation-closeout-20260924/relevant-continuity.json',
             'audit/evidence/technology-withdrawal-20260924',
             'content/data-hardware/industrial-deployment.mdx',

@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { setSlider } from './slider';
+import { setHydratedSlider as setSlider } from './interaction-ready';
 
 const ROUTE = '/data-hardware/evaluation-crisis/';
 
@@ -35,7 +35,9 @@ async function readoutValue(
 /**
  * Range sliders are driven through the shared setSlider helper
  * (tests/e2e/slider.ts): fill() can leave React's change tracking one
- * event behind under load (quirk 9).
+ * event behind under load (quirk 9). Each set first waits for hydration
+ * (tests/e2e/interaction-ready.ts), because a value written into the
+ * server HTML before React attaches is dropped.
  */
 
 test.describe('data-hardware evaluation-crisis module', () => {

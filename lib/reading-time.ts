@@ -245,7 +245,52 @@ interface Frame {
    * open-state path never consults it.
    */
   summarySeen: boolean;
+  /**
+   * True when this element's boundaries lay out as inline for innerText:
+   * an inline element outside KaTeX that is not a flex or grid item and
+   * carries no block display utility, or any element hidden at rest.
+   */
+  inlineBoundary: boolean;
+  /** True when this element's classes make it a flex or grid container. */
+  itemContainer: boolean;
+  /** True for KaTeX and MathML subtrees, whose tokenization is handled above. */
+  math: boolean;
 }
+
+/** Elements that lay out inline unless a display utility says otherwise. */
+const INLINE_TAGS = new Set([
+  'a',
+  'abbr',
+  'b',
+  'cite',
+  'code',
+  'em',
+  'i',
+  'kbd',
+  'mark',
+  'q',
+  's',
+  'samp',
+  'small',
+  'span',
+  'strong',
+  'sub',
+  'sup',
+  'time',
+  'u',
+  'var',
+]);
+const BLOCK_DISPLAY = /^(?:(?:sm|md|lg|xl|2xl):)?(?:block|flex|grid|table|flow-root|list-item)$/;
+/** A flex or grid container blockifies its children for innerText. */
+const ITEM_CONTAINER = /^(?:(?:sm|md|lg|xl|2xl):)?(?:inline-)?(?:flex|grid)$/;
+const MATH_CLASSES = new Set(['katex', 'katex-display', 'katex-html', 'katex-mathml']);
+/**
+ * Placeholder for an inline boundary. It separates words like any other
+ * boundary unless closing punctuation follows it directly, in which case it
+ * vanishes and the punctuation stays on the preceding word.
+ */
+const INLINE_BREAK = '\u0001';
+const INLINE_BREAK_BEFORE_PUNCTUATION = /\u0001+(?=[.,;:!?)\]%])/g;
 
 /**
  * Where the insertion point sits relative to the nearest enclosing closed
@@ -273,9 +318,18 @@ function closedDetailsPosition(stack: Frame[]): 'summary' | 'body' | undefined {
  * Splitting at each tag boundary deliberately mirrors how innerText reads
  * this site's prose: the text-bearing inline elements here (citation
  * chips, table cells, buttons) are CSS inline-block/flex boxes that
- * innerText reports as separate runs. Measured per article against
- * Chromium innerText, this stays within the reading-time tolerance; the
- * e2e header spec re-checks every published page.
+ * innerText reports as separate runs. Two things never separate, because
+ * innerText does not separate them either. An HTML comment is not
+ * rendered, and React emits one between adjacent text nodes, so
+ * `110<!-- -->°` reads as "110°". Closing punctuation that directly follows
+ * inline markup stays on the preceding word ("Jacobian." after a glossary
+ * link, "ensembling," after a Term chip), unless that markup is a flex or
+ * grid item, a block, or math, which innerText does break. Counted per tag,
+ * these runs overcounted classical/kinematics by 19 words against Chromium
+ * innerText (2309 against 2290, measured 2026-09-29), enough to cross a
+ * rounding boundary. Measured per article against Chromium innerText, this
+ * stays within the reading-time tolerance; the e2e header spec re-checks
+ * every published page.
  */
 export function visibleTextInMarkup(markup: string): string {
   const parts: string[] = [];
@@ -298,9 +352,6 @@ export function visibleTextInMarkup(markup: string): string {
     if (lt > i && !obscured()) parts.push(markup.slice(i, lt));
 
     if (markup.startsWith('<!--', lt)) {
-      // A tag boundary always separates words, even for skipped subtrees;
-      // extra whitespace is harmless to the count.
-      parts.push(' ');
       const end = markup.indexOf('-->', lt + 4);
       i = end === -1 ? n : end + 3;
       continue;
@@ -331,7 +382,7 @@ export function visibleTextInMarkup(markup: string): string {
       }
       // Closing a fused inline run inside the KaTeX visual layer does not
       // separate words; every other tag boundary does.
-      if (!(closed?.fuses && inKatexHtml())) parts.push(' ');
+      if (!(closed?.fuses && inKatexHtml())) parts.push(closed?.inlineBoundary ? INLINE_BREAK : ' ');
       continue;
     }
 
@@ -372,10 +423,21 @@ export function visibleTextInMarkup(markup: string): string {
         classTokens.length === 0 &&
         inKatexHtml() &&
         parent?.fuses === true);
+    const math =
+      name === 'math' ||
+      classTokens.some((token) => MATH_CLASSES.has(token)) ||
+      stack.some((frame) => frame.math);
+    const inlineBoundary =
+      !math &&
+      !selfClosing &&
+      (skipped ||
+        (parent?.itemContainer !== true &&
+          INLINE_TAGS.has(name) &&
+          !classTokens.some((token) => BLOCK_DISPLAY.test(token))));
     // The `.katex-html` opening tag itself still separates (the formula's
     // boundary with the surrounding prose): its frame is pushed after
     // this decision, so inKatexHtml() is false for it here.
-    if (!inKatexHtml() || !fuses) parts.push(' ');
+    if (!inKatexHtml() || !fuses) parts.push(inlineBoundary ? INLINE_BREAK : ' ');
     if (!selfClosing) {
       stack.push({
         name,
@@ -385,6 +447,9 @@ export function visibleTextInMarkup(markup: string): string {
         closedDetails: name === 'details' && !attributeNames(attrs).has('open'),
         detailsSummary,
         summarySeen: false,
+        inlineBoundary,
+        itemContainer: classTokens.some((token) => ITEM_CONTAINER.test(token)),
+        math,
       });
     }
   }
@@ -393,7 +458,12 @@ export function visibleTextInMarkup(markup: string): string {
   // already pushed its own ' ' part above, so a join separator would
   // re-split the inline runs the KaTeX fusion just merged. Whitespace is
   // normalized afterwards either way.
-  return parts.join('').replace(/\s+/g, ' ').trim();
+  return parts
+    .join('')
+    .replace(INLINE_BREAK_BEFORE_PUNCTUATION, '')
+    .replaceAll(INLINE_BREAK, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 /** Whitespace-separated token count. */
