@@ -7,6 +7,7 @@ import {
   InstrumentFrame,
   InstrumentReadout,
   InstrumentReset,
+  INSTRUMENT_SECONDARY_CONTROL_CLASS,
   PlotStage,
 } from '@/components/ui/instrument';
 import {
@@ -137,7 +138,7 @@ export function RecedingHorizon({
           data-brand-control-id="control:secondary-action"
           type="button"
           onClick={() => set(defaults.tp, defaults.ta)}
-          className="rounded-xs border border-border bg-surface-2 px-3 py-2 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
+          className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
         >
           Diffusion Policy (16/8)
         </button>
@@ -145,7 +146,7 @@ export function RecedingHorizon({
           data-brand-control-id="control:secondary-action"
           type="button"
           onClick={() => set(MAX_TP, MAX_TP)}
-          className="rounded-xs border border-border bg-surface-2 px-3 py-2 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
+          className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
         >
           Open-loop (32/32)
         </button>

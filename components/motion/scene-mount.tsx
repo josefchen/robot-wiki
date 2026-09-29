@@ -30,6 +30,7 @@ import {
   InstrumentLegend,
   InstrumentReadout,
   InstrumentReset,
+  INSTRUMENT_PRIMARY_CONTROL_CLASS,
   INSTRUMENT_SECONDARY_CONTROL_CLASS,
 } from '@/components/ui/instrument';
 import { Surface } from '@/components/ui/surface';
@@ -50,8 +51,6 @@ export interface SceneMountProps {
   textAlternative: string;
   className?: string;
 }
-
-const CONTROL_CLASS = `${INSTRUMENT_SECONDARY_CONTROL_CLASS} inline-flex items-center gap-1`;
 
 export function SceneMount({
   scene,
@@ -99,15 +98,15 @@ export function SceneMount({
           }
         >
           <button
-            data-brand-control-id="control:secondary-action"
+            data-brand-control-id="control:primary-action"
             data-pagefind-ignore
             data-testid="motion-poster"
             type="button"
             onClick={activate}
             aria-label={`Play the motion scene: ${scene.title}`}
-            className={CONTROL_CLASS}
+            className={INSTRUMENT_PRIMARY_CONTROL_CLASS}
           >
-            <Play size={12} weight="bold" aria-hidden />
+            <Play size={14} weight="bold" aria-hidden />
             Play
           </button>
           {/* Transport controls exist but wait for the play click, so the
@@ -120,7 +119,7 @@ export function SceneMount({
             type="button"
             disabled
             aria-label="Step back one beat"
-            className={CONTROL_CLASS}
+            className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
           >
             Step back
           </button>
@@ -130,7 +129,7 @@ export function SceneMount({
             type="button"
             disabled
             aria-label="Step forward one beat"
-            className={CONTROL_CLASS}
+            className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
           >
             Step forward
           </button>

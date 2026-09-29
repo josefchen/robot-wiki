@@ -8,6 +8,8 @@ import {
   ARTICLE_IMAGE_VARIANTS,
   articleCardPath,
 } from '../../lib/og-cards';
+import { cardTextRuns } from '../../lib/og-card-artwork';
+import { ogCardCorpus, openSealedCardTree } from '../../lib/og-card-corpus';
 import { SITE_URL } from '../../lib/site';
 import { startStaticExportServer } from './static-export-server';
 
@@ -205,13 +207,22 @@ test.describe('OG card images', () => {
   });
 
   test('the site card carries the exact Brand v2 descriptor and the retired descriptor is absent', async () => {
-    // Article artwork omits the descriptor while the site-card builder owns
-    // the one exact descriptor literal. Generated-image validation handles
-    // pixels; this assertion pins the renderer input.
-    const artwork = (
-      await readFile(join('lib', 'og-card-artwork.ts'))
-    ).toString('utf8');
-    expect(artwork.match(/Citation-first encyclopedia of modern robot learning\./g)).toHaveLength(1);
-    expect(artwork).not.toMatch(/Robotics encyclopa?edia/i);
+    // Generated-image validation handles pixels; this assertion pins the
+    // renderer input. The text runs come from the sealed site-card tree the
+    // generator paints, so the check follows the descriptor to whichever
+    // module owns the literal instead of reading one builder's source.
+    const site = ogCardCorpus(process.cwd()).filter(
+      ({ cardId }) => cardId === 'site',
+    );
+    expect(site, 'exactly one site card in the corpus').toHaveLength(1);
+    const runs = cardTextRuns(openSealedCardTree(site[0].card)).map(
+      ({ text }) => text,
+    );
+    expect(
+      runs.filter(
+        (text) => text === 'Citation-first encyclopedia of modern robot learning.',
+      ),
+    ).toHaveLength(1);
+    expect(runs.join('\n')).not.toMatch(/Robotics encyclopa?edia/i);
   });
 });

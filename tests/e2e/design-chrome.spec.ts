@@ -876,6 +876,9 @@ test.describe('design chrome discipline', () => {
   });
 
   test('the engineering grid placement population is derived, not sampled (VAL-DSBRAND-005)', async ({ browser }) => {
+    // One fresh context per route over the whole registry population runs
+    // close to the default 30 s budget on its own.
+    test.setTimeout(90_000);
     // The audited route set is derived from the module registry (the
     // same publishedModules() population every corpus gate uses) plus
     // the standalone chrome routes, so a new module route joins the

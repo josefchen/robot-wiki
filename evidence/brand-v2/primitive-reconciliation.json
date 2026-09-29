@@ -434,16 +434,37 @@
     },
     "control:primary-action": {
       "kind": "controls",
-      "fingerprint": "1bc718beaaeb090725ce3d47b9e89dd606945d51da639a20281c21791d3ef695",
+      "fingerprint": "82dd34ae5f8d197271bba64a11d46bc2a8b3c03bb11ddc189f23c8e89a468470",
       "mountState": "production",
       "definedIn": [
+        "components/motion/scene-mount.tsx",
+        "components/motion/scene-player.tsx",
         "components/ui/action.tsx"
       ],
       "ownerRouteOrMount": [
+        "components/motion/scene-mount.tsx",
+        "components/motion/scene-player.tsx",
         "components/ui/action.tsx"
       ],
       "renderedOn": [
-        "/"
+        "/",
+        "/adjacent/drones/",
+        "/classical/kinematics/",
+        "/classical/motion-planning/",
+        "/classical/state-estimation/",
+        "/data-hardware/data-bottleneck/",
+        "/data-hardware/evaluation-crisis/",
+        "/data-hardware/industrial-deployment/",
+        "/frontier/dexterity/",
+        "/frontier/reliability-gap/",
+        "/manipulation/diffusion-policy/",
+        "/manipulation/pi-line/",
+        "/manipulation/vla-models/",
+        "/rl-sim2real/legged-locomotion/",
+        "/rl-sim2real/parallel-sim-rl/",
+        "/world-models/generative-sim/",
+        "/world-models/generative-video/",
+        "/world-models/latent-dynamics/"
       ]
     },
     "control:secondary-action": {

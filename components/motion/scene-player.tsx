@@ -33,6 +33,7 @@ import {
   InstrumentLegend,
   InstrumentReadout,
   InstrumentReset,
+  INSTRUMENT_PRIMARY_CONTROL_CLASS,
   INSTRUMENT_SECONDARY_CONTROL_CLASS,
 } from '@/components/ui/instrument';
 import { Surface } from '@/components/ui/surface';
@@ -263,8 +264,6 @@ export function ScenePlayer({
     playing,
     beatLabel: `${beatIndex + 1} / ${spans.length}`,
   };
-  const controlClass = `${INSTRUMENT_SECONDARY_CONTROL_CLASS} inline-flex items-center gap-1`;
-
   return (
     <InstrumentFrame
       data-motion-scene={scene.id}
@@ -283,18 +282,18 @@ export function ScenePlayer({
         >
           <button
             ref={playButtonRef}
-            data-brand-control-id="control:secondary-action"
+            data-brand-control-id="control:primary-action"
             data-pagefind-ignore
             data-testid="motion-play"
             type="button"
             onClick={togglePlay}
             aria-label={playing ? 'Pause the scene' : 'Play the scene'}
-            className={controlClass}
+            className={INSTRUMENT_PRIMARY_CONTROL_CLASS}
           >
             {playing ? (
-              <Pause size={12} weight="bold" aria-hidden />
+              <Pause size={14} weight="bold" aria-hidden />
             ) : (
-              <Play size={12} weight="bold" aria-hidden />
+              <Play size={14} weight="bold" aria-hidden />
             )}
             {playing ? 'Pause' : 'Play'}
           </button>
@@ -305,7 +304,7 @@ export function ScenePlayer({
             type="button"
             onClick={() => step(-1)}
             aria-label="Step back one beat"
-            className={controlClass}
+            className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
           >
             Step back
           </button>
@@ -316,7 +315,7 @@ export function ScenePlayer({
             type="button"
             onClick={() => step(1)}
             aria-label="Step forward one beat"
-            className={controlClass}
+            className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
           >
             Step forward
           </button>
