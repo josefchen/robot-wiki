@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "bfb91a93cc05fcd9cc2701b2e7f28cfb56c0c0009977bcc3d677b18d6179e6f8",
+  "fingerprint": "d205a6f94f13d59394211848caae4310d5af4cb4e6f209757aca09c795ae4c16",
   "viewports": [
     "375x812",
     "1440x900"
@@ -10696,7 +10696,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 16061,
+      "visibleTextLength": 16069,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -12204,7 +12204,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 17988,
+      "visibleTextLength": 17987,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -20613,7 +20613,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 14821,
+      "visibleTextLength": 14833,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -22554,7 +22554,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 22733,
+      "visibleTextLength": 22750,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -26365,7 +26365,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 14421,
+      "visibleTextLength": 14498,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -26576,36 +26576,6 @@
           "inProse": true
         },
         {
-          "id": "diffusion-policy-2023",
-          "label": "Chi 2023",
-          "href": "https://arxiv.org/abs/2303.04137",
-          "opensExternally": true,
-          "tooltipText": "Diffusion Policy: Visuomotor Policy Learning via Action DiffusionCheng Chi, Zhenjia Xu, Siyuan Feng et al., 2023",
-          "describedByResolves": true,
-          "referenceHref": "#ref-diffusion-policy-2023",
-          "inProse": true
-        },
-        {
-          "id": "diffusion-policy-2023",
-          "label": "Chi 2023",
-          "href": "https://arxiv.org/abs/2303.04137",
-          "opensExternally": true,
-          "tooltipText": "Diffusion Policy: Visuomotor Policy Learning via Action DiffusionCheng Chi, Zhenjia Xu, Siyuan Feng et al., 2023",
-          "describedByResolves": true,
-          "referenceHref": "#ref-diffusion-policy-2023",
-          "inProse": true
-        },
-        {
-          "id": "diffusion-policy-2023",
-          "label": "Chi 2023",
-          "href": "https://arxiv.org/abs/2303.04137",
-          "opensExternally": true,
-          "tooltipText": "Diffusion Policy: Visuomotor Policy Learning via Action DiffusionCheng Chi, Zhenjia Xu, Siyuan Feng et al., 2023",
-          "describedByResolves": true,
-          "referenceHref": "#ref-diffusion-policy-2023",
-          "inProse": true
-        },
-        {
           "id": "act-aloha-2023",
           "label": "Zhao 2023",
           "href": "https://arxiv.org/abs/2304.13705",
@@ -26613,6 +26583,36 @@
           "tooltipText": "Learning Fine-Grained Bimanual Manipulation with Low-Cost HardwareTony Z. Zhao, Vikash Kumar, Sergey Levine et al., RSS 2023",
           "describedByResolves": true,
           "referenceHref": "#ref-act-aloha-2023",
+          "inProse": true
+        },
+        {
+          "id": "diffusion-policy-2023",
+          "label": "Chi 2023",
+          "href": "https://arxiv.org/abs/2303.04137",
+          "opensExternally": true,
+          "tooltipText": "Diffusion Policy: Visuomotor Policy Learning via Action DiffusionCheng Chi, Zhenjia Xu, Siyuan Feng et al., 2023",
+          "describedByResolves": true,
+          "referenceHref": "#ref-diffusion-policy-2023",
+          "inProse": true
+        },
+        {
+          "id": "diffusion-policy-2023",
+          "label": "Chi 2023",
+          "href": "https://arxiv.org/abs/2303.04137",
+          "opensExternally": true,
+          "tooltipText": "Diffusion Policy: Visuomotor Policy Learning via Action DiffusionCheng Chi, Zhenjia Xu, Siyuan Feng et al., 2023",
+          "describedByResolves": true,
+          "referenceHref": "#ref-diffusion-policy-2023",
+          "inProse": true
+        },
+        {
+          "id": "diffusion-policy-2023",
+          "label": "Chi 2023",
+          "href": "https://arxiv.org/abs/2303.04137",
+          "opensExternally": true,
+          "tooltipText": "Diffusion Policy: Visuomotor Policy Learning via Action DiffusionCheng Chi, Zhenjia Xu, Siyuan Feng et al., 2023",
+          "describedByResolves": true,
+          "referenceHref": "#ref-diffusion-policy-2023",
           "inProse": true
         },
         {
@@ -38711,7 +38711,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 24116,
+      "visibleTextLength": 24186,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -55789,7 +55789,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 16440,
+      "visibleTextLength": 16448,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -57297,7 +57297,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 18367,
+      "visibleTextLength": 18366,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -65706,7 +65706,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 15156,
+      "visibleTextLength": 15168,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -67647,7 +67647,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 23360,
+      "visibleTextLength": 23377,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -71458,7 +71458,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 15048,
+      "visibleTextLength": 15125,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -71669,36 +71669,6 @@
           "inProse": true
         },
         {
-          "id": "diffusion-policy-2023",
-          "label": "Chi 2023",
-          "href": "https://arxiv.org/abs/2303.04137",
-          "opensExternally": true,
-          "tooltipText": "Diffusion Policy: Visuomotor Policy Learning via Action DiffusionCheng Chi, Zhenjia Xu, Siyuan Feng et al., 2023",
-          "describedByResolves": true,
-          "referenceHref": "#ref-diffusion-policy-2023",
-          "inProse": true
-        },
-        {
-          "id": "diffusion-policy-2023",
-          "label": "Chi 2023",
-          "href": "https://arxiv.org/abs/2303.04137",
-          "opensExternally": true,
-          "tooltipText": "Diffusion Policy: Visuomotor Policy Learning via Action DiffusionCheng Chi, Zhenjia Xu, Siyuan Feng et al., 2023",
-          "describedByResolves": true,
-          "referenceHref": "#ref-diffusion-policy-2023",
-          "inProse": true
-        },
-        {
-          "id": "diffusion-policy-2023",
-          "label": "Chi 2023",
-          "href": "https://arxiv.org/abs/2303.04137",
-          "opensExternally": true,
-          "tooltipText": "Diffusion Policy: Visuomotor Policy Learning via Action DiffusionCheng Chi, Zhenjia Xu, Siyuan Feng et al., 2023",
-          "describedByResolves": true,
-          "referenceHref": "#ref-diffusion-policy-2023",
-          "inProse": true
-        },
-        {
           "id": "act-aloha-2023",
           "label": "Zhao 2023",
           "href": "https://arxiv.org/abs/2304.13705",
@@ -71706,6 +71676,36 @@
           "tooltipText": "Learning Fine-Grained Bimanual Manipulation with Low-Cost HardwareTony Z. Zhao, Vikash Kumar, Sergey Levine et al., RSS 2023",
           "describedByResolves": true,
           "referenceHref": "#ref-act-aloha-2023",
+          "inProse": true
+        },
+        {
+          "id": "diffusion-policy-2023",
+          "label": "Chi 2023",
+          "href": "https://arxiv.org/abs/2303.04137",
+          "opensExternally": true,
+          "tooltipText": "Diffusion Policy: Visuomotor Policy Learning via Action DiffusionCheng Chi, Zhenjia Xu, Siyuan Feng et al., 2023",
+          "describedByResolves": true,
+          "referenceHref": "#ref-diffusion-policy-2023",
+          "inProse": true
+        },
+        {
+          "id": "diffusion-policy-2023",
+          "label": "Chi 2023",
+          "href": "https://arxiv.org/abs/2303.04137",
+          "opensExternally": true,
+          "tooltipText": "Diffusion Policy: Visuomotor Policy Learning via Action DiffusionCheng Chi, Zhenjia Xu, Siyuan Feng et al., 2023",
+          "describedByResolves": true,
+          "referenceHref": "#ref-diffusion-policy-2023",
+          "inProse": true
+        },
+        {
+          "id": "diffusion-policy-2023",
+          "label": "Chi 2023",
+          "href": "https://arxiv.org/abs/2303.04137",
+          "opensExternally": true,
+          "tooltipText": "Diffusion Policy: Visuomotor Policy Learning via Action DiffusionCheng Chi, Zhenjia Xu, Siyuan Feng et al., 2023",
+          "describedByResolves": true,
+          "referenceHref": "#ref-diffusion-policy-2023",
           "inProse": true
         },
         {
@@ -83804,7 +83804,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 24591,
+      "visibleTextLength": 24661,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",

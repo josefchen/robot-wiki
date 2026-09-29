@@ -65,7 +65,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/data-scale-chart.tsx',
     route: '/data-hardware/data-bottleneck/',
     quantityNames: ['hours', 'tokens'],
-    text: 'Demonstration hours span 350 h (DROID) to 20,854 h (EgoScale) across 7 robot and human datasets, while pretraining tokens span 300B (GPT-3) to 15T (Llama 3), 9 orders of magnitude apart with no honest hour-to-token exchange rate between the lanes; your 15-rig farm at the dedicated farm rate projects 15,000 h per year, reaching OXE scale in 8 mo and 100x OXE in 66.7 yr.',
+    text: 'Demonstration hours span 350 h (DROID) to 20,854 h (EgoScale) across 6 robot and human datasets, while pretraining tokens span 300B (GPT-3) to 15T (Llama 3), 9 orders of magnitude apart with no honest hour-to-token exchange rate between the lanes; your 15-rig farm at the dedicated farm hypothetical rate projects 15,000 h per year, reaching the authored 10,000-hour target in 8 mo and the authored 1,000,000-hour target in 66.7 yr. No OXE hour estimate is supplied or plotted here.',
   },
   {
     component: 'GaitDiagram',
@@ -86,7 +86,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/control-loop-budget.tsx',
     route: '/manipulation/realtime-execution/',
     quantityNames: ['inference', 'ms'],
-    text: 'A 3.0B-parameter model takes 52.6 ms of inference against the 20 ms budget of a 50 Hz loop, missing 2 deadlines and running at 19 Hz; inference stays under budget only below about 1.1B parameters, and beyond the pi0 3B and pi0-L 9.1B measured anchors the scaling is modeled rather than measured.',
+    text: 'In this toy, the 3.0B coordinate gives 52.6 ms of inference against the 20 ms budget of a 50 Hz loop, missing 2 deadlines and running at 19 Hz; inference stays under budget only below about 1.1B toy parameters. The 3.0B coordinate is deliberately chosen; VLA-Perf models pi0 at 2.7B and pi0-L as hypothetical. All displayed rates are reciprocal toy inference rates, not robot/controller frequencies.',
   },
   {
     component: 'ChunkSizeCurve',
@@ -100,14 +100,14 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/compounding-error.tsx',
     route: '/manipulation/bc-foundations/',
     quantityNames: ['deviation', 'horizon'],
-    text: 'With per-step error 5.0% over a 120-step horizon, the simulated accumulated deviation reaches 370 units against the quadratic epsilon T(T+1)/2 bound of 363 and the linear epsilon T bound of 6.0; the two dashed curves are the analytic regret bounds from the DAgger analysis and the solid curve is a simulated rollout, not measured robot data.',
+    text: 'With toy error 5.0% over 120 steps, summed deviation is 370 units. The two dashed curves are illustrative reference curves: epsilon T(T+1)/2 = 363 and epsilon T = 6.0. They are not bounds on the solid trace or measured robot data. Linear task-cost scaling in DAgger requires a horizon-independent recovery factor u and the paper\'s learning assumptions.',
   },
   {
     component: 'ExecutionModes',
     file: 'components/interactive/execution-modes.tsx',
     route: '/manipulation/realtime-execution/',
     quantityNames: ['velocity', 'delay'],
-    text: 'At 0 ms of inference delay the synchronous velocity trace stops for 0 ms of dead time, while the naive switch reaches a peak velocity step of 0.05 per 20 ms tick and real-time chunking reaches 0.05, both read against the illustrative 0.30 limit; the three traces model the published behaviour and are not measured robot data, and the dashed guide is the uninterrupted old plan each executed trace departs from.',
+    text: 'At 0 ms of inference delay the synchronous velocity trace stops for 0 ms of dead time, while the naive switch reaches a peak velocity step of 0.05 per 20 ms tick and real-time chunking reaches 0.05, both read against the illustrative 0.30 discontinuity-proxy limit; these constructed traces use arbitrary velocity units, not physical jerk or measured robot data. The five-tick linear blend is not RTC inpainting, and the dashed guide is the uninterrupted toy old plan.',
   },
   {
     component: 'ActionTokenization',
@@ -121,7 +121,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/latency-comparison.tsx',
     route: '/manipulation/action-chunking/',
     quantityNames: ['throughput', 'delay'],
-    text: 'At 0 ms of injected delay temporal ensembling holds 100% of task throughput and real-time chunking holds 100%, and ensembling falls to zero across the shaded 100 to 200 ms failure window the paper documents; the two curves are a qualitative model of the published results and not a re-run of the experiment, so the shape carries the claim rather than the exact percentages.',
+    text: 'Deterministic toy, not measured throughput: at 0 ms of added delay, the normalized toy scores are 100% for temporal ensembling, marked nominal, and 100% for RTC. The shaded 100 to 200 ms failure window marks the experiment\'s two failed TE settings, not a universal latency threshold. The curve between settings and its continuation beyond +200 ms are illustrative assumptions.',
   },
   {
     component: 'LatencyComparisonTraces',
@@ -148,8 +148,8 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     component: 'FrictionTransfer',
     file: 'components/interactive/friction-transfer.tsx',
     route: '/rl-sim2real/sim2real-transfer/',
-    quantityNames: ['success', 'friction'],
-    text: 'At real-robot friction 0.80 the point-trained policy scores 97% against the DR policy\'s 74%, with the DR plateau at 74% across the shaded training band of half-width 0.35; the two dashed edges mark that assumed randomization range, not a confidence interval, and both success curves are an illustrative model of the peak-versus-width trade.',
+    quantityNames: ['friction', 'half-width'],
+    text: 'Authored toy, not measured robot data. At selected friction 0.80, the point curve is 97% and the DR curve is 74%. The assumed DR half-width is 0.35 and its plateau is 74%. Its height follows 0.93 minus 0.55 times the half-width; the point Gaussian has center 0.80, peak 0.97 and width 0.09, and the DR tails have width 0.10. Dashed edges mark an assumed range, not a confidence interval. The randomization band is marked ordinary at the selected half-width. Reset restores this panel to friction 0.80 and half-width 0.35. Selecting friction samples the formulas; no training or adaptation runs.',
   },
   {
     component: 'LatentImagination',
@@ -183,8 +183,8 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     component: 'PerceptionErrorBudget',
     file: 'components/interactive/perception-error-budget.tsx',
     route: '/classical/perception/',
-    quantityNames: ['positioning error', 'clearance'],
-    text: 'At 0.5 degrees of hand-eye rotation and 0.50 m of working distance, the composed positioning error is 11.32 mm against a 15 mm clearance band, and depth sensing dominates at 78% of the variance: within clearance.',
+    quantityNames: ['root-sum-of-squares magnitude', 'model band'],
+    text: 'At an authored angle of 0.5 degrees and axial distance 0.50 m, the model\'s root-sum-of-squares magnitude is 11.32 mm against its 15 mm comparison band. depth sensing contributes 78% of the sum of squared inputs. Model band: within model band.',
   },
   {
     component: 'SampleEfficiencyLedger',
@@ -268,7 +268,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/mot-insulation.tsx',
     route: '/manipulation/knowledge-insulation/',
     quantityNames: ['backbone', 'expert'],
-    text: 'Forward pass at depth 8 of 8 keeps backbone supervision on no gradients (inference), language following at 92 of 100, and the measured 7.5x fewer training steps vs pi0; the stop-gradient is on so expert gradients stay inside the action expert.',
+    text: 'Forward pass at depth 8 of 8 keeps backbone supervision on no gradients (inference), language following at 92 of 100, and the separately reported 7.5x fewer training steps for the π0.5 + KI generalist versus π0 at similar table-bussing performance; the stop-gradient is on so expert gradients stay inside the action expert.',
   },
   {
     component: 'CrossEmbodimentStrategies',
@@ -330,8 +330,8 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     component: 'GeneralistReleaseTimeline',
     file: 'components/interactive/generalist-release-timeline.tsx',
     route: '/manipulation/generalist-policies/',
-    quantityNames: ['policies', 'weights'],
-    text: '13 of 13 selected generalist policies are shown; selected is Helix from Figure (weights not disclosed, lab blog, vendor-reported). Blue nodes have reported weight downloads; dim nodes include unavailable and not-disclosed records, distinguished by text labels. Node shape marks source provenance; a dim node does not establish closed licensing.',
+    quantityNames: ['policy records', 'weight availability'],
+    text: '13 of 13 selected generalist policy records are shown; selected is Helix from Figure (not disclosed, lab blog, vendor-reported) and weight availability is stated by each node label; dim nodes do not establish closed licensing.',
   },
   {
     component: 'JepaPlanning',
@@ -351,8 +351,8 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     component: 'RewardShaping',
     file: 'components/interactive/reward-shaping.tsx',
     route: '/rl-sim2real/reward-design-mpc/',
-    quantityNames: ['weights', 'total'],
-    text: 'The 12 reward weights sum to a total of -5.52 per step, and the preview is a balanced trot: neither torque 0.8 nor air time 0.6 clears the 2.5 attractor bar and 2x the 1.0 velocity-tracking weight together, so the quadruped tracks velocity instead of freezing, prancing, or chattering.',
+    quantityNames: ['reward terms', 'total'],
+    text: 'The 12 weighted reward terms give an illustrative total of -5.52 per step, and the preview is a balanced trot: neither torque 0.8 nor air time 0.6 clears the 2.5 attractor bar and 2x the 1.0 velocity-tracking weight together, so the chosen rule draws a trot instead of freezing, prancing, or chattering.',
   },
   {
     component: 'WmDisambiguator',

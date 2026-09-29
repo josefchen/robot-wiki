@@ -122,7 +122,7 @@
     },
     {
       "file": "tests/e2e/first-screen-interactive.spec.ts",
-      "title": "the corpus is non-empty and every published article was measured",
+      "title": "test.beforeAll",
       "receiver": "page",
       "navigations": null,
       "reason": "The iterable is built at run time, so this checker cannot bound the walk. Recorded as uncertified, not certified as safe."

@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { waitForHydration } from './interaction-ready';
 import { firstDraftModule, notFoundProbeRoute } from '../helpers/draft-fixtures';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
 
@@ -219,12 +220,14 @@ test.describe('navigation shell', () => {
     const readout = page.getByTestId('episode-success-readout');
     await expect(readout).toContainText('21.5%');
     const slider = page.getByRole('slider', { name: /episode length/i });
+    await waitForHydration(slider);
     await slider.focus();
     for (let i = 0; i < 20; i += 1) {
       await page.keyboard.press('ArrowDown');
     }
     await expect(readout).toContainText('59.9%');
-    await page.getByRole('button', { name: /reset/i }).click();
+    await slider.locator('xpath=ancestor::*[@data-brand-module-signature="instrument-frame"][1]')
+      .getByRole('button', { name: 'Reset', exact: true }).click();
     await expect(readout).toContainText('21.5%');
   });
 

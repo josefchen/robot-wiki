@@ -182,7 +182,16 @@ describe('RoboMIND paper-v3 hours correction, zero completion credit', () => {
       ).newHash,
     );
     expect(motion.oldHash).toBe(convergence.newHash);
-    expect(adjacentHash(read(adjacentPath))).toBe(motion.newHash);
+    // The round-5 pinned-leftover repair (f41cf895) then moved the first
+    // interactive ahead of its motion scene with one plain edge.
+    const round5 = JSON.parse(
+      read('contract/brand-v2-approved-deltas.json'),
+    ).entries.find((a: { id: string }) =>
+      a.id === 'round5-pinned-leftovers-20260928-prose-data-bottleneck')!;
+    expect(adjacentHash(committedSource('f41cf895^', adjacentPath))).toBe(motion.newHash);
+    expect(round5.oldHash).toBe(motion.newHash);
+    expect(round5.reconciles).toBeUndefined();
+    expect(adjacentHash(read(adjacentPath))).toBe(round5.newHash);
     expect(read(adjacentPath)).toContain('Real-world robot data is different. Every hour of it');
     expect(matter(article).data).toEqual(matter(committedSource(READER_RELEASE_BASE, articlePath)).data);
     expect(committedSource(checkpoint, 'data/citations.ts')).toBe(before('data/citations.ts'));

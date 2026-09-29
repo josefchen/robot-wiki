@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "33c212de59758fc365f1b92d79a99c5149be323072d94e2b6f0e8416827dbb25",
+  "fingerprint": "57415b78dea2009ad2bebdb1e47b3446ea305f00a6e7d7b41bd7a953294c3c23",
   "viewport": "375x812",
   "routes": [
     "/",
@@ -3177,7 +3177,7 @@
     },
     {
       "route": "/data-hardware/data-bottleneck/",
-      "visibleTextLength": 16061,
+      "visibleTextLength": 16069,
       "header": {
         "present": true,
         "display": "flex",
@@ -3503,7 +3503,7 @@
     },
     {
       "route": "/data-hardware/evaluation-crisis/",
-      "visibleTextLength": 17988,
+      "visibleTextLength": 17987,
       "header": {
         "present": true,
         "display": "flex",
@@ -5288,7 +5288,7 @@
     },
     {
       "route": "/frontier/reliability-gap/",
-      "visibleTextLength": 14821,
+      "visibleTextLength": 14833,
       "header": {
         "present": true,
         "display": "flex",
@@ -5940,7 +5940,7 @@
     },
     {
       "route": "/manipulation/action-chunking/",
-      "visibleTextLength": 22733,
+      "visibleTextLength": 22750,
       "header": {
         "present": true,
         "display": "flex",
@@ -6755,7 +6755,7 @@
     },
     {
       "route": "/manipulation/diffusion-policy/",
-      "visibleTextLength": 14421,
+      "visibleTextLength": 14498,
       "header": {
         "present": true,
         "display": "flex",
@@ -10007,7 +10007,7 @@
     },
     {
       "route": "/rl-sim2real/sim2real-transfer/",
-      "visibleTextLength": 24116,
+      "visibleTextLength": 24186,
       "header": {
         "present": true,
         "display": "flex",

@@ -97,7 +97,7 @@ export function PushLayers({ className }: { className?: string }) {
       </>}
       readout={({ beatIndex }) => <><span className="text-text-dim">toy push</span> {DEFAULT_FORCE_N.toFixed(1)} N{' '}
         <span className="text-text-dim">displacement</span> {formatCm(pushLayersFrame(SPANS[beatIndex].end).position)}</>}
-      statusLine="Schematic, authored impulse and friction model, not a measured robot result. The direct-control push test below exposes its force and layer switches."
+      statusLine="Schematic, authored impulse and friction model, not a measured robot result. The direct-control push test above exposes its force and layer switches."
       textAlternative={`${PUSH_LAYERS_SCENE.title}. ${PUSH_LAYERS_SCENE.beats.map((beat, index) => `Beat ${index + 1}: ${beat.caption}`).join(' ')}`}
     />
   );

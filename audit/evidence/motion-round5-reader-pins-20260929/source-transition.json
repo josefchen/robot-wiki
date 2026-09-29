@@ -1,0 +1,98 @@
+{
+  "schemaVersion": "round5-reader-pins-source-continuity-v1",
+  "name": "retained-reader-pins",
+  "reviewedBy": "Release-unblock implementer, not independent acceptance",
+  "rationale": "Industrial corrections 37, 47 and 48 and the two Control citation removals pin five reader files at the bytes their recorded browser runs used. Two later reader repairs changed those files. The retained-reader repair points the Control and industrial citation-refresh specs at the instrument-frame mount, scopes the run and pause buttons to the pendulum lab, waits for hydration before a lab is operated, and writes the Control captures to the test output directory. The shared-reader repair adds the reference author-list id, keeps a single citation tooltip open at a time, and gives an overflowing term tooltip Home and End keys. Each archived predecessor is byte-identical to the endpoint the records pin, and each live file is exactly the named edit list applied to it. The component edits are insertions only. The spec edits keep the same number of assertion lines and every citation, link, reference-anchor, glossary-definition and figure-value check the records rely on. No run was repeated, and no verdict, claim, citation or ledger cell changed; the recorded runs stay historical. This review claims only these exact edits, not a fresh browser pass of the live specs.",
+  "observedAt": "2026-09-29T02:58:00Z",
+  "sources": [
+    {
+      "name": "control-spec-hydrated-instrument",
+      "before": {
+        "path": "audit/evidence/motion-round5-reader-pins-20260929/control-spec-before.ts.txt",
+        "bytes": 24950,
+        "sha256": "880e59fc67247ba0fcaab03f110bcb0008d1ce336375e926adca044325efb5fb"
+      },
+      "after": {
+        "path": "tests/e2e/control.spec.ts",
+        "bytes": 24751,
+        "sha256": "c99b16fdeebf05cb45f47778f1bd1e5259034dfa617385981ebd8f60d102e561"
+      },
+      "consumers": [
+        "control-citation-removed-1-20260924",
+        "control-citation-removed-2-20260924"
+      ]
+    },
+    {
+      "name": "citation-refresh-instrument-frame",
+      "before": {
+        "path": "audit/evidence/motion-round5-reader-pins-20260929/industrial-citation-refresh-spec-before.ts.txt",
+        "bytes": 7721,
+        "sha256": "1381b60615d6e3ca1ded42d7af7004f2955178799e4664d7274014c8566e92e8"
+      },
+      "after": {
+        "path": "tests/e2e/industrial-citation-refresh.spec.ts",
+        "bytes": 7755,
+        "sha256": "95600b9dab16e74280ccd31ef3ae25f0b8374c95c9e37fe8a870000488598777"
+      },
+      "consumers": [
+        "industrial-correction-37-20260923",
+        "industrial-correction-47-20260923",
+        "industrial-correction-48-20260923"
+      ]
+    },
+    {
+      "name": "references-author-id",
+      "before": {
+        "path": "audit/evidence/motion-round5-reader-pins-20260929/references-before.tsx.txt",
+        "bytes": 4091,
+        "sha256": "17297ca5f25d6c7d2c2273fef8510767454a617fcb01bf6a02d0ee17b5235223"
+      },
+      "after": {
+        "path": "components/article/references.tsx",
+        "bytes": 4126,
+        "sha256": "6510b07a5469b722ce55b7c18377b46a85cbeca016135d3f4626d765af883348"
+      },
+      "consumers": [
+        "industrial-correction-37-20260923",
+        "industrial-correction-47-20260923",
+        "industrial-correction-48-20260923"
+      ]
+    },
+    {
+      "name": "cite-single-open-tooltip",
+      "before": {
+        "path": "audit/evidence/motion-round5-reader-pins-20260929/cite-before.tsx.txt",
+        "bytes": 10428,
+        "sha256": "adcd78810e82e9284fb149a008616170d6e9ae9468629668d2ea9d859eaad055"
+      },
+      "after": {
+        "path": "components/ui/cite.tsx",
+        "bytes": 11289,
+        "sha256": "acc039e8d5913e5356bd2c00d989cfa29d9722470d5f0e2a6b17fe102d78e50a"
+      },
+      "consumers": [
+        "industrial-correction-37-20260923",
+        "industrial-correction-47-20260923",
+        "industrial-correction-48-20260923"
+      ]
+    },
+    {
+      "name": "term-overflow-keys",
+      "before": {
+        "path": "audit/evidence/motion-round5-reader-pins-20260929/term-before.tsx.txt",
+        "bytes": 7417,
+        "sha256": "6af4846e55b78003e67a1928d0c7cbcffefc0c11df6d650a2197b0ed6da8d09c"
+      },
+      "after": {
+        "path": "components/ui/term.tsx",
+        "bytes": 8043,
+        "sha256": "e465a4219d4865534d837112ffa6133423309c6a61a45e9bdbae37b772ca44ae"
+      },
+      "consumers": [
+        "industrial-correction-37-20260923",
+        "industrial-correction-47-20260923",
+        "industrial-correction-48-20260923"
+      ]
+    }
+  ]
+}

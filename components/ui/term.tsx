@@ -151,6 +151,19 @@ export function Term({ termId, term, definition, children }: TermProps) {
         role="tooltip"
         id={tooltipId}
         ref={tooltipRef}
+        onKeyDown={(event) => {
+          const tip = event.currentTarget;
+          if (tip.scrollHeight <= tip.clientHeight + 1) return;
+          if (event.key !== 'Home' && event.key !== 'End') return;
+          // Native End on this overflow tooltip scrolls only a few pixels,
+          // so the final caveat stays outside the clip. Pin both ends.
+          event.preventDefault();
+          const next = event.key === 'Home' ? 0 : tip.scrollHeight;
+          tip.scrollTop = next;
+          requestAnimationFrame(() => {
+            if (tooltipRef.current) tooltipRef.current.scrollTop = next;
+          });
+        }}
         data-brand-surface-id="surface:floating"
         // Hidden copy: excluded from the Pagefind index so search excerpts
         // never fuse the definition onto the surrounding prose.

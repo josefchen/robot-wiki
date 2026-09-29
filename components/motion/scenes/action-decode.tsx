@@ -148,7 +148,7 @@ export function ActionDecode({ className }: { className?: string }) {
         </>
       }
       readout={() => <><span className="text-text-dim">toy value</span> {VALUE.toFixed(3)} <span className="text-text-dim">→</span> bin {BIN} <span className="text-text-dim">→</span> {tokenForBin(BIN)}</>}
-      statusLine="Schematic, illustrative action vector: normalized bounds and token labels are a toy, not a measured rollout or literal vocabulary. The 256-bin mechanism and sequential decoding are the subject; the lab below exposes all coordinates."
+      statusLine="Schematic, illustrative action vector: normalized bounds and token labels are a toy, not a measured rollout or literal vocabulary. The 256-bin mechanism and sequential decoding are the subject; the lab above exposes all coordinates."
       textAlternative={`${ACTION_DECODE_SCENE.title}. ${ACTION_DECODE_SCENE.beats.map((beat, index) => `Beat ${index + 1}: ${beat.caption}`).join(' ')} The selected coordinate is ${ACTION_DIMS[DIMENSION].label} at step ${STEP}, assigned to bin ${BIN} of ${BIN_COUNT - 1}. The illustrative token sequence is ${ACTION_DIMS.map((dimension, index) => `${dimension.label} ${tokenForBin(binIndex(CHUNK[index][STEP]))}`).join(', ')}.`}
     />
   );

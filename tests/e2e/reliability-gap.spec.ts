@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { setSlider } from './slider';
+import { setHydratedSlider as setSlider } from './interaction-ready';
 
 const ROUTE = '/frontier/reliability-gap/';
 
@@ -134,7 +134,8 @@ test.describe('frontier reliability-gap module', () => {
     expect(await readoutValue(page)).toBeLessThan(21.5);
 
     // Reset restores the anchor state.
-    await page.getByRole('button', { name: /reset/i }).first().click();
+    await perStep.locator('xpath=ancestor::*[@data-brand-module-signature="instrument-frame"][1]')
+      .getByRole('button', { name: 'Reset', exact: true }).click();
     await expect(readout).toHaveText('21.5%');
     await expect(perStep).toHaveValue('95');
     await expect(horizon).toHaveValue('30');

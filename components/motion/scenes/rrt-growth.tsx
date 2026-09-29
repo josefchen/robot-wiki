@@ -116,7 +116,7 @@ export function RrtGrowth({ className }: { className?: string }) {
         <LegendItem series="rrt-route" swatch={<span aria-hidden className="inline-block h-0.5 w-4" style={{ backgroundColor: 'var(--role-highlight-graphic)' }} />}>selected route</LegendItem>
       </>}
       readout={() => <RrtConnectionReadout />}
-      statusLine="Authored fixed-seed planning scene, not a published benchmark. The route is one feasible result, not an optimality or success-rate claim. The lab below retains the exact controls and sampling settings."
+      statusLine="Authored fixed-seed planning scene, not a published benchmark. The route is one feasible result, not an optimality or success-rate claim. The lab above retains the exact controls and sampling settings."
       textAlternative={`${RRT_GROWTH_SCENE.title}. ${RRT_GROWTH_SCENE.beats.map((beat, index) => `Beat ${index + 1}: ${beat.caption}`).join(' ')}`}
     />
   );

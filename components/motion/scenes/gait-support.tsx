@@ -111,8 +111,8 @@ export function GaitSupport({ className }: { className?: string }) {
         return <><span className="text-text-dim">new pattern</span> {GAITS[id].name}{' '}
           <span className="text-text-dim">minimum support</span> {minStanceCount(GAITS[id])} feet</>;
       }}
-      statusLine="Schematic, authored gait duty factors and phase offsets from the lab below. Bar height counts stance feet at four sample phases; LF/RF are front feet and LH/RH are hind feet. These are not measured robot footfalls."
-      textAlternative={`${GAIT_SUPPORT_SCENE.title}. ${GAIT_SUPPORT_SCENE.beats.map((beat, index) => `Beat ${index + 1}: ${beat.caption}`).join(' ')} The full gait lab below provides direct phase and pattern controls.`}
+      statusLine="Schematic, authored gait duty factors and phase offsets from the lab above. Bar height counts stance feet at four sample phases; LF/RF are front feet and LH/RH are hind feet. These are not measured robot footfalls."
+      textAlternative={`${GAIT_SUPPORT_SCENE.title}. ${GAIT_SUPPORT_SCENE.beats.map((beat, index) => `Beat ${index + 1}: ${beat.caption}`).join(' ')} The full gait lab above provides direct phase and pattern controls.`}
     />
   );
 }

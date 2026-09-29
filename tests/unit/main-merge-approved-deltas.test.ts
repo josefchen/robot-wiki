@@ -212,6 +212,64 @@ const motionScrutinyS12Appends = [
   'motion-scrutiny-s12-20260928-prose-generative-sim-citation-attachment',
   'motion-scrutiny-s12-20260928-relationships-generative-sim-citation',
 ] as const;
+// The round-5 first-screen repair of 2026-09-28 moved each article's first
+// interactive ahead of the motion scene that had pushed it past VAL-EDU-045.
+// reliability-gap's history already ended in reconciling resolutions, so its
+// entry is a resolution from the sealed hash binding all twenty prior edges.
+const round5FirstScreenAppends = [
+  'reliability-gap', 'drones', 'diffusion-policy',
+].map(slug => `round5-chart-first-screen-20260928-prose-${slug}`);
+// The round-5 pinned-leftover repair of 2026-09-28 moved the data-bottleneck
+// and evaluation-crisis first interactives ahead of their motion scenes; each
+// article's history ended in a plain edge, so each entry is a plain edge too.
+const round5PinnedLeftoversAppends = [
+  'round5-pinned-leftovers-20260928-prose-data-bottleneck',
+  'round5-pinned-leftovers-20260928-prose-evaluation-crisis',
+] as const;
+// The round-5 first-screen c/d repair of 2026-09-29 swapped nine articles'
+// first interactive above the motion scene that separated it from its cue.
+// parallel-sim-rl's history already ended in reconciling resolutions, so its
+// entry is a resolution from the sealed hash binding all sixteen prior edges.
+const round5FirstScreenCdAppends = [
+  'vla-models', 'pi-line', 'parallel-sim-rl', 'legged-locomotion',
+  'latent-dynamics', 'generative-video', 'generative-sim', 'kinematics',
+  'motion-planning',
+].map(slug => `round5-first-screen-cd-20260929-prose-${slug}`);
+const round5FirstScreenCdEndpoints: ReadonlyArray<readonly [string, string, string]> = [
+  ['article:manipulation/vla-models',
+    '58887645ef7e2449eace762c4f2e89581eda98ec5c9adaa88b6c16ff690d2303',
+    'ef14b1dd87bf8f6c5944bebb56b5da3b2db890def0d378e38c4a113806d9027f'],
+  ['article:manipulation/pi-line',
+    'f0f3afb7ce11afa404d1b8584e8039f9c007da277a6a9d0651ea0aeecf52b3e6',
+    '783f0ca55010dc594fe42dd4b9e6f54f39538e7a52e3fa46e7958360893bc0b2'],
+  ['article:rl-sim2real/parallel-sim-rl',
+    'd7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb',
+    '16a9970b03691a66d3ad57e002e4875957a185c31515387e279cecb913c04013'],
+  ['article:rl-sim2real/legged-locomotion',
+    'e531e02d9f41cda0e58185a4db70fff208823776508ae05ebbcbf7bd5270236e',
+    '037a9544af297abc1b1e1d7a1ede04d1b612001c90a7525ec1c190b39df7e2e8'],
+  ['article:world-models/latent-dynamics',
+    'a85d0697bed9de5abba178bb756ec8bf574c7606c2e9052fa8e4f1bb56f74a4b',
+    'e549d756bb8b49aeb3f0736327a5c9a0bddec87711d00972789c930b415c154c'],
+  ['article:world-models/generative-video',
+    '31334d054d21359664e0e084c071ef1e975d694301e8c513ddcdaee68d04f5de',
+    '567163089b84a153754a53be294f00e25280ae6dea24c311727348f85b21b8c1'],
+  ['article:world-models/generative-sim',
+    '4b18ebca49f3165a16d99e7cf26f234067e41ab20c4c2f20da24ca5408e2a32d',
+    'fc6578de34784263b16681fcbe5808f494bb9d9753d289752faf886e522a2a86'],
+  ['article:classical/kinematics',
+    '6384fcd878d487039ac2492bd1090c3e49de43140822fb0f5e8c6ea13b6295ad',
+    'b8300ca0b4bd3553fb750c151d08c80056932753754b6a8c63ecdf52ddaa4262'],
+  ['article:classical/motion-planning',
+    '040f1702175cf8527aaa76ec43be0590301c96ae19242814331f7f06053195c4',
+    'a74f0a8a4d1997310fcd85f3a92d2518cd1236e2ad7a7673fdf2ae3752050d84'],
+];
+// The shared-reader focus repair of 2026-09-28 added the AuthorToggleEarly
+// import and mount to the root layout. Every earlier edge for that member
+// starts at the sealed hash, so this entry does too.
+const sharedReaderLayoutAppends = [
+  'shared-reader-20260928-article-metadata-root-layout-author-toggle',
+] as const;
 
 describe('two-parent exact approval reconciliation', () => {
   it('retains every main approval and the nine scoped frontier/adjacent successors in order', () => {
@@ -228,12 +286,56 @@ describe('two-parent exact approval reconciliation', () => {
     // The subsequent domain passes add nine classical article endpoints,
     // two manipulation mounts, eight RL article endpoints and five RL
     // reconciliation edges, all named below in ledger order.
-    expect([main.length, local.length, localOnly.length, merged.length]).toEqual([1558, 1104, 7, 1750]);
+    expect([main.length, local.length, localOnly.length, merged.length]).toEqual([1558, 1104, 7, 1765]);
     expect(merged.slice(0, main.length)).toEqual(main);
     expect(merged.slice(main.length, main.length + localOnly.length)).toEqual(localOnly);
     expect(merged.slice(main.length + localOnly.length).map(x => x.id))
-      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends]);
-    expect(merged.slice(-2)).toMatchObject([
+      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends]);
+    expect(merged.slice(-1)).toMatchObject([{
+      id: sharedReaderLayoutAppends[0], manifest: 'article-metadata',
+      memberId: 'canonical-metadata-source:app/layout.tsx',
+      oldHash: '539ab11a4ab2cdf715f036dc9aafe8b4bdb757dc63ef804f4e4214dea3bfacb4',
+      newHash: '4f8ee54d1de53be8f180bd901e31f1ae42dd719ce13df60286fc6f26338046be',
+    }]);
+    expect(merged.slice(-10, -1)).toMatchObject(round5FirstScreenCdEndpoints.map(
+      ([memberId, oldHash, newHash], index) => ({
+        id: round5FirstScreenCdAppends[index], manifest: 'prose', memberId, oldHash, newHash,
+      })));
+    expect(merged.slice(-12, -10)).toMatchObject([
+      {
+        id: round5PinnedLeftoversAppends[0], manifest: 'prose',
+        memberId: 'article:data-hardware/data-bottleneck',
+        oldHash: 'cdc986bcd3e8a57e6d13297065578acd964e66f98cf7161de5bf42b0072cb47d',
+        newHash: '2a399628a0d3d47c483619e0563664aa50e82ca704050c69ccb7d44a73f8a161',
+      },
+      {
+        id: round5PinnedLeftoversAppends[1], manifest: 'prose',
+        memberId: 'article:data-hardware/evaluation-crisis',
+        oldHash: '1bf31b1df987ef3edf435c4bb5c7280105a43e1e240544be069454c01c505923',
+        newHash: '58eb66a343de12e685e540f7840313f33b841fa233b26462d428b2a298459557',
+      },
+    ]);
+    expect(merged.slice(-15, -12)).toMatchObject([
+      {
+        id: round5FirstScreenAppends[0], manifest: 'prose',
+        memberId: 'article:frontier/reliability-gap',
+        oldHash: 'a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c',
+        newHash: '1e39b6186e098ed948aa36770562e9041be8283a9956f7396b472529fd661a90',
+      },
+      {
+        id: round5FirstScreenAppends[1], manifest: 'prose',
+        memberId: 'article:adjacent/drones',
+        oldHash: '57fede5c2c9e935af23c2591d021aa42217c420f53f98733fee97f4e9e1f80ab',
+        newHash: 'fa823b5469df1868ac25fd324077b5aa44a2075fef250591e1ba46373cd78e29',
+      },
+      {
+        id: round5FirstScreenAppends[2], manifest: 'prose',
+        memberId: 'article:manipulation/diffusion-policy',
+        oldHash: '2ed97162a04e8b619a5360fcd51957fd61d07dedc306df39bc12d4107aa4db62',
+        newHash: '67925c3ecc80d2e381175f6eee29423df7adfa9afec379db9192810eb45f61f2',
+      },
+    ]);
+    expect(merged.slice(-17, -15)).toMatchObject([
       {
         id: motionScrutinyS12Appends[0], manifest: 'prose',
         memberId: 'article:world-models/generative-sim',
@@ -296,6 +398,57 @@ describe('two-parent exact approval reconciliation', () => {
       resolution.oldHash, resolution.newHash).status).toBe('ambiguous');
       expect(approvedDeltaPath(path, resolution.oldHash, '0'.repeat(64)).status).toBe('ambiguous');
     }
+    const reliabilityEdges = merged.filter(x => x.manifest === 'prose'
+      && x.memberId === 'article:frontier/reliability-gap');
+    const reliabilityResolution = reliabilityEdges.at(-1)!;
+    expect(reliabilityResolution.id).toBe(round5FirstScreenAppends[0]);
+    expect(reliabilityResolution.reconciles).toEqual(reliabilityEdges.slice(0, -1).map(x => ({
+      id: x.id, oldHash: x.oldHash, newHash: x.newHash,
+    })));
+    expect(reliabilityResolution.reconciles).toHaveLength(20);
+    expect(approvedDeltaPath(reliabilityEdges, reliabilityResolution.oldHash,
+      reliabilityResolution.newHash).status).toBe('approved');
+    expect(approvedDeltaPath(reliabilityEdges.slice(0, -1), reliabilityResolution.oldHash,
+      reliabilityResolution.newHash).status).toBe('ambiguous');
+    const parallelEdges = merged.filter(x => x.manifest === 'prose'
+      && x.memberId === 'article:rl-sim2real/parallel-sim-rl');
+    const parallelResolution = parallelEdges.at(-1)!;
+    expect(parallelResolution.id).toBe(round5FirstScreenCdAppends[2]);
+    expect(parallelResolution.reconciles).toEqual(parallelEdges.slice(0, -1).map(x => ({
+      id: x.id, oldHash: x.oldHash, newHash: x.newHash,
+    })));
+    expect(parallelResolution.reconciles).toHaveLength(16);
+    expect(parallelEdges.at(-2)?.id).toBe('motion-rl-sim2real-20260927-reconcile-parallel-sim-rl');
+    expect(approvedDeltaPath(parallelEdges, parallelResolution.oldHash,
+      parallelResolution.newHash).status).toBe('approved');
+    expect(approvedDeltaPath(parallelEdges.slice(0, -1), parallelResolution.oldHash,
+      parallelResolution.newHash).status).toBe('ambiguous');
+    expect(approvedDeltaPath(parallelEdges.map((edge, index) => index === 0
+      ? { ...edge, newHash: '0'.repeat(64) } : edge),
+    parallelResolution.oldHash, parallelResolution.newHash).status).toBe('ambiguous');
+    const sealedProse: { members: Array<{ id: string; hash: string }> } = JSON.parse(
+      readFileSync('evidence/brand-v2/baseline/prose.json', 'utf8'));
+    for (const [memberId, oldHash, newHash] of round5FirstScreenCdEndpoints) {
+      const edges = merged.filter(x => x.manifest === 'prose' && x.memberId === memberId);
+      const sealed = sealedProse.members.find(x => x.id === memberId)!.hash;
+      expect(edges.at(-1)?.newHash).toBe(newHash);
+      expect(approvedDeltaPath(edges, sealed, newHash).status).toBe('approved');
+      expect(approvedDeltaPath(edges.slice(0, -1), sealed, newHash).status).not.toBe('approved');
+      if (memberId !== 'article:rl-sim2real/parallel-sim-rl') {
+        expect(edges.at(-2)?.newHash).toBe(oldHash);
+      }
+    }
+    const layoutSealed = '539ab11a4ab2cdf715f036dc9aafe8b4bdb757dc63ef804f4e4214dea3bfacb4';
+    const layoutCurrent = '4f8ee54d1de53be8f180bd901e31f1ae42dd719ce13df60286fc6f26338046be';
+    const layoutEdges = merged.filter(x => x.manifest === 'article-metadata'
+      && x.memberId === 'canonical-metadata-source:app/layout.tsx');
+    expect(layoutEdges.map(x => x.oldHash)).toEqual(layoutEdges.map(() => layoutSealed));
+    expect(layoutEdges.at(-1)?.id).toBe(sharedReaderLayoutAppends[0]);
+    expect(approvedDeltaPath(layoutEdges, layoutSealed, layoutCurrent))
+      .toEqual({ status: 'approved', path: [layoutEdges.at(-1)] });
+    expect(approvedDeltaPath(layoutEdges.slice(0, -1), layoutSealed, layoutCurrent).status)
+      .toBe('missing');
+    expect(approvedDeltaPath(layoutEdges, layoutSealed, '0'.repeat(64)).status).toBe('missing');
     expect(merged.filter(x => x.manifest === 'prose'
       && x.memberId === 'article:data-hardware/industrial-deployment').at(-1)?.id)
       .toBe('motion-data-hardware-source-qualification-20260927-prose-industrial-deployment');

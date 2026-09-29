@@ -458,6 +458,14 @@ describe('authored-local-basis-v1 compatibility cases', () => {
       'audit/evidence/motion-proof-reader-efficiency-20260928/audit-local-basis-before.ts.txt',
       'audit/evidence/motion-article-truth-efficiency-20260928/checker-transition.json',
       'audit/evidence/motion-article-truth-efficiency-20260928/audit-local-basis-before.ts.txt',
+      'audit/evidence/motion-shared-ui-local-basis-20260928/checker-transition.json',
+      'audit/evidence/motion-shared-ui-local-basis-20260928/audit-local-basis-before.ts.txt',
+      'audit/evidence/motion-round5-pinned-leftovers-20260928/checker-transition.json',
+      'audit/evidence/motion-round5-pinned-leftovers-20260928/audit-local-basis-before.ts.txt',
+      'audit/evidence/motion-round5-first-screen-cd-20260929/checker-transition.json',
+      'audit/evidence/motion-round5-first-screen-cd-20260929/audit-local-basis-before.ts.txt',
+      'audit/evidence/motion-round5-reader-pins-20260929/checker-transition.json',
+      'audit/evidence/motion-round5-reader-pins-20260929/audit-local-basis-before.ts.txt',
     ]) f.put(path, readFileSync(join(project, path)));
     const bind = (path: string, snapshot: string) => {
       const retained = `audit/evidence/local-proof-compat-20260923/${snapshot}`;
@@ -527,6 +535,42 @@ describe('authored-local-basis-v1 compatibility cases', () => {
     expect(f.validate().failures.join(' ')).toMatch(change === 'missing'
       ? /ENOENT.*motion-proof-reader-efficiency-20260928\/audit-local-basis-before\.ts\.txt/
       : /motion domain-pairs checker continuity drift/);
+  });
+  it.each(['missing', 'corrupt'] as const)('rejects %s shared-ui checker predecessor input', change => {
+    const f = historicalFixture();
+    const snapshot = 'audit/evidence/motion-shared-ui-local-basis-20260928/audit-local-basis-before.ts.txt';
+    if (change === 'missing') rmSync(join(f.root, snapshot));
+    else f.put(snapshot, 'corrupt retained checker');
+    expect(f.validate().failures.join(' ')).toMatch(change === 'missing'
+      ? /ENOENT.*motion-shared-ui-local-basis-20260928\/audit-local-basis-before\.ts\.txt/
+      : /shared-ui local-basis continuity drift/);
+  });
+  it.each(['missing', 'corrupt'] as const)('rejects %s round5 pinned-leftovers checker input', change => {
+    const f = historicalFixture();
+    const snapshot = 'audit/evidence/motion-round5-pinned-leftovers-20260928/audit-local-basis-before.ts.txt';
+    if (change === 'missing') rmSync(join(f.root, snapshot));
+    else f.put(snapshot, 'corrupt retained checker');
+    expect(f.validate().failures.join(' ')).toMatch(change === 'missing'
+      ? /ENOENT.*motion-round5-pinned-leftovers-20260928\/audit-local-basis-before\.ts\.txt/
+      : /round5 local-basis checker continuity drift/);
+  });
+  it.each(['missing', 'corrupt'] as const)('rejects %s round5 first-screen cd checker input', change => {
+    const f = historicalFixture();
+    const snapshot = 'audit/evidence/motion-round5-first-screen-cd-20260929/audit-local-basis-before.ts.txt';
+    if (change === 'missing') rmSync(join(f.root, snapshot));
+    else f.put(snapshot, 'corrupt retained checker');
+    expect(f.validate().failures.join(' ')).toMatch(change === 'missing'
+      ? /ENOENT.*motion-round5-first-screen-cd-20260929\/audit-local-basis-before\.ts\.txt/
+      : /round5 first-screen cd checker continuity drift/);
+  });
+  it.each(['missing', 'corrupt'] as const)('rejects %s round5 reader-pins checker input', change => {
+    const f = historicalFixture();
+    const snapshot = 'audit/evidence/motion-round5-reader-pins-20260929/audit-local-basis-before.ts.txt';
+    if (change === 'missing') rmSync(join(f.root, snapshot));
+    else f.put(snapshot, 'corrupt retained checker');
+    expect(f.validate().failures.join(' ')).toMatch(change === 'missing'
+      ? /ENOENT.*motion-round5-reader-pins-20260929\/audit-local-basis-before\.ts\.txt/
+      : /round5 reader pins checker continuity drift/);
   });
   it.each(['missing', 'corrupt'] as const)('rejects %s article-truth predecessor input', change => {
     const f = historicalFixture();

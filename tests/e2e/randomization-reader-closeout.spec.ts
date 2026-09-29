@@ -329,8 +329,8 @@ for (const width of [375, 1440]) {
           await centered(radio);
           await capture(page, info, row, `choice-${index}`);
         }
-        await expect(prediction).toContainText('not Peng paper results');
-        await expect(prediction).toContainText('not a measured law of domain randomization');
+        await expect(prediction).toContainText('do not come from Peng paper results');
+        await expect(prediction).toContainText('no measured universal law of this shape');
         const panel = prediction.locator('div:has(> [data-testid="ft-explanation"])');
         await exercisePanel(page, panel, info, row, 0.65);
         await expect(page.locator('div.prose > div:has(> [data-testid="ft-explanation"])').getByRole('slider').nth(1)).toHaveValue('35');

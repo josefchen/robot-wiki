@@ -308,6 +308,7 @@ export const LATER_REANCHOR_PREFIXES = [
   'motion-manipulation-20260927-',
   'motion-rl-sim2real-humanizer-v3-20260927-',
   'motion-rl-sim2real-20260927-reconcile-',
+  'round5-first-screen-cd-20260929-',
 ] as const;
 
 let integratedObservations: Map<string, string | undefined> | undefined;

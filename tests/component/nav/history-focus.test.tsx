@@ -280,6 +280,34 @@ describe('HistoryFocus', () => {
     expect(activeElementId()).toBe('BODY');
   });
 
+  it('focuses the heading when Forward returns to the original pushed article', async () => {
+    // Back through two pages leaves the furthest push as the recorded key.
+    // Forward back onto that article must still count as a traversal, not
+    // a hash-only step, or the restored h1 stays inactive.
+    const { rerender } = render(<Harness />);
+    navigateTo('/manipulation/');
+    await rerenderAt(rerender);
+    navigateTo('/manipulation/action-chunking/');
+    await rerenderAt(rerender);
+    mockPathname = '/manipulation/';
+    traverseTo('/manipulation/');
+    await rerenderAt(rerender);
+    expect(document.activeElement).toBe(document.querySelector('main h1'));
+    mockPathname = '/';
+    traverseTo('/');
+    await rerenderAt(rerender);
+    expect(document.activeElement).toBe(document.querySelector('main h1'));
+    mockPathname = '/manipulation/';
+    traverseTo('/manipulation/');
+    await rerenderAt(rerender);
+    expect(document.activeElement).toBe(document.querySelector('main h1'));
+    mockPathname = '/manipulation/action-chunking/';
+    traverseTo('/manipulation/action-chunking/');
+    await rerenderAt(rerender);
+    expect(document.activeElement).toBe(document.querySelector('main h1'));
+    expect(document.querySelector('main h1')).toHaveAttribute('tabindex', '-1');
+  });
+
   it('stays out of the way while suspended (drawer open)', async () => {
     const { rerender } = render(<Harness suspended />);
     navigateTo('/manipulation/action-chunking/');

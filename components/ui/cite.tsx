@@ -2,6 +2,13 @@
 
 import { useId, useLayoutEffect, useRef, useState } from 'react';
 
+const citeTooltipListeners = new Set<(id: string) => void>();
+
+/** One citation tooltip is exposed at a time. A focus move must not leave the previous chip's hover-grace popup open. */
+function claimCiteTooltip(id: string) {
+  for (const listener of citeTooltipListeners) listener(id);
+}
+
 type CiteProps = {
   /** Canonical URL of the source (arXiv, official docs, lab blog). */
   href: string;
@@ -39,6 +46,25 @@ export function Cite({ href, label, title, meta, citeId, referenceHref }: CitePr
   const [focused, setFocused] = useState(false);
   const [dismissed, setDismissed] = useState(false);
   const revealed = (hovered || focused) && !dismissed;
+
+  useLayoutEffect(() => {
+    const listener = (id: string) => {
+      if (id === tooltipId) return;
+      // Keyboard focus on this chip outranks a hover claim elsewhere.
+      if (rootRef.current?.contains(document.activeElement)) return;
+      clearTimeout(leaveTimer.current);
+      setHovered(false);
+      setFocused(false);
+    };
+    citeTooltipListeners.add(listener);
+    return () => {
+      citeTooltipListeners.delete(listener);
+    };
+  }, [tooltipId]);
+
+  useLayoutEffect(() => {
+    if (revealed) claimCiteTooltip(tooltipId);
+  }, [revealed, tooltipId]);
 
   useLayoutEffect(() => {
     const root = rootRef.current;

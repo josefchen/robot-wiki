@@ -1,6 +1,6 @@
 'use client';
 
-import { useId, useState, type ReactNode } from 'react';
+import { useId, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
 import { cx } from '@/lib/utils';
 
 /**
@@ -126,13 +126,20 @@ export function CommitToReveal({
   // and client, unique per mount.
   const uid = useId();
   const groupName = `${uid}-choice`;
+  const detailsRef = useRef<HTMLDetailsElement>(null);
   const [chosen, setChosen] = useState<string | null>(null);
-  const [open, setOpen] = useState(false);
 
   const commit = (value: string) => {
     setChosen(value);
-    setOpen(true);
+    // The disclosure stays uncontrolled. A controlled `open` prop plus
+    // onToggle lets the summary's close event win over this commit, so the
+    // radio checks while the reasoning stays shut.
+    if (detailsRef.current) detailsRef.current.open = true;
   };
+
+  useLayoutEffect(() => {
+    if (chosen !== null && detailsRef.current) detailsRef.current.open = true;
+  }, [chosen]);
 
   return (
     <section
@@ -172,9 +179,8 @@ export function CommitToReveal({
         </div>
       </fieldset>
       <details
+        ref={detailsRef}
         data-reveal=""
-        open={open}
-        onToggle={(event) => setOpen((event.target as HTMLDetailsElement).open)}
         className="mt-3 bg-surface-2 p-3 text-sm"
       >
         <summary

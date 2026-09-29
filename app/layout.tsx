@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 import { IBM_Plex_Mono, IBM_Plex_Sans, Newsreader } from 'next/font/google';
 import localFont from 'next/font/local';
 import { AnonymousAnalytics } from '@/components/analytics/anonymous-analytics';
+import { AuthorToggleEarly } from '@/components/article/author-toggle-early';
 import { SiteShell } from '@/components/nav/site-shell';
 import {
   ALLOW_INDEXING,
@@ -140,6 +141,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       className={`${tektur.variable} ${plexSans.variable} ${newsreader.variable} ${plexMono.variable} ${plexMonoMedium.variable}`}
     >
       <body>
+        <AuthorToggleEarly />
         {/* The skip link is the shell's first tab stop and the shell has to
             be able to take it out of the tab order while the mobile drawer
             holds focus, so SiteShell mounts it as its own first child. */}
