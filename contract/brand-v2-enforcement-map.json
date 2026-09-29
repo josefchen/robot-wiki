@@ -5673,12 +5673,12 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|display#13",
+          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|display#11",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|display#5",
+          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|display#13",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
@@ -5694,11 +5694,6 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#10",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#11",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
@@ -5748,6 +5743,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#5",
+          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#6",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
@@ -5768,12 +5768,12 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|display#13",
+          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|display#11",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|display#5",
+          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|display#13",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
@@ -5789,11 +5789,6 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#10",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#11",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
@@ -5839,6 +5834,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#4",
+          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#5",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
@@ -6506,12 +6506,11 @@
           "result:VAL-B2-ART-007:/manipulation/comparison-matrix/|1440x900|inline#1",
           "result:VAL-B2-ART-007:/manipulation/comparison-matrix/|375x812|inline#0",
           "result:VAL-B2-ART-007:/manipulation/comparison-matrix/|375x812|inline#1",
+          "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|display#11",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|display#13",
-          "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|display#5",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#0",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#1",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#10",
-          "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#11",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#12",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#14",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#15",
@@ -6521,16 +6520,16 @@
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#2",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#3",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#4",
+          "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#5",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#6",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#7",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#8",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#9",
+          "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|display#11",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|display#13",
-          "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|display#5",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#0",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#1",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#10",
-          "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#11",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#12",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#14",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#15",
@@ -6540,6 +6539,7 @@
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#2",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#3",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#4",
+          "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#5",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#6",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#7",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#8",

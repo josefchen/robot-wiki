@@ -39,9 +39,9 @@ A robot learning paper announces its headline result as a single number: the <Te
 
 This illustrative probability model makes no claim about a measured robot policy. Assume every decision has the same probability p of success conditional on all earlier decisions succeeding. The probability of completing n decisions without failure is then p^n. Choosing p = 0.95 and n = 30 gives 21.5% after rounding to one decimal place; choosing n = 100 gives 0.6%. Drag the episode-length slider to compare those derived examples. Real tasks need not satisfy the constant conditional-probability assumption.
 
-<EpisodeSurvival className="my-6" />
-
 <ReliabilityCompounding minPerStepPercent={0} maxPerStepPercent={100} descriptionVariant="evaluation" className="my-6" />
+
+<EpisodeSurvival className="my-6" />
 
 The calculator above computes that product. The per-step slider spans the full range on purpose, so the boundary cases are honest: at 0% per-step the task never completes once the horizon is at least one step, at 100% it always completes, and at a horizon of exactly one step the readout equals the per-step value. No setting produces a meaningless number, and the decay curve is the point. Within the same illustrative model, solving p^n = q gives p = q^(1/n). For the chosen episode target q = 0.8, n = 5 gives 95.6% and n = 30 gives 99.3%, rounded to one decimal place. These model-dependent derivations do not infer per-step reliability from real benchmark results.
 

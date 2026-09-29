@@ -197,8 +197,10 @@ for (const consumer of slamConsumers) test(`SLAM final text and keyboard exit at
   e.record({ name: 'glossary-back-focus', focus: await page.evaluate(() => ({ tag: document.activeElement?.tagName, href: document.activeElement?.getAttribute('href') })), acceptance: false, owner: 'Existing route/history restoration' });
 });
 
-test('state controls disclosures and real navigation retain keyboard paths', async ({ page }, info) => {
-  const e = evidence(page, info); await open(page);
+test('state scene transport and seeded readout retain keyboard paths', async ({ page }, info) => {
+  const e = evidence(page, info);
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await open(page);
   if (page.viewportSize()!.width === 375) {
     const menu = page.getByRole('button', { name: 'Open navigation menu' }); await menu.focus(); await page.keyboard.press('Enter');
     const dialog = page.getByRole('dialog'), close = dialog.getByRole('button', { name: 'Close navigation menu' }); await expect(close).toBeFocused();
@@ -208,15 +210,35 @@ test('state controls disclosures and real navigation retain keyboard paths', asy
     await page.keyboard.press('Tab'); await expect(close).toBeFocused(); await e.capture('state-drawer'); await e.axe('[role="dialog"]', 'drawer-axe');
     await page.keyboard.press('Escape'); await expect(dialog).toHaveCount(0); await expect(menu).toBeFocused();
   }
-  const scene = page.getByTestId('kalman-scene'); const container = scene.locator('..');
-  e.record({ name: 'actual-controls', sliders: await page.getByRole('slider').count(), buttons: await container.getByRole('button').count(), disclosures: await container.locator('details').count() });
-  await expect(page.getByTestId('kalman-step-readout')).toHaveText('60 / 600'); await e.textCapture(container, 'kalman-default');
-  const q = page.getByRole('slider', { name: /process noise/i }); await q.focus(); await page.keyboard.press('ArrowRight'); await expect(page.getByTestId('kalman-sigmaq-value')).toHaveText('0.25');
-  await e.capture('kalman-noise-changed'); const reset = page.getByRole('button', { name: /reset/i }); await reset.focus(); await page.keyboard.press('Enter');
-  await expect(page.getByTestId('kalman-sigmaq-value')).toHaveText('0.20'); await e.textCapture(container, 'kalman-reset');
-  const disclosures = container.locator('details'); expect(await disclosures.count()).toBeGreaterThan(0);
-  for (let index = 0; index < await disclosures.count(); index++) { const d = disclosures.nth(index); await d.locator('summary').focus(); await page.keyboard.press('Enter'); await expect(d).toHaveAttribute('open', '');
-    await e.textCapture(d, `kalman-disclosure-${index}`); await d.locator('summary').focus(); await page.keyboard.press('Enter'); await expect(d).not.toHaveAttribute('open', ''); }
+  const scene = page.getByRole('group', { name: 'Motion scene: Kalman filter: predict and update' });
+  await expect(scene.getByTestId('motion-beat-readout')).toHaveText('5 / 5');
+  await expect(scene.getByTestId('kalman-gain-value')).toHaveText('0.62');
+  await expect(scene).toContainText('seed 1');
+  e.record({ name: 'actual-controls', poster: await scene.getByTestId('motion-poster').count(),
+    gain: await scene.getByTestId('kalman-gain-value').innerText(), beat: await scene.getByTestId('motion-beat-readout').innerText() });
+  await e.textCapture(scene, 'kalman-poster');
+  const poster = scene.getByTestId('motion-poster');
+  await poster.focus(); await page.keyboard.press('Enter');
+  const scrubber = scene.getByRole('slider', { name: 'Scene timeline' });
+  await expect(scrubber).toBeVisible();
+  await scrubber.focus(); await page.keyboard.press('Home');
+  await expect(scene.getByTestId('motion-beat-readout')).toHaveText('1 / 5');
+  // A beat boundary belongs to the beat it completes: the first arrow
+  // reaches beat 1's end-state, the second reaches Predict's end-state.
+  await page.keyboard.press('ArrowRight');
+  await expect(scene.getByTestId('motion-beat-readout')).toHaveText('1 / 5');
+  await page.keyboard.press('ArrowRight');
+  await expect(scene.getByTestId('motion-beat-readout')).toHaveText('2 / 5');
+  await expect(scene.getByTestId('motion-caption')).toContainText('Predict:');
+  await e.capture('kalman-predict-beat');
+  await page.keyboard.press('End');
+  await expect(scene.getByTestId('motion-beat-readout')).toHaveText('5 / 5');
+  const reset = scene.getByRole('button', { name: 'Reset the scene to its poster still' });
+  await scrubber.press('Home');
+  await reset.focus(); await page.keyboard.press('Enter');
+  await expect(scene.getByTestId('motion-beat-readout')).toHaveText('5 / 5');
+  await expect(scene.getByTestId('kalman-gain-value')).toHaveText('0.62');
+  await e.textCapture(scene, 'kalman-reset');
   await e.axe('#main-content', 'state-control-axe');
 });
 

@@ -23,6 +23,9 @@ function fixture() {
   for (const path of [
     'audit/local-basis.json',
     'audit/evidence/motion-rl-sim2real-20260927/continuity.json',
+    'audit/evidence/motion-round5-first-screen-cd-20260929/first-screen-transition.json',
+    'audit/evidence/motion-round5-first-screen-cd-20260929/parallel-sim-rl-first-screen-before.mdx',
+    'audit/evidence/motion-round5-first-screen-cd-20260929/legged-locomotion-first-screen-before.mdx',
     ...entries.flatMap((entry) => [entry.snapshot.path, entry.current.path]),
   ]) {
     const to = join(destination, path);
@@ -59,6 +62,14 @@ it('retains all four exact historical articles and independently pins active dis
     'audit/evidence/motion-proof-reader-efficiency-20260928/checker-transition.json'), 'utf8'));
   const articleTruthChecker = JSON.parse(readFileSync(join(root,
     'audit/evidence/motion-article-truth-efficiency-20260928/checker-transition.json'), 'utf8'));
+  const sharedUiChecker = JSON.parse(readFileSync(join(root,
+    'audit/evidence/motion-shared-ui-local-basis-20260928/checker-transition.json'), 'utf8'));
+  const round5Checker = JSON.parse(readFileSync(join(root,
+    'audit/evidence/motion-round5-pinned-leftovers-20260928/checker-transition.json'), 'utf8'));
+  const round5CdChecker = JSON.parse(readFileSync(join(root,
+    'audit/evidence/motion-round5-first-screen-cd-20260929/checker-transition.json'), 'utf8'));
+  const readerPinsChecker = JSON.parse(readFileSync(join(root,
+    'audit/evidence/motion-round5-reader-pins-20260929/checker-transition.json'), 'utf8'));
   expect(checker.after.bytes).toBe(worldChecker.before.bytes);
   expect(checker.after.sha256).toBe(worldChecker.before.sha256);
   expect(worldChecker.after.bytes).toBe(dataHardwareChecker.before.bytes);
@@ -71,6 +82,14 @@ it('retains all four exact historical articles and independently pins active dis
   expect(domainPairsChecker.after.sha256).toBe(proofReaderChecker.before.sha256);
   expect(proofReaderChecker.after.bytes).toBe(articleTruthChecker.before.bytes);
   expect(proofReaderChecker.after.sha256).toBe(articleTruthChecker.before.sha256);
+  expect(articleTruthChecker.after.bytes).toBe(sharedUiChecker.before.bytes);
+  expect(articleTruthChecker.after.sha256).toBe(sharedUiChecker.before.sha256);
+  expect(sharedUiChecker.after.bytes).toBe(round5Checker.before.bytes);
+  expect(sharedUiChecker.after.sha256).toBe(round5Checker.before.sha256);
+  expect(round5Checker.after.bytes).toBe(round5CdChecker.before.bytes);
+  expect(round5Checker.after.sha256).toBe(round5CdChecker.before.sha256);
+  expect(round5CdChecker.after.bytes).toBe(readerPinsChecker.before.bytes);
+  expect(round5CdChecker.after.sha256).toBe(readerPinsChecker.before.sha256);
   expect(domainPairsChecker.before.path)
     .toBe('audit/evidence/motion-domain-pairs-20260928/audit-local-basis-before.ts.txt');
   expect(domainPairsChecker.after.path).toBe('lib/audit-local-basis.ts');
@@ -80,11 +99,30 @@ it('retains all four exact historical articles and independently pins active dis
   expect(articleTruthChecker.before.path)
     .toBe('audit/evidence/motion-article-truth-efficiency-20260928/audit-local-basis-before.ts.txt');
   expect(articleTruthChecker.after.path).toBe('lib/audit-local-basis.ts');
+  expect(sharedUiChecker.before.path)
+    .toBe('audit/evidence/motion-shared-ui-local-basis-20260928/audit-local-basis-before.ts.txt');
+  expect(sharedUiChecker.after.path).toBe('lib/audit-local-basis.ts');
+  expect(round5Checker.before.path)
+    .toBe('audit/evidence/motion-round5-pinned-leftovers-20260928/audit-local-basis-before.ts.txt');
+  expect(round5Checker.after.path).toBe('lib/audit-local-basis.ts');
+  expect(round5CdChecker.before.path)
+    .toBe('audit/evidence/motion-round5-first-screen-cd-20260929/audit-local-basis-before.ts.txt');
+  expect(round5CdChecker.after.path).toBe('lib/audit-local-basis.ts');
+  expect(readerPinsChecker.before.path)
+    .toBe('audit/evidence/motion-round5-reader-pins-20260929/audit-local-basis-before.ts.txt');
+  expect(readerPinsChecker.after.path).toBe('lib/audit-local-basis.ts');
   for (const artifact of [checker.before, worldChecker.before, dataHardwareChecker.before,
     frontierChecker.before, domainPairsChecker.before, domainPairsChecker.after,
-    proofReaderChecker.before, proofReaderChecker.after, articleTruthChecker.before, articleTruthChecker.after]) {
+    proofReaderChecker.before, proofReaderChecker.after, articleTruthChecker.before,
+    articleTruthChecker.after, sharedUiChecker.before, sharedUiChecker.after,
+    round5Checker.before, round5Checker.after, round5CdChecker.before, round5CdChecker.after,
+    readerPinsChecker.before, readerPinsChecker.after]) {
     const path = artifact === domainPairsChecker.after ? proofReaderChecker.before.path :
-      artifact === proofReaderChecker.after ? articleTruthChecker.before.path : artifact.path;
+      artifact === proofReaderChecker.after ? articleTruthChecker.before.path :
+      artifact === articleTruthChecker.after ? sharedUiChecker.before.path :
+      artifact === sharedUiChecker.after ? round5Checker.before.path :
+      artifact === round5Checker.after ? round5CdChecker.before.path :
+      artifact === round5CdChecker.after ? readerPinsChecker.before.path : artifact.path;
     const bytes = readFileSync(join(root, path));
     expect(bytes.length).toBe(artifact.bytes);
     expect(createHash('sha256').update(bytes).digest('hex')).toBe(artifact.sha256);
@@ -108,7 +146,8 @@ it('rejects population changes, unreviewed claims and active article drift', () 
     'This authored fixed-transitions model is not a benchmark.',
     'This model is a measured benchmark.',
   ));
-  expect(() => currentRlMotionArticle(destination, entries[0].historical, entries)).toThrow(/identity drift|artifact bytes\/hash/);
+  expect(() => currentRlMotionArticle(destination, entries[0].historical, entries))
+    .toThrow(/identity drift|artifact bytes\/hash|first-screen cd article continuity drift/);
 });
 
 it('rechecks each member, root and fresh article/catalog bytes with one parsed-input cache', () => {
@@ -134,8 +173,10 @@ it('rechecks each member, root and fresh article/catalog bytes with one parsed-i
   writeFileSync(articlePath, original.toString().replace(
     'This authored fixed-transitions model is not a benchmark.', 'This model is a measured benchmark.',
   ));
-  expect(() => verify(destination, 0)).toThrow(/identity drift|artifact bytes\/hash/);
-  expect(() => verify(destination, 0, entries, new Map())).toThrow(/identity drift|artifact bytes\/hash/);
+  expect(() => verify(destination, 0))
+    .toThrow(/identity drift|artifact bytes\/hash|first-screen cd article continuity drift/);
+  expect(() => verify(destination, 0, entries, new Map()))
+    .toThrow(/identity drift|artifact bytes\/hash|first-screen cd article continuity drift/);
   writeFileSync(articlePath, original);
   const catalogPath = join(destination, 'audit/local-basis.json');
   const catalog = JSON.parse(readFileSync(catalogPath, 'utf8'));

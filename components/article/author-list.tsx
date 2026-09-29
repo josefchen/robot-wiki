@@ -1,6 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
+
+declare global {
+  interface Window {
+    __rwAuthorToggle?: Record<string, number>;
+  }
+}
 
 /**
  * How many author names a References entry renders before eliding. The
@@ -17,14 +23,27 @@ export const AUTHORS_SHOWN = 8;
  * registry's; nothing is reordered and nothing is summarised away.
  */
 export function AuthorList({
+  id,
   authors,
   /** The rest of the meta line (venue and year), which reads before the control. */
   trailing,
 }: {
+  /** Registry id. A click that arrives before hydration is counted against this id. */
+  id?: string;
   authors: readonly string[];
   trailing: string;
 }) {
   const [expanded, setExpanded] = useState(false);
+  useLayoutEffect(() => {
+    if (!id) return;
+    const clicks = window.__rwAuthorToggle?.[id] ?? 0;
+    if (clicks % 2 !== 1) return;
+    // The Enter that arrived before hydration has no React onClick to
+    // replay. Applying it after the focused button mounts keeps focus,
+    // which a render-time setState replaces.
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- pre-hydration activation counter
+    setExpanded(true);
+  }, [id]);
 
   if (authors.length <= AUTHORS_SHOWN) {
     return (
@@ -47,6 +66,7 @@ export function AuthorList({
       {trailing}{' '}
       <button
         data-brand-control-id="control:secondary-action"
+        data-author-toggle={id}
         type="button"
         aria-expanded={expanded}
         onClick={() => setExpanded((value) => !value)}

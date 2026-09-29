@@ -113,7 +113,7 @@ export function FkChain({ className }: { className?: string }) {
         <LegendItem series="fk-chain-tip" swatch={<span aria-hidden className="inline-block h-2.5 w-2.5 rounded-full border-2" style={{ borderColor: 'var(--role-highlight-graphic)' }} />}>indicated tip</LegendItem>
       </>}
       readout={({ beatIndex }) => <><span className="text-text-dim">opening angles</span> {DEFAULT_ANGLES_DEG.join('°, ')}° {beatIndex === 3 ? <><span className="text-text-dim">tip</span> ({POSITION.effector.x.toFixed(2)}, {POSITION.effector.y.toFixed(2)})</> : null}</>}
-      statusLine="Schematic, authored link lengths and angles from the planar arm lab below; this is not a traced robot motion. Move the lab's joint sliders to explore other poses."
+      statusLine="Schematic, authored link lengths and angles from the planar arm lab above; this is not a traced robot motion. Move the lab's joint sliders to explore other poses."
       textAlternative={`${FK_CHAIN_SCENE.title}. ${FK_CHAIN_SCENE.beats.map((beat, index) => `Beat ${index + 1}: ${beat.caption}`).join(' ')}`}
     />
   );

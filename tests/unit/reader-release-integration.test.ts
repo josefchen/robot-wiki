@@ -63,7 +63,15 @@ describe('merged reader corrections preserve production additions and exact appr
         'motion-data-hardware-humanizer-v3-20260927-prose-data-bottleneck')!;
       expect(hashOf(committedSource('711118e8^', path))).toBe(pass.newHash);
       expect(motion.oldHash).toBe(pass.newHash);
-      expect(hashOf(read(path))).toBe(motion.newHash);
+      // The round-5 pinned-leftover repair (f41cf895) then moved the first
+      // interactive ahead of its motion scene with one plain edge.
+      const round5 = approvals.find(a => a.id ===
+        'round5-pinned-leftovers-20260928-prose-data-bottleneck')!;
+      expect(hashOf(committedSource('f41cf895^', path))).toBe(motion.newHash);
+      expect(round5.oldHash).toBe(motion.newHash);
+      expect(round5.reconciles).toBeUndefined();
+      expect(hashOf(read(path))).toBe(round5.newHash);
+      expect(round5.newHash).toBe('2a399628a0d3d47c483619e0563664aa50e82ca704050c69ccb7d44a73f8a161');
       expect(read(path)).toContain('Real-world robot data is different. Every hour of it');
     } else if (path.startsWith('content/data-hardware/')) {
       const slug = path.slice('content/data-hardware/'.length, -4);
@@ -121,7 +129,11 @@ describe('merged reader corrections preserve production additions and exact appr
           manifest: 'prose', memberId: id, oldHash: pass.newHash,
           newHash: '4b18ebca49f3165a16d99e7cf26f234067e41ab20c4c2f20da24ca5408e2a32d',
         });
-        expect(hashOf(read(path))).toBe(prose.newHash);
+        // The round-5 first-screen c/d pass later swapped two mount blocks;
+        // its plain edge continues from the s12 endpoint.
+        const moved = approvals.find(a => a.id === 'round5-first-screen-cd-20260929-prose-generative-sim')!;
+        expect(moved).toMatchObject({ manifest: 'prose', memberId: id, oldHash: prose.newHash });
+        expect(hashOf(read(path))).toBe(moved.newHash);
 
         const relationship = approvals.find(a => a.id ===
           'motion-scrutiny-s12-20260928-relationships-generative-sim-citation')!;
@@ -142,7 +154,12 @@ describe('merged reader corrections preserve production additions and exact appr
         expect(approvedDeltaPath(relationshipEdges.map(a => a === relationship
           ? { ...a, newHash: sha256('wrong S12 relationship endpoint') } : a),
         sealedHash, relationship.newHash).status).not.toBe('approved');
-      } else expect(hashOf(read(path))).toBe(pass.newHash);
+      } else {
+        const moved = approvals.find(a => a.id ===
+          `round5-first-screen-cd-20260929-prose-${path.slice('content/world-models/'.length, -4)}`);
+        if (moved) expect(moved.oldHash).toBe(pass.newHash);
+        expect(hashOf(read(path))).toBe((moved ?? pass).newHash);
+      }
     } else if (path === 'content/frontier/bear-case.mdx') {
       const source = committedSource('ebf13b4', path);
       expect(source).toContain('lastReviewed: "2026-08-18"');

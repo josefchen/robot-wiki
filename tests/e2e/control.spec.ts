@@ -1,8 +1,7 @@
 import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { setSlider } from './slider';
-import { mkdirSync, writeFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { setHydratedSlider as setSlider, waitForHydration } from './interaction-ready';
+import { writeFileSync } from 'node:fs';
 
 const ROUTE = '/classical/control/';
 
@@ -13,7 +12,7 @@ const ROUTE = '/classical/control/';
  */
 function pendulum(page: Page) {
   return page
-    .locator('div.prose > div.rounded-md:has([data-testid="pendulum-scene"]), div.prose > div.rounded-none:has([data-testid="pendulum-scene"])')
+    .locator('div.prose > [data-brand-module-signature="instrument-frame"]:has([data-testid="pendulum-scene"])')
     .first();
 }
 
@@ -48,9 +47,7 @@ async function angleDeg(page: Page): Promise<number> {
 }
 
 test.describe('classical control module', () => {
-  test('observes corrected sources, quiz and both labs at desktop and mobile', async ({ browser }) => {
-    const evidence = join(import.meta.dirname, '../../audit/evidence/control-citation-closeout-20260924');
-    mkdirSync(evidence, { recursive: true });
+  test('observes corrected sources, quiz and both labs at desktop and mobile', async ({ browser }, info) => {
     for (const width of [1440, 375]) {
       const context = await browser.newContext({ viewport: { width, height: 900 } });
       const page = await context.newPage();
@@ -70,9 +67,11 @@ test.describe('classical control module', () => {
       expect(await page.locator('.katex-display').count()).toBeGreaterThanOrEqual(6);
       await expect(page.getByTestId('pendulum-scene')).toHaveCount(2);
       await expect(page.getByTestId('impedance-lab')).toBeVisible();
-      await page.getByRole('button', { name: /run the simulation/i }).first().click();
-      await expect(page.getByRole('button', { name: /pause the simulation/i }).first()).toBeVisible();
-      await page.getByRole('button', { name: /pause the simulation/i }).first().click();
+      const run = pendulum(page).getByRole('button', { name: /run the simulation/i });
+      await waitForHydration(run);
+      await run.click();
+      await expect(pendulum(page).getByRole('button', { name: /pause the simulation/i })).toBeVisible();
+      await pendulum(page).getByRole('button', { name: /pause the simulation/i }).click();
       await page.getByTestId('impedance-hardware-position').check();
       await expect(page.getByTestId('impedance-stiffness-slider')).toBeDisabled();
       await page.getByTestId('impedance-hardware-torque').check();
@@ -85,8 +84,8 @@ test.describe('classical control module', () => {
         pendulumMounts: await page.getByTestId('pendulum-scene').count(),
         contactSliderEnabled: await page.getByTestId('impedance-stiffness-slider').isEnabled(),
         errors };
-      writeFileSync(join(evidence, `control-${width}.dom.json`), JSON.stringify(dom, null, 2) + '\n');
-      await page.screenshot({ path: join(evidence, `control-${width}.png`) });
+      writeFileSync(info.outputPath(`control-${width}.dom.json`), JSON.stringify(dom, null, 2) + '\n');
+      await page.screenshot({ path: info.outputPath(`control-${width}.png`) });
       await context.close();
     }
   });
@@ -240,6 +239,7 @@ test.describe('classical control module', () => {
 
     // No layout shift: the scene box is stable before and after interaction.
     const before = await scene.boundingBox();
+    await waitForHydration(pendulum(page).getByRole('button', { name: /run the simulation/i }));
     await pendulum(page).getByRole('button', { name: /run the simulation/i }).click();
     const after = await scene.boundingBox();
     expect(after?.width).toBe(before?.width);
@@ -254,6 +254,7 @@ test.describe('classical control module', () => {
     await page.goto(ROUTE);
 
     // Default gains: the loop settles into its small steady lean.
+    await waitForHydration(pendulum(page).getByRole('button', { name: /run the simulation/i }));
     await pendulum(page).getByRole('button', { name: /run the simulation/i }).click();
     await expect(pendulum(page).getByTestId('pendulum-status-readout')).toHaveText(
       'settled',
@@ -295,6 +296,7 @@ test.describe('classical control module', () => {
   }) => {
     test.setTimeout(60_000);
     await page.goto(ROUTE);
+    await waitForHydration(pendulum(page).getByRole('button', { name: /run the simulation/i }));
     await pendulum(page).getByRole('button', { name: /run the simulation/i }).click();
     await expect(pendulum(page).getByTestId('pendulum-status-readout')).toHaveText(
       'settled',
@@ -317,6 +319,7 @@ test.describe('classical control module', () => {
   test('the interactive is keyboard-operable', async ({ page }) => {
     await page.goto(ROUTE);
     const kd = pendulum(page).getByRole('slider', { name: /derivative gain kd/i });
+    await waitForHydration(kd);
     await kd.focus();
     await expect(kd).toBeFocused();
     await kd.press('ArrowRight');
@@ -338,18 +341,10 @@ test.describe('classical control module', () => {
     const context = await browser.newContext({ reducedMotion: 'reduce' });
     const page = await context.newPage();
     await page.goto(ROUTE);
-    // A click that lands between first paint and hydration is swallowed
-    // and the simulation never starts, so the click is replayed until the
-    // paused→running toggle is observable as the button's swapped
-    // accessible name. The label check runs before every replay, so a
-    // registered click is never toggled back off.
     const runButton = pendulum(page).getByRole('button', { name: /run the simulation/i });
     const pauseButton = pendulum(page).getByRole('button', { name: 'Pause the simulation' });
-    for (let attempt = 0; attempt < 60; attempt += 1) {
-      if ((await pauseButton.count()) === 1) break;
-      if ((await runButton.count()) === 1) await runButton.click();
-      await page.waitForTimeout(30);
-    }
+    await waitForHydration(runButton);
+    await runButton.click();
     await expect(pauseButton).toHaveCount(1);
     // Coarse ticks at 320 ms: within 4 s the pole has visibly moved in from
     // the 12-degree release.
@@ -518,6 +513,7 @@ test.describe('classical control module', () => {
     expect(((await peak.innerText()) ?? '')).toMatch(/\d/);
 
     // torque -> position: native disabled + non-numeric unbounded label.
+    await waitForHydration(lab.getByTestId('impedance-hardware-position'));
     await lab.getByTestId('impedance-hardware-position').check();
     await expect(k).toBeDisabled();
     await expect(d).toBeDisabled();

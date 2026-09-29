@@ -4,7 +4,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { join } from 'node:path';
 import matter from 'gray-matter';
-import { setSlider } from './slider';
+import { setHydratedSlider as setSlider, waitForHydration } from './interaction-ready';
 
 /**
  * Perception for Manipulation (VAL-CLASS-039 through VAL-CLASS-045).
@@ -279,6 +279,7 @@ test.describe('classical perception module', () => {
     expect(opaqueVerdict.length).toBeGreaterThan(0);
 
     // Every slider untouched: only the target changes.
+    await waitForHydration(page.getByTestId('perception-target-transparent'));
     await page.getByTestId('perception-target-transparent').check();
 
     const transparentDepth = await readout(page, 'perception-depth-readout');

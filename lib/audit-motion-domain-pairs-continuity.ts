@@ -7,6 +7,7 @@
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { sharedUiCheckerPredecessor } from './audit-shared-ui-local-basis-continuity.ts';
 
 const directory = 'audit/evidence/motion-domain-pairs-20260928/';
 const digest = (bytes: Buffer) => createHash('sha256').update(bytes).digest('hex');
@@ -166,11 +167,12 @@ export function retainedDomainPairSource(root: string, path: BoundSource, live: 
 
 /** A later exact checker revision may only append the two source bindings. */
 export function reviewedDomainPairsChecker(root: string, live: Buffer): Buffer {
-  const proofReaderInput = (live.length === 111934 &&
-      digest(live) === '7ffcf091f4fd8bdf8652eca51919d941c77aeae6f55e6cdc755e7e200dbdbcd6') ||
-    (live.length === 111186 &&
-      digest(live) === '4b1007a7e78d9ea05c34415cc869d0c11ef937c1e9158136041b4c102afdf84d')
-    ? live : articleTruthPredecessor(root, live);
+  const retained = sharedUiCheckerPredecessor(root, live);
+  const proofReaderInput = (retained.length === 111934 &&
+      digest(retained) === '7ffcf091f4fd8bdf8652eca51919d941c77aeae6f55e6cdc755e7e200dbdbcd6') ||
+    (retained.length === 111186 &&
+      digest(retained) === '4b1007a7e78d9ea05c34415cc869d0c11ef937c1e9158136041b4c102afdf84d')
+    ? retained : articleTruthPredecessor(root, retained);
   const predecessor = proofReaderInput.length === 111186 &&
     digest(proofReaderInput) === '4b1007a7e78d9ea05c34415cc869d0c11ef937c1e9158136041b4c102afdf84d'
     ? proofReaderInput : proofReaderPredecessor(root, proofReaderInput);

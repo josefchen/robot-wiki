@@ -119,7 +119,7 @@ export function LatentDrift({ className }: { className?: string }) {
         return <><span className="text-text-dim">toy step</span> {Math.round(frame.horizon)}{' '}
           <span className="text-text-dim">deviation</span> {deviationAt({ epsilon: EPSILON, horizon: Math.round(frame.horizon) }).toFixed(3)} units</>;
       }}
-      statusLine="Illustrative toy, not measured Dreamer or TD-MPC performance. The 2% input and 15-step horizon are choices from the lab below, not paper reliability bounds."
+      statusLine="Illustrative toy, not measured Dreamer or TD-MPC performance. The 2% input and 15-step horizon are choices from the lab above, not paper reliability bounds."
       textAlternative={`${LATENT_DRIFT_SCENE.title}. ${LATENT_DRIFT_SCENE.beats.map((beat, index) => `Beat ${index + 1}: ${beat.caption}`).join(' ')}`}
     />
   );

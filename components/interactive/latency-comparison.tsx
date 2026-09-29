@@ -169,10 +169,14 @@ export function LatencyComparison({
     };
   }, [delayMs]);
 
+  // Naming the TE status keeps descriptions at delays in different regimes
+  // distinct after digit normalisation, which the site-wide uniqueness
+  // sweep compares.
   const throughputDescription =
     `Deterministic toy, not measured throughput: at ${formatMs(delayMs)} of added delay, ` +
-    `the normalized toy scores are ${Math.round(te * 100)}% for temporal ensembling and ` +
-    `${Math.round(rtc * 100)}% for RTC. The shaded 100 to 200 ms failure window marks ` +
+    `the normalized toy scores are ${Math.round(te * 100)}% for temporal ensembling, ` +
+    `marked ${status}, and ${Math.round(rtc * 100)}% for RTC. ` +
+    `The shaded 100 to 200 ms failure window marks ` +
     `the experiment's two failed TE settings, not a universal latency threshold. ` +
     `The curve between settings and its continuation beyond +200 ms are illustrative assumptions.`;
 

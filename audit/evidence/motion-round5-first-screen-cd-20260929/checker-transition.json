@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "round5-first-screen-cd-checker-revision-v1",
+  "name": "first-screen-cd-readers",
+  "before": {
+    "path": "audit/evidence/motion-round5-first-screen-cd-20260929/audit-local-basis-before.ts.txt",
+    "bytes": 112672,
+    "sha256": "65e58379b7b6a1eec832ee82cf3c6cd9c5f33f5f2fe626129b2c6323e7aa405b"
+  },
+  "after": {
+    "path": "lib/audit-local-basis.ts",
+    "bytes": 113223,
+    "sha256": "4287a7e100aab9fe914d4b19b38773910b723f7c98dcc80849c069d0bfe8aa69"
+  },
+  "reviewedBy": "Round-5 first-screen c/d implementer, not independent acceptance",
+  "rationale": "readRetainedDependency learns one exact-endpoint branch and one dependency-review branch for the four named first-screen mount moves. The endpoint branch applies only when a reference names the exact pre-move bytes that the RL motion continuity review (parallel-sim-rl, legged-locomotion) or the classical correction continuity review (kinematics) records as its current article; it returns those archived bytes after the named successor verifies the live block swap, so the unchanged prior reviews still gate their endpoints, snapshots, required disclosures and withdrawn phrases. The motion-planning branch compares the unchanged industrial-release dependency review's current endpoint with the archived pre-move bytes instead of the live article, and its preserved disclosure is still checked against the live article. All historical hash lists, release bindings, residual bindings, review readers and mutation semantics are byte-identical; the revision is one import plus the two named reader call sites.",
+  "observedAt": "2026-09-28T23:47:00Z"
+}

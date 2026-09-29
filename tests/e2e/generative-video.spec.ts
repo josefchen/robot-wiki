@@ -1,5 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { waitForHydration } from './interaction-ready';
 
 const ROUTE = '/world-models/generative-video/';
 
@@ -201,7 +202,9 @@ test.describe('world-models generative-video module', () => {
   }) => {
     await page.goto(ROUTE);
     const realismStrong = await realism(page);
-    await page.getByRole('button', { name: 'Weak conditioning' }).click();
+    const weak = page.getByRole('button', { name: 'Weak conditioning' });
+    await waitForHydration(weak);
+    await weak.click();
     expect(await sensitivity(page)).toBeLessThan(0.05);
     const [xa, xb] = await Promise.all([
       finalBlockX(page, 'a'),
@@ -221,10 +224,9 @@ test.describe('world-models generative-video module', () => {
     await page.goto(ROUTE);
     const initial = await sensitivity(page);
     // Change rollout B to a different action, then re-select the default.
-    await page
-      .getByRole('button', { name: /push right/i })
-      .nth(1)
-      .click();
+    const pushRightB = page.getByRole('button', { name: /push right/i }).nth(1);
+    await waitForHydration(pushRightB);
+    await pushRightB.click();
     expect(await sensitivity(page)).not.toBe(initial);
     await page
       .getByRole('button', { name: /lift gripper/i })

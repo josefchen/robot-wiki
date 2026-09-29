@@ -380,11 +380,12 @@ describe('identity geometry and typography stay aligned', () => {
     // The registry is compared against the rendered DOM by
     // chart-description-registry.spec.ts, so its colour words must name
     // the marks the components actually paint (accent blue since v1).
+    // The generalist takeaway names no node colour at all; the colour and
+    // dim-node legend lives in the chart's aria-label, pinned below.
     expect(registry).not.toContain('green marks the layer');
-    expect(registry).not.toContain('green nodes have reported weight downloads');
+    expect(registry).not.toMatch(/green nodes/i);
     expect(registry).toContain('blue marks the layer');
-    expect(registry).toContain('Blue nodes have reported weight downloads');
-    expect(registry).toContain('dim nodes include unavailable and not-disclosed records');
+    expect(registry).toContain('dim nodes do not establish closed licensing');
     expect(registry).not.toContain('dim nodes mark closed ones');
     expect(generalist).toContain("open ? 'var(--color-accent)' : 'var(--color-surface-2)'");
     expect(generalist).toContain('dim nodes include unavailable and not-disclosed records');

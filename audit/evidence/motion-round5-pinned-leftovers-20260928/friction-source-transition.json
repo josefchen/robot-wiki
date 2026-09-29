@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "round5-friction-transfer-source-continuity-v1",
+  "name": "width-regime-mark",
+  "before": {
+    "path": "audit/evidence/motion-round5-pinned-leftovers-20260928/friction-transfer-before.tsx.txt",
+    "bytes": 15549,
+    "sha256": "af16eda88835169e720e7e6a8bb79c3ede65cba005635825a0b27f9aec7d8da9"
+  },
+  "after": {
+    "path": "components/interactive/friction-transfer.tsx",
+    "bytes": 15835,
+    "sha256": "45e15e842760f8109e19cd9cded9b066557fc235c0a4ebb51488590b9a2dee44"
+  },
+  "proofIds": [
+    "s23-default",
+    "s23-observed-default",
+    "s23-observed-tail",
+    "s23-observed-wide",
+    "s23-parameters",
+    "s23-tail",
+    "s23-wide",
+    "s24-observed-default",
+    "s24-observed-high",
+    "s24-observed-zero"
+  ],
+  "reviewedBy": "Round-5 pinned-leftovers implementer (GLM 5.3 max; not independent acceptance)",
+  "rationale": "The two FrictionTransfer mounts on /rl-sim2real/sim2real-transfer/ rendered digit-normalised-identical chart descriptions, failing VAL-EDU-036(d): every number differed (0.35 vs 0.65 half-width, 74% vs 57% plateau) but masked to the same text. The successor adds one computed width-regime mark, exactly the latency-comparison marked-status pattern: range >= 0.5 renders 'The randomization band is marked wide at the selected half-width.', otherwise 'marked ordinary'. No number, formula, or mount prop changes; the ten proofs that pinned the predecessor bytes keep reading them via this named transition.",
+  "observedAt": "2026-09-28T22:46:31Z"
+}

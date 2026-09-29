@@ -136,7 +136,7 @@ export function SenseAvoid({ className }: { className?: string }) {
           style={{ backgroundColor: 'var(--role-action-graphic)' }} />}>modeled avoidance duration</LegendItem>
       </>}
       readout={() => <SenseAvoidReadout />}
-      statusLine="Falanga et al.'s cited 8 m range, 25 m/s² agility, and stereo-camera latency set the starting model. The 200 ms contrast is an authored slider setting, not a published camera measurement; the lab below varies it directly."
+      statusLine="Falanga et al.'s cited 8 m range, 25 m/s² agility, and stereo-camera latency set the starting model. The 200 ms contrast is an authored slider setting, not a published camera measurement; the lab above varies it directly."
       textAlternative={`${SENSE_AVOID_SCENE.title}. ${SENSE_AVOID_SCENE.beats.map((beat, index) => `Beat ${index + 1}: ${beat.caption}`).join(' ')}`}
     />
   );

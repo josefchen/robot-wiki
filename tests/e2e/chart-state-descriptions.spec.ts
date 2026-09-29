@@ -153,7 +153,7 @@ const CHARTS: Array<{
     control: 'button',
     moves: ['π0.5', 'π0.7'],
     def: 'π0',
-    match: 'openpi stops',
+    match: 'pinned checkpoint catalogue',
   },
   {
     route: '/manipulation/generalist-policies',
@@ -161,7 +161,7 @@ const CHARTS: Array<{
     control: 'button',
     moves: ['GR00T N1', 'Skild Brain'],
     def: 'Helix',
-    match: 'generalist policies',
+    match: 'generalist policy records',
   },
   {
     route: '/world-models/latent-dynamics',
@@ -193,7 +193,7 @@ const CHARTS: Array<{
     control: 'range',
     moves: ['40', '0'],
     def: '10',
-    match: 'reward weights',
+    match: 'weighted reward terms',
   },
   {
     route: '/world-models/taxonomy',

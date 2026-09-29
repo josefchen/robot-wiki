@@ -94,7 +94,7 @@ export function EpisodeSurvival({ className }: { className?: string }) {
         return <><span className="text-text-dim">decisions</span> {frame.steps}{' '}
           <span className="text-text-dim">episode success</span> {(frame.success * 100).toFixed(1)}%</>;
       }}
-      statusLine="Illustrative constant conditional probability of 95% per decision, not a measured robot policy. The direct-control calculator below includes zero, certainty and single-step boundary cases."
+      statusLine="Illustrative constant conditional probability of 95% per decision, not a measured robot policy. The direct-control calculator above includes zero, certainty and single-step boundary cases."
       textAlternative={`${EPISODE_SURVIVAL_SCENE.title}. ${EPISODE_SURVIVAL_SCENE.beats.map((beat, index) => `Beat ${index + 1}: ${beat.caption}`).join(' ')}`}
     />
   );

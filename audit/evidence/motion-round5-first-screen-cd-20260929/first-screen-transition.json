@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "round5-first-screen-cd-continuity-v1",
+  "name": "pinned-first-screen-cd-moves",
+  "reviewedBy": "Round-5 first-screen c/d implementer, not independent acceptance",
+  "rationale": "On four pinned articles a motion scene sat between the operating-cue paragraph and the first reader-operated lab, which pushed the lab's first non-decorative SVG past the 1600px top-edge bound of VAL-EDU-045(c) at 1440x900 (parallel-sim-rl 1667px, legged-locomotion 1678px, kinematics 1728px, motion-planning 1805px) and, on three of them, moved the cue paragraph out of the two paragraphs adjacent to the lab required by VAL-EDU-045(d). Each article swaps exactly the two adjacent mount lines so the lab directly follows its cue and the scene follows the lab. Every sentence, claim, number, citation (in order), mount prop and the frontmatter are byte-preserved, and the sorted line inventory is identical. The archived pre-move bytes are exactly the current endpoint the unchanged prior review records (RL motion continuity, classical correction continuity, or the industrial-release dependency review), and that review still gates it; the live article must also keep every phrase the prior review requires and none it withdrew.",
+  "observedAt": "2026-09-28T23:47:00Z",
+  "sources": [
+    {
+      "name": "training-time-chart-first",
+      "before": {
+        "path": "content/rl-sim2real/parallel-sim-rl.mdx",
+        "bytes": 13046,
+        "sha256": "7a252cd960fe74991fa071ad9aea9634f2fd397b58216950247de436f475eca7"
+      },
+      "after": {
+        "path": "content/rl-sim2real/parallel-sim-rl.mdx",
+        "bytes": 13046,
+        "sha256": "37e4930effe0dcfdb8a9ad02c0f9dcfe4e32b124577f7c4e510ff3cb92e0f1f4"
+      }
+    },
+    {
+      "name": "gait-diagram-first",
+      "before": {
+        "path": "content/rl-sim2real/legged-locomotion.mdx",
+        "bytes": 15213,
+        "sha256": "1eb02d57d099db1c3fc3b61e3828ddc3e0a2591daed6ae047e031190f12d9703"
+      },
+      "after": {
+        "path": "content/rl-sim2real/legged-locomotion.mdx",
+        "bytes": 15213,
+        "sha256": "515a7768bdc7e0882516a76110324c392f0a9a0b03bff2e8e92bd1436160cceb"
+      }
+    },
+    {
+      "name": "planar-arm-first",
+      "before": {
+        "path": "content/classical/kinematics.mdx",
+        "bytes": 11838,
+        "sha256": "c7b826733e2b09b53441139ddb644a86608aa73a2e807a79c7a52f8f3100db58"
+      },
+      "after": {
+        "path": "content/classical/kinematics.mdx",
+        "bytes": 11838,
+        "sha256": "0441641cea205541d216c4b6c2aefeb4bf5109561c4d8a3814b904215ee6837e"
+      }
+    },
+    {
+      "name": "rrt-explorer-first",
+      "before": {
+        "path": "content/classical/motion-planning.mdx",
+        "bytes": 24125,
+        "sha256": "b94cf433b92a75b20bedb995572739f3bb4a915938b903a471eed4dc76d15465"
+      },
+      "after": {
+        "path": "content/classical/motion-planning.mdx",
+        "bytes": 24125,
+        "sha256": "45481dc51d0971859f0d002a2bfe6c7556d32d357501217f12dac0bec5323d2e"
+      }
+    }
+  ]
+}
