@@ -1,8 +1,13 @@
 import { expect, test, type Page } from './helpers/motion-planning-offline-fixture';
 import AxeBuilder from '@axe-core/playwright';
 import { writeFileSync } from 'node:fs';
+import { waitForHydration } from './interaction-ready';
 
 const ROUTE = '/classical/motion-planning/';
+function explorer(page: Page) {
+  return page.getByTestId('rrt-scene')
+    .locator('xpath=ancestor::*[@data-brand-module-signature="instrument-frame"][1]');
+}
 
 function collectPageErrors(page: Page): string[] {
   const errors: string[] = [];
@@ -199,12 +204,12 @@ test.describe('classical motion-planning module', () => {
     await expect(page.getByTestId('rrt-goal')).toBeVisible();
     expect(await page.getByTestId(/^rrt-obstacle/).count()).toBe(5);
     await expect(
-      page.getByRole('button', { name: /run the exploration/i }),
+      explorer(page).getByRole('button', { name: /run the exploration/i }),
     ).toBeVisible();
     await expect(
-      page.getByRole('button', { name: /step forward/i }),
+      explorer(page).getByRole('button', { name: /step forward/i }),
     ).toBeVisible();
-    await expect(page.getByRole('button', { name: /reset/i })).toBeVisible();
+    await expect(explorer(page).getByRole('button', { name: 'Reset', exact: true })).toBeVisible();
     await expect(
       page.getByRole('slider', { name: /exploration iteration/i }),
     ).toBeVisible();
@@ -214,7 +219,9 @@ test.describe('classical motion-planning module', () => {
 
     // No layout shift: the scene box is stable before and after interaction.
     const before = await scene.boundingBox();
-    await page.getByRole('button', { name: /step forward/i }).click();
+    await waitForHydration(explorer(page).getByRole('button', { name: 'Step forward' }));
+    await explorer(page).getByRole('button', { name: 'Step forward' }).click();
+    await expect(page.getByTestId('rrt-node-readout')).toHaveText('2');
     const after = await scene.boundingBox();
     expect(after?.width).toBe(before?.width);
     expect(after?.height).toBe(before?.height);
@@ -227,12 +234,13 @@ test.describe('classical motion-planning module', () => {
     await page.goto(ROUTE);
 
     // Step once: one new edge appears.
-    await page.getByRole('button', { name: /step forward/i }).click();
+    await waitForHydration(explorer(page).getByRole('button', { name: 'Step forward' }));
+    await explorer(page).getByRole('button', { name: 'Step forward' }).click();
     await expect(page.getByTestId('rrt-node-readout')).toHaveText('2');
     expect(await page.locator('[data-testid="rrt-tree"] line').count()).toBe(1);
 
     // Run to completion: the tree fills in and the path lights up.
-    await page.getByRole('button', { name: /run the exploration/i }).click();
+    await explorer(page).getByRole('button', { name: /run the exploration/i }).click();
     await expect(page.getByTestId('rrt-path')).toBeVisible({
       timeout: 30_000,
     });
@@ -245,7 +253,7 @@ test.describe('classical motion-planning module', () => {
     );
 
     // Reset returns the scene to the initial state.
-    await page.getByRole('button', { name: /reset/i }).click();
+    await explorer(page).getByRole('button', { name: 'Reset', exact: true }).click();
     await expect(page.getByTestId('rrt-node-readout')).toHaveText('1');
     await expect(page.getByTestId('rrt-path')).toHaveCount(0);
     expect(await page.locator('[data-testid="rrt-tree"] line').count()).toBe(0);
@@ -253,19 +261,20 @@ test.describe('classical motion-planning module', () => {
 
   test('the interactive is keyboard-operable', async ({ page }) => {
     await page.goto(ROUTE);
-    const slider = page.getByRole('slider', {
+    const slider = explorer(page).getByRole('slider', {
       name: /exploration iteration/i,
     });
+    await waitForHydration(slider);
     await slider.focus();
     await expect(slider).toBeFocused();
     await page.keyboard.press('ArrowRight');
     await expect(page.getByTestId('rrt-node-readout')).toHaveText('2');
     // The run control takes focus and toggles with the keyboard.
-    const run = page.getByRole('button', { name: /run the exploration/i });
+    const run = explorer(page).getByRole('button', { name: /run the exploration/i });
     await run.focus();
     await page.keyboard.press('Enter');
     await expect(
-      page.getByRole('button', { name: /pause the exploration/i }),
+      explorer(page).getByRole('button', { name: /pause the exploration/i }),
     ).toBeVisible();
     // Stop it again so the spec leaves no timer running.
     await page.keyboard.press('Enter');
@@ -284,7 +293,8 @@ test.describe('classical motion-planning module', () => {
     await page.goto(ROUTE);
     const readout = page.getByTestId('rrt-iteration-readout');
     await expect(readout).toHaveText(/^0 /);
-    await page.getByRole('button', { name: /run the exploration/i }).click();
+    await waitForHydration(explorer(page).getByRole('button', { name: /run the exploration/i }));
+    await explorer(page).getByRole('button', { name: /run the exploration/i }).click();
     await expect(readout).toHaveAttribute('data-playback-cadence', 'coarse');
     await expect
       .poll(async () => (await readout.textContent()) ?? '', { timeout: 5_000 })
@@ -303,21 +313,22 @@ test.describe('classical motion-planning module', () => {
   }) => {
     await page.goto(ROUTE);
     const readout = page.getByTestId('rrt-iteration-readout');
+    await waitForHydration(explorer(page).getByRole('button', { name: /run the exploration/i }));
     const iteration = async () =>
       Number.parseInt((await readout.textContent()) ?? '0', 10);
 
     // Preference changed after mount but before playback.
     await page.emulateMedia({ reducedMotion: 'reduce' });
-    await page.getByRole('button', { name: /run the exploration/i }).click();
+    await explorer(page).getByRole('button', { name: /run the exploration/i }).click();
     await expect(readout).toHaveAttribute('data-playback-cadence', 'coarse');
     await expect.poll(iteration, { timeout: 5_000 }).toBeGreaterThan(0);
-    await page.getByRole('button', { name: /pause the exploration/i }).click();
+    await explorer(page).getByRole('button', { name: /pause the exploration/i }).click();
     expect((await iteration()) % 25).toBe(0);
 
     // Preference changed again while smooth playback is active.
-    await page.getByRole('button', { name: 'Reset' }).click();
+    await explorer(page).getByRole('button', { name: 'Reset', exact: true }).click();
     await page.emulateMedia({ reducedMotion: 'no-preference' });
-    await page.getByRole('button', { name: /run the exploration/i }).click();
+    await explorer(page).getByRole('button', { name: /run the exploration/i }).click();
     await expect
       .poll(async () => {
         const value = await iteration();
@@ -330,7 +341,7 @@ test.describe('classical motion-planning module', () => {
     await expect
       .poll(iteration, { timeout: 5_000, intervals: [100] })
       .not.toBe(transitionedAt);
-    await page.getByRole('button', { name: /pause the exploration/i }).click();
+    await explorer(page).getByRole('button', { name: /pause the exploration/i }).click();
     const coarseAdvance = (await iteration()) - transitionedAt;
     expect(coarseAdvance).toBeGreaterThanOrEqual(25);
     expect(coarseAdvance % 25).toBe(0);

@@ -30,7 +30,7 @@ describe('historical RL proof dependency continuity', () => {
     const archived = read('audit/evidence/motion-domain-pairs-20260928/audit-local-basis-before.ts.txt');
     expect(reviewedDomainPairsChecker(root, current)).toEqual(archived);
     expect(() => reviewedDomainPairsChecker(root, Buffer.concat([current, Buffer.from('\n')]))).toThrow(
-      /checker continuity drift/,
+      /round5 reader pins checker continuity drift/,
     );
   });
   it.each(['review-before-hash', 'review-after-hash', 'missing-review', 'missing-predecessor',
@@ -42,6 +42,14 @@ describe('historical RL proof dependency continuity', () => {
       for (const path of [reviewPath, predecessorPath,
         'audit/evidence/motion-article-truth-efficiency-20260928/checker-transition.json',
         'audit/evidence/motion-article-truth-efficiency-20260928/audit-local-basis-before.ts.txt',
+        'audit/evidence/motion-shared-ui-local-basis-20260928/checker-transition.json',
+        'audit/evidence/motion-shared-ui-local-basis-20260928/audit-local-basis-before.ts.txt',
+        'audit/evidence/motion-round5-pinned-leftovers-20260928/checker-transition.json',
+        'audit/evidence/motion-round5-pinned-leftovers-20260928/audit-local-basis-before.ts.txt',
+        'audit/evidence/motion-round5-first-screen-cd-20260929/checker-transition.json',
+        'audit/evidence/motion-round5-first-screen-cd-20260929/audit-local-basis-before.ts.txt',
+        'audit/evidence/motion-round5-reader-pins-20260929/checker-transition.json',
+        'audit/evidence/motion-round5-reader-pins-20260929/audit-local-basis-before.ts.txt',
         'audit/evidence/motion-domain-pairs-20260928/checker-transition.json',
         'audit/evidence/motion-domain-pairs-20260928/audit-local-basis-before.ts.txt']) {
         mkdirSync(dirname(join(destination, path)), { recursive: true });
@@ -70,6 +78,14 @@ describe('historical RL proof dependency continuity', () => {
         const reviewPath = 'audit/evidence/motion-article-truth-efficiency-20260928/checker-transition.json';
         const predecessorPath = 'audit/evidence/motion-article-truth-efficiency-20260928/audit-local-basis-before.ts.txt';
         for (const path of [reviewPath, predecessorPath,
+          'audit/evidence/motion-shared-ui-local-basis-20260928/checker-transition.json',
+          'audit/evidence/motion-shared-ui-local-basis-20260928/audit-local-basis-before.ts.txt',
+          'audit/evidence/motion-round5-pinned-leftovers-20260928/checker-transition.json',
+          'audit/evidence/motion-round5-pinned-leftovers-20260928/audit-local-basis-before.ts.txt',
+          'audit/evidence/motion-round5-first-screen-cd-20260929/checker-transition.json',
+          'audit/evidence/motion-round5-first-screen-cd-20260929/audit-local-basis-before.ts.txt',
+          'audit/evidence/motion-round5-reader-pins-20260929/checker-transition.json',
+          'audit/evidence/motion-round5-reader-pins-20260929/audit-local-basis-before.ts.txt',
           'audit/evidence/motion-proof-reader-efficiency-20260928/checker-transition.json',
           'audit/evidence/motion-proof-reader-efficiency-20260928/audit-local-basis-before.ts.txt',
           'audit/evidence/motion-domain-pairs-20260928/checker-transition.json',

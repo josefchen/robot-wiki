@@ -101,7 +101,7 @@ export function FarmThroughput({ className }: { className?: string }) {
         return <><span className="text-text-dim">annual output</span> {formatHours(frame.hoursPerYear)}{' '}
           <span className="text-text-dim">time to target</span> {formatDuration(frame.years)}</>;
       }}
-      statusLine="Illustrative log-scaled hours with authored 7- and 1,000-hour rates per rig-year, 10 rigs and a hypothetical 10,000-hour target. DROID's collector counts do not determine annual rig exposure; OXE's total hours remain unknown. Use the chart below to vary the assumptions."
+      statusLine="Illustrative log-scaled hours with authored 7- and 1,000-hour rates per rig-year, 10 rigs and a hypothetical 10,000-hour target. DROID's collector counts do not determine annual rig exposure; OXE's total hours remain unknown. Use the dataset-scale chart to vary the assumptions."
       textAlternative={`${FARM_THROUGHPUT_SCENE.title}. ${FARM_THROUGHPUT_SCENE.beats.map((beat, index) => `Beat ${index + 1}: ${beat.caption}`).join(' ')}`}
     />
   );

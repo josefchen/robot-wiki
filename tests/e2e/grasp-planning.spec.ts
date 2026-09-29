@@ -11,7 +11,7 @@ import {
   contactGridIndex,
   offsetContactGridValue,
 } from '../helpers/grasp-contact-grid';
-import { setSlider } from './slider';
+import { setHydratedSlider as setSlider, waitForHydration } from './interaction-ready';
 
 const ROUTE = '/classical/grasp-planning/';
 
@@ -253,6 +253,7 @@ test.describe('classical grasp-planning module', () => {
     const beforeObj = await objectView.boundingBox();
     const beforeWr = await wrenchView.boundingBox();
     const muSlider = page.getByRole('slider', { name: /friction coefficient/i });
+    await waitForHydration(muSlider);
     await muSlider.focus();
     await muSlider.press('ArrowRight');
     const afterObj = await objectView.boundingBox();
@@ -279,6 +280,7 @@ test.describe('classical grasp-planning module', () => {
     // Lower friction: the hull shrinks and epsilon falls, but this
     // symmetric tripod stays force closure (its normals concur).
     const muSlider = page.getByRole('slider', { name: /friction coefficient/i });
+    await waitForHydration(muSlider);
     await muSlider.focus();
     await muSlider.press('Home');
     await expect(page.getByTestId('grasp-mu-value')).toHaveText('0.05');
@@ -334,6 +336,7 @@ test.describe('classical grasp-planning module', () => {
   test('the interactive is keyboard-operable', async ({ page }) => {
     await page.goto(ROUTE);
     const muSlider = page.getByRole('slider', { name: /friction coefficient/i });
+    await waitForHydration(muSlider);
     await muSlider.focus();
     await expect(muSlider).toBeFocused();
     await muSlider.press('ArrowRight');

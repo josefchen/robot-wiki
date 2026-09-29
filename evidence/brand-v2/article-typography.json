@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "2f39967c6edd322fe1c9cce94e3a9a00041c0a9e79bd920d146c87f0f6f6a1dc",
+  "fingerprint": "9f72fc304cb3fcf94532ce114c3d130fd5cc3dc443308c4682715f64d7067e93",
   "viewports": [
     "375x812",
     "1440x900"
@@ -2035,6 +2035,33 @@
           "text": "The hardest constraint on a flying robot is below, and it is"
         },
         {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "max speed: 19.21 m/s time to contact: 416 ms lost to latency"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "At 70 ms of perception latency and 25 m/s² lateral agility t"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 11,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Reference latencies from the study (8 m sensing range): Ster"
+        },
+        {
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
@@ -2069,33 +2096,6 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": true,
           "text": "Perception delay lowers the safe speed. Beat 1: An obstacle "
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "max speed: 19.21 m/s time to contact: 416 ms lost to latency"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "At 70 ms of perception latency and 25 m/s² lateral agility t"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 11,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 7,
-          "insideRegisteredFrame": true,
-          "text": "Reference latencies from the study (8 m sensing range): Ster"
         },
         {
           "familyHead": "newsreader",
@@ -2566,38 +2566,6 @@
         },
         {
           "tag": "button",
-          "text": "Play",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step back",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step forward",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Reset",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "10 m/s²",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
@@ -2641,6 +2609,38 @@
           "text": "Current sense-and-avoid budget",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -6743,42 +6743,6 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "Moving an upstream joint changes every downstream position; "
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "beat 4 / 4 opening angles 110°, -45°, -35° tip (0.45, 1.89)"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 7,
-          "insideRegisteredFrame": true,
-          "text": "Schematic, authored link lengths and angles from the planar "
-        },
-        {
-          "familyHead": "newsreader",
-          "sizePx": 19,
-          "lineHeightRatio": 1.7,
-          "widthPx": 0,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
-          "text": "A joint turns every link downstream. Beat 1: The base joint "
-        },
-        {
-          "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.33,
           "widthPx": 301,
@@ -6812,6 +6776,42 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Link lengths 1.00, 0.75, and 0.55. Each angle is measured re"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Moving an upstream joint changes every downstream position; "
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 opening angles 110°, -45°, -35° tip (0.45, 1.89)"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic, authored link lengths and angles from the planar "
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "A joint turns every link downstream. Beat 1: The base joint "
         },
         {
           "familyHead": "newsreader",
@@ -7383,6 +7383,22 @@
         },
         {
           "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Current arm pose",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
@@ -7410,22 +7426,6 @@
           "text": "Reset",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Reset",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "summary",
-          "text": "Current arm pose",
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         }
@@ -7577,6 +7577,33 @@
           "text": "The paused overview and the lab below use the same authored "
         },
         {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "iteration 0 / 288 nodes 1 tree not started path length n/a"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The RRT tree is at iteration 0 of 288 with 1 node and status"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Authored scene and sampling settings, not a published benchm"
+        },
+        {
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
@@ -7611,33 +7638,6 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": true,
           "text": "A seeded tree finds a path around obstacles. Beat 1: A fixed"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "iteration 0 / 288 nodes 1 tree not started path length n/a"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "The RRT tree is at iteration 0 of 288 with 1 node and status"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 7,
-          "insideRegisteredFrame": true,
-          "text": "Authored scene and sampling settings, not a published benchm"
         },
         {
           "familyHead": "newsreader",
@@ -8387,38 +8387,6 @@
         },
         {
           "tag": "button",
-          "text": "Play",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step back",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step forward",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Reset",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "Run",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
@@ -8446,6 +8414,38 @@
           "text": "Current RRT tree state",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
           "inProse": true,
           "controlId": "control:secondary-action"
         }
@@ -12699,7 +12699,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 16061,
+      "visibleTextLength": 16069,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -12822,42 +12822,6 @@
           "text": "The chart below separates dataset counts from a teaching pro"
         },
         {
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "The same target has different collection times because the t"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "beat 4 / 4 annual output 10,000 h time to target 1.0 yr"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 7,
-          "insideRegisteredFrame": true,
-          "text": "Illustrative log-scaled hours with authored 7- and 1,000-hou"
-        },
-        {
-          "familyHead": "newsreader",
-          "sizePx": 19,
-          "lineHeightRatio": 1.7,
-          "widthPx": 0,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
-          "text": "How a farm rate changes time to an authored target. Beat 1: "
-        },
-        {
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
@@ -12892,6 +12856,42 @@
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Demonstration hours span 350 h (DROID) to 20,854 h (EgoScale"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The same target has different collection times because the t"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 annual output 10,000 h time to target 1.0 yr"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative log-scaled hours with authored 7- and 1,000-hou"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "How a farm rate changes time to an authored target. Beat 1: "
         },
         {
           "familyHead": "newsreader",
@@ -13364,38 +13364,6 @@
         },
         {
           "tag": "button",
-          "text": "Play",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step back",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step forward",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Reset",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
@@ -13423,6 +13391,38 @@
           "text": "Datasets and corpora by scale, w",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -14435,7 +14435,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17988,
+      "visibleTextLength": 17987,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -14555,6 +14555,33 @@
         },
         {
           "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative probability model: computed compounding curves,"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "(0.950)^30 = 21.5% episode success"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The evaluation calculator at 95.0 percent per-step success r"
+        },
+        {
+          "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
           "widthPx": 301,
@@ -14588,33 +14615,6 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": true,
           "text": "Conditional success compounds over an illustrative episode. "
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.33,
-          "widthPx": 301,
-          "zeroAdvancePx": 7,
-          "insideRegisteredFrame": true,
-          "text": "Illustrative probability model: computed compounding curves,"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "(0.950)^30 = 21.5% episode success"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "The evaluation calculator at 95.0 percent per-step success r"
         },
         {
           "familyHead": "newsreader",
@@ -15139,6 +15139,22 @@
         },
         {
           "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Sampled episode success by episo",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
@@ -15166,22 +15182,6 @@
           "text": "Reset",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Reset",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "summary",
-          "text": "Sampled episode success by episo",
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -22533,7 +22533,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14821,
+      "visibleTextLength": 14833,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -22654,6 +22654,33 @@
         },
         {
           "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative probability model: computed compounding curves,"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "(0.950)^30 = 21.5% episode success"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "On the reliability-gap calculator a 95.0 percent per-step po"
+        },
+        {
+          "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
           "widthPx": 301,
@@ -22687,33 +22714,6 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": true,
           "text": "The last stretch of episode reliability. Beat 1: At 95% succ"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.33,
-          "widthPx": 301,
-          "zeroAdvancePx": 7,
-          "insideRegisteredFrame": true,
-          "text": "Illustrative probability model: computed compounding curves,"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "(0.950)^30 = 21.5% episode success"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "On the reliability-gap calculator a 95.0 percent per-step po"
         },
         {
           "familyHead": "newsreader",
@@ -23213,6 +23213,22 @@
         },
         {
           "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Sampled episode success by episo",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
@@ -23240,22 +23256,6 @@
           "text": "Reset",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Reset",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "summary",
-          "text": "Sampled episode success by episo",
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -24695,7 +24695,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 22733,
+      "visibleTextLength": 22750,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -28974,7 +28974,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14421,
+      "visibleTextLength": 14498,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -29090,6 +29090,60 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "Diffusion Policy executes TaT_aTa​ actions from a TpT_pTp​-a"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "TaT_aTa​ is the same dial as ACT's chunk size, named differe"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: the predict-execute-replan cycle, not a traced co"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "T_p = 16, T_a = 8: 1.25 Hz replan rate, 0.8 s committed per "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "A receding-horizon plan with T_p 16 and T_a 8 issues 4 chunk"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Solid segments are executed; outlined tails are revised away"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Play the scene below and step through its beats. Sixty actio"
         },
         {
@@ -29172,60 +29226,6 @@
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "The first three cards show the CNN Lift/Can/Square simulatio"
-        },
-        {
-          "familyHead": "newsreader",
-          "sizePx": 19,
-          "lineHeightRatio": 1.7,
-          "widthPx": 335,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": false,
-          "text": "Diffusion Policy executes TaT_aTa​ actions from a TpT_pTp​-a"
-        },
-        {
-          "familyHead": "newsreader",
-          "sizePx": 19,
-          "lineHeightRatio": 1.7,
-          "widthPx": 335,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": false,
-          "text": "TaT_aTa​ is the same dial as ACT's chunk size, named differe"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.33,
-          "widthPx": 301,
-          "zeroAdvancePx": 7,
-          "insideRegisteredFrame": true,
-          "text": "Schematic: the predict-execute-replan cycle, not a traced co"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "T_p = 16, T_a = 8: 1.25 Hz replan rate, 0.8 s committed per "
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "A receding-horizon plan with T_p 16 and T_a 8 issues 4 chunk"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 7,
-          "insideRegisteredFrame": true,
-          "text": "Solid segments are executed; outlined tails are revised away"
         },
         {
           "familyHead": "newsreader",
@@ -29329,24 +29329,6 @@
       ],
       "sectionLinks": [
         {
-          "headingId": "denoising-in-action-space",
-          "headingTag": "h2",
-          "linked": true,
-          "colour": "rgb(11, 11, 12)",
-          "decorationLine": "underline",
-          "decorationColour": "rgb(36, 95, 255)",
-          "decorationThicknessPx": 2,
-          "keyboardFocusable": true,
-          "affordance": {
-            "tag": "button",
-            "accessibleName": "Copy link to this section, Denoising in action space",
-            "widthPx": 24,
-            "heightPx": 24,
-            "opacity": 1,
-            "visibility": "visible"
-          }
-        },
-        {
           "headingId": "receding-horizon-control",
           "headingTag": "h2",
           "linked": true,
@@ -29358,6 +29340,24 @@
           "affordance": {
             "tag": "button",
             "accessibleName": "Copy link to this section, Receding-horizon control",
+            "widthPx": 24,
+            "heightPx": 24,
+            "opacity": 1,
+            "visibility": "visible"
+          }
+        },
+        {
+          "headingId": "denoising-in-action-space",
+          "headingTag": "h2",
+          "linked": true,
+          "colour": "rgb(11, 11, 12)",
+          "decorationLine": "underline",
+          "decorationColour": "rgb(36, 95, 255)",
+          "decorationThicknessPx": 2,
+          "keyboardFocusable": true,
+          "affordance": {
+            "tag": "button",
+            "accessibleName": "Copy link to this section, Denoising in action space",
             "widthPx": 24,
             "heightPx": 24,
             "opacity": 1,
@@ -29667,38 +29667,6 @@
         },
         {
           "tag": "button",
-          "text": "Play",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step back",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step forward",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Reset",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "Diffusion Policy (16/8)",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
@@ -29726,6 +29694,38 @@
           "text": "Current receding-horizon plan",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -33347,42 +33347,6 @@
           "text": "The VLA module ended on a bottleneck: discrete action tokens"
         },
         {
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "Two action clusters remain after transport; the step-count l"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "beat 4 / 4 toy samples 48 ten-step mean endpoint error 0.05"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 7,
-          "insideRegisteredFrame": true,
-          "text": "Illustrative seeded two-dimensional transport, not learned p"
-        },
-        {
-          "familyHead": "newsreader",
-          "sizePx": 19,
-          "lineHeightRatio": 1.7,
-          "widthPx": 0,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
-          "text": "Flow matching transports action samples. Beat 1: A seeded to"
-        },
-        {
           "familyHead": "newsreader",
           "sizePx": 19,
           "lineHeightRatio": 1.7,
@@ -33417,6 +33381,42 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Illustrative model: 48 samples with a fixed seed, transporte"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Two action clusters remain after transport; the step-count l"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 toy samples 48 ten-step mean endpoint error 0.05"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative seeded two-dimensional transport, not learned p"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "Flow matching transports action samples. Beat 1: A seeded to"
         },
         {
           "familyHead": "newsreader",
@@ -34096,38 +34096,6 @@
         },
         {
           "tag": "button",
-          "text": "Play",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step back",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step forward",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Reset",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "1 step",
           "familyHead": "ibm plex mono",
           "sizePx": 12,
@@ -34203,6 +34171,38 @@
           "text": "Current flow-matching transport",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -37265,42 +37265,6 @@
           "text": "The modules so far covered policies trained from scratch on "
         },
         {
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "The token stream retains the bin choice, while seven sequent"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "beat 4 / 4 toy value -0.056 → bin 120 → <a120>"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 7,
-          "insideRegisteredFrame": true,
-          "text": "Schematic, illustrative action vector: normalized bounds and"
-        },
-        {
-          "familyHead": "newsreader",
-          "sizePx": 19,
-          "lineHeightRatio": 1.7,
-          "widthPx": 0,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
-          "text": "From continuous action to token. Beat 1: A toy continuous ac"
-        },
-        {
           "familyHead": "newsreader",
           "sizePx": 19,
           "lineHeightRatio": 1.7,
@@ -37362,6 +37326,42 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Illustrative seven-coordinate sequence: fixed [-1, 1] bounds"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The token stream retains the bin choice, while seven sequent"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 toy value -0.056 → bin 120 → <a120>"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic, illustrative action vector: normalized bounds and"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "From continuous action to token. Beat 1: A toy continuous ac"
         },
         {
           "familyHead": "newsreader",
@@ -37866,15 +37866,15 @@
           "trackingEm": 0.14
         },
         {
-          "text": "motion scene",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
-        },
-        {
           "text": "Serialized action tokens at t = ",
           "familyHead": "ibm plex mono",
           "sizePx": 11,
+          "trackingEm": 0.14
+        },
+        {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
           "trackingEm": 0.14
         }
       ],
@@ -37942,38 +37942,6 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Play",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step back",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step forward",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Reset",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
           "controlId": "control:secondary-action"
         },
         {
@@ -38053,6 +38021,38 @@
           "text": "Current bin assignment",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -41070,6 +41070,33 @@
         },
         {
           "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Authored gait set: the duty factors and footfall offsets are"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "walk at 0% feet down RF + LH + RH duty 0.75"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "In the walk, always 3 feet down at duty factor 0.75, and the"
+        },
+        {
+          "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
           "widthPx": 301,
@@ -41103,33 +41130,6 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": true,
           "text": "Foot support over an authored stride cycle. Beat 1: The auth"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.33,
-          "widthPx": 301,
-          "zeroAdvancePx": 7,
-          "insideRegisteredFrame": true,
-          "text": "Authored gait set: the duty factors and footfall offsets are"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "walk at 0% feet down RF + LH + RH duty 0.75"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "In the walk, always 3 feet down at duty factor 0.75, and the"
         },
         {
           "familyHead": "newsreader",
@@ -41634,38 +41634,6 @@
         },
         {
           "tag": "button",
-          "text": "Play",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step back",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step forward",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Reset",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "Walk",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
@@ -41733,6 +41701,38 @@
           "text": "Footfall timing for the walk",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -42949,6 +42949,33 @@
           "text": "The scene and chart below illustrate the cost arithmetic bef"
         },
         {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "4,096 envs: 4.0 min to target reward at 924k FPS"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "At low env counts the fixed per-iteration costs (learning up"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Wall-clock to the target reward falls steeply from 3.6 h at "
+        },
+        {
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
@@ -42983,33 +43010,6 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": true,
           "text": "Parallel rollouts change a fixed training budget. Beat 1: At"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "4,096 envs: 4.0 min to target reward at 924k FPS"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 7,
-          "insideRegisteredFrame": true,
-          "text": "At low env counts the fixed per-iteration costs (learning up"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "Wall-clock to the target reward falls steeply from 3.6 h at "
         },
         {
           "familyHead": "newsreader",
@@ -43525,6 +43525,30 @@
         },
         {
           "tag": "button",
+          "text": "CPU single-core bottleneck",
+          "familyHead": "ibm plex mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Sampled wall-clock by parallel e",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
@@ -43552,30 +43576,6 @@
           "text": "Reset",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "CPU single-core bottleneck",
-          "familyHead": "ibm plex mono",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:selection"
-        },
-        {
-          "tag": "button",
-          "text": "Reset",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "summary",
-          "text": "Sampled wall-clock by parallel e",
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -45642,7 +45642,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24116,
+      "visibleTextLength": 24186,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -48569,42 +48569,6 @@
           "text": "The reason that division of labor holds is below, in one sce"
         },
         {
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "The same push changes position only when a solver supplies d"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "beat 4 / 4 toy push 4.0 N displacement 18.1 cm"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 7,
-          "insideRegisteredFrame": true,
-          "text": "Schematic, authored impulse and friction model, not a measur"
-        },
-        {
-          "familyHead": "newsreader",
-          "sizePx": 19,
-          "lineHeightRatio": 1.7,
-          "widthPx": 0,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
-          "text": "A rendered scene needs a solver to answer a push. Beat 1: Th"
-        },
-        {
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
@@ -48639,6 +48603,42 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Nothing moves. The appearance layer renders the mug but has "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The same push changes position only when a solver supplies d"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 toy push 4.0 N displacement 18.1 cm"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic, authored impulse and friction model, not a measur"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "A rendered scene needs a solver to answer a push. Beat 1: Th"
         },
         {
           "familyHead": "newsreader",
@@ -49190,38 +49190,6 @@
         },
         {
           "tag": "button",
-          "text": "Play",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step back",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step forward",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Reset",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "Push the mug",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
@@ -49265,6 +49233,38 @@
           "text": "Current push-test layers",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -49452,6 +49452,33 @@
           "text": "A simulator needs to respond to the action, a measurable pro"
         },
         {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "action sensitivity S = 0.419 (threshold 0.30), visual realis"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "futures diverge: the model responds to the action. S is the "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Under strong conditioning, push left and lift gripper diverg"
+        },
+        {
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
@@ -49486,33 +49513,6 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": true,
           "text": "Two actions fork one predicted future. Beat 1: The same tabl"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "action sensitivity S = 0.419 (threshold 0.30), visual realis"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 7,
-          "insideRegisteredFrame": true,
-          "text": "futures diverge: the model responds to the action. S is the "
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "Under strong conditioning, push left and lift gripper diverg"
         },
         {
           "familyHead": "newsreader",
@@ -50046,38 +50046,6 @@
         },
         {
           "tag": "button",
-          "text": "Play",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step back",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step forward",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Reset",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "Strong conditioning",
           "familyHead": "ibm plex mono",
           "sizePx": 12,
@@ -50153,6 +50121,38 @@
           "text": "Current action-conditioning pair",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -51056,42 +51056,6 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "The toy deviation after fifteen steps depends on the chosen "
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "beat 4 / 4 toy step 15 deviation 0.301 units"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 7,
-          "insideRegisteredFrame": true,
-          "text": "Illustrative toy, not measured Dreamer or TD-MPC performance"
-        },
-        {
-          "familyHead": "newsreader",
-          "sizePx": 19,
-          "lineHeightRatio": 1.7,
-          "widthPx": 0,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
-          "text": "Small model errors accumulate in imagination. Beat 1: An ima"
-        },
-        {
-          "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
           "widthPx": 301,
@@ -51125,6 +51089,42 @@
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "In this deterministic toy, latent deviation grows from 0 at "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The toy deviation after fifteen steps depends on the chosen "
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 toy step 15 deviation 0.301 units"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative toy, not measured Dreamer or TD-MPC performance"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "Small model errors accumulate in imagination. Beat 1: An ima"
         },
         {
           "familyHead": "newsreader",
@@ -51530,15 +51530,15 @@
           "trackingEm": 0.14
         },
         {
-          "text": "motion scene",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
-        },
-        {
           "text": "decoded imagined frames",
           "familyHead": "ibm plex mono",
           "sizePx": 11,
+          "trackingEm": 0.14
+        },
+        {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
           "trackingEm": 0.14
         }
       ],
@@ -51610,38 +51610,6 @@
         },
         {
           "tag": "button",
-          "text": "Play",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step back",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step forward",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Reset",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
@@ -51677,6 +51645,38 @@
           "text": "Sampled latent deviation by imag",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
           "inProse": true,
           "controlId": "control:secondary-action"
         }
@@ -56151,6 +56151,33 @@
           "text": "The hardest constraint on a flying robot is below, and it is"
         },
         {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "max speed: 19.21 m/s time to contact: 416 ms lost to latency"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "At 70 ms of perception latency and 25 m/s² lateral agility t"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 11,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Reference latencies from the study (8 m sensing range): Ster"
+        },
+        {
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
@@ -56185,33 +56212,6 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": true,
           "text": "Perception delay lowers the safe speed. Beat 1: An obstacle "
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "max speed: 19.21 m/s time to contact: 416 ms lost to latency"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "At 70 ms of perception latency and 25 m/s² lateral agility t"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 11,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 7,
-          "insideRegisteredFrame": true,
-          "text": "Reference latencies from the study (8 m sensing range): Ster"
         },
         {
           "familyHead": "newsreader",
@@ -56682,38 +56682,6 @@
         },
         {
           "tag": "button",
-          "text": "Play",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step back",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step forward",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Reset",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "10 m/s²",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
@@ -56757,6 +56725,38 @@
           "text": "Current sense-and-avoid budget",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -60859,42 +60859,6 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "Moving an upstream joint changes every downstream position; "
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "beat 4 / 4 opening angles 110°, -45°, -35° tip (0.45, 1.89)"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 7,
-          "insideRegisteredFrame": true,
-          "text": "Schematic, authored link lengths and angles from the planar "
-        },
-        {
-          "familyHead": "newsreader",
-          "sizePx": 19,
-          "lineHeightRatio": 1.7,
-          "widthPx": 0,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
-          "text": "A joint turns every link downstream. Beat 1: The base joint "
-        },
-        {
-          "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.33,
           "widthPx": 665,
@@ -60928,6 +60892,42 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Link lengths 1.00, 0.75, and 0.55. Each angle is measured re"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Moving an upstream joint changes every downstream position; "
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 opening angles 110°, -45°, -35° tip (0.45, 1.89)"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic, authored link lengths and angles from the planar "
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "A joint turns every link downstream. Beat 1: The base joint "
         },
         {
           "familyHead": "newsreader",
@@ -61499,6 +61499,22 @@
         },
         {
           "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Current arm pose",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
@@ -61526,22 +61542,6 @@
           "text": "Reset",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Reset",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "summary",
-          "text": "Current arm pose",
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         }
@@ -61693,6 +61693,33 @@
           "text": "The paused overview and the lab below use the same authored "
         },
         {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "iteration 0 / 288 nodes 1 tree not started path length n/a"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The RRT tree is at iteration 0 of 288 with 1 node and status"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Authored scene and sampling settings, not a published benchm"
+        },
+        {
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
@@ -61727,33 +61754,6 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": true,
           "text": "A seeded tree finds a path around obstacles. Beat 1: A fixed"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "iteration 0 / 288 nodes 1 tree not started path length n/a"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "The RRT tree is at iteration 0 of 288 with 1 node and status"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 7,
-          "insideRegisteredFrame": true,
-          "text": "Authored scene and sampling settings, not a published benchm"
         },
         {
           "familyHead": "newsreader",
@@ -62503,38 +62503,6 @@
         },
         {
           "tag": "button",
-          "text": "Play",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step back",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step forward",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Reset",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "Run",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
@@ -62562,6 +62530,38 @@
           "text": "Current RRT tree state",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
           "inProse": true,
           "controlId": "control:secondary-action"
         }
@@ -66815,7 +66815,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 16440,
+      "visibleTextLength": 16448,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -66938,42 +66938,6 @@
           "text": "The chart below separates dataset counts from a teaching pro"
         },
         {
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "The same target has different collection times because the t"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "beat 4 / 4 annual output 10,000 h time to target 1.0 yr"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 7,
-          "insideRegisteredFrame": true,
-          "text": "Illustrative log-scaled hours with authored 7- and 1,000-hou"
-        },
-        {
-          "familyHead": "newsreader",
-          "sizePx": 19,
-          "lineHeightRatio": 1.7,
-          "widthPx": 0,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
-          "text": "How a farm rate changes time to an authored target. Beat 1: "
-        },
-        {
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
@@ -67008,6 +66972,42 @@
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Demonstration hours span 350 h (DROID) to 20,854 h (EgoScale"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The same target has different collection times because the t"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 annual output 10,000 h time to target 1.0 yr"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative log-scaled hours with authored 7- and 1,000-hou"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "How a farm rate changes time to an authored target. Beat 1: "
         },
         {
           "familyHead": "newsreader",
@@ -67480,38 +67480,6 @@
         },
         {
           "tag": "button",
-          "text": "Play",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step back",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step forward",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Reset",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
@@ -67539,6 +67507,38 @@
           "text": "Datasets and corpora by scale, w",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -68551,7 +68551,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18367,
+      "visibleTextLength": 18366,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -68671,6 +68671,33 @@
         },
         {
           "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative probability model: computed compounding curves,"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "(0.950)^30 = 21.5% episode success"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The evaluation calculator at 95.0 percent per-step success r"
+        },
+        {
+          "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
           "widthPx": 665,
@@ -68704,33 +68731,6 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": true,
           "text": "Conditional success compounds over an illustrative episode. "
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.33,
-          "widthPx": 665,
-          "zeroAdvancePx": 7,
-          "insideRegisteredFrame": true,
-          "text": "Illustrative probability model: computed compounding curves,"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "(0.950)^30 = 21.5% episode success"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "The evaluation calculator at 95.0 percent per-step success r"
         },
         {
           "familyHead": "newsreader",
@@ -69255,6 +69255,22 @@
         },
         {
           "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Sampled episode success by episo",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
@@ -69282,22 +69298,6 @@
           "text": "Reset",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Reset",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "summary",
-          "text": "Sampled episode success by episo",
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -76649,7 +76649,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15156,
+      "visibleTextLength": 15168,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -76770,6 +76770,33 @@
         },
         {
           "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative probability model: computed compounding curves,"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "(0.950)^30 = 21.5% episode success"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "On the reliability-gap calculator a 95.0 percent per-step po"
+        },
+        {
+          "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
           "widthPx": 665,
@@ -76803,33 +76830,6 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": true,
           "text": "The last stretch of episode reliability. Beat 1: At 95% succ"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.33,
-          "widthPx": 665,
-          "zeroAdvancePx": 7,
-          "insideRegisteredFrame": true,
-          "text": "Illustrative probability model: computed compounding curves,"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "(0.950)^30 = 21.5% episode success"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "On the reliability-gap calculator a 95.0 percent per-step po"
         },
         {
           "familyHead": "newsreader",
@@ -77329,6 +77329,22 @@
         },
         {
           "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Sampled episode success by episo",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
@@ -77356,22 +77372,6 @@
           "text": "Reset",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Reset",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "summary",
-          "text": "Sampled episode success by episo",
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -78811,7 +78811,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 23360,
+      "visibleTextLength": 23377,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -83090,7 +83090,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15048,
+      "visibleTextLength": 15125,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -83206,6 +83206,60 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "Diffusion Policy executes TaT_aTa​ actions from a TpT_pTp​-a"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "TaT_aTa​ is the same dial as ACT's chunk size, named differe"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: the predict-execute-replan cycle, not a traced co"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "T_p = 16, T_a = 8: 1.25 Hz replan rate, 0.8 s committed per "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "A receding-horizon plan with T_p 16 and T_a 8 issues 4 chunk"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Solid segments are executed; outlined tails are revised away"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Play the scene below and step through its beats. Sixty actio"
         },
         {
@@ -83288,60 +83342,6 @@
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "The first three cards show the CNN Lift/Can/Square simulatio"
-        },
-        {
-          "familyHead": "newsreader",
-          "sizePx": 19,
-          "lineHeightRatio": 1.7,
-          "widthPx": 715,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": false,
-          "text": "Diffusion Policy executes TaT_aTa​ actions from a TpT_pTp​-a"
-        },
-        {
-          "familyHead": "newsreader",
-          "sizePx": 19,
-          "lineHeightRatio": 1.7,
-          "widthPx": 715,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": false,
-          "text": "TaT_aTa​ is the same dial as ACT's chunk size, named differe"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.33,
-          "widthPx": 665,
-          "zeroAdvancePx": 7,
-          "insideRegisteredFrame": true,
-          "text": "Schematic: the predict-execute-replan cycle, not a traced co"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "T_p = 16, T_a = 8: 1.25 Hz replan rate, 0.8 s committed per "
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "A receding-horizon plan with T_p 16 and T_a 8 issues 4 chunk"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 7,
-          "insideRegisteredFrame": true,
-          "text": "Solid segments are executed; outlined tails are revised away"
         },
         {
           "familyHead": "newsreader",
@@ -83445,24 +83445,6 @@
       ],
       "sectionLinks": [
         {
-          "headingId": "denoising-in-action-space",
-          "headingTag": "h2",
-          "linked": true,
-          "colour": "rgb(11, 11, 12)",
-          "decorationLine": "underline",
-          "decorationColour": "rgb(36, 95, 255)",
-          "decorationThicknessPx": 2,
-          "keyboardFocusable": true,
-          "affordance": {
-            "tag": "button",
-            "accessibleName": "Copy link to this section, Denoising in action space",
-            "widthPx": 24,
-            "heightPx": 24,
-            "opacity": 1,
-            "visibility": "visible"
-          }
-        },
-        {
           "headingId": "receding-horizon-control",
           "headingTag": "h2",
           "linked": true,
@@ -83474,6 +83456,24 @@
           "affordance": {
             "tag": "button",
             "accessibleName": "Copy link to this section, Receding-horizon control",
+            "widthPx": 24,
+            "heightPx": 24,
+            "opacity": 1,
+            "visibility": "visible"
+          }
+        },
+        {
+          "headingId": "denoising-in-action-space",
+          "headingTag": "h2",
+          "linked": true,
+          "colour": "rgb(11, 11, 12)",
+          "decorationLine": "underline",
+          "decorationColour": "rgb(36, 95, 255)",
+          "decorationThicknessPx": 2,
+          "keyboardFocusable": true,
+          "affordance": {
+            "tag": "button",
+            "accessibleName": "Copy link to this section, Denoising in action space",
             "widthPx": 24,
             "heightPx": 24,
             "opacity": 1,
@@ -83783,38 +83783,6 @@
         },
         {
           "tag": "button",
-          "text": "Play",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step back",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step forward",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Reset",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "Diffusion Policy (16/8)",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
@@ -83842,6 +83810,38 @@
           "text": "Current receding-horizon plan",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -87463,42 +87463,6 @@
           "text": "The VLA module ended on a bottleneck: discrete action tokens"
         },
         {
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "Two action clusters remain after transport; the step-count l"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "beat 4 / 4 toy samples 48 ten-step mean endpoint error 0.05"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 7,
-          "insideRegisteredFrame": true,
-          "text": "Illustrative seeded two-dimensional transport, not learned p"
-        },
-        {
-          "familyHead": "newsreader",
-          "sizePx": 19,
-          "lineHeightRatio": 1.7,
-          "widthPx": 0,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
-          "text": "Flow matching transports action samples. Beat 1: A seeded to"
-        },
-        {
           "familyHead": "newsreader",
           "sizePx": 19,
           "lineHeightRatio": 1.7,
@@ -87533,6 +87497,42 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Illustrative model: 48 samples with a fixed seed, transporte"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Two action clusters remain after transport; the step-count l"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 toy samples 48 ten-step mean endpoint error 0.05"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative seeded two-dimensional transport, not learned p"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "Flow matching transports action samples. Beat 1: A seeded to"
         },
         {
           "familyHead": "newsreader",
@@ -88212,38 +88212,6 @@
         },
         {
           "tag": "button",
-          "text": "Play",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step back",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step forward",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Reset",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "1 step",
           "familyHead": "ibm plex mono",
           "sizePx": 12,
@@ -88319,6 +88287,38 @@
           "text": "Current flow-matching transport",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -91381,42 +91381,6 @@
           "text": "The modules so far covered policies trained from scratch on "
         },
         {
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "The token stream retains the bin choice, while seven sequent"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "beat 4 / 4 toy value -0.056 → bin 120 → <a120>"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 7,
-          "insideRegisteredFrame": true,
-          "text": "Schematic, illustrative action vector: normalized bounds and"
-        },
-        {
-          "familyHead": "newsreader",
-          "sizePx": 19,
-          "lineHeightRatio": 1.7,
-          "widthPx": 0,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
-          "text": "From continuous action to token. Beat 1: A toy continuous ac"
-        },
-        {
           "familyHead": "newsreader",
           "sizePx": 19,
           "lineHeightRatio": 1.7,
@@ -91478,6 +91442,42 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Illustrative seven-coordinate sequence: fixed [-1, 1] bounds"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The token stream retains the bin choice, while seven sequent"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 toy value -0.056 → bin 120 → <a120>"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic, illustrative action vector: normalized bounds and"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "From continuous action to token. Beat 1: A toy continuous ac"
         },
         {
           "familyHead": "newsreader",
@@ -91982,15 +91982,15 @@
           "trackingEm": 0.14
         },
         {
-          "text": "motion scene",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
-        },
-        {
           "text": "Serialized action tokens at t = ",
           "familyHead": "ibm plex mono",
           "sizePx": 11,
+          "trackingEm": 0.14
+        },
+        {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
           "trackingEm": 0.14
         }
       ],
@@ -92058,38 +92058,6 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Play",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step back",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step forward",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Reset",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
           "controlId": "control:secondary-action"
         },
         {
@@ -92169,6 +92137,38 @@
           "text": "Current bin assignment",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -95186,6 +95186,33 @@
         },
         {
           "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.33,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Authored gait set: the duty factors and footfall offsets are"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "walk at 0% feet down RF + LH + RH duty 0.75"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "In the walk, always 3 feet down at duty factor 0.75, and the"
+        },
+        {
+          "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
           "widthPx": 665,
@@ -95219,33 +95246,6 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": true,
           "text": "Foot support over an authored stride cycle. Beat 1: The auth"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.33,
-          "widthPx": 665,
-          "zeroAdvancePx": 7,
-          "insideRegisteredFrame": true,
-          "text": "Authored gait set: the duty factors and footfall offsets are"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "walk at 0% feet down RF + LH + RH duty 0.75"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "In the walk, always 3 feet down at duty factor 0.75, and the"
         },
         {
           "familyHead": "newsreader",
@@ -95750,38 +95750,6 @@
         },
         {
           "tag": "button",
-          "text": "Play",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step back",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step forward",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Reset",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "Walk",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
@@ -95849,6 +95817,38 @@
           "text": "Footfall timing for the walk",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -97065,6 +97065,33 @@
           "text": "The scene and chart below illustrate the cost arithmetic bef"
         },
         {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "4,096 envs: 4.0 min to target reward at 924k FPS"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "At low env counts the fixed per-iteration costs (learning up"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Wall-clock to the target reward falls steeply from 3.6 h at "
+        },
+        {
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
@@ -97099,33 +97126,6 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": true,
           "text": "Parallel rollouts change a fixed training budget. Beat 1: At"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "4,096 envs: 4.0 min to target reward at 924k FPS"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 7,
-          "insideRegisteredFrame": true,
-          "text": "At low env counts the fixed per-iteration costs (learning up"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "Wall-clock to the target reward falls steeply from 3.6 h at "
         },
         {
           "familyHead": "newsreader",
@@ -97641,6 +97641,30 @@
         },
         {
           "tag": "button",
+          "text": "CPU single-core bottleneck",
+          "familyHead": "ibm plex mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Sampled wall-clock by parallel e",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Play",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
@@ -97668,30 +97692,6 @@
           "text": "Reset",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "CPU single-core bottleneck",
-          "familyHead": "ibm plex mono",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:selection"
-        },
-        {
-          "tag": "button",
-          "text": "Reset",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "summary",
-          "text": "Sampled wall-clock by parallel e",
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -99758,7 +99758,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24591,
+      "visibleTextLength": 24661,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -102685,42 +102685,6 @@
           "text": "The reason that division of labor holds is below, in one sce"
         },
         {
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "The same push changes position only when a solver supplies d"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "beat 4 / 4 toy push 4.0 N displacement 18.1 cm"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 7,
-          "insideRegisteredFrame": true,
-          "text": "Schematic, authored impulse and friction model, not a measur"
-        },
-        {
-          "familyHead": "newsreader",
-          "sizePx": 19,
-          "lineHeightRatio": 1.7,
-          "widthPx": 0,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
-          "text": "A rendered scene needs a solver to answer a push. Beat 1: Th"
-        },
-        {
           "familyHead": "ibm plex mono",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
@@ -102755,6 +102719,42 @@
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
           "text": "Nothing moves. The appearance layer renders the mug but has "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The same push changes position only when a solver supplies d"
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 toy push 4.0 N displacement 18.1 cm"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic, authored impulse and friction model, not a measur"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "A rendered scene needs a solver to answer a push. Beat 1: Th"
         },
         {
           "familyHead": "newsreader",
@@ -103306,38 +103306,6 @@
         },
         {
           "tag": "button",
-          "text": "Play",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step back",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step forward",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Reset",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "Push the mug",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
@@ -103381,6 +103349,38 @@
           "text": "Current push-test layers",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -103568,6 +103568,33 @@
           "text": "A simulator needs to respond to the action, a measurable pro"
         },
         {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "action sensitivity S = 0.419 (threshold 0.30), visual realis"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "futures diverge: the model responds to the action. S is the "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Under strong conditioning, push left and lift gripper diverg"
+        },
+        {
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.63,
@@ -103602,33 +103629,6 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": true,
           "text": "Two actions fork one predicted future. Beat 1: The same tabl"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "action sensitivity S = 0.419 (threshold 0.30), visual realis"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 7,
-          "insideRegisteredFrame": true,
-          "text": "futures diverge: the model responds to the action. S is the "
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "Under strong conditioning, push left and lift gripper diverg"
         },
         {
           "familyHead": "newsreader",
@@ -104162,38 +104162,6 @@
         },
         {
           "tag": "button",
-          "text": "Play",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step back",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step forward",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Reset",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "Strong conditioning",
           "familyHead": "ibm plex mono",
           "sizePx": 12,
@@ -104269,6 +104237,38 @@
           "text": "Current action-conditioning pair",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -105172,42 +105172,6 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "The toy deviation after fifteen steps depends on the chosen "
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "beat 4 / 4 toy step 15 deviation 0.301 units"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 7,
-          "insideRegisteredFrame": true,
-          "text": "Illustrative toy, not measured Dreamer or TD-MPC performance"
-        },
-        {
-          "familyHead": "newsreader",
-          "sizePx": 19,
-          "lineHeightRatio": 1.7,
-          "widthPx": 0,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
-          "text": "Small model errors accumulate in imagination. Beat 1: An ima"
-        },
-        {
-          "familyHead": "ibm plex sans",
           "sizePx": 12,
           "lineHeightRatio": 1.63,
           "widthPx": 665,
@@ -105241,6 +105205,42 @@
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "In this deterministic toy, latent deviation grows from 0 at "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The toy deviation after fifteen steps depends on the chosen "
+        },
+        {
+          "familyHead": "ibm plex mono",
+          "sizePx": 14,
+          "lineHeightRatio": 1.43,
+          "widthPx": 665,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "beat 4 / 4 toy step 15 deviation 0.301 units"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.63,
+          "widthPx": 665,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative toy, not measured Dreamer or TD-MPC performance"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 0,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": true,
+          "text": "Small model errors accumulate in imagination. Beat 1: An ima"
         },
         {
           "familyHead": "newsreader",
@@ -105646,15 +105646,15 @@
           "trackingEm": 0.14
         },
         {
-          "text": "motion scene",
-          "familyHead": "ibm plex mono",
-          "sizePx": 10,
-          "trackingEm": 0.14
-        },
-        {
           "text": "decoded imagined frames",
           "familyHead": "ibm plex mono",
           "sizePx": 11,
+          "trackingEm": 0.14
+        },
+        {
+          "text": "motion scene",
+          "familyHead": "ibm plex mono",
+          "sizePx": 10,
           "trackingEm": 0.14
         }
       ],
@@ -105726,38 +105726,6 @@
         },
         {
           "tag": "button",
-          "text": "Play",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step back",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step forward",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Reset",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
           "sizePx": 12,
@@ -105793,6 +105761,38 @@
           "text": "Sampled latent deviation by imag",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step back",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Step forward",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
           "inProse": true,
           "controlId": "control:secondary-action"
         }

@@ -34187,7 +34187,11 @@
       "reason": "Fact-preserving humanizer v3 rewrite of the evaluation article; its assessment and sourced evaluation criteria remain unchanged, and its citation occurrences and numeric tokens are checked against the prior committed article.",
       "ownerApproval": "Owner decisions owner-decision-humanizer-pass-20260925 and owner-decision-motion-language-20260926 authorize fact-preserving article prose and the world-model scene rethink. This is not independent source certification or release approval.",
       "responsibleMilestone": "motion-language",
-      "affectedAssertions": ["VAL-HUMAN-001", "VAL-MOTION-023", "VAL-B2-BASE-012"],
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-MOTION-023",
+        "VAL-B2-BASE-012"
+      ],
       "disposition": "permanent"
     },
     {
@@ -34199,7 +34203,11 @@
       "reason": "Fact-preserving humanizer v3 rewrite and a reader-paced push-layers scene before the retained direct-control lab; source claims, toy assumptions, citation occurrences, and numeric tokens remain checked against the prior committed article.",
       "ownerApproval": "Owner decisions owner-decision-humanizer-pass-20260925 and owner-decision-motion-language-20260926 authorize fact-preserving article prose and the world-model scene rethink. This is not independent source certification or release approval.",
       "responsibleMilestone": "motion-language",
-      "affectedAssertions": ["VAL-HUMAN-001", "VAL-MOTION-023", "VAL-B2-BASE-012"],
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-MOTION-023",
+        "VAL-B2-BASE-012"
+      ],
       "disposition": "permanent"
     },
     {
@@ -34211,7 +34219,11 @@
       "reason": "Fact-preserving humanizer v3 rewrite and a reader-paced action-fork scene before the retained direct-control lab; sourced numbers, study scope, citation occurrences, and numeric tokens remain checked against the prior committed article.",
       "ownerApproval": "Owner decisions owner-decision-humanizer-pass-20260925 and owner-decision-motion-language-20260926 authorize fact-preserving article prose and the world-model scene rethink. This is not independent source certification or release approval.",
       "responsibleMilestone": "motion-language",
-      "affectedAssertions": ["VAL-HUMAN-001", "VAL-MOTION-023", "VAL-B2-BASE-012"],
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-MOTION-023",
+        "VAL-B2-BASE-012"
+      ],
       "disposition": "permanent"
     },
     {
@@ -34223,7 +34235,11 @@
       "reason": "Fact-preserving humanizer v3 rewrite of the JEPA article; trained representation versus synthetic toy distinctions, source quantities, citations, and numeric tokens remain checked against the prior committed article.",
       "ownerApproval": "Owner decisions owner-decision-humanizer-pass-20260925 and owner-decision-motion-language-20260926 authorize fact-preserving article prose and the world-model scene rethink. This is not independent source certification or release approval.",
       "responsibleMilestone": "motion-language",
-      "affectedAssertions": ["VAL-HUMAN-001", "VAL-MOTION-023", "VAL-B2-BASE-012"],
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-MOTION-023",
+        "VAL-B2-BASE-012"
+      ],
       "disposition": "permanent"
     },
     {
@@ -34235,7 +34251,11 @@
       "reason": "Fact-preserving humanizer v3 rewrite and a reader-paced latent-drift scene before the retained direct-control lab; distinct published horizon labels, numeric tokens, and citation occurrences remain checked against the prior committed article.",
       "ownerApproval": "Owner decisions owner-decision-humanizer-pass-20260925 and owner-decision-motion-language-20260926 authorize fact-preserving article prose and the world-model scene rethink. This is not independent source certification or release approval.",
       "responsibleMilestone": "motion-language",
-      "affectedAssertions": ["VAL-HUMAN-001", "VAL-MOTION-023", "VAL-B2-BASE-012"],
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-MOTION-023",
+        "VAL-B2-BASE-012"
+      ],
       "disposition": "permanent"
     },
     {
@@ -34247,7 +34267,12 @@
       "reason": "Fact-preserving humanizer v3 rewrite of the model-based robot learning article; the authored mechanisms, study qualifications, citations, and numeric tokens remain checked against the prior committed article.",
       "ownerApproval": "Owner decisions owner-decision-humanizer-pass-20260925 and owner-decision-motion-language-20260926 authorize fact-preserving article prose and the world-model scene rethink. This is not independent source certification or release approval.",
       "responsibleMilestone": "motion-language",
-      "affectedAssertions": ["VAL-HUMAN-001", "VAL-MOTION-023", "VAL-B2-BASE-011", "VAL-B2-BASE-012"],
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-MOTION-023",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
       "disposition": "permanent"
     },
     {
@@ -34259,27 +34284,104 @@
       "reason": "Exact complete-edge reconciliation of the 18 preceding taxonomy prose approvals. The fact-preserving humanizer v3 endpoint retains the authored six-group non-benchmark disclosure and selection behavior. Original local-basis proof bytes, source obligations, citations, numeric tokens, and all prior approval edges remain independently retained.",
       "ownerApproval": "Owner decisions owner-decision-humanizer-pass-20260925 and owner-decision-motion-language-20260926 authorize fact-preserving article prose and the world-model scene rethink. This is not independent source certification or release approval.",
       "responsibleMilestone": "motion-language",
-      "affectedAssertions": ["VAL-HUMAN-001", "VAL-MOTION-023", "VAL-B2-BASE-010", "VAL-B2-BASE-012"],
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-MOTION-023",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
       "disposition": "permanent",
       "reconciles": [
-        {"id":"insulation-fast-dreamer-20260907-4","oldHash":"122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003","newHash":"5d492c5d698299d92d3f511337411061d7becc1db61b8a09977e2d6fc027b049"},
-        {"id":"cross-article-closeouts-20260907-6","oldHash":"122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003","newHash":"8953f81082953a60956823f2e575e2a969716392038283041694caa1923f500d"},
-        {"id":"performance-worldmodels-20260908-5","oldHash":"122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003","newHash":"7f7fa05f992d3494afdba01a44809ccba0fe5e4c19500ed92cd5488d1f9cbdad"},
-        {"id":"jepa-source-closeouts-20260908-2","oldHash":"122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003","newHash":"a54fc46365387b7d831245c3c6af228446888e8bb82a9475f127784f45f44846"},
-        {"id":"world-model-video-continuation-20260908-3","oldHash":"122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003","newHash":"eb8ef715b160f90b5e6d9d3a62e87d7f614b4f3b93ba5988a3428ec292d9e900"},
-        {"id":"cosmos-reader-closeout-20260908-4","oldHash":"122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003","newHash":"b9e56d87059af3096551cae3e9d7e35ed5613122cdb8d27030a632f16b5c9aa1"},
-        {"id":"seo-20260824-prose-b05c76b2eb63","oldHash":"122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003","newHash":"b05c76b2eb63e7aa854647c74afd9fdd661f52891d2ca11717ef8f88e2d63fff"},
-        {"id":"taxonomy-r16-20260916-1","oldHash":"6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4","newHash":"6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4"},
-        {"id":"taxonomy-r17-20260916-1","oldHash":"6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4","newHash":"6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4"},
-        {"id":"taxonomy-r18-20260916-1","oldHash":"6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4","newHash":"6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4"},
-        {"id":"taxonomy-r19-20260916-1","oldHash":"6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4","newHash":"6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4"},
-        {"id":"taxonomy-r20-20260916-1","oldHash":"6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4","newHash":"6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4"},
-        {"id":"seo-merge-20260916-prose-33","oldHash":"122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003","newHash":"ece9a1706b66aeabd122d24e620474492ca03380cbeb28276558e676c6d118c5"},
-        {"id":"reader-dreamer-20260923-2","oldHash":"b9e56d87059af3096551cae3e9d7e35ed5613122cdb8d27030a632f16b5c9aa1","newHash":"825fb643cabbcf9de518c95ce1b7d389f4bb045ed1476f2d6c07458387a48c93"},
-        {"id":"continuation-merge-2026-09-23-1745-prose-article-world-models-taxonomy","oldHash":"122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003","newHash":"f944741c05733a0467b2af206480087f0874db92d5fb4ecf73d26c943e11f73c"},
-        {"id":"crossdomain-closure-20260923-2","oldHash":"825fb643cabbcf9de518c95ce1b7d389f4bb045ed1476f2d6c07458387a48c93","newHash":"89318d0a8e693a76d79b9c1833b04d7ad1b3509256f5e12b7180d70dbe96c795"},
-        {"id":"continuation-merge-2026-09-24-0140-prose-article-world-models-taxonomy","oldHash":"122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003","newHash":"e5515962013124141d8072a26618eba7e0e00852fefd93bb00f01846e47be6a2"},
-        {"id":"educational-cue-20260926-prose-taxonomy","oldHash":"122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003","newHash":"c78b87466402372401201a726c3816a29879d6836ce4611949ead0921942e9ce"}
+        {
+          "id": "insulation-fast-dreamer-20260907-4",
+          "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+          "newHash": "5d492c5d698299d92d3f511337411061d7becc1db61b8a09977e2d6fc027b049"
+        },
+        {
+          "id": "cross-article-closeouts-20260907-6",
+          "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+          "newHash": "8953f81082953a60956823f2e575e2a969716392038283041694caa1923f500d"
+        },
+        {
+          "id": "performance-worldmodels-20260908-5",
+          "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+          "newHash": "7f7fa05f992d3494afdba01a44809ccba0fe5e4c19500ed92cd5488d1f9cbdad"
+        },
+        {
+          "id": "jepa-source-closeouts-20260908-2",
+          "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+          "newHash": "a54fc46365387b7d831245c3c6af228446888e8bb82a9475f127784f45f44846"
+        },
+        {
+          "id": "world-model-video-continuation-20260908-3",
+          "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+          "newHash": "eb8ef715b160f90b5e6d9d3a62e87d7f614b4f3b93ba5988a3428ec292d9e900"
+        },
+        {
+          "id": "cosmos-reader-closeout-20260908-4",
+          "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+          "newHash": "b9e56d87059af3096551cae3e9d7e35ed5613122cdb8d27030a632f16b5c9aa1"
+        },
+        {
+          "id": "seo-20260824-prose-b05c76b2eb63",
+          "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+          "newHash": "b05c76b2eb63e7aa854647c74afd9fdd661f52891d2ca11717ef8f88e2d63fff"
+        },
+        {
+          "id": "taxonomy-r16-20260916-1",
+          "oldHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4",
+          "newHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4"
+        },
+        {
+          "id": "taxonomy-r17-20260916-1",
+          "oldHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4",
+          "newHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4"
+        },
+        {
+          "id": "taxonomy-r18-20260916-1",
+          "oldHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4",
+          "newHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4"
+        },
+        {
+          "id": "taxonomy-r19-20260916-1",
+          "oldHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4",
+          "newHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4"
+        },
+        {
+          "id": "taxonomy-r20-20260916-1",
+          "oldHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4",
+          "newHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4"
+        },
+        {
+          "id": "seo-merge-20260916-prose-33",
+          "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+          "newHash": "ece9a1706b66aeabd122d24e620474492ca03380cbeb28276558e676c6d118c5"
+        },
+        {
+          "id": "reader-dreamer-20260923-2",
+          "oldHash": "b9e56d87059af3096551cae3e9d7e35ed5613122cdb8d27030a632f16b5c9aa1",
+          "newHash": "825fb643cabbcf9de518c95ce1b7d389f4bb045ed1476f2d6c07458387a48c93"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1745-prose-article-world-models-taxonomy",
+          "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+          "newHash": "f944741c05733a0467b2af206480087f0874db92d5fb4ecf73d26c943e11f73c"
+        },
+        {
+          "id": "crossdomain-closure-20260923-2",
+          "oldHash": "825fb643cabbcf9de518c95ce1b7d389f4bb045ed1476f2d6c07458387a48c93",
+          "newHash": "89318d0a8e693a76d79b9c1833b04d7ad1b3509256f5e12b7180d70dbe96c795"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0140-prose-article-world-models-taxonomy",
+          "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+          "newHash": "e5515962013124141d8072a26618eba7e0e00852fefd93bb00f01846e47be6a2"
+        },
+        {
+          "id": "educational-cue-20260926-prose-taxonomy",
+          "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+          "newHash": "c78b87466402372401201a726c3816a29879d6836ce4611949ead0921942e9ce"
+        }
       ]
     },
     {
@@ -34291,7 +34393,12 @@
       "reason": "Fact-preserving humanizer v3 rewrite of the world-model-versus-simulator article; derived-cost qualifications, numeric tokens, source links and citation occurrences remain checked against the prior committed article.",
       "ownerApproval": "Owner decisions owner-decision-humanizer-pass-20260925 and owner-decision-motion-language-20260926 authorize fact-preserving article prose and the world-model scene rethink. This is not independent source certification or release approval.",
       "responsibleMilestone": "motion-language",
-      "affectedAssertions": ["VAL-HUMAN-001", "VAL-MOTION-023", "VAL-B2-BASE-011", "VAL-B2-BASE-012"],
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-MOTION-023",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
       "disposition": "permanent"
     },
     {
@@ -34303,7 +34410,11 @@
       "reason": "Fact-preserving humanizer v3 pass and a farm-throughput toy scene before the retained direct-control chart. Published data durations remain separate from authored rates and OXE's unknown duration; numeric tokens and ordered citations are checked against the prior committed article. This approval does not refresh stale audit local-basis evidence.",
       "ownerApproval": "Owner decisions owner-decision-humanizer-pass-20260925 and owner-decision-motion-language-20260926 authorize the fact-preserving prose pass and data-hardware scene rethink; they do not certify sources or release readiness.",
       "responsibleMilestone": "motion-language",
-      "affectedAssertions": ["VAL-HUMAN-001", "VAL-MOTION-024", "VAL-B2-BASE-012"],
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-MOTION-024",
+        "VAL-B2-BASE-012"
+      ],
       "disposition": "permanent"
     },
     {
@@ -34315,7 +34426,11 @@
       "reason": "Fact-preserving humanizer v3 pass with version identifiers formatted as technical labels. Unknown duration, gated-license qualifications, numeric tokens and ordered citations remain checked against the prior committed article; this does not re-audit the underlying sources.",
       "ownerApproval": "Owner decisions owner-decision-humanizer-pass-20260925 and owner-decision-motion-language-20260926 authorize the fact-preserving prose pass and data-hardware scene rethink; they do not certify sources or release readiness.",
       "responsibleMilestone": "motion-language",
-      "affectedAssertions": ["VAL-HUMAN-001", "VAL-MOTION-024", "VAL-B2-BASE-012"],
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-MOTION-024",
+        "VAL-B2-BASE-012"
+      ],
       "disposition": "permanent"
     },
     {
@@ -34327,7 +34442,11 @@
       "reason": "Fact-preserving humanizer v3 pass and an illustrative compounding scene before the independently adjustable calculator. The model's conditional assumption, benchmark caveats, numeric tokens and ordered citations are checked against the prior committed article; the stale audit local-basis hash is not re-certified here.",
       "ownerApproval": "Owner decisions owner-decision-humanizer-pass-20260925 and owner-decision-motion-language-20260926 authorize the fact-preserving prose pass and data-hardware scene rethink; they do not certify sources or release readiness.",
       "responsibleMilestone": "motion-language",
-      "affectedAssertions": ["VAL-HUMAN-001", "VAL-MOTION-024", "VAL-B2-BASE-012"],
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-MOTION-024",
+        "VAL-B2-BASE-012"
+      ],
       "disposition": "permanent"
     },
     {
@@ -34640,7 +34759,11 @@
       "reason": "Fact-preserving humanizer v3 pass of the seven-contract explanation and its retained self-check. Numeric tokens and ordered citations are checked against the prior committed article; no unsupported pipeline animation was added.",
       "ownerApproval": "Owner decisions owner-decision-humanizer-pass-20260925 and owner-decision-motion-language-20260926 authorize the fact-preserving prose pass and data-hardware scene rethink; they do not certify sources or release readiness.",
       "responsibleMilestone": "motion-language",
-      "affectedAssertions": ["VAL-HUMAN-001", "VAL-MOTION-024", "VAL-B2-BASE-012"],
+      "affectedAssertions": [
+        "VAL-HUMAN-001",
+        "VAL-MOTION-024",
+        "VAL-B2-BASE-012"
+      ],
       "disposition": "permanent"
     },
     {
@@ -34765,7 +34888,12 @@
       "reason": "The retained SIMPLER paper proposes and evaluates ways to mitigate visual and control gaps. The corrected sentence describes the methods without claiming that both generally achieved a reduction. All numbers, citation markers, setup qualifications and the conditional-probability model are unchanged.",
       "ownerApproval": "The source-backed correction rule in contract/content-audit.md and the owner-delegated September 23 closure decision require the current article to state only what its cited primary source supports.",
       "responsibleMilestone": "motion-language",
-      "affectedAssertions": ["VAL-B2-BASE-002", "VAL-B2-BASE-012", "VAL-AUDIT-005", "VAL-MOTION-024"],
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-005",
+        "VAL-MOTION-024"
+      ],
       "disposition": "permanent"
     },
     {
@@ -34777,36 +34905,149 @@
       "reason": "The retained Symbotic FY2025 filing defines backlog as unperformed contractual obligations. The corrected sentence restores its distinction from earned revenue without changing the reported backlog, fiscal revenue, contractual site scope or forecast.",
       "ownerApproval": "The source-backed correction rule in contract/content-audit.md and the owner-delegated September 23 closure decision require the current article to preserve the filing's backlog and earned-revenue distinction.",
       "responsibleMilestone": "motion-language",
-      "affectedAssertions": ["VAL-B2-BASE-002", "VAL-B2-BASE-012", "VAL-AUDIT-004", "VAL-MOTION-024"],
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-004",
+        "VAL-MOTION-024"
+      ],
       "disposition": "permanent",
       "reconciles": [
-        { "id": "content-audit-2026-09-06-industrial-deployment", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "a7ae31d224104e331b62665cad4264c944f258ab4bf05f6038894be78fefe9ba" },
-        { "id": "retained-cross-20260907-3", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "750d2a819dc0093fef156ec7664555225ef2ab527b2b5c477832859034aea589" },
-        { "id": "retained-cross-20260907-6", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "25f89d2b66a3c7cba5c35145cefaa828a445b6dccf6f55f0bb73f01932e3a9e4" },
-        { "id": "industrial-cost-responsibility-20260909-1", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "1c7ea96deb80f4e7c1c7d3b76cecf79a22f690a5c241230e3188bd5787870330" },
-        { "id": "ifr-industrial-originals-20260912-1", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "f4886dbb51051a51cba727226c04a0373213b1f97987338862f8d6bf13e01b77" },
-        { "id": "symbotic-a3-industrial-originals-20260913-1", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "46eb8ae18d6f630cd556e387a5a7519cb841e378274b9528627caf51eb17378b" },
-        { "id": "amazon-industrial-originals-20260913-1", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "499dd7bc6734ff5e01ac914b97242a49689345824b9ec9e93d3243ab2a99b97a" },
-        { "id": "amazon-industrial-tooltip-placement-20260913", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "18f396ad337f224e3eb055525e10eb03dc529c7e05201045de408bfc8b4f6292" },
-        { "id": "industrial-engineering-originals-20260913-1", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "0dd12f5fa30be2bd301761106404bce26e2ec66d6ad49269ac364ed3312d336d" },
-        { "id": "industrial-engineering-originals-20260913-4", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "aed44cd347de1f632a70f66416d400ff9d8b35097d2fd54ab78e1f2f8d7089f8" },
-        { "id": "osha-industrial-modes-38-20260915-1", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "aed44cd347de1f632a70f66416d400ff9d8b35097d2fd54ab78e1f2f8d7089f8" },
-        { "id": "seo-20260824-prose-349c6badf01f", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "349c6badf01fc723272a19107d627800666788f0699e068e0699ddde8ff1fbb0" },
-        { "id": "seo-merge-20260916-prose-9", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "d3c361e063873351e4a90bd1372d09076bd3792149cb3c9e583a7dcc7d2c9b45" },
-        { "id": "as0917a-industrial-ocado-scope", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "6063818cca0a9e5d84fddddd801ca6a098309f9a1b3baa6fe41cff7f735f743d" },
-        { "id": "mit-industrial-43-prose-20260921", "oldHash": "6063818cca0a9e5d84fddddd801ca6a098309f9a1b3baa6fe41cff7f735f743d", "newHash": "125ef32b92ffe8c9444379f6fc3a00caeaad89e7330c836081d91b33deec33ba" },
-        { "id": "continuation-merge-20260922-prose-data-hardware-industrial-deployment", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "04577b7063dd224b8a7d0ed35fa2527b17870f253c029f55f54c794e72789a49" },
-        { "id": "industrial-perception-zero-credit-20260922-1", "oldHash": "125ef32b92ffe8c9444379f6fc3a00caeaad89e7330c836081d91b33deec33ba", "newHash": "e4d07fe8707f63020473fae7a08d9796f65c26f4b1e2dee0be167486f13ad048" },
-        { "id": "continuation-merge-2026-09-23-prose-article-data-hardware-industrial-deployment", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "76eee12ee99d7fedbc725d7be11966f66df5d2633e96e496011aec9b925dc909" },
-        { "id": "economics-local-20260923-1", "oldHash": "e4d07fe8707f63020473fae7a08d9796f65c26f4b1e2dee0be167486f13ad048", "newHash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422" },
-        { "id": "continuation-merge-2026-09-23-1430-prose-article-data-hardware-industrial-deployment", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "b380f81feab53d71f7f5bdbd369266d90da609c486d0e225282b6ba28bb11de9" },
-        { "id": "industrial-closure-20260923-6", "oldHash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422", "newHash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c" },
-        { "id": "continuation-merge-2026-09-23-1940-prose-article-data-hardware-industrial-deployment", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "1aea5cd4a2064ec784e74a5a804c5338a4c57154b6a95ee7787141fc63172afc" },
-        { "id": "citation-closeout-20260924-kroger-temporal-prose", "oldHash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c", "newHash": "f502a1a2d97d58701321a793dc285deb1e340725c3575155d7c0f38789503528" },
-        { "id": "main-merge-20260924-industrial-prose", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "4448010ee139b50e98f5967aa77eebcb5d842ff39a9dc1d16287a70a359b052c" },
-        { "id": "continuation-merge-2026-09-24-tech-withdrawal-prose-industrial-deployment", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "d8f091fdc26d87b8de37a8736324f0e715ad60759a23271c0ce7168661c6360a" },
-        { "id": "educational-relocation-20260926-prose-industrial-deployment", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "915117232269b0ec152a0ccedd7ac8bdeb0126e40fdf1891118e84b68eabf3a8" },
-        { "id": "motion-data-hardware-humanizer-v3-20260927-prose-industrial-deployment", "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266", "newHash": "f76ec68e7881c2c2e748561fcebb76d6829909e3827711484fb0f591dc1662fe" }
+        {
+          "id": "content-audit-2026-09-06-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "a7ae31d224104e331b62665cad4264c944f258ab4bf05f6038894be78fefe9ba"
+        },
+        {
+          "id": "retained-cross-20260907-3",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "750d2a819dc0093fef156ec7664555225ef2ab527b2b5c477832859034aea589"
+        },
+        {
+          "id": "retained-cross-20260907-6",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "25f89d2b66a3c7cba5c35145cefaa828a445b6dccf6f55f0bb73f01932e3a9e4"
+        },
+        {
+          "id": "industrial-cost-responsibility-20260909-1",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "1c7ea96deb80f4e7c1c7d3b76cecf79a22f690a5c241230e3188bd5787870330"
+        },
+        {
+          "id": "ifr-industrial-originals-20260912-1",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "f4886dbb51051a51cba727226c04a0373213b1f97987338862f8d6bf13e01b77"
+        },
+        {
+          "id": "symbotic-a3-industrial-originals-20260913-1",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "46eb8ae18d6f630cd556e387a5a7519cb841e378274b9528627caf51eb17378b"
+        },
+        {
+          "id": "amazon-industrial-originals-20260913-1",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "499dd7bc6734ff5e01ac914b97242a49689345824b9ec9e93d3243ab2a99b97a"
+        },
+        {
+          "id": "amazon-industrial-tooltip-placement-20260913",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "18f396ad337f224e3eb055525e10eb03dc529c7e05201045de408bfc8b4f6292"
+        },
+        {
+          "id": "industrial-engineering-originals-20260913-1",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "0dd12f5fa30be2bd301761106404bce26e2ec66d6ad49269ac364ed3312d336d"
+        },
+        {
+          "id": "industrial-engineering-originals-20260913-4",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "aed44cd347de1f632a70f66416d400ff9d8b35097d2fd54ab78e1f2f8d7089f8"
+        },
+        {
+          "id": "osha-industrial-modes-38-20260915-1",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "aed44cd347de1f632a70f66416d400ff9d8b35097d2fd54ab78e1f2f8d7089f8"
+        },
+        {
+          "id": "seo-20260824-prose-349c6badf01f",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "349c6badf01fc723272a19107d627800666788f0699e068e0699ddde8ff1fbb0"
+        },
+        {
+          "id": "seo-merge-20260916-prose-9",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "d3c361e063873351e4a90bd1372d09076bd3792149cb3c9e583a7dcc7d2c9b45"
+        },
+        {
+          "id": "as0917a-industrial-ocado-scope",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "6063818cca0a9e5d84fddddd801ca6a098309f9a1b3baa6fe41cff7f735f743d"
+        },
+        {
+          "id": "mit-industrial-43-prose-20260921",
+          "oldHash": "6063818cca0a9e5d84fddddd801ca6a098309f9a1b3baa6fe41cff7f735f743d",
+          "newHash": "125ef32b92ffe8c9444379f6fc3a00caeaad89e7330c836081d91b33deec33ba"
+        },
+        {
+          "id": "continuation-merge-20260922-prose-data-hardware-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "04577b7063dd224b8a7d0ed35fa2527b17870f253c029f55f54c794e72789a49"
+        },
+        {
+          "id": "industrial-perception-zero-credit-20260922-1",
+          "oldHash": "125ef32b92ffe8c9444379f6fc3a00caeaad89e7330c836081d91b33deec33ba",
+          "newHash": "e4d07fe8707f63020473fae7a08d9796f65c26f4b1e2dee0be167486f13ad048"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-prose-article-data-hardware-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "76eee12ee99d7fedbc725d7be11966f66df5d2633e96e496011aec9b925dc909"
+        },
+        {
+          "id": "economics-local-20260923-1",
+          "oldHash": "e4d07fe8707f63020473fae7a08d9796f65c26f4b1e2dee0be167486f13ad048",
+          "newHash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1430-prose-article-data-hardware-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "b380f81feab53d71f7f5bdbd369266d90da609c486d0e225282b6ba28bb11de9"
+        },
+        {
+          "id": "industrial-closure-20260923-6",
+          "oldHash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422",
+          "newHash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1940-prose-article-data-hardware-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "1aea5cd4a2064ec784e74a5a804c5338a4c57154b6a95ee7787141fc63172afc"
+        },
+        {
+          "id": "citation-closeout-20260924-kroger-temporal-prose",
+          "oldHash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c",
+          "newHash": "f502a1a2d97d58701321a793dc285deb1e340725c3575155d7c0f38789503528"
+        },
+        {
+          "id": "main-merge-20260924-industrial-prose",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "4448010ee139b50e98f5967aa77eebcb5d842ff39a9dc1d16287a70a359b052c"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-tech-withdrawal-prose-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "d8f091fdc26d87b8de37a8736324f0e715ad60759a23271c0ce7168661c6360a"
+        },
+        {
+          "id": "educational-relocation-20260926-prose-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "915117232269b0ec152a0ccedd7ac8bdeb0126e40fdf1891118e84b68eabf3a8"
+        },
+        {
+          "id": "motion-data-hardware-humanizer-v3-20260927-prose-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "f76ec68e7881c2c2e748561fcebb76d6829909e3827711484fb0f591dc1662fe"
+        }
       ]
     },
     {
@@ -35278,7 +35519,10 @@
       "reason": "S12 citation attachment only: keep robocasa-2024 beside the v1 inventory and place robocasa365-2026 beside the separately named release. The complete preserved RoboCasa365 PDF (SHA-256 3253894415c1470ee63aae7f65198d9bd0cfd0563851a2bb7418c3f9519bc99d) identifies the paper and reports 365 tasks across 2,500 kitchen environments in the abstract; its retained extraction was verified against fresh local pdftotext output. Original packet retrieval 2026-09-24T08:30:39Z, not a new fetch. No numbers, unrelated prose, frontmatter or audit verdicts changed; not whole-article review or release acceptance.",
       "ownerApproval": "Owner-assigned Robot Wiki Mission mis_2b1673fa batch-3 S12 source-attachment correction, bounded to the verified retained primary document and exact approved prose edge.",
       "responsibleMilestone": "motion-language",
-      "affectedAssertions": ["VAL-MOTION-023", "VAL-B2-BASE-012"],
+      "affectedAssertions": [
+        "VAL-MOTION-023",
+        "VAL-B2-BASE-012"
+      ],
       "disposition": "permanent"
     },
     {
@@ -35290,7 +35534,426 @@
       "reason": "S12 adds one robocasa365-2026 citation occurrence adjacent to the larger-release sentence while preserving the RoboCasa v1 citation and all other article citation, link, term and see-also edges. The prior digest equals the same current relationships member with exactly that single 365 occurrence removed. This is a bounded relationship transition, not whole-article source certification or release acceptance.",
       "ownerApproval": "Owner-assigned Robot Wiki Mission mis_2b1673fa batch-3 S12 primary-document citation correction, limited to the exact retained PDF evidence and original source identity.",
       "responsibleMilestone": "motion-language",
-      "affectedAssertions": ["VAL-B2-BASE-002", "VAL-B2-BASE-011", "VAL-MOTION-023"],
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011",
+        "VAL-MOTION-023"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "round5-chart-first-screen-20260928-prose-reliability-gap",
+      "manifest": "prose",
+      "memberId": "article:frontier/reliability-gap",
+      "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+      "newHash": "1e39b6186e098ed948aa36770562e9041be8283a9956f7396b472529fd661a90",
+      "reason": "Resolution from the sealed member to the current bytes, required because this member's approval history already ends in reconciling resolutions; it binds all 20 prior approvals by ID and both hashes. The pre-change current bytes are the motion-frontier-adjacent-home-humanizer-v3-20260927-prose-reliability-gap endpoint 4ed073dd. The only change from that endpoint is a VAL-EDU-045 layout repair on /frontier/reliability-gap/: the ReliabilityCompounding calculator mount now precedes the ReliabilityThreshold scene mount, so the first interactive directly follows its cue paragraph instead of the scene (pre-change export: 352 preceding rendered words, top edge 1950 px, no cue in the adjacent paragraphs). The cue sentence now names the per-step success slider first and the fixed-horizon example second; its 95% and 100 values, the citation order, both mount props and every other sentence are unchanged.",
+      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md VAL-EDU-045, enforced by tests/e2e/first-screen-interactive.spec.ts, assigned to this worker as the Mission mis_2b1673fa round-5 chart and first-screen repair. Layout and cue-order repair only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-EDU-045",
+        "VAL-MOTION-025",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "go-helix-cross-transfer-20260908-2",
+          "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+          "newHash": "66f7598571453b8f06b1921bdcd1e680d7f73b978964bd5130011ee1088ec298"
+        },
+        {
+          "id": "rg-r1-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r2-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r3-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r4-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r5-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r7-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r8-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r9-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r10-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r11-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r12-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r13-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r14-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r15-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "seo-merge-20260916-prose-14",
+          "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+          "newHash": "6ec59fccefe91eb94a2846cea3866b9adcb101c11d2563a3b082bc42517225f4"
+        },
+        {
+          "id": "single-leftovers-rg6-20260917-1",
+          "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+          "newHash": "1012cebc53f29bf427e082a33890db54ca636a35965e31d7ec06b9e70e41a3dc"
+        },
+        {
+          "id": "round5-closeout-reliability-gap-prose",
+          "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+          "newHash": "1012cebc53f29bf427e082a33890db54ca636a35965e31d7ec06b9e70e41a3dc"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-tech-withdrawal-prose-reliability-gap",
+          "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+          "newHash": "9ce3dbd3ed18119366400384f63fe66f9a4664bc84424c6fef6d8a2b811de0e4"
+        },
+        {
+          "id": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-reliability-gap",
+          "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+          "newHash": "4ed073dd9969b1b13e1f42c2bb98ca36218a32aae0ea5266ed45fa4228a1a026"
+        }
+      ]
+    },
+    {
+      "id": "round5-chart-first-screen-20260928-prose-drones",
+      "manifest": "prose",
+      "memberId": "article:adjacent/drones",
+      "oldHash": "57fede5c2c9e935af23c2591d021aa42217c420f53f98733fee97f4e9e1f80ab",
+      "newHash": "fa823b5469df1868ac25fd324077b5aa44a2075fef250591e1ba46373cd78e29",
+      "reason": "VAL-EDU-045 layout repair on /adjacent/drones/: the PerceptionLatency instrument mount now directly follows its cue paragraph and precedes the SenseAvoid scene mount (pre-change export: 357 preceding rendered words, top edge 1914 px). Only the order of the two adjacent mount lines changes; every sentence, number, citation and mount prop is unchanged.",
+      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md VAL-EDU-045, enforced by tests/e2e/first-screen-interactive.spec.ts, assigned to this worker as the Mission mis_2b1673fa round-5 chart and first-screen repair. Layout and cue-order repair only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-EDU-045",
+        "VAL-MOTION-025",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "round5-chart-first-screen-20260928-prose-diffusion-policy",
+      "manifest": "prose",
+      "memberId": "article:manipulation/diffusion-policy",
+      "oldHash": "2ed97162a04e8b619a5360fcd51957fd61d07dedc306df39bc12d4107aa4db62",
+      "newHash": "67925c3ecc80d2e381175f6eee29423df7adfa9afec379db9192810eb45f61f2",
+      "reason": "VAL-EDU-045 layout repair on /manipulation/diffusion-policy/: the Receding-horizon control section (its heading, two paragraphs and the RecedingHorizon mount) moves ahead of Denoising in action space, and the scene cue paragraph with the DiffusionDenoising mount moves to the start of that section (pre-change export: 932 preceding rendered words, 2 preceding h2, top edge 3380 px, no adjacent cue). One cue sentence naming the executed horizon slider is added and \"the scene at the top of this module\" becomes \"the scene at the start of this section\". Every other sentence, number, citation and mount prop is unchanged; citation order moves only with the relocated section.",
+      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md VAL-EDU-045, enforced by tests/e2e/first-screen-interactive.spec.ts, assigned to this worker as the Mission mis_2b1673fa round-5 chart and first-screen repair. Layout and cue-order repair only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-EDU-045",
+        "VAL-MOTION-020",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "round5-pinned-leftovers-20260928-prose-data-bottleneck",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/data-bottleneck",
+      "oldHash": "cdc986bcd3e8a57e6d13297065578acd964e66f98cf7161de5bf42b0072cb47d",
+      "newHash": "2a399628a0d3d47c483619e0563664aa50e82ca704050c69ccb7d44a73f8a161",
+      "reason": "The first meaningful interactive on /data-hardware/data-bottleneck/ sat after the motion scene at 389 preceding words, past the 300-word and 1600px VAL-EDU-045(a) first-screen budget. The DataScaleChart mount block moves above the FarmThroughput scene so the chart the cue paragraph names ('Drag the teleoperation rigs slider') is the first interactive at about 279 preceding words. The move is a pure block swap: every sentence, number, citation marker and the frontmatter are unchanged, and the sorted line inventory of the article is identical.",
+      "ownerApproval": "VAL-EDU-045 in contract/educational-ux.md requires the first meaningful interactive inside the first-screen budget while preserving sourced claims, numbers and citations; the 2026-09-28 pinned-leftovers dispatch names this route.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012",
+        "VAL-EDU-045"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "round5-pinned-leftovers-20260928-prose-evaluation-crisis",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/evaluation-crisis",
+      "oldHash": "1bf31b1df987ef3edf435c4bb5c7280105a43e1e240544be069454c01c505923",
+      "newHash": "58eb66a343de12e685e540f7840313f33b841fa233b26462d428b2a298459557",
+      "reason": "The first meaningful interactive on /data-hardware/evaluation-crisis/ sat after the EpisodeSurvival scene at 329 preceding words, past the 300-word and 1600px VAL-EDU-045(a) first-screen budget. The ReliabilityCompounding mount block moves above the scene so the calculator the cue paragraph names ('Drag the episode-length slider') is the first interactive at about 248 preceding words. The move is a pure block swap: every sentence, number, citation marker and the frontmatter are unchanged, and the sorted line inventory of the article is identical.",
+      "ownerApproval": "VAL-EDU-045 in contract/educational-ux.md requires the first meaningful interactive inside the first-screen budget while preserving sourced claims, numbers and citations; the 2026-09-28 pinned-leftovers dispatch names this route.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012",
+        "VAL-EDU-045"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "round5-first-screen-cd-20260929-prose-vla-models",
+      "manifest": "prose",
+      "memberId": "article:manipulation/vla-models",
+      "oldHash": "58887645ef7e2449eace762c4f2e89581eda98ec5c9adaa88b6c16ff690d2303",
+      "newHash": "ef14b1dd87bf8f6c5944bebb56b5da3b2db890def0d378e38c4a113806d9027f",
+      "reason": "VAL-EDU-045 layout repair on /manipulation/vla-models/: the ActionDecode motion scene sat between the operating-cue paragraph and the first reader-operated interactive (275 preceding rendered words, lab SVG top edge 1767 px at 1440x900, cue already adjacent). The ActionDecode scene mount moves below the ActionTokenization lab, so the lab directly follows the paragraph that names its control step; the scene follows the lab. The move is a pure block swap: every sentence, number, citation marker (in order), mount prop and the frontmatter are unchanged, and the sorted line inventory of the article is identical. The pre-change bytes are the motion-manipulation-20260927-prose-vla-models-mount endpoint.",
+      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md VAL-EDU-045, enforced by tests/e2e/first-screen-interactive.spec.ts, assigned as the round-5 first-screen c/d repair (batch 06-first-screen-cd). Layout and cue-adjacency repair only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-EDU-045",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "round5-first-screen-cd-20260929-prose-pi-line",
+      "manifest": "prose",
+      "memberId": "article:manipulation/pi-line",
+      "oldHash": "f0f3afb7ce11afa404d1b8584e8039f9c007da277a6a9d0651ea0aeecf52b3e6",
+      "newHash": "783f0ca55010dc594fe42dd4b9e6f54f39538e7a52e3fa46e7958360893bc0b2",
+      "reason": "VAL-EDU-045 layout repair on /manipulation/pi-line/: the FlowTransport motion scene sat between the operating-cue paragraph and the first reader-operated interactive (245 preceding rendered words, lab SVG top edge 1700 px, cue already adjacent). The FlowTransport scene mount moves below the FlowMatchingTrajectory lab, so the lab directly follows the paragraph that says to drag its integration steps slider; the scene follows the lab. The move is a pure block swap: every sentence, number, citation marker (in order), mount prop and the frontmatter are unchanged, and the sorted line inventory of the article is identical. The pre-change bytes are the motion-manipulation-20260927-prose-pi-line-mount endpoint.",
+      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md VAL-EDU-045, enforced by tests/e2e/first-screen-interactive.spec.ts, assigned as the round-5 first-screen c/d repair (batch 06-first-screen-cd). Layout and cue-adjacency repair only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-EDU-045",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "round5-first-screen-cd-20260929-prose-parallel-sim-rl",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/parallel-sim-rl",
+      "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+      "newHash": "16a9970b03691a66d3ad57e002e4875957a185c31515387e279cecb913c04013",
+      "reason": "Resolution from the sealed member to the current bytes, required because this member's approval history already ends in reconciling resolutions; it binds all 16 prior approvals by ID and both hashes. The pre-change current bytes are the motion-rl-sim2real-20260927-reconcile-parallel-sim-rl endpoint 18f11b1e. The only change from that endpoint is a VAL-EDU-045 layout repair on /rl-sim2real/parallel-sim-rl/: the BatchScale motion scene sat between the operating-cue paragraph and the first reader-operated interactive (241 preceding rendered words, chart SVG top edge 1667 px, no cue in the two adjacent paragraphs). The TrainingTimeChart mount now precedes the BatchScale scene mount, so the chart directly follows the paragraph that says to drag its slider from 64 upward; the scene follows the lab. The move is a pure block swap: every sentence, number, citation marker (in order), mount prop and the frontmatter are unchanged, and the sorted line inventory of the article is identical.",
+      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md VAL-EDU-045, enforced by tests/e2e/first-screen-interactive.spec.ts, assigned as the round-5 first-screen c/d repair (batch 06-first-screen-cd). Layout and cue-adjacency repair only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-EDU-045",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "isaac-v1-twelve-originals-1-20260908",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "03922c2d4ac019087ce635755701f7f6fb1c70c582880393a7b3cb46586a4831"
+        },
+        {
+          "id": "rudin-protocol-20260909-b1d210de386473c2d5",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "06bd5d64a999f11ab74db05d4bf9a112a0c6c2b213fa45680559c2f4016f85c8"
+        },
+        {
+          "id": "rudin-four-placement-20260909-a981a05d2fe91c6e7d",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "b6827e2ea6b4cfac9e072192741290dd270ff1460007d6130312771ee9242caf"
+        },
+        {
+          "id": "newton-engine-20260912-2f6e8bc798bf35e18a",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4"
+        },
+        {
+          "id": "parallel-sim-rl-r3-20260916-1",
+          "oldHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4",
+          "newHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4"
+        },
+        {
+          "id": "parallel-sim-rl-r5-20260916-1",
+          "oldHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4",
+          "newHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4"
+        },
+        {
+          "id": "parallel-sim-rl-r6-20260916-1",
+          "oldHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4",
+          "newHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4"
+        },
+        {
+          "id": "parallel-sim-rl-r18-20260916-1",
+          "oldHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4",
+          "newHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4"
+        },
+        {
+          "id": "parallel-sim-rl-r1-20260916-1",
+          "oldHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4",
+          "newHash": "0a3c06a2d19b52530c88d39ac49fdabfa3654d2706eb9b868f403b1d10eae7d6"
+        },
+        {
+          "id": "seo-merge-20260916-prose-parallel-sim-rl",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "0a3c06a2d19b52530c88d39ac49fdabfa3654d2706eb9b868f403b1d10eae7d6"
+        },
+        {
+          "id": "round5-closeout-parallel-sim-rl-prose",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "0a3c06a2d19b52530c88d39ac49fdabfa3654d2706eb9b868f403b1d10eae7d6"
+        },
+        {
+          "id": "parallel-local-20260923-1",
+          "oldHash": "0a3c06a2d19b52530c88d39ac49fdabfa3654d2706eb9b868f403b1d10eae7d6",
+          "newHash": "ee5038d71f1c6d9a5a3369386d0f4c69a9e2ba0866d21ab401680b2a187ef3a5"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-0740-prose-article-rl-sim2real-parallel-sim-rl",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "ee5038d71f1c6d9a5a3369386d0f4c69a9e2ba0866d21ab401680b2a187ef3a5"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-rl-sim2real-parallel-sim-rl",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "ee5038d71f1c6d9a5a3369386d0f4c69a9e2ba0866d21ab401680b2a187ef3a5"
+        },
+        {
+          "id": "motion-rl-sim2real-humanizer-v3-20260927-prose-parallel-sim-rl",
+          "oldHash": "ee5038d71f1c6d9a5a3369386d0f4c69a9e2ba0866d21ab401680b2a187ef3a5",
+          "newHash": "18f11b1e97665df80a0928345e98952d3e6b01e1d590035418bd9fafb53ac6e5"
+        },
+        {
+          "id": "motion-rl-sim2real-20260927-reconcile-parallel-sim-rl",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "18f11b1e97665df80a0928345e98952d3e6b01e1d590035418bd9fafb53ac6e5"
+        }
+      ]
+    },
+    {
+      "id": "round5-first-screen-cd-20260929-prose-legged-locomotion",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/legged-locomotion",
+      "oldHash": "e531e02d9f41cda0e58185a4db70fff208823776508ae05ebbcbf7bd5270236e",
+      "newHash": "037a9544af297abc1b1e1d7a1ede04d1b612001c90a7525ec1c190b39df7e2e8",
+      "reason": "VAL-EDU-045 layout repair on /rl-sim2real/legged-locomotion/: the GaitSupport motion scene sat between the operating-cue paragraph and the first reader-operated interactive (252 preceding rendered words, diagram SVG top edge 1678 px, no cue in the two adjacent paragraphs). The GaitDiagram mount now precedes the GaitSupport scene mount, so the diagram directly follows the paragraph that says to switch it from walk to trot to bound; the scene follows the lab. The move is a pure block swap: every sentence, number, citation marker (in order), mount prop and the frontmatter are unchanged, and the sorted line inventory of the article is identical. The pre-change bytes are the motion-rl-sim2real-humanizer-v3-20260927-prose-legged-locomotion endpoint.",
+      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md VAL-EDU-045, enforced by tests/e2e/first-screen-interactive.spec.ts, assigned as the round-5 first-screen c/d repair (batch 06-first-screen-cd). Layout and cue-adjacency repair only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-EDU-045",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "round5-first-screen-cd-20260929-prose-latent-dynamics",
+      "manifest": "prose",
+      "memberId": "article:world-models/latent-dynamics",
+      "oldHash": "a85d0697bed9de5abba178bb756ec8bf574c7606c2e9052fa8e4f1bb56f74a4b",
+      "newHash": "e549d756bb8b49aeb3f0736327a5c9a0bddec87711d00972789c930b415c154c",
+      "reason": "VAL-EDU-045 layout repair on /world-models/latent-dynamics/: the LatentDrift motion scene sat between the operating-cue paragraph and the first reader-operated interactive (251 preceding rendered words, lab SVG top edge 1815 px, no cue in the two adjacent paragraphs). The LatentImagination mount now precedes the LatentDrift scene mount, so the lab directly follows the paragraph that says to drag its horizon slider; the scene follows the lab. The move is a pure block swap: every sentence, number, citation marker (in order), mount prop and the frontmatter are unchanged, and the sorted line inventory of the article is identical. The pre-change bytes are the motion-world-models-humanizer-v3-20260927-prose-latent-dynamics endpoint.",
+      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md VAL-EDU-045, enforced by tests/e2e/first-screen-interactive.spec.ts, assigned as the round-5 first-screen c/d repair (batch 06-first-screen-cd). Layout and cue-adjacency repair only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-EDU-045",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "round5-first-screen-cd-20260929-prose-generative-video",
+      "manifest": "prose",
+      "memberId": "article:world-models/generative-video",
+      "oldHash": "31334d054d21359664e0e084c071ef1e975d694301e8c513ddcdaee68d04f5de",
+      "newHash": "567163089b84a153754a53be294f00e25280ae6dea24c311727348f85b21b8c1",
+      "reason": "VAL-EDU-045 layout repair on /world-models/generative-video/: the ActionFork motion scene sat between the operating-cue paragraph and the first reader-operated interactive (222 preceding rendered words, lab SVG top edge 1761 px, no cue in the two adjacent paragraphs). The ActionConditioning mount now precedes the ActionFork scene mount, so the lab directly follows the paragraph that says to toggle its conditioning strength; the scene follows the lab. The move is a pure block swap: every sentence, number, citation marker (in order), mount prop and the frontmatter are unchanged, and the sorted line inventory of the article is identical. The pre-change bytes are the motion-world-models-humanizer-v3-20260927-prose-generative-video endpoint.",
+      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md VAL-EDU-045, enforced by tests/e2e/first-screen-interactive.spec.ts, assigned as the round-5 first-screen c/d repair (batch 06-first-screen-cd). Layout and cue-adjacency repair only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-EDU-045",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "round5-first-screen-cd-20260929-prose-generative-sim",
+      "manifest": "prose",
+      "memberId": "article:world-models/generative-sim",
+      "oldHash": "4b18ebca49f3165a16d99e7cf26f234067e41ab20c4c2f20da24ca5408e2a32d",
+      "newHash": "fc6578de34784263b16681fcbe5808f494bb9d9753d289752faf886e522a2a86",
+      "reason": "VAL-EDU-045 layout repair on /world-models/generative-sim/: the PushLayers motion scene sat between the operating-cue paragraph and the first reader-operated interactive (265 preceding rendered words, lab SVG top edge 1746 px, no cue in the two adjacent paragraphs). The AppearancePhysicsPush mount now precedes the PushLayers scene mount, so the push test directly follows the paragraph that says to turn off the physics proxy and push the mug; the scene follows the lab. The move is a pure block swap: every sentence, number, citation marker (in order), mount prop and the frontmatter are unchanged, and the sorted line inventory of the article is identical. The pre-change bytes are the motion-scrutiny-s12-20260928-prose-generative-sim-citation-attachment endpoint.",
+      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md VAL-EDU-045, enforced by tests/e2e/first-screen-interactive.spec.ts, assigned as the round-5 first-screen c/d repair (batch 06-first-screen-cd). Layout and cue-adjacency repair only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-EDU-045",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "round5-first-screen-cd-20260929-prose-kinematics",
+      "manifest": "prose",
+      "memberId": "article:classical/kinematics",
+      "oldHash": "6384fcd878d487039ac2492bd1090c3e49de43140822fb0f5e8c6ea13b6295ad",
+      "newHash": "b8300ca0b4bd3553fb750c151d08c80056932753754b6a8c63ecdf52ddaa4262",
+      "reason": "VAL-EDU-045 layout repair on /classical/kinematics/: the FkChain motion scene sat between the operating-cue paragraph and the first reader-operated interactive (254 preceding rendered words, lab SVG top edge 1728 px, cue already adjacent). The PlanarFkArm mount line now precedes the FkChain scene mount line, so the arm lab directly follows the paragraph that says to move its base joint slider; the scene follows the lab. The move is a pure block swap: every sentence, number, citation marker (in order), mount prop and the frontmatter are unchanged, and the sorted line inventory of the article is identical. The pre-change bytes are the motion-classical-humanizer-v3-20260927-prose-kinematics endpoint.",
+      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md VAL-EDU-045, enforced by tests/e2e/first-screen-interactive.spec.ts, assigned as the round-5 first-screen c/d repair (batch 06-first-screen-cd). Layout and cue-adjacency repair only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-EDU-045",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "round5-first-screen-cd-20260929-prose-motion-planning",
+      "manifest": "prose",
+      "memberId": "article:classical/motion-planning",
+      "oldHash": "040f1702175cf8527aaa76ec43be0590301c96ae19242814331f7f06053195c4",
+      "newHash": "a74f0a8a4d1997310fcd85f3a92d2518cd1236e2ad7a7673fdf2ae3752050d84",
+      "reason": "VAL-EDU-045 layout repair on /classical/motion-planning/: the RrtGrowth motion scene sat between the operating-cue paragraph and the first reader-operated interactive (293 preceding rendered words, lab SVG top edge 1805 px, no cue in the two adjacent paragraphs). The RrtExplorer mount line now precedes the RrtGrowth scene mount line, so the lab directly follows the paragraph that says to drag its exploration-iteration slider; the scene follows the lab. The move is a pure block swap: every sentence, number, citation marker (in order), mount prop and the frontmatter are unchanged, and the sorted line inventory of the article is identical. The pre-change bytes are the motion-classical-humanizer-v3-20260927-prose-motion-planning endpoint.",
+      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md VAL-EDU-045, enforced by tests/e2e/first-screen-interactive.spec.ts, assigned as the round-5 first-screen c/d repair (batch 06-first-screen-cd). Layout and cue-adjacency repair only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-EDU-045",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "shared-reader-20260928-article-metadata-root-layout-author-toggle",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:app/layout.tsx",
+      "oldHash": "539ab11a4ab2cdf715f036dc9aafe8b4bdb757dc63ef804f4e4214dea3bfacb4",
+      "newHash": "4f8ee54d1de53be8f180bd901e31f1ae42dd719ce13df60286fc6f26338046be",
+      "reason": "Shared-reader focus repair of 2026-09-28 (commit 98a04f23): the root layout imports AuthorToggleEarly from components/article/author-toggle-early and mounts it as the first child of <body>, so an author-list Enter pressed before hydration is replayed on the same focused button. Those two added lines are the whole source change; the pre-change bytes are the perf-articles-20260923-article-metadata-root-layout-fonts endpoint 44addfb9bb51b2ab6ba3ceed83a61aede0337aaa3e1797a9760536d5f4810856. No metadata export, title template, description, canonical URL, Open Graph or X field, author, robots or font value changed.",
+      "ownerApproval": "Round-5 shared-UI reader repair assigned by the motion-language scrutiny (local checkpoint 98a04f23, 15 of 15 assigned browser cases passing); the owner directive of 2026-09-29 then required the release unblock to approve this exact member so the build gates pass on the committed tree. Behavior and focus repair only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "motion-language",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
       "disposition": "permanent"
     }
   ]

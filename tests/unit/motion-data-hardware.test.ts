@@ -131,7 +131,19 @@ describe('data-hardware prose truth', () => {
       const current = truth.members.find((member) => member.id === id)!.hash;
       const edges = approvals.filter((entry) => entry.manifest === 'prose' && entry.memberId === id);
       const latest = edges.at(-1)!;
-      expect(latest.id).toBe(`motion-data-hardware-source-qualification-20260927-prose-${slug}`);
+      const qualification = edges.find((entry) =>
+        entry.id === `motion-data-hardware-source-qualification-20260927-prose-${slug}`)!;
+      // The round-5 pinned-leftover repair later moved evaluation-crisis's
+      // first interactive with one plain edge from the qualification endpoint.
+      const later = slug === 'evaluation-crisis'
+        ? edges.filter((entry) => entry.id === 'round5-pinned-leftovers-20260928-prose-evaluation-crisis')
+        : [];
+      expect(edges.slice(edges.indexOf(qualification))).toEqual([qualification, ...later]);
+      for (const [index, edge] of later.entries()) {
+        expect(edge.reconciles).toBeUndefined();
+        expect(edge.oldHash).toBe((index === 0 ? qualification : later[index - 1]).newHash);
+      }
+      expect(later).toHaveLength(slug === 'evaluation-crisis' ? 1 : 0);
       expect(latest.newHash).toBe(current);
       expect(approvedDeltaPath(edges, sealed, current).status).toBe('approved');
       expect(approvedDeltaPath(edges.slice(0, -1), sealed, current).status).not.toBe('approved');

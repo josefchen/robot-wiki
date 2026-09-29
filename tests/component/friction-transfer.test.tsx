@@ -106,4 +106,19 @@ describe('FrictionTransfer', () => {
     expect(readout('real-mu-readout')).toBe('0.80');
     expect(readout('dr-readout')).toBe('57%');
   });
+
+  it('names the width regime so both article mounts describe differently after digit normalisation', () => {
+    const descriptionText = (props: { defaultRange?: number }) => {
+      const { container, unmount } = render(<FrictionTransfer {...props} />);
+      const text = container.querySelector('[data-chart-description]')?.textContent ?? '';
+      unmount();
+      return text;
+    };
+    const ordinary = descriptionText({});
+    const wide = descriptionText({ defaultRange: 0.65 });
+    expect(ordinary).toMatch(/band is marked ordinary at the selected half-width/);
+    expect(wide).toMatch(/band is marked wide at the selected half-width/);
+    const key = (text: string) => text.toLowerCase().replace(/\d+/g, '#');
+    expect(key(ordinary)).not.toBe(key(wide));
+  });
 });

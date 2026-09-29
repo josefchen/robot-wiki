@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "round5-local-basis-checker-revision-v1",
+  "name": "friction-and-first-screen-readers",
+  "before": {
+    "path": "audit/evidence/motion-round5-pinned-leftovers-20260928/audit-local-basis-before.ts.txt",
+    "bytes": 112303,
+    "sha256": "8e377d397001f936b4bc21583db07c0317d1431c757b4359501e1dd64bd8c507"
+  },
+  "after": {
+    "path": "lib/audit-local-basis.ts",
+    "bytes": 112672,
+    "sha256": "65e58379b7b6a1eec832ee82cf3c6cd9c5f33f5f2fe626129b2c6323e7aa405b"
+  },
+  "reviewedBy": "Round-5 pinned-leftovers implementer (GLM 5.3 max; not independent acceptance)",
+  "rationale": "readRetainedDependency learns three exact-hash branches: the friction-transfer width-regime-mark successor, and the two first-screen mount-move successors that chain on the unchanged data-hardware motion continuity review (which still gates the prior endpoints, snapshots, disclosures, citations and frontmatter). All historical hash lists, release bindings, residual bindings, review readers and mutation semantics above the new branches are byte-identical; the revision is one import plus the named reader call sites.",
+  "observedAt": "2026-09-28T22:46:31Z"
+}

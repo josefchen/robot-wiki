@@ -78,8 +78,14 @@ describe('VLA21 and comparison1 current identity and scoped introduction', () =>
       .find((a: { id: string }) => a.id === 'motion-manipulation-20260927-prose-vla-models-mount');
     expect(vlaSceneMount).toBeDefined();
     expect(vlaSceneMount.oldHash).toBe(vlaCue.newHash);
+    // The round-5 first-screen c/d pass then moved that scene mount below the
+    // lab; its plain edge continues from the scene-mount endpoint.
+    const vlaFirstScreen = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries
+      .find((a: { id: string }) => a.id === 'round5-first-screen-cd-20260929-prose-vla-models');
+    expect(vlaFirstScreen).toBeDefined();
+    expect(vlaFirstScreen.oldHash).toBe(vlaSceneMount.newHash);
     expect(truthManifests['prose'].members.find(m => m.id === 'article:manipulation/vla-models')?.hash)
-      .toBe(vlaSceneMount.newHash);
+      .toBe(vlaFirstScreen.newHash);
     // The original VLA packet did not alter the registry. NASA was added by
     // the later industrial packet, whose complete record has its own test.
     expect(committedSource('89cda67', 'data/citations.ts')).toBe(before('data/citations.ts'));

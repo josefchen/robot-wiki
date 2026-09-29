@@ -64,10 +64,17 @@ describe('Optimal sampling and OMPL source-bound endpoints', () => {
       const digest = (text: string) => buildManifest('prose', [{
         id: memberId, value: { path: e.path, body: matter(text).content.trim() },
       }]).members[0].hash;
-      const delta = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries
-        .find((entry: { id: string }) => entry.id === 'motion-classical-humanizer-v3-20260927-prose-motion-planning');
+      const entries = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries as
+        Array<{ id: string; oldHash: string; newHash: string }>;
+      const delta = entries.find((entry) => entry.id === 'motion-classical-humanizer-v3-20260927-prose-motion-planning')!;
       expect(delta.oldHash).toBe(digest(committedSource('34ab0a9', e.path)));
-      expect(delta.newHash).toBe(digest(read(e.path)));
+      // The round-5 first-screen c/d pass later swapped the two mount lines
+      // only; its plain edge starts from this humanizer endpoint.
+      expect(delta.newHash).toBe(digest(read(
+        'audit/evidence/motion-round5-first-screen-cd-20260929/motion-planning-first-screen-before.mdx')));
+      const moved = entries.find((entry) => entry.id === 'round5-first-screen-cd-20260929-prose-motion-planning')!;
+      expect(moved.oldHash).toBe(delta.newHash);
+      expect(moved.newHash).toBe(digest(read(e.path)));
       if (e.id.startsWith('row9-')) {
         expect(read(e.path)).toContain('Differential constraints fall outside this setup');
         expect(read(e.path)).toContain('The latter\'s conservative condition is');

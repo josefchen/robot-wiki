@@ -28,7 +28,9 @@ async function hit(locator: Locator) {
 test.beforeEach(async ({ page }) => {
   await page.route('**/*', route => {
     const u = new URL(route.request().url());
-    return u.hostname === '127.0.0.1' || u.protocol === 'data:' ? route.continue() : route.abort();
+    return u.origin === 'http://localhost:3200' ||
+      u.origin === 'http://127.0.0.1:3200' || u.protocol === 'data:'
+      ? route.continue() : route.abort();
   });
 });
 for (const [slug, id] of sources) {

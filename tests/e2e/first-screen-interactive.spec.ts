@@ -258,29 +258,23 @@ const PER_ROUTE_BUDGET_MS = 1_500;
 test.describe('VAL-EDU-045 article prose reaches an interactive', () => {
   let server: StaticExportServer;
   const measurements = new Map<string, Measurement>();
+  const withoutProse: string[] = [];
 
-  test.beforeAll(async () => {
+  // The corpus is measured in the hook, not in the first test: Playwright
+  // replaces the worker after any failed test, and a fresh worker re-runs
+  // beforeAll but not earlier tests, so a clause failure would otherwise
+  // leave every later clause grading an empty map.
+  test.beforeAll(async ({ browser }) => {
     expect(
       existsSync(outDir),
       'run `npm run build` first: this spec grades the shipped export',
     ).toBe(true);
     server = await startStaticExportServer(outDir);
-  });
 
-  test.afterAll(async () => {
-    await server?.stop();
-  });
-
-  test('the corpus is non-empty and every published article was measured', async ({
-    browser,
-  }) => {
     const routes = articleRoutes();
     test.setTimeout(
       CORPUS_FIXED_BUDGET_MS + routes.length * PER_ROUTE_BUDGET_MS,
     );
-
-    expect(routes.length).toBeGreaterThan(30);
-
     const page = await browser.newPage({
       viewport: { width: 1440, height: 900 },
     });
@@ -290,13 +284,22 @@ test.describe('VAL-EDU-045 article prose reaches an interactive', () => {
           waitUntil: 'networkidle',
         });
         const measured = await page.evaluate(MEASURE);
-        expect(measured, `${route} renders no article prose region`).not.toBeNull();
-        measurements.set(route, measured as Measurement);
+        if (measured === null) withoutProse.push(route);
+        else measurements.set(route, measured);
       }
     } finally {
       await page.close();
     }
+  });
 
+  test.afterAll(async () => {
+    await server?.stop();
+  });
+
+  test('the corpus is non-empty and every published article was measured', () => {
+    const routes = articleRoutes();
+    expect(routes.length).toBeGreaterThan(30);
+    expect(withoutProse, 'routes that render no article prose region').toEqual([]);
     expect(measurements.size).toBe(routes.length);
     completeMeasurements(measurements);
   });

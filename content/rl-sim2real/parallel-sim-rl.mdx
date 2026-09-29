@@ -28,9 +28,9 @@ The four-minute training run from the [previous module](/rl-sim2real/why-rl-loco
 
 The scene and chart below illustrate the cost arithmetic before the history. The paused scene reveals how the fixed-transition calculation changes as the number of parallel environments rises. Then drag the chart's slider from 64 upward: in the default model, fixed CPU-and-transfer work takes a smaller share of each iteration and the chosen experience budget takes less wall-clock time. This is a constructed comparison assembled from chosen costs, with no repeated measurement of one training run.
 
-<BatchScale className="my-6" />
-
 <TrainingTimeChart className="my-6" />
+
+<BatchScale className="my-6" />
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="Flat-terrain walk" value="< 4 min" note="Rudin abstract; single GPU, separate flat run" accent />

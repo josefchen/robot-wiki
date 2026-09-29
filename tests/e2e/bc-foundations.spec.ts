@@ -1,5 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { waitForHydration } from './interaction-ready';
 
 const ROUTE = '/manipulation/bc-foundations/';
 
@@ -11,7 +12,7 @@ const ROUTE = '/manipulation/bc-foundations/';
 function ce(page: Page) {
   return page
     .locator(
-      'div.prose > div.rounded-md:has([data-testid="accumulated-deviation-readout"])',
+      'div.prose > [data-brand-module-signature="instrument-frame"]:has([data-testid="accumulated-deviation-readout"])',
     )
     .first();
 }
@@ -63,8 +64,10 @@ test.describe('bc-foundations module', () => {
 
     // Raising the per-step error grows the accumulated deviation.
     const errorSlider = ce(page).getByRole('slider', { name: /per-step error/i });
+    await waitForHydration(errorSlider);
     await errorSlider.focus();
     for (let i = 0; i < 10; i += 1) await page.keyboard.press('ArrowUp');
+    await expect.poll(async () => Number.parseFloat((await readout.textContent()) ?? '')).toBeGreaterThan(initial);
     const raised = Number.parseFloat((await readout.textContent()) ?? '');
     expect(raised).toBeGreaterThan(initial);
 

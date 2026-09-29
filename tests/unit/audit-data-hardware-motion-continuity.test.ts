@@ -5,6 +5,7 @@ import { afterEach, describe, expect, it } from 'vitest';
 import {
   currentDataHardwareMotionArtifact, loadDataHardwareMotionReview, reviewedDataHardwareChecker,
 } from '../../lib/audit-data-hardware-motion-continuity.ts';
+import { retainedRound5FirstScreenArticle } from '../../lib/audit-round5-pinned-leftovers-continuity.ts';
 import { createLocalArtifactReader } from '../../lib/audit-local-basis.ts';
 import { reviewedFrontierChecker } from '../../lib/audit-frontier-motion-continuity.ts';
 
@@ -27,6 +28,9 @@ function fixture() {
     `${directory}continuity.json`, `${directory}checker-transition.json`,
     `${directory}audit-local-basis-before.ts.txt`, `${directory}dependency-review-before.json`,
     'audit/evidence/industrial-release-20260924/dependency-review.json',
+    'audit/evidence/motion-round5-pinned-leftovers-20260928/first-screen-transition.json',
+    'audit/evidence/motion-round5-pinned-leftovers-20260928/data-bottleneck-first-screen-before.mdx',
+    'audit/evidence/motion-round5-pinned-leftovers-20260928/evaluation-crisis-first-screen-before.mdx',
     ...review.entries.flatMap(entry => [entry.snapshot.path, entry.current.path]),
   ]) {
     const target = join(destination, path);
@@ -42,8 +46,13 @@ describe('data-hardware motion continuity', () => {
     expect(review.entries).toHaveLength(4);
     for (const [index, entry] of review.entries.entries()) {
       const current = readFileSync(join(root, entry.current.path));
-      expect(currentDataHardwareMotionArtifact(root, index, current)).toEqual(
-        readFileSync(join(root, entry.snapshot.path)));
+      // The 2026-09-28 pinned-leftover round moved the data-bottleneck and
+      // evaluation-crisis first screens; those two live articles are gated by
+      // the named successor chained on this unchanged review.
+      const verify = index === 0 || index === 1
+        ? retainedRound5FirstScreenArticle(root, index as 0 | 1, current)
+        : currentDataHardwareMotionArtifact(root, index, current);
+      expect(verify).toEqual(readFileSync(join(root, entry.snapshot.path)));
       if (index !== 2) expect(createLocalArtifactReader(root)(entry.before)).toEqual(
         readFileSync(join(root, entry.snapshot.path)));
     }
@@ -63,14 +72,16 @@ describe('data-hardware motion continuity', () => {
       const destination = fixture();
       const review = loadDataHardwareMotionReview(destination);
       const entry = review.entries[index];
+      const verify = (live: Buffer) => index === 0 || index === 1
+        ? retainedRound5FirstScreenArticle(destination, index as 0 | 1, live)
+        : currentDataHardwareMotionArtifact(destination, index, live);
       const changed = Buffer.concat([readFileSync(join(destination, entry.current.path)), Buffer.from('\nchanged')]);
-      expect(() => currentDataHardwareMotionArtifact(destination, index, changed)).toThrow(/endpoint identity/);
+      expect(() => verify(changed)).toThrow(/endpoint identity|first-screen article continuity/);
       put(destination, entry.current.path, changed);
       expect(() => createLocalArtifactReader(destination)(entry.before)).toThrow();
       put(destination, entry.current.path, readFileSync(join(root, entry.current.path)));
       put(destination, entry.snapshot.path, 'changed historical input');
-      expect(() => currentDataHardwareMotionArtifact(destination, index,
-        readFileSync(join(destination, entry.current.path)))).toThrow(/snapshot drift/);
+      expect(() => verify(readFileSync(join(destination, entry.current.path)))).toThrow(/snapshot drift/);
       put(destination, 'audit/evidence/industrial-release-20260924/dependency-review.json', '{}');
       expect(() => loadDataHardwareMotionReview(destination)).toThrow(/predecessor drift/);
     }
@@ -81,7 +92,7 @@ describe('data-hardware motion continuity', () => {
     const review = loadDataHardwareMotionReview(destination);
     review.entries[1].requiredPresent.push('unreviewed outcome claim');
     put(destination, `${directory}continuity.json`, JSON.stringify(review));
-    expect(() => currentDataHardwareMotionArtifact(destination, 1,
+    expect(() => retainedRound5FirstScreenArticle(destination, 1,
       readFileSync(join(destination, review.entries[1].current.path)))).toThrow(/disclosure/);
     const checker = readFileSync(join(root, 'lib/audit-local-basis.ts'));
     expect(reviewedDataHardwareChecker(destination, Buffer.concat([checker, Buffer.from('\n')]))).toBe(false);

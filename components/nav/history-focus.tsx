@@ -169,6 +169,12 @@ export function HistoryFocus({ suspended = false }: { suspended?: boolean }) {
         ? normalizedKeyOf(window.location.pathname, window.location.search)
         : null;
       armedAt.current = Date.now();
+      // Record the entry this traversal landed on. Otherwise lastPushedKey
+      // stays on the furthest push, and a later Forward back to that
+      // original URL compares equal and is mistaken for a hash-only step.
+      // The heading then never receives focus (final Forward onto an
+      // article after Back returned through the pages in between).
+      lastPushedKey.current = restored;
       if (
         !armed.current ||
         lastCommittedKey.current !== armedKey.current ||

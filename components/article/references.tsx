@@ -68,6 +68,7 @@ export function References({ entries }: { entries: readonly ResolvedReference[] 
               </div>
               <p className="mt-1 break-words font-sans text-[13px] leading-relaxed text-text-dim">
                 <AuthorList
+                  id={citation.id}
                   authors={citation.authors}
                   trailing={`${citation.venue ? `, ${citation.venue}` : ''}${
                     venueStatesYear(citation) ? '' : `, ${citation.year}${citation.year === 'n.d.' ? `; accessed ${citation.accessedOn}` : ''}`

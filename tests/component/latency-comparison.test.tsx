@@ -87,6 +87,21 @@ describe('LatencyComparison', () => {
     );
   });
 
+  it('names the TE status so mounts in different regimes describe differently', () => {
+    const throughputText = (delay: number) => {
+      const { container, unmount } = render(<LatencyComparison defaultDelayMs={delay} />);
+      const text = container.querySelector('[data-chart-description]')?.textContent ?? '';
+      unmount();
+      return text;
+    };
+    const nominal = throughputText(0);
+    const failed = throughputText(100);
+    expect(nominal).toMatch(/temporal ensembling, marked nominal,/);
+    expect(failed).toMatch(/temporal ensembling, marked failed,/);
+    const key = (text: string) => text.toLowerCase().replace(/\d+/g, '#');
+    expect(key(nominal)).not.toBe(key(failed));
+  });
+
   it('describes both series roots with sampled tables and names the honesty markers', () => {
     const { container } = render(<LatencyComparison />);
     const descs = [...container.querySelectorAll('[data-chart-description]')];

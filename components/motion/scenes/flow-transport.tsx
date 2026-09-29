@@ -23,7 +23,7 @@ export const FLOW_TRANSPORT_SCENE: SceneDefinition = {
     { id: 'noise', caption: 'A seeded toy cloud begins as Gaussian noise in a two-dimensional action space.' },
     { id: 'transport', duration: 'long', linear: true, caption: 'Ten linear-in-model-time Euler steps move each sample along the action field toward a target mode.' },
     { id: 'compare', caption: 'A one-step endpoint remains offset from the action target; the ten-step endpoint is closer.' },
-    { id: 'recap', caption: 'Two action clusters remain after transport; the step-count lab below compares the paper configurations.' },
+    { id: 'recap', caption: 'Two action clusters remain after transport; the step-count lab above compares the paper configurations.' },
   ],
 };
 
@@ -119,7 +119,7 @@ export function FlowTransport({ className }: { className?: string }) {
         </>
       }
       readout={() => <><span className="text-text-dim">toy samples</span> {FIELD.samples.length} <span className="text-text-dim">ten-step mean endpoint error</span> {endpointDispersion(FIELD, STEPS).toFixed(2)}</>}
-      statusLine="Illustrative seeded two-dimensional transport, not learned policy output or measured robot performance. The existing lab below retains its selectable integration steps and source-scoped configuration notes."
+      statusLine="Illustrative seeded two-dimensional transport, not learned policy output or measured robot performance. The existing lab above retains its selectable integration steps and source-scoped configuration notes."
       textAlternative={`${FLOW_TRANSPORT_SCENE.title}. ${FLOW_TRANSPORT_SCENE.beats.map((beat, index) => `Beat ${index + 1}: ${beat.caption}`).join(' ')}`}
     />
   );

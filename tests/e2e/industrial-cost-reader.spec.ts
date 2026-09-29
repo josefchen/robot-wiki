@@ -142,12 +142,13 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
       await capture(`${id}-reference`, { text: await reference.innerText(), byline, url: citation.url });
     }
     const slider = prose.getByRole('slider', { name: /per-pick success/i });
+    const economics = slider.locator('xpath=ancestor::*[@data-brand-module-signature="instrument-frame"][1]');
     await slider.focus();
     const initial = await slider.inputValue();
     await page.keyboard.press('ArrowLeft');
     expect(Number(await slider.inputValue())).toBeLessThan(Number(initial));
     await capture('slider-keyboard', { initial, changed: await slider.inputValue() });
-    await prose.getByRole('button', { name: /reset/i }).focus();
+    await economics.getByRole('button', { name: 'Reset', exact: true }).focus();
     await page.keyboard.press('Enter');
     await expect(slider).toHaveValue(initial);
     await capture('slider-reset', { initial, restored: await slider.inputValue() });

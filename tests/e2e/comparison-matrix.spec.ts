@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { waitForHydration } from './interaction-ready';
 
 /**
  * The manipulation comparison matrix is one of the five dense comparison
@@ -30,7 +31,10 @@ test.describe('manipulation comparison matrix', () => {
     const table = page.locator('table').first();
     const before = await table.locator('tbody tr').count();
     // The count readout is aria-live, so the narrowed state is announced.
-    await page.locator('#matrix-filter').fill('diffusion');
+    const filter = page.locator('#matrix-filter');
+    await waitForHydration(filter);
+    await filter.fill('diffusion');
+    await expect.poll(() => table.locator('tbody tr').count()).toBeLessThan(before);
     const after = await table.locator('tbody tr').count();
     expect(after).toBeGreaterThan(0);
     expect(after).toBeLessThan(before);

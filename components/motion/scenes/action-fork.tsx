@@ -122,7 +122,7 @@ export function ActionFork({ className }: { className?: string }) {
           <span className="text-text-dim">threshold</span> {SENSITIVITY_THRESHOLD.toFixed(2)}{' '}
           <span className="text-text-dim">toy realism</span> {frame.realism.toFixed(2)}</>;
       }}
-      statusLine="Illustrative toy, not measured model performance. The two action rollouts, sensitivity threshold, and fixed realism score come from the direct-control lab below."
+      statusLine="Illustrative toy, not measured model performance. The two action rollouts, sensitivity threshold, and fixed realism score come from the direct-control lab above."
       textAlternative={`${ACTION_FORK_SCENE.title}. ${ACTION_FORK_SCENE.beats.map((beat, index) => `Beat ${index + 1}: ${beat.caption}`).join(' ')}`}
     />
   );

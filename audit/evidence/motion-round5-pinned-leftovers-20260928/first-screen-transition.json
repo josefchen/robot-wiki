@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "round5-first-screen-continuity-v1",
+  "name": "pinned-leftover-first-screen-moves",
+  "reviewedBy": "Round-5 pinned-leftovers implementer (GLM 5.3 max; not independent acceptance)",
+  "rationale": "Both data-hardware routes buried their first meaningful interactive behind a motion scene: data-bottleneck reached DataScaleChart after 389 preceding words and evaluation-crisis reached ReliabilityCompounding after 329, both over the 300-word and 1600px first-screen budget of VAL-EDU-045(a). Each article moves exactly one existing mount block above its scene; every sentence, claim, number, citation and the frontmatter are byte-preserved (the edits are pure block swaps, verified by identity of the sorted line inventory). The unchanged data-hardware motion continuity review still gates the prior endpoint and its full disclosure inventory before this successor applies.",
+  "observedAt": "2026-09-28T22:46:31Z",
+  "sources": [
+    {
+      "name": "data-scale-chart-first",
+      "before": {
+        "path": "content/data-hardware/data-bottleneck.mdx",
+        "bytes": 12009,
+        "sha256": "c87047808f50813c39b006870e3d66127dedcd65bb660f37a5908911be30ff6d"
+      },
+      "after": {
+        "path": "content/data-hardware/data-bottleneck.mdx",
+        "bytes": 12009,
+        "sha256": "9720088a7610a92ee62ad2fbd148b95618d27ba098832a6946185031d373285c"
+      }
+    },
+    {
+      "name": "reliability-calculator-first",
+      "before": {
+        "path": "content/data-hardware/evaluation-crisis.mdx",
+        "bytes": 17487,
+        "sha256": "de0c03cf91532b2145f60f3ecab1ebe23a02cfd75b484432ff93f2261b2df9d4"
+      },
+      "after": {
+        "path": "content/data-hardware/evaluation-crisis.mdx",
+        "bytes": 17487,
+        "sha256": "193a4eda0bcaf6ff1da6b3e34b60acbfd810a20d99593ab4e23155466fa335de"
+      }
+    }
+  ]
+}

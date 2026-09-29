@@ -903,7 +903,7 @@
       "reachedByTab": 53,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 179
+      "tabStops": 178
     },
     {
       "route": "/classical/perception/",
@@ -1271,7 +1271,7 @@
       "reachedByTab": 31,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 118
+      "tabStops": 117
     },
     {
       "route": "/rl-sim2real/reward-design-mpc/",
@@ -1343,7 +1343,7 @@
       "reachedByTab": 44,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 148
+      "tabStops": 149
     },
     {
       "route": "/world-models/jepa/",

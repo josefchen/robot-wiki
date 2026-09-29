@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "round5-reader-pins-checker-revision-v1",
+  "name": "reader-pin-readers",
+  "before": {
+    "path": "audit/evidence/motion-round5-reader-pins-20260929/audit-local-basis-before.ts.txt",
+    "bytes": 113223,
+    "sha256": "4287a7e100aab9fe914d4b19b38773910b723f7c98dcc80849c069d0bfe8aa69"
+  },
+  "after": {
+    "path": "lib/audit-local-basis.ts",
+    "bytes": 113447,
+    "sha256": "0efa34b7fe0e0e021ca5e7811a642398e79aa636ac607e85affe77e7a5abf756"
+  },
+  "reviewedBy": "Release-unblock implementer, not independent acceptance",
+  "rationale": "readRetainedDependency learns one exact-endpoint branch for the five named reader pins. It applies only when a reference names the exact pre-repair bytes that industrial corrections 37, 47 and 48 or the two Control citation removals record as a dependency or run test. It returns those archived bytes only after the named successor verifies the live file as the exact edit list over them and confirms the consumer population. Every other branch, historical hash list, release binding, residual binding, review reader and mutation rule is byte-identical; the revision is one import plus one call site.",
+  "observedAt": "2026-09-29T02:58:00Z"
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "shared-ui-local-basis-checker-revision-v1",
+  "name": "commit-to-reveal-reader",
+  "before": {
+    "path": "audit/evidence/motion-shared-ui-local-basis-20260928/audit-local-basis-before.ts.txt",
+    "bytes": 111975,
+    "sha256": "c74133b3c4435b396ec29acc1bd659f1dfdcc2dbd7b10709c15862ba3dce184c"
+  },
+  "after": {
+    "path": "lib/audit-local-basis.ts",
+    "bytes": 112303,
+    "sha256": "8e377d397001f936b4bc21583db07c0317d1431c757b4359501e1dd64bd8c507"
+  },
+  "reviewedBy": "Shared-UI local-basis implementer (not independent acceptance)",
+  "observedAt": "2026-09-28T19:45:00.000Z",
+  "rationale": "The predecessor is the exact article-truth checker, including its finite historical transitions and old reviews. The named commit-to-reveal-reader successor adds one branch that returns those archived source bytes only after the uncontrolled-disclosure replacement matches. Missing and wrong-edge inputs still fail. This is an implementation continuity record, not source truth or independent acceptance."
+}

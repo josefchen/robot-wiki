@@ -55736,6 +55736,53 @@
       }
     },
     {
+      "resultId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|display#11",
+      "assertionId": "VAL-B2-ART-007",
+      "populationMemberId": "/manipulation/diffusion-policy/|1440x900|display#11",
+      "coveredPopulationMemberIds": [
+        "/manipulation/diffusion-policy/|1440x900|display#11"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Equations expose accessible text or an equivalent explanation.",
+      "actual": "/manipulation/diffusion-policy/|1440x900|display#11 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 1440x900",
+      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "/manipulation/diffusion-policy/|1440x900|display#11",
+          "measured": [
+            {
+              "id": "/manipulation/diffusion-policy/|1440x900|display#11",
+              "observed": {
+                "index": 11,
+                "display": true,
+                "mathmlText": "Atk−1=α(Atk−γ ϵθ(Ot,Atk,k)+N(0,σ2I))A_t^{k-1} = \\alpha \\left( A_t^k - \\gamma \\, \\epsilon_\\theta(O_t, A_t^k, k) + \\mathcal{N}(0, \\sigma^2 I) \\right)",
+                "annotationTex": "A_t^{k-1} = \\alpha \\left( A_t^k - \\gamma \\, \\epsilon_\\theta(O_t, A_t^k, k) + \\mathcal{N}(0, \\sigma^2 I) \\right)",
+                "htmlLayerHidden": true,
+                "renderError": false,
+                "renderedText": "Atk−1​=α(Atk​−γϵθ​(Ot​,Atk​,k)+N(0,σ2I))",
+                "fontFamilyHead": "KaTeX_Main",
+                "scrollWidth": 715,
+                "clientWidth": 715,
+                "tabIndex": 0,
+                "role": "region",
+                "accessibleName": "Display equation 1",
+                "viewportOverflowPx": 0
+              }
+            }
+          ],
+          "viewports": [
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-tables-math.json"
+          ]
+        }
+      }
+    },
+    {
       "resultId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|display#13",
       "assertionId": "VAL-B2-ART-007",
       "populationMemberId": "/manipulation/diffusion-policy/|1440x900|display#13",
@@ -55783,53 +55830,6 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|display#5",
-      "assertionId": "VAL-B2-ART-007",
-      "populationMemberId": "/manipulation/diffusion-policy/|1440x900|display#5",
-      "coveredPopulationMemberIds": [
-        "/manipulation/diffusion-policy/|1440x900|display#5"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Equations expose accessible text or an equivalent explanation.",
-      "actual": "/manipulation/diffusion-policy/|1440x900|display#5 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 1440x900",
-      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "browser-state",
-        "computed": {
-          "member": "/manipulation/diffusion-policy/|1440x900|display#5",
-          "measured": [
-            {
-              "id": "/manipulation/diffusion-policy/|1440x900|display#5",
-              "observed": {
-                "index": 5,
-                "display": true,
-                "mathmlText": "Atk−1=α(Atk−γ ϵθ(Ot,Atk,k)+N(0,σ2I))A_t^{k-1} = \\alpha \\left( A_t^k - \\gamma \\, \\epsilon_\\theta(O_t, A_t^k, k) + \\mathcal{N}(0, \\sigma^2 I) \\right)",
-                "annotationTex": "A_t^{k-1} = \\alpha \\left( A_t^k - \\gamma \\, \\epsilon_\\theta(O_t, A_t^k, k) + \\mathcal{N}(0, \\sigma^2 I) \\right)",
-                "htmlLayerHidden": true,
-                "renderError": false,
-                "renderedText": "Atk−1​=α(Atk​−γϵθ​(Ot​,Atk​,k)+N(0,σ2I))",
-                "fontFamilyHead": "KaTeX_Main",
-                "scrollWidth": 715,
-                "clientWidth": 715,
-                "tabIndex": 0,
-                "role": "region",
-                "accessibleName": "Display equation 1",
-                "viewportOverflowPx": 0
-              }
-            }
-          ],
-          "viewports": [
-            "1440x900"
-          ],
-          "evidence": [
-            "evidence/brand-v2/article-tables-math.json"
-          ]
-        }
-      }
-    },
-    {
       "resultId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#0",
       "assertionId": "VAL-B2-ART-007",
       "populationMemberId": "/manipulation/diffusion-policy/|1440x900|inline#0",
@@ -55852,14 +55852,14 @@
               "observed": {
                 "index": 0,
                 "display": false,
-                "mathmlText": "a∼p(a∣o)a \\sim p(a \\mid o)",
-                "annotationTex": "a \\sim p(a \\mid o)",
+                "mathmlText": "TaT_a",
+                "annotationTex": "T_a",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "a∼p(a∣o)",
+                "renderedText": "Ta​",
                 "fontFamilyHead": "KaTeX_Main",
-                "scrollWidth": 78,
-                "clientWidth": 78,
+                "scrollWidth": 0,
+                "clientWidth": 0,
                 "tabIndex": -1,
                 "role": null,
                 "accessibleName": "",
@@ -55899,11 +55899,11 @@
               "observed": {
                 "index": 1,
                 "display": false,
-                "mathmlText": "at=fθ(ot)a_t = f_\\theta(o_t)",
-                "annotationTex": "a_t = f_\\theta(o_t)",
+                "mathmlText": "TpT_p",
+                "annotationTex": "T_p",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "at​=fθ​(ot​)",
+                "renderedText": "Tp​",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -55946,58 +55946,11 @@
               "observed": {
                 "index": 10,
                 "display": false,
-                "mathmlText": "TaT_a",
-                "annotationTex": "T_a",
+                "mathmlText": "ϵθ\\epsilon_\\theta",
+                "annotationTex": "\\epsilon_\\theta",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "Ta​",
-                "fontFamilyHead": "KaTeX_Main",
-                "scrollWidth": 0,
-                "clientWidth": 0,
-                "tabIndex": -1,
-                "role": null,
-                "accessibleName": "",
-                "viewportOverflowPx": 0
-              }
-            }
-          ],
-          "viewports": [
-            "1440x900"
-          ],
-          "evidence": [
-            "evidence/brand-v2/article-tables-math.json"
-          ]
-        }
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#11",
-      "assertionId": "VAL-B2-ART-007",
-      "populationMemberId": "/manipulation/diffusion-policy/|1440x900|inline#11",
-      "coveredPopulationMemberIds": [
-        "/manipulation/diffusion-policy/|1440x900|inline#11"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Equations expose accessible text or an equivalent explanation.",
-      "actual": "/manipulation/diffusion-policy/|1440x900|inline#11 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 1440x900",
-      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "browser-state",
-        "computed": {
-          "member": "/manipulation/diffusion-policy/|1440x900|inline#11",
-          "measured": [
-            {
-              "id": "/manipulation/diffusion-policy/|1440x900|inline#11",
-              "observed": {
-                "index": 11,
-                "display": false,
-                "mathmlText": "Ta=8T_a = 8",
-                "annotationTex": "T_a = 8",
-                "htmlLayerHidden": true,
-                "renderError": false,
-                "renderedText": "Ta​=8",
+                "renderedText": "ϵθ​",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -56322,11 +56275,11 @@
               "observed": {
                 "index": 2,
                 "display": false,
-                "mathmlText": "p(At∣Ot)p(A_t \\mid O_t)",
-                "annotationTex": "p(A_t \\mid O_t)",
+                "mathmlText": "TaT_a",
+                "annotationTex": "T_a",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "p(At​∣Ot​)",
+                "renderedText": "Ta​",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -56369,11 +56322,11 @@
               "observed": {
                 "index": 3,
                 "display": false,
-                "mathmlText": "TpT_p",
-                "annotationTex": "T_p",
+                "mathmlText": "TaT_a",
+                "annotationTex": "T_a",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "Tp​",
+                "renderedText": "Ta​",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -56416,11 +56369,58 @@
               "observed": {
                 "index": 4,
                 "display": false,
-                "mathmlText": "ϵθ\\epsilon_\\theta",
-                "annotationTex": "\\epsilon_\\theta",
+                "mathmlText": "TaT_a",
+                "annotationTex": "T_a",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "ϵθ​",
+                "renderedText": "Ta​",
+                "fontFamilyHead": "KaTeX_Main",
+                "scrollWidth": 0,
+                "clientWidth": 0,
+                "tabIndex": -1,
+                "role": null,
+                "accessibleName": "",
+                "viewportOverflowPx": 0
+              }
+            }
+          ],
+          "viewports": [
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-tables-math.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#5",
+      "assertionId": "VAL-B2-ART-007",
+      "populationMemberId": "/manipulation/diffusion-policy/|1440x900|inline#5",
+      "coveredPopulationMemberIds": [
+        "/manipulation/diffusion-policy/|1440x900|inline#5"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Equations expose accessible text or an equivalent explanation.",
+      "actual": "/manipulation/diffusion-policy/|1440x900|inline#5 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 1440x900",
+      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "/manipulation/diffusion-policy/|1440x900|inline#5",
+          "measured": [
+            {
+              "id": "/manipulation/diffusion-policy/|1440x900|inline#5",
+              "observed": {
+                "index": 5,
+                "display": false,
+                "mathmlText": "Ta=8T_a = 8",
+                "annotationTex": "T_a = 8",
+                "htmlLayerHidden": true,
+                "renderError": false,
+                "renderedText": "Ta​=8",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -56463,14 +56463,14 @@
               "observed": {
                 "index": 6,
                 "display": false,
-                "mathmlText": "TaT_a",
-                "annotationTex": "T_a",
+                "mathmlText": "a∼p(a∣o)a \\sim p(a \\mid o)",
+                "annotationTex": "a \\sim p(a \\mid o)",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "Ta​",
+                "renderedText": "a∼p(a∣o)",
                 "fontFamilyHead": "KaTeX_Main",
-                "scrollWidth": 0,
-                "clientWidth": 0,
+                "scrollWidth": 78,
+                "clientWidth": 78,
                 "tabIndex": -1,
                 "role": null,
                 "accessibleName": "",
@@ -56510,11 +56510,11 @@
               "observed": {
                 "index": 7,
                 "display": false,
-                "mathmlText": "TpT_p",
-                "annotationTex": "T_p",
+                "mathmlText": "at=fθ(ot)a_t = f_\\theta(o_t)",
+                "annotationTex": "a_t = f_\\theta(o_t)",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "Tp​",
+                "renderedText": "at​=fθ​(ot​)",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -56557,11 +56557,11 @@
               "observed": {
                 "index": 8,
                 "display": false,
-                "mathmlText": "TaT_a",
-                "annotationTex": "T_a",
+                "mathmlText": "p(At∣Ot)p(A_t \\mid O_t)",
+                "annotationTex": "p(A_t \\mid O_t)",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "Ta​",
+                "renderedText": "p(At​∣Ot​)",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -56604,11 +56604,11 @@
               "observed": {
                 "index": 9,
                 "display": false,
-                "mathmlText": "TaT_a",
-                "annotationTex": "T_a",
+                "mathmlText": "TpT_p",
+                "annotationTex": "T_p",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "Ta​",
+                "renderedText": "Tp​",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -56621,6 +56621,53 @@
           ],
           "viewports": [
             "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-tables-math.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|display#11",
+      "assertionId": "VAL-B2-ART-007",
+      "populationMemberId": "/manipulation/diffusion-policy/|375x812|display#11",
+      "coveredPopulationMemberIds": [
+        "/manipulation/diffusion-policy/|375x812|display#11"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Equations expose accessible text or an equivalent explanation.",
+      "actual": "/manipulation/diffusion-policy/|375x812|display#11 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 375x812",
+      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "/manipulation/diffusion-policy/|375x812|display#11",
+          "measured": [
+            {
+              "id": "/manipulation/diffusion-policy/|375x812|display#11",
+              "observed": {
+                "index": 11,
+                "display": true,
+                "mathmlText": "Atk−1=α(Atk−γ ϵθ(Ot,Atk,k)+N(0,σ2I))A_t^{k-1} = \\alpha \\left( A_t^k - \\gamma \\, \\epsilon_\\theta(O_t, A_t^k, k) + \\mathcal{N}(0, \\sigma^2 I) \\right)",
+                "annotationTex": "A_t^{k-1} = \\alpha \\left( A_t^k - \\gamma \\, \\epsilon_\\theta(O_t, A_t^k, k) + \\mathcal{N}(0, \\sigma^2 I) \\right)",
+                "htmlLayerHidden": true,
+                "renderError": false,
+                "renderedText": "Atk−1​=α(Atk​−γϵθ​(Ot​,Atk​,k)+N(0,σ2I))",
+                "fontFamilyHead": "KaTeX_Main",
+                "scrollWidth": 388,
+                "clientWidth": 335,
+                "tabIndex": 0,
+                "role": "region",
+                "accessibleName": "Display equation 1",
+                "viewportOverflowPx": 0
+              }
+            }
+          ],
+          "viewports": [
+            "375x812"
           ],
           "evidence": [
             "evidence/brand-v2/article-tables-math.json"
@@ -56676,53 +56723,6 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|display#5",
-      "assertionId": "VAL-B2-ART-007",
-      "populationMemberId": "/manipulation/diffusion-policy/|375x812|display#5",
-      "coveredPopulationMemberIds": [
-        "/manipulation/diffusion-policy/|375x812|display#5"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Equations expose accessible text or an equivalent explanation.",
-      "actual": "/manipulation/diffusion-policy/|375x812|display#5 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 375x812",
-      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "browser-state",
-        "computed": {
-          "member": "/manipulation/diffusion-policy/|375x812|display#5",
-          "measured": [
-            {
-              "id": "/manipulation/diffusion-policy/|375x812|display#5",
-              "observed": {
-                "index": 5,
-                "display": true,
-                "mathmlText": "Atk−1=α(Atk−γ ϵθ(Ot,Atk,k)+N(0,σ2I))A_t^{k-1} = \\alpha \\left( A_t^k - \\gamma \\, \\epsilon_\\theta(O_t, A_t^k, k) + \\mathcal{N}(0, \\sigma^2 I) \\right)",
-                "annotationTex": "A_t^{k-1} = \\alpha \\left( A_t^k - \\gamma \\, \\epsilon_\\theta(O_t, A_t^k, k) + \\mathcal{N}(0, \\sigma^2 I) \\right)",
-                "htmlLayerHidden": true,
-                "renderError": false,
-                "renderedText": "Atk−1​=α(Atk​−γϵθ​(Ot​,Atk​,k)+N(0,σ2I))",
-                "fontFamilyHead": "KaTeX_Main",
-                "scrollWidth": 388,
-                "clientWidth": 335,
-                "tabIndex": 0,
-                "role": "region",
-                "accessibleName": "Display equation 1",
-                "viewportOverflowPx": 0
-              }
-            }
-          ],
-          "viewports": [
-            "375x812"
-          ],
-          "evidence": [
-            "evidence/brand-v2/article-tables-math.json"
-          ]
-        }
-      }
-    },
-    {
       "resultId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#0",
       "assertionId": "VAL-B2-ART-007",
       "populationMemberId": "/manipulation/diffusion-policy/|375x812|inline#0",
@@ -56745,14 +56745,14 @@
               "observed": {
                 "index": 0,
                 "display": false,
-                "mathmlText": "a∼p(a∣o)a \\sim p(a \\mid o)",
-                "annotationTex": "a \\sim p(a \\mid o)",
+                "mathmlText": "TaT_a",
+                "annotationTex": "T_a",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "a∼p(a∣o)",
+                "renderedText": "Ta​",
                 "fontFamilyHead": "KaTeX_Main",
-                "scrollWidth": 78,
-                "clientWidth": 78,
+                "scrollWidth": 0,
+                "clientWidth": 0,
                 "tabIndex": -1,
                 "role": null,
                 "accessibleName": "",
@@ -56792,11 +56792,11 @@
               "observed": {
                 "index": 1,
                 "display": false,
-                "mathmlText": "at=fθ(ot)a_t = f_\\theta(o_t)",
-                "annotationTex": "a_t = f_\\theta(o_t)",
+                "mathmlText": "TpT_p",
+                "annotationTex": "T_p",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "at​=fθ​(ot​)",
+                "renderedText": "Tp​",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -56839,58 +56839,11 @@
               "observed": {
                 "index": 10,
                 "display": false,
-                "mathmlText": "TaT_a",
-                "annotationTex": "T_a",
+                "mathmlText": "ϵθ\\epsilon_\\theta",
+                "annotationTex": "\\epsilon_\\theta",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "Ta​",
-                "fontFamilyHead": "KaTeX_Main",
-                "scrollWidth": 0,
-                "clientWidth": 0,
-                "tabIndex": -1,
-                "role": null,
-                "accessibleName": "",
-                "viewportOverflowPx": 0
-              }
-            }
-          ],
-          "viewports": [
-            "375x812"
-          ],
-          "evidence": [
-            "evidence/brand-v2/article-tables-math.json"
-          ]
-        }
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#11",
-      "assertionId": "VAL-B2-ART-007",
-      "populationMemberId": "/manipulation/diffusion-policy/|375x812|inline#11",
-      "coveredPopulationMemberIds": [
-        "/manipulation/diffusion-policy/|375x812|inline#11"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Equations expose accessible text or an equivalent explanation.",
-      "actual": "/manipulation/diffusion-policy/|375x812|inline#11 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 375x812",
-      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "browser-state",
-        "computed": {
-          "member": "/manipulation/diffusion-policy/|375x812|inline#11",
-          "measured": [
-            {
-              "id": "/manipulation/diffusion-policy/|375x812|inline#11",
-              "observed": {
-                "index": 11,
-                "display": false,
-                "mathmlText": "Ta=8T_a = 8",
-                "annotationTex": "T_a = 8",
-                "htmlLayerHidden": true,
-                "renderError": false,
-                "renderedText": "Ta​=8",
+                "renderedText": "ϵθ​",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -57215,11 +57168,11 @@
               "observed": {
                 "index": 2,
                 "display": false,
-                "mathmlText": "p(At∣Ot)p(A_t \\mid O_t)",
-                "annotationTex": "p(A_t \\mid O_t)",
+                "mathmlText": "TaT_a",
+                "annotationTex": "T_a",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "p(At​∣Ot​)",
+                "renderedText": "Ta​",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -57262,11 +57215,11 @@
               "observed": {
                 "index": 3,
                 "display": false,
-                "mathmlText": "TpT_p",
-                "annotationTex": "T_p",
+                "mathmlText": "TaT_a",
+                "annotationTex": "T_a",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "Tp​",
+                "renderedText": "Ta​",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -57309,11 +57262,58 @@
               "observed": {
                 "index": 4,
                 "display": false,
-                "mathmlText": "ϵθ\\epsilon_\\theta",
-                "annotationTex": "\\epsilon_\\theta",
+                "mathmlText": "TaT_a",
+                "annotationTex": "T_a",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "ϵθ​",
+                "renderedText": "Ta​",
+                "fontFamilyHead": "KaTeX_Main",
+                "scrollWidth": 0,
+                "clientWidth": 0,
+                "tabIndex": -1,
+                "role": null,
+                "accessibleName": "",
+                "viewportOverflowPx": 0
+              }
+            }
+          ],
+          "viewports": [
+            "375x812"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-tables-math.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#5",
+      "assertionId": "VAL-B2-ART-007",
+      "populationMemberId": "/manipulation/diffusion-policy/|375x812|inline#5",
+      "coveredPopulationMemberIds": [
+        "/manipulation/diffusion-policy/|375x812|inline#5"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Equations expose accessible text or an equivalent explanation.",
+      "actual": "/manipulation/diffusion-policy/|375x812|inline#5 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 375x812",
+      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "/manipulation/diffusion-policy/|375x812|inline#5",
+          "measured": [
+            {
+              "id": "/manipulation/diffusion-policy/|375x812|inline#5",
+              "observed": {
+                "index": 5,
+                "display": false,
+                "mathmlText": "Ta=8T_a = 8",
+                "annotationTex": "T_a = 8",
+                "htmlLayerHidden": true,
+                "renderError": false,
+                "renderedText": "Ta​=8",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -57356,14 +57356,14 @@
               "observed": {
                 "index": 6,
                 "display": false,
-                "mathmlText": "TaT_a",
-                "annotationTex": "T_a",
+                "mathmlText": "a∼p(a∣o)a \\sim p(a \\mid o)",
+                "annotationTex": "a \\sim p(a \\mid o)",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "Ta​",
+                "renderedText": "a∼p(a∣o)",
                 "fontFamilyHead": "KaTeX_Main",
-                "scrollWidth": 0,
-                "clientWidth": 0,
+                "scrollWidth": 78,
+                "clientWidth": 78,
                 "tabIndex": -1,
                 "role": null,
                 "accessibleName": "",
@@ -57403,11 +57403,11 @@
               "observed": {
                 "index": 7,
                 "display": false,
-                "mathmlText": "TpT_p",
-                "annotationTex": "T_p",
+                "mathmlText": "at=fθ(ot)a_t = f_\\theta(o_t)",
+                "annotationTex": "a_t = f_\\theta(o_t)",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "Tp​",
+                "renderedText": "at​=fθ​(ot​)",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -57450,11 +57450,11 @@
               "observed": {
                 "index": 8,
                 "display": false,
-                "mathmlText": "TaT_a",
-                "annotationTex": "T_a",
+                "mathmlText": "p(At∣Ot)p(A_t \\mid O_t)",
+                "annotationTex": "p(A_t \\mid O_t)",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "Ta​",
+                "renderedText": "p(At​∣Ot​)",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -57497,11 +57497,11 @@
               "observed": {
                 "index": 9,
                 "display": false,
-                "mathmlText": "TaT_a",
-                "annotationTex": "T_a",
+                "mathmlText": "TpT_p",
+                "annotationTex": "T_p",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "Ta​",
+                "renderedText": "Tp​",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -72025,10 +72025,10 @@
                   "diffusion-policy-2023",
                   "diffusion-policy-2023",
                   "diffusion-policy-2023",
-                  "diffusion-policy-2023",
-                  "diffusion-policy-2023",
-                  "diffusion-policy-2023",
                   "act-aloha-2023",
+                  "diffusion-policy-2023",
+                  "diffusion-policy-2023",
+                  "diffusion-policy-2023",
                   "diffusion-policy-2023",
                   "diffusion-policy-2023",
                   "diffuser-2022",
@@ -87243,7 +87243,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "article-metadata member canonical-metadata-source:app/layout.tsx moved from 539ab11a4ab2cdf715f036dc9aafe8b4bdb757dc63ef804f4e4214dea3bfacb4 to 44addfb9bb51b2ab6ba3ceed83a61aede0337aaa3e1797a9760536d5f4810856 exactly as approved delta perf-articles-20260923-article-metadata-root-layout-fonts permits: Performance change (release/perf-articles), font loading only: IBM Plex Mono is declared as two next/font calls of the same family and CSS variable so weight 400 (above the fold) stays preloaded and weight 500 (never above the fold) is not. No metadata field, title template, description, canonical, Open Graph, author or robots value changed, and the data role resolves to the same stack.",
+      "actual": "article-metadata member canonical-metadata-source:app/layout.tsx moved from 539ab11a4ab2cdf715f036dc9aafe8b4bdb757dc63ef804f4e4214dea3bfacb4 to 4f8ee54d1de53be8f180bd901e31f1ae42dd719ce13df60286fc6f26338046be exactly as approved delta shared-reader-20260928-article-metadata-root-layout-author-toggle permits: Shared-reader focus repair of 2026-09-28 (commit 98a04f23): the root layout imports AuthorToggleEarly from components/article/author-toggle-early and mounts it as the first child of <body>, so an author-list Enter pressed before hydration is replayed on the same focused button. Those two added lines are the whole source change; the pre-change bytes are the perf-articles-20260923-article-metadata-root-layout-fonts endpoint 44addfb9bb51b2ab6ba3ceed83a61aede0337aaa3e1797a9760536d5f4810856. No metadata export, title template, description, canonical URL, Open Graph or X field, author, robots or font value changed.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -87255,9 +87255,9 @@
           "manifest": "article-metadata",
           "member": "canonical-metadata-source:app/layout.tsx",
           "baselineHash": "539ab11a4ab2cdf715f036dc9aafe8b4bdb757dc63ef804f4e4214dea3bfacb4",
-          "currentHash": "44addfb9bb51b2ab6ba3ceed83a61aede0337aaa3e1797a9760536d5f4810856",
+          "currentHash": "4f8ee54d1de53be8f180bd901e31f1ae42dd719ce13df60286fc6f26338046be",
           "status": "approved-delta",
-          "approvedDelta": "perf-articles-20260923-article-metadata-root-layout-fonts"
+          "approvedDelta": "shared-reader-20260928-article-metadata-root-layout-author-toggle"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100067,7 +100067,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:adjacent/drones moved from 8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641 to 57fede5c2c9e935af23c2591d021aa42217c420f53f98733fee97f4e9e1f80ab exactly as approved delta motion-frontier-adjacent-home-humanizer-v3-20260927-prose-drones permits: The drones article rephrases the flight-envelope explanation and adds the reader-paced sense-and-avoid scene beside the independent latency lab. The cited starting range, agility and latency remain source-scoped; the 200 ms example is an authored input.",
+      "actual": "prose member article:adjacent/drones moved from 8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641 to fa823b5469df1868ac25fd324077b5aa44a2075fef250591e1ba46373cd78e29 exactly as approved delta round5-chart-first-screen-20260928-prose-drones permits: VAL-EDU-045 layout repair on /adjacent/drones/: the PerceptionLatency instrument mount now directly follows its cue paragraph and precedes the SenseAvoid scene mount (pre-change export: 357 preceding rendered words, top edge 1914 px). Only the order of the two adjacent mount lines changes; every sentence, number, citation and mount prop is unchanged.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100079,9 +100079,9 @@
           "manifest": "prose",
           "member": "article:adjacent/drones",
           "baselineHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
-          "currentHash": "57fede5c2c9e935af23c2591d021aa42217c420f53f98733fee97f4e9e1f80ab",
+          "currentHash": "fa823b5469df1868ac25fd324077b5aa44a2075fef250591e1ba46373cd78e29",
           "status": "approved-delta",
-          "approvedDelta": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-drones"
+          "approvedDelta": "round5-chart-first-screen-20260928-prose-drones"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100235,7 +100235,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:classical/kinematics moved from 2885525f6f0448ce59a5e74b9c953866b706e61596ffa35931f8fa92e5582b4b to 6384fcd878d487039ac2492bd1090c3e49de43140822fb0f5e8c6ea13b6295ad exactly as approved delta motion-classical-humanizer-v3-20260927-prose-kinematics permits: Humanizer v3 pass over classical/kinematics.mdx. Rephrases negative boilerplate and paper-internal locators without changing the audited claims, reported figures or citation mounts. Adds the paused FkChain scene before the independently controlled lab, retaining the exact lab and its sourced data. The article meets the structural-tell floor.",
+      "actual": "prose member article:classical/kinematics moved from 2885525f6f0448ce59a5e74b9c953866b706e61596ffa35931f8fa92e5582b4b to b8300ca0b4bd3553fb750c151d08c80056932753754b6a8c63ecdf52ddaa4262 exactly as approved delta round5-first-screen-cd-20260929-prose-kinematics permits: VAL-EDU-045 layout repair on /classical/kinematics/: the FkChain motion scene sat between the operating-cue paragraph and the first reader-operated interactive (254 preceding rendered words, lab SVG top edge 1728 px, cue already adjacent). The PlanarFkArm mount line now precedes the FkChain scene mount line, so the arm lab directly follows the paragraph that says to move its base joint slider; the scene follows the lab. The move is a pure block swap: every sentence, number, citation marker (in order), mount prop and the frontmatter are unchanged, and the sorted line inventory of the article is identical. The pre-change bytes are the motion-classical-humanizer-v3-20260927-prose-kinematics endpoint.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100247,9 +100247,9 @@
           "manifest": "prose",
           "member": "article:classical/kinematics",
           "baselineHash": "2885525f6f0448ce59a5e74b9c953866b706e61596ffa35931f8fa92e5582b4b",
-          "currentHash": "6384fcd878d487039ac2492bd1090c3e49de43140822fb0f5e8c6ea13b6295ad",
+          "currentHash": "b8300ca0b4bd3553fb750c151d08c80056932753754b6a8c63ecdf52ddaa4262",
           "status": "approved-delta",
-          "approvedDelta": "motion-classical-humanizer-v3-20260927-prose-kinematics"
+          "approvedDelta": "round5-first-screen-cd-20260929-prose-kinematics"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100263,7 +100263,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:classical/motion-planning moved from c35aae18b5771f207e1a3a2c7a9291d61e4fc487630469d1b88f0f77f7d4ac79 to 040f1702175cf8527aaa76ec43be0590301c96ae19242814331f7f06053195c4 exactly as approved delta motion-classical-humanizer-v3-20260927-prose-motion-planning permits: Humanizer v3 pass over classical/motion-planning.mdx. Rephrases negative boilerplate and paper-internal locators without changing the audited claims, reported figures or citation mounts. Adds the paused RrtGrowth scene before the independently controlled lab, retaining the exact lab and its sourced data. The article meets the structural-tell floor.",
+      "actual": "prose member article:classical/motion-planning moved from c35aae18b5771f207e1a3a2c7a9291d61e4fc487630469d1b88f0f77f7d4ac79 to a74f0a8a4d1997310fcd85f3a92d2518cd1236e2ad7a7673fdf2ae3752050d84 exactly as approved delta round5-first-screen-cd-20260929-prose-motion-planning permits: VAL-EDU-045 layout repair on /classical/motion-planning/: the RrtGrowth motion scene sat between the operating-cue paragraph and the first reader-operated interactive (293 preceding rendered words, lab SVG top edge 1805 px, no cue in the two adjacent paragraphs). The RrtExplorer mount line now precedes the RrtGrowth scene mount line, so the lab directly follows the paragraph that says to drag its exploration-iteration slider; the scene follows the lab. The move is a pure block swap: every sentence, number, citation marker (in order), mount prop and the frontmatter are unchanged, and the sorted line inventory of the article is identical. The pre-change bytes are the motion-classical-humanizer-v3-20260927-prose-motion-planning endpoint.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100275,9 +100275,9 @@
           "manifest": "prose",
           "member": "article:classical/motion-planning",
           "baselineHash": "c35aae18b5771f207e1a3a2c7a9291d61e4fc487630469d1b88f0f77f7d4ac79",
-          "currentHash": "040f1702175cf8527aaa76ec43be0590301c96ae19242814331f7f06053195c4",
+          "currentHash": "a74f0a8a4d1997310fcd85f3a92d2518cd1236e2ad7a7673fdf2ae3752050d84",
           "status": "approved-delta",
-          "approvedDelta": "motion-classical-humanizer-v3-20260927-prose-motion-planning"
+          "approvedDelta": "round5-first-screen-cd-20260929-prose-motion-planning"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100403,7 +100403,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:data-hardware/data-bottleneck moved from 91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2 to cdc986bcd3e8a57e6d13297065578acd964e66f98cf7161de5bf42b0072cb47d exactly as approved delta motion-data-hardware-humanizer-v3-20260927-prose-data-bottleneck permits: Fact-preserving humanizer v3 pass and a farm-throughput toy scene before the retained direct-control chart. Published data durations remain separate from authored rates and OXE's unknown duration; numeric tokens and ordered citations are checked against the prior committed article. This approval does not refresh stale audit local-basis evidence.",
+      "actual": "prose member article:data-hardware/data-bottleneck moved from 91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2 to 2a399628a0d3d47c483619e0563664aa50e82ca704050c69ccb7d44a73f8a161 exactly as approved delta round5-pinned-leftovers-20260928-prose-data-bottleneck permits: The first meaningful interactive on /data-hardware/data-bottleneck/ sat after the motion scene at 389 preceding words, past the 300-word and 1600px VAL-EDU-045(a) first-screen budget. The DataScaleChart mount block moves above the FarmThroughput scene so the chart the cue paragraph names ('Drag the teleoperation rigs slider') is the first interactive at about 279 preceding words. The move is a pure block swap: every sentence, number, citation marker and the frontmatter are unchanged, and the sorted line inventory of the article is identical.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100415,9 +100415,9 @@
           "manifest": "prose",
           "member": "article:data-hardware/data-bottleneck",
           "baselineHash": "91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2",
-          "currentHash": "cdc986bcd3e8a57e6d13297065578acd964e66f98cf7161de5bf42b0072cb47d",
+          "currentHash": "2a399628a0d3d47c483619e0563664aa50e82ca704050c69ccb7d44a73f8a161",
           "status": "approved-delta",
-          "approvedDelta": "motion-data-hardware-humanizer-v3-20260927-prose-data-bottleneck"
+          "approvedDelta": "round5-pinned-leftovers-20260928-prose-data-bottleneck"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100459,7 +100459,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:data-hardware/evaluation-crisis moved from a82d68cc5fad165e3cb345da4717268cd27b0531c327e347f599310b5073d92e to 1bf31b1df987ef3edf435c4bb5c7280105a43e1e240544be069454c01c505923 exactly as approved delta motion-data-hardware-source-qualification-20260927-prose-evaluation-crisis permits: The retained SIMPLER paper proposes and evaluates ways to mitigate visual and control gaps. The corrected sentence describes the methods without claiming that both generally achieved a reduction. All numbers, citation markers, setup qualifications and the conditional-probability model are unchanged.",
+      "actual": "prose member article:data-hardware/evaluation-crisis moved from a82d68cc5fad165e3cb345da4717268cd27b0531c327e347f599310b5073d92e to 58eb66a343de12e685e540f7840313f33b841fa233b26462d428b2a298459557 exactly as approved delta round5-pinned-leftovers-20260928-prose-evaluation-crisis permits: The first meaningful interactive on /data-hardware/evaluation-crisis/ sat after the EpisodeSurvival scene at 329 preceding words, past the 300-word and 1600px VAL-EDU-045(a) first-screen budget. The ReliabilityCompounding mount block moves above the scene so the calculator the cue paragraph names ('Drag the episode-length slider') is the first interactive at about 248 preceding words. The move is a pure block swap: every sentence, number, citation marker and the frontmatter are unchanged, and the sorted line inventory of the article is identical.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100471,9 +100471,9 @@
           "manifest": "prose",
           "member": "article:data-hardware/evaluation-crisis",
           "baselineHash": "a82d68cc5fad165e3cb345da4717268cd27b0531c327e347f599310b5073d92e",
-          "currentHash": "1bf31b1df987ef3edf435c4bb5c7280105a43e1e240544be069454c01c505923",
+          "currentHash": "58eb66a343de12e685e540f7840313f33b841fa233b26462d428b2a298459557",
           "status": "approved-delta",
-          "approvedDelta": "motion-data-hardware-source-qualification-20260927-prose-evaluation-crisis"
+          "approvedDelta": "round5-pinned-leftovers-20260928-prose-evaluation-crisis"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100711,7 +100711,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:frontier/reliability-gap moved from a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c to 4ed073dd9969b1b13e1f42c2bb98ca36218a32aae0ea5266ed45fa4228a1a026 exactly as approved delta motion-frontier-adjacent-home-humanizer-v3-20260927-prose-reliability-gap permits: The reliability article adds a fixed-horizon reader-paced probability scene beside its independent calculator and tightens prose. The scene is an illustrative model; sourced rates, numbers and citation order are preserved.",
+      "actual": "prose member article:frontier/reliability-gap moved from a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c to 1e39b6186e098ed948aa36770562e9041be8283a9956f7396b472529fd661a90 exactly as approved delta round5-chart-first-screen-20260928-prose-reliability-gap permits: Resolution from the sealed member to the current bytes, required because this member's approval history already ends in reconciling resolutions; it binds all 20 prior approvals by ID and both hashes. The pre-change current bytes are the motion-frontier-adjacent-home-humanizer-v3-20260927-prose-reliability-gap endpoint 4ed073dd. The only change from that endpoint is a VAL-EDU-045 layout repair on /frontier/reliability-gap/: the ReliabilityCompounding calculator mount now precedes the ReliabilityThreshold scene mount, so the first interactive directly follows its cue paragraph instead of the scene (pre-change export: 352 preceding rendered words, top edge 1950 px, no cue in the adjacent paragraphs). The cue sentence now names the per-step success slider first and the fixed-horizon example second; its 95% and 100 values, the citation order, both mount props and every other sentence are unchanged.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100723,9 +100723,9 @@
           "manifest": "prose",
           "member": "article:frontier/reliability-gap",
           "baselineHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
-          "currentHash": "4ed073dd9969b1b13e1f42c2bb98ca36218a32aae0ea5266ed45fa4228a1a026",
+          "currentHash": "1e39b6186e098ed948aa36770562e9041be8283a9956f7396b472529fd661a90",
           "status": "approved-delta",
-          "approvedDelta": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-reliability-gap"
+          "approvedDelta": "round5-chart-first-screen-20260928-prose-reliability-gap"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100907,7 +100907,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:manipulation/diffusion-policy moved from e306e7bc393b1f46637b4eae6bd7e83b3f9eeff0174e4bbf658b83560a9ecba2 to 2ed97162a04e8b619a5360fcd51957fd61d07dedc306df39bc12d4107aa4db62 exactly as approved delta motion-language-scene-swap-6 permits: Article body changed only around the replaced interactive: the two paragraphs that described the tracker/denoiser slider controls now describe the mounted motion scene (its beats, its keyboard stepping, and the same filter/sampler numbers restated from the unchanged model). Every citation, claim, equation and date in the rest of the body is byte-identical.",
+      "actual": "prose member article:manipulation/diffusion-policy moved from e306e7bc393b1f46637b4eae6bd7e83b3f9eeff0174e4bbf658b83560a9ecba2 to 67925c3ecc80d2e381175f6eee29423df7adfa9afec379db9192810eb45f61f2 exactly as approved delta round5-chart-first-screen-20260928-prose-diffusion-policy permits: VAL-EDU-045 layout repair on /manipulation/diffusion-policy/: the Receding-horizon control section (its heading, two paragraphs and the RecedingHorizon mount) moves ahead of Denoising in action space, and the scene cue paragraph with the DiffusionDenoising mount moves to the start of that section (pre-change export: 932 preceding rendered words, 2 preceding h2, top edge 3380 px, no adjacent cue). One cue sentence naming the executed horizon slider is added and \"the scene at the top of this module\" becomes \"the scene at the start of this section\". Every other sentence, number, citation and mount prop is unchanged; citation order moves only with the relocated section.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100919,9 +100919,9 @@
           "manifest": "prose",
           "member": "article:manipulation/diffusion-policy",
           "baselineHash": "e306e7bc393b1f46637b4eae6bd7e83b3f9eeff0174e4bbf658b83560a9ecba2",
-          "currentHash": "2ed97162a04e8b619a5360fcd51957fd61d07dedc306df39bc12d4107aa4db62",
+          "currentHash": "67925c3ecc80d2e381175f6eee29423df7adfa9afec379db9192810eb45f61f2",
           "status": "approved-delta",
-          "approvedDelta": "motion-language-scene-swap-6"
+          "approvedDelta": "round5-chart-first-screen-20260928-prose-diffusion-policy"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -101047,7 +101047,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:manipulation/pi-line moved from 3910469cc8ac7ac69cb70bc8936b8092dc1bc5fdd5c8df17c2eb8e6ac120b20d to f0f3afb7ce11afa404d1b8584e8039f9c007da277a6a9d0651ea0aeecf52b3e6 exactly as approved delta motion-manipulation-20260927-prose-pi-line-mount permits: The manipulation motion pass adds only the FlowTransport import and paused scene mount before the retained FlowMatchingTrajectory lab in pi-line.mdx. Existing paragraphs, source values, citations, frontmatter and the controllable lab are unchanged. This exact transition records the previously omitted mount against its humanizer endpoint.",
+      "actual": "prose member article:manipulation/pi-line moved from 3910469cc8ac7ac69cb70bc8936b8092dc1bc5fdd5c8df17c2eb8e6ac120b20d to 783f0ca55010dc594fe42dd4b9e6f54f39538e7a52e3fa46e7958360893bc0b2 exactly as approved delta round5-first-screen-cd-20260929-prose-pi-line permits: VAL-EDU-045 layout repair on /manipulation/pi-line/: the FlowTransport motion scene sat between the operating-cue paragraph and the first reader-operated interactive (245 preceding rendered words, lab SVG top edge 1700 px, cue already adjacent). The FlowTransport scene mount moves below the FlowMatchingTrajectory lab, so the lab directly follows the paragraph that says to drag its integration steps slider; the scene follows the lab. The move is a pure block swap: every sentence, number, citation marker (in order), mount prop and the frontmatter are unchanged, and the sorted line inventory of the article is identical. The pre-change bytes are the motion-manipulation-20260927-prose-pi-line-mount endpoint.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -101059,9 +101059,9 @@
           "manifest": "prose",
           "member": "article:manipulation/pi-line",
           "baselineHash": "3910469cc8ac7ac69cb70bc8936b8092dc1bc5fdd5c8df17c2eb8e6ac120b20d",
-          "currentHash": "f0f3afb7ce11afa404d1b8584e8039f9c007da277a6a9d0651ea0aeecf52b3e6",
+          "currentHash": "783f0ca55010dc594fe42dd4b9e6f54f39538e7a52e3fa46e7958360893bc0b2",
           "status": "approved-delta",
-          "approvedDelta": "motion-manipulation-20260927-prose-pi-line-mount"
+          "approvedDelta": "round5-first-screen-cd-20260929-prose-pi-line"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -101159,7 +101159,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:manipulation/vla-models moved from a241dae507f15722c3cea4e84684f07d6773ff97fcb95c9eb6711616770b8290 to 58887645ef7e2449eace762c4f2e89581eda98ec5c9adaa88b6c16ff690d2303 exactly as approved delta motion-manipulation-20260927-prose-vla-models-mount permits: The manipulation motion pass adds only the ActionDecode import and paused scene mount before the retained ActionTokenization lab in vla-models.mdx. Existing paragraphs, source values, citations, frontmatter and the controllable lab are unchanged. This exact transition records the previously omitted mount against its educational-cue endpoint.",
+      "actual": "prose member article:manipulation/vla-models moved from a241dae507f15722c3cea4e84684f07d6773ff97fcb95c9eb6711616770b8290 to ef14b1dd87bf8f6c5944bebb56b5da3b2db890def0d378e38c4a113806d9027f exactly as approved delta round5-first-screen-cd-20260929-prose-vla-models permits: VAL-EDU-045 layout repair on /manipulation/vla-models/: the ActionDecode motion scene sat between the operating-cue paragraph and the first reader-operated interactive (275 preceding rendered words, lab SVG top edge 1767 px at 1440x900, cue already adjacent). The ActionDecode scene mount moves below the ActionTokenization lab, so the lab directly follows the paragraph that names its control step; the scene follows the lab. The move is a pure block swap: every sentence, number, citation marker (in order), mount prop and the frontmatter are unchanged, and the sorted line inventory of the article is identical. The pre-change bytes are the motion-manipulation-20260927-prose-vla-models-mount endpoint.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -101171,9 +101171,9 @@
           "manifest": "prose",
           "member": "article:manipulation/vla-models",
           "baselineHash": "a241dae507f15722c3cea4e84684f07d6773ff97fcb95c9eb6711616770b8290",
-          "currentHash": "58887645ef7e2449eace762c4f2e89581eda98ec5c9adaa88b6c16ff690d2303",
+          "currentHash": "ef14b1dd87bf8f6c5944bebb56b5da3b2db890def0d378e38c4a113806d9027f",
           "status": "approved-delta",
-          "approvedDelta": "motion-manipulation-20260927-prose-vla-models-mount"
+          "approvedDelta": "round5-first-screen-cd-20260929-prose-vla-models"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -101215,7 +101215,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:rl-sim2real/legged-locomotion moved from 0f26e397b3efbdbf2b9981c1ee0843c81647b061aff1a53d94152f52f16a9998 to e531e02d9f41cda0e58185a4db70fff208823776508ae05ebbcbf7bd5270236e exactly as approved delta motion-rl-sim2real-humanizer-v3-20260927-prose-legged-locomotion permits: Humanizer v3 pass over content/rl-sim2real/legged-locomotion.mdx: gait prose and a paused GaitSupport scene before GaitDiagram. Sourced quantities, citation order, toy disclosures and retained direct controls are checked against committed input. Structural-tell density is at most two per 1,000 words.",
+      "actual": "prose member article:rl-sim2real/legged-locomotion moved from 0f26e397b3efbdbf2b9981c1ee0843c81647b061aff1a53d94152f52f16a9998 to 037a9544af297abc1b1e1d7a1ede04d1b612001c90a7525ec1c190b39df7e2e8 exactly as approved delta round5-first-screen-cd-20260929-prose-legged-locomotion permits: VAL-EDU-045 layout repair on /rl-sim2real/legged-locomotion/: the GaitSupport motion scene sat between the operating-cue paragraph and the first reader-operated interactive (252 preceding rendered words, diagram SVG top edge 1678 px, no cue in the two adjacent paragraphs). The GaitDiagram mount now precedes the GaitSupport scene mount, so the diagram directly follows the paragraph that says to switch it from walk to trot to bound; the scene follows the lab. The move is a pure block swap: every sentence, number, citation marker (in order), mount prop and the frontmatter are unchanged, and the sorted line inventory of the article is identical. The pre-change bytes are the motion-rl-sim2real-humanizer-v3-20260927-prose-legged-locomotion endpoint.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -101227,9 +101227,9 @@
           "manifest": "prose",
           "member": "article:rl-sim2real/legged-locomotion",
           "baselineHash": "0f26e397b3efbdbf2b9981c1ee0843c81647b061aff1a53d94152f52f16a9998",
-          "currentHash": "e531e02d9f41cda0e58185a4db70fff208823776508ae05ebbcbf7bd5270236e",
+          "currentHash": "037a9544af297abc1b1e1d7a1ede04d1b612001c90a7525ec1c190b39df7e2e8",
           "status": "approved-delta",
-          "approvedDelta": "motion-rl-sim2real-humanizer-v3-20260927-prose-legged-locomotion"
+          "approvedDelta": "round5-first-screen-cd-20260929-prose-legged-locomotion"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -101271,7 +101271,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:rl-sim2real/parallel-sim-rl moved from d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb to 18f11b1e97665df80a0928345e98952d3e6b01e1d590035418bd9fafb53ac6e5 exactly as approved delta motion-rl-sim2real-20260927-reconcile-parallel-sim-rl permits: Exact complete-edge reconciliation of 15 historical prose approvals for article:rl-sim2real/parallel-sim-rl. The inspected endpoint is the fact-preserving humanizer and motion pass; all older transition IDs, including earlier resolutions, remain separately recorded. No claim verdict, source quantity or citation target is waived.",
+      "actual": "prose member article:rl-sim2real/parallel-sim-rl moved from d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb to 16a9970b03691a66d3ad57e002e4875957a185c31515387e279cecb913c04013 exactly as approved delta round5-first-screen-cd-20260929-prose-parallel-sim-rl permits: Resolution from the sealed member to the current bytes, required because this member's approval history already ends in reconciling resolutions; it binds all 16 prior approvals by ID and both hashes. The pre-change current bytes are the motion-rl-sim2real-20260927-reconcile-parallel-sim-rl endpoint 18f11b1e. The only change from that endpoint is a VAL-EDU-045 layout repair on /rl-sim2real/parallel-sim-rl/: the BatchScale motion scene sat between the operating-cue paragraph and the first reader-operated interactive (241 preceding rendered words, chart SVG top edge 1667 px, no cue in the two adjacent paragraphs). The TrainingTimeChart mount now precedes the BatchScale scene mount, so the chart directly follows the paragraph that says to drag its slider from 64 upward; the scene follows the lab. The move is a pure block swap: every sentence, number, citation marker (in order), mount prop and the frontmatter are unchanged, and the sorted line inventory of the article is identical.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -101283,9 +101283,9 @@
           "manifest": "prose",
           "member": "article:rl-sim2real/parallel-sim-rl",
           "baselineHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
-          "currentHash": "18f11b1e97665df80a0928345e98952d3e6b01e1d590035418bd9fafb53ac6e5",
+          "currentHash": "16a9970b03691a66d3ad57e002e4875957a185c31515387e279cecb913c04013",
           "status": "approved-delta",
-          "approvedDelta": "motion-rl-sim2real-20260927-reconcile-parallel-sim-rl"
+          "approvedDelta": "round5-first-screen-cd-20260929-prose-parallel-sim-rl"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -101439,7 +101439,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:world-models/generative-sim moved from 0eb812ecfb2f7f53a774fa49a124ca1162bd7cdeec42f3f2af934e5ed4adbba3 to 4b18ebca49f3165a16d99e7cf26f234067e41ab20c4c2f20da24ca5408e2a32d exactly as approved delta motion-scrutiny-s12-20260928-prose-generative-sim-citation-attachment permits: S12 citation attachment only: keep robocasa-2024 beside the v1 inventory and place robocasa365-2026 beside the separately named release. The complete preserved RoboCasa365 PDF (SHA-256 3253894415c1470ee63aae7f65198d9bd0cfd0563851a2bb7418c3f9519bc99d) identifies the paper and reports 365 tasks across 2,500 kitchen environments in the abstract; its retained extraction was verified against fresh local pdftotext output. Original packet retrieval 2026-09-24T08:30:39Z, not a new fetch. No numbers, unrelated prose, frontmatter or audit verdicts changed; not whole-article review or release acceptance.",
+      "actual": "prose member article:world-models/generative-sim moved from 0eb812ecfb2f7f53a774fa49a124ca1162bd7cdeec42f3f2af934e5ed4adbba3 to fc6578de34784263b16681fcbe5808f494bb9d9753d289752faf886e522a2a86 exactly as approved delta round5-first-screen-cd-20260929-prose-generative-sim permits: VAL-EDU-045 layout repair on /world-models/generative-sim/: the PushLayers motion scene sat between the operating-cue paragraph and the first reader-operated interactive (265 preceding rendered words, lab SVG top edge 1746 px, no cue in the two adjacent paragraphs). The AppearancePhysicsPush mount now precedes the PushLayers scene mount, so the push test directly follows the paragraph that says to turn off the physics proxy and push the mug; the scene follows the lab. The move is a pure block swap: every sentence, number, citation marker (in order), mount prop and the frontmatter are unchanged, and the sorted line inventory of the article is identical. The pre-change bytes are the motion-scrutiny-s12-20260928-prose-generative-sim-citation-attachment endpoint.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -101451,9 +101451,9 @@
           "manifest": "prose",
           "member": "article:world-models/generative-sim",
           "baselineHash": "0eb812ecfb2f7f53a774fa49a124ca1162bd7cdeec42f3f2af934e5ed4adbba3",
-          "currentHash": "4b18ebca49f3165a16d99e7cf26f234067e41ab20c4c2f20da24ca5408e2a32d",
+          "currentHash": "fc6578de34784263b16681fcbe5808f494bb9d9753d289752faf886e522a2a86",
           "status": "approved-delta",
-          "approvedDelta": "motion-scrutiny-s12-20260928-prose-generative-sim-citation-attachment"
+          "approvedDelta": "round5-first-screen-cd-20260929-prose-generative-sim"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -101467,7 +101467,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:world-models/generative-video moved from 09a9bdcabdc1101de55d36323b52bb11cadf7d76a5a9ad57d00ed4025461cad8 to 31334d054d21359664e0e084c071ef1e975d694301e8c513ddcdaee68d04f5de exactly as approved delta motion-world-models-humanizer-v3-20260927-prose-generative-video permits: Fact-preserving humanizer v3 rewrite and a reader-paced action-fork scene before the retained direct-control lab; sourced numbers, study scope, citation occurrences, and numeric tokens remain checked against the prior committed article.",
+      "actual": "prose member article:world-models/generative-video moved from 09a9bdcabdc1101de55d36323b52bb11cadf7d76a5a9ad57d00ed4025461cad8 to 567163089b84a153754a53be294f00e25280ae6dea24c311727348f85b21b8c1 exactly as approved delta round5-first-screen-cd-20260929-prose-generative-video permits: VAL-EDU-045 layout repair on /world-models/generative-video/: the ActionFork motion scene sat between the operating-cue paragraph and the first reader-operated interactive (222 preceding rendered words, lab SVG top edge 1761 px, no cue in the two adjacent paragraphs). The ActionConditioning mount now precedes the ActionFork scene mount, so the lab directly follows the paragraph that says to toggle its conditioning strength; the scene follows the lab. The move is a pure block swap: every sentence, number, citation marker (in order), mount prop and the frontmatter are unchanged, and the sorted line inventory of the article is identical. The pre-change bytes are the motion-world-models-humanizer-v3-20260927-prose-generative-video endpoint.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -101479,9 +101479,9 @@
           "manifest": "prose",
           "member": "article:world-models/generative-video",
           "baselineHash": "09a9bdcabdc1101de55d36323b52bb11cadf7d76a5a9ad57d00ed4025461cad8",
-          "currentHash": "31334d054d21359664e0e084c071ef1e975d694301e8c513ddcdaee68d04f5de",
+          "currentHash": "567163089b84a153754a53be294f00e25280ae6dea24c311727348f85b21b8c1",
           "status": "approved-delta",
-          "approvedDelta": "motion-world-models-humanizer-v3-20260927-prose-generative-video"
+          "approvedDelta": "round5-first-screen-cd-20260929-prose-generative-video"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -101523,7 +101523,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:world-models/latent-dynamics moved from ccf53d317fe7f3826f7281b6a9da4431f9dd9ce9276c16a063df2ebbe85ddb41 to a85d0697bed9de5abba178bb756ec8bf574c7606c2e9052fa8e4f1bb56f74a4b exactly as approved delta motion-world-models-humanizer-v3-20260927-prose-latent-dynamics permits: Fact-preserving humanizer v3 rewrite and a reader-paced latent-drift scene before the retained direct-control lab; distinct published horizon labels, numeric tokens, and citation occurrences remain checked against the prior committed article.",
+      "actual": "prose member article:world-models/latent-dynamics moved from ccf53d317fe7f3826f7281b6a9da4431f9dd9ce9276c16a063df2ebbe85ddb41 to e549d756bb8b49aeb3f0736327a5c9a0bddec87711d00972789c930b415c154c exactly as approved delta round5-first-screen-cd-20260929-prose-latent-dynamics permits: VAL-EDU-045 layout repair on /world-models/latent-dynamics/: the LatentDrift motion scene sat between the operating-cue paragraph and the first reader-operated interactive (251 preceding rendered words, lab SVG top edge 1815 px, no cue in the two adjacent paragraphs). The LatentImagination mount now precedes the LatentDrift scene mount, so the lab directly follows the paragraph that says to drag its horizon slider; the scene follows the lab. The move is a pure block swap: every sentence, number, citation marker (in order), mount prop and the frontmatter are unchanged, and the sorted line inventory of the article is identical. The pre-change bytes are the motion-world-models-humanizer-v3-20260927-prose-latent-dynamics endpoint.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -101535,9 +101535,9 @@
           "manifest": "prose",
           "member": "article:world-models/latent-dynamics",
           "baselineHash": "ccf53d317fe7f3826f7281b6a9da4431f9dd9ce9276c16a063df2ebbe85ddb41",
-          "currentHash": "a85d0697bed9de5abba178bb756ec8bf574c7606c2e9052fa8e4f1bb56f74a4b",
+          "currentHash": "e549d756bb8b49aeb3f0736327a5c9a0bddec87711d00972789c930b415c154c",
           "status": "approved-delta",
-          "approvedDelta": "motion-world-models-humanizer-v3-20260927-prose-latent-dynamics"
+          "approvedDelta": "round5-first-screen-cd-20260929-prose-latent-dynamics"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -103823,7 +103823,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/classical/motion-planning/ ships 53 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 53 outbound anchor occurrences on it with a visible focus ring in 179 stops",
+      "actual": "/classical/motion-planning/ ships 53 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 53 outbound anchor occurrences on it with a visible focus ring in 178 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -103842,7 +103842,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 50,
           "reachedByTab": 53,
-          "tabStops": 179,
+          "tabStops": 178,
           "keyboardRoutesWalked": 74,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -105505,7 +105505,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/rl-sim2real/parallel-sim-rl/ ships 31 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 31 outbound anchor occurrences on it with a visible focus ring in 118 stops",
+      "actual": "/rl-sim2real/parallel-sim-rl/ ships 31 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 31 outbound anchor occurrences on it with a visible focus ring in 117 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -105524,7 +105524,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 28,
           "reachedByTab": 31,
-          "tabStops": 118,
+          "tabStops": 117,
           "keyboardRoutesWalked": 74,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -105832,7 +105832,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/world-models/generative-video/ ships 44 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 44 outbound anchor occurrences on it with a visible focus ring in 148 stops",
+      "actual": "/world-models/generative-video/ ships 44 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 44 outbound anchor occurrences on it with a visible focus ring in 149 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -105851,7 +105851,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 41,
           "reachedByTab": 44,
-          "tabStops": 148,
+          "tabStops": 149,
           "keyboardRoutesWalked": 74,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -117901,7 +117901,7 @@
           "authored": "#1A6F45",
           "marks": [
             {
-              "id": "components/article/commit-to-reveal.tsx#216:span:ok",
+              "id": "components/article/commit-to-reveal.tsx#222:span:ok",
               "element": "span",
               "binding": "inline",
               "via": null,
@@ -119583,7 +119583,7 @@
           "authored": "#A52A1E",
           "marks": [
             {
-              "id": "components/interactive/latency-comparison.tsx#224:rect:error",
+              "id": "components/interactive/latency-comparison.tsx#228:rect:error",
               "element": "rect",
               "binding": "inline",
               "via": null,
@@ -119592,7 +119592,7 @@
               ]
             },
             {
-              "id": "components/interactive/latency-comparison.tsx#235:text:error",
+              "id": "components/interactive/latency-comparison.tsx#239:text:error",
               "element": "text",
               "binding": "inline",
               "via": null,
@@ -119601,7 +119601,7 @@
               ]
             },
             {
-              "id": "components/interactive/latency-comparison.tsx#309:path:error",
+              "id": "components/interactive/latency-comparison.tsx#313:path:error",
               "element": "path",
               "binding": "inline",
               "via": null,
@@ -119610,7 +119610,7 @@
               ]
             },
             {
-              "id": "components/interactive/latency-comparison.tsx#326:circle:error",
+              "id": "components/interactive/latency-comparison.tsx#330:circle:error",
               "element": "circle",
               "binding": "inline",
               "via": null,
@@ -119619,7 +119619,7 @@
               ]
             },
             {
-              "id": "components/interactive/latency-comparison.tsx#347:line:error",
+              "id": "components/interactive/latency-comparison.tsx#351:line:error",
               "element": "line",
               "binding": "inline",
               "via": null,
@@ -119628,7 +119628,7 @@
               ]
             },
             {
-              "id": "components/interactive/latency-comparison.tsx#407:rect:error",
+              "id": "components/interactive/latency-comparison.tsx#411:rect:error",
               "element": "rect",
               "binding": "inline",
               "via": null,
@@ -119637,7 +119637,7 @@
               ]
             },
             {
-              "id": "components/interactive/latency-comparison.tsx#418:text:error",
+              "id": "components/interactive/latency-comparison.tsx#422:text:error",
               "element": "text",
               "binding": "inline",
               "via": null,
@@ -119646,7 +119646,7 @@
               ]
             },
             {
-              "id": "components/interactive/latency-comparison.tsx#526:path:error",
+              "id": "components/interactive/latency-comparison.tsx#530:path:error",
               "element": "path",
               "binding": "inline",
               "via": null,
@@ -119655,7 +119655,7 @@
               ]
             },
             {
-              "id": "components/interactive/latency-comparison.tsx#535:circle:error",
+              "id": "components/interactive/latency-comparison.tsx#539:circle:error",
               "element": "circle",
               "binding": "inline",
               "via": null,
@@ -119664,7 +119664,7 @@
               ]
             },
             {
-              "id": "components/interactive/latency-comparison.tsx#544:path:error",
+              "id": "components/interactive/latency-comparison.tsx#548:path:error",
               "element": "path",
               "binding": "inline",
               "via": null,
@@ -119673,7 +119673,7 @@
               ]
             },
             {
-              "id": "components/interactive/latency-comparison.tsx#550:text:error",
+              "id": "components/interactive/latency-comparison.tsx#554:text:error",
               "element": "text",
               "binding": "inline",
               "via": null,
@@ -119682,7 +119682,7 @@
               ]
             },
             {
-              "id": "components/interactive/latency-comparison.tsx#585:span:error",
+              "id": "components/interactive/latency-comparison.tsx#589:span:error",
               "element": "span",
               "binding": "class-constant",
               "via": "STATUS_COLOR",
@@ -119728,7 +119728,7 @@
           "authored": "#1A6F45",
           "marks": [
             {
-              "id": "components/interactive/latency-comparison.tsx#301:path:ok",
+              "id": "components/interactive/latency-comparison.tsx#305:path:ok",
               "element": "path",
               "binding": "inline",
               "via": null,
@@ -119737,7 +119737,7 @@
               ]
             },
             {
-              "id": "components/interactive/latency-comparison.tsx#335:circle:ok",
+              "id": "components/interactive/latency-comparison.tsx#339:circle:ok",
               "element": "circle",
               "binding": "inline",
               "via": null,
@@ -119746,7 +119746,7 @@
               ]
             },
             {
-              "id": "components/interactive/latency-comparison.tsx#363:line:ok",
+              "id": "components/interactive/latency-comparison.tsx#367:line:ok",
               "element": "line",
               "binding": "inline",
               "via": null,
@@ -119755,7 +119755,7 @@
               ]
             },
             {
-              "id": "components/interactive/latency-comparison.tsx#518:path:ok",
+              "id": "components/interactive/latency-comparison.tsx#522:path:ok",
               "element": "path",
               "binding": "inline",
               "via": null,
@@ -119764,7 +119764,7 @@
               ]
             },
             {
-              "id": "components/interactive/latency-comparison.tsx#585:span:ok",
+              "id": "components/interactive/latency-comparison.tsx#589:span:ok",
               "element": "span",
               "binding": "class-constant",
               "via": "STATUS_COLOR",
@@ -119773,7 +119773,7 @@
               ]
             },
             {
-              "id": "components/interactive/latency-comparison.tsx#592:span:ok",
+              "id": "components/interactive/latency-comparison.tsx#596:span:ok",
               "element": "span",
               "binding": "inline",
               "via": null,
@@ -119818,7 +119818,7 @@
           "authored": "#8A5A00",
           "marks": [
             {
-              "id": "components/interactive/latency-comparison.tsx#585:span:warn",
+              "id": "components/interactive/latency-comparison.tsx#589:span:warn",
               "element": "span",
               "binding": "class-constant",
               "via": "STATUS_COLOR",
@@ -131904,7 +131904,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/data-bottleneck/ rendered no v1 identity spelling and no v1 descriptor in 32501 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/data-bottleneck/ rendered no v1 identity spelling and no v1 descriptor in 32517 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -131998,7 +131998,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/evaluation-crisis/ rendered no v1 identity spelling and no v1 descriptor in 36355 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/evaluation-crisis/ rendered no v1 identity spelling and no v1 descriptor in 36353 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132515,7 +132515,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/frontier/reliability-gap/ rendered no v1 identity spelling and no v1 descriptor in 29977 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/frontier/reliability-gap/ rendered no v1 identity spelling and no v1 descriptor in 30001 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132703,7 +132703,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/action-chunking/ rendered no v1 identity spelling and no v1 descriptor in 46093 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/action-chunking/ rendered no v1 identity spelling and no v1 descriptor in 46127 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132938,7 +132938,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/diffusion-policy/ rendered no v1 identity spelling and no v1 descriptor in 29469 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/diffusion-policy/ rendered no v1 identity spelling and no v1 descriptor in 29623 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -133878,7 +133878,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/rl-sim2real/sim2real-transfer/ rendered no v1 identity spelling and no v1 descriptor in 48707 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/rl-sim2real/sim2real-transfer/ rendered no v1 identity spelling and no v1 descriptor in 48847 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",

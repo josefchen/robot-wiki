@@ -23,7 +23,8 @@ async function hit(locator: Locator) {
 test.beforeEach(async ({ page }) => {
   await page.route('**/*', route => {
     const url = new URL(route.request().url());
-    return url.hostname === '127.0.0.1' || url.protocol === 'data:'
+    return url.origin === 'http://localhost:3200' ||
+      url.origin === 'http://127.0.0.1:3200' || url.protocol === 'data:'
       ? route.continue() : route.abort();
   });
   await page.goto('/rl-sim2real/humanoid-wbc/');

@@ -56,14 +56,17 @@ const CHARTS: Array<{
   { route: '/rl-sim2real/legged-locomotion', name: 'gait', control: 'gait-phase', moves: ['50', '75'], def: '0' },
   { route: '/rl-sim2real/parallel-sim-rl', name: 'trainingtime', control: 'range', moves: ['7', '13'], def: '12' },
   { route: '/manipulation/realtime-execution', name: 'controlloop', control: 'range', moves: ['1.0', '9.1'], def: '3.0' },
-  { route: '/classical/state-estimation', name: 'kalman', control: 'range', moves: ['0.5', '1'], def: '0.2' },
+  // No kalman row: /classical/state-estimation no longer mounts a chart.
+  // The Kalman tracker was replaced by the kalman-predict-update motion
+  // scene, whose text alternative and beats are covered by
+  // state-estimation.spec.ts and motion-scenes.spec.ts.
   { route: '/manipulation/bc-foundations', name: 'compounding', control: 'range', moves: ['10', '1'], def: '5', match: 'dashed curves' },
   { route: '/manipulation/action-chunking', name: 'chunksize', control: 'range', moves: ['1', '400'], def: '100', match: 'chunk size' },
-  { route: '/manipulation/action-chunking', name: 'latency-throughput', control: 'range', moves: ['140', '200'], def: '0', match: 'task throughput' },
+  { route: '/manipulation/action-chunking', name: 'latency-throughput', control: 'range', moves: ['140', '200'], def: '0', match: 'normalized toy scores' },
   { route: '/manipulation/realtime-execution', name: 'execution', control: 'range', moves: ['80', '200'], def: '0', match: 'synchronous velocity' },
   { route: '/manipulation/vla-models', name: 'tokenization', control: 'range', moves: ['0', '15'], def: '7' },
   { route: '/manipulation/rl-finetuning', name: 'advantage', control: 'range', moves: ['12', '32'], def: '0' },
-  { route: '/rl-sim2real/sim2real-transfer', name: 'friction', control: 'range', moves: ['50', '120'], def: '80', match: 'real-robot friction' },
+  { route: '/rl-sim2real/sim2real-transfer', name: 'friction', control: 'range', moves: ['50', '120'], def: '80', match: 'selected friction' },
   { route: '/world-models/latent-dynamics', name: 'latent', control: 'range', moves: ['30', '50'], def: '15', match: 'shaded band' },
   {
     route: '/rl-sim2real/reward-design-mpc',

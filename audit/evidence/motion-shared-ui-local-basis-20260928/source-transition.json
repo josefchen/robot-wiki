@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "shared-ui-commit-to-reveal-source-continuity-v1",
+  "name": "uncontrolled-disclosure",
+  "before": {
+    "path": "audit/evidence/motion-shared-ui-local-basis-20260928/commit-to-reveal-before.tsx.txt",
+    "bytes": 12571,
+    "sha256": "8642903b3584b2a79ecb27fefbf2cf8652dd86f4600eaa7a5ce6aa03224c4190"
+  },
+  "after": {
+    "path": "components/article/commit-to-reveal.tsx",
+    "bytes": 12895,
+    "sha256": "cd89e02019c260f36f091bae34b1deeffebbfe5128025f7dbe3b99b43140f4d4"
+  },
+  "proofIds": [
+    "s23-observed-default",
+    "s23-observed-tail",
+    "s23-observed-wide",
+    "s24-observed-default",
+    "s24-observed-high",
+    "s24-observed-zero"
+  ],
+  "reviewedBy": "Shared-UI local-basis implementer (not independent acceptance)",
+  "observedAt": "2026-09-28T19:45:00.000Z",
+  "rationale": "The predecessor is the exact commit-to-reveal source observed by the six sim2real local proofs. The named uncontrolled-disclosure successor removes the controlled open state and opens the details element from the committed choice. Historical proof bytes, reviews, observations, and ledger cells stay unchanged. This pins the current file and that predecessor; it is not a new observation or independent acceptance."
+}

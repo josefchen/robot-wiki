@@ -37,8 +37,8 @@ Sampling-based planning and <Term id="trajectory-optimization">trajectory optimi
 
 The paused overview and the lab below use the same authored 2D scene: a 100 by 64 world with five obstacles. Its seed 19981001, maximum step of 2 world units, cap of 900 accepted extensions, obstacle layout and 1.5% goal-sampling probability are teaching settings for this example. The lab's iteration control counts accepted extensions of this fixed-seed tree. Run, Step forward and the slider reveal that tree; Reset returns to its opening state. Sampling is otherwise uniform. This example establishes no planner-wide success rate, completeness or optimality guarantee. Drag the exploration-iteration slider to inspect the accepted extensions.
 
-<RrtGrowth className="my-6" />
 <RrtExplorer className="my-6" />
+<RrtGrowth className="my-6" />
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="RRT introduced" value="1998" note="Iowa State TR 98-11; date in LaValle's bibliography" />

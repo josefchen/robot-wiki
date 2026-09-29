@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { waitForHydration } from './interaction-ready';
 
 const ROUTE = '/adjacent/drones/';
 
@@ -111,6 +112,7 @@ test.describe('adjacent drones module', () => {
     await page.goto(ROUTE);
     const slider = page.getByRole('slider', { name: /perception latency/i });
     await expect(slider).toBeVisible();
+    await waitForHydration(slider);
     // Opens at the study's stereo-camera operating point.
     await expect(page.getByTestId('max-speed-readout')).toHaveText('19.21 m/s');
     await expect(page.getByTestId('latency-readout')).toHaveText('70 ms');
@@ -125,7 +127,8 @@ test.describe('adjacent drones module', () => {
     await expect(page.getByTestId('avoid-readout')).toHaveText('122 ms');
 
     // Reset restores the study default.
-    await page.getByRole('button', { name: 'Reset' }).click();
+    await slider.locator('xpath=ancestor::*[@data-brand-module-signature="instrument-frame"][1]')
+      .getByRole('button', { name: 'Reset', exact: true }).click();
     await expect(page.getByTestId('max-speed-readout')).toHaveText('19.21 m/s');
     await expect(
       page.getByRole('button', { name: '25 m/s²', exact: true }),

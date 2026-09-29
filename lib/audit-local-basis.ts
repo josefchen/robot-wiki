@@ -12,6 +12,10 @@ import { originalClaimDigest, parseLedger, validateExternalPairs, type ClaimEvid
 import { currentRlMotionArticle, loadRlMotionContinuity } from './audit-rl-motion-continuity.ts';
 import { currentFrontierSafetyArticle, reviewedFrontierChecker } from './audit-frontier-motion-continuity.ts';
 import { retainedDomainPairSource } from './audit-motion-domain-pairs-continuity.ts';
+import { retainedCommitToRevealSource } from './audit-shared-ui-local-basis-continuity.ts';
+import { retainedFrictionTransferSource, retainedRound5FirstScreenArticle } from './audit-round5-pinned-leftovers-continuity.ts';
+import { retainedRound5FirstScreenCdArticle, round5FirstScreenCdEndpoint } from './audit-round5-first-screen-cd-continuity.ts';
+import { retainedRound5ReaderPinSource, round5ReaderPinEndpoint } from './audit-round5-reader-pins-continuity.ts';
 import {
   currentDataHardwareMotionArtifact,
 } from './audit-data-hardware-motion-continuity.ts';
@@ -908,10 +912,24 @@ function readRetainedDependency(root: string, ref: LocalArtifact, parsedInputCac
     ref.bytes === 17843 && ref.sha256 === '4da47ae4cf73f7fe15f1c0347b5df7174e98680a2bc3e97525169e293c017ec8')) {
     return retainedDomainPairSource(root, ref.path, current);
   }
+  if (ref.path === 'components/interactive/friction-transfer.tsx' &&
+    ref.bytes === 15549 && ref.sha256 === 'af16eda88835169e720e7e6a8bb79c3ede65cba005635825a0b27f9aec7d8da9') {
+    return retainedFrictionTransferSource(root, current);
+  }
+  if (ref.path === 'components/article/commit-to-reveal.tsx' &&
+    ref.bytes === 12571 && ref.sha256 === '8642903b3584b2a79ecb27fefbf2cf8652dd86f4600eaa7a5ce6aa03224c4190') {
+    return retainedCommitToRevealSource(root, current);
+  }
   if (ref.path === 'content/frontier/safety-and-assurance.mdx' &&
     ref.sha256 === '89c2e410795c25254a1ebdea7ccbadcddb364f6535f5ea9fe5d8ef7063113f69' &&
     ref.bytes === 19566) {
     return currentFrontierSafetyArticle(root, current);
+  }
+  if (round5FirstScreenCdEndpoint(ref)) {
+    return retainedRound5FirstScreenCdArticle(root, ref.path, current);
+  }
+  if (round5ReaderPinEndpoint(ref)) {
+    return retainedRound5ReaderPinSource(root, ref.path, current);
   }
   if (['content/rl-sim2real/parallel-sim-rl.mdx',
     'content/rl-sim2real/legged-locomotion.mdx',
@@ -935,12 +953,12 @@ function readRetainedDependency(root: string, ref: LocalArtifact, parsedInputCac
   if (ref.path === 'content/data-hardware/evaluation-crisis.mdx' &&
     ref.sha256 === '7f30bc80d8f82bf2b596f7e2e916abe9663b572933454402571cad85255d8ac8' &&
     ref.bytes === 17449) {
-    return currentDataHardwareMotionArtifact(root, 1, current);
+    return retainedRound5FirstScreenArticle(root, 1, current);
   }
   if (ref.path === 'content/data-hardware/data-bottleneck.mdx' &&
     ref.sha256 === 'd4c1dceb0ae03fc356056723f6f781d0b1c57f279091dc65a65ae1488454a5cf' &&
     ref.bytes === 11947) {
-    return currentDataHardwareMotionArtifact(root, 0, current);
+    return retainedRound5FirstScreenArticle(root, 0, current);
   }
   if (ref.path === 'tests/e2e/industrial-citation-refresh.spec.ts' &&
     ref.sha256 === WITHDRAWAL_REFRESH_SPEC_HASH && ref.bytes === WITHDRAWAL_REFRESH_SPEC_BYTES) {
@@ -1146,9 +1164,13 @@ function readRetainedDependency(root: string, ref: LocalArtifact, parsedInputCac
     currentRlMotionArticle(root, expectedCurrent,
       loadRlMotionContinuity(root), ref, parsedInputCache);
   } else if (ref.path === 'content/data-hardware/data-bottleneck.mdx') {
-    const preMotion = currentDataHardwareMotionArtifact(root, 0, current);
+    const preMotion = retainedRound5FirstScreenArticle(root, 0, current);
     requireThat(expectedCurrent.bytes === preMotion.length &&
       expectedCurrent.sha256 === sha256(preMotion), 'stale data-bottleneck predecessor review');
+  } else if (ref.path === 'content/classical/motion-planning.mdx') {
+    const preMove = retainedRound5FirstScreenCdArticle(root, ref.path, current);
+    requireThat(expectedCurrent.bytes === preMove.length &&
+      expectedCurrent.sha256 === sha256(preMove), 'stale motion-planning predecessor review');
   } else {
     requireThat(expectedCurrent.bytes === current.length && expectedCurrent.sha256 === sha256(current),
       'stale dependency review');
@@ -1159,7 +1181,7 @@ function readRetainedDependency(root: string, ref: LocalArtifact, parsedInputCac
     binding.snapshot.sha256 === ref.sha256, 'historical dependency snapshot drift');
   for (const disclosure of binding.preservedText ?? []) {
     const checked = ref.path === 'content/data-hardware/data-bottleneck.mdx'
-      ? currentDataHardwareMotionArtifact(root, 0, current).toString()
+      ? retainedRound5FirstScreenArticle(root, 0, current).toString()
       : ref.path === INDUSTRIAL_ARTICLE
         ? currentDataHardwareMotionArtifact(root, 2, current).toString() : current.toString();
     requireThat(checked.includes(disclosure), 'current disclosure drift');

@@ -2,7 +2,7 @@ import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { writeFileSync } from 'node:fs';
 import { DIRECTORY, ROUTE, BROWSER, artifact, dependencies, defaults, ranges, oracle, save } from '../../audit/evidence/economics-local-20260923/support';
-import { setSlider } from './slider';
+import { setHydratedSlider as setSlider } from './interaction-ready';
 
 const producing = process.env.ECONOMICS_WRITE_BROWSER === '1';
 async function capture(page: Page, name: string) {
@@ -31,7 +31,7 @@ test('industrial52 actual default robot-cost endpoints and reset', async ({ page
   await page.setViewportSize({ width: 1440, height: 1100 });
   expect((await page.goto(ROUTE))?.status()).toBe(200);
   await page.evaluate(() => document.fonts.ready);
-  const mount = page.locator('div.prose > div.rounded-md:has([data-testid="payback-months"])');
+  const mount = page.locator('div.prose > [data-brand-module-signature="instrument-frame"]:has([data-testid="payback-months"])');
   await expect(mount).toHaveCount(1);
   const slider = mount.getByRole('slider', { name: /robot cost/i });
   const controls = [/robot cost/i, /integration multiple/i, /cycle time/i, /uptime/i, /per-pick success/i, /jam-clearing time/i, /displaced wage/i];

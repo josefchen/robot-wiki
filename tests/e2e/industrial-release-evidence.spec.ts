@@ -14,7 +14,7 @@ const ROUTE = '/data-hardware/industrial-deployment/';
  * if a second mount ever appears.
  */
 function calculator(page: import('@playwright/test').Page) {
-  return page.locator('div.prose > div.rounded-md:has([data-testid="payback-months"])');
+  return page.locator('div.prose > [data-brand-module-signature="instrument-frame"]:has([data-testid="payback-months"])');
 }
 
 test('industrial closure paired cases and complete reader surfaces', async ({ page }) => {

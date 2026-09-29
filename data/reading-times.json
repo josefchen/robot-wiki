@@ -4,11 +4,11 @@
     "minutes": 9
   },
   "manipulation/action-chunking": {
-    "words": 2819,
+    "words": 2821,
     "minutes": 14
   },
   "manipulation/diffusion-policy": {
-    "words": 1800,
+    "words": 1813,
     "minutes": 9
   },
   "manipulation/vla-models": {
@@ -72,7 +72,7 @@
     "minutes": 10
   },
   "rl-sim2real/sim2real-transfer": {
-    "words": 2862,
+    "words": 2872,
     "minutes": 14
   },
   "rl-sim2real/legged-locomotion": {
@@ -188,7 +188,7 @@
     "minutes": 7
   },
   "frontier/reliability-gap": {
-    "words": 1718,
+    "words": 1720,
     "minutes": 9
   },
   "frontier/dexterity": {

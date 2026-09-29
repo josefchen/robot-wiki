@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { waitForHydration } from './interaction-ready';
 
 const ROUTE = '/manipulation/rl-finetuning/';
 
@@ -83,6 +84,7 @@ test.describe('rl-finetuning module', () => {
 
     // Scrub with the keyboard into the grasp segment: value falls, low advantage.
     const slider = page.getByRole('slider', { name: /episode time/i });
+    await waitForHydration(slider);
     await slider.focus();
     for (let i = 0; i < 24; i += 1) await page.keyboard.press('ArrowRight');
     await expect(timeReadout).toHaveText(/t = 12\.0 s/);

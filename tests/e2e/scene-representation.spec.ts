@@ -3,7 +3,7 @@ import AxeBuilder from '@axe-core/playwright';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import matter from 'gray-matter';
-import { setSlider } from './slider';
+import { setHydratedSlider as setSlider, waitForHydration } from './interaction-ready';
 import { publishedModules } from '../../data/modules';
 
 /**
@@ -389,6 +389,7 @@ test.describe('classical scene-representation module', () => {
       .getByTestId('scene-resolution-value')
       .textContent();
 
+    await waitForHydration(slider(page));
     await slider(page).focus();
     await expect(slider(page)).toBeFocused();
     await page.keyboard.press('ArrowRight');
