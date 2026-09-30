@@ -5,11 +5,11 @@
  *
  * Code-splitting: each scene loads through the article's lazy mount. The
  * placeholder is the poster frame, which prerenders the scene's final frame
- * server-side inside the same instrument
- * chrome (header row, bounded-dark stage, caption, legend, readout) with
- * the transport controls disabled. The stage occupies the identical box
- * before and after activation, so nothing the reader is looking at shifts;
- * the only thing activation adds is the live scrubber below the stage.
+ * server-side inside the same figure frame (header, graphite stage with its
+ * legend, readout and timeline, caption) with the transport controls
+ * disabled. The poster draws the timeline at its end and the player swaps
+ * in the live scrubber at the same height, so activation moves nothing the
+ * reader is looking at.
  *
  * No autoplay, ever: the poster's play control is the click. Under reduced
  * motion the click activates the scene paused on the poster still; the
@@ -25,15 +25,19 @@ import {
 import { usePrefersReducedMotion } from './use-reduced-motion';
 import { Play } from '@phosphor-icons/react';
 import {
-  InstrumentFrame,
-  InstrumentHeader,
-  InstrumentLegend,
-  InstrumentReadout,
   InstrumentReset,
   INSTRUMENT_PRIMARY_CONTROL_CLASS,
   INSTRUMENT_SECONDARY_CONTROL_CLASS,
 } from '@/components/ui/instrument';
-import { Surface } from '@/components/ui/surface';
+import { FigureFrame, FigureStage } from './figure-frame';
+import {
+  SceneReadout,
+  SceneStageFooter,
+  SceneTimelineAtEnd,
+  sceneBeatWords,
+  sceneFigureId,
+  useSceneSource,
+} from './scene-chrome';
 import ScenePlayer from './scene-player';
 
 export interface SceneMountProps {
@@ -65,6 +69,7 @@ export function SceneMount({
   const [autoPlay, setAutoPlay] = useState(false);
   const descriptionId = `${useId()}-motion-poster-alt`;
   const reducedMotion = usePrefersReducedMotion();
+  const source = useSceneSource();
   const poster = posterTime(beatSpans(scene.beats));
   const beatCount = scene.beats.length;
   const posterBeat = scene.beats[beatCount - 1];
@@ -83,20 +88,18 @@ export function SceneMount({
     beatLabel: `${beatCount} / ${beatCount}`,
   };
   const posterView = (
-      <InstrumentFrame
-        data-motion-scene={scene.id}
-        role="group"
-        aria-label={`Motion scene: ${scene.title}`}
-        aria-describedby={descriptionId}
-        className={className}
-      >
-        <InstrumentHeader
-          meta={
-            <span data-testid="motion-beat-count">
-              beat {posterState.beatLabel}
-            </span>
-          }
-        >
+    <FigureFrame
+      as="div"
+      figureId={sceneFigureId(scene.id)}
+      data-motion-scene={scene.id}
+      data-figure-beat-words={sceneBeatWords(scene)}
+      role="group"
+      aria-label={`Motion scene: ${scene.title}`}
+      aria-describedby={descriptionId}
+      className={className}
+      heading={scene.title}
+      controls={
+        <>
           <button
             data-brand-control-id="control:primary-action"
             data-pagefind-ignore
@@ -138,45 +141,34 @@ export function SceneMount({
             disabled
             aria-label="Reset the scene to its poster still"
           />
-        </InstrumentHeader>
-
-        <Surface
-          level="bounded-dark"
-          data-motion-stage
-          className="mt-4 overflow-hidden"
-        >
-          <StaticTimeProvider value={poster}>{stage}</StaticTimeProvider>
-        </Surface>
-
-        {/* The poster's caption is the final beat's caption: the still the
-            reader is looking at, in the same slot the live caption uses. */}
-        <p data-testid="motion-caption" className="mt-3 font-sans text-sm leading-relaxed text-text">
-          {posterBeat.caption}
-        </p>
-
-        {legend ? (
-          <InstrumentLegend className="mt-3">{legend}</InstrumentLegend>
-        ) : null}
-
+        </>
+      }
+      stage={
         <StaticTimeProvider value={poster}>
-          <InstrumentReadout data-testid="motion-readout">
-            <span className="text-text-dim">beat</span>{' '}
-            <span data-testid="motion-beat-readout" className="text-text">
-              {posterState.beatLabel}
-            </span>{' '}
-            {readout ? readout(posterState) : null}
-          </InstrumentReadout>
+          <FigureStage
+            footer={
+              <SceneStageFooter
+                legend={legend}
+                readout={<SceneReadout state={posterState} readout={readout} />}
+                statusLine={statusLine}
+              />
+            }
+            timeline={<SceneTimelineAtEnd />}
+          >
+            <div data-motion-stage="">{stage}</div>
+          </FigureStage>
         </StaticTimeProvider>
-
-        {statusLine ? (
-          <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
-            {statusLine}
-          </p>
-        ) : null}
-        <p id={descriptionId} className="sr-only" hidden>
-          {textAlternative}
-        </p>
-      </InstrumentFrame>
+      }
+      // The poster's caption is the final beat's caption: the still the
+      // reader is looking at, in the same slot the live caption uses.
+      caption={posterBeat.caption}
+      captionProps={{ 'data-testid': 'motion-caption' }}
+      source={source}
+    >
+      <p id={descriptionId} className="sr-only" hidden>
+        {textAlternative}
+      </p>
+    </FigureFrame>
   );
 
   if (!active) return posterView;

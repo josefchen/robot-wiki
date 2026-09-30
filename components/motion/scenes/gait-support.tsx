@@ -44,10 +44,10 @@ function GaitSupportStage() {
             stroke="var(--role-constraint-stage)" strokeWidth={2} />
         </pattern>
       </defs>
-      <text x={26} y={25} fontSize={16} fill="var(--motion-stage-label)">feet on ground · sampled cycle</text>
+      <text x={22} y={25} fontSize={16} fill="var(--motion-stage-label)">feet on ground · sampled cycle</text>
       {GAIT_ORDER.map((id, row) => (
         <g key={id}>
-          <AnimatedElement as="text" data-scene-stage-label="gait-name" x={27} y={59 + row * 40}
+          <AnimatedElement as="text" data-scene-stage-label="gait-name" x={23} y={59 + row * 40}
             fontSize={16} fill="var(--motion-stage-label)"
             bindings={{ opacity: (t) => progress(t, row) }}>
             {GAITS[id].name}
@@ -68,7 +68,7 @@ function GaitSupportStage() {
                   bindings={{ opacity: (t) => progress(t, row) }}
                 />
                 {count === 2 && (
-                  <AnimatedElement as="text" data-scene-stage-label="stance-pair"
+                  <AnimatedElement as="text" data-scene-stage-label="stance-pair" data-scene-note
                     x={128.5 + column * 51} y={baseline + 18}
                     textAnchor="middle" fontSize={16} fill="var(--motion-stage-label-secondary)"
                     bindings={{ opacity: (t) => progress(t, row) }}>
@@ -85,11 +85,11 @@ function GaitSupportStage() {
           stroke="var(--motion-stage-axes)" opacity="var(--motion-stage-axes-opacity)" />
       </g>
       {['10%', '48%', '60%', '98%'].map((label, column) => (
-        <text key={label} data-scene-stage-label="sample-phase"
-          x={128 + column * 51} y={210} textAnchor="middle"
+        <text key={label} data-scene-stage-label="sample-phase" data-scene-tick
+          x={128 + column * 51} y={209} textAnchor="middle"
           fontSize={16} fill="var(--motion-stage-label-secondary)">{label}</text>
       ))}
-      <text x={26} y={230} fontSize={14} fill="var(--motion-stage-label-secondary)">
+      <text x={22} y={229} fontSize={14} data-scene-note fill="var(--motion-stage-label-secondary)">
         illustrative phases · no measured footfall data
       </text>
     </StageSvg>

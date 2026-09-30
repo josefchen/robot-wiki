@@ -59,7 +59,7 @@ function FlowTransportStage() {
       <text x={38} y={32} fontSize={14} fill="var(--motion-stage-label)">noise → action</text>
       <AnimatedElement as="text" x={247} y={32} fontSize={14} fill="var(--role-action-stage)"
         bindings={{ opacity: (t) => flowTransportFrame(t).recapOpacity }}>two modes</AnimatedElement>
-      <AnimatedElement as="text" x={38} y={51} fontSize={13} fill="var(--motion-stage-label-secondary)"
+      <AnimatedElement as="text" x={38} y={53} fontSize={13} data-scene-note fill="var(--motion-stage-label-secondary)"
         bindings={{ opacity: (t) => flowTransportFrame(t).compareOpacity }}>
         one step misses; ten steps approach
       </AnimatedElement>
@@ -98,7 +98,7 @@ function FlowTransportStage() {
         x2={x(PATHS[0][STEPS].x)} y2={y(PATHS[0][STEPS].y)}
         stroke="var(--role-constraint-stage)" strokeWidth={1} strokeDasharray="3 3"
         bindings={{ opacity: (t) => flowTransportFrame(t).compareOpacity }} />
-      <text x={38} y={216} fontSize={13} fill="var(--motion-stage-label-secondary)">
+      <text x={38} y={216} fontSize={13} data-scene-axis fill="var(--motion-stage-label-secondary)">
         action dimension 1 → action dimension 2
       </text>
     </StageSvg>

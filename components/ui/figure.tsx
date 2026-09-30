@@ -1,4 +1,6 @@
 /* eslint-disable @next/next/no-img-element -- static export serves plain images */
+import { FIGURE_TEXT_CLASS } from '@/components/motion/figure-frame';
+import { LOGO_MARK_CLASS, LOGO_TILE_CLASS } from '@/components/ui/logo-tile';
 import { Surface } from '@/components/ui/surface';
 import { cx } from '@/lib/utils';
 import type { FigureKind } from '@/data/schemas/image';
@@ -41,6 +43,11 @@ type FigureProps = {
   credit?: FigureCredit;
   width?: number;
   height?: number;
+  /**
+   * Where a photograph's 3:2 crop anchors. `top` is for a portrait whose
+   * subject's head sits in the top half, which a centred crop would cut.
+   */
+  cropFocus?: 'center' | 'top';
   className?: string;
 };
 
@@ -65,9 +72,12 @@ export function Figure({
   credit,
   width,
   height,
+  cropFocus = 'center',
   className,
 }: FigureProps) {
   const schematic = figureKind === 'original-schematic';
+  const mark = figureKind === 'official-mark';
+  const photo = figureKind === 'photograph';
   const image = (
     <img
       src={src}
@@ -77,11 +87,15 @@ export function Figure({
       loading="lazy"
       decoding="async"
       className={cx(
-        'h-auto w-full',
         // Inside the instrument the plate already carries the boundary, so a
         // second border here would be the redundant nested frame the
         // repetition rubric counts.
-        schematic ? 'rounded-xs' : 'rounded-md border border-border',
+        schematic && 'h-auto w-full rounded-xs',
+        mark && cx(LOGO_MARK_CLASS, 'h-full w-auto'),
+        // The border stays on the image rather than the crop box: a bordered
+        // box holding an element is a surface the registry would govern.
+        photo && 'h-full w-full rounded-md border border-border object-cover',
+        photo && cropFocus === 'top' && 'object-top',
       )}
     />
   );
@@ -89,22 +103,42 @@ export function Figure({
     <figure
       data-figure-kind={figureKind}
       data-image-id={imageId}
-      className={cx('my-6', className)}
+      className={cx(
+        'my-6',
+        // Every photograph takes one width at a given viewport, whatever
+        // column it sits in, so photos never read as page heroes.
+        photo && 'w-full max-w-[20rem] sm:max-w-[32rem]',
+        className,
+      )}
     >
       {schematic ? (
         <Surface level="bounded-dark" className="p-3">
           <span
             data-figure-label
-            className="block font-mono text-[11px] uppercase leading-none tracking-[0.14em] text-instrument-muted"
+            className="block font-sans text-xs font-semibold leading-none text-instrument-muted"
           >
             {SCHEMATIC_LABEL}
           </span>
           <span className="mt-2 block">{image}</span>
         </Surface>
+      ) : mark ? (
+        <span
+          data-logo-tile=""
+          data-brand-surface-id="surface:flat"
+          className={cx(LOGO_TILE_CLASS, 'h-24 max-w-full')}
+        >
+          {image}
+        </span>
       ) : (
-        image
+        // One 3:2 crop for every photograph, filled rather than letterboxed.
+        <span
+          data-photo-frame=""
+          className="block aspect-[3/2] w-full overflow-hidden rounded-md"
+        >
+          {image}
+        </span>
       )}
-      <figcaption className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
+      <figcaption className={FIGURE_TEXT_CLASS.caption + ' mt-2'}>
         {caption}
       </figcaption>
       {credit ? (
@@ -117,10 +151,8 @@ export function Figure({
           // guarantee is a rendered-DOM guarantee, untouched by this.
           // The caption above is content and stays indexed.
           data-pagefind-ignore
-          // Source metadata is a monospace role in design-system 13.1, which
-          // is also what separates the provenance line from the caption
-          // above it without another rule or another colour.
-          className="mt-1 block font-mono text-[11px] leading-relaxed text-text-dim"
+          // The credit is the figure system's source line.
+          className={FIGURE_TEXT_CLASS.source + ' mt-1 block'}
         >
           {credit.kind}: {credit.creator} /{' '}
           {credit.sourceUrl ? (

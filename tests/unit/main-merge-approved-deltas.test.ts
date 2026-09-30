@@ -321,7 +321,16 @@ const round6RemainingRepairAppends = [
   'round6-remaining-repairs-20260929-article-metadata-modules-taxonomy',
   'round6-remaining-repairs-20260929-prose-state-estimation',
 ] as const;
-const afterRound6Prose = merged.length - round6RemainingRepairAppends.length;
+// The figure-system pass of 2026-09-30 added a reuse caption after the
+// reliability-gap calculator that states its purpose and links to the
+// canonical page. That member's history already ended in the round-5
+// resolution, so this entry is a resolution from the sealed hash binding all
+// twenty-one prior edges.
+const opusFigureSystemAppends = [
+  'opus-figure-system-20260930-prose-reliability-gap',
+] as const;
+const afterRound6 = merged.length - opusFigureSystemAppends.length;
+const afterRound6Prose = afterRound6 - round6RemainingRepairAppends.length;
 const beforeRound6 = merged.slice(0, afterRound6Prose - round6ProseRestoreAppends.length);
 
 describe('two-parent exact approval reconciliation', () => {
@@ -339,20 +348,27 @@ describe('two-parent exact approval reconciliation', () => {
     // The subsequent domain passes add nine classical article endpoints,
     // two manipulation mounts, eight RL article endpoints and five RL
     // reconciliation edges, all named below in ledger order, and the round-6
-    // prose restores and remaining repairs add the edges named above.
-    expect([main.length, local.length, localOnly.length, merged.length]).toEqual([1558, 1104, 7, 1775]);
+    // prose restores and remaining repairs and the figure-system resolution
+    // add the edges named above.
+    expect([main.length, local.length, localOnly.length, merged.length]).toEqual([1558, 1104, 7, 1776]);
     expect(merged.slice(0, main.length)).toEqual(main);
     expect(merged.slice(main.length, main.length + localOnly.length)).toEqual(localOnly);
     expect(merged.slice(main.length + localOnly.length).map(x => x.id))
-      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends]);
+      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends]);
     expect(merged.slice(beforeRound6.length, afterRound6Prose)).toMatchObject(round6ProseRestoreEndpoints.map(
       ([memberId, , newHash], index) => ({
         id: round6ProseRestoreAppends[index], manifest: 'prose', memberId, newHash,
       })));
-    expect(merged.slice(afterRound6Prose)).toMatchObject(round6RemainingRepairEndpoints.map(
+    expect(merged.slice(afterRound6Prose, afterRound6)).toMatchObject(round6RemainingRepairEndpoints.map(
       ([manifest, memberId, oldHash, newHash], index) => ({
         id: round6RemainingRepairAppends[index], manifest, memberId, oldHash, newHash,
       })));
+    expect(merged.slice(afterRound6)).toMatchObject([{
+      id: opusFigureSystemAppends[0], manifest: 'prose',
+      memberId: 'article:frontier/reliability-gap',
+      oldHash: 'a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c',
+      newHash: 'ec938d42bd87814a5ef1f3c3808a4fbc645107b4e94e6a822646a0465610a063',
+    }]);
     expect(beforeRound6.slice(-1)).toMatchObject([{
       id: sharedReaderLayoutAppends[0], manifest: 'article-metadata',
       memberId: 'canonical-metadata-source:app/layout.tsx',
@@ -462,16 +478,36 @@ describe('two-parent exact approval reconciliation', () => {
     }
     const reliabilityEdges = merged.filter(x => x.manifest === 'prose'
       && x.memberId === 'article:frontier/reliability-gap');
-    const reliabilityResolution = reliabilityEdges.at(-1)!;
-    expect(reliabilityResolution.id).toBe(round5FirstScreenAppends[0]);
-    expect(reliabilityResolution.reconciles).toEqual(reliabilityEdges.slice(0, -1).map(x => ({
+    // The round-5 resolution closed the chain as it stood before the
+    // figure-system resolution, which now binds it too.
+    const reliabilityBefore = reliabilityEdges.slice(0, -1);
+    const round5Resolution = reliabilityBefore.at(-1)!;
+    expect(round5Resolution.id).toBe(round5FirstScreenAppends[0]);
+    expect(round5Resolution.reconciles).toEqual(reliabilityBefore.slice(0, -1).map(x => ({
       id: x.id, oldHash: x.oldHash, newHash: x.newHash,
     })));
-    expect(reliabilityResolution.reconciles).toHaveLength(20);
+    expect(round5Resolution.reconciles).toHaveLength(20);
+    expect(approvedDeltaPath(reliabilityBefore, round5Resolution.oldHash,
+      round5Resolution.newHash).status).toBe('approved');
+    expect(approvedDeltaPath(reliabilityBefore.slice(0, -1), round5Resolution.oldHash,
+      round5Resolution.newHash).status).toBe('ambiguous');
+    const reliabilityResolution = reliabilityEdges.at(-1)!;
+    expect(reliabilityResolution.id).toBe(opusFigureSystemAppends[0]);
+    expect(reliabilityResolution.oldHash).toBe(round5Resolution.oldHash);
+    expect(reliabilityResolution.reconciles).toEqual(reliabilityBefore.map(x => ({
+      id: x.id, oldHash: x.oldHash, newHash: x.newHash,
+    })));
+    expect(reliabilityResolution.reconciles).toHaveLength(21);
     expect(approvedDeltaPath(reliabilityEdges, reliabilityResolution.oldHash,
       reliabilityResolution.newHash).status).toBe('approved');
-    expect(approvedDeltaPath(reliabilityEdges.slice(0, -1), reliabilityResolution.oldHash,
+    expect(approvedDeltaPath(reliabilityBefore, reliabilityResolution.oldHash,
       reliabilityResolution.newHash).status).toBe('ambiguous');
+    expect(approvedDeltaPath(reliabilityEdges.map((edge, index) => index === 0
+      ? { ...edge, newHash: '0'.repeat(64) } : edge),
+    reliabilityResolution.oldHash, reliabilityResolution.newHash).status).toBe('ambiguous');
+    // The bytes before the reuse caption no longer pass on the full chain.
+    expect(approvedDeltaPath(reliabilityEdges, reliabilityResolution.oldHash,
+      round5Resolution.newHash).status).toBe('ambiguous');
     const parallelEdges = merged.filter(x => x.manifest === 'prose'
       && x.memberId === 'article:rl-sim2real/parallel-sim-rl');
     const parallelResolution = parallelEdges.at(-1)!;

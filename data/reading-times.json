@@ -12,11 +12,11 @@
     "minutes": 9
   },
   "manipulation/vla-models": {
-    "words": 2457,
+    "words": 2458,
     "minutes": 12
   },
   "manipulation/pi-line": {
-    "words": 3223,
+    "words": 3224,
     "minutes": 16
   },
   "manipulation/generalist-policies": {
@@ -68,7 +68,7 @@
     "minutes": 6
   },
   "rl-sim2real/parallel-sim-rl": {
-    "words": 1948,
+    "words": 1951,
     "minutes": 10
   },
   "rl-sim2real/sim2real-transfer": {
@@ -76,7 +76,7 @@
     "minutes": 14
   },
   "rl-sim2real/legged-locomotion": {
-    "words": 2324,
+    "words": 2327,
     "minutes": 12
   },
   "rl-sim2real/humanoid-wbc": {
@@ -96,11 +96,11 @@
     "minutes": 11
   },
   "world-models/latent-dynamics": {
-    "words": 1938,
+    "words": 1940,
     "minutes": 10
   },
   "world-models/generative-video": {
-    "words": 2269,
+    "words": 2271,
     "minutes": 11
   },
   "world-models/jepa": {
@@ -108,7 +108,7 @@
     "minutes": 9
   },
   "world-models/generative-sim": {
-    "words": 2087,
+    "words": 2093,
     "minutes": 10
   },
   "world-models/model-based-robot-learning": {
@@ -124,7 +124,7 @@
     "minutes": 11
   },
   "data-hardware/data-bottleneck": {
-    "words": 1859,
+    "words": 1865,
     "minutes": 9
   },
   "data-hardware/datasets": {
@@ -140,11 +140,11 @@
     "minutes": 9
   },
   "data-hardware/evaluation-crisis": {
-    "words": 2089,
+    "words": 2092,
     "minutes": 10
   },
   "data-hardware/industrial-deployment": {
-    "words": 2857,
+    "words": 2862,
     "minutes": 14
   },
   "data-hardware/robot-learning-stack": {
@@ -152,11 +152,11 @@
     "minutes": 6
   },
   "classical/kinematics": {
-    "words": 2295,
+    "words": 2297,
     "minutes": 11
   },
   "classical/motion-planning": {
-    "words": 3947,
+    "words": 3951,
     "minutes": 20
   },
   "classical/control": {
@@ -164,7 +164,7 @@
     "minutes": 17
   },
   "classical/state-estimation": {
-    "words": 2964,
+    "words": 2965,
     "minutes": 15
   },
   "classical/grasp-planning": {
@@ -188,11 +188,11 @@
     "minutes": 7
   },
   "frontier/reliability-gap": {
-    "words": 1708,
+    "words": 1728,
     "minutes": 9
   },
   "frontier/dexterity": {
-    "words": 2486,
+    "words": 2488,
     "minutes": 12
   },
   "frontier/generalization": {
@@ -216,7 +216,7 @@
     "minutes": 18
   },
   "adjacent/drones": {
-    "words": 2406,
+    "words": 2408,
     "minutes": 12
   },
   "adjacent/surgical": {

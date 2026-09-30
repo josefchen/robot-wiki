@@ -1,0 +1,2321 @@
+{
+ "treatment": [
+  "rgb(125, 122, 115) | 3px | grayscale(1) brightness(0.625) contrast(100)"
+ ],
+ "whiteMarks": [
+  {
+   "key": "ubtech-logo",
+   "file": "/images/logos/ubtech.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "362x90",
+   "opaque": 7114,
+   "share": 0.936
+  },
+  {
+   "key": "skild-ai-logo",
+   "file": "/images/logos/skild-ai.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "389x90",
+   "opaque": 1497,
+   "share": 0.862
+  },
+  {
+   "key": "dyna-robotics-logo",
+   "file": "/images/logos/dyna-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "424x90",
+   "opaque": 8140,
+   "share": 0.97
+  },
+  {
+   "key": "leju-robotics-logo",
+   "file": "/images/logos/leju-robotics.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "596x90",
+   "opaque": 16443,
+   "share": 0.917
+  },
+  {
+   "key": "paxini-logo",
+   "file": "/images/logos/paxini.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "327x90",
+   "opaque": 37665,
+   "share": 0.985
+  },
+  {
+   "key": "coco-robotics-logo",
+   "file": "/images/logos/coco-robotics.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "126x90",
+   "opaque": 89520,
+   "share": 0.988
+  },
+  {
+   "key": "knightscope-logo",
+   "file": "/images/logos/knightscope.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x90",
+   "opaque": 5516,
+   "share": 0.954
+  },
+  {
+   "key": "diligent-robotics-logo",
+   "file": "/images/logos/diligent-robotics.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "266x90",
+   "opaque": 16525,
+   "share": 0.945
+  },
+  {
+   "key": "brain-corp-logo",
+   "file": "/images/logos/brain-corp.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "228x90",
+   "opaque": 21367,
+   "share": 0.959
+  }
+ ],
+ "credits": [
+  {
+   "key": "physical-intelligence-logo",
+   "file": "/images/logos/physical-intelligence.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x90",
+   "opaque": 16522,
+   "share": 0.993
+  },
+  {
+   "key": "covariant-logo",
+   "file": "/images/logos/covariant.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "216x90",
+   "opaque": 150000,
+   "share": 1
+  },
+  {
+   "key": "nvidia-logo",
+   "file": "/images/logos/nvidia.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "480x90",
+   "opaque": 9651,
+   "share": 0.972
+  },
+  {
+   "key": "hugging-face-logo",
+   "file": "/images/logos/hugging-face.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "339x90",
+   "opaque": 21958,
+   "share": 0.96
+  },
+  {
+   "key": "figure-ai-logo",
+   "file": "/images/logos/figure-ai.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x90",
+   "opaque": 262144,
+   "share": 1
+  },
+  {
+   "key": "agility-robotics-logo",
+   "file": "/images/logos/agility-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "398x90",
+   "opaque": 28040,
+   "share": 0.972
+  },
+  {
+   "key": "tesla-logo",
+   "file": "/images/logos/tesla.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "70x90",
+   "opaque": 19756,
+   "share": 0.977
+  },
+  {
+   "key": "unitree-logo",
+   "file": "/images/logos/unitree.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "400x90",
+   "opaque": 6175,
+   "share": 0.941
+  },
+  {
+   "key": "ubtech-logo",
+   "file": "/images/logos/ubtech.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "362x90",
+   "opaque": 7114,
+   "share": 0.936
+  },
+  {
+   "key": "neura-robotics-logo",
+   "file": "/images/logos/neura-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "596x90",
+   "opaque": 1780,
+   "share": 0.835
+  },
+  {
+   "key": "wandercraft-logo",
+   "file": "/images/logos/wandercraft.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "493x90",
+   "opaque": 1507,
+   "share": 0.827
+  },
+  {
+   "key": "rainbow-robotics-logo",
+   "file": "/images/logos/rainbow-robotics.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "295x90",
+   "opaque": 67963,
+   "share": 0.992
+  },
+  {
+   "key": "berkshire-grey-logo",
+   "file": "/images/logos/berkshire-grey.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "380x90",
+   "opaque": 1295,
+   "share": 0.827
+  },
+  {
+   "key": "amazon-robotics-logo",
+   "file": "/images/logos/amazon-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "289x90",
+   "opaque": 17474,
+   "share": 0.942
+  },
+  {
+   "key": "bedrock-robotics-logo",
+   "file": "/images/logos/bedrock-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "596x90",
+   "opaque": 4723,
+   "share": 0.884
+  },
+  {
+   "key": "intuitive-surgical-logo",
+   "file": "/images/logos/intuitive-surgical.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "225x90",
+   "opaque": 1063,
+   "share": 0.754
+  },
+  {
+   "key": "cmr-surgical-logo",
+   "file": "/images/logos/cmr-surgical.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x90",
+   "opaque": 50625,
+   "share": 1
+  },
+  {
+   "key": "nuro-logo",
+   "file": "/images/logos/nuro.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "315x90",
+   "opaque": 58479,
+   "share": 0.99
+  },
+  {
+   "key": "irobot-logo",
+   "file": "/images/logos/irobot.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "454x90",
+   "opaque": 38174,
+   "share": 0.974
+  },
+  {
+   "key": "harmonic-drive-logo",
+   "file": "/images/logos/harmonic-drive.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "285x90",
+   "opaque": 105610,
+   "share": 0.985
+  },
+  {
+   "key": "nabtesco-logo",
+   "file": "/images/logos/nabtesco.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "479x90",
+   "opaque": 6629,
+   "share": 0.944
+  },
+  {
+   "key": "wonik-logo",
+   "file": "/images/logos/wonik.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "117x90",
+   "opaque": 5208,
+   "share": 0.969
+  },
+  {
+   "key": "openai-logo",
+   "file": "/images/logos/openai.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "335x90",
+   "opaque": 8646,
+   "share": 0.956
+  },
+  {
+   "key": "meta-logo",
+   "file": "/images/logos/meta.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "447x90",
+   "opaque": 28719,
+   "share": 0.974
+  },
+  {
+   "key": "switchbot-logo",
+   "file": "/images/logos/switchbot.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "415x90",
+   "opaque": 634,
+   "share": 0.94
+  },
+  {
+   "key": "hanson-robotics-logo",
+   "file": "/images/logos/hanson-robotics.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "376x90",
+   "opaque": 14264,
+   "share": 0.984
+  },
+  {
+   "key": "starship-logo",
+   "file": "/images/logos/starship.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "591x90",
+   "opaque": 1156,
+   "share": 0.877
+  },
+  {
+   "key": "pollen-robotics-logo",
+   "file": "/images/logos/pollen-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "506x90",
+   "opaque": 2882,
+   "share": 0.833
+  },
+  {
+   "key": "anduril-logo",
+   "file": "/images/logos/anduril.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "491x90",
+   "opaque": 17942,
+   "share": 0.946
+  },
+  {
+   "key": "abb-logo",
+   "file": "/images/logos/abb.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "227x90",
+   "opaque": 21149,
+   "share": 0.985
+  },
+  {
+   "key": "mitsubishi-logo",
+   "file": "/images/logos/mitsubishi.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "104x90",
+   "opaque": 103859,
+   "share": 0.995
+  },
+  {
+   "key": "monarch-tractor-logo",
+   "file": "/images/logos/monarch-tractor.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "121x90",
+   "opaque": 34268,
+   "share": 0.986
+  },
+  {
+   "key": "skild-ai-logo",
+   "file": "/images/logos/skild-ai.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "389x90",
+   "opaque": 1497,
+   "share": 0.862
+  },
+  {
+   "key": "generalist-ai-logo",
+   "file": "/images/logos/generalist-ai.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x90",
+   "opaque": 8783,
+   "share": 0.985
+  },
+  {
+   "key": "dyna-robotics-logo",
+   "file": "/images/logos/dyna-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "424x90",
+   "opaque": 8140,
+   "share": 0.97
+  },
+  {
+   "key": "sunday-robotics-logo",
+   "file": "/images/logos/sunday-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x90",
+   "opaque": 67264,
+   "share": 0.999
+  },
+  {
+   "key": "field-ai-logo",
+   "file": "/images/logos/field-ai.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "363x90",
+   "opaque": 9453,
+   "share": 0.959
+  },
+  {
+   "key": "genesis-ai-logo",
+   "file": "/images/logos/genesis-ai.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x90",
+   "opaque": 216,
+   "share": 0.954
+  },
+  {
+   "key": "rhoda-ai-logo",
+   "file": "/images/logos/rhoda-ai.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "394x90",
+   "opaque": 6224,
+   "share": 0.906
+  },
+  {
+   "key": "mind-robotics-logo",
+   "file": "/images/logos/mind-robotics.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x90",
+   "opaque": 32400,
+   "share": 1
+  },
+  {
+   "key": "google-deepmind-robotics-logo",
+   "file": "/images/logos/google-deepmind-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "388x90",
+   "opaque": 17881,
+   "share": 0.95
+  },
+  {
+   "key": "applied-intuition-logo",
+   "file": "/images/logos/applied-intuition.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x90",
+   "opaque": 4260,
+   "share": 0.969
+  },
+  {
+   "key": "xdof-logo",
+   "file": "/images/logos/xdof.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "450x90",
+   "opaque": 11382,
+   "share": 0.96
+  },
+  {
+   "key": "encord-logo",
+   "file": "/images/logos/encord.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "80x90",
+   "opaque": 11921,
+   "share": 0.982
+  },
+  {
+   "key": "micro1-logo",
+   "file": "/images/logos/micro1.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x90",
+   "opaque": 1012,
+   "share": 1
+  },
+  {
+   "key": "1x-technologies-logo",
+   "file": "/images/logos/1x-technologies.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "146x90",
+   "opaque": 107,
+   "share": 0.579
+  },
+  {
+   "key": "apptronik-logo",
+   "file": "/images/logos/apptronik.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "596x90",
+   "opaque": 1988,
+   "share": 0.847
+  },
+  {
+   "key": "boston-dynamics-logo",
+   "file": "/images/logos/boston-dynamics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x90",
+   "opaque": 1161,
+   "share": 0.786
+  },
+  {
+   "key": "fourier-intelligence-logo",
+   "file": "/images/logos/fourier-intelligence.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x90",
+   "opaque": 7091,
+   "share": 0.958
+  },
+  {
+   "key": "galbot-logo",
+   "file": "/images/logos/galbot.gif",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x90",
+   "opaque": 15879,
+   "share": 1
+  },
+  {
+   "key": "agibot-logo",
+   "file": "/images/logos/agibot.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "190x90",
+   "opaque": 170400,
+   "share": 1
+  },
+  {
+   "key": "sanctuary-ai-logo",
+   "file": "/images/logos/sanctuary-ai.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x90",
+   "opaque": 15087,
+   "share": 0.973
+  },
+  {
+   "key": "humanoid-uk-logo",
+   "file": "/images/logos/humanoid-uk.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x90",
+   "opaque": 69120,
+   "share": 0.99
+  },
+  {
+   "key": "spirit-ai-logo",
+   "file": "/images/logos/spirit-ai.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "221x90",
+   "opaque": 1356,
+   "share": 0.85
+  },
+  {
+   "key": "galaxea-ai-logo",
+   "file": "/images/logos/galaxea-ai.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "296x90",
+   "opaque": 27753,
+   "share": 0.974
+  },
+  {
+   "key": "engineai-logo",
+   "file": "/images/logos/engineai.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "180x90",
+   "opaque": 18599,
+   "share": 0.984
+  },
+  {
+   "key": "robot-era-logo",
+   "file": "/images/logos/robot-era.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x90",
+   "opaque": 11664,
+   "share": 1
+  },
+  {
+   "key": "tars-robotics-logo",
+   "file": "/images/logos/tars-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "104x90",
+   "opaque": 7014,
+   "share": 0.969
+  },
+  {
+   "key": "x-square-robot-logo",
+   "file": "/images/logos/x-square-robot.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "130x90",
+   "opaque": 3160,
+   "share": 0.945
+  },
+  {
+   "key": "deep-robotics-logo",
+   "file": "/images/logos/deep-robotics.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "292x90",
+   "opaque": 24815,
+   "share": 0.972
+  },
+  {
+   "key": "kepler-robot-logo",
+   "file": "/images/logos/kepler-robot.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x90",
+   "opaque": 261270,
+   "share": 0.999
+  },
+  {
+   "key": "limx-dynamics-logo",
+   "file": "/images/logos/limx-dynamics.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "171x90",
+   "opaque": 189000,
+   "share": 1
+  },
+  {
+   "key": "clone-robotics-logo",
+   "file": "/images/logos/clone-robotics.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "489x90",
+   "opaque": 19504,
+   "share": 0.972
+  },
+  {
+   "key": "mentee-robotics-logo",
+   "file": "/images/logos/mentee-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "596x90",
+   "opaque": 1706,
+   "share": 0.821
+  },
+  {
+   "key": "persona-ai-logo",
+   "file": "/images/logos/persona-ai.webp",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "397x90",
+   "opaque": 2418,
+   "share": 0.869
+  },
+  {
+   "key": "symbotic-logo",
+   "file": "/images/logos/symbotic.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "419x90",
+   "opaque": 3434,
+   "share": 0.911
+  },
+  {
+   "key": "dexterity-logo",
+   "file": "/images/logos/dexterity.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "596x90",
+   "opaque": 4209,
+   "share": 0.935
+  },
+  {
+   "key": "nimble-robotics-logo",
+   "file": "/images/logos/nimble-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "420x90",
+   "opaque": 8068,
+   "share": 0.873
+  },
+  {
+   "key": "locus-robotics-logo",
+   "file": "/images/logos/locus-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "383x90",
+   "opaque": 1715,
+   "share": 0.763
+  },
+  {
+   "key": "mujin-logo",
+   "file": "/images/logos/mujin.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "196x90",
+   "opaque": 6912,
+   "share": 0.895
+  },
+  {
+   "key": "righthand-robotics-logo",
+   "file": "/images/logos/righthand-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "404x90",
+   "opaque": 4814,
+   "share": 0.916
+  },
+  {
+   "key": "ambirobotics-logo",
+   "file": "/images/logos/ambirobotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "245x90",
+   "opaque": 1521,
+   "share": 0.858
+  },
+  {
+   "key": "plus-one-robotics-logo",
+   "file": "/images/logos/plus-one-robotics.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "313x90",
+   "opaque": 21260,
+   "share": 0.962
+  },
+  {
+   "key": "carbon-robotics-logo",
+   "file": "/images/logos/carbon-robotics.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "316x90",
+   "opaque": 20390,
+   "share": 0.975
+  },
+  {
+   "key": "farm-ng-logo",
+   "file": "/images/logos/farm-ng.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "388x90",
+   "opaque": 1637,
+   "share": 0.915
+  },
+  {
+   "key": "chef-robotics-logo",
+   "file": "/images/logos/chef-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "196x90",
+   "opaque": 473,
+   "share": 0.85
+  },
+  {
+   "key": "simbe-robotics-logo",
+   "file": "/images/logos/simbe-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "368x90",
+   "opaque": 1115,
+   "share": 0.858
+  },
+  {
+   "key": "moon-surgical-logo",
+   "file": "/images/logos/moon-surgical.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "100x90",
+   "opaque": 4577,
+   "share": 0.85
+  },
+  {
+   "key": "serve-robotics-logo",
+   "file": "/images/logos/serve-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x90",
+   "opaque": 291600,
+   "share": 1
+  },
+  {
+   "key": "gecko-robotics-logo",
+   "file": "/images/logos/gecko-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "267x90",
+   "opaque": 12258,
+   "share": 0.968
+  },
+  {
+   "key": "standard-bots-logo",
+   "file": "/images/logos/standard-bots.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "596x90",
+   "opaque": 728,
+   "share": 1
+  },
+  {
+   "key": "collaborative-robotics-logo",
+   "file": "/images/logos/collaborative-robotics.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x90",
+   "opaque": 32400,
+   "share": 0.999
+  },
+  {
+   "key": "the-bot-company-logo",
+   "file": "/images/logos/the-bot-company.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "305x90",
+   "opaque": 75028,
+   "share": 1
+  },
+  {
+   "key": "weave-robotics-logo",
+   "file": "/images/logos/weave-robotics.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x90",
+   "opaque": 32336,
+   "share": 1
+  },
+  {
+   "key": "k-scale-labs-logo",
+   "file": "/images/logos/k-scale-labs.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x90",
+   "opaque": 22500,
+   "share": 1
+  },
+  {
+   "key": "automata-logo",
+   "file": "/images/logos/automata.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "596x90",
+   "opaque": 16477,
+   "share": 0.953
+  },
+  {
+   "key": "lila-sciences-logo",
+   "file": "/images/logos/lila-sciences.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "596x90",
+   "opaque": 492,
+   "share": 0.791
+  },
+  {
+   "key": "avidbots-logo",
+   "file": "/images/logos/avidbots.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x90",
+   "opaque": 42236,
+   "share": 0.988
+  },
+  {
+   "key": "leaderdrive-logo",
+   "file": "/images/logos/leaderdrive.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "299x90",
+   "opaque": 30853,
+   "share": 0.979
+  },
+  {
+   "key": "sanhua-logo",
+   "file": "/images/logos/sanhua.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x90",
+   "opaque": 8949,
+   "share": 0.997
+  },
+  {
+   "key": "shadow-robot-logo",
+   "file": "/images/logos/shadow-robot.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "116x90",
+   "opaque": 3444,
+   "share": 0.927
+  },
+  {
+   "key": "sharpa-logo",
+   "file": "/images/logos/sharpa.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "454x90",
+   "opaque": 25980,
+   "share": 0.939
+  },
+  {
+   "key": "xela-robotics-logo",
+   "file": "/images/logos/xela-robotics.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "382x90",
+   "opaque": 8310,
+   "share": 0.99
+  },
+  {
+   "key": "assured-robot-intelligence-logo",
+   "file": "/images/logos/assured-robot-intelligence.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x90",
+   "opaque": 259896,
+   "share": 1
+  },
+  {
+   "key": "saronic-logo",
+   "file": "/images/logos/saronic.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x90",
+   "opaque": 4039,
+   "share": 0.995
+  },
+  {
+   "key": "eka-robotics-logo",
+   "file": "/images/logos/eka-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x90",
+   "opaque": 173145,
+   "share": 0.994
+  },
+  {
+   "key": "foundry-robotics-logo",
+   "file": "/images/logos/foundry-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x90",
+   "opaque": 994,
+   "share": 0.966
+  },
+  {
+   "key": "mytra-logo",
+   "file": "/images/logos/mytra.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x90",
+   "opaque": 24304,
+   "share": 0.997
+  },
+  {
+   "key": "formic-logo",
+   "file": "/images/logos/formic.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x90",
+   "opaque": 22500,
+   "share": 0.992
+  },
+  {
+   "key": "astribot-logo",
+   "file": "/images/logos/astribot.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "205x90",
+   "opaque": 13858,
+   "share": 0.953
+  },
+  {
+   "key": "booster-robotics-logo",
+   "file": "/images/logos/booster-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x90",
+   "opaque": 1342,
+   "share": 0.987
+  },
+  {
+   "key": "leju-robotics-logo",
+   "file": "/images/logos/leju-robotics.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "596x90",
+   "opaque": 16443,
+   "share": 0.917
+  },
+  {
+   "key": "paxini-logo",
+   "file": "/images/logos/paxini.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "327x90",
+   "opaque": 37665,
+   "share": 0.985
+  },
+  {
+   "key": "miso-robotics-logo",
+   "file": "/images/logos/miso-robotics.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "268x90",
+   "opaque": 9437,
+   "share": 0.991
+  },
+  {
+   "key": "coco-robotics-logo",
+   "file": "/images/logos/coco-robotics.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "126x90",
+   "opaque": 89520,
+   "share": 0.988
+  },
+  {
+   "key": "knightscope-logo",
+   "file": "/images/logos/knightscope.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x90",
+   "opaque": 5516,
+   "share": 0.954
+  },
+  {
+   "key": "brain-corp-logo",
+   "file": "/images/logos/brain-corp.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "228x90",
+   "opaque": 21367,
+   "share": 0.959
+  },
+  {
+   "key": "diligent-robotics-logo",
+   "file": "/images/logos/diligent-robotics.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "266x90",
+   "opaque": 16525,
+   "share": 0.945
+  },
+  {
+   "key": "fox-robotics-logo",
+   "file": "/images/logos/fox-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "212x90",
+   "opaque": 25167,
+   "share": 0.979
+  },
+  {
+   "key": "zebra-robotics-automation-logo",
+   "file": "/images/logos/zebra-robotics-automation.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "272x90",
+   "opaque": 1638,
+   "share": 0.876
+  },
+  {
+   "key": "robotphoenix-logo",
+   "file": "/images/logos/robotphoenix.webp",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "225x90",
+   "opaque": 7611,
+   "share": 0.973
+  }
+ ],
+ "marketMap": [
+  {
+   "key": "physical-intelligence",
+   "file": "/images/logos/physical-intelligence.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 16522,
+   "share": 0.993
+  },
+  {
+   "key": "skild-ai",
+   "file": "/images/logos/skild-ai.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x21",
+   "opaque": 1497,
+   "share": 0.862
+  },
+  {
+   "key": "generalist-ai",
+   "file": "/images/logos/generalist-ai.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 8783,
+   "share": 0.985
+  },
+  {
+   "key": "dyna-robotics",
+   "file": "/images/logos/dyna-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x19",
+   "opaque": 8140,
+   "share": 0.97
+  },
+  {
+   "key": "sunday-robotics",
+   "file": "/images/logos/sunday-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 67264,
+   "share": 0.999
+  },
+  {
+   "key": "field-ai",
+   "file": "/images/logos/field-ai.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x22",
+   "opaque": 9453,
+   "share": 0.959
+  },
+  {
+   "key": "covariant",
+   "file": "/images/logos/covariant.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 150000,
+   "share": 1
+  },
+  {
+   "key": "genesis-ai",
+   "file": "/images/logos/genesis-ai.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "16x16",
+   "opaque": 216,
+   "share": 0.954
+  },
+  {
+   "key": "rhoda-ai",
+   "file": "/images/logos/rhoda-ai.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x21",
+   "opaque": 6224,
+   "share": 0.906
+  },
+  {
+   "key": "mind-robotics",
+   "file": "/images/logos/mind-robotics.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 32400,
+   "share": 1
+  },
+  {
+   "key": "assured-robot-intelligence",
+   "file": "/images/logos/assured-robot-intelligence.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 259896,
+   "share": 1
+  },
+  {
+   "key": "eka-robotics",
+   "file": "/images/logos/eka-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 173145,
+   "share": 0.994
+  },
+  {
+   "key": "figure-ai",
+   "file": "/images/logos/figure-ai.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 262144,
+   "share": 1
+  },
+  {
+   "key": "1x-technologies",
+   "file": "/images/logos/1x-technologies.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "26x16",
+   "opaque": 107,
+   "share": 0.579
+  },
+  {
+   "key": "agility-robotics",
+   "file": "/images/logos/agility-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x20",
+   "opaque": 28040,
+   "share": 0.972
+  },
+  {
+   "key": "apptronik",
+   "file": "/images/logos/apptronik.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x7",
+   "opaque": 1988,
+   "share": 0.847
+  },
+  {
+   "key": "tesla-optimus",
+   "file": "/images/logos/tesla.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 19756,
+   "share": 0.977
+  },
+  {
+   "key": "boston-dynamics",
+   "file": "/images/logos/boston-dynamics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 1161,
+   "share": 0.786
+  },
+  {
+   "key": "unitree-robotics",
+   "file": "/images/logos/unitree.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x20",
+   "opaque": 6175,
+   "share": 0.941
+  },
+  {
+   "key": "ubtech-robotics",
+   "file": "/images/logos/ubtech.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x22",
+   "opaque": 7114,
+   "share": 0.936
+  },
+  {
+   "key": "fourier-intelligence",
+   "file": "/images/logos/fourier-intelligence.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 7091,
+   "share": 0.958
+  },
+  {
+   "key": "galbot",
+   "file": "/images/logos/galbot.gif",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 15879,
+   "share": 1
+  },
+  {
+   "key": "agibot",
+   "file": "/images/logos/agibot.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 170400,
+   "share": 1
+  },
+  {
+   "key": "sanctuary-ai",
+   "file": "/images/logos/sanctuary-ai.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 15087,
+   "share": 0.973
+  },
+  {
+   "key": "neura-robotics",
+   "file": "/images/logos/neura-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x11",
+   "opaque": 1780,
+   "share": 0.835
+  },
+  {
+   "key": "humanoid-uk",
+   "file": "/images/logos/humanoid-uk.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 69120,
+   "share": 0.99
+  },
+  {
+   "key": "spirit-ai",
+   "file": "/images/logos/spirit-ai.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 1356,
+   "share": 0.85
+  },
+  {
+   "key": "galaxea-ai",
+   "file": "/images/logos/galaxea-ai.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x27",
+   "opaque": 27753,
+   "share": 0.974
+  },
+  {
+   "key": "engineai",
+   "file": "/images/logos/engineai.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 18599,
+   "share": 0.984
+  },
+  {
+   "key": "robot-era",
+   "file": "/images/logos/robot-era.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 11664,
+   "share": 1
+  },
+  {
+   "key": "tars-robotics",
+   "file": "/images/logos/tars-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 7014,
+   "share": 0.969
+  },
+  {
+   "key": "x-square-robot",
+   "file": "/images/logos/x-square-robot.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 3160,
+   "share": 0.945
+  },
+  {
+   "key": "deep-robotics",
+   "file": "/images/logos/deep-robotics.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x28",
+   "opaque": 24815,
+   "share": 0.972
+  },
+  {
+   "key": "kepler-robot",
+   "file": "/images/logos/kepler-robot.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 261270,
+   "share": 0.999
+  },
+  {
+   "key": "limx-dynamics",
+   "file": "/images/logos/limx-dynamics.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 189000,
+   "share": 1
+  },
+  {
+   "key": "wandercraft",
+   "file": "/images/logos/wandercraft.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x16",
+   "opaque": 1507,
+   "share": 0.827
+  },
+  {
+   "key": "clone-robotics",
+   "file": "/images/logos/clone-robotics.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x17",
+   "opaque": 19504,
+   "share": 0.972
+  },
+  {
+   "key": "mentee-robotics",
+   "file": "/images/logos/mentee-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x8",
+   "opaque": 1706,
+   "share": 0.821
+  },
+  {
+   "key": "persona-ai",
+   "file": "/images/logos/persona-ai.webp",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x20",
+   "opaque": 2418,
+   "share": 0.869
+  },
+  {
+   "key": "rainbow-robotics",
+   "file": "/images/logos/rainbow-robotics.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x27",
+   "opaque": 67963,
+   "share": 0.992
+  },
+  {
+   "key": "astribot",
+   "file": "/images/logos/astribot.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 13858,
+   "share": 0.953
+  },
+  {
+   "key": "booster-robotics",
+   "file": "/images/logos/booster-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "48x30",
+   "opaque": 1342,
+   "share": 0.987
+  },
+  {
+   "key": "leju-robotics",
+   "file": "/images/logos/leju-robotics.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x13",
+   "opaque": 16443,
+   "share": 0.917
+  },
+  {
+   "key": "hanson-robotics",
+   "file": "/images/logos/hanson-robotics.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x22",
+   "opaque": 14264,
+   "share": 0.984
+  },
+  {
+   "key": "paxini",
+   "file": "/images/logos/paxini.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x25",
+   "opaque": 37665,
+   "share": 0.985
+  },
+  {
+   "key": "mitsubishi-robotics",
+   "file": "/images/logos/mitsubishi.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 103859,
+   "share": 0.995
+  },
+  {
+   "key": "symbotic",
+   "file": "/images/logos/symbotic.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x19",
+   "opaque": 3434,
+   "share": 0.911
+  },
+  {
+   "key": "dexterity",
+   "file": "/images/logos/dexterity.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x8",
+   "opaque": 4209,
+   "share": 0.935
+  },
+  {
+   "key": "berkshire-grey",
+   "file": "/images/logos/berkshire-grey.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x21",
+   "opaque": 1295,
+   "share": 0.827
+  },
+  {
+   "key": "amazon-robotics",
+   "file": "/images/logos/amazon-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x28",
+   "opaque": 17474,
+   "share": 0.942
+  },
+  {
+   "key": "nimble-robotics",
+   "file": "/images/logos/nimble-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x19",
+   "opaque": 8068,
+   "share": 0.873
+  },
+  {
+   "key": "locus-robotics",
+   "file": "/images/logos/locus-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x21",
+   "opaque": 1715,
+   "share": 0.763
+  },
+  {
+   "key": "mujin",
+   "file": "/images/logos/mujin.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "73x30",
+   "opaque": 6912,
+   "share": 0.895
+  },
+  {
+   "key": "righthand-robotics",
+   "file": "/images/logos/righthand-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x20",
+   "opaque": 4814,
+   "share": 0.916
+  },
+  {
+   "key": "ambirobotics",
+   "file": "/images/logos/ambirobotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 1521,
+   "share": 0.858
+  },
+  {
+   "key": "plus-one-robotics",
+   "file": "/images/logos/plus-one-robotics.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x26",
+   "opaque": 21260,
+   "share": 0.962
+  },
+  {
+   "key": "mytra",
+   "file": "/images/logos/mytra.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 24304,
+   "share": 0.997
+  },
+  {
+   "key": "fox-robotics",
+   "file": "/images/logos/fox-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 25167,
+   "share": 0.979
+  },
+  {
+   "key": "zebra-robotics-automation",
+   "file": "/images/logos/zebra-robotics-automation.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 1638,
+   "share": 0.876
+  },
+  {
+   "key": "robotphoenix",
+   "file": "/images/logos/robotphoenix.webp",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 7611,
+   "share": 0.973
+  },
+  {
+   "key": "abb-robotics",
+   "file": "/images/logos/abb.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 21149,
+   "share": 0.985
+  },
+  {
+   "key": "carbon-robotics",
+   "file": "/images/logos/carbon-robotics.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x26",
+   "opaque": 20390,
+   "share": 0.975
+  },
+  {
+   "key": "monarch-tractor",
+   "file": "/images/logos/monarch-tractor.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 34268,
+   "share": 0.986
+  },
+  {
+   "key": "farm-ng",
+   "file": "/images/logos/farm-ng.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x21",
+   "opaque": 1637,
+   "share": 0.915
+  },
+  {
+   "key": "bedrock-robotics",
+   "file": "/images/logos/bedrock-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x12",
+   "opaque": 4723,
+   "share": 0.884
+  },
+  {
+   "key": "chef-robotics",
+   "file": "/images/logos/chef-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "72x30",
+   "opaque": 473,
+   "share": 0.85
+  },
+  {
+   "key": "simbe-robotics",
+   "file": "/images/logos/simbe-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x22",
+   "opaque": 1115,
+   "share": 0.858
+  },
+  {
+   "key": "intuitive-surgical",
+   "file": "/images/logos/intuitive-surgical.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 1063,
+   "share": 0.754
+  },
+  {
+   "key": "cmr-surgical",
+   "file": "/images/logos/cmr-surgical.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 50625,
+   "share": 1
+  },
+  {
+   "key": "moon-surgical",
+   "file": "/images/logos/moon-surgical.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 4577,
+   "share": 0.85
+  },
+  {
+   "key": "nuro",
+   "file": "/images/logos/nuro.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x26",
+   "opaque": 58479,
+   "share": 0.99
+  },
+  {
+   "key": "serve-robotics",
+   "file": "/images/logos/serve-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 291600,
+   "share": 1
+  },
+  {
+   "key": "gecko-robotics",
+   "file": "/images/logos/gecko-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "80x27",
+   "opaque": 12258,
+   "share": 0.968
+  },
+  {
+   "key": "standard-bots",
+   "file": "/images/logos/standard-bots.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x10",
+   "opaque": 728,
+   "share": 1
+  },
+  {
+   "key": "collaborative-robotics",
+   "file": "/images/logos/collaborative-robotics.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 32400,
+   "share": 0.999
+  },
+  {
+   "key": "the-bot-company",
+   "file": "/images/logos/the-bot-company.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x27",
+   "opaque": 75028,
+   "share": 1
+  },
+  {
+   "key": "weave-robotics",
+   "file": "/images/logos/weave-robotics.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 32336,
+   "share": 1
+  },
+  {
+   "key": "irobot",
+   "file": "/images/logos/irobot.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x18",
+   "opaque": 38174,
+   "share": 0.974
+  },
+  {
+   "key": "k-scale-labs",
+   "file": "/images/logos/k-scale-labs.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 22500,
+   "share": 1
+  },
+  {
+   "key": "automata",
+   "file": "/images/logos/automata.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x13",
+   "opaque": 16477,
+   "share": 0.953
+  },
+  {
+   "key": "lila-sciences",
+   "file": "/images/logos/lila-sciences.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x8",
+   "opaque": 492,
+   "share": 0.791
+  },
+  {
+   "key": "avidbots",
+   "file": "/images/logos/avidbots.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 42236,
+   "share": 0.988
+  },
+  {
+   "key": "saronic",
+   "file": "/images/logos/saronic.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "64x30",
+   "opaque": 4039,
+   "share": 0.995
+  },
+  {
+   "key": "foundry-robotics",
+   "file": "/images/logos/foundry-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "50x30",
+   "opaque": 994,
+   "share": 0.966
+  },
+  {
+   "key": "formic",
+   "file": "/images/logos/formic.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 22500,
+   "share": 0.992
+  },
+  {
+   "key": "switchbot",
+   "file": "/images/logos/switchbot.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x20",
+   "opaque": 634,
+   "share": 0.94
+  },
+  {
+   "key": "miso-robotics",
+   "file": "/images/logos/miso-robotics.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 9437,
+   "share": 0.991
+  },
+  {
+   "key": "starship-technologies",
+   "file": "/images/logos/starship.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x14",
+   "opaque": 1156,
+   "share": 0.877
+  },
+  {
+   "key": "coco-robotics",
+   "file": "/images/logos/coco-robotics.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 89520,
+   "share": 0.988
+  },
+  {
+   "key": "knightscope",
+   "file": "/images/logos/knightscope.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 5516,
+   "share": 0.954
+  },
+  {
+   "key": "brain-corp",
+   "file": "/images/logos/brain-corp.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 21367,
+   "share": 0.959
+  },
+  {
+   "key": "diligent-robotics",
+   "file": "/images/logos/diligent-robotics.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 16525,
+   "share": 0.945
+  },
+  {
+   "key": "anduril",
+   "file": "/images/logos/anduril.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x16",
+   "opaque": 17942,
+   "share": 0.946
+  },
+  {
+   "key": "nvidia-robotics",
+   "file": "/images/logos/nvidia.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x17",
+   "opaque": 9651,
+   "share": 0.972
+  },
+  {
+   "key": "google-deepmind-robotics",
+   "file": "/images/logos/google-deepmind-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x21",
+   "opaque": 17881,
+   "share": 0.95
+  },
+  {
+   "key": "hugging-face-lerobot",
+   "file": "/images/logos/hugging-face.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x24",
+   "opaque": 21958,
+   "share": 0.96
+  },
+  {
+   "key": "applied-intuition",
+   "file": "/images/logos/applied-intuition.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 4260,
+   "share": 0.969
+  },
+  {
+   "key": "xdof",
+   "file": "/images/logos/xdof.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x18",
+   "opaque": 11382,
+   "share": 0.96
+  },
+  {
+   "key": "encord",
+   "file": "/images/logos/encord.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "44x30",
+   "opaque": 11921,
+   "share": 0.982
+  },
+  {
+   "key": "micro1",
+   "file": "/images/logos/micro1.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "32x30",
+   "opaque": 1012,
+   "share": 1
+  },
+  {
+   "key": "openai-robotics",
+   "file": "/images/logos/openai.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x24",
+   "opaque": 8646,
+   "share": 0.956
+  },
+  {
+   "key": "meta-robotics",
+   "file": "/images/logos/meta.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x18",
+   "opaque": 28719,
+   "share": 0.974
+  },
+  {
+   "key": "pollen-robotics",
+   "file": "/images/logos/pollen-robotics.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x16",
+   "opaque": 2882,
+   "share": 0.833
+  },
+  {
+   "key": "harmonic-drive-systems",
+   "file": "/images/logos/harmonic-drive.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x28",
+   "opaque": 105610,
+   "share": 0.985
+  },
+  {
+   "key": "nabtesco",
+   "file": "/images/logos/nabtesco.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x17",
+   "opaque": 6629,
+   "share": 0.944
+  },
+  {
+   "key": "leaderdrive",
+   "file": "/images/logos/leaderdrive.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x27",
+   "opaque": 30853,
+   "share": 0.979
+  },
+  {
+   "key": "sanhua",
+   "file": "/images/logos/sanhua.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 8949,
+   "share": 0.997
+  },
+  {
+   "key": "shadow-robot",
+   "file": "/images/logos/shadow-robot.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 3444,
+   "share": 0.927
+  },
+  {
+   "key": "sharpa",
+   "file": "/images/logos/sharpa.svg",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x18",
+   "opaque": 25980,
+   "share": 0.939
+  },
+  {
+   "key": "wonik-robotics",
+   "file": "/images/logos/wonik.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x30",
+   "opaque": 5208,
+   "share": 0.969
+  },
+  {
+   "key": "xela-robotics",
+   "file": "/images/logos/xela-robotics.png",
+   "background": "rgb(125, 122, 115)",
+   "padding": "3px",
+   "filter": "grayscale(1) brightness(0.625) contrast(100)",
+   "rendered": "90x21",
+   "opaque": 8310,
+   "share": 0.99
+  }
+ ]
+}

@@ -549,6 +549,27 @@ The approved article reference is the baseline for long-form composition.
 - Unknown data remains unknown; never coerce missing evidence to zero.
 - Existing article content and citation meaning MUST not change during visual rollout.
 
+### 13.4 Figure system
+
+Every explanatory figure, scene and tool preview uses one frame (`components/motion/figure-frame.tsx`), in this order:
+
+1. A header with a short title that fits on one line at 375px, and the shared controls.
+2. The bounded graphite stage (`--color-instrument`). Legends, readouts and the scene timeline sit on it.
+3. One caption line of 20 words or fewer. For a scene this is the current beat caption.
+4. At most one source line.
+
+Nothing else sits between the stage and the next prose block.
+
+- Data marks use the stage role palette (`--role-*-stage`). Signal blue marks links and focus only. Status colours mark status only. The constraint red appears only as a hatch.
+- Stage text is IBM Plex Sans at 12px or more, in at most three sizes (14, 13 and 12px). IBM Plex Mono is for numeric readouts only.
+- The stage fits its content: no band wider than the plot and taller than 20% of the stage is empty.
+- Charts are drawn with the primitives in `components/motion/chart/`, which read the tokens.
+- Company marks sit on one tile: the mid-grey logo plate, drawn in thresholded monochrome so white and dark marks both clear 3:1.
+- Photographs use one 3:2 cover crop, one width per viewport, the figure caption style and the figure source line for credit.
+- A concept has one canonical visual. Another page links to it, or reuses it with a caption that names a different purpose.
+- `npm run check:figure-system` reads the static export and fails on reserved or hard-coded colours, text off the scale and figures outside the frame. It runs in `postbuild` and `vercel-build`. Figures not yet migrated sit on `contract/figure-system-allowlist.json`, one entry per figure with the pass that owns it. An entry that no longer matches a violation fails the check, so the list only shrinks. `npm run check:figure-system:plant` plants one violation of each rule into a copy of the export and fails unless the check names every one.
+- `npm run capture:visuals` screenshots every visual on every Sitemap URL of the export and writes the manifest and contact sheets.
+
 ## 14. Discovery: search, A–Z, glossary, and indexes
 
 - Search, A–Z, glossary, and domain indexes share the same display, rail, filter, and selection language.
@@ -565,7 +586,7 @@ The approved article reference is the baseline for long-form composition.
 An interactive is an explanatory instrument.
 
 - Every visualization begins with a claim or question and exposes its current state in text.
-- Signal blue is the lead data signal or active path.
+- Inside a figure, data marks take the stage role palette and signal blue stays for links and focus (13.4).
 - Lime is selection/highlight, not a second unlabeled series.
 - Ink, graphite, and concrete carry context and comparison.
 - Semantic colours retain semantic meaning.

@@ -1,5 +1,6 @@
 import { expect, test, type Locator } from '@playwright/test';
 import { auditSceneElement } from '@/lib/motion-scene-audit';
+import { MOTION_STAGE_TYPE } from '@/lib/motion-tokens';
 
 /**
  * Motion-language scenes, end to end (VAL-MOTION-007..010, 012, 013).
@@ -16,6 +17,7 @@ const SCENES = [
     id: 'kalman-predict-update',
     route: '/classical/state-estimation/',
     title: /kalman filter/i,
+    axes: ['position x', 'velocity v'],
     beats: [
       /prior belief/i,
       /predict/i,
@@ -28,6 +30,7 @@ const SCENES = [
     id: 'diffusion-denoising',
     route: '/manipulation/diffusion-policy/',
     title: /diffusion policy/i,
+    axes: ['a1', 'a2'],
     beats: [/demonstrations/i, /noising/i, /ten denoising steps/i, /recap/i],
   },
 ] as const;
@@ -117,7 +120,9 @@ for (const scene of SCENES) {
     });
 
     test('equations and stage labels have the right typography', async ({ browser }) => {
-      for (const width of [375, 1440]) {
+      // 600 px is the width where the stretched viewBox used to paint
+      // labels at about twice the UI size.
+      for (const width of [375, 600, 1440]) {
         const context = await browser.newContext({ viewport: { width, height: 900 } });
         try {
           const page = await context.newPage();
@@ -127,32 +132,50 @@ for (const scene of SCENES) {
           const svg = scope.locator('[data-motion-stage] svg');
           const roles = await svg.evaluate((node) => {
             const equation = node.querySelector('[data-scene-equation]');
-            const labels = [...node.querySelectorAll<SVGTextElement>('text')];
+            const role = (el: Element) => (['tick', 'axis', 'note', 'readout']
+              .find((name) => el.hasAttribute(`data-scene-${name}`)) ?? 'label');
             return {
               math: equation?.querySelector('.katex .mord') !== null,
               mathml: equation?.querySelector('math annotation[encoding="application/x-tex"]') !== null,
               mathColor: equation ? getComputedStyle(equation.querySelector('.katex')!).color : '',
-              labels: labels.filter((el) => !el.hasAttribute('data-scene-tick') && !el.hasAttribute('data-scene-readout')).map((el) => {
+              text: [...node.querySelectorAll<SVGTextElement>('text')].map((el) => {
                 const style = getComputedStyle(el);
-                return { text: el.textContent, family: style.fontFamily, size: parseFloat(style.fontSize), screenSize: parseFloat(style.fontSize) * node.getBoundingClientRect().width / (node as SVGSVGElement).viewBox.baseVal.width };
+                const matrix = el.getScreenCTM()!;
+                return {
+                  text: el.textContent ?? '',
+                  role: role(el),
+                  family: style.fontFamily,
+                  painted: parseFloat(style.fontSize) * Math.hypot(matrix.a, matrix.b),
+                };
               }),
-              ticks: labels.filter((el) => el.hasAttribute('data-scene-tick')).map((el) => parseFloat(getComputedStyle(el).fontSize)),
             };
           });
           expect(roles.math).toBe(true);
           expect(roles.mathml).toBe(true);
           expect(roles.mathColor).toBe('rgb(255, 255, 255)');
-          expect(roles.labels.length).toBeGreaterThan(2);
-          for (const label of roles.labels) {
-            expect(label.family, label.text ?? '').toContain('IBM Plex Sans');
-            expect(label.family, label.text ?? '').not.toContain('Mono');
-            expect(label.size, label.text ?? '').toBeGreaterThanOrEqual(width === 375 ? 12 : 7);
-            expect(label.size, label.text ?? '').toBeLessThanOrEqual(width === 375 ? 15 : 9);
-            expect(label.screenSize, label.text ?? '').toBeGreaterThanOrEqual(11);
-            expect(label.screenSize, label.text ?? '').toBeLessThanOrEqual(18);
+          const of = (name: string) => roles.text.filter((item) => item.role === name);
+          expect(of('label').length, `${width} object labels`).toBeGreaterThan(0);
+          expect(of('axis').map((item) => item.text).sort(), `${width} axis names`).toEqual(scene.axes);
+          expect(of('tick').length, `${width} ticks`).toBeGreaterThan(0);
+          expect(of('tick').length, `${width} ticks stay sparse`).toBeLessThanOrEqual(6);
+          const sizes = {
+            label: MOTION_STAGE_TYPE.labelPx,
+            axis: MOTION_STAGE_TYPE.axisPx,
+            note: MOTION_STAGE_TYPE.axisPx,
+            tick: MOTION_STAGE_TYPE.tickPx,
+            readout: MOTION_STAGE_TYPE.readoutPx,
+          } as Record<string, number>;
+          for (const item of roles.text) {
+            const name = `${width} ${item.role} ${item.text}`;
+            expect(item.family, name).toContain(item.role === 'readout' ? 'IBM Plex Mono' : 'IBM Plex Sans');
+            if (item.role !== 'readout') expect(item.family, name).not.toContain('Mono');
+            expect(item.painted, name).toBeGreaterThanOrEqual(Math.max(sizes[item.role], MOTION_STAGE_TYPE.minPx));
+            expect(item.painted, name).toBeLessThan(sizes[item.role] + 0.1);
           }
-          expect(roles.ticks.length).toBeLessThanOrEqual(6);
-          for (const size of roles.ticks) expect(size).toBeLessThan(12);
+          const smallest = (name: string) => Math.min(...of(name).map((item) => item.painted));
+          const largest = (name: string) => Math.max(...of(name).map((item) => item.painted));
+          expect(largest('tick'), `${width} ticks under axis names`).toBeLessThan(smallest('axis'));
+          expect(largest('tick'), `${width} ticks under object labels`).toBeLessThan(smallest('label'));
         } finally {
           await context.close();
         }

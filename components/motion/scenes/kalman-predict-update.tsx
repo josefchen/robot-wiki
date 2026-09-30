@@ -34,7 +34,7 @@ const PLOT: PlotArea = { left: 58, right: 288, top: 57, bottom: 184 };
 const X_DOMAIN = { min: -3.4, max: 3.8 };
 const V_DOMAIN = { min: -1.4, max: 1.65 };
 const FONT = 14;
-const TICK_FONT = 10;
+const TICK_FONT = 12;
 
 /** The demonstrated step: first measured step at or after t = 40, seed 1. */
 const EPISODE = generateEpisode(DEFAULT_SEED);
@@ -247,7 +247,6 @@ function KalmanStage() {
           y={PLOT.bottom + 13}
           textAnchor="middle"
           fontSize={TICK_FONT}
-          fontFamily="var(--font-mono)"
           data-scene-tick
           fill="var(--motion-stage-label-secondary)"
         >
@@ -261,7 +260,6 @@ function KalmanStage() {
           y={yScale(tick) + 4}
           textAnchor="end"
           fontSize={TICK_FONT}
-          fontFamily="var(--font-mono)"
           data-scene-tick
           fill="var(--motion-stage-label-secondary)"
         >
@@ -269,11 +267,12 @@ function KalmanStage() {
         </text>
       ))}
       <text
-        x={19}
+        x={22}
         y={(PLOT.top + PLOT.bottom) / 2}
         fontSize={13}
+        data-scene-axis
         fill="var(--motion-stage-label-secondary)"
-        transform={`rotate(-90 19 ${(PLOT.top + PLOT.bottom) / 2})`}
+        transform={`rotate(-90 22 ${(PLOT.top + PLOT.bottom) / 2})`}
         textAnchor="middle"
       >
         velocity v
@@ -282,6 +281,7 @@ function KalmanStage() {
         x={PLOT.right}
         y={HEIGHT - 12}
         fontSize={13}
+        data-scene-axis
         fill="var(--motion-stage-label-secondary)"
         textAnchor="end"
       >

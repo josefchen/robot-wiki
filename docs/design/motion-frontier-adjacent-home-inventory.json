@@ -297,10 +297,10 @@
   },
   {
     "article": "home",
-    "element": "MarketMapSchematic",
-    "decision": "keep",
-    "teachingGoal": "Preview the real filter segments without inventing market-size quantities.",
-    "reason": "The teaser is a schematic route to a filterable map, not a time series or bubble chart."
+    "element": "MarketMapPoster",
+    "decision": "replace",
+    "teachingGoal": "See how the mapped companies split across segments before opening the filterable map.",
+    "reason": "The schematic teaser drew segment rows with no quantities; the poster counts the registry's companies per segment on the graphite stage."
   },
   {
     "article": "home",

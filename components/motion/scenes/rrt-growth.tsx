@@ -74,8 +74,8 @@ function RrtGrowthStage() {
         </pattern>
       </defs>
       <text x={30} y={24} fontSize={13} fill="var(--motion-stage-label)">accepted extensions</text>
-      <text x={30} y={222} fontSize={13} fill="var(--motion-stage-label-secondary)">start △</text>
-      <text x={244} y={222} fontSize={13} fill="var(--motion-stage-label-secondary)">goal ○</text>
+      <text x={30} y={222} fontSize={13} data-scene-note fill="var(--motion-stage-label-secondary)">start △</text>
+      <text x={244} y={222} fontSize={13} data-scene-note fill="var(--motion-stage-label-secondary)">goal ○</text>
       <g data-scene-structure="planning-world">
         <rect x={30} y={35} width={280} height={163.2}
           fill="none" stroke="var(--motion-stage-axes)" opacity="var(--motion-stage-axes-opacity)" />

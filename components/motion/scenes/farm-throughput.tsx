@@ -72,12 +72,12 @@ function FarmThroughputStage() {
       <AnimatedElement as="rect" data-scene-mark="dedicated-year" data-legend-series="farm-dedicated"
         x={LEFT} y={137} height={17} fill="var(--role-value-stage)"
         bindings={{ width: (t) => hoursWidth(farmThroughputFrame(t).fastYear) }} />
-      <text x={LEFT} y={202} fontSize={12} fill="var(--motion-stage-label-secondary)">0</text>
+      <text x={LEFT} y={202} fontSize={12} data-scene-tick fill="var(--motion-stage-label-secondary)">0</text>
       <text x={LEFT + hoursWidth(hoursPerYear(RIGS, LOW_RATE))} y={202}
-        fontSize={12} textAnchor="middle" fill="var(--motion-stage-label-secondary)">70 h</text>
-      <text x={LEFT + WIDTH} y={202} fontSize={12} textAnchor="end" fill="var(--motion-stage-label-secondary)">10,000 h</text>
-      <text x={LEFT} y={224} fontSize={13} fill="var(--motion-stage-label)">hours · log scale →</text>
-      <AnimatedElement as="text" x={294} y={224} textAnchor="end" fontSize={13}
+        fontSize={12} data-scene-tick textAnchor="middle" fill="var(--motion-stage-label-secondary)">70 h</text>
+      <text x={LEFT + WIDTH} y={202} fontSize={12} data-scene-tick textAnchor="end" fill="var(--motion-stage-label-secondary)">10,000 h</text>
+      <text x={LEFT} y={224} fontSize={13} data-scene-axis fill="var(--motion-stage-label)">hours · log scale →</text>
+      <AnimatedElement as="text" x={294} y={224} textAnchor="end" fontSize={13} data-scene-note
         fill="var(--motion-stage-label-secondary)"
         bindings={{ opacity: (t) => farmThroughputFrame(t).recap }}>
         same fleet
