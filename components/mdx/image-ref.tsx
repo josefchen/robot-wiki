@@ -7,6 +7,13 @@ import {
 } from '@/data/images';
 
 /**
+ * Photographs whose 3:2 crop anchors at the top. The 2013 Atlas portrait is
+ * about 1:1.38, so a centred crop keeps its waist and cuts the sensor head
+ * that its caption and alt text name.
+ */
+const TOP_CROPPED = new Set(['atlas-darpa-frontview-2013']);
+
+/**
  * Registry-backed image resolver. MDX authors write <Image id="..."/> (the
  * mdx-components alias) and tsx pages render <ImageRef id="..."/>; both map
  * the id to the image registry and render the Figure primitive with the
@@ -39,6 +46,7 @@ export function ImageRef({ id }: { id: string }) {
       imageId={image.id}
       width={image.width}
       height={image.height}
+      cropFocus={TOP_CROPPED.has(image.id) ? 'top' : 'center'}
       credit={{
         kind: creditNoun(image),
         creator: image.creator,

@@ -104,13 +104,13 @@ describe('site-wide motion convergence', () => {
     const evidence = JSON.parse(readFileSync(
       join(ROOT, 'evidence/motion/scenes/site-wide/roles.json'), 'utf8',
     )) as {
-      tokenSha256: string;
+      motionSpecSha256: string;
       palette: Record<string, string>;
       scenes: { id: string; route: string; sourceSha256: string;
         marks: { mark: string; role: string; hex: string; beats: number[] }[] }[];
     };
     const hash = (file: string) => createHash('sha256').update(readFileSync(file)).digest('hex');
-    expect(evidence.tokenSha256).toBe(hash(join(ROOT, 'motion-tokens.json')));
+    expect(evidence.motionSpecSha256).toBe(hash(join(ROOT, 'motion-tokens.json')));
     expect(evidence.scenes.map(({ id }) => id)).toEqual(SCENE_TARGETS.map(({ id }) => id));
     for (const [index, scene] of evidence.scenes.entries()) {
       expect(scene.route).toBe(SCENE_TARGETS[index].route);

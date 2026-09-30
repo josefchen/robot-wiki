@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "bca518f1b4856ebe2f9d5699a388d4c082cd8ba3f7242b7f2cb4a33f60abc756",
+  "fingerprint": "2c640b09abb239517a1f3fadf764a378f57ee1663cb663e3a32992b5a4ca892c",
   "viewports": [
     "375x812",
     "1440x900"
@@ -1152,7 +1152,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 18323,
+      "visibleTextLength": 18349,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -5426,7 +5426,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 15291,
+      "visibleTextLength": 15314,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -5982,7 +5982,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 27843,
+      "visibleTextLength": 27874,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -9970,7 +9970,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 20394,
+      "visibleTextLength": 20415,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -10696,7 +10696,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 16056,
+      "visibleTextLength": 16094,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -12204,7 +12204,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 17974,
+      "visibleTextLength": 18021,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -14145,7 +14145,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 24516,
+      "visibleTextLength": 24563,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -18689,7 +18689,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 20998,
+      "visibleTextLength": 21020,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -20613,7 +20613,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 14820,
+      "visibleTextLength": 14957,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -20657,7 +20657,7 @@
         }
       ],
       "hasMatchingNavLink": true,
-      "focusableCount": 102,
+      "focusableCount": 103,
       "references": {
         "present": true,
         "headingId": "references-heading",
@@ -21023,17 +21023,6 @@
           "section": "see-also",
           "href": "/data-hardware/evaluation-crisis/",
           "text": "The Evaluation Crisis",
-          "documentOrder": 69,
-          "tabStop": 66,
-          "tabPresses": 100,
-          "restingRing": "none|3px|none",
-          "focusedRing": "solid|2px|none",
-          "focusVisible": true
-        },
-        {
-          "section": "see-also",
-          "href": "/manipulation/rl-finetuning/",
-          "text": "RL Fine-Tuning of Policies",
           "documentOrder": 70,
           "tabStop": 67,
           "tabPresses": 100,
@@ -21043,8 +21032,8 @@
         },
         {
           "section": "see-also",
-          "href": "/rl-sim2real/humanoid-wbc/",
-          "text": "Humanoid Whole-Body Control",
+          "href": "/manipulation/rl-finetuning/",
+          "text": "RL Fine-Tuning of Policies",
           "documentOrder": 71,
           "tabStop": 68,
           "tabPresses": 100,
@@ -21054,8 +21043,8 @@
         },
         {
           "section": "see-also",
-          "href": "/frontier/dexterity/",
-          "text": "Dexterity",
+          "href": "/rl-sim2real/humanoid-wbc/",
+          "text": "Humanoid Whole-Body Control",
           "documentOrder": 72,
           "tabStop": 69,
           "tabPresses": 100,
@@ -21064,9 +21053,9 @@
           "focusVisible": true
         },
         {
-          "section": "linked-from",
-          "href": "/data-hardware/evaluation-crisis/",
-          "text": "The Evaluation Crisis",
+          "section": "see-also",
+          "href": "/frontier/dexterity/",
+          "text": "Dexterity",
           "documentOrder": 73,
           "tabStop": 70,
           "tabPresses": 100,
@@ -21076,8 +21065,8 @@
         },
         {
           "section": "linked-from",
-          "href": "/data-hardware/industrial-deployment/",
-          "text": "Industrial Deployment",
+          "href": "/data-hardware/evaluation-crisis/",
+          "text": "The Evaluation Crisis",
           "documentOrder": 74,
           "tabStop": 71,
           "tabPresses": 100,
@@ -21087,8 +21076,8 @@
         },
         {
           "section": "linked-from",
-          "href": "/frontier/dexterity/",
-          "text": "Dexterity",
+          "href": "/data-hardware/industrial-deployment/",
+          "text": "Industrial Deployment",
           "documentOrder": 75,
           "tabStop": 72,
           "tabPresses": 100,
@@ -21098,8 +21087,8 @@
         },
         {
           "section": "linked-from",
-          "href": "/frontier/generalization/",
-          "text": "Generalization",
+          "href": "/frontier/dexterity/",
+          "text": "Dexterity",
           "documentOrder": 76,
           "tabStop": 73,
           "tabPresses": 100,
@@ -21109,8 +21098,8 @@
         },
         {
           "section": "linked-from",
-          "href": "/frontier/competing-theses/",
-          "text": "Competing Theses",
+          "href": "/frontier/generalization/",
+          "text": "Generalization",
           "documentOrder": 77,
           "tabStop": 74,
           "tabPresses": 100,
@@ -21120,8 +21109,8 @@
         },
         {
           "section": "linked-from",
-          "href": "/frontier/bear-case/",
-          "text": "The Bear Case",
+          "href": "/frontier/competing-theses/",
+          "text": "Competing Theses",
           "documentOrder": 78,
           "tabStop": 75,
           "tabPresses": 100,
@@ -21131,8 +21120,8 @@
         },
         {
           "section": "linked-from",
-          "href": "/frontier/safety-and-assurance/",
-          "text": "Safety and Assurance",
+          "href": "/frontier/bear-case/",
+          "text": "The Bear Case",
           "documentOrder": 79,
           "tabStop": 76,
           "tabPresses": 100,
@@ -21142,8 +21131,8 @@
         },
         {
           "section": "linked-from",
-          "href": "/adjacent/autonomous-vehicles/",
-          "text": "Autonomous Vehicles",
+          "href": "/frontier/safety-and-assurance/",
+          "text": "Safety and Assurance",
           "documentOrder": 80,
           "tabStop": 77,
           "tabPresses": 100,
@@ -21153,8 +21142,8 @@
         },
         {
           "section": "linked-from",
-          "href": "/adjacent/surgical/",
-          "text": "Surgical Robotics",
+          "href": "/adjacent/autonomous-vehicles/",
+          "text": "Autonomous Vehicles",
           "documentOrder": 81,
           "tabStop": 78,
           "tabPresses": 100,
@@ -21164,8 +21153,8 @@
         },
         {
           "section": "linked-from",
-          "href": "/adjacent/space/",
-          "text": "Space Robotics",
+          "href": "/adjacent/surgical/",
+          "text": "Surgical Robotics",
           "documentOrder": 82,
           "tabStop": 79,
           "tabPresses": 100,
@@ -21174,9 +21163,9 @@
           "focusVisible": true
         },
         {
-          "section": "references",
-          "href": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
-          "text": "Bessemer Predicts: Robotics and physical AI",
+          "section": "linked-from",
+          "href": "/adjacent/space/",
+          "text": "Space Robotics",
           "documentOrder": 83,
           "tabStop": 80,
           "tabPresses": 100,
@@ -21186,8 +21175,8 @@
         },
         {
           "section": "references",
-          "href": "https://www.pi.website/blog/pistar06",
-          "text": "π*0.6: a VLA that Learns from Experience",
+          "href": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+          "text": "Bessemer Predicts: Robotics and physical AI",
           "documentOrder": 84,
           "tabStop": 81,
           "tabPresses": 100,
@@ -21197,10 +21186,21 @@
         },
         {
           "section": "references",
+          "href": "https://www.pi.website/blog/pistar06",
+          "text": "π*0.6: a VLA that Learns from Experience",
+          "documentOrder": 85,
+          "tabStop": 82,
+          "tabPresses": 100,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "references",
           "href": "https://arxiv.org/abs/2510.14830",
           "text": "RL-100: Performant Robotic Manipulation with Real-World Reinforcement Learning",
-          "documentOrder": 86,
-          "tabStop": 83,
+          "documentOrder": 87,
+          "tabStop": 84,
           "tabPresses": 100,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
@@ -21210,17 +21210,6 @@
           "section": "references",
           "href": "https://huggingface.co/datasets/google/asimov_agentic",
           "text": "Asimov Agentic Safety Evaluation",
-          "documentOrder": 88,
-          "tabStop": 85,
-          "tabPresses": 100,
-          "restingRing": "none|3px|none",
-          "focusedRing": "solid|2px|none",
-          "focusVisible": true
-        },
-        {
-          "section": "references",
-          "href": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
-          "text": "Gemini Robotics 2 brings whole body intelligence to robots",
           "documentOrder": 89,
           "tabStop": 86,
           "tabPresses": 100,
@@ -21230,8 +21219,8 @@
         },
         {
           "section": "references",
-          "href": "https://www.pi.website/blog/pi07",
-          "text": "π0.7: a Steerable Model with Emergent Capabilities",
+          "href": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+          "text": "Gemini Robotics 2 brings whole body intelligence to robots",
           "documentOrder": 90,
           "tabStop": 87,
           "tabPresses": 100,
@@ -21241,10 +21230,10 @@
         },
         {
           "section": "references",
-          "href": "https://www.agilityrobotics.com/",
-          "text": "Industrial Humanoid Automation | Agility",
-          "documentOrder": 92,
-          "tabStop": 89,
+          "href": "https://www.pi.website/blog/pi07",
+          "text": "π0.7: a Steerable Model with Emergent Capabilities",
+          "documentOrder": 91,
+          "tabStop": 88,
           "tabPresses": 100,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
@@ -21252,8 +21241,8 @@
         },
         {
           "section": "references",
-          "href": "https://www.figure.ai/news/production-at-bmw",
-          "text": "F.02 Contributed to the Production of 30,000 Cars at BMW",
+          "href": "https://www.agilityrobotics.com/",
+          "text": "Industrial Humanoid Automation | Agility",
           "documentOrder": 93,
           "tabStop": 90,
           "tabPresses": 100,
@@ -21263,8 +21252,8 @@
         },
         {
           "section": "references",
-          "href": "https://assets-ir.tesla.com/tesla-contents/IR/TSLA-Q1-2026-Update.pdf",
-          "text": "Q1 2026 Update",
+          "href": "https://www.figure.ai/news/production-at-bmw",
+          "text": "F.02 Contributed to the Production of 30,000 Cars at BMW",
           "documentOrder": 94,
           "tabStop": 91,
           "tabPresses": 100,
@@ -21274,10 +21263,21 @@
         },
         {
           "section": "references",
-          "href": "https://www.techtimes.com/articles/316632/20260514/figure-ais-helix-02-robots",
-          "text": "Figure AI's Helix-02 Robots Complete Full 8-Hour Autonomous Shifts as Humanoid Race Intensifies",
+          "href": "https://assets-ir.tesla.com/tesla-contents/IR/TSLA-Q1-2026-Update.pdf",
+          "text": "Q1 2026 Update",
           "documentOrder": 95,
           "tabStop": 92,
+          "tabPresses": 100,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "references",
+          "href": "https://www.techtimes.com/articles/316632/20260514/figure-ais-helix-02-robots",
+          "text": "Figure AI's Helix-02 Robots Complete Full 8-Hour Autonomous Shifts as Humanoid Race Intensifies",
+          "documentOrder": 96,
+          "tabStop": 93,
           "tabPresses": 100,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
@@ -26365,7 +26365,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 14485,
+      "visibleTextLength": 14509,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -29703,7 +29703,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 26138,
+      "visibleTextLength": 26165,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -33026,7 +33026,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 20603,
+      "visibleTextLength": 20622,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -34665,7 +34665,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 19060,
+      "visibleTextLength": 19090,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -35801,7 +35801,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 16302,
+      "visibleTextLength": 16338,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -40559,7 +40559,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 17402,
+      "visibleTextLength": 17438,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -41156,7 +41156,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 19886,
+      "visibleTextLength": 19911,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -42593,7 +42593,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 15916,
+      "visibleTextLength": 15948,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -46245,7 +46245,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 18641,
+      "visibleTextLength": 18667,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -50519,7 +50519,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 15712,
+      "visibleTextLength": 15735,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -51075,7 +51075,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 28264,
+      "visibleTextLength": 28295,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -55063,7 +55063,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 20813,
+      "visibleTextLength": 20834,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -55789,7 +55789,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 16435,
+      "visibleTextLength": 16473,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -57297,7 +57297,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 18353,
+      "visibleTextLength": 18400,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -59238,7 +59238,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 24895,
+      "visibleTextLength": 24942,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -63782,7 +63782,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 21333,
+      "visibleTextLength": 21355,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -65706,7 +65706,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 15155,
+      "visibleTextLength": 15292,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -65750,7 +65750,7 @@
         }
       ],
       "hasMatchingNavLink": true,
-      "focusableCount": 122,
+      "focusableCount": 123,
       "references": {
         "present": true,
         "headingId": "references-heading",
@@ -66116,17 +66116,6 @@
           "section": "see-also",
           "href": "/data-hardware/evaluation-crisis/",
           "text": "The Evaluation Crisis",
-          "documentOrder": 89,
-          "tabStop": 86,
-          "tabPresses": 125,
-          "restingRing": "none|3px|none",
-          "focusedRing": "solid|2px|none",
-          "focusVisible": true
-        },
-        {
-          "section": "see-also",
-          "href": "/manipulation/rl-finetuning/",
-          "text": "RL Fine-Tuning of Policies",
           "documentOrder": 90,
           "tabStop": 87,
           "tabPresses": 125,
@@ -66136,8 +66125,8 @@
         },
         {
           "section": "see-also",
-          "href": "/rl-sim2real/humanoid-wbc/",
-          "text": "Humanoid Whole-Body Control",
+          "href": "/manipulation/rl-finetuning/",
+          "text": "RL Fine-Tuning of Policies",
           "documentOrder": 91,
           "tabStop": 88,
           "tabPresses": 125,
@@ -66147,8 +66136,8 @@
         },
         {
           "section": "see-also",
-          "href": "/frontier/dexterity/",
-          "text": "Dexterity",
+          "href": "/rl-sim2real/humanoid-wbc/",
+          "text": "Humanoid Whole-Body Control",
           "documentOrder": 92,
           "tabStop": 89,
           "tabPresses": 125,
@@ -66157,9 +66146,9 @@
           "focusVisible": true
         },
         {
-          "section": "linked-from",
-          "href": "/data-hardware/evaluation-crisis/",
-          "text": "The Evaluation Crisis",
+          "section": "see-also",
+          "href": "/frontier/dexterity/",
+          "text": "Dexterity",
           "documentOrder": 93,
           "tabStop": 90,
           "tabPresses": 125,
@@ -66169,8 +66158,8 @@
         },
         {
           "section": "linked-from",
-          "href": "/data-hardware/industrial-deployment/",
-          "text": "Industrial Deployment",
+          "href": "/data-hardware/evaluation-crisis/",
+          "text": "The Evaluation Crisis",
           "documentOrder": 94,
           "tabStop": 91,
           "tabPresses": 125,
@@ -66180,8 +66169,8 @@
         },
         {
           "section": "linked-from",
-          "href": "/frontier/dexterity/",
-          "text": "Dexterity",
+          "href": "/data-hardware/industrial-deployment/",
+          "text": "Industrial Deployment",
           "documentOrder": 95,
           "tabStop": 92,
           "tabPresses": 125,
@@ -66191,8 +66180,8 @@
         },
         {
           "section": "linked-from",
-          "href": "/frontier/generalization/",
-          "text": "Generalization",
+          "href": "/frontier/dexterity/",
+          "text": "Dexterity",
           "documentOrder": 96,
           "tabStop": 93,
           "tabPresses": 125,
@@ -66202,8 +66191,8 @@
         },
         {
           "section": "linked-from",
-          "href": "/frontier/competing-theses/",
-          "text": "Competing Theses",
+          "href": "/frontier/generalization/",
+          "text": "Generalization",
           "documentOrder": 97,
           "tabStop": 94,
           "tabPresses": 125,
@@ -66213,8 +66202,8 @@
         },
         {
           "section": "linked-from",
-          "href": "/frontier/bear-case/",
-          "text": "The Bear Case",
+          "href": "/frontier/competing-theses/",
+          "text": "Competing Theses",
           "documentOrder": 98,
           "tabStop": 95,
           "tabPresses": 125,
@@ -66224,8 +66213,8 @@
         },
         {
           "section": "linked-from",
-          "href": "/frontier/safety-and-assurance/",
-          "text": "Safety and Assurance",
+          "href": "/frontier/bear-case/",
+          "text": "The Bear Case",
           "documentOrder": 99,
           "tabStop": 96,
           "tabPresses": 125,
@@ -66235,8 +66224,8 @@
         },
         {
           "section": "linked-from",
-          "href": "/adjacent/autonomous-vehicles/",
-          "text": "Autonomous Vehicles",
+          "href": "/frontier/safety-and-assurance/",
+          "text": "Safety and Assurance",
           "documentOrder": 100,
           "tabStop": 97,
           "tabPresses": 125,
@@ -66246,8 +66235,8 @@
         },
         {
           "section": "linked-from",
-          "href": "/adjacent/surgical/",
-          "text": "Surgical Robotics",
+          "href": "/adjacent/autonomous-vehicles/",
+          "text": "Autonomous Vehicles",
           "documentOrder": 101,
           "tabStop": 98,
           "tabPresses": 125,
@@ -66257,8 +66246,8 @@
         },
         {
           "section": "linked-from",
-          "href": "/adjacent/space/",
-          "text": "Space Robotics",
+          "href": "/adjacent/surgical/",
+          "text": "Surgical Robotics",
           "documentOrder": 102,
           "tabStop": 99,
           "tabPresses": 125,
@@ -66267,9 +66256,9 @@
           "focusVisible": true
         },
         {
-          "section": "references",
-          "href": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
-          "text": "Bessemer Predicts: Robotics and physical AI",
+          "section": "linked-from",
+          "href": "/adjacent/space/",
+          "text": "Space Robotics",
           "documentOrder": 103,
           "tabStop": 100,
           "tabPresses": 125,
@@ -66279,8 +66268,8 @@
         },
         {
           "section": "references",
-          "href": "https://www.pi.website/blog/pistar06",
-          "text": "π*0.6: a VLA that Learns from Experience",
+          "href": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+          "text": "Bessemer Predicts: Robotics and physical AI",
           "documentOrder": 104,
           "tabStop": 101,
           "tabPresses": 125,
@@ -66290,10 +66279,21 @@
         },
         {
           "section": "references",
+          "href": "https://www.pi.website/blog/pistar06",
+          "text": "π*0.6: a VLA that Learns from Experience",
+          "documentOrder": 105,
+          "tabStop": 102,
+          "tabPresses": 125,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "references",
           "href": "https://arxiv.org/abs/2510.14830",
           "text": "RL-100: Performant Robotic Manipulation with Real-World Reinforcement Learning",
-          "documentOrder": 106,
-          "tabStop": 103,
+          "documentOrder": 107,
+          "tabStop": 104,
           "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
@@ -66303,17 +66303,6 @@
           "section": "references",
           "href": "https://huggingface.co/datasets/google/asimov_agentic",
           "text": "Asimov Agentic Safety Evaluation",
-          "documentOrder": 108,
-          "tabStop": 105,
-          "tabPresses": 125,
-          "restingRing": "none|3px|none",
-          "focusedRing": "solid|2px|none",
-          "focusVisible": true
-        },
-        {
-          "section": "references",
-          "href": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
-          "text": "Gemini Robotics 2 brings whole body intelligence to robots",
           "documentOrder": 109,
           "tabStop": 106,
           "tabPresses": 125,
@@ -66323,8 +66312,8 @@
         },
         {
           "section": "references",
-          "href": "https://www.pi.website/blog/pi07",
-          "text": "π0.7: a Steerable Model with Emergent Capabilities",
+          "href": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+          "text": "Gemini Robotics 2 brings whole body intelligence to robots",
           "documentOrder": 110,
           "tabStop": 107,
           "tabPresses": 125,
@@ -66334,10 +66323,10 @@
         },
         {
           "section": "references",
-          "href": "https://www.agilityrobotics.com/",
-          "text": "Industrial Humanoid Automation | Agility",
-          "documentOrder": 112,
-          "tabStop": 109,
+          "href": "https://www.pi.website/blog/pi07",
+          "text": "π0.7: a Steerable Model with Emergent Capabilities",
+          "documentOrder": 111,
+          "tabStop": 108,
           "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
@@ -66345,8 +66334,8 @@
         },
         {
           "section": "references",
-          "href": "https://www.figure.ai/news/production-at-bmw",
-          "text": "F.02 Contributed to the Production of 30,000 Cars at BMW",
+          "href": "https://www.agilityrobotics.com/",
+          "text": "Industrial Humanoid Automation | Agility",
           "documentOrder": 113,
           "tabStop": 110,
           "tabPresses": 125,
@@ -66356,8 +66345,8 @@
         },
         {
           "section": "references",
-          "href": "https://assets-ir.tesla.com/tesla-contents/IR/TSLA-Q1-2026-Update.pdf",
-          "text": "Q1 2026 Update",
+          "href": "https://www.figure.ai/news/production-at-bmw",
+          "text": "F.02 Contributed to the Production of 30,000 Cars at BMW",
           "documentOrder": 114,
           "tabStop": 111,
           "tabPresses": 125,
@@ -66367,10 +66356,21 @@
         },
         {
           "section": "references",
-          "href": "https://www.techtimes.com/articles/316632/20260514/figure-ais-helix-02-robots",
-          "text": "Figure AI's Helix-02 Robots Complete Full 8-Hour Autonomous Shifts as Humanoid Race Intensifies",
+          "href": "https://assets-ir.tesla.com/tesla-contents/IR/TSLA-Q1-2026-Update.pdf",
+          "text": "Q1 2026 Update",
           "documentOrder": 115,
           "tabStop": 112,
+          "tabPresses": 125,
+          "restingRing": "none|3px|none",
+          "focusedRing": "solid|2px|none",
+          "focusVisible": true
+        },
+        {
+          "section": "references",
+          "href": "https://www.techtimes.com/articles/316632/20260514/figure-ais-helix-02-robots",
+          "text": "Figure AI's Helix-02 Robots Complete Full 8-Hour Autonomous Shifts as Humanoid Race Intensifies",
+          "documentOrder": 116,
+          "tabStop": 113,
           "tabPresses": 125,
           "restingRing": "none|3px|none",
           "focusedRing": "solid|2px|none",
@@ -71458,7 +71458,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 15112,
+      "visibleTextLength": 15136,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -74796,7 +74796,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 26765,
+      "visibleTextLength": 26792,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -78119,7 +78119,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 21230,
+      "visibleTextLength": 21249,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -79758,7 +79758,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 19535,
+      "visibleTextLength": 19565,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -80894,7 +80894,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 16777,
+      "visibleTextLength": 16813,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -85652,7 +85652,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 17886,
+      "visibleTextLength": 17922,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -86249,7 +86249,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 20370,
+      "visibleTextLength": 20395,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -87686,7 +87686,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 16400,
+      "visibleTextLength": 16432,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",

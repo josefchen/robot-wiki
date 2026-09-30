@@ -24,7 +24,9 @@ export const EPISODE_SURVIVAL_SCENE: SceneDefinition = {
 const SPANS = beatSpans(EPISODE_SURVIVAL_SCENE.beats);
 const progress = (t: number, index: number) =>
   clamp01((t - SPANS[index].start) / SPANS[index].duration);
-const x = (steps: number) => 48 + steps / END * 245;
+const LEFT = 54;
+const RIGHT = 293;
+const x = (steps: number) => LEFT + steps / END * (RIGHT - LEFT);
 const y = (success: number) => 177 - success * 112;
 
 export function episodeSurvivalFrame(t: number) {
@@ -50,16 +52,16 @@ function EpisodeSurvivalStage() {
     <StageSvg viewBox="0 0 340 240">
       <text x={25} y={25} fontSize={13} fill="var(--motion-stage-label)">toy model · constant conditional rate</text>
       <g data-scene-structure="axes">
-        <line x1={48} x2={48} y1={59} y2={177} stroke="var(--motion-stage-axes)" opacity="var(--motion-stage-axes-opacity)" />
-        <line x1={48} x2={293} y1={177} y2={177} stroke="var(--motion-stage-axes)" opacity="var(--motion-stage-axes-opacity)" />
-        <line x1={48} x2={293} y1={y(0.5)} y2={y(0.5)}
+        <line x1={LEFT} x2={LEFT} y1={59} y2={177} stroke="var(--motion-stage-axes)" opacity="var(--motion-stage-axes-opacity)" />
+        <line x1={LEFT} x2={RIGHT} y1={177} y2={177} stroke="var(--motion-stage-axes)" opacity="var(--motion-stage-axes-opacity)" />
+        <line x1={LEFT} x2={RIGHT} y1={y(0.5)} y2={y(0.5)}
           stroke="var(--role-reference-stage)" strokeDasharray="5 4" />
       </g>
-      <text x={39} y={y(1) + 5} textAnchor="end" fontSize={12} fill="var(--motion-stage-label-secondary)">100%</text>
-      <text x={42} y={y(0.5) - 5} textAnchor="end" fontSize={12} fill="var(--motion-stage-label-secondary)">50%</text>
-      <text x={48} y={198} fontSize={12} fill="var(--motion-stage-label-secondary)">0</text>
-      <text x={x(14)} y={198} textAnchor="middle" fontSize={12} fill="var(--motion-stage-label-secondary)">14</text>
-      <text x={293} y={198} textAnchor="end" fontSize={12} fill="var(--motion-stage-label-secondary)">30</text>
+      <text x={LEFT - 8} y={y(1) + 5} textAnchor="end" fontSize={12} data-scene-tick fill="var(--motion-stage-label-secondary)">100%</text>
+      <text x={LEFT - 8} y={y(0.5) - 5} textAnchor="end" fontSize={12} data-scene-tick fill="var(--motion-stage-label-secondary)">50%</text>
+      <text x={LEFT} y={198} fontSize={12} data-scene-tick fill="var(--motion-stage-label-secondary)">0</text>
+      <text x={x(14)} y={198} textAnchor="middle" fontSize={12} data-scene-tick fill="var(--motion-stage-label-secondary)">14</text>
+      <text x={RIGHT} y={198} textAnchor="end" fontSize={12} data-scene-tick fill="var(--motion-stage-label-secondary)">30</text>
       <AnimatedPath data-scene-mark="episode-probability" data-legend-series="episode-curve"
         fill="none" stroke="var(--role-value-stage)" strokeWidth={2.5}
         bindings={{ d: (t) => pathTo(episodeSurvivalFrame(t).steps) }} />
@@ -69,8 +71,8 @@ function EpisodeSurvivalStage() {
           cx: (t) => x(episodeSurvivalFrame(t).steps),
           cy: (t) => y(episodeSurvivalFrame(t).success),
         }} />
-      <text x={100} y={223} fontSize={13} fill="var(--motion-stage-label)">consecutive decisions →</text>
-      <AnimatedElement as="text" x={293} y={48} textAnchor="end" fontSize={12}
+      <text x={100} y={223} fontSize={13} data-scene-axis fill="var(--motion-stage-label)">consecutive decisions →</text>
+      <AnimatedElement as="text" x={RIGHT} y={48} textAnchor="end" fontSize={12} data-scene-note
         fill="var(--motion-stage-label-secondary)"
         bindings={{ opacity: (t) => episodeSurvivalFrame(t).recap }}>
         pⁿ

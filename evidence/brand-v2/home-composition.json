@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "fingerprint": "cc117d759f41ffa1ac8d8f9fa1a3bd9cf4393829b29f3ef4e3aa4e9ce9e5f912",
+  "fingerprint": "bc986aef3931fbdf9c000e919a12a0dac96b30595c504c9028a343510587018b",
   "viewport": "1440x900",
   "route": "/",
-  "visibleTextLength": 5820,
+  "visibleTextLength": 6320,
   "documentScrollWidthPx": 1440,
   "documentClientWidthPx": 1440,
   "heroLockups": [
@@ -159,13 +159,22 @@
       "bottomPx": 1118.66
     },
     {
+      "controlId": "control:link-focus",
+      "accessibleName": "Evaluation crisis",
+      "href": "/data-hardware/evaluation-crisis/",
+      "backgroundColour": "rgba(0, 0, 0, 0)",
+      "colour": "rgb(36, 95, 255)",
+      "topPx": 1681.34,
+      "bottomPx": 1699.34
+    },
+    {
       "controlId": "control:primary-action",
       "accessibleName": "Play",
       "href": null,
       "backgroundColour": "rgb(11, 11, 12)",
       "colour": "rgb(255, 255, 255)",
-      "topPx": 1718.34,
-      "bottomPx": 1754.34
+      "topPx": 1720.59,
+      "bottomPx": 1756.59
     },
     {
       "controlId": "control:secondary-action",
@@ -173,8 +182,8 @@
       "href": null,
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 45, 51)",
-      "topPx": 1718.34,
-      "bottomPx": 1754.34
+      "topPx": 1720.59,
+      "bottomPx": 1756.59
     },
     {
       "controlId": "control:secondary-action",
@@ -182,8 +191,8 @@
       "href": null,
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 45, 51)",
-      "topPx": 1718.34,
-      "bottomPx": 1754.34
+      "topPx": 1720.59,
+      "bottomPx": 1756.59
     },
     {
       "controlId": "control:secondary-action",
@@ -191,8 +200,17 @@
       "href": null,
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 45, 51)",
-      "topPx": 1718.34,
-      "bottomPx": 1754.34
+      "topPx": 1720.59,
+      "bottomPx": 1756.59
+    },
+    {
+      "controlId": "control:link-focus",
+      "accessibleName": "Reliability gap",
+      "href": "/frontier/reliability-gap/",
+      "backgroundColour": "rgba(0, 0, 0, 0)",
+      "colour": "rgb(36, 95, 255)",
+      "topPx": 2572.05,
+      "bottomPx": 2587.05
     },
     {
       "controlId": "control:link-focus",
@@ -200,8 +218,8 @@
       "href": "/credits/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
-      "topPx": 2697.33,
-      "bottomPx": 2717.33
+      "topPx": 2713.55,
+      "bottomPx": 2733.55
     },
     {
       "controlId": "control:link-focus",
@@ -209,8 +227,8 @@
       "href": "https://commons.wikimedia.org/wiki/File:Spot_robot_Royal_Air_Force.jpg",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 45, 51)",
-      "topPx": 3219.66,
-      "bottomPx": 3233.66
+      "topPx": 3152.38,
+      "bottomPx": 3167.38
     },
     {
       "controlId": "control:link-focus",
@@ -218,8 +236,8 @@
       "href": "https://commons.wikimedia.org/wiki/Template:PD-USGov-Military-Air_Force",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 45, 51)",
-      "topPx": 3219.66,
-      "bottomPx": 3233.66
+      "topPx": 3152.38,
+      "bottomPx": 3183.88
     },
     {
       "controlId": "control:link-focus",
@@ -227,8 +245,8 @@
       "href": "/playground/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 3658.53,
-      "bottomPx": 3676.53
+      "topPx": 3719.75,
+      "bottomPx": 3737.75
     },
     {
       "controlId": "control:link-focus",
@@ -236,8 +254,8 @@
       "href": "/market-map/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 3533.53,
-      "bottomPx": 3551.53
+      "topPx": 3613.38,
+      "bottomPx": 3631.38
     },
     {
       "controlId": "control:link-focus",
@@ -245,8 +263,8 @@
       "href": "/manipulation/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 3912.53,
-      "bottomPx": 3932.53
+      "topPx": 3973.75,
+      "bottomPx": 3993.75
     },
     {
       "controlId": "control:link-focus",
@@ -254,8 +272,8 @@
       "href": "/manipulation/robot-learning-roadmap/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 4005.03,
-      "bottomPx": 4023.03
+      "topPx": 4066.25,
+      "bottomPx": 4084.25
     },
     {
       "controlId": "control:link-focus",
@@ -263,8 +281,8 @@
       "href": "/data-hardware/datasets/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 4033.03,
-      "bottomPx": 4051.03
+      "topPx": 4094.25,
+      "bottomPx": 4112.25
     },
     {
       "controlId": "control:link-focus",
@@ -272,8 +290,8 @@
       "href": "/manipulation/bc-foundations/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 4061.03,
-      "bottomPx": 4079.03
+      "topPx": 4122.25,
+      "bottomPx": 4140.25
     },
     {
       "controlId": "control:link-focus",
@@ -281,8 +299,8 @@
       "href": "/manipulation/action-spaces/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 4089.03,
-      "bottomPx": 4107.03
+      "topPx": 4150.25,
+      "bottomPx": 4168.25
     },
     {
       "controlId": "control:link-focus",
@@ -290,8 +308,8 @@
       "href": "/manipulation/diffusion-policy/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 4117.03,
-      "bottomPx": 4135.03
+      "topPx": 4178.25,
+      "bottomPx": 4196.25
     },
     {
       "controlId": "control:link-focus",
@@ -299,8 +317,8 @@
       "href": "/manipulation/vla-models/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 4145.03,
-      "bottomPx": 4163.03
+      "topPx": 4206.25,
+      "bottomPx": 4224.25
     },
     {
       "controlId": "control:link-focus",
@@ -308,8 +326,8 @@
       "href": "/data-hardware/evaluation-crisis/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 4173.03,
-      "bottomPx": 4191.03
+      "topPx": 4234.25,
+      "bottomPx": 4252.25
     },
     {
       "controlId": "control:link-focus",
@@ -317,8 +335,8 @@
       "href": "/data-hardware/industrial-deployment/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 4201.03,
-      "bottomPx": 4219.03
+      "topPx": 4262.25,
+      "bottomPx": 4280.25
     },
     {
       "controlId": "control:link-focus",
@@ -326,8 +344,8 @@
       "href": "/classical/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 3912.53,
-      "bottomPx": 3932.53
+      "topPx": 3973.75,
+      "bottomPx": 3993.75
     },
     {
       "controlId": "control:link-focus",
@@ -335,8 +353,8 @@
       "href": "/classical/kinematics/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 4027.78,
-      "bottomPx": 4045.78
+      "topPx": 4089,
+      "bottomPx": 4107
     },
     {
       "controlId": "control:link-focus",
@@ -344,8 +362,8 @@
       "href": "/classical/calibration/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 4055.78,
-      "bottomPx": 4073.78
+      "topPx": 4117,
+      "bottomPx": 4135
     },
     {
       "controlId": "control:link-focus",
@@ -353,8 +371,8 @@
       "href": "/classical/perception/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 4083.78,
-      "bottomPx": 4101.78
+      "topPx": 4145,
+      "bottomPx": 4163
     },
     {
       "controlId": "control:link-focus",
@@ -362,8 +380,8 @@
       "href": "/classical/state-estimation/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 4111.78,
-      "bottomPx": 4129.78
+      "topPx": 4173,
+      "bottomPx": 4191
     },
     {
       "controlId": "control:link-focus",
@@ -371,8 +389,8 @@
       "href": "/classical/motion-planning/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 4139.78,
-      "bottomPx": 4157.78
+      "topPx": 4201,
+      "bottomPx": 4219
     },
     {
       "controlId": "control:link-focus",
@@ -380,8 +398,8 @@
       "href": "/classical/control/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 4167.78,
-      "bottomPx": 4185.78
+      "topPx": 4229,
+      "bottomPx": 4247
     },
     {
       "controlId": "control:link-focus",
@@ -389,8 +407,8 @@
       "href": "/classical/ros2-for-ml-engineers/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 4195.78,
-      "bottomPx": 4213.78
+      "topPx": 4257,
+      "bottomPx": 4275
     },
     {
       "controlId": "control:link-focus",
@@ -398,8 +416,8 @@
       "href": "/world-models/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 3912.53,
-      "bottomPx": 3932.53
+      "topPx": 3973.75,
+      "bottomPx": 3993.75
     },
     {
       "controlId": "control:link-focus",
@@ -407,8 +425,8 @@
       "href": "/world-models/taxonomy/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 4027.78,
-      "bottomPx": 4045.78
+      "topPx": 4089,
+      "bottomPx": 4107
     },
     {
       "controlId": "control:link-focus",
@@ -416,8 +434,8 @@
       "href": "/world-models/model-based-robot-learning/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 4055.78,
-      "bottomPx": 4073.78
+      "topPx": 4117,
+      "bottomPx": 4135
     },
     {
       "controlId": "control:link-focus",
@@ -425,8 +443,8 @@
       "href": "/world-models/latent-dynamics/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 4083.78,
-      "bottomPx": 4101.78
+      "topPx": 4145,
+      "bottomPx": 4163
     },
     {
       "controlId": "control:link-focus",
@@ -434,8 +452,8 @@
       "href": "/world-models/jepa/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 4111.78,
-      "bottomPx": 4149.78
+      "topPx": 4173,
+      "bottomPx": 4211
     },
     {
       "controlId": "control:link-focus",
@@ -443,8 +461,8 @@
       "href": "/world-models/generative-video/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 4159.78,
-      "bottomPx": 4177.78
+      "topPx": 4221,
+      "bottomPx": 4239
     },
     {
       "controlId": "control:link-focus",
@@ -452,8 +470,8 @@
       "href": "/world-models/generative-sim/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 4187.78,
-      "bottomPx": 4205.78
+      "topPx": 4249,
+      "bottomPx": 4267
     },
     {
       "controlId": "control:link-focus",
@@ -461,8 +479,8 @@
       "href": "/world-models/evaluation/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 4215.78,
-      "bottomPx": 4233.78
+      "topPx": 4277,
+      "bottomPx": 4295
     },
     {
       "controlId": "control:link-focus",
@@ -470,8 +488,8 @@
       "href": "/world-models/world-models-vs-simulators/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 4243.78,
-      "bottomPx": 4261.78
+      "topPx": 4305,
+      "bottomPx": 4323
     },
     {
       "controlId": "control:link-focus",
@@ -479,8 +497,8 @@
       "href": "/manipulation/action-chunking/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
-      "topPx": 4458.78,
-      "bottomPx": 4478.78
+      "topPx": 4520,
+      "bottomPx": 4540
     },
     {
       "controlId": "control:link-focus",
@@ -488,8 +506,8 @@
       "href": "/glossary/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
-      "topPx": 4604.78,
-      "bottomPx": 4624.78
+      "topPx": 4666,
+      "bottomPx": 4686
     }
   ],
   "highlights": [
@@ -504,6 +522,18 @@
       "annotation": "home-premise",
       "topPx": 315.16,
       "bottomPx": 337.16
+    },
+    {
+      "tag": "span",
+      "carriers": [
+        "background"
+      ],
+      "text": "",
+      "nonColourCue": null,
+      "rejectedStateCues": [],
+      "annotation": null,
+      "topPx": 2513.8,
+      "bottomPx": 2517.8
     }
   ],
   "domainEntries": [
@@ -520,8 +550,8 @@
       "name": "Robot learning and VLA",
       "href": "/manipulation/",
       "description": "",
-      "topPx": 3910.53,
-      "bottomPx": 3934.53,
+      "topPx": 3971.75,
+      "bottomPx": 3995.75,
       "heightPx": 24,
       "bordered": false
     },
@@ -547,8 +577,8 @@
       "name": "World models for robotics",
       "href": "/world-models/",
       "description": "",
-      "topPx": 3910.53,
-      "bottomPx": 3934.53,
+      "topPx": 3971.75,
+      "bottomPx": 3995.75,
       "heightPx": 24,
       "bordered": false
     },
@@ -574,8 +604,8 @@
       "name": "Classical robotics foundations",
       "href": "/classical/",
       "description": "",
-      "topPx": 3910.53,
-      "bottomPx": 3934.53,
+      "topPx": 3971.75,
+      "bottomPx": 3995.75,
       "heightPx": 24,
       "bordered": false
     },
@@ -630,7 +660,7 @@
       "index": 2,
       "label": "Featured interactive",
       "signature": "plain/module-heading/live-instrument",
-      "derivedSignature": "rgb(255, 255, 255)|1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219)|0|no-shadow + transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0],button[rgb(11, 11, 12)/rgb(255, 255, 255)/1],button[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/1],button[rgba(0, 0, 0, 0)/rgb(36, 45, 51)/1] || p=8,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=3,canvas=0,table=1,input=2,h3=0,h4=0,blockquote=0,pre=0",
+      "derivedSignature": "rgb(255, 255, 255)|1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219)|0|no-shadow + transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0],button[rgb(11, 11, 12)/rgb(255, 255, 255)/1],button[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/1],button[rgba(0, 0, 0, 0)/rgb(36, 45, 51)/1] || p=7,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=3,canvas=0,table=1,input=2,h3=0,h4=0,blockquote=0,pre=0",
       "derivedSurfaceHeadingAction": "rgb(255, 255, 255)|1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219)|0|no-shadow + transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0],button[rgb(11, 11, 12)/rgb(255, 255, 255)/1],button[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/1],button[rgba(0, 0, 0, 0)/rgb(36, 45, 51)/1]",
       "headingTag": "h2",
       "headingSizePx": 20
@@ -648,7 +678,7 @@
       "index": 4,
       "label": "Interactive tools",
       "signature": "plain/module-heading/schematic-pair",
-      "derivedSignature": "transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/0] || p=3,ul=1,ol=0,li=6,dl=0,figure=1,img=0,svg=2,canvas=0,table=1,input=0,h3=2,h4=0,blockquote=0,pre=0",
+      "derivedSignature": "transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/0] || p=4,ul=1,ol=0,li=6,dl=0,figure=2,img=0,svg=2,canvas=0,table=1,input=0,h3=2,h4=0,blockquote=0,pre=0",
       "derivedSurfaceHeadingAction": "transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/0]",
       "headingTag": "h2",
       "headingSizePx": 20
@@ -672,7 +702,7 @@
       "headingSizePx": 18
     }
   ],
-  "chromeText": "Robot Wiki Citation-first encyclopedia of modern robot learning. Robot Wiki is an encyclopedia of modern robotics for engineers who already know machine learning: learned manipulation policies, sim-to-real reinforcement learning, world models, teleoperation data pipelines, and the classical control stack underneath. Technical claims should be traceable to cited evidence. Sources range from research papers to first-party documentation and labelled community estimates, and a citation is not a guarantee of verification. The centre of gravity is robot learning, not a catalogue of the industry. Start reading How to read this wiki | Robot Wiki | Domain index | Featured interactive |  |  | Reset | 25%50%75%100%050100steps | Play Step back Step forward Reset beat 4 / 4 toy model · 30 decisions 95% 21.5% 99% 74.0% 99.9% 97.0% compare the last bar The same horizon exposes the last stretch; these are illustrative probabilities, not measured policies. episode success under the same toy model beat 4 / 4 conditional rate 99.9% episode 97.0% Illustrative independence model, not a measured robot policy. A separate calculator lets you vary probability and episode length. | Play | Step back | Step forward | Reset | Real hardware | A Boston Dynamics Spot quadruped walks with Royal Air Force airmen at RAF Leeming during the Agile Liberty 21-2 technology trials in August 2021. | Interactive tools | 100 mm | 3D Kinematics Playground | Market Map | Learning paths | Robot learning and VLA | Classical robotics foundations | World models for robotics | How to read this wiki | A yellow Boston Dynamics Spot quadruped robot walks across an airfield tarmac alongside Royal Air Force airmen in camouflage uniform. | Introduction | Per-step success probability in percent, currently 95.0 | Episode length in steps, currently 30 | Line chart of episode success against episode length at 95.0 percent per-step success | Motion scene: The last stretch of episode reliability | Play the motion scene: The last stretch of episode reliability | Step back one beat | Step forward one beat | Reset the scene to its poster still | Side view of the shipped SO-101 arm at its zero configuration, 6 revolute joints from the base to the gripper",
+  "chromeText": "Robot Wiki Citation-first encyclopedia of modern robot learning. Robot Wiki is an encyclopedia of modern robotics for engineers who already know machine learning: learned manipulation policies, sim-to-real reinforcement learning, world models, teleoperation data pipelines, and the classical control stack underneath. Technical claims should be traceable to cited evidence. Sources range from research papers to first-party documentation and labelled community estimates, and a citation is not a guarantee of verification. The centre of gravity is robot learning, not a catalogue of the industry. Start reading How to read this wiki | Robot Wiki | Domain index | Featured interactive |  |  | Reset | 25%50%75%100%050100steps | The last stretch of episode reliability Play Step back Step forward Reset toy model · 30 decisions 95% 21.5% 99% 74.0% 99.9% 97.0% compare the last bar episode success under the same toy model beat 4 / 4 conditional rate 99.9% episode 97.0% Illustrative independence model, not a measured robot policy. A separate calculator lets you vary probability and episode length. The same horizon exposes the last stretch; these are illustrative probabilities, not measured policies. Featured from Reliability gap, where it sets the per-step bar deployment needs. | Play | Step back | Step forward | Reset | Real hardware | A Boston Dynamics Spot quadruped walks with Royal Air Force airmen at RAF Leeming during the Agile Liberty 21-2 technology trials in August 2021. | Interactive tools |  | 3D Kinematics Playground | All 111 companies on the market map, counted by segment. | Market Map | Learning paths | Robot learning and VLA | Classical robotics foundations | World models for robotics | How to read this wiki | A yellow Boston Dynamics Spot quadruped robot walks across an airfield tarmac alongside Royal Air Force airmen in camouflage uniform. | Introduction | Per-step success probability in percent, currently 95.0 | Episode length in steps, currently 30 | Line chart of episode success against episode length at 95.0 percent per-step success | Motion scene: The last stretch of episode reliability | Play the motion scene: The last stretch of episode reliability | Step back one beat | Step forward one beat | Reset the scene to its poster still | Side view of the shipped SO-101 arm at its zero configuration, 6 revolute joints from the base to the gripper",
   "domainAnchorCounts": {
     "Manipulation & Learned Policies": 1,
     "RL, Sim-to-Real & Locomotion": 1,
@@ -742,7 +772,7 @@
       "declaredSignature": "plain/module-heading/live-instrument",
       "registeredOwner": "brand-v2-home-live-tools-and-responsive-convergence",
       "registeredPurpose": "The featured instrument, where the reader operates a live calculator that computes its readout instead of depicting one.",
-      "derivedStructuralForm": "rgb(255, 255, 255)|1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219)|0|no-shadow + transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0],button[rgb(11, 11, 12)/rgb(255, 255, 255)/1],button[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/1],button[rgba(0, 0, 0, 0)/rgb(36, 45, 51)/1] || p=8,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=3,canvas=0,table=1,input=2,h3=0,h4=0,blockquote=0,pre=0",
+      "derivedStructuralForm": "rgb(255, 255, 255)|1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219)|0|no-shadow + transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0],button[rgb(11, 11, 12)/rgb(255, 255, 255)/1],button[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/1],button[rgba(0, 0, 0, 0)/rgb(36, 45, 51)/1] || p=7,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=3,canvas=0,table=1,input=2,h3=0,h4=0,blockquote=0,pre=0",
       "derivedForm": "form:3",
       "derivedSurfaceHeadingActionForm": "form:3"
     },
@@ -762,7 +792,7 @@
       "declaredSignature": "plain/module-heading/schematic-pair",
       "registeredOwner": "brand-v2-home-live-tools-and-responsive-convergence",
       "registeredPurpose": "The two tool entry points, each previewing the artifact it leads to with a schematic derived from the shipped data.",
-      "derivedStructuralForm": "transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/0] || p=3,ul=1,ol=0,li=6,dl=0,figure=1,img=0,svg=2,canvas=0,table=1,input=0,h3=2,h4=0,blockquote=0,pre=0",
+      "derivedStructuralForm": "transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/0] || p=4,ul=1,ol=0,li=6,dl=0,figure=2,img=0,svg=2,canvas=0,table=1,input=0,h3=2,h4=0,blockquote=0,pre=0",
       "derivedForm": "form:5",
       "derivedSurfaceHeadingActionForm": "form:5"
     },

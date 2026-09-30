@@ -114,6 +114,10 @@ async function captureScene(
         },
         [selector, beat, target.beats] as const,
       );
+      // The counter can land a frame before the stage writes the beat's
+      // end-state; audit the frame the screenshot will show.
+      await page.evaluate(() => new Promise((resolve) =>
+        requestAnimationFrame(() => requestAnimationFrame(resolve))));
       await expect(caption).toBeVisible();
       const still = path.join(outDir, `${viewport.name}-beat-${beat}.png`);
       await audit(scene, `${viewport.name} beat ${beat}`);

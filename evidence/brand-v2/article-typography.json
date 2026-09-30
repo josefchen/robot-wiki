@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "385252414e244a2f2b67bd660ffea33fc07db0e226f6b260e82def572d33acd9",
+  "fingerprint": "72e133380b9765d44757048857f6059bd4a9ab5adaeb79937a27064e4ac3e55b",
   "viewports": [
     "375x812",
     "1440x900"
@@ -141,7 +141,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 5990,
+      "visibleTextLength": 6490,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -1902,7 +1902,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18323,
+      "visibleTextLength": 18349,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -2057,28 +2057,19 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "The same obstacle and agility require a lower speed when mor"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 301,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 309,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4 delay 200 ms avoidance 346 ms maximum speed 14.64"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 7,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 309,
+          "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Falanga et al.'s cited 8 m range, 25 m/s² agility, and stere"
         },
@@ -2088,7 +2079,7 @@
           "lineHeightRatio": 1.7,
           "widthPx": 0,
           "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
+          "insideRegisteredFrame": false,
           "text": "Perception delay lowers the safe speed. Beat 1: An obstacle "
         },
         {
@@ -6605,7 +6596,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15291,
+      "visibleTextLength": 15314,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -6767,28 +6758,19 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "Moving an upstream joint changes every downstream position; "
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 301,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 309,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4 opening angles 110°, -45°, -35° tip (0.45, 1.89)"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 7,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 309,
+          "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Schematic, authored link lengths and angles from the planar "
         },
@@ -6798,7 +6780,7 @@
           "lineHeightRatio": 1.7,
           "widthPx": 0,
           "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
+          "insideRegisteredFrame": false,
           "text": "A joint turns every link downstream. Beat 1: The base joint "
         },
         {
@@ -7233,17 +7215,17 @@
           "decorationLine": "underline",
           "decorationStyle": "solid",
           "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-          "familyHead": "ibm plex mono",
+          "familyHead": "ibm plex sans",
           "shape": "inline border:0px/solid radius:0px",
           "variants": [
             {
-              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|inline border:0px/solid radius:0px",
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
               "count": 2,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-              "familyHead": "ibm plex mono",
+              "familyHead": "ibm plex sans",
               "shape": "inline border:0px/solid radius:0px"
             }
           ]
@@ -7430,7 +7412,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27843,
+      "visibleTextLength": 27874,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -7587,28 +7569,19 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "Only after a goal connection exists does the selected start-"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 301,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 309,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4 authored world 100 × 64 goal connection 288 accep"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 7,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 309,
+          "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Authored fixed-seed planning scene, not a published benchmar"
         },
@@ -7618,7 +7591,7 @@
           "lineHeightRatio": 1.7,
           "widthPx": 0,
           "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
+          "insideRegisteredFrame": false,
           "text": "A seeded tree finds a path around obstacles. Beat 1: A fixed"
         },
         {
@@ -11393,7 +11366,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20394,
+      "visibleTextLength": 20415,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -11525,28 +11498,19 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "The step, written out: the posterior becomes the next prior,"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 301,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 267.81,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 5 / 5 σ 0.94 → 1.27 → 0.79 K 0.62 z 0.82"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 7,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 309,
+          "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Schematic of step 41 of the seeded constant-velocity filter "
         },
@@ -11556,7 +11520,7 @@
           "lineHeightRatio": 1.7,
           "widthPx": 0,
           "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
+          "insideRegisteredFrame": false,
           "text": "Kalman filter: predict and update. A five-beat scene in the "
         },
         {
@@ -12346,18 +12310,6 @@
           "familyHead": "ibm plex mono",
           "sizePx": 11,
           "trackingEm": 0.14
-        },
-        {
-          "text": "Original schematic",
-          "familyHead": "ibm plex mono",
-          "sizePx": 11,
-          "trackingEm": 0.14
-        },
-        {
-          "text": "Original schematic",
-          "familyHead": "ibm plex mono",
-          "sizePx": 11,
-          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -12669,7 +12621,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 16056,
+      "visibleTextLength": 16094,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -12829,28 +12781,19 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "The same target has different collection times because the t"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 301,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 309,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4 annual output 10,000 h time to target 1.0 yr"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 7,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 309,
+          "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Illustrative log-scaled hours with authored 7- and 1,000-hou"
         },
@@ -12860,7 +12803,7 @@
           "lineHeightRatio": 1.7,
           "widthPx": 0,
           "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
+          "insideRegisteredFrame": false,
           "text": "How a farm rate changes time to an authored target. Beat 1: "
         },
         {
@@ -14399,7 +14342,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17974,
+      "visibleTextLength": 18021,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -14546,28 +14489,19 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "The curve depends on a constant conditional-probability assu"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 301,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 286,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4 decisions 30 episode success 21.5%"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 7,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 309,
+          "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Illustrative constant conditional probability of 95% per dec"
         },
@@ -14577,7 +14511,7 @@
           "lineHeightRatio": 1.7,
           "widthPx": 0,
           "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
+          "insideRegisteredFrame": false,
           "text": "Conditional success compounds over an illustrative episode. "
         },
         {
@@ -15766,12 +15700,22 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|inline border:0px/solid radius:0px",
-              "count": 45,
+              "count": 41,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
               "familyHead": "ibm plex mono",
+              "shape": "inline border:0px/solid radius:0px"
+            },
+            {
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
+              "count": 4,
+              "colour": "rgb(36, 95, 255)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+              "familyHead": "ibm plex sans",
               "shape": "inline border:0px/solid radius:0px"
             }
           ]
@@ -16163,7 +16107,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24516,
+      "visibleTextLength": 24563,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -16296,28 +16240,19 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "The same success rate has different economics when intervent"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 301,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 309,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4 pick success 99.0% clearing 300 s output 380.0 pi"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 7,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 309,
+          "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Illustrative cell, not observed economics or a financial for"
         },
@@ -16327,7 +16262,7 @@
           "lineHeightRatio": 1.7,
           "widthPx": 0,
           "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
+          "insideRegisteredFrame": false,
           "text": "Clearing time takes capacity from an authored picking cell. "
         },
         {
@@ -20807,7 +20742,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20998,
+      "visibleTextLength": 21020,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -21005,28 +20940,19 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "The same object is stable again in the toy loop; the diagram"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 301,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 58,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 7,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 309,
+          "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Schematic toy of contact feedback, not a sensor measurement "
         },
@@ -21036,7 +20962,7 @@
           "lineHeightRatio": 1.7,
           "widthPx": 0,
           "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
+          "insideRegisteredFrame": false,
           "text": "A contact channel can reveal slip. Beat 1: A schematic gripp"
         },
         {
@@ -22479,7 +22405,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14820,
+      "visibleTextLength": 14957,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -22627,28 +22553,19 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "The same horizon exposes the last stretch; these are illustr"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 301,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 292,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4 conditional rate 99.9% episode 97.0%"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 7,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 309,
+          "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Illustrative independence model, not a measured robot policy"
         },
@@ -22658,7 +22575,7 @@
           "lineHeightRatio": 1.7,
           "widthPx": 0,
           "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
+          "insideRegisteredFrame": false,
           "text": "The last stretch of episode reliability. Beat 1: At 95% succ"
         },
         {
@@ -23038,14 +22955,24 @@
         },
         {
           "kind": "internal",
-          "count": 2,
+          "count": 3,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
           "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-          "familyHead": "newsreader",
+          "familyHead": "ibm plex sans",
           "shape": "inline border:0px/solid radius:0px",
           "variants": [
+            {
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
+              "count": 1,
+              "colour": "rgb(36, 95, 255)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+              "familyHead": "ibm plex sans",
+              "shape": "inline border:0px/solid radius:0px"
+            },
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
               "count": 2,
@@ -25318,17 +25245,17 @@
           "decorationLine": "underline",
           "decorationStyle": "solid",
           "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-          "familyHead": "ibm plex mono",
+          "familyHead": "ibm plex sans",
           "shape": "inline border:0px/solid radius:0px",
           "variants": [
             {
-              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|inline border:0px/solid radius:0px",
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
               "count": 1,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-              "familyHead": "ibm plex mono",
+              "familyHead": "ibm plex sans",
               "shape": "inline border:0px/solid radius:0px"
             }
           ]
@@ -25389,12 +25316,6 @@
           "text": "Citations",
           "familyHead": "ibm plex mono",
           "sizePx": 10,
-          "trackingEm": 0.14
-        },
-        {
-          "text": "Original schematic",
-          "familyHead": "ibm plex mono",
-          "sizePx": 11,
           "trackingEm": 0.14
         }
       ],
@@ -26982,17 +26903,17 @@
           "decorationLine": "underline",
           "decorationStyle": "solid",
           "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-          "familyHead": "ibm plex mono",
+          "familyHead": "ibm plex sans",
           "shape": "inline border:0px/solid radius:0px",
           "variants": [
             {
-              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|inline border:0px/solid radius:0px",
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
               "count": 1,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-              "familyHead": "ibm plex mono",
+              "familyHead": "ibm plex sans",
               "shape": "inline border:0px/solid radius:0px"
             }
           ]
@@ -27053,12 +26974,6 @@
           "text": "Citations",
           "familyHead": "ibm plex mono",
           "sizePx": 10,
-          "trackingEm": 0.14
-        },
-        {
-          "text": "Original schematic",
-          "familyHead": "ibm plex mono",
-          "sizePx": 11,
           "trackingEm": 0.14
         }
       ],
@@ -28914,7 +28829,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14485,
+      "visibleTextLength": 14509,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -29088,28 +29003,19 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "Recap: ten steps of denoising conditioned on o recover both "
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 301,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 309,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4 samples 60 steps 10 dispersion 1.79 → 0.27"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 7,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 309,
+          "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Illustrative action-space model (status: illustrative): the "
         },
@@ -29119,7 +29025,7 @@
           "lineHeightRatio": 1.7,
           "widthPx": 0,
           "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
+          "insideRegisteredFrame": false,
           "text": "Diffusion policy: denoising actions. A four-beat scene in a "
         },
         {
@@ -33149,7 +33055,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26138,
+      "visibleTextLength": 26165,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -33300,28 +33206,19 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "Two action clusters remain after transport; the step-count l"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 301,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 309,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4 toy samples 48 ten-step mean endpoint error 0.05"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 7,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 309,
+          "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Illustrative seeded two-dimensional transport, not learned p"
         },
@@ -33331,7 +33228,7 @@
           "lineHeightRatio": 1.7,
           "widthPx": 0,
           "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
+          "insideRegisteredFrame": false,
           "text": "Flow matching transports action samples. Beat 1: A seeded to"
         },
         {
@@ -37065,7 +36962,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20603,
+      "visibleTextLength": 20622,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -37239,28 +37136,19 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "The token stream retains the bin choice, while seven sequent"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 301,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 282.81,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4 toy value -0.056 → bin 120 → <a120>"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 7,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 309,
+          "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Schematic, illustrative action vector: normalized bounds and"
         },
@@ -37270,7 +37158,7 @@
           "lineHeightRatio": 1.7,
           "widthPx": 0,
           "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
+          "insideRegisteredFrame": false,
           "text": "From continuous action to token. Beat 1: A toy continuous ac"
         },
         {
@@ -40850,7 +40738,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19060,
+      "visibleTextLength": 19090,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -41001,28 +40889,19 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "The authored pronk puts all four feet down together and then"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 301,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 309,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4 new pattern Pronk minimum support 0 feet"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 7,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 309,
+          "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Schematic, authored gait duty factors and phase offsets from"
         },
@@ -41032,7 +40911,7 @@
           "lineHeightRatio": 1.7,
           "widthPx": 0,
           "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
+          "insideRegisteredFrame": false,
           "text": "Foot support over an authored stride cycle. Beat 1: The auth"
         },
         {
@@ -41395,17 +41274,17 @@
           "decorationLine": "underline",
           "decorationStyle": "solid",
           "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-          "familyHead": "ibm plex mono",
+          "familyHead": "ibm plex sans",
           "shape": "inline border:0px/solid radius:0px",
           "variants": [
             {
-              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|inline border:0px/solid radius:0px",
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
               "count": 2,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-              "familyHead": "ibm plex mono",
+              "familyHead": "ibm plex sans",
               "shape": "inline border:0px/solid radius:0px"
             }
           ]
@@ -42729,7 +42608,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16302,
+      "visibleTextLength": 16338,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -42875,28 +42754,19 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "At 16,384 environments, the two toy curves show why parallel"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 301,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 233,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4 envs 16,384 toy time 1.5 min"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 7,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 309,
+          "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Illustrative fixed-transition calculation, not a measured tr"
         },
@@ -42906,7 +42776,7 @@
           "lineHeightRatio": 1.7,
           "widthPx": 0,
           "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
+          "insideRegisteredFrame": false,
           "text": "Parallel rollouts change a fixed training budget. Beat 1: At"
         },
         {
@@ -48343,7 +48213,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17402,
+      "visibleTextLength": 17438,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -48498,28 +48368,19 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "The same push changes position only when a solver supplies d"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 301,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 282,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4 toy push 4.0 N displacement 18.1 cm"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 7,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 309,
+          "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Schematic, authored impulse and friction model, not a measur"
         },
@@ -48529,7 +48390,7 @@
           "lineHeightRatio": 1.7,
           "widthPx": 0,
           "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
+          "insideRegisteredFrame": false,
           "text": "A rendered scene needs a solver to answer a push. Beat 1: Th"
         },
         {
@@ -49213,7 +49074,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19886,
+      "visibleTextLength": 19911,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -49366,28 +49227,19 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "Sharp frames keep the same toy realism score in both modes, "
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 301,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 309,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4 toy sensitivity 0.017 threshold 0.30 toy realism "
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 7,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 309,
+          "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Illustrative toy, not measured model performance. The two ac"
         },
@@ -49397,7 +49249,7 @@
           "lineHeightRatio": 1.7,
           "widthPx": 0,
           "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
+          "insideRegisteredFrame": false,
           "text": "Two actions fork one predicted future. Beat 1: The same tabl"
         },
         {
@@ -50817,7 +50669,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15916,
+      "visibleTextLength": 15948,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -50972,28 +50824,19 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "The toy deviation after fifteen steps depends on the chosen "
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 301,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 258,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4 toy step 15 deviation 0.301 units"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 301,
-          "zeroAdvancePx": 7,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 309,
+          "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Illustrative toy, not measured Dreamer or TD-MPC performance"
         },
@@ -51003,7 +50846,7 @@
           "lineHeightRatio": 1.7,
           "widthPx": 0,
           "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
+          "insideRegisteredFrame": false,
           "text": "Small model errors accumulate in imagination. Beat 1: An ima"
         },
         {
@@ -54131,7 +53974,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 6212,
+      "visibleTextLength": 6712,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -55892,7 +55735,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18641,
+      "visibleTextLength": 18667,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -56047,28 +55890,19 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "The same obstacle and agility require a lower speed when mor"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 665,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 419,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4 delay 200 ms avoidance 346 ms maximum speed 14.64"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 7,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 689,
+          "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Falanga et al.'s cited 8 m range, 25 m/s² agility, and stere"
         },
@@ -56078,7 +55912,7 @@
           "lineHeightRatio": 1.7,
           "widthPx": 0,
           "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
+          "insideRegisteredFrame": false,
           "text": "Perception delay lowers the safe speed. Beat 1: An obstacle "
         },
         {
@@ -60595,7 +60429,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15712,
+      "visibleTextLength": 15735,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -60757,28 +60591,19 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "Moving an upstream joint changes every downstream position; "
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 665,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 340,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4 opening angles 110°, -45°, -35° tip (0.45, 1.89)"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 7,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 689,
+          "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Schematic, authored link lengths and angles from the planar "
         },
@@ -60788,7 +60613,7 @@
           "lineHeightRatio": 1.7,
           "widthPx": 0,
           "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
+          "insideRegisteredFrame": false,
           "text": "A joint turns every link downstream. Beat 1: The base joint "
         },
         {
@@ -61223,17 +61048,17 @@
           "decorationLine": "underline",
           "decorationStyle": "solid",
           "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-          "familyHead": "ibm plex mono",
+          "familyHead": "ibm plex sans",
           "shape": "inline border:0px/solid radius:0px",
           "variants": [
             {
-              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|inline border:0px/solid radius:0px",
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
               "count": 2,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-              "familyHead": "ibm plex mono",
+              "familyHead": "ibm plex sans",
               "shape": "inline border:0px/solid radius:0px"
             }
           ]
@@ -61420,7 +61245,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28264,
+      "visibleTextLength": 28295,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -61577,28 +61402,19 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "Only after a goal connection exists does the selected start-"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 665,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 466,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4 authored world 100 × 64 goal connection 288 accep"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 7,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 689,
+          "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Authored fixed-seed planning scene, not a published benchmar"
         },
@@ -61608,7 +61424,7 @@
           "lineHeightRatio": 1.7,
           "widthPx": 0,
           "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
+          "insideRegisteredFrame": false,
           "text": "A seeded tree finds a path around obstacles. Beat 1: A fixed"
         },
         {
@@ -65383,7 +65199,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20813,
+      "visibleTextLength": 20834,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -65515,28 +65331,19 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "The step, written out: the posterior becomes the next prior,"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 665,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 267.81,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 5 / 5 σ 0.94 → 1.27 → 0.79 K 0.62 z 0.82"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 7,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 689,
+          "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Schematic of step 41 of the seeded constant-velocity filter "
         },
@@ -65546,7 +65353,7 @@
           "lineHeightRatio": 1.7,
           "widthPx": 0,
           "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
+          "insideRegisteredFrame": false,
           "text": "Kalman filter: predict and update. A five-beat scene in the "
         },
         {
@@ -66336,18 +66143,6 @@
           "familyHead": "ibm plex mono",
           "sizePx": 11,
           "trackingEm": 0.14
-        },
-        {
-          "text": "Original schematic",
-          "familyHead": "ibm plex mono",
-          "sizePx": 11,
-          "trackingEm": 0.14
-        },
-        {
-          "text": "Original schematic",
-          "familyHead": "ibm plex mono",
-          "sizePx": 11,
-          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -66659,7 +66454,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 16435,
+      "visibleTextLength": 16473,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -66819,28 +66614,19 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "The same target has different collection times because the t"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 665,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 320,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4 annual output 10,000 h time to target 1.0 yr"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 7,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 689,
+          "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Illustrative log-scaled hours with authored 7- and 1,000-hou"
         },
@@ -66850,7 +66636,7 @@
           "lineHeightRatio": 1.7,
           "widthPx": 0,
           "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
+          "insideRegisteredFrame": false,
           "text": "How a farm rate changes time to an authored target. Beat 1: "
         },
         {
@@ -68389,7 +68175,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18353,
+      "visibleTextLength": 18400,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -68536,28 +68322,19 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "The curve depends on a constant conditional-probability assu"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 665,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 286,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4 decisions 30 episode success 21.5%"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 7,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 689,
+          "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Illustrative constant conditional probability of 95% per dec"
         },
@@ -68567,7 +68344,7 @@
           "lineHeightRatio": 1.7,
           "widthPx": 0,
           "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
+          "insideRegisteredFrame": false,
           "text": "Conditional success compounds over an illustrative episode. "
         },
         {
@@ -69756,12 +69533,22 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|inline border:0px/solid radius:0px",
-              "count": 45,
+              "count": 41,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
               "familyHead": "ibm plex mono",
+              "shape": "inline border:0px/solid radius:0px"
+            },
+            {
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
+              "count": 4,
+              "colour": "rgb(36, 95, 255)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+              "familyHead": "ibm plex sans",
               "shape": "inline border:0px/solid radius:0px"
             }
           ]
@@ -70153,7 +69940,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24895,
+      "visibleTextLength": 24942,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -70286,28 +70073,19 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "The same success rate has different economics when intervent"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 665,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 501,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4 pick success 99.0% clearing 300 s output 380.0 pi"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 7,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 689,
+          "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Illustrative cell, not observed economics or a financial for"
         },
@@ -70317,7 +70095,7 @@
           "lineHeightRatio": 1.7,
           "widthPx": 0,
           "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
+          "insideRegisteredFrame": false,
           "text": "Clearing time takes capacity from an authored picking cell. "
         },
         {
@@ -74797,7 +74575,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21333,
+      "visibleTextLength": 21355,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -74995,28 +74773,19 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "The same object is stable again in the toy loop; the diagram"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 665,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 58,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 7,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 689,
+          "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Schematic toy of contact feedback, not a sensor measurement "
         },
@@ -75026,7 +74795,7 @@
           "lineHeightRatio": 1.7,
           "widthPx": 0,
           "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
+          "insideRegisteredFrame": false,
           "text": "A contact channel can reveal slip. Beat 1: A schematic gripp"
         },
         {
@@ -76469,7 +76238,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15155,
+      "visibleTextLength": 15292,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -76617,28 +76386,19 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "The same horizon exposes the last stretch; these are illustr"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 665,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 292,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4 conditional rate 99.9% episode 97.0%"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 7,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 689,
+          "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Illustrative independence model, not a measured robot policy"
         },
@@ -76648,7 +76408,7 @@
           "lineHeightRatio": 1.7,
           "widthPx": 0,
           "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
+          "insideRegisteredFrame": false,
           "text": "The last stretch of episode reliability. Beat 1: At 95% succ"
         },
         {
@@ -77028,14 +76788,24 @@
         },
         {
           "kind": "internal",
-          "count": 2,
+          "count": 3,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
           "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-          "familyHead": "newsreader",
+          "familyHead": "ibm plex sans",
           "shape": "inline border:0px/solid radius:0px",
           "variants": [
+            {
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
+              "count": 1,
+              "colour": "rgb(36, 95, 255)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+              "familyHead": "ibm plex sans",
+              "shape": "inline border:0px/solid radius:0px"
+            },
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
               "count": 2,
@@ -79308,17 +79078,17 @@
           "decorationLine": "underline",
           "decorationStyle": "solid",
           "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-          "familyHead": "ibm plex mono",
+          "familyHead": "ibm plex sans",
           "shape": "inline border:0px/solid radius:0px",
           "variants": [
             {
-              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|inline border:0px/solid radius:0px",
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
               "count": 1,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-              "familyHead": "ibm plex mono",
+              "familyHead": "ibm plex sans",
               "shape": "inline border:0px/solid radius:0px"
             }
           ]
@@ -79379,12 +79149,6 @@
           "text": "Citations",
           "familyHead": "ibm plex mono",
           "sizePx": 10,
-          "trackingEm": 0.14
-        },
-        {
-          "text": "Original schematic",
-          "familyHead": "ibm plex mono",
-          "sizePx": 11,
           "trackingEm": 0.14
         }
       ],
@@ -80972,17 +80736,17 @@
           "decorationLine": "underline",
           "decorationStyle": "solid",
           "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-          "familyHead": "ibm plex mono",
+          "familyHead": "ibm plex sans",
           "shape": "inline border:0px/solid radius:0px",
           "variants": [
             {
-              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|inline border:0px/solid radius:0px",
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
               "count": 1,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-              "familyHead": "ibm plex mono",
+              "familyHead": "ibm plex sans",
               "shape": "inline border:0px/solid radius:0px"
             }
           ]
@@ -81043,12 +80807,6 @@
           "text": "Citations",
           "familyHead": "ibm plex mono",
           "sizePx": 10,
-          "trackingEm": 0.14
-        },
-        {
-          "text": "Original schematic",
-          "familyHead": "ibm plex mono",
-          "sizePx": 11,
           "trackingEm": 0.14
         }
       ],
@@ -82904,7 +82662,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15112,
+      "visibleTextLength": 15136,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -83078,28 +82836,19 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "Recap: ten steps of denoising conditioned on o recover both "
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 665,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 328.91,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4 samples 60 steps 10 dispersion 1.79 → 0.27"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 7,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 689,
+          "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Illustrative action-space model (status: illustrative): the "
         },
@@ -83109,7 +82858,7 @@
           "lineHeightRatio": 1.7,
           "widthPx": 0,
           "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
+          "insideRegisteredFrame": false,
           "text": "Diffusion policy: denoising actions. A four-beat scene in a "
         },
         {
@@ -87139,7 +86888,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26765,
+      "visibleTextLength": 26792,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -87290,28 +87039,19 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "Two action clusters remain after transport; the step-count l"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 665,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 366,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4 toy samples 48 ten-step mean endpoint error 0.05"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 7,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 689,
+          "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Illustrative seeded two-dimensional transport, not learned p"
         },
@@ -87321,7 +87061,7 @@
           "lineHeightRatio": 1.7,
           "widthPx": 0,
           "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
+          "insideRegisteredFrame": false,
           "text": "Flow matching transports action samples. Beat 1: A seeded to"
         },
         {
@@ -91055,7 +90795,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21230,
+      "visibleTextLength": 21249,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -91229,28 +90969,19 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "The token stream retains the bin choice, while seven sequent"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 665,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 282.81,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4 toy value -0.056 → bin 120 → <a120>"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 7,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 689,
+          "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Schematic, illustrative action vector: normalized bounds and"
         },
@@ -91260,7 +90991,7 @@
           "lineHeightRatio": 1.7,
           "widthPx": 0,
           "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
+          "insideRegisteredFrame": false,
           "text": "From continuous action to token. Beat 1: A toy continuous ac"
         },
         {
@@ -94840,7 +94571,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19535,
+      "visibleTextLength": 19565,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -94991,28 +94722,19 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "The authored pronk puts all four feet down together and then"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 665,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 318,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4 new pattern Pronk minimum support 0 feet"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 7,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 689,
+          "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Schematic, authored gait duty factors and phase offsets from"
         },
@@ -95022,7 +94744,7 @@
           "lineHeightRatio": 1.7,
           "widthPx": 0,
           "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
+          "insideRegisteredFrame": false,
           "text": "Foot support over an authored stride cycle. Beat 1: The auth"
         },
         {
@@ -95385,17 +95107,17 @@
           "decorationLine": "underline",
           "decorationStyle": "solid",
           "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-          "familyHead": "ibm plex mono",
+          "familyHead": "ibm plex sans",
           "shape": "inline border:0px/solid radius:0px",
           "variants": [
             {
-              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|inline border:0px/solid radius:0px",
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
               "count": 2,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-              "familyHead": "ibm plex mono",
+              "familyHead": "ibm plex sans",
               "shape": "inline border:0px/solid radius:0px"
             }
           ]
@@ -96719,7 +96441,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16777,
+      "visibleTextLength": 16813,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -96865,28 +96587,19 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "At 16,384 environments, the two toy curves show why parallel"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 665,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 233,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4 envs 16,384 toy time 1.5 min"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 7,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 689,
+          "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Illustrative fixed-transition calculation, not a measured tr"
         },
@@ -96896,7 +96609,7 @@
           "lineHeightRatio": 1.7,
           "widthPx": 0,
           "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
+          "insideRegisteredFrame": false,
           "text": "Parallel rollouts change a fixed training budget. Beat 1: At"
         },
         {
@@ -102333,7 +102046,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17886,
+      "visibleTextLength": 17922,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -102488,28 +102201,19 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "The same push changes position only when a solver supplies d"
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 665,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 282,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4 toy push 4.0 N displacement 18.1 cm"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 7,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 689,
+          "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Schematic, authored impulse and friction model, not a measur"
         },
@@ -102519,7 +102223,7 @@
           "lineHeightRatio": 1.7,
           "widthPx": 0,
           "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
+          "insideRegisteredFrame": false,
           "text": "A rendered scene needs a solver to answer a push. Beat 1: Th"
         },
         {
@@ -103203,7 +102907,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20370,
+      "visibleTextLength": 20395,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -103356,28 +103060,19 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "Sharp frames keep the same toy realism score in both modes, "
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 665,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 371,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4 toy sensitivity 0.017 threshold 0.30 toy realism "
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 7,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 689,
+          "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Illustrative toy, not measured model performance. The two ac"
         },
@@ -103387,7 +103082,7 @@
           "lineHeightRatio": 1.7,
           "widthPx": 0,
           "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
+          "insideRegisteredFrame": false,
           "text": "Two actions fork one predicted future. Beat 1: The same tabl"
         },
         {
@@ -104807,7 +104502,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16400,
+      "visibleTextLength": 16432,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -104962,28 +104657,19 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "The toy deviation after fifteen steps depends on the chosen "
-        },
-        {
-          "familyHead": "ibm plex mono",
-          "sizePx": 14,
-          "lineHeightRatio": 1.43,
-          "widthPx": 665,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 258,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4 toy step 15 deviation 0.301 units"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "lineHeightRatio": 1.63,
-          "widthPx": 665,
-          "zeroAdvancePx": 7,
+          "sizePx": 13,
+          "lineHeightRatio": 1.38,
+          "widthPx": 689,
+          "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Illustrative toy, not measured Dreamer or TD-MPC performance"
         },
@@ -104993,7 +104679,7 @@
           "lineHeightRatio": 1.7,
           "widthPx": 0,
           "zeroAdvancePx": 11,
-          "insideRegisteredFrame": true,
+          "insideRegisteredFrame": false,
           "text": "Small model errors accumulate in imagination. Beat 1: An ima"
         },
         {

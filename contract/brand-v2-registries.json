@@ -11288,6 +11288,7 @@
         "components/ui/chip.tsx",
         "components/ui/cite.tsx",
         "components/ui/code-block.tsx",
+        "components/ui/figure.tsx",
         "components/ui/input-field.tsx",
         "components/ui/instrument.tsx",
         "components/ui/surface.tsx",
@@ -11333,12 +11334,13 @@
         "components/ui/callout.tsx",
         "components/ui/card.tsx",
         "components/ui/cite.tsx",
+        "components/ui/figure.tsx",
         "components/ui/instrument.tsx",
         "components/ui/table.tsx",
         "mdx-components.tsx"
       ],
       "mountState": "production",
-      "fingerprint": "39bfd52d7dc3efe10360baeb55e63ec84762511eed6c49cdd2570a2b9fcb0cdb"
+      "fingerprint": "d150dd8d803c589feff167d40bf20dc3f334a8f7cb2c3d36e50d94c4ba2dafe3"
     },
     {
       "id": "surface:raised",
@@ -11872,6 +11874,7 @@
         "components/interactive/teleop-rig-matrix.tsx",
         "components/market-map/company-card.tsx",
         "components/market-map/funding-timeline.tsx",
+        "components/motion/figure-reuse.tsx",
         "components/nav/nav-tree.tsx",
         "components/nav/site-footer.tsx",
         "components/nav/site-shell.tsx",
@@ -11914,6 +11917,7 @@
         "components/interactive/teleop-rig-matrix.tsx",
         "components/market-map/company-card.tsx",
         "components/market-map/funding-timeline.tsx",
+        "components/motion/figure-reuse.tsx",
         "components/nav/nav-tree.tsx",
         "components/nav/site-footer.tsx",
         "components/nav/site-shell.tsx",
@@ -11946,7 +11950,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "ef83deaa49dd94a5400caf2736154b9e15b24cee4e6f14255107b324d5e0c8ff"
+      "fingerprint": "1615fa4beb6e12c4021eec3b30a8f968e3c7ffc4b92dda358c153f1f2bc63136"
     },
     {
       "id": "control:segmented",
@@ -12150,5 +12154,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "234f4ee5b637a3fb164f4d3f32c30f1aa75c4b666c651e0b3c958e9ba45e78f2"
+  "rootFingerprint": "440907839d575da130be5d505b81c47dac1f08651976babed890816cb77766a9"
 }

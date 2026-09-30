@@ -97,7 +97,7 @@ function ActionForkStage() {
       <text x={28} y={25} fontSize={13} fill="var(--motion-stage-label)">two commands · one starting frame</text>
       <RolloutLane top={65} panel="A" />
       <RolloutLane top={137} panel="B" />
-      <AnimatedElement as="text" x={28} y={228} fontSize={13} fill="var(--motion-stage-label-secondary)"
+      <AnimatedElement as="text" x={28} y={228} fontSize={13} data-scene-note fill="var(--motion-stage-label-secondary)"
         bindings={{ opacity: (t) => actionForkFrame(t).score }}>
         same realism; different action response
       </AnimatedElement>

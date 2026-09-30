@@ -61,7 +61,7 @@ function SenseAvoidStage() {
       <text x={LEFT} y={123} fontSize={14} fill="var(--motion-stage-label)">
         avoidance duration
       </text>
-      <text x={LEFT + WIDTH} y={123} textAnchor="end" fontSize={14}
+      <text x={LEFT + WIDTH} y={123} textAnchor="end" fontSize={14} data-scene-note
         fill="var(--motion-stage-label-secondary)">≈{AVOIDANCE_LABEL}</text>
       <line x1={LEFT} x2={LEFT + WIDTH} y1={169} y2={169}
         stroke="var(--motion-stage-axes)" opacity="var(--motion-stage-axes-opacity)" />
@@ -80,14 +80,14 @@ function SenseAvoidStage() {
       <AnimatedElement as="circle" data-scene-mark="obstacle"
         cx={LEFT + WIDTH} cy={169} r={5} fill="var(--role-constraint-stage)"
         bindings={{ opacity: (t) => senseAvoidFrame(t).detected }} />
-      <text x={LEFT} y={193} fontSize={14} fill="var(--motion-stage-label-secondary)">
+      <text x={LEFT} y={193} fontSize={14} data-scene-note fill="var(--motion-stage-label-secondary)">
         detection
       </text>
-      <text x={LEFT + WIDTH} y={193} textAnchor="end" fontSize={14}
+      <text x={LEFT + WIDTH} y={193} textAnchor="end" fontSize={14} data-scene-note
         fill="var(--motion-stage-label-secondary)">
         obstacle
       </text>
-      <AnimatedElement as="text" x={LEFT} y={218} fontSize={14}
+      <AnimatedElement as="text" x={LEFT} y={218} fontSize={14} data-scene-note
         fill="var(--motion-stage-label-secondary)"
         bindings={{ opacity: (t) => senseAvoidFrame(t).recap }}>
         slower flight buys reaction time

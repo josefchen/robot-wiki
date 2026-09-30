@@ -67,7 +67,7 @@ function LatentDriftStage() {
   return (
     <StageSvg viewBox="0 0 340 240">
       <text x={28} y={25} fontSize={13} fill="var(--motion-stage-label)">latent rollout · authored toy</text>
-      <text x={28} y={73} fontSize={13} fill="var(--motion-stage-label-secondary)">encoded start</text>
+      <text x={28} y={73} fontSize={13} data-scene-note fill="var(--motion-stage-label-secondary)">encoded start</text>
       <g data-scene-structure="axes">
         <line x1={46} y1={188} x2={302} y2={188}
           stroke="var(--motion-stage-axes)" opacity="var(--motion-stage-axes-opacity)" />
@@ -93,10 +93,10 @@ function LatentDriftStage() {
           cx: (t) => position(latentDriftFrame(t).horizon).x,
           cy: (t) => position(latentDriftFrame(t).horizon).y,
         }} />
-      <text x={48} y={210} fontSize={12} fill="var(--motion-stage-label-secondary)">0</text>
-      <text x={296} y={210} fontSize={12} textAnchor="end" fill="var(--motion-stage-label-secondary)">15</text>
-      <text x={124} y={229} fontSize={13} fill="var(--motion-stage-label)">imagination step →</text>
-      <AnimatedElement as="text" x={176} y={73} fontSize={13} fill="var(--motion-stage-label-secondary)"
+      <text x={48} y={210} fontSize={12} data-scene-tick fill="var(--motion-stage-label-secondary)">0</text>
+      <text x={296} y={210} fontSize={12} data-scene-tick textAnchor="end" fill="var(--motion-stage-label-secondary)">15</text>
+      <text x={124} y={229} fontSize={13} data-scene-axis fill="var(--motion-stage-label)">imagination step →</text>
+      <AnimatedElement as="text" x={172} y={73} fontSize={13} data-scene-note fill="var(--motion-stage-label-secondary)"
         bindings={{ opacity: (t) => latentDriftFrame(t).recap }}>
         reference vs prediction
       </AnimatedElement>

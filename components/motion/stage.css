@@ -1,14 +1,79 @@
-/* The SVG viewBox grows with the article rail; keep annotations at UI size. */
-@media (min-width: 768px) {
-  .motion-stage-svg text:not([data-scene-tick]):not([data-scene-readout]) {
-    font-size: 8px;
+/*
+ * One type scale on every stage. The viewBox stretches with the article
+ * rail, so each text role's size is divided by the stage's current scale
+ * (container width over viewBox width) and paints at the same CSS pixels
+ * at every width. Below the minimum width the scale stops following the
+ * container, so a narrower stage shrinks as a whole and keeps the layout
+ * that was checked at that width. The sizes come from motion-tokens.json.
+ * Write glyphs keep their own sizes because the primitive lays out each
+ * advance from them.
+ */
+[data-motion-stage],
+[data-figure-stage] {
+  container-type: inline-size;
+}
+
+/*
+ * The figure stage is always graphite, so the variants written for the
+ * page ground resolve to their stage values inside it. A legend swatch or a
+ * readout span authored with a light-ground role or text colour then paints
+ * the same colour as the stage mark it names.
+ */
+[data-figure-stage] {
+  --color-text: var(--color-on-instrument);
+  --color-text-dim: var(--color-instrument-muted);
+  --role-state-graphic: var(--role-state-stage);
+  --role-state-text: var(--role-state-stage);
+  --role-measurement-graphic: var(--role-measurement-stage);
+  --role-measurement-text: var(--role-measurement-stage);
+  --role-action-graphic: var(--role-action-stage);
+  --role-action-text: var(--role-action-stage);
+  --role-value-graphic: var(--role-value-stage);
+  --role-value-text: var(--role-value-stage);
+  --role-constraint-graphic: var(--role-constraint-stage);
+  --role-constraint-text: var(--role-constraint-stage);
+  --role-reference-graphic: var(--role-reference-stage);
+  --role-reference-text: var(--role-reference-stage);
+  --role-highlight-graphic: var(--role-highlight-stage);
+  --role-highlight-text: var(--role-highlight-stage);
+}
+
+/* Hinted glyph advances snap to whole pixels at the stretched size and
+   leave uneven gaps inside words. */
+.motion-stage-svg text {
+  text-rendering: geometricPrecision;
+}
+
+.motion-stage-svg text[data-scene-readout] {
+  font-family: var(--motion-stage-readout-font);
+}
+
+@supports (width: 1cqw) and (width: calc(1px * tan(atan2(1px, 1px)))) {
+  .motion-stage-svg {
+    /* A hair under the true scale, so float rounding never paints a size
+       below its nominal pixel value. */
+    --motion-stage-type-scale: calc(
+      tan(atan2(
+        max(100cqw, var(--motion-stage-type-min-width)),
+        var(--motion-stage-view-width, 340px)
+      )) * 0.999
+    );
+  }
+
+  .motion-stage-svg text:not([data-scene-glyph]) {
+    font-size: calc(var(--motion-stage-label-size) / var(--motion-stage-type-scale));
+  }
+
+  .motion-stage-svg text[data-scene-axis],
+  .motion-stage-svg text[data-scene-note] {
+    font-size: calc(var(--motion-stage-axis-size) / var(--motion-stage-type-scale));
   }
 
   .motion-stage-svg text[data-scene-tick] {
-    font-size: 6px;
+    font-size: calc(var(--motion-stage-tick-size) / var(--motion-stage-type-scale));
   }
 
   .motion-stage-svg text[data-scene-readout] {
-    font-size: 7px;
+    font-size: calc(var(--motion-stage-readout-size) / var(--motion-stage-type-scale));
   }
 }

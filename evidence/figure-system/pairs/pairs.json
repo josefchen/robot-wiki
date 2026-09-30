@@ -1,0 +1,2116 @@
+[
+ {
+  "route": "/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: The last stretch of episode reliability",
+   "file": "home__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Motion scene: The last stretch of episode reliability",
+   "file": "home__00.png"
+  }
+ },
+ {
+  "route": "/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "A Boston Dynamics Spot quadruped walks with Royal Air Force airmen at RAF Leeming during the Agile Liberty 21-2 technolo",
+   "file": "home__01.png"
+  },
+  "after": {
+   "idx": 1,
+   "label": "A Boston Dynamics Spot quadruped walks with Royal Air Force airmen at RAF Leeming during the Agile Liberty 21-2 technolo",
+   "file": "home__01.png"
+  }
+ },
+ {
+  "route": "/",
+  "changed": true,
+  "before": {
+   "idx": 2,
+   "label": "after: Interactive tools",
+   "file": "home__02.png"
+  },
+  "after": {
+   "idx": 2,
+   "label": "after: Interactive tools",
+   "file": "home__02.png"
+  }
+ },
+ {
+  "route": "/",
+  "changed": true,
+  "before": {
+   "idx": 4,
+   "label": "after: Interactive tools",
+   "file": "home__04.png"
+  },
+  "after": {
+   "idx": 3,
+   "label": "All 111 companies on the market map, counted by segment.",
+   "file": "home__03.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "A Boston Dynamics Spot quadruped walks with Royal Air Force airmen at RAF Leeming during the Agile Liberty 21-2 technolo",
+   "file": "credits__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "A Boston Dynamics Spot quadruped walks with Royal Air Force airmen at RAF Leeming during the Agile Liberty 21-2 technolo",
+   "file": "credits__00.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "The original Atlas humanoid, built for the 2013 DARPA Robotics Challenge: hydraulically actuated, tethered, with its fra",
+   "file": "credits__01.png"
+  },
+  "after": {
+   "idx": 1,
+   "label": "The original Atlas humanoid, built for the 2013 DARPA Robotics Challenge: hydraulically actuated, tethered, with its fra",
+   "file": "credits__01.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 2,
+   "label": "A PUMA 560 at NASA Ames, photographed in a stroboscopic exposure as it cycles through its workspace. The six-revolute PU",
+   "file": "credits__02.png"
+  },
+  "after": {
+   "idx": 2,
+   "label": "A PUMA 560 at NASA Ames, photographed in a stroboscopic exposure as it cycles through its workspace. The six-revolute PU",
+   "file": "credits__02.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 3,
+   "label": "ANYmal, the ANYbotics quadruped behind the ETH Zurich locomotion lineage, on an industrial inspection floor. The actuato",
+   "file": "credits__03.png"
+  },
+  "after": {
+   "idx": 3,
+   "label": "ANYmal, the ANYbotics quadruped behind the ETH Zurich locomotion lineage, on an industrial inspection floor. The actuato",
+   "file": "credits__03.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 4,
+   "label": "The Franka Emika Panda, the seven-DoF research arm, demonstrated at CeBIT 2017 with a human guiding it by hand.",
+   "file": "credits__04.png"
+  },
+  "after": {
+   "idx": 4,
+   "label": "The Franka Emika Panda, the seven-DoF research arm, demonstrated at CeBIT 2017 with a human guiding it by hand.",
+   "file": "credits__04.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 5,
+   "label": "Demonstrations cover a narrow corridor of states around the expert path. The policy's first mistake takes it outside tha",
+   "file": "credits__05.png"
+  },
+  "after": {
+   "idx": 5,
+   "label": "Demonstrations cover a narrow corridor of states around the expert path. The policy's first mistake takes it outside tha",
+   "file": "credits__05.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 6,
+   "label": "Three chunks issued at t-2, t-1, and t predict the current action. Oldest-to-newest raw weights are 1.00, 0.61, and 0.37",
+   "file": "credits__06.png"
+  },
+  "after": {
+   "idx": 6,
+   "label": "Three chunks issued at t-2, t-1, and t predict the current action. Oldest-to-newest raw weights are 1.00, 0.61, and 0.37",
+   "file": "credits__06.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 7,
+   "label": "Physical Intelligence logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__07.png"
+  },
+  "after": {
+   "idx": 7,
+   "label": "Physical Intelligence logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__07.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 8,
+   "label": "Covariant logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__08.png"
+  },
+  "after": {
+   "idx": 8,
+   "label": "Covariant logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__08.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 9,
+   "label": "NVIDIA wordmark from Wikimedia Commons, used on the market map.",
+   "file": "credits__09.png"
+  },
+  "after": {
+   "idx": 9,
+   "label": "NVIDIA wordmark from Wikimedia Commons, used on the market map.",
+   "file": "credits__09.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 10,
+   "label": "Hugging Face logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__10.png"
+  },
+  "after": {
+   "idx": 10,
+   "label": "Hugging Face logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__10.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 11,
+   "label": "Figure AI logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__11.png"
+  },
+  "after": {
+   "idx": 11,
+   "label": "Figure AI logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__11.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 12,
+   "label": "Agility Robotics logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__12.png"
+  },
+  "after": {
+   "idx": 12,
+   "label": "Agility Robotics logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__12.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 13,
+   "label": "Tesla mark from Wikimedia Commons, used on the market map.",
+   "file": "credits__13.png"
+  },
+  "after": {
+   "idx": 13,
+   "label": "Tesla mark from Wikimedia Commons, used on the market map.",
+   "file": "credits__13.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 14,
+   "label": "Unitree Robotics logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__14.png"
+  },
+  "after": {
+   "idx": 14,
+   "label": "Unitree Robotics logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__14.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 15,
+   "label": "UBTECH Robotics logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__15.png"
+  },
+  "after": {
+   "idx": 15,
+   "label": "UBTECH Robotics logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__15.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 16,
+   "label": "NEURA Robotics logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__16.png"
+  },
+  "after": {
+   "idx": 16,
+   "label": "NEURA Robotics logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__16.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 17,
+   "label": "Wandercraft logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__17.png"
+  },
+  "after": {
+   "idx": 17,
+   "label": "Wandercraft logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__17.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 18,
+   "label": "Rainbow Robotics logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__18.png"
+  },
+  "after": {
+   "idx": 18,
+   "label": "Rainbow Robotics logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__18.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 19,
+   "label": "Berkshire Grey logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__19.png"
+  },
+  "after": {
+   "idx": 19,
+   "label": "Berkshire Grey logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__19.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 20,
+   "label": "Amazon Robotics logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__20.png"
+  },
+  "after": {
+   "idx": 20,
+   "label": "Amazon Robotics logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__20.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 21,
+   "label": "Bedrock Robotics logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__21.png"
+  },
+  "after": {
+   "idx": 21,
+   "label": "Bedrock Robotics logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__21.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 22,
+   "label": "Intuitive Surgical logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__22.png"
+  },
+  "after": {
+   "idx": 22,
+   "label": "Intuitive Surgical logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__22.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 23,
+   "label": "CMR Surgical logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__23.png"
+  },
+  "after": {
+   "idx": 23,
+   "label": "CMR Surgical logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__23.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 24,
+   "label": "Nuro logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__24.png"
+  },
+  "after": {
+   "idx": 24,
+   "label": "Nuro logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__24.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 25,
+   "label": "iRobot logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__25.png"
+  },
+  "after": {
+   "idx": 25,
+   "label": "iRobot logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__25.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 26,
+   "label": "Harmonic Drive logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__26.png"
+  },
+  "after": {
+   "idx": 26,
+   "label": "Harmonic Drive logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__26.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 27,
+   "label": "Nabtesco logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__27.png"
+  },
+  "after": {
+   "idx": 27,
+   "label": "Nabtesco logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__27.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 28,
+   "label": "Wonik logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__28.png"
+  },
+  "after": {
+   "idx": 28,
+   "label": "Wonik logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__28.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 29,
+   "label": "OpenAI wordmark from Wikimedia Commons, used on the market map.",
+   "file": "credits__29.png"
+  },
+  "after": {
+   "idx": 29,
+   "label": "OpenAI wordmark from Wikimedia Commons, used on the market map.",
+   "file": "credits__29.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 30,
+   "label": "Meta Platforms logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__30.png"
+  },
+  "after": {
+   "idx": 30,
+   "label": "Meta Platforms logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__30.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 31,
+   "label": "SwitchBot logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__31.png"
+  },
+  "after": {
+   "idx": 31,
+   "label": "SwitchBot logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__31.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 32,
+   "label": "Hanson Robotics logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__32.png"
+  },
+  "after": {
+   "idx": 32,
+   "label": "Hanson Robotics logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__32.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 33,
+   "label": "Starship Technologies logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__33.png"
+  },
+  "after": {
+   "idx": 33,
+   "label": "Starship Technologies logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__33.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 34,
+   "label": "Pollen Robotics logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__34.png"
+  },
+  "after": {
+   "idx": 34,
+   "label": "Pollen Robotics logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__34.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 35,
+   "label": "Anduril Industries logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__35.png"
+  },
+  "after": {
+   "idx": 35,
+   "label": "Anduril Industries logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__35.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 36,
+   "label": "ABB logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__36.png"
+  },
+  "after": {
+   "idx": 36,
+   "label": "ABB logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__36.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 37,
+   "label": "Mitsubishi mark from Wikimedia Commons, used on the market map.",
+   "file": "credits__37.png"
+  },
+  "after": {
+   "idx": 37,
+   "label": "Mitsubishi mark from Wikimedia Commons, used on the market map.",
+   "file": "credits__37.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 38,
+   "label": "Monarch Tractor logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__38.png"
+  },
+  "after": {
+   "idx": 38,
+   "label": "Monarch Tractor logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__38.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 39,
+   "label": "Skild AI logo from the official website, used on the market map.",
+   "file": "credits__39.png"
+  },
+  "after": {
+   "idx": 39,
+   "label": "Skild AI logo from the official website, used on the market map.",
+   "file": "credits__39.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 40,
+   "label": "Generalist AI logo from the official website, used on the market map.",
+   "file": "credits__40.png"
+  },
+  "after": {
+   "idx": 40,
+   "label": "Generalist AI logo from the official website, used on the market map.",
+   "file": "credits__40.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 41,
+   "label": "Dyna Robotics logo from the official website, used on the market map.",
+   "file": "credits__41.png"
+  },
+  "after": {
+   "idx": 41,
+   "label": "Dyna Robotics logo from the official website, used on the market map.",
+   "file": "credits__41.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 42,
+   "label": "Sunday Robotics logo from the official website, used on the market map.",
+   "file": "credits__42.png"
+  },
+  "after": {
+   "idx": 42,
+   "label": "Sunday Robotics logo from the official website, used on the market map.",
+   "file": "credits__42.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 43,
+   "label": "Field AI logo from the official website, used on the market map.",
+   "file": "credits__43.png"
+  },
+  "after": {
+   "idx": 43,
+   "label": "Field AI logo from the official website, used on the market map.",
+   "file": "credits__43.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 44,
+   "label": "Genesis AI logo from the official website, used on the market map.",
+   "file": "credits__44.png"
+  },
+  "after": {
+   "idx": 44,
+   "label": "Genesis AI logo from the official website, used on the market map.",
+   "file": "credits__44.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 45,
+   "label": "Rhoda AI logo from the official website, used on the market map.",
+   "file": "credits__45.png"
+  },
+  "after": {
+   "idx": 45,
+   "label": "Rhoda AI logo from the official website, used on the market map.",
+   "file": "credits__45.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 46,
+   "label": "Mind Robotics logo from the official website, used on the market map.",
+   "file": "credits__46.png"
+  },
+  "after": {
+   "idx": 46,
+   "label": "Mind Robotics logo from the official website, used on the market map.",
+   "file": "credits__46.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 47,
+   "label": "Google DeepMind logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__47.png"
+  },
+  "after": {
+   "idx": 47,
+   "label": "Google DeepMind logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__47.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 48,
+   "label": "Applied Intuition logo from the official website, used on the market map.",
+   "file": "credits__48.png"
+  },
+  "after": {
+   "idx": 48,
+   "label": "Applied Intuition logo from the official website, used on the market map.",
+   "file": "credits__48.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 49,
+   "label": "XDOF logo from the official website, used on the market map.",
+   "file": "credits__49.png"
+  },
+  "after": {
+   "idx": 49,
+   "label": "XDOF logo from the official website, used on the market map.",
+   "file": "credits__49.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 50,
+   "label": "Encord logo from the official website, used on the market map.",
+   "file": "credits__50.png"
+  },
+  "after": {
+   "idx": 50,
+   "label": "Encord logo from the official website, used on the market map.",
+   "file": "credits__50.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 51,
+   "label": "Micro1 logo from the official website, used on the market map.",
+   "file": "credits__51.png"
+  },
+  "after": {
+   "idx": 51,
+   "label": "Micro1 logo from the official website, used on the market map.",
+   "file": "credits__51.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 52,
+   "label": "1X Technologies logo from the official website, used on the market map.",
+   "file": "credits__52.png"
+  },
+  "after": {
+   "idx": 52,
+   "label": "1X Technologies logo from the official website, used on the market map.",
+   "file": "credits__52.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 53,
+   "label": "Apptronik logo from the official website, used on the market map.",
+   "file": "credits__53.png"
+  },
+  "after": {
+   "idx": 53,
+   "label": "Apptronik logo from the official website, used on the market map.",
+   "file": "credits__53.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 54,
+   "label": "Boston Dynamics logo from the official website, used on the market map.",
+   "file": "credits__54.png"
+  },
+  "after": {
+   "idx": 54,
+   "label": "Boston Dynamics logo from the official website, used on the market map.",
+   "file": "credits__54.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 55,
+   "label": "Fourier logo from the official website, used on the market map.",
+   "file": "credits__55.png"
+  },
+  "after": {
+   "idx": 55,
+   "label": "Fourier logo from the official website, used on the market map.",
+   "file": "credits__55.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 56,
+   "label": "Galbot logo from the official website, used on the market map.",
+   "file": "credits__56.png"
+  },
+  "after": {
+   "idx": 56,
+   "label": "Galbot logo from the official website, used on the market map.",
+   "file": "credits__56.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 57,
+   "label": "AgiBot logo from the official website, used on the market map.",
+   "file": "credits__57.png"
+  },
+  "after": {
+   "idx": 57,
+   "label": "AgiBot logo from the official website, used on the market map.",
+   "file": "credits__57.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 58,
+   "label": "Sanctuary AI logo from the official website, used on the market map.",
+   "file": "credits__58.png"
+  },
+  "after": {
+   "idx": 58,
+   "label": "Sanctuary AI logo from the official website, used on the market map.",
+   "file": "credits__58.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 59,
+   "label": "Humanoid logo from the official website, used on the market map.",
+   "file": "credits__59.png"
+  },
+  "after": {
+   "idx": 59,
+   "label": "Humanoid logo from the official website, used on the market map.",
+   "file": "credits__59.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 60,
+   "label": "Spirit AI logo from the official website, used on the market map.",
+   "file": "credits__60.png"
+  },
+  "after": {
+   "idx": 60,
+   "label": "Spirit AI logo from the official website, used on the market map.",
+   "file": "credits__60.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 61,
+   "label": "Galaxea logo from the official website header, used on the market map.",
+   "file": "credits__61.png"
+  },
+  "after": {
+   "idx": 61,
+   "label": "Galaxea logo from the official website header, used on the market map.",
+   "file": "credits__61.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 62,
+   "label": "EngineAI logo from the official website, used on the market map.",
+   "file": "credits__62.png"
+  },
+  "after": {
+   "idx": 62,
+   "label": "EngineAI logo from the official website, used on the market map.",
+   "file": "credits__62.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 63,
+   "label": "RobotEra logo from the official website, used on the market map.",
+   "file": "credits__63.png"
+  },
+  "after": {
+   "idx": 63,
+   "label": "RobotEra logo from the official website, used on the market map.",
+   "file": "credits__63.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 64,
+   "label": "TARS Robotics logo from the official website, used on the market map.",
+   "file": "credits__64.png"
+  },
+  "after": {
+   "idx": 64,
+   "label": "TARS Robotics logo from the official website, used on the market map.",
+   "file": "credits__64.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 65,
+   "label": "X Square Robot logo from the official website, used on the market map.",
+   "file": "credits__65.png"
+  },
+  "after": {
+   "idx": 65,
+   "label": "X Square Robot logo from the official website, used on the market map.",
+   "file": "credits__65.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 66,
+   "label": "Deep Robotics logo from the official website, used on the market map.",
+   "file": "credits__66.png"
+  },
+  "after": {
+   "idx": 66,
+   "label": "Deep Robotics logo from the official website, used on the market map.",
+   "file": "credits__66.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 67,
+   "label": "Kepler Robot logo from the official website, used on the market map.",
+   "file": "credits__67.png"
+  },
+  "after": {
+   "idx": 67,
+   "label": "Kepler Robot logo from the official website, used on the market map.",
+   "file": "credits__67.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 68,
+   "label": "LimX Dynamics logo from the official website, used on the market map.",
+   "file": "credits__68.png"
+  },
+  "after": {
+   "idx": 68,
+   "label": "LimX Dynamics logo from the official website, used on the market map.",
+   "file": "credits__68.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 69,
+   "label": "Clone Robotics logo from the official website, used on the market map.",
+   "file": "credits__69.png"
+  },
+  "after": {
+   "idx": 69,
+   "label": "Clone Robotics logo from the official website, used on the market map.",
+   "file": "credits__69.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 70,
+   "label": "Mentee Robotics logo from the official website, used on the market map.",
+   "file": "credits__70.png"
+  },
+  "after": {
+   "idx": 70,
+   "label": "Mentee Robotics logo from the official website, used on the market map.",
+   "file": "credits__70.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 71,
+   "label": "Persona AI logo from the official website, used on the market map.",
+   "file": "credits__71.png"
+  },
+  "after": {
+   "idx": 71,
+   "label": "Persona AI logo from the official website, used on the market map.",
+   "file": "credits__71.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 72,
+   "label": "Symbotic logo from the official website, used on the market map.",
+   "file": "credits__72.png"
+  },
+  "after": {
+   "idx": 72,
+   "label": "Symbotic logo from the official website, used on the market map.",
+   "file": "credits__72.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 73,
+   "label": "Dexterity logo from the official website, used on the market map.",
+   "file": "credits__73.png"
+  },
+  "after": {
+   "idx": 73,
+   "label": "Dexterity logo from the official website, used on the market map.",
+   "file": "credits__73.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 74,
+   "label": "Nimble logo from the official website, used on the market map.",
+   "file": "credits__74.png"
+  },
+  "after": {
+   "idx": 74,
+   "label": "Nimble logo from the official website, used on the market map.",
+   "file": "credits__74.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 75,
+   "label": "Locus Robotics logo from the official website, used on the market map.",
+   "file": "credits__75.png"
+  },
+  "after": {
+   "idx": 75,
+   "label": "Locus Robotics logo from the official website, used on the market map.",
+   "file": "credits__75.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 76,
+   "label": "Mujin logo from the official website, used on the market map.",
+   "file": "credits__76.png"
+  },
+  "after": {
+   "idx": 76,
+   "label": "Mujin logo from the official website, used on the market map.",
+   "file": "credits__76.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 77,
+   "label": "RightHand Robotics logo from the official website, used on the market map.",
+   "file": "credits__77.png"
+  },
+  "after": {
+   "idx": 77,
+   "label": "RightHand Robotics logo from the official website, used on the market map.",
+   "file": "credits__77.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 78,
+   "label": "Ambi Robotics logo from the official website, used on the market map.",
+   "file": "credits__78.png"
+  },
+  "after": {
+   "idx": 78,
+   "label": "Ambi Robotics logo from the official website, used on the market map.",
+   "file": "credits__78.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 79,
+   "label": "Plus One Robotics logo from the official website, used on the market map.",
+   "file": "credits__79.png"
+  },
+  "after": {
+   "idx": 79,
+   "label": "Plus One Robotics logo from the official website, used on the market map.",
+   "file": "credits__79.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 80,
+   "label": "Carbon Robotics logo from the official website, used on the market map.",
+   "file": "credits__80.png"
+  },
+  "after": {
+   "idx": 80,
+   "label": "Carbon Robotics logo from the official website, used on the market map.",
+   "file": "credits__80.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 81,
+   "label": "Farm-ng logo from the official website, used on the market map.",
+   "file": "credits__81.png"
+  },
+  "after": {
+   "idx": 81,
+   "label": "Farm-ng logo from the official website, used on the market map.",
+   "file": "credits__81.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 82,
+   "label": "Chef Robotics logo from the official website, used on the market map.",
+   "file": "credits__82.png"
+  },
+  "after": {
+   "idx": 82,
+   "label": "Chef Robotics logo from the official website, used on the market map.",
+   "file": "credits__82.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 83,
+   "label": "Simbe Robotics logo from the official website, used on the market map.",
+   "file": "credits__83.png"
+  },
+  "after": {
+   "idx": 83,
+   "label": "Simbe Robotics logo from the official website, used on the market map.",
+   "file": "credits__83.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 84,
+   "label": "Moon Surgical logo from the official website, used on the market map.",
+   "file": "credits__84.png"
+  },
+  "after": {
+   "idx": 84,
+   "label": "Moon Surgical logo from the official website, used on the market map.",
+   "file": "credits__84.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 85,
+   "label": "Serve Robotics logo from the official website, used on the market map.",
+   "file": "credits__85.png"
+  },
+  "after": {
+   "idx": 85,
+   "label": "Serve Robotics logo from the official website, used on the market map.",
+   "file": "credits__85.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 86,
+   "label": "Gecko Robotics logo from the official website, used on the market map.",
+   "file": "credits__86.png"
+  },
+  "after": {
+   "idx": 86,
+   "label": "Gecko Robotics logo from the official website, used on the market map.",
+   "file": "credits__86.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 87,
+   "label": "Standard Bots logo from the official website, used on the market map.",
+   "file": "credits__87.png"
+  },
+  "after": {
+   "idx": 87,
+   "label": "Standard Bots logo from the official website, used on the market map.",
+   "file": "credits__87.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 88,
+   "label": "Collaborative Robotics logo from the official website, used on the market map.",
+   "file": "credits__88.png"
+  },
+  "after": {
+   "idx": 88,
+   "label": "Collaborative Robotics logo from the official website, used on the market map.",
+   "file": "credits__88.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 89,
+   "label": "The Bot Company logo from the official website, used on the market map.",
+   "file": "credits__89.png"
+  },
+  "after": {
+   "idx": 89,
+   "label": "The Bot Company logo from the official website, used on the market map.",
+   "file": "credits__89.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 90,
+   "label": "Weave Robotics logo from the official website, used on the market map.",
+   "file": "credits__90.png"
+  },
+  "after": {
+   "idx": 90,
+   "label": "Weave Robotics logo from the official website, used on the market map.",
+   "file": "credits__90.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 91,
+   "label": "K-Scale Labs logo from the official website, used on the market map.",
+   "file": "credits__91.png"
+  },
+  "after": {
+   "idx": 91,
+   "label": "K-Scale Labs logo from the official website, used on the market map.",
+   "file": "credits__91.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 92,
+   "label": "Automata logo from the official website, used on the market map.",
+   "file": "credits__92.png"
+  },
+  "after": {
+   "idx": 92,
+   "label": "Automata logo from the official website, used on the market map.",
+   "file": "credits__92.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 93,
+   "label": "Lila Sciences logo from the official website, used on the market map.",
+   "file": "credits__93.png"
+  },
+  "after": {
+   "idx": 93,
+   "label": "Lila Sciences logo from the official website, used on the market map.",
+   "file": "credits__93.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 94,
+   "label": "Avidbots logo from the official website, used on the market map.",
+   "file": "credits__94.png"
+  },
+  "after": {
+   "idx": 94,
+   "label": "Avidbots logo from the official website, used on the market map.",
+   "file": "credits__94.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 95,
+   "label": "Leaderdrive logo from the official website, used on the market map.",
+   "file": "credits__95.png"
+  },
+  "after": {
+   "idx": 95,
+   "label": "Leaderdrive logo from the official website, used on the market map.",
+   "file": "credits__95.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 96,
+   "label": "Sanhua logo from the official website, used on the market map.",
+   "file": "credits__96.png"
+  },
+  "after": {
+   "idx": 96,
+   "label": "Sanhua logo from the official website, used on the market map.",
+   "file": "credits__96.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 97,
+   "label": "Shadow Robot logo from the official website, used on the market map.",
+   "file": "credits__97.png"
+  },
+  "after": {
+   "idx": 97,
+   "label": "Shadow Robot logo from the official website, used on the market map.",
+   "file": "credits__97.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 98,
+   "label": "Sharpa logo from the official website, used on the market map.",
+   "file": "credits__98.png"
+  },
+  "after": {
+   "idx": 98,
+   "label": "Sharpa logo from the official website, used on the market map.",
+   "file": "credits__98.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 99,
+   "label": "XELA Robotics logo from the official website, used on the market map.",
+   "file": "credits__99.png"
+  },
+  "after": {
+   "idx": 99,
+   "label": "XELA Robotics logo from the official website, used on the market map.",
+   "file": "credits__99.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 100,
+   "label": "Assured Robot Intelligence logo from the official website, used on the market map.",
+   "file": "credits__100.png"
+  },
+  "after": {
+   "idx": 100,
+   "label": "Assured Robot Intelligence logo from the official website, used on the market map.",
+   "file": "credits__100.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 101,
+   "label": "Saronic logo from the official website, used on the market map.",
+   "file": "credits__101.png"
+  },
+  "after": {
+   "idx": 101,
+   "label": "Saronic logo from the official website, used on the market map.",
+   "file": "credits__101.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 102,
+   "label": "Eka Robotics logo from the official website, used on the market map.",
+   "file": "credits__102.png"
+  },
+  "after": {
+   "idx": 102,
+   "label": "Eka Robotics logo from the official website, used on the market map.",
+   "file": "credits__102.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 103,
+   "label": "Foundry Robotics logo from the official website, used on the market map.",
+   "file": "credits__103.png"
+  },
+  "after": {
+   "idx": 103,
+   "label": "Foundry Robotics logo from the official website, used on the market map.",
+   "file": "credits__103.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 104,
+   "label": "Mytra logo from the official website, used on the market map.",
+   "file": "credits__104.png"
+  },
+  "after": {
+   "idx": 104,
+   "label": "Mytra logo from the official website, used on the market map.",
+   "file": "credits__104.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 105,
+   "label": "Formic logo from the official website, used on the market map.",
+   "file": "credits__105.png"
+  },
+  "after": {
+   "idx": 105,
+   "label": "Formic logo from the official website, used on the market map.",
+   "file": "credits__105.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 106,
+   "label": "Astribot logo from the official website, used on the market map.",
+   "file": "credits__106.png"
+  },
+  "after": {
+   "idx": 106,
+   "label": "Astribot logo from the official website, used on the market map.",
+   "file": "credits__106.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 107,
+   "label": "Booster Robotics logo from the official website, used on the market map.",
+   "file": "credits__107.png"
+  },
+  "after": {
+   "idx": 107,
+   "label": "Booster Robotics logo from the official website, used on the market map.",
+   "file": "credits__107.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 108,
+   "label": "Leju Robotics logo from the official website, used on the market map.",
+   "file": "credits__108.png"
+  },
+  "after": {
+   "idx": 108,
+   "label": "Leju Robotics logo from the official website, used on the market map.",
+   "file": "credits__108.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 109,
+   "label": "PaXini logo from the official website, used on the market map.",
+   "file": "credits__109.png"
+  },
+  "after": {
+   "idx": 109,
+   "label": "PaXini logo from the official website, used on the market map.",
+   "file": "credits__109.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 110,
+   "label": "Miso Robotics logo from the official website, used on the market map.",
+   "file": "credits__110.png"
+  },
+  "after": {
+   "idx": 110,
+   "label": "Miso Robotics logo from the official website, used on the market map.",
+   "file": "credits__110.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 111,
+   "label": "Coco logo from the official website, used on the market map.",
+   "file": "credits__111.png"
+  },
+  "after": {
+   "idx": 111,
+   "label": "Coco logo from the official website, used on the market map.",
+   "file": "credits__111.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 112,
+   "label": "Knightscope logo from the official website, used on the market map.",
+   "file": "credits__112.png"
+  },
+  "after": {
+   "idx": 112,
+   "label": "Knightscope logo from the official website, used on the market map.",
+   "file": "credits__112.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 113,
+   "label": "Brain Corp logo from the official website, used on the market map.",
+   "file": "credits__113.png"
+  },
+  "after": {
+   "idx": 113,
+   "label": "Brain Corp logo from the official website, used on the market map.",
+   "file": "credits__113.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 114,
+   "label": "Diligent Robotics logo from the official website, used on the market map.",
+   "file": "credits__114.png"
+  },
+  "after": {
+   "idx": 114,
+   "label": "Diligent Robotics logo from the official website, used on the market map.",
+   "file": "credits__114.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 115,
+   "label": "Fox Robotics logo from the official website, used on the market map.",
+   "file": "credits__115.png"
+  },
+  "after": {
+   "idx": 115,
+   "label": "Fox Robotics logo from the official website, used on the market map.",
+   "file": "credits__115.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 116,
+   "label": "Zebra Technologies (Robotics Automation) logo from the official website, used on the market map.",
+   "file": "credits__116.png"
+  },
+  "after": {
+   "idx": 116,
+   "label": "Zebra Technologies (Robotics Automation) logo from the official website, used on the market map.",
+   "file": "credits__116.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 117,
+   "label": "Robotphoenix logo from the official website, used on the market map.",
+   "file": "credits__117.png"
+  },
+  "after": {
+   "idx": 117,
+   "label": "Robotphoenix logo from the official website, used on the market map.",
+   "file": "credits__117.png"
+  }
+ },
+ {
+  "route": "/manipulation/bc-foundations/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Demonstrations cover a narrow corridor of states around the expert path. The policy's first mistake takes it outside tha",
+   "file": "manipulation__bc-foundations__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Demonstrations cover a narrow corridor of states around the expert path. The policy's first mistake takes it outside tha",
+   "file": "manipulation__bc-foundations__00.png"
+  }
+ },
+ {
+  "route": "/manipulation/action-chunking/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Three chunks issued at t-2, t-1, and t predict the current action. Oldest-to-newest raw weights are 1.00, 0.61, and 0.37",
+   "file": "manipulation__action-chunking__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Three chunks issued at t-2, t-1, and t predict the current action. Oldest-to-newest raw weights are 1.00, 0.61, and 0.37",
+   "file": "manipulation__action-chunking__00.png"
+  }
+ },
+ {
+  "route": "/manipulation/action-chunking/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "temporal_ensembling.py",
+   "file": "manipulation__action-chunking__01.png"
+  },
+  "after": {
+   "idx": 1,
+   "label": "temporal_ensembling.py",
+   "file": "manipulation__action-chunking__01.png"
+  }
+ },
+ {
+  "route": "/manipulation/action-chunking/",
+  "changed": true,
+  "before": {
+   "idx": 3,
+   "label": "Toy normalized throughput scores against added inference delay, not measured task throughput. Temporal ensembling falls ",
+   "file": "manipulation__action-chunking__03.png"
+  },
+  "after": {
+   "idx": 3,
+   "label": "Toy normalized throughput scores against added inference delay, not measured task throughput. Temporal ensembling falls ",
+   "file": "manipulation__action-chunking__03.png"
+  }
+ },
+ {
+  "route": "/manipulation/diffusion-policy/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: Diffusion policy: denoising actions",
+   "file": "manipulation__diffusion-policy__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Motion scene: Diffusion policy: denoising actions",
+   "file": "manipulation__diffusion-policy__00.png"
+  }
+ },
+ {
+  "route": "/manipulation/vla-models/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: From continuous action to token",
+   "file": "manipulation__vla-models__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Motion scene: From continuous action to token",
+   "file": "manipulation__vla-models__00.png"
+  }
+ },
+ {
+  "route": "/manipulation/pi-line/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: Flow matching transports action samples",
+   "file": "manipulation__pi-line__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Motion scene: Flow matching transports action samples",
+   "file": "manipulation__pi-line__00.png"
+  }
+ },
+ {
+  "route": "/manipulation/pi-line/",
+  "changed": true,
+  "before": {
+   "idx": 2,
+   "label": "Timeline of dated Physical Intelligence sources from Oct 2024 to Apr 2026. The pinned checkpoint catalogue ends at π0.5;",
+   "file": "manipulation__pi-line__02.png"
+  },
+  "after": {
+   "idx": 2,
+   "label": "Timeline of dated Physical Intelligence sources from Oct 2024 to Apr 2026. The pinned checkpoint catalogue ends at π0.5;",
+   "file": "manipulation__pi-line__02.png"
+  }
+ },
+ {
+  "route": "/rl-sim2real/parallel-sim-rl/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: Parallel rollouts change a fixed training budget",
+   "file": "rl-sim2real__parallel-sim-rl__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Motion scene: Parallel rollouts change a fixed training budget",
+   "file": "rl-sim2real__parallel-sim-rl__00.png"
+  }
+ },
+ {
+  "route": "/rl-sim2real/legged-locomotion/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: Foot support over an authored stride cycle",
+   "file": "rl-sim2real__legged-locomotion__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Motion scene: Foot support over an authored stride cycle",
+   "file": "rl-sim2real__legged-locomotion__00.png"
+  }
+ },
+ {
+  "route": "/rl-sim2real/legged-locomotion/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "ANYmal, the ANYbotics quadruped behind the ETH Zurich locomotion lineage, on an industrial inspection floor. The actuato",
+   "file": "rl-sim2real__legged-locomotion__01.png"
+  },
+  "after": {
+   "idx": 1,
+   "label": "ANYmal, the ANYbotics quadruped behind the ETH Zurich locomotion lineage, on an industrial inspection floor. The actuato",
+   "file": "rl-sim2real__legged-locomotion__01.png"
+  }
+ },
+ {
+  "route": "/world-models/latent-dynamics/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: Small model errors accumulate in imagination",
+   "file": "world-models__latent-dynamics__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Motion scene: Small model errors accumulate in imagination",
+   "file": "world-models__latent-dynamics__00.png"
+  }
+ },
+ {
+  "route": "/world-models/generative-video/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: Two actions fork one predicted future",
+   "file": "world-models__generative-video__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Motion scene: Two actions fork one predicted future",
+   "file": "world-models__generative-video__00.png"
+  }
+ },
+ {
+  "route": "/world-models/generative-sim/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: A rendered scene needs a solver to answer a push",
+   "file": "world-models__generative-sim__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Motion scene: A rendered scene needs a solver to answer a push",
+   "file": "world-models__generative-sim__00.png"
+  }
+ },
+ {
+  "route": "/data-hardware/data-bottleneck/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: How a farm rate changes time to an authored target",
+   "file": "data-hardware__data-bottleneck__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Motion scene: How a farm rate changes time to an authored target",
+   "file": "data-hardware__data-bottleneck__00.png"
+  }
+ },
+ {
+  "route": "/data-hardware/data-bottleneck/",
+  "changed": true,
+  "before": {
+   "idx": 2,
+   "label": "Demonstration hours against pretraining tokens, 10-rig hypothetical farm projection",
+   "file": "data-hardware__data-bottleneck__02.png"
+  },
+  "after": {
+   "idx": 2,
+   "label": "Demonstration hours against pretraining tokens, 10-rig hypothetical farm projection",
+   "file": "data-hardware__data-bottleneck__02.png"
+  }
+ },
+ {
+  "route": "/data-hardware/hardware-taxonomy/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "The Franka Emika Panda, the seven-DoF research arm, demonstrated at CeBIT 2017 with a human guiding it by hand.",
+   "file": "data-hardware__hardware-taxonomy__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "The Franka Emika Panda, the seven-DoF research arm, demonstrated at CeBIT 2017 with a human guiding it by hand.",
+   "file": "data-hardware__hardware-taxonomy__00.png"
+  }
+ },
+ {
+  "route": "/data-hardware/hardware-taxonomy/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "The original Atlas humanoid, built for the 2013 DARPA Robotics Challenge: hydraulically actuated, tethered, with its fra",
+   "file": "data-hardware__hardware-taxonomy__01.png"
+  },
+  "after": {
+   "idx": 1,
+   "label": "The original Atlas humanoid, built for the 2013 DARPA Robotics Challenge: hydraulically actuated, tethered, with its fra",
+   "file": "data-hardware__hardware-taxonomy__01.png"
+  }
+ },
+ {
+  "route": "/data-hardware/evaluation-crisis/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: Conditional success compounds over an illustrative episode",
+   "file": "data-hardware__evaluation-crisis__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Motion scene: Conditional success compounds over an illustrative episode",
+   "file": "data-hardware__evaluation-crisis__00.png"
+  }
+ },
+ {
+  "route": "/data-hardware/evaluation-crisis/",
+  "changed": true,
+  "before": {
+   "idx": 2,
+   "label": "Line chart of episode success against episode length at 95.0 percent per-step success",
+   "file": "data-hardware__evaluation-crisis__02.png"
+  },
+  "after": {
+   "idx": 2,
+   "label": "Line chart of episode success against episode length at 95.0 percent per-step success",
+   "file": "data-hardware__evaluation-crisis__02.png"
+  }
+ },
+ {
+  "route": "/data-hardware/industrial-deployment/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: Clearing time takes capacity from an authored picking cell",
+   "file": "data-hardware__industrial-deployment__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Motion scene: Clearing time takes capacity from an authored picking cell",
+   "file": "data-hardware__industrial-deployment__00.png"
+  }
+ },
+ {
+  "route": "/classical/kinematics/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: A joint turns every link downstream",
+   "file": "classical__kinematics__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Motion scene: A joint turns every link downstream",
+   "file": "classical__kinematics__00.png"
+  }
+ },
+ {
+  "route": "/classical/kinematics/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "A PUMA 560 at NASA Ames, photographed in a stroboscopic exposure as it cycles through its workspace. The six-revolute PU",
+   "file": "classical__kinematics__01.png"
+  },
+  "after": {
+   "idx": 1,
+   "label": "A PUMA 560 at NASA Ames, photographed in a stroboscopic exposure as it cycles through its workspace. The six-revolute PU",
+   "file": "classical__kinematics__01.png"
+  }
+ },
+ {
+  "route": "/classical/motion-planning/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: A seeded tree finds a path around obstacles",
+   "file": "classical__motion-planning__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Motion scene: A seeded tree finds a path around obstacles",
+   "file": "classical__motion-planning__00.png"
+  }
+ },
+ {
+  "route": "/classical/state-estimation/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: Kalman filter: predict and update",
+   "file": "classical__state-estimation__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Motion scene: Kalman filter: predict and update",
+   "file": "classical__state-estimation__00.png"
+  }
+ },
+ {
+  "route": "/classical/state-estimation/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "after: The Kalman filter",
+   "file": "classical__state-estimation__01.png"
+  },
+  "after": {
+   "idx": 1,
+   "label": "after: The Kalman filter",
+   "file": "classical__state-estimation__01.png"
+  }
+ },
+ {
+  "route": "/frontier/reliability-gap/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: The last stretch of episode reliability",
+   "file": "frontier__reliability-gap__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Motion scene: The last stretch of episode reliability",
+   "file": "frontier__reliability-gap__00.png"
+  }
+ },
+ {
+  "route": "/frontier/dexterity/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: A contact channel can reveal slip",
+   "file": "frontier__dexterity__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Motion scene: A contact channel can reveal slip",
+   "file": "frontier__dexterity__00.png"
+  }
+ },
+ {
+  "route": "/adjacent/drones/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: Perception delay lowers the safe speed",
+   "file": "adjacent__drones__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Motion scene: Perception delay lowers the safe speed",
+   "file": "adjacent__drones__00.png"
+  }
+ }
+]

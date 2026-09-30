@@ -65,8 +65,8 @@ function ActionDecodeStage() {
       </AnimatedElement>
       <line data-scene-structure="action-axis" x1={VIEW.left} x2={VIEW.right} y1={76} y2={76}
         stroke="var(--motion-stage-axes)" opacity="var(--motion-stage-axes-opacity)" />
-      <text x={VIEW.left} y={96} fontSize={12} fill="var(--motion-stage-label-secondary)">{VALUE_MIN}</text>
-      <text x={VIEW.right} y={96} textAnchor="end" fontSize={12} fill="var(--motion-stage-label-secondary)">{VALUE_MAX}</text>
+      <text x={VIEW.left} y={96} fontSize={12} data-scene-tick fill="var(--motion-stage-label-secondary)">{VALUE_MIN}</text>
+      <text x={VIEW.right} y={96} textAnchor="end" fontSize={12} data-scene-tick fill="var(--motion-stage-label-secondary)">{VALUE_MAX}</text>
       <AnimatedCircle
         data-scene-mark="continuous-action"
         cx={valueX} cy={76} r={4}
@@ -119,9 +119,9 @@ function ActionDecodeStage() {
                 opacity: (t) => Number(clamp01(actionDecodeFrame(t).decodeProgress * ACTION_DIMS.length - index).toFixed(3)),
               }}
             />
-            <AnimatedElement as="text" data-scene-token={index + 1}
-              x={x + 6} y={index % 2 === 0 ? 207 : 226}
-              textAnchor="middle" fontSize={14}
+            <AnimatedElement as="text" data-scene-token={index + 1} data-scene-note
+              x={x + 6} y={index % 2 === 0 ? 206 : 226}
+              textAnchor="middle" fontSize={13}
               fill="var(--role-action-stage)" bindings={{ opacity: tokenOpacity }}>
               {token}
             </AnimatedElement>

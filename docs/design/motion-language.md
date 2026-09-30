@@ -56,9 +56,10 @@ Three structural rules complete the picture:
 - **Uncertainty is not a colour.** A covariance ellipse or confidence band
   takes the hue of the thing it belongs to, at 22 % fill with a dashed edge.
 - **Stage structure is quiet.** Axes are concrete at 45 % opacity, the grid
-  is 8 %, labels are white, secondary labels are concrete. Object and axis
-  labels use IBM Plex Sans; mono is for numeric ticks and readouts. Keep
-  labels outside data marks and attach them with fine leader lines.
+  is 8 %, labels are white, secondary labels are concrete. Object labels,
+  axis names and ticks use IBM Plex Sans; IBM Plex Mono is only for numeric
+  readouts. Keep labels outside data marks and attach them with fine leader
+  lines.
 - **Nothing else.** No gradients, glows, drop shadows or neon. Lime appears
   only where the reader should look right now.
 
@@ -145,8 +146,10 @@ What makes a scene feel explained rather than decorated:
 5. End on a still frame that summarizes the idea, with the key relation
    Indicated once.
 6. No decorative motion. Motion only for change that is the concept.
-7. Keep text short on the stage; sentences live in captions. Stage labels
-   are at least 12 px at a 375 px viewport.
+7. Keep text short on the stage; sentences live in captions. Stage text
+   paints at a fixed size however wide the stage is: object labels 14 px,
+   axis names, notes and readouts 13 px, ticks 12 px. A stage narrower than
+   the article stage at a 375 px viewport (299 px) shrinks as a whole.
 8. Sourced numbers are byte-identical, with citations. Toy scenes say so.
 
 ## The look-and-fix loop
