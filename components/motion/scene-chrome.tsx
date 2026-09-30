@@ -110,7 +110,7 @@ export function SceneTimelineAtEnd() {
       data-scene-timeline="poster"
       className="flex h-6 items-center"
     >
-      <span className="block h-1 w-full rounded-full bg-highlight" />
+      <span className="block h-1 w-full rounded-xs bg-highlight" />
     </div>
   );
 }
