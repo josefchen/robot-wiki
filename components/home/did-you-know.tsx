@@ -19,8 +19,10 @@ export function DidYouKnow() {
         if (!citation) {
           throw new Error(`${fact.id} cites ${fact.citationId}, which data/citations.ts does not hold`);
         }
-        // The fact's last plain word joins the chip and its full stop in
-        // one unbreakable run, so no line holds the chip alone.
+        // The fact's last word joins the chip and its full stop in one
+        // unbreakable run, so no line holds the chip alone. The run cannot
+        // reach into the link, so a fact that ends on its link ties the chip
+        // to it with a no-break space, which forbids a break on either side.
         const cut = fact.after.lastIndexOf(' ');
         const lastWord = fact.after.slice(cut + 1);
         return (
@@ -34,9 +36,8 @@ export function DidYouKnow() {
               {fact.linked}
             </Link>
             {fact.after.slice(0, cut + 1)}
-            {lastWord ? null : ' '}
             <span className="whitespace-nowrap">
-              {lastWord ? `${lastWord} ` : null}
+              {lastWord ? `${lastWord} ` : '\u00A0'}
               <Cite
                 citeId={fact.citationId}
                 href={citation.url}
