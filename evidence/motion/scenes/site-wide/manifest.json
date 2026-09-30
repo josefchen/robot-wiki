@@ -6,138 +6,138 @@
     {
       "id": "kalman-predict-update",
       "chunks": [
-        "3skivbyd21ixh.js"
+        "31amwi2o8wm6e.js"
       ],
-      "gzipBytes": 4082,
+      "gzipBytes": 5513,
       "withinBudget": true
     },
     {
       "id": "fk-chain",
       "chunks": [
-        "3rpg9t56tylqy.js"
+        "024ld0r-4qarv.js"
       ],
-      "gzipBytes": 9126,
+      "gzipBytes": 2037,
       "withinBudget": true
     },
     {
       "id": "rrt-growth",
       "chunks": [
-        "3-_4jdiln03yi.js"
+        "3pe0whaz6hp-x.js"
       ],
-      "gzipBytes": 10277,
+      "gzipBytes": 3204,
       "withinBudget": true
     },
     {
       "id": "diffusion-denoising",
       "chunks": [
-        "3l-xojqgislor.js"
+        "2x4_-58m9g_rn.js"
       ],
-      "gzipBytes": 3259,
+      "gzipBytes": 4689,
       "withinBudget": true
     },
     {
       "id": "action-decode",
       "chunks": [
-        "07bjuz3_93ve2.js"
+        "0nawq6hqli-mu.js"
       ],
-      "gzipBytes": 9673,
+      "gzipBytes": 2578,
       "withinBudget": true
     },
     {
       "id": "flow-transport",
       "chunks": [
-        "04kuqqzmx2nu1.js"
+        "059stf1upadu8.js"
       ],
-      "gzipBytes": 9969,
+      "gzipBytes": 2878,
       "withinBudget": true
     },
     {
       "id": "batch-scale",
       "chunks": [
-        "0wilaudmxcrux.js"
+        "2bmc4uy4-d3g2.js"
       ],
-      "gzipBytes": 9634,
+      "gzipBytes": 2539,
       "withinBudget": true
     },
     {
       "id": "gait-support",
       "chunks": [
-        "3fdavbu42-e7k.js"
+        "0gql3bmgab80_.js"
       ],
-      "gzipBytes": 9732,
+      "gzipBytes": 2624,
       "withinBudget": true
     },
     {
       "id": "action-fork",
       "chunks": [
-        "38dnap9ajyho9.js"
+        "1bvuempgm5lbi.js"
       ],
-      "gzipBytes": 9635,
+      "gzipBytes": 2542,
       "withinBudget": true
     },
     {
       "id": "latent-drift",
       "chunks": [
-        "3z5h8t2g20p0q.js"
+        "309-gipzgyn46.js"
       ],
-      "gzipBytes": 9316,
+      "gzipBytes": 2229,
       "withinBudget": true
     },
     {
       "id": "push-layers",
       "chunks": [
-        "2mqnxu8byuqo8.js"
+        "3xih7zj7olw2g.js"
       ],
-      "gzipBytes": 9672,
+      "gzipBytes": 2536,
       "withinBudget": true
     },
     {
       "id": "farm-throughput",
       "chunks": [
-        "14d5y45pmh1zw.js"
+        "3xqx72_yofk-o.js"
       ],
-      "gzipBytes": 9878,
+      "gzipBytes": 2764,
       "withinBudget": true
     },
     {
       "id": "episode-survival",
       "chunks": [
-        "3xvrv1wsat4zo.js"
+        "0l4rnbb30n82c.js"
       ],
-      "gzipBytes": 9017,
+      "gzipBytes": 1931,
       "withinBudget": true
     },
     {
       "id": "jam-overhead",
       "chunks": [
-        "0eod3uqye3pvj.js"
+        "241ny9cxygcle.js"
       ],
-      "gzipBytes": 9580,
+      "gzipBytes": 2495,
       "withinBudget": true
     },
     {
       "id": "reliability-threshold",
       "chunks": [
-        "1d726xz-7r_qs.js",
-        "2p5xq9ns1npaw.js"
+        "1kg9mkd64qr_i.js",
+        "2qr3-h1m_2w2v.js"
       ],
-      "gzipBytes": 23101,
+      "gzipBytes": 9912,
       "withinBudget": true
     },
     {
       "id": "tactile-slip",
       "chunks": [
-        "099k-c6bcs5mr.js"
+        "1mbduoti0saw_.js"
       ],
-      "gzipBytes": 8619,
+      "gzipBytes": 1469,
       "withinBudget": true
     },
     {
       "id": "sense-avoid",
       "chunks": [
-        "1svxy7lxkt0ib.js"
+        "23b2-l1fhp1yd.js"
       ],
-      "gzipBytes": 9268,
+      "gzipBytes": 2185,
       "withinBudget": true
     }
   ],
@@ -388,19 +388,19 @@
     },
     {
       "path": "evidence/motion/scenes/reliability-threshold/375-beat-1.png",
-      "sha256": "067e7e9cae083ee17d2e904563a7704471c0405c8ba49b843f60c6f4eec27765"
+      "sha256": "43112af42e1b427807f0d348160857c3f0cc45fcb40d8fd4ff23e26f3a43b0c5"
     },
     {
       "path": "evidence/motion/scenes/reliability-threshold/375-beat-2.png",
-      "sha256": "6533f5673ca497f062db68272e712b891a44d0976b8191a4c4c223b21d08e046"
+      "sha256": "fd9ed84386fcc0e09140b10725250066302873d2b91b235cb2c457889bd338d8"
     },
     {
       "path": "evidence/motion/scenes/reliability-threshold/375-beat-3.png",
-      "sha256": "d13b3db324664df7b81de9807750ac6cfbc635b7c0d9699dab0e7bac325de061"
+      "sha256": "13349ba51829c5ad48fa05fdb2057a1d473b374eabdf860198b9e651fa85c94d"
     },
     {
       "path": "evidence/motion/scenes/reliability-threshold/375-beat-4.png",
-      "sha256": "7ab701a8f2e7581058a70976949442b7f0fb5114beb5d23047937aa7d9d58595"
+      "sha256": "24b7c65166637632e6653fd5a477519c56eb2a5105a518fae18bf096ef25d616"
     },
     {
       "path": "evidence/motion/scenes/tactile-slip/375-beat-1.png",
@@ -664,19 +664,19 @@
     },
     {
       "path": "evidence/motion/scenes/reliability-threshold/1440-beat-1.png",
-      "sha256": "fee551f3aa7b628f63871e439a4443aeefb5c35ddf67c3117f7126c05d7c3807"
+      "sha256": "0753a898d0bb7aef60dbf38f5aece0128611eb57f72959827b8cc811a73856a3"
     },
     {
       "path": "evidence/motion/scenes/reliability-threshold/1440-beat-2.png",
-      "sha256": "d2b62fcf653d51f211ebd419c1055bb46df9e2ff805d477a7d888d2c789f121f"
+      "sha256": "20684cd2039f8ffe55be4fd0b587a3eac795a0d19f818dabee07834abc1b2362"
     },
     {
       "path": "evidence/motion/scenes/reliability-threshold/1440-beat-3.png",
-      "sha256": "b57e63a0ae5b578c94c390964de512a56665120b8e7234988d04f07393790578"
+      "sha256": "4c1a09a01c11c40707335ced6d29c2b6a257c772a019185ff5d5c57b8ad0cf5a"
     },
     {
       "path": "evidence/motion/scenes/reliability-threshold/1440-beat-4.png",
-      "sha256": "ade0e08c5bc20b5392b0a60760c7959def4f04771901375b16846b0ef5315fbf"
+      "sha256": "d0e57967f0be94fcf9c316c14742dcee45ba1381edc065240da43cccaa0e519d"
     },
     {
       "path": "evidence/motion/scenes/tactile-slip/1440-beat-1.png",

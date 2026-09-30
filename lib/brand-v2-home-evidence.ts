@@ -1,9 +1,9 @@
 import { z } from 'zod';
 import {
-  SHIPPED_GEOMETRY_MODEL_CLASS,
   WEB_FONT_BINARY_CLASS,
   deriveEvidenceClosure,
 } from './brand-v2-evidence-closure.ts';
+import { homeCopyProblems } from './home-copy.ts';
 import {
   numberRecordSchema,
   parseEvidenceArtifact,
@@ -187,6 +187,21 @@ export type HomeDomainEntry = {
   bordered: boolean;
 };
 
+/** One front-page block's words, as the sweep read them. */
+export type HomeProseBlock = {
+  label: string;
+  /** The `data-brand-module-signature` the block declares, if any. */
+  signature: string | null;
+  /**
+   * The block's running text: its words outside headings, links, dates,
+   * form controls and the motion scene. A row of links is not a paragraph,
+   * and a scene's status line belongs to the scene.
+   */
+  prose: string;
+  /** Every word the block renders, which the vocabulary screen reads. */
+  text: string;
+};
+
 export type HomeSectionObservation = {
   index: number;
   label: string;
@@ -275,8 +290,8 @@ export type HomeCompositionEvidence = {
   domainAnchorCounts: Record<string, number>;
   /** Canonical domain names found in each non-index prose section. */
   proseSectionDomainNames: Array<{ label: string; names: string[] }>;
-  /** The home overview paragraph, verbatim. */
-  overviewProse: string;
+  /** Each front-page block's prose, in document order (`VAL-DESIGN-011`). */
+  proseBlocks: HomeProseBlock[];
   /** Reader-facing build-progress or planned-work copy the sweep matched. */
   progressMetadataMatches: string[];
   /** Four-sided bordered containers at least 80px tall inside main. */
@@ -288,13 +303,10 @@ export type HomeCompositionEvidence = {
  * and the layout that wraps it, plus the sweep that measures them.
  *
  * The closure of those three is what can change this reading, and it is
- * derived rather than listed. The six-path list this replaces omitted every
- * transitive rendering input the page actually has — `data/domains.ts`,
- * which supplies the seven destinations the domain-index rows are measured
- * against; `components/interactive/reliability-compounding.tsx`, the
- * featured instrument inside the first composition;
- * `components/mdx/image-ref.tsx` and `components/ui/figure.tsx`, which
- * decide how an image lands in the layout; and
+ * derived rather than listed. A handwritten path list omits the transitive
+ * rendering inputs the page actually has: `data/domains.ts` and
+ * `data/modules.ts`, which supply the contents index the domain rows are
+ * measured against; the featured scene under `components/motion/`; and
  * `components/nav/site-shell.tsx`, the chrome every home geometry reading is
  * relative to. Any of those could move the sections, the fold, or the
  * highlight while the committed artifact still read as current.
@@ -308,23 +320,20 @@ export const HOME_CLOSURE_ENTRIES = [
 /**
  * The dependency classes home renders from without importing them.
  *
- * The import closure alone still could not see two of this page's real
- * inputs. The wordmark, every heading and the descriptor are drawn with the
- * checked-in Tektur binary that `app/layout.tsx` names as a path string, and
- * the hardware card's drawing and all five of its printed figures are
- * derived from the shipped URDF that `lib/so101-kinematics.ts` reads off
- * disk. Either could be replaced wholesale while the committed sweep still
- * read as current, which is the same omission a handwritten path list makes.
+ * The import closure alone cannot see one of this page's real inputs: the
+ * wordmark, every heading and the descriptor are drawn with the checked-in
+ * Tektur binary that `app/layout.tsx` names as a path string. It could be
+ * replaced wholesale while the committed sweep still read as current, which
+ * is the same omission a handwritten path list makes. Home draws nothing
+ * from the shipped robot model, so that class is not declared here: a class
+ * whose members the closure never reaches would cover nothing.
  */
-export const HOME_NON_IMPORT_CLASSES = [
-  WEB_FONT_BINARY_CLASS,
-  SHIPPED_GEOMETRY_MODEL_CLASS,
-] as const;
+export const HOME_NON_IMPORT_CLASSES = [WEB_FONT_BINARY_CLASS] as const;
 
 /**
  * The fingerprint the sweep records and the generator re-derives, over the
- * bytes of the whole home closure, the font binary and shipped model it
- * renders from without importing them, and the exact identity literals the
+ * bytes of the whole home closure, the font binary it renders from without
+ * importing, and the exact identity literals the
  * hero has to print. Restyling or rewording the page without re-running the
  * sweep is then a stale-evidence failure rather than a silently preserved
  * green row.
@@ -429,7 +438,14 @@ export const homeCompositionEvidenceSchema = z.object({
   proseSectionDomainNames: z.array(
     z.object({ label: z.string(), names: z.array(z.string()) }),
   ),
-  overviewProse: z.string(),
+  proseBlocks: z.array(
+    z.object({
+      label: z.string(),
+      signature: z.string().nullable(),
+      prose: z.string(),
+      text: z.string(),
+    }),
+  ),
   progressMetadataMatches: z.array(z.string()),
   borderedCardCount: z.number(),
 });
@@ -1090,4 +1106,93 @@ export function canonicalDomainEntries(
   name: string,
 ): HomeDomainEntry[] {
   return entries.filter((entry) => entry.name === name);
+}
+
+/**
+ * The assertion that owns each front-page block's prose (`VAL-DESIGN-011`).
+ *
+ * Home prose is the identity line, the domain descriptions, the featured
+ * lead and the three facts. The scene, the dated list and the tools line
+ * are owned too, but they offer links and controls, so their running text
+ * may be a label and no more.
+ */
+export const HOME_PROSE_OWNERS: Readonly<
+  Record<string, { owner: string; prose: boolean }>
+> = {
+  'sheet/display-lockup/search-form': { owner: 'VAL-OPUS-014', prose: true },
+  'ruled-plain/index-heading/row-links': { owner: 'VAL-NAV-002', prose: true },
+  'plain/module-heading/lead-excerpt': { owner: 'VAL-OPUS-016', prose: true },
+  'plain/module-heading/motion-scene': { owner: 'VAL-OPUS-017', prose: false },
+  'plain/module-heading/cited-facts': { owner: 'VAL-OPUS-018', prose: true },
+  'plain/module-heading/dated-links': { owner: 'VAL-OPUS-019', prose: false },
+  'ruled-plain/inline-label/link-line': { owner: 'VAL-OPUS-020', prose: false },
+};
+
+/** The most running text a links-and-controls block may carry: a label. */
+export const HOME_LABEL_MAX_WORDS = 2;
+
+/** The featured lead's bound under `VAL-OPUS-016`. */
+export const HOME_FEATURED_LEAD_MAX_WORDS = 50;
+
+/** Registry counts as the identity line prints them: "57 articles". */
+const REGISTRY_COUNT = /\d[\d,]*\s+(?:articles?|sources?|glossary\s+terms?)\b/gi;
+
+const words = (value: string) => value.split(/\s+/).filter(Boolean);
+
+/**
+ * Decides `VAL-DESIGN-011` over the persisted blocks: every block is owned,
+ * each links-and-controls block carries no more than a label, the identity
+ * line is the descriptor and the counts, the lead stays within its bound,
+ * and no block's words carry banned wording, progress wording or a dash.
+ * Empty when home passes.
+ */
+export function homeProseVerdicts(
+  evidence: Pick<HomeCompositionEvidence, 'proseBlocks'>,
+  literals: { descriptor: string },
+): string[] {
+  if (evidence.proseBlocks.length === 0) {
+    throw new Error(
+      'home composition evidence carries no prose blocks: VAL-DESIGN-011 would quantify over nothing',
+    );
+  }
+  const failures: string[] = [];
+  for (const block of evidence.proseBlocks) {
+    const prose = block.prose.trim();
+    const owned = block.signature ? HOME_PROSE_OWNERS[block.signature] : undefined;
+    if (!owned) {
+      if (prose.length > 0 || block.text.trim().length > 0) {
+        failures.push(
+          `the "${block.label}" block declares ${block.signature ? `"${block.signature}"` : 'no signature'}, which no front-page assertion owns, yet it renders "${block.text.slice(0, 80)}"`,
+        );
+      }
+    } else if (!owned.prose && words(prose).length > HOME_LABEL_MAX_WORDS) {
+      failures.push(
+        `the "${block.label}" block belongs to ${owned.owner}, which offers links and controls, yet it carries ${words(prose).length} words of running text: "${prose.slice(0, 80)}"`,
+      );
+    } else if (owned.owner === 'VAL-OPUS-014') {
+      const extra = prose
+        .replace(literals.descriptor, '')
+        .replace(REGISTRY_COUNT, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+      if (!prose.includes(literals.descriptor)) {
+        failures.push(`the identity line does not carry the locked descriptor verbatim: "${prose.slice(0, 80)}"`);
+      } else if (extra.length > 0) {
+        failures.push(
+          `the identity line carries "${extra.slice(0, 80)}" beside the descriptor and the registry counts, which is a mission statement or overview`,
+        );
+      }
+    } else if (
+      owned.owner === 'VAL-OPUS-016' &&
+      words(prose).length > HOME_FEATURED_LEAD_MAX_WORDS
+    ) {
+      failures.push(
+        `the featured lead runs to ${words(prose).length} words, over the ${HOME_FEATURED_LEAD_MAX_WORDS} VAL-OPUS-016 allows`,
+      );
+    }
+    for (const problem of homeCopyProblems(block.text)) {
+      failures.push(`the "${block.label}" block carries ${problem}`);
+    }
+  }
+  return failures;
 }

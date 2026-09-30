@@ -40,7 +40,7 @@ const ROOT = process.cwd();
  */
 
 const ROW_SELECTORS: Record<string, string> = {
-  'home-domain-index': 'section[aria-labelledby="domain-index-heading"] ul > li',
+  'home-domain-index': 'section[aria-labelledby="contents-heading"] [data-contents-domain]',
   'domain-article': '[data-domain-article]',
   'az-entry': '[data-az-entry]',
   'glossary-term': '[data-glossary-term]',

@@ -1,100 +1,133 @@
 import { render, screen, within } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
-import Home from '@/app/page';
-import { PUBLIC_IDENTITY } from '@/lib/identity';
+import userEvent from '@testing-library/user-event';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-const DOMAIN_ENTRIES = [
-  ['Manipulation & Learned Policies', '/manipulation'],
-  ['RL, Sim-to-Real & Locomotion', '/rl-sim2real'],
-  ['World Models', '/world-models'],
-  ['Data, Hardware & Evaluation', '/data-hardware'],
-  ['Classical Foundations', '/classical'],
-  ['Frontier & Open Problems', '/frontier'],
-  ['Adjacent Domains', '/adjacent'],
-] as const;
+const mockPush = vi.fn();
+
+vi.mock('next/navigation', () => ({
+  useRouter: () => ({ push: mockPush }),
+}));
+
+import Home from '@/app/page';
+import { DID_YOU_KNOW } from '@/data/did-you-know';
+import { DOMAINS, DOMAIN_META, publishedModules } from '@/data/modules';
+import { GLOSSARY } from '@/data/glossary';
+import { citedSourceIds } from '@/lib/home-counts';
+import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '@/lib/identity';
+
+/** next/link and jsdom disagree about trailing slashes; the path is what matters. */
+const path = (href: string | null) => (href ?? '').replace(/\/$/, '');
+
+function region(name: RegExp) {
+  return screen.getByRole('region', { name });
+}
 
 describe('Home page', () => {
-  it('renders the hero with the wiki wordmark and substantive overview prose', () => {
+  beforeEach(() => mockPush.mockClear());
+
+  it('opens with the identity line and registry counts', () => {
     render(<Home />);
     expect(
       screen.getByRole('heading', { level: 1, name: PUBLIC_IDENTITY }),
     ).toBeInTheDocument();
-    expect(
-      screen.getByText(/encyclopedia of modern robotics/),
-    ).toBeInTheDocument();
+    expect(screen.getByText(PUBLIC_DESCRIPTOR)).toBeInTheDocument();
+    const counts = document.querySelector('[data-home-counts]');
+    expect(counts?.textContent).toContain(`${publishedModules().length} articles`);
+    expect(counts?.textContent).toContain(`${citedSourceIds().size} sources`);
+    expect(counts?.textContent).toContain(`${GLOSSARY.length} glossary terms`);
   });
 
-  it('lists all seven domains as one dense index, each with descriptive text', () => {
+  it('searches the wiki from a labelled box', async () => {
+    const user = userEvent.setup();
     render(<Home />);
-    const index = screen.getByRole('region', { name: /domain index/i });
-    const items = within(index).getAllByRole('listitem');
-    expect(items).toHaveLength(7);
-    for (const [name, href] of DOMAIN_ENTRIES) {
-      const link = within(index).getByRole('link', { name });
-      // next/link normalizes trailing slashes differently between jsdom and
-      // the served HTML; the domain segment is what matters.
-      expect(link.getAttribute('href')).toMatch(
-        new RegExp(`^${href.replace(/\//g, '\\/')}\\/?$`),
+    const form = screen.getByRole('search', { name: 'Search the wiki' });
+    const box = within(form).getByRole('searchbox', {
+      name: 'Search articles, sources and glossary terms',
+    });
+    await user.type(box, 'diffusion policy');
+    await user.click(within(form).getByRole('button', { name: 'Search' }));
+    expect(mockPush).toHaveBeenCalledWith('/search/?q=diffusion%20policy');
+  });
+
+  it('lists every domain with its description and every article as a plain link', () => {
+    render(<Home />);
+    const contents = region(/^contents$/i);
+    for (const domain of DOMAINS) {
+      const entry = contents.querySelector(`[data-contents-domain="${domain}"]`);
+      expect(entry, domain).not.toBeNull();
+      const name = within(entry as HTMLElement).getByRole('link', {
+        name: DOMAIN_META[domain].name,
+      });
+      expect(path(name.getAttribute('href'))).toBe(`/${domain}`);
+      expect((name.parentElement?.textContent ?? '').length).toBeGreaterThan(
+        DOMAIN_META[domain].name.length + 10,
       );
+      const list = within(entry as HTMLElement).getByRole('list');
+      const hrefs = within(list)
+        .getAllByRole('link')
+        .map((link) => path(link.getAttribute('href')));
+      expect(hrefs).toEqual(
+        publishedModules()
+          .filter((entry) => entry.domain === domain)
+          .map((entry) => `/${domain}/${entry.slug}`),
+      );
+      expect(list.querySelector('img, svg, [data-brand-surface-id]')).toBeNull();
     }
-    // Every row carries real descriptive text beyond the domain name.
+  });
+
+  it('features one article lead of 50 words or fewer with a link', () => {
+    render(<Home />);
+    const featured = region(/featured article/i);
+    expect(within(featured).getAllByRole('link')).toHaveLength(1);
+    const excerpt = featured.querySelector('[data-featured-excerpt]');
+    const words = (excerpt?.textContent ?? '').split(/\s+/).filter(Boolean);
+    expect(words.length).toBeGreaterThan(5);
+    expect(words.length).toBeLessThanOrEqual(50);
+  });
+
+  it('features one scene that waits for the reader to press play', () => {
+    render(<Home />);
+    const scene = region(/featured scene/i);
+    expect(within(scene).getByRole('button', { name: /play/i })).toBeInTheDocument();
+    expect(screen.queryByTestId('episode-success-readout')).not.toBeInTheDocument();
+  });
+
+  it('holds three cited facts, each linked to its article', () => {
+    render(<Home />);
+    const facts = region(/did you know/i).querySelectorAll('[data-did-you-know]');
+    expect(facts).toHaveLength(3);
+    facts.forEach((fact, index) => {
+      const { domain, slug, citationId } = DID_YOU_KNOW[index];
+      const links = within(fact as HTMLElement).getAllByRole('link');
+      expect(links.map((link) => path(link.getAttribute('href')))).toContain(
+        `/${domain}/${slug}`,
+      );
+      expect(fact.querySelector(`[data-cite-id="${citationId}"]`)).not.toBeNull();
+    });
+  });
+
+  it('lists five dated article changes', () => {
+    render(<Home />);
+    const items = within(region(/recently updated/i)).getAllByRole('listitem');
+    expect(items).toHaveLength(5);
     for (const item of items) {
-      expect((item.textContent ?? '').length).toBeGreaterThan(30);
+      expect(item.querySelector('time[datetime]')).not.toBeNull();
+      expect(within(item).getAllByRole('link')).toHaveLength(1);
     }
   });
 
-  it('exposes entry points to the market map and the playground', () => {
+  it('links the playground and the market map from one plain tools line', () => {
     render(<Home />);
-    expect(
-      screen.getByRole('link', { name: /Market Map/ }),
-    ).toHaveAttribute('href', '/market-map');
-    expect(
-      screen.getByRole('link', { name: /Kinematics Playground/ }),
-    ).toHaveAttribute('href', '/playground');
+    const tools = region(/^tools$/i);
+    expect(path(within(tools).getByRole('link', { name: 'Playground' }).getAttribute('href'))).toBe('/playground');
+    expect(path(within(tools).getByRole('link', { name: 'Market Map' }).getAttribute('href'))).toBe('/market-map');
+    expect(tools.querySelector('img, svg, article, figure')).toBeNull();
   });
 
-  it('renders the playground entry point with a visual, not text alone', () => {
+  it('carries no reading guide, mission statement or old product name', () => {
     render(<Home />);
-    const link = screen.getByRole('link', { name: /Kinematics Playground/ });
-    // The card is an <article>: the link titles it and the preview figure is
-    // its sibling, because <details> may not nest inside <a>.
-    const card = link.closest('article');
-    expect(card).not.toBeNull();
-    const svg = card!.querySelector('svg');
-    expect(svg).not.toBeNull();
-    // A real frame: at least three shape elements inside the svg.
-    expect(svg!.querySelectorAll('circle, line, path, rect').length).toBeGreaterThanOrEqual(3);
-  });
-
-  it('explains how to read the wiki and links into real content', () => {
-    render(<Home />);
-    const howTo = screen.getByRole('region', {
-      name: /how to read this wiki/i,
-    });
-    expect(within(howTo).getByText(/registry order/)).toBeInTheDocument();
-    expect(within(howTo).getByText(/citation chip/i)).toBeInTheDocument();
-    expect(
-      within(howTo).getByRole('link', {
-        name: /Action Chunking \(ACT and ALOHA\)/,
-      }),
-    ).toHaveAttribute('href', '/manipulation/action-chunking');
-  });
-
-  it('never uses the old product name', () => {
-    render(<Home />);
-    expect(screen.queryByText(/atlas/i)).not.toBeInTheDocument();
-  });
-
-  it('embeds a live featured interactive with controls and a readout', () => {
-    render(<Home />);
-    const featured = screen.getByRole('region', {
-      name: /featured interactive/i,
-    });
-    expect(
-      within(featured).getByRole('slider', { name: /per-step success/i }),
-    ).toBeInTheDocument();
-    expect(
-      within(featured).getByTestId('episode-success-readout'),
-    ).toBeInTheDocument();
+    const main = document.body.textContent ?? '';
+    expect(main).not.toMatch(/how to read|reading order|prerequisites|atlas/i);
+    expect(main).not.toContain('a citation is not a guarantee of verification');
   });
 });

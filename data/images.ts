@@ -1,7 +1,7 @@
 /**
  * Image registry: the single source of truth for every content image.
  *
- * MDX content and the home page reference these via <Image id="..."/> (the
+ * MDX content references these via <Image id="..."/> (the
  * ImageRef resolver); scripts/validate-content.ts fails the build if a page
  * references an id that is not registered here, if a registered image is
  * referenced nowhere, or if an entry's licence is missing or outside the
@@ -38,32 +38,6 @@ import {
 export type { SiteImage } from './schemas/image.ts';
 
 const ARTICLE_IMAGES: SiteImage[] = [
-  {
-    id: 'spot-raf-agile-liberty-2021',
-    figureKind: 'photograph',
-    legalBasis: 'public-domain',
-    attributionText:
-      'Photo: Senior Airman John Ennis, U.S. Air Force / Wikimedia Commons. Licence: Public domain.',
-    preservationPolicy: 'external-bytes-preserved',
-    file: '/images/spot-raf-agile-liberty-2021.jpg',
-    alt: 'A yellow Boston Dynamics Spot quadruped robot walks across an airfield tarmac alongside Royal Air Force airmen in camouflage uniform.',
-    caption:
-      'A Boston Dynamics Spot quadruped walks with Royal Air Force airmen at RAF Leeming during the Agile Liberty 21-2 technology trials in August 2021.',
-    sourceName: 'Wikimedia Commons',
-    sourceUrl:
-      'https://commons.wikimedia.org/wiki/File:Spot_robot_Royal_Air_Force.jpg',
-    creator: 'Senior Airman John Ennis, U.S. Air Force',
-    licence: 'public-domain',
-    licenceUrl:
-      'https://commons.wikimedia.org/wiki/Template:PD-USGov-Military-Air_Force',
-    retrieved: '2026-08-10',
-    width: 1920,
-    height: 869,
-    // Licence sentence read on the file page: "This image or file is a work
-    // of a U.S. Air Force Airman or employee, taken or made as part of that
-    // person's official duties. As a work of the U.S. federal government,
-    // the image or file is in the public domain in the United States."
-  },
   {
     id: 'atlas-darpa-frontview-2013',
     figureKind: 'photograph',

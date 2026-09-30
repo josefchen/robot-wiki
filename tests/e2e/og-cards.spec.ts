@@ -37,6 +37,7 @@ const NON_ARTICLE_ROUTES = [
   '/glossary/',
   '/credits/',
   '/editorial-policy/',
+  '/about/',
   '/privacy/',
   '/search/',
   ...DOMAIN_META_KEYS(),
@@ -86,8 +87,8 @@ test.describe('OG card images', () => {
       ...publishedModules().map((m) => `/${m.domain}/${m.slug}/`),
       ...NON_ARTICLE_ROUTES,
     ];
-    // 9 standalone destinations + 7 domain landings = 16.
-    expect(routes.length).toBe(publishedModules().length + 16);
+    // 10 standalone destinations + 7 domain landings = 17.
+    expect(routes.length).toBe(publishedModules().length + 17);
 
     const server = await startStaticExportServer('out');
     try {

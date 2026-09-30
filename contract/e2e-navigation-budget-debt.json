@@ -51,13 +51,6 @@
       "reason": "Measured 244 navigations on one shared page. Conversion deferred: this sweep records brand-v2 evidence that feeds check:brand-v2-enforcement and baseline:brand-v2, so it has to be reworked and re-verified inside the brand-v2 lane."
     },
     {
-      "file": "tests/e2e/brand-v2-home-tools.spec.ts",
-      "title": "the featured instrument is live, operable, resettable, and identical across its registered mounts",
-      "receiver": "page",
-      "navigations": 63,
-      "reason": "Measured 63 navigations on one shared page. Conversion deferred: this sweep records brand-v2 evidence that feeds check:brand-v2-enforcement and baseline:brand-v2, so it has to be reworked and re-verified inside the brand-v2 lane."
-    },
-    {
       "file": "tests/e2e/brand-v2-identity.spec.ts",
       "title": "every public route renders the exact v2 identity at both identity viewports",
       "receiver": "page",

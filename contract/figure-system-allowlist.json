@@ -2,16 +2,6 @@
   "schemaVersion": "figure-system-allowlist-v1",
   "entries": [
     {
-      "route": "/",
-      "figure": "Line chart of episode success against episode length at 95.0 percent per-step success",
-      "rules": [
-        "outside-frame",
-        "reserved-colour",
-        "sub-scale-text"
-      ],
-      "pass": "opus-pass-homepage"
-    },
-    {
       "route": "/credits/",
       "figure": "image:covariate-shift",
       "rules": [

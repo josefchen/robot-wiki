@@ -1,16 +1,16 @@
 import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { CORE_DOMAINS } from '../../data/domains';
-import { PUBLIC_IDENTITY } from '../../lib/identity';
+import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '../../lib/identity';
 import { forEachInOwnContext } from './helpers/per-route-context';
 
 /**
- * Structural contract for the restructured home page (2026-08-10). Encodes
- * the measurable bounds from contract/design-integrity.md and
- * contract/foundation-navigation.md: dense typographic domain index instead
- * of a card grid, the live interactive inside the first 1200px, a visual
- * playground entry point, bounded bordered boxes and micro-labels, and
- * substantive hero prose.
+ * Structural contract for the home front page. Encodes the measurable
+ * bounds from contract/design-integrity.md and
+ * contract/foundation-navigation.md: a dense contents index instead of a
+ * card grid, the featured scene inside the first 1200px, the playground as a
+ * plain link in the tools line, bounded bordered boxes and micro-labels, no
+ * overview paragraph, and the reading guide on /about/.
  */
 
 const DOMAIN_ENTRIES = [
@@ -92,7 +92,7 @@ test.describe('home page', () => {
     expect(results.violations).toEqual([]);
   });
 
-  test('first viewport carries wordmark, overview, and all seven domain links', async ({
+  test('first viewport carries the identity line, counts, search and all seven domain links', async ({
     page,
   }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
@@ -101,7 +101,13 @@ test.describe('home page', () => {
       level: 1,
       name: PUBLIC_IDENTITY,
     });
-    const overview = page.getByText(/encyclopedia of modern robotics/);
+    const descriptor = page
+      .locator('#main-content')
+      .getByText(PUBLIC_DESCRIPTOR, { exact: true });
+    const counts = page.locator('[data-home-counts]');
+    const search = page
+      .getByRole('search', { name: 'Search the wiki' })
+      .getByRole('searchbox');
     // The full box must sit inside the first viewport (VAL-HOME-001/
     // VAL-DSHOME-001): a top edge above y=900 with the body hanging below
     // it is a clipped premise, and checking y alone would pass it.
@@ -118,7 +124,9 @@ test.describe('home page', () => {
       ).toBeLessThanOrEqual(900);
     };
     await insideFirstViewport(wordmark, 'hero wordmark');
-    await insideFirstViewport(overview, 'hero overview');
+    await insideFirstViewport(descriptor, 'descriptor');
+    await insideFirstViewport(counts, 'registry counts');
+    await insideFirstViewport(search, 'search box');
     const main = page.locator('#main-content');
     for (const [name, href] of DOMAIN_ENTRIES) {
       const link = main.getByRole('link', { name, exact: true }).first();
@@ -202,13 +210,13 @@ test.describe('home page', () => {
     ).toBeLessThanOrEqual(900);
   });
 
-  test('domain index is a dense list, not a grid of bordered cards', async ({
+  test('the contents index is a dense list, not a grid of bordered cards', async ({
     page,
   }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto('/');
-    const index = page.getByRole('region', { name: /domain index/i });
-    const items = index.getByRole('listitem');
+    const index = page.getByRole('region', { name: 'Contents' });
+    const items = index.locator('[data-contents-domain]');
     await expect(items).toHaveCount(7);
     for (const item of await items.all()) {
       const borders = await item.evaluate((el) => {
@@ -242,7 +250,7 @@ test.describe('home page', () => {
     for (const [name, href] of core) {
       await test.step(`${name} -> ${href}`, async () => {
         await page.goto('/');
-        const index = page.getByRole('region', { name: /domain index/i });
+        const index = page.getByRole('region', { name: 'Contents' });
         await index.getByRole('link', { name, exact: true }).click();
         const segment = href.replaceAll('/', '');
         await expect(page).toHaveURL(new RegExp(`/${segment}/?$`));
@@ -258,38 +266,40 @@ test.describe('home page', () => {
     }
   });
 
-  test('featured interactive svg top edge is within the first 1200px', async ({
+  test('featured scene svg top edge is within the first 1200px', async ({
     page,
   }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto('/');
-    const featured = page.getByRole('region', {
-      name: /featured interactive/i,
-    });
+    const featured = page.getByRole('region', { name: 'Featured scene' });
     // Strictly below 1200px (VAL-HOME-003/VAL-DSHOME-003): the bound is
     // "begins before y=1200", so exactly 1200 does not satisfy it.
-    const top = await featured.locator('svg').first().evaluate((el) => {
-      return el.getBoundingClientRect().top + window.scrollY;
-    });
+    const top = await featured
+      .locator('[data-motion-scene] svg')
+      .first()
+      .evaluate((el) => {
+        return el.getBoundingClientRect().top + window.scrollY;
+      });
     expect(top).toBeLessThan(1200);
   });
 
-  test('playground entry point renders a visual, not text alone', async ({
+  test('the playground entry point is a plain link in the tools line (VAL-DESIGN-013)', async ({
     page,
   }) => {
     await page.goto('/');
-    // The drawing sits beside the link rather than inside it: it carries its
-    // own textual alternative in a <details>, which HTML does not allow
-    // inside an anchor.
-    const card = page.locator('article', {
-      has: page.getByRole('link', { name: /Kinematics Playground/ }),
-    });
-    const figure = card.getByRole('img', { name: /SO-101/ });
-    await expect(figure).toBeVisible();
-    const shapes = await figure
-      .locator('circle, line, path, rect, polyline')
-      .count();
-    expect(shapes).toBeGreaterThanOrEqual(3);
+    const tools = page.getByRole('region', { name: 'Tools' });
+    const playground = tools.getByRole('link', { name: 'Playground', exact: true });
+    await expect(playground).toBeVisible();
+    expect(await playground.getAttribute('href')).toMatch(/^\/playground\/?$/);
+    // No preview, card, skeleton or drawing beside it.
+    expect(
+      await tools.locator('img, svg, canvas, figure, picture, video').count(),
+    ).toBe(0);
+    const linkBoxes = await tools.getByRole('link').evaluateAll((links) =>
+      links.map((link) => link.getBoundingClientRect().top),
+    );
+    expect(linkBoxes).toHaveLength(2);
+    expect(Math.abs(linkBoxes[0] - linkBoxes[1])).toBeLessThanOrEqual(4);
   });
 
   test('market map and playground entries navigate to their routes', async ({
@@ -297,13 +307,13 @@ test.describe('home page', () => {
   }) => {
     await page.goto('/');
     const main = page.locator('#main-content');
-    await main.getByRole('link', { name: /Kinematics Playground/ }).click();
+    await main.getByRole('link', { name: 'Playground', exact: true }).click();
     await expect(page).toHaveURL(/\/playground\/?$/);
     await expect(
       page.getByRole('heading', { level: 1 }),
     ).toBeVisible();
     await page.goto('/');
-    await main.getByRole('link', { name: /Market Map/ }).click();
+    await main.getByRole('link', { name: 'Market Map', exact: true }).click();
     await expect(page).toHaveURL(/\/market-map\/?$/);
     await expect(
       page.getByRole('heading', { level: 1 }),
@@ -347,20 +357,14 @@ test.describe('home page', () => {
     }
   });
 
-  test('hero overview prose is substantive and free of banned tokens', async ({
+  test('home carries no overview paragraph and its text is free of banned tokens (VAL-DESIGN-011)', async ({
     page,
   }) => {
     await page.goto('/');
-    const prose = await page
-      .getByText(/encyclopedia of modern robotics/)
-      .first()
-      .textContent();
-    expect(prose).not.toBeNull();
-    const text = prose!.trim();
-    const words = text.split(/\s+/).filter(Boolean);
-    expect(words.length).toBeGreaterThanOrEqual(25);
-    const sentences = text.split(/[.!?]+/).filter((s) => s.trim().length > 0);
-    expect(sentences.length).toBeGreaterThanOrEqual(2);
+    const main = page.locator('#main-content');
+    await expect(main.getByText(/encyclopedia of modern robotics/i)).toHaveCount(0);
+    const text = ((await main.innerText()) ?? '').trim();
+    expect(text.length).toBeGreaterThan(0);
     expect(text).not.toMatch(/[—–]/);
     const banned = [
       /seamless/i,
@@ -381,22 +385,27 @@ test.describe('home page', () => {
     }
   });
 
-  test('how-to-read guidance links into content and never says atlas', async ({
+  test('the reading guide lives on /about/, links into content and never says atlas (VAL-NAV-005)', async ({
     page,
   }) => {
     await page.goto('/');
-    const homeText = await page.locator('#main-content').textContent();
+    const homeText = (await page.locator('#main-content').textContent()) ?? '';
     expect(homeText).not.toMatch(/atlas/i);
-    const howTo = page.getByRole('region', { name: /how to read this wiki/i });
-    await expect(howTo.getByText(/citation chips/i)).toBeVisible();
-    const link = howTo
-      .getByRole('link', { name: /Action Chunking \(ACT and ALOHA\)/ })
-      .first();
-    await link.click();
+    expect(homeText).not.toMatch(/how to read|reading order|prerequisites/i);
+    // Reached from the footer, as a reader would.
+    await page.getByRole('contentinfo').getByRole('link', { name: 'About', exact: true }).click();
+    await expect(page).toHaveURL(/\/about\/?$/);
+    const about = page.locator('#main-content');
+    expect((await about.textContent()) ?? '').not.toMatch(/atlas/i);
+    const guide = page.getByRole('region', { name: 'Reading the wiki' });
+    await expect(guide.getByText(/reading order/i).first()).toBeVisible();
+    await expect(guide.getByText(/prerequisite/i).first()).toBeVisible();
+    await expect(guide.getByText(/citation chip/i).first()).toBeVisible();
+    await guide
+      .getByRole('link', { name: 'Action Chunking (ACT and ALOHA)', exact: true })
+      .click();
     await expect(page).toHaveURL(/\/manipulation\/action-chunking\/?$/);
-    await expect(
-      page.getByRole('heading', { level: 1 }),
-    ).toBeVisible();
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
   });
 
   test('no horizontal overflow at 375px and the index reflows', async ({
@@ -409,8 +418,8 @@ test.describe('home page', () => {
       inner: window.innerWidth,
     }));
     expect(widths.scroll).toBeLessThanOrEqual(widths.inner);
-    const index = page.getByRole('region', { name: /domain index/i });
-    await expect(index.getByRole('listitem')).toHaveCount(7);
+    const index = page.getByRole('region', { name: 'Contents' });
+    await expect(index.locator('[data-contents-domain]')).toHaveCount(7);
   });
 
   test('at 375px the hero grid is an exact 80px band below the lockup (VAL-DSHOME-009)', async ({

@@ -44,13 +44,6 @@
       "purpose": "Editorial stroboscopic photograph of a PUMA 560 arm at NASA Ames, a public-domain image used to illustrate classical industrial manipulation."
     },
     {
-      "path": "images/spot-raf-agile-liberty-2021.jpg",
-      "sha256": "571a6949389d5c57db435bb95ab425b3015cce144ebe65f7c628eece583c0327",
-      "byteCount": 326852,
-      "owner": "robot-wiki-editorial",
-      "purpose": "Editorial photograph of a Boston Dynamics Spot quadruped on an airfield, a public-domain US Air Force image used to illustrate fielded legged robots."
-    },
-    {
       "path": "images/temporal-ensembling.svg",
       "sha256": "fc9e74e11fd90cd5f07883d796f89f8ce8554de807d74ac44242144cfe8f4645",
       "byteCount": 4182,

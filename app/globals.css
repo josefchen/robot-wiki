@@ -241,6 +241,46 @@ article > hr {
     var(--dot-pitch) var(--dot-pitch);
 }
 
+/*
+ * A run of links set inline, like the article lists in the home contents.
+ * The separating dot is generated content with empty alternative text, so
+ * it is neither read aloud nor counted as a word of the page. Generated
+ * content leaves no gap in the page text either, so each item after the
+ * first opens with a real space; without it innerText, copying and reader
+ * views join the last word of one title to the first word of the next. The
+ * dot's end margin gives up about the width of that space, and a line can
+ * break after the dot but not before it.
+ */
+.home-run > li {
+  display: inline;
+}
+
+.home-run > li + li::before {
+  content: "\00B7" / "";
+  margin-inline: 0.45em 0.2em;
+  color: var(--color-text-dim);
+}
+
+/*
+ * The citation chip sets a fixed 20px line box and clips its overflow, so a
+ * label enlarged on its own (200% text) is cut off. In the home facts the
+ * label's line box grows with it; at the base size max() still resolves to
+ * the chip's 20px, so the chip renders unchanged.
+ */
+[data-did-you-know] [data-brand-surface-id="surface:flat"] > a {
+  line-height: max(1.25rem, 1.35em);
+}
+
+/*
+ * The chip is an inline-flex box, so its link is a flex item, and innerText
+ * puts a flex item's text on a line of its own. The full stop after the chip
+ * would then count as a word of the fact. As an inline block the chip draws
+ * the same box around the same link, and the fact's text ends "Rudin 2021.".
+ */
+[data-did-you-know] [data-brand-surface-id="surface:flat"] {
+  display: inline-block;
+}
+
 /* Skip-to-content link: first Tab stop on every page.
    Off-screen until focused. */
 .skip-link {

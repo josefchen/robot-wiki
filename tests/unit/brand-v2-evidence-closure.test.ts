@@ -20,6 +20,15 @@ const ROOT = process.cwd();
 const FONT_BINARY = 'public/fonts/Tektur-latin-wdth-wght.woff2';
 const GEOMETRY_MODEL = 'public/models/so101/so101.urdf';
 
+/**
+ * The route that draws the shipped robot. Its loader names the URDF by URL,
+ * so the model reaches the page without an import.
+ */
+const PLAYGROUND_CLOSURE = {
+  entries: ['app/layout.tsx', 'app/playground/page.tsx'],
+  nonImportClasses: [WEB_FONT_BINARY_CLASS, SHIPPED_GEOMETRY_MODEL_CLASS],
+} as const;
+
 /** Bytes to put back, whatever the assertion in between did. */
 const restore: Array<{ path: string; bytes: Buffer }> = [];
 
@@ -43,6 +52,10 @@ function homeFingerprint(): string {
     entries: HOME_CLOSURE_ENTRIES,
     nonImportClasses: HOME_NON_IMPORT_CLASSES,
   }).fingerprint;
+}
+
+function playgroundFingerprint(): string {
+  return deriveEvidenceClosure({ root: ROOT, ...PLAYGROUND_CLOSURE }).fingerprint;
 }
 
 describe('evidence closure derivation', () => {
@@ -218,14 +231,10 @@ describe('evidence closure derivation', () => {
 
   it('covers each declared non-import dependency class, and each one separately', () => {
     // The input that used to pass: the import closure could not see the face
-    // every glyph is drawn with or the geometry every hardware figure is
+    // every glyph is drawn with or the geometry every robot drawing is
     // derived from, so either could be replaced wholesale while the
     // committed sweep still read as current.
-    const closure = deriveEvidenceClosure({
-      root: ROOT,
-      entries: HOME_CLOSURE_ENTRIES,
-      nonImportClasses: HOME_NON_IMPORT_CLASSES,
-    });
+    const closure = deriveEvidenceClosure({ root: ROOT, ...PLAYGROUND_CLOSURE });
     const byClass = new Map(
       closure.nonImportDependencies.map((members) => [
         members.classId,
@@ -248,16 +257,33 @@ describe('evidence closure derivation', () => {
     }
 
     // The accepted half: the same derivation is stable while nothing moves.
-    const baseline = homeFingerprint();
-    expect(homeFingerprint()).toEqual(baseline);
+    const baseline = playgroundFingerprint();
+    expect(playgroundFingerprint()).toEqual(baseline);
+    const homeBaseline = homeFingerprint();
 
     // One plant per class, so neither class is carried by the other.
     plantByte(FONT_BINARY);
-    const withPlantedFont = homeFingerprint();
+    const withPlantedFont = playgroundFingerprint();
     expect(withPlantedFont).not.toEqual(baseline);
+    expect(homeFingerprint()).not.toEqual(homeBaseline);
+    const homeWithPlantedFont = homeFingerprint();
 
     plantByte(GEOMETRY_MODEL);
-    expect(homeFingerprint()).not.toEqual(withPlantedFont);
+    expect(playgroundFingerprint()).not.toEqual(withPlantedFont);
+    // Home draws nothing from the robot model, so its reading does not move.
+    expect(homeFingerprint()).toEqual(homeWithPlantedFont);
+  });
+
+  it('refuses a declared class home cannot reach', () => {
+    // Declaring the model class for a closure that never names the model
+    // would read as coverage it does not provide.
+    expect(() =>
+      deriveEvidenceClosure({
+        root: ROOT,
+        entries: HOME_CLOSURE_ENTRIES,
+        nonImportClasses: [...HOME_NON_IMPORT_CLASSES, SHIPPED_GEOMETRY_MODEL_CLASS],
+      }),
+    ).toThrow(/covers nothing/);
   });
 
   it('refuses a declared class that covers nothing', () => {

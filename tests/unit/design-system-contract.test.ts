@@ -1,4 +1,4 @@
-import { readFileSync, statSync } from 'node:fs';
+import { existsSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { BRAND_COLORS, BRAND_SPACING } from '@/lib/brand-v2-tokens';
@@ -454,14 +454,11 @@ describe('identity geometry and typography stay aligned', () => {
     const home = read('app/page.tsx');
     // The market-map entry once drew a bubble scatter with a dashed
     // trend line: arbitrary circle radii read as funding values and the
-    // diagonal implied a correlation, none of it sourced. The poster that
-    // replaced the teaser draws one bar per segment, each the registry's
-    // company count, with no varying-radius marks and no trend path.
-    expect(home).toContain('<MarketMapPoster');
-    const poster = read('components/market-map/market-map-poster.tsx');
-    expect(poster).toContain('segmentCounts(COMPANIES)');
-    expect(poster).not.toMatch(/circle\s+cx=/);
-    expect(poster).not.toMatch(/<path/);
-    expect(poster).not.toMatch(/r=\{\d+\}/);
+    // diagonal implied a correlation, none of it sourced. The front page
+    // now links the map from its tools line as plain text, so home draws
+    // no marks for it at all.
+    expect(home).toContain('href="/market-map/"');
+    expect(home).not.toMatch(/MarketMapPoster|<svg|circle\s+cx=|<path/);
+    expect(existsSync(join(process.cwd(), 'components/market-map/market-map-poster.tsx'))).toBe(false);
   });
 });

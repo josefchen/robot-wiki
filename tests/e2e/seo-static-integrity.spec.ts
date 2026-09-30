@@ -4,6 +4,7 @@ import { rm } from 'node:fs/promises';
 import { join } from 'node:path';
 import { DOMAINS, modules, publishedModules } from '../../data/modules';
 import { AUTHOR_NAME, AUTHOR_PROFILE_URL } from '../../lib/identity';
+import { articleDateModified } from '../../lib/content-dates';
 import { moduleLastReviewed } from '../../lib/module-source';
 import { articleStructuredImagePaths } from '../../lib/og-cards';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
@@ -32,6 +33,7 @@ const TOP_LEVEL_ROUTES = [
   '/glossary/',
   '/credits/',
   '/editorial-policy/',
+  '/about/',
   '/privacy/',
   '/a-z/',
 ] as const;
@@ -319,7 +321,7 @@ test.describe('structured data', () => {
         headline: entry.title,
         description: entry.summary,
         url: `${SITE_ORIGIN}${route}`,
-        dateModified: moduleLastReviewed(entry.domain, entry.slug),
+        dateModified: articleDateModified(entry.domain, entry.slug),
         author: {
           '@type': 'Person',
           name: AUTHOR_NAME,

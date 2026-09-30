@@ -42,6 +42,7 @@ const CLEAN_ROUTES_040 = [
   '/playground/',
   '/search/',
   '/editorial-policy/',
+  '/about/',
   '/privacy/',
   '/404/',
 ];
@@ -116,6 +117,7 @@ test.describe('derived populations', () => {
     expect(CLEAN_ROUTES_040).toContain('/a-z/');
     expect(CLEAN_ROUTES_040).toContain('/search/');
     expect(CLEAN_ROUTES_040).toContain('/editorial-policy/');
+    expect(CLEAN_ROUTES_040).toContain('/about/');
     expect(CLEAN_ROUTES_040).toContain('/privacy/');
     expect(CLEAN_ROUTES_040).toContain('/404/');
   });

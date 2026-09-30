@@ -36862,6 +36862,292 @@
           "newHash": "1e39b6186e098ed948aa36770562e9041be8283a9956f7396b472529fd661a90"
         }
       ]
+    },
+    {
+      "id": "opus-homepage-20260930-accessible-names-home-contents-heading",
+      "manifest": "accessible-names",
+      "memberId": "literal:app/page.tsx:aria-labelledby:2",
+      "oldHash": "acdbc8006700cc532ba7007829d3cd3d7c5297e61eea0949382dba1da870e9f5",
+      "newHash": "ccd04d5dee39d3ee5db06e314867b12a9a2d5de6ef304d1dc82df16f81c2a8e6",
+      "reason": "Position 2 of the literal accessible names in app/page.tsx was the aria-labelledby of the \"Domain index\" section (domain-index-heading). The front page replaces the old sections in order, so the same position now references contents-heading, the id of the h2 \"Contents\". The contents index keeps all seven domains with their short descriptions and adds every published article under its domain as a plain link. The section is still named by its visible heading.",
+      "ownerApproval": "Owner decision of 2026-09-28 with its 2026-09-29 01:25 brevity and homepage addendum (owner-decision-opus-pass-20260928.md), sealed in the opus-pass contract as VAL-OPUS-014 to VAL-OPUS-022: home becomes an encyclopedia front page with seven named blocks, and the scope statement, reading guidance and citation caveat move to /about/. Accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-015",
+        "VAL-OPUS-022",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-homepage-20260930-accessible-names-home-featured-article-heading",
+      "manifest": "accessible-names",
+      "memberId": "literal:app/page.tsx:aria-labelledby:3",
+      "oldHash": "7cda27de2b0f3e1d784762edc699462e8703398bacfd308a8e4437377fbae355",
+      "newHash": "77f862371487e5716bb9898e569697bc8d1a9453df2365c751b57525e8ec5b4f",
+      "reason": "Position 3 of the literal accessible names in app/page.tsx was the aria-labelledby of the \"Featured interactive\" section (featured-heading). The front page replaces the old sections in order, so the same position now references featured-article-heading, the id of the h2 \"Featured article\". The featured article block shows a verbatim lead excerpt of 50 words or fewer, chosen by date from the published articles. The section is still named by its visible heading.",
+      "ownerApproval": "Owner decision of 2026-09-28 with its 2026-09-29 01:25 brevity and homepage addendum (owner-decision-opus-pass-20260928.md), sealed in the opus-pass contract as VAL-OPUS-014 to VAL-OPUS-022: home becomes an encyclopedia front page with seven named blocks, and the scope statement, reading guidance and citation caveat move to /about/. Accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-016",
+        "VAL-OPUS-022",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-homepage-20260930-accessible-names-home-featured-scene-heading",
+      "manifest": "accessible-names",
+      "memberId": "literal:app/page.tsx:aria-labelledby:4",
+      "oldHash": "d5ee88ffaeefd0b4422286a3fb2f9266367898228d88833e2ddcc0a9ba60ceea",
+      "newHash": "4e6df5cc8bfb28f3d0930799185bc23f771ca15c7901ca29757db9082a5e5d26",
+      "reason": "Position 4 of the literal accessible names in app/page.tsx was the aria-labelledby of the \"Real hardware\" section (hardware-heading). The front page replaces the old sections in order, so the same position now references featured-scene-heading, the id of the h2 \"Featured scene\". The featured scene block holds the reliability-threshold scene, which the old \"Featured interactive\" section carried, credited to Reliability gap; the Real hardware photo leaves home. The section is still named by its visible heading.",
+      "ownerApproval": "Owner decision of 2026-09-28 with its 2026-09-29 01:25 brevity and homepage addendum (owner-decision-opus-pass-20260928.md), sealed in the opus-pass contract as VAL-OPUS-014 to VAL-OPUS-022: home becomes an encyclopedia front page with seven named blocks, and the scope statement, reading guidance and citation caveat move to /about/. Accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-017",
+        "VAL-OPUS-022",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-homepage-20260930-accessible-names-home-did-you-know-heading",
+      "manifest": "accessible-names",
+      "memberId": "literal:app/page.tsx:aria-labelledby:5",
+      "oldHash": "b500bfbcf5c9ce21838f59b8fcd611fa2a4bc17ac3012345f706292ec7457e4a",
+      "newHash": "4c95ac413183de6ad06953bb155baf6656c10449b26ad7c4439537aa753fb52f",
+      "reason": "Position 5 of the literal accessible names in app/page.tsx was the aria-labelledby of the \"Interactive tools\" section (tools-heading). The front page replaces the old sections in order, so the same position now references did-you-know-heading, the id of the h2 \"Did you know\". The Did you know block holds three cited facts, each linked to the article that states it; the tools move to a one-line list named \"Tools\" at position 7. The section is still named by its visible heading.",
+      "ownerApproval": "Owner decision of 2026-09-28 with its 2026-09-29 01:25 brevity and homepage addendum (owner-decision-opus-pass-20260928.md), sealed in the opus-pass contract as VAL-OPUS-014 to VAL-OPUS-022: home becomes an encyclopedia front page with seven named blocks, and the scope statement, reading guidance and citation caveat move to /about/. Accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-018",
+        "VAL-OPUS-022",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-homepage-20260930-accessible-names-home-recently-updated-heading",
+      "manifest": "accessible-names",
+      "memberId": "literal:app/page.tsx:aria-labelledby:6",
+      "oldHash": "755c1ddaf3f64ac76aed1e7740bc360a5c3e80efe826cfc601cbc03fe07fb555",
+      "newHash": "985f09c0639c4e7d7690758a85828fe74d4bfbcee72618a42672f598a8ef27e4",
+      "reason": "Position 6 of the literal accessible names in app/page.tsx was the aria-labelledby of the \"Learning paths\" section (learning-paths-heading). The front page replaces the old sections in order, so the same position now references recently-updated-heading, the id of the h2 \"Recently updated\". The Recently updated block lists the five latest dated article changes. The learning paths move to /about/ as \"Reading paths\", and the \"How to read this wiki\" section, formerly position 7, moves there as \"Reading the wiki\" (VAL-NAV-005). The section is still named by its visible heading.",
+      "ownerApproval": "Owner decision of 2026-09-28 with its 2026-09-29 01:25 brevity and homepage addendum (owner-decision-opus-pass-20260928.md), sealed in the opus-pass contract as VAL-OPUS-014 to VAL-OPUS-022: home becomes an encyclopedia front page with seven named blocks, and the scope statement, reading guidance and citation caveat move to /about/. Accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-019",
+        "VAL-OPUS-022",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-homepage-20260930-accessible-names-home-tools-label",
+      "manifest": "accessible-names",
+      "memberId": "literal:app/page.tsx:aria-label:7",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "2eed6d92f337738d98b9252bce897f357e8bb283ec89167d3b2a0b6863f54b42",
+      "reason": "New accessible name \"Tools\" on the home section that holds the one line of links to Playground and Market Map. The line has no h2, so the section takes the same word as its visible inline label. It replaces the \"Interactive tools\" section and its previews.",
+      "ownerApproval": "Owner decision of 2026-09-28 with its 2026-09-29 01:25 brevity and homepage addendum (owner-decision-opus-pass-20260928.md), sealed in the opus-pass contract as VAL-OPUS-014 to VAL-OPUS-022: home becomes an encyclopedia front page with seven named blocks, and the scope statement, reading guidance and citation caveat move to /about/. Accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-020",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-homepage-20260930-accessible-names-home-search-form",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/home/home-search.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "da7935abdbb535a75c52310f242642636378c7ffbb62d38d84e5d756c3f7c21b",
+      "reason": "New accessible name \"Search the wiki\" on the role=\"search\" form of the home search box, which submits to /search/?q=. It distinguishes the front-page landmark from the sidebar search landmark on the same page.",
+      "ownerApproval": "Owner decision of 2026-09-28 with its 2026-09-29 01:25 brevity and homepage addendum (owner-decision-opus-pass-20260928.md), sealed in the opus-pass contract as VAL-OPUS-014 to VAL-OPUS-022: home becomes an encyclopedia front page with seven named blocks, and the scope statement, reading guidance and citation caveat move to /about/. Accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-014",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-homepage-20260930-accessible-names-home-search-input",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/home/home-search.tsx:aria-label:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "c15234e752dded73685e2dcd70b7a3b41bccc9c9f85e79ec3f719d24fc17d400",
+      "reason": "New accessible name \"Search articles, sources and glossary terms\" on the home search input. It states the three indexes the search covers, since the placeholder is only an example query and is not a label.",
+      "ownerApproval": "Owner decision of 2026-09-28 with its 2026-09-29 01:25 brevity and homepage addendum (owner-decision-opus-pass-20260928.md), sealed in the opus-pass contract as VAL-OPUS-014 to VAL-OPUS-022: home becomes an encyclopedia front page with seven named blocks, and the scope statement, reading guidance and citation caveat move to /about/. Accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-014",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-homepage-20260930-accessible-names-contents-domain-list",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/home/contents-index.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "a6a9ae11b4b97c8752583893eaece89f443e17dc87e38d40f3036b8780b3e429",
+      "reason": "New accessible name on each domain's article list in the home contents index: the domain display name from DOMAIN_META followed by \"articles\", for example \"Manipulation articles\". Seven such lists follow one another, and the name tells a screen reader which domain a list belongs to.",
+      "ownerApproval": "Owner decision of 2026-09-28 with its 2026-09-29 01:25 brevity and homepage addendum (owner-decision-opus-pass-20260928.md), sealed in the opus-pass contract as VAL-OPUS-014 to VAL-OPUS-022: home becomes an encyclopedia front page with seven named blocks, and the scope statement, reading guidance and citation caveat move to /about/. Accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-015",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-homepage-20260930-accessible-names-did-you-know-cite-title",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/home/did-you-know.tsx:title:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "72d6213d7ad6a4cc1dc537c171a5bc752c66da10855bbf7484ea0cacb24d70ac",
+      "reason": "New title on the shared Cite chip of each Did you know fact: the cited source's title from data/citations.ts, the same value the article chips pass. Each fact cites the source its linked article cites for the same claim.",
+      "ownerApproval": "Owner decision of 2026-09-28 with its 2026-09-29 01:25 brevity and homepage addendum (owner-decision-opus-pass-20260928.md), sealed in the opus-pass contract as VAL-OPUS-014 to VAL-OPUS-022: home becomes an encyclopedia front page with seven named blocks, and the scope statement, reading guidance and citation caveat move to /about/. Accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-018",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-homepage-20260930-accessible-names-about-reading-heading",
+      "manifest": "accessible-names",
+      "memberId": "literal:app/about/page.tsx:aria-labelledby:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "b2bf08609621dbfc56c52dc6473dc1f54d011fe0e55cf58f48afe57ed0462b9a",
+      "reason": "New /about/ page: its \"Reading the wiki\" section is named by its h2 through reading-heading. The section carries the reading guidance and the citation caveat that home carried under \"How to read this wiki\".",
+      "ownerApproval": "Owner decision of 2026-09-28 with its 2026-09-29 01:25 brevity and homepage addendum (owner-decision-opus-pass-20260928.md), sealed in the opus-pass contract as VAL-OPUS-014 to VAL-OPUS-022: home becomes an encyclopedia front page with seven named blocks, and the scope statement, reading guidance and citation caveat move to /about/. Accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-022",
+        "VAL-NAV-005",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-homepage-20260930-accessible-names-about-paths-heading",
+      "manifest": "accessible-names",
+      "memberId": "literal:app/about/page.tsx:aria-labelledby:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "ae9fe1fbf6d61c3c84317bf992209e4d727c89946db22c069b71a9f16b20c986",
+      "reason": "New /about/ page: its \"Reading paths\" section is named by its h2 through paths-heading. It holds the learning paths that home listed under \"Learning paths\", with the same hubs, descriptions and entries.",
+      "ownerApproval": "Owner decision of 2026-09-28 with its 2026-09-29 01:25 brevity and homepage addendum (owner-decision-opus-pass-20260928.md), sealed in the opus-pass contract as VAL-OPUS-014 to VAL-OPUS-022: home becomes an encyclopedia front page with seven named blocks, and the scope statement, reading guidance and citation caveat move to /about/. Accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-022",
+        "VAL-NAV-005",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-homepage-20260930-accessible-names-about-reading-path",
+      "manifest": "accessible-names",
+      "memberId": "expression:app/about/page.tsx:aria-labelledby:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "08cb5e560781f025d07c603b73db512651ded5c76267e5e03496eb4548374f71",
+      "reason": "New /about/ page: each reading path is a section named by its h3 through reading-path-<path id>, the same per-path naming home used as learning-path-<path id> before the paths moved.",
+      "ownerApproval": "Owner decision of 2026-09-28 with its 2026-09-29 01:25 brevity and homepage addendum (owner-decision-opus-pass-20260928.md), sealed in the opus-pass contract as VAL-OPUS-014 to VAL-OPUS-022: home becomes an encyclopedia front page with seven named blocks, and the scope statement, reading guidance and citation caveat move to /about/. Accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-022",
+        "VAL-NAV-005",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-homepage-20260930-assets-svg-spot-raf-agile-liberty-2021",
+      "manifest": "assets-svg",
+      "memberId": "registered-image:spot-raf-agile-liberty-2021",
+      "oldHash": "f1c63995d8ca06f8bc1a584b3852531fe72f79aabd04baca9672a66b54e3b761",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "The Spot photo (public/images/spot-raf-agile-liberty-2021.jpg) and its data/images.ts record leave the site. Its only placement was the home \"Real hardware\" section, which the front page drops because home may show no image other than the featured scene. No article or card used it. The credits page builds its licence list from data/images.ts, so the photo's credit line leaves with the record.",
+      "ownerApproval": "Owner visual audit of 2026-09-29 (one figure system, one visual per concept) and the parent figure-system follow-up of 2026-09-30, which closes VAL-OPUS-009 and VAL-OPUS-021 on / by removing the home ReliabilityCompounding calculator, together with the 2026-09-29 01:25 homepage addendum that limits home graphics to the featured scene and the registered brand structure. Removal only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-021",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-homepage-20260930-mounts-home-reliability-compounding",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "mount:app/page.tsx:ReliabilityCompounding:1",
+      "oldHash": "be36fd2a0180825addfdd2192ef840b33d5a7f79846022b05d84436767cd3adf",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "The ReliabilityCompounding calculator leaves home. It drew the episode-success-against-episode-length chart, whose canonical placement is Evaluation crisis, and home keeps only the featured scene. The component file is unchanged and its article mounts on Evaluation crisis and Reliability gap stay.",
+      "ownerApproval": "Owner visual audit of 2026-09-29 (one figure system, one visual per concept) and the parent figure-system follow-up of 2026-09-30, which closes VAL-OPUS-009 and VAL-OPUS-021 on / by removing the home ReliabilityCompounding calculator, together with the 2026-09-29 01:25 homepage addendum that limits home graphics to the featured scene and the registered brand structure. Removal only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-009",
+        "VAL-OPUS-011",
+        "VAL-OPUS-021",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-homepage-20260930-accessible-names-home-learning-path-sections",
+      "manifest": "accessible-names",
+      "memberId": "expression:app/page.tsx:aria-labelledby:1",
+      "oldHash": "47812abac73c4ebb2ca2098f1c0a8cae4954529589ee2828be57f64069ae9036",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "The one aria-labelledby expression in app/page.tsx named each learning-path section on home by its h3, learning-path-<path id>. The learning paths move to /about/ as \"Reading paths\", where each path keeps a section named by its h3 as reading-path-<path id> (expression:app/about/page.tsx:aria-labelledby:1). Every front-page block is named by a literal heading id, so home has no aria-labelledby expression left. The member was an addition after the seal, so its removal ends the population entry that addition created.",
+      "ownerApproval": "Owner decision of 2026-09-28 with its 2026-09-29 01:25 brevity and homepage addendum (owner-decision-opus-pass-20260928.md), sealed in the opus-pass contract as VAL-OPUS-014 to VAL-OPUS-022: home becomes an encyclopedia front page with seven named blocks, and the scope statement, reading guidance and citation caveat move to /about/. Accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-022",
+        "VAL-NAV-005",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-homepage-20260930-accessible-names-home-how-to-read-heading",
+      "manifest": "accessible-names",
+      "memberId": "literal:app/page.tsx:aria-labelledby:7",
+      "oldHash": "96e1a60786314f4a3a4c46d46491c14fea4c791cf8aac4eb90f1f94ffde2d12b",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Position 7 of the literal accessible names in app/page.tsx was the aria-labelledby of the \"How to read this wiki\" section (how-to-read-heading). The front page names its six headed blocks at positions 2 to 6, and position 7 is now the aria-label of the \"Tools\" line (literal:app/page.tsx:aria-label:7), so no seventh aria-labelledby remains. The section moves to /about/ as \"Reading the wiki\", named by reading-heading. The member was an addition after the seal, so its removal ends the population entry that addition created.",
+      "ownerApproval": "Owner decision of 2026-09-28 with its 2026-09-29 01:25 brevity and homepage addendum (owner-decision-opus-pass-20260928.md), sealed in the opus-pass contract as VAL-OPUS-014 to VAL-OPUS-022: home becomes an encyclopedia front page with seven named blocks, and the scope statement, reading guidance and citation caveat move to /about/. Accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-022",
+        "VAL-NAV-005",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-homepage-20260930-accessible-names-so101-chain-preview",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/home/so101-chain-preview.tsx:aria-label:1",
+      "oldHash": "9712784f324b174e820d00ff0098bfe9afe89ea5e1ff2983c28b53f5c7602f7b",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "components/home/so101-chain-preview.tsx leaves the repository with the home \"Interactive tools\" section it drew for. Its figure named itself \"Side view of the shipped SO-101 arm at its zero configuration, ${chain.length} revolute joints from the base to the gripper\". Home may show no graphic other than the featured scene, and the tools become one line of links; the Playground that renders the SO-101 arm from its URDF is unchanged and linked from that line. The member was an addition after the seal, so its removal ends the population entry that addition created.",
+      "ownerApproval": "Owner visual audit of 2026-09-29 (one figure system, one visual per concept) and the parent figure-system follow-up of 2026-09-30, which closes VAL-OPUS-009 and VAL-OPUS-021 on / by removing the home ReliabilityCompounding calculator, together with the 2026-09-29 01:25 homepage addendum that limits home graphics to the featured scene and the registered brand structure. Removal only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-020",
+        "VAL-OPUS-021",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

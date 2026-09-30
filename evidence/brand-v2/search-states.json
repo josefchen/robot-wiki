@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "51a692f64cfff6b0f7a6da58885be309324a7ebb72e2b3faa8bfb2f79c41f8b3",
+  "fingerprint": "8865c970176871efb71ad3b36ba0dacb3c372d4165b32af7d9c1b1d40345490f",
   "desktopViewport": "1440x900",
   "mobileViewport": "375x812",
   "states": [
@@ -122,7 +122,7 @@
     {
       "stateId": "state:results-both-groups",
       "viewport": "1440x900",
-      "statusText": "14 modules, 6 entities match \"action chunking\"",
+      "statusText": "15 modules, 6 entities match \"action chunking\"",
       "liveRegionRole": "status",
       "liveRegionAriaLive": "polite",
       "inputFocused": true,
@@ -139,8 +139,9 @@
         "Comparison Matrix",
         "Vision-Language-Action Models",
         "Behavior Cloning Foundations",
-        "RL Fine-Tuning of Policies",
+        "About",
         "Robot Wiki",
+        "RL Fine-Tuning of Policies",
         "Kinematics",
         "Autonomous Vehicles",
         "Action Spaces for Robot Learning",
@@ -160,8 +161,8 @@
       "groups": [
         {
           "id": "prose",
-          "rowCount": 14,
-          "countText": "14 results",
+          "rowCount": 15,
+          "countText": "15 results",
           "errorNote": false,
           "emptyNote": false
         },
@@ -196,7 +197,7 @@
     {
       "stateId": "state:facet-method",
       "viewport": "1440x900",
-      "statusText": "14 modules, 4 entities match \"action chunking\"",
+      "statusText": "15 modules, 4 entities match \"action chunking\"",
       "liveRegionRole": "status",
       "liveRegionAriaLive": "polite",
       "inputFocused": false,
@@ -213,8 +214,9 @@
         "Comparison Matrix",
         "Vision-Language-Action Models",
         "Behavior Cloning Foundations",
-        "RL Fine-Tuning of Policies",
+        "About",
         "Robot Wiki",
+        "RL Fine-Tuning of Policies",
         "Kinematics",
         "Autonomous Vehicles",
         "Action Spaces for Robot Learning",
@@ -232,8 +234,8 @@
       "groups": [
         {
           "id": "prose",
-          "rowCount": 14,
-          "countText": "14 results",
+          "rowCount": 15,
+          "countText": "15 results",
           "errorNote": false,
           "emptyNote": false
         },
@@ -266,7 +268,7 @@
     {
       "stateId": "state:facet-company",
       "viewport": "1440x900",
-      "statusText": "14 modules, 2 entities match \"action chunking\"",
+      "statusText": "15 modules, 2 entities match \"action chunking\"",
       "liveRegionRole": "status",
       "liveRegionAriaLive": "polite",
       "inputFocused": false,
@@ -283,8 +285,9 @@
         "Comparison Matrix",
         "Vision-Language-Action Models",
         "Behavior Cloning Foundations",
-        "RL Fine-Tuning of Policies",
+        "About",
         "Robot Wiki",
+        "RL Fine-Tuning of Policies",
         "Kinematics",
         "Autonomous Vehicles",
         "Action Spaces for Robot Learning",
@@ -300,8 +303,8 @@
       "groups": [
         {
           "id": "prose",
-          "rowCount": 14,
-          "countText": "14 results",
+          "rowCount": 15,
+          "countText": "15 results",
           "errorNote": false,
           "emptyNote": false
         },
@@ -332,7 +335,7 @@
     {
       "stateId": "state:facet-dataset",
       "viewport": "1440x900",
-      "statusText": "14 modules match \"action chunking\"",
+      "statusText": "15 modules match \"action chunking\"",
       "liveRegionRole": "status",
       "liveRegionAriaLive": "polite",
       "inputFocused": false,
@@ -349,8 +352,9 @@
         "Comparison Matrix",
         "Vision-Language-Action Models",
         "Behavior Cloning Foundations",
-        "RL Fine-Tuning of Policies",
+        "About",
         "Robot Wiki",
+        "RL Fine-Tuning of Policies",
         "Kinematics",
         "Autonomous Vehicles",
         "Action Spaces for Robot Learning",
@@ -363,8 +367,8 @@
       "groups": [
         {
           "id": "prose",
-          "rowCount": 14,
-          "countText": "14 results",
+          "rowCount": 15,
+          "countText": "15 results",
           "errorNote": false,
           "emptyNote": false
         },
@@ -564,7 +568,7 @@
     {
       "stateId": "state:results-both-groups",
       "viewport": "375x812",
-      "statusText": "14 modules, 6 entities match \"action chunking\"",
+      "statusText": "15 modules, 6 entities match \"action chunking\"",
       "liveRegionRole": "status",
       "liveRegionAriaLive": "polite",
       "inputFocused": true,
@@ -581,8 +585,9 @@
         "Comparison Matrix",
         "Vision-Language-Action Models",
         "Behavior Cloning Foundations",
-        "RL Fine-Tuning of Policies",
+        "About",
         "Robot Wiki",
+        "RL Fine-Tuning of Policies",
         "Kinematics",
         "Autonomous Vehicles",
         "Action Spaces for Robot Learning",
@@ -602,8 +607,8 @@
       "groups": [
         {
           "id": "prose",
-          "rowCount": 14,
-          "countText": "14 results",
+          "rowCount": 15,
+          "countText": "15 results",
           "errorNote": false,
           "emptyNote": false
         },
@@ -638,7 +643,7 @@
     {
       "stateId": "state:facet-method",
       "viewport": "375x812",
-      "statusText": "14 modules, 4 entities match \"action chunking\"",
+      "statusText": "15 modules, 4 entities match \"action chunking\"",
       "liveRegionRole": "status",
       "liveRegionAriaLive": "polite",
       "inputFocused": false,
@@ -655,8 +660,9 @@
         "Comparison Matrix",
         "Vision-Language-Action Models",
         "Behavior Cloning Foundations",
-        "RL Fine-Tuning of Policies",
+        "About",
         "Robot Wiki",
+        "RL Fine-Tuning of Policies",
         "Kinematics",
         "Autonomous Vehicles",
         "Action Spaces for Robot Learning",
@@ -674,8 +680,8 @@
       "groups": [
         {
           "id": "prose",
-          "rowCount": 14,
-          "countText": "14 results",
+          "rowCount": 15,
+          "countText": "15 results",
           "errorNote": false,
           "emptyNote": false
         },

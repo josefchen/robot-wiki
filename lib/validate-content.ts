@@ -119,6 +119,7 @@ const DEFAULT_STATIC_ROUTES = [
   '/glossary',
   '/credits',
   '/editorial-policy',
+  '/about',
   '/privacy',
   '/a-z',
   ...DOMAINS.map((domain) => `/${domain}`),
