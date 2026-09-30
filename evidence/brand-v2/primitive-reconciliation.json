@@ -7,6 +7,7 @@
   "routes": [
     "/",
     "/a-z/",
+    "/about/",
     "/adjacent/",
     "/adjacent/autonomous-vehicles/",
     "/adjacent/drones/",
@@ -97,9 +98,10 @@
     },
     "control:input": {
       "kind": "controls",
-      "fingerprint": "3f2929965720bfff03b626bfb0c36dc0b0d547d75c080f95378c4a06ceaa6fc6",
+      "fingerprint": "881e548b0ab1cf9aa6449c9d30d5cd8188349c0361d099c37d06c39c839043aa",
       "mountState": "production",
       "definedIn": [
+        "components/home/home-search.tsx",
         "components/interactive/action-tokenization.tsx",
         "components/interactive/advantage-scrubber.tsx",
         "components/interactive/appearance-physics-push.tsx",
@@ -145,6 +147,7 @@
         "components/ui/input-field.tsx"
       ],
       "ownerRouteOrMount": [
+        "components/home/home-search.tsx",
         "components/interactive/action-tokenization.tsx",
         "components/interactive/advantage-scrubber.tsx",
         "components/interactive/appearance-physics-push.tsx",
@@ -191,6 +194,7 @@
       "renderedOn": [
         "/",
         "/a-z/",
+        "/about/",
         "/adjacent/",
         "/adjacent/autonomous-vehicles/",
         "/adjacent/drones/",
@@ -268,11 +272,12 @@
     },
     "control:link-focus": {
       "kind": "controls",
-      "fingerprint": "1615fa4beb6e12c4021eec3b30a8f968e3c7ffc4b92dda358c153f1f2bc63136",
+      "fingerprint": "8aa4163fac7a093e0218da07a92c4a9746f353e90351ffd849c5c26c63e3332a",
       "mountState": "production",
       "definedIn": [
         "app/(content)/[domain]/page.tsx",
         "app/a-z/page.tsx",
+        "app/about/page.tsx",
         "app/credits/page.tsx",
         "app/editorial-policy/page.tsx",
         "app/glossary/page.tsx",
@@ -285,6 +290,8 @@
         "components/article/commit-to-reveal.tsx",
         "components/article/correction-link.tsx",
         "components/article/references.tsx",
+        "components/home/contents-index.tsx",
+        "components/home/did-you-know.tsx",
         "components/interactive/comparison-matrix.tsx",
         "components/interactive/cross-embodiment-strategies.tsx",
         "components/interactive/data-scale-chart.tsx",
@@ -316,6 +323,7 @@
       "ownerRouteOrMount": [
         "app/(content)/[domain]/page.tsx",
         "app/a-z/page.tsx",
+        "app/about/page.tsx",
         "app/credits/page.tsx",
         "app/editorial-policy/page.tsx",
         "app/glossary/page.tsx",
@@ -328,6 +336,8 @@
         "components/article/commit-to-reveal.tsx",
         "components/article/correction-link.tsx",
         "components/article/references.tsx",
+        "components/home/contents-index.tsx",
+        "components/home/did-you-know.tsx",
         "components/interactive/comparison-matrix.tsx",
         "components/interactive/cross-embodiment-strategies.tsx",
         "components/interactive/data-scale-chart.tsx",
@@ -348,7 +358,6 @@
         "components/nav/site-shell.tsx",
         "components/search/search-interface.tsx",
         "components/three/trajectory-panel.tsx",
-        "components/ui/action.tsx",
         "components/ui/card.tsx",
         "components/ui/cite.tsx",
         "components/ui/figure.tsx",
@@ -359,6 +368,7 @@
       "renderedOn": [
         "/",
         "/a-z/",
+        "/about/",
         "/adjacent/",
         "/adjacent/autonomous-vehicles/",
         "/adjacent/drones/",
@@ -548,6 +558,7 @@
       "renderedOn": [
         "/",
         "/a-z/",
+        "/about/",
         "/adjacent/",
         "/adjacent/autonomous-vehicles/",
         "/adjacent/drones/",
@@ -896,6 +907,7 @@
       "renderedOn": [
         "/",
         "/a-z/",
+        "/about/",
         "/adjacent/",
         "/adjacent/autonomous-vehicles/",
         "/adjacent/drones/",
@@ -1116,11 +1128,12 @@
     },
     "surface:flat": {
       "kind": "surfaces",
-      "fingerprint": "d150dd8d803c589feff167d40bf20dc3f334a8f7cb2c3d36e50d94c4ba2dafe3",
+      "fingerprint": "c6aae19dd39fc285096c2fc8d07753f18fd4f6b54f5403a038e8e562429e65c3",
       "mountState": "production",
       "definedIn": [
         "app/page.tsx",
         "components/article/commit-to-reveal.tsx",
+        "components/home/home-search.tsx",
         "components/interactive/action-tokenization.tsx",
         "components/interactive/cross-embodiment-strategies.tsx",
         "components/interactive/deployment-economics.tsx",
@@ -1169,6 +1182,7 @@
       "ownerRouteOrMount": [
         "app/page.tsx",
         "components/article/commit-to-reveal.tsx",
+        "components/home/home-search.tsx",
         "components/interactive/action-tokenization.tsx",
         "components/interactive/cross-embodiment-strategies.tsx",
         "components/interactive/deployment-economics.tsx",
@@ -1212,6 +1226,7 @@
       "renderedOn": [
         "/",
         "/a-z/",
+        "/about/",
         "/adjacent/",
         "/adjacent/autonomous-vehicles/",
         "/adjacent/drones/",
@@ -1301,6 +1316,7 @@
         "components/ui/term.tsx"
       ],
       "renderedOn": [
+        "/",
         "/adjacent/autonomous-vehicles/",
         "/adjacent/drones/",
         "/adjacent/space/",

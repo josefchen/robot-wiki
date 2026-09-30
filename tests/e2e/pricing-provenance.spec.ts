@@ -43,13 +43,19 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     await settled(page);
     await expect(page.locator('h1')).toHaveText('Robot Wiki');
     await expect(page.getByText('Citation-first encyclopedia of modern robot learning.', { exact: true }).first()).toBeVisible();
-    await expect(page.locator('mark[data-brand-highlight="home-premise"]')).toHaveText('traceable to cited evidence');
+    await expect(page.locator('mark[data-brand-highlight="home-source-count"]')).toHaveText(/^\d+ sources$/);
     await capture('home-full', true);
-    const promise = page.locator('p').filter({ has: page.locator('mark[data-brand-highlight="home-premise"]') });
-    await promise.scrollIntoViewIfNeeded();
-    await expect(promise).toContainText('a citation is not a guarantee of verification');
-    await capture('home-source-strength');
     await inspect('/');
+
+    // How far a citation can be trusted is stated on /about/, beside the
+    // kinds of source the wiki cites.
+    await page.goto('/about/');
+    await settled(page);
+    const strength = page.locator('main p').filter({ hasText: 'labelled community estimates' });
+    await strength.scrollIntoViewIfNeeded();
+    await expect(strength).toContainText('the kind of source tells you how far to trust it');
+    await capture('about-source-strength');
+    await inspect('/about/');
 
     await page.goto('/data-hardware/teleop-rigs/');
     await settled(page);

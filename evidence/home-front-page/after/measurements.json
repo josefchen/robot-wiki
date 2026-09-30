@@ -1,0 +1,829 @@
+{
+ "label": "after",
+ "viewports": {
+  "1440x900": {
+   "home": {
+    "mainWords": 416,
+    "contentsTitles": 57,
+    "contentsTitleWords": 176,
+    "wordsExcludingContentsTitles": 240,
+    "budgetWords": 240,
+    "budgetBlocks": [
+     {
+      "block": "Introduction",
+      "words": 16,
+      "text": "Robot Wiki Citation-first encyclopedia of modern robot learning. 57 articles 434 sources 119 glossary terms Search"
+     },
+     {
+      "block": "Contents",
+      "words": 52,
+      "text": "Contents Manipulation & Learned Policies From imitation to VLA models RL, Sim-to-Real & Locomotion Policies trained in simulation World Models Learned predictive simulators Data, Hardware & Evaluation Datasets, robots and benchmarks Classical Foundations Kinematics to state estimation Frontier & Open Problems What still blocks deployment Adjacent Domains Vehicles, drones, surgery and space"
+     },
+     {
+      "block": "Featured article",
+      "words": 25,
+      "text": "Featured article Major Datasets Five open datasets anchor robot learning in 2026, and each one is a different bet on how to collect at scale."
+     },
+     {
+      "block": "Featured scene",
+      "words": 62,
+      "text": "Featured scene The last stretch of episode reliability Play Step back Step forward Reset toy model · 30 decisions 95% 21.5% 99% 74.0% 99.9% 97.0% compare the last bar episode success beat 4 / 4 conditional rate 99.9% episode 97.0% Illustrative model: all 30 decisions succeed independently at the same rate. The same horizon exposes the last stretch. From The Reliability Gap"
+     },
+     {
+      "block": "Did you know",
+      "words": 56,
+      "text": "Did you know An ANYmal quadruped learned to walk on flat ground in under four minutes on one GPU Rudin 2021. ACT reached 80 to 90% success on six bimanual tasks, each from about 10 minutes of demonstrations Zhao 2023. By 1961, Heinrich Ernst had a computer-controlled arm and hand stacking blocks at MIT Brooks 2025."
+     },
+     {
+      "block": "Recently updated",
+      "words": 25,
+      "text": "Recently updated 2026-09-30 The Reliability Gap 2026-09-29 State Estimation 2026-09-29 What Is a World Model? 2026-09-29 Motion Planning 2026-09-29 Reward Design and the MPC Debate"
+     },
+     {
+      "block": "Tools",
+      "words": 4,
+      "text": "Tools Playground Market Map"
+     }
+    ],
+    "runsJoinFree": true,
+    "counts": "57 articles 434 sources 119 glossary terms",
+    "sections": [
+     {
+      "block": "Introduction",
+      "words": 16,
+      "text": "Robot Wiki Citation-first encyclopedia of modern robot learning. 57 articles 434 sources 119 glossary terms Search",
+      "top": 0,
+      "bottom": 294,
+      "left": 352,
+      "width": 1024,
+      "height": 294
+     },
+     {
+      "block": "Contents",
+      "words": 228,
+      "text": "Contents Manipulation & Learned Policies From imitation to VLA models Behavior Cloning Foundations Action Chunking (ACT and ALOHA) Diffusion Policy Vision-Langu",
+      "top": 326,
+      "bottom": 850,
+      "left": 352,
+      "width": 1024,
+      "height": 524
+     },
+     {
+      "block": "Featured article",
+      "words": 25,
+      "text": "Featured article Major Datasets Five open datasets anchor robot learning in 2026, and each one is a different bet on how to collect at scale.",
+      "top": 890,
+      "bottom": 1014,
+      "left": 352,
+      "width": 1024,
+      "height": 123
+     },
+     {
+      "block": "Featured scene",
+      "words": 62,
+      "text": "Featured scene The last stretch of episode reliability Play Step back Step forward Reset toy model · 30 decisions 95% 21.5% 99% 74.0% 99.9% 97.0% compare the la",
+      "top": 1054,
+      "bottom": 1961,
+      "left": 352,
+      "width": 1024,
+      "height": 908
+     },
+     {
+      "block": "Did you know",
+      "words": 56,
+      "text": "Did you know An ANYmal quadruped learned to walk on flat ground in under four minutes on one GPU Rudin 2021. ACT reached 80 to 90% success on six bimanual tasks",
+      "top": 2001,
+      "bottom": 2222,
+      "left": 352,
+      "width": 1024,
+      "height": 221
+     },
+     {
+      "block": "Recently updated",
+      "words": 25,
+      "text": "Recently updated 2026-09-30 The Reliability Gap 2026-09-29 State Estimation 2026-09-29 What Is a World Model? 2026-09-29 Motion Planning 2026-09-29 Reward Desig",
+      "top": 2262,
+      "bottom": 2451,
+      "left": 352,
+      "width": 1024,
+      "height": 189
+     },
+     {
+      "block": "Tools",
+      "words": 4,
+      "text": "Tools Playground Market Map",
+      "top": 2491,
+      "bottom": 2591,
+      "left": 352,
+      "width": 1024,
+      "height": 100
+     }
+    ],
+    "domainLinks": [
+     {
+      "name": "Manipulation & Learned Policies",
+      "href": "/manipulation/",
+      "top": 380,
+      "bottom": 398,
+      "left": 376,
+      "width": 210,
+      "height": 18
+     },
+     {
+      "name": "RL, Sim-to-Real & Locomotion",
+      "href": "/rl-sim2real/",
+      "top": 477,
+      "bottom": 495,
+      "left": 376,
+      "width": 196,
+      "height": 18
+     },
+     {
+      "name": "World Models",
+      "href": "/world-models/",
+      "top": 554,
+      "bottom": 572,
+      "left": 376,
+      "width": 90,
+      "height": 18
+     },
+     {
+      "name": "Data, Hardware & Evaluation",
+      "href": "/data-hardware/",
+      "top": 631,
+      "bottom": 649,
+      "left": 376,
+      "width": 189,
+      "height": 18
+     },
+     {
+      "name": "Classical Foundations",
+      "href": "/classical/",
+      "top": 688,
+      "bottom": 706,
+      "left": 376,
+      "width": 144,
+      "height": 18
+     },
+     {
+      "name": "Frontier & Open Problems",
+      "href": "/frontier/",
+      "top": 745,
+      "bottom": 763,
+      "left": 376,
+      "width": 169,
+      "height": 18
+     },
+     {
+      "name": "Adjacent Domains",
+      "href": "/adjacent/",
+      "top": 802,
+      "bottom": 820,
+      "left": 376,
+      "width": 119,
+      "height": 18
+     }
+    ],
+    "lowestDomainLinkBottom": 820,
+    "sceneStage": {
+     "top": 1139,
+     "bottom": 1826,
+     "left": 377,
+     "width": 974,
+     "height": 688
+    },
+    "searchInput": {
+     "top": 254,
+     "bottom": 294,
+     "left": 376,
+     "width": 495,
+     "height": 41
+    },
+    "graphics": [
+     {
+      "tag": "div",
+      "backgroundImage": "url(\"data:image/svg+xml,%3Csvg xmlns='ht",
+      "scene": null,
+      "device": "device:dot-grid",
+      "ariaHidden": true,
+      "inControl": null
+     },
+     {
+      "tag": "svg",
+      "backgroundImage": null,
+      "scene": "reliability-threshold",
+      "device": null,
+      "ariaHidden": true,
+      "inControl": "Play the motion scene: The last stretch of episode"
+     },
+     {
+      "tag": "svg",
+      "backgroundImage": null,
+      "scene": "reliability-threshold",
+      "device": null,
+      "ariaHidden": true,
+      "inControl": null
+     }
+    ],
+    "featured": {
+     "title": "Major Datasets",
+     "href": "/data-hardware/datasets/",
+     "excerpt": "Five open datasets anchor robot learning in 2026, and each one is a different bet on how to collect at scale.",
+     "words": 21
+    },
+    "facts": [
+     {
+      "id": "anymal-four-minutes",
+      "text": "An ANYmal quadruped learned to walk on flat ground in under four minutes on one GPU Rudin 2021.",
+      "words": 18,
+      "article": "/rl-sim2real/why-rl-locomotion/",
+      "source": "https://arxiv.org/abs/2109.11978"
+     },
+     {
+      "id": "act-ten-minutes",
+      "text": "ACT reached 80 to 90% success on six bimanual tasks, each from about 10 minutes of demonstrations Zhao 2023.",
+      "words": 19,
+      "article": "/data-hardware/teleop-rigs/",
+      "source": "https://arxiv.org/abs/2304.13705"
+     },
+     {
+      "id": "ernst-1961",
+      "text": "By 1961, Heinrich Ernst had a computer-controlled arm and hand stacking blocks at MIT Brooks 2025.",
+      "words": 16,
+      "article": "/frontier/dexterity/",
+      "source": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/"
+     }
+    ],
+    "recent": [
+     {
+      "date": "2026-09-30",
+      "shown": "2026-09-30",
+      "title": "The Reliability Gap",
+      "href": "/frontier/reliability-gap/"
+     },
+     {
+      "date": "2026-09-29",
+      "shown": "2026-09-29",
+      "title": "State Estimation",
+      "href": "/classical/state-estimation/"
+     },
+     {
+      "date": "2026-09-29",
+      "shown": "2026-09-29",
+      "title": "What Is a World Model?",
+      "href": "/world-models/taxonomy/"
+     },
+     {
+      "date": "2026-09-29",
+      "shown": "2026-09-29",
+      "title": "Motion Planning",
+      "href": "/classical/motion-planning/"
+     },
+     {
+      "date": "2026-09-29",
+      "shown": "2026-09-29",
+      "title": "Reward Design and the MPC Debate",
+      "href": "/rl-sim2real/reward-design-mpc/"
+     }
+    ],
+    "tools": {
+     "text": "Tools Playground Market Map",
+     "links": [
+      {
+       "text": "Playground",
+       "href": "/playground/"
+      },
+      {
+       "text": "Market Map",
+       "href": "/market-map/"
+      }
+     ]
+    },
+    "documentHeight": 2711
+   },
+   "about": {
+    "status": 200,
+    "scope": {
+     "text": "Robot Wiki covers modern robot learning for engineers who already know machine learning, from Manipulation & Learned Policies and World Models to the Classical Foundations underneath. The industry appears as data in the Market Map. Company news and investment advice are out of scope.",
+     "words": 44,
+     "textTransform": "none",
+     "borders": [
+      "0px",
+      "0px",
+      "0px",
+      "0px"
+     ]
+    },
+    "headings": [
+     "About",
+     "Reading the wiki",
+     "Reading paths"
+    ],
+    "sections": [
+     {
+      "heading": "Reading the wiki",
+      "words": 164,
+      "links": [
+       "/manipulation/action-chunking/",
+       "/glossary/"
+      ],
+      "text": "Reading the wiki Articles stand alone, but inside a domain the reading order is the contents order: later articles assume the earlier ones. If you come to robotics from machine learning, start with Action Chunking (ACT and ALOHA), which shows the format every article follows. The one prerequisite is fluency in machine learning; no robotics background is assumed. When an article needs a classical result, it links to the article that derives it, so you can read forward and fill gaps as you go. Terms are defined where they first appear and collected in the glossary. Technical claims trace to cite"
+     },
+     {
+      "heading": "Reading paths",
+      "words": 124,
+      "links": [
+       "/manipulation/",
+       "/manipulation/robot-learning-roadmap/",
+       "/data-hardware/datasets/",
+       "/manipulation/bc-foundations/",
+       "/manipulation/action-spaces/",
+       "/manipulation/diffusion-policy/",
+       "/manipulation/vla-models/",
+       "/data-hardware/evaluation-crisis/",
+       "/data-hardware/industrial-deployment/",
+       "/classical/",
+       "/classical/kinematics/",
+       "/classical/calibration/",
+       "/classical/perception/",
+       "/classical/state-estimation/",
+       "/classical/motion-planning/",
+       "/classical/control/",
+       "/classical/ros2-for-ml-engineers/",
+       "/world-models/",
+       "/world-models/taxonomy/",
+       "/world-models/model-based-robot-learning/",
+       "/world-models/latent-dynamics/",
+       "/world-models/jepa/",
+       "/world-models/generative-video/",
+       "/world-models/generative-sim/",
+       "/world-models/evaluation/",
+       "/world-models/world-models-vs-simulators/"
+      ],
+      "text": "Reading paths Robot learning and VLA From embodied data and imitation learning to action models, evaluation, and deployment. Robot Learning Curriculum for ML Engineers Major Datasets Behavior Cloning Foundations Action Spaces for Robot Learning Diffusion Policy Vision-Language-Action Models The Evaluation Crisis Industrial Deployment Classical robotics foundations The dependency chain underneath learned policies: geometry, sensing, estimation, planning, and control. Kinematics Robot Calibration Perception for Manipulation State Estimation Motion Planning Control ROS 2 for Machine Learning Engi"
+     },
+     {
+      "heading": null,
+      "words": 41,
+      "links": [
+       "/manipulation/",
+       "/manipulation/robot-learning-roadmap/",
+       "/data-hardware/datasets/",
+       "/manipulation/bc-foundations/",
+       "/manipulation/action-spaces/",
+       "/manipulation/diffusion-policy/",
+       "/manipulation/vla-models/",
+       "/data-hardware/evaluation-crisis/",
+       "/data-hardware/industrial-deployment/"
+      ],
+      "text": "Robot learning and VLA From embodied data and imitation learning to action models, evaluation, and deployment. Robot Learning Curriculum for ML Engineers Major Datasets Behavior Cloning Foundations Action Spaces for Robot Learning Diffusion Policy Vision-Language-Action Models The Evaluation Crisis Industrial Deployment"
+     },
+     {
+      "heading": null,
+      "words": 32,
+      "links": [
+       "/classical/",
+       "/classical/kinematics/",
+       "/classical/calibration/",
+       "/classical/perception/",
+       "/classical/state-estimation/",
+       "/classical/motion-planning/",
+       "/classical/control/",
+       "/classical/ros2-for-ml-engineers/"
+      ],
+      "text": "Classical robotics foundations The dependency chain underneath learned policies: geometry, sensing, estimation, planning, and control. Kinematics Robot Calibration Perception for Manipulation State Estimation Motion Planning Control ROS 2 for Machine Learning Engineers"
+     },
+     {
+      "heading": null,
+      "words": 49,
+      "links": [
+       "/world-models/",
+       "/world-models/taxonomy/",
+       "/world-models/model-based-robot-learning/",
+       "/world-models/latent-dynamics/",
+       "/world-models/jepa/",
+       "/world-models/generative-video/",
+       "/world-models/generative-sim/",
+       "/world-models/evaluation/",
+       "/world-models/world-models-vs-simulators/"
+      ],
+      "text": "World models for robotics Start with the overloaded term, then compare latent, representation-space, video, and simulation approaches. What Is a World Model? Model-Based Robot Learning Latent-Dynamics World Models JEPA and the Non-Generative Counterargument Generative Video World Models Generative Simulation World Model Evaluation for Robotics World Models vs Physics Simulators"
+     }
+    ],
+    "footerAboutLink": true
+   }
+  },
+  "375x812": {
+   "home": {
+    "mainWords": 416,
+    "contentsTitles": 57,
+    "contentsTitleWords": 176,
+    "wordsExcludingContentsTitles": 240,
+    "budgetWords": 240,
+    "budgetBlocks": [
+     {
+      "block": "Introduction",
+      "words": 16,
+      "text": "Robot Wiki Citation-first encyclopedia of modern robot learning. 57 articles 434 sources 119 glossary terms Search"
+     },
+     {
+      "block": "Contents",
+      "words": 52,
+      "text": "Contents Manipulation & Learned Policies From imitation to VLA models RL, Sim-to-Real & Locomotion Policies trained in simulation World Models Learned predictive simulators Data, Hardware & Evaluation Datasets, robots and benchmarks Classical Foundations Kinematics to state estimation Frontier & Open Problems What still blocks deployment Adjacent Domains Vehicles, drones, surgery and space"
+     },
+     {
+      "block": "Featured article",
+      "words": 25,
+      "text": "Featured article Major Datasets Five open datasets anchor robot learning in 2026, and each one is a different bet on how to collect at scale."
+     },
+     {
+      "block": "Featured scene",
+      "words": 62,
+      "text": "Featured scene The last stretch of episode reliability Play Step back Step forward Reset toy model · 30 decisions 95% 21.5% 99% 74.0% 99.9% 97.0% compare the last bar episode success beat 4 / 4 conditional rate 99.9% episode 97.0% Illustrative model: all 30 decisions succeed independently at the same rate. The same horizon exposes the last stretch. From The Reliability Gap"
+     },
+     {
+      "block": "Did you know",
+      "words": 56,
+      "text": "Did you know An ANYmal quadruped learned to walk on flat ground in under four minutes on one GPU Rudin 2021. ACT reached 80 to 90% success on six bimanual tasks, each from about 10 minutes of demonstrations Zhao 2023. By 1961, Heinrich Ernst had a computer-controlled arm and hand stacking blocks at MIT Brooks 2025."
+     },
+     {
+      "block": "Recently updated",
+      "words": 25,
+      "text": "Recently updated 2026-09-30 The Reliability Gap 2026-09-29 State Estimation 2026-09-29 What Is a World Model? 2026-09-29 Motion Planning 2026-09-29 Reward Design and the MPC Debate"
+     },
+     {
+      "block": "Tools",
+      "words": 4,
+      "text": "Tools Playground Market Map"
+     }
+    ],
+    "runsJoinFree": true,
+    "counts": "57 articles 434 sources 119 glossary terms",
+    "sections": [
+     {
+      "block": "Introduction",
+      "words": 16,
+      "text": "Robot Wiki Citation-first encyclopedia of modern robot learning. 57 articles 434 sources 119 glossary terms Search",
+      "top": 53,
+      "bottom": 433,
+      "left": 0,
+      "width": 375,
+      "height": 380
+     },
+     {
+      "block": "Contents",
+      "words": 228,
+      "text": "Contents Manipulation & Learned Policies From imitation to VLA models Behavior Cloning Foundations Action Chunking (ACT and ALOHA) Diffusion Policy Vision-Langu",
+      "top": 465,
+      "bottom": 1657,
+      "left": 0,
+      "width": 375,
+      "height": 1192
+     },
+     {
+      "block": "Featured article",
+      "words": 25,
+      "text": "Featured article Major Datasets Five open datasets anchor robot learning in 2026, and each one is a different bet on how to collect at scale.",
+      "top": 1697,
+      "bottom": 1848,
+      "left": 0,
+      "width": 375,
+      "height": 151
+     },
+     {
+      "block": "Featured scene",
+      "words": 62,
+      "text": "Featured scene The last stretch of episode reliability Play Step back Step forward Reset toy model · 30 decisions 95% 21.5% 99% 74.0% 99.9% 97.0% compare the la",
+      "top": 1888,
+      "bottom": 2448,
+      "left": 0,
+      "width": 375,
+      "height": 560
+     },
+     {
+      "block": "Did you know",
+      "words": 56,
+      "text": "Did you know An ANYmal quadruped learned to walk on flat ground in under four minutes on one GPU Rudin 2021. ACT reached 80 to 90% success on six bimanual tasks",
+      "top": 2488,
+      "bottom": 2787,
+      "left": 0,
+      "width": 375,
+      "height": 299
+     },
+     {
+      "block": "Recently updated",
+      "words": 25,
+      "text": "Recently updated 2026-09-30 The Reliability Gap 2026-09-29 State Estimation 2026-09-29 What Is a World Model? 2026-09-29 Motion Planning 2026-09-29 Reward Desig",
+      "top": 2827,
+      "bottom": 3039,
+      "left": 0,
+      "width": 375,
+      "height": 212
+     },
+     {
+      "block": "Tools",
+      "words": 4,
+      "text": "Tools Playground Market Map",
+      "top": 3079,
+      "bottom": 3178,
+      "left": 0,
+      "width": 375,
+      "height": 100
+     }
+    ],
+    "domainLinks": [
+     {
+      "name": "Manipulation & Learned Policies",
+      "href": "/manipulation/",
+      "top": 519,
+      "bottom": 537,
+      "left": 24,
+      "width": 210,
+      "height": 18
+     },
+     {
+      "name": "RL, Sim-to-Real & Locomotion",
+      "href": "/rl-sim2real/",
+      "top": 780,
+      "bottom": 798,
+      "left": 24,
+      "width": 196,
+      "height": 18
+     },
+     {
+      "name": "World Models",
+      "href": "/world-models/",
+      "top": 961,
+      "bottom": 979,
+      "left": 24,
+      "width": 90,
+      "height": 18
+     },
+     {
+      "name": "Data, Hardware & Evaluation",
+      "href": "/data-hardware/",
+      "top": 1142,
+      "bottom": 1160,
+      "left": 24,
+      "width": 189,
+      "height": 18
+     },
+     {
+      "name": "Classical Foundations",
+      "href": "/classical/",
+      "top": 1283,
+      "bottom": 1301,
+      "left": 24,
+      "width": 144,
+      "height": 18
+     },
+     {
+      "name": "Frontier & Open Problems",
+      "href": "/frontier/",
+      "top": 1444,
+      "bottom": 1462,
+      "left": 24,
+      "width": 169,
+      "height": 18
+     },
+     {
+      "name": "Adjacent Domains",
+      "href": "/adjacent/",
+      "top": 1565,
+      "bottom": 1583,
+      "left": 24,
+      "width": 119,
+      "height": 18
+     }
+    ],
+    "lowestDomainLinkBottom": 1583,
+    "sceneStage": {
+     "top": 2044,
+     "bottom": 2274,
+     "left": 25,
+     "width": 325,
+     "height": 229
+    },
+    "searchInput": {
+     "top": 393,
+     "bottom": 433,
+     "left": 24,
+     "width": 246,
+     "height": 41
+    },
+    "graphics": [
+     {
+      "tag": "div",
+      "backgroundImage": "url(\"data:image/svg+xml,%3Csvg xmlns='ht",
+      "scene": null,
+      "device": "device:dot-grid",
+      "ariaHidden": true,
+      "inControl": null
+     },
+     {
+      "tag": "svg",
+      "backgroundImage": null,
+      "scene": "reliability-threshold",
+      "device": null,
+      "ariaHidden": true,
+      "inControl": "Play the motion scene: The last stretch of episode"
+     },
+     {
+      "tag": "svg",
+      "backgroundImage": null,
+      "scene": "reliability-threshold",
+      "device": null,
+      "ariaHidden": true,
+      "inControl": null
+     }
+    ],
+    "featured": {
+     "title": "Major Datasets",
+     "href": "/data-hardware/datasets/",
+     "excerpt": "Five open datasets anchor robot learning in 2026, and each one is a different bet on how to collect at scale.",
+     "words": 21
+    },
+    "facts": [
+     {
+      "id": "anymal-four-minutes",
+      "text": "An ANYmal quadruped learned to walk on flat ground in under four minutes on one GPU Rudin 2021.",
+      "words": 18,
+      "article": "/rl-sim2real/why-rl-locomotion/",
+      "source": "https://arxiv.org/abs/2109.11978"
+     },
+     {
+      "id": "act-ten-minutes",
+      "text": "ACT reached 80 to 90% success on six bimanual tasks, each from about 10 minutes of demonstrations Zhao 2023.",
+      "words": 19,
+      "article": "/data-hardware/teleop-rigs/",
+      "source": "https://arxiv.org/abs/2304.13705"
+     },
+     {
+      "id": "ernst-1961",
+      "text": "By 1961, Heinrich Ernst had a computer-controlled arm and hand stacking blocks at MIT Brooks 2025.",
+      "words": 16,
+      "article": "/frontier/dexterity/",
+      "source": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/"
+     }
+    ],
+    "recent": [
+     {
+      "date": "2026-09-30",
+      "shown": "2026-09-30",
+      "title": "The Reliability Gap",
+      "href": "/frontier/reliability-gap/"
+     },
+     {
+      "date": "2026-09-29",
+      "shown": "2026-09-29",
+      "title": "State Estimation",
+      "href": "/classical/state-estimation/"
+     },
+     {
+      "date": "2026-09-29",
+      "shown": "2026-09-29",
+      "title": "What Is a World Model?",
+      "href": "/world-models/taxonomy/"
+     },
+     {
+      "date": "2026-09-29",
+      "shown": "2026-09-29",
+      "title": "Motion Planning",
+      "href": "/classical/motion-planning/"
+     },
+     {
+      "date": "2026-09-29",
+      "shown": "2026-09-29",
+      "title": "Reward Design and the MPC Debate",
+      "href": "/rl-sim2real/reward-design-mpc/"
+     }
+    ],
+    "tools": {
+     "text": "Tools Playground Market Map",
+     "links": [
+      {
+       "text": "Playground",
+       "href": "/playground/"
+      },
+      {
+       "text": "Market Map",
+       "href": "/market-map/"
+      }
+     ]
+    },
+    "documentHeight": 3321
+   },
+   "about": {
+    "status": 200,
+    "scope": {
+     "text": "Robot Wiki covers modern robot learning for engineers who already know machine learning, from Manipulation & Learned Policies and World Models to the Classical Foundations underneath. The industry appears as data in the Market Map. Company news and investment advice are out of scope.",
+     "words": 44,
+     "textTransform": "none",
+     "borders": [
+      "0px",
+      "0px",
+      "0px",
+      "0px"
+     ]
+    },
+    "headings": [
+     "About",
+     "Reading the wiki",
+     "Reading paths"
+    ],
+    "sections": [
+     {
+      "heading": "Reading the wiki",
+      "words": 164,
+      "links": [
+       "/manipulation/action-chunking/",
+       "/glossary/"
+      ],
+      "text": "Reading the wiki Articles stand alone, but inside a domain the reading order is the contents order: later articles assume the earlier ones. If you come to robotics from machine learning, start with Action Chunking (ACT and ALOHA), which shows the format every article follows. The one prerequisite is fluency in machine learning; no robotics background is assumed. When an article needs a classical result, it links to the article that derives it, so you can read forward and fill gaps as you go. Terms are defined where they first appear and collected in the glossary. Technical claims trace to cite"
+     },
+     {
+      "heading": "Reading paths",
+      "words": 124,
+      "links": [
+       "/manipulation/",
+       "/manipulation/robot-learning-roadmap/",
+       "/data-hardware/datasets/",
+       "/manipulation/bc-foundations/",
+       "/manipulation/action-spaces/",
+       "/manipulation/diffusion-policy/",
+       "/manipulation/vla-models/",
+       "/data-hardware/evaluation-crisis/",
+       "/data-hardware/industrial-deployment/",
+       "/classical/",
+       "/classical/kinematics/",
+       "/classical/calibration/",
+       "/classical/perception/",
+       "/classical/state-estimation/",
+       "/classical/motion-planning/",
+       "/classical/control/",
+       "/classical/ros2-for-ml-engineers/",
+       "/world-models/",
+       "/world-models/taxonomy/",
+       "/world-models/model-based-robot-learning/",
+       "/world-models/latent-dynamics/",
+       "/world-models/jepa/",
+       "/world-models/generative-video/",
+       "/world-models/generative-sim/",
+       "/world-models/evaluation/",
+       "/world-models/world-models-vs-simulators/"
+      ],
+      "text": "Reading paths Robot learning and VLA From embodied data and imitation learning to action models, evaluation, and deployment. Robot Learning Curriculum for ML Engineers Major Datasets Behavior Cloning Foundations Action Spaces for Robot Learning Diffusion Policy Vision-Language-Action Models The Evaluation Crisis Industrial Deployment Classical robotics foundations The dependency chain underneath learned policies: geometry, sensing, estimation, planning, and control. Kinematics Robot Calibration Perception for Manipulation State Estimation Motion Planning Control ROS 2 for Machine Learning Engi"
+     },
+     {
+      "heading": null,
+      "words": 41,
+      "links": [
+       "/manipulation/",
+       "/manipulation/robot-learning-roadmap/",
+       "/data-hardware/datasets/",
+       "/manipulation/bc-foundations/",
+       "/manipulation/action-spaces/",
+       "/manipulation/diffusion-policy/",
+       "/manipulation/vla-models/",
+       "/data-hardware/evaluation-crisis/",
+       "/data-hardware/industrial-deployment/"
+      ],
+      "text": "Robot learning and VLA From embodied data and imitation learning to action models, evaluation, and deployment. Robot Learning Curriculum for ML Engineers Major Datasets Behavior Cloning Foundations Action Spaces for Robot Learning Diffusion Policy Vision-Language-Action Models The Evaluation Crisis Industrial Deployment"
+     },
+     {
+      "heading": null,
+      "words": 32,
+      "links": [
+       "/classical/",
+       "/classical/kinematics/",
+       "/classical/calibration/",
+       "/classical/perception/",
+       "/classical/state-estimation/",
+       "/classical/motion-planning/",
+       "/classical/control/",
+       "/classical/ros2-for-ml-engineers/"
+      ],
+      "text": "Classical robotics foundations The dependency chain underneath learned policies: geometry, sensing, estimation, planning, and control. Kinematics Robot Calibration Perception for Manipulation State Estimation Motion Planning Control ROS 2 for Machine Learning Engineers"
+     },
+     {
+      "heading": null,
+      "words": 49,
+      "links": [
+       "/world-models/",
+       "/world-models/taxonomy/",
+       "/world-models/model-based-robot-learning/",
+       "/world-models/latent-dynamics/",
+       "/world-models/jepa/",
+       "/world-models/generative-video/",
+       "/world-models/generative-sim/",
+       "/world-models/evaluation/",
+       "/world-models/world-models-vs-simulators/"
+      ],
+      "text": "World models for robotics Start with the overloaded term, then compare latent, representation-space, video, and simulation approaches. What Is a World Model? Model-Based Robot Learning Latent-Dynamics World Models JEPA and the Non-Generative Counterargument Generative Video World Models Generative Simulation World Model Evaluation for Robotics World Models vs Physics Simulators"
+     }
+    ],
+    "footerAboutLink": true
+   }
+  }
+ }
+}

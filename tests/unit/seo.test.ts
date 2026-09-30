@@ -95,7 +95,7 @@ describe('JSON-LD', () => {
       articleJsonLd({
         entry: entry!,
         datePublished: '2026-08-20',
-        lastReviewed: '2026-08-22',
+        dateModified: '2026-08-22',
         readingTimeMinutes: 12,
         wordCount: 2_640,
         citationUrls: ['https://example.com/paper', 'https://example.com/paper'],
@@ -125,7 +125,7 @@ describe('JSON-LD', () => {
     const parsed = JSON.parse(
       articleJsonLd({
         entry,
-        lastReviewed: '2026-08-22',
+        dateModified: '2026-08-22',
         readingTimeMinutes: 5,
         wordCount: 900,
         citationUrls: [],

@@ -28,7 +28,7 @@
         "statement": "Every exported public route derived from the canonical route/content registries has zero Axe violations after its required state settles.",
         "expected": "Every exported public route derived from the canonical route/content registries has zero Axe violations after its required state settles.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -68,7 +68,7 @@
         "statement": "Every interactive element has a visible 2px signal-blue focus outline with at least 2px offset or an equally visible component-specific treatment.",
         "expected": "Every interactive element has a visible 2px signal-blue focus outline with at least 2px offset or an equally visible component-specific treatment.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -108,7 +108,7 @@
         "statement": "Every interaction in the state matrix can be reached, operated, and exited with keyboard alone.",
         "expected": "Every interaction in the state matrix can be reached, operated, and exited with keyboard alone.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -148,7 +148,7 @@
         "statement": "Colour is never the only state distinction, including links, navigation, filters, charts, market map, and playground.",
         "expected": "Colour is never the only state distinction, including links, navigation, filters, charts, market map, and playground.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -188,7 +188,7 @@
         "statement": "Reduced-motion preference disables non-essential movement and preserves understandable final states.",
         "expected": "Reduced-motion preference disables non-essential movement and preserves understandable final states.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -228,7 +228,7 @@
         "statement": "Forced-colours mode preserves content, focus, selected state, controls, and essential chart boundaries.",
         "expected": "Forced-colours mode preserves content, focus, selected state, controls, and essential chart boundaries.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -268,7 +268,7 @@
         "statement": "Three independent §1.14 gates pass: literal `320×800` CSS-px reflow at DPR 1, sealed halved-CSS-viewport/DPR-2 200% zoom-equivalent (or a proven pinned true-zoom profile), and injected author-layer 200% text-only resizing with doubled computed sizes. Content remains available without two-dimensional document scrolling except registered bounded tables/visualizations.",
         "expected": "Three independent §1.14 gates pass: literal `320×800` CSS-px reflow at DPR 1, sealed halved-CSS-viewport/DPR-2 200% zoom-equivalent (or a proven pinned true-zoom profile), and injected author-layer 200% text-only resizing with doubled computed sizes. Content remains available without two-dimensional document scrolling except registered bounded tables/visualizations.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -308,7 +308,7 @@
         "statement": "Every exported public route has no unintended horizontal document overflow at each applicable 375, 768, 1024, and 1440px sweep width.",
         "expected": "Every exported public route has no unintended horizontal document overflow at each applicable 375, 768, 1024, and 1440px sweep width.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -348,7 +348,7 @@
         "statement": "Decorative brand devices are absent from the accessibility tree and do not alter accessible names.",
         "expected": "Decorative brand devices are absent from the accessibility tree and do not alter accessible names.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -388,7 +388,7 @@
         "statement": "Scrollable tables, map regions, diagrams, and playground canvases have names, keyboard access where interactive, and textual alternatives.",
         "expected": "Scrollable tables, map regions, diagrams, and playground canvases have names, keyboard access where interactive, and textual alternatives.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -428,7 +428,7 @@
         "statement": "Keyboard order is logical; focused elements are not obscured; overlays trap and restore focus; async updates retain appropriate focus; every page has exactly one main landmark, named regions, unique IDs, valid heading order, and label-in-name.",
         "expected": "Keyboard order is logical; focused elements are not obscured; overlays trap and restore focus; async updates retain appropriate focus; every page has exactly one main landmark, named regions, unique IDs, valid heading order, and label-in-name.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -468,7 +468,7 @@
         "statement": "Complete live-region coverage verifies roles, politeness, text, deterministic timing/order, deduplication, focus retention, and non-flooding behavior for search, filters, self-checks, chart/readout changes, market-map selection/details, playground state/errors, and loading/error/empty/unavailable transitions. Automation does not claim to verify actual spoken output across every screen reader/AT/browser combination.",
         "expected": "Complete live-region coverage verifies roles, politeness, text, deterministic timing/order, deduplication, focus retention, and non-flooding behavior for search, filters, self-checks, chart/readout changes, market-map selection/details, playground state/errors, and loading/error/empty/unavailable transitions. Automation does not claim to verify actual spoken output across every screen reader/AT/browser combination.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -508,7 +508,7 @@
         "statement": "Tables expose captions/names and complete header associations; every meaningful SVG/canvas has a bound textual alternative and every interactive graphic exposes keyboard-operable equivalent controls where applicable.",
         "expected": "Tables expose captions/names and complete header associations; every meaningful SVG/canvas has a bound textual alternative and every interactive graphic exposes keyboard-operable equivalent controls where applicable.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -548,7 +548,7 @@
         "statement": "Contrast is measured for every foreground/background pair in every declared state, including bounded dark surfaces. Because `#245FFF` is insufficient for small text on graphite, such contexts use an approved measured alternate or dual treatment while retaining signal semantics.",
         "expected": "Contrast is measured for every foreground/background pair in every declared state, including bounded dark surfaces. Because `#245FFF` is insufficient for small text on graphite, such contexts use an approved measured alternate or dual treatment while retaining signal semantics.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -588,7 +588,7 @@
         "statement": "Route × declared-state coverage for Axe, keyboard, forced colours, and the three §1.14 profiles is registry-derived and non-empty, using the exact bounded §1.15 case counts rather than a full Cartesian product; hand-picked samples, missing cases, or count disagreement cannot pass.",
         "expected": "Route × declared-state coverage for Axe, keyboard, forced colours, and the three §1.14 profiles is registry-derived and non-empty, using the exact bounded §1.15 case counts rather than a full Cartesian product; hand-picked samples, missing cases, or count disagreement cannot pass.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -2322,11 +2322,6 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-005:/credits/|1440x900|spot-raf-agile-liberty-2021#0",
-          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
-        },
-        {
-          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-005:/credits/|1440x900|standard-bots-logo#0",
           "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
@@ -2912,11 +2907,6 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-005:/credits/|375x812|spot-raf-agile-liberty-2021#0",
-          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
-        },
-        {
-          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-005:/credits/|375x812|standard-bots-logo#0",
           "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
@@ -3056,16 +3046,6 @@
           "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-005:/|1440x900|spot-raf-agile-liberty-2021#0",
-          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-005:/|375x812|spot-raf-agile-liberty-2021#0",
-          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
-        },
-        {
           "kind": "test",
           "file": "tests/e2e/brand-v2-figures.spec.ts",
           "title": "brand-v2 figures, diagrams and licensed imagery › sweeps every figure-bearing route at both widths",
@@ -3083,7 +3063,7 @@
         "statement": "Every figure caption states a takeaway and every external figure/texture credit exposes creator, source, and license.",
         "expected": "Every figure caption states a takeaway and every external figure/texture credit exposes creator, source, and license.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 250,
+        "populationSize": 246,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -3193,7 +3173,6 @@
           "result:VAL-B2-ART-005:/credits/|1440x900|simbe-robotics-logo#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|skild-ai-logo#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|spirit-ai-logo#0",
-          "result:VAL-B2-ART-005:/credits/|1440x900|spot-raf-agile-liberty-2021#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|standard-bots-logo#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|starship-logo#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|sunday-robotics-logo#0",
@@ -3311,7 +3290,6 @@
           "result:VAL-B2-ART-005:/credits/|375x812|simbe-robotics-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|skild-ai-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|spirit-ai-logo#0",
-          "result:VAL-B2-ART-005:/credits/|375x812|spot-raf-agile-liberty-2021#0",
           "result:VAL-B2-ART-005:/credits/|375x812|standard-bots-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|starship-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|sunday-robotics-logo#0",
@@ -3339,9 +3317,7 @@
           "result:VAL-B2-ART-005:/manipulation/bc-foundations/|1440x900|covariate-shift#0",
           "result:VAL-B2-ART-005:/manipulation/bc-foundations/|375x812|covariate-shift#0",
           "result:VAL-B2-ART-005:/rl-sim2real/legged-locomotion/|1440x900|anymal-anybotics-2022#0",
-          "result:VAL-B2-ART-005:/rl-sim2real/legged-locomotion/|375x812|anymal-anybotics-2022#0",
-          "result:VAL-B2-ART-005:/|1440x900|spot-raf-agile-liberty-2021#0",
-          "result:VAL-B2-ART-005:/|375x812|spot-raf-agile-liberty-2021#0"
+          "result:VAL-B2-ART-005:/rl-sim2real/legged-locomotion/|375x812|anymal-anybotics-2022#0"
         ]
       }
     },
@@ -8060,7 +8036,7 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:expression:app/page.tsx:aria-labelledby:1",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:expression:app/about/page.tsx:aria-labelledby:1",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -8085,7 +8061,12 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:expression:components/home/so101-chain-preview.tsx:aria-label:1",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:expression:components/home/contents-index.tsx:aria-label:1",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:expression:components/home/did-you-know.tsx:title:1",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -8815,6 +8796,16 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:app/about/page.tsx:aria-labelledby:1",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:app/about/page.tsx:aria-labelledby:2",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:app/credits/page.tsx:aria-labelledby:1",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -8845,6 +8836,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:app/page.tsx:aria-label:7",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:app/page.tsx:aria-labelledby:2",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -8866,11 +8862,6 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:app/page.tsx:aria-labelledby:6",
-          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:app/page.tsx:aria-labelledby:7",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -8901,6 +8892,16 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/article/references.tsx:aria-labelledby:1",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/home/home-search.tsx:aria-label:1",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/home/home-search.tsx:aria-label:2",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -13245,7 +13246,7 @@
         "statement": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 1036,
+        "populationSize": 1041,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -13255,12 +13256,13 @@
       "producedResult": {
         "resultIds": [
           "result:VAL-B2-BASE-002:accessible-names:expression:app/a-z/page.tsx:aria-labelledby:1",
-          "result:VAL-B2-BASE-002:accessible-names:expression:app/page.tsx:aria-labelledby:1",
+          "result:VAL-B2-BASE-002:accessible-names:expression:app/about/page.tsx:aria-labelledby:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/article/article-links.tsx:aria-labelledby:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/article/citation-records.tsx:title:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/article/commit-to-reveal.tsx:aria-labelledby:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/article/heading-permalink.tsx:aria-label:1",
-          "result:VAL-B2-BASE-002:accessible-names:expression:components/home/so101-chain-preview.tsx:aria-label:1",
+          "result:VAL-B2-BASE-002:accessible-names:expression:components/home/contents-index.tsx:aria-label:1",
+          "result:VAL-B2-BASE-002:accessible-names:expression:components/home/did-you-know.tsx:title:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/action-conditioning.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/action-conditioning.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/action-conditioning.tsx:aria-label:4",
@@ -13406,24 +13408,28 @@
           "result:VAL-B2-BASE-002:accessible-names:expression:components/ui/table.tsx:aria-labelledby:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/ui/tabs.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:app/a-z/page.tsx:aria-label:1",
+          "result:VAL-B2-BASE-002:accessible-names:literal:app/about/page.tsx:aria-labelledby:1",
+          "result:VAL-B2-BASE-002:accessible-names:literal:app/about/page.tsx:aria-labelledby:2",
           "result:VAL-B2-BASE-002:accessible-names:literal:app/credits/page.tsx:aria-labelledby:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:app/editorial-policy/page.tsx:aria-labelledby:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:app/editorial-policy/page.tsx:aria-labelledby:2",
           "result:VAL-B2-BASE-002:accessible-names:literal:app/editorial-policy/page.tsx:aria-labelledby:3",
           "result:VAL-B2-BASE-002:accessible-names:literal:app/editorial-policy/page.tsx:aria-labelledby:4",
           "result:VAL-B2-BASE-002:accessible-names:literal:app/page.tsx:aria-label:1",
+          "result:VAL-B2-BASE-002:accessible-names:literal:app/page.tsx:aria-label:7",
           "result:VAL-B2-BASE-002:accessible-names:literal:app/page.tsx:aria-labelledby:2",
           "result:VAL-B2-BASE-002:accessible-names:literal:app/page.tsx:aria-labelledby:3",
           "result:VAL-B2-BASE-002:accessible-names:literal:app/page.tsx:aria-labelledby:4",
           "result:VAL-B2-BASE-002:accessible-names:literal:app/page.tsx:aria-labelledby:5",
           "result:VAL-B2-BASE-002:accessible-names:literal:app/page.tsx:aria-labelledby:6",
-          "result:VAL-B2-BASE-002:accessible-names:literal:app/page.tsx:aria-labelledby:7",
           "result:VAL-B2-BASE-002:accessible-names:literal:app/playground/page.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:app/privacy/page.tsx:aria-labelledby:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:app/privacy/page.tsx:aria-labelledby:2",
           "result:VAL-B2-BASE-002:accessible-names:literal:app/privacy/page.tsx:aria-labelledby:3",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/article/breadcrumbs.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/article/references.tsx:aria-labelledby:1",
+          "result:VAL-B2-BASE-002:accessible-names:literal:components/home/home-search.tsx:aria-label:1",
+          "result:VAL-B2-BASE-002:accessible-names:literal:components/home/home-search.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/action-conditioning.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/action-conditioning.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/action-tokenization.tsx:aria-label:1",
@@ -14436,372 +14442,377 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/404/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/a-z/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/about/",
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/adjacent/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/adjacent/autonomous-vehicles/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/adjacent/drones/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/adjacent/space/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/adjacent/surgical/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/classical/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/classical/calibration/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/classical/control/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/classical/grasp-planning/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/classical/kinematics/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/classical/motion-planning/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/classical/perception/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/classical/ros2-for-ml-engineers/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/classical/scene-representation/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/classical/state-estimation/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/credits/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/data-hardware/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/data-hardware/data-bottleneck/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/data-hardware/datasets/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/data-hardware/evaluation-crisis/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/data-hardware/hardware-taxonomy/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/data-hardware/industrial-deployment/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/data-hardware/robot-learning-stack/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/data-hardware/teleop-rigs/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/editorial-policy/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/frontier/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/frontier/bear-case/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/frontier/competing-theses/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/frontier/dexterity/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/frontier/generalization/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/frontier/reliability-gap/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/frontier/safety-and-assurance/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/glossary/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/manipulation/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/manipulation/action-chunking/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/manipulation/action-spaces/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/manipulation/bc-foundations/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/manipulation/comparison-matrix/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/manipulation/cross-embodiment/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/manipulation/diffusion-policy/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/manipulation/foundation-models/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/manipulation/generalist-policies/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/manipulation/hierarchical/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/manipulation/knowledge-insulation/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/manipulation/pi-line/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/manipulation/realtime-execution/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/manipulation/rl-finetuning/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/manipulation/robot-learning-roadmap/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/manipulation/vla-models/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/market-map/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/playground/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/privacy/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/rl-sim2real/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/rl-sim2real/humanoid-wbc/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/rl-sim2real/legged-locomotion/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/rl-sim2real/offline-rl/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/rl-sim2real/parallel-sim-rl/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/rl-sim2real/reward-design-mpc/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/rl-sim2real/rl-for-robotics/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/rl-sim2real/sim2real-transfer/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/rl-sim2real/why-rl-locomotion/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/search/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/world-models/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/world-models/evaluation/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/world-models/generative-sim/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/world-models/generative-video/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/world-models/jepa/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/world-models/latent-dynamics/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/world-models/model-based-robot-learning/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/world-models/taxonomy/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/world-models/world-models-vs-simulators/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 74 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 75 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "test",
@@ -14815,7 +14826,7 @@
         "statement": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
         "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 74,
+        "populationSize": 75,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -14827,6 +14838,7 @@
           "result:VAL-B2-BASE-007:link-safety:/",
           "result:VAL-B2-BASE-007:link-safety:/404/",
           "result:VAL-B2-BASE-007:link-safety:/a-z/",
+          "result:VAL-B2-BASE-007:link-safety:/about/",
           "result:VAL-B2-BASE-007:link-safety:/adjacent/",
           "result:VAL-B2-BASE-007:link-safety:/adjacent/autonomous-vehicles/",
           "result:VAL-B2-BASE-007:link-safety:/adjacent/drones/",
@@ -15117,6 +15129,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/a-z/",
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/about/",
           "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
@@ -15522,7 +15539,7 @@
         "statement": "Runtime highlight token and all renderer mirrors resolve exactly to `#C6FF19`.",
         "expected": "Runtime highlight token and all renderer mirrors resolve exactly to `#C6FF19`.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -15533,6 +15550,7 @@
         "resultIds": [
           "result:VAL-B2-COL-001:route:/",
           "result:VAL-B2-COL-001:route:/a-z/",
+          "result:VAL-B2-COL-001:route:/about/",
           "result:VAL-B2-COL-001:route:/adjacent/",
           "result:VAL-B2-COL-001:route:/adjacent/autonomous-vehicles/",
           "result:VAL-B2-COL-001:route:/adjacent/drones/",
@@ -15619,6 +15637,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/a-z/",
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/about/",
           "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
@@ -16024,7 +16047,7 @@
         "statement": "Runtime signal token and all renderer mirrors resolve exactly to `#245FFF`.",
         "expected": "Runtime signal token and all renderer mirrors resolve exactly to `#245FFF`.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -16035,6 +16058,7 @@
         "resultIds": [
           "result:VAL-B2-COL-002:route:/",
           "result:VAL-B2-COL-002:route:/a-z/",
+          "result:VAL-B2-COL-002:route:/about/",
           "result:VAL-B2-COL-002:route:/adjacent/",
           "result:VAL-B2-COL-002:route:/adjacent/autonomous-vehicles/",
           "result:VAL-B2-COL-002:route:/adjacent/drones/",
@@ -16121,6 +16145,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/a-z/",
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/about/",
           "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
@@ -16526,7 +16555,7 @@
         "statement": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
         "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -16537,6 +16566,7 @@
         "resultIds": [
           "result:VAL-B2-COL-003:route:/",
           "result:VAL-B2-COL-003:route:/a-z/",
+          "result:VAL-B2-COL-003:route:/about/",
           "result:VAL-B2-COL-003:route:/adjacent/",
           "result:VAL-B2-COL-003:route:/adjacent/autonomous-vehicles/",
           "result:VAL-B2-COL-003:route:/adjacent/drones/",
@@ -16638,7 +16668,7 @@
         "statement": "Every primary action has ink/black fill and an accessible light label; signal-blue-filled primary actions are absent.",
         "expected": "Every primary action has ink/black fill and an accessible light label; signal-blue-filled primary actions are absent.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -16678,7 +16708,7 @@
         "statement": "Persistent selection/highlight uses lime plus a non-colour indicator and exposes state semantically.",
         "expected": "Persistent selection/highlight uses lime plus a non-colour indicator and exposes state semantically.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -16718,7 +16748,7 @@
         "statement": "Signal blue is used for links, focus, registration, or active information paths and is not substituted for warning state.",
         "expected": "Signal blue is used for links, focus, registration, or active information paths and is not substituted for warning state.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -16758,7 +16788,7 @@
         "statement": "Lime is not used as a success semantic and is never the sole carrier of state.",
         "expected": "Lime is not used as a success semantic and is never the sole carrier of state.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -16798,7 +16828,7 @@
         "statement": "Normal text contrast is at least 4.5:1; large text and essential graphical boundaries are at least 3:1.",
         "expected": "Normal text contrast is at least 4.5:1; large text and essential graphical boundaries are at least 3:1.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -16838,7 +16868,7 @@
         "statement": "Decorative UI gradients are absent. A scientific scale is exempt only when labelled, source-appropriate, bounded to the visualization, and textually described.",
         "expected": "Decorative UI gradients are absent. A scientific scale is exempt only when labelled, source-appropriate, bounded to the visualization, and textually described.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -16884,7 +16914,7 @@
         "statement": "Colour-name legends, labels, documentation, and accessible descriptions agree with the actual rendered tokens.",
         "expected": "Colour-name legends, labels, documentation, and accessible descriptions agree with the actual rendered tokens.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -18056,7 +18086,7 @@
         "statement": "Home, shell, domain landing, article, discovery, market map, playground, and OG/X evidence all share the same public identity, type roles, palette, structural-device grammar, shape ladder, and action hierarchy.",
         "expected": "Home, shell, domain landing, article, discovery, market map, playground, and OG/X evidence all share the same public identity, type roles, palette, structural-device grammar, shape ladder, and action hierarchy.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -18090,7 +18120,7 @@
         "statement": "No audited surface mixes a v1 wordmark, descriptor, old blue, old paper token, or IBM-Plex-Sans brand display with v2 identity.",
         "expected": "No audited surface mixes a v1 wordmark, descriptor, old blue, old paper token, or IBM-Plex-Sans brand display with v2 identity.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -18124,7 +18154,7 @@
         "statement": "Light surfaces dominate editorial reading; dark surfaces remain bounded instruments across articles, market map, playground, and social artwork.",
         "expected": "Light surfaces dominate editorial reading; dark surfaces remain bounded instruments across articles, market map, playground, and social artwork.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -18158,7 +18188,7 @@
         "statement": "Black primary actions, lime selection/highlight, and signal-blue link/focus behavior remain semantically consistent across all audited routes.",
         "expected": "Black primary actions, lime selection/highlight, and signal-blue link/focus behavior remain semantically consistent across all audited routes.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -18192,7 +18222,7 @@
         "statement": "Grid/rail/registration devices vary by composition but retain shared line weight, alignment, colour semantics, and purposeful placement.",
         "expected": "Grid/rail/registration devices vary by composition but retain shared line weight, alignment, colour semantics, and purposeful placement.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -18226,7 +18256,7 @@
         "statement": "Route, content, citation, data, accessibility, and interaction baselines pass alongside visual checks; visual parity cannot waive a truth regression.",
         "expected": "Route, content, citation, data, accessibility, and interaction baselines pass alongside visual checks; visual parity cannot waive a truth regression.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -18257,10 +18287,10 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "Set equality holds among module registry, fixed-route registry, app route inventory, export files, and metadata ledger: 57 article routes plus 16 non-article public destinations = 73 public destinations. The sitemap equals the 71 indexable destinations after the registered `/privacy/` and `/search/` noindex exceptions are removed; 404 is separately registered and never counted as public content.",
-        "expected": "Set equality holds among module registry, fixed-route registry, app route inventory, export files, and metadata ledger: 57 article routes plus 16 non-article public destinations = 73 public destinations. The sitemap equals the 71 indexable destinations after the registered `/privacy/` and `/search/` noindex exceptions are removed; 404 is separately registered and never counted as public content.",
+        "statement": "Set equality holds among module registry, fixed-route registry, app route inventory, export files, and metadata ledger: 57 article routes plus 17 non-article public destinations = 74 public destinations. The sitemap equals the 72 indexable destinations after the registered `/privacy/` and `/search/` noindex exceptions are removed; 404 is separately registered and never counted as public content.",
+        "expected": "Set equality holds among module registry, fixed-route registry, app route inventory, export files, and metadata ledger: 57 article routes plus 17 non-article public destinations = 74 public destinations. The sitemap equals the 72 indexable destinations after the registered `/privacy/` and `/search/` noindex exceptions are removed; 404 is separately registered and never counted as public content.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -18294,7 +18324,7 @@
         "statement": "The metadata ledger covers canonicals, titles/descriptions, all OG/X fields, JSON-LD, manifest, favicon/touch icons, theme-colour, and 404 policy for every owning route; owner and rendered/exported values agree.",
         "expected": "The metadata ledger covers canonicals, titles/descriptions, all OG/X fields, JSON-LD, manifest, favicon/touch icons, theme-colour, and 404 policy for every owning route; owner and rendered/exported values agree.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -18328,7 +18358,7 @@
         "statement": "Residue sweeps normalize CSS/SVG/WebGL colours, inspect source literals, raw attributes, computed states, generated pixels with declared tolerance, resource/font requests, provenance, and an explicit v1→v2 migration map; active runtime documentation is in scope while exact-path historical archives are allowlisted.",
         "expected": "Residue sweeps normalize CSS/SVG/WebGL colours, inspect source literals, raw attributes, computed states, generated pixels with declared tolerance, resource/font requests, provenance, and an explicit v1→v2 migration map; active runtime documentation is in scope while exact-path historical archives are allowlisted.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -20077,6 +20107,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/about/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted identity sweep of the built export, over every registered public route at both identity viewports plus every declared interactive identity state, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ID-001:route:/adjacent/",
           "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted identity sweep of the built export, over every registered public route at both identity viewports plus every declared interactive identity state, over contract/brand-v2-registries.json#routes.public"
         },
@@ -20448,7 +20483,7 @@
         "statement": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
         "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -20459,6 +20494,7 @@
         "resultIds": [
           "result:VAL-B2-ID-001:route:/",
           "result:VAL-B2-ID-001:route:/a-z/",
+          "result:VAL-B2-ID-001:route:/about/",
           "result:VAL-B2-ID-001:route:/adjacent/",
           "result:VAL-B2-ID-001:route:/adjacent/autonomous-vehicles/",
           "result:VAL-B2-ID-001:route:/adjacent/drones/",
@@ -20603,6 +20639,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ID-003:route:/a-z/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted identity sweep of the built export, over every registered public route at both identity viewports plus every declared interactive identity state, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/about/",
           "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted identity sweep of the built export, over every registered public route at both identity viewports plus every declared interactive identity state, over contract/brand-v2-registries.json#routes.public"
         },
         {
@@ -20978,7 +21019,7 @@
         "statement": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
         "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -20989,6 +21030,7 @@
         "resultIds": [
           "result:VAL-B2-ID-003:route:/",
           "result:VAL-B2-ID-003:route:/a-z/",
+          "result:VAL-B2-ID-003:route:/about/",
           "result:VAL-B2-ID-003:route:/adjacent/",
           "result:VAL-B2-ID-003:route:/adjacent/autonomous-vehicles/",
           "result:VAL-B2-ID-003:route:/adjacent/drones/",
@@ -21203,11 +21245,6 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ID-006:asset:images/spot-raf-agile-liberty-2021.jpg",
-          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the checked-in byte seal contract/brand-v2-asset-seal.json, reconciled in both directions against contract/brand-v2-registries.json#assets:first-party-visual and re-hashed per asset, plus the decoded content description of each sealed asset"
-        },
-        {
-          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ID-006:asset:images/temporal-ensembling.svg",
           "mechanism": "VAL-B2-ID-006 per-member evidence derived from the checked-in byte seal contract/brand-v2-asset-seal.json, reconciled in both directions against contract/brand-v2-registries.json#assets:first-party-visual and re-hashed per asset, plus the decoded content description of each sealed asset"
         },
@@ -21305,7 +21342,7 @@
         "statement": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
         "expected": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 22,
+        "populationSize": 21,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -21320,7 +21357,6 @@
           "result:VAL-B2-ID-006:asset:images/covariate-shift.svg",
           "result:VAL-B2-ID-006:asset:images/franka-emika-panda-cebit-2017.jpg",
           "result:VAL-B2-ID-006:asset:images/puma-560-nasa-ames.jpg",
-          "result:VAL-B2-ID-006:asset:images/spot-raf-agile-liberty-2021.jpg",
           "result:VAL-B2-ID-006:asset:images/temporal-ensembling.svg",
           "result:VAL-B2-ID-006:asset:models/so101/assets/base_motor_holder_so101_v1.glb",
           "result:VAL-B2-ID-006:asset:models/so101/assets/base_so101_v2.glb",
@@ -21391,6 +21427,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ID-008:route:/a-z/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/about/",
           "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
         },
         {
@@ -21766,7 +21807,7 @@
         "statement": "Mobile header contains the compact `Robot Wiki` wordmark and omits the descriptor.",
         "expected": "Mobile header contains the compact `Robot Wiki` wordmark and omits the descriptor.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -21777,6 +21818,7 @@
         "resultIds": [
           "result:VAL-B2-ID-008:route:/",
           "result:VAL-B2-ID-008:route:/a-z/",
+          "result:VAL-B2-ID-008:route:/about/",
           "result:VAL-B2-ID-008:route:/adjacent/",
           "result:VAL-B2-ID-008:route:/adjacent/autonomous-vehicles/",
           "result:VAL-B2-ID-008:route:/adjacent/drones/",
@@ -21878,7 +21920,7 @@
         "statement": "Article OG cards contain compact `Robot Wiki` identity but omit the descriptor; the site card contains both exact strings.",
         "expected": "Article OG cards contain compact `Robot Wiki` identity but omit the descriptor; the site card contains both exact strings.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -22487,11 +22529,6 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/spot-raf-agile-liberty-2021.jpg",
-          "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
-        },
-        {
-          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/temporal-ensembling.svg",
           "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
         },
@@ -22589,7 +22626,7 @@
         "statement": "First-party surfaces contain no AI-generated robots, synthetic labs, stock chrome heads, glowing brains, circuit wallpaper, or fake blueprints.",
         "expected": "First-party surfaces contain no AI-generated robots, synthetic labs, stock chrome heads, glowing brains, circuit wallpaper, or fake blueprints.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 134,
+        "populationSize": 133,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -22716,7 +22753,6 @@
           "result:VAL-B2-IMG-001:asset:images/logos/xela-robotics.png",
           "result:VAL-B2-IMG-001:asset:images/logos/zebra-robotics-automation.svg",
           "result:VAL-B2-IMG-001:asset:images/puma-560-nasa-ames.jpg",
-          "result:VAL-B2-IMG-001:asset:images/spot-raf-agile-liberty-2021.jpg",
           "result:VAL-B2-IMG-001:asset:images/temporal-ensembling.svg",
           "result:VAL-B2-IMG-001:asset:models/so101/assets/base_motor_holder_so101_v1.glb",
           "result:VAL-B2-IMG-001:asset:models/so101/assets/base_so101_v2.glb",
@@ -22766,11 +22802,6 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-IMG-002:asset:images/spot-raf-agile-liberty-2021.jpg",
-          "mechanism": "VAL-B2-IMG-002 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
-        },
-        {
-          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-002:asset:images/temporal-ensembling.svg",
           "mechanism": "VAL-B2-IMG-002 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
         },
@@ -22792,7 +22823,7 @@
         "statement": "Every external photograph, figure, or texture uses one §1.13 closed legal-basis enum value and records creator/owner, official source URL, retrieval date, content hash, attribution text, licence/permission reference, and preservation policy in canonical metadata and visible credit where required; automation verifies the record and bytes, not a legal opinion.",
         "expected": "Every external photograph, figure, or texture uses one §1.13 closed legal-basis enum value and records creator/owner, official source URL, retrieval date, content hash, attribution text, licence/permission reference, and preservation policy in canonical metadata and visible credit where required; automation verifies the record and bytes, not a legal opinion.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 7,
+        "populationSize": 6,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -22806,7 +22837,6 @@
           "result:VAL-B2-IMG-002:asset:images/covariate-shift.svg",
           "result:VAL-B2-IMG-002:asset:images/franka-emika-panda-cebit-2017.jpg",
           "result:VAL-B2-IMG-002:asset:images/puma-560-nasa-ames.jpg",
-          "result:VAL-B2-IMG-002:asset:images/spot-raf-agile-liberty-2021.jpg",
           "result:VAL-B2-IMG-002:asset:images/temporal-ensembling.svg"
         ]
       }
@@ -23462,11 +23492,6 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|1440x900|spot-raf-agile-liberty-2021#0",
-          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
-        },
-        {
-          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|1440x900|standard-bots-logo#0",
           "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
@@ -24052,11 +24077,6 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|375x812|spot-raf-agile-liberty-2021#0",
-          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
-        },
-        {
-          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|375x812|standard-bots-logo#0",
           "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
@@ -24196,16 +24216,6 @@
           "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-IMG-005:/|1440x900|spot-raf-agile-liberty-2021#0",
-          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-IMG-005:/|375x812|spot-raf-agile-liberty-2021#0",
-          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
-        },
-        {
           "kind": "test",
           "file": "tests/e2e/brand-v2-figures.spec.ts",
           "title": "brand-v2 figures, diagrams and licensed imagery › sweeps every figure-bearing route at both widths",
@@ -24223,7 +24233,7 @@
         "statement": "Image alt text communicates content/function and does not repeat adjacent captions or use technical repository identity as public branding.",
         "expected": "Image alt text communicates content/function and does not repeat adjacent captions or use technical repository identity as public branding.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 250,
+        "populationSize": 246,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -24333,7 +24343,6 @@
           "result:VAL-B2-IMG-005:/credits/|1440x900|simbe-robotics-logo#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|skild-ai-logo#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|spirit-ai-logo#0",
-          "result:VAL-B2-IMG-005:/credits/|1440x900|spot-raf-agile-liberty-2021#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|standard-bots-logo#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|starship-logo#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|sunday-robotics-logo#0",
@@ -24451,7 +24460,6 @@
           "result:VAL-B2-IMG-005:/credits/|375x812|simbe-robotics-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|skild-ai-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|spirit-ai-logo#0",
-          "result:VAL-B2-IMG-005:/credits/|375x812|spot-raf-agile-liberty-2021#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|standard-bots-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|starship-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|sunday-robotics-logo#0",
@@ -24479,9 +24487,7 @@
           "result:VAL-B2-IMG-005:/manipulation/bc-foundations/|1440x900|covariate-shift#0",
           "result:VAL-B2-IMG-005:/manipulation/bc-foundations/|375x812|covariate-shift#0",
           "result:VAL-B2-IMG-005:/rl-sim2real/legged-locomotion/|1440x900|anymal-anybotics-2022#0",
-          "result:VAL-B2-IMG-005:/rl-sim2real/legged-locomotion/|375x812|anymal-anybotics-2022#0",
-          "result:VAL-B2-IMG-005:/|1440x900|spot-raf-agile-liberty-2021#0",
-          "result:VAL-B2-IMG-005:/|375x812|spot-raf-agile-liberty-2021#0"
+          "result:VAL-B2-IMG-005:/rl-sim2real/legged-locomotion/|375x812|anymal-anybotics-2022#0"
         ]
       }
     },
@@ -24506,7 +24512,7 @@
         "statement": "Third-party marks retain required attribution and are not modified beyond consistent sizing, placement, and neutral-plate treatment.",
         "expected": "Third-party marks retain required attribution and are not modified beyond consistent sizing, placement, and neutral-plate treatment.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 134,
+        "populationSize": 133,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -24540,7 +24546,7 @@
         "statement": "Visual-asset parity holds among physical files, JS/TS imports, CSS URLs, inline-SVG dependencies, asset registries, rendered uses, and credits; orphan files, missing files, unregistered uses, stale credits, extras, and symlinks fail except narrow documented generated/tooling exceptions.",
         "expected": "Visual-asset parity holds among physical files, JS/TS imports, CSS URLs, inline-SVG dependencies, asset registries, rendered uses, and credits; orphan files, missing files, unregistered uses, stale credits, extras, and symlinks fail except narrow documented generated/tooling exceptions.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 134,
+        "populationSize": 133,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -24584,11 +24590,6 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-IMG-008:asset:images/spot-raf-agile-liberty-2021.jpg",
-          "mechanism": "VAL-B2-IMG-008 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
-        },
-        {
-          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-008:asset:images/temporal-ensembling.svg",
           "mechanism": "VAL-B2-IMG-008 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
         },
@@ -24610,7 +24611,7 @@
         "statement": "Reusable editorial photographs/figures/textures require one approved reusable-content value from the §1.13 closed enum; `unlicensed` is never approved. Official company marks use only the distinct `official-identification-use` path in `VAL-B2-MAP-010`. Validation checks enum membership, official URLs, hashes, attribution fields, and preservation; it does not independently decide legality.",
         "expected": "Reusable editorial photographs/figures/textures require one approved reusable-content value from the §1.13 closed enum; `unlicensed` is never approved. Official company marks use only the distinct `official-identification-use` path in `VAL-B2-MAP-010`. Validation checks enum membership, official URLs, hashes, attribution fields, and preservation; it does not independently decide legality.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 7,
+        "populationSize": 6,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -24624,7 +24625,6 @@
           "result:VAL-B2-IMG-008:asset:images/covariate-shift.svg",
           "result:VAL-B2-IMG-008:asset:images/franka-emika-panda-cebit-2017.jpg",
           "result:VAL-B2-IMG-008:asset:images/puma-560-nasa-ames.jpg",
-          "result:VAL-B2-IMG-008:asset:images/spot-raf-agile-liberty-2021.jpg",
           "result:VAL-B2-IMG-008:asset:images/temporal-ensembling.svg"
         ]
       }
@@ -24650,7 +24650,7 @@
         "statement": "Photo and logo binaries are byte-hash preserved against baseline except approved-delta entries; SVGs use normalized semantic comparison; every asset and rendered use carries a stable registry/ownership ID.",
         "expected": "Photo and logo binaries are byte-hash preserved against baseline except approved-delta entries; SVGs use normalized semantic comparison; every asset and rendered use carries a stable registry/ownership ID.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 134,
+        "populationSize": 133,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -24684,7 +24684,7 @@
         "statement": "Favicon, web manifest icons, touch icons, inline symbols, CSS masks, and unused first-party symbol assets are swept; any invented first-party mark, unregistered icon byte, orphan symbol, or stale v1 identity asset fails.",
         "expected": "Favicon, web manifest icons, touch icons, inline symbols, CSS masks, and unused first-party symbol assets are swept; any invented first-party mark, unregistered icon byte, orphan symbol, or stale v1 identity asset fails.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 134,
+        "populationSize": 133,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -24724,7 +24724,7 @@
         "statement": "Company count, record values, categories, source dates, funding values, and deep-link destinations match the canonical data registry.",
         "expected": "Company count, record values, categories, source dates, funding values, and deep-link destinations match the canonical data registry.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -24764,7 +24764,7 @@
         "statement": "Every visible bubble size, position, colour, line, and timeline encoding has a labelled legend and textual equivalent.",
         "expected": "Every visible bubble size, position, colour, line, and timeline encoding has a labelled legend and textual equivalent.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -24804,7 +24804,7 @@
         "statement": "Selected company/filter state uses lime plus text/shape/semantic confirmation.",
         "expected": "Selected company/filter state uses lime plus text/shape/semantic confirmation.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -24844,7 +24844,7 @@
         "statement": "Signal blue identifies an active relationship, link, focus path, or timeline signal and does not encode warning.",
         "expected": "Signal blue identifies an active relationship, link, focus path, or timeline signal and does not encode warning.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -24884,7 +24884,7 @@
         "statement": "Hover facts are also reachable through keyboard focus and persistent selection.",
         "expected": "Hover facts are also reachable through keyboard focus and persistent selection.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -24924,7 +24924,7 @@
         "statement": "A selected-company detail surface does not obscure required controls, remains dismissible, and does not trap focus unless implemented as a modal.",
         "expected": "A selected-company detail surface does not obscure required controls, remains dismissible, and does not trap focus unless implemented as a modal.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -24964,7 +24964,7 @@
         "statement": "Third-party company marks retain source identity and use one consistent neutral plate; no mark is redrawn in first-party style. The plate is the one logo tile, which renders every mark on `/credits/` and `/market-map/` in the same monochrome threshold so white and dark marks both clear 3:1 (owner visual audit 2026-09-29, `owner-visual-audit-20260929.md`).",
         "expected": "Third-party company marks retain source identity and use one consistent neutral plate; no mark is redrawn in first-party style. The plate is the one logo tile, which renders every mark on `/credits/` and `/market-map/` in the same monochrome threshold so white and dark marks both clear 3:1 (owner visual audit 2026-09-29, `owner-visual-audit-20260929.md`).",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -25004,7 +25004,7 @@
         "statement": "At 375px the map provides a readable list/detail or simplified plot state with equivalent records and controls rather than an illegibly shrunken desktop canvas.",
         "expected": "At 375px the map provides a readable list/detail or simplified plot state with equivalent records and controls rather than an illegibly shrunken desktop canvas.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -25044,7 +25044,7 @@
         "statement": "Missing disclosures render `not disclosed`; contradictory source pointers remain visibly caveated rather than silently dropped.",
         "expected": "Missing disclosures render `not disclosed`; contradictory source pointers remain visibly caveated rather than silently dropped.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -25084,7 +25084,7 @@
         "statement": "Canonical company population is derived from the market registry; each company mark has the owner-approved `official-identification-use` legal-basis value, official source URL, retrieval date, file hash, attribution/owner fields, contain fit, and neutral plate, with byte/style preservation and no recolour, filter, mask, distortion, or crop other than the logo tile's one registered monochrome threshold (`VAL-B2-MAP-007`). Automation verifies the closed record and preservation predicates, not an independent legal opinion.",
         "expected": "Canonical company population is derived from the market registry; each company mark has the owner-approved `official-identification-use` legal-basis value, official source URL, retrieval date, file hash, attribution/owner fields, contain fit, and neutral plate, with byte/style preservation and no recolour, filter, mask, distortion, or crop other than the logo tile's one registered monochrome threshold (`VAL-B2-MAP-007`). Automation verifies the closed record and preservation predicates, not an independent legal opinion.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -25124,7 +25124,7 @@
         "statement": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
         "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -25164,7 +25164,7 @@
         "statement": "The generated OG/X corpus contains exactly 58 PNG files: one site card plus one card for each of the 57 published articles listed in the sealed matrix below. The separate 4:3 and square search structured-image assets are not part of this corpus.",
         "expected": "The generated OG/X corpus contains exactly 58 PNG files: one site card plus one card for each of the 57 published articles listed in the sealed matrix below. The separate 4:3 and square search structured-image assets are not part of this corpus.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 74,
+        "populationSize": 75,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -25204,7 +25204,7 @@
         "statement": "Every PNG is exactly 1200×630, uses a 1.9047619:1 aspect ratio, is at least 5KB, and serves from the static export with `image/png`.",
         "expected": "Every PNG is exactly 1200×630, uses a 1.9047619:1 aspect ratio, is at least 5KB, and serves from the static export with `image/png`.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 74,
+        "populationSize": 75,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -25244,7 +25244,7 @@
         "statement": "Site card contains exact `Robot Wiki` and exact descriptor.",
         "expected": "Site card contains exact `Robot Wiki` and exact descriptor.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 74,
+        "populationSize": 75,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -25284,7 +25284,7 @@
         "statement": "Every article card contains the real title, domain, review year, reference count, and compact `Robot Wiki`; it omits the descriptor.",
         "expected": "Every article card contains the real title, domain, review year, reference count, and compact `Robot Wiki`; it omits the descriptor.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 74,
+        "populationSize": 75,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -25324,7 +25324,7 @@
         "statement": "Every article route points to a unique slug-bearing asset URL; every article asset is byte-distinct from every other article asset and the site card.",
         "expected": "Every article route points to a unique slug-bearing asset URL; every article asset is byte-distinct from every other article asset and the site card.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 74,
+        "populationSize": 75,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -25364,7 +25364,7 @@
         "statement": "Non-article destinations point to the single site card.",
         "expected": "Non-article destinations point to the single site card.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 74,
+        "populationSize": 75,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -25404,7 +25404,7 @@
         "statement": "Every card renders the registered static Tektur instance mapped to the approved web Tektur Variable role, plus exact v2 palette/grid/rail/registration language with runtime/renderer parity.",
         "expected": "Every card renders the registered static Tektur instance mapped to the approved web Tektur Variable role, plus exact v2 palette/grid/rail/registration language with runtime/renderer parity.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 74,
+        "populationSize": 75,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -25444,7 +25444,7 @@
         "statement": "Cards contain no v1 public identity, old descriptor, fake chart, random ornament, screenshot collage, tiny UI, progress state, AI robot, or unlicensed image.",
         "expected": "Cards contain no v1 public identity, old descriptor, fake chart, random ornament, screenshot collage, tiny UI, progress state, AI robot, or unlicensed image.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 74,
+        "populationSize": 75,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -25484,7 +25484,7 @@
         "statement": "Every audited route declares one `twitter:card=summary_large_image`, absolute apex-domain image URL, 1200/630 metadata, and meaningful alt text of at least 15 characters.",
         "expected": "Every audited route declares one `twitter:card=summary_large_image`, absolute apex-domain image URL, 1200/630 metadata, and meaningful alt text of at least 15 characters.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 74,
+        "populationSize": 75,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -25524,7 +25524,7 @@
         "statement": "Card generation is deterministic: two clean generations from identical inputs produce identical hashes for all 58 OG/X files.",
         "expected": "Card generation is deterministic: two clean generations from identical inputs produce identical hashes for all 58 OG/X files.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 74,
+        "populationSize": 75,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -25564,7 +25564,7 @@
         "statement": "A renderer-input manifest records every card string, fact, source ID, route owner, asset hash, and resolved style token; generated text/facts must equal that manifest rather than relying on OCR.",
         "expected": "A renderer-input manifest records every card string, fact, source ID, route owner, asset hash, and resolved style token; generated text/facts must equal that manifest rather than relying on OCR.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 74,
+        "populationSize": 75,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -25604,7 +25604,7 @@
         "statement": "OG validation records font checksum/registration, mapped static instance, `cmap` coverage, and rendered glyph probes for every assigned string with no per-glyph fallback; OCR is secondary only.",
         "expected": "OG validation records font checksum/registration, mapped static instance, `cmap` coverage, and rendered glyph probes for every assigned string with no per-glyph fallback; OCR is secondary only.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 74,
+        "populationSize": 75,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -25644,7 +25644,7 @@
         "statement": "Generation builds the complete corpus in a clean staging directory, validates it before canonical mutation, records the full input manifest and pinned generator/runtime/font/image tool versions, then performs journalled per-tree swaps for checked-in/public and export trees. This is rollback-capable staging, not a claim of crash-atomic multi-tree replacement.",
         "expected": "Generation builds the complete corpus in a clean staging directory, validates it before canonical mutation, records the full input manifest and pinned generator/runtime/font/image tool versions, then performs journalled per-tree swaps for checked-in/public and export trees. This is rollback-capable staging, not a claim of crash-atomic multi-tree replacement.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 74,
+        "populationSize": 75,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -25684,7 +25684,7 @@
         "statement": "After all journalled swaps complete, the validated staging corpus, checked-in/public corpus, standalone served files, `out/og`, and committed bytes are byte-for-byte equal; extras, missing files, symlinks, duplicate hashes, partial output, or an incomplete journal fail release.",
         "expected": "After all journalled swaps complete, the validated staging corpus, checked-in/public corpus, standalone served files, `out/og`, and committed bytes are byte-for-byte equal; extras, missing files, symlinks, duplicate hashes, partial output, or an incomplete journal fail release.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 74,
+        "populationSize": 75,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -25724,7 +25724,7 @@
         "statement": "A caught generation, validation, or swap failure rolls every mutated tree back from the journal and preserves the prior complete corpus. Crash recovery must detect and repair or reject an incomplete journal before validation; release can never accept a partial or mixed corpus and does not claim crash-atomicity across trees.",
         "expected": "A caught generation, validation, or swap failure rolls every mutated tree back from the journal and preserves the prior complete corpus. Crash recovery must detect and repair or reject an incomplete journal before validation; release can never accept a partial or mixed corpus and does not claim crash-atomicity across trees.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 74,
+        "populationSize": 75,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -25764,7 +25764,7 @@
         "statement": "The 3D canvas is a bounded ink/graphite instrument inside a light shell; body and shell do not become full-page dark UI.",
         "expected": "The 3D canvas is a bounded ink/graphite instrument inside a light shell; body and shell do not become full-page dark UI.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -25804,7 +25804,7 @@
         "statement": "The rendered model, joint limits, kinematic relationships, and trajectory values match the existing implementation and canonical data.",
         "expected": "The rendered model, joint limits, kinematic relationships, and trajectory values match the existing implementation and canonical data.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -25844,7 +25844,7 @@
         "statement": "Passive geometry uses concrete/neutral tones, active path/focus uses signal blue, and selected joint/target uses lime plus a non-colour marker.",
         "expected": "Passive geometry uses concrete/neutral tones, active path/focus uses signal blue, and selected joint/target uses lime plus a non-colour marker.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -25884,7 +25884,7 @@
         "statement": "Controls use the shared black/lime/outlined hierarchy, persistent labels, semantic values, visible focus, and keyboard operation.",
         "expected": "Controls use the shared black/lime/outlined hierarchy, persistent labels, semantic values, visible focus, and keyboard operation.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -25924,7 +25924,7 @@
         "statement": "Reset returns camera, model, controls, state description, and trajectory to one deterministic documented default.",
         "expected": "Reset returns camera, model, controls, state description, and trajectory to one deterministic documented default.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -25964,7 +25964,7 @@
         "statement": "Current joint/target/trajectory state is available as text and updates when manipulation occurs.",
         "expected": "Current joint/target/trajectory state is available as text and updates when manipulation occurs.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -26004,7 +26004,7 @@
         "statement": "Reduced motion constrains non-essential camera/model transitions without removing direct manipulation, controls, or immediate state feedback.",
         "expected": "Reduced motion constrains non-essential camera/model transitions without removing direct manipulation, controls, or immediate state feedback.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -26044,7 +26044,7 @@
         "statement": "The visible product never presents `robot-atlas-trajectory` as brand identity; technical data/export contexts may retain it.",
         "expected": "The visible product never presents `robot-atlas-trajectory` as brand identity; technical data/export contexts may retain it.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -26084,7 +26084,7 @@
         "statement": "No particles, bloom, fake telemetry, ambient scanning, or unlabelled HUD is rendered.",
         "expected": "No particles, bloom, fake telemetry, ambient scanning, or unlabelled HUD is rendered.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -26124,7 +26124,7 @@
         "statement": "WebGL-resolved colour mirrors exactly match runtime brand tokens and are parity-tested.",
         "expected": "WebGL-resolved colour mirrors exactly match runtime brand tokens and are parity-tested.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -26164,7 +26164,7 @@
         "statement": "A static playground fallback is used only when WebGL is unavailable; reduced-motion preference alone never selects the static fallback.",
         "expected": "A static playground fallback is used only when WebGL is unavailable; reduced-motion preference alone never selects the static fallback.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -26204,7 +26204,7 @@
         "statement": "With WebGL available, validation proves an active context, deterministic nonblank model pixels, canonical landmarks/kinematics/material colours, live reduced-motion manipulation, deterministic DPR/resize/reset, and separate unavailable-WebGL fallback; fallback pixels cannot satisfy available-WebGL assertions.",
         "expected": "With WebGL available, validation proves an active context, deterministic nonblank model pixels, canonical landmarks/kinematics/material colours, live reduced-motion manipulation, deterministic DPR/resize/reset, and separate unavailable-WebGL fallback; fallback pixels cannot satisfy available-WebGL assertions.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -26244,7 +26244,7 @@
         "statement": "The canonical two-keyframe trajectory fixture imports and plays through intermediate state; `Reset pose` restores pose/camera while preserving trajectory, and `Clear trajectory` removes keyframes/path without changing the reset/default semantics.",
         "expected": "The canonical two-keyframe trajectory fixture imports and plays through intermediate state; `Reset pose` restores pose/camera while preserving trajectory, and `Clear trajectory` removes keyframes/path without changing the reset/default semantics.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -26284,7 +26284,7 @@
         "statement": "Public identity strings: `robot-wiki`, `Robot-Wiki`, `ROBOT WIKI` | Zero public-display matches. Technical identifiers, URLs, paths, historical docs, and this contract are allowlisted by exact path/context.",
         "expected": "Public identity strings: `robot-wiki`, `Robot-Wiki`, `ROBOT WIKI` | Zero public-display matches. Technical identifiers, URLs, paths, historical docs, and this contract are allowlisted by exact path/context.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -26324,7 +26324,7 @@
         "statement": "Previous descriptor: `Robotics encyclopaedia` and US-spelling variant | Zero runtime, metadata, generated-artwork, and public-image matches. Historical evidence and this contract are allowlisted.",
         "expected": "Previous descriptor: `Robotics encyclopaedia` and US-spelling variant | Zero runtime, metadata, generated-artwork, and public-image matches. Historical evidence and this contract are allowlisted.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -26364,7 +26364,7 @@
         "statement": "Previous signal values: `#245edb`, `#245EDB`, `rgb(36, 94, 219)` | Zero runtime/generated matches except explicitly archived historical evidence.",
         "expected": "Previous signal values: `#245edb`, `#245EDB`, `rgb(36, 94, 219)` | Zero runtime/generated matches except explicitly archived historical evidence.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -26404,7 +26404,7 @@
         "statement": "Previous paper/surface values and token names that conflict with v2 semantics, including `#f4f3ef`, `#fbfaf7`, and `#eceae4` | Zero active visual-token or renderer matches; data/content literals require review rather than blind replacement.",
         "expected": "Previous paper/surface values and token names that conflict with v2 semantics, including `#f4f3ef`, `#fbfaf7`, and `#eceae4` | Zero active visual-token or renderer matches; data/content literals require review rather than blind replacement.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -26444,7 +26444,7 @@
         "statement": "IBM Plex Sans computed on public wordmark, page h1, article h1, or major display heading | Zero rendered matches.",
         "expected": "IBM Plex Sans computed on public wordmark, page h1, article h1, or major display heading | Zero rendered matches.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -26484,7 +26484,7 @@
         "statement": "Blue-filled primary actions and lime-as-success semantics | Zero rendered matches across the matrix.",
         "expected": "Blue-filled primary actions and lime-as-success semantics | Zero rendered matches across the matrix.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -26524,7 +26524,7 @@
         "statement": "v1-only restrictions encoded as active tests, such as home-only grid, no bounded dark surfaces, no permitted elevation, or 2/3/4-only radius | Zero active acceptance assertions after replacement by `VAL-B2*` criteria. Historical comments must be labelled superseded.",
         "expected": "v1-only restrictions encoded as active tests, such as home-only grid, no bounded dark surfaces, no permitted elevation, or 2/3/4-only radius | Zero active acceptance assertions after replacement by `VAL-B2*` criteria. Historical comments must be labelled superseded.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -26564,7 +26564,7 @@
         "statement": "Generic visual residue: glass, glow, coloured shadow, universal bento, random registration glyphs, decorative telemetry, AI robot imagery | Zero rendered matches or asset inventory hits.",
         "expected": "Generic visual residue: glass, glow, coloured shadow, universal bento, random registration glyphs, decorative telemetry, AI robot imagery | Zero rendered matches or asset inventory hits.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -26604,7 +26604,7 @@
         "statement": "Generated corpus drift: stale site card, missing article card, extra draft card, duplicate article hash, old font/palette/text | Zero findings across exactly 58 OG/X PNGs and the separate exact 114-file search structured-image corpus.",
         "expected": "Generated corpus drift: stale site card, missing article card, extra draft card, duplicate article hash, old font/palette/text | Zero findings across exactly 58 OG/X PNGs and the separate exact 114-file search structured-image corpus.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -26644,7 +26644,7 @@
         "statement": "Mixed identity in accessible names, alt text, structured metadata, page titles, manifests, and social metadata | Zero public-facing mixed-system matches; technical URL values remain allowlisted.",
         "expected": "Mixed identity in accessible names, alt text, structured metadata, page titles, manifests, and social metadata | Zero public-facing mixed-system matches; technical URL values remain allowlisted.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -26684,7 +26684,7 @@
         "statement": "Desktop shell, mobile header, drawer, and footer render the v2 identity and share palette, display type, grid/rail, shape, and focus language.",
         "expected": "Desktop shell, mobile header, drawer, and footer render the v2 identity and share palette, display type, grid/rail, shape, and focus language.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -26709,6 +26709,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-SHELL-002:route:/a-z/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/about/",
           "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
         },
         {
@@ -27084,7 +27089,7 @@
         "statement": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
         "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count. The `Robot Wiki` wordmark lockups are exempt from the marker requirement and MUST NOT render the lime active-interval rail or any other accent bar on any route, including `/`, where the wordmark link keeps `aria-current=\"page\"` without a marker (owner decision 2026-09-25, `owner-decision-no-wordmark-rail-20260925.md`); the exemption does not extend to taxonomy or standalone navigation entries.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -27095,6 +27100,7 @@
         "resultIds": [
           "result:VAL-B2-SHELL-002:route:/",
           "result:VAL-B2-SHELL-002:route:/a-z/",
+          "result:VAL-B2-SHELL-002:route:/about/",
           "result:VAL-B2-SHELL-002:route:/adjacent/",
           "result:VAL-B2-SHELL-002:route:/adjacent/autonomous-vehicles/",
           "result:VAL-B2-SHELL-002:route:/adjacent/drones/",
@@ -27181,6 +27187,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-SHELL-003:route:/a-z/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/about/",
           "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
         },
         {
@@ -27556,7 +27567,7 @@
         "statement": "The skip link is the first keyboard destination and becomes visible on focus.",
         "expected": "The skip link is the first keyboard destination and becomes visible on focus.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -27567,6 +27578,7 @@
         "resultIds": [
           "result:VAL-B2-SHELL-003:route:/",
           "result:VAL-B2-SHELL-003:route:/a-z/",
+          "result:VAL-B2-SHELL-003:route:/about/",
           "result:VAL-B2-SHELL-003:route:/adjacent/",
           "result:VAL-B2-SHELL-003:route:/adjacent/autonomous-vehicles/",
           "result:VAL-B2-SHELL-003:route:/adjacent/drones/",
@@ -27653,6 +27665,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-SHELL-004:route:/a-z/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/about/",
           "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
         },
         {
@@ -28028,7 +28045,7 @@
         "statement": "Mobile drawer traps focus, closes on Escape, restores focus to its trigger, and makes obscured content inert.",
         "expected": "Mobile drawer traps focus, closes on Escape, restores focus to its trigger, and makes obscured content inert.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -28039,6 +28056,7 @@
         "resultIds": [
           "result:VAL-B2-SHELL-004:route:/",
           "result:VAL-B2-SHELL-004:route:/a-z/",
+          "result:VAL-B2-SHELL-004:route:/about/",
           "result:VAL-B2-SHELL-004:route:/adjacent/",
           "result:VAL-B2-SHELL-004:route:/adjacent/autonomous-vehicles/",
           "result:VAL-B2-SHELL-004:route:/adjacent/drones/",
@@ -28811,6 +28829,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/about/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-SHELL-009:route:/adjacent/",
           "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
         },
@@ -29174,7 +29197,7 @@
           "kind": "test",
           "file": "tests/unit/brand-v2-home-tools-evidence.test.ts",
           "title": "home tools evidence > refuses stale, incomplete, and unmeasured home tool evidence",
-          "mechanism": "Proves the reader that gates the overflow row throws on a stale fingerprint, a wrong version, a wrong route, a wrong viewport, a sweep with no responsive measurement, no sibling mount, no playground graphic and no swept surface, and proves the per-route verdict fails a route measured at fewer than the declared widths as well as one whose document scrolled wider than its viewport."
+          "mechanism": "Proves the reader that gates the overflow row throws on a stale fingerprint, a wrong version, a wrong route, a wrong viewport, a sweep with no responsive measurement, no featured scene, an unregistered scene, a comparison with the wrong article, a truncated key script, no tools-line link and no swept surface, and proves the per-route verdict fails a route measured at fewer than the declared widths as well as one whose document scrolled wider than its viewport."
         }
       ],
       "enforcementMode": "browser-state",
@@ -29182,7 +29205,7 @@
         "statement": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
         "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -29193,6 +29216,7 @@
         "resultIds": [
           "result:VAL-B2-SHELL-009:route:/",
           "result:VAL-B2-SHELL-009:route:/a-z/",
+          "result:VAL-B2-SHELL-009:route:/about/",
           "result:VAL-B2-SHELL-009:route:/adjacent/",
           "result:VAL-B2-SHELL-009:route:/adjacent/autonomous-vehicles/",
           "result:VAL-B2-SHELL-009:route:/adjacent/drones/",
@@ -30145,6 +30169,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-003:route:/about/",
+          "mechanism": "VAL-B2-TYPE-003 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-003:route:/adjacent/",
           "mechanism": "VAL-B2-TYPE-003 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over contract/brand-v2-registries.json#routes.public"
         },
@@ -30516,7 +30545,7 @@
         "statement": "Wordmark, page h1, article h1, and major display headings compute to Tektur Variable after `document.fonts.ready`.",
         "expected": "Wordmark, page h1, article h1, and major display headings compute to Tektur Variable after `document.fonts.ready`.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -30527,6 +30556,7 @@
         "resultIds": [
           "result:VAL-B2-TYPE-003:route:/",
           "result:VAL-B2-TYPE-003:route:/a-z/",
+          "result:VAL-B2-TYPE-003:route:/about/",
           "result:VAL-B2-TYPE-003:route:/adjacent/",
           "result:VAL-B2-TYPE-003:route:/adjacent/autonomous-vehicles/",
           "result:VAL-B2-TYPE-003:route:/adjacent/drones/",
@@ -30993,6 +31023,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-005:route:/about/",
+          "mechanism": "VAL-B2-TYPE-005 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-005:route:/adjacent/",
           "mechanism": "VAL-B2-TYPE-005 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over contract/brand-v2-registries.json#routes.public"
         },
@@ -31364,7 +31399,7 @@
         "statement": "Interface copy and controls compute to IBM Plex Sans; code, source metadata, technical values, and registration labels compute to IBM Plex Mono where specified.",
         "expected": "Interface copy and controls compute to IBM Plex Sans; code, source metadata, technical values, and registration labels compute to IBM Plex Mono where specified.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -31375,6 +31410,7 @@
         "resultIds": [
           "result:VAL-B2-TYPE-005:route:/",
           "result:VAL-B2-TYPE-005:route:/a-z/",
+          "result:VAL-B2-TYPE-005:route:/about/",
           "result:VAL-B2-TYPE-005:route:/adjacent/",
           "result:VAL-B2-TYPE-005:route:/adjacent/autonomous-vehicles/",
           "result:VAL-B2-TYPE-005:route:/adjacent/drones/",
@@ -34775,6 +34811,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-010:route:/about/",
+          "mechanism": "VAL-B2-TYPE-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-010:route:/adjacent/",
           "mechanism": "VAL-B2-TYPE-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over contract/brand-v2-registries.json#routes.public"
         },
@@ -35146,7 +35187,7 @@
         "statement": "Registration labels use a single site-wide tracking ratio within 0.01em for equivalent label classes.",
         "expected": "Registration labels use a single site-wide tracking ratio within 0.01em for equivalent label classes.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 73,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -35157,6 +35198,7 @@
         "resultIds": [
           "result:VAL-B2-TYPE-010:route:/",
           "result:VAL-B2-TYPE-010:route:/a-z/",
+          "result:VAL-B2-TYPE-010:route:/about/",
           "result:VAL-B2-TYPE-010:route:/adjacent/",
           "result:VAL-B2-TYPE-010:route:/adjacent/autonomous-vehicles/",
           "result:VAL-B2-TYPE-010:route:/adjacent/drones/",
@@ -36606,7 +36648,7 @@
         "statement": "Every source and materially distinct mount produces the registered bounded default/changed mobile/desktop `captures[]`, a deterministic contact sheet, exact expected/observed case counts, and the §1.12 rubric; root computed styles alone cannot satisfy visual coverage.",
         "expected": "Every source and materially distinct mount produces the registered bounded default/changed mobile/desktop `captures[]`, a deterministic contact sheet, exact expected/observed case counts, and the §1.12 rubric; root computed styles alone cannot satisfy visual coverage.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 61,
+        "populationSize": 60,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",

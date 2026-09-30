@@ -79,6 +79,14 @@ export function SiteFooter({ inert = false }: { inert?: boolean }) {
           </a>
           .{' '}
           <IntentLink
+            href="/about/"
+            data-brand-control-id="control:link-focus"
+            className={externalLink}
+          >
+            About
+          </IntentLink>
+          .{' '}
+          <IntentLink
             href="/editorial-policy/"
             data-brand-control-id="control:link-focus"
             className={externalLink}

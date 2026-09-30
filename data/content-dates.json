@@ -1,0 +1,175 @@
+{
+  "articles": {
+    "adjacent/autonomous-vehicles": {
+      "modified": "2026-09-17T15:23:05+02:00"
+    },
+    "adjacent/drones": {
+      "modified": "2026-09-28T23:51:25+02:00"
+    },
+    "adjacent/space": {
+      "modified": "2026-09-27T21:36:52+02:00"
+    },
+    "adjacent/surgical": {
+      "modified": "2026-09-27T21:36:52+02:00"
+    },
+    "classical/calibration": {
+      "modified": "2026-09-27T07:33:55+02:00"
+    },
+    "classical/control": {
+      "modified": "2026-09-27T07:33:55+02:00"
+    },
+    "classical/grasp-planning": {
+      "modified": "2026-09-27T07:33:55+02:00"
+    },
+    "classical/kinematics": {
+      "modified": "2026-09-29T03:27:41+02:00"
+    },
+    "classical/motion-planning": {
+      "modified": "2026-09-29T15:09:48+02:00"
+    },
+    "classical/perception": {
+      "modified": "2026-09-27T07:33:55+02:00"
+    },
+    "classical/ros2-for-ml-engineers": {
+      "modified": "2026-09-27T07:33:55+02:00"
+    },
+    "classical/scene-representation": {
+      "modified": "2026-09-27T07:33:55+02:00"
+    },
+    "classical/state-estimation": {
+      "modified": "2026-09-29T16:36:21+02:00"
+    },
+    "data-hardware/data-bottleneck": {
+      "modified": "2026-09-29T01:09:04+02:00"
+    },
+    "data-hardware/datasets": {
+      "modified": "2026-09-27T17:03:27+02:00"
+    },
+    "data-hardware/evaluation-crisis": {
+      "modified": "2026-09-29T01:09:04+02:00"
+    },
+    "data-hardware/hardware-taxonomy": {
+      "modified": "2026-09-27T17:03:27+02:00"
+    },
+    "data-hardware/industrial-deployment": {
+      "modified": "2026-09-29T11:50:50+02:00"
+    },
+    "data-hardware/robot-learning-stack": {
+      "modified": "2026-09-27T17:03:27+02:00"
+    },
+    "data-hardware/teleop-rigs": {
+      "modified": "2026-09-27T17:03:27+02:00"
+    },
+    "frontier/bear-case": {
+      "modified": "2026-09-27T21:36:52+02:00"
+    },
+    "frontier/competing-theses": {
+      "modified": "2026-09-29T12:48:09+02:00"
+    },
+    "frontier/dexterity": {
+      "modified": "2026-09-27T21:36:52+02:00"
+    },
+    "frontier/generalization": {
+      "modified": "2026-09-27T21:36:52+02:00"
+    },
+    "frontier/reliability-gap": {
+      "modified": "2026-09-30T05:32:46+02:00"
+    },
+    "frontier/safety-and-assurance": {
+      "modified": "2026-09-27T21:36:52+02:00"
+    },
+    "manipulation/action-chunking": {
+      "modified": "2026-09-29T10:57:12+02:00"
+    },
+    "manipulation/action-spaces": {
+      "modified": "2026-09-25T17:41:46+02:00"
+    },
+    "manipulation/bc-foundations": {
+      "modified": "2026-09-26T07:02:20+02:00"
+    },
+    "manipulation/comparison-matrix": {
+      "modified": "2026-09-26T10:00:19+02:00"
+    },
+    "manipulation/cross-embodiment": {
+      "modified": "2026-09-26T10:00:19+02:00"
+    },
+    "manipulation/diffusion-policy": {
+      "modified": "2026-09-28T23:51:25+02:00"
+    },
+    "manipulation/foundation-models": {
+      "modified": "2026-09-25T17:41:46+02:00"
+    },
+    "manipulation/generalist-policies": {
+      "modified": "2026-09-26T10:00:19+02:00"
+    },
+    "manipulation/hierarchical": {
+      "modified": "2026-09-26T10:00:19+02:00"
+    },
+    "manipulation/knowledge-insulation": {
+      "modified": "2026-09-25T17:41:46+02:00"
+    },
+    "manipulation/pi-line": {
+      "modified": "2026-09-29T03:27:41+02:00"
+    },
+    "manipulation/realtime-execution": {
+      "modified": "2026-09-26T10:00:19+02:00"
+    },
+    "manipulation/rl-finetuning": {
+      "modified": "2026-09-25T17:41:46+02:00"
+    },
+    "manipulation/robot-learning-roadmap": {
+      "modified": "2026-09-25T17:41:46+02:00"
+    },
+    "manipulation/vla-models": {
+      "modified": "2026-09-29T03:27:41+02:00"
+    },
+    "rl-sim2real/humanoid-wbc": {
+      "modified": "2026-09-29T10:57:12+02:00"
+    },
+    "rl-sim2real/legged-locomotion": {
+      "modified": "2026-09-29T03:27:41+02:00"
+    },
+    "rl-sim2real/offline-rl": {
+      "modified": "2026-09-27T11:19:09+02:00"
+    },
+    "rl-sim2real/parallel-sim-rl": {
+      "modified": "2026-09-29T03:27:41+02:00"
+    },
+    "rl-sim2real/reward-design-mpc": {
+      "modified": "2026-09-29T13:09:40+02:00"
+    },
+    "rl-sim2real/rl-for-robotics": {
+      "modified": "2026-09-27T11:19:09+02:00"
+    },
+    "rl-sim2real/sim2real-transfer": {
+      "modified": "2026-09-29T11:24:50+02:00"
+    },
+    "rl-sim2real/why-rl-locomotion": {
+      "modified": "2026-09-27T11:19:09+02:00"
+    },
+    "world-models/evaluation": {
+      "modified": "2026-09-27T14:38:06+02:00"
+    },
+    "world-models/generative-sim": {
+      "modified": "2026-09-29T03:27:41+02:00"
+    },
+    "world-models/generative-video": {
+      "modified": "2026-09-29T03:27:41+02:00"
+    },
+    "world-models/jepa": {
+      "modified": "2026-09-27T14:38:06+02:00"
+    },
+    "world-models/latent-dynamics": {
+      "modified": "2026-09-29T03:27:41+02:00"
+    },
+    "world-models/model-based-robot-learning": {
+      "modified": "2026-09-27T14:38:06+02:00"
+    },
+    "world-models/taxonomy": {
+      "modified": "2026-09-29T16:33:30+02:00"
+    },
+    "world-models/world-models-vs-simulators": {
+      "modified": "2026-09-27T14:38:06+02:00"
+    }
+  }
+}

@@ -54,6 +54,7 @@
     "check:e2e-navigation-budget": "node scripts/check-e2e-navigation-budget.ts",
     "lint-no-slop": "node scripts/lint-no-slop.ts",
     "generate:companies": "node scripts/generate-companies.ts",
+    "generate:content-dates": "node scripts/generate-content-dates.ts",
     "pregenerate:og-cards": "node scripts/prune-generated-og-shadows.ts",
     "generate:og-cards": "node scripts/generate-og-cards.ts",
     "check:og-card-bytes": "node scripts/check-og-card-bytes.ts",

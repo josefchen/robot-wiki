@@ -1,4 +1,3 @@
-import { COMPANIES } from '../data/companies.ts';
 import { DOMAINS } from '../data/domains.ts';
 import { glossaryTermsAlphabetical } from '../data/glossary.ts';
 import { DOMAIN_META, publishedModules } from '../data/modules.ts';
@@ -7,7 +6,6 @@ import {
   heroLockupMemberId,
 } from './brand-v2-home-evidence.ts';
 import type { SurfaceCountExpectation } from './brand-v2-home-tools-evidence.ts';
-import { SEGMENT_ORDER } from './market-map.ts';
 
 /**
  * Canonical populations for the three home-composition assertions.
@@ -64,27 +62,45 @@ export type ProgressCounterSurface = {
   countExpectations: SurfaceCountExpectation[];
 };
 
-export function progressCounterSurfaces(): ProgressCounterSurface[] {
+/**
+ * `citedSources` is the distinct-source total of `lib/home-counts.ts`,
+ * passed in rather than imported: that count reads every published
+ * article's frontmatter through the application's path aliases, which the
+ * node-run enforcement generator that imports this module cannot resolve.
+ */
+export function progressCounterSurfaces(input: {
+  citedSources: number;
+}): ProgressCounterSurface[] {
   const published = publishedModules();
   const glossaryTerms = glossaryTermsAlphabetical();
   const surfaces: ProgressCounterSurface[] = [
     {
       id: 'route:/',
       path: '/',
+      // Home prints all three totals under its identity line (VAL-OPUS-014),
+      // so each is required: one of them reconciling says nothing about the
+      // other two.
       countExpectations: [
         {
-          memberId: 'count:/:companies',
-          noun: 'companies',
-          nounPattern: '^compan',
-          expected: COMPANIES.length,
-          required: false,
+          memberId: 'count:/:articles',
+          noun: 'published articles',
+          nounPattern: '^(article|module)',
+          expected: published.length,
+          required: true,
         },
         {
-          memberId: 'count:/:segments',
-          noun: 'market map segments',
-          nounPattern: '^segment',
-          expected: SEGMENT_ORDER.length,
-          required: false,
+          memberId: 'count:/:sources',
+          noun: 'distinct cited sources',
+          nounPattern: '^source',
+          expected: input.citedSources,
+          required: true,
+        },
+        {
+          memberId: 'count:/:glossary-terms',
+          noun: 'glossary terms',
+          nounPattern: '^(term|entr)',
+          expected: glossaryTerms.length,
+          required: true,
         },
       ],
     },

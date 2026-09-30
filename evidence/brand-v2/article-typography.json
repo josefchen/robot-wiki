@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "f13b5ad125d419e852495c89216f9204695e704b8f1630d89b13630cbfbb1804",
+  "fingerprint": "947fb494c25585faa6f627221b9ce50ae06a9aaba597fa17b6db295740de6369",
   "viewports": [
     "375x812",
     "1440x900"
@@ -8,6 +8,7 @@
   "routes": [
     "/",
     "/a-z/",
+    "/about/",
     "/adjacent/",
     "/adjacent/autonomous-vehicles/",
     "/adjacent/drones/",
@@ -141,7 +142,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 6490,
+      "visibleTextLength": 3076,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -185,7 +186,7 @@
         {
           "role": "section-display",
           "tag": "h2",
-          "text": "Domain index",
+          "text": "Contents",
           "face": {
             "familyHead": "tektur",
             "sizePx": 24,
@@ -198,7 +199,7 @@
         {
           "role": "section-display",
           "tag": "h2",
-          "text": "Featured interactive",
+          "text": "Featured article",
           "face": {
             "familyHead": "tektur",
             "sizePx": 20,
@@ -211,7 +212,7 @@
         {
           "role": "section-display",
           "tag": "h2",
-          "text": "Real hardware",
+          "text": "Featured scene",
           "face": {
             "familyHead": "tektur",
             "sizePx": 20,
@@ -224,7 +225,7 @@
         {
           "role": "section-display",
           "tag": "h2",
-          "text": "Interactive tools",
+          "text": "Did you know",
           "face": {
             "familyHead": "tektur",
             "sizePx": 20,
@@ -237,24 +238,11 @@
         {
           "role": "section-display",
           "tag": "h2",
-          "text": "Learning paths",
+          "text": "Recently updated",
           "face": {
             "familyHead": "tektur",
             "sizePx": 20,
             "lineHeightRatio": 1.4,
-            "trackingEm": -0.025,
-            "weight": 600,
-            "variationSettings": "\"wdth\" 100, \"wght\" 600"
-          }
-        },
-        {
-          "role": "section-display",
-          "tag": "h2",
-          "text": "How to read this wiki",
-          "face": {
-            "familyHead": "tektur",
-            "sizePx": 18,
-            "lineHeightRatio": 1.56,
             "trackingEm": -0.025,
             "weight": 600,
             "variationSettings": "\"wdth\" 100, \"wght\" 600"
@@ -449,20 +437,20 @@
           "controlId": "control:secondary-action"
         },
         {
-          "tag": "button",
-          "text": "Reset",
+          "tag": "input",
+          "text": "ALOHA, diffusion policy",
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
+          "sizePx": 15,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:input"
         },
         {
-          "tag": "summary",
-          "text": "Sampled episode success by episo",
+          "tag": "button",
+          "text": "Search",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
@@ -495,14 +483,6 @@
           "sizePx": 14,
           "inProse": false,
           "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "summary",
-          "text": "Joint travel declared by the shi",
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "inProse": false,
-          "controlId": "control:secondary-action"
         }
       ],
       "rules": [],
@@ -511,7 +491,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 6537,
+      "visibleTextLength": 6544,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -747,7 +727,230 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 880,
+      "visibleTextLength": 2523,
+      "tekturRoles": [
+        {
+          "role": "shell-wordmark",
+          "tag": "a",
+          "text": "Robot Wiki",
+          "face": {
+            "familyHead": "tektur",
+            "sizePx": 15,
+            "lineHeightRatio": 1.5,
+            "trackingEm": -0.02,
+            "weight": 600,
+            "variationSettings": "\"wdth\" 100, \"wght\" 600"
+          }
+        },
+        {
+          "role": "shell-wordmark",
+          "tag": "a",
+          "text": "Robot Wiki",
+          "face": {
+            "familyHead": "tektur",
+            "sizePx": 17,
+            "lineHeightRatio": 1.5,
+            "trackingEm": -0.025,
+            "weight": 600,
+            "variationSettings": "\"wdth\" 100, \"wght\" 600"
+          }
+        },
+        {
+          "role": "shell-wordmark",
+          "tag": "a",
+          "text": "Robot Wiki",
+          "face": {
+            "familyHead": "tektur",
+            "sizePx": 15,
+            "lineHeightRatio": 1.5,
+            "trackingEm": -0.02,
+            "weight": 600,
+            "variationSettings": "\"wdth\" 100, \"wght\" 600"
+          }
+        }
+      ],
+      "titleBlock": {
+        "present": false,
+        "h1Count": 1,
+        "h1Text": "About",
+        "summaryCount": 0,
+        "summaryText": "",
+        "breadcrumbLabels": [],
+        "lastReviewed": null,
+        "readingMinutes": null,
+        "citationCount": null,
+        "reviewDateText": "",
+        "reviewDateTime": "",
+        "readingTimeText": "",
+        "citationCountText": "",
+        "bibliographyIds": [],
+        "imageCount": 0,
+        "badgeCount": 0,
+        "eyebrowTexts": [],
+        "backgroundImage": "none"
+      },
+      "sheet": {
+        "columnFound": false,
+        "viewportWidthPx": 375,
+        "columnLeftPx": -1,
+        "columnWidthPx": -1,
+        "paddingLeftPx": 0,
+        "paddingRightPx": 0,
+        "mainLeftPx": 0,
+        "mainWidthPx": 375
+      },
+      "proseParagraphs": [],
+      "sectionLinks": [],
+      "linkTreatments": [
+        {
+          "kind": "section",
+          "count": 0,
+          "colour": "",
+          "decorationLine": "",
+          "decorationStyle": "",
+          "decorationColour": "",
+          "familyHead": "",
+          "shape": "",
+          "variants": []
+        },
+        {
+          "kind": "reference",
+          "count": 0,
+          "colour": "",
+          "decorationLine": "",
+          "decorationStyle": "",
+          "decorationColour": "",
+          "familyHead": "",
+          "shape": "",
+          "variants": []
+        },
+        {
+          "kind": "citation",
+          "count": 0,
+          "colour": "",
+          "decorationLine": "",
+          "decorationStyle": "",
+          "decorationColour": "",
+          "familyHead": "",
+          "shape": "",
+          "variants": []
+        },
+        {
+          "kind": "glossary",
+          "count": 0,
+          "colour": "",
+          "decorationLine": "",
+          "decorationStyle": "",
+          "decorationColour": "",
+          "familyHead": "",
+          "shape": "",
+          "variants": []
+        },
+        {
+          "kind": "external",
+          "count": 0,
+          "colour": "",
+          "decorationLine": "",
+          "decorationStyle": "",
+          "decorationColour": "",
+          "familyHead": "",
+          "shape": "",
+          "variants": []
+        },
+        {
+          "kind": "internal",
+          "count": 0,
+          "colour": "",
+          "decorationLine": "",
+          "decorationStyle": "",
+          "decorationColour": "",
+          "familyHead": "",
+          "shape": "",
+          "variants": []
+        }
+      ],
+      "registrationLabels": [
+        {
+          "text": "Search",
+          "familyHead": "ibm plex mono",
+          "sizePx": 11,
+          "trackingEm": 0.14
+        }
+      ],
+      "monoRequired": [],
+      "interfaceControls": [
+        {
+          "tag": "input",
+          "text": "ALOHA, chunk size",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:input"
+        },
+        {
+          "tag": "button",
+          "text": "Manipulation & Learned Policies",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "RL, Sim-to-Real & Locomotion",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "World Models",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Data, Hardware & Evaluation",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Classical Foundations",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Frontier & Open Problems",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Adjacent Domains",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        }
+      ],
+      "rules": [],
+      "route": "/about/",
+      "viewport": "375x812",
+      "isArticle": false
+    },
+    {
+      "visibleTextLength": 887,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -983,7 +1186,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 29082,
+      "visibleTextLength": 29089,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -1902,7 +2105,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18349,
+      "visibleTextLength": 18356,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -2650,7 +2853,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18040,
+      "visibleTextLength": 18047,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -3215,7 +3418,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16726,
+      "visibleTextLength": 16733,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -3758,7 +3961,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 1592,
+      "visibleTextLength": 1599,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -3994,7 +4197,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 11756,
+      "visibleTextLength": 11763,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -4762,7 +4965,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 25199,
+      "visibleTextLength": 25206,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -5834,7 +6037,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17093,
+      "visibleTextLength": 17100,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -6596,7 +6799,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15314,
+      "visibleTextLength": 15321,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -7412,7 +7615,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27874,
+      "visibleTextLength": 27881,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -8417,7 +8620,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 42042,
+      "visibleTextLength": 42049,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -9599,7 +9802,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 11643,
+      "visibleTextLength": 11650,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -10420,7 +10623,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27819,
+      "visibleTextLength": 27826,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -11366,7 +11569,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20415,
+      "visibleTextLength": 20422,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -12149,7 +12352,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21475,
+      "visibleTextLength": 21224,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -12385,7 +12588,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 1412,
+      "visibleTextLength": 1419,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -12621,7 +12824,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 16094,
+      "visibleTextLength": 16101,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -13432,7 +13635,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17047,
+      "visibleTextLength": 17054,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -14342,7 +14545,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18021,
+      "visibleTextLength": 18028,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -15176,7 +15379,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26611,
+      "visibleTextLength": 26618,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -16107,7 +16310,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24563,
+      "visibleTextLength": 24570,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -16965,7 +17168,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12292,
+      "visibleTextLength": 12299,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -17808,7 +18011,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14727,
+      "visibleTextLength": 14734,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -18489,7 +18692,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 1953,
+      "visibleTextLength": 1960,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -18712,7 +18915,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 1171,
+      "visibleTextLength": 1178,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -18948,7 +19151,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 17482,
+      "visibleTextLength": 17489,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -19833,7 +20036,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24696,
+      "visibleTextLength": 24703,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -20742,7 +20945,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21020,
+      "visibleTextLength": 21027,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -21625,7 +21828,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17407,
+      "visibleTextLength": 17414,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -22405,7 +22608,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14957,
+      "visibleTextLength": 14825,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -22567,7 +22770,7 @@
           "widthPx": 309,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Illustrative independence model, not a measured robot policy"
+          "text": "Illustrative model: all 30 decisions succeed independently a"
         },
         {
           "familyHead": "newsreader",
@@ -23209,7 +23412,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26803,
+      "visibleTextLength": 26810,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -24090,7 +24293,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 82834,
+      "visibleTextLength": 82841,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -24326,7 +24529,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 2730,
+      "visibleTextLength": 2737,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -24562,7 +24765,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 22751,
+      "visibleTextLength": 22758,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -25589,7 +25792,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12533,
+      "visibleTextLength": 12540,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -26320,7 +26523,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14135,
+      "visibleTextLength": 14142,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -27182,7 +27385,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28787,
+      "visibleTextLength": 28794,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -28105,7 +28308,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15483,
+      "visibleTextLength": 15490,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -28829,7 +29032,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14509,
+      "visibleTextLength": 14516,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -29612,7 +29815,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 11662,
+      "visibleTextLength": 11669,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -30362,7 +30565,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21915,
+      "visibleTextLength": 21922,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -31528,7 +31731,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19305,
+      "visibleTextLength": 19312,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -32300,7 +32503,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12236,
+      "visibleTextLength": 12243,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -33055,7 +33258,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26165,
+      "visibleTextLength": 26172,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -34296,7 +34499,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17346,
+      "visibleTextLength": 17353,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -35080,7 +35283,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 38102,
+      "visibleTextLength": 38109,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -36243,7 +36446,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 10777,
+      "visibleTextLength": 10784,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -36962,7 +37165,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20622,
+      "visibleTextLength": 20629,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -37915,7 +38118,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 49986,
+      "visibleTextLength": 49993,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -39127,7 +39330,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 1657,
+      "visibleTextLength": 1664,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -39501,7 +39704,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 1429,
+      "visibleTextLength": 1436,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -39724,7 +39927,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 1635,
+      "visibleTextLength": 1642,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -39960,7 +40163,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 20802,
+      "visibleTextLength": 20809,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -40738,7 +40941,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19090,
+      "visibleTextLength": 19097,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -41540,7 +41743,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 13555,
+      "visibleTextLength": 13562,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -42608,7 +42811,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16338,
+      "visibleTextLength": 16345,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -43384,7 +43587,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27602,
+      "visibleTextLength": 27609,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -44434,7 +44637,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 30053,
+      "visibleTextLength": 30060,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -45404,7 +45607,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24158,
+      "visibleTextLength": 24165,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -46307,7 +46510,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12138,
+      "visibleTextLength": 12145,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -46941,7 +47144,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 572,
+      "visibleTextLength": 579,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -47191,7 +47394,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 1700,
+      "visibleTextLength": 1707,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -47427,7 +47630,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 12099,
+      "visibleTextLength": 12106,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -48213,7 +48416,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17438,
+      "visibleTextLength": 17445,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -49074,7 +49277,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19911,
+      "visibleTextLength": 19918,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -49963,7 +50166,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16088,
+      "visibleTextLength": 16095,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -50669,7 +50872,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15948,
+      "visibleTextLength": 15955,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -51416,7 +51619,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 10657,
+      "visibleTextLength": 10664,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -52119,7 +52322,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19285,
+      "visibleTextLength": 19292,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -53105,7 +53308,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19557,
+      "visibleTextLength": 19564,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -53974,7 +54177,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 6712,
+      "visibleTextLength": 3298,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -54018,7 +54221,7 @@
         {
           "role": "section-display",
           "tag": "h2",
-          "text": "Domain index",
+          "text": "Contents",
           "face": {
             "familyHead": "tektur",
             "sizePx": 24,
@@ -54031,7 +54234,7 @@
         {
           "role": "section-display",
           "tag": "h2",
-          "text": "Featured interactive",
+          "text": "Featured article",
           "face": {
             "familyHead": "tektur",
             "sizePx": 20,
@@ -54044,7 +54247,7 @@
         {
           "role": "section-display",
           "tag": "h2",
-          "text": "Real hardware",
+          "text": "Featured scene",
           "face": {
             "familyHead": "tektur",
             "sizePx": 20,
@@ -54057,7 +54260,7 @@
         {
           "role": "section-display",
           "tag": "h2",
-          "text": "Interactive tools",
+          "text": "Did you know",
           "face": {
             "familyHead": "tektur",
             "sizePx": 20,
@@ -54070,24 +54273,11 @@
         {
           "role": "section-display",
           "tag": "h2",
-          "text": "Learning paths",
+          "text": "Recently updated",
           "face": {
             "familyHead": "tektur",
             "sizePx": 20,
             "lineHeightRatio": 1.4,
-            "trackingEm": -0.025,
-            "weight": 600,
-            "variationSettings": "\"wdth\" 100, \"wght\" 600"
-          }
-        },
-        {
-          "role": "section-display",
-          "tag": "h2",
-          "text": "How to read this wiki",
-          "face": {
-            "familyHead": "tektur",
-            "sizePx": 18,
-            "lineHeightRatio": 1.56,
             "trackingEm": -0.025,
             "weight": 600,
             "variationSettings": "\"wdth\" 100, \"wght\" 600"
@@ -54282,20 +54472,20 @@
           "controlId": "control:secondary-action"
         },
         {
-          "tag": "button",
-          "text": "Reset",
+          "tag": "input",
+          "text": "ALOHA, diffusion policy",
           "familyHead": "ibm plex sans",
-          "sizePx": 14,
+          "sizePx": 15,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:input"
         },
         {
-          "tag": "summary",
-          "text": "Sampled episode success by episo",
+          "tag": "button",
+          "text": "Search",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
@@ -54328,14 +54518,6 @@
           "sizePx": 14,
           "inProse": false,
           "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "summary",
-          "text": "Joint travel declared by the shi",
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "inProse": false,
-          "controlId": "control:secondary-action"
         }
       ],
       "rules": [],
@@ -54344,7 +54526,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 6759,
+      "visibleTextLength": 6766,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -54580,7 +54762,230 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 1198,
+      "visibleTextLength": 2745,
+      "tekturRoles": [
+        {
+          "role": "shell-wordmark",
+          "tag": "a",
+          "text": "Robot Wiki",
+          "face": {
+            "familyHead": "tektur",
+            "sizePx": 15,
+            "lineHeightRatio": 1.5,
+            "trackingEm": -0.02,
+            "weight": 600,
+            "variationSettings": "\"wdth\" 100, \"wght\" 600"
+          }
+        },
+        {
+          "role": "shell-wordmark",
+          "tag": "a",
+          "text": "Robot Wiki",
+          "face": {
+            "familyHead": "tektur",
+            "sizePx": 17,
+            "lineHeightRatio": 1.5,
+            "trackingEm": -0.025,
+            "weight": 600,
+            "variationSettings": "\"wdth\" 100, \"wght\" 600"
+          }
+        },
+        {
+          "role": "shell-wordmark",
+          "tag": "a",
+          "text": "Robot Wiki",
+          "face": {
+            "familyHead": "tektur",
+            "sizePx": 15,
+            "lineHeightRatio": 1.5,
+            "trackingEm": -0.02,
+            "weight": 600,
+            "variationSettings": "\"wdth\" 100, \"wght\" 600"
+          }
+        }
+      ],
+      "titleBlock": {
+        "present": false,
+        "h1Count": 1,
+        "h1Text": "About",
+        "summaryCount": 0,
+        "summaryText": "",
+        "breadcrumbLabels": [],
+        "lastReviewed": null,
+        "readingMinutes": null,
+        "citationCount": null,
+        "reviewDateText": "",
+        "reviewDateTime": "",
+        "readingTimeText": "",
+        "citationCountText": "",
+        "bibliographyIds": [],
+        "imageCount": 0,
+        "badgeCount": 0,
+        "eyebrowTexts": [],
+        "backgroundImage": "none"
+      },
+      "sheet": {
+        "columnFound": false,
+        "viewportWidthPx": 1440,
+        "columnLeftPx": -1,
+        "columnWidthPx": -1,
+        "paddingLeftPx": 0,
+        "paddingRightPx": 0,
+        "mainLeftPx": 288,
+        "mainWidthPx": 1152
+      },
+      "proseParagraphs": [],
+      "sectionLinks": [],
+      "linkTreatments": [
+        {
+          "kind": "section",
+          "count": 0,
+          "colour": "",
+          "decorationLine": "",
+          "decorationStyle": "",
+          "decorationColour": "",
+          "familyHead": "",
+          "shape": "",
+          "variants": []
+        },
+        {
+          "kind": "reference",
+          "count": 0,
+          "colour": "",
+          "decorationLine": "",
+          "decorationStyle": "",
+          "decorationColour": "",
+          "familyHead": "",
+          "shape": "",
+          "variants": []
+        },
+        {
+          "kind": "citation",
+          "count": 0,
+          "colour": "",
+          "decorationLine": "",
+          "decorationStyle": "",
+          "decorationColour": "",
+          "familyHead": "",
+          "shape": "",
+          "variants": []
+        },
+        {
+          "kind": "glossary",
+          "count": 0,
+          "colour": "",
+          "decorationLine": "",
+          "decorationStyle": "",
+          "decorationColour": "",
+          "familyHead": "",
+          "shape": "",
+          "variants": []
+        },
+        {
+          "kind": "external",
+          "count": 0,
+          "colour": "",
+          "decorationLine": "",
+          "decorationStyle": "",
+          "decorationColour": "",
+          "familyHead": "",
+          "shape": "",
+          "variants": []
+        },
+        {
+          "kind": "internal",
+          "count": 0,
+          "colour": "",
+          "decorationLine": "",
+          "decorationStyle": "",
+          "decorationColour": "",
+          "familyHead": "",
+          "shape": "",
+          "variants": []
+        }
+      ],
+      "registrationLabels": [
+        {
+          "text": "Search",
+          "familyHead": "ibm plex mono",
+          "sizePx": 11,
+          "trackingEm": 0.14
+        }
+      ],
+      "monoRequired": [],
+      "interfaceControls": [
+        {
+          "tag": "input",
+          "text": "ALOHA, chunk size",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:input"
+        },
+        {
+          "tag": "button",
+          "text": "Manipulation & Learned Policies",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "RL, Sim-to-Real & Locomotion",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "World Models",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Data, Hardware & Evaluation",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Classical Foundations",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Frontier & Open Problems",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Adjacent Domains",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        }
+      ],
+      "rules": [],
+      "route": "/about/",
+      "viewport": "1440x900",
+      "isArticle": false
+    },
+    {
+      "visibleTextLength": 1205,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -54816,7 +55221,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 29400,
+      "visibleTextLength": 29407,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -55735,7 +56140,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18667,
+      "visibleTextLength": 18674,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -56483,7 +56888,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18358,
+      "visibleTextLength": 18365,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -57048,7 +57453,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17044,
+      "visibleTextLength": 17051,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -57591,7 +57996,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 2013,
+      "visibleTextLength": 2020,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -57827,7 +58232,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 12177,
+      "visibleTextLength": 12184,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -58595,7 +59000,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 25620,
+      "visibleTextLength": 25627,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -59667,7 +60072,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17514,
+      "visibleTextLength": 17521,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -60429,7 +60834,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15735,
+      "visibleTextLength": 15742,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -61245,7 +61650,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28295,
+      "visibleTextLength": 28302,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -62250,7 +62655,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 42456,
+      "visibleTextLength": 42463,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -63432,7 +63837,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12064,
+      "visibleTextLength": 12071,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -64253,7 +64658,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28240,
+      "visibleTextLength": 28247,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -65199,7 +65604,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20834,
+      "visibleTextLength": 20841,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -65982,7 +66387,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21697,
+      "visibleTextLength": 21446,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -66218,7 +66623,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 1791,
+      "visibleTextLength": 1798,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -66454,7 +66859,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 16473,
+      "visibleTextLength": 16480,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -67265,7 +67670,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17426,
+      "visibleTextLength": 17433,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -68175,7 +68580,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18400,
+      "visibleTextLength": 18407,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -69009,7 +69414,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26990,
+      "visibleTextLength": 26997,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -69940,7 +70345,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24942,
+      "visibleTextLength": 24949,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -70798,7 +71203,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12671,
+      "visibleTextLength": 12678,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -71641,7 +72046,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15106,
+      "visibleTextLength": 15113,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -72322,7 +72727,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 2175,
+      "visibleTextLength": 2182,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -72545,7 +72950,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 1506,
+      "visibleTextLength": 1513,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -72781,7 +73186,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 17817,
+      "visibleTextLength": 17824,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -73666,7 +74071,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 25031,
+      "visibleTextLength": 25038,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -74575,7 +74980,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21355,
+      "visibleTextLength": 21362,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -75458,7 +75863,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17742,
+      "visibleTextLength": 17749,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -76238,7 +76643,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15292,
+      "visibleTextLength": 15160,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -76400,7 +76805,7 @@
           "widthPx": 689,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Illustrative independence model, not a measured robot policy"
+          "text": "Illustrative model: all 30 decisions succeed independently a"
         },
         {
           "familyHead": "newsreader",
@@ -77042,7 +77447,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27138,
+      "visibleTextLength": 27145,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -77923,7 +78328,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 83056,
+      "visibleTextLength": 83063,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -78159,7 +78564,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 3357,
+      "visibleTextLength": 3364,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -78395,7 +78800,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 23378,
+      "visibleTextLength": 23385,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -79422,7 +79827,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 13160,
+      "visibleTextLength": 13167,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -80153,7 +80558,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14762,
+      "visibleTextLength": 14769,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -81015,7 +81420,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 29414,
+      "visibleTextLength": 29421,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -81938,7 +82343,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16110,
+      "visibleTextLength": 16117,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -82662,7 +83067,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15136,
+      "visibleTextLength": 15143,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -83445,7 +83850,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12289,
+      "visibleTextLength": 12296,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -84195,7 +84600,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22542,
+      "visibleTextLength": 22549,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -85361,7 +85766,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19932,
+      "visibleTextLength": 19939,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -86133,7 +86538,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12863,
+      "visibleTextLength": 12870,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -86888,7 +87293,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26792,
+      "visibleTextLength": 26799,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -88129,7 +88534,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17973,
+      "visibleTextLength": 17980,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -88913,7 +89318,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 38729,
+      "visibleTextLength": 38736,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -90076,7 +90481,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 11404,
+      "visibleTextLength": 11411,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -90795,7 +91200,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21249,
+      "visibleTextLength": 21256,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -91748,7 +92153,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 54599,
+      "visibleTextLength": 54606,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -92960,7 +93365,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 1879,
+      "visibleTextLength": 1886,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -93334,7 +93739,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 1651,
+      "visibleTextLength": 1658,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -93557,7 +93962,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 2110,
+      "visibleTextLength": 2117,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -93793,7 +94198,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 21277,
+      "visibleTextLength": 21284,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -94571,7 +94976,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19565,
+      "visibleTextLength": 19572,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -95373,7 +95778,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14030,
+      "visibleTextLength": 14037,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -96441,7 +96846,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16813,
+      "visibleTextLength": 16820,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -97217,7 +97622,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28077,
+      "visibleTextLength": 28084,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -98267,7 +98672,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 30528,
+      "visibleTextLength": 30535,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -99237,7 +99642,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24633,
+      "visibleTextLength": 24640,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -100140,7 +100545,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12613,
+      "visibleTextLength": 12620,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -100774,7 +101179,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 794,
+      "visibleTextLength": 801,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -101024,7 +101429,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 2184,
+      "visibleTextLength": 2191,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -101260,7 +101665,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 12583,
+      "visibleTextLength": 12590,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -102046,7 +102451,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17922,
+      "visibleTextLength": 17929,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -102907,7 +103312,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20395,
+      "visibleTextLength": 20402,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -103796,7 +104201,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16572,
+      "visibleTextLength": 16579,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -104502,7 +104907,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16432,
+      "visibleTextLength": 16439,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -105249,7 +105654,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 11141,
+      "visibleTextLength": 11148,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -105952,7 +106357,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19769,
+      "visibleTextLength": 19776,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -106938,7 +107343,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20041,
+      "visibleTextLength": 20048,
       "tekturRoles": [
         {
           "role": "shell-wordmark",

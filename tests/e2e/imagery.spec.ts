@@ -24,7 +24,6 @@ let BASE: string;
 
 /** Every route that renders at least one content image. */
 const IMAGE_ROUTES = [
-  '/',
   '/classical/kinematics/',
   '/data-hardware/hardware-taxonomy/',
   '/manipulation/action-chunking/',

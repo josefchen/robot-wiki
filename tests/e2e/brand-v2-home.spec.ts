@@ -15,6 +15,7 @@ import {
   heroLockupVerdicts,
   homeCompositionVerdicts,
   homeEvidenceFingerprint,
+  homeProseVerdicts,
   homeStructureTable,
   readHomeCompositionEvidence,
   type HomeCompositionEvidence,
@@ -481,10 +482,36 @@ function collectHome(args: CollectArgs) {
       };
     });
 
-  const overviewParagraph =
-    [...main.querySelectorAll('p')].find((paragraph) =>
-      /encyclopedia of modern robotics/i.test(text(paragraph)),
-    ) ?? null;
+  // VAL-DESIGN-011: each block's running text is its rendered text nodes
+  // outside headings, links, dates, form controls and the scene. Walking
+  // text nodes rather than reading a clone keeps a space between inline
+  // runs, so "57 articles" and "434 sources" stay two phrases.
+  const NOT_RUNNING_TEXT =
+    'h1, h2, h3, h4, h5, h6, a, time, form, button, label, input, [data-motion-scene], script, style, [hidden], [aria-hidden="true"]';
+  const runningText = (section: Element) => {
+    const walker = document.createTreeWalker(section, NodeFilter.SHOW_TEXT);
+    const parts: string[] = [];
+    for (let node = walker.nextNode(); node; node = walker.nextNode()) {
+      const parent = node.parentElement;
+      if (!parent || parent.closest(NOT_RUNNING_TEXT)) continue;
+      if (!parent.checkVisibility()) continue;
+      const value = (node.textContent ?? '').trim();
+      if (value.length > 0) parts.push(value);
+    }
+    return parts.join(' ').replace(/\s+/g, ' ').replace(/\s+([.,;:])/g, '$1').trim();
+  };
+  const proseBlocks = sectionElements.map((section) => {
+    const labelledBy = section.getAttribute('aria-labelledby');
+    const heading = labelledBy ? document.getElementById(labelledBy) : null;
+    return {
+      label:
+        section.getAttribute('aria-label') ??
+        (heading ? text(heading) : text(section).slice(0, 60)),
+      signature: (section as HTMLElement).dataset.brandModuleSignature ?? null,
+      prose: runningText(section),
+      text: text(section),
+    };
+  });
 
   const bodyText = text(main).toLowerCase();
   const progressMetadataMatches = args.progressPatterns.filter((pattern) =>
@@ -509,7 +536,7 @@ function collectHome(args: CollectArgs) {
     chromeText,
     domainAnchorCounts,
     proseSectionDomainNames,
-    overviewProse: overviewParagraph ? text(overviewParagraph) : '',
+    proseBlocks,
     progressMetadataMatches,
     borderedCardCount,
   };
@@ -605,19 +632,24 @@ test.describe('brand-v2 home composition', () => {
       ),
     ).toEqual([]);
 
-    // VAL-DESIGN-008: no prose section re-enumerates the taxonomy.
+    // VAL-DESIGN-008: no prose section re-enumerates the taxonomy, and home
+    // carries no reading guidance (that lives on /about/, VAL-NAV-005).
     expect(
       evidence.proseSectionDomainNames.filter(({ names }) => names.length >= 4),
     ).toEqual([]);
-
-    // VAL-DESIGN-011: the overview is substantive prose, not a tagline.
-    const words = evidence.overviewProse.split(/\s+/).filter(Boolean);
-    expect(words.length, 'home overview words').toBeGreaterThanOrEqual(25);
     expect(
-      evidence.overviewProse.split(/[.!?]+/).filter((s) => s.trim().length > 0)
-        .length,
-      'home overview sentences',
-    ).toBeGreaterThanOrEqual(2);
+      evidence.proseBlocks
+        .filter(({ text: blockText }) =>
+          /how to read|reading order|prerequisites/i.test(blockText),
+        )
+        .map(({ label }) => label),
+      'home blocks carrying reading guidance',
+    ).toEqual([]);
+
+    // VAL-DESIGN-011: home prose is the front-page blocks' own, with no
+    // overview or mission paragraph, and none of it carries banned wording
+    // or a dash.
+    expect(homeProseVerdicts(evidence, literals)).toEqual([]);
 
     // VAL-DESIGN-012: home chrome carries no em-dash or en-dash.
     expect(evidence.chromeText.match(/[\u2013\u2014]/g) ?? []).toEqual([]);
@@ -713,6 +745,55 @@ test.describe('brand-v2 home composition', () => {
       'anchor:home-black-primary-action',
       'anchor:home-lime-highlight',
     ]);
+  });
+
+  /**
+   * The plant for VAL-DESIGN-011. A mission sentence beside the descriptor
+   * and a paragraph in the tools line are both prose the front page does
+   * not permit, and the sweep has to read them as running text rather than
+   * lose them among the links around them.
+   */
+  test('refuses an overview beside the identity line and prose in the tools line', async ({
+    page,
+    staticBase,
+  }) => {
+    const domains = canonicalDomainDestinations();
+    await page.setViewportSize({
+      width: HOME_VIEWPORT.width,
+      height: HOME_VIEWPORT.height,
+    });
+    await page.goto(`${staticBase}${HOME_ROUTE}`);
+    await page.waitForLoadState('networkidle');
+    await page.evaluate(() => document.fonts.ready);
+    const clean = await page.evaluate(collectHome, collectArgs(domains));
+    expect(
+      homeProseVerdicts(clean, { descriptor: PUBLIC_DESCRIPTOR }),
+    ).toEqual([]);
+
+    const planted = await page.evaluate(() => {
+      const identity = document.querySelector('main > section[aria-label="Introduction"]');
+      const tools = document.querySelector('main > section[aria-label="Tools"] div');
+      if (!identity || !tools) return false;
+      const overview = document.createElement('p');
+      overview.textContent =
+        'An encyclopedia of modern robotics, written for engineers who build robots.';
+      identity.querySelector('[data-home-counts]')?.after(overview);
+      const paragraph = document.createElement('p');
+      paragraph.textContent = 'Two tools for exploring the wiki in more depth.';
+      tools.append(paragraph);
+      return true;
+    });
+    expect(planted).toBe(true);
+    const collected = await page.evaluate(collectHome, collectArgs(domains));
+    const failures = homeProseVerdicts(collected, {
+      descriptor: PUBLIC_DESCRIPTOR,
+    }).join(' ');
+    expect(failures).toMatch(
+      /identity line carries "An encyclopedia of modern robotics.*which is a mission statement or overview/,
+    );
+    expect(failures).toMatch(
+      /"Tools" block belongs to VAL-OPUS-020, which offers links and controls, yet it carries \d+ words of running text/,
+    );
   });
 
   /**
@@ -896,7 +977,7 @@ test.describe('brand-v2 home composition', () => {
       /declares the signature "plain\/module-heading\/invented", which contract\/brand-v2-section-signature-registry\.json does not register/,
     );
     expect(structure).toMatch(
-      /registers "ruled-plain\/closing-heading\/guidance-prose" for \/ .* which no section on that route declares/,
+      /registers "ruled-plain\/inline-label\/link-line" for \/ .* which no section on that route declares/,
     );
   });
 

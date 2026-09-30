@@ -329,7 +329,65 @@ const round6RemainingRepairAppends = [
 const opusFigureSystemAppends = [
   'opus-figure-system-20260930-prose-reliability-gap',
 ] as const;
-const afterRound6 = merged.length - opusFigureSystemAppends.length;
+// The home front page of 2026-09-30 renames five home section headings in
+// place, names its new search, contents, tools and fact controls, adds the
+// /about/ section names, and removes the home calculator mount and the Spot
+// photo. It also retires three names that were additions after the seal: the
+// learning-path sections and the "How to read this wiki" heading, which move
+// to /about/, and the SO-101 preview figure. The article-truth population
+// keeps an added member until a delta removes it, so each removal needs its
+// own edge even though the sealed baseline never held the member. Each tuple
+// is the manifest, the member, its endpoint before the front page and its
+// endpoint after it. None of these members has a reconciling resolution, so
+// each gets a plain edge.
+const MISSING_MEMBER = sha256('missing');
+const opusHomepageEndpoints: ReadonlyArray<readonly [string, string, string, string, string]> = [
+  ['home-contents-heading', 'accessible-names', 'literal:app/page.tsx:aria-labelledby:2',
+    'acdbc8006700cc532ba7007829d3cd3d7c5297e61eea0949382dba1da870e9f5',
+    'ccd04d5dee39d3ee5db06e314867b12a9a2d5de6ef304d1dc82df16f81c2a8e6'],
+  ['home-featured-article-heading', 'accessible-names', 'literal:app/page.tsx:aria-labelledby:3',
+    '7cda27de2b0f3e1d784762edc699462e8703398bacfd308a8e4437377fbae355',
+    '77f862371487e5716bb9898e569697bc8d1a9453df2365c751b57525e8ec5b4f'],
+  ['home-featured-scene-heading', 'accessible-names', 'literal:app/page.tsx:aria-labelledby:4',
+    'd5ee88ffaeefd0b4422286a3fb2f9266367898228d88833e2ddcc0a9ba60ceea',
+    '4e6df5cc8bfb28f3d0930799185bc23f771ca15c7901ca29757db9082a5e5d26'],
+  ['home-did-you-know-heading', 'accessible-names', 'literal:app/page.tsx:aria-labelledby:5',
+    'b500bfbcf5c9ce21838f59b8fcd611fa2a4bc17ac3012345f706292ec7457e4a',
+    '4c95ac413183de6ad06953bb155baf6656c10449b26ad7c4439537aa753fb52f'],
+  ['home-recently-updated-heading', 'accessible-names', 'literal:app/page.tsx:aria-labelledby:6',
+    '755c1ddaf3f64ac76aed1e7740bc360a5c3e80efe826cfc601cbc03fe07fb555',
+    '985f09c0639c4e7d7690758a85828fe74d4bfbcee72618a42672f598a8ef27e4'],
+  ['home-tools-label', 'accessible-names', 'literal:app/page.tsx:aria-label:7', MISSING_MEMBER,
+    '2eed6d92f337738d98b9252bce897f357e8bb283ec89167d3b2a0b6863f54b42'],
+  ['home-search-form', 'accessible-names', 'literal:components/home/home-search.tsx:aria-label:1',
+    MISSING_MEMBER, 'da7935abdbb535a75c52310f242642636378c7ffbb62d38d84e5d756c3f7c21b'],
+  ['home-search-input', 'accessible-names', 'literal:components/home/home-search.tsx:aria-label:2',
+    MISSING_MEMBER, 'c15234e752dded73685e2dcd70b7a3b41bccc9c9f85e79ec3f719d24fc17d400'],
+  ['contents-domain-list', 'accessible-names', 'expression:components/home/contents-index.tsx:aria-label:1',
+    MISSING_MEMBER, 'a6a9ae11b4b97c8752583893eaece89f443e17dc87e38d40f3036b8780b3e429'],
+  ['did-you-know-cite-title', 'accessible-names', 'expression:components/home/did-you-know.tsx:title:1',
+    MISSING_MEMBER, '72d6213d7ad6a4cc1dc537c171a5bc752c66da10855bbf7484ea0cacb24d70ac'],
+  ['about-reading-heading', 'accessible-names', 'literal:app/about/page.tsx:aria-labelledby:1',
+    MISSING_MEMBER, 'b2bf08609621dbfc56c52dc6473dc1f54d011fe0e55cf58f48afe57ed0462b9a'],
+  ['about-paths-heading', 'accessible-names', 'literal:app/about/page.tsx:aria-labelledby:2',
+    MISSING_MEMBER, 'ae9fe1fbf6d61c3c84317bf992209e4d727c89946db22c069b71a9f16b20c986'],
+  ['about-reading-path', 'accessible-names', 'expression:app/about/page.tsx:aria-labelledby:1',
+    MISSING_MEMBER, '08cb5e560781f025d07c603b73db512651ded5c76267e5e03496eb4548374f71'],
+  ['spot-raf-agile-liberty-2021', 'assets-svg', 'registered-image:spot-raf-agile-liberty-2021',
+    'f1c63995d8ca06f8bc1a584b3852531fe72f79aabd04baca9672a66b54e3b761', MISSING_MEMBER],
+  ['home-reliability-compounding', 'interactive-sources-mounts', 'mount:app/page.tsx:ReliabilityCompounding:1',
+    'be36fd2a0180825addfdd2192ef840b33d5a7f79846022b05d84436767cd3adf', MISSING_MEMBER],
+  ['home-learning-path-sections', 'accessible-names', 'expression:app/page.tsx:aria-labelledby:1',
+    '47812abac73c4ebb2ca2098f1c0a8cae4954529589ee2828be57f64069ae9036', MISSING_MEMBER],
+  ['home-how-to-read-heading', 'accessible-names', 'literal:app/page.tsx:aria-labelledby:7',
+    '96e1a60786314f4a3a4c46d46491c14fea4c791cf8aac4eb90f1f94ffde2d12b', MISSING_MEMBER],
+  ['so101-chain-preview', 'accessible-names', 'expression:components/home/so101-chain-preview.tsx:aria-label:1',
+    '9712784f324b174e820d00ff0098bfe9afe89ea5e1ff2983c28b53f5c7602f7b', MISSING_MEMBER],
+];
+const opusHomepageAppends = opusHomepageEndpoints.map(([slug, manifest]) =>
+  `opus-homepage-20260930-${manifest === 'interactive-sources-mounts' ? 'mounts' : manifest}-${slug}`);
+const afterOpusFigureSystem = merged.length - opusHomepageAppends.length;
+const afterRound6 = afterOpusFigureSystem - opusFigureSystemAppends.length;
 const afterRound6Prose = afterRound6 - round6RemainingRepairAppends.length;
 const beforeRound6 = merged.slice(0, afterRound6Prose - round6ProseRestoreAppends.length);
 
@@ -348,13 +406,13 @@ describe('two-parent exact approval reconciliation', () => {
     // The subsequent domain passes add nine classical article endpoints,
     // two manipulation mounts, eight RL article endpoints and five RL
     // reconciliation edges, all named below in ledger order, and the round-6
-    // prose restores and remaining repairs and the figure-system resolution
-    // add the edges named above.
-    expect([main.length, local.length, localOnly.length, merged.length]).toEqual([1558, 1104, 7, 1776]);
+    // prose restores and remaining repairs, the figure-system resolution and
+    // the home front page add the edges named above.
+    expect([main.length, local.length, localOnly.length, merged.length]).toEqual([1558, 1104, 7, 1794]);
     expect(merged.slice(0, main.length)).toEqual(main);
     expect(merged.slice(main.length, main.length + localOnly.length)).toEqual(localOnly);
     expect(merged.slice(main.length + localOnly.length).map(x => x.id))
-      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends]);
+      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends]);
     expect(merged.slice(beforeRound6.length, afterRound6Prose)).toMatchObject(round6ProseRestoreEndpoints.map(
       ([memberId, , newHash], index) => ({
         id: round6ProseRestoreAppends[index], manifest: 'prose', memberId, newHash,
@@ -363,12 +421,17 @@ describe('two-parent exact approval reconciliation', () => {
       ([manifest, memberId, oldHash, newHash], index) => ({
         id: round6RemainingRepairAppends[index], manifest, memberId, oldHash, newHash,
       })));
-    expect(merged.slice(afterRound6)).toMatchObject([{
+    expect(merged.slice(afterRound6, afterOpusFigureSystem)).toMatchObject([{
       id: opusFigureSystemAppends[0], manifest: 'prose',
       memberId: 'article:frontier/reliability-gap',
       oldHash: 'a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c',
       newHash: 'ec938d42bd87814a5ef1f3c3808a4fbc645107b4e94e6a822646a0465610a063',
     }]);
+    expect(merged.slice(afterOpusFigureSystem)).toMatchObject(opusHomepageEndpoints.map(
+      ([, manifest, memberId, oldHash, newHash], index) => ({
+        id: opusHomepageAppends[index], manifest, memberId, oldHash, newHash,
+        responsibleMilestone: 'opus-pass', disposition: 'permanent',
+      })));
     expect(beforeRound6.slice(-1)).toMatchObject([{
       id: sharedReaderLayoutAppends[0], manifest: 'article-metadata',
       memberId: 'canonical-metadata-source:app/layout.tsx',
@@ -615,6 +678,36 @@ describe('two-parent exact approval reconciliation', () => {
       expect(prior.some(x => x.reconciles !== undefined)).toBe(false);
       expect(prior.at(-1)?.newHash).toBe(previous);
       expect(approvedDeltaPath(prior, sealed, previous).status).toBe('approved');
+      expect(approvedDeltaPath(edges, sealed, current).status).toBe('approved');
+      expect(approvedDeltaPath(prior, sealed, current).status).toBe('missing');
+    }
+  });
+
+  it('binds each home front-page edge to its previous endpoint and to the sealed hash', () => {
+    for (const [index, [, manifest, memberId, previous, current]] of opusHomepageEndpoints.entries()) {
+      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(
+        readFileSync(`evidence/brand-v2/baseline/${manifest}.json`, 'utf8'));
+      const edges = merged.filter(x => x.manifest === manifest && x.memberId === memberId);
+      // A member the seal does not hold starts from the hash of 'missing'.
+      const sealed = sealedManifest.members.find(x => x.id === memberId)?.hash ?? MISSING_MEMBER;
+      const entry = edges.at(-1)!;
+      const prior = edges.slice(0, -1);
+      expect(entry.id).toBe(opusHomepageAppends[index]);
+      expect([entry.oldHash, entry.newHash]).toEqual([previous, current]);
+      expect(entry.reconciles).toBeUndefined();
+      expect(prior.some(x => x.reconciles !== undefined)).toBe(false);
+      if (previous !== sealed) {
+        expect(approvedDeltaPath(prior, sealed, previous).status).toBe('approved');
+      }
+      if (current === sealed) {
+        // Added after the seal and removed again: the member is back where the
+        // seal left it, absent, so the baseline needs no path to it. The
+        // removal edge is what drops the earlier addition from the
+        // article-truth population.
+        expect(prior.some(x => x.oldHash === MISSING_MEMBER)).toBe(true);
+        expect(approvedDeltaPath(edges, sealed, current).status).toBe('missing');
+        continue;
+      }
       expect(approvedDeltaPath(edges, sealed, current).status).toBe('approved');
       expect(approvedDeltaPath(prior, sealed, current).status).toBe('missing');
     }

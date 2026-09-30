@@ -377,22 +377,24 @@ test.describe('prediction step (PredictThenReveal)', () => {
     });
     page.on('pageerror', (err) => consoleErrors.push(String(err)));
 
-    // / : ReliabilityCompounding (home page mount; its markup was touched
-    // for useId-derived input ids).
-    await page.goto('/');
-    const homeFigure = page
+    // /frontier/reliability-gap/ : ReliabilityCompounding at its default
+    // configuration (its markup was touched for useId-derived input ids).
+    // Home mounted it the same way until the front page dropped it under
+    // the approved delta opus-homepage-20260930-mounts-home-reliability-compounding.
+    await page.goto('/frontier/reliability-gap/');
+    const reliabilityFigure = page
       .locator('div.rounded-md, div.rounded-none')
       .filter({
         has: page.locator('svg[aria-label^="Line chart of episode success"]'),
       })
       .first();
     await expect(
-      homeFigure.getByRole('slider', { name: /per-step success probability/i }),
+      reliabilityFigure.getByRole('slider', { name: /per-step success probability/i }),
     ).toHaveValue('95');
     await expect(
-      homeFigure.getByRole('slider', { name: /episode length in steps/i }),
+      reliabilityFigure.getByRole('slider', { name: /episode length in steps/i }),
     ).toHaveValue('30');
-    await expect(page.getByTestId('episode-success-readout')).toHaveText('21.5%');
+    await expect(reliabilityFigure.getByTestId('episode-success-readout')).toHaveText('21.5%');
 
     // /manipulation/realtime-execution/ : the standalone ControlLoopBudget
     // mount (document order puts it before the wrapped prediction figure).
@@ -461,9 +463,9 @@ test.describe('prediction step (PredictThenReveal)', () => {
 
     expect(consoleErrors).toEqual([]);
 
-    // Axe on every modified-component route, including /.
+    // Axe on every modified-component route.
     for (const route of [
-      '/',
+      '/frontier/reliability-gap/',
       '/manipulation/realtime-execution/',
       '/classical/control/',
       '/frontier/generalization/',

@@ -28,6 +28,7 @@ export interface ArticleSeoProfile {
 
 /** Descriptive titles for indexable standalone landing pages. */
 export const STANDALONE_SEO_TITLES = {
+  about: 'Robot Wiki Scope and Reading Guide',
   azIndex: 'Robotics A-Z: Articles and Glossary',
   credits: 'About Robot Wiki and Image Credits',
   editorialPolicy: 'Robot Wiki Editorial and Corrections Policy',
@@ -39,6 +40,8 @@ export const STANDALONE_SEO_TITLES = {
 
 /** Metadata descriptions for every fixed route other than the home page. */
 export const STANDALONE_SEO_DESCRIPTIONS = {
+  about:
+    'What Robot Wiki covers and excludes, the order to read its articles in, what they assume you know, and how its citations work.',
   azIndex:
     'Every published Robot Wiki article and glossary term in one alphabetical list.',
   credits:
@@ -200,7 +203,7 @@ export function websiteJsonLd(): string {
 type ArticleJsonLdInput = {
   entry: Pick<ModuleRegistryEntry, 'domain' | 'slug' | 'title' | 'summary'>;
   datePublished?: string;
-  lastReviewed?: string;
+  dateModified?: string;
   readingTimeMinutes: number;
   wordCount: number;
   citationUrls: readonly string[];
@@ -209,7 +212,7 @@ type ArticleJsonLdInput = {
 export function articleJsonLd({
   entry,
   datePublished,
-  lastReviewed,
+  dateModified,
   readingTimeMinutes,
   wordCount,
   citationUrls,
@@ -232,7 +235,7 @@ export function articleJsonLd({
     author: personJsonLd(),
     publisher: personJsonLd(),
     ...(datePublished ? { datePublished } : {}),
-    ...(lastReviewed ? { dateModified: lastReviewed } : {}),
+    ...(dateModified ? { dateModified } : {}),
     articleSection: DOMAIN_META[entry.domain].name,
     inLanguage: 'en',
     isAccessibleForFree: true,

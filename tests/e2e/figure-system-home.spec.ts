@@ -200,7 +200,8 @@ for (const width of [375, 1440]) {
     const unitOnly = /^[\s°%′″'"+\-−–±×·/.,:;()µμA-Za-z]{1,3}$/;
     const wordy = runs.filter((r) => r.family === 'IBM Plex Mono' && (/[A-Za-z]{4,}/.test(r.text) || (!/\d/.test(r.text) && !unitOnly.test(r.text))));
     expect(wordy.map((r) => `${r.figure} "${r.text}"`), 'mono on non-numeric text').toEqual([]);
-    expect(frames.length).toBeGreaterThanOrEqual(3);
+    // Home's one figure is the featured scene (VAL-OPUS-017, VAL-OPUS-021).
+    expect(frames.map((frame) => frame.figure)).toEqual(['scene:reliability-threshold']);
     for (const frame of frames) {
       expect(frame.title, `${frame.figure} title`).not.toBe('');
       expect(frame.stage, `${frame.figure} stage`).toBe(true);

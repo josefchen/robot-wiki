@@ -42,6 +42,7 @@ const STANDALONE = [
   '/a-z/',
   '/credits/',
   '/editorial-policy/',
+  '/about/',
   '/privacy/',
 ];
 const ROUTES = [...articlePerDomain(), ...STANDALONE];

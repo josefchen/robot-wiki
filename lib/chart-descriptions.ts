@@ -37,21 +37,11 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     text: 'On the four shared comparison tasks EXPO-FT completes 30 of 30 trials on every task, against average successes of 18.8 for supervised finetuning, 20.5 for HG-DAgger, 19 for DSRL and 5.5 for HIL-SERL; the same paper notes HIL-SERL is highly reliable in its original evaluations and that this suite randomizes a substantially larger initial-state space, and with extra training samples HIL-SERL reaches 27 of 30 on Cube Pick and 13 of 30 on Pool Shot.',
   },
   {
-    // Derived, not authored: the preview builds this sentence from the
-    // shipped URDF, so a model change fails the registry comparison instead
-    // of leaving a stale claim under a redrawn schematic.
-    component: 'So101ChainPreview',
-    file: 'components/home/so101-chain-preview.tsx',
-    route: '/',
-    quantityNames: ['revolute joints', 'degrees'],
-    text: 'The shipped so101.urdf defines 6 revolute joints from base_link to the moving jaw, and at the zero configuration the chain reaches 407 mm from the base with the wrist 234 mm above it; joint travel spans 320 degrees at wrist_roll and 110 degrees at gripper.',
-  },
-  {
     component: 'ReliabilityCompounding',
     file: 'components/interactive/reliability-compounding.tsx',
-    route: '/',
+    route: '/frontier/reliability-gap/',
     quantityNames: ['episode success', 'steps'],
-    text: 'At 95.0 percent per-step success, episode success is 21.5% at 30 steps and 0.6% at the 100-step end of the plotted range, crossing 50 percent at 14 steps as the per-step odds compound over the episode length.',
+    text: 'On the reliability-gap calculator a 95.0 percent per-step policy yields 21.5% episode success at 30 steps and only 0.6% at the 100-step far end, with the 50 percent crossing near step 14.',
   },
   {
     component: 'EgoScaleScaling',

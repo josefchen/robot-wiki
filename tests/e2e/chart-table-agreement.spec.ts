@@ -42,7 +42,7 @@ import { startStaticExportServer, type StaticExportServer } from './static-expor
  * registry plus the home page is walked, and every
  * `details[data-chart-data][data-chart-form="table"]` disclosure found in
  * the rendered DOM is graded. No chart list is typed here. The pinned
- * total (27) is the round-1 enumeration; the walk is registry-derived, so
+ * total began as the round-1 enumeration of 27; the walk is registry-derived, so
  * a newly published table-form chart is always visited, and the pin only
  * makes the population change a conscious review point.
  *
@@ -238,9 +238,11 @@ test('VAL-EDU-023: every table-form disclosure agrees with its chart', async ({ 
     charts.length,
     'table-form disclosures across the registry walk (round 1 enumerated 27; ' +
       'SampleEfficiencyLedger made it 28; the home SO-101 chain preview made ' +
-      'it 29; a change here means a chart was added, removed or re-declared ' +
+      'it 29; the home front page, whose only figure is the featured scene, ' +
+      'dropped that preview and the home ReliabilityCompounding mount, making ' +
+      'it 27; a change here means a chart was added, removed or re-declared ' +
       'form)',
-  ).toBe(29);
+  ).toBe(27);
 
   // Clause (a): endpoint agreement with rendered tick labels (graded only
   // where the SVG x-axis measures the table's row quantity; recorded

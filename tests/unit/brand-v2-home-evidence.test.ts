@@ -6,11 +6,13 @@ import {
   HIGHLIGHT_ARIA_STATE_CUES,
   HOME_COMPOSITION_ANCHORS,
   HOME_COMPOSITION_EVIDENCE_PATH,
+  HOME_PROSE_OWNERS,
   HOME_VIEWPORT,
   domainDestinationVerdicts,
   heroLockupVerdicts,
   homeCompositionVerdicts,
   homeEvidenceFingerprint,
+  homeProseVerdicts,
   longestAdjacentRun,
   readHomeCompositionEvidence,
   type HomeCompositionEvidence,
@@ -474,6 +476,76 @@ describe('home composition evidence', () => {
         .join(' '),
     ).toMatch(/renders with no box/);
     expect(() => domainDestinationVerdicts(committed(), [])).toThrow(
+      /quantify over nothing/,
+    );
+  });
+
+  it('holds home prose to the front-page blocks (VAL-DESIGN-011)', () => {
+    const evidence = accept(committed());
+    expect(homeProseVerdicts(evidence, LITERALS)).toEqual([]);
+    // Every block the sweep measured is one the owner table knows.
+    expect(
+      evidence.proseBlocks.map(({ signature }) =>
+        signature ? (HOME_PROSE_OWNERS[signature]?.owner ?? null) : null,
+      ),
+    ).toEqual([
+      'VAL-OPUS-014',
+      'VAL-NAV-002',
+      'VAL-OPUS-016',
+      'VAL-OPUS-017',
+      'VAL-OPUS-018',
+      'VAL-OPUS-019',
+      'VAL-OPUS-020',
+    ]);
+    const identity = evidence.proseBlocks[0];
+    expect(identity.prose.startsWith(PUBLIC_DESCRIPTOR)).toBe(true);
+
+    const planted = (change: (blocks: HomeCompositionEvidence['proseBlocks']) => void) =>
+      homeProseVerdicts(
+        mutate((copy) => change(copy.proseBlocks)),
+        LITERALS,
+      ).join(' ');
+    // The overview this replaced, back beside the descriptor.
+    expect(
+      planted((blocks) => {
+        blocks[0].prose = `${blocks[0].prose} An encyclopedia of modern robotics, written for engineers.`;
+      }),
+    ).toMatch(/identity line carries "An encyclopedia of modern robotics, written for engineers\." beside/);
+    // A number that reads like a count but is no registry count.
+    expect(
+      planted((blocks) => {
+        blocks[0].prose = `${blocks[0].prose} 3 minutes to read`;
+      }),
+    ).toMatch(/identity line carries "3 minutes to read" beside.*mission statement or overview/);
+    // A paragraph slipped into the tools line.
+    expect(
+      planted((blocks) => {
+        blocks[6].prose = 'Tools for exploring the wiki in depth';
+      }),
+    ).toMatch(/belongs to VAL-OPUS-020, which offers links and controls, yet it carries 7 words/);
+    // An extra block nobody owns.
+    expect(
+      planted((blocks) => {
+        blocks.push({
+          label: 'How to read this wiki',
+          signature: 'ruled-plain/closing-heading/guidance-prose',
+          prose: 'Start with a domain.',
+          text: 'How to read this wiki Start with a domain.',
+        });
+      }),
+    ).toMatch(/"How to read this wiki" block declares "ruled-plain\/closing-heading\/guidance-prose", which no front-page assertion owns/);
+    // A lead over its bound, and banned wording or a dash anywhere.
+    expect(
+      planted((blocks) => {
+        blocks[2].prose = Array.from({ length: 51 }, () => 'word').join(' ');
+      }),
+    ).toMatch(/featured lead runs to 51 words/);
+    expect(
+      planted((blocks) => {
+        blocks[4].text = `${blocks[4].text} A seamless leap \u2014 forward.`;
+      }),
+    ).toMatch(/carries an em or en dash.*banned wording "seamless"/);
+    expect(() => homeProseVerdicts({ proseBlocks: [] }, LITERALS)).toThrow(
       /quantify over nothing/,
     );
   });

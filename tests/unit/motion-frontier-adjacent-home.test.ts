@@ -38,7 +38,9 @@ const figures = new Set([
   'PerceptionLatency', 'SwarmControlTable', 'OrbitalServicingTable',
   'SurgicalSystemsTable', 'ReliabilityThreshold', 'TactileSlip', 'SenseAvoid',
 ]);
-const homeFigures = ['ReliabilityCompounding', 'ImageRef', 'So101ChainPreview', 'MarketMapPoster', 'ReliabilityThreshold'];
+const homeFigures = ['ReliabilityThreshold'];
+/** Figures home once mounted; their inventory rows record the removal. */
+const homeRemoved = ['ReliabilityCompounding', 'ImageRef', 'So101ChainPreview', 'MarketMapPoster'];
 const scenes = [RELIABILITY_THRESHOLD_SCENE, TACTILE_SLIP_SCENE, SENSE_AVOID_SCENE];
 
 describe('frontier, adjacent and home motion inventory', () => {
@@ -59,6 +61,11 @@ describe('frontier, adjacent and home motion inventory', () => {
     for (const element of homeFigures) {
       expect(home).toContain(`<${element}`);
       mounts.push(`home:${element}:1`);
+    }
+    for (const element of homeRemoved) {
+      expect(home).not.toContain(`<${element}`);
+      mounts.push(`home:${element}:1`);
+      expect(inventory.find((row) => row.article === 'home' && row.element === element)?.decision).toBe('remove');
     }
     const covered = inventory.map((row) => `${row.article}:${row.element}:${row.occurrence ?? 1}`);
     expect(covered.sort()).toEqual(mounts.sort());

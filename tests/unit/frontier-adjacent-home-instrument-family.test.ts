@@ -67,9 +67,16 @@ function unmigrated(sources: Iterable<string>): string[] {
 }
 
 describe('frontier/adjacent/home instruments use the shared instrument family', () => {
-  it('derives a non-empty interactive population for the two domains and the home route', () => {
+  it('derives a non-empty interactive population for the two domains', () => {
     expect(domainInteractiveSources().size).toBeGreaterThan(0);
-    expect(homeInteractiveSources().size).toBeGreaterThan(0);
+  });
+
+  it('reads the home route as mounting its one scene and no interactive instrument', () => {
+    // An empty home population is the front page's design, so the scene
+    // import is checked too: a regex that matched nothing would also be empty.
+    expect([...homeInteractiveSources()]).toEqual([]);
+    const home = readFileSync(join(ROOT, 'app', 'page.tsx'), 'utf8');
+    expect(home).toMatch(/from\s+['"]@\/components\/motion\/scenes\/reliability-threshold['"]/);
   });
 
   it('mounts the shared instrument frame in every domain-derived interactive', () => {

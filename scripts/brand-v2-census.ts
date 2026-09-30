@@ -60,6 +60,7 @@ const PUBLIC_FIXED_ROUTES = [
   '/credits/',
   '/search/',
   '/editorial-policy/',
+  '/about/',
   '/privacy/',
 ] as const;
 const GENERATED_ASSET_PREFIXES = ['og/', 'pagefind/', 'structured-images/'];
@@ -229,6 +230,10 @@ function titleAndDescription(path: string): {
       STANDALONE_SEO_TITLES.editorialPolicy,
       STANDALONE_SEO_DESCRIPTIONS.editorialPolicy,
     ],
+    '/about/': [
+      STANDALONE_SEO_TITLES.about,
+      STANDALONE_SEO_DESCRIPTIONS.about,
+    ],
     '/privacy/': [
       STANDALONE_SEO_TITLES.privacy,
       STANDALONE_SEO_DESCRIPTIONS.privacy,
@@ -249,6 +254,7 @@ function metadataLedger() {
     '/credits/': 'app/credits/page.tsx',
     '/search/': 'app/search/page.tsx',
     '/editorial-policy/': 'app/editorial-policy/page.tsx',
+    '/about/': 'app/about/page.tsx',
     '/privacy/': 'app/privacy/page.tsx',
   };
   return [

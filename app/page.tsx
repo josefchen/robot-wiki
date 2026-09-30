@@ -1,139 +1,102 @@
 import Link from 'next/link';
-import { MarketMapPoster } from '@/components/market-map/market-map-poster';
-import { So101ChainPreview } from '@/components/home/so101-chain-preview';
-import { ReliabilityCompounding } from '@/components/interactive/reliability-compounding';
-import { ReliabilityThreshold } from '@/components/motion/scenes/reliability-threshold';
-import { FigureReuse } from '@/components/motion/figure-reuse';
+import { ContentsIndex } from '@/components/home/contents-index';
+import { DidYouKnow, HOME_PROSE_LINK_CLASS } from '@/components/home/did-you-know';
+import { HomeSearch } from '@/components/home/home-search';
 import { SceneSource } from '@/components/motion/scene-chrome';
-import { ImageRef } from '@/components/mdx/image-ref';
-import { Action } from '@/components/ui';
-import { IntentLink } from '@/components/ui/intent-link';
-import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '@/lib/identity';
-import { SEGMENT_ORDER } from '@/lib/market-map';
-import { so101Preview } from '@/lib/so101-kinematics';
-import { COMPANIES } from '@/data/companies';
+import { ReliabilityThreshold } from '@/components/motion/scenes/reliability-threshold';
+import { getModule, publishedModules } from '@/data/modules';
+import { recentlyUpdated } from '@/lib/content-dates';
 import {
-  DOMAINS,
-  DOMAIN_META,
-  modulesByDomain,
-} from '@/data/modules';
-import { learningPaths } from '@/lib/learning-paths';
+  HOME_ROTATING_WORDS,
+  featuredArticleWithin,
+  recentListWords,
+} from '@/lib/featured-article';
+import { homeCounts } from '@/lib/home-counts';
+import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '@/lib/identity';
 import { websiteJsonLd } from '@/lib/seo';
 
 /**
- * Home: the brand title sheet, the seven-domain typographic index, the live
- * featured interactive as the visual anchor, visual entry points for the
- * playground and market map, and the reading guidance folded into the page
- * flow.
+ * Home is an encyclopedia front page: the identity line with live counts
+ * and search, the contents of all seven domains, a featured article, one
+ * featured scene, three cited facts, the latest article changes and a line
+ * of tool links. Scope, reading guidance and the citation caveat live on
+ * /about/.
  *
- * Structure follows architecture.md 6c and the home page doctrine in
- * library/design-system.md 12.1: the taxonomy appears exactly once in main
- * (the index), never as a grid of equal bordered cards, and no
- * build-progress metadata renders anywhere. The sections are direct children
- * of <main> (no wrapper div) so each one is a distinct top-level section for
- * the structural-signature checks in contract/design-integrity.md.
+ * The sections are direct children of <main>, because the structural
+ * signature checks in contract/design-integrity.md measure them there.
  */
 const container = 'mx-auto w-full max-w-5xl px-6';
 
-/**
- * The id the SO-101 figure points its `aria-describedby` at. Declared here
- * rather than generated so the figure and its textual alternative are bound
- * by one literal that a test can name.
- */
-const SO101_PREVIEW_DESCRIPTION_ID = 'so101-chain-preview-description';
+const heading =
+  'font-display-section text-xl tracking-tight text-text';
 
 /**
- * The registered structural signature of each top-level home section, as
- * `surface/heading/form`. `VAL-DESIGN-009` and the rubric's
- * `repetition-frames` anchor both bound how many adjacent siblings may share
- * one signature, and the rubric measures runs over the rendered
- * `data-brand-module-signature` values, so an unannotated page is not a
- * varied page: it is a page the measurement cannot see.
- *
- * The three module sections in the middle deliberately share their surface
- * and heading treatment and differ only in content form (a live instrument,
- * a credited photograph, a pair of schematics). That run is exactly three,
- * which is the bound rather than an accident, and the sheet before them and
- * the ruled closing note after them break it on both sides.
+ * The registered structural signature of each section, as
+ * `surface/heading/form`, checked against
+ * contract/brand-v2-section-signature-registry.json.
  */
 const SECTION_SIGNATURES = {
-  intro: 'sheet/display-lockup/primary-action',
-  domainIndex: 'ruled-plain/index-heading/row-links',
-  featured: 'plain/module-heading/live-instrument',
-  hardware: 'plain/module-heading/credited-figure',
-  tools: 'plain/module-heading/schematic-pair',
-  learningPaths: 'plain/module-heading/ordered-link-lists',
-  howToRead: 'ruled-plain/closing-heading/guidance-prose',
+  identity: 'sheet/display-lockup/search-form',
+  contents: 'ruled-plain/index-heading/row-links',
+  featuredArticle: 'plain/module-heading/lead-excerpt',
+  featuredScene: 'plain/module-heading/motion-scene',
+  didYouKnow: 'plain/module-heading/cited-facts',
+  recentlyUpdated: 'plain/module-heading/dated-links',
+  tools: 'ruled-plain/inline-label/link-line',
 } as const;
 
+const SCENE_ARTICLE = { domain: 'frontier', slug: 'reliability-gap' } as const;
+
 export default function Home() {
-  // The adjacent group is a survey rather than a stack of prerequisites,
-  // so its four modules are listed individually in the index row: a
-  // reader picks a domain by name, then an adjacent topic directly.
-  // Core domains keep the domain landing as their single
-  // entry point; expanding all of them here would restate the whole
-  // taxonomy a third time.
-  const adjacentModules = (modulesByDomain().adjacent ?? []).filter(
-    (m) => m.status === 'published',
+  const counts = homeCounts();
+  const recent = recentlyUpdated(publishedModules(), 5);
+  const featured = featuredArticleWithin(
+    new Date(),
+    HOME_ROTATING_WORDS - recentListWords(recent),
   );
-  const paths = learningPaths();
+  const sceneArticle = getModule(SCENE_ARTICLE.domain, SCENE_ARTICLE.slug);
+  if (!sceneArticle || sceneArticle.status !== 'published') {
+    throw new Error('the featured scene credits an article that is not published');
+  }
 
   return (
     <>
       {/* data-pagefind-body sits on each section rather than a wrapper:
-          Pagefind excludes every page that declares no body region once
-          one page declares one, so the home route needs its own to be
-          searchable at all (VAL-SEARCH-021), and a wrapper div would stop
-          these sections being direct children of <main>, which the
-          structural-signature rules in contract/design-integrity.md
-          measure. Interactive readouts inside these sections carry their
-          own data-pagefind-ignore, so only the prose is indexed. */}
+          once one page declares a body region Pagefind skips pages that
+          declare none, so home needs its own (VAL-SEARCH-021), and a
+          wrapper would stop the sections being children of <main>. */}
       <section
         aria-label="Introduction"
         data-pagefind-body
-        data-brand-module-signature={SECTION_SIGNATURES.intro}
+        data-brand-module-signature={SECTION_SIGNATURES.identity}
         className={`${container} pt-8`}
       >
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: websiteJsonLd() }}
         />
-        {/* VAL-DSHOME-009: below md the grid is an exact 80px band that
-            sits immediately below the descriptor/wordmark lockup and
-            closes the hero sheet, with the overview and CTA outside the
-            sheet; from md the two-column layout restores (grid right,
-            13rem). */}
+        {/* VAL-DSHOME-009: below md the grid is an exact 80px band closing
+            the sheet under the lockup; from md it is the right column. */}
         <div
           data-brand-surface-id="surface:flat"
           className="flex flex-col border border-border bg-bg md:grid md:grid-cols-[minmax(0,1fr)_13rem]"
         >
-          <div className="px-6 pb-6 pt-7 sm:px-8 md:py-8">
-            {/* VAL-B2-TYPE-006 / design-system 4.3 lock the home wordmark
-                to 52-68px at 375 and 88-120px at 1440 with a 0.88-0.98
-                line height. The two clamps hold each band whole rather
-                than interpolating between the two widths the contract
-                measures: below xl the ramp cannot leave 56-68px, and from
-                xl it cannot leave 88-104px, so every width in between
-                lands inside a stated band rather than in the gap.
-                The band switches at xl rather than lg because the sidebar
-                narrows the hero column to 416px at 1024, where the 88px
-                floor sets 420px of Tektur and the identity would break in
-                half; xl is the first breakpoint that fits it on one
-                line. */}
+          <div className="px-6 pb-6 pt-7 sm:px-8 md:py-7">
+            {/* VAL-B2-TYPE-006 / design-system 4.3 lock the wordmark to
+                52-68px at 375 and 88-120px at 1440 with a 0.88-0.98 line
+                height. Below xl the clamp cannot leave 56-68px and from xl
+                it cannot leave 88-104px. The band switches at xl because
+                the sidebar narrows the hero column to 416px at 1024, where
+                the 88px floor would break the identity in half. */}
             <h1
               data-tektur-role="home-wordmark"
               className="font-display-home text-[length:clamp(3.5rem,6.4vw,4.25rem)] leading-[0.92] tracking-[-0.035em] text-text xl:text-[length:clamp(5.5rem,6.4vw,6.5rem)]"
             >
               {PUBLIC_IDENTITY}
             </h1>
-            {/* The descriptor is the locked string verbatim, sentence case
-                in mono (design-system 3.5). No text-transform: a rendered
-                casing change would fail the byte comparison in
-                VAL-B2-ID-002 while the source still looked correct. */}
-            {/* The measure holds the 53-character descriptor on one line
-                from sm up: wrapping the locked sentence cost the seventh
-                domain link its place in the first viewport
-                (VAL-HOME-001). Below sm it wraps as the column allows. */}
+            {/* The locked string verbatim, sentence case in mono
+                (design-system 3.5). No text-transform: a rendered casing
+                change would fail the byte comparison in VAL-B2-ID-002. */}
             <p className="mt-3 max-w-[56ch] font-mono text-xs leading-relaxed tracking-[0.01em] text-text-dim">
               {PUBLIC_DESCRIPTOR}
             </p>
@@ -181,365 +144,173 @@ export default function Home() {
             />
           </div>
         </div>
-        {/* Overview and CTA sit outside the sheet so the 80px band can
-            close the hero exactly (the test measures the sheet bottom as
-            the grid's bottom). The paragraph is deliberately fused: the
-            premise grew two sentences and pushed the seventh domain row
-            below the first viewport and the featured instrument past the
-            1200px bound (VAL-DESIGN-003/004), so it states each claim
-            once in the fewest lines that keep the overview substantive
-            (VAL-DESIGN-011). */}
-        <p className="mt-4 max-w-[65ch] text-[17px] leading-relaxed text-text-dim">
-          {PUBLIC_IDENTITY} is an encyclopedia of modern robotics for engineers who
-          already know machine learning: learned manipulation policies,
-          sim-to-real reinforcement learning, world models, teleoperation data
-          pipelines, and the classical control stack underneath. Technical claims
-          should be{' '}
-          {/* The board's editorial-structure panel highlights the one phrase
-              a zone is about; here that is the site's premise. <mark> is the
-              non-colour carrier: the highlight is announced as marked text
-              whether or not the lime is perceived, which is what keeps this
-              inside the "never colour alone" rule in design-system 11. */}
+        {/* Counted from the registries at build time. The lime mark is the
+            page's selection example (VAL-B2-SHELL-006); <mark> carries it
+            without colour. */}
+        <p
+          data-home-counts
+          className="mt-4 flex flex-wrap gap-x-5 gap-y-1 font-mono text-[13px] text-text-dim"
+        >
+          <span>{counts.articles} articles</span>
           <mark
-            data-brand-highlight="home-premise"
-            className="whitespace-nowrap bg-selection px-1 text-ink"
+            data-brand-highlight="home-source-count"
+            className="bg-selection px-1 text-ink"
           >
-            traceable to cited evidence
+            {counts.sources} sources
           </mark>
-          . Sources range from research papers to first-party documentation and
-          labelled community estimates, and a citation is not a guarantee of
-          verification. The centre of gravity is robot learning, not a catalogue
-          of the industry.
+          <span>{counts.glossaryTerms} glossary terms</span>
         </p>
-        <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-3">
-          <Action variant="primary" href="/manipulation/action-chunking">
-            Start reading
-          </Action>
-          <Action variant="link" href="#how-to-read">
-            How to read this wiki
-          </Action>
-        </div>
+        <HomeSearch className="mt-3" />
       </section>
-
-      {/* The seven taxonomy entries as one dense typographic index. */}
       <section
-        aria-labelledby="domain-index-heading"
+        aria-labelledby="contents-heading"
         data-pagefind-body
-        data-brand-module-signature={SECTION_SIGNATURES.domainIndex}
-        className={`${container} mt-7 border-t border-border-strong pt-4`}
+        data-brand-module-signature={SECTION_SIGNATURES.contents}
+        className={`${container} mt-8`}
       >
-        {/* The index is the page's working half, so its heading outranks the
-            module headings below it. The scope sentence that used to sit
-            here moved into the premise: two adjacent paragraphs both ending
-            on "cited to a primary source" was the same claim twice. */}
         <h2
-          id="domain-index-heading"
+          id="contents-heading"
           data-tektur-role="section-display"
           className="font-display-section text-2xl tracking-tight text-text"
         >
-          Domain index
+          Contents
         </h2>
-        <ul className="mt-3 divide-y divide-border border-t border-border">
-          {DOMAINS.map((domain) => {
-            const meta = DOMAIN_META[domain];
-            // The adjacent group is a survey rather than a stack of
-            // prerequisites, so its row lists the modules themselves as
-            // links: the titles double as the description,
-            // instead of naming the same four topics twice. Core domains
-            // keep the domain landing as their single entry point;
-            // expanding them all here would restate the taxonomy a third
-            // time.
-            const isAdjacent = domain === 'adjacent';
-            return (
-              <li key={domain}>
-                <div className="grid gap-0.5 py-2 sm:grid-cols-[16rem_1fr] sm:items-baseline sm:gap-6">
-                  <IntentLink
-                    data-brand-control-id="control:link-focus"
-                    href={`/${domain}/`}
-                    className="font-sans text-[15px] font-medium text-text transition-colors hover:text-accent"
-                  >
-                    {meta.name}
-                  </IntentLink>
-                  {isAdjacent && adjacentModules.length > 0 ? (
-                    <p className="text-sm leading-snug text-text-dim">
-                      {adjacentModules.map((m, i) => (
-                        <span key={m.slug}>
-                          {i > 0
-                            ? i === adjacentModules.length - 1
-                              ? ', and '
-                              : ', '
-                            : ''}
-                          <IntentLink
-                            data-brand-control-id="control:link-focus"
-                            href={`/adjacent/${m.slug}/`}
-                            className="transition-colors hover:text-accent"
-                          >
-                            {m.title}
-                          </IntentLink>
-                        </span>
-                      ))}
-                      .
-                    </p>
-                  ) : (
-                    <p className="text-sm leading-snug text-text-dim">
-                      {meta.description}
-                    </p>
-                  )}
-                </div>
-              </li>
-            );
-          })}
-        </ul>
+        <ContentsIndex />
       </section>
 
-      {/* Featured interactive: the page's visual anchor. */}
+      {/* A verbatim lead, chosen by the build date among those that fit
+          beside "Recently updated" (lib/featured-article.ts). */}
       <section
-        aria-labelledby="featured-heading"
+        aria-labelledby="featured-article-heading"
         data-pagefind-body
-        data-brand-module-signature={SECTION_SIGNATURES.featured}
-        className={`${container} mt-12`}
+        data-brand-module-signature={SECTION_SIGNATURES.featuredArticle}
+        className={`${container} mt-10`}
       >
-        <h2
-          id="featured-heading"
-          data-tektur-role="section-display"
-          className="font-display-section text-xl tracking-tight text-text"
-        >
-          Featured interactive
+        <h2 id="featured-article-heading" data-tektur-role="section-display" className={heading}>
+          Featured article
         </h2>
-        <p className="mt-3 max-w-[65ch] leading-relaxed text-text-dim">
-          A 95% per-step success rate sounds strong. Compounded over a 30-step
-          episode it is not. Move the sliders to see how small per-step errors
-          erode end-to-end reliability, then step through a fixed-horizon example. The{' '}
-          <IntentLink
+        <p className="mt-3 max-w-[65ch] font-medium text-text">
+          <Link
             data-brand-control-id="control:link-focus"
-            href="/frontier"
-            className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
+            href={featured.href}
+            className={HOME_PROSE_LINK_CLASS}
           >
-            frontier essays
-          </IntentLink>{' '}
-          develop the argument.
+            {featured.title}
+          </Link>
         </p>
-        <ReliabilityCompounding className="mt-5" />
-        <FigureReuse href="/data-hardware/evaluation-crisis/" page="Evaluation crisis">
-          Here to try with your own numbers; the full argument is in
-        </FigureReuse>
+        <p
+          data-featured-excerpt
+          className="mt-1 max-w-[65ch] font-serif text-[1.0625rem] leading-relaxed text-text"
+        >
+          {featured.excerpt}
+        </p>
+      </section>
+
+      <section
+        aria-labelledby="featured-scene-heading"
+        data-pagefind-body
+        data-brand-module-signature={SECTION_SIGNATURES.featuredScene}
+        className={`${container} mt-10`}
+      >
+        <h2 id="featured-scene-heading" data-tektur-role="section-display" className={heading}>
+          Featured scene
+        </h2>
         <SceneSource
           source={
             <>
-              Featured from{' '}
+              From{' '}
               <Link
                 data-brand-control-id="control:link-focus"
-                href="/frontier/reliability-gap/"
-                className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
+                href={`/${SCENE_ARTICLE.domain}/${SCENE_ARTICLE.slug}/`}
+                className={HOME_PROSE_LINK_CLASS}
               >
-                Reliability gap
+                {sceneArticle.title}
               </Link>
-              , where it sets the per-step bar deployment needs.
             </>
           }
         >
-          <ReliabilityThreshold className="mt-5" />
+          <ReliabilityThreshold className="mt-3" />
         </SceneSource>
       </section>
 
-      {/* Real hardware: the encyclopedia's subject, photographed and credited. */}
       <section
-        aria-labelledby="hardware-heading"
+        aria-labelledby="did-you-know-heading"
         data-pagefind-body
-        data-brand-module-signature={SECTION_SIGNATURES.hardware}
-        className={`${container} mt-14`}
+        data-brand-module-signature={SECTION_SIGNATURES.didYouKnow}
+        className={`${container} mt-10`}
       >
-        <h2
-          id="hardware-heading"
-          data-tektur-role="section-display"
-          className="font-display-section text-xl tracking-tight text-text"
-        >
-          Real hardware
+        <h2 id="did-you-know-heading" data-tektur-role="section-display" className={heading}>
+          Did you know
         </h2>
-        <p className="mt-3 max-w-[65ch] leading-relaxed text-text-dim">
-          The policies and controllers this wiki covers run on physical
-          machines. Every photograph and diagram on the site is licensed and
-          credited, and the full list lives on the{' '}
-          <IntentLink
-            data-brand-control-id="control:link-focus"
-            href="/credits"
-            className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
-          >
-            credits page
-          </IntentLink>
-          .
-        </p>
-        <ImageRef id="spot-raf-agile-liberty-2021" />
+        <DidYouKnow />
       </section>
 
-      {/* Standalone tools, shown visually rather than described. */}
+      {/* Dated by git (data/content-dates.json), the same date each
+          article's JSON-LD states as dateModified, and printed in that
+          form: one word per date keeps the list inside the home word
+          budget of VAL-OPUS-021. */}
       <section
-        aria-labelledby="tools-heading"
+        aria-labelledby="recently-updated-heading"
+        data-pagefind-body
+        data-brand-module-signature={SECTION_SIGNATURES.recentlyUpdated}
+        className={`${container} mt-10`}
+      >
+        <h2 id="recently-updated-heading" data-tektur-role="section-display" className={heading}>
+          Recently updated
+        </h2>
+        <ol className="mt-3 space-y-1.5 text-[15px] leading-6">
+          {recent.map((entry) => (
+            <li
+              key={`${entry.domain}/${entry.slug}`}
+              className="flex items-baseline gap-x-4"
+            >
+              <time
+                dateTime={entry.dateModified}
+                className="w-24 shrink-0 font-mono text-[13px] text-text-dim"
+              >
+                {entry.dateModified}
+              </time>
+              <Link
+                data-brand-control-id="control:link-focus"
+                href={`/${entry.domain}/${entry.slug}/`}
+                className={`min-w-0 ${HOME_PROSE_LINK_CLASS}`}
+              >
+                {entry.title}
+              </Link>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section
+        aria-label="Tools"
         data-pagefind-body
         data-brand-module-signature={SECTION_SIGNATURES.tools}
-        className={`${container} mt-14`}
+        className={`${container} mt-10 pb-16`}
       >
-        <h2
-          id="tools-heading"
-          data-tektur-role="section-display"
-          className="font-display-section text-xl tracking-tight text-text"
-        >
-          Interactive tools
-        </h2>
-        <div className="mt-5 grid gap-6 md:grid-cols-2">
-          {/* The playground entry draws the shipped model rather than an
-              impression of it: every segment, joint and limit below comes
-              from public/models/so101/so101.urdf, the file the playground
-              itself loads (VAL-DESIGN-013). */}
-          <article>
-            <So101ChainPreview
-              preview={so101Preview()}
-              descriptionId={SO101_PREVIEW_DESCRIPTION_ID}
-            />
-            <h3 className="mt-4 font-sans text-sm font-medium text-text">
+        <div className="flex flex-wrap items-baseline gap-x-4 border-t border-border pt-3 text-[15px]">
+          <span className="text-text-dim">Tools</span>
+          <ul className="home-run">
+            <li>
               <Link
                 data-brand-control-id="control:link-focus"
-                href="/playground"
-                className="hover:text-accent"
+                href="/playground/"
+                className={HOME_PROSE_LINK_CLASS}
               >
-                3D Kinematics Playground
+                Playground
               </Link>
-            </h3>
-            <p className="mt-1 text-sm text-text-dim">
-              Drive this arm in the browser: joint-slider forward kinematics,
-              click-to-reach inverse kinematics, and trajectory replay.
-            </p>
-          </article>
-          <article>
-            <MarketMapPoster />
-            <h3 className="mt-4 font-sans text-sm font-medium text-text">
+            </li>
+            <li>
+              {' '}
               <Link
                 data-brand-control-id="control:link-focus"
-                href="/market-map"
-                className="hover:text-accent"
+                href="/market-map/"
+                className={HOME_PROSE_LINK_CLASS}
               >
                 Market Map
               </Link>
-            </h3>
-            <p className="mt-1 text-sm text-text-dim">
-              The embodied-AI industry as data: {COMPANIES.length} companies
-              across {SEGMENT_ORDER.length} segments, filterable by approach,
-              geography, stage, and funding.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      {/* Curated sequences through the taxonomy: a discovery surface that
-          says which order the registry intends a newcomer to read in. */}
-      <section
-        aria-labelledby="learning-paths-heading"
-        data-pagefind-body
-        data-brand-module-signature={SECTION_SIGNATURES.learningPaths}
-        className={`${container} mt-14`}
-      >
-        <h2
-          id="learning-paths-heading"
-          data-tektur-role="section-display"
-          className="font-display-section text-xl tracking-tight text-text"
-        >
-          Learning paths
-        </h2>
-        <p className="mt-3 max-w-[65ch] leading-relaxed text-text-dim">
-          Pick a sequence when you want a coherent route through the wiki.
-          Each path starts with the concepts later articles assume.
-        </p>
-        <div className="mt-6 grid gap-x-8 gap-y-8 md:grid-cols-3">
-          {paths.map((path) => (
-            <section
-              key={path.id}
-              aria-labelledby={`learning-path-${path.id}`}
-              className="border-t border-border pt-4"
-            >
-              <h3 className="font-sans text-base font-semibold tracking-tight text-text">
-                <IntentLink
-                  data-brand-control-id="control:link-focus"
-                  href={path.hub}
-                  className="transition-colors hover:text-accent"
-                >
-                  {path.title}
-                </IntentLink>
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-text-dim">
-                {path.description}
-              </p>
-              <ol className="mt-4 list-decimal space-y-2 pl-5 font-sans text-sm text-text-dim marker:font-mono marker:text-[11px]">
-                {path.entries.map((entry) => (
-                  <li key={`${entry.domain}/${entry.slug}`}>
-                    <IntentLink
-                      data-brand-control-id="control:link-focus"
-                      href={`/${entry.domain}/${entry.slug}/`}
-                      className="text-text underline decoration-border-strong underline-offset-2 transition-colors hover:text-accent hover:decoration-accent"
-                    >
-                      {entry.title}
-                    </IntentLink>
-                  </li>
-                ))}
-              </ol>
-            </section>
-          ))}
-        </div>
-      </section>
-
-      {/* How to read this wiki: guidance woven into the flow, with links. */}
-      <section
-        id="how-to-read"
-        aria-labelledby="how-to-read-heading"
-        data-pagefind-body
-        data-brand-module-signature={SECTION_SIGNATURES.howToRead}
-        className={`${container} mt-14 border-t border-border pt-10 pb-20`}
-      >
-        {/* A closing note rather than another module: the rule above it and
-            the smaller display size say the page has finished offering
-            things and is now explaining itself. */}
-        <h2
-          id="how-to-read-heading"
-          data-tektur-role="section-display"
-          className="font-display-section text-lg tracking-tight text-text"
-        >
-          How to read this wiki
-        </h2>
-        <div className="mt-4 max-w-[65ch] space-y-4 leading-relaxed text-text-dim">
-          <p>
-            Modules stand alone, but inside a domain they build on each other
-            in registry order: later entries assume the earlier ones. If you
-            come from machine learning rather than robotics, start with{' '}
-            <IntentLink
-              data-brand-control-id="control:link-focus"
-              href="/manipulation/action-chunking"
-              className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
-            >
-              Action Chunking (ACT and ALOHA)
-            </IntentLink>
-            . It shows the format every module follows: precise prose, inline
-            citations, and a live interactive you can manipulate.
-          </p>
-          <p>
-            The prerequisites are fluency in machine learning, not a robotics
-            background. When a module needs a classical result it says so and
-            links to the entry that derives it, so you can read forward and
-            backfill as needed. Terms of art are defined where they first
-            appear and collected in the{' '}
-            <IntentLink
-              data-brand-control-id="control:link-focus"
-              href="/glossary"
-              className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
-            >
-              glossary
-            </IntentLink>
-            .
-          </p>
-          <p>
-            Citation chips link claims to their named sources, including
-            explicitly labelled community estimates where used, and the
-            full bibliography sits at the end of each module. Where serious
-            researchers disagree, the text names who holds which position.
-          </p>
+            </li>
+          </ul>
         </div>
       </section>
     </>

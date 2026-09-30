@@ -1,509 +1,152 @@
 {
-  "version": 1,
-  "fingerprint": "8b2aa1612846bda8735a5632a0f41bcc6936e2c705faf77f8944284ce59c9b4d",
+  "version": 2,
+  "fingerprint": "45d9a648bf664e4a77c828e5859900310b73748f6b6d986075cdaf47d5ace203",
   "route": "/",
   "viewport": "1440x900",
   "featured": {
-    "mountId": "mount:/:ReliabilityCompounding:1",
+    "sceneId": "reliability-threshold",
     "route": "/",
-    "ordinal": 1,
+    "sceneCount": 1,
+    "frameRole": "group",
+    "frameAriaLabel": "Motion scene: The last stretch of episode reliability",
+    "describedByText": "The last stretch of episode reliability. Beat 1: At 95% success per decision, this thirty-decision toy episode succeeds about 21.5% of the time. Beat 2: Raising conditional success from 95% to 99% changes the thirty-step outcome from 21.5% to 74.0%. Beat 3: At 99.9% per decision, the same model gives 97.0% for thirty steps. Beat 4: The same horizon exposes the last stretch.",
     "graphicTag": "svg",
-    "graphicRole": "img",
-    "graphicAriaLabel": "Line chart of episode success against episode length at 95.0 percent per-step success",
-    "initialReadout": "21.5%",
-    "initialSliders": [
-      {
-        "accessibleName": "Per-step success probability in percent, currently 95.0",
-        "value": 95,
-        "min": 50,
-        "max": 99.9,
-        "step": 0.1
-      },
-      {
-        "accessibleName": "Episode length in steps, currently 30",
-        "value": 30,
-        "min": 1,
-        "max": 100,
-        "step": 1
-      }
+    "graphicTopPx": 1139,
+    "graphicHeightPx": 688,
+    "posterMarkCount": 3,
+    "playerMountedAtFirstPaint": false,
+    "posterControls": [
+      "Play the motion scene: The last stretch of episode reliability"
     ],
-    "drivenReadout": "35.8%",
-    "drivenSliders": [
-      {
-        "accessibleName": "Per-step success probability in percent, currently 95.0",
-        "value": 95,
-        "min": 50,
-        "max": 99.9,
-        "step": 0.1
-      },
-      {
-        "accessibleName": "Episode length in steps, currently 20",
-        "value": 20,
-        "min": 1,
-        "max": 100,
-        "step": 1
-      }
-    ],
-    "resetReadout": "21.5%",
-    "resetSliders": [
-      {
-        "accessibleName": "Per-step success probability in percent, currently 95.0",
-        "value": 95,
-        "min": 50,
-        "max": 99.9,
-        "step": 0.1
-      },
-      {
-        "accessibleName": "Episode length in steps, currently 30",
-        "value": 30,
-        "min": 1,
-        "max": 100,
-        "step": 1
-      }
-    ],
-    "secondResetReadout": "21.5%",
-    "keyboardDrivenReadout": "22.2%",
+    "statusLine": "Illustrative model: all 30 decisions succeed independently at the same rate.",
+    "posterReadout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
+    "posterCaption": "The same horizon exposes the last stretch.",
+    "idleFrameRequests": 0,
+    "playingFrameRequests": 50,
     "focusOutlineWidthPx": 2,
     "focusOutlineStyle": "solid",
-    "focusOutlineColour": "rgb(36, 95, 255)",
-    "resetControlNames": [
-      "Reset"
-    ],
-    "revealedByControls": [],
-    "claimText": "A 95% per-step success rate sounds strong. Compounded over a 30-step episode it is not. Move the sliders to see how small per-step errors erode end-to-end reliability, then step through a fixed-horizon example. The frontier essays develop the argument.",
-    "currentStateText": "PER-STEP SUCCESS 95.0%",
-    "graphicTopPx": 1134.66,
-    "graphicHeightPx": 376.19,
-    "describedByText": "At 95.0 percent per-step success, episode success is 21.5% at 30 steps and 0.6% at the 100-step end of the plotted range, crossing 50 percent at 14 steps as the per-step odds compound over the episode length."
-  },
-  "siblingMounts": [
-    {
-      "mountId": "mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:1",
-      "route": "/data-hardware/evaluation-crisis/",
-      "ordinal": 1,
-      "graphicTag": "svg",
-      "graphicRole": "img",
-      "graphicAriaLabel": "Line chart of episode success against episode length at 95.0 percent per-step success",
-      "initialReadout": "21.5%",
-      "initialSliders": [
-        {
-          "accessibleName": "Per-step success probability in percent, currently 95.0",
-          "value": 95,
-          "min": 0,
-          "max": 100,
-          "step": 0.1
-        },
-        {
-          "accessibleName": "Episode length in steps, currently 30",
-          "value": 30,
-          "min": 1,
-          "max": 100,
-          "step": 1
-        }
-      ],
-      "drivenReadout": "35.8%",
-      "drivenSliders": [
-        {
-          "accessibleName": "Per-step success probability in percent, currently 95.0",
-          "value": 95,
-          "min": 0,
-          "max": 100,
-          "step": 0.1
-        },
-        {
-          "accessibleName": "Episode length in steps, currently 20",
-          "value": 20,
-          "min": 1,
-          "max": 100,
-          "step": 1
-        }
-      ],
-      "resetReadout": "21.5%",
-      "resetSliders": [
-        {
-          "accessibleName": "Per-step success probability in percent, currently 95.0",
-          "value": 95,
-          "min": 0,
-          "max": 100,
-          "step": 0.1
-        },
-        {
-          "accessibleName": "Episode length in steps, currently 30",
-          "value": 30,
-          "min": 1,
-          "max": 100,
-          "step": 1
-        }
-      ],
-      "secondResetReadout": "21.5%",
-      "keyboardDrivenReadout": "22.2%",
-      "focusOutlineWidthPx": 2,
-      "focusOutlineStyle": "solid",
-      "focusOutlineColour": "rgb(36, 95, 255)",
-      "resetControlNames": [
-        "Reset"
-      ],
-      "revealedByControls": []
-    },
-    {
-      "mountId": "mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:2",
-      "route": "/data-hardware/evaluation-crisis/",
-      "ordinal": 2,
-      "graphicTag": "svg",
-      "graphicRole": "img",
-      "graphicAriaLabel": "Line chart of episode success against episode length at 95.0 percent per-step success",
-      "initialReadout": "48.8%",
-      "initialSliders": [
-        {
-          "accessibleName": "Per-step success probability in percent, currently 95.0",
-          "value": 95,
-          "min": 50,
-          "max": 99.9,
-          "step": 0.1
-        },
-        {
-          "accessibleName": "Episode length in steps, currently 14",
-          "value": 14,
-          "min": 1,
-          "max": 100,
-          "step": 1
-        }
-      ],
-      "drivenReadout": "35.8%",
-      "drivenSliders": [
-        {
-          "accessibleName": "Per-step success probability in percent, currently 95.0",
-          "value": 95,
-          "min": 50,
-          "max": 99.9,
-          "step": 0.1
-        },
-        {
-          "accessibleName": "Episode length in steps, currently 20",
-          "value": 20,
-          "min": 1,
-          "max": 100,
-          "step": 1
-        }
-      ],
-      "resetReadout": "48.8%",
-      "resetSliders": [
-        {
-          "accessibleName": "Per-step success probability in percent, currently 95.0",
-          "value": 95,
-          "min": 50,
-          "max": 99.9,
-          "step": 0.1
-        },
-        {
-          "accessibleName": "Episode length in steps, currently 14",
-          "value": 14,
-          "min": 1,
-          "max": 100,
-          "step": 1
-        }
-      ],
-      "secondResetReadout": "48.8%",
-      "keyboardDrivenReadout": "49.5%",
-      "focusOutlineWidthPx": 2,
-      "focusOutlineStyle": "solid",
-      "focusOutlineColour": "rgb(36, 95, 255)",
-      "resetControlNames": [
-        "Reset"
-      ],
-      "revealedByControls": [
-        "Read the reasoning"
-      ]
-    },
-    {
-      "mountId": "mount:/frontier/reliability-gap/:ReliabilityCompounding:1",
-      "route": "/frontier/reliability-gap/",
-      "ordinal": 1,
-      "graphicTag": "svg",
-      "graphicRole": "img",
-      "graphicAriaLabel": "Line chart of episode success against episode length at 95.0 percent per-step success",
-      "initialReadout": "21.5%",
-      "initialSliders": [
-        {
-          "accessibleName": "Per-step success probability in percent, currently 95.0",
-          "value": 95,
-          "min": 0,
-          "max": 100,
-          "step": 0.1
-        },
-        {
-          "accessibleName": "Episode length in steps, currently 30",
-          "value": 30,
-          "min": 1,
-          "max": 100,
-          "step": 1
-        }
-      ],
-      "drivenReadout": "35.8%",
-      "drivenSliders": [
-        {
-          "accessibleName": "Per-step success probability in percent, currently 95.0",
-          "value": 95,
-          "min": 0,
-          "max": 100,
-          "step": 0.1
-        },
-        {
-          "accessibleName": "Episode length in steps, currently 20",
-          "value": 20,
-          "min": 1,
-          "max": 100,
-          "step": 1
-        }
-      ],
-      "resetReadout": "21.5%",
-      "resetSliders": [
-        {
-          "accessibleName": "Per-step success probability in percent, currently 95.0",
-          "value": 95,
-          "min": 0,
-          "max": 100,
-          "step": 0.1
-        },
-        {
-          "accessibleName": "Episode length in steps, currently 30",
-          "value": 30,
-          "min": 1,
-          "max": 100,
-          "step": 1
-        }
-      ],
-      "secondResetReadout": "21.5%",
-      "keyboardDrivenReadout": "22.2%",
-      "focusOutlineWidthPx": 2,
-      "focusOutlineStyle": "solid",
-      "focusOutlineColour": "rgb(36, 95, 255)",
-      "resetControlNames": [
-        "Reset"
-      ],
-      "revealedByControls": []
-    }
-  ],
-  "crossContext": {
-    "home": {
-      "mountId": "mount:/:ReliabilityCompounding:1",
-      "route": "/",
-      "initialReadout": "21.5%",
-      "resetReadout": "21.5%",
-      "secondResetReadout": "21.5%",
-      "drivenReadout": "35.8%",
-      "initialSliders": [
-        {
-          "accessibleName": "Per-step success probability in percent, currently 95.0",
-          "value": 95,
-          "min": 50,
-          "max": 99.9,
-          "step": 0.1
-        },
-        {
-          "accessibleName": "Episode length in steps, currently 30",
-          "value": 30,
-          "min": 1,
-          "max": 100,
-          "step": 1
-        }
-      ],
-      "resetSliders": [
-        {
-          "accessibleName": "Per-step success probability in percent, currently 95.0",
-          "value": 95,
-          "min": 50,
-          "max": 99.9,
-          "step": 0.1
-        },
-        {
-          "accessibleName": "Episode length in steps, currently 30",
-          "value": 30,
-          "min": 1,
-          "max": 100,
-          "step": 1
-        }
-      ]
-    },
-    "pairs": [
+    "focusOutlineColour": "rgb(255, 255, 255)",
+    "steps": [
       {
-        "mountId": "mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:1",
-        "route": "/data-hardware/evaluation-crisis/",
-        "ownerPath": "content/data-hardware/evaluation-crisis.mdx",
-        "readouts": [
-          {
-            "phase": "initial",
-            "home": "21.5%",
-            "module": "21.5%",
-            "agrees": true
-          },
-          {
-            "phase": "reset",
-            "home": "21.5%",
-            "module": "21.5%",
-            "agrees": true
-          },
-          {
-            "phase": "second-reset",
-            "home": "21.5%",
-            "module": "21.5%",
-            "agrees": true
-          },
-          {
-            "phase": "driven",
-            "home": "35.8%",
-            "module": "35.8%",
-            "agrees": true
-          }
-        ],
-        "initialControls": [
-          {
-            "ordinal": 1,
-            "homeControl": "Per-step success probability in percent, currently 95.0",
-            "moduleControl": "Per-step success probability in percent, currently 95.0",
-            "homeValue": 95,
-            "moduleValue": 95,
-            "agrees": true
-          },
-          {
-            "ordinal": 2,
-            "homeControl": "Episode length in steps, currently 30",
-            "moduleControl": "Episode length in steps, currently 30",
-            "homeValue": 30,
-            "moduleValue": 30,
-            "agrees": true
-          }
-        ],
-        "resetControls": [
-          {
-            "ordinal": 1,
-            "homeControl": "Per-step success probability in percent, currently 95.0",
-            "moduleControl": "Per-step success probability in percent, currently 95.0",
-            "homeValue": 95,
-            "moduleValue": 95,
-            "agrees": true
-          },
-          {
-            "ordinal": 2,
-            "homeControl": "Episode length in steps, currently 30",
-            "moduleControl": "Episode length in steps, currently 30",
-            "homeValue": 30,
-            "moduleValue": 30,
-            "agrees": true
-          }
-        ]
+        "key": "Home",
+        "readout": "beat 1 / 4 conditional rate 95.0% episode 21.5%",
+        "caption": "At 95% success per decision, this thirty-decision toy episode succeeds about 21.5% of the time."
       },
       {
-        "mountId": "mount:/frontier/reliability-gap/:ReliabilityCompounding:1",
-        "route": "/frontier/reliability-gap/",
-        "ownerPath": "content/frontier/reliability-gap.mdx",
-        "readouts": [
-          {
-            "phase": "initial",
-            "home": "21.5%",
-            "module": "21.5%",
-            "agrees": true
-          },
-          {
-            "phase": "reset",
-            "home": "21.5%",
-            "module": "21.5%",
-            "agrees": true
-          },
-          {
-            "phase": "second-reset",
-            "home": "21.5%",
-            "module": "21.5%",
-            "agrees": true
-          },
-          {
-            "phase": "driven",
-            "home": "35.8%",
-            "module": "35.8%",
-            "agrees": true
-          }
-        ],
-        "initialControls": [
-          {
-            "ordinal": 1,
-            "homeControl": "Per-step success probability in percent, currently 95.0",
-            "moduleControl": "Per-step success probability in percent, currently 95.0",
-            "homeValue": 95,
-            "moduleValue": 95,
-            "agrees": true
-          },
-          {
-            "ordinal": 2,
-            "homeControl": "Episode length in steps, currently 30",
-            "moduleControl": "Episode length in steps, currently 30",
-            "homeValue": 30,
-            "moduleValue": 30,
-            "agrees": true
-          }
-        ],
-        "resetControls": [
-          {
-            "ordinal": 1,
-            "homeControl": "Per-step success probability in percent, currently 95.0",
-            "moduleControl": "Per-step success probability in percent, currently 95.0",
-            "homeValue": 95,
-            "moduleValue": 95,
-            "agrees": true
-          },
-          {
-            "ordinal": 2,
-            "homeControl": "Episode length in steps, currently 30",
-            "moduleControl": "Episode length in steps, currently 30",
-            "homeValue": 30,
-            "moduleValue": 30,
-            "agrees": true
-          }
-        ]
+        "key": "ArrowRight",
+        "readout": "beat 1 / 4 conditional rate 95.0% episode 21.5%",
+        "caption": "At 95% success per decision, this thirty-decision toy episode succeeds about 21.5% of the time."
+      },
+      {
+        "key": "ArrowRight",
+        "readout": "beat 2 / 4 conditional rate 99.0% episode 74.0%",
+        "caption": "Raising conditional success from 95% to 99% changes the thirty-step outcome from 21.5% to 74.0%."
+      },
+      {
+        "key": "ArrowRight",
+        "readout": "beat 3 / 4 conditional rate 99.9% episode 97.0%",
+        "caption": "At 99.9% per decision, the same model gives 97.0% for thirty steps."
+      },
+      {
+        "key": "ArrowRight",
+        "readout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
+        "caption": "The same horizon exposes the last stretch."
+      },
+      {
+        "key": "ArrowLeft",
+        "readout": "beat 3 / 4 conditional rate 99.9% episode 97.0%",
+        "caption": "At 99.9% per decision, the same model gives 97.0% for thirty steps."
       }
     ],
-    "excluded": [
-      {
-        "mountId": "mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:2",
-        "route": "/data-hardware/evaluation-crisis/",
-        "ownerPath": "content/data-hardware/evaluation-crisis.mdx",
-        "containerPath": [
-          "PredictThenReveal"
-        ],
-        "reason": "the document nests this mount inside <PredictThenReveal> (components/article/commit-to-reveal.tsx), whose own module declares discrete-options controls, so a reader meets it inside that exercise rather than as the module's own calculator",
-        "stillBoundBy": [
-          "clause:equivalent-inputs-equivalent-readouts",
-          "clause:model-predicted-from-declared-defaults-and-own-props"
-        ]
-      }
-    ]
+    "resetControlNames": [
+      "Reset the scene to its poster still"
+    ],
+    "resetReadout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
+    "resetCaption": "The same horizon exposes the last stretch.",
+    "secondResetReadout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
+    "componentModule": "components/motion/scenes/reliability-threshold.tsx",
+    "claimText": "The last stretch of episode reliability. The same horizon exposes the last stretch."
   },
-  "playground": {
-    "href": "/playground/",
-    "graphics": [
+  "moduleScene": {
+    "sceneId": "reliability-threshold",
+    "route": "/frontier/reliability-gap/",
+    "sceneCount": 1,
+    "frameRole": "group",
+    "frameAriaLabel": "Motion scene: The last stretch of episode reliability",
+    "describedByText": "The last stretch of episode reliability. Beat 1: At 95% success per decision, this thirty-decision toy episode succeeds about 21.5% of the time. Beat 2: Raising conditional success from 95% to 99% changes the thirty-step outcome from 21.5% to 74.0%. Beat 3: At 99.9% per decision, the same model gives 97.0% for thirty steps. Beat 4: The same horizon exposes the last stretch.",
+    "graphicTag": "svg",
+    "graphicTopPx": 1765,
+    "graphicHeightPx": 503,
+    "posterMarkCount": 3,
+    "playerMountedAtFirstPaint": false,
+    "posterControls": [
+      "Play the motion scene: The last stretch of episode reliability"
+    ],
+    "statusLine": "Illustrative model: all 30 decisions succeed independently at the same rate.",
+    "posterReadout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
+    "posterCaption": "The same horizon exposes the last stretch.",
+    "idleFrameRequests": 0,
+    "playingFrameRequests": 50,
+    "focusOutlineWidthPx": 2,
+    "focusOutlineStyle": "solid",
+    "focusOutlineColour": "rgb(255, 255, 255)",
+    "steps": [
       {
-        "tag": "svg",
-        "role": "img",
-        "ariaHidden": null,
-        "ariaLabel": "Side view of the shipped SO-101 arm at its zero configuration, 6 revolute joints from the base to the gripper",
-        "describedBy": "so101-chain-preview-description",
-        "shapeCount": 12,
-        "naturalWidth": null,
-        "widthPx": 161,
-        "heightPx": 144
+        "key": "Home",
+        "readout": "beat 1 / 4 conditional rate 95.0% episode 21.5%",
+        "caption": "At 95% success per decision, this thirty-decision toy episode succeeds about 21.5% of the time."
+      },
+      {
+        "key": "ArrowRight",
+        "readout": "beat 1 / 4 conditional rate 95.0% episode 21.5%",
+        "caption": "At 95% success per decision, this thirty-decision toy episode succeeds about 21.5% of the time."
+      },
+      {
+        "key": "ArrowRight",
+        "readout": "beat 2 / 4 conditional rate 99.0% episode 74.0%",
+        "caption": "Raising conditional success from 95% to 99% changes the thirty-step outcome from 21.5% to 74.0%."
+      },
+      {
+        "key": "ArrowRight",
+        "readout": "beat 3 / 4 conditional rate 99.9% episode 97.0%",
+        "caption": "At 99.9% per decision, the same model gives 97.0% for thirty steps."
+      },
+      {
+        "key": "ArrowRight",
+        "readout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
+        "caption": "The same horizon exposes the last stretch."
+      },
+      {
+        "key": "ArrowLeft",
+        "readout": "beat 3 / 4 conditional rate 99.9% episode 97.0%",
+        "caption": "At 99.9% per decision, the same model gives 97.0% for thirty steps."
       }
     ],
-    "describedByText": "The shipped so101.urdf defines 6 revolute joints from base_link to the moving jaw, and at the zero configuration the chain reaches 407 mm from the base with the wrist 234 mm above it; joint travel spans 320 degrees at wrist_roll and 110 degrees at gripper.",
-    "surfaceId": "surface:bounded-dark-instrument",
-    "surfaceBackgroundColour": "rgb(36, 45, 51)",
-    "renderedNumbers": [
-      100,
-      6,
-      407,
-      234,
-      320,
-      110
+    "resetControlNames": [
+      "Reset the scene to its poster still"
     ],
-    "textLength": 780
+    "resetReadout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
+    "resetCaption": "The same horizon exposes the last stretch.",
+    "secondResetReadout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
+    "componentModule": "components/motion/scenes/reliability-threshold.tsx"
+  },
+  "toolsLine": {
+    "links": [
+      {
+        "text": "Playground",
+        "path": "/playground/",
+        "topPx": 2505
+      },
+      {
+        "text": "Market Map",
+        "path": "/market-map/",
+        "topPx": 2505
+      }
+    ],
+    "graphics": [],
+    "renderedNumbers": [],
+    "boxedDescendants": 0,
+    "text": "ToolsPlayground Market Map"
   },
   "responsive": [
     {
@@ -572,6 +215,42 @@
     {
       "routeId": "route:/a-z/",
       "route": "/a-z/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/about/",
+      "route": "/about/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/about/",
+      "route": "/about/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/about/",
+      "route": "/about/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/about/",
+      "route": "/about/",
       "viewportId": "1440px",
       "width": 1440,
       "documentScrollWidthPx": 1440,
@@ -3145,18 +2824,18 @@
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "failures": [],
-      "measuredMembers": 53
+      "measuredMembers": 82
     },
     {
       "id": "profile:home-forced-colours",
       "route": "/",
-      "description": "home keeps its landmarks, instrument, and controls under forced-colors: active",
+      "description": "home keeps its landmarks, search, featured scene, and links under forced-colors: active",
       "violationIds": [],
       "consoleErrors": [],
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "failures": [],
-      "measuredMembers": 64
+      "measuredMembers": 90
     },
     {
       "id": "profile:home-reflow-320x800",
@@ -3167,7 +2846,7 @@
       "documentScrollWidthPx": 320,
       "documentClientWidthPx": 320,
       "failures": [],
-      "measuredMembers": 374
+      "measuredMembers": 278
     },
     {
       "id": "profile:home-zoom-200-equivalent",
@@ -3178,7 +2857,7 @@
       "documentScrollWidthPx": 720,
       "documentClientWidthPx": 720,
       "failures": [],
-      "measuredMembers": 374
+      "measuredMembers": 278
     },
     {
       "id": "profile:home-text-200",
@@ -3189,7 +2868,7 @@
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "failures": [],
-      "measuredMembers": 212
+      "measuredMembers": 154
     }
   ],
   "progressCounters": [
@@ -3199,22 +2878,22 @@
       "matches": [],
       "reconciledCounts": [
         {
-          "memberId": "count:/:companies",
-          "text": "111 companies",
-          "expected": 111,
-          "actual": 111
+          "memberId": "count:/:articles",
+          "text": "57 articles",
+          "expected": 57,
+          "actual": 57
         },
         {
-          "memberId": "count:/:companies",
-          "text": "111 companies",
-          "expected": 111,
-          "actual": 111
+          "memberId": "count:/:sources",
+          "text": "434 sources",
+          "expected": 434,
+          "actual": 434
         },
         {
-          "memberId": "count:/:segments",
-          "text": "6 segments",
-          "expected": 6,
-          "actual": 6
+          "memberId": "count:/:glossary-terms",
+          "text": "119 glossary terms",
+          "expected": 119,
+          "actual": 119
         }
       ],
       "unreconciledCounts": []
@@ -3355,25 +3034,18 @@
   "designBounds": {
     "microLabels": [
       {
-        "text": "PER-STEP SUCCESS",
-        "fontSizePx": 11,
-        "family": "IBM Plex Mono"
+        "text": "GPU .",
+        "fontSizePx": 16,
+        "family": "IBM Plex Sans"
       },
       {
-        "text": "EPISODE LENGTH",
-        "fontSizePx": 11,
-        "family": "IBM Plex Mono"
+        "text": "MIT .",
+        "fontSizePx": 16,
+        "family": "IBM Plex Sans"
       }
     ],
-    "borderedBoxCount": 6,
-    "chartDisclosureSummary": {
-      "text": "Sampled episode success by episode length",
-      "textTransform": "none",
-      "letterSpacing": "normal",
-      "fontSizePx": 14,
-      "borderTopWidthPx": 0,
-      "borderBottomWidthPx": 0
-    },
+    "borderedBoxCount": 2,
+    "chartDisclosureSummaries": [],
     "axeViolationIds": [],
     "consoleErrors": []
   }

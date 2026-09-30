@@ -39,6 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       '/glossary/',
       '/credits/',
       '/editorial-policy/',
+      '/about/',
       '/a-z/',
     ].map((path) => ({
       url: `${SITE_URL}${path}`,

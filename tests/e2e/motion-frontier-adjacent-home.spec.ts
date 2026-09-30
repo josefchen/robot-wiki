@@ -80,11 +80,12 @@ for (const { id, route, captions } of scenes) {
   });
 }
 
-test('home shares the reliability scene and keeps its independent calculator', async ({ page }) => {
+test('home features the reliability scene as its only figure, with no calculator', async ({ page }) => {
   await page.goto('/');
   const scene = page.locator('[data-motion-scene="reliability-threshold"]');
   await expect(scene.getByTestId('motion-poster')).toBeVisible();
-  await expect(page.getByTestId('episode-success-readout')).toBeVisible();
+  await expect(page.locator('main [data-motion-scene]')).toHaveCount(1);
+  await expect(page.getByTestId('episode-success-readout')).toHaveCount(0);
   await scene.getByTestId('motion-poster').click();
   await expect(scene.getByTestId('motion-scrubber')).toBeVisible();
   await page.keyboard.press('k');
@@ -159,7 +160,7 @@ test('reliability labels arrive with their bars, including on home', async ({ br
           await scrub.fill('5000');
           expect(await label('99.9%').getAttribute('opacity')).toBe('1');
           expect(await label('97.0%').getAttribute('opacity')).toBe('1');
-          await expect(scene).toContainText('A separate calculator');
+          await expect(scene).toContainText('Illustrative model: all 30 decisions succeed independently at the same rate.');
           await expect(scene).not.toContainText('calculator below');
           const audit = await scene.evaluate(auditSceneElement);
           expect([...audit.intersections, ...audit.overflow, ...audit.lowContrast], `${route} ${colorScheme} ${width}`).toEqual([]);

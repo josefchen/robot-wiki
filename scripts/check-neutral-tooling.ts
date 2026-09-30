@@ -127,7 +127,9 @@ const rules: Array<{
     test: (line) => {
       for (const match of line.matchAll(/\/home\/[A-Za-z0-9][A-Za-z0-9._-]*/g)) {
         const before = line.slice(Math.max(0, match.index - 12), match.index);
-        if (/(?:components|app)\/$/.test(before)) continue; // repository's own home/ directories
+        // The repository's own home/ directories. The match begins at the
+        // slash, so the text before it ends with the bare directory name.
+        if (/(?:^|[^A-Za-z0-9._-])(?:components|app)$/.test(before)) continue;
         // A `/home/...` segment inside a cited URL is the source site's own
         // path, not a checkout on this machine.
         if (uuidInsideUrl(line, match[0])) continue;

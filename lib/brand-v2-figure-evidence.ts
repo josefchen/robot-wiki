@@ -133,10 +133,10 @@ export function staticRoutePath(modulePath: string): string | null {
  * pages derive them: image references over each published article body, and
  * over every module a static route entry can reach.
  *
- * The static half is what a scan of published MDX alone cannot see. The home
- * page mounts `<ImageRef id="spot-raf-agile-liberty-2021" />` directly, so a
- * derivation that only opened `content/` omitted a production figure from
- * the measured population entirely, and its absence read as coverage.
+ * The static half is what a scan of published MDX alone cannot see. A static
+ * page that mounts `<ImageRef id="..." />` directly (home once mounted a
+ * photograph this way) would drop out of a derivation that only opened
+ * `content/`, and its absence would read as coverage.
  *
  * The value is the OCCURRENCE multiset, not the id set: a page that mounts
  * the same figure twice renders two boxes, and both are graded.

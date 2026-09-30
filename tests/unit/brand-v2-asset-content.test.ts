@@ -165,7 +165,7 @@ describe('asset container decoding', () => {
   it('reads a raster frame header and says plainly that it read no pixels', () => {
     const decoded = decodeRaster(
       readFileSync(
-        join(ROOT, 'public', 'images', 'spot-raf-agile-liberty-2021.jpg'),
+        join(ROOT, 'public', 'images', 'puma-560-nasa-ames.jpg'),
       ),
       'jpeg',
     );
@@ -177,13 +177,16 @@ describe('asset container decoding', () => {
 });
 
 describe('identity slot references', () => {
-  const source = readFileSync(join(ROOT, 'app', 'page.tsx'), 'utf8');
-
   it('does not read a content reference as an identity slot', () => {
-    // The home page names the shipped kinematic description in a comment
-    // about the playground preview. A file-wide substring match would call
-    // that an identity slot; it is a statement about content.
-    expect(source).toContain('models/so101/so101.urdf');
+    // A page may name the shipped kinematic description in prose or in a
+    // comment. A file-wide substring match would call that an identity
+    // slot; it is a statement about content.
+    const source = [
+      '// The playground loads models/so101/so101.urdf at runtime.',
+      'export default function Page() {',
+      '  return <p>The arm is drawn from models/so101/so101.urdf.</p>;',
+      '}',
+    ].join('\n');
     expect(identitySlotReferences(source, 'models/so101/so101.urdf')).toEqual([]);
   });
 

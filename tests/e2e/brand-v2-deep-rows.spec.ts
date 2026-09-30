@@ -123,14 +123,14 @@ test.describe('brand-v2 27-row deep executor', () => {
               await search.focus();
               await expect(search).toBeFocused();
             } else if (step.action === 'hero-action') {
-              const hero = page.getByRole('link', { name: 'Start reading' });
-              const destination = await hero.getAttribute('href');
-              expect(destination).toBeTruthy();
-              await hero.click();
-              // Home carries article cards of its own, so the destination has
-              // to be reached before its <article> can be the one measured.
-              await page.waitForURL(new RegExp(`${destination}/?$`));
-              await expect(page.locator('article')).toBeVisible();
+              // Home's black primary action is the search submit under the
+              // identity line (VAL-OPUS-014), operated from the keyboard.
+              const form = page.getByRole('search', { name: 'Search the wiki' });
+              await form.getByRole('searchbox').fill('ALOHA');
+              await form.getByRole('button', { name: 'Search' }).focus();
+              await page.keyboard.press('Enter');
+              await page.waitForURL(/\/search\/\?q=ALOHA$/);
+              await expect(page.locator('a[data-search-result]').first()).toBeVisible();
               await page.goBack();
             } else if (step.action === 'scroll-heading') {
               await page

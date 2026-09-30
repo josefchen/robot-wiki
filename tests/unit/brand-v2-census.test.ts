@@ -239,6 +239,7 @@ describe('brand-v2 canonical census', () => {
       '/glossary/',
       '/credits/',
       '/editorial-policy/',
+      '/about/',
       '/privacy/',
       '/search/',
       ...DOMAINS.map((domain) => `/${domain}/`),
