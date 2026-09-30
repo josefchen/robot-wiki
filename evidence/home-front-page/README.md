@@ -4,9 +4,12 @@ Before and after evidence for the encyclopedia front page on `/`
 (VAL-OPUS-009 and VAL-OPUS-014 to 022) and for `/about/`, which took the
 scope statement and the reading guide off home (VAL-WIKI-028, VAL-NAV-005).
 "Before" is the static export of `11cebdf7`, the commit this work started
-from. "After" is the export of `04165fc6`; the commit that adds this
-folder changes only evidence. Both exports were built on 2026-09-30, the
-date that picks the featured article.
+from. "After" is the export of `58fe3c8d`; the commits that add and update
+this folder change only evidence. The after captures were first taken from
+`04165fc6` and taken again from `58fe3c8d`: every JPEG came out
+byte-identical and `measurements.json` came out equal, since the later
+fact-chip fix changes lines only at widths other than 1440 and 375. Both
+exports were built on 2026-09-30, the date that picks the featured article.
 
 ## How it was made
 
@@ -14,7 +17,7 @@ date that picks the featured article.
 | --- | --- | --- |
 | After export and brand-v2 evidence | `npm run refresh:brand-v2-evidence` | Exit 0. 151 browser tests passed, one of them the archived expected failure; renderer parity 25 passed; the enforcement map holds 238 rows and 4760 results |
 | Captures, both exports | Playwright at 1440×900 and 375×812, after `networkidle` and `document.fonts.ready` | `before/` and `after/`: first-screen and full-page JPEGs of `/`, full-page JPEGs of `/about/` and `measurements.json` |
-| Front page spec | `tests/e2e/home-front-page.spec.ts` | 8 of 8 passed |
+| Front page spec | `tests/e2e/home-front-page.spec.ts` | 9 of 9 passed |
 | Unit tests | `tests/unit/featured-article.test.ts`, `content-dates`, `did-you-know`, `home-counts`, `tests/component/home.test.tsx` | 48 of 48 passed |
 
 `measurements.json` holds, per viewport, every block's words and box, the
@@ -131,8 +134,11 @@ article cites at that sentence. Word counts include the citation label.
 
 `tests/unit/did-you-know.test.ts` holds each fact to its article's passage
 and citation; the spec follows each link and finds the source cited there.
-On home the fact's last plain word, the chip and the full stop share one
-unbreakable run, so no line holds the chip alone.
+On home the fact's last word, the chip and the full stop share one
+unbreakable run. The ACT fact ends on its link, so a no-break space ties
+the chip to "demonstrations"; with a plain space its chip opened a line of
+its own at 320 to 328 px and 440 to 472 px. The spec now checks every width
+from 320 to 1440 px in 4 px steps and finds no chip at the start of a line.
 
 ## /about/ (VAL-WIKI-028, VAL-NAV-005)
 

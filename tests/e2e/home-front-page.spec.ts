@@ -212,6 +212,31 @@ test.describe('home front page', () => {
     });
   });
 
+  test('no citation chip in "Did you know" opens a line of its own, from 320 to 1440 px', async ({
+    page,
+  }) => {
+    const facts = (await home(page, 320)).locator('[data-did-you-know]');
+    await expect(facts).toHaveCount(3);
+    const alone: string[] = [];
+    for (let width = 320; width <= 1440; width += 4) {
+      await page.setViewportSize({ width, height: 900 });
+      alone.push(
+        ...(await facts.evaluateAll(
+          (items, at) =>
+            items.flatMap((item) => {
+              const chip = item.querySelector('[data-cite-id]')!.getBoundingClientRect();
+              // A chip that opens a line has nothing of its fact to its left.
+              return chip.left <= item.getBoundingClientRect().left + 1
+                ? [`${(item as HTMLElement).dataset.didYouKnow} at ${at}px`]
+                : [];
+            }),
+          width,
+        )),
+      );
+    }
+    expect(alone).toEqual([]);
+  });
+
   test('"Recently updated" lists the five latest dated changes, each dated as its JSON-LD states (VAL-OPUS-019)', async ({
     page,
     browser,

@@ -199,7 +199,15 @@ async function observeScene(
   const idleFrameRequests = (await frameRequests(page)) - idleStart;
 
   await play.focus();
-  const focus = await play.evaluate((element) => {
+  // The control eases its colours, the outline's among them, from the text
+  // colour to the focus colour, so read the ring once those transitions end.
+  const focus = await play.evaluate(async (element) => {
+    await Promise.all(
+      element
+        .getAnimations()
+        .filter((animation) => 'transitionProperty' in animation)
+        .map((animation) => animation.finished.catch(() => undefined)),
+    );
     const style = getComputedStyle(element);
     return {
       focused: document.activeElement === element,
