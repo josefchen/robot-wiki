@@ -1,0 +1,65 @@
+figure-system: / [scene:reliability-threshold] sub-scale-text: <span> at 10px
+figure-system: / [scene:reliability-threshold] sub-scale-text: <span> at 11px
+figure-system: / [scene:reliability-threshold] outside-frame: <div> outside the figure frame
+figure-system: / [Side view of the shipped SO-101 arm at its zero configuration, 6 revolute joints from the base to the gripper] sub-scale-text: <text> "100 mm" is off the stage type scale
+figure-system: / [Side view of the shipped SO-101 arm at its zero configuration, 6 revolute joints from the base to the gripper] sub-scale-text: <span> at 10px
+figure-system: / [Side view of the shipped SO-101 arm at its zero configuration, 6 revolute joints from the base to the gripper] outside-frame: <figure> outside the figure frame
+figure-system: / [svg after 3D Kinematics Playground] reserved-colour: <rect> stroke accent
+figure-system: / [svg after 3D Kinematics Playground] outside-frame: <svg> outside the figure frame
+figure-system: /credits/ [image:covariate-shift] sub-scale-text: <span> at 11px
+figure-system: /credits/ [image:temporal-ensembling] sub-scale-text: <span> at 11px
+figure-system: /manipulation/bc-foundations/ [image:covariate-shift] sub-scale-text: <span> at 11px
+figure-system: /manipulation/action-chunking/ [image:temporal-ensembling] sub-scale-text: <span> at 11px
+figure-system: /manipulation/diffusion-policy/ [scene:diffusion-denoising] sub-scale-text: <span> at 10px
+figure-system: /manipulation/diffusion-policy/ [scene:diffusion-denoising] sub-scale-text: <span> at 11px
+figure-system: /manipulation/diffusion-policy/ [scene:diffusion-denoising] outside-frame: <div> outside the figure frame
+figure-system: /manipulation/vla-models/ [scene:action-decode] sub-scale-text: <span> at 10px
+figure-system: /manipulation/vla-models/ [scene:action-decode] sub-scale-text: <span> at 11px
+figure-system: /manipulation/vla-models/ [scene:action-decode] outside-frame: <div> outside the figure frame
+figure-system: /manipulation/pi-line/ [scene:flow-transport] sub-scale-text: <span> at 10px
+figure-system: /manipulation/pi-line/ [scene:flow-transport] sub-scale-text: <span> at 11px
+figure-system: /manipulation/pi-line/ [scene:flow-transport] outside-frame: <div> outside the figure frame
+figure-system: /rl-sim2real/parallel-sim-rl/ [scene:batch-scale] sub-scale-text: <span> at 10px
+figure-system: /rl-sim2real/parallel-sim-rl/ [scene:batch-scale] sub-scale-text: <span> at 11px
+figure-system: /rl-sim2real/parallel-sim-rl/ [scene:batch-scale] outside-frame: <div> outside the figure frame
+figure-system: /rl-sim2real/legged-locomotion/ [scene:gait-support] sub-scale-text: <span> at 10px
+figure-system: /rl-sim2real/legged-locomotion/ [scene:gait-support] sub-scale-text: <span> at 11px
+figure-system: /rl-sim2real/legged-locomotion/ [scene:gait-support] outside-frame: <div> outside the figure frame
+figure-system: /world-models/latent-dynamics/ [scene:latent-drift] sub-scale-text: <span> at 10px
+figure-system: /world-models/latent-dynamics/ [scene:latent-drift] sub-scale-text: <span> at 11px
+figure-system: /world-models/latent-dynamics/ [scene:latent-drift] outside-frame: <div> outside the figure frame
+figure-system: /world-models/generative-video/ [scene:action-fork] sub-scale-text: <span> at 10px
+figure-system: /world-models/generative-video/ [scene:action-fork] sub-scale-text: <span> at 11px
+figure-system: /world-models/generative-video/ [scene:action-fork] outside-frame: <div> outside the figure frame
+figure-system: /world-models/generative-sim/ [scene:push-layers] sub-scale-text: <span> at 10px
+figure-system: /world-models/generative-sim/ [scene:push-layers] sub-scale-text: <span> at 11px
+figure-system: /world-models/generative-sim/ [scene:push-layers] outside-frame: <div> outside the figure frame
+figure-system: /data-hardware/data-bottleneck/ [scene:farm-throughput] sub-scale-text: <span> at 10px
+figure-system: /data-hardware/data-bottleneck/ [scene:farm-throughput] sub-scale-text: <span> at 11px
+figure-system: /data-hardware/data-bottleneck/ [scene:farm-throughput] outside-frame: <div> outside the figure frame
+figure-system: /data-hardware/evaluation-crisis/ [scene:episode-survival] sub-scale-text: <span> at 10px
+figure-system: /data-hardware/evaluation-crisis/ [scene:episode-survival] sub-scale-text: <span> at 11px
+figure-system: /data-hardware/evaluation-crisis/ [scene:episode-survival] outside-frame: <div> outside the figure frame
+figure-system: /data-hardware/industrial-deployment/ [scene:jam-overhead] sub-scale-text: <span> at 10px
+figure-system: /data-hardware/industrial-deployment/ [scene:jam-overhead] sub-scale-text: <span> at 11px
+figure-system: /data-hardware/industrial-deployment/ [scene:jam-overhead] outside-frame: <div> outside the figure frame
+figure-system: /classical/kinematics/ [scene:fk-chain] sub-scale-text: <span> at 10px
+figure-system: /classical/kinematics/ [scene:fk-chain] sub-scale-text: <span> at 11px
+figure-system: /classical/kinematics/ [scene:fk-chain] outside-frame: <div> outside the figure frame
+figure-system: /classical/motion-planning/ [scene:rrt-growth] sub-scale-text: <span> at 10px
+figure-system: /classical/motion-planning/ [scene:rrt-growth] sub-scale-text: <span> at 11px
+figure-system: /classical/motion-planning/ [scene:rrt-growth] outside-frame: <div> outside the figure frame
+figure-system: /classical/state-estimation/ [scene:kalman-predict-update] sub-scale-text: <span> at 10px
+figure-system: /classical/state-estimation/ [scene:kalman-predict-update] sub-scale-text: <span> at 11px
+figure-system: /classical/state-estimation/ [scene:kalman-predict-update] outside-frame: <div> outside the figure frame
+figure-system: /frontier/reliability-gap/ [scene:reliability-threshold] sub-scale-text: <span> at 10px
+figure-system: /frontier/reliability-gap/ [scene:reliability-threshold] sub-scale-text: <span> at 11px
+figure-system: /frontier/reliability-gap/ [scene:reliability-threshold] outside-frame: <div> outside the figure frame
+figure-system: /frontier/dexterity/ [scene:tactile-slip] sub-scale-text: <span> at 10px
+figure-system: /frontier/dexterity/ [scene:tactile-slip] sub-scale-text: <span> at 11px
+figure-system: /frontier/dexterity/ [scene:tactile-slip] outside-frame: <div> outside the figure frame
+figure-system: /adjacent/drones/ [scene:sense-avoid] sub-scale-text: <span> at 10px
+figure-system: /adjacent/drones/ [scene:sense-avoid] sub-scale-text: <span> at 11px
+figure-system: /adjacent/drones/ [scene:sense-avoid] outside-frame: <div> outside the figure frame
+figure-system: stale allowlist entry /data-hardware/data-bottleneck/ [scene:farm-throughput] caption-words: remove it
+figure-system: FAIL; 63 blocking, 1304 allowlisted (87 entries), 1 stale; 106 figures checked

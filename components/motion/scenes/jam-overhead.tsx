@@ -48,7 +48,7 @@ function JamOverheadStage() {
   return (
     <StageSvg viewBox="0 0 340 240">
       <text x={25} y={26} fontSize={13} fill="var(--motion-stage-label)">one elapsed hour · authored cell</text>
-      <text x={LEFT} y={72} fontSize={13} fill="var(--motion-stage-label-secondary)">time in an hour</text>
+      <text x={LEFT} y={72} fontSize={13} data-scene-axis fill="var(--motion-stage-label-secondary)">time in an hour</text>
       <AnimatedElement as="rect" data-scene-mark="productive-time" data-legend-series="cell-productive"
         x={LEFT} y={91} height={28} fill="var(--role-value-stage)"
         bindings={{ width: (t) => partWidth(jamOverheadFrame(t).outputs.timeBreakdown.productive) }} />
@@ -70,8 +70,8 @@ function JamOverheadStage() {
         }} />
       <line data-scene-structure="elapsed-hour" x1={LEFT} x2={LEFT + WIDTH} y1={145} y2={145}
         stroke="var(--motion-stage-axes)" opacity="var(--motion-stage-axes-opacity)" />
-      <text x={LEFT} y={164} fontSize={12} fill="var(--motion-stage-label-secondary)">0 min</text>
-      <text x={LEFT + WIDTH} y={164} fontSize={12} textAnchor="end" fill="var(--motion-stage-label-secondary)">60 min</text>
+      <text x={LEFT} y={164} fontSize={12} data-scene-tick fill="var(--motion-stage-label-secondary)">0 min</text>
+      <text x={LEFT + WIDTH} y={164} fontSize={12} data-scene-tick textAnchor="end" fill="var(--motion-stage-label-secondary)">60 min</text>
       <text x={LEFT} y={200} fontSize={13} fill="var(--motion-stage-label)">fixed capital, uptime, cycle and wage</text>
       <AnimatedElement as="text" x={LEFT} y={222} fontSize={13} fill="var(--motion-stage-label)"
         bindings={{ opacity: (t) => jamOverheadFrame(t).recap }}>

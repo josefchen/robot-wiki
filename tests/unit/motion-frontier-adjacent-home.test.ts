@@ -38,7 +38,7 @@ const figures = new Set([
   'PerceptionLatency', 'SwarmControlTable', 'OrbitalServicingTable',
   'SurgicalSystemsTable', 'ReliabilityThreshold', 'TactileSlip', 'SenseAvoid',
 ]);
-const homeFigures = ['ReliabilityCompounding', 'ImageRef', 'So101ChainPreview', 'MarketMapSchematic', 'ReliabilityThreshold'];
+const homeFigures = ['ReliabilityCompounding', 'ImageRef', 'So101ChainPreview', 'MarketMapPoster', 'ReliabilityThreshold'];
 const scenes = [RELIABILITY_THRESHOLD_SCENE, TACTILE_SLIP_SCENE, SENSE_AVOID_SCENE];
 
 describe('frontier, adjacent and home motion inventory', () => {
@@ -57,7 +57,7 @@ describe('frontier, adjacent and home motion inventory', () => {
     }
     const home = readFileSync(join(root, 'app/page.tsx'), 'utf8');
     for (const element of homeFigures) {
-      expect(home).toContain(element === 'MarketMapSchematic' ? 'SEGMENT_ORDER.map' : `<${element}`);
+      expect(home).toContain(`<${element}`);
       mounts.push(`home:${element}:1`);
     }
     const covered = inventory.map((row) => `${row.article}:${row.element}:${row.occurrence ?? 1}`);

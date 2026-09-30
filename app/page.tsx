@@ -1,7 +1,10 @@
 import Link from 'next/link';
+import { MarketMapPoster } from '@/components/market-map/market-map-poster';
 import { So101ChainPreview } from '@/components/home/so101-chain-preview';
 import { ReliabilityCompounding } from '@/components/interactive/reliability-compounding';
 import { ReliabilityThreshold } from '@/components/motion/scenes/reliability-threshold';
+import { FigureReuse } from '@/components/motion/figure-reuse';
+import { SceneSource } from '@/components/motion/scene-chrome';
 import { ImageRef } from '@/components/mdx/image-ref';
 import { Action } from '@/components/ui';
 import { IntentLink } from '@/components/ui/intent-link';
@@ -317,7 +320,26 @@ export default function Home() {
           develop the argument.
         </p>
         <ReliabilityCompounding className="mt-5" />
-        <ReliabilityThreshold className="mt-5" />
+        <FigureReuse href="/data-hardware/evaluation-crisis/" page="Evaluation crisis">
+          Here to try with your own numbers; the full argument is in
+        </FigureReuse>
+        <SceneSource
+          source={
+            <>
+              Featured from{' '}
+              <Link
+                data-brand-control-id="control:link-focus"
+                href="/frontier/reliability-gap/"
+                className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
+              >
+                Reliability gap
+              </Link>
+              , where it sets the per-step bar deployment needs.
+            </>
+          }
+        >
+          <ReliabilityThreshold className="mt-5" />
+        </SceneSource>
       </section>
 
       {/* Real hardware: the encyclopedia's subject, photographed and credited. */}
@@ -389,67 +411,7 @@ export default function Home() {
             </p>
           </article>
           <article>
-            <div
-              data-brand-surface-id="surface:flat"
-              className="rounded-sm bg-surface px-4 py-4"
-            >
-              <svg
-                viewBox="0 0 320 112"
-                aria-hidden="true"
-                className="block h-36 w-full"
-              >
-                {/* Structural schematic of the market map: one identical
-                    chip per real segment above identical company rows.
-                    Deliberately not a bubble scatter: no circle carries a
-                    size, no line carries a trend, because no quantity on
-                    this teaser is sourced. The one outlined chip depicts
-                    the tool's real filter interaction, and the chip count
-                    is the segment registry's own length. */}
-                {SEGMENT_ORDER.map((segment, i) => (
-                  <rect
-                    key={segment}
-                    x={24 + i * 45}
-                    y={16}
-                    width={38}
-                    height={14}
-                    rx={2}
-                    fill={i === 0 ? 'none' : 'var(--color-surface-2)'}
-                    stroke={
-                      i === 0
-                        ? 'var(--color-accent)'
-                        : 'var(--color-border-strong)'
-                    }
-                    strokeWidth={1}
-                  />
-                ))}
-                <line
-                  x1={24}
-                  y1={44}
-                  x2={296}
-                  y2={44}
-                  stroke="var(--color-border)"
-                  strokeWidth={1}
-                />
-                {[56, 70, 84, 98].map((y) => (
-                  <g key={y}>
-                    <rect
-                      x={24}
-                      y={y}
-                      width={8}
-                      height={8}
-                      fill="var(--color-logo-plate)"
-                    />
-                    <rect
-                      x={40}
-                      y={y + 2}
-                      width={110}
-                      height={4}
-                      fill="var(--color-border-strong)"
-                    />
-                  </g>
-                ))}
-              </svg>
-            </div>
+            <MarketMapPoster />
             <h3 className="mt-4 font-sans text-sm font-medium text-text">
               <Link
                 data-brand-control-id="control:link-focus"

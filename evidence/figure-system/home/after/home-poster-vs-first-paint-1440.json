@@ -1,0 +1,41 @@
+[
+ {
+  "figure": "scene:reliability-threshold",
+  "title": "The last stretch of episode reliability",
+  "settle": {
+   "marks": 12,
+   "captionWords": 14
+  },
+  "firstPaint": {
+   "title": "The last stretch of episode reliability",
+   "marks": 12,
+   "captionWords": 14
+  }
+ },
+ {
+  "figure": "preview:so101-arm",
+  "title": "SO-101 arm at its zero pose",
+  "settle": {
+   "marks": 12,
+   "captionWords": 12
+  },
+  "firstPaint": {
+   "title": "SO-101 arm at its zero pose",
+   "marks": 12,
+   "captionWords": 12
+  }
+ },
+ {
+  "figure": "preview:market-map",
+  "title": "Companies per segment",
+  "settle": {
+   "marks": 18,
+   "captionWords": 10
+  },
+  "firstPaint": {
+   "title": "Companies per segment",
+   "marks": 18,
+   "captionWords": 10
+  }
+ }
+]

@@ -8,12 +8,12 @@
     "reference": "#D9DADB",
     "highlight": "#C6FF19"
   },
-  "tokenSha256": "8246004b0ea2ba5de850fca1cee01dbe1b698f9dd40640c69537c1990bd689ba",
+  "motionSpecSha256": "934aaefc99891347014d9df8408911f4d59f766594e4f1df1f6070a6f2f24025",
   "scenes": [
     {
       "id": "kalman-predict-update",
       "route": "/classical/state-estimation/",
-      "sourceSha256": "f3d57356fc0462f11488946b0080bb9f8dc56e9d8a4d41c126246afc9d7ace99",
+      "sourceSha256": "b2fa68f16ed889a1360fc9c34e21c58728cb8ecb42a0eb5312037e4d42150269",
       "marks": [
         {
           "mark": "belief-mean",
@@ -56,6 +56,7 @@
           "role": "measurement",
           "hex": "#E8C11C",
           "beats": [
+            3,
             4,
             5
           ]
@@ -65,6 +66,7 @@
           "role": "measurement",
           "hex": "#E8C11C",
           "beats": [
+            3,
             4,
             5
           ]
@@ -74,6 +76,7 @@
           "role": "measurement",
           "hex": "#E8C11C",
           "beats": [
+            3,
             4,
             5
           ]
@@ -124,7 +127,7 @@
     {
       "id": "fk-chain",
       "route": "/classical/kinematics/",
-      "sourceSha256": "92eccb3ba1cdb03364d42bbc821a57576aed246c7418007be6afeb2f4372220e",
+      "sourceSha256": "f0de2c4dd54d6b31588d8b4dece02628e32fbe9392f2b6016183dd36d1c31275",
       "marks": [
         {
           "mark": "end-effector",
@@ -161,6 +164,7 @@
           "role": "state",
           "hex": "#58C4DD",
           "beats": [
+            2,
             3,
             4
           ]
@@ -181,6 +185,7 @@
           "role": "state",
           "hex": "#58C4DD",
           "beats": [
+            2,
             3,
             4
           ]
@@ -190,6 +195,7 @@
           "role": "state",
           "hex": "#58C4DD",
           "beats": [
+            3,
             4
           ]
         }
@@ -198,7 +204,7 @@
     {
       "id": "rrt-growth",
       "route": "/classical/motion-planning/",
-      "sourceSha256": "97b51d768c340e9a3effc3781b4d5d10769d29521e6816ccbe28b4bd44cef257",
+      "sourceSha256": "4aae05889ec34e90bac1a130b0ce767d5d987b565f2511453d0807de1a4af51d",
       "marks": [
         {
           "mark": "accepted-tree",
@@ -301,7 +307,7 @@
     {
       "id": "diffusion-denoising",
       "route": "/manipulation/diffusion-policy/",
-      "sourceSha256": "31c1a65c3d4d5b78840757f008dba6ff76e3248021354f8cceb179be233acd0b",
+      "sourceSha256": "df184ef148942416678811a5c896a2d02aa619060e23f486fef1dc0956a3279c",
       "marks": [
         {
           "mark": "action-0",
@@ -1455,7 +1461,7 @@
     {
       "id": "action-decode",
       "route": "/manipulation/vla-models/",
-      "sourceSha256": "f5360737415f297287d2fc698cbec8f1a88641e692c5aa47e5939a86fb828826",
+      "sourceSha256": "f5051828d7968a857c2290a30fc62950644857d4b7dee5d60b3353f4feceeb66",
       "marks": [
         {
           "mark": "bin-0",
@@ -1623,6 +1629,7 @@
           "role": "action",
           "hex": "#B189C6",
           "beats": [
+            3,
             4
           ]
         },
@@ -1631,6 +1638,7 @@
           "role": "action",
           "hex": "#B189C6",
           "beats": [
+            3,
             4
           ]
         },
@@ -1639,6 +1647,7 @@
           "role": "action",
           "hex": "#B189C6",
           "beats": [
+            3,
             4
           ]
         },
@@ -1647,6 +1656,7 @@
           "role": "action",
           "hex": "#B189C6",
           "beats": [
+            3,
             4
           ]
         },
@@ -1655,6 +1665,7 @@
           "role": "action",
           "hex": "#B189C6",
           "beats": [
+            3,
             4
           ]
         },
@@ -1663,6 +1674,7 @@
           "role": "action",
           "hex": "#B189C6",
           "beats": [
+            3,
             4
           ]
         },
@@ -1671,6 +1683,7 @@
           "role": "action",
           "hex": "#B189C6",
           "beats": [
+            3,
             4
           ]
         }
@@ -1679,7 +1692,7 @@
     {
       "id": "flow-transport",
       "route": "/manipulation/pi-line/",
-      "sourceSha256": "a9342a54933abc135ddf9e00a33265fef3aec648d55fdc07ca48fabeb7847c84",
+      "sourceSha256": "e3631a4a3288324df1540219a9a0b96b422e521bd4c53c4e3381f32d0c54a8a1",
       "marks": [
         {
           "mark": "action-0",
@@ -2570,6 +2583,7 @@
           "role": "constraint",
           "hex": "#FC6255",
           "beats": [
+            3,
             4
           ]
         }
@@ -2578,13 +2592,14 @@
     {
       "id": "batch-scale",
       "route": "/rl-sim2real/parallel-sim-rl/",
-      "sourceSha256": "1a9e01b800211f97412eebbe7f13e66feced8370861e5cae9f7dc935398d1e51",
+      "sourceSha256": "cb1f1ff20d3e0456050af9e819cf6352e5ce48d90d0d9fc02cfcf80175262945",
       "marks": [
         {
           "mark": "cpu-cost-time",
           "role": "constraint",
           "hex": "#FC6255",
           "beats": [
+            3,
             4
           ]
         },
@@ -2615,7 +2630,7 @@
     {
       "id": "gait-support",
       "route": "/rl-sim2real/legged-locomotion/",
-      "sourceSha256": "11d3c65e2f16f45b00d81ad5157f14f63098ecac55349a61771a28e72680401d",
+      "sourceSha256": "4c8534e6578a92b3e055a969513b6fddfb685378a29dcd1e60c8eb8d750e7b82",
       "marks": [
         {
           "mark": "bound-phase-0",
@@ -2774,7 +2789,7 @@
     {
       "id": "action-fork",
       "route": "/world-models/generative-video/",
-      "sourceSha256": "c8812c817d69c1e2715394b4c21a5886c119c1c43084ac7208c7f855631e9790",
+      "sourceSha256": "73307e665d28d113f4e9ab596a95960729180ea84ecd156e48548c03217ce093",
       "marks": [
         {
           "mark": "block-A",
@@ -2869,7 +2884,7 @@
     {
       "id": "latent-drift",
       "route": "/world-models/latent-dynamics/",
-      "sourceSha256": "0e7caf9ee87eebf292870fbb09b87f617403f778917b2c5847bd5f462c1cee82",
+      "sourceSha256": "2518563e0e6c89c198c728f61157301cd59f88284232647760a4a17fe7b0162e",
       "marks": [
         {
           "mark": "belief-uncertainty",
@@ -2920,7 +2935,7 @@
     {
       "id": "push-layers",
       "route": "/world-models/generative-sim/",
-      "sourceSha256": "c4b3fd5a2f797b533914b39fce4cac04abc4b9287297c639534355beb8680e6f",
+      "sourceSha256": "70f81100aa719ee09fdeac6f5488c90c9bb452296807a38e1dfb16b5547c5c62",
       "marks": [
         {
           "mark": "collision-hull",
@@ -2987,7 +3002,7 @@
     {
       "id": "farm-throughput",
       "route": "/data-hardware/data-bottleneck/",
-      "sourceSha256": "ab9da3fe0e8c7ad86467d570d05bf1dd12f444d419f4c7a48463e6cb7d516ccb",
+      "sourceSha256": "cc41eab46532e5231371f700b3bf88a99797cd42f316744ecf6939dcba70c476",
       "marks": [
         {
           "mark": "authored-target",
@@ -3027,7 +3042,7 @@
     {
       "id": "episode-survival",
       "route": "/data-hardware/evaluation-crisis/",
-      "sourceSha256": "0e9c97873f8de264af2460775b5d8a2914cd4caca8bf38faf7328920705f9ad0",
+      "sourceSha256": "9f1ef5f881fe1264b8c9e94d5428710f12dcc0ed9abec57d88878ffd64c43996",
       "marks": [
         {
           "mark": "current-horizon",
@@ -3056,7 +3071,7 @@
     {
       "id": "jam-overhead",
       "route": "/data-hardware/industrial-deployment/",
-      "sourceSha256": "e6c0c998ead5baa1123c1fdc3cc4143476e0daf30b94b026b016f08c2480b537",
+      "sourceSha256": "5ce4cf82bae9f27927a063c3cae1c101fe41057e8fa2cdc0858cadf760d00586",
       "marks": [
         {
           "mark": "clearing-time",
@@ -3096,7 +3111,7 @@
     {
       "id": "reliability-threshold",
       "route": "/frontier/reliability-gap/",
-      "sourceSha256": "e8067418dd2a378f924e445c3c0253c3d20e596be194220ef836abca01279739",
+      "sourceSha256": "f58bcd79096165610779dd083673ee04d219004ae03f0f9987e0d4e221c5dac1",
       "marks": [
         {
           "mark": "episode-0",
@@ -3172,7 +3187,7 @@
     {
       "id": "sense-avoid",
       "route": "/adjacent/drones/",
-      "sourceSha256": "c32b514a851f9bf6ce91d6f8954576a5d53a08e5bbf4e0e1afa8a459dfdaa750",
+      "sourceSha256": "7360f24912ed6ada093ff299e42fa52859a4e84c5b88c566c791b5849715e9f4",
       "marks": [
         {
           "mark": "avoidance-budget",

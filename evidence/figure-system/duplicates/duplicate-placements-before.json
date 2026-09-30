@@ -1,0 +1,55 @@
+{
+ "placements": [
+  {
+   "concept": "episode-success chart",
+   "route": "/",
+   "index": 0,
+   "canonical": false,
+   "caption": "At 95.0 percent per-step success, episode success is 21.5% at 30 steps and 0.6% at the 100-step end of the plotted range, crossing 50 percent at 14 steps as the per-step odds compound over the episode length.",
+   "link": null
+  },
+  {
+   "concept": "reliability-threshold scene",
+   "route": "/",
+   "index": 0,
+   "canonical": false,
+   "caption": null,
+   "link": null
+  },
+  {
+   "concept": "episode-success chart",
+   "route": "/data-hardware/evaluation-crisis/",
+   "index": 0,
+   "canonical": true,
+   "caption": "The evaluation calculator at 95.0 percent per-step success reports 21.5% episode success after 30 decisions and 0.6% at the 100-step end of the range, crossing half only around step 14.",
+   "link": null
+  },
+  {
+   "concept": "episode-success chart",
+   "route": "/data-hardware/evaluation-crisis/",
+   "index": 1,
+   "canonical": true,
+   "caption": "The evaluation-crisis prediction panel is seeded at 14 steps so episode success sits at 48.8% when per-step success is 95.0 percent, and the curve still ends at 0.6% by step 100 after crossing 50 percent near step 14.",
+   "link": null
+  },
+  {
+   "concept": "episode-success chart",
+   "route": "/frontier/reliability-gap/",
+   "index": 0,
+   "canonical": false,
+   "caption": "On the reliability-gap calculator a 95.0 percent per-step policy yields 21.5% episode success at 30 steps and only 0.6% at the 100-step far end, with the 50 percent crossing near step 14.",
+   "link": null
+  },
+  {
+   "concept": "reliability-threshold scene",
+   "route": "/frontier/reliability-gap/",
+   "index": 0,
+   "canonical": true,
+   "caption": null,
+   "link": null
+  }
+ ],
+ "knownRepeats": {
+  "episode-success chart /data-hardware/evaluation-crisis/": "opus-pass-data-hardware, VAL-OPUS-089"
+ }
+}

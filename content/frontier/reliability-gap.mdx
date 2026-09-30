@@ -42,6 +42,8 @@ A manipulation task is a chain of decisions, and the chain succeeds only when ev
 
 <ReliabilityCompounding minPerStepPercent={0} maxPerStepPercent={100} descriptionVariant="reliability" className="my-6" />
 
+<FigureReuse className="-mt-4" href="/data-hardware/evaluation-crisis/" page="Evaluation crisis">Here the calculator sets the per-step bar a deployment must clear; the curve is taught in</FigureReuse>
+
 <ReliabilityThreshold className="my-6" />
 
 The calculator computes the product at any setting, and its sliders span the full range so the boundary cases stay honest: at 100% per-step the task always completes, at 0% it never does, and at a horizon of one step the readout equals the per-step value. Two refinements matter for reading real systems. First, the independence assumption is generous: a mistake carries the robot into a state outside its training distribution, where the next mistake is more likely, so <Term id="compounding-error">compounding error</Term> makes the true curve worse than the calculator's. Second, the inverse reading sets the engineering bar. Holding 99% end-to-end success on a 50-step task requires about 99.98% per-step reliability, a figure no generalist policy publishes.

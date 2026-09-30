@@ -105,6 +105,22 @@ export const MOTION_STAGE = {
   labelMinPx: 12,
 } as const;
 
+/**
+ * The stage type scale in painted CSS pixels. components/motion/stage.css
+ * divides each size by the stage's current scale, so these hold on every
+ * stage at least fullSizeMinStagePx wide; a narrower stage shrinks whole.
+ */
+export const MOTION_STAGE_TYPE = {
+  labelFont: 'var(--font-sans)',
+  readoutFont: 'var(--font-mono)',
+  minPx: 12,
+  labelPx: 14,
+  axisPx: 13,
+  tickPx: 12,
+  readoutPx: 13,
+  fullSizeMinStagePx: 299,
+} as const;
+
 /** Uncertainty is not its own colour: the object's hue at 22% with a dashed edge. */
 export const MOTION_UNCERTAINTY = {
   fillAlpha: 0.22,

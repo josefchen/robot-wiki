@@ -36740,6 +36740,128 @@
         "VAL-B2-BASE-012"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-system-20260930-prose-reliability-gap",
+      "manifest": "prose",
+      "memberId": "article:frontier/reliability-gap",
+      "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+      "newHash": "ec938d42bd87814a5ef1f3c3808a4fbc645107b4e94e6a822646a0465610a063",
+      "reason": "Resolution from the sealed member to the current bytes, required because this member's approval history already ends in reconciling resolutions; it binds all 21 prior approvals by ID and both hashes. The pre-change current bytes are the round5-chart-first-screen-20260928-prose-reliability-gap endpoint 1e39b618. The only change from that endpoint is one added line after the ReliabilityCompounding mount: a FigureReuse caption stating why the calculator is shown here (it sets the per-step bar a deployment must clear) and linking to Evaluation crisis, the canonical page for the episode-success curve. Every existing sentence, number, citation, mount prop and the mount order are unchanged.",
+      "ownerApproval": "Owner visual audit of 2026-09-29 (one figure system, one visual per concept) as sealed in the opus-pass contract VAL-OPUS-011: a reused visual stays only with a caption that states a different teaching purpose and links to the canonical page. Reuse caption only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "go-helix-cross-transfer-20260908-2",
+          "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+          "newHash": "66f7598571453b8f06b1921bdcd1e680d7f73b978964bd5130011ee1088ec298"
+        },
+        {
+          "id": "rg-r1-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r2-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r3-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r4-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r5-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r7-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r8-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r9-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r10-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r11-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r12-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r13-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r14-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r15-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "seo-merge-20260916-prose-14",
+          "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+          "newHash": "6ec59fccefe91eb94a2846cea3866b9adcb101c11d2563a3b082bc42517225f4"
+        },
+        {
+          "id": "single-leftovers-rg6-20260917-1",
+          "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+          "newHash": "1012cebc53f29bf427e082a33890db54ca636a35965e31d7ec06b9e70e41a3dc"
+        },
+        {
+          "id": "round5-closeout-reliability-gap-prose",
+          "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+          "newHash": "1012cebc53f29bf427e082a33890db54ca636a35965e31d7ec06b9e70e41a3dc"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-tech-withdrawal-prose-reliability-gap",
+          "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+          "newHash": "9ce3dbd3ed18119366400384f63fe66f9a4664bc84424c6fef6d8a2b811de0e4"
+        },
+        {
+          "id": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-reliability-gap",
+          "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+          "newHash": "4ed073dd9969b1b13e1f42c2bb98ca36218a32aae0ea5266ed45fa4228a1a026"
+        },
+        {
+          "id": "round5-chart-first-screen-20260928-prose-reliability-gap",
+          "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+          "newHash": "1e39b6186e098ed948aa36770562e9041be8283a9956f7396b472529fd661a90"
+        }
+      ]
     }
   ]
 }

@@ -9,6 +9,8 @@
  * - Play/pause, step back and step forward one beat, a native range
  *   scrubber whose aria-valuetext is the current beat's caption, reset.
  * - Keys: Space or K play/pause, arrows step a beat, Home and End.
+ * - The scene renders in the shared figure frame: title and controls, the
+ *   graphite stage with its legend, readout and timeline, then the caption.
  * - The caption sits visibly under the stage and is announced politely
  *   once per beat; the captions together are the text alternative.
  * - Reduced motion jumps between beat end-states; the scrubber still works.
@@ -28,15 +30,19 @@ import {
 import { useMotionValue } from 'motion/react';
 import { Pause, Play } from '@phosphor-icons/react';
 import {
-  InstrumentFrame,
-  InstrumentHeader,
-  InstrumentLegend,
-  InstrumentReadout,
   InstrumentReset,
   INSTRUMENT_PRIMARY_CONTROL_CLASS,
   INSTRUMENT_SECONDARY_CONTROL_CLASS,
 } from '@/components/ui/instrument';
-import { Surface } from '@/components/ui/surface';
+import { FigureFrame, FigureStage } from './figure-frame';
+import {
+  SCENE_SCRUBBER_CLASS,
+  SceneReadout,
+  SceneStageFooter,
+  sceneBeatWords,
+  sceneFigureId,
+  useSceneSource,
+} from './scene-chrome';
 import { SceneTimeProvider, StaticTimeProvider } from './scene-context';
 import {
   beatSpans,
@@ -61,7 +67,7 @@ export interface ScenePlayerProps {
   scene: SceneDefinition;
   /** The stage: one <svg> element owned by the scene. */
   children: ReactNode;
-  /** Legend band entries (InstrumentLegend items). */
+  /** Legend entries (LegendItem), drawn on the stage. */
   legend?: ReactNode;
   /** Scene-specific numbers in the readout row. */
   readout?: (state: ScenePlaybackState) => ReactNode;
@@ -96,6 +102,7 @@ export function ScenePlayer({
   );
   const [lastScrub, setLastScrub] = useState(0);
   const reducedMotion = usePrefersReducedMotion();
+  const source = useSceneSource();
 
   // Poster activation with play consent starts from the top; a plain
   // mount ( SSR, tests, reduced motion) keeps the poster still.
@@ -103,10 +110,10 @@ export function ScenePlayer({
     if (autoPlayOnMount) time.set(0);
   }, [autoPlayOnMount, time]);
 
-  const frameRef = useRef<HTMLDivElement | null>(null);
+  const frameRef = useRef<HTMLElement | null>(null);
   const scrubberRef = useRef<HTMLInputElement | null>(null);
   const playButtonRef = useRef<HTMLButtonElement | null>(null);
-  const captionRef = useRef<HTMLParagraphElement | null>(null);
+  const captionRef = useRef<HTMLDivElement | null>(null);
 
   // Poster activation replaces the focused poster button with the player;
   // focus follows the reader's click into the play control so the keyboard
@@ -219,7 +226,7 @@ export function ScenePlayer({
     time.set(poster);
   }, [poster, time]);
 
-  const onKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+  const onKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
     if (event.defaultPrevented) return;
     const target = event.target as HTMLElement;
     const onButton = target.closest('button') !== null;
@@ -265,21 +272,20 @@ export function ScenePlayer({
     beatLabel: `${beatIndex + 1} / ${spans.length}`,
   };
   return (
-    <InstrumentFrame
+    <FigureFrame
+      as="div"
+      figureId={sceneFigureId(scene.id)}
       data-motion-scene={scene.id}
+      data-figure-beat-words={sceneBeatWords(scene)}
       role="group"
       aria-label={`Motion scene: ${scene.title}`}
       aria-describedby={descriptionId}
       className={className}
-    >
-      <div ref={frameRef} onKeyDown={onKeyDown}>
-        <InstrumentHeader
-          meta={
-            <span data-testid="motion-beat-count">
-              beat {state.beatLabel}
-            </span>
-          }
-        >
+      ref={frameRef}
+      onKeyDown={onKeyDown}
+      heading={scene.title}
+      controls={
+        <>
           <button
             ref={playButtonRef}
             data-brand-control-id="control:primary-action"
@@ -323,80 +329,58 @@ export function ScenePlayer({
             onClick={reset}
             aria-label="Reset the scene to its poster still"
           />
-        </InstrumentHeader>
-
-        <Surface
-          level="bounded-dark"
-          data-motion-stage
-          className="mt-4 overflow-hidden"
-        >
-          <SceneTimeProvider value={time}>
-            <StaticTimeProvider value={poster}>{children}</StaticTimeProvider>
-          </SceneTimeProvider>
-        </Surface>
-
-        <label
-          className="mt-3 block font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
-          htmlFor={`${scene.id}-scrubber`}
-        >
-          Scene timeline
-        </label>
-        <input
-          ref={scrubberRef}
-          id={`${scene.id}-scrubber`}
-          data-brand-control-id="control:input"
-          data-pagefind-ignore
-          data-testid="motion-scrubber"
-          type="range"
-          min={0}
-          max={total}
-          step={50}
-          defaultValue={poster}
-          onChange={(event) => {
-            setLastScrub(Date.now());
-            time.set(Number(event.target.value));
-          }}
-          aria-label="Scene timeline"
-          aria-valuetext={caption}
-          className="mt-2 w-full accent-accent"
-        />
-
-        <p
-          ref={captionRef}
-          aria-live="polite"
-          data-testid="motion-caption"
-          className="mt-3 font-sans text-sm leading-relaxed text-text"
-        >
-          {caption}
-        </p>
-
-        {legend ? (
-          <InstrumentLegend className="mt-3">{legend}</InstrumentLegend>
-        ) : null}
-
+        </>
+      }
+      stage={
         <SceneTimeProvider value={time}>
           <StaticTimeProvider value={poster}>
-            <InstrumentReadout data-testid="motion-readout">
-              <span className="text-text-dim">beat</span>{' '}
-              <span data-testid="motion-beat-readout" className="text-text">
-                {state.beatLabel}
-              </span>{' '}
-              {readout ? readout(state) : null}
-            </InstrumentReadout>
+            <FigureStage
+              footer={
+                <SceneStageFooter
+                  legend={legend}
+                  readout={<SceneReadout state={state} readout={readout} />}
+                  statusLine={statusLine}
+                />
+              }
+              timeline={
+                <input
+                  ref={scrubberRef}
+                  id={`${scene.id}-scrubber`}
+                  data-brand-control-id="control:input"
+                  data-pagefind-ignore
+                  data-testid="motion-scrubber"
+                  type="range"
+                  min={0}
+                  max={total}
+                  step={50}
+                  defaultValue={poster}
+                  onChange={(event) => {
+                    setLastScrub(Date.now());
+                    time.set(Number(event.target.value));
+                  }}
+                  aria-label="Scene timeline"
+                  aria-valuetext={caption}
+                  className={SCENE_SCRUBBER_CLASS}
+                />
+              }
+            >
+              <div data-motion-stage="">{children}</div>
+            </FigureStage>
           </StaticTimeProvider>
         </SceneTimeProvider>
-
-        {statusLine ? (
-          <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
-            {statusLine}
-          </p>
-        ) : null}
-      </div>
-
+      }
+      caption={caption}
+      captionProps={{
+        ref: captionRef,
+        'aria-live': 'polite',
+        'data-testid': 'motion-caption',
+      }}
+      source={source}
+    >
       <p id={descriptionId} className="sr-only">
         {textAlternative}
       </p>
-    </InstrumentFrame>
+    </FigureFrame>
   );
 }
 

@@ -1,0 +1,401 @@
+[
+ {
+  "figure": "scene:reliability-threshold",
+  "runs": [
+   {
+    "part": "header",
+    "family": "IBM Plex Sans",
+    "px": 14,
+    "text": "The last stretch of episode reliability"
+   },
+   {
+    "part": "header",
+    "family": "IBM Plex Sans",
+    "px": 14,
+    "text": "Play"
+   },
+   {
+    "part": "header",
+    "family": "IBM Plex Sans",
+    "px": 14,
+    "text": "Step back"
+   },
+   {
+    "part": "header",
+    "family": "IBM Plex Sans",
+    "px": 14,
+    "text": "Step forward"
+   },
+   {
+    "part": "header",
+    "family": "IBM Plex Sans",
+    "px": 14,
+    "text": "Reset"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Sans",
+    "px": 14,
+    "text": "toy model · 30 decisions"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Sans",
+    "px": 14,
+    "text": "95%"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Sans",
+    "px": 13,
+    "text": "21.5%"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Sans",
+    "px": 14,
+    "text": "99%"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Sans",
+    "px": 13,
+    "text": "74.0%"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Sans",
+    "px": 14,
+    "text": "99.9%"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Sans",
+    "px": 13,
+    "text": "97.0%"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Sans",
+    "px": 14,
+    "text": "compare the last bar"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Sans",
+    "px": 13,
+    "text": "episode success under the same toy model"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Sans",
+    "px": 13,
+    "text": "beat"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Sans",
+    "px": 13,
+    "text": "4 / 4"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Sans",
+    "px": 13,
+    "text": "conditional rate"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Sans",
+    "px": 13,
+    "text": "99.9"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Sans",
+    "px": 13,
+    "text": "%"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Sans",
+    "px": 13,
+    "text": "episode"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Sans",
+    "px": 13,
+    "text": "97.0"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Sans",
+    "px": 13,
+    "text": "%"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Sans",
+    "px": 13,
+    "text": "Illustrative independence model, not a m"
+   },
+   {
+    "part": "caption",
+    "family": "IBM Plex Sans",
+    "px": 14,
+    "text": "The same horizon exposes the last stretc"
+   },
+   {
+    "part": "source",
+    "family": "IBM Plex Sans",
+    "px": 12,
+    "text": "Featured from"
+   },
+   {
+    "part": "source",
+    "family": "IBM Plex Sans",
+    "px": 12,
+    "text": "Reliability gap"
+   },
+   {
+    "part": "source",
+    "family": "IBM Plex Sans",
+    "px": 12,
+    "text": ", where it sets the per-step bar deploym"
+   }
+  ]
+ },
+ {
+  "figure": "preview:so101-arm",
+  "runs": [
+   {
+    "part": "header",
+    "family": "IBM Plex Sans",
+    "px": 14,
+    "text": "SO-101 arm at its zero pose"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Sans",
+    "px": 13,
+    "text": "Scale bar"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Mono",
+    "px": 13,
+    "text": "100"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Mono",
+    "px": 13,
+    "text": "mm"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Sans",
+    "px": 13,
+    "text": "shoulder_pan"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Mono",
+    "px": 13,
+    "text": "220"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Mono",
+    "px": 13,
+    "text": "°"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Sans",
+    "px": 13,
+    "text": "shoulder_lift"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Mono",
+    "px": 13,
+    "text": "200"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Mono",
+    "px": 13,
+    "text": "°"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Sans",
+    "px": 13,
+    "text": "elbow_flex"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Mono",
+    "px": 13,
+    "text": "193.7"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Mono",
+    "px": 13,
+    "text": "°"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Sans",
+    "px": 13,
+    "text": "wrist_flex"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Mono",
+    "px": 13,
+    "text": "190"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Mono",
+    "px": 13,
+    "text": "°"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Sans",
+    "px": 13,
+    "text": "wrist_roll"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Mono",
+    "px": 13,
+    "text": "320"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Mono",
+    "px": 13,
+    "text": "°"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Sans",
+    "px": 13,
+    "text": "gripper"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Mono",
+    "px": 13,
+    "text": "110"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Mono",
+    "px": 13,
+    "text": "°"
+   },
+   {
+    "part": "caption",
+    "family": "IBM Plex Sans",
+    "px": 14,
+    "text": "Drawn from the model file the playground"
+   }
+  ]
+ },
+ {
+  "figure": "preview:market-map",
+  "runs": [
+   {
+    "part": "header",
+    "family": "IBM Plex Sans",
+    "px": 14,
+    "text": "Companies per segment"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Sans",
+    "px": 14,
+    "text": "Foundation models"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Sans",
+    "px": 14,
+    "text": "12"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Sans",
+    "px": 14,
+    "text": "Humanoids"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Sans",
+    "px": 14,
+    "text": "34"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Sans",
+    "px": 14,
+    "text": "Industrial / logistics"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Sans",
+    "px": 14,
+    "text": "15"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Sans",
+    "px": 14,
+    "text": "Vertical applications"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Sans",
+    "px": 14,
+    "text": "32"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Sans",
+    "px": 14,
+    "text": "Simulation / tooling"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Sans",
+    "px": 14,
+    "text": "10"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Sans",
+    "px": 14,
+    "text": "Components"
+   },
+   {
+    "part": "stage",
+    "family": "IBM Plex Sans",
+    "px": 14,
+    "text": "8"
+   },
+   {
+    "part": "caption",
+    "family": "IBM Plex Sans",
+    "px": 14,
+    "text": "All 111 companies on the market map, cou"
+   }
+  ]
+ }
+]

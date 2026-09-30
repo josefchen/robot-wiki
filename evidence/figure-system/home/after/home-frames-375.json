@@ -1,0 +1,29 @@
+[
+ {
+  "figure": "scene:reliability-threshold",
+  "title": "The last stretch of episode reliability",
+  "stage": true,
+  "captionWords": 14,
+  "marks": 12,
+  "stageHeight": 375,
+  "emptyBand": 0.128
+ },
+ {
+  "figure": "preview:so101-arm",
+  "title": "SO-101 arm at its zero pose",
+  "stage": true,
+  "captionWords": 12,
+  "marks": 12,
+  "stageHeight": 311,
+  "emptyBand": 0.105
+ },
+ {
+  "figure": "preview:market-map",
+  "title": "Companies per segment",
+  "stage": true,
+  "captionWords": 10,
+  "marks": 18,
+  "stageHeight": 153,
+  "emptyBand": 0.077
+ }
+]

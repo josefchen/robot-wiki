@@ -1,0 +1,34 @@
+[
+ {
+  "figure": "scene:reliability-threshold",
+  "marks": {
+   "reference or structure": 1,
+   "value": 3
+  },
+  "reserved": [
+   {
+    "tag": "a",
+    "property": "color",
+    "colour": "signal",
+    "use": "link"
+   }
+  ]
+ },
+ {
+  "figure": "preview:so101-arm",
+  "marks": {
+   "reference or structure": 10,
+   "structure (white)": 2,
+   "stage ground": 5,
+   "highlight": 1
+  },
+  "reserved": []
+ },
+ {
+  "figure": "preview:market-map",
+  "marks": {
+   "measurement": 6
+  },
+  "reserved": []
+ }
+]

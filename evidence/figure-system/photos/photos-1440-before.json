@@ -1,0 +1,102 @@
+[
+ {
+  "route": "/",
+  "id": "spot-raf-agile-liberty-2021",
+  "width": 976,
+  "ratio": 2.204,
+  "fit": "fill",
+  "fills": false,
+  "caption": "\"IBM Plex Sans\" 12px/19.5px rgb(36, 45, 51)",
+  "credited": true
+ },
+ {
+  "route": "/credits/",
+  "id": "spot-raf-agile-liberty-2021",
+  "width": 602,
+  "ratio": 2.201,
+  "fit": "fill",
+  "fills": false,
+  "caption": "\"IBM Plex Sans\" 12px/19.5px rgb(36, 45, 51)",
+  "credited": true
+ },
+ {
+  "route": "/credits/",
+  "id": "atlas-darpa-frontview-2013",
+  "width": 602,
+  "ratio": 0.727,
+  "fit": "fill",
+  "fills": false,
+  "caption": "\"IBM Plex Sans\" 12px/19.5px rgb(36, 45, 51)",
+  "credited": true
+ },
+ {
+  "route": "/credits/",
+  "id": "puma-560-nasa-ames",
+  "width": 602,
+  "ratio": 0.787,
+  "fit": "fill",
+  "fills": false,
+  "caption": "\"IBM Plex Sans\" 12px/19.5px rgb(36, 45, 51)",
+  "credited": true
+ },
+ {
+  "route": "/credits/",
+  "id": "anymal-anybotics-2022",
+  "width": 602,
+  "ratio": 1.498,
+  "fit": "fill",
+  "fills": false,
+  "caption": "\"IBM Plex Sans\" 12px/19.5px rgb(36, 45, 51)",
+  "credited": true
+ },
+ {
+  "route": "/credits/",
+  "id": "franka-emika-panda-cebit-2017",
+  "width": 602,
+  "ratio": 1.498,
+  "fit": "fill",
+  "fills": false,
+  "caption": "\"IBM Plex Sans\" 12px/19.5px rgb(36, 45, 51)",
+  "credited": true
+ },
+ {
+  "route": "/rl-sim2real/legged-locomotion/",
+  "id": "anymal-anybotics-2022",
+  "width": 715,
+  "ratio": 1.498,
+  "fit": "fill",
+  "fills": false,
+  "caption": "\"IBM Plex Sans\" 12px/19.5px rgb(36, 45, 51)",
+  "credited": true
+ },
+ {
+  "route": "/data-hardware/hardware-taxonomy/",
+  "id": "franka-emika-panda-cebit-2017",
+  "width": 715,
+  "ratio": 1.498,
+  "fit": "fill",
+  "fills": false,
+  "caption": "\"IBM Plex Sans\" 12px/19.5px rgb(36, 45, 51)",
+  "credited": true
+ },
+ {
+  "route": "/data-hardware/hardware-taxonomy/",
+  "id": "atlas-darpa-frontview-2013",
+  "width": 715,
+  "ratio": 0.727,
+  "fit": "fill",
+  "fills": false,
+  "caption": "\"IBM Plex Sans\" 12px/19.5px rgb(36, 45, 51)",
+  "credited": true
+ },
+ {
+  "route": "/classical/kinematics/",
+  "id": "puma-560-nasa-ames",
+  "width": 715,
+  "ratio": 0.787,
+  "fit": "fill",
+  "fills": false,
+  "caption": "\"IBM Plex Sans\" 12px/19.5px rgb(36, 45, 51)",
+  "credited": true
+ }
+]

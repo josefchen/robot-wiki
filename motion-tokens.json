@@ -112,6 +112,15 @@
     "stageLabelFont": "var(--font-sans)",
     "stageLabelMinPx": 12,
     "stageLabelFill": "#FFFFFF",
-    "stageSecondaryFill": "#D9DADB"
+    "stageSecondaryFill": "#D9DADB",
+    "stageReadoutFont": "var(--font-mono)",
+    "stageScale": {
+      "note": "Painted CSS pixels at any stage at least fullSizeMinStagePx wide (the stage of the 375 px article layout). Object labels and stage headings use label, axis names and secondary notes use axis, tick values use tick, and only numeric readouts use the mono readout. A narrower stage shrinks the whole figure, text included, so its layout still fits.",
+      "labelPx": 14,
+      "axisPx": 13,
+      "tickPx": 12,
+      "readoutPx": 13,
+      "fullSizeMinStagePx": 299
+    }
   }
 }

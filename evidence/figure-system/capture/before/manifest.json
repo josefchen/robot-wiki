@@ -1,0 +1,5358 @@
+[
+ {
+  "idx": 0,
+  "tag": "div",
+  "kind": "scene",
+  "scene": "reliability-threshold",
+  "surface": "surface:flat",
+  "label": "Motion scene: The last stretch of episode reliability",
+  "w": 976,
+  "h": 879,
+  "colours": {
+   "#0B0B0C": 7,
+   "#FFFFFF": 9,
+   "#D9DADB": 5,
+   "#000000": 23,
+   "#242D33": 14,
+   "#A6CF8C": 3,
+   "#C6FF19": 1,
+   "#789F5F": 1
+  },
+  "fonts": {
+   "IBM Plex Sans 14px": 5,
+   "IBM Plex Mono 10px": 1,
+   "IBM Plex Sans 5.15667px": 5,
+   "IBM Plex Sans 4.78834px": 3,
+   "IBM Plex Mono 11px": 1,
+   "IBM Plex Mono 14px": 5,
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Sans 16px": 1
+  },
+  "file": "home__00.png",
+  "route": "/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 1,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "A Boston Dynamics Spot quadruped walks with Royal Air Force airmen at RAF Leeming during the Agile Liberty 21-2 technolo",
+  "w": 976,
+  "h": 492,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "home__01.png",
+  "route": "/",
+  "offpal": []
+ },
+ {
+  "idx": 2,
+  "tag": "figure",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": "surface:bounded-dark-instrument",
+  "label": "after: Interactive tools",
+  "w": 476,
+  "h": 170,
+  "colours": {
+   "#FFFFFF": 7,
+   "#242D33": 7,
+   "#000000": 21,
+   "#D9DADB": 27,
+   "#C6FF19": 1
+  },
+  "fonts": {
+   "IBM Plex Mono 9px": 1,
+   "IBM Plex Mono 10px": 12
+  },
+  "file": "home__02.png",
+  "route": "/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 3,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Line chart of episode success against episode length at 95.0 percent per-step success",
+  "w": 926,
+  "h": 376,
+  "colours": {
+   "#000000": 30,
+   "#D9DADB": 4,
+   "#242D33": 8,
+   "#789F5F": 2,
+   "#F5F6F7": 1
+  },
+  "fonts": {
+   "IBM Plex Mono 11px": 7,
+   "IBM Plex Mono 10px": 1
+  },
+  "file": "home__03.png",
+  "route": "/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 4,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "after: Interactive tools",
+  "w": 444,
+  "h": 144,
+  "colours": {
+   "#000000": 26,
+   "#245FFF": 1,
+   "#D9DADB": 1,
+   "#7D7A73": 4
+  },
+  "fonts": {},
+  "file": "home__04.png",
+  "route": "/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 0,
+  "tag": "canvas",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "",
+  "w": 1102,
+  "h": 646,
+  "colours": {
+   "#0B0B0C": 1
+  },
+  "fonts": {},
+  "file": "playground__00.png",
+  "route": "/playground/",
+  "offpal": []
+ },
+ {
+  "idx": 0,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "A Boston Dynamics Spot quadruped walks with Royal Air Force airmen at RAF Leeming during the Agile Liberty 21-2 technolo",
+  "w": 602,
+  "h": 360,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__00.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 1,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "The original Atlas humanoid, built for the 2013 DARPA Robotics Challenge: hydraulically actuated, tethered, with its fra",
+  "w": 602,
+  "h": 897,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__01.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 2,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "A PUMA 560 at NASA Ames, photographed in a stroboscopic exposure as it cycles through its workspace. The six-revolute PU",
+  "w": 602,
+  "h": 834,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__02.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 3,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "ANYmal, the ANYbotics quadruped behind the ETH Zurich locomotion lineage, on an industrial inspection floor. The actuato",
+  "w": 602,
+  "h": 471,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__03.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 4,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "The Franka Emika Panda, the seven-DoF research arm, demonstrated at CeBIT 2017 with a human guiding it by hand.",
+  "w": 602,
+  "h": 471,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__04.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 5,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:bounded-dark-instrument",
+  "label": "Demonstrations cover a narrow corridor of states around the expert path. The policy's first mistake takes it outside tha",
+  "w": 602,
+  "h": 339,
+  "colours": {
+   "#0B0B0C": 1,
+   "#FFFFFF": 3,
+   "#242D33": 5,
+   "#D9DADB": 1
+  },
+  "fonts": {
+   "IBM Plex Mono 11px": 3,
+   "IBM Plex Sans 12px": 1
+  },
+  "file": "credits__05.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 6,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:bounded-dark-instrument",
+  "label": "Three chunks issued at t-2, t-1, and t predict the current action. Oldest-to-newest raw weights are 1.00, 0.61, and 0.37",
+  "w": 602,
+  "h": 358,
+  "colours": {
+   "#0B0B0C": 1,
+   "#FFFFFF": 3,
+   "#242D33": 5,
+   "#D9DADB": 1
+  },
+  "fonts": {
+   "IBM Plex Mono 11px": 3,
+   "IBM Plex Sans 12px": 1
+  },
+  "file": "credits__06.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 7,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Physical Intelligence logo from Wikimedia Commons, used on the market map.",
+  "w": 602,
+  "h": 651,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__07.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 8,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Covariant logo from Wikimedia Commons, used on the market map.",
+  "w": 602,
+  "h": 301,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__08.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 9,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "NVIDIA wordmark from Wikimedia Commons, used on the market map.",
+  "w": 602,
+  "h": 164,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__09.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 10,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Hugging Face logo from Wikimedia Commons, used on the market map.",
+  "w": 602,
+  "h": 211,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__10.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 11,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Figure AI logo from Wikimedia Commons, used on the market map.",
+  "w": 602,
+  "h": 651,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__11.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 12,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Agility Robotics logo from Wikimedia Commons, used on the market map.",
+  "w": 602,
+  "h": 187,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__12.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 13,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Tesla mark from Wikimedia Commons, used on the market map.",
+  "w": 602,
+  "h": 827,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__13.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 14,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Unitree Robotics logo from Wikimedia Commons, used on the market map.",
+  "w": 602,
+  "h": 187,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__14.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 15,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "UBTECH Robotics logo from Wikimedia Commons, used on the market map.",
+  "w": 602,
+  "h": 201,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__15.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 16,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "NEURA Robotics logo from Wikimedia Commons, used on the market map.",
+  "w": 602,
+  "h": 123,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__16.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 17,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Wandercraft logo from Wikimedia Commons, used on the market map.",
+  "w": 602,
+  "h": 161,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__17.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 18,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Rainbow Robotics logo from Wikimedia Commons, used on the market map.",
+  "w": 602,
+  "h": 234,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__18.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 19,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Berkshire Grey logo from Wikimedia Commons, used on the market map.",
+  "w": 602,
+  "h": 194,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__19.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 20,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Amazon Robotics logo from Wikimedia Commons, used on the market map.",
+  "w": 602,
+  "h": 238,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__20.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 21,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Bedrock Robotics logo from Wikimedia Commons, used on the market map.",
+  "w": 602,
+  "h": 131,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__21.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 22,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Intuitive Surgical logo from Wikimedia Commons, used on the market map.",
+  "w": 602,
+  "h": 291,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__22.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 23,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "CMR Surgical logo from Wikimedia Commons, used on the market map.",
+  "w": 602,
+  "h": 651,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__23.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 24,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Nuro logo from Wikimedia Commons, used on the market map.",
+  "w": 602,
+  "h": 223,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__24.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 25,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "iRobot logo from Wikimedia Commons, used on the market map.",
+  "w": 602,
+  "h": 170,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__25.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 26,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Harmonic Drive logo from Wikimedia Commons, used on the market map.",
+  "w": 602,
+  "h": 241,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__26.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 27,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Nabtesco logo from Wikimedia Commons, used on the market map.",
+  "w": 602,
+  "h": 164,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__27.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 28,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Wonik logo from Wikimedia Commons, used on the market map.",
+  "w": 602,
+  "h": 515,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__28.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 29,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "OpenAI wordmark from Wikimedia Commons, used on the market map.",
+  "w": 602,
+  "h": 213,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__29.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 30,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Meta Platforms logo from Wikimedia Commons, used on the market map.",
+  "w": 602,
+  "h": 172,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__30.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 31,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "SwitchBot logo from Wikimedia Commons, used on the market map.",
+  "w": 602,
+  "h": 181,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__31.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 32,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Hanson Robotics logo from Wikimedia Commons, used on the market map.",
+  "w": 602,
+  "h": 195,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__32.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 33,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Starship Technologies logo from Wikimedia Commons, used on the market map.",
+  "w": 602,
+  "h": 143,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__33.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 34,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Pollen Robotics logo from Wikimedia Commons, used on the market map.",
+  "w": 602,
+  "h": 158,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__34.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 35,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Anduril Industries logo from Wikimedia Commons, used on the market map.",
+  "w": 602,
+  "h": 161,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__35.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 36,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "ABB logo from Wikimedia Commons, used on the market map.",
+  "w": 602,
+  "h": 289,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__36.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 37,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Mitsubishi mark from Wikimedia Commons, used on the market map.",
+  "w": 602,
+  "h": 569,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__37.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 38,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Monarch Tractor logo from Wikimedia Commons, used on the market map.",
+  "w": 602,
+  "h": 499,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__38.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 39,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Skild AI logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 190,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__39.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 40,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Generalist AI logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 651,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__40.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 41,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Dyna Robotics logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 179,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__41.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 42,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Sunday Robotics logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 651,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__42.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 43,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Field AI logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 200,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__43.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 44,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Genesis AI logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 651,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__44.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 45,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Rhoda AI logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 188,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__45.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 46,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Mind Robotics logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 651,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__46.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 47,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Google DeepMind logo from Wikimedia Commons, used on the market map.",
+  "w": 602,
+  "h": 190,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__47.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 48,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Applied Intuition logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 651,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__48.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 49,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "XDOF logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 171,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__49.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 50,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Encord logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 727,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__50.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 51,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Micro1 logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 651,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__51.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 52,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "1X Technologies logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 421,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__52.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 53,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Apptronik logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 100,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__53.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 54,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Boston Dynamics logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 651,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__54.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 55,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Fourier logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 651,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__55.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 56,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Galbot logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 651,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__56.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 57,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "AgiBot logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 335,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__57.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 58,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Sanctuary AI logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 651,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__58.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 59,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Humanoid logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 651,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__59.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 60,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Spirit AI logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 296,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__60.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 61,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Galaxea logo from the official website header, used on the market map.",
+  "w": 602,
+  "h": 234,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__61.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 62,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "EngineAI logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 352,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__62.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 63,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "RobotEra logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 651,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__63.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 64,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "TARS Robotics logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 573,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__64.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 65,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "X Square Robot logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 468,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__65.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 66,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Deep Robotics logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 236,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__66.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 67,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Kepler Robot logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 652,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__67.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 68,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "LimX Dynamics logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 366,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__68.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 69,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Clone Robotics logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 162,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__69.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 70,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Mentee Robotics logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 102,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__70.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 71,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Persona AI logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 187,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__71.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 72,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Symbotic logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 180,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__72.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 73,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Dexterity logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 103,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__73.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 74,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Nimble logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 180,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__74.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 75,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Locus Robotics logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 192,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__75.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 76,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Mujin logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 326,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__76.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 77,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "RightHand Robotics logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 185,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__77.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 78,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Ambi Robotics logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 272,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__78.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 79,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Plus One Robotics logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 224,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__79.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 80,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Carbon Robotics logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 222,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__80.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 81,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Farm-ng logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 191,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__81.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 82,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Chef Robotics logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 326,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__82.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 83,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Simbe Robotics logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 198,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__83.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 84,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Moon Surgical logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 591,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__84.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 85,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Serve Robotics logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 651,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__85.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 86,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Gecko Robotics logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 254,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__86.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 87,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Standard Bots logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 117,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__87.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 88,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Collaborative Robotics logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 669,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__88.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 89,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "The Bot Company logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 229,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__89.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 90,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Weave Robotics logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 651,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__90.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 91,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "K-Scale Labs logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 651,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__91.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 92,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Automata logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 138,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__92.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 93,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Lila Sciences logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 103,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__93.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 94,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Avidbots logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 651,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__94.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 95,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Leaderdrive logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 232,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__95.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 96,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Sanhua logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 651,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__96.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 97,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Shadow Robot logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 516,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__97.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 98,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Sharpa logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 170,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__98.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 99,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "XELA Robotics logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 193,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__99.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 100,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Assured Robot Intelligence logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 669,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__100.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 101,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Saronic logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 651,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__101.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 102,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Eka Robotics logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 651,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__102.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 103,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Foundry Robotics logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 651,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__103.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 104,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Mytra logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 651,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__104.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 105,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Formic logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 651,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__105.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 106,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Astribot logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 314,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__106.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 107,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Booster Robotics logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 651,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__107.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 108,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Leju Robotics logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 137,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__108.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 109,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "PaXini logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 217,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__109.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 110,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Miso Robotics logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 253,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__110.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 111,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Coco logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 481,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__111.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 112,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Knightscope logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 651,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__112.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 113,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Brain Corp logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 288,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__113.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 114,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Diligent Robotics logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 254,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__114.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 115,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Fox Robotics logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 306,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__115.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 116,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Zebra Technologies (Robotics Automation) logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 268,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__116.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 117,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "Robotphoenix logo from the official website, used on the market map.",
+  "w": 602,
+  "h": 291,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "credits__117.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 0,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:bounded-dark-instrument",
+  "label": "Demonstrations cover a narrow corridor of states around the expert path. The policy's first mistake takes it outside tha",
+  "w": 715,
+  "h": 383,
+  "colours": {
+   "#0B0B0C": 1,
+   "#FFFFFF": 3,
+   "#242D33": 4,
+   "#D9DADB": 1,
+   "#245FFF": 1
+  },
+  "fonts": {
+   "IBM Plex Mono 11px": 3,
+   "IBM Plex Sans 12px": 1
+  },
+  "file": "manipulation__bc-foundations__00.png",
+  "route": "/manipulation/bc-foundations/",
+  "offpal": []
+ },
+ {
+  "idx": 1,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Rollout trace of a policy with per-step error 5.0 percent over 120 steps, drifting away from the demonstrated path.",
+  "w": 665,
+  "h": 229,
+  "colours": {
+   "#000000": 8,
+   "#242D33": 3,
+   "#D9DADB": 1,
+   "#245FFF": 1
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 2
+  },
+  "file": "manipulation__bc-foundations__01.png",
+  "route": "/manipulation/bc-foundations/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 2,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Accumulated toy deviation and illustrative reference curves over the episode horizon on a logarithmic deviation axis; ne",
+  "w": 665,
+  "h": 208,
+  "colours": {
+   "#000000": 42,
+   "#242D33": 18,
+   "#D9DADB": 5,
+   "#1A6F45": 2,
+   "#245FFF": 3,
+   "#F5F6F7": 1
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 12
+  },
+  "file": "manipulation__bc-foundations__02.png",
+  "route": "/manipulation/bc-foundations/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 3,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Rollout trace of a policy with per-step error 5.0 percent over 240 steps, drifting away from the demonstrated path.",
+  "w": 599,
+  "h": 206,
+  "colours": {
+   "#000000": 8,
+   "#242D33": 3,
+   "#D9DADB": 1,
+   "#245FFF": 1
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 2
+  },
+  "file": "manipulation__bc-foundations__03.png",
+  "route": "/manipulation/bc-foundations/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 4,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Accumulated toy deviation and illustrative reference curves over the episode horizon on a logarithmic deviation axis; ne",
+  "w": 599,
+  "h": 187,
+  "colours": {
+   "#000000": 42,
+   "#242D33": 18,
+   "#D9DADB": 5,
+   "#1A6F45": 2,
+   "#245FFF": 3,
+   "#F5F6F7": 1
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 12
+  },
+  "file": "manipulation__bc-foundations__04.png",
+  "route": "/manipulation/bc-foundations/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 0,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:bounded-dark-instrument",
+  "label": "Three chunks issued at t-2, t-1, and t predict the current action. Oldest-to-newest raw weights are 1.00, 0.61, and 0.37",
+  "w": 715,
+  "h": 403,
+  "colours": {
+   "#0B0B0C": 1,
+   "#FFFFFF": 3,
+   "#242D33": 4,
+   "#D9DADB": 1,
+   "#245FFF": 1
+  },
+  "fonts": {
+   "IBM Plex Mono 11px": 3,
+   "IBM Plex Sans 12px": 1
+  },
+  "file": "manipulation__action-chunking__00.png",
+  "route": "/manipulation/action-chunking/",
+  "offpal": []
+ },
+ {
+  "idx": 1,
+  "tag": "figure",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "temporal_ensembling.py",
+  "w": 715,
+  "h": 235,
+  "colours": {
+   "#0B0B0C": 11,
+   "#242D33": 1,
+   "#D9DADB": 2,
+   "#FFFFFF": 1,
+   "#66707B": 5,
+   "#A0111F": 8,
+   "#622CBC": 1,
+   "#0E1116": 11,
+   "#023B95": 4,
+   "#702C00": 1
+  },
+  "fonts": {
+   "IBM Plex Mono 12px": 1,
+   "IBM Plex Mono 13px": 30
+  },
+  "file": "manipulation__action-chunking__01.png",
+  "route": "/manipulation/action-chunking/",
+  "offpal": [
+   "#66707B",
+   "#A0111F",
+   "#622CBC",
+   "#0E1116",
+   "#023B95",
+   "#702C00"
+  ]
+ },
+ {
+  "idx": 2,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Line chart of task success rate against chunk size k. Success rises to 44 percent at k of 100, then tapers. Current posi",
+  "w": 665,
+  "h": 270,
+  "colours": {
+   "#000000": 46,
+   "#D9DADB": 5,
+   "#242D33": 11,
+   "#245FFF": 5,
+   "#0B0B0C": 2,
+   "#F5F6F7": 1
+  },
+  "fonts": {
+   "IBM Plex Mono 11px": 12,
+   "IBM Plex Mono 10px": 1
+  },
+  "file": "manipulation__action-chunking__02.png",
+  "route": "/manipulation/action-chunking/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 3,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Toy normalized throughput scores against added inference delay, not measured task throughput. Temporal ensembling falls ",
+  "w": 665,
+  "h": 218,
+  "colours": {
+   "#000000": 52,
+   "#A52A1E": 6,
+   "#D9DADB": 5,
+   "#242D33": 12,
+   "#1A6F45": 3,
+   "#245FFF": 1,
+   "#F5F6F7": 2,
+   "#0B0B0C": 2
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 2,
+   "IBM Plex Mono 11px": 13
+  },
+  "file": "manipulation__action-chunking__03.png",
+  "route": "/manipulation/action-chunking/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 4,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Trace of the executed action across a chunk hand-off at 0 ms delay. The temporal ensembling trace stays on the committed",
+  "w": 665,
+  "h": 197,
+  "colours": {
+   "#000000": 22,
+   "#A52A1E": 4,
+   "#242D33": 10,
+   "#1A6F45": 1
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 5,
+   "IBM Plex Mono 11px": 4
+  },
+  "file": "manipulation__action-chunking__04.png",
+  "route": "/manipulation/action-chunking/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 5,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Toy normalized throughput scores against added inference delay, not measured task throughput. Temporal ensembling falls ",
+  "w": 599,
+  "h": 197,
+  "colours": {
+   "#000000": 52,
+   "#A52A1E": 6,
+   "#D9DADB": 5,
+   "#242D33": 12,
+   "#1A6F45": 3,
+   "#245FFF": 1,
+   "#F5F6F7": 2,
+   "#0B0B0C": 2
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 2,
+   "IBM Plex Mono 11px": 13
+  },
+  "file": "manipulation__action-chunking__05.png",
+  "route": "/manipulation/action-chunking/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 6,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Trace of the executed action across a chunk hand-off at 100 ms delay. The temporal ensembling trace leaves both valid mo",
+  "w": 599,
+  "h": 178,
+  "colours": {
+   "#000000": 28,
+   "#A52A1E": 7,
+   "#242D33": 10,
+   "#1A6F45": 1,
+   "#F5F6F7": 1
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 5,
+   "IBM Plex Mono 11px": 5
+  },
+  "file": "manipulation__action-chunking__06.png",
+  "route": "/manipulation/action-chunking/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 0,
+  "tag": "div",
+  "kind": "scene",
+  "scene": "diffusion-denoising",
+  "surface": "surface:flat",
+  "label": "Motion scene: Diffusion policy: denoising actions",
+  "w": 715,
+  "h": 775,
+  "colours": {
+   "#0B0B0C": 10,
+   "#FFFFFF": 50,
+   "#D9DADB": 79,
+   "#000000": 308,
+   "#242D33": 20,
+   "#58C4DD": 3,
+   "#B189C6": 64,
+   "#AE86C3": 2,
+   "#2EA1B9": 1,
+   "#949595": 1,
+   "#C6FF19": 1
+  },
+  "fonts": {
+   "IBM Plex Sans 14px": 5,
+   "IBM Plex Mono 10px": 1,
+   "IBM Plex Sans 6.16001px": 6,
+   "IBM Plex Sans 6.67334px": 2,
+   "IBM Plex Sans 7.18667px": 1,
+   "IBM Plex Mono 6.67334px": 11,
+   "math 16.32px": 9,
+   "KaTeX_Math 16.32px": 4,
+   "KaTeX_Main 16.32px": 4,
+   "IBM Plex Mono 11px": 4,
+   "IBM Plex Mono 14px": 8,
+   "IBM Plex Sans 12px": 1,
+   "Newsreader 19px": 1
+  },
+  "file": "manipulation__diffusion-policy__00.png",
+  "route": "/manipulation/diffusion-policy/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 1,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Receding horizon rolling plan over 32 control steps. 4 chunks, each predicting T_p of 16 actions and committing the firs",
+  "w": 665,
+  "h": 239,
+  "colours": {
+   "#000000": 29,
+   "#242D33": 10,
+   "#245FFF": 4
+  },
+  "fonts": {
+   "IBM Plex Mono 9px": 4,
+   "IBM Plex Mono 10px": 6
+  },
+  "file": "manipulation__diffusion-policy__01.png",
+  "route": "/manipulation/diffusion-policy/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 0,
+  "tag": "div",
+  "kind": "scene",
+  "scene": "action-decode",
+  "surface": "surface:flat",
+  "label": "Motion scene: From continuous action to token",
+  "w": 715,
+  "h": 755,
+  "colours": {
+   "#0B0B0C": 7,
+   "#FFFFFF": 8,
+   "#D9DADB": 18,
+   "#000000": 59,
+   "#242D33": 17,
+   "#B189C6": 17,
+   "#C6FF19": 3,
+   "#AE86C3": 1
+  },
+  "fonts": {
+   "IBM Plex Sans 14px": 5,
+   "IBM Plex Mono 10px": 1,
+   "IBM Plex Sans 7.18667px": 5,
+   "IBM Plex Sans 6.16001px": 2,
+   "IBM Plex Sans 6.67334px": 7,
+   "IBM Plex Mono 11px": 2,
+   "IBM Plex Mono 14px": 6,
+   "IBM Plex Sans 12px": 1,
+   "Newsreader 19px": 1
+  },
+  "file": "manipulation__vla-models__00.png",
+  "route": "/manipulation/vla-models/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 1,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Continuous action chunk: 7 dimensions over 16 control steps. The marker at step 7 selects the action vector being tokeni",
+  "w": 665,
+  "h": 256,
+  "colours": {
+   "#000000": 57,
+   "#D9DADB": 7,
+   "#548200": 1,
+   "#AE86C3": 14,
+   "#C6FF19": 1,
+   "#8D67A1": 6,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 11
+  },
+  "file": "manipulation__vla-models__01.png",
+  "route": "/manipulation/vla-models/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 2,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Binning detail for Δx: the value -0.056 at step 7 falls into bin 120 of 255 on a uniform grid of 256 bins per dimension.",
+  "w": 665,
+  "h": 133,
+  "colours": {
+   "#000000": 318,
+   "#242D33": 5,
+   "#D9DADB": 271,
+   "#C6FF19": 2,
+   "#0B0B0C": 3,
+   "#548200": 1
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 7
+  },
+  "file": "manipulation__vla-models__02.png",
+  "route": "/manipulation/vla-models/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 0,
+  "tag": "div",
+  "kind": "scene",
+  "scene": "flow-transport",
+  "surface": "surface:flat",
+  "label": "Motion scene: Flow matching transports action samples",
+  "w": 715,
+  "h": 732,
+  "colours": {
+   "#0B0B0C": 7,
+   "#FFFFFF": 6,
+   "#D9DADB": 55,
+   "#000000": 211,
+   "#242D33": 18,
+   "#B189C6": 49,
+   "#FC6255": 2,
+   "#949595": 1,
+   "#AE86C3": 1,
+   "#FA6053": 1
+  },
+  "fonts": {
+   "IBM Plex Sans 14px": 5,
+   "IBM Plex Mono 10px": 1,
+   "IBM Plex Sans 7.18667px": 2,
+   "IBM Plex Sans 6.67334px": 2,
+   "IBM Plex Mono 11px": 3,
+   "IBM Plex Mono 14px": 5,
+   "IBM Plex Sans 12px": 1,
+   "Newsreader 19px": 1
+  },
+  "file": "manipulation__pi-line__00.png",
+  "route": "/manipulation/pi-line/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 1,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "2D action-space view with the learned vector field at mid-transport. 48 samples start as Gaussian noise and are transpor",
+  "w": 665,
+  "h": 353,
+  "colours": {
+   "#000000": 849,
+   "#D9DADB": 2,
+   "#242D33": 290,
+   "#AE86C3": 96,
+   "#949595": 2,
+   "#767778": 2
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 10
+  },
+  "file": "manipulation__pi-line__01.png",
+  "route": "/manipulation/pi-line/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 2,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Timeline of dated Physical Intelligence sources from Oct 2024 to Apr 2026. The pinned checkpoint catalogue ends at π0.5;",
+  "w": 665,
+  "h": 197,
+  "colours": {
+   "#000000": 61,
+   "#245FFF": 8,
+   "#242D33": 17,
+   "#D9DADB": 6,
+   "#0B0B0C": 1
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 4,
+   "IBM Plex Mono 11px": 6,
+   "IBM Plex Mono 9px": 6
+  },
+  "file": "manipulation__pi-line__02.png",
+  "route": "/manipulation/pi-line/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 0,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Selected generalist robot policy records. Highlighted nodes have a reported weight download; dim nodes include unavailab",
+  "w": 665,
+  "h": 212,
+  "colours": {
+   "#000000": 96,
+   "#242D33": 22,
+   "#D9DADB": 13,
+   "#245FFF": 9,
+   "#0B0B0C": 1
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 15
+  },
+  "file": "manipulation__generalist-policies__00.png",
+  "route": "/manipulation/generalist-policies/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 0,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Schematic timescale lanes for π0.5 by Physical Intelligence. Four drawn lanes combine reported output rates with illustr",
+  "w": 665,
+  "h": 153,
+  "colours": {
+   "#000000": 243,
+   "#0B0B0C": 4,
+   "#8A5A00": 3,
+   "#D9DADB": 4,
+   "#245FFF": 2,
+   "#242D33": 6
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 4,
+   "IBM Plex Mono 9px": 9
+  },
+  "file": "manipulation__hierarchical__00.png",
+  "route": "/manipulation/hierarchical/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 0,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Value-function trace over a 40 second espresso episode. Playhead at 0.0 seconds in the Reach segment, tagged high advant",
+  "w": 665,
+  "h": 192,
+  "colours": {
+   "#000000": 36,
+   "#245FFF": 4,
+   "#1A6F45": 2,
+   "#0B0B0C": 5,
+   "#A52A1E": 3,
+   "#D9DADB": 1,
+   "#242D33": 6
+  },
+  "fonts": {
+   "IBM Plex Mono 9px": 12
+  },
+  "file": "manipulation__rl-finetuning__00.png",
+  "route": "/manipulation/rl-finetuning/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 1,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Successful trials out of 30 for five methods across four manipulation tasks",
+  "w": 665,
+  "h": 353,
+  "colours": {
+   "#000000": 123,
+   "#242D33": 30,
+   "#D9DADB": 24,
+   "#245FFF": 8
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 8,
+   "IBM Plex Mono 9px": 20
+  },
+  "file": "manipulation__rl-finetuning__01.png",
+  "route": "/manipulation/rl-finetuning/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 0,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Control-loop timeline at 3.0B parameters",
+  "w": 665,
+  "h": 156,
+  "colours": {
+   "#000000": 86,
+   "#D9DADB": 15,
+   "#242D33": 14,
+   "#A52A1E": 4
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 11,
+   "IBM Plex Mono 9px": 2
+  },
+  "file": "manipulation__realtime-execution__00.png",
+  "route": "/manipulation/realtime-execution/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 1,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Control-loop timeline at 1.1B parameters",
+  "w": 599,
+  "h": 140,
+  "colours": {
+   "#000000": 86,
+   "#D9DADB": 15,
+   "#242D33": 14,
+   "#A52A1E": 2,
+   "#1A6F45": 2
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 11,
+   "IBM Plex Mono 9px": 2
+  },
+  "file": "manipulation__realtime-execution__01.png",
+  "route": "/manipulation/realtime-execution/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 2,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Illustrative velocity trace for synchronous execution at 0 milliseconds of inference delay. Peak per-tick velocity step ",
+  "w": 665,
+  "h": 154,
+  "colours": {
+   "#000000": 15,
+   "#D9DADB": 1,
+   "#242D33": 8,
+   "#8A5A00": 1
+  },
+  "fonts": {
+   "IBM Plex Mono 9px": 7
+  },
+  "file": "manipulation__realtime-execution__02.png",
+  "route": "/manipulation/realtime-execution/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 3,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Illustrative velocity trace for naive switch execution at 0 milliseconds of inference delay. Peak per-tick velocity step",
+  "w": 665,
+  "h": 154,
+  "colours": {
+   "#000000": 15,
+   "#D9DADB": 1,
+   "#242D33": 8,
+   "#A52A1E": 1
+  },
+  "fonts": {
+   "IBM Plex Mono 9px": 7
+  },
+  "file": "manipulation__realtime-execution__03.png",
+  "route": "/manipulation/realtime-execution/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 4,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Illustrative velocity trace for real-time chunking execution at 0 milliseconds of inference delay. Peak per-tick velocit",
+  "w": 665,
+  "h": 154,
+  "colours": {
+   "#000000": 15,
+   "#D9DADB": 1,
+   "#242D33": 8,
+   "#1A6F45": 1
+  },
+  "fonts": {
+   "IBM Plex Mono 9px": 7
+  },
+  "file": "manipulation__realtime-execution__04.png",
+  "route": "/manipulation/realtime-execution/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 0,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Mixture-of-Transformers diagram. Forward pass at depth 8 of 8. Tokens flow up both stacks; the expert attends into backb",
+  "w": 665,
+  "h": 420,
+  "colours": {
+   "#000000": 99,
+   "#245FFF": 57,
+   "#A52A1E": 1,
+   "#1A6F45": 1,
+   "#0B0B0C": 2,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Mono 12px": 2,
+   "IBM Plex Mono 10px": 4
+  },
+  "file": "manipulation__knowledge-insulation__00.png",
+  "route": "/manipulation/knowledge-insulation/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 0,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Modelled wall-clock time for 158M environment steps under constant-rate assumptions. Paper anchors include different uni",
+  "w": 665,
+  "h": 288,
+  "colours": {
+   "#000000": 97,
+   "#245FFF": 2,
+   "#A52A1E": 3,
+   "#242D33": 24,
+   "#0B0B0C": 1,
+   "#D9DADB": 9
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 12,
+   "IBM Plex Mono 9.5px": 8
+  },
+  "file": "rl-sim2real__rl-for-robotics__00.png",
+  "route": "/rl-sim2real/rl-for-robotics/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 0,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Locomotion contact geometry. Quadruped stance: four near-point foot-ground contacts on a rigid substrate. Injected conta",
+  "w": 665,
+  "h": 333,
+  "colours": {
+   "#000000": 38,
+   "#D9DADB": 1,
+   "#242D33": 6,
+   "#245FFF": 8
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 2
+  },
+  "file": "rl-sim2real__why-rl-locomotion__00.png",
+  "route": "/rl-sim2real/why-rl-locomotion/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 0,
+  "tag": "div",
+  "kind": "scene",
+  "scene": "batch-scale",
+  "surface": "surface:flat",
+  "label": "Motion scene: Parallel rollouts change a fixed training budget",
+  "w": 715,
+  "h": 755,
+  "colours": {
+   "#0B0B0C": 7,
+   "#FFFFFF": 8,
+   "#D9DADB": 6,
+   "#000000": 19,
+   "#242D33": 19,
+   "#A6CF8C": 1,
+   "#FC6255": 1,
+   "#C6FF19": 2,
+   "#789F5F": 1,
+   "#FA6053": 1
+  },
+  "fonts": {
+   "IBM Plex Sans 14px": 5,
+   "IBM Plex Mono 10px": 1,
+   "IBM Plex Sans 7.18667px": 2,
+   "IBM Plex Sans 6.16001px": 2,
+   "IBM Plex Sans 6.67334px": 2,
+   "IBM Plex Mono 11px": 3,
+   "IBM Plex Mono 14px": 5,
+   "IBM Plex Sans 12px": 1,
+   "Newsreader 19px": 1
+  },
+  "file": "rl-sim2real__parallel-sim-rl__00.png",
+  "route": "/rl-sim2real/parallel-sim-rl/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 1,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Wall-clock training time against parallel environments, 4,096 envs",
+  "w": 665,
+  "h": 374,
+  "colours": {
+   "#000000": 60,
+   "#242D33": 11,
+   "#D9DADB": 9,
+   "#789F5F": 1,
+   "#5B8141": 1,
+   "#F5F6F7": 3,
+   "#949595": 2,
+   "#767778": 2,
+   "#C6FF19": 1
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 14
+  },
+  "file": "rl-sim2real__parallel-sim-rl__01.png",
+  "route": "/rl-sim2real/parallel-sim-rl/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 0,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Task success against ground friction. Point policy 97% vs DR policy 74% at mu 0.80.",
+  "w": 665,
+  "h": 353,
+  "colours": {
+   "#000000": 75,
+   "#242D33": 15,
+   "#D9DADB": 10,
+   "#245FFF": 7,
+   "#0B0B0C": 3,
+   "#F5F6F7": 2
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 16
+  },
+  "file": "rl-sim2real__sim2real-transfer__00.png",
+  "route": "/rl-sim2real/sim2real-transfer/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 1,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Task success against ground friction. Point policy 97% vs DR policy 57% at mu 0.80.",
+  "w": 599,
+  "h": 318,
+  "colours": {
+   "#000000": 75,
+   "#242D33": 15,
+   "#D9DADB": 10,
+   "#245FFF": 7,
+   "#0B0B0C": 3,
+   "#F5F6F7": 2
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 16
+  },
+  "file": "rl-sim2real__sim2real-transfer__01.png",
+  "route": "/rl-sim2real/sim2real-transfer/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 2,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Teacher-student distillation at 15 percent degradation. Top panel: the teacher's privileged terrain heightfield. Middle ",
+  "w": 665,
+  "h": 312,
+  "colours": {
+   "#000000": 100,
+   "#242D33": 24,
+   "#737472": 1,
+   "#545555": 1,
+   "#616261": 1,
+   "#717270": 2,
+   "#646464": 1,
+   "#6C6D6C": 1,
+   "#838381": 2,
+   "#BFBEBA": 1,
+   "#ECEAE4": 1,
+   "#C8C7C2": 1,
+   "#A5A4A1": 1,
+   "#979694": 2,
+   "#A2A29E": 1,
+   "#9C9C99": 1,
+   "#4C4D4D": 1,
+   "#1A1C1E": 2,
+   "#484949": 1,
+   "#6F706E": 1,
+   "#6A6A69": 1,
+   "#81817F": 1,
+   "#ABAAA7": 1,
+   "#B5B4B0": 2,
+   "#A52A1E": 9,
+   "#777776": 1,
+   "#5C5D5C": 1,
+   "#555655": 1,
+   "#747573": 1,
+   "#636463": 1,
+   "#757574": 1,
+   "#B9B8B4": 1,
+   "#DBDAD4": 1,
+   "#BFBEB9": 1,
+   "#A9A8A5": 1,
+   "#A7A7A3": 1,
+   "#9E9E9B": 1,
+   "#4E4F4F": 1,
+   "#232526": 1,
+   "#212325": 1,
+   "#505151": 1,
+   "#5D5E5D": 1,
+   "#757674": 1,
+   "#6D6E6C": 1,
+   "#858583": 1,
+   "#A5A5A1": 1
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 3
+  },
+  "file": "rl-sim2real__sim2real-transfer__02.png",
+  "route": "/rl-sim2real/sim2real-transfer/",
+  "offpal": [
+   "#000000",
+   "#737472",
+   "#545555",
+   "#616261",
+   "#717270",
+   "#646464",
+   "#6C6D6C",
+   "#838381",
+   "#BFBEBA",
+   "#ECEAE4",
+   "#C8C7C2",
+   "#A5A4A1",
+   "#979694",
+   "#A2A29E",
+   "#9C9C99",
+   "#4C4D4D",
+   "#1A1C1E",
+   "#484949",
+   "#6F706E",
+   "#6A6A69",
+   "#81817F",
+   "#ABAAA7",
+   "#B5B4B0",
+   "#777776",
+   "#5C5D5C",
+   "#555655",
+   "#747573",
+   "#636463",
+   "#757574",
+   "#B9B8B4",
+   "#DBDAD4",
+   "#BFBEB9",
+   "#A9A8A5",
+   "#A7A7A3",
+   "#9E9E9B",
+   "#4E4F4F",
+   "#232526",
+   "#212325",
+   "#505151",
+   "#5D5E5D",
+   "#757674",
+   "#6D6E6C",
+   "#858583",
+   "#A5A5A1"
+  ]
+ },
+ {
+  "idx": 0,
+  "tag": "div",
+  "kind": "scene",
+  "scene": "gait-support",
+  "surface": "surface:flat",
+  "label": "Motion scene: Foot support over an authored stride cycle",
+  "w": 715,
+  "h": 732,
+  "colours": {
+   "#0B0B0C": 7,
+   "#FFFFFF": 10,
+   "#D9DADB": 13,
+   "#000000": 86,
+   "#242D33": 16,
+   "#FC6255": 6,
+   "#58C4DD": 22,
+   "#2EA1B9": 1,
+   "#FA6053": 1
+  },
+  "fonts": {
+   "IBM Plex Sans 14px": 5,
+   "IBM Plex Mono 10px": 1,
+   "IBM Plex Sans 7.18667px": 5,
+   "IBM Plex Sans 6.67334px": 7,
+   "IBM Plex Sans 6.16001px": 4,
+   "IBM Plex Mono 11px": 2,
+   "IBM Plex Mono 14px": 5,
+   "IBM Plex Sans 12px": 1,
+   "Newsreader 19px": 1
+  },
+  "file": "rl-sim2real__legged-locomotion__00.png",
+  "route": "/rl-sim2real/legged-locomotion/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 1,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "ANYmal, the ANYbotics quadruped behind the ETH Zurich locomotion lineage, on an industrial inspection floor. The actuato",
+  "w": 715,
+  "h": 546,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 2,
+   "#245FFF": 2
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "rl-sim2real__legged-locomotion__01.png",
+  "route": "/rl-sim2real/legged-locomotion/",
+  "offpal": []
+ },
+ {
+  "idx": 2,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Footfall timing for the Walk gait, duty factor 0.75, phase 0%",
+  "w": 665,
+  "h": 278,
+  "colours": {
+   "#000000": 58,
+   "#242D33": 8,
+   "#D9DADB": 4,
+   "#2EA1B9": 6,
+   "#00829A": 3,
+   "#C6FF19": 2
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 7,
+   "IBM Plex Mono 11px": 4
+  },
+  "file": "rl-sim2real__legged-locomotion__02.png",
+  "route": "/rl-sim2real/legged-locomotion/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 0,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Whole-body control stack for the Motion-tracking RL decomposition, representative system Figure Helix 02 S0. 3 layers fr",
+  "w": 665,
+  "h": 303,
+  "colours": {
+   "#000000": 37,
+   "#242D33": 7,
+   "#D9DADB": 3,
+   "#0B0B0C": 3,
+   "#245FFF": 3,
+   "#F5F6F7": 1
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 5,
+   "IBM Plex Sans 12px": 3,
+   "IBM Plex Mono 11px": 4
+  },
+  "file": "rl-sim2real__humanoid-wbc__00.png",
+  "route": "/rl-sim2real/humanoid-wbc/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 0,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Rollout preview: balanced gait. This toy selects a balanced trot when none of its three failure-category rules fires. Th",
+  "w": 665,
+  "h": 291,
+  "colours": {
+   "#000000": 69,
+   "#1A6F45": 1,
+   "#242D33": 6,
+   "#D9DADB": 22,
+   "#0B0B0C": 2,
+   "#245FFF": 4
+  },
+  "fonts": {
+   "IBM Plex Mono 11px": 1,
+   "IBM Plex Mono 10px": 2
+  },
+  "file": "rl-sim2real__reward-design-mpc__00.png",
+  "route": "/rl-sim2real/reward-design-mpc/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 1,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Base-height deviation after a lateral push. MPC: recovers. RL policy: recovers.",
+  "w": 665,
+  "h": 270,
+  "colours": {
+   "#000000": 39,
+   "#242D33": 13,
+   "#D9DADB": 1,
+   "#0B0B0C": 2,
+   "#245FFF": 2
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 13
+  },
+  "file": "rl-sim2real__reward-design-mpc__01.png",
+  "route": "/rl-sim2real/reward-design-mpc/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 0,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Latent-dynamics panel art: latent cells, reward scalar, fuzzy reconstruction",
+  "w": 198,
+  "h": 119,
+  "colours": {
+   "#000000": 22,
+   "#242D33": 6,
+   "#245FFF": 4,
+   "#D9DADB": 1
+  },
+  "fonts": {
+   "IBM Plex Mono 8px": 3,
+   "IBM Plex Mono 10px": 1,
+   "IBM Plex Mono 9px": 1
+  },
+  "file": "world-models__taxonomy__00.png",
+  "route": "/world-models/taxonomy/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 1,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "",
+  "w": 198,
+  "h": 119,
+  "colours": {
+   "#000000": 28,
+   "#242D33": 3,
+   "#245FFF": 4
+  },
+  "fonts": {
+   "IBM Plex Mono 8px": 3
+  },
+  "file": "world-models__taxonomy__01.png",
+  "route": "/world-models/taxonomy/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 2,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "",
+  "w": 198,
+  "h": 119,
+  "colours": {
+   "#000000": 17,
+   "#245FFF": 2,
+   "#0B0B0C": 2,
+   "#242D33": 4
+  },
+  "fonts": {
+   "IBM Plex Mono 8px": 5
+  },
+  "file": "world-models__taxonomy__02.png",
+  "route": "/world-models/taxonomy/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 3,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "",
+  "w": 198,
+  "h": 119,
+  "colours": {
+   "#000000": 28,
+   "#242D33": 3,
+   "#245FFF": 6
+  },
+  "fonts": {
+   "IBM Plex Mono 8px": 3,
+   "IBM Plex Mono 9px": 1
+  },
+  "file": "world-models__taxonomy__03.png",
+  "route": "/world-models/taxonomy/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 4,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "",
+  "w": 198,
+  "h": 119,
+  "colours": {
+   "#000000": 19,
+   "#245FFF": 2,
+   "#0B0B0C": 2,
+   "#242D33": 3
+  },
+  "fonts": {
+   "IBM Plex Mono 8px": 3
+  },
+  "file": "world-models__taxonomy__04.png",
+  "route": "/world-models/taxonomy/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 5,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "",
+  "w": 198,
+  "h": 119,
+  "colours": {
+   "#000000": 11,
+   "#0B0B0C": 2,
+   "#242D33": 1,
+   "#245FFF": 1
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 3,
+   "IBM Plex Mono 8px": 1
+  },
+  "file": "world-models__taxonomy__05.png",
+  "route": "/world-models/taxonomy/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 0,
+  "tag": "div",
+  "kind": "scene",
+  "scene": "latent-drift",
+  "surface": "surface:flat",
+  "label": "Motion scene: Small model errors accumulate in imagination",
+  "w": 715,
+  "h": 755,
+  "colours": {
+   "#0B0B0C": 7,
+   "#FFFFFF": 7,
+   "#D9DADB": 8,
+   "#000000": 20,
+   "#242D33": 16,
+   "#58C4DD": 4,
+   "#2EA1B9": 1,
+   "#949595": 1
+  },
+  "fonts": {
+   "IBM Plex Sans 14px": 5,
+   "IBM Plex Mono 10px": 1,
+   "IBM Plex Sans 7.18667px": 1,
+   "IBM Plex Sans 6.67334px": 3,
+   "IBM Plex Sans 6.16001px": 2,
+   "IBM Plex Mono 11px": 2,
+   "IBM Plex Mono 14px": 5,
+   "IBM Plex Sans 12px": 1,
+   "Newsreader 19px": 1
+  },
+  "file": "world-models__latent-dynamics__00.png",
+  "route": "/world-models/latent-dynamics/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 1,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Imagined rollout in latent space over 15 steps, peeling away from the true latent trajectory as one-step errors compound",
+  "w": 665,
+  "h": 177,
+  "colours": {
+   "#000000": 10,
+   "#242D33": 4,
+   "#D9DADB": 1,
+   "#245FFF": 2,
+   "#F5F6F7": 1
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 2
+  },
+  "file": "world-models__latent-dynamics__01.png",
+  "route": "/world-models/latent-dynamics/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 2,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Latent deviation versus imagination step in a deterministic toy. Deviation reaches 0.301 units at step 15. The shaded 3 ",
+  "w": 665,
+  "h": 204,
+  "colours": {
+   "#000000": 30,
+   "#242D33": 9,
+   "#D9DADB": 4,
+   "#245FFF": 2,
+   "#F5F6F7": 1
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 8,
+   "IBM Plex Mono 8px": 1
+  },
+  "file": "world-models__latent-dynamics__02.png",
+  "route": "/world-models/latent-dynamics/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 3,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "",
+  "w": 448,
+  "h": 109,
+  "colours": {
+   "#000000": 54,
+   "#242D33": 25,
+   "#245FFF": 3
+  },
+  "fonts": {
+   "IBM Plex Mono 8px": 3
+  },
+  "file": "world-models__latent-dynamics__03.png",
+  "route": "/world-models/latent-dynamics/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 0,
+  "tag": "div",
+  "kind": "scene",
+  "scene": "action-fork",
+  "surface": "surface:flat",
+  "label": "Motion scene: Two actions fork one predicted future",
+  "w": 715,
+  "h": 755,
+  "colours": {
+   "#0B0B0C": 7,
+   "#FFFFFF": 8,
+   "#D9DADB": 6,
+   "#000000": 26,
+   "#242D33": 19,
+   "#58C4DD": 2,
+   "#B189C6": 4,
+   "#2EA1B9": 1,
+   "#AE86C3": 1,
+   "#949595": 1
+  },
+  "fonts": {
+   "IBM Plex Sans 14px": 5,
+   "IBM Plex Mono 10px": 1,
+   "IBM Plex Sans 7.18667px": 3,
+   "IBM Plex Sans 6.67334px": 1,
+   "IBM Plex Mono 11px": 3,
+   "IBM Plex Mono 14px": 6,
+   "IBM Plex Sans 12px": 1,
+   "Newsreader 19px": 1
+  },
+  "file": "world-models__generative-video__00.png",
+  "route": "/world-models/generative-video/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 1,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Shared initial frame: a block centered on a table with a gripper above it and a goal zone marked on the left.",
+  "w": 240,
+  "h": 158,
+  "colours": {
+   "#000000": 13,
+   "#242D33": 6,
+   "#245FFF": 1
+  },
+  "fonts": {
+   "IBM Plex Mono 7px": 1
+  },
+  "file": "world-models__generative-video__01.png",
+  "route": "/world-models/generative-video/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 2,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Rollout A: predicted frames under the action Push left, strong conditioning.",
+  "w": 665,
+  "h": 122,
+  "colours": {
+   "#000000": 58,
+   "#242D33": 28,
+   "#245FFF": 4
+  },
+  "fonts": {
+   "IBM Plex Mono 7px": 4,
+   "IBM Plex Mono 8px": 4
+  },
+  "file": "world-models__generative-video__02.png",
+  "route": "/world-models/generative-video/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 3,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Rollout B: predicted frames under the action Lift gripper, strong conditioning.",
+  "w": 665,
+  "h": 122,
+  "colours": {
+   "#000000": 58,
+   "#242D33": 28,
+   "#245FFF": 4
+  },
+  "fonts": {
+   "IBM Plex Mono 7px": 4,
+   "IBM Plex Mono 8px": 4
+  },
+  "file": "world-models__generative-video__03.png",
+  "route": "/world-models/generative-video/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 0,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Latent space planning view. The current latent is at distance 0.813 from the goal latent after 0 planning steps toward g",
+  "w": 665,
+  "h": 428,
+  "colours": {
+   "#000000": 31,
+   "#242D33": 3,
+   "#D9DADB": 6,
+   "#1A6F45": 3,
+   "#F5F6F7": 1,
+   "#245FFF": 2
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 1,
+   "IBM Plex Mono 9px": 3
+  },
+  "file": "world-models__jepa__00.png",
+  "route": "/world-models/jepa/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 0,
+  "tag": "div",
+  "kind": "scene",
+  "scene": "push-layers",
+  "surface": "surface:flat",
+  "label": "Motion scene: A rendered scene needs a solver to answer a push",
+  "w": 715,
+  "h": 755,
+  "colours": {
+   "#0B0B0C": 7,
+   "#FFFFFF": 6,
+   "#D9DADB": 4,
+   "#000000": 19,
+   "#242D33": 20,
+   "#FC6255": 2,
+   "#A6CF8C": 1,
+   "#58C4DD": 3,
+   "#B189C6": 2,
+   "#2EA1B9": 2,
+   "#AE86C3": 1,
+   "#FA6053": 1
+  },
+  "fonts": {
+   "IBM Plex Sans 14px": 5,
+   "IBM Plex Mono 10px": 1,
+   "IBM Plex Sans 7.18667px": 4,
+   "IBM Plex Sans 6.67334px": 1,
+   "IBM Plex Mono 11px": 4,
+   "IBM Plex Mono 14px": 5,
+   "IBM Plex Sans 12px": 1,
+   "Newsreader 19px": 1
+  },
+  "file": "world-models__generative-sim__00.png",
+  "route": "/world-models/generative-sim/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 1,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Three-layer scene. Appearance layer on, physics proxy off, simulation layer on. Mug displacement 0.0 cm after 0 effectiv",
+  "w": 665,
+  "h": 380,
+  "colours": {
+   "#000000": 37,
+   "#245FFF": 5,
+   "#1A6F45": 3,
+   "#242D33": 6
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 7
+  },
+  "file": "world-models__generative-sim__01.png",
+  "route": "/world-models/generative-sim/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 0,
+  "tag": "div",
+  "kind": "scene",
+  "scene": "farm-throughput",
+  "surface": "surface:flat",
+  "label": "Motion scene: How a farm rate changes time to an authored target",
+  "w": 715,
+  "h": 775,
+  "colours": {
+   "#0B0B0C": 7,
+   "#FFFFFF": 9,
+   "#D9DADB": 9,
+   "#000000": 23,
+   "#242D33": 16,
+   "#A6CF8C": 3,
+   "#789F5F": 3
+  },
+  "fonts": {
+   "IBM Plex Sans 14px": 5,
+   "IBM Plex Mono 10px": 1,
+   "IBM Plex Sans 7.18667px": 3,
+   "IBM Plex Sans 6.16001px": 3,
+   "IBM Plex Sans 6.67334px": 2,
+   "IBM Plex Mono 11px": 2,
+   "IBM Plex Mono 14px": 5,
+   "IBM Plex Sans 12px": 1,
+   "Newsreader 19px": 1
+  },
+  "file": "data-hardware__data-bottleneck__00.png",
+  "route": "/data-hardware/data-bottleneck/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 1,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Demonstration hours against pretraining tokens, 15-rig hypothetical farm projection",
+  "w": 665,
+  "h": 436,
+  "colours": {
+   "#000000": 116,
+   "#242D33": 24,
+   "#D9DADB": 13,
+   "#789F5F": 2,
+   "#F5F6F7": 6,
+   "#0B0B0C": 19,
+   "#5B8141": 1
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 25,
+   "IBM Plex Mono 9px": 8
+  },
+  "file": "data-hardware__data-bottleneck__01.png",
+  "route": "/data-hardware/data-bottleneck/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 2,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Demonstration hours against pretraining tokens, 10-rig hypothetical farm projection",
+  "w": 599,
+  "h": 393,
+  "colours": {
+   "#000000": 116,
+   "#242D33": 24,
+   "#D9DADB": 13,
+   "#789F5F": 2,
+   "#F5F6F7": 6,
+   "#0B0B0C": 19,
+   "#5B8141": 1
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 25,
+   "IBM Plex Mono 9px": 8
+  },
+  "file": "data-hardware__data-bottleneck__02.png",
+  "route": "/data-hardware/data-bottleneck/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 0,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "The Franka Emika Panda, the seven-DoF research arm, demonstrated at CeBIT 2017 with a human guiding it by hand.",
+  "w": 715,
+  "h": 527,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 2,
+   "#245FFF": 2
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "data-hardware__hardware-taxonomy__00.png",
+  "route": "/data-hardware/hardware-taxonomy/",
+  "offpal": []
+ },
+ {
+  "idx": 1,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "The original Atlas humanoid, built for the 2013 DARPA Robotics Challenge: hydraulically actuated, tethered, with its fra",
+  "w": 715,
+  "h": 1052,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 2,
+   "#245FFF": 2
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "data-hardware__hardware-taxonomy__01.png",
+  "route": "/data-hardware/hardware-taxonomy/",
+  "offpal": []
+ },
+ {
+  "idx": 0,
+  "tag": "div",
+  "kind": "scene",
+  "scene": "episode-survival",
+  "surface": "surface:flat",
+  "label": "Motion scene: Conditional success compounds over an illustrative episode",
+  "w": 715,
+  "h": 732,
+  "colours": {
+   "#0B0B0C": 7,
+   "#FFFFFF": 7,
+   "#D9DADB": 10,
+   "#000000": 22,
+   "#242D33": 17,
+   "#A6CF8C": 1,
+   "#C6FF19": 1,
+   "#789F5F": 1,
+   "#949595": 1
+  },
+  "fonts": {
+   "IBM Plex Sans 14px": 5,
+   "IBM Plex Mono 10px": 1,
+   "IBM Plex Sans 7.18667px": 1,
+   "IBM Plex Sans 6.16001px": 5,
+   "IBM Plex Sans 6.67334px": 2,
+   "IBM Plex Mono 11px": 2,
+   "IBM Plex Mono 14px": 5,
+   "IBM Plex Sans 12px": 1,
+   "Newsreader 19px": 1
+  },
+  "file": "data-hardware__evaluation-crisis__00.png",
+  "route": "/data-hardware/evaluation-crisis/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 1,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Line chart of episode success against episode length at 95.0 percent per-step success",
+  "w": 665,
+  "h": 270,
+  "colours": {
+   "#000000": 30,
+   "#D9DADB": 4,
+   "#242D33": 8,
+   "#789F5F": 2,
+   "#F5F6F7": 1
+  },
+  "fonts": {
+   "IBM Plex Mono 11px": 7,
+   "IBM Plex Mono 10px": 1
+  },
+  "file": "data-hardware__evaluation-crisis__01.png",
+  "route": "/data-hardware/evaluation-crisis/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 2,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Line chart of episode success against episode length at 95.0 percent per-step success",
+  "w": 599,
+  "h": 243,
+  "colours": {
+   "#000000": 30,
+   "#D9DADB": 4,
+   "#242D33": 8,
+   "#789F5F": 2,
+   "#F5F6F7": 1
+  },
+  "fonts": {
+   "IBM Plex Mono 11px": 7,
+   "IBM Plex Mono 10px": 1
+  },
+  "file": "data-hardware__evaluation-crisis__02.png",
+  "route": "/data-hardware/evaluation-crisis/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 0,
+  "tag": "div",
+  "kind": "scene",
+  "scene": "jam-overhead",
+  "surface": "surface:flat",
+  "label": "Motion scene: Clearing time takes capacity from an authored picking cell",
+  "w": 715,
+  "h": 755,
+  "colours": {
+   "#0B0B0C": 7,
+   "#FFFFFF": 8,
+   "#D9DADB": 5,
+   "#000000": 15,
+   "#242D33": 20,
+   "#A6CF8C": 1,
+   "#FC6255": 3,
+   "#789F5F": 1,
+   "#FA6053": 3
+  },
+  "fonts": {
+   "IBM Plex Sans 14px": 5,
+   "IBM Plex Mono 10px": 1,
+   "IBM Plex Sans 7.18667px": 3,
+   "IBM Plex Sans 6.67334px": 1,
+   "IBM Plex Sans 6.16001px": 2,
+   "IBM Plex Mono 11px": 3,
+   "IBM Plex Mono 14px": 7,
+   "IBM Plex Sans 12px": 1,
+   "Newsreader 19px": 1
+  },
+  "file": "data-hardware__industrial-deployment__00.png",
+  "route": "/data-hardware/industrial-deployment/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 0,
+  "tag": "div",
+  "kind": "scene",
+  "scene": "fk-chain",
+  "surface": "surface:flat",
+  "label": "Motion scene: A joint turns every link downstream",
+  "w": 715,
+  "h": 755,
+  "colours": {
+   "#0B0B0C": 7,
+   "#FFFFFF": 9,
+   "#D9DADB": 4,
+   "#000000": 23,
+   "#242D33": 16,
+   "#58C4DD": 6,
+   "#C6FF19": 2,
+   "#2EA1B9": 1
+  },
+  "fonts": {
+   "IBM Plex Sans 14px": 5,
+   "IBM Plex Mono 10px": 1,
+   "IBM Plex Sans 7.18667px": 4,
+   "IBM Plex Sans 6.67334px": 1,
+   "IBM Plex Mono 11px": 2,
+   "IBM Plex Mono 14px": 5,
+   "IBM Plex Sans 12px": 1,
+   "Newsreader 19px": 1
+  },
+  "file": "classical__kinematics__00.png",
+  "route": "/classical/kinematics/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 1,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "A PUMA 560 at NASA Ames, photographed in a stroboscopic exposure as it cycles through its workspace. The six-revolute PU",
+  "w": 715,
+  "h": 977,
+  "colours": {
+   "#0B0B0C": 2,
+   "#D9DADB": 1,
+   "#242D33": 2,
+   "#245FFF": 2
+  },
+  "fonts": {
+   "IBM Plex Sans 12px": 1,
+   "IBM Plex Mono 11px": 3
+  },
+  "file": "classical__kinematics__01.png",
+  "route": "/classical/kinematics/",
+  "offpal": []
+ },
+ {
+  "idx": 2,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Planar three-link arm. Base angle 110 degrees, elbow -45 degrees, wrist -35 degrees. End effector at x +0.45, y +1.89 li",
+  "w": 665,
+  "h": 582,
+  "colours": {
+   "#000000": 32,
+   "#D9DADB": 3,
+   "#242D33": 7,
+   "#F5F6F7": 1,
+   "#245FFF": 2
+  },
+  "fonts": {
+   "IBM Plex Mono 11px": 2,
+   "IBM Plex Mono 10px": 1
+  },
+  "file": "classical__kinematics__02.png",
+  "route": "/classical/kinematics/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 0,
+  "tag": "div",
+  "kind": "scene",
+  "scene": "rrt-growth",
+  "surface": "surface:flat",
+  "label": "Motion scene: A seeded tree finds a path around obstacles",
+  "w": 715,
+  "h": 732,
+  "colours": {
+   "#0B0B0C": 7,
+   "#FFFFFF": 6,
+   "#D9DADB": 5,
+   "#000000": 25,
+   "#242D33": 18,
+   "#FC6255": 6,
+   "#58C4DD": 2,
+   "#C6FF19": 2,
+   "#2EA1B9": 1,
+   "#FA6053": 1
+  },
+  "fonts": {
+   "IBM Plex Sans 14px": 5,
+   "IBM Plex Mono 10px": 1,
+   "IBM Plex Sans 7.18667px": 1,
+   "IBM Plex Sans 6.67334px": 2,
+   "IBM Plex Mono 11px": 3,
+   "IBM Plex Mono 14px": 5,
+   "IBM Plex Sans 12px": 1,
+   "Newsreader 19px": 1
+  },
+  "file": "classical__motion-planning__00.png",
+  "route": "/classical/motion-planning/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 1,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "RRT exploration of a 2D planning scene with 5 obstacles between a start on the left and a goal on the right. Iteration 0",
+  "w": 665,
+  "h": 426,
+  "colours": {
+   "#000000": 19,
+   "#D9DADB": 6,
+   "#245FFF": 2,
+   "#0B0B0C": 2,
+   "#1A6F45": 2
+  },
+  "fonts": {
+   "IBM Plex Mono 11px": 2
+  },
+  "file": "classical__motion-planning__01.png",
+  "route": "/classical/motion-planning/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 0,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Inverted pendulum with PID control. Pole angle +12.0 degrees from upright, status holding at release.",
+  "w": 665,
+  "h": 395,
+  "colours": {
+   "#000000": 59,
+   "#D9DADB": 22,
+   "#242D33": 4,
+   "#0B0B0C": 3
+  },
+  "fonts": {
+   "IBM Plex Mono 11px": 1
+  },
+  "file": "classical__control__00.png",
+  "route": "/classical/control/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 1,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Inverted pendulum with PID control. Pole angle +12.0 degrees from upright, status holding at release.",
+  "w": 599,
+  "h": 356,
+  "colours": {
+   "#000000": 59,
+   "#D9DADB": 22,
+   "#242D33": 4,
+   "#0B0B0C": 3
+  },
+  "fonts": {
+   "IBM Plex Mono 11px": 1
+  },
+  "file": "classical__control__01.png",
+  "route": "/classical/control/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 2,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Contact force over the approach. Peak 23.7 newtons, outcome task succeeded.",
+  "w": 665,
+  "h": 312,
+  "colours": {
+   "#000000": 30,
+   "#D9DADB": 4,
+   "#242D33": 5,
+   "#A52A1E": 2,
+   "#245FFF": 2,
+   "#0B0B0C": 1
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 7
+  },
+  "file": "classical__control__02.png",
+  "route": "/classical/control/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 0,
+  "tag": "div",
+  "kind": "scene",
+  "scene": "kalman-predict-update",
+  "surface": "surface:flat",
+  "label": "Motion scene: Kalman filter: predict and update",
+  "w": 715,
+  "h": 732,
+  "colours": {
+   "#0B0B0C": 9,
+   "#FFFFFF": 144,
+   "#D9DADB": 22,
+   "#000000": 77,
+   "#242D33": 18,
+   "#58C4DD": 7,
+   "#E8C11C": 6,
+   "#2EA1B9": 1,
+   "#B69000": 2,
+   "#949595": 1,
+   "#C6FF19": 1
+  },
+  "fonts": {
+   "IBM Plex Sans 14px": 5,
+   "IBM Plex Mono 10px": 1,
+   "IBM Plex Sans 6.16001px": 6,
+   "IBM Plex Sans 6.67334px": 2,
+   "IBM Plex Sans 7.18667px": 3,
+   "math 16.32px": 14,
+   "math 11.424px": 5,
+   "KaTeX_Math 16.32px": 5,
+   "KaTeX_Main 16.32px": 6,
+   "KaTeX_Math 11.424px": 3,
+   "KaTeX_Main 1px": 3,
+   "KaTeX_Main 11.424px": 2,
+   "KaTeX_Size1 16.32px": 2,
+   "IBM Plex Mono 11px": 4,
+   "IBM Plex Mono 14px": 7,
+   "IBM Plex Sans 12px": 1,
+   "Newsreader 19px": 1
+  },
+  "file": "classical__state-estimation__00.png",
+  "route": "/classical/state-estimation/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 1,
+  "tag": "div",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:bounded-dark-instrument",
+  "label": "after: The Kalman filter",
+  "w": 665,
+  "h": 375,
+  "colours": {
+   "#FFFFFF": 5,
+   "#242D33": 2
+  },
+  "fonts": {},
+  "file": "classical__state-estimation__01.png",
+  "route": "/classical/state-estimation/",
+  "offpal": []
+ },
+ {
+  "idx": 0,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Square object held by 3 frictional point contacts; each contact shows its friction cone opening inward.",
+  "w": 325,
+  "h": 304,
+  "colours": {
+   "#000000": 31,
+   "#D9DADB": 2,
+   "#242D33": 6,
+   "#245FFF": 9,
+   "#FFFFFF": 3
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 3
+  },
+  "file": "classical__grasp-planning__00.png",
+  "route": "/classical/grasp-planning/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 1,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Grasp wrench space: the convex hull of the primitive contact wrenches. Force closure yes, quality epsilon 0.444.",
+  "w": 325,
+  "h": 304,
+  "colours": {
+   "#000000": 42,
+   "#D9DADB": 3,
+   "#242D33": 3,
+   "#245FFF": 22,
+   "#FFFFFF": 1,
+   "#1A6F45": 2,
+   "#0B0B0C": 1
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 4
+  },
+  "file": "classical__grasp-planning__01.png",
+  "route": "/classical/grasp-planning/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 0,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Authored input magnitudes and root-sum-of-squares total against the model band. Total 11.3 millimetres.",
+  "w": 665,
+  "h": 241,
+  "colours": {
+   "#000000": 32,
+   "#245FFF": 4,
+   "#8A5A00": 3,
+   "#242D33": 10,
+   "#0B0B0C": 2
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 6,
+   "IBM Plex Mono 11px": 4,
+   "IBM Plex Mono 10.5px": 4
+  },
+  "file": "classical__perception__00.png",
+  "route": "/classical/perception/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 0,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Plan view of the scene as an occupancy grid: free, occupied and unknown cells, with the region behind the occluder held ",
+  "w": 439,
+  "h": 322,
+  "colours": {
+   "#000000": 171,
+   "#0B0B0C": 1,
+   "#D9DADB": 151,
+   "#242D33": 19,
+   "#245FFF": 2
+  },
+  "fonts": {
+   "IBM Plex Mono 14px": 1,
+   "IBM Plex Mono 11px": 5
+  },
+  "file": "classical__scene-representation__00.png",
+  "route": "/classical/scene-representation/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 0,
+  "tag": "div",
+  "kind": "scene",
+  "scene": "reliability-threshold",
+  "surface": "surface:flat",
+  "label": "Motion scene: The last stretch of episode reliability",
+  "w": 715,
+  "h": 732,
+  "colours": {
+   "#0B0B0C": 7,
+   "#FFFFFF": 9,
+   "#D9DADB": 5,
+   "#000000": 23,
+   "#242D33": 14,
+   "#A6CF8C": 3,
+   "#C6FF19": 1,
+   "#789F5F": 1
+  },
+  "fonts": {
+   "IBM Plex Sans 14px": 5,
+   "IBM Plex Mono 10px": 1,
+   "IBM Plex Sans 7.18667px": 5,
+   "IBM Plex Sans 6.67334px": 3,
+   "IBM Plex Mono 11px": 1,
+   "IBM Plex Mono 14px": 5,
+   "IBM Plex Sans 12px": 1,
+   "Newsreader 19px": 1
+  },
+  "file": "frontier__reliability-gap__00.png",
+  "route": "/frontier/reliability-gap/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 1,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Line chart of episode success against episode length at 95.0 percent per-step success",
+  "w": 665,
+  "h": 270,
+  "colours": {
+   "#000000": 30,
+   "#D9DADB": 4,
+   "#242D33": 8,
+   "#789F5F": 2,
+   "#F5F6F7": 1
+  },
+  "fonts": {
+   "IBM Plex Mono 11px": 7,
+   "IBM Plex Mono 10px": 1
+  },
+  "file": "frontier__reliability-gap__01.png",
+  "route": "/frontier/reliability-gap/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 0,
+  "tag": "div",
+  "kind": "scene",
+  "scene": "tactile-slip",
+  "surface": "surface:flat",
+  "label": "Motion scene: A contact channel can reveal slip",
+  "w": 715,
+  "h": 732,
+  "colours": {
+   "#0B0B0C": 7,
+   "#FFFFFF": 7,
+   "#D9DADB": 3,
+   "#000000": 20,
+   "#242D33": 16,
+   "#B189C6": 3,
+   "#58C4DD": 1,
+   "#E8C11C": 2,
+   "#2EA1B9": 1,
+   "#AE86C3": 1,
+   "#B69000": 1
+  },
+  "fonts": {
+   "IBM Plex Sans 14px": 5,
+   "IBM Plex Mono 10px": 1,
+   "IBM Plex Sans 7.18667px": 3,
+   "IBM Plex Mono 11px": 3,
+   "IBM Plex Mono 14px": 2,
+   "IBM Plex Sans 12px": 1,
+   "Newsreader 19px": 1
+  },
+  "file": "frontier__dexterity__00.png",
+  "route": "/frontier/dexterity/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 0,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "EgoScale scaling law: validation loss and task completion against pretraining hours, horizon 100k h",
+  "w": 665,
+  "h": 333,
+  "colours": {
+   "#000000": 80,
+   "#242D33": 21,
+   "#D9DADB": 9,
+   "#245FFF": 9,
+   "#0B0B0C": 7,
+   "#F5F6F7": 11
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 19
+  },
+  "file": "frontier__generalization__00.png",
+  "route": "/frontier/generalization/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 1,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "EgoScale scaling law: validation loss and task completion against pretraining hours, horizon 250k h",
+  "w": 599,
+  "h": 300,
+  "colours": {
+   "#000000": 81,
+   "#242D33": 21,
+   "#D9DADB": 9,
+   "#245FFF": 9,
+   "#0B0B0C": 7,
+   "#F5F6F7": 11,
+   "#A52A1E": 1
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 20
+  },
+  "file": "frontier__generalization__01.png",
+  "route": "/frontier/generalization/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 0,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Workcell with a robot at the left wall and an operator 1.60 m away, under speed and separation monitoring. Robot speed 1",
+  "w": 665,
+  "h": 208,
+  "colours": {
+   "#000000": 33,
+   "#D9DADB": 2,
+   "#245FFF": 6,
+   "#0B0B0C": 5,
+   "#242D33": 2
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 3
+  },
+  "file": "frontier__safety-and-assurance__00.png",
+  "route": "/frontier/safety-and-assurance/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 0,
+  "tag": "div",
+  "kind": "scene",
+  "scene": "sense-avoid",
+  "surface": "surface:flat",
+  "label": "Motion scene: Perception delay lowers the safe speed",
+  "w": 715,
+  "h": 732,
+  "colours": {
+   "#0B0B0C": 11,
+   "#FFFFFF": 8,
+   "#D9DADB": 6,
+   "#000000": 16,
+   "#242D33": 17,
+   "#FC6255": 2,
+   "#B189C6": 1,
+   "#FA6053": 1,
+   "#AE86C3": 1
+  },
+  "fonts": {
+   "IBM Plex Sans 14px": 5,
+   "IBM Plex Mono 10px": 1,
+   "IBM Plex Sans 7.18667px": 3,
+   "IBM Plex Sans 6.67334px": 4,
+   "IBM Plex Mono 11px": 2,
+   "IBM Plex Mono 14px": 8,
+   "IBM Plex Sans 12px": 1,
+   "Newsreader 19px": 1
+  },
+  "file": "adjacent__drones__00.png",
+  "route": "/adjacent/drones/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 1,
+  "tag": "svg",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": null,
+  "label": "Sense-and-avoid timeline at the maximum speed of 19.21 m/s. Obstacle detected at the sensing range, 70 ms of perception ",
+  "w": 665,
+  "h": 229,
+  "colours": {
+   "#000000": 40,
+   "#D9DADB": 8,
+   "#245FFF": 2,
+   "#242D33": 8,
+   "#A52A1E": 2
+  },
+  "fonts": {
+   "IBM Plex Mono 10px": 10
+  },
+  "file": "adjacent__drones__01.png",
+  "route": "/adjacent/drones/",
+  "offpal": [
+   "#000000"
+  ]
+ }
+]

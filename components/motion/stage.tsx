@@ -6,10 +6,16 @@
  * nothing here may carry a colour or timing literal (the token check
  * enforces that).
  */
-import type { ReactNode } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 
 export const STAGE_FONT = 'var(--motion-stage-label-font)';
 
+/**
+ * The canvas for every scene. stage.css paints its text on the shared type
+ * scale: unmarked text is an object label, and data-scene-axis,
+ * data-scene-note, data-scene-tick and data-scene-readout mark the other
+ * roles. The view width lets the stylesheet undo the viewBox stretch.
+ */
 export function StageSvg({
   viewBox,
   children,
@@ -19,6 +25,7 @@ export function StageSvg({
   children: ReactNode;
   className?: string;
 }) {
+  const viewWidth = Number(viewBox.trim().split(/[\s,]+/)[2]);
   return (
     <svg
       viewBox={viewBox}
@@ -26,6 +33,7 @@ export function StageSvg({
       focusable="false"
       className={`motion-stage-svg block h-auto w-full ${className ?? ''}`}
       fontFamily={STAGE_FONT}
+      style={{ '--motion-stage-view-width': `${viewWidth}px` } as CSSProperties}
     >
       {children}
     </svg>
@@ -107,6 +115,7 @@ export function StageGrid({
           y={plot.bottom + 16}
           textAnchor="end"
           fontSize={13}
+          data-scene-axis
           fill="var(--motion-stage-label-secondary)"
         >
           {xLabel}
@@ -118,6 +127,7 @@ export function StageGrid({
           y={plot.top - 6}
           textAnchor="start"
           fontSize={13}
+          data-scene-axis
           fill="var(--motion-stage-label-secondary)"
         >
           {yLabel}

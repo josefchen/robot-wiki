@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "06154aeac78078e9ff09268820515517008ff8cf31c0d99fd81a0319d1ef43b5",
+  "fingerprint": "8f3edbe84f9a27dfaaee752a5cb028720229fee028f22bdb7e7bcebe7b7cc8a0",
   "route": "/",
   "viewport": "1440x900",
   "featured": {
@@ -503,7 +503,7 @@
       320,
       110
     ],
-    "textLength": 670
+    "textLength": 780
   },
   "responsive": [
     {
@@ -3145,7 +3145,7 @@
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "failures": [],
-      "measuredMembers": 51
+      "measuredMembers": 53
     },
     {
       "id": "profile:home-forced-colours",
@@ -3156,7 +3156,7 @@
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "failures": [],
-      "measuredMembers": 62
+      "measuredMembers": 64
     },
     {
       "id": "profile:home-reflow-320x800",
@@ -3167,7 +3167,7 @@
       "documentScrollWidthPx": 320,
       "documentClientWidthPx": 320,
       "failures": [],
-      "measuredMembers": 349
+      "measuredMembers": 374
     },
     {
       "id": "profile:home-zoom-200-equivalent",
@@ -3178,7 +3178,7 @@
       "documentScrollWidthPx": 720,
       "documentClientWidthPx": 720,
       "failures": [],
-      "measuredMembers": 349
+      "measuredMembers": 374
     },
     {
       "id": "profile:home-text-200",
@@ -3189,7 +3189,7 @@
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "failures": [],
-      "measuredMembers": 191
+      "measuredMembers": 212
     }
   ],
   "progressCounters": [
@@ -3198,6 +3198,12 @@
       "route": "/",
       "matches": [],
       "reconciledCounts": [
+        {
+          "memberId": "count:/:companies",
+          "text": "111 companies",
+          "expected": 111,
+          "actual": 111
+        },
         {
           "memberId": "count:/:companies",
           "text": "111 companies",

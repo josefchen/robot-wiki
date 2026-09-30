@@ -68,7 +68,7 @@ function ReliabilityThresholdStage() {
               fill="var(--motion-stage-label)" bindings={{ opacity: visibility }}>
               {['95%', '99%', '99.9%'][index]}
             </AnimatedElement>
-            <AnimatedElement as="text" x={X[index] + 22} y={215} textAnchor="middle" fontSize={14}
+            <AnimatedElement as="text" x={X[index] + 22} y={217} textAnchor="middle" fontSize={14} data-scene-note
               fill="var(--motion-stage-label-secondary)" bindings={{ opacity: visibility }}>
               {`${(compoundedSuccessRate(rate, HORIZON) * 100).toFixed(1)}%`}
             </AnimatedElement>

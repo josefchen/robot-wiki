@@ -24,7 +24,7 @@ test.afterAll(() => {
   mkdirSync(directory, { recursive: true });
   writeFileSync(join(directory, 'roles.json'), `${JSON.stringify({
     palette: Object.fromEntries(Object.entries(tokens.roles).map(([role, color]) => [role, color.stage])),
-    tokenSha256: sha256(join(process.cwd(), 'motion-tokens.json')),
+    motionSpecSha256: sha256(join(process.cwd(), 'motion-tokens.json')),
     scenes: SCENE_TARGETS.map((scene) => ({
       id: scene.id,
       route: scene.route,
@@ -56,6 +56,10 @@ for (const target of SCENE_TARGETS) {
       for (let index = 0; index < target.beats; index += 1) {
         await page.keyboard.press('ArrowRight');
         await expect(scene.getByTestId('motion-beat-count')).toHaveText(`beat ${index + 1} / ${target.beats}`);
+        // The counter can land a frame before the stage writes the beat's
+        // end-state, so the marks are read from the next painted frame.
+        await page.evaluate(() => new Promise((resolve) =>
+          requestAnimationFrame(() => requestAnimationFrame(resolve))));
         const caption = (await scene.getByTestId('motion-caption').textContent())?.trim();
         expect(caption).toMatch(/[.!?]$/);
         await expect(scrubber).toHaveAttribute('aria-valuetext', caption!);

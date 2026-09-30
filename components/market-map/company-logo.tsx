@@ -5,6 +5,7 @@
 import { useState } from 'react';
 import { getCompanyLogo } from '@/data/logos';
 import type { Company } from '@/data/schemas/company.ts';
+import { LOGO_MARK_CLASS, LOGO_TILE_CLASS } from '@/components/ui/logo-tile';
 import { companyInitials } from '@/lib/market-map';
 import { cx } from '@/lib/utils';
 
@@ -19,12 +20,10 @@ type CompanyLogoProps = {
  * (or the file fails to load). The image is decorative: the company
  * name sits next to it on every surface that uses this mark.
  *
- * Every mark sits on the same mid-neutral plate (--color-logo-plate). The
- * marks are third-party assets this site does not own and cannot edit, and
- * they span from near-white to near-black, so the plate is what makes the
- * set legible as a set on a light page. Applied to all of them rather than
- * to the ones that happen to be pale, so it reads as the frame the marks
- * live in. The initials fallback keeps the page's own surface instead: it
+ * Every mark sits on the shared logo tile (components/ui/logo-tile.ts), the
+ * same tile the credits page uses. Applied to all of them rather than to
+ * the ones that happen to be pale, so it reads as the frame the marks live
+ * in. The initials fallback keeps the page's own surface instead: it
  * renders our text rather than someone's artwork, and that text is legible
  * at full contrast without a plate.
  *
@@ -39,25 +38,22 @@ export function CompanyLogo({
   const [failedSrc, setFailedSrc] = useState<string | null>(null);
   const image = company.logo ? getCompanyLogo(company.logo) : undefined;
   const showImage = Boolean(image) && failedSrc !== image?.file;
+  // Wordmark-shaped rather than square: most marks are wordmarks up to 12
+  // times wider than tall, and a square tile drew them 2 to 7 px high. The
+  // fixed width keeps the company names beside it in one column.
   const box =
     size === 'sm'
-      ? 'h-6 w-6 text-[10px]'
-      : 'h-9 w-9 text-[11px]';
-  // Inset so a mark that bleeds to its own edge does not touch the plate's.
-  const inset = size === 'sm' ? 'p-[2px]' : 'p-[3px]';
+      ? 'h-6 w-16 text-[10px]'
+      : 'h-9 w-24 text-[11px]';
 
   if (showImage && image) {
     return (
       <span
         data-company-logo={company.id}
         data-logo-state="image"
+        data-logo-tile=""
         data-brand-surface-id="surface:flat"
-        className={cx(
-          'inline-flex shrink-0 items-center justify-center overflow-hidden rounded-xs bg-logo-plate',
-          box,
-          inset,
-          className,
-        )}
+        className={cx(LOGO_TILE_CLASS, box, className)}
       >
         <img
           src={image.file}
@@ -65,7 +61,7 @@ export function CompanyLogo({
           width={image.width}
           height={image.height}
           onError={() => setFailedSrc(image.file)}
-          className="max-h-full max-w-full object-contain"
+          className={LOGO_MARK_CLASS}
         />
       </span>
     );

@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
+import { FIGURE_TEXT_CLASS } from '@/components/motion/figure-frame';
 import { Figure } from '@/components/ui/figure';
 import { ImageRef } from '@/components/mdx/image-ref';
 import { getImage, licenceLabel, type SiteImage } from '@/data/images';
@@ -116,7 +117,10 @@ describe('figure treatment by kind', () => {
 
     const label = figure.querySelector('[data-figure-label]')!;
     expect(label.textContent).toBe('Original schematic');
-    expect(label.className).toContain('font-mono');
+    // A word label, so the brand sans on the figure type scale; mono is
+    // kept for numeric readouts.
+    expect(label.className).toContain('font-sans');
+    expect(label.className).toContain('text-xs');
     // The label is inside the instrument, so it reads as the plate's own
     // caption rather than as another line of body prose.
     expect(surface.contains(label)).toBe(true);
@@ -130,6 +134,19 @@ describe('figure treatment by kind', () => {
     expect(figure.querySelector('[data-figure-label]')).toBeNull();
   });
 
+  it('crops every photograph to 3:2, anchoring the tall Atlas portrait at its head (VAL-OPUS-012)', () => {
+    const { unmount } = render(<ImageRef id="franka-emika-panda-cebit-2017" />);
+    const frame = document.querySelector('[data-photo-frame]')!;
+    expect(frame.className).toContain('aspect-[3/2]');
+    expect(frame.querySelector('img')!.className).toContain('object-cover');
+    expect(frame.querySelector('img')!.className).not.toContain('object-top');
+    unmount();
+    render(<ImageRef id="atlas-darpa-frontview-2013" />);
+    const atlas = document.querySelector('[data-photo-frame] img')!;
+    expect(atlas.className).toContain('object-cover');
+    expect(atlas.className).toContain('object-top');
+  });
+
   it('keeps the caption and sets the credit in the source-metadata face', () => {
     render(<ImageRef id="covariate-shift" />);
     const figure = document.querySelector('figure')!;
@@ -139,7 +156,11 @@ describe('figure treatment by kind', () => {
     );
     expect(caption.className).toContain('font-sans');
     const credit = figure.querySelector('[data-image-credit]')!;
-    expect(credit.className).toContain('font-mono');
+    // The credit is the figure's source line: the brand sans at 12px, the
+    // same class every figure frame uses for its source.
+    for (const token of FIGURE_TEXT_CLASS.source.split(' ')) {
+      expect(credit.className).toContain(token);
+    }
   });
 
   it('opens each credit with the noun the registry declares', () => {

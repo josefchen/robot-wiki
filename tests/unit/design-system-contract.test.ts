@@ -454,16 +454,14 @@ describe('identity geometry and typography stay aligned', () => {
     const home = read('app/page.tsx');
     // The market-map entry once drew a bubble scatter with a dashed
     // trend line: arbitrary circle radii read as funding values and the
-    // diagonal implied a correlation, none of it sourced. The teaser must
-    // stay structural (chips and rows), with no varying-radius marks and
-    // no trend path.
-    const teaser = home.slice(
-      home.indexOf('Structural schematic of the market map'),
-      home.indexOf('</svg>', home.indexOf('Structural schematic of the market map')),
-    );
-    expect(teaser.length).toBeGreaterThan(0);
-    expect(teaser).not.toMatch(/circle\s+cx=/);
-    expect(teaser).not.toMatch(/<path/);
-    expect(teaser).not.toMatch(/r=\{\d+\}/);
+    // diagonal implied a correlation, none of it sourced. The poster that
+    // replaced the teaser draws one bar per segment, each the registry's
+    // company count, with no varying-radius marks and no trend path.
+    expect(home).toContain('<MarketMapPoster');
+    const poster = read('components/market-map/market-map-poster.tsx');
+    expect(poster).toContain('segmentCounts(COMPANIES)');
+    expect(poster).not.toMatch(/circle\s+cx=/);
+    expect(poster).not.toMatch(/<path/);
+    expect(poster).not.toMatch(/r=\{\d+\}/);
   });
 });

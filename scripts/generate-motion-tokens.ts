@@ -71,6 +71,15 @@ export interface MotionTokens {
     stageLabelMinPx: number;
     stageLabelFill: string;
     stageSecondaryFill: string;
+    stageReadoutFont: string;
+    stageScale: {
+      note: string;
+      labelPx: number;
+      axisPx: number;
+      tickPx: number;
+      readoutPx: number;
+      fullSizeMinStagePx: number;
+    };
   };
 }
 
@@ -126,6 +135,12 @@ export function buildCss(tokens: MotionTokens): string {
       BRAND_VAR_BY_HEX[stage.labelSecondary] ?? stage.labelSecondary
     };`,
     `  --motion-stage-label-font: ${stage.labelFont};`,
+    `  --motion-stage-readout-font: ${tokens.type.stageReadoutFont};`,
+    `  --motion-stage-label-size: ${tokens.type.stageScale.labelPx}px;`,
+    `  --motion-stage-axis-size: ${tokens.type.stageScale.axisPx}px;`,
+    `  --motion-stage-tick-size: ${tokens.type.stageScale.tickPx}px;`,
+    `  --motion-stage-readout-size: ${tokens.type.stageScale.readoutPx}px;`,
+    `  --motion-stage-type-min-width: ${tokens.type.stageScale.fullSizeMinStagePx}px;`,
     `  --motion-uncertainty-fill-alpha: ${tokens.uncertainty.fillAlpha};`,
   );
   const timing = tokens.timing;
@@ -221,6 +236,22 @@ export const MOTION_STAGE = {
   }',
   labelFont: '${tokens.stage.labelFont}',
   labelMinPx: ${tokens.stage.labelMinPx},
+} as const;
+
+/**
+ * The stage type scale in painted CSS pixels. components/motion/stage.css
+ * divides each size by the stage's current scale, so these hold on every
+ * stage at least fullSizeMinStagePx wide; a narrower stage shrinks whole.
+ */
+export const MOTION_STAGE_TYPE = {
+  labelFont: '${tokens.type.stageLabelFont}',
+  readoutFont: '${tokens.type.stageReadoutFont}',
+  minPx: ${tokens.type.stageLabelMinPx},
+  labelPx: ${tokens.type.stageScale.labelPx},
+  axisPx: ${tokens.type.stageScale.axisPx},
+  tickPx: ${tokens.type.stageScale.tickPx},
+  readoutPx: ${tokens.type.stageScale.readoutPx},
+  fullSizeMinStagePx: ${tokens.type.stageScale.fullSizeMinStagePx},
 } as const;
 
 /** Uncertainty is not its own colour: the object's hue at 22% with a dashed edge. */

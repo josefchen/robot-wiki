@@ -1,0 +1,10 @@
+figure-system plant: / [preview:market-map]
+  1 reserved-colour (a mark filled with signal blue): figure-system: / [preview:market-map] reserved-colour: <rect> fill accent
+  1 hard-coded-colour (a mark filled with #ff00aa): figure-system: / [preview:market-map] hard-coded-colour: <rect> fill #ff00aa
+  1 sub-scale-text (a 10 px note on the stage): figure-system: / [preview:market-map] sub-scale-text: <span> at 10px
+  1 sub-scale-text (svg text off the stage scale): figure-system: / [preview:market-map] sub-scale-text: <text> "off the scale" is off the stage type scale
+  1 outside-frame (the frame hook removed): figure-system: / [All 111 companies on the market map, counted by segment.] outside-frame: <figure> outside the figure frame
+  1 frame-structure (a paragraph between stage and caption): figure-system: / [preview:market-map] frame-structure: frame reads "header stage p caption"
+  1 caption-words (a 21-word caption): figure-system: / [preview:market-map] caption-words: caption has 21 words
+  1 legend-off-stage (a legend below the stage): figure-system: / [preview:market-map] legend-off-stage: legend outside the stage
+  0 clean copy: figure-system: ok; 0 blocking, 1305 allowlisted (87 entries), 0 stale; 106 figures checked

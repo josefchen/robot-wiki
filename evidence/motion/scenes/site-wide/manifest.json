@@ -6,138 +6,138 @@
     {
       "id": "kalman-predict-update",
       "chunks": [
-        "2w4q3qk_6npuc.js"
+        "3skivbyd21ixh.js"
       ],
-      "gzipBytes": 4092,
+      "gzipBytes": 4082,
       "withinBudget": true
     },
     {
       "id": "fk-chain",
       "chunks": [
-        "3-k6x8cs2uyyn.js"
+        "3rpg9t56tylqy.js"
       ],
-      "gzipBytes": 8956,
+      "gzipBytes": 9126,
       "withinBudget": true
     },
     {
       "id": "rrt-growth",
       "chunks": [
-        "38c7oustadoqf.js"
+        "3-_4jdiln03yi.js"
       ],
-      "gzipBytes": 10099,
+      "gzipBytes": 10277,
       "withinBudget": true
     },
     {
       "id": "diffusion-denoising",
       "chunks": [
-        "2ostu45j7tipe.js"
+        "3l-xojqgislor.js"
       ],
-      "gzipBytes": 3272,
+      "gzipBytes": 3259,
       "withinBudget": true
     },
     {
       "id": "action-decode",
       "chunks": [
-        "1f_q6xl0hsfyf.js"
+        "07bjuz3_93ve2.js"
       ],
-      "gzipBytes": 9491,
+      "gzipBytes": 9673,
       "withinBudget": true
     },
     {
       "id": "flow-transport",
       "chunks": [
-        "0kx655yg2211s.js"
+        "04kuqqzmx2nu1.js"
       ],
-      "gzipBytes": 9800,
+      "gzipBytes": 9969,
       "withinBudget": true
     },
     {
       "id": "batch-scale",
       "chunks": [
-        "0gaql5s_gbvfv.js"
+        "0wilaudmxcrux.js"
       ],
-      "gzipBytes": 9456,
+      "gzipBytes": 9634,
       "withinBudget": true
     },
     {
       "id": "gait-support",
       "chunks": [
-        "0f2-y2us411a7.js"
+        "3fdavbu42-e7k.js"
       ],
-      "gzipBytes": 9546,
+      "gzipBytes": 9732,
       "withinBudget": true
     },
     {
       "id": "action-fork",
       "chunks": [
-        "377232nrupwoi.js"
+        "38dnap9ajyho9.js"
       ],
-      "gzipBytes": 9461,
+      "gzipBytes": 9635,
       "withinBudget": true
     },
     {
       "id": "latent-drift",
       "chunks": [
-        "0xfy_ax8lbmw8.js"
+        "3z5h8t2g20p0q.js"
       ],
-      "gzipBytes": 9127,
+      "gzipBytes": 9316,
       "withinBudget": true
     },
     {
       "id": "push-layers",
       "chunks": [
-        "1sh93826x2dis.js"
+        "2mqnxu8byuqo8.js"
       ],
-      "gzipBytes": 9495,
+      "gzipBytes": 9672,
       "withinBudget": true
     },
     {
       "id": "farm-throughput",
       "chunks": [
-        "30vpphxwlsnr0.js"
+        "14d5y45pmh1zw.js"
       ],
-      "gzipBytes": 9697,
+      "gzipBytes": 9878,
       "withinBudget": true
     },
     {
       "id": "episode-survival",
       "chunks": [
-        "1tneszqexmbpy.js"
+        "3xvrv1wsat4zo.js"
       ],
-      "gzipBytes": 8836,
+      "gzipBytes": 9017,
       "withinBudget": true
     },
     {
       "id": "jam-overhead",
       "chunks": [
-        "3qw2c-5bi79bf.js"
+        "0eod3uqye3pvj.js"
       ],
-      "gzipBytes": 9406,
+      "gzipBytes": 9580,
       "withinBudget": true
     },
     {
       "id": "reliability-threshold",
       "chunks": [
-        "1xuyp_y_cb7de.js",
-        "2vtsr6z5592z7.js"
+        "1d726xz-7r_qs.js",
+        "2p5xq9ns1npaw.js"
       ],
-      "gzipBytes": 22785,
+      "gzipBytes": 23101,
       "withinBudget": true
     },
     {
       "id": "tactile-slip",
       "chunks": [
-        "1j1tnn4sx23_4.js"
+        "099k-c6bcs5mr.js"
       ],
-      "gzipBytes": 8449,
+      "gzipBytes": 8619,
       "withinBudget": true
     },
     {
       "id": "sense-avoid",
       "chunks": [
-        "12q6azbi7fvqj.js"
+        "1svxy7lxkt0ib.js"
       ],
-      "gzipBytes": 9097,
+      "gzipBytes": 9268,
       "withinBudget": true
     }
   ],
@@ -160,555 +160,555 @@
   "images": [
     {
       "path": "evidence/motion/scenes/kalman-predict-update/375-beat-1.png",
-      "sha256": "cf5963a5984d379b80dce2dcaaae5a14cf35ea56c58df4a8b1a92201c48f61da"
+      "sha256": "794f747ea9d5e18088fc9cea45a37ce6f7d9887806b5b2827f7dfc86d4ca2c77"
     },
     {
       "path": "evidence/motion/scenes/kalman-predict-update/375-beat-2.png",
-      "sha256": "7c350de3a6212559929472f60e29efc80197f34bd87e40aa7e1b6b9127dbf787"
+      "sha256": "f9295013b4181708f3ae9ded9efdfdcf98cddfeaabf08e8f2dc33faf62f1f7fa"
     },
     {
       "path": "evidence/motion/scenes/kalman-predict-update/375-beat-3.png",
-      "sha256": "1a458f0f7a23131cc97c9167f855eb70966f576d386040eba3155239b5951a02"
+      "sha256": "af17ad12e5522c77885f58e9280605d32231d2e1580e4a55456a528fab734b2e"
     },
     {
       "path": "evidence/motion/scenes/kalman-predict-update/375-beat-4.png",
-      "sha256": "89047c8cc04048cd1129b15d77a57820c843e2f9f061ea9d24351424a71e63f8"
+      "sha256": "9e501a79df5a276abed69bd0a368883cf9af3108fc52761fc034c1703f03ad2b"
     },
     {
       "path": "evidence/motion/scenes/kalman-predict-update/375-beat-5.png",
-      "sha256": "4b65e100f237b8e7d68a5826fe50258fc7876ad9258fbc20a6359ad7d8dae1cf"
+      "sha256": "6b8c2d06aacd4233c283c8a6d1c35a68a975f95262eb7f06cd6415cac813dceb"
     },
     {
       "path": "evidence/motion/scenes/fk-chain/375-beat-1.png",
-      "sha256": "4c92805588b3a39ec0de1e9bd3e15ee8d2774a1b14e4f8a07ebbdadb76557152"
+      "sha256": "4216219a7c8b1ba6f9ecb7b09c870c46a720880c680d06ad093bdc6b1a2b8c1f"
     },
     {
       "path": "evidence/motion/scenes/fk-chain/375-beat-2.png",
-      "sha256": "678cd8689a831410fa2dd7621f989bb5c3fd96780f739592d7502347024f6d4f"
+      "sha256": "6fcd9d7674f381e67f994d4ff58e9291dbaa4e8fa4eada881850e3bb58ba35f4"
     },
     {
       "path": "evidence/motion/scenes/fk-chain/375-beat-3.png",
-      "sha256": "19aaff263bd0c14fe2bac79887d5ae7fb46d2a0dfcbf17ad57f76ad4d12b56aa"
+      "sha256": "b4c6bdf38378fd50607c5c52066ea4e9d226a51263e28f59bb86b224665a329e"
     },
     {
       "path": "evidence/motion/scenes/fk-chain/375-beat-4.png",
-      "sha256": "2ad03a3ea32010bfb2355af27a9ef8aed38d06d8a0924ec31ae644435f054f84"
+      "sha256": "56293741183dcf432e5fe7b33efbd8e8ae1e15859739b764cd96c231a34c2a19"
     },
     {
       "path": "evidence/motion/scenes/rrt-growth/375-beat-1.png",
-      "sha256": "5312d01d911448bae00b788e0325db5c72f3af3d2065bdd4b64dae6181037e3f"
+      "sha256": "72f59c6d260ca346cd26fa5a7e13883814c33887f2da323e745ad7c3e5af0fc3"
     },
     {
       "path": "evidence/motion/scenes/rrt-growth/375-beat-2.png",
-      "sha256": "4d7b385568da6390e8fd6b6e0ba069129ed269082e5fc0a89c44ce502898dcc9"
+      "sha256": "4d05b24e1a133350f086699bf2540bb9ecf20a88e7e36d56a5355f7851385675"
     },
     {
       "path": "evidence/motion/scenes/rrt-growth/375-beat-3.png",
-      "sha256": "7683d8a6a1b3be063d8ad5592a1e82835531466ef06b163c7f9a151cedd79234"
+      "sha256": "8bc8e521e97e883925a08c2d3fb5dc0599815c72103856bc6ae8fac16ffe57e6"
     },
     {
       "path": "evidence/motion/scenes/rrt-growth/375-beat-4.png",
-      "sha256": "45c3cb2895b6abd3651feae112deb14915fadefc496fb96e7db9554bf7984e9d"
+      "sha256": "b17f91d4834cf6e84347d98faaa11ad33ce35960d501f2ba147355cd3877b056"
     },
     {
       "path": "evidence/motion/scenes/diffusion-denoising/375-beat-1.png",
-      "sha256": "e867742e51729bf3691e5d829fc62237799ed9bdd01ec9ae8400be48b60fd3f3"
+      "sha256": "86a4ac506ee9fd19f59f14d8cfbfd3589ac769d6e845c52a396e3ac6c83318f7"
     },
     {
       "path": "evidence/motion/scenes/diffusion-denoising/375-beat-2.png",
-      "sha256": "a6f094ef6060b0e88147d7dbabb3f6c0e8d4cc2233d7d443e739b29edbb0b0c1"
+      "sha256": "eb733ac75d4df8e5996c4e980334c76ec52cb11573048acbc9bb4b59ba485169"
     },
     {
       "path": "evidence/motion/scenes/diffusion-denoising/375-beat-3.png",
-      "sha256": "c1884609257264234c9b8a99d52e6437e5fd6b1af597eca0809de76f7a1e9a3c"
+      "sha256": "986fa6b7a8c9543de8e6e1ad78f0da300fede371a21e7e55df9443a685c420ab"
     },
     {
       "path": "evidence/motion/scenes/diffusion-denoising/375-beat-4.png",
-      "sha256": "2be9c310399c70af32882dfeadf0c28dd7999315adb72364bc3183896256b2df"
+      "sha256": "51f26c92c60ecc48d794957cbf568117ee16aee76d307c3471b914ea5fd4a5ce"
     },
     {
       "path": "evidence/motion/scenes/action-decode/375-beat-1.png",
-      "sha256": "24f89b9d297dfb5721b4f1a3e56dbb0df66dfd2fcf0e0b11eb2d0d8cd6ab51f9"
+      "sha256": "d53db4799c9b4f90abb0295fffa8f147d28a0549f2b926af1f0a84ad8bc73744"
     },
     {
       "path": "evidence/motion/scenes/action-decode/375-beat-2.png",
-      "sha256": "74149c8aa3db9cd85e7977ba4bf67b9c3e469b1f820133c4bc45c81bd24d2251"
+      "sha256": "83e62acf7093b691d5700a8a59df8438797779753a3f10ba09699a986a30373a"
     },
     {
       "path": "evidence/motion/scenes/action-decode/375-beat-3.png",
-      "sha256": "e00f6391b3763a39e6ae574745fe32da00ad4e55cea906b04049fd10a5b24f70"
+      "sha256": "d38a0f72369a1562d127aab70999ee3b7c0c3155d2ba9851bedbcfff01546b4d"
     },
     {
       "path": "evidence/motion/scenes/action-decode/375-beat-4.png",
-      "sha256": "8864a22e380dad448714589082475d623bc5bd1ab100a84dc35c27bac7319f28"
+      "sha256": "375ae31ec4d0a198d9459884a77b5cb9c3c23030643bf9cf093d2cc479e06278"
     },
     {
       "path": "evidence/motion/scenes/flow-transport/375-beat-1.png",
-      "sha256": "992c5f0fc9492ae81ffc4664b66995af4551db922a54c80e01be69e927bf93bd"
+      "sha256": "0351a991e4c81acc09e4c39c8a25437943106d2be7e6be747665c0244a17e45c"
     },
     {
       "path": "evidence/motion/scenes/flow-transport/375-beat-2.png",
-      "sha256": "8537556994252822ead5a303af59a4dfb2881bd4e2d6025c0ba7d05533faf9d1"
+      "sha256": "d4bd37901983332d4add0777bdd18fdbd02877b373604063413d3a384fe689d8"
     },
     {
       "path": "evidence/motion/scenes/flow-transport/375-beat-3.png",
-      "sha256": "e2cec8b97545ae8563e7e2c0743d9f859efe390aa69429b995733d5182c452ce"
+      "sha256": "e9c808020aaf669654ba8092f81f32b37db89099a7afd8c0c3cdd65bbdc3debf"
     },
     {
       "path": "evidence/motion/scenes/flow-transport/375-beat-4.png",
-      "sha256": "bd15dcd00e286d666e91ad4233468233a6e8f794bd155a393c5cb35eaa71edda"
+      "sha256": "95e9543534cda862f8247149d8c9104109a38a0ab3591123c4b9a9dee217aa68"
     },
     {
       "path": "evidence/motion/scenes/batch-scale/375-beat-1.png",
-      "sha256": "3c54e470684f82bd0e95e35261704c266f80f8336329b3dcdc88c69889a5b2f8"
+      "sha256": "84fba8e06ce18baf10a5654aa41a590be61df0837c5570b68f1ae7c4b26601a6"
     },
     {
       "path": "evidence/motion/scenes/batch-scale/375-beat-2.png",
-      "sha256": "83816aca48a726ec791c27174b8609f5844ec6395f1828cf8ba70361e7ff9932"
+      "sha256": "3a16c485675fd414dfff1b85a5cabb8b71807d69a44df246262e6ea1f0e86932"
     },
     {
       "path": "evidence/motion/scenes/batch-scale/375-beat-3.png",
-      "sha256": "3ec4f27098a6ec1ee7162d7ca1c3291e37ba073557c30dfbb3c6e3c1b8316d95"
+      "sha256": "6142245ee5ff39fd134bfcf77a9a3f7c4841d0e82503e3727b5244e49bd5d50c"
     },
     {
       "path": "evidence/motion/scenes/batch-scale/375-beat-4.png",
-      "sha256": "0a22674976917371c56c8b670b6f1183b03fb00c7c42ef53985ae501da664a53"
+      "sha256": "2dcc092a9229122ef777376ea2c73b393c52dc21f3a876623d65e06529163f82"
     },
     {
       "path": "evidence/motion/scenes/gait-support/375-beat-1.png",
-      "sha256": "385f8b14261f440fe37ab90b53df3a16661805040b04fb8aba45e8fe72b7826c"
+      "sha256": "631abfc778b0f12c48429a6802fff91dc254fc54c43a6fa98ba8d09f3ed72d71"
     },
     {
       "path": "evidence/motion/scenes/gait-support/375-beat-2.png",
-      "sha256": "23b5412560a239714c9d1e1f11215c4ac815088d7e39f2cb2ea42db3802d4f20"
+      "sha256": "1817414bf7766e47ea9c708bace6b48fc3d5bc323d24cd8e0eedbc67624182ec"
     },
     {
       "path": "evidence/motion/scenes/gait-support/375-beat-3.png",
-      "sha256": "b1e5397437628436e9dd7e78deda59f9f299a74a7311a9fe908429683fd4894d"
+      "sha256": "62f3470264e7b842824c7182ffece6f8a1421f1ae2b96bd9eadde7813b7b857b"
     },
     {
       "path": "evidence/motion/scenes/gait-support/375-beat-4.png",
-      "sha256": "13ec3499c438ac1b5bbae1e06d159f4808017d0f9569b9eb91b83cfe7ac9a23b"
+      "sha256": "2975bb15469405dac73feaf33786fc05caccf124ff6443e6cc4cccbb44ed94d5"
     },
     {
       "path": "evidence/motion/scenes/action-fork/375-beat-1.png",
-      "sha256": "1f3be43939ce26fd97cae18e36102495c6a1e962bbda9e4aeaa2b075f3f9933e"
+      "sha256": "3222319df1bbe63f1a25a1ccd6d094deeaad510bfeeb123e8112891a1f1e2004"
     },
     {
       "path": "evidence/motion/scenes/action-fork/375-beat-2.png",
-      "sha256": "ae613b8ed8104aeb27816c15b50db8b1ee61c21979723d218cf6088976b28598"
+      "sha256": "6fbc89ac0da5768cedb26042eb89d13798dfcce52fe614dc95dd3e040cee612f"
     },
     {
       "path": "evidence/motion/scenes/action-fork/375-beat-3.png",
-      "sha256": "2a27ca0c442deef744423649152d70abb23067f02a4dada6b074af3838b4245e"
+      "sha256": "e7b3f163667b89dd358b4944e7fa43bee24528cb2b7c863c73aeddcead1ce7ae"
     },
     {
       "path": "evidence/motion/scenes/action-fork/375-beat-4.png",
-      "sha256": "4478b0ed5024943e23d0909c72e3b5a2ce077350770665ad1ff3fece5b0e00ec"
+      "sha256": "6c282100d75dc77ee8209962f3d9b73178145e4321f28070ddaf4e840889b7ff"
     },
     {
       "path": "evidence/motion/scenes/latent-drift/375-beat-1.png",
-      "sha256": "1117bcf5873ff8ea236986ce0744c6e1df5a34cfda42141e61fba5dd26eafcbd"
+      "sha256": "14b221a5de2dda5d692a161735c768808c3031276a56ecc6febf00173e6c3a62"
     },
     {
       "path": "evidence/motion/scenes/latent-drift/375-beat-2.png",
-      "sha256": "28284830ee23737d3902773b085fc95cd53fb479940c82dcb101bd357e46a7e1"
+      "sha256": "7ec74690d4255c537be2ef5c585eaa8a61ebf7a9a697bd2836011cb5a439ec47"
     },
     {
       "path": "evidence/motion/scenes/latent-drift/375-beat-3.png",
-      "sha256": "a919e6e3db7e7614de28417c5dc04f92f1b90c77980bcaf8abbb2a64c547f197"
+      "sha256": "9db4d3c53fe0c5df2047dcf0d90dc602704fe239696679d0b6af2d82bcc6e1bc"
     },
     {
       "path": "evidence/motion/scenes/latent-drift/375-beat-4.png",
-      "sha256": "5f87460018e5a700beaa8a684e581375caafb56ebf17de9f1f0b3e9fd898e01f"
+      "sha256": "da748e2e458d407fc123c47d7459492d4539fc113b8fb68d10a953d8c66d3167"
     },
     {
       "path": "evidence/motion/scenes/push-layers/375-beat-1.png",
-      "sha256": "c4a467d62f999951832aee3a80d197ec812d3dfcc231bc86860441bf42b338aa"
+      "sha256": "4b3c83a7c610a19ac805227d80503d384582a0d04fa0df47b6780ea6f9d476fa"
     },
     {
       "path": "evidence/motion/scenes/push-layers/375-beat-2.png",
-      "sha256": "63e0b7da49279272cdac9bdf679420710297803dd22f6b625a8b3ec255e7c5af"
+      "sha256": "314351ba9f7e0f4a02759942f377e04f7cc88b0cae728400eb8d083df68c4e35"
     },
     {
       "path": "evidence/motion/scenes/push-layers/375-beat-3.png",
-      "sha256": "bddf8b0ce3166ca6d906b9de0cb5d9b6ae325ee168123275273c0106c892a058"
+      "sha256": "069943572edf756e30902e36ec5e3952d9ad82dc9f210dea0eda68b55702052d"
     },
     {
       "path": "evidence/motion/scenes/push-layers/375-beat-4.png",
-      "sha256": "70bc62efd0af40c4f1fe761bbe47fc2b67121535c1abff5ec747b34e60a1eb19"
+      "sha256": "e6dc9f8a74dac39d5b91c0c8d79c1995fa873e094dde313ab621cd624ec96277"
     },
     {
       "path": "evidence/motion/scenes/farm-throughput/375-beat-1.png",
-      "sha256": "bdab203c24afeec1c8ac6be5c9c953cd6134a7d83d38625760cb4a6937512845"
+      "sha256": "5708ee0a9c3940b73b680d3c247565d09c69b4003211058e81fd375b1006e07c"
     },
     {
       "path": "evidence/motion/scenes/farm-throughput/375-beat-2.png",
-      "sha256": "8d9f2054fc5d5ead063fe3a15ca1670c522118ee6c99a0a9e98115e17ca536ab"
+      "sha256": "bc13c5f40566c07b2c49e54ae0907bb7f00abd5d8dc52beb4a0879467be902bf"
     },
     {
       "path": "evidence/motion/scenes/farm-throughput/375-beat-3.png",
-      "sha256": "9eaaeb1c2c1b47dd715fd6e28b7603e4ec2119b7a626fa02d37923aa5cdff8e8"
+      "sha256": "fd1c0d3045f31e2e3d908d3894acb46e371387b72d3dd8d05c29d0fd5ac87357"
     },
     {
       "path": "evidence/motion/scenes/farm-throughput/375-beat-4.png",
-      "sha256": "6ec98d7fcd7c24633d181756feacdeb9665bf3fff8388217f12293a102c87d21"
+      "sha256": "4b2c21f21e903dbcb8f81f6c99325e167cd1603cb500482756c697053ee35bcb"
     },
     {
       "path": "evidence/motion/scenes/episode-survival/375-beat-1.png",
-      "sha256": "91820e6be30b9aa282dc5297af4b7410f232c23d12c56ee9e6be0667961cad23"
+      "sha256": "c5718323e5042b32c96a0049ba758798f0df7d374b195e91255ff1c70cce1c95"
     },
     {
       "path": "evidence/motion/scenes/episode-survival/375-beat-2.png",
-      "sha256": "dfd85fe6c51342fd638b374d7848f385e6e8c25d00c5bfedee4b78ebcb70d3be"
+      "sha256": "28d8d5d8798c7c4be1fdfc71092540db6ceb4d10e3744c46aa9ad5dcfc084bf1"
     },
     {
       "path": "evidence/motion/scenes/episode-survival/375-beat-3.png",
-      "sha256": "fe41566de2b8cc05546ac4a32f0852d950db6ae77eb82bce932964aeeed2269f"
+      "sha256": "e08dd5971863c7bccbe30080d8582ef2d8ab1b1f315f00e02f3637aa1cfde1ad"
     },
     {
       "path": "evidence/motion/scenes/episode-survival/375-beat-4.png",
-      "sha256": "be0ad1cfc73158b224e67b55b4009ee88b5721220036ef7c18b894535b9a23d7"
+      "sha256": "b5f771dbb8a2ff825cc4da646318ab53869d3026654657c5abbeaa19941e6f7f"
     },
     {
       "path": "evidence/motion/scenes/jam-overhead/375-beat-1.png",
-      "sha256": "f6a99472f240f3028549bf65631b90c1ba82636e3ec5aaea63dd8876aa945513"
+      "sha256": "70001aabf0ed870ab3d693993359b75bf2ccfaa7d5cd56fa0d45a63c7243ac41"
     },
     {
       "path": "evidence/motion/scenes/jam-overhead/375-beat-2.png",
-      "sha256": "6ad989474ff8b54c4d8238607c1062dd0248dbf90a33331a695c02f587372edd"
+      "sha256": "4a42e645012d76ea3d2bd935420b676f1e89a42ac65d63a51797453a504fcc2f"
     },
     {
       "path": "evidence/motion/scenes/jam-overhead/375-beat-3.png",
-      "sha256": "08c34f5adb7f0ceef1ea862159bb65a8d0c2fae8372f4176d2f2d446c8149092"
+      "sha256": "bf67acd05d38ff91de94e3c7504e22b1d147721b2fa080461ace25e4371e57e1"
     },
     {
       "path": "evidence/motion/scenes/jam-overhead/375-beat-4.png",
-      "sha256": "4344de8b9dce9859eb4dd5faa45af52d3f009b65dfe5069f3adb69b8ac33164e"
+      "sha256": "b8681645bf8232fb4944a13f1b070c7530bd5e638596987c51fa411dbca5d7ce"
     },
     {
       "path": "evidence/motion/scenes/reliability-threshold/375-beat-1.png",
-      "sha256": "aed621ef5e3c6e8a8b4529a0ed9df7bb49aedcaeaab89e6a4c3c5212a10184f0"
+      "sha256": "067e7e9cae083ee17d2e904563a7704471c0405c8ba49b843f60c6f4eec27765"
     },
     {
       "path": "evidence/motion/scenes/reliability-threshold/375-beat-2.png",
-      "sha256": "e4d50cde393e7eb727b16eed4daf3c237846da78092e8f620d9a214e8e28208f"
+      "sha256": "6533f5673ca497f062db68272e712b891a44d0976b8191a4c4c223b21d08e046"
     },
     {
       "path": "evidence/motion/scenes/reliability-threshold/375-beat-3.png",
-      "sha256": "6953ea61e197d4e959dac5d55cecdece43426f4cfb2f45168fff200ae8e12be1"
+      "sha256": "d13b3db324664df7b81de9807750ac6cfbc635b7c0d9699dab0e7bac325de061"
     },
     {
       "path": "evidence/motion/scenes/reliability-threshold/375-beat-4.png",
-      "sha256": "6738e215d45aca0459c876f422a7481d39ac09e8d921fa412e93e5d1b61a0661"
+      "sha256": "7ab701a8f2e7581058a70976949442b7f0fb5114beb5d23047937aa7d9d58595"
     },
     {
       "path": "evidence/motion/scenes/tactile-slip/375-beat-1.png",
-      "sha256": "8b8cc8c52f09a2f39c7ce6f154317ec7dbd0543f46bd1fce2ed67669300bae1b"
+      "sha256": "5d45dd6e10b88bb3d475ca1cd1fdb4d2a1888af98b788b9e2956454d6edb396c"
     },
     {
       "path": "evidence/motion/scenes/tactile-slip/375-beat-2.png",
-      "sha256": "51ea67f908c11dbb03182af16eca415dd688fbe39e88b15fc9bc9aef234039df"
+      "sha256": "ad39709dcfd59cfa3b25acf7cd0f214fae3e1ec95d26e7e899e79e130408a3c3"
     },
     {
       "path": "evidence/motion/scenes/tactile-slip/375-beat-3.png",
-      "sha256": "3f2483ba7c86e054e6281832b36eb4b78a2a5e40e64d3e2c1aaeeb55acd35d67"
+      "sha256": "232112b46dc01f8e4d7279062e98c7694de91a73bb1dbed4b2c7e620b1ba1732"
     },
     {
       "path": "evidence/motion/scenes/tactile-slip/375-beat-4.png",
-      "sha256": "7a26322972a3b1e560ed7bdd62bad1750a5a4eed9fd377b9a82c308c88521481"
+      "sha256": "a0b8d8291fa6e407599f2c8287d4ae3778869628b5885d7cb99d161b0d6eb943"
     },
     {
       "path": "evidence/motion/scenes/sense-avoid/375-beat-1.png",
-      "sha256": "c0f8b9f9da4539e6bc42180f7870f6c991cfa136d603db277b996a105b7fe15f"
+      "sha256": "76a6feea20f07e433e49af3c86fb2cbd947d930034959deaabc7472738f3b56c"
     },
     {
       "path": "evidence/motion/scenes/sense-avoid/375-beat-2.png",
-      "sha256": "b279aafc1265386fdd944a1803464a963e13c6dce8630cee4af70d2ee20da550"
+      "sha256": "b2b38551cdf0cbc6104d542a2b2b44e3351aae02cd161b57a6f59f9dc7fb0ef0"
     },
     {
       "path": "evidence/motion/scenes/sense-avoid/375-beat-3.png",
-      "sha256": "92486eaa407dbfc982d613e89c6328a256a2d87ec73244b970b5ed474b4109f4"
+      "sha256": "681682be2a9984686a4045ec2e4c97292a069ecd9bdbb26b2f384c220e26db5b"
     },
     {
       "path": "evidence/motion/scenes/sense-avoid/375-beat-4.png",
-      "sha256": "078c6c877133cedcab185ad37b463898cb2fb95a5db669fc61871a074089871e"
+      "sha256": "b9b1f802fdaa1b8a85a12562f01602f01fe811d13c1507c629ea0434d11f3bad"
     },
     {
       "path": "evidence/motion/scenes/kalman-predict-update/1440-beat-1.png",
-      "sha256": "9cc8c2a61460e1ba1e69e46bcb9d707aad89d52041989e0ee78068a0ef83a7cc"
+      "sha256": "689c334080854ae9fa0ae5f6126dc0ef449e7700c442d2901d682f8bab70ab91"
     },
     {
       "path": "evidence/motion/scenes/kalman-predict-update/1440-beat-2.png",
-      "sha256": "a39229c5765233722849e896d1ec50826245d36a7ec51cc1eda3461bb26b4586"
+      "sha256": "44ae6327bba9b88f76a43774175e87ec34325b4fcf899fe8cbed3785d65b34a4"
     },
     {
       "path": "evidence/motion/scenes/kalman-predict-update/1440-beat-3.png",
-      "sha256": "39fabce7cf6ae6b55869a2c9acb1e912c5b9cad89e04373e4afdb2a7d5ab2adb"
+      "sha256": "d6ab6dbb309af8bfc54f5faf7d0d9dc0bee1747b012b9f109bf09e0545a11735"
     },
     {
       "path": "evidence/motion/scenes/kalman-predict-update/1440-beat-4.png",
-      "sha256": "c2edeca64dc386a97378323cd29a4c5a0b3cdc813714b24254d9d0fc295dd885"
+      "sha256": "b10f9a06bcce155299a2f40363591883b0acaed5d6707df264fe246e52f51376"
     },
     {
       "path": "evidence/motion/scenes/kalman-predict-update/1440-beat-5.png",
-      "sha256": "74fa6aa5b1e712839e88a6cc2dabc00b13925560b9ae9037136691e95ad6a7e9"
+      "sha256": "26876a552561db11ba532c593d1b625a2688ed8b08d4f45103b7f5f8601e5926"
     },
     {
       "path": "evidence/motion/scenes/fk-chain/1440-beat-1.png",
-      "sha256": "214cb7644233b247777febbb73a3924de500d475b595307979331859ea1ced6a"
+      "sha256": "dc73a13a0d58b99bf7028bb54c3b7ec4bfdaea354e6b6f2f40ef978a8f3dda80"
     },
     {
       "path": "evidence/motion/scenes/fk-chain/1440-beat-2.png",
-      "sha256": "ddf8eb480e3259c9c4d75ec2b8f024f37b4e8c99ae21f0da1e6976b6da408c9a"
+      "sha256": "31fa851a5373cae9e09aecd03b7d374722ed7b97816f2e334d997b68369cda11"
     },
     {
       "path": "evidence/motion/scenes/fk-chain/1440-beat-3.png",
-      "sha256": "c2091f3e078ac44ff5e918423ab27b39c1205b2a5b4f21cd1151213ef94cb2a2"
+      "sha256": "0cb78c390abe8b5aed88802df1f66f7248a5ce84362c25035a5f66196fe424e7"
     },
     {
       "path": "evidence/motion/scenes/fk-chain/1440-beat-4.png",
-      "sha256": "90a9f79b5de0bcfd2f3d20b1e526eaf18b35f178bc18dda147c1b104836d9585"
+      "sha256": "32fce9fe62d8ca7dc1800b23aa5de005ddd6e53cfe50e22b623ab273f3ca7a31"
     },
     {
       "path": "evidence/motion/scenes/rrt-growth/1440-beat-1.png",
-      "sha256": "9b9ec31b489ca2f24fc15dc3efa64e181b1f88ad9df9f020e1c9ba5cb91b912f"
+      "sha256": "6002e709bf7762108457a75d613ad41e746ac990df1393349c3cbf7ebaa66a70"
     },
     {
       "path": "evidence/motion/scenes/rrt-growth/1440-beat-2.png",
-      "sha256": "24f6a70d824ee8c054120bf33772726baa3c437b5a3f111aa94e55d48366177c"
+      "sha256": "e4f5493d2c2f8b727351121cb16a5320c1bff74e913c244f4db844f73545f00b"
     },
     {
       "path": "evidence/motion/scenes/rrt-growth/1440-beat-3.png",
-      "sha256": "4b1ada3cd0532cf869bba7762f9e596656a6befbb42f85d2a2168b0ec9de72fb"
+      "sha256": "c9ac559e67b49af61a7d8b3a4fcd646dc6891cb406cab7e95db99cdf224fa98a"
     },
     {
       "path": "evidence/motion/scenes/rrt-growth/1440-beat-4.png",
-      "sha256": "2ddc352c5cbc4a1464b00517b0115bfb64be5f92ea60080819729e53658c0ba8"
+      "sha256": "7dd4f8a63180eae4329abbdb9412f58a7896eca34d0593ec3e25f1dc8bcedece"
     },
     {
       "path": "evidence/motion/scenes/diffusion-denoising/1440-beat-1.png",
-      "sha256": "623e602ea7b07311ce1d1a5ebc99fff94ad7316afbfe3d5f65c2bcf688d583b6"
+      "sha256": "8aad9bd01e32dcd54d2c7405b626145f7b7bf1196a18f2d6f74e0dfc32306744"
     },
     {
       "path": "evidence/motion/scenes/diffusion-denoising/1440-beat-2.png",
-      "sha256": "3604da4c54adbfae128f099bb574f302ff8ea1cb0e8340192a954de14b5a9fcc"
+      "sha256": "0d7b457be9fc4aee7c3f707dd7ac09618609dcbe4aa2ba122c706cf7b84d7fca"
     },
     {
       "path": "evidence/motion/scenes/diffusion-denoising/1440-beat-3.png",
-      "sha256": "c4eb8e6e5e1b11082182e4a8922ef0e973560e7e8711ac2616224800b06f7c05"
+      "sha256": "5a628dda51ba1703e56844171f2462a496a12d386e51868c9259b26028785895"
     },
     {
       "path": "evidence/motion/scenes/diffusion-denoising/1440-beat-4.png",
-      "sha256": "af9ea5b98d519fc90aaf3c49d875f1336f34e4c4e0841c7315df1c574cf3dffe"
+      "sha256": "64ee3e29ca8ad6880611b811ffc8d619c2fcbd12e7a444f2763daa54568bff06"
     },
     {
       "path": "evidence/motion/scenes/action-decode/1440-beat-1.png",
-      "sha256": "ae7be79b78dd4b70b1e18857cf53354302d2159a07de6a428b351ac9a758376e"
+      "sha256": "54743663c01695a9283891dbc7f0d63da22728e4c30fdf9845f5f8e5442320fb"
     },
     {
       "path": "evidence/motion/scenes/action-decode/1440-beat-2.png",
-      "sha256": "49e30f63422ed472206e5fa5671b2227852a1cee44fc79f15f553c1fd743a06e"
+      "sha256": "614c6bcbbb2802f3405e13497841a661212a0382a4e48d228e62364f6249fb91"
     },
     {
       "path": "evidence/motion/scenes/action-decode/1440-beat-3.png",
-      "sha256": "f0c43fccee7ac1c5351fe055c816c6abc3e7169c0bc78bcd45c2d07bc55f1ebc"
+      "sha256": "b19e23b9ffe306d2f34bddee354b56e22ea47f99822df8735b631e238a876e40"
     },
     {
       "path": "evidence/motion/scenes/action-decode/1440-beat-4.png",
-      "sha256": "93e2954363d97ab567cf16161c55f02ce80645abe6a8d105990ba68e930ef0da"
+      "sha256": "d3f2f6d6f1a12c5c173e23f6e1d5c11329ebe3e25e225bf24502de8164c33e01"
     },
     {
       "path": "evidence/motion/scenes/flow-transport/1440-beat-1.png",
-      "sha256": "4ca612c43b23fbf33111456a4c29a2c5a25c55a2d57e28553b7a14656ed4f766"
+      "sha256": "4b51510e54a619a6ab4952a033656d586faf7d7780972c12ced29f2ff62d13d7"
     },
     {
       "path": "evidence/motion/scenes/flow-transport/1440-beat-2.png",
-      "sha256": "f4e51181d49e4d3ec0cd379a90070ffd35d3ea5aa18cd4acdf23c7f6684c5657"
+      "sha256": "60612d5c2c745e6aa285c574cf905c5cee16763a4d93568001d314eb6c282a2e"
     },
     {
       "path": "evidence/motion/scenes/flow-transport/1440-beat-3.png",
-      "sha256": "555cc00532f1ca896279bcdae4ed16cb3e52ee66767b2cf662a71ca3f3807638"
+      "sha256": "14d5dcb8617303d8e6cfebf8f1395abad20b4b48fefb93fef6ec6954153c13f2"
     },
     {
       "path": "evidence/motion/scenes/flow-transport/1440-beat-4.png",
-      "sha256": "4b17fa4ad2ae1666ebedf5435a51546bc81e6f5c6931e9a337a09a5ca90c7302"
+      "sha256": "a55e6a1d9475061c3d473825528dfe8b859af4490a07772817df23a9ce60f96a"
     },
     {
       "path": "evidence/motion/scenes/batch-scale/1440-beat-1.png",
-      "sha256": "853e48deceef95a56151f30c5232e75812dc63a37eb76bf0a7aca84e6583dc8a"
+      "sha256": "a148f263066fcf1e7ab6163b8e8268f7e7cc657560f32c02dbb50cf8c92b008d"
     },
     {
       "path": "evidence/motion/scenes/batch-scale/1440-beat-2.png",
-      "sha256": "9d8a5a37d05574e3acf9feea2280a94023633306e7ea90ebaab2fbc4afd248a7"
+      "sha256": "28b9f7f39c4cb9366b423a44b65e710d3cdecebba6f20ab6763a13eee4d82f04"
     },
     {
       "path": "evidence/motion/scenes/batch-scale/1440-beat-3.png",
-      "sha256": "99fd8e53ea6b4bfbae618d3fad0a739dcd8c79975931b0842348b9b09ae4ba50"
+      "sha256": "4deb7168156f1fb07e79c18884034900ffacb30a9c939e753e7ce1b96c6e54f4"
     },
     {
       "path": "evidence/motion/scenes/batch-scale/1440-beat-4.png",
-      "sha256": "9907538b3de4ade3c4c76380b714c3797969c2d1f5e8bbc33733c3be4a9a9149"
+      "sha256": "557f4beacd2db74769a7444c6161f4fa28aaece2f948e1878c6aa707811fbb28"
     },
     {
       "path": "evidence/motion/scenes/gait-support/1440-beat-1.png",
-      "sha256": "d01b60d5e979a84011150f9ae5cd1aa86b516a1ba6495bef6fbfd65056017ab0"
+      "sha256": "35114bf5b50a60d62bf6a7f5fe85d1ad2ba8a93dbea0a26bcf011a98a0fb4350"
     },
     {
       "path": "evidence/motion/scenes/gait-support/1440-beat-2.png",
-      "sha256": "8457b136e7b4d8de423c210a55e9c489825f73a0c4127bb522f5ade3c8edc29b"
+      "sha256": "0cc43fd2f42c6c1afd8b069a7b5d55607c6e17c5922fc294690f26c69abaa5b2"
     },
     {
       "path": "evidence/motion/scenes/gait-support/1440-beat-3.png",
-      "sha256": "8a0bb67c09c637c7f32a9670b8c8fe98b4d9473821dfafb735f1c7e7c6e4c4eb"
+      "sha256": "585ac474890616885a77291b0852b44e7dd6ad92d20e02cc2590c35bb819adfb"
     },
     {
       "path": "evidence/motion/scenes/gait-support/1440-beat-4.png",
-      "sha256": "cab89d9d212f0fcde06351fd1f3fa2040d3950c1eae159bdf3beaa34b3e85e74"
+      "sha256": "dd234eec504bccf630e6ca82f5fd3b7e17d9bebb79fab9f6c5e47a54832b54c1"
     },
     {
       "path": "evidence/motion/scenes/action-fork/1440-beat-1.png",
-      "sha256": "4da289f965547d38ae937d05b13e0f793e3fd0b69b088dbffb788be9d356a8ff"
+      "sha256": "a2821d58ddc80ede4a16d42f3fce875c82a7ed242960289d85c249633eb31e26"
     },
     {
       "path": "evidence/motion/scenes/action-fork/1440-beat-2.png",
-      "sha256": "1b9ebc7cbf1212d5b390ade7dab5c1e2c73c4093a460a5388a1b6ec6ee8bf8d0"
+      "sha256": "1b6a0d467ff388064497bfdddb934ba971235188069673657f2894e53beaf0b2"
     },
     {
       "path": "evidence/motion/scenes/action-fork/1440-beat-3.png",
-      "sha256": "31395e7d3a56ae630a1d8a8e89c2ae008822eeba3e418f7e58c6c346a5b4ca9f"
+      "sha256": "045cc84abfbac57c329ac4aa1531c8edbeaf5e3fb1c7783bbdc981160f55c46f"
     },
     {
       "path": "evidence/motion/scenes/action-fork/1440-beat-4.png",
-      "sha256": "60fe85cefe2b2e5f69c1a9f49fc09a3fb5df60a3165c47d6544f099b703c5425"
+      "sha256": "45665415891409be804b4f136f0ab732db58de7ccc1771dc9c07b17be19f755b"
     },
     {
       "path": "evidence/motion/scenes/latent-drift/1440-beat-1.png",
-      "sha256": "45c8096c5c74ec153decacd8393cf51e4818f7ffb743605e92d31c7226d35eb1"
+      "sha256": "9772e12f577beefce85874b3858912da1c948f48c3c58d24e7f8a582da4686e7"
     },
     {
       "path": "evidence/motion/scenes/latent-drift/1440-beat-2.png",
-      "sha256": "53405cb5c48579062246b5f25c0ee3f997bb253115106aff1364900b91492094"
+      "sha256": "cb98a19ee4169e0b04244a1637faf92ec32c453b8d4f3cd7e8305cae7f0bb285"
     },
     {
       "path": "evidence/motion/scenes/latent-drift/1440-beat-3.png",
-      "sha256": "3fb04bdd5eb752f966aefd1f5798b991d163cc971e2e6054622892e06e448709"
+      "sha256": "1faaaf882d144f52931555654ea3a9bb3c16fe117a33eff19b159283d1cffb50"
     },
     {
       "path": "evidence/motion/scenes/latent-drift/1440-beat-4.png",
-      "sha256": "0fff48d63988bce01722170c84eab4ffffadd384496f8e2f9298fb433d20e204"
+      "sha256": "deefac137dcd36a1d2c0e6eb1e21258ccf108999c71f232343c22b50e8406e23"
     },
     {
       "path": "evidence/motion/scenes/push-layers/1440-beat-1.png",
-      "sha256": "96f0ac15915e2eefaf9b3b2ae112a1b813a736f1d7e410658062dfe9d2eb9815"
+      "sha256": "4d46abe91211b4fd7eaa4ee2e16a1e420f84fe375b27eb4192b7aaf2e785881e"
     },
     {
       "path": "evidence/motion/scenes/push-layers/1440-beat-2.png",
-      "sha256": "590b593587af5801d5a248218520d9dc8cb1ec9aae8a9cfea62ae7623bed0da6"
+      "sha256": "773c7a6056ec2f9115c4c330949187992718d90d72a661ef5a744df25da7515c"
     },
     {
       "path": "evidence/motion/scenes/push-layers/1440-beat-3.png",
-      "sha256": "c26b8b18191137bbb8e2971ec9ebb343c1105f295dab40e702b04002565f7898"
+      "sha256": "0dde3363aebe1ffad429fc7e88450e99d2eb2966c3794b24282b4dd574939bff"
     },
     {
       "path": "evidence/motion/scenes/push-layers/1440-beat-4.png",
-      "sha256": "5ac635752590df5f91910fd3b0a9d5ed1e97d6493ebde698f4b621a0548caefb"
+      "sha256": "28f5eade6faa8baca45cc212cbb76dba2a7662ae041d4ae43aa48c05c6ac2dc4"
     },
     {
       "path": "evidence/motion/scenes/farm-throughput/1440-beat-1.png",
-      "sha256": "9a4443b74496f231db116b8a451da752f4bb5208409abf1159fe8e1f9a5ecd1a"
+      "sha256": "651bcd24212a329987678eb210bf53a45258fd7c621e30d52df1932db1fd47fb"
     },
     {
       "path": "evidence/motion/scenes/farm-throughput/1440-beat-2.png",
-      "sha256": "e76dd7ad5dce745303ec8f69364e17994d6bd9fe0ba577ce03a7c83b413e79a8"
+      "sha256": "fea0d1ef4069a4db95669cfde72616fc0ec662f54863930dddc75e28e2ffc803"
     },
     {
       "path": "evidence/motion/scenes/farm-throughput/1440-beat-3.png",
-      "sha256": "665b5321290e978ddfd7cbce78182f7433b8259094b24b7e784a9089e9e3f522"
+      "sha256": "2deaf70519e8253ff8cbed9a88a8367f905516cb79124c788004f40c3beadb14"
     },
     {
       "path": "evidence/motion/scenes/farm-throughput/1440-beat-4.png",
-      "sha256": "788bd806a7904159dd5ec88114dc20beaa52d8bf345e452f7a3c01663613edd4"
+      "sha256": "8a6ce67d84081a6edb11cd9982876ce03090339e834232f3af504b6f85ec7d5d"
     },
     {
       "path": "evidence/motion/scenes/episode-survival/1440-beat-1.png",
-      "sha256": "a38e7651ae68604d7261801a053c19df1f08b925fc9fecfe5b9402a0dcae891d"
+      "sha256": "1052ab31ac0c8db4d1b28347aba0c4ddc2c50cc94badcceca13256b358cedb1b"
     },
     {
       "path": "evidence/motion/scenes/episode-survival/1440-beat-2.png",
-      "sha256": "ea4f97c31f2e717aa63dbe3e4ddf8efa1652f1de97e3cf29ba0d33774062e277"
+      "sha256": "e83f74c322107531b155eb0c989176f97e077b0c6cfbc79b1e6887ec7b8989ff"
     },
     {
       "path": "evidence/motion/scenes/episode-survival/1440-beat-3.png",
-      "sha256": "36486e9535b436c20acdb12a1ac1f62b65039b010e10fd6778d8e8ad859183f5"
+      "sha256": "db5c05327889915b5678155d226df0c05b36560018d1d98f8708565f7622e835"
     },
     {
       "path": "evidence/motion/scenes/episode-survival/1440-beat-4.png",
-      "sha256": "cada23ccb93cd4cfdc84d746c591c58e9365f470a161d53ff95e4b84238a065b"
+      "sha256": "94e806a85485f0878bb16a6be7ebe7c0f5116de5cb7538f53441c7e8f55915a6"
     },
     {
       "path": "evidence/motion/scenes/jam-overhead/1440-beat-1.png",
-      "sha256": "d9f1f4589f019e7867ef3ded7169aaeeeeba26964120cfdd1da9d88dc90a18c1"
+      "sha256": "8290865546d351345ee797aa6abe11dfd602a56bd4a3efb1df17798dc70087e3"
     },
     {
       "path": "evidence/motion/scenes/jam-overhead/1440-beat-2.png",
-      "sha256": "2edaa77dfdaf5900f0034134831420d1716b03b92d52ad6b931298dc9d44454d"
+      "sha256": "977252816116c0f692449b8455fa1f4498bee707dad1aa809fb3d5cb1556f624"
     },
     {
       "path": "evidence/motion/scenes/jam-overhead/1440-beat-3.png",
-      "sha256": "5659be601e51fa08dba67a15b118f2c94b85ab2b74788c6c54130215c5ae969f"
+      "sha256": "605cd5a9bd27c133343620a6743b3d82295f94e1453f6da51b1a3aa539969e36"
     },
     {
       "path": "evidence/motion/scenes/jam-overhead/1440-beat-4.png",
-      "sha256": "58aae00c7db83bfd4feaf74bef4ce683743ce3688cb3557adbe5186838e39147"
+      "sha256": "883ceff00a747569e1a28238f7b3dba5a7246f1591bf9d78d987700f4cb36ca6"
     },
     {
       "path": "evidence/motion/scenes/reliability-threshold/1440-beat-1.png",
-      "sha256": "a137f14176a790a04d13eda3f313416a96553cbe1472617e8eda29ff38e9fc93"
+      "sha256": "fee551f3aa7b628f63871e439a4443aeefb5c35ddf67c3117f7126c05d7c3807"
     },
     {
       "path": "evidence/motion/scenes/reliability-threshold/1440-beat-2.png",
-      "sha256": "a3d7f6202331f69eb36246ee63e27289070b949f1d6d4233cdb7e30e64e9aff0"
+      "sha256": "d2b62fcf653d51f211ebd419c1055bb46df9e2ff805d477a7d888d2c789f121f"
     },
     {
       "path": "evidence/motion/scenes/reliability-threshold/1440-beat-3.png",
-      "sha256": "262916637d337f4c91ca3dbbd531352f95111054f060b7080305992c2cafebd0"
+      "sha256": "b57e63a0ae5b578c94c390964de512a56665120b8e7234988d04f07393790578"
     },
     {
       "path": "evidence/motion/scenes/reliability-threshold/1440-beat-4.png",
-      "sha256": "aba960e23ad4fba794060a02f1c77b8cd6673c72eead023df30a0c49c8ddebfb"
+      "sha256": "ade0e08c5bc20b5392b0a60760c7959def4f04771901375b16846b0ef5315fbf"
     },
     {
       "path": "evidence/motion/scenes/tactile-slip/1440-beat-1.png",
-      "sha256": "b101e37f8d63af5360ef4a7cb46d3e2ad703a63dcf4eb137e758492a5efff308"
+      "sha256": "09dc1df8bf8a87379e71524cf9fc8246371f69b0eab3dae1e380bccf40c6d01b"
     },
     {
       "path": "evidence/motion/scenes/tactile-slip/1440-beat-2.png",
-      "sha256": "f1783cd36b283daead8fb2f3c752f7bb6d5a2ff55cf51c4e237da7d925e452b8"
+      "sha256": "16b3736701dea4a2abbcf5557131ed03fcc96167fb717d9c00eb92bf5a3a944e"
     },
     {
       "path": "evidence/motion/scenes/tactile-slip/1440-beat-3.png",
-      "sha256": "60853d22199810a8057b6f52afb9c7c1bd1c39da27e3a7f555e3f2c08a1bf7af"
+      "sha256": "9440cb8641a615bbe71ebf84545c0a68159edbac0c44533432b7fc1deb2d9543"
     },
     {
       "path": "evidence/motion/scenes/tactile-slip/1440-beat-4.png",
-      "sha256": "a79f11c4e507ae2027f3c22243de3b9b2c11f8af50dec0d164c4e09b5c8ae284"
+      "sha256": "a03b710345a8196bd3e09f3aac981e775b4a8f084cbee74721627d44b95423b6"
     },
     {
       "path": "evidence/motion/scenes/sense-avoid/1440-beat-1.png",
-      "sha256": "8f5c74e41984745a2bb8e9d36640ef288f43d67f818865dce8e025fcc907baf4"
+      "sha256": "a588450a8904ae6f9f682ff5abaf3d9b30fc3be6c379f168a55a31b9255e5a43"
     },
     {
       "path": "evidence/motion/scenes/sense-avoid/1440-beat-2.png",
-      "sha256": "73228799381e3e080a34cd89a4067b6b5c1e70f7ac355762ca575b31762587f3"
+      "sha256": "4c77ef3d68f274755f96c8aa61fc811ae677bbe61d75ac2c58606179a3f0c912"
     },
     {
       "path": "evidence/motion/scenes/sense-avoid/1440-beat-3.png",
-      "sha256": "247ba3d3a73f124829d133384d93bd79c0d8b2319bdd170931f50e7b9a741042"
+      "sha256": "099811b380bac4dd23de97220bc783f87716fcc772084a671b2624dc598113ae"
     },
     {
       "path": "evidence/motion/scenes/sense-avoid/1440-beat-4.png",
-      "sha256": "d4ff2e05c34628345943be72c1460577d67a4fd4221403bb95439b149775f862"
+      "sha256": "db26a73bf8b096dd76fd943996887805c13b14df46e0f88f62ebff724d02ded6"
     }
   ]
 }

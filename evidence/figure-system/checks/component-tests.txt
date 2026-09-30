@@ -1,0 +1,35 @@
+ ✓ tests/component/image-figure.test.tsx > Figure with a registry credit > renders the image with intrinsic width and height (VAL-IMG-009)
+ ✓ tests/component/image-figure.test.tsx > Figure with a registry credit > renders a visible credit naming creator, source and licence (VAL-IMG-002)
+ ✓ tests/component/chart-primitives.test.tsx > chart primitives on the graphite stage > reads every size from the motion tokens
+ ✓ tests/component/chart-primitives.test.tsx > chart primitives on the graphite stage > draws inside the shared frame on the bounded graphite stage
+ ✓ tests/component/chart-primitives.test.tsx > chart primitives on the graphite stage > axes: concrete structure lines with tick and axis labels at 12 px or more
+ ✓ tests/component/chart-primitives.test.tsx > chart primitives on the graphite stage > line trace: state role at the trace width; reference dashed at its width
+ ✓ tests/component/chart-primitives.test.tsx > chart primitives on the graphite stage > bar: a filled value-role rect
+ ✓ tests/component/chart-primitives.test.tsx > chart primitives on the graphite stage > point marker: measurement dots and crosses
+ ✓ tests/component/chart-primitives.test.tsx > chart primitives on the graphite stage > constraint hatch: a 45 degree pattern in the constraint role, never a solid fill
+ ✓ tests/component/chart-primitives.test.tsx > chart primitives on the graphite stage > uncertainty band: the owner role at the token alpha with dashed edges
+ ✓ tests/component/figure-system-check.test.tsx > figure-system check > passes the fixture built from the shared frame and chart primitives
+ ✓ tests/component/figure-system-check.test.tsx > figure-system check > fails a reserved data colour and names the figure
+ ✓ tests/component/figure-system-check.test.tsx > figure-system check > fails a hard-coded colour and names the figure
+ ✓ tests/component/chart-primitives.test.tsx > chart primitives on the graphite stage > small multiples: one label per panel over a single shared x axis
+ ✓ tests/component/chart-primitives.test.tsx > chart primitives on the graphite stage > legend: on the stage, one swatch per series in the series role
+ ✓ tests/component/chart-primitives.test.tsx > chart primitives on the graphite stage > paints only token colours, on three text sizes of at least 12 px
+ ✓ tests/component/chart-primitives.test.tsx > chart primitives on the graphite stage > carries no colour literal or bare font size in the primitive sources
+ ✓ tests/component/image-figure.test.tsx > Figure with a registry credit > links the credit to the original source URL and the licence (VAL-IMG-003)
+ ✓ tests/component/image-figure.test.tsx > ImageRef (registry resolver) > resolves a registered id to the full figure with credit
+ ✓ tests/component/image-figure.test.tsx > ImageRef (registry resolver) > names a site-created diagram in text with no external source link (VAL-IMG-003)
+ ✓ tests/component/image-figure.test.tsx > ImageRef (registry resolver) > renders a named fallback for an unknown id
+ ✓ tests/component/image-figure.test.tsx > figure treatment by kind > mounts a schematic on a bounded dark instrument that identifies itself
+ ✓ tests/component/image-figure.test.tsx > figure treatment by kind > leaves a photograph on the page surface with no schematic claim
+ ✓ tests/component/image-figure.test.tsx > figure treatment by kind > crops every photograph to 3:2, anchoring the tall Atlas portrait at its head (VAL-OPUS-012)
+ ✓ tests/component/image-figure.test.tsx > figure treatment by kind > keeps the caption and sets the credit in the source-metadata face
+ ✓ tests/component/image-figure.test.tsx > figure treatment by kind > opens each credit with the noun the registry declares
+ ✓ tests/component/image-figure.test.tsx > figure treatment by kind > credits a company mark as a logo whatever it ships as
+ ✓ tests/component/image-figure.test.tsx > figure treatment by kind > renders the attribution sentence the registry records
+ ✓ tests/component/figure-system-check.test.tsx > figure-system check > fails sub-scale text and names the figure
+ ✓ tests/component/figure-system-check.test.tsx > figure-system check > fails a figure drawn outside the frame and names it
+ ✓ tests/component/figure-system-check.test.tsx > figure-system check > fails a caption over 20 words and a legend off the stage
+ ✓ tests/component/figure-system-check.test.tsx > figure-system check > holds allowlisted figures to their recorded rules and reports stale entries
+ ✓ tests/component/figure-system-check.test.tsx > figure-system check > runs in the gated build and the production build, after the export exists
+ Test Files  3 passed (3)
+      Tests  33 passed (33)

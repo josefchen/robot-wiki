@@ -41,8 +41,8 @@ export function pushLayersFrame(t: number) {
 function PushLayersStage() {
   return (
     <StageSvg viewBox="0 0 340 240">
-      <text x={28} y={25} fontSize={13} fill="var(--motion-stage-label)">one rendered scene · one push</text>
-      <text x={28} y={52} fontSize={12} fill="var(--motion-stage-label-secondary)">appearance</text>
+      <text x={25} y={25} fontSize={13} fill="var(--motion-stage-label)">one rendered scene · one push</text>
+      <text x={25} y={52} fontSize={12} fill="var(--motion-stage-label-secondary)">appearance</text>
       <AnimatedElement as="text" x={142} y={52} fontSize={12} fill="var(--role-constraint-stage)"
         bindings={{ opacity: (t) => pushLayersFrame(t).physics }}>physics proxy</AnimatedElement>
       <AnimatedElement as="text" x={257} y={52} fontSize={12} fill="var(--role-value-stage)"
@@ -75,7 +75,7 @@ function PushLayersStage() {
           x2: (t) => mugX(pushLayersFrame(t).position) + 18,
           opacity: (t) => pushLayersFrame(t).physics,
         }} />
-      <AnimatedElement as="text" x={28} y={225} fontSize={13} fill="var(--motion-stage-label-secondary)"
+      <AnimatedElement as="text" x={25} y={225} fontSize={13} data-scene-note fill="var(--motion-stage-label-secondary)"
         bindings={{ opacity: (t) => pushLayersFrame(t).recap }}>
         rendered appearance ≠ integrated dynamics
       </AnimatedElement>

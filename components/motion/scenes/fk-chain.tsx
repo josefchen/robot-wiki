@@ -93,7 +93,7 @@ function FkChainStage() {
           {label}
         </AnimatedElement>
       ))}
-      <AnimatedElement as="text" x={27} y={225} fontSize={13}
+      <AnimatedElement as="text" x={27} y={225} fontSize={13} data-scene-note
         fill="var(--motion-stage-label-secondary)"
         bindings={{ opacity: (t) => fkChainFrame(t).recap }}>
         tip = sum of link vectors

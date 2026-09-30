@@ -149,6 +149,7 @@ export function Write({
           <AnimatedElement
             as="text"
             key={`${index}-${glyph.ch}`}
+            data-scene-glyph
             x={glyphX}
             y={glyphY}
             fontSize={size}

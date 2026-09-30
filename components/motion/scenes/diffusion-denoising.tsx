@@ -38,7 +38,8 @@ const PLOT: PlotArea = { left: 58, right: 288, top: 57, bottom: 184 };
 const X_DOMAIN = { min: -3.5, max: 3.5 };
 const Y_DOMAIN = { min: -3.2, max: 3.2 };
 const FONT = 14;
-const TICK_FONT = 10;
+const READOUT_FONT = 13;
+const TICK_FONT = 12;
 
 const TRAJECTORY = generateDenoisingTrajectory();
 /**
@@ -208,7 +209,6 @@ function DiffusionStage() {
           y={PLOT.bottom + 13}
           textAnchor="middle"
           fontSize={TICK_FONT}
-          fontFamily="var(--font-mono)"
           data-scene-tick
           fill="var(--motion-stage-label-secondary)"
         >
@@ -222,7 +222,6 @@ function DiffusionStage() {
           y={yScale(tick) + 4}
           textAnchor="end"
           fontSize={TICK_FONT}
-          fontFamily="var(--font-mono)"
           data-scene-tick
           fill="var(--motion-stage-label-secondary)"
         >
@@ -230,11 +229,12 @@ function DiffusionStage() {
         </text>
       ))}
       <text
-        x={19}
+        x={22}
         y={(PLOT.top + PLOT.bottom) / 2}
         fontSize={13}
+        data-scene-axis
         fill="var(--motion-stage-label-secondary)"
-        transform={`rotate(-90 19 ${(PLOT.top + PLOT.bottom) / 2})`}
+        transform={`rotate(-90 22 ${(PLOT.top + PLOT.bottom) / 2})`}
         textAnchor="middle"
       >
         a2
@@ -243,6 +243,7 @@ function DiffusionStage() {
         x={PLOT.right}
         y={HEIGHT - 12}
         fontSize={13}
+        data-scene-axis
         fill="var(--motion-stage-label-secondary)"
         textAnchor="end"
       >
@@ -354,8 +355,7 @@ function DiffusionStage() {
           key={`step-${k}`}
           x={216}
           y={49}
-          fontSize={FONT}
-          fontFamily="var(--font-mono)"
+          fontSize={READOUT_FONT}
           data-scene-readout
           fill="var(--motion-stage-label)"
           bindings={{
