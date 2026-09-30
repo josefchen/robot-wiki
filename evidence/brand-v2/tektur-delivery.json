@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "ed3746e66e46482939fd25e71af8c303127cf48569bae528711918fd5806837a",
+  "fingerprint": "4371b7989a03dfb0a267b62b2024745732f83e54357edb586c9cbbe680179835",
   "viewports": [
     {
       "id": "375px",
@@ -26,6 +26,7 @@
   "routes": [
     "/",
     "/a-z/",
+    "/about/",
     "/adjacent/",
     "/adjacent/autonomous-vehicles/",
     "/adjacent/drones/",
@@ -106,7 +107,7 @@
       "roles": {
         "shell-wordmark": 3,
         "home-wordmark": 1,
-        "section-display": 6
+        "section-display": 5
       }
     },
     {
@@ -115,7 +116,7 @@
       "roles": {
         "shell-wordmark": 3,
         "home-wordmark": 1,
-        "section-display": 6
+        "section-display": 5
       }
     },
     {
@@ -124,7 +125,7 @@
       "roles": {
         "shell-wordmark": 3,
         "home-wordmark": 1,
-        "section-display": 6
+        "section-display": 5
       }
     },
     {
@@ -133,7 +134,7 @@
       "roles": {
         "shell-wordmark": 3,
         "home-wordmark": 1,
-        "section-display": 6
+        "section-display": 5
       }
     },
     {
@@ -166,6 +167,34 @@
       "roles": {
         "shell-wordmark": 3,
         "page-h1": 1
+      }
+    },
+    {
+      "route": "/about/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 3
+      }
+    },
+    {
+      "route": "/about/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 3
+      }
+    },
+    {
+      "route": "/about/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 3
+      }
+    },
+    {
+      "route": "/about/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 3
       }
     },
     {
@@ -2508,7 +2537,7 @@
       "weight": "600",
       "stretch": "100%",
       "variationSettings": "\"wdth\" 100, \"wght\" 600",
-      "elements": 24
+      "elements": 20
     },
     {
       "role": "shell-wordmark",
@@ -2516,7 +2545,7 @@
       "weight": "600",
       "stretch": "100%",
       "variationSettings": "\"wdth\" 100, \"wght\" 600",
-      "elements": 888
+      "elements": 900
     }
   ],
   "unannotatedDisplayClassUses": [],
@@ -2527,11 +2556,13 @@
       "heads": [
         "IBM Plex Mono",
         "IBM Plex Sans",
+        "Newsreader",
         "tektur"
       ],
       "headsOutsideMath": [
         "IBM Plex Mono",
         "IBM Plex Sans",
+        "Newsreader",
         "tektur"
       ]
     },
@@ -2541,11 +2572,13 @@
       "heads": [
         "IBM Plex Mono",
         "IBM Plex Sans",
+        "Newsreader",
         "tektur"
       ],
       "headsOutsideMath": [
         "IBM Plex Mono",
         "IBM Plex Sans",
+        "Newsreader",
         "tektur"
       ]
     },
@@ -2555,11 +2588,13 @@
       "heads": [
         "IBM Plex Mono",
         "IBM Plex Sans",
+        "Newsreader",
         "tektur"
       ],
       "headsOutsideMath": [
         "IBM Plex Mono",
         "IBM Plex Sans",
+        "Newsreader",
         "tektur"
       ]
     },
@@ -2569,11 +2604,13 @@
       "heads": [
         "IBM Plex Mono",
         "IBM Plex Sans",
+        "Newsreader",
         "tektur"
       ],
       "headsOutsideMath": [
         "IBM Plex Mono",
         "IBM Plex Sans",
+        "Newsreader",
         "tektur"
       ]
     },
@@ -2627,6 +2664,70 @@
     },
     {
       "route": "/a-z/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/about/",
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/about/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/about/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/about/",
       "viewportId": "1440px",
       "heads": [
         "IBM Plex Mono",
@@ -7801,7 +7902,7 @@
       "/_next/static/media/effe91970fc4db64-s.0oace-s_gkfks.woff2"
     ],
     "foreignOrigin": [],
-    "observationsWithFontRequest": 296,
+    "observationsWithFontRequest": 300,
     "observationsMixingForeignOrigin": 0,
     "fontRequests": [
       {

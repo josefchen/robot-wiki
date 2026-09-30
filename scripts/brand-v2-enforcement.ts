@@ -1950,7 +1950,7 @@ const HOME_TOOLS_SWEEP_TARGET = testTarget(
 const HOME_TOOLS_READER_TARGET = testTarget(
   'tests/unit/brand-v2-home-tools-evidence.test.ts',
   'home tools evidence > refuses stale, incomplete, and unmeasured home tool evidence',
-  'Proves the reader that gates the overflow row throws on a stale fingerprint, a wrong version, a wrong route, a wrong viewport, a sweep with no responsive measurement, no sibling mount, no playground graphic and no swept surface, and proves the per-route verdict fails a route measured at fewer than the declared widths as well as one whose document scrolled wider than its viewport.',
+  'Proves the reader that gates the overflow row throws on a stale fingerprint, a wrong version, a wrong route, a wrong viewport, a sweep with no responsive measurement, no featured scene, an unregistered scene, a comparison with the wrong article, a truncated key script, no tools-line link and no swept surface, and proves the per-route verdict fails a route measured at fewer than the declared widths as well as one whose document scrolled wider than its viewport.',
 );
 
 const FIGURE_SWEEP_TARGET = testTarget(

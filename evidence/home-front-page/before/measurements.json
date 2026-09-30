@@ -1,0 +1,397 @@
+{
+ "label": "before",
+ "viewports": {
+  "1440x900": {
+   "home": {
+    "mainWords": 941,
+    "contentsTitles": 0,
+    "contentsTitleWords": 0,
+    "wordsExcludingContentsTitles": 941,
+    "budgetWords": 941,
+    "budgetBlocks": [
+     {
+      "block": "Introduction",
+      "words": 89,
+      "text": "Robot Wiki Citation-first encyclopedia of modern robot learning. Robot Wiki is an encyclopedia of modern robotics for engineers who already know machine learning: learned manipulation policies, sim-to-real reinforcement learning, world models, teleoperation data pipelines, and the classical control stack underneath. Technical claims should be traceable to cited evidence. Sources range from research papers to first-party documentation and labelled community estimates, and a citation is not a guarantee of verification. The centre of gravity is robot learning, not a catalogue of the industry. Start reading How to read this wiki"
+     },
+     {
+      "block": "Domain index",
+      "words": 114,
+      "text": "Domain index Manipulation & Learned Policies From behavior cloning to vision-language-action models: how modern robots learn to act. RL, Sim-to-Real & Locomotion Reinforcement learning at scale, from massively parallel simulation to the transfer problem. World Models Learned simulators and action-conditioned video prediction, with the JEPA counterargument. Data, Hardware & Evaluation The embodied data bottleneck and the machines themselves, with the measurement crisis behind every benchmark claim. Classical Foundations The kinematics, planning, control and estimation stack that sits under every learned policy. Frontier & Open Problems The reliability gap that keeps demos out of production, and the competing theses about closing it. Adjacent Domains Autonomous Vehicles, Drones and Aerial Robotics, Surgical Robotics, and Space Robotics."
+     },
+     {
+      "block": "Featured interactive",
+      "words": 217,
+      "text": "Featured interactive A 95% per-step success rate sounds strong. Compounded over a 30-step episode it is not. Move the sliders to see how small per-step errors erode end-to-end reliability, then step through a fixed-horizon example. The frontier essays develop the argument. PER-STEP SUCCESS 95.0% EPISODE LENGTH 30 steps Reset 25% 50% 75% 100% 0 50 100 steps Illustrative probability model: computed compounding curves, not a measured robot policy. (0.950)^30 = 21.5% episode success At 95.0 percent per-step success, episode success is 21.5% at 30 steps and 0.6% at the 100-step end of the plotted range, crossing 50 percent at 14 steps as the per-step odds compound over the episode length. Sampled episode success by episode length Here to try with your own numbers; the full argument is in Evaluation crisis. The last stretch of episode reliability Play Step back Step forward Reset toy model · 30 decisions 95% 21.5% 99% 74.0% 99.9% 97.0% compare the last bar episode success under the same toy model beat 4 / 4 conditional rate 99.9% episode 97.0% Illustrative independence model, not a measured robot policy. A separate calculator lets you vary probability and episode length. The same horizon exposes the last stretch; these are illustrative probabilities, not measured policies. Featured from Reliability gap, where it sets the per-step bar deployment needs."
+     },
+     {
+      "block": "Real hardware",
+      "words": 71,
+      "text": "Real hardware The policies and controllers this wiki covers run on physical machines. Every photograph and diagram on the site is licensed and credited, and the full list lives on the credits page. A Boston Dynamics Spot quadruped walks with Royal Air Force airmen at RAF Leeming during the Agile Liberty 21-2 technology trials in August 2021. Photo: Senior Airman John Ennis, U.S. Air Force / Wikimedia Commons. Licence: Public domain."
+     },
+     {
+      "block": "Interactive tools",
+      "words": 156,
+      "text": "Interactive tools SO-101 arm at its zero pose Scale bar 100 mm shoulder_pan 220° shoulder_lift 200° elbow_flex 193.7° wrist_flex 190° wrist_roll 320° gripper 110° Drawn from the model file the playground loads, with each joint's travel. The shipped so101.urdf defines 6 revolute joints from base_link to the moving jaw, and at the zero configuration the chain reaches 407 mm from the base with the wrist 234 mm above it; joint travel spans 320 degrees at wrist_roll and 110 degrees at gripper. Joint travel declared by the shipped URDF 3D Kinematics Playground Drive this arm in the browser: joint-slider forward kinematics, click-to-reach inverse kinematics, and trajectory replay. Companies per segment Foundation models 12 Humanoids 34 Industrial / logistics 15 Vertical applications 32 Simulation / tooling 10 Components 8 All 111 companies on the market map, counted by segment. Market Map The embodied-AI industry as data: 111 companies across 6 segments, filterable by approach, geography, stage, and funding."
+     },
+     {
+      "block": "Learning paths",
+      "words": 145,
+      "text": "Learning paths Pick a sequence when you want a coherent route through the wiki. Each path starts with the concepts later articles assume. Robot learning and VLA From embodied data and imitation learning to action models, evaluation, and deployment. Robot Learning Curriculum for ML Engineers Major Datasets Behavior Cloning Foundations Action Spaces for Robot Learning Diffusion Policy Vision-Language-Action Models The Evaluation Crisis Industrial Deployment Classical robotics foundations The dependency chain underneath learned policies: geometry, sensing, estimation, planning, and control. Kinematics Robot Calibration Perception for Manipulation State Estimation Motion Planning Control ROS 2 for Machine Learning Engineers World models for robotics Start with the overloaded term, then compare latent, representation-space, video, and simulation approaches. What Is a World Model? Model-Based Robot Learning Latent-Dynamics World Models JEPA and the Non-Generative Counterargument Generative Video World Models Generative Simulation World Model Evaluation for Robotics World Models vs Physics Simulators"
+     },
+     {
+      "block": "How to read this wiki",
+      "words": 149,
+      "text": "How to read this wiki Modules stand alone, but inside a domain they build on each other in registry order: later entries assume the earlier ones. If you come from machine learning rather than robotics, start with Action Chunking (ACT and ALOHA). It shows the format every module follows: precise prose, inline citations, and a live interactive you can manipulate. The prerequisites are fluency in machine learning, not a robotics background. When a module needs a classical result it says so and links to the entry that derives it, so you can read forward and backfill as needed. Terms of art are defined where they first appear and collected in the glossary. Citation chips link claims to their named sources, including explicitly labelled community estimates where used, and the full bibliography sits at the end of each module. Where serious researchers disagree, the text names who holds which position."
+     }
+    ],
+    "runsJoinFree": true,
+    "counts": null,
+    "sections": [
+     {
+      "block": "Introduction",
+      "words": 89,
+      "text": "Robot Wiki Citation-first encyclopedia of modern robot learning. Robot Wiki is an encyclopedia of modern robotics for engineers who already know machine learnin",
+      "top": 0,
+      "bottom": 478,
+      "left": 352,
+      "width": 1024,
+      "height": 478
+     },
+     {
+      "block": "Domain index",
+      "words": 114,
+      "text": "Domain index Manipulation & Learned Policies From behavior cloning to vision-language-action models: how modern robots learn to act. RL, Sim-to-Real & Locomotio",
+      "top": 506,
+      "bottom": 861,
+      "left": 352,
+      "width": 1024,
+      "height": 356
+     },
+     {
+      "block": "Featured interactive",
+      "words": 217,
+      "text": "Featured interactive A 95% per-step success rate sounds strong. Compounded over a 30-step episode it is not. Move the sliders to see how small per-step errors e",
+      "top": 909,
+      "bottom": 2589,
+      "left": 352,
+      "width": 1024,
+      "height": 1679
+     },
+     {
+      "block": "Real hardware",
+      "words": 71,
+      "text": "Real hardware The policies and controllers this wiki covers run on physical machines. Every photograph and diagram on the site is licensed and credited, and the",
+      "top": 2645,
+      "bottom": 3185,
+      "left": 352,
+      "width": 1024,
+      "height": 541
+     },
+     {
+      "block": "Interactive tools",
+      "words": 156,
+      "text": "Interactive tools SO-101 arm at its zero pose Scale bar 100 mm shoulder_pan 220° shoulder_lift 200° elbow_flex 193.7° wrist_flex 190° wrist_roll 320° gripper 11",
+      "top": 3241,
+      "bottom": 3783,
+      "left": 352,
+      "width": 1024,
+      "height": 541
+     },
+     {
+      "block": "Learning paths",
+      "words": 145,
+      "text": "Learning paths Pick a sequence when you want a coherent route through the wiki. Each path starts with the concepts later articles assume. Robot learning and VLA",
+      "top": 3839,
+      "bottom": 4324,
+      "left": 352,
+      "width": 1024,
+      "height": 485
+     },
+     {
+      "block": "How to read this wiki",
+      "words": 149,
+      "text": "How to read this wiki Modules stand alone, but inside a domain they build on each other in registry order: later entries assume the earlier ones. If you come fr",
+      "top": 4380,
+      "bottom": 4863,
+      "left": 352,
+      "width": 1024,
+      "height": 483
+     }
+    ],
+    "domainLinks": [],
+    "lowestDomainLinkBottom": null,
+    "sceneStage": {
+     "top": 1766,
+     "bottom": 2453,
+     "left": 377,
+     "width": 974,
+     "height": 688
+    },
+    "searchInput": null,
+    "graphics": [
+     {
+      "tag": "div",
+      "backgroundImage": "url(\"data:image/svg+xml,%3Csvg xmlns='ht",
+      "scene": null,
+      "device": "device:dot-grid",
+      "ariaHidden": true,
+      "inControl": null
+     },
+     {
+      "tag": "svg",
+      "backgroundImage": null,
+      "scene": null,
+      "device": null,
+      "ariaHidden": false,
+      "inControl": null
+     },
+     {
+      "tag": "svg",
+      "backgroundImage": null,
+      "scene": "reliability-threshold",
+      "device": null,
+      "ariaHidden": true,
+      "inControl": "Play the motion scene: The last stretch of episode"
+     },
+     {
+      "tag": "svg",
+      "backgroundImage": null,
+      "scene": "reliability-threshold",
+      "device": null,
+      "ariaHidden": true,
+      "inControl": null
+     },
+     {
+      "tag": "img",
+      "backgroundImage": null,
+      "scene": null,
+      "device": null,
+      "ariaHidden": false,
+      "inControl": null
+     },
+     {
+      "tag": "svg",
+      "backgroundImage": null,
+      "scene": null,
+      "device": null,
+      "ariaHidden": false,
+      "inControl": null
+     },
+     {
+      "tag": "svg",
+      "backgroundImage": null,
+      "scene": null,
+      "device": null,
+      "ariaHidden": true,
+      "inControl": null
+     }
+    ],
+    "featured": null,
+    "facts": [],
+    "recent": null,
+    "tools": null,
+    "documentHeight": 4983
+   },
+   "about": {
+    "status": 404
+   }
+  },
+  "375x812": {
+   "home": {
+    "mainWords": 941,
+    "contentsTitles": 0,
+    "contentsTitleWords": 0,
+    "wordsExcludingContentsTitles": 941,
+    "budgetWords": 941,
+    "budgetBlocks": [
+     {
+      "block": "Introduction",
+      "words": 89,
+      "text": "Robot Wiki Citation-first encyclopedia of modern robot learning. Robot Wiki is an encyclopedia of modern robotics for engineers who already know machine learning: learned manipulation policies, sim-to-real reinforcement learning, world models, teleoperation data pipelines, and the classical control stack underneath. Technical claims should be traceable to cited evidence. Sources range from research papers to first-party documentation and labelled community estimates, and a citation is not a guarantee of verification. The centre of gravity is robot learning, not a catalogue of the industry. Start reading How to read this wiki"
+     },
+     {
+      "block": "Domain index",
+      "words": 114,
+      "text": "Domain index Manipulation & Learned Policies From behavior cloning to vision-language-action models: how modern robots learn to act. RL, Sim-to-Real & Locomotion Reinforcement learning at scale, from massively parallel simulation to the transfer problem. World Models Learned simulators and action-conditioned video prediction, with the JEPA counterargument. Data, Hardware & Evaluation The embodied data bottleneck and the machines themselves, with the measurement crisis behind every benchmark claim. Classical Foundations The kinematics, planning, control and estimation stack that sits under every learned policy. Frontier & Open Problems The reliability gap that keeps demos out of production, and the competing theses about closing it. Adjacent Domains Autonomous Vehicles, Drones and Aerial Robotics, Surgical Robotics, and Space Robotics."
+     },
+     {
+      "block": "Featured interactive",
+      "words": 217,
+      "text": "Featured interactive A 95% per-step success rate sounds strong. Compounded over a 30-step episode it is not. Move the sliders to see how small per-step errors erode end-to-end reliability, then step through a fixed-horizon example. The frontier essays develop the argument. PER-STEP SUCCESS 95.0% EPISODE LENGTH 30 steps Reset 25% 50% 75% 100% 0 50 100 steps Illustrative probability model: computed compounding curves, not a measured robot policy. (0.950)^30 = 21.5% episode success At 95.0 percent per-step success, episode success is 21.5% at 30 steps and 0.6% at the 100-step end of the plotted range, crossing 50 percent at 14 steps as the per-step odds compound over the episode length. Sampled episode success by episode length Here to try with your own numbers; the full argument is in Evaluation crisis. The last stretch of episode reliability Play Step back Step forward Reset toy model · 30 decisions 95% 21.5% 99% 74.0% 99.9% 97.0% compare the last bar episode success under the same toy model beat 4 / 4 conditional rate 99.9% episode 97.0% Illustrative independence model, not a measured robot policy. A separate calculator lets you vary probability and episode length. The same horizon exposes the last stretch; these are illustrative probabilities, not measured policies. Featured from Reliability gap, where it sets the per-step bar deployment needs."
+     },
+     {
+      "block": "Real hardware",
+      "words": 71,
+      "text": "Real hardware The policies and controllers this wiki covers run on physical machines. Every photograph and diagram on the site is licensed and credited, and the full list lives on the credits page. A Boston Dynamics Spot quadruped walks with Royal Air Force airmen at RAF Leeming during the Agile Liberty 21-2 technology trials in August 2021. Photo: Senior Airman John Ennis, U.S. Air Force / Wikimedia Commons. Licence: Public domain."
+     },
+     {
+      "block": "Interactive tools",
+      "words": 156,
+      "text": "Interactive tools SO-101 arm at its zero pose Scale bar 100 mm shoulder_pan 220° shoulder_lift 200° elbow_flex 193.7° wrist_flex 190° wrist_roll 320° gripper 110° Drawn from the model file the playground loads, with each joint's travel. The shipped so101.urdf defines 6 revolute joints from base_link to the moving jaw, and at the zero configuration the chain reaches 407 mm from the base with the wrist 234 mm above it; joint travel spans 320 degrees at wrist_roll and 110 degrees at gripper. Joint travel declared by the shipped URDF 3D Kinematics Playground Drive this arm in the browser: joint-slider forward kinematics, click-to-reach inverse kinematics, and trajectory replay. Companies per segment Foundation models 12 Humanoids 34 Industrial / logistics 15 Vertical applications 32 Simulation / tooling 10 Components 8 All 111 companies on the market map, counted by segment. Market Map The embodied-AI industry as data: 111 companies across 6 segments, filterable by approach, geography, stage, and funding."
+     },
+     {
+      "block": "Learning paths",
+      "words": 145,
+      "text": "Learning paths Pick a sequence when you want a coherent route through the wiki. Each path starts with the concepts later articles assume. Robot learning and VLA From embodied data and imitation learning to action models, evaluation, and deployment. Robot Learning Curriculum for ML Engineers Major Datasets Behavior Cloning Foundations Action Spaces for Robot Learning Diffusion Policy Vision-Language-Action Models The Evaluation Crisis Industrial Deployment Classical robotics foundations The dependency chain underneath learned policies: geometry, sensing, estimation, planning, and control. Kinematics Robot Calibration Perception for Manipulation State Estimation Motion Planning Control ROS 2 for Machine Learning Engineers World models for robotics Start with the overloaded term, then compare latent, representation-space, video, and simulation approaches. What Is a World Model? Model-Based Robot Learning Latent-Dynamics World Models JEPA and the Non-Generative Counterargument Generative Video World Models Generative Simulation World Model Evaluation for Robotics World Models vs Physics Simulators"
+     },
+     {
+      "block": "How to read this wiki",
+      "words": 149,
+      "text": "How to read this wiki Modules stand alone, but inside a domain they build on each other in registry order: later entries assume the earlier ones. If you come from machine learning rather than robotics, start with Action Chunking (ACT and ALOHA). It shows the format every module follows: precise prose, inline citations, and a live interactive you can manipulate. The prerequisites are fluency in machine learning, not a robotics background. When a module needs a classical result it says so and links to the entry that derives it, so you can read forward and backfill as needed. Terms of art are defined where they first appear and collected in the glossary. Citation chips link claims to their named sources, including explicitly labelled community estimates where used, and the full bibliography sits at the end of each module. Where serious researchers disagree, the text names who holds which position."
+     }
+    ],
+    "runsJoinFree": true,
+    "counts": null,
+    "sections": [
+     {
+      "block": "Introduction",
+      "words": 89,
+      "text": "Robot Wiki Citation-first encyclopedia of modern robot learning. Robot Wiki is an encyclopedia of modern robotics for engineers who already know machine learnin",
+      "top": 53,
+      "bottom": 778,
+      "left": 0,
+      "width": 375,
+      "height": 725
+     },
+     {
+      "block": "Domain index",
+      "words": 114,
+      "text": "Domain index Manipulation & Learned Policies From behavior cloning to vision-language-action models: how modern robots learn to act. RL, Sim-to-Real & Locomotio",
+      "top": 806,
+      "bottom": 1466,
+      "left": 0,
+      "width": 375,
+      "height": 660
+     },
+     {
+      "block": "Featured interactive",
+      "words": 217,
+      "text": "Featured interactive A 95% per-step success rate sounds strong. Compounded over a 30-step episode it is not. Move the sliders to see how small per-step errors e",
+      "top": 1514,
+      "bottom": 2922,
+      "left": 0,
+      "width": 375,
+      "height": 1408
+     },
+     {
+      "block": "Real hardware",
+      "words": 71,
+      "text": "Real hardware The policies and controllers this wiki covers run on physical machines. Every photograph and diagram on the site is licensed and credited, and the",
+      "top": 2978,
+      "bottom": 3507,
+      "left": 0,
+      "width": 375,
+      "height": 529
+     },
+     {
+      "block": "Interactive tools",
+      "words": 156,
+      "text": "Interactive tools SO-101 arm at its zero pose Scale bar 100 mm shoulder_pan 220° shoulder_lift 200° elbow_flex 193.7° wrist_flex 190° wrist_roll 320° gripper 11",
+      "top": 3563,
+      "bottom": 4691,
+      "left": 0,
+      "width": 375,
+      "height": 1129
+     },
+     {
+      "block": "Learning paths",
+      "words": 145,
+      "text": "Learning paths Pick a sequence when you want a coherent route through the wiki. Each path starts with the concepts later articles assume. Robot learning and VLA",
+      "top": 4747,
+      "bottom": 5928,
+      "left": 0,
+      "width": 375,
+      "height": 1180
+     },
+     {
+      "block": "How to read this wiki",
+      "words": 149,
+      "text": "How to read this wiki Modules stand alone, but inside a domain they build on each other in registry order: later entries assume the earlier ones. If you come fr",
+      "top": 5984,
+      "bottom": 6727,
+      "left": 0,
+      "width": 375,
+      "height": 743
+     }
+    ],
+    "domainLinks": [],
+    "lowestDomainLinkBottom": null,
+    "sceneStage": {
+     "top": 2464,
+     "bottom": 2694,
+     "left": 25,
+     "width": 325,
+     "height": 229
+    },
+    "searchInput": null,
+    "graphics": [
+     {
+      "tag": "div",
+      "backgroundImage": "url(\"data:image/svg+xml,%3Csvg xmlns='ht",
+      "scene": null,
+      "device": "device:dot-grid",
+      "ariaHidden": true,
+      "inControl": null
+     },
+     {
+      "tag": "svg",
+      "backgroundImage": null,
+      "scene": null,
+      "device": null,
+      "ariaHidden": false,
+      "inControl": null
+     },
+     {
+      "tag": "svg",
+      "backgroundImage": null,
+      "scene": "reliability-threshold",
+      "device": null,
+      "ariaHidden": true,
+      "inControl": "Play the motion scene: The last stretch of episode"
+     },
+     {
+      "tag": "svg",
+      "backgroundImage": null,
+      "scene": "reliability-threshold",
+      "device": null,
+      "ariaHidden": true,
+      "inControl": null
+     },
+     {
+      "tag": "img",
+      "backgroundImage": null,
+      "scene": null,
+      "device": null,
+      "ariaHidden": false,
+      "inControl": null
+     },
+     {
+      "tag": "svg",
+      "backgroundImage": null,
+      "scene": null,
+      "device": null,
+      "ariaHidden": false,
+      "inControl": null
+     },
+     {
+      "tag": "svg",
+      "backgroundImage": null,
+      "scene": null,
+      "device": null,
+      "ariaHidden": true,
+      "inControl": null
+     }
+    ],
+    "featured": null,
+    "facts": [],
+    "recent": null,
+    "tools": null,
+    "documentHeight": 6870
+   },
+   "about": {
+    "status": 404
+   }
+  }
+ }
+}

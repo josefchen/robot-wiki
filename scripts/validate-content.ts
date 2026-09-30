@@ -27,8 +27,8 @@ const issues = validateContent({
   terms: GLOSSARY,
   images: IMAGES,
   companies: COMPANIES,
-  // The home page renders a registry image from tsx rather than MDX; it is
-  // scanned for ImageRef usages so the same unregistered-id gate applies.
+  // The home page is tsx rather than MDX, so it is scanned for ImageRef
+  // usages too and any image it mounts meets the same unregistered-id gate.
   imageSources: [
     { label: 'app/page.tsx', body: readFileSync(join(root, 'app', 'page.tsx'), 'utf8') },
   ],

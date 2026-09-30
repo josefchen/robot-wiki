@@ -3,45 +3,45 @@
   "signatures": [
     {
       "route": "/",
-      "signature": "sheet/display-lockup/primary-action",
-      "owner": "brand-v2-home-hero-domain-index-and-structure",
-      "purpose": "The opening sheet that carries the public identity, the locked descriptor and the single black primary action into the first viewport."
+      "signature": "sheet/display-lockup/search-form",
+      "owner": "opus-pass-homepage",
+      "purpose": "The identity line: the public identity and the locked descriptor on the opening sheet, the registry counts, and the search form whose black submit is the primary action."
     },
     {
       "route": "/",
       "signature": "ruled-plain/index-heading/row-links",
-      "owner": "brand-v2-home-hero-domain-index-and-structure",
-      "purpose": "The domain index: seven canonical destinations as ruled editorial rows rather than a grid of equal marketing cards."
+      "owner": "opus-pass-homepage",
+      "purpose": "The contents index: the seven canonical domains as ruled rows, each listing every published article as a plain link."
     },
     {
       "route": "/",
-      "signature": "plain/module-heading/live-instrument",
-      "owner": "brand-v2-home-live-tools-and-responsive-convergence",
-      "purpose": "The featured instrument, where the reader operates a live calculator that computes its readout instead of depicting one."
+      "signature": "plain/module-heading/lead-excerpt",
+      "owner": "opus-pass-homepage",
+      "purpose": "The featured article: one title and its lead, verbatim and within 50 words, chosen by date."
     },
     {
       "route": "/",
-      "signature": "plain/module-heading/credited-figure",
-      "owner": "brand-v2-home-hero-domain-index-and-structure",
-      "purpose": "The real-hardware figure, a credited photograph whose caption carries its source and licence."
+      "signature": "plain/module-heading/motion-scene",
+      "owner": "opus-pass-homepage",
+      "purpose": "The featured scene: one registered motion scene on its poster frame that plays only when the reader starts it."
     },
     {
       "route": "/",
-      "signature": "plain/module-heading/schematic-pair",
-      "owner": "brand-v2-home-live-tools-and-responsive-convergence",
-      "purpose": "The two tool entry points, each previewing the artifact it leads to with a schematic derived from the shipped data."
+      "signature": "plain/module-heading/cited-facts",
+      "owner": "opus-pass-homepage",
+      "purpose": "Did you know: three short facts, each cited and linked to the article that states it."
     },
     {
       "route": "/",
-      "signature": "ruled-plain/closing-heading/guidance-prose",
-      "owner": "brand-v2-home-hero-domain-index-and-structure",
-      "purpose": "The closing guidance on how to read the wiki, prose that sets the citation-first expectation before the reader leaves home."
+      "signature": "plain/module-heading/dated-links",
+      "owner": "opus-pass-homepage",
+      "purpose": "Recently updated: the five latest dated article changes, newest first."
     },
     {
       "route": "/",
-      "signature": "plain/module-heading/ordered-link-lists",
-      "owner": "brand-v2-home-hero-domain-index-and-structure",
-      "purpose": "The curated learning paths: three ordered reading sequences through the taxonomy, each linking its domain hub and the articles in the intended reading order."
+      "signature": "ruled-plain/inline-label/link-line",
+      "owner": "opus-pass-homepage",
+      "purpose": "The tools line: one row of plain links to the playground and the market map."
     }
   ]
 }

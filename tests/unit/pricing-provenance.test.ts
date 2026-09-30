@@ -31,12 +31,18 @@ test('the community range never becomes configuration-specific USD data', () => 
   );
 });
 
-test('home qualifies source strength without changing the brand descriptor', () => {
-  const home = readFileSync('app/page.tsx', 'utf8');
-  expect(home).not.toContain('Every technical claim is');
-  expect(home).toContain('traceable to cited evidence');
-  expect(home).toContain('explicitly labelled community estimates');
-  expect(home).toContain('a citation is not a guarantee');
+test('the about page qualifies source strength and home keeps the brand descriptor', () => {
+  // JSX text wraps across source lines, so phrases are matched on the
+  // whitespace-collapsed source.
+  const flat = (path: string) => readFileSync(path, 'utf8').replace(/\s+/g, ' ');
+  const home = flat('app/page.tsx');
+  const about = flat('app/about/page.tsx');
+  for (const page of [home, about]) expect(page).not.toContain('Every technical claim is');
+  expect(about).toContain('Technical claims trace to cited evidence.');
+  expect(about).toContain('labelled community estimates');
+  expect(about).toContain('the kind of source tells you how far to trust it');
+  expect(home).not.toContain('a citation is not a guarantee');
+  expect(home).not.toContain('labelled community estimates');
   expect(home).toContain('{PUBLIC_DESCRIPTOR}');
   expect(PUBLIC_DESCRIPTOR).toBe('Citation-first encyclopedia of modern robot learning.');
 });

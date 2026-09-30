@@ -215,20 +215,24 @@ test.describe('navigation shell', () => {
     );
   });
 
-  test('featured interactive on home is operable', async ({ page }) => {
+  test('the featured scene on home is operable from the keyboard and resets', async ({ page }) => {
     await page.goto('/');
-    const readout = page.getByTestId('episode-success-readout');
-    await expect(readout).toContainText('21.5%');
-    const slider = page.getByRole('slider', { name: /episode length/i });
-    await waitForHydration(slider);
-    await slider.focus();
-    for (let i = 0; i < 20; i += 1) {
-      await page.keyboard.press('ArrowDown');
-    }
-    await expect(readout).toContainText('59.9%');
-    await slider.locator('xpath=ancestor::*[@data-brand-module-signature="instrument-frame"][1]')
-      .getByRole('button', { name: 'Reset', exact: true }).click();
-    await expect(readout).toContainText('21.5%');
+    const scene = page.locator('main [data-motion-scene="reliability-threshold"]');
+    const caption = scene.getByTestId('motion-caption');
+    await expect(caption).toContainText('same horizon');
+    const play = scene.getByTestId('motion-poster');
+    await waitForHydration(play);
+    await play.focus();
+    await page.keyboard.press('Enter');
+    await expect(scene.getByTestId('motion-scrubber')).toBeVisible();
+    await page.keyboard.press('k');
+    await page.keyboard.press('Home');
+    await page.keyboard.press('ArrowRight');
+    await expect(caption).toContainText('21.5%');
+    await page.keyboard.press('ArrowRight');
+    await expect(caption).toContainText('74.0%');
+    await scene.getByRole('button', { name: 'Reset the scene to its poster still' }).click();
+    await expect(caption).toContainText('same horizon');
   });
 
   test('zero axe violations on a domain landing', async ({ page }) => {

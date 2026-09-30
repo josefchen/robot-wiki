@@ -55,6 +55,7 @@ export const EVIDENCE_CLOSURE_FILES = [
   'tests/e2e/static-export-server.ts',
   'tests/e2e/rendered-text-probe.ts',
   'tests/e2e/slider.ts',
+  'tests/e2e/helpers/per-route-context.ts',
   'tests/e2e/brand-v2-article.spec.ts',
   'tests/e2e/brand-v2-article-apparatus.spec.ts',
   'tests/e2e/brand-v2-article-tables-math.spec.ts',
@@ -89,10 +90,9 @@ const MDX_REGISTRY_MODULE = 'mdx-components.tsx';
  * The closure walk answers "what does this entry import", and there are
  * rendering inputs no import names. `next/font/local` takes its face as a
  * path string inside an options object, so the binary that decides the shape
- * of every rendered glyph is invisible to the graph. `lib/so101-kinematics`
- * reads the shipped URDF off disk at build time and `components/three`
- * fetches it by URL at runtime, so every figure derived from the robot's
- * geometry arrives the same invisible way. A closure that cannot see a whole
+ * of every rendered glyph is invisible to the graph. `components/three`
+ * fetches the shipped URDF by URL at runtime, so every drawing derived from
+ * the robot's geometry arrives the same invisible way. A closure that cannot see a whole
  * class of dependency is the defect a handwritten path list has, narrowed:
  * it is complete about the part it can see and silent about the rest.
  *
@@ -139,7 +139,7 @@ export const WEB_FONT_BINARY_CLASS: NonImportDependencyClass = {
 export const SHIPPED_GEOMETRY_MODEL_CLASS: NonImportDependencyClass = {
   id: 'shipped-geometry-model',
   reason:
-    'the shipped kinematic model is read from the tree by path at build time and fetched by URL at runtime, so every figure and drawing derived from the robot geometry reaches the page without an import.',
+    'the shipped kinematic model is fetched by URL at runtime, so every drawing derived from the robot geometry reaches the page without an import.',
   extensions: ['.urdf', '.glb'],
   roots: ['public/'],
   textExtensions: ['.urdf'],

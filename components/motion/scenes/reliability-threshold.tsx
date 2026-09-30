@@ -21,7 +21,7 @@ export const RELIABILITY_THRESHOLD_SCENE: SceneDefinition = {
     { id: 'episode', caption: 'At 95% success per decision, this thirty-decision toy episode succeeds about 21.5% of the time.' },
     { id: 'ninety-five', duration: 'long', linear: true, caption: 'Raising conditional success from 95% to 99% changes the thirty-step outcome from 21.5% to 74.0%.' },
     { id: 'ninety-nine-nine', duration: 'long', linear: true, caption: 'At 99.9% per decision, the same model gives 97.0% for thirty steps.' },
-    { id: 'recap', caption: 'The same horizon exposes the last stretch; these are illustrative probabilities, not measured policies.' },
+    { id: 'recap', caption: 'The same horizon exposes the last stretch.' },
   ],
 };
 
@@ -93,13 +93,13 @@ export function ReliabilityThreshold({ className }: { className?: string }) {
       legend={<LegendItem series="episode-probability" swatch={
         <span aria-hidden className="inline-block h-2.5 w-3"
           style={{ backgroundColor: 'var(--role-value-graphic)' }} />
-      }>episode success under the same toy model</LegendItem>}
+      }>episode success</LegendItem>}
       readout={({ beatIndex }) => {
         const frame = reliabilityThresholdFrame(SPANS[beatIndex].end);
         return <><span className="text-text-dim">conditional rate</span> {(frame.perStep * 100).toFixed(1)}%{' '}
           <span className="text-text-dim">episode</span> {(frame.episodeSuccess * 100).toFixed(1)}%</>;
       }}
-      statusLine="Illustrative independence model, not a measured robot policy. A separate calculator lets you vary probability and episode length."
+      statusLine="Illustrative model: all 30 decisions succeed independently at the same rate."
       textAlternative={`${RELIABILITY_THRESHOLD_SCENE.title}. ${RELIABILITY_THRESHOLD_SCENE.beats.map((beat, index) => `Beat ${index + 1}: ${beat.caption}`).join(' ')}`}
     />
   );

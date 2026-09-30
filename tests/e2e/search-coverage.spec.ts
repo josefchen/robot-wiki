@@ -33,6 +33,7 @@ const NON_ARTICLE_ROUTES = [
   '/glossary/',
   '/credits/',
   '/editorial-policy/',
+  '/about/',
   '/privacy/',
 ];
 

@@ -13,6 +13,7 @@ import { getCitation } from '@/data/citations';
 import { DOMAIN_META, getModule, modules, publishedModules } from '@/data/modules';
 import type { ModuleFrontmatter } from '@/data/schemas/module';
 import { publishedBacklinkGraph, resolveArticleEntries } from '@/lib/backlinks';
+import { articleDateModified } from '@/lib/content-dates';
 import { moduleSource } from '@/lib/module-source';
 import { countWordsInMdxSource, readingTimeMinutes } from '@/lib/reading-time';
 import { articleOpenGraph, articleTwitter } from '@/lib/og-cards';
@@ -93,7 +94,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   if (!entry || entry.status !== 'published') return {};
   const mod = await loadModule(domain, slug);
   const publishedTime = mod?.frontmatter?.datePublished;
-  const modifiedTime = mod?.frontmatter?.lastReviewed;
+  const modifiedTime = articleDateModified(entry.domain, entry.slug);
   return {
     title: articleSeoTitle(entry),
     description: entry.summary,
@@ -214,7 +215,7 @@ export default async function ModulePage({ params }: { params: Params }) {
           __html: articleJsonLd({
             entry,
             datePublished: mod.frontmatter?.datePublished,
-            lastReviewed: mod.frontmatter?.lastReviewed,
+            dateModified: articleDateModified(domain, slug),
             readingTimeMinutes: readingTime,
             wordCount,
             citationUrls: references.map(({ citation }) => citation.url),

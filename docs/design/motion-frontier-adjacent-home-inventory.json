@@ -277,30 +277,30 @@
   {
     "article": "home",
     "element": "ReliabilityCompounding",
-    "decision": "rethink",
+    "decision": "remove",
     "teachingGoal": "Use independent sliders to see how small per-step errors erode episode success.",
-    "reason": "The shared scene introduces the fixed-horizon mechanism and does not take away the featured lab."
+    "reason": "The front page keeps one featured scene; the calculator stays on the Reliability Gap and Evaluation Crisis articles."
   },
   {
     "article": "home",
     "element": "ImageRef",
-    "decision": "keep",
+    "decision": "remove",
     "teachingGoal": "See real robot hardware in a licensed photograph with its original credit.",
-    "reason": "Recoloring or animating a sourced image would obscure its identity and provenance."
+    "reason": "The front page carries no photographs, and the Spot photograph appeared on no other page, so it left the image registry."
   },
   {
     "article": "home",
     "element": "So101ChainPreview",
-    "decision": "keep",
+    "decision": "remove",
     "teachingGoal": "Preview the real robot geometry before entering the joint-control playground.",
-    "reason": "A static model-derived preview accurately describes the linked direct-control tool."
+    "reason": "The tools line links the playground directly, and the playground draws the arm from the shipped model itself."
   },
   {
     "article": "home",
     "element": "MarketMapPoster",
-    "decision": "replace",
+    "decision": "remove",
     "teachingGoal": "See how the mapped companies split across segments before opening the filterable map.",
-    "reason": "The schematic teaser drew segment rows with no quantities; the poster counts the registry's companies per segment on the graphite stage."
+    "reason": "The tools line links the market map directly, and the map page itself counts the registry's companies and filters them by segment."
   },
   {
     "article": "home",
@@ -308,6 +308,6 @@
     "decision": "add",
     "sceneId": "reliability-threshold",
     "teachingGoal": "Share the frontier's fixed-horizon compounding explanation on the home page.",
-    "reason": "One reused scene introduces the calculator and avoids a second motion grammar."
+    "reason": "One reused scene is the front page's featured scene and avoids a second motion grammar."
   }
 ]
