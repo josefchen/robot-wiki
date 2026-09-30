@@ -68,8 +68,23 @@ test('RRT report correction, bibliography date and full configuration-space defi
   await expect(tip).toBeVisible();
   await expect(tip.locator('span').last()).toHaveText(getTerm('configuration-space')!.definition);
   const box = (await tip.boundingBox())!, viewport = page.viewportSize()!;
+  // The Term keeps a 12px viewport margin below any visible sticky header.
+  // The desktop shell has none, so there the floor is the margin itself;
+  // when neither side fits, sub-pixel layout decides above or below.
+  const { floor, covered } = await tip.evaluate(el => {
+    const r = el.getBoundingClientRect();
+    const floor = Math.max(12, ...[...document.querySelectorAll('header')].flatMap(header => {
+      const style = getComputedStyle(header), { top, bottom, left, right, height } = header.getBoundingClientRect();
+      const pinned = ['sticky', 'fixed'].includes(style.position) && height > 0 && bottom > 0 &&
+        top <= (parseFloat(style.top) || 0) && left < r.right && right > r.left;
+      return pinned ? [bottom + 12] : [];
+    }));
+    const corners = [[r.left + 4, r.top + 4], [r.right - 4, r.top + 4], [r.left + 4, r.bottom - 4], [r.right - 4, r.bottom - 4]];
+    return { floor, covered: corners.filter(([x, y]) => !el.contains(document.elementFromPoint(x, y))).length };
+  });
   expect(box.x).toBeGreaterThanOrEqual(0); expect(box.x + box.width).toBeLessThanOrEqual(viewport.width);
-  expect(box.y).toBeGreaterThanOrEqual(54); expect(box.y + box.height).toBeLessThanOrEqual(viewport.height);
+  expect(box.y).toBeGreaterThanOrEqual(floor); expect(box.y + box.height).toBeLessThanOrEqual(viewport.height);
+  expect(covered, 'no element paints over the definition').toBe(0);
   await capture('configuration-space-definition-top');
   await tip.evaluate(el => { el.scrollTop = el.scrollHeight; });
   await capture('configuration-space-definition-bottom');

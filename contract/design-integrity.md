@@ -92,7 +92,7 @@ Each comparison row records pass/fail for every applicable anchor below. Scores 
 
 ### 1.13 Provenance, legal-basis, and qualitative terms
 
-Automation verifies records; it does not issue an independent legal opinion. Every visual asset uses exactly one owner-approved legal-basis enum value: `owned`, `cc-by`, `cc-by-sa`, `cc0`, `public-domain`, `press-kit-editorial-reuse`, `documented-permission`, or `official-identification-use`. Each record includes the official source URL, retrieval date, content hash, creator/owner, attribution text, licence or permission reference, and byte/style preservation policy. Company marks use `official-identification-use` and must preserve official bytes and style except registered contain-fit placement on a neutral plate.
+Automation verifies records; it does not issue an independent legal opinion. Every visual asset uses exactly one owner-approved legal-basis enum value: `owned`, `cc-by`, `cc-by-sa`, `cc0`, `public-domain`, `press-kit-editorial-reuse`, `documented-permission`, or `official-identification-use`. Each record includes the official source URL, retrieval date, content hash, creator/owner, attribution text, licence or permission reference, and byte/style preservation policy. Company marks use `official-identification-use` and must preserve official bytes and style except registered contain-fit placement on a neutral plate and the logo tile's one registered monochrome threshold (owner visual audit 2026-09-29, `owner-visual-audit-20260929.md`).
 
 Terms such as `purposeful`, `truthful`, `meaningful`, and `readable` never pass through prose judgment alone:
 
@@ -275,7 +275,7 @@ Full Cartesian products are neither required nor implied. The runner records exp
 | `VAL-B2-MAP-004` | Signal blue identifies an active relationship, link, focus path, or timeline signal and does not encode warning. |
 | `VAL-B2-MAP-005` | Hover facts are also reachable through keyboard focus and persistent selection. |
 | `VAL-B2-MAP-006` | A selected-company detail surface does not obscure required controls, remains dismissible, and does not trap focus unless implemented as a modal. |
-| `VAL-B2-MAP-007` | Third-party company marks retain source identity and use one consistent neutral plate; no mark is redrawn in first-party style. |
+| `VAL-B2-MAP-007` | Third-party company marks retain source identity and use one consistent neutral plate; no mark is redrawn in first-party style. The plate is the one logo tile, which renders every mark on `/credits/` and `/market-map/` in the same monochrome threshold so white and dark marks both clear 3:1 (owner visual audit 2026-09-29, `owner-visual-audit-20260929.md`). |
 | `VAL-B2-MAP-008` | At 375px the map provides a readable list/detail or simplified plot state with equivalent records and controls rather than an illegibly shrunken desktop canvas. |
 | `VAL-B2-MAP-009` | Missing disclosures render `not disclosed`; contradictory source pointers remain visibly caveated rather than silently dropped. |
 
@@ -648,7 +648,7 @@ These assertions close the first-pass review gaps. They are additive, collision-
 
 | ID | Requirement |
 | --- | --- |
-| `VAL-B2-MAP-010` | Canonical company population is derived from the market registry; each company mark has the owner-approved `official-identification-use` legal-basis value, official source URL, retrieval date, file hash, attribution/owner fields, contain fit, and neutral plate, with byte/style preservation and no recolour, filter, mask, distortion, or crop. Automation verifies the closed record and preservation predicates, not an independent legal opinion. |
+| `VAL-B2-MAP-010` | Canonical company population is derived from the market registry; each company mark has the owner-approved `official-identification-use` legal-basis value, official source URL, retrieval date, file hash, attribution/owner fields, contain fit, and neutral plate, with byte/style preservation and no recolour, filter, mask, distortion, or crop other than the logo tile's one registered monochrome threshold (`VAL-B2-MAP-007`). Automation verifies the closed record and preservation predicates, not an independent legal opinion. |
 | `VAL-B2-MAP-011` | Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match. |
 | `VAL-B2-PLAY-012` | With WebGL available, validation proves an active context, deterministic nonblank model pixels, canonical landmarks/kinematics/material colours, live reduced-motion manipulation, deterministic DPR/resize/reset, and separate unavailable-WebGL fallback; fallback pixels cannot satisfy available-WebGL assertions. |
 | `VAL-B2-PLAY-013` | The canonical two-keyframe trajectory fixture imports and plays through intermediate state; `Reset pose` restores pose/camera while preserving trajectory, and `Clear trajectory` removes keyframes/path without changing the reset/default semantics. |

@@ -3,6 +3,7 @@ import AxeBuilder from '@axe-core/playwright';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { LOGO_MARK_CLASS } from '../../components/ui/logo-tile';
 import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '../../lib/identity';
 import { DESIGN_DEFS } from './helpers/design-defs';
 import { settleTransitions } from './settle';
@@ -27,6 +28,13 @@ const AUDITED_ROUTES = [
   '/glossary',
   '/credits',
 ];
+
+/**
+ * The one filter the contract registers (VAL-B2-MAP-007, VAL-B2-MAP-010): the
+ * logo tile's monochrome threshold, read from the class the tile gives marks.
+ */
+const LOGO_MARK_FILTER =
+  /\[filter:([^\]]+)\]/.exec(LOGO_MARK_CLASS)?.[1].replaceAll('_', ' ') ?? '';
 
 /** The shared definitions from contract/design-integrity.md, in-page. */
 const DEFS = DESIGN_DEFS;
@@ -807,10 +815,11 @@ test.describe('design chrome discipline', () => {
     // Exhaustive per-route sweep of every element plus both
     // pseudo-elements for box-shadow/text-shadow values other than
     // none. Population count is asserted non-zero so the sweep cannot
-    // pass by matching nothing.
+    // pass by matching nothing. The logo tile's threshold is exempt only on
+    // a company mark directly inside a tile, and only at its exact value.
     for (const route of AUDITED_ROUTES) {
       await page.goto(route);
-      const { offenders, population } = await page.evaluate(() => {
+      const { offenders, population } = await page.evaluate((logoMarkFilter) => {
         const offenders: string[] = [];
         let population = 0;
         const check = (el: Element, pseudo: string) => {
@@ -852,6 +861,13 @@ test.describe('design chrome discipline', () => {
               );
             }
             if ((prop === 'filter' || prop === 'backdropFilter') && value !== 'none') {
+              const registeredMark =
+                prop === 'filter' &&
+                pseudo === '' &&
+                value === logoMarkFilter &&
+                el.tagName === 'IMG' &&
+                el.parentElement?.hasAttribute('data-logo-tile') === true;
+              if (registeredMark) continue;
               offenders.push(
                 `${el.tagName}.${(el.getAttribute('class') ?? '').slice(0, 40)}${pseudo} ${prop}: ${value}`,
               );
@@ -866,7 +882,7 @@ test.describe('design chrome discipline', () => {
           check(el, '::after');
         }
         return { offenders, population };
-      });
+      }, LOGO_MARK_FILTER);
       expect(
         population,
         `shadow sweep population on ${route} must be non-empty`,

@@ -564,7 +564,7 @@ Nothing else sits between the stage and the next prose block.
 - Stage text is IBM Plex Sans at 12px or more, in at most three sizes (14, 13 and 12px). IBM Plex Mono is for numeric readouts only.
 - The stage fits its content: no band wider than the plot and taller than 20% of the stage is empty.
 - Charts are drawn with the primitives in `components/motion/chart/`, which read the tokens.
-- Company marks sit on one tile: the mid-grey logo plate, drawn in thresholded monochrome so white and dark marks both clear 3:1.
+- Company marks sit on one tile: the mid-grey logo plate, drawn in thresholded monochrome so white and dark marks both clear 3:1. That threshold is the only registered filter (`VAL-B2-MAP-007`).
 - Photographs use one 3:2 cover crop, one width per viewport, the figure caption style and the figure source line for credit.
 - A concept has one canonical visual. Another page links to it, or reuses it with a caption that names a different purpose.
 - `npm run check:figure-system` reads the static export and fails on reserved or hard-coded colours, text off the scale and figures outside the frame. It runs in `postbuild` and `vercel-build`. Figures not yet migrated sit on `contract/figure-system-allowlist.json`, one entry per figure with the pass that owns it. An entry that no longer matches a violation fails the check, so the list only shrinks. `npm run check:figure-system:plant` plants one violation of each rule into a copy of the export and fails unless the check names every one.
@@ -605,7 +605,7 @@ An interactive is an explanatory instrument.
 - Use the editorial grid for axes, grouping, timelines, and details.
 - Selected companies or filters use lime plus a textual/shape marker.
 - Signal blue identifies an active relationship, timeline trace, or link.
-- Third-party company marks retain source identity and sit on a consistent neutral plate.
+- Third-party company marks retain source identity and sit on a consistent neutral plate: the one logo tile, in its monochrome threshold (§13.4).
 - Missing disclosed values remain `not disclosed`.
 - Bubble size, position, line, and colour MUST have explicit legends and accessible equivalents.
 - Hover-only facts must also be reachable by focus and selection.
@@ -756,7 +756,7 @@ This map assigns responsibility; it does not authorize route, content, citation,
 
 1. **Renderer mirrors.** Offline OG and WebGL renderers may repeat resolved values when they cannot consume CSS variables. Mirrors remain explicit and parity-tested.
 2. **Scientific scales.** A source-appropriate continuous colour scale may appear inside a labelled scientific visualization when the data requires it and an accessible equivalent exists.
-3. **Third-party identity.** Company marks may retain source colours on the standardized neutral plate.
+3. **Third-party identity.** Company marks keep their official files and shapes on the standardized neutral plate. The plate is the logo tile, which draws every mark in one monochrome threshold so white and dark marks stay visible (§13.4, owner visual audit 2026-09-29).
 4. **Material assets.** Licensed material photography may contain natural tonal gradients; this does not permit decorative UI gradients.
 5. **Technical identifiers.** Stable strings such as `robot-wiki`, `robot-wiki.com`, and `robot-atlas-trajectory` remain in technical contexts and are exempt only from public-display identity sweeps.
 
@@ -893,7 +893,7 @@ Controlled material treatment appears on registered representative web surfaces 
 
 Current baseline expectations are 52 interactive source files and 62 production mounts, but automation derives these populations and proves three-way equality with the registry. Every source and materially distinct mount receives the exact bounded state-case construction: each discrete option, slider min/default/max plus discontinuities/source anchors, reset/default/focus/meaningful hover/selected, one witness per implemented loading/error/empty/unavailable state, deterministic pairwise independent-control combinations, and only named higher-order cases. Expected and observed non-zero counts must match. Bounded mobile/desktop default/changed captures and contact-sheet review remain required. WebGL proves active context, nonblank deterministic model pixels, landmarks/kinematics/material colours, live reduced-motion manipulation, unavailable fallback, and deterministic DPR/resize/reset.
 
-Visual assets reconcile physical files, imports/CSS URLs, inline-SVG dependencies, registries, rendered use, and credits. The owner-approved legal-basis enum is closed; automation checks enum membership, official source URL, retrieval date, hashes, attribution fields, and byte/style preservation rather than issuing a legal opinion. Company marks use `official-identification-use`, contain fit, neutral plates, and no recolour/filter/mask/distortion/crop. `unlicensed` is never an approved reusable-content licence. Favicon, manifest/touch icons, masks, inline symbols, and unused first-party symbol assets are swept.
+Visual assets reconcile physical files, imports/CSS URLs, inline-SVG dependencies, registries, rendered use, and credits. The owner-approved legal-basis enum is closed; automation checks enum membership, official source URL, retrieval date, hashes, attribution fields, and byte/style preservation rather than issuing a legal opinion. Company marks use `official-identification-use`, contain fit, neutral plates, and no recolour/filter/mask/distortion/crop other than the logo tile's one registered monochrome threshold (§13.4). `unlicensed` is never an approved reusable-content licence. Favicon, manifest/touch icons, masks, inline symbols, and unused first-party symbol assets are swept.
 
 Route/metadata release truth is set equality among module registry, fixed-route registry, app inventory, export files, and metadata ledger: currently 57 articles plus 16 non-article public destinations = 73; 404 is separate. The sitemap is the exact 71-route indexable subset after the registered `/privacy/` and `/search/` noindex exceptions are removed. The ledger covers canonicals, JSON-LD, manifest, favicons/touch icons, theme-colour, indexing policy, and all OG/X fields.
 
