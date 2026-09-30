@@ -24961,8 +24961,8 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "Third-party company marks retain source identity and use one consistent neutral plate; no mark is redrawn in first-party style.",
-        "expected": "Third-party company marks retain source identity and use one consistent neutral plate; no mark is redrawn in first-party style.",
+        "statement": "Third-party company marks retain source identity and use one consistent neutral plate; no mark is redrawn in first-party style. The plate is the one logo tile, which renders every mark on `/credits/` and `/market-map/` in the same monochrome threshold so white and dark marks both clear 3:1 (owner visual audit 2026-09-29, `owner-visual-audit-20260929.md`).",
+        "expected": "Third-party company marks retain source identity and use one consistent neutral plate; no mark is redrawn in first-party style. The plate is the one logo tile, which renders every mark on `/credits/` and `/market-map/` in the same monochrome threshold so white and dark marks both clear 3:1 (owner visual audit 2026-09-29, `owner-visual-audit-20260929.md`).",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 73,
         "omissionProof": {
@@ -25081,8 +25081,8 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "Canonical company population is derived from the market registry; each company mark has the owner-approved `official-identification-use` legal-basis value, official source URL, retrieval date, file hash, attribution/owner fields, contain fit, and neutral plate, with byte/style preservation and no recolour, filter, mask, distortion, or crop. Automation verifies the closed record and preservation predicates, not an independent legal opinion.",
-        "expected": "Canonical company population is derived from the market registry; each company mark has the owner-approved `official-identification-use` legal-basis value, official source URL, retrieval date, file hash, attribution/owner fields, contain fit, and neutral plate, with byte/style preservation and no recolour, filter, mask, distortion, or crop. Automation verifies the closed record and preservation predicates, not an independent legal opinion.",
+        "statement": "Canonical company population is derived from the market registry; each company mark has the owner-approved `official-identification-use` legal-basis value, official source URL, retrieval date, file hash, attribution/owner fields, contain fit, and neutral plate, with byte/style preservation and no recolour, filter, mask, distortion, or crop other than the logo tile's one registered monochrome threshold (`VAL-B2-MAP-007`). Automation verifies the closed record and preservation predicates, not an independent legal opinion.",
+        "expected": "Canonical company population is derived from the market registry; each company mark has the owner-approved `official-identification-use` legal-basis value, official source URL, retrieval date, file hash, attribution/owner fields, contain fit, and neutral plate, with byte/style preservation and no recolour, filter, mask, distortion, or crop other than the logo tile's one registered monochrome threshold (`VAL-B2-MAP-007`). Automation verifies the closed record and preservation predicates, not an independent legal opinion.",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 73,
         "omissionProof": {
