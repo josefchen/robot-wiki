@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "eb9822d8ed28596385cdedc02c759a1dd0231919a28330cff71fb57c5bfe0bfa",
+  "fingerprint": "67758f9ddd175629e01c84c2348f348454874404004bb806975030ef18a330f5",
   "viewports": [
     "375x812",
     "1440x900"
@@ -123,7 +123,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18356,
+      "visibleTextLength": 18517,
       "tables": [
         {
           "index": 0,
@@ -339,7 +339,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 25206,
+      "visibleTextLength": 23072,
       "tables": [],
       "equations": [
         {
@@ -800,7 +800,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17100,
+      "visibleTextLength": 16696,
       "tables": [],
       "equations": [
         {
@@ -1191,7 +1191,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15321,
+      "visibleTextLength": 14793,
       "tables": [
         {
           "index": 0,
@@ -1510,13 +1510,13 @@
         {
           "index": 18,
           "display": true,
-          "mathmlText": "Ai=[cos⁡θi−sin⁡θicos⁡αisin⁡θisin⁡αiaicos⁡θisin⁡θicos⁡θicos⁡αi−cos⁡θisin⁡αiaisin⁡θi0sin⁡αicos⁡αidi0001]A_i = \\begin{bmatrix} \\cos\\theta_i & -\\sin\\theta_i\\cos\\alpha_i & \\sin\\theta_i\\sin\\alpha_i & a_i\\cos\\theta_i \\\\ \\sin\\theta_i & \\cos\\theta_i\\cos\\alpha_i & -\\cos\\theta_i\\sin\\alpha_i & a_i\\sin\\theta_i \\\\ 0 & \\sin\\alpha_i & \\cos\\alpha_i & d_i \\\\ 0 & 0 & 0 & 1 \\end{bmatrix}",
-          "annotationTex": "A_i = \\begin{bmatrix} \\cos\\theta_i & -\\sin\\theta_i\\cos\\alpha_i & \\sin\\theta_i\\sin\\alpha_i & a_i\\cos\\theta_i \\\\ \\sin\\theta_i & \\cos\\theta_i\\cos\\alpha_i & -\\cos\\theta_i\\sin\\alpha_i & a_i\\sin\\theta_i \\\\ 0 & \\sin\\alpha_i & \\cos\\alpha_i & d_i \\\\ 0 & 0 & 0 & 1 \\end{bmatrix}",
+          "mathmlText": "Ai=[Riti01],ti=[aicos⁡θiaisin⁡θidi]\\def\\arraystretch{0.9} A_i = \\begin{bmatrix} R_i & t_i \\\\ \\mathbf{0} & 1 \\end{bmatrix},\\quad t_i = \\begin{bmatrix} a_i\\cos\\theta_i \\\\ a_i\\sin\\theta_i \\\\ d_i \\end{bmatrix}",
+          "annotationTex": "\\def\\arraystretch{0.9} A_i = \\begin{bmatrix} R_i & t_i \\\\ \\mathbf{0} & 1 \\end{bmatrix},\\quad t_i = \\begin{bmatrix} a_i\\cos\\theta_i \\\\ a_i\\sin\\theta_i \\\\ d_i \\end{bmatrix}",
           "htmlLayerHidden": true,
           "renderError": false,
-          "renderedText": "Ai​=​cosθi​sinθi​00​−sinθi​cosαi​cosθi​cosαi​sinαi​0​sinθi​sinαi​−cosθi​sinαi​cosαi​0​ai​cosθi​ai​sinθi​di​1​​",
+          "renderedText": "Ai​=[Ri​0​ti​1​],ti​=[ai​cosθi​ai​sinθi​di​​]",
           "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 471,
+          "scrollWidth": 335,
           "clientWidth": 335,
           "tabIndex": 0,
           "role": "region",
@@ -1525,6 +1525,22 @@
         },
         {
           "index": 19,
+          "display": true,
+          "mathmlText": "Ri=[cos⁡θi−sin⁡θicos⁡αisin⁡θisin⁡αisin⁡θicos⁡θicos⁡αi−cos⁡θisin⁡αi0sin⁡αicos⁡αi]\\def\\arraystretch{0.9} R_i = \\begin{bmatrix} \\cos\\theta_i & -\\sin\\theta_i\\cos\\alpha_i & \\sin\\theta_i\\sin\\alpha_i \\\\ \\sin\\theta_i & \\cos\\theta_i\\cos\\alpha_i & -\\cos\\theta_i\\sin\\alpha_i \\\\ 0 & \\sin\\alpha_i & \\cos\\alpha_i \\end{bmatrix}",
+          "annotationTex": "\\def\\arraystretch{0.9} R_i = \\begin{bmatrix} \\cos\\theta_i & -\\sin\\theta_i\\cos\\alpha_i & \\sin\\theta_i\\sin\\alpha_i \\\\ \\sin\\theta_i & \\cos\\theta_i\\cos\\alpha_i & -\\cos\\theta_i\\sin\\alpha_i \\\\ 0 & \\sin\\alpha_i & \\cos\\alpha_i \\end{bmatrix}",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "Ri​=[cosθi​sinθi​0​−sinθi​cosαi​cosθi​cosαi​sinαi​​sinθi​sinαi​−cosθi​sinαi​cosαi​​]",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 379,
+          "clientWidth": 335,
+          "tabIndex": 0,
+          "role": "region",
+          "accessibleName": "Display equation 6",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 20,
           "display": true,
           "mathmlText": "x˙=J(q) q˙\\dot{x} = J(q)\\,\\dot{q}",
           "annotationTex": "\\dot{x} = J(q)\\,\\dot{q}",
@@ -1536,11 +1552,11 @@
           "clientWidth": 335,
           "tabIndex": 0,
           "role": "region",
-          "accessibleName": "Display equation 6",
+          "accessibleName": "Display equation 7",
           "viewportOverflowPx": 0
         },
         {
-          "index": 20,
+          "index": 21,
           "display": false,
           "mathmlText": "ii",
           "annotationTex": "i",
@@ -1556,7 +1572,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 21,
+          "index": 22,
           "display": false,
           "mathmlText": "ziz_i",
           "annotationTex": "z_i",
@@ -1572,7 +1588,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 22,
+          "index": 23,
           "display": false,
           "mathmlText": "pip_i",
           "annotationTex": "p_i",
@@ -1588,7 +1604,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 23,
+          "index": 24,
           "display": true,
           "mathmlText": "Ji=[zi×(pee−pi)zi]J_i = \\begin{bmatrix} z_i \\times (p_\\mathrm{ee} - p_i) \\\\ z_i \\end{bmatrix}",
           "annotationTex": "J_i = \\begin{bmatrix} z_i \\times (p_\\mathrm{ee} - p_i) \\\\ z_i \\end{bmatrix}",
@@ -1600,11 +1616,11 @@
           "clientWidth": 335,
           "tabIndex": 0,
           "role": "region",
-          "accessibleName": "Display equation 7",
+          "accessibleName": "Display equation 8",
           "viewportOverflowPx": 0
         },
         {
-          "index": 24,
+          "index": 25,
           "display": false,
           "mathmlText": "τ=JT(q) F\\tau = J^{T}(q)\\,F",
           "annotationTex": "\\tau = J^{T}(q)\\,F",
@@ -1620,7 +1636,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 25,
+          "index": 26,
           "display": false,
           "mathmlText": "JJ",
           "annotationTex": "J",
@@ -1636,7 +1652,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 26,
+          "index": 27,
           "display": false,
           "mathmlText": "JTJ^{T}",
           "annotationTex": "J^{T}",
@@ -1652,7 +1668,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 27,
+          "index": 28,
           "display": true,
           "mathmlText": "q˙=J−1(q) x˙\\dot{q} = J^{-1}(q)\\,\\dot{x}",
           "annotationTex": "\\dot{q} = J^{-1}(q)\\,\\dot{x}",
@@ -1664,11 +1680,11 @@
           "clientWidth": 335,
           "tabIndex": 0,
           "role": "region",
-          "accessibleName": "Display equation 8",
+          "accessibleName": "Display equation 9",
           "viewportOverflowPx": 0
         },
         {
-          "index": 28,
+          "index": 29,
           "display": false,
           "mathmlText": "JJ",
           "annotationTex": "J",
@@ -1684,7 +1700,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 29,
+          "index": 30,
           "display": false,
           "mathmlText": "J+=JT(JJT)−1J^{+} = J^{T}(JJ^{T})^{-1}",
           "annotationTex": "J^{+} = J^{T}(JJ^{T})^{-1}",
@@ -1700,7 +1716,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 30,
+          "index": 31,
           "display": false,
           "mathmlText": "xdx_d",
           "annotationTex": "x_d",
@@ -1716,7 +1732,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 31,
+          "index": 32,
           "display": false,
           "mathmlText": "qq",
           "annotationTex": "q",
@@ -1732,7 +1748,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 32,
+          "index": 33,
           "display": false,
           "mathmlText": "k(q)=xdk(q) = x_d",
           "annotationTex": "k(q) = x_d",
@@ -1748,7 +1764,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 33,
+          "index": 34,
           "display": false,
           "mathmlText": "kk",
           "annotationTex": "k",
@@ -1764,7 +1780,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 34,
+          "index": 35,
           "display": false,
           "mathmlText": "qq",
           "annotationTex": "q",
@@ -1780,7 +1796,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 35,
+          "index": 36,
           "display": true,
           "mathmlText": "Δx=J(q) ΔqΔq=J+(q) Δx\\Delta x = J(q)\\,\\Delta q \\qquad \\Delta q = J^{+}(q)\\,\\Delta x",
           "annotationTex": "\\Delta x = J(q)\\,\\Delta q \\qquad \\Delta q = J^{+}(q)\\,\\Delta x",
@@ -1792,7 +1808,7 @@
           "clientWidth": 335,
           "tabIndex": 0,
           "role": "region",
-          "accessibleName": "Display equation 9",
+          "accessibleName": "Display equation 10",
           "viewportOverflowPx": 0
         }
       ],
@@ -1849,11 +1865,22 @@
           "accessibleName": "Display equation 5",
           "tabIndex": 0,
           "clientWidth": 335,
-          "scrollWidth": 471,
-          "scrolledBy": 40
+          "scrollWidth": 335,
+          "scrolledBy": 0
         },
         {
           "index": 5,
+          "kind": "math",
+          "outline": "<span class=\"katex-display\">",
+          "role": "region",
+          "accessibleName": "Display equation 6",
+          "tabIndex": 0,
+          "clientWidth": 335,
+          "scrollWidth": 379,
+          "scrolledBy": 40
+        },
+        {
+          "index": 6,
           "kind": "table",
           "outline": "<div class=\"overflow-x-auto rounded-md border border-border bg-surface m\">",
           "role": "region",
@@ -1862,17 +1889,6 @@
           "clientWidth": 333,
           "scrollWidth": 420,
           "scrolledBy": 40
-        },
-        {
-          "index": 6,
-          "kind": "math",
-          "outline": "<span class=\"katex-display\">",
-          "role": "region",
-          "accessibleName": "Display equation 6",
-          "tabIndex": 0,
-          "clientWidth": 335,
-          "scrollWidth": 335,
-          "scrolledBy": 0
         },
         {
           "index": 7,
@@ -1906,6 +1922,17 @@
           "clientWidth": 335,
           "scrollWidth": 335,
           "scrolledBy": 0
+        },
+        {
+          "index": 10,
+          "kind": "math",
+          "outline": "<span class=\"katex-display\">",
+          "role": "region",
+          "accessibleName": "Display equation 10",
+          "tabIndex": 0,
+          "clientWidth": 335,
+          "scrollWidth": 335,
+          "scrolledBy": 0
         }
       ],
       "route": "/classical/kinematics/",
@@ -1918,7 +1945,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 27881,
+      "visibleTextLength": 27253,
       "tables": [
         {
           "index": 0,
@@ -2421,11 +2448,11 @@
         {
           "index": 28,
           "display": true,
-          "mathmlText": "X^f={x:∥x−xstart∥2+∥x−xgoal∥2≤cbest}.\\widehat{X}_f=\\left\\{x:\\lVert x-x_{start}\\rVert_2+\\lVert x-x_{goal}\\rVert_2\\leq c_{best}\\right\\}.",
-          "annotationTex": "\\widehat{X}_f=\\left\\{x:\\lVert x-x_{start}\\rVert_2+\\lVert x-x_{goal}\\rVert_2\\leq c_{best}\\right\\}.",
+          "mathmlText": "X^f={x:∥x−xstart∥2+∥x−xgoal∥2≤cbest}.\\hat{X}_f=\\left\\{x:\\lVert x-x_{start}\\rVert_2+\\lVert x-x_{goal}\\rVert_2\\leq c_{best}\\right\\}.",
+          "annotationTex": "\\hat{X}_f=\\left\\{x:\\lVert x-x_{start}\\rVert_2+\\lVert x-x_{goal}\\rVert_2\\leq c_{best}\\right\\}.",
           "htmlLayerHidden": true,
           "renderError": false,
-          "renderedText": "Xf​={x:∥x−xstart​∥2​+∥x−xgoal​∥2​≤cbest​}.",
+          "renderedText": "X^f​={x:∥x−xstart​∥2​+∥x−xgoal​∥2​≤cbest​}.",
           "fontFamilyHead": "KaTeX_Main",
           "scrollWidth": 433,
           "clientWidth": 335,
@@ -2770,7 +2797,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 42049,
+      "visibleTextLength": 41974,
       "tables": [],
       "equations": [
         {
@@ -2952,11 +2979,11 @@
         {
           "index": 11,
           "display": false,
-          "mathmlText": "(R~,T~)(\\widetilde R,\\widetilde T)",
-          "annotationTex": "(\\widetilde R,\\widetilde T)",
+          "mathmlText": "(R~,T~)(\\tilde R,\\tilde T)",
+          "annotationTex": "(\\tilde R,\\tilde T)",
           "htmlLayerHidden": true,
           "renderError": false,
-          "renderedText": "(R,T)",
+          "renderedText": "(R~,T~)",
           "fontFamilyHead": "KaTeX_Main",
           "scrollWidth": 0,
           "clientWidth": 0,
@@ -2968,11 +2995,11 @@
         {
           "index": 12,
           "display": true,
-          "mathmlText": "m=avg⁡x∈M∥(Rx+T)−(R~x+T~)∥m = \\operatorname{avg}_{x \\in \\mathcal M} \\left\\lVert (Rx+T)-(\\widetilde R x+\\widetilde T) \\right\\rVert",
-          "annotationTex": "m = \\operatorname{avg}_{x \\in \\mathcal M} \\left\\lVert (Rx+T)-(\\widetilde R x+\\widetilde T) \\right\\rVert",
+          "mathmlText": "m=avg⁡x∈M∥(Rx+T)−(R~x+T~)∥m = \\operatorname{avg}_{x \\in \\mathcal M} \\lVert (Rx+T)-(\\tilde R x+\\tilde T) \\rVert",
+          "annotationTex": "m = \\operatorname{avg}_{x \\in \\mathcal M} \\lVert (Rx+T)-(\\tilde R x+\\tilde T) \\rVert",
           "htmlLayerHidden": true,
           "renderError": false,
-          "renderedText": "m=avgx∈M​​(Rx+T)−(Rx+T)​",
+          "renderedText": "m=avgx∈M​∥(Rx+T)−(R~x+T~)∥",
           "fontFamilyHead": "KaTeX_Main",
           "scrollWidth": 335,
           "clientWidth": 335,
@@ -3048,13 +3075,13 @@
         {
           "index": 17,
           "display": true,
-          "mathmlText": "m=avg⁡x1∈Mmin⁡x2∈M∥(Rx1+T)−(R~x2+T~)∥m = \\operatorname{avg}_{x_1 \\in \\mathcal M} \\min_{x_2 \\in \\mathcal M} \\left\\lVert (Rx_1+T)-(\\widetilde R x_2+\\widetilde T) \\right\\rVert",
-          "annotationTex": "m = \\operatorname{avg}_{x_1 \\in \\mathcal M} \\min_{x_2 \\in \\mathcal M} \\left\\lVert (Rx_1+T)-(\\widetilde R x_2+\\widetilde T) \\right\\rVert",
+          "mathmlText": "m=avg⁡x1∈Mmin⁡x2∈M∥(Rx1+T)−(R~x2+T~)∥m = \\operatorname{avg}_{x_1 \\in \\mathcal M} \\min_{x_2 \\in \\mathcal M} \\lVert (Rx_1+T)-(\\tilde R x_2+\\tilde T) \\rVert",
+          "annotationTex": "m = \\operatorname{avg}_{x_1 \\in \\mathcal M} \\min_{x_2 \\in \\mathcal M} \\lVert (Rx_1+T)-(\\tilde R x_2+\\tilde T) \\rVert",
           "htmlLayerHidden": true,
           "renderError": false,
-          "renderedText": "m=avgx1​∈M​x2​∈Mmin​​(Rx1​+T)−(Rx2​+T)​",
+          "renderedText": "m=avgx1​∈M​x2​∈Mmin​∥(Rx1​+T)−(R~x2​+T~)∥",
           "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 419,
+          "scrollWidth": 412,
           "clientWidth": 335,
           "tabIndex": 0,
           "role": "region",
@@ -3205,7 +3232,7 @@
           "accessibleName": "Display equation 3",
           "tabIndex": 0,
           "clientWidth": 335,
-          "scrollWidth": 419,
+          "scrollWidth": 412,
           "scrolledBy": 40
         }
       ],
@@ -3219,7 +3246,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 11650,
+      "visibleTextLength": 11646,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -3233,7 +3260,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 27826,
+      "visibleTextLength": 27661,
       "tables": [],
       "equations": [
         {
@@ -3328,7 +3355,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 20422,
+      "visibleTextLength": 20334,
       "tables": [],
       "equations": [
         {
@@ -3859,7 +3886,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 16101,
+      "visibleTextLength": 13724,
       "tables": [
         {
           "index": 0,
@@ -3877,7 +3904,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Datasets and corpora by scale, with the farm projection",
-            "clientWidth": 301,
+            "clientWidth": 275,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -3887,30 +3914,6 @@
         },
         {
           "index": 1,
-          "accessibleName": "Datasets and corpora by scale, with the farm projection",
-          "captionText": "",
-          "columnHeaders": 3,
-          "rowHeaders": 10,
-          "unscopedHeaders": 0,
-          "sortButtons": 0,
-          "sortedColumns": 0,
-          "notDisclosedCells": 0,
-          "notApplicableCells": 10,
-          "scrollContainer": {
-            "overflowX": "auto",
-            "tabIndex": 0,
-            "role": "region",
-            "accessibleName": "Datasets and corpora by scale, with the farm projection",
-            "clientWidth": 243,
-            "scrollWidth": 480,
-            "scrolledBy": 40
-          },
-          "tableWidth": 480,
-          "containerOverflowPx": 0,
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 2,
           "accessibleName": "What to scale, by axis",
           "captionText": "",
           "columnHeaders": 4,
@@ -3943,23 +3946,12 @@
           "role": "region",
           "accessibleName": "Datasets and corpora by scale, with the farm projection",
           "tabIndex": 0,
-          "clientWidth": 301,
+          "clientWidth": 275,
           "scrollWidth": 480,
           "scrolledBy": 40
         },
         {
           "index": 1,
-          "kind": "table",
-          "outline": "<div class=\"overflow-x-auto mt-2\">",
-          "role": "region",
-          "accessibleName": "Datasets and corpora by scale, with the farm projection",
-          "tabIndex": 0,
-          "clientWidth": 243,
-          "scrollWidth": 480,
-          "scrolledBy": 40
-        },
-        {
-          "index": 2,
           "kind": "table",
           "outline": "<div class=\"overflow-x-auto rounded-md border border-border bg-surface m\">",
           "role": "region",
@@ -3980,7 +3972,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17054,
+      "visibleTextLength": 17058,
       "tables": [
         {
           "index": 0,
@@ -3998,7 +3990,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "6 open robot-manipulation datasets. Figures the source does not publish are marked not disclosed and always sort last, in both directions; estimates appear in the prose, never in cells. Every row links to its dataset site or paper.",
-            "clientWidth": 299,
+            "clientWidth": 333,
             "scrollWidth": 893,
             "scrolledBy": 40
           },
@@ -4012,11 +4004,11 @@
         {
           "index": 0,
           "kind": "table",
-          "outline": "<div class=\"overflow-x-auto rounded-sm border border-border mt-4\">",
+          "outline": "<div class=\"overflow-x-auto rounded-sm border border-border [container-t\">",
           "role": "region",
           "accessibleName": "6 open robot-manipulation datasets. Figures the source does not publish are marked not disclosed and always sort last, in both directions; estimates appear in the prose, never in cells. Every row links to its dataset site or paper.",
           "tabIndex": 0,
-          "clientWidth": 299,
+          "clientWidth": 333,
           "scrollWidth": 893,
           "scrolledBy": 40
         }
@@ -4031,7 +4023,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18028,
+      "visibleTextLength": 17052,
       "tables": [
         {
           "index": 0,
@@ -4049,31 +4041,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled episode success by episode length",
-            "clientWidth": 301,
-            "scrollWidth": 480,
-            "scrolledBy": 40
-          },
-          "tableWidth": 480,
-          "containerOverflowPx": 0,
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 1,
-          "accessibleName": "Sampled episode success by episode length",
-          "captionText": "",
-          "columnHeaders": 2,
-          "rowHeaders": 6,
-          "unscopedHeaders": 0,
-          "sortButtons": 0,
-          "sortedColumns": 0,
-          "notDisclosedCells": 0,
-          "notApplicableCells": 0,
-          "scrollContainer": {
-            "overflowX": "auto",
-            "tabIndex": 0,
-            "role": "region",
-            "accessibleName": "Sampled episode success by episode length",
-            "clientWidth": 243,
+            "clientWidth": 275,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -4091,18 +4059,7 @@
           "role": "region",
           "accessibleName": "Sampled episode success by episode length",
           "tabIndex": 0,
-          "clientWidth": 301,
-          "scrollWidth": 480,
-          "scrolledBy": 40
-        },
-        {
-          "index": 1,
-          "kind": "table",
-          "outline": "<div class=\"overflow-x-auto mt-2\">",
-          "role": "region",
-          "accessibleName": "Sampled episode success by episode length",
-          "tabIndex": 0,
-          "clientWidth": 243,
+          "clientWidth": 275,
           "scrollWidth": 480,
           "scrolledBy": 40
         }
@@ -4117,7 +4074,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 26618,
+      "visibleTextLength": 26624,
       "tables": [
         {
           "index": 0,
@@ -4135,11 +4092,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "40 hardware entries across arms, humanoids, hands, sensors, and compute. Figures a source does not publish are marked not disclosed and always sort last; every listed price carries an as-of date. Price buckets use the low end of a range.",
-            "clientWidth": 299,
-            "scrollWidth": 855,
+            "clientWidth": 333,
+            "scrollWidth": 856,
             "scrolledBy": 40
           },
-          "tableWidth": 855,
+          "tableWidth": 856,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -4149,12 +4106,12 @@
         {
           "index": 0,
           "kind": "table",
-          "outline": "<div class=\"overflow-x-auto rounded-sm border border-border mt-4\">",
+          "outline": "<div class=\"overflow-x-auto rounded-sm border border-border [container-t\">",
           "role": "region",
           "accessibleName": "40 hardware entries across arms, humanoids, hands, sensors, and compute. Figures a source does not publish are marked not disclosed and always sort last; every listed price carries an as-of date. Price buckets use the low end of a range.",
           "tabIndex": 0,
-          "clientWidth": 299,
-          "scrollWidth": 855,
+          "clientWidth": 333,
+          "scrollWidth": 856,
           "scrolledBy": 40
         }
       ],
@@ -4168,7 +4125,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 24570,
+      "visibleTextLength": 24592,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -4196,7 +4153,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14734,
+      "visibleTextLength": 14711,
       "tables": [
         {
           "index": 0,
@@ -4214,7 +4171,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "4 teleoperation rig families compared across cost, data quality, throughput, and embodiment gap. Ratings are low, medium, or high as explained in each cell note. Unpublished figures are marked not disclosed and always sort last, in both directions.",
-            "clientWidth": 299,
+            "clientWidth": 333,
             "scrollWidth": 655,
             "scrolledBy": 40
           },
@@ -4228,11 +4185,11 @@
         {
           "index": 0,
           "kind": "table",
-          "outline": "<div class=\"overflow-x-auto rounded-sm border border-border mt-4\">",
+          "outline": "<div class=\"overflow-x-auto rounded-sm border border-border [container-t\">",
           "role": "region",
           "accessibleName": "4 teleoperation rig families compared across cost, data quality, throughput, and embodiment gap. Ratings are low, medium, or high as explained in each cell note. Unpublished figures are marked not disclosed and always sort last, in both directions.",
           "tabIndex": 0,
-          "clientWidth": 299,
+          "clientWidth": 333,
           "scrollWidth": 655,
           "scrolledBy": 40
         }
@@ -4247,7 +4204,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17489,
+      "visibleTextLength": 17634,
       "tables": [
         {
           "index": 0,
@@ -4265,8 +4222,8 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Eight milestones that would settle the bear case. Select a row to read the evidence behind its status and the observation that would flip it.",
-            "clientWidth": 301,
-            "scrollWidth": 480,
+            "clientWidth": 333,
+            "scrollWidth": 488,
             "scrolledBy": 40
           },
           "tableWidth": 480,
@@ -4279,12 +4236,12 @@
         {
           "index": 0,
           "kind": "table",
-          "outline": "<div class=\"overflow-x-auto mt-4\">",
+          "outline": "<div class=\"overflow-x-auto px-1 pt-1.5 pb-1\">",
           "role": "region",
           "accessibleName": "Eight milestones that would settle the bear case. Select a row to read the evidence behind its status and the observation that would flip it.",
           "tabIndex": 0,
-          "clientWidth": 301,
-          "scrollWidth": 480,
+          "clientWidth": 333,
+          "scrollWidth": 488,
           "scrolledBy": 40
         }
       ],
@@ -4298,7 +4255,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 24703,
+      "visibleTextLength": 24836,
       "tables": [
         {
           "index": 0,
@@ -4316,8 +4273,8 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Six competing theses for robot intelligence. Select a row to read its proponents, the evidence on both sides, and its falsification criterion.",
-            "clientWidth": 301,
-            "scrollWidth": 480,
+            "clientWidth": 333,
+            "scrollWidth": 488,
             "scrolledBy": 40
           },
           "tableWidth": 480,
@@ -4330,12 +4287,12 @@
         {
           "index": 0,
           "kind": "table",
-          "outline": "<div class=\"overflow-x-auto mt-4\">",
+          "outline": "<div class=\"overflow-x-auto px-1 pt-1.5 pb-1\">",
           "role": "region",
           "accessibleName": "Six competing theses for robot intelligence. Select a row to read its proponents, the evidence on both sides, and its falsification criterion.",
           "tabIndex": 0,
-          "clientWidth": 301,
-          "scrollWidth": 480,
+          "clientWidth": 333,
+          "scrollWidth": 488,
           "scrolledBy": 40
         }
       ],
@@ -4349,7 +4306,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 21027,
+      "visibleTextLength": 21126,
       "tables": [
         {
           "index": 0,
@@ -4367,11 +4324,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Five dexterous hands with their degrees of freedom, tactile threshold, cost and training bet. Sort by any spec column, and select a row to compare it against the others.",
-            "clientWidth": 301,
-            "scrollWidth": 561,
+            "clientWidth": 333,
+            "scrollWidth": 631,
             "scrolledBy": 40
           },
-          "tableWidth": 561.33,
+          "tableWidth": 622.5,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -4381,12 +4338,12 @@
         {
           "index": 0,
           "kind": "table",
-          "outline": "<div class=\"overflow-x-auto mt-4\">",
+          "outline": "<div class=\"overflow-x-auto px-1 pt-1.5 pb-1\">",
           "role": "region",
           "accessibleName": "Five dexterous hands with their degrees of freedom, tactile threshold, cost and training bet. Sort by any spec column, and select a row to compare it against the others.",
           "tabIndex": 0,
-          "clientWidth": 301,
-          "scrollWidth": 561,
+          "clientWidth": 333,
+          "scrollWidth": 631,
           "scrolledBy": 40
         }
       ],
@@ -4400,7 +4357,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17414,
+      "visibleTextLength": 15826,
       "tables": [
         {
           "index": 0,
@@ -4418,31 +4375,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled loss and completion by pretraining hours",
-            "clientWidth": 301,
-            "scrollWidth": 480,
-            "scrolledBy": 40
-          },
-          "tableWidth": 480,
-          "containerOverflowPx": 0,
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 1,
-          "accessibleName": "Sampled loss and completion by pretraining hours",
-          "captionText": "",
-          "columnHeaders": 5,
-          "rowHeaders": 6,
-          "unscopedHeaders": 0,
-          "sortButtons": 0,
-          "sortedColumns": 0,
-          "notDisclosedCells": 0,
-          "notApplicableCells": 2,
-          "scrollContainer": {
-            "overflowX": "auto",
-            "tabIndex": 0,
-            "role": "region",
-            "accessibleName": "Sampled loss and completion by pretraining hours",
-            "clientWidth": 243,
+            "clientWidth": 275,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -4509,18 +4442,7 @@
           "role": "region",
           "accessibleName": "Sampled loss and completion by pretraining hours",
           "tabIndex": 0,
-          "clientWidth": 301,
-          "scrollWidth": 480,
-          "scrolledBy": 40
-        },
-        {
-          "index": 1,
-          "kind": "table",
-          "outline": "<div class=\"overflow-x-auto mt-2\">",
-          "role": "region",
-          "accessibleName": "Sampled loss and completion by pretraining hours",
-          "tabIndex": 0,
-          "clientWidth": 243,
+          "clientWidth": 275,
           "scrollWidth": 480,
           "scrolledBy": 40
         }
@@ -4535,7 +4457,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14825,
+      "visibleTextLength": 14911,
       "tables": [
         {
           "index": 0,
@@ -4553,7 +4475,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled episode success by episode length",
-            "clientWidth": 301,
+            "clientWidth": 309,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -4577,11 +4499,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Deployment programs with their reported value, whether the figure is verified or claimed, and the source behind it. Filter the rows by status above the table.",
-            "clientWidth": 301,
-            "scrollWidth": 599,
+            "clientWidth": 333,
+            "scrollWidth": 560,
             "scrolledBy": 40
           },
-          "tableWidth": 599.2,
+          "tableWidth": 552,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -4644,19 +4566,19 @@
           "role": "region",
           "accessibleName": "Sampled episode success by episode length",
           "tabIndex": 0,
-          "clientWidth": 301,
+          "clientWidth": 309,
           "scrollWidth": 480,
           "scrolledBy": 40
         },
         {
           "index": 1,
           "kind": "table",
-          "outline": "<div class=\"overflow-x-auto mt-4\">",
+          "outline": "<div class=\"overflow-x-auto px-1 pt-1.5 pb-1\">",
           "role": "region",
           "accessibleName": "Deployment programs with their reported value, whether the figure is verified or claimed, and the source behind it. Filter the rows by status above the table.",
           "tabIndex": 0,
-          "clientWidth": 301,
-          "scrollWidth": 599,
+          "clientWidth": 333,
+          "scrollWidth": 560,
           "scrolledBy": 40
         }
       ],
@@ -4670,7 +4592,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 26810,
+      "visibleTextLength": 25885,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -4684,7 +4606,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 22758,
+      "visibleTextLength": 22677,
       "tables": [
         {
           "index": 0,
@@ -4702,7 +4624,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled success rate and decision count by chunk size",
-            "clientWidth": 301,
+            "clientWidth": 309,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -4726,7 +4648,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled toy throughput scores by added delay",
-            "clientWidth": 301,
+            "clientWidth": 309,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -4750,7 +4672,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled executed action across the hand-off",
-            "clientWidth": 301,
+            "clientWidth": 309,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -4760,54 +4682,6 @@
         },
         {
           "index": 3,
-          "accessibleName": "Sampled toy throughput scores by added delay",
-          "captionText": "",
-          "columnHeaders": 5,
-          "rowHeaders": 6,
-          "unscopedHeaders": 0,
-          "sortButtons": 0,
-          "sortedColumns": 0,
-          "notDisclosedCells": 0,
-          "notApplicableCells": 0,
-          "scrollContainer": {
-            "overflowX": "auto",
-            "tabIndex": 0,
-            "role": "region",
-            "accessibleName": "Sampled toy throughput scores by added delay",
-            "clientWidth": 243,
-            "scrollWidth": 480,
-            "scrolledBy": 40
-          },
-          "tableWidth": 480,
-          "containerOverflowPx": 0,
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 4,
-          "accessibleName": "Sampled executed action across the hand-off",
-          "captionText": "",
-          "columnHeaders": 4,
-          "rowHeaders": 6,
-          "unscopedHeaders": 0,
-          "sortButtons": 0,
-          "sortedColumns": 0,
-          "notDisclosedCells": 0,
-          "notApplicableCells": 0,
-          "scrollContainer": {
-            "overflowX": "auto",
-            "tabIndex": 0,
-            "role": "region",
-            "accessibleName": "Sampled executed action across the hand-off",
-            "clientWidth": 243,
-            "scrollWidth": 480,
-            "scrolledBy": 40
-          },
-          "tableWidth": 480,
-          "containerOverflowPx": 0,
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 5,
           "accessibleName": "Action horizon (predicted actions) and reported frequency (Hz). Setup-specific prediction, execution and controller rates are not interchangeable. Applicable unpublished values are not disclosed. Weights mean download availability, not license openness.",
           "captionText": "Action horizon (predicted actions) and reported frequency (Hz). Setup-specific prediction, execution and controller rates are not interchangeable. Applicable unpublished values are not disclosed. Weights mean download availability, not license openness.",
           "columnHeaders": 6,
@@ -4823,10 +4697,10 @@
             "role": "region",
             "accessibleName": "Action horizon (predicted actions) and reported frequency (Hz). Setup-specific prediction, execution and controller rates are not interchangeable. Applicable unpublished values are not disclosed. Weights mean download availability, not license openness.",
             "clientWidth": 333,
-            "scrollWidth": 582,
+            "scrollWidth": 583,
             "scrolledBy": 40
           },
-          "tableWidth": 582.31,
+          "tableWidth": 583.31,
           "containerOverflowPx": 0.31,
           "viewportOverflowPx": 0
         }
@@ -4835,11 +4709,11 @@
         {
           "index": 0,
           "display": true,
-          "mathmlText": "O(εT2)⏟behavior cloningO(εT)⏟DAgger\\underbrace{O(\\varepsilon T^2)}_{\\text{behavior cloning}} \\qquad \\underbrace{O(\\varepsilon T)}_{\\text{DAgger}}",
-          "annotationTex": "\\underbrace{O(\\varepsilon T^2)}_{\\text{behavior cloning}} \\qquad \\underbrace{O(\\varepsilon T)}_{\\text{DAgger}}",
+          "mathmlText": "O(εT2)behavior cloningO(εT)DAgger\\underset{\\text{behavior cloning}}{O(\\varepsilon T^2)} \\qquad \\underset{\\text{DAgger}}{O(\\varepsilon T)}",
+          "annotationTex": "\\underset{\\text{behavior cloning}}{O(\\varepsilon T^2)} \\qquad \\underset{\\text{DAgger}}{O(\\varepsilon T)}",
           "htmlLayerHidden": true,
           "renderError": false,
-          "renderedText": "behavior cloningO(εT2)​​DAggerO(εT)​​",
+          "renderedText": "behavior cloningO(εT2)​DAggerO(εT)​",
           "fontFamilyHead": "KaTeX_Main",
           "scrollWidth": 335,
           "clientWidth": 335,
@@ -4948,7 +4822,7 @@
           "role": "region",
           "accessibleName": "Sampled success rate and decision count by chunk size",
           "tabIndex": 0,
-          "clientWidth": 301,
+          "clientWidth": 309,
           "scrollWidth": 480,
           "scrolledBy": 40
         },
@@ -4970,7 +4844,7 @@
           "role": "region",
           "accessibleName": "Sampled toy throughput scores by added delay",
           "tabIndex": 0,
-          "clientWidth": 301,
+          "clientWidth": 309,
           "scrollWidth": 480,
           "scrolledBy": 40
         },
@@ -4981,41 +4855,19 @@
           "role": "region",
           "accessibleName": "Sampled executed action across the hand-off",
           "tabIndex": 0,
-          "clientWidth": 301,
+          "clientWidth": 309,
           "scrollWidth": 480,
           "scrolledBy": 40
         },
         {
           "index": 5,
           "kind": "table",
-          "outline": "<div class=\"overflow-x-auto mt-2\">",
-          "role": "region",
-          "accessibleName": "Sampled toy throughput scores by added delay",
-          "tabIndex": 0,
-          "clientWidth": 243,
-          "scrollWidth": 480,
-          "scrolledBy": 40
-        },
-        {
-          "index": 6,
-          "kind": "table",
-          "outline": "<div class=\"overflow-x-auto mt-2\">",
-          "role": "region",
-          "accessibleName": "Sampled executed action across the hand-off",
-          "tabIndex": 0,
-          "clientWidth": 243,
-          "scrollWidth": 480,
-          "scrolledBy": 40
-        },
-        {
-          "index": 7,
-          "kind": "table",
-          "outline": "<div class=\"overflow-x-auto rounded-sm border border-border\">",
+          "outline": "<div class=\"overflow-x-auto rounded-sm border border-border [container-t\">",
           "role": "region",
           "accessibleName": "Action horizon (predicted actions) and reported frequency (Hz). Setup-specific prediction, execution and controller rates are not interchangeable. Applicable unpublished values are not disclosed. Weights mean download availability, not license openness.",
           "tabIndex": 0,
           "clientWidth": 333,
-          "scrollWidth": 582,
+          "scrollWidth": 583,
           "scrolledBy": 40
         }
       ],
@@ -5080,7 +4932,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14142,
+      "visibleTextLength": 12370,
       "tables": [
         {
           "index": 0,
@@ -5098,31 +4950,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled toy deviation and reference scalings by horizon",
-            "clientWidth": 301,
-            "scrollWidth": 480,
-            "scrolledBy": 40
-          },
-          "tableWidth": 480,
-          "containerOverflowPx": 0,
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 1,
-          "accessibleName": "Sampled toy deviation and reference scalings by horizon",
-          "captionText": "",
-          "columnHeaders": 4,
-          "rowHeaders": 6,
-          "unscopedHeaders": 0,
-          "sortButtons": 0,
-          "sortedColumns": 0,
-          "notDisclosedCells": 0,
-          "notApplicableCells": 0,
-          "scrollContainer": {
-            "overflowX": "auto",
-            "tabIndex": 0,
-            "role": "region",
-            "accessibleName": "Sampled toy deviation and reference scalings by horizon",
-            "clientWidth": 243,
+            "clientWidth": 275,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -5605,23 +5433,12 @@
           "role": "region",
           "accessibleName": "Sampled toy deviation and reference scalings by horizon",
           "tabIndex": 0,
-          "clientWidth": 301,
+          "clientWidth": 275,
           "scrollWidth": 480,
           "scrolledBy": 40
         },
         {
           "index": 1,
-          "kind": "table",
-          "outline": "<div class=\"overflow-x-auto mt-2\">",
-          "role": "region",
-          "accessibleName": "Sampled toy deviation and reference scalings by horizon",
-          "tabIndex": 0,
-          "clientWidth": 243,
-          "scrollWidth": 480,
-          "scrolledBy": 40
-        },
-        {
-          "index": 2,
           "kind": "math",
           "outline": "<span class=\"katex-display\">",
           "role": "region",
@@ -5632,7 +5449,7 @@
           "scrolledBy": 0
         },
         {
-          "index": 3,
+          "index": 2,
           "kind": "math",
           "outline": "<span class=\"katex-display\">",
           "role": "region",
@@ -5643,7 +5460,7 @@
           "scrolledBy": 0
         },
         {
-          "index": 4,
+          "index": 3,
           "kind": "math",
           "outline": "<span class=\"katex-display\">",
           "role": "region",
@@ -5664,7 +5481,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 28794,
+      "visibleTextLength": 28996,
       "tables": [
         {
           "index": 0,
@@ -5682,11 +5499,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "18 policies across the eight architectural axes. Horizon shows planned / executed steps (n.d. = not disclosed). Weights describe download availability, not license openness. Unknown availability is separate from not released. Cells the vendor has not published are marked not disclosed and always sort last, in both directions. Unset scalar rates do not prove that a source reports no setup-specific rate. Read the setting notes and linked sources before comparing cells.",
-            "clientWidth": 299,
-            "scrollWidth": 1185,
+            "clientWidth": 307,
+            "scrollWidth": 1187,
             "scrolledBy": 40
           },
-          "tableWidth": 1185,
+          "tableWidth": 1187,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -5729,12 +5546,12 @@
         {
           "index": 0,
           "kind": "table",
-          "outline": "<div class=\"overflow-x-auto rounded-sm border border-border mt-4\">",
+          "outline": "<div class=\"overflow-x-auto rounded-sm border border-border [container-t\">",
           "role": "region",
           "accessibleName": "18 policies across the eight architectural axes. Horizon shows planned / executed steps (n.d. = not disclosed). Weights describe download availability, not license openness. Unknown availability is separate from not released. Cells the vendor has not published are marked not disclosed and always sort last, in both directions. Unset scalar rates do not prove that a source reports no setup-specific rate. Read the setting notes and linked sources before comparing cells.",
           "tabIndex": 0,
-          "clientWidth": 299,
-          "scrollWidth": 1185,
+          "clientWidth": 307,
+          "scrollWidth": 1187,
           "scrolledBy": 40
         }
       ],
@@ -5748,7 +5565,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15490,
+      "visibleTextLength": 15613,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -5762,7 +5579,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14516,
+      "visibleTextLength": 14444,
       "tables": [],
       "equations": [
         {
@@ -6155,7 +5972,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 21922,
+      "visibleTextLength": 22073,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -6169,7 +5986,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 19312,
+      "visibleTextLength": 19343,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -6183,7 +6000,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 12243,
+      "visibleTextLength": 11969,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -6197,7 +6014,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 26172,
+      "visibleTextLength": 25234,
       "tables": [],
       "equations": [
         {
@@ -6324,7 +6141,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17353,
+      "visibleTextLength": 17333,
       "tables": [
         {
           "index": 0,
@@ -6342,7 +6159,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Teaching-model inference by toy size, against the 20 ms budget",
-            "clientWidth": 301,
+            "clientWidth": 309,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -6352,30 +6169,6 @@
         },
         {
           "index": 1,
-          "accessibleName": "Teaching-model inference by toy size, against the 20 ms budget",
-          "captionText": "",
-          "columnHeaders": 4,
-          "rowHeaders": 6,
-          "unscopedHeaders": 0,
-          "sortButtons": 0,
-          "sortedColumns": 0,
-          "notDisclosedCells": 0,
-          "notApplicableCells": 0,
-          "scrollContainer": {
-            "overflowX": "auto",
-            "tabIndex": 0,
-            "role": "region",
-            "accessibleName": "Teaching-model inference by toy size, against the 20 ms budget",
-            "clientWidth": 243,
-            "scrollWidth": 480,
-            "scrolledBy": 40
-          },
-          "tableWidth": 480,
-          "containerOverflowPx": 0,
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 2,
           "accessibleName": "Sampled commanded velocity across the hand-off",
           "captionText": "",
           "columnHeaders": 4,
@@ -6390,7 +6183,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled commanded velocity across the hand-off",
-            "clientWidth": 301,
+            "clientWidth": 309,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -6473,7 +6266,7 @@
           "role": "region",
           "accessibleName": "Teaching-model inference by toy size, against the 20 ms budget",
           "tabIndex": 0,
-          "clientWidth": 301,
+          "clientWidth": 309,
           "scrollWidth": 480,
           "scrolledBy": 40
         },
@@ -6482,20 +6275,9 @@
           "kind": "table",
           "outline": "<div class=\"overflow-x-auto mt-2\">",
           "role": "region",
-          "accessibleName": "Teaching-model inference by toy size, against the 20 ms budget",
-          "tabIndex": 0,
-          "clientWidth": 243,
-          "scrollWidth": 480,
-          "scrolledBy": 40
-        },
-        {
-          "index": 2,
-          "kind": "table",
-          "outline": "<div class=\"overflow-x-auto mt-2\">",
-          "role": "region",
           "accessibleName": "Sampled commanded velocity across the hand-off",
           "tabIndex": 0,
-          "clientWidth": 301,
+          "clientWidth": 309,
           "scrollWidth": 480,
           "scrolledBy": 40
         }
@@ -6510,7 +6292,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 38109,
+      "visibleTextLength": 37707,
       "tables": [
         {
           "index": 0,
@@ -6528,7 +6310,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Toy value along the fictional espresso episode",
-            "clientWidth": 301,
+            "clientWidth": 309,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -6552,7 +6334,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Per-task successes out of 30",
-            "clientWidth": 301,
+            "clientWidth": 309,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -6577,10 +6359,10 @@
             "role": "region",
             "accessibleName": "Eight RL fine-tuning methods, with results reported by their own sources under different protocols, not a leaderboard. Evidence labels describe the inspected publication type, not independent replication. Code marks a source's code-release statement, not verified weights or licensing; not disclosed is limited to the named sources in that row.",
             "clientWidth": 333,
-            "scrollWidth": 607,
+            "scrollWidth": 608,
             "scrolledBy": 40
           },
-          "tableWidth": 607.2,
+          "tableWidth": 608.2,
           "containerOverflowPx": 0.2,
           "viewportOverflowPx": 0
         }
@@ -6643,7 +6425,7 @@
           "role": "region",
           "accessibleName": "Toy value along the fictional espresso episode",
           "tabIndex": 0,
-          "clientWidth": 301,
+          "clientWidth": 309,
           "scrollWidth": 480,
           "scrolledBy": 40
         },
@@ -6676,19 +6458,19 @@
           "role": "region",
           "accessibleName": "Per-task successes out of 30",
           "tabIndex": 0,
-          "clientWidth": 301,
+          "clientWidth": 309,
           "scrollWidth": 480,
           "scrolledBy": 40
         },
         {
           "index": 4,
           "kind": "table",
-          "outline": "<div class=\"overflow-x-auto rounded-sm border border-border my-6 wide-me\">",
+          "outline": "<div class=\"overflow-x-auto rounded-sm border border-border [container-t\">",
           "role": "region",
           "accessibleName": "Eight RL fine-tuning methods, with results reported by their own sources under different protocols, not a leaderboard. Evidence labels describe the inspected publication type, not independent replication. Code marks a source's code-release statement, not verified weights or licensing; not disclosed is limited to the named sources in that row.",
           "tabIndex": 0,
           "clientWidth": 333,
-          "scrollWidth": 607,
+          "scrollWidth": 608,
           "scrolledBy": 40
         }
       ],
@@ -6716,7 +6498,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 20629,
+      "visibleTextLength": 19805,
       "tables": [
         {
           "index": 0,
@@ -6734,7 +6516,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled action value along the selected dimension",
-            "clientWidth": 301,
+            "clientWidth": 309,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -6752,7 +6534,7 @@
           "role": "region",
           "accessibleName": "Sampled action value along the selected dimension",
           "tabIndex": 0,
-          "clientWidth": 301,
+          "clientWidth": 309,
           "scrollWidth": 480,
           "scrolledBy": 40
         }
@@ -6767,7 +6549,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 20809,
+      "visibleTextLength": 20618,
       "tables": [
         {
           "index": 0,
@@ -6818,33 +6600,8 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 19097,
-      "tables": [
-        {
-          "index": 0,
-          "accessibleName": "Footfall timing for the walk",
-          "captionText": "",
-          "columnHeaders": 3,
-          "rowHeaders": 5,
-          "unscopedHeaders": 0,
-          "sortButtons": 0,
-          "sortedColumns": 0,
-          "notDisclosedCells": 0,
-          "notApplicableCells": 0,
-          "scrollContainer": {
-            "overflowX": "auto",
-            "tabIndex": 0,
-            "role": "region",
-            "accessibleName": "Footfall timing for the walk",
-            "clientWidth": 301,
-            "scrollWidth": 480,
-            "scrolledBy": 40
-          },
-          "tableWidth": 480,
-          "containerOverflowPx": 0,
-          "viewportOverflowPx": 0
-        }
-      ],
+      "visibleTextLength": 18315,
+      "tables": [],
       "equations": [
         {
           "index": 0,
@@ -6879,19 +6636,7 @@
           "viewportOverflowPx": 0
         }
       ],
-      "scrollRegions": [
-        {
-          "index": 0,
-          "kind": "table",
-          "outline": "<div class=\"overflow-x-auto mt-2\">",
-          "role": "region",
-          "accessibleName": "Footfall timing for the walk",
-          "tabIndex": 0,
-          "clientWidth": 301,
-          "scrollWidth": 480,
-          "scrolledBy": 40
-        }
-      ],
+      "scrollRegions": [],
       "route": "/rl-sim2real/legged-locomotion/",
       "viewport": "375x812"
     },
@@ -6916,47 +6661,10 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 16345,
-      "tables": [
-        {
-          "index": 0,
-          "accessibleName": "Sampled wall-clock by parallel environment count",
-          "captionText": "",
-          "columnHeaders": 3,
-          "rowHeaders": 5,
-          "unscopedHeaders": 0,
-          "sortButtons": 0,
-          "sortedColumns": 0,
-          "notDisclosedCells": 0,
-          "notApplicableCells": 0,
-          "scrollContainer": {
-            "overflowX": "auto",
-            "tabIndex": 0,
-            "role": "region",
-            "accessibleName": "Sampled wall-clock by parallel environment count",
-            "clientWidth": 301,
-            "scrollWidth": 480,
-            "scrolledBy": 40
-          },
-          "tableWidth": 480,
-          "containerOverflowPx": 0,
-          "viewportOverflowPx": 0
-        }
-      ],
+      "visibleTextLength": 15034,
+      "tables": [],
       "equations": [],
-      "scrollRegions": [
-        {
-          "index": 0,
-          "kind": "table",
-          "outline": "<div class=\"overflow-x-auto mt-2\">",
-          "role": "region",
-          "accessibleName": "Sampled wall-clock by parallel environment count",
-          "tabIndex": 0,
-          "clientWidth": 301,
-          "scrollWidth": 480,
-          "scrolledBy": 40
-        }
-      ],
+      "scrollRegions": [],
       "route": "/rl-sim2real/parallel-sim-rl/",
       "viewport": "375x812"
     },
@@ -6967,7 +6675,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 27609,
+      "visibleTextLength": 27722,
       "tables": [
         {
           "index": 0,
@@ -7009,7 +6717,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled base-height deviation for both controllers",
-            "clientWidth": 301,
+            "clientWidth": 309,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -7023,12 +6731,12 @@
         {
           "index": 0,
           "kind": "code",
-          "outline": "<pre class=\"mt-2 overflow-x-auto rounded-sm border border-border bg-bg p\">",
+          "outline": "<pre class=\"m-0! overflow-x-auto rounded-md border border-border bg-surf\">",
           "role": "region",
-          "accessibleName": "Proposed reward code",
+          "accessibleName": "Proposed reward code, generation 0",
           "tabIndex": 0,
-          "clientWidth": 312,
-          "scrollWidth": 312,
+          "clientWidth": 333,
+          "scrollWidth": 333,
           "scrolledBy": 0
         },
         {
@@ -7049,7 +6757,7 @@
           "role": "region",
           "accessibleName": "Sampled base-height deviation for both controllers",
           "tabIndex": 0,
-          "clientWidth": 301,
+          "clientWidth": 309,
           "scrollWidth": 480,
           "scrolledBy": 40
         }
@@ -7064,7 +6772,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 30060,
+      "visibleTextLength": 27792,
       "tables": [
         {
           "index": 0,
@@ -7082,7 +6790,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Modelled wall-clock cost of this budget under each source",
-            "clientWidth": 301,
+            "clientWidth": 309,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -7100,7 +6808,7 @@
           "role": "region",
           "accessibleName": "Modelled wall-clock cost of this budget under each source",
           "tabIndex": 0,
-          "clientWidth": 301,
+          "clientWidth": 309,
           "scrollWidth": 480,
           "scrolledBy": 40
         }
@@ -7115,7 +6823,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 24165,
+      "visibleTextLength": 23611,
       "tables": [
         {
           "index": 0,
@@ -7133,31 +6841,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled task success against ground friction",
-            "clientWidth": 301,
-            "scrollWidth": 480,
-            "scrolledBy": 40
-          },
-          "tableWidth": 480,
-          "containerOverflowPx": 0,
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 1,
-          "accessibleName": "Sampled task success against ground friction",
-          "captionText": "",
-          "columnHeaders": 4,
-          "rowHeaders": 5,
-          "unscopedHeaders": 0,
-          "sortButtons": 0,
-          "sortedColumns": 0,
-          "notDisclosedCells": 0,
-          "notApplicableCells": 0,
-          "scrollContainer": {
-            "overflowX": "auto",
-            "tabIndex": 0,
-            "role": "region",
-            "accessibleName": "Sampled task success against ground friction",
-            "clientWidth": 243,
+            "clientWidth": 309,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -7175,18 +6859,7 @@
           "role": "region",
           "accessibleName": "Sampled task success against ground friction",
           "tabIndex": 0,
-          "clientWidth": 301,
-          "scrollWidth": 480,
-          "scrolledBy": 40
-        },
-        {
-          "index": 1,
-          "kind": "table",
-          "outline": "<div class=\"overflow-x-auto mt-2\">",
-          "role": "region",
-          "accessibleName": "Sampled task success against ground friction",
-          "tabIndex": 0,
-          "clientWidth": 243,
+          "clientWidth": 309,
           "scrollWidth": 480,
           "scrolledBy": 40
         }
@@ -7201,7 +6874,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 12145,
+      "visibleTextLength": 12107,
       "tables": [
         {
           "index": 0,
@@ -7303,7 +6976,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17445,
+      "visibleTextLength": 16788,
       "tables": [],
       "equations": [
         {
@@ -7334,7 +7007,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 19918,
+      "visibleTextLength": 19219,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -7348,7 +7021,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 16095,
+      "visibleTextLength": 15917,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -7362,7 +7035,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15955,
+      "visibleTextLength": 15435,
       "tables": [
         {
           "index": 0,
@@ -7380,7 +7053,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled latent deviation by imagination step",
-            "clientWidth": 301,
+            "clientWidth": 309,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -7398,7 +7071,7 @@
           "role": "region",
           "accessibleName": "Sampled latent deviation by imagination step",
           "tabIndex": 0,
-          "clientWidth": 301,
+          "clientWidth": 309,
           "scrollWidth": 480,
           "scrolledBy": 40
         }
@@ -7427,7 +7100,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 19292,
+      "visibleTextLength": 19034,
       "tables": [
         {
           "index": 0,
@@ -7615,7 +7288,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18674,
+      "visibleTextLength": 18835,
       "tables": [
         {
           "index": 0,
@@ -7831,7 +7504,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 25627,
+      "visibleTextLength": 23493,
       "tables": [],
       "equations": [
         {
@@ -8292,7 +7965,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17521,
+      "visibleTextLength": 17117,
       "tables": [],
       "equations": [
         {
@@ -8683,7 +8356,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15742,
+      "visibleTextLength": 15214,
       "tables": [
         {
           "index": 0,
@@ -9002,11 +8675,11 @@
         {
           "index": 18,
           "display": true,
-          "mathmlText": "Ai=[cos⁡θi−sin⁡θicos⁡αisin⁡θisin⁡αiaicos⁡θisin⁡θicos⁡θicos⁡αi−cos⁡θisin⁡αiaisin⁡θi0sin⁡αicos⁡αidi0001]A_i = \\begin{bmatrix} \\cos\\theta_i & -\\sin\\theta_i\\cos\\alpha_i & \\sin\\theta_i\\sin\\alpha_i & a_i\\cos\\theta_i \\\\ \\sin\\theta_i & \\cos\\theta_i\\cos\\alpha_i & -\\cos\\theta_i\\sin\\alpha_i & a_i\\sin\\theta_i \\\\ 0 & \\sin\\alpha_i & \\cos\\alpha_i & d_i \\\\ 0 & 0 & 0 & 1 \\end{bmatrix}",
-          "annotationTex": "A_i = \\begin{bmatrix} \\cos\\theta_i & -\\sin\\theta_i\\cos\\alpha_i & \\sin\\theta_i\\sin\\alpha_i & a_i\\cos\\theta_i \\\\ \\sin\\theta_i & \\cos\\theta_i\\cos\\alpha_i & -\\cos\\theta_i\\sin\\alpha_i & a_i\\sin\\theta_i \\\\ 0 & \\sin\\alpha_i & \\cos\\alpha_i & d_i \\\\ 0 & 0 & 0 & 1 \\end{bmatrix}",
+          "mathmlText": "Ai=[Riti01],ti=[aicos⁡θiaisin⁡θidi]\\def\\arraystretch{0.9} A_i = \\begin{bmatrix} R_i & t_i \\\\ \\mathbf{0} & 1 \\end{bmatrix},\\quad t_i = \\begin{bmatrix} a_i\\cos\\theta_i \\\\ a_i\\sin\\theta_i \\\\ d_i \\end{bmatrix}",
+          "annotationTex": "\\def\\arraystretch{0.9} A_i = \\begin{bmatrix} R_i & t_i \\\\ \\mathbf{0} & 1 \\end{bmatrix},\\quad t_i = \\begin{bmatrix} a_i\\cos\\theta_i \\\\ a_i\\sin\\theta_i \\\\ d_i \\end{bmatrix}",
           "htmlLayerHidden": true,
           "renderError": false,
-          "renderedText": "Ai​=​cosθi​sinθi​00​−sinθi​cosαi​cosθi​cosαi​sinαi​0​sinθi​sinαi​−cosθi​sinαi​cosαi​0​ai​cosθi​ai​sinθi​di​1​​",
+          "renderedText": "Ai​=[Ri​0​ti​1​],ti​=[ai​cosθi​ai​sinθi​di​​]",
           "fontFamilyHead": "KaTeX_Main",
           "scrollWidth": 715,
           "clientWidth": 715,
@@ -9018,11 +8691,11 @@
         {
           "index": 19,
           "display": true,
-          "mathmlText": "x˙=J(q) q˙\\dot{x} = J(q)\\,\\dot{q}",
-          "annotationTex": "\\dot{x} = J(q)\\,\\dot{q}",
+          "mathmlText": "Ri=[cos⁡θi−sin⁡θicos⁡αisin⁡θisin⁡αisin⁡θicos⁡θicos⁡αi−cos⁡θisin⁡αi0sin⁡αicos⁡αi]\\def\\arraystretch{0.9} R_i = \\begin{bmatrix} \\cos\\theta_i & -\\sin\\theta_i\\cos\\alpha_i & \\sin\\theta_i\\sin\\alpha_i \\\\ \\sin\\theta_i & \\cos\\theta_i\\cos\\alpha_i & -\\cos\\theta_i\\sin\\alpha_i \\\\ 0 & \\sin\\alpha_i & \\cos\\alpha_i \\end{bmatrix}",
+          "annotationTex": "\\def\\arraystretch{0.9} R_i = \\begin{bmatrix} \\cos\\theta_i & -\\sin\\theta_i\\cos\\alpha_i & \\sin\\theta_i\\sin\\alpha_i \\\\ \\sin\\theta_i & \\cos\\theta_i\\cos\\alpha_i & -\\cos\\theta_i\\sin\\alpha_i \\\\ 0 & \\sin\\alpha_i & \\cos\\alpha_i \\end{bmatrix}",
           "htmlLayerHidden": true,
           "renderError": false,
-          "renderedText": "x˙=J(q)q˙​",
+          "renderedText": "Ri​=[cosθi​sinθi​0​−sinθi​cosαi​cosθi​cosαi​sinαi​​sinθi​sinαi​−cosθi​sinαi​cosαi​​]",
           "fontFamilyHead": "KaTeX_Main",
           "scrollWidth": 715,
           "clientWidth": 715,
@@ -9033,6 +8706,22 @@
         },
         {
           "index": 20,
+          "display": true,
+          "mathmlText": "x˙=J(q) q˙\\dot{x} = J(q)\\,\\dot{q}",
+          "annotationTex": "\\dot{x} = J(q)\\,\\dot{q}",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "x˙=J(q)q˙​",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 715,
+          "clientWidth": 715,
+          "tabIndex": 0,
+          "role": "region",
+          "accessibleName": "Display equation 7",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 21,
           "display": false,
           "mathmlText": "ii",
           "annotationTex": "i",
@@ -9048,7 +8737,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 21,
+          "index": 22,
           "display": false,
           "mathmlText": "ziz_i",
           "annotationTex": "z_i",
@@ -9064,7 +8753,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 22,
+          "index": 23,
           "display": false,
           "mathmlText": "pip_i",
           "annotationTex": "p_i",
@@ -9080,7 +8769,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 23,
+          "index": 24,
           "display": true,
           "mathmlText": "Ji=[zi×(pee−pi)zi]J_i = \\begin{bmatrix} z_i \\times (p_\\mathrm{ee} - p_i) \\\\ z_i \\end{bmatrix}",
           "annotationTex": "J_i = \\begin{bmatrix} z_i \\times (p_\\mathrm{ee} - p_i) \\\\ z_i \\end{bmatrix}",
@@ -9092,11 +8781,11 @@
           "clientWidth": 715,
           "tabIndex": 0,
           "role": "region",
-          "accessibleName": "Display equation 7",
+          "accessibleName": "Display equation 8",
           "viewportOverflowPx": 0
         },
         {
-          "index": 24,
+          "index": 25,
           "display": false,
           "mathmlText": "τ=JT(q) F\\tau = J^{T}(q)\\,F",
           "annotationTex": "\\tau = J^{T}(q)\\,F",
@@ -9112,7 +8801,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 25,
+          "index": 26,
           "display": false,
           "mathmlText": "JJ",
           "annotationTex": "J",
@@ -9128,7 +8817,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 26,
+          "index": 27,
           "display": false,
           "mathmlText": "JTJ^{T}",
           "annotationTex": "J^{T}",
@@ -9144,7 +8833,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 27,
+          "index": 28,
           "display": true,
           "mathmlText": "q˙=J−1(q) x˙\\dot{q} = J^{-1}(q)\\,\\dot{x}",
           "annotationTex": "\\dot{q} = J^{-1}(q)\\,\\dot{x}",
@@ -9156,11 +8845,11 @@
           "clientWidth": 715,
           "tabIndex": 0,
           "role": "region",
-          "accessibleName": "Display equation 8",
+          "accessibleName": "Display equation 9",
           "viewportOverflowPx": 0
         },
         {
-          "index": 28,
+          "index": 29,
           "display": false,
           "mathmlText": "JJ",
           "annotationTex": "J",
@@ -9176,7 +8865,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 29,
+          "index": 30,
           "display": false,
           "mathmlText": "J+=JT(JJT)−1J^{+} = J^{T}(JJ^{T})^{-1}",
           "annotationTex": "J^{+} = J^{T}(JJ^{T})^{-1}",
@@ -9192,7 +8881,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 30,
+          "index": 31,
           "display": false,
           "mathmlText": "xdx_d",
           "annotationTex": "x_d",
@@ -9208,7 +8897,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 31,
+          "index": 32,
           "display": false,
           "mathmlText": "qq",
           "annotationTex": "q",
@@ -9224,7 +8913,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 32,
+          "index": 33,
           "display": false,
           "mathmlText": "k(q)=xdk(q) = x_d",
           "annotationTex": "k(q) = x_d",
@@ -9240,7 +8929,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 33,
+          "index": 34,
           "display": false,
           "mathmlText": "kk",
           "annotationTex": "k",
@@ -9256,7 +8945,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 34,
+          "index": 35,
           "display": false,
           "mathmlText": "qq",
           "annotationTex": "q",
@@ -9272,7 +8961,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 35,
+          "index": 36,
           "display": true,
           "mathmlText": "Δx=J(q) ΔqΔq=J+(q) Δx\\Delta x = J(q)\\,\\Delta q \\qquad \\Delta q = J^{+}(q)\\,\\Delta x",
           "annotationTex": "\\Delta x = J(q)\\,\\Delta q \\qquad \\Delta q = J^{+}(q)\\,\\Delta x",
@@ -9284,7 +8973,7 @@
           "clientWidth": 715,
           "tabIndex": 0,
           "role": "region",
-          "accessibleName": "Display equation 9",
+          "accessibleName": "Display equation 10",
           "viewportOverflowPx": 0
         }
       ],
@@ -9346,17 +9035,6 @@
         },
         {
           "index": 5,
-          "kind": "table",
-          "outline": "<div class=\"overflow-x-auto rounded-md border border-border bg-surface m\">",
-          "role": "region",
-          "accessibleName": "Denavit-Hartenberg parameters of the planar 3R arm",
-          "tabIndex": 0,
-          "clientWidth": 713,
-          "scrollWidth": 713,
-          "scrolledBy": 0
-        },
-        {
-          "index": 6,
           "kind": "math",
           "outline": "<span class=\"katex-display\">",
           "role": "region",
@@ -9364,6 +9042,17 @@
           "tabIndex": 0,
           "clientWidth": 715,
           "scrollWidth": 715,
+          "scrolledBy": 0
+        },
+        {
+          "index": 6,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto rounded-md border border-border bg-surface m\">",
+          "role": "region",
+          "accessibleName": "Denavit-Hartenberg parameters of the planar 3R arm",
+          "tabIndex": 0,
+          "clientWidth": 713,
+          "scrollWidth": 713,
           "scrolledBy": 0
         },
         {
@@ -9398,6 +9087,17 @@
           "clientWidth": 715,
           "scrollWidth": 715,
           "scrolledBy": 0
+        },
+        {
+          "index": 10,
+          "kind": "math",
+          "outline": "<span class=\"katex-display\">",
+          "role": "region",
+          "accessibleName": "Display equation 10",
+          "tabIndex": 0,
+          "clientWidth": 715,
+          "scrollWidth": 715,
+          "scrolledBy": 0
         }
       ],
       "route": "/classical/kinematics/",
@@ -9410,7 +9110,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 28302,
+      "visibleTextLength": 27674,
       "tables": [
         {
           "index": 0,
@@ -9913,11 +9613,11 @@
         {
           "index": 28,
           "display": true,
-          "mathmlText": "X^f={x:∥x−xstart∥2+∥x−xgoal∥2≤cbest}.\\widehat{X}_f=\\left\\{x:\\lVert x-x_{start}\\rVert_2+\\lVert x-x_{goal}\\rVert_2\\leq c_{best}\\right\\}.",
-          "annotationTex": "\\widehat{X}_f=\\left\\{x:\\lVert x-x_{start}\\rVert_2+\\lVert x-x_{goal}\\rVert_2\\leq c_{best}\\right\\}.",
+          "mathmlText": "X^f={x:∥x−xstart∥2+∥x−xgoal∥2≤cbest}.\\hat{X}_f=\\left\\{x:\\lVert x-x_{start}\\rVert_2+\\lVert x-x_{goal}\\rVert_2\\leq c_{best}\\right\\}.",
+          "annotationTex": "\\hat{X}_f=\\left\\{x:\\lVert x-x_{start}\\rVert_2+\\lVert x-x_{goal}\\rVert_2\\leq c_{best}\\right\\}.",
           "htmlLayerHidden": true,
           "renderError": false,
-          "renderedText": "Xf​={x:∥x−xstart​∥2​+∥x−xgoal​∥2​≤cbest​}.",
+          "renderedText": "X^f​={x:∥x−xstart​∥2​+∥x−xgoal​∥2​≤cbest​}.",
           "fontFamilyHead": "KaTeX_Main",
           "scrollWidth": 715,
           "clientWidth": 715,
@@ -10262,7 +9962,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 42463,
+      "visibleTextLength": 42388,
       "tables": [],
       "equations": [
         {
@@ -10444,11 +10144,11 @@
         {
           "index": 11,
           "display": false,
-          "mathmlText": "(R~,T~)(\\widetilde R,\\widetilde T)",
-          "annotationTex": "(\\widetilde R,\\widetilde T)",
+          "mathmlText": "(R~,T~)(\\tilde R,\\tilde T)",
+          "annotationTex": "(\\tilde R,\\tilde T)",
           "htmlLayerHidden": true,
           "renderError": false,
-          "renderedText": "(R,T)",
+          "renderedText": "(R~,T~)",
           "fontFamilyHead": "KaTeX_Main",
           "scrollWidth": 0,
           "clientWidth": 0,
@@ -10460,11 +10160,11 @@
         {
           "index": 12,
           "display": true,
-          "mathmlText": "m=avg⁡x∈M∥(Rx+T)−(R~x+T~)∥m = \\operatorname{avg}_{x \\in \\mathcal M} \\left\\lVert (Rx+T)-(\\widetilde R x+\\widetilde T) \\right\\rVert",
-          "annotationTex": "m = \\operatorname{avg}_{x \\in \\mathcal M} \\left\\lVert (Rx+T)-(\\widetilde R x+\\widetilde T) \\right\\rVert",
+          "mathmlText": "m=avg⁡x∈M∥(Rx+T)−(R~x+T~)∥m = \\operatorname{avg}_{x \\in \\mathcal M} \\lVert (Rx+T)-(\\tilde R x+\\tilde T) \\rVert",
+          "annotationTex": "m = \\operatorname{avg}_{x \\in \\mathcal M} \\lVert (Rx+T)-(\\tilde R x+\\tilde T) \\rVert",
           "htmlLayerHidden": true,
           "renderError": false,
-          "renderedText": "m=avgx∈M​​(Rx+T)−(Rx+T)​",
+          "renderedText": "m=avgx∈M​∥(Rx+T)−(R~x+T~)∥",
           "fontFamilyHead": "KaTeX_Main",
           "scrollWidth": 715,
           "clientWidth": 715,
@@ -10540,11 +10240,11 @@
         {
           "index": 17,
           "display": true,
-          "mathmlText": "m=avg⁡x1∈Mmin⁡x2∈M∥(Rx1+T)−(R~x2+T~)∥m = \\operatorname{avg}_{x_1 \\in \\mathcal M} \\min_{x_2 \\in \\mathcal M} \\left\\lVert (Rx_1+T)-(\\widetilde R x_2+\\widetilde T) \\right\\rVert",
-          "annotationTex": "m = \\operatorname{avg}_{x_1 \\in \\mathcal M} \\min_{x_2 \\in \\mathcal M} \\left\\lVert (Rx_1+T)-(\\widetilde R x_2+\\widetilde T) \\right\\rVert",
+          "mathmlText": "m=avg⁡x1∈Mmin⁡x2∈M∥(Rx1+T)−(R~x2+T~)∥m = \\operatorname{avg}_{x_1 \\in \\mathcal M} \\min_{x_2 \\in \\mathcal M} \\lVert (Rx_1+T)-(\\tilde R x_2+\\tilde T) \\rVert",
+          "annotationTex": "m = \\operatorname{avg}_{x_1 \\in \\mathcal M} \\min_{x_2 \\in \\mathcal M} \\lVert (Rx_1+T)-(\\tilde R x_2+\\tilde T) \\rVert",
           "htmlLayerHidden": true,
           "renderError": false,
-          "renderedText": "m=avgx1​∈M​x2​∈Mmin​​(Rx1​+T)−(Rx2​+T)​",
+          "renderedText": "m=avgx1​∈M​x2​∈Mmin​∥(Rx1​+T)−(R~x2​+T~)∥",
           "fontFamilyHead": "KaTeX_Main",
           "scrollWidth": 715,
           "clientWidth": 715,
@@ -10711,7 +10411,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 12071,
+      "visibleTextLength": 12067,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -10725,7 +10425,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 28247,
+      "visibleTextLength": 28082,
       "tables": [],
       "equations": [
         {
@@ -10820,7 +10520,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 20841,
+      "visibleTextLength": 20753,
       "tables": [],
       "equations": [
         {
@@ -11351,7 +11051,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 16480,
+      "visibleTextLength": 14103,
       "tables": [
         {
           "index": 0,
@@ -11369,40 +11069,16 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Datasets and corpora by scale, with the farm projection",
-            "clientWidth": 665,
-            "scrollWidth": 665,
+            "clientWidth": 623,
+            "scrollWidth": 623,
             "scrolledBy": 0
           },
-          "tableWidth": 665,
+          "tableWidth": 623,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         },
         {
           "index": 1,
-          "accessibleName": "Datasets and corpora by scale, with the farm projection",
-          "captionText": "",
-          "columnHeaders": 3,
-          "rowHeaders": 10,
-          "unscopedHeaders": 0,
-          "sortButtons": 0,
-          "sortedColumns": 0,
-          "notDisclosedCells": 0,
-          "notApplicableCells": 10,
-          "scrollContainer": {
-            "overflowX": "auto",
-            "tabIndex": 0,
-            "role": "region",
-            "accessibleName": "Datasets and corpora by scale, with the farm projection",
-            "clientWidth": 599,
-            "scrollWidth": 599,
-            "scrolledBy": 0
-          },
-          "tableWidth": 599,
-          "containerOverflowPx": 0,
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 2,
           "accessibleName": "What to scale, by axis",
           "captionText": "",
           "columnHeaders": 4,
@@ -11435,23 +11111,12 @@
           "role": "region",
           "accessibleName": "Datasets and corpora by scale, with the farm projection",
           "tabIndex": 0,
-          "clientWidth": 665,
-          "scrollWidth": 665,
+          "clientWidth": 623,
+          "scrollWidth": 623,
           "scrolledBy": 0
         },
         {
           "index": 1,
-          "kind": "table",
-          "outline": "<div class=\"overflow-x-auto mt-2\">",
-          "role": "region",
-          "accessibleName": "Datasets and corpora by scale, with the farm projection",
-          "tabIndex": 0,
-          "clientWidth": 599,
-          "scrollWidth": 599,
-          "scrolledBy": 0
-        },
-        {
-          "index": 2,
           "kind": "table",
           "outline": "<div class=\"overflow-x-auto rounded-md border border-border bg-surface m\">",
           "role": "region",
@@ -11472,7 +11137,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17433,
+      "visibleTextLength": 17437,
       "tables": [
         {
           "index": 0,
@@ -11490,11 +11155,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "6 open robot-manipulation datasets. Figures the source does not publish are marked not disclosed and always sort last, in both directions; estimates appear in the prose, never in cells. Every row links to its dataset site or paper.",
-            "clientWidth": 1052,
-            "scrollWidth": 1052,
+            "clientWidth": 1102,
+            "scrollWidth": 1102,
             "scrolledBy": 0
           },
-          "tableWidth": 1052,
+          "tableWidth": 1102,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -11504,12 +11169,12 @@
         {
           "index": 0,
           "kind": "table",
-          "outline": "<div class=\"overflow-x-auto rounded-sm border border-border mt-4\">",
+          "outline": "<div class=\"overflow-x-auto rounded-sm border border-border [container-t\">",
           "role": "region",
           "accessibleName": "6 open robot-manipulation datasets. Figures the source does not publish are marked not disclosed and always sort last, in both directions; estimates appear in the prose, never in cells. Every row links to its dataset site or paper.",
           "tabIndex": 0,
-          "clientWidth": 1052,
-          "scrollWidth": 1052,
+          "clientWidth": 1102,
+          "scrollWidth": 1102,
           "scrolledBy": 0
         }
       ],
@@ -11523,7 +11188,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18407,
+      "visibleTextLength": 17431,
       "tables": [
         {
           "index": 0,
@@ -11541,35 +11206,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled episode success by episode length",
-            "clientWidth": 665,
-            "scrollWidth": 665,
+            "clientWidth": 623,
+            "scrollWidth": 623,
             "scrolledBy": 0
           },
-          "tableWidth": 665,
-          "containerOverflowPx": 0,
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 1,
-          "accessibleName": "Sampled episode success by episode length",
-          "captionText": "",
-          "columnHeaders": 2,
-          "rowHeaders": 6,
-          "unscopedHeaders": 0,
-          "sortButtons": 0,
-          "sortedColumns": 0,
-          "notDisclosedCells": 0,
-          "notApplicableCells": 0,
-          "scrollContainer": {
-            "overflowX": "auto",
-            "tabIndex": 0,
-            "role": "region",
-            "accessibleName": "Sampled episode success by episode length",
-            "clientWidth": 599,
-            "scrollWidth": 599,
-            "scrolledBy": 0
-          },
-          "tableWidth": 599,
+          "tableWidth": 623,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -11583,19 +11224,8 @@
           "role": "region",
           "accessibleName": "Sampled episode success by episode length",
           "tabIndex": 0,
-          "clientWidth": 665,
-          "scrollWidth": 665,
-          "scrolledBy": 0
-        },
-        {
-          "index": 1,
-          "kind": "table",
-          "outline": "<div class=\"overflow-x-auto mt-2\">",
-          "role": "region",
-          "accessibleName": "Sampled episode success by episode length",
-          "tabIndex": 0,
-          "clientWidth": 599,
-          "scrollWidth": 599,
+          "clientWidth": 623,
+          "scrollWidth": 623,
           "scrolledBy": 0
         }
       ],
@@ -11609,7 +11239,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 26997,
+      "visibleTextLength": 27003,
       "tables": [
         {
           "index": 0,
@@ -11627,11 +11257,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "40 hardware entries across arms, humanoids, hands, sensors, and compute. Figures a source does not publish are marked not disclosed and always sort last; every listed price carries an as-of date. Price buckets use the low end of a range.",
-            "clientWidth": 1052,
-            "scrollWidth": 1052,
+            "clientWidth": 1102,
+            "scrollWidth": 1102,
             "scrolledBy": 0
           },
-          "tableWidth": 1052,
+          "tableWidth": 1102,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -11641,12 +11271,12 @@
         {
           "index": 0,
           "kind": "table",
-          "outline": "<div class=\"overflow-x-auto rounded-sm border border-border mt-4\">",
+          "outline": "<div class=\"overflow-x-auto rounded-sm border border-border [container-t\">",
           "role": "region",
           "accessibleName": "40 hardware entries across arms, humanoids, hands, sensors, and compute. Figures a source does not publish are marked not disclosed and always sort last; every listed price carries an as-of date. Price buckets use the low end of a range.",
           "tabIndex": 0,
-          "clientWidth": 1052,
-          "scrollWidth": 1052,
+          "clientWidth": 1102,
+          "scrollWidth": 1102,
           "scrolledBy": 0
         }
       ],
@@ -11660,7 +11290,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 24949,
+      "visibleTextLength": 24971,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -11688,7 +11318,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15113,
+      "visibleTextLength": 15090,
       "tables": [
         {
           "index": 0,
@@ -11706,11 +11336,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "4 teleoperation rig families compared across cost, data quality, throughput, and embodiment gap. Ratings are low, medium, or high as explained in each cell note. Unpublished figures are marked not disclosed and always sort last, in both directions.",
-            "clientWidth": 1052,
-            "scrollWidth": 1052,
+            "clientWidth": 1102,
+            "scrollWidth": 1102,
             "scrolledBy": 0
           },
-          "tableWidth": 1052,
+          "tableWidth": 1102,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -11720,12 +11350,12 @@
         {
           "index": 0,
           "kind": "table",
-          "outline": "<div class=\"overflow-x-auto rounded-sm border border-border mt-4\">",
+          "outline": "<div class=\"overflow-x-auto rounded-sm border border-border [container-t\">",
           "role": "region",
           "accessibleName": "4 teleoperation rig families compared across cost, data quality, throughput, and embodiment gap. Ratings are low, medium, or high as explained in each cell note. Unpublished figures are marked not disclosed and always sort last, in both directions.",
           "tabIndex": 0,
-          "clientWidth": 1052,
-          "scrollWidth": 1052,
+          "clientWidth": 1102,
+          "scrollWidth": 1102,
           "scrolledBy": 0
         }
       ],
@@ -11739,7 +11369,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17824,
+      "visibleTextLength": 17969,
       "tables": [
         {
           "index": 0,
@@ -11757,11 +11387,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Eight milestones that would settle the bear case. Select a row to read the evidence behind its status and the observation that would flip it.",
-            "clientWidth": 1054,
-            "scrollWidth": 1054,
+            "clientWidth": 1102,
+            "scrollWidth": 1102,
             "scrolledBy": 0
           },
-          "tableWidth": 1054,
+          "tableWidth": 1094,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -11771,12 +11401,12 @@
         {
           "index": 0,
           "kind": "table",
-          "outline": "<div class=\"overflow-x-auto mt-4\">",
+          "outline": "<div class=\"overflow-x-auto px-1 pt-1.5 pb-1\">",
           "role": "region",
           "accessibleName": "Eight milestones that would settle the bear case. Select a row to read the evidence behind its status and the observation that would flip it.",
           "tabIndex": 0,
-          "clientWidth": 1054,
-          "scrollWidth": 1054,
+          "clientWidth": 1102,
+          "scrollWidth": 1102,
           "scrolledBy": 0
         }
       ],
@@ -11790,7 +11420,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 25038,
+      "visibleTextLength": 25171,
       "tables": [
         {
           "index": 0,
@@ -11808,11 +11438,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Six competing theses for robot intelligence. Select a row to read its proponents, the evidence on both sides, and its falsification criterion.",
-            "clientWidth": 1054,
-            "scrollWidth": 1054,
+            "clientWidth": 1102,
+            "scrollWidth": 1102,
             "scrolledBy": 0
           },
-          "tableWidth": 1054,
+          "tableWidth": 1094,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -11822,12 +11452,12 @@
         {
           "index": 0,
           "kind": "table",
-          "outline": "<div class=\"overflow-x-auto mt-4\">",
+          "outline": "<div class=\"overflow-x-auto px-1 pt-1.5 pb-1\">",
           "role": "region",
           "accessibleName": "Six competing theses for robot intelligence. Select a row to read its proponents, the evidence on both sides, and its falsification criterion.",
           "tabIndex": 0,
-          "clientWidth": 1054,
-          "scrollWidth": 1054,
+          "clientWidth": 1102,
+          "scrollWidth": 1102,
           "scrolledBy": 0
         }
       ],
@@ -11841,7 +11471,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 21362,
+      "visibleTextLength": 21461,
       "tables": [
         {
           "index": 0,
@@ -11859,11 +11489,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Five dexterous hands with their degrees of freedom, tactile threshold, cost and training bet. Sort by any spec column, and select a row to compare it against the others.",
-            "clientWidth": 665,
-            "scrollWidth": 665,
+            "clientWidth": 713,
+            "scrollWidth": 713,
             "scrolledBy": 0
           },
-          "tableWidth": 665,
+          "tableWidth": 705,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -11873,12 +11503,12 @@
         {
           "index": 0,
           "kind": "table",
-          "outline": "<div class=\"overflow-x-auto mt-4\">",
+          "outline": "<div class=\"overflow-x-auto px-1 pt-1.5 pb-1\">",
           "role": "region",
           "accessibleName": "Five dexterous hands with their degrees of freedom, tactile threshold, cost and training bet. Sort by any spec column, and select a row to compare it against the others.",
           "tabIndex": 0,
-          "clientWidth": 665,
-          "scrollWidth": 665,
+          "clientWidth": 713,
+          "scrollWidth": 713,
           "scrolledBy": 0
         }
       ],
@@ -11892,7 +11522,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17749,
+      "visibleTextLength": 16161,
       "tables": [
         {
           "index": 0,
@@ -11910,35 +11540,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled loss and completion by pretraining hours",
-            "clientWidth": 665,
-            "scrollWidth": 665,
+            "clientWidth": 623,
+            "scrollWidth": 623,
             "scrolledBy": 0
           },
-          "tableWidth": 665,
-          "containerOverflowPx": 0,
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 1,
-          "accessibleName": "Sampled loss and completion by pretraining hours",
-          "captionText": "",
-          "columnHeaders": 5,
-          "rowHeaders": 6,
-          "unscopedHeaders": 0,
-          "sortButtons": 0,
-          "sortedColumns": 0,
-          "notDisclosedCells": 0,
-          "notApplicableCells": 2,
-          "scrollContainer": {
-            "overflowX": "auto",
-            "tabIndex": 0,
-            "role": "region",
-            "accessibleName": "Sampled loss and completion by pretraining hours",
-            "clientWidth": 599,
-            "scrollWidth": 599,
-            "scrolledBy": 0
-          },
-          "tableWidth": 599,
+          "tableWidth": 623,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -12001,19 +11607,8 @@
           "role": "region",
           "accessibleName": "Sampled loss and completion by pretraining hours",
           "tabIndex": 0,
-          "clientWidth": 665,
-          "scrollWidth": 665,
-          "scrolledBy": 0
-        },
-        {
-          "index": 1,
-          "kind": "table",
-          "outline": "<div class=\"overflow-x-auto mt-2\">",
-          "role": "region",
-          "accessibleName": "Sampled loss and completion by pretraining hours",
-          "tabIndex": 0,
-          "clientWidth": 599,
-          "scrollWidth": 599,
+          "clientWidth": 623,
+          "scrollWidth": 623,
           "scrolledBy": 0
         }
       ],
@@ -12027,7 +11622,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15160,
+      "visibleTextLength": 15246,
       "tables": [
         {
           "index": 0,
@@ -12045,11 +11640,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled episode success by episode length",
-            "clientWidth": 665,
-            "scrollWidth": 665,
+            "clientWidth": 689,
+            "scrollWidth": 689,
             "scrolledBy": 0
           },
-          "tableWidth": 665,
+          "tableWidth": 689,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         },
@@ -12069,11 +11664,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Deployment programs with their reported value, whether the figure is verified or claimed, and the source behind it. Filter the rows by status above the table.",
-            "clientWidth": 665,
-            "scrollWidth": 665,
+            "clientWidth": 713,
+            "scrollWidth": 713,
             "scrolledBy": 0
           },
-          "tableWidth": 665,
+          "tableWidth": 705,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -12136,19 +11731,19 @@
           "role": "region",
           "accessibleName": "Sampled episode success by episode length",
           "tabIndex": 0,
-          "clientWidth": 665,
-          "scrollWidth": 665,
+          "clientWidth": 689,
+          "scrollWidth": 689,
           "scrolledBy": 0
         },
         {
           "index": 1,
           "kind": "table",
-          "outline": "<div class=\"overflow-x-auto mt-4\">",
+          "outline": "<div class=\"overflow-x-auto px-1 pt-1.5 pb-1\">",
           "role": "region",
           "accessibleName": "Deployment programs with their reported value, whether the figure is verified or claimed, and the source behind it. Filter the rows by status above the table.",
           "tabIndex": 0,
-          "clientWidth": 665,
-          "scrollWidth": 665,
+          "clientWidth": 713,
+          "scrollWidth": 713,
           "scrolledBy": 0
         }
       ],
@@ -12162,7 +11757,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 27145,
+      "visibleTextLength": 26220,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -12176,7 +11771,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 23385,
+      "visibleTextLength": 23304,
       "tables": [
         {
           "index": 0,
@@ -12194,11 +11789,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled success rate and decision count by chunk size",
-            "clientWidth": 665,
-            "scrollWidth": 665,
+            "clientWidth": 689,
+            "scrollWidth": 689,
             "scrolledBy": 0
           },
-          "tableWidth": 665,
+          "tableWidth": 689,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         },
@@ -12218,11 +11813,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled toy throughput scores by added delay",
-            "clientWidth": 665,
-            "scrollWidth": 665,
+            "clientWidth": 689,
+            "scrollWidth": 689,
             "scrolledBy": 0
           },
-          "tableWidth": 665,
+          "tableWidth": 689,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         },
@@ -12242,64 +11837,16 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled executed action across the hand-off",
-            "clientWidth": 665,
-            "scrollWidth": 665,
+            "clientWidth": 689,
+            "scrollWidth": 689,
             "scrolledBy": 0
           },
-          "tableWidth": 665,
+          "tableWidth": 689,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         },
         {
           "index": 3,
-          "accessibleName": "Sampled toy throughput scores by added delay",
-          "captionText": "",
-          "columnHeaders": 5,
-          "rowHeaders": 6,
-          "unscopedHeaders": 0,
-          "sortButtons": 0,
-          "sortedColumns": 0,
-          "notDisclosedCells": 0,
-          "notApplicableCells": 0,
-          "scrollContainer": {
-            "overflowX": "auto",
-            "tabIndex": 0,
-            "role": "region",
-            "accessibleName": "Sampled toy throughput scores by added delay",
-            "clientWidth": 599,
-            "scrollWidth": 599,
-            "scrolledBy": 0
-          },
-          "tableWidth": 599,
-          "containerOverflowPx": 0,
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 4,
-          "accessibleName": "Sampled executed action across the hand-off",
-          "captionText": "",
-          "columnHeaders": 4,
-          "rowHeaders": 6,
-          "unscopedHeaders": 0,
-          "sortButtons": 0,
-          "sortedColumns": 0,
-          "notDisclosedCells": 0,
-          "notApplicableCells": 0,
-          "scrollContainer": {
-            "overflowX": "auto",
-            "tabIndex": 0,
-            "role": "region",
-            "accessibleName": "Sampled executed action across the hand-off",
-            "clientWidth": 599,
-            "scrollWidth": 599,
-            "scrolledBy": 0
-          },
-          "tableWidth": 599,
-          "containerOverflowPx": 0,
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 5,
           "accessibleName": "Action horizon (predicted actions) and reported frequency (Hz). Setup-specific prediction, execution and controller rates are not interchangeable. Applicable unpublished values are not disclosed. Weights mean download availability, not license openness.",
           "captionText": "Action horizon (predicted actions) and reported frequency (Hz). Setup-specific prediction, execution and controller rates are not interchangeable. Applicable unpublished values are not disclosed. Weights mean download availability, not license openness.",
           "columnHeaders": 6,
@@ -12327,11 +11874,11 @@
         {
           "index": 0,
           "display": true,
-          "mathmlText": "O(εT2)⏟behavior cloningO(εT)⏟DAgger\\underbrace{O(\\varepsilon T^2)}_{\\text{behavior cloning}} \\qquad \\underbrace{O(\\varepsilon T)}_{\\text{DAgger}}",
-          "annotationTex": "\\underbrace{O(\\varepsilon T^2)}_{\\text{behavior cloning}} \\qquad \\underbrace{O(\\varepsilon T)}_{\\text{DAgger}}",
+          "mathmlText": "O(εT2)behavior cloningO(εT)DAgger\\underset{\\text{behavior cloning}}{O(\\varepsilon T^2)} \\qquad \\underset{\\text{DAgger}}{O(\\varepsilon T)}",
+          "annotationTex": "\\underset{\\text{behavior cloning}}{O(\\varepsilon T^2)} \\qquad \\underset{\\text{DAgger}}{O(\\varepsilon T)}",
           "htmlLayerHidden": true,
           "renderError": false,
-          "renderedText": "behavior cloningO(εT2)​​DAggerO(εT)​​",
+          "renderedText": "behavior cloningO(εT2)​DAggerO(εT)​",
           "fontFamilyHead": "KaTeX_Main",
           "scrollWidth": 715,
           "clientWidth": 715,
@@ -12440,8 +11987,8 @@
           "role": "region",
           "accessibleName": "Sampled success rate and decision count by chunk size",
           "tabIndex": 0,
-          "clientWidth": 665,
-          "scrollWidth": 665,
+          "clientWidth": 689,
+          "scrollWidth": 689,
           "scrolledBy": 0
         },
         {
@@ -12462,8 +12009,8 @@
           "role": "region",
           "accessibleName": "Sampled toy throughput scores by added delay",
           "tabIndex": 0,
-          "clientWidth": 665,
-          "scrollWidth": 665,
+          "clientWidth": 689,
+          "scrollWidth": 689,
           "scrolledBy": 0
         },
         {
@@ -12473,36 +12020,14 @@
           "role": "region",
           "accessibleName": "Sampled executed action across the hand-off",
           "tabIndex": 0,
-          "clientWidth": 665,
-          "scrollWidth": 665,
+          "clientWidth": 689,
+          "scrollWidth": 689,
           "scrolledBy": 0
         },
         {
           "index": 5,
           "kind": "table",
-          "outline": "<div class=\"overflow-x-auto mt-2\">",
-          "role": "region",
-          "accessibleName": "Sampled toy throughput scores by added delay",
-          "tabIndex": 0,
-          "clientWidth": 599,
-          "scrollWidth": 599,
-          "scrolledBy": 0
-        },
-        {
-          "index": 6,
-          "kind": "table",
-          "outline": "<div class=\"overflow-x-auto mt-2\">",
-          "role": "region",
-          "accessibleName": "Sampled executed action across the hand-off",
-          "tabIndex": 0,
-          "clientWidth": 599,
-          "scrollWidth": 599,
-          "scrolledBy": 0
-        },
-        {
-          "index": 7,
-          "kind": "table",
-          "outline": "<div class=\"overflow-x-auto rounded-sm border border-border\">",
+          "outline": "<div class=\"overflow-x-auto rounded-sm border border-border [container-t\">",
           "role": "region",
           "accessibleName": "Action horizon (predicted actions) and reported frequency (Hz). Setup-specific prediction, execution and controller rates are not interchangeable. Applicable unpublished values are not disclosed. Weights mean download availability, not license openness.",
           "tabIndex": 0,
@@ -12572,7 +12097,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14769,
+      "visibleTextLength": 12997,
       "tables": [
         {
           "index": 0,
@@ -12590,35 +12115,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled toy deviation and reference scalings by horizon",
-            "clientWidth": 665,
-            "scrollWidth": 665,
+            "clientWidth": 623,
+            "scrollWidth": 623,
             "scrolledBy": 0
           },
-          "tableWidth": 665,
-          "containerOverflowPx": 0,
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 1,
-          "accessibleName": "Sampled toy deviation and reference scalings by horizon",
-          "captionText": "",
-          "columnHeaders": 4,
-          "rowHeaders": 6,
-          "unscopedHeaders": 0,
-          "sortButtons": 0,
-          "sortedColumns": 0,
-          "notDisclosedCells": 0,
-          "notApplicableCells": 0,
-          "scrollContainer": {
-            "overflowX": "auto",
-            "tabIndex": 0,
-            "role": "region",
-            "accessibleName": "Sampled toy deviation and reference scalings by horizon",
-            "clientWidth": 599,
-            "scrollWidth": 599,
-            "scrolledBy": 0
-          },
-          "tableWidth": 599,
+          "tableWidth": 623,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -13097,23 +12598,12 @@
           "role": "region",
           "accessibleName": "Sampled toy deviation and reference scalings by horizon",
           "tabIndex": 0,
-          "clientWidth": 665,
-          "scrollWidth": 665,
+          "clientWidth": 623,
+          "scrollWidth": 623,
           "scrolledBy": 0
         },
         {
           "index": 1,
-          "kind": "table",
-          "outline": "<div class=\"overflow-x-auto mt-2\">",
-          "role": "region",
-          "accessibleName": "Sampled toy deviation and reference scalings by horizon",
-          "tabIndex": 0,
-          "clientWidth": 599,
-          "scrollWidth": 599,
-          "scrolledBy": 0
-        },
-        {
-          "index": 2,
           "kind": "math",
           "outline": "<span class=\"katex-display\">",
           "role": "region",
@@ -13124,7 +12614,7 @@
           "scrolledBy": 0
         },
         {
-          "index": 3,
+          "index": 2,
           "kind": "math",
           "outline": "<span class=\"katex-display\">",
           "role": "region",
@@ -13135,7 +12625,7 @@
           "scrolledBy": 0
         },
         {
-          "index": 4,
+          "index": 3,
           "kind": "math",
           "outline": "<span class=\"katex-display\">",
           "role": "region",
@@ -13156,7 +12646,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 29421,
+      "visibleTextLength": 29623,
       "tables": [
         {
           "index": 0,
@@ -13174,11 +12664,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "18 policies across the eight architectural axes. Horizon shows planned / executed steps (n.d. = not disclosed). Weights describe download availability, not license openness. Unknown availability is separate from not released. Cells the vendor has not published are marked not disclosed and always sort last, in both directions. Unset scalar rates do not prove that a source reports no setup-specific rate. Read the setting notes and linked sources before comparing cells.",
-            "clientWidth": 1052,
-            "scrollWidth": 1185,
+            "clientWidth": 1076,
+            "scrollWidth": 1187,
             "scrolledBy": 40
           },
-          "tableWidth": 1185,
+          "tableWidth": 1187,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -13221,12 +12711,12 @@
         {
           "index": 0,
           "kind": "table",
-          "outline": "<div class=\"overflow-x-auto rounded-sm border border-border mt-4\">",
+          "outline": "<div class=\"overflow-x-auto rounded-sm border border-border [container-t\">",
           "role": "region",
           "accessibleName": "18 policies across the eight architectural axes. Horizon shows planned / executed steps (n.d. = not disclosed). Weights describe download availability, not license openness. Unknown availability is separate from not released. Cells the vendor has not published are marked not disclosed and always sort last, in both directions. Unset scalar rates do not prove that a source reports no setup-specific rate. Read the setting notes and linked sources before comparing cells.",
           "tabIndex": 0,
-          "clientWidth": 1052,
-          "scrollWidth": 1185,
+          "clientWidth": 1076,
+          "scrollWidth": 1187,
           "scrolledBy": 40
         }
       ],
@@ -13240,7 +12730,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 16117,
+      "visibleTextLength": 16240,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -13254,7 +12744,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15143,
+      "visibleTextLength": 15071,
       "tables": [],
       "equations": [
         {
@@ -13647,7 +13137,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 22549,
+      "visibleTextLength": 22700,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -13661,7 +13151,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 19939,
+      "visibleTextLength": 19970,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -13675,7 +13165,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 12870,
+      "visibleTextLength": 12596,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -13689,7 +13179,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 26799,
+      "visibleTextLength": 25861,
       "tables": [],
       "equations": [
         {
@@ -13816,7 +13306,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17980,
+      "visibleTextLength": 17960,
       "tables": [
         {
           "index": 0,
@@ -13834,40 +13324,16 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Teaching-model inference by toy size, against the 20 ms budget",
-            "clientWidth": 665,
-            "scrollWidth": 665,
+            "clientWidth": 689,
+            "scrollWidth": 689,
             "scrolledBy": 0
           },
-          "tableWidth": 665,
+          "tableWidth": 689,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         },
         {
           "index": 1,
-          "accessibleName": "Teaching-model inference by toy size, against the 20 ms budget",
-          "captionText": "",
-          "columnHeaders": 4,
-          "rowHeaders": 6,
-          "unscopedHeaders": 0,
-          "sortButtons": 0,
-          "sortedColumns": 0,
-          "notDisclosedCells": 0,
-          "notApplicableCells": 0,
-          "scrollContainer": {
-            "overflowX": "auto",
-            "tabIndex": 0,
-            "role": "region",
-            "accessibleName": "Teaching-model inference by toy size, against the 20 ms budget",
-            "clientWidth": 599,
-            "scrollWidth": 599,
-            "scrolledBy": 0
-          },
-          "tableWidth": 599,
-          "containerOverflowPx": 0,
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 2,
           "accessibleName": "Sampled commanded velocity across the hand-off",
           "captionText": "",
           "columnHeaders": 4,
@@ -13882,11 +13348,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled commanded velocity across the hand-off",
-            "clientWidth": 665,
-            "scrollWidth": 665,
+            "clientWidth": 689,
+            "scrollWidth": 689,
             "scrolledBy": 0
           },
-          "tableWidth": 665,
+          "tableWidth": 689,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -13965,8 +13431,8 @@
           "role": "region",
           "accessibleName": "Teaching-model inference by toy size, against the 20 ms budget",
           "tabIndex": 0,
-          "clientWidth": 665,
-          "scrollWidth": 665,
+          "clientWidth": 689,
+          "scrollWidth": 689,
           "scrolledBy": 0
         },
         {
@@ -13974,21 +13440,10 @@
           "kind": "table",
           "outline": "<div class=\"overflow-x-auto mt-2\">",
           "role": "region",
-          "accessibleName": "Teaching-model inference by toy size, against the 20 ms budget",
-          "tabIndex": 0,
-          "clientWidth": 599,
-          "scrollWidth": 599,
-          "scrolledBy": 0
-        },
-        {
-          "index": 2,
-          "kind": "table",
-          "outline": "<div class=\"overflow-x-auto mt-2\">",
-          "role": "region",
           "accessibleName": "Sampled commanded velocity across the hand-off",
           "tabIndex": 0,
-          "clientWidth": 665,
-          "scrollWidth": 665,
+          "clientWidth": 689,
+          "scrollWidth": 689,
           "scrolledBy": 0
         }
       ],
@@ -14002,7 +13457,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 38736,
+      "visibleTextLength": 38334,
       "tables": [
         {
           "index": 0,
@@ -14020,11 +13475,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Toy value along the fictional espresso episode",
-            "clientWidth": 665,
-            "scrollWidth": 665,
+            "clientWidth": 689,
+            "scrollWidth": 689,
             "scrolledBy": 0
           },
-          "tableWidth": 665,
+          "tableWidth": 689,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         },
@@ -14044,11 +13499,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Per-task successes out of 30",
-            "clientWidth": 665,
-            "scrollWidth": 665,
+            "clientWidth": 689,
+            "scrollWidth": 689,
             "scrolledBy": 0
           },
-          "tableWidth": 665,
+          "tableWidth": 689,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         },
@@ -14135,8 +13590,8 @@
           "role": "region",
           "accessibleName": "Toy value along the fictional espresso episode",
           "tabIndex": 0,
-          "clientWidth": 665,
-          "scrollWidth": 665,
+          "clientWidth": 689,
+          "scrollWidth": 689,
           "scrolledBy": 0
         },
         {
@@ -14168,14 +13623,14 @@
           "role": "region",
           "accessibleName": "Per-task successes out of 30",
           "tabIndex": 0,
-          "clientWidth": 665,
-          "scrollWidth": 665,
+          "clientWidth": 689,
+          "scrollWidth": 689,
           "scrolledBy": 0
         },
         {
           "index": 4,
           "kind": "table",
-          "outline": "<div class=\"overflow-x-auto rounded-sm border border-border my-6 wide-me\">",
+          "outline": "<div class=\"overflow-x-auto rounded-sm border border-border [container-t\">",
           "role": "region",
           "accessibleName": "Eight RL fine-tuning methods, with results reported by their own sources under different protocols, not a leaderboard. Evidence labels describe the inspected publication type, not independent replication. Code marks a source's code-release statement, not verified weights or licensing; not disclosed is limited to the named sources in that row.",
           "tabIndex": 0,
@@ -14208,7 +13663,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 21256,
+      "visibleTextLength": 20432,
       "tables": [
         {
           "index": 0,
@@ -14226,11 +13681,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled action value along the selected dimension",
-            "clientWidth": 665,
-            "scrollWidth": 665,
+            "clientWidth": 689,
+            "scrollWidth": 689,
             "scrolledBy": 0
           },
-          "tableWidth": 665,
+          "tableWidth": 689,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -14244,8 +13699,8 @@
           "role": "region",
           "accessibleName": "Sampled action value along the selected dimension",
           "tabIndex": 0,
-          "clientWidth": 665,
-          "scrollWidth": 665,
+          "clientWidth": 689,
+          "scrollWidth": 689,
           "scrolledBy": 0
         }
       ],
@@ -14259,7 +13714,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 21284,
+      "visibleTextLength": 21093,
       "tables": [
         {
           "index": 0,
@@ -14310,33 +13765,8 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 19572,
-      "tables": [
-        {
-          "index": 0,
-          "accessibleName": "Footfall timing for the walk",
-          "captionText": "",
-          "columnHeaders": 3,
-          "rowHeaders": 5,
-          "unscopedHeaders": 0,
-          "sortButtons": 0,
-          "sortedColumns": 0,
-          "notDisclosedCells": 0,
-          "notApplicableCells": 0,
-          "scrollContainer": {
-            "overflowX": "auto",
-            "tabIndex": 0,
-            "role": "region",
-            "accessibleName": "Footfall timing for the walk",
-            "clientWidth": 665,
-            "scrollWidth": 665,
-            "scrolledBy": 0
-          },
-          "tableWidth": 665,
-          "containerOverflowPx": 0,
-          "viewportOverflowPx": 0
-        }
-      ],
+      "visibleTextLength": 18790,
+      "tables": [],
       "equations": [
         {
           "index": 0,
@@ -14371,19 +13801,7 @@
           "viewportOverflowPx": 0
         }
       ],
-      "scrollRegions": [
-        {
-          "index": 0,
-          "kind": "table",
-          "outline": "<div class=\"overflow-x-auto mt-2\">",
-          "role": "region",
-          "accessibleName": "Footfall timing for the walk",
-          "tabIndex": 0,
-          "clientWidth": 665,
-          "scrollWidth": 665,
-          "scrolledBy": 0
-        }
-      ],
+      "scrollRegions": [],
       "route": "/rl-sim2real/legged-locomotion/",
       "viewport": "1440x900"
     },
@@ -14408,47 +13826,10 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 16820,
-      "tables": [
-        {
-          "index": 0,
-          "accessibleName": "Sampled wall-clock by parallel environment count",
-          "captionText": "",
-          "columnHeaders": 3,
-          "rowHeaders": 5,
-          "unscopedHeaders": 0,
-          "sortButtons": 0,
-          "sortedColumns": 0,
-          "notDisclosedCells": 0,
-          "notApplicableCells": 0,
-          "scrollContainer": {
-            "overflowX": "auto",
-            "tabIndex": 0,
-            "role": "region",
-            "accessibleName": "Sampled wall-clock by parallel environment count",
-            "clientWidth": 665,
-            "scrollWidth": 665,
-            "scrolledBy": 0
-          },
-          "tableWidth": 665,
-          "containerOverflowPx": 0,
-          "viewportOverflowPx": 0
-        }
-      ],
+      "visibleTextLength": 15509,
+      "tables": [],
       "equations": [],
-      "scrollRegions": [
-        {
-          "index": 0,
-          "kind": "table",
-          "outline": "<div class=\"overflow-x-auto mt-2\">",
-          "role": "region",
-          "accessibleName": "Sampled wall-clock by parallel environment count",
-          "tabIndex": 0,
-          "clientWidth": 665,
-          "scrollWidth": 665,
-          "scrolledBy": 0
-        }
-      ],
+      "scrollRegions": [],
       "route": "/rl-sim2real/parallel-sim-rl/",
       "viewport": "1440x900"
     },
@@ -14459,7 +13840,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 28084,
+      "visibleTextLength": 28197,
       "tables": [
         {
           "index": 0,
@@ -14501,11 +13882,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled base-height deviation for both controllers",
-            "clientWidth": 665,
-            "scrollWidth": 665,
+            "clientWidth": 689,
+            "scrollWidth": 689,
             "scrolledBy": 0
           },
-          "tableWidth": 665,
+          "tableWidth": 689,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -14515,12 +13896,12 @@
         {
           "index": 0,
           "kind": "code",
-          "outline": "<pre class=\"mt-2 overflow-x-auto rounded-sm border border-border bg-bg p\">",
+          "outline": "<pre class=\"m-0! overflow-x-auto rounded-md border border-border bg-surf\">",
           "role": "region",
-          "accessibleName": "Proposed reward code",
+          "accessibleName": "Proposed reward code, generation 0",
           "tabIndex": 0,
-          "clientWidth": 395,
-          "scrollWidth": 395,
+          "clientWidth": 713,
+          "scrollWidth": 713,
           "scrolledBy": 0
         },
         {
@@ -14541,8 +13922,8 @@
           "role": "region",
           "accessibleName": "Sampled base-height deviation for both controllers",
           "tabIndex": 0,
-          "clientWidth": 665,
-          "scrollWidth": 665,
+          "clientWidth": 689,
+          "scrollWidth": 689,
           "scrolledBy": 0
         }
       ],
@@ -14556,7 +13937,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 30535,
+      "visibleTextLength": 28267,
       "tables": [
         {
           "index": 0,
@@ -14574,11 +13955,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Modelled wall-clock cost of this budget under each source",
-            "clientWidth": 665,
-            "scrollWidth": 665,
+            "clientWidth": 689,
+            "scrollWidth": 689,
             "scrolledBy": 0
           },
-          "tableWidth": 665,
+          "tableWidth": 689,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -14592,8 +13973,8 @@
           "role": "region",
           "accessibleName": "Modelled wall-clock cost of this budget under each source",
           "tabIndex": 0,
-          "clientWidth": 665,
-          "scrollWidth": 665,
+          "clientWidth": 689,
+          "scrollWidth": 689,
           "scrolledBy": 0
         }
       ],
@@ -14607,7 +13988,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 24640,
+      "visibleTextLength": 24086,
       "tables": [
         {
           "index": 0,
@@ -14625,35 +14006,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled task success against ground friction",
-            "clientWidth": 665,
-            "scrollWidth": 665,
+            "clientWidth": 689,
+            "scrollWidth": 689,
             "scrolledBy": 0
           },
-          "tableWidth": 665,
-          "containerOverflowPx": 0,
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 1,
-          "accessibleName": "Sampled task success against ground friction",
-          "captionText": "",
-          "columnHeaders": 4,
-          "rowHeaders": 5,
-          "unscopedHeaders": 0,
-          "sortButtons": 0,
-          "sortedColumns": 0,
-          "notDisclosedCells": 0,
-          "notApplicableCells": 0,
-          "scrollContainer": {
-            "overflowX": "auto",
-            "tabIndex": 0,
-            "role": "region",
-            "accessibleName": "Sampled task success against ground friction",
-            "clientWidth": 599,
-            "scrollWidth": 599,
-            "scrolledBy": 0
-          },
-          "tableWidth": 599,
+          "tableWidth": 689,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -14667,19 +14024,8 @@
           "role": "region",
           "accessibleName": "Sampled task success against ground friction",
           "tabIndex": 0,
-          "clientWidth": 665,
-          "scrollWidth": 665,
-          "scrolledBy": 0
-        },
-        {
-          "index": 1,
-          "kind": "table",
-          "outline": "<div class=\"overflow-x-auto mt-2\">",
-          "role": "region",
-          "accessibleName": "Sampled task success against ground friction",
-          "tabIndex": 0,
-          "clientWidth": 599,
-          "scrollWidth": 599,
+          "clientWidth": 689,
+          "scrollWidth": 689,
           "scrolledBy": 0
         }
       ],
@@ -14693,7 +14039,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 12620,
+      "visibleTextLength": 12582,
       "tables": [
         {
           "index": 0,
@@ -14795,7 +14141,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17929,
+      "visibleTextLength": 17272,
       "tables": [],
       "equations": [
         {
@@ -14826,7 +14172,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 20402,
+      "visibleTextLength": 19703,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -14840,7 +14186,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 16579,
+      "visibleTextLength": 16401,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -14854,7 +14200,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 16439,
+      "visibleTextLength": 15919,
       "tables": [
         {
           "index": 0,
@@ -14872,11 +14218,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled latent deviation by imagination step",
-            "clientWidth": 665,
-            "scrollWidth": 665,
+            "clientWidth": 689,
+            "scrollWidth": 689,
             "scrolledBy": 0
           },
-          "tableWidth": 665,
+          "tableWidth": 689,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -14890,8 +14236,8 @@
           "role": "region",
           "accessibleName": "Sampled latent deviation by imagination step",
           "tabIndex": 0,
-          "clientWidth": 665,
-          "scrollWidth": 665,
+          "clientWidth": 689,
+          "scrollWidth": 689,
           "scrolledBy": 0
         }
       ],
@@ -14919,7 +14265,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 19776,
+      "visibleTextLength": 19518,
       "tables": [
         {
           "index": 0,

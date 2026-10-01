@@ -10,6 +10,7 @@ import { round6ProseRestorePredecessor } from '../../lib/audit-round6-prose-rest
 import { round6RemainingRepairPredecessor } from '../../lib/audit-round6-remaining-repairs-continuity.ts';
 import { createLocalArtifactReader } from '../../lib/audit-local-basis.ts';
 import { reviewedFrontierChecker } from '../../lib/audit-frontier-motion-continuity.ts';
+import { preFigureMigration } from '../helpers/figure-migration';
 
 const root = join(import.meta.dirname, '../..');
 const directory = 'audit/evidence/motion-data-hardware-20260927/';
@@ -51,13 +52,15 @@ describe('data-hardware motion continuity', () => {
     const review = loadDataHardwareMotionReview(root);
     expect(review.entries).toHaveLength(4);
     for (const [index, entry] of review.entries.entries()) {
-      const current = readFileSync(join(root, entry.current.path));
+      const current = preFigureMigration(entry.current);
       // The 2026-09-28 pinned-leftover round moved the data-bottleneck and
       // evaluation-crisis first screens, the 2026-09-29 prose restores
       // rewrote one industrial-deployment clause, and the round-6 remaining
       // repairs moved the industrial spec to the hydration-safe slider; those
       // live files are gated by the named successors chained on this
-      // unchanged review.
+      // unchanged review. The 2026-10-01 figure migration then edited both
+      // articles and the spec; its reviewed successor returns the bytes
+      // those successors name.
       const verify = index === 0 || index === 1
         ? retainedRound5FirstScreenArticle(root, index as 0 | 1, current)
         : currentDataHardwareMotionArtifact(root, index, index === 2
@@ -88,13 +91,14 @@ describe('data-hardware motion continuity', () => {
         : currentDataHardwareMotionArtifact(destination, index, index === 2
           ? round6ProseRestorePredecessor(destination, entry.current, live)
           : round6RemainingRepairPredecessor(destination, entry.current, live));
-      const changed = Buffer.concat([readFileSync(join(destination, entry.current.path)), Buffer.from('\nchanged')]);
+      const reviewed = preFigureMigration(entry.current);
+      const changed = Buffer.concat([reviewed, Buffer.from('\nchanged')]);
       expect(() => verify(changed)).toThrow(/endpoint identity|first-screen article continuity/);
       put(destination, entry.current.path, changed);
       expect(() => createLocalArtifactReader(destination)(entry.before)).toThrow();
       put(destination, entry.current.path, readFileSync(join(root, entry.current.path)));
       put(destination, entry.snapshot.path, 'changed historical input');
-      expect(() => verify(readFileSync(join(destination, entry.current.path)))).toThrow(/snapshot drift/);
+      expect(() => verify(reviewed)).toThrow(/snapshot drift/);
       put(destination, 'audit/evidence/industrial-release-20260924/dependency-review.json', '{}');
       expect(() => loadDataHardwareMotionReview(destination)).toThrow(/predecessor drift/);
     }
@@ -106,7 +110,7 @@ describe('data-hardware motion continuity', () => {
     review.entries[1].requiredPresent.push('unreviewed outcome claim');
     put(destination, `${directory}continuity.json`, JSON.stringify(review));
     expect(() => retainedRound5FirstScreenArticle(destination, 1,
-      readFileSync(join(destination, review.entries[1].current.path)))).toThrow(/disclosure/);
+      preFigureMigration(review.entries[1].current))).toThrow(/disclosure/);
     const checker = readFileSync(join(root, 'lib/audit-local-basis.ts'));
     expect(reviewedDataHardwareChecker(destination, Buffer.concat([checker, Buffer.from('\n')]))).toBe(false);
     put(destination, `${directory}audit-local-basis-before.ts.txt`, 'changed checker predecessor');

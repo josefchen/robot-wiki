@@ -57,10 +57,12 @@ function unmigrated(sources: Iterable<string>): string[] {
       join(ROOT, 'components', 'interactive', `${name}.tsx`),
       'utf8',
     );
-    const importsFamily = /import\s+\{[^}]*InstrumentFrame[^}]*\}\s+from\s+['"]@\/components\/ui(?:\/instrument)?['"]/.test(
+    // InstrumentFigure is the instrument frame drawn on the shared figure
+    // frame, so a figure-system instrument carries the same signature.
+    const importsFamily = /import\s+\{[^}]*\bInstrument(?:Frame|Figure)\b[^}]*\}\s+from\s+['"]@\/components\/ui(?:\/instrument)?['"]/.test(
       text,
     );
-    const mountsFrame = /<InstrumentFrame\b/.test(text);
+    const mountsFrame = /<Instrument(?:Frame|Figure)\b/.test(text);
     if (!importsFamily || !mountsFrame) missing.push(name);
   }
   return missing.sort();

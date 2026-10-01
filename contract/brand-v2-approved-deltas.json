@@ -37148,6 +37148,1248 @@
         "VAL-B2-BASE-011"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-accessible-names-action-conditioning-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/action-conditioning.tsx:aria-label:1",
+      "oldHash": "4dc263e6a13e5886fbbfbcdaf0da7c6526b9409e66ef6ec0b14bfa3c99406992",
+      "newHash": "62b83dbe251c51fa7c27268a563e0c20155f71aeaaf5cb9a2d48e86f8156b026",
+      "reason": "ActionConditioning on /world-models/generative-video/ still names each rollout's action group \"Rollout <letter> action\"; the expression now reads the upper-cased panel letter from a local constant (const name = panel.toUpperCase()) in place of an inline panel.toUpperCase() call. The constant came with redrawing the rollout panels as diagrams on the graphite stage of the shared instrument figure frame, in place of the light wireframe panels that the e4784342 figure-system allowlist held for outside-frame, reserved-colour and sub-scale-text. The rendered name is unchanged, and no fact, number or citation changed. The edge starts from the sealed bytes 4dc263e6.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-125",
+        "VAL-OPUS-126",
+        "VAL-OPUS-132",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-accessible-names-action-conditioning-expression-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/action-conditioning.tsx:aria-label:2",
+      "oldHash": "331448d655ed78fb47e8a8fbb99e31a756768cb4140ffcac5d68819cf7ff768b",
+      "newHash": "ba5fcc172e1dbd900b4a3eaedc5e8ad078d284df63dffb192818f64c852cf098",
+      "reason": "The per-action buttons of each ActionConditioning rollout are still named \"<action label> for rollout <letter>\"; the expression now takes the upper-cased panel letter from the same local name constant in place of an inline panel.toUpperCase() call. The change came with redrawing the rollout panels as graphite-stage diagrams in the shared instrument figure frame. The rendered name is unchanged, and no fact, number or citation changed. The edge starts from the sealed bytes 331448d6.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-125",
+        "VAL-OPUS-126",
+        "VAL-OPUS-132",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-accessible-names-action-conditioning-expression-aria-label-4",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/action-conditioning.tsx:aria-label:4",
+      "oldHash": "5b3fb08471bdbfd31c2e1fe41a3eb39e2cc984bf4fbe9f6f38ae5f1c7feb1b5b",
+      "newHash": "d862234e726702461976533996091046bb22b0f1546cf62d020c81008e5de58a",
+      "reason": "Each ActionConditioning rollout lane is still named \"Rollout <letter>: predicted frames under the action <action>, <strength> conditioning.\"; the expression now reads the letter from the local name constant in place of an inline panel.toUpperCase() call. The lane is now a diagram of the predicted frames on the graphite stage of the shared instrument figure frame, in place of a light wireframe panel. The rendered name is unchanged, and no fact, number or citation changed. The edge starts from the sealed bytes 5b3fb084.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-125",
+        "VAL-OPUS-126",
+        "VAL-OPUS-132",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-accessible-names-appearance-physics-push-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/appearance-physics-push.tsx:aria-label:1",
+      "oldHash": "443b1843e06bad68eef6a43c7d677445c57df83d95573c8d533b6a77061054d1",
+      "newHash": "6cf78c9f1e33805cc078c4824d15cdd2113a695c3c72e5e7fd330467daa04169",
+      "reason": "In AppearancePhysicsPush on /world-models/generative-sim/, expression position 1 now holds the three-layer scene label (\"Three-layer scene. Appearance layer <on or off>, …\") that was position 2, unchanged. The lab moved into the shared instrument figure frame with its layer panels redrawn on the graphite stage, and the redrawn scene is defined ahead of the frame's controls slot, so the push-force slider name moved from position 1 to position 2. No name text, fact, number or citation changed. The edge starts from the sealed bytes 443b1843.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-125",
+        "VAL-OPUS-126",
+        "VAL-OPUS-132",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-accessible-names-appearance-physics-push-expression-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/appearance-physics-push.tsx:aria-label:2",
+      "oldHash": "6cf78c9f1e33805cc078c4824d15cdd2113a695c3c72e5e7fd330467daa04169",
+      "newHash": "443b1843e06bad68eef6a43c7d677445c57df83d95573c8d533b6a77061054d1",
+      "reason": "In AppearancePhysicsPush, expression position 2 now holds the push-force slider name (\"Push force in newtons, currently <force>\") that was position 1, unchanged. The slider now sits in the controls slot of the shared instrument figure frame, after the redrawn three-layer scene in the source, so the scene label took position 1. No name text, fact, number or citation changed. The edge starts from the sealed bytes 6cf78c9f.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-125",
+        "VAL-OPUS-126",
+        "VAL-OPUS-132",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-accessible-names-deployment-economics-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/deployment-economics.tsx:aria-label:1",
+      "oldHash": "e2f403af501cf8676da660787aceb6c3d44cae1557688ecc685476142c033527",
+      "newHash": "9e06c6427200e985fb8fe794292316c96657d8c18f54e10ab000a19cf72bfed2",
+      "reason": "Each slider of the cell economics calculator on /data-hardware/industrial-deployment/ is still named \"<input label>, currently <formatted value>\"; the loop variable that holds the input's value is now called current in place of value, so the expression reads format(current). The rename came with moving the calculator into the shared instrument figure frame, with its sliders in the frame's controls slot. The rendered name is unchanged, and no fact, number or citation changed. The edge starts from the sealed bytes e2f403af.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-125",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-accessible-names-deployment-economics-expression-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/deployment-economics.tsx:aria-label:2",
+      "oldHash": "b7a1bbfb6a7dcc6a4c4719f331bbe0b64d206999e4a2b9d9921b969ae7032895",
+      "newHash": "ad1c12509d04f98ff903fcee6b5b1b212a967db67bc4f412581dcd95cfcf0b62",
+      "reason": "The time-breakdown name of the cell economics calculator still states the productive-cycle, jam-clearing and downtime shares of an elapsed hour; it now reads them from a local constant (const breakdown = out.timeBreakdown) in place of out.timeBreakdown inline. The breakdown bar was redrawn as an SVG on the graphite stage with a seconds axis and role-coloured segments, in place of three HTML bars in accent tints that the e4784342 figure-system allowlist held for outside-frame, reserved-colour and sub-scale-text. The rendered name is unchanged, and no fact, number or citation changed. The edge starts from the sealed bytes b7a1bbfb.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-125",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-accessible-names-generalist-release-timeline-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/generalist-release-timeline.tsx:aria-label:1",
+      "oldHash": "5b4b2a73b888f5eb98c702f4a7b60564ef018314ce46944956f565aad3792c38",
+      "newHash": "86256fe5ef275859890a57fbc0ce09c0714c67ee4224af7975cd4598d7a2f418",
+      "reason": "Resolution from the sealed member to the current bytes, required because this member's approval history already ends in a reconciling resolution; it binds all 4 prior approvals by ID and both hashes. The pre-change bytes are the continuation-merge-2026-09-24-0305-accessible-names-expression-components-interactive-generalist-release-timeline-tsx-aria-label-1 endpoint b51dd847. The only change from that endpoint is an index swap in GeneralistReleaseTimeline on /manipulation/generalist-policies/: position 1 now holds the release button name {r.name} that was position 2, unchanged, because the timeline moved into the shared instrument figure frame and its release selector now sits in the controls slot ahead of the chart in the source. The chart description moved to position 2 with the same text, and no fact, number or citation changed.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-125",
+        "VAL-OPUS-132",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "oft-gemini-oxe-20260908-6",
+          "oldHash": "5b4b2a73b888f5eb98c702f4a7b60564ef018314ce46944956f565aad3792c38",
+          "newHash": "29418117f104847c68b3ab156e508b4cbb32da5fd4325f021d672d2809b87945"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0140-accessible-names-expression-components-interactive-generalist-release-timeline-tsx-aria-label-1",
+          "oldHash": "5b4b2a73b888f5eb98c702f4a7b60564ef018314ce46944956f565aad3792c38",
+          "newHash": "b51dd847011dc6c17e8c9f69746fc75d063910d2db37aec6cead04f75b4b0357"
+        },
+        {
+          "id": "native-validator-repair-20260924-1",
+          "oldHash": "29418117f104847c68b3ab156e508b4cbb32da5fd4325f021d672d2809b87945",
+          "newHash": "b51dd847011dc6c17e8c9f69746fc75d063910d2db37aec6cead04f75b4b0357"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-accessible-names-expression-components-interactive-generalist-release-timeline-tsx-aria-label-1",
+          "oldHash": "5b4b2a73b888f5eb98c702f4a7b60564ef018314ce46944956f565aad3792c38",
+          "newHash": "b51dd847011dc6c17e8c9f69746fc75d063910d2db37aec6cead04f75b4b0357"
+        }
+      ]
+    },
+    {
+      "id": "opus-figure-migration-20261001-accessible-names-generalist-release-timeline-expression-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/generalist-release-timeline.tsx:aria-label:2",
+      "oldHash": "86256fe5ef275859890a57fbc0ce09c0714c67ee4224af7975cd4598d7a2f418",
+      "newHash": "b51dd847011dc6c17e8c9f69746fc75d063910d2db37aec6cead04f75b4b0357",
+      "reason": "In GeneralistReleaseTimeline, expression position 2 now holds the chart description (\"Selected generalist robot policy records. Highlighted nodes have a reported weight download; …\") that was position 1, unchanged. The timeline moved onto the graphite stage of the shared instrument figure frame, off the light surface panels that the e4784342 figure-system allowlist held for outside-frame, reserved-colour and sub-scale-text, and its release selector now precedes the chart in the source, so the release button name moved from position 2 to position 1. No name text, fact, number or citation changed. The edge starts from the sealed bytes 86256fe5.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-125",
+        "VAL-OPUS-132",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-accessible-names-latent-imagination-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/latent-imagination.tsx:aria-label:1",
+      "oldHash": "86527a72fcad380278b7105f0f17c2d9bc702d18ae5c44872e8673d117ec8d7e",
+      "newHash": "cbd9f5fbd27779d5e7d2074a7f29d30b7e387739b7e5f8f2bef54c66bc099ca4",
+      "reason": "In LatentImagination on /world-models/latent-dynamics/, expression position 1 now holds the imagined-rollout label (\"Imagined rollout in latent space over <horizon> steps, …\") that was position 3, unchanged. The lab moved onto the graphite stage of the shared instrument figure frame, off the light panels that the e4784342 figure-system allowlist held, and its two charts are now defined ahead of the frame's controls slot, so the horizon and model-error slider names moved from positions 1 and 2 to positions 3 and 4. No name text, fact, number or citation changed. The edge starts from the sealed bytes 86527a72.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-125",
+        "VAL-OPUS-132",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-accessible-names-latent-imagination-expression-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/latent-imagination.tsx:aria-label:2",
+      "oldHash": "f1d3a8209b7ebb87c7f3a9de868d887e35fe1ccdd17bef3fca06a5dbab96e72e",
+      "newHash": "d5d4358ab2602a7ea24ef62934c64166dd0245a26bfbab9285d5e6a7c2b52346",
+      "reason": "In LatentImagination, expression position 2 now holds the latent-deviation chart label (\"Latent deviation versus imagination step in a deterministic toy. …\") that was position 4, unchanged. Both charts now precede the controls slot of the shared instrument figure frame in the source, so they take positions 1 and 2 ahead of the two sliders. No name text, fact, number or citation changed. The edge starts from the sealed bytes f1d3a820.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-125",
+        "VAL-OPUS-132",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-accessible-names-latent-imagination-expression-aria-label-3",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/latent-imagination.tsx:aria-label:3",
+      "oldHash": "cbd9f5fbd27779d5e7d2074a7f29d30b7e387739b7e5f8f2bef54c66bc099ca4",
+      "newHash": "86527a72fcad380278b7105f0f17c2d9bc702d18ae5c44872e8673d117ec8d7e",
+      "reason": "In LatentImagination, expression position 3 now holds the horizon slider name (\"Imagination horizon in steps, currently <horizon>\") that was position 1, unchanged. The slider moved into the controls slot of the shared instrument figure frame, after the two charts in the source. No name text, fact, number or citation changed. The edge starts from the sealed bytes cbd9f5fb.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-125",
+        "VAL-OPUS-132",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-accessible-names-latent-imagination-expression-aria-label-4",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/latent-imagination.tsx:aria-label:4",
+      "oldHash": "d5d4358ab2602a7ea24ef62934c64166dd0245a26bfbab9285d5e6a7c2b52346",
+      "newHash": "f1d3a8209b7ebb87c7f3a9de868d887e35fe1ccdd17bef3fca06a5dbab96e72e",
+      "reason": "In LatentImagination, expression position 4 now holds the one-step model-error slider name (\"One-step model error in percent, currently <error>\") that was position 2, unchanged; the latent-deviation chart label that held this position moved to position 2. The slider moved into the controls slot of the shared instrument figure frame, after the two charts in the source. No name text, fact, number or citation changed. The edge starts from the cross-article-closeouts-20260907-7 endpoint d5d4358a.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-125",
+        "VAL-OPUS-132",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-accessible-names-pi-generation-timeline-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/pi-generation-timeline.tsx:aria-label:1",
+      "oldHash": "0fae35ab6525bf34f9fb9800d94ebaf4ea1a261295eea8ecf54b29d277517774",
+      "newHash": "377f4623c8c930c91a9f58373600a927d43548b2fe9a84db6e42f4753cb2c52b",
+      "reason": "In PiGenerationTimeline on /manipulation/pi-line/, expression position 1 now holds the generation button name {g.name} that was position 2, unchanged, because the timeline moved into the shared instrument figure frame and its generation selector now sits in the controls slot ahead of the timeline chart in the source. The timeline description moved to position 2 with the same text, and no fact, number or citation changed. The edge starts from the cross-article-closeouts-20260907-8 endpoint 0fae35ab.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-125",
+        "VAL-OPUS-132",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-accessible-names-pi-generation-timeline-expression-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/pi-generation-timeline.tsx:aria-label:2",
+      "oldHash": "377f4623c8c930c91a9f58373600a927d43548b2fe9a84db6e42f4753cb2c52b",
+      "newHash": "0fae35ab6525bf34f9fb9800d94ebaf4ea1a261295eea8ecf54b29d277517774",
+      "reason": "In PiGenerationTimeline, expression position 2 now holds the timeline description (\"Timeline of dated Physical Intelligence sources from <first date> to <last date>. …\") that was position 1, unchanged. The timeline moved onto the graphite stage of the shared instrument figure frame, off the light surface panels that the e4784342 figure-system allowlist held for outside-frame, reserved-colour and sub-scale-text, and the selector now precedes it in the source. No name text, fact, number or citation changed. The edge starts from the sealed bytes 377f4623.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-125",
+        "VAL-OPUS-132",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-accessible-names-reliability-compounding-expression-aria-label-3",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/reliability-compounding.tsx:aria-label:3",
+      "oldHash": "d055f79f38588f140bfd44a2b8f43205bec6223b9d050a51ee0e3f5ef9698ba5",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Expression position 3 in ReliabilityCompounding was the line chart label (\"Line chart of episode success against episode length at <rate> percent per-step success\"). The calculator gained a presets group so that /frontier/reliability-gap/ draws the p^N curve once, with the ReliabilityThreshold scene's three settings as presets: position 3 is now that group's aria-labelledby and position 4 the preset buttons' name, and the unchanged chart label is now position 5. No fact, number or citation changed. The edge starts from the sealed bytes d055f79f. It ends at the absent-member hash, so the member leaves the article-truth population.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-131",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-accessible-names-reliability-compounding-expression-aria-label-4",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/reliability-compounding.tsx:aria-label:4",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "c6f38998fd657e66f665a121efbc2303ba05a73e53c185763b82e31f980c8289",
+      "reason": "New member: each preset button of ReliabilityCompounding is named \"<per-step rate> per step, <steps> steps\". The presets render only where a page passes presets=\"per-step-thresholds\", which /frontier/reliability-gap/ does: 95%, 99% and 99.9% per step over 30 steps, the three settings the removed ReliabilityThreshold scene stepped through, so the page draws the p^N curve once. No fact, number or citation changed. The member is absent from the seal and from e4784342, so this edge adds it to the article-truth population.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-131",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-accessible-names-reliability-compounding-expression-aria-label-5",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/reliability-compounding.tsx:aria-label:5",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "d055f79f38588f140bfd44a2b8f43205bec6223b9d050a51ee0e3f5ef9698ba5",
+      "reason": "Expression position 5 in ReliabilityCompounding is the line chart label (\"Line chart of episode success against episode length at <rate> percent per-step success\") that was position 3, unchanged. The new presets group's aria-labelledby and the preset buttons' name come before it in the source and take positions 3 and 4. No name text, fact, number or citation changed. The member is absent from the seal and from e4784342, so this edge adds it to the article-truth population.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-131",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-accessible-names-reliability-compounding-expression-aria-labelledby-3",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/reliability-compounding.tsx:aria-labelledby:3",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "d24598907a269cd974f73cda3bad670766c98e155b93b4c134b7b465ad75760a",
+      "reason": "New member: the presets group of ReliabilityCompounding is named by its visible \"Presets\" label through aria-labelledby={presetsLabelId}. The group holds the three per-step settings of the ReliabilityThreshold scene, which left /frontier/reliability-gap/ so that the page draws the p^N curve once. No fact, number or citation changed. The member is absent from the seal and from e4784342, so this edge adds it to the article-truth population.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-131",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-accessible-names-reward-shaping-expression-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/reward-shaping.tsx:aria-label:2",
+      "oldHash": "045632e1fbde9b2ac65ab659b94c7989407bdc5e9b06895ddd5488e4e1670f44",
+      "newHash": "c69ac205d266028aa32bfa55ee57a76a77b8f6213b8cb17a46af172ed6b7ba35",
+      "reason": "In RewardShaping on /rl-sim2real/reward-design-mpc/, expression position 2 now holds the term-weight slider name (\"<term label> weight\") that was position 3, unchanged. The figure moved onto the graphite stage of the shared instrument figure frame, off the light surface panel that the e4784342 figure-system allowlist held for outside-frame, reserved-colour and sub-scale-text, and the weight sliders now sit in the controls slot ahead of the rollout preview, so the preview's name moved from position 2 to position 3. No name text, fact, number or citation changed. The edge starts from the sealed bytes 045632e1.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-125",
+        "VAL-OPUS-132",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-accessible-names-reward-shaping-expression-aria-label-3",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/reward-shaping.tsx:aria-label:3",
+      "oldHash": "c69ac205d266028aa32bfa55ee57a76a77b8f6213b8cb17a46af172ed6b7ba35",
+      "newHash": "045632e1fbde9b2ac65ab659b94c7989407bdc5e9b06895ddd5488e4e1670f44",
+      "reason": "In RewardShaping, expression position 3 now holds the rollout preview name (\"Rollout preview: <status>. <description>\") that was position 2, unchanged. The preview now sits on the graphite stage after the controls slot of the shared instrument figure frame in the source, so the term-weight slider name took position 2. No name text, fact, number or citation changed. The edge starts from the sealed bytes c69ac205.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-125",
+        "VAL-OPUS-132",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-accessible-names-wbc-decomposition-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/wbc-decomposition.tsx:aria-label:1",
+      "oldHash": "f6e2703e94768c6120e4726775cde23f6b87836dd2a8d4c0a05bfe0d75920f7d",
+      "newHash": "c6f5eb9c7b81c561b75b32aff1551b9de5bdac0f4496519cadf2fd4cfee82ed4",
+      "reason": "The stack name in WbcDecomposition on /rl-sim2real/humanoid-wbc/ still states the decomposition, its representative system, the layer count, the top layer and the fastest disclosed loop; the count now comes from a local constant (const layerCount = approach.layers.length) in place of approach.layers.length inline. The stack was redrawn on the graphite stage of the shared instrument figure frame, off the light surface panels that the e4784342 figure-system allowlist held, and the drawing uses the same constant for its layer slots and readout. The rendered name is unchanged, and no fact, number or citation changed. The edge starts from the sealed bytes f6e2703e.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-125",
+        "VAL-OPUS-132",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-accessible-names-figure-expression-alt-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/ui/figure.tsx:alt:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "6b97733ff68d2c73b9a1d61a862fc3f92d20303d54d9c3217f40ad53fc7cd2c2",
+      "reason": "components/ui/figure.tsx now passes the registered alt text twice: position 1 is the alt prop handed to SchematicFigure, which draws an original schematic inline in the shared figure frame on the graphite stage, and position 2 is the img element's alt={alt} that was position 1, unchanged. The two original schematics, covariate-shift and temporal-ensembling, had rendered as images on a bounded-dark plate outside the frame. The alt text in data/images.ts is unchanged, and no fact, number or citation changed. The member is absent from the seal and from e4784342, so this edge adds it to the article-truth population.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-127",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-accessible-names-original-schematics-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/ui/original-schematics.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "7204473944d05a79c79228f09942e708bb1ef64ccc61ee96199dd77c7d94ee20",
+      "reason": "New member: CovariateShiftDrawing in the new components/ui/original-schematics.tsx draws the covariate-shift schematic for /manipulation/bc-foundations/ on the graphite stage and names its plot aria-label={label}, where label is the registered alt text that Figure passes through schematic.draw(alt). The drawing takes the place of /images/covariate-shift.svg on a bounded-dark plate, which the e4784342 figure-system allowlist held as image:covariate-shift, and the frame keeps the \"Original schematic\" label. The data/images.ts record, title and alt text are unchanged, and no fact, number or citation changed. The member is absent from the seal and from e4784342, so this edge adds it to the article-truth population.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-127",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-accessible-names-original-schematics-expression-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/ui/original-schematics.tsx:aria-label:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "7204473944d05a79c79228f09942e708bb1ef64ccc61ee96199dd77c7d94ee20",
+      "reason": "New member: TemporalEnsemblingDrawing in components/ui/original-schematics.tsx draws the temporal-ensembling schematic for /manipulation/action-chunking/ on the graphite stage and names its plot aria-label={label}, where label is the registered alt text that Figure passes through schematic.draw(alt). The drawing takes the place of /images/temporal-ensembling.svg on a bounded-dark plate, and the frame keeps the \"Original schematic\" label. The data/images.ts record, title and alt text are unchanged, and no fact, number or citation changed. The member is absent from the seal and from e4784342, so this edge adds it to the article-truth population.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-127",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-accessible-names-action-conditioning-literal-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/action-conditioning.tsx:aria-label:1",
+      "oldHash": "9608eeb481783e41ed5f06a54f2ad09a6572dea7627666791aff5a62feb46e46",
+      "newHash": "1a29d2f65f02a77dc01a071ecbe584663400b5e00d2fa3a97421b6e524fd16a0",
+      "reason": "In ActionConditioning, literal position 1 now holds the shared initial frame label (\"Shared initial frame: a block centered on a table with a gripper above it and a goal zone marked on the left.\") that was position 2, unchanged. The redrawn initial frame is defined ahead of the shared instrument figure frame's controls slot, where the \"Conditioning strength\" group now sits, so the group label moved from position 1 to position 2. No name text, fact, number or citation changed. The edge starts from the sealed bytes 9608eeb4.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-125",
+        "VAL-OPUS-126",
+        "VAL-OPUS-132",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-accessible-names-action-conditioning-literal-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/action-conditioning.tsx:aria-label:2",
+      "oldHash": "1a29d2f65f02a77dc01a071ecbe584663400b5e00d2fa3a97421b6e524fd16a0",
+      "newHash": "9608eeb481783e41ed5f06a54f2ad09a6572dea7627666791aff5a62feb46e46",
+      "reason": "In ActionConditioning, literal position 2 now holds the \"Conditioning strength\" group label that was position 1, unchanged. The conditioning buttons moved into the controls slot of the shared instrument figure frame, which comes after the redrawn initial frame in the source, so the initial frame label took position 1. No name text, fact, number or citation changed. The edge starts from the sealed bytes 1a29d2f6.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-125",
+        "VAL-OPUS-126",
+        "VAL-OPUS-132",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-accessible-names-deployment-economics-literal-title-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/deployment-economics.tsx:title:1",
+      "oldHash": "8689434648b0b24a7433db350fcd1813f5fe5f3dbad100e0f9eb83c50fd7fe13",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "The literal title \"Productive cycles\" was the hover tooltip of the first HTML segment of the cell economics time-breakdown bar. That bar is now an SVG on the graphite stage: the segment carries data-breakdown-segment \"Productive cycles\", the bar's aria-label states its share (\"<share> productive cycles\") and the legend item \"productive <seconds> s\" its seconds, so no element carries the tooltip. No fact, number or citation changed. The edge starts from the sealed bytes 86894346. It ends at the absent-member hash, so the member leaves the article-truth population.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-125",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-accessible-names-deployment-economics-literal-title-2",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/deployment-economics.tsx:title:2",
+      "oldHash": "a5027a7b7cb37667a8c522f9eb031b58588581aa7832c1505e26964ed98e0614",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "The literal title \"Jam clearing\" was the hover tooltip of the second HTML segment of the cell economics time-breakdown bar. That bar is now an SVG on the graphite stage: the segment carries data-breakdown-segment \"Jam clearing\", the bar's aria-label states its share (\"<share> jam clearing\") and the legend item \"jam clearing <seconds> s\" its seconds, so no element carries the tooltip. No fact, number or citation changed. The edge starts from the sealed bytes a5027a7b. It ends at the absent-member hash, so the member leaves the article-truth population.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-125",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-accessible-names-deployment-economics-literal-title-3",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/deployment-economics.tsx:title:3",
+      "oldHash": "a97d4eb60721e476589bd61f1099ccaa907b593ded5869a9248cf5ae71d40e8c",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "The literal title \"Downtime\" was the hover tooltip of the third HTML segment of the cell economics time-breakdown bar. That bar is now an SVG on the graphite stage: the segment carries data-breakdown-segment \"Downtime\", the bar's aria-label states its share (\"<share> downtime\") and the legend item \"downtime <seconds> s\" its seconds, so no element carries the tooltip. No fact, number or citation changed. The edge starts from the sealed bytes a97d4eb6. It ends at the absent-member hash, so the member leaves the article-truth population.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-125",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-prose-control",
+      "manifest": "prose",
+      "memberId": "article:classical/control",
+      "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+      "newHash": "bdbe9512448bd44b43ff9111af8664b48dd08b8e94f5de045a3f364c798fc7be",
+      "reason": "Resolution from the sealed member to the current bytes, required because this member's approval history already ends in a reconciling resolution; it binds all 23 prior approvals by ID and both hashes. The pre-change bytes are the motion-classical-humanizer-v3-20260927-prose-control endpoint 7ae2310f. The only change from that endpoint is the pendulum lab: the standalone PendulumController mount is removed, and the prediction step that wraps the one remaining PendulumController, mounted at Kp 9.5, moves up into its place, so the page shows one pendulum lab with the prediction attached. The lead-in now ends \"Make the prediction, then press Run and drag the proportional gain to test it.\" in place of the sentence that previewed the 9.81 threshold, which the prediction step still states; the step's prompt now says \"The lab below\" for \"The lab above\", and the next paragraph opens \"The pendulum lab above\" for \"The lab below\". No fact, number or citation changed.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-131",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "control-r5-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r6-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r7-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r8-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r9-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r12-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r14-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r15-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r17-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r18-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r19-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r1-20260916-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r2-20260916-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r3-20260916-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r11-20260916-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r13-20260916-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r16-20260916-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "seo-20260824-prose-cb9819bd8941",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "cb9819bd89410c690abfd9d28151e3a776c02f2682be21a19bc26c6adbab3781"
+        },
+        {
+          "id": "paywall0917a-control-prose",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "01b71ccc454f6d269a643986f989cbd0106f43ccda566f29ad0603ca16bae820"
+        },
+        {
+          "id": "continuation-merge-20260922-prose-classical-control",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "5cd1041d01e82fc7fdb80072da6bb9b4b518a354f34c452088e0b25a846ff7da"
+        },
+        {
+          "id": "control-citation-20260924-prose",
+          "oldHash": "01b71ccc454f6d269a643986f989cbd0106f43ccda566f29ad0603ca16bae820",
+          "newHash": "2f6d4267bd07f34ca2c5acc683f5c4a3b29ae09d79e944b12e41983df5cccda0"
+        },
+        {
+          "id": "main-merge-20260924-control-prose",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "3c11df73fbabb49f9a6d8fe7626f9392f09b4558e107c9a2d51a4e683644d28c"
+        },
+        {
+          "id": "motion-classical-humanizer-v3-20260927-prose-control",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "7ae2310f358c571397744a43cde65fe2ea18e6b924053b66b33deb0136f747e8"
+        }
+      ]
+    },
+    {
+      "id": "opus-figure-migration-20261001-prose-kinematics",
+      "manifest": "prose",
+      "memberId": "article:classical/kinematics",
+      "oldHash": "b8300ca0b4bd3553fb750c151d08c80056932753754b6a8c63ecdf52ddaa4262",
+      "newHash": "d66d8fa1a70413f7afd998fa47bf61063d40b97de7ac35dc762cc1279bebe424",
+      "reason": "The FkChain scene and its import are removed under one visual per concept; the PlanarFkArm lab stays as the page's one forward-kinematics figure, and its lead-in drops the sentence \"The chain below reveals the ordered transformations.\" The Denavit-Hartenberg link transform is now typeset in block form, A_i = [R_i t_i; 0 1] with t_i written out beside it and R_i in a second display equation, at a KaTeX row stretch of 0.9, because the tall brackets of the single 4 by 4 matrix rendered as two loose SVGs that the figure-system check counted as figures outside the frame (the two \"svg after Denavit-Hartenberg parameters\" allowlist entries at e4784342). Every matrix entry and symbol is the same, and no fact, number or citation changed. The edge starts from the round5-first-screen-cd-20260929-prose-kinematics endpoint b8300ca0.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-125",
+        "VAL-OPUS-131",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-prose-motion-planning",
+      "manifest": "prose",
+      "memberId": "article:classical/motion-planning",
+      "oldHash": "2adda289cb9e9894cbd0d2c24b7dca521678b48bd3a6ca80359e423c315b583c",
+      "newHash": "5bd2eacc08c211f6bfb1efdefc6e910746d61b322f7b91c0bfe7f44421ad2a52",
+      "reason": "The RrtGrowth scene and its import are removed under one visual per concept, since the RrtExplorer lab grows the same authored tree; the lab's lead-in now reads \"The lab below uses an authored 2D scene\" for \"The paused overview and the lab below use the same authored 2D scene\", and the Voronoi-bias sentence refers to \"the lab at the top of this module\" for \"the scene at the top\". The informed-sampling set is written \\hat{X}_f for \\widehat{X}_f, because KaTeX drew the wide hat as a loose SVG that the figure-system check counted as a figure outside the frame (the allowlist entry for the svg after the RRT-star optimality heading at e4784342). No fact, number or citation changed. The edge starts from the round6-prose-restores-20260929-prose-motion-planning endpoint 2adda289.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-125",
+        "VAL-OPUS-131",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-prose-perception",
+      "manifest": "prose",
+      "memberId": "article:classical/perception",
+      "oldHash": "705982adff6141e5b24f3472f6c6fa9a0a4a7ab508637b7d8587bd5a267c4685",
+      "newHash": "52f66bc35a1f33b0404a1e8bddf73847aa87c26fe390e26da831d07ab056963e",
+      "reason": "The pose-error notation of the ADD and ADD-S passage is typeset with \\tilde for \\widetilde and with plain \\lVert and \\rVert for \\left\\lVert and \\right\\rVert, in the inline estimated pose and in both display equations. KaTeX drew those wide tildes and stretched bars as ten loose SVGs that the figure-system check counted as figures outside the frame (ten \"svg after 6-DoF pose estimation\" allowlist entries at e4784342); the symbols read the same. No word, fact, number or citation changed. The edge starts from the motion-classical-humanizer-v3-20260927-prose-perception endpoint 705982ad.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-125",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-prose-ros2-for-ml-engineers",
+      "manifest": "prose",
+      "memberId": "article:classical/ros2-for-ml-engineers",
+      "oldHash": "d68d9ca5c0cb992207f7e9e9b67bda3623a87d6b5ac6c896b1bbf5ab5470484d",
+      "newHash": "1a05013b5e0f5fb12cd61abdcd9326afbc00746d828c4732bf21ac747f9e9022",
+      "reason": "The only change is the correct option label of the page's self-check, which now reads \"Use a ROS action: goal, feedback, result and cancellation\" for \"Use a ROS action with goal, feedback, result and cancellation\". One visual per concept removed three prediction steps, which left the correct option as the longest label in 11 of the 21 remaining prediction steps and self-checks, over the VAL-EDU-041 half; this label is now two characters shorter than the longest distractor. The option, its feedback and the answer are unchanged, and no fact, number or citation changed. The edge starts from the motion-classical-humanizer-v3-20260927-prose-ros2-for-ml-engineers endpoint d68d9ca5.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-131",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-prose-data-bottleneck",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/data-bottleneck",
+      "oldHash": "2a399628a0d3d47c483619e0563664aa50e82ca704050c69ccb7d44a73f8a161",
+      "newHash": "9aa9008e04058ada619127fdc018646844ee4f643ace2ca57720dddacd459b45",
+      "reason": "The standalone DataScaleChart and the FarmThroughput scene, with its import, are removed under one visual per concept; the prediction step that wraps the one remaining DataScaleChart, mounted at 10 rigs, now stands right after the chart's lead-in. The Stat grid, the \"Two data universes, nine orders of magnitude apart\" heading and its two paragraphs move below the prediction step unchanged, except that robot and human demonstration data now \"sits in rows along the bottom\" of the chart for \"sits on the bottom lane\". No fact, number or citation changed. The edge starts from the round5-pinned-leftovers-20260928-prose-data-bottleneck endpoint 2a399628.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-131",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-prose-evaluation-crisis",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/evaluation-crisis",
+      "oldHash": "58eb66a343de12e685e540f7840313f33b841fa233b26462d428b2a298459557",
+      "newHash": "7a3f9451dcb84b5b5da4b4c1f5e5187edc4874a6131e49ffce2f1d01de6ecfbf",
+      "reason": "The standalone ReliabilityCompounding calculator and the EpisodeSurvival scene, with its import, are removed under one visual per concept; the calculator inside the prediction step keeps 95% per step over 14 steps and takes the standalone's 0 to 100% per-step range and evaluation description. The boundary-case paragraph moves below the prediction step and opens \"The calculator in the reasoning panel above computes p^n at any setting.\" for \"The calculator above computes that product.\" No fact, number or citation changed. The edge starts from the round5-pinned-leftovers-20260928-prose-evaluation-crisis endpoint 58eb66a3.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-131",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-prose-generalization",
+      "manifest": "prose",
+      "memberId": "article:frontier/generalization",
+      "oldHash": "eea78a462a9118f10e46b7f310674ef7a25fb91190f456056c9918582531dc6e",
+      "newHash": "8c9b0831f170cb82a636067f1c6fb98812e197341f4c98208c6c315798b0fc68",
+      "reason": "The standalone EgoScaleScaling chart is removed under one visual per concept, and the prediction step that wraps the one remaining chart, mounted at 250,000 hours, moves up into its place. The hundred-k option's explanation now says the fit reads 0.89 at 100k hours instead of 0.95, because the chart's own completion fit (COMPLETION_FIT in lib/egoscale-law.ts) gives 0.887 there and the page must agree with the chart it wraps. That reading is the only number that changed; no other fact, number or citation changed. The edge starts from the motion-frontier-adjacent-home-humanizer-v3-20260927-prose-generalization endpoint eea78a46.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation, plus one prediction-step reading brought into line with the completion fit the wrapped chart already draws; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-131",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-prose-reliability-gap",
+      "manifest": "prose",
+      "memberId": "article:frontier/reliability-gap",
+      "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+      "newHash": "2bd375b2ae60549ce16dc60e24bef580a74ecf2d25da7837051165e7d37a456f",
+      "reason": "Resolution from the sealed member to the current bytes, required because this member's approval history already ends in a reconciling resolution; it binds all 22 prior approvals by ID and both hashes. The pre-change bytes are the opus-figure-system-20260930-prose-reliability-gap endpoint ec938d42. The only change from that endpoint is the p^N figure: the ReliabilityThreshold scene and its import are removed, and the ReliabilityCompounding calculator takes presets=\"per-step-thresholds\", the scene's 95%, 99% and 99.9% per-step settings over 30 steps, so the page draws the curve once. The lead-in's last clause now says \"then press the presets to compare the three per-step bars over the same horizon\" for \"then step through the fixed-horizon example that follows\". The FigureReuse caption and every other sentence, number and citation are unchanged.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-131",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "go-helix-cross-transfer-20260908-2",
+          "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+          "newHash": "66f7598571453b8f06b1921bdcd1e680d7f73b978964bd5130011ee1088ec298"
+        },
+        {
+          "id": "rg-r1-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r2-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r3-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r4-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r5-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r7-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r8-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r9-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r10-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r11-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r12-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r13-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r14-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r15-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "seo-merge-20260916-prose-14",
+          "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+          "newHash": "6ec59fccefe91eb94a2846cea3866b9adcb101c11d2563a3b082bc42517225f4"
+        },
+        {
+          "id": "single-leftovers-rg6-20260917-1",
+          "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+          "newHash": "1012cebc53f29bf427e082a33890db54ca636a35965e31d7ec06b9e70e41a3dc"
+        },
+        {
+          "id": "round5-closeout-reliability-gap-prose",
+          "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+          "newHash": "1012cebc53f29bf427e082a33890db54ca636a35965e31d7ec06b9e70e41a3dc"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-tech-withdrawal-prose-reliability-gap",
+          "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+          "newHash": "9ce3dbd3ed18119366400384f63fe66f9a4664bc84424c6fef6d8a2b811de0e4"
+        },
+        {
+          "id": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-reliability-gap",
+          "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+          "newHash": "4ed073dd9969b1b13e1f42c2bb98ca36218a32aae0ea5266ed45fa4228a1a026"
+        },
+        {
+          "id": "round5-chart-first-screen-20260928-prose-reliability-gap",
+          "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+          "newHash": "1e39b6186e098ed948aa36770562e9041be8283a9956f7396b472529fd661a90"
+        },
+        {
+          "id": "opus-figure-system-20260930-prose-reliability-gap",
+          "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+          "newHash": "ec938d42bd87814a5ef1f3c3808a4fbc645107b4e94e6a822646a0465610a063"
+        }
+      ]
+    },
+    {
+      "id": "opus-figure-migration-20261001-prose-action-chunking",
+      "manifest": "prose",
+      "memberId": "article:manipulation/action-chunking",
+      "oldHash": "b5ae41bc08dbcd436221ae13da11a0345f423d804998f22c18a51333a4ad6c5b",
+      "newHash": "b19b42d99dc6b5c0e41f0d9cd19ca723f212c17fbb09a408df53e66fb2837c91",
+      "reason": "The prediction step that mounted a second LatencyComparison at +100 ms is removed under one visual per concept; the page keeps its one LatencyComparison after the real-time chunking paragraph, and the result the step quizzed (protective stops at +100 and +200 ms of added delay) stays in the callout with its pi-real-time-chunking-blog-2025 citation. The behaviour-cloning and DAgger error bounds are written with \\underset for \\underbrace, because KaTeX drew the braces as six loose SVGs that the figure-system check counted as figures outside the frame (six \"svg after Action Chunking (ACT and ALOHA)\" allowlist entries at e4784342). No fact, number or citation changed; the 500 ms that left the page was a wrong option in the removed step. The edge starts from the round6-prose-restores-20260929-prose-action-chunking endpoint b5ae41bc.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-125",
+        "VAL-OPUS-131",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-prose-bc-foundations",
+      "manifest": "prose",
+      "memberId": "article:manipulation/bc-foundations",
+      "oldHash": "463dec3caf678be3dff663a707008974a41944c1a273e6929b9dbbb7b9253559",
+      "newHash": "224f324e65c67dad8a188b11e79f8e0e0bb01bd7177fb7c4943ff3801fb9a9f0",
+      "reason": "The standalone CompoundingError mount is removed under one visual per concept; the prediction step that wraps the one remaining CompoundingError, at 5% per-step error over 240 steps, stays, and the 370 and 1505 unit callout moves below it, now opening \"At 5% per-step error\" for \"At the toy defaults\", the default its slider shows. The lead-in's toy rules give way to \"Each prediction adds an error that grows with the drift. Toggle DAgger relabeling to cut the summed deviation.\", and the rules themselves (one error per 25 steps in chunk mode, 75% of the deviation removed every 20 steps) are stated in the figure's source line. No fact, number or citation changed. The edge starts from the educational-convergence-20260926-prose-bc-foundations endpoint 463dec3c.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-131",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-prose-realtime-execution",
+      "manifest": "prose",
+      "memberId": "article:manipulation/realtime-execution",
+      "oldHash": "241fbcd0e0966f7c2481e1c1a519e9e0a2d953d6b87b79fdfb61d64c257a01d7",
+      "newHash": "6cce3d5339880397f2293b872477bf0590452248b1f494026f06fbf0ceebf70b",
+      "reason": "The prediction step that mounted a second ControlLoopBudget at 1.1B is removed under one visual per concept; the page keeps its one ControlLoopBudget near the top, and the sentence on its teaching curve now refers to \"the control-loop interactive above\" for \"the interactive below\". The step's own arithmetic left with it (19.3 ms at 1.1B, about 52 inferences per second, and 256.4 ms as the reciprocal of 3.9 Hz); the figures it was derived from, 52.57 ms at 3.0B and the cited 3.9 Hz, are still on the page. No sourced fact, number or citation changed. The edge starts from the educational-cue-20260926-prose-realtime-execution endpoint 241fbcd0.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-129",
+        "VAL-OPUS-131",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-prose-legged-locomotion",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/legged-locomotion",
+      "oldHash": "037a9544af297abc1b1e1d7a1ede04d1b612001c90a7525ec1c190b39df7e2e8",
+      "newHash": "141fb173a97581fbfd895b861e6a67ab066819d2354bb03f5cdd756b251e9cfe",
+      "reason": "The GaitDiagram mount and its import are removed under one visual per concept; the GaitSupport scene below the paragraph stays as the page's one gait figure. The lead-in now says \"Press Play on the scene below, then try Step forward from walk to trot to bound\" for \"Switch the diagram below from walk to trot to bound\", and the support readout it describes is unchanged. No fact, number or citation changed. The edge starts from the round5-first-screen-cd-20260929-prose-legged-locomotion endpoint 037a9544.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-131",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-prose-parallel-sim-rl",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/parallel-sim-rl",
+      "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+      "newHash": "5e923e1dc6c8037aa9205edf6694d9ee6633968ba629e73f3494b385705eda33",
+      "reason": "Resolution from the sealed member to the current bytes, required because this member's approval history already ends in a reconciling resolution; it binds all 17 prior approvals by ID and both hashes. The pre-change bytes are the round5-first-screen-cd-20260929-prose-parallel-sim-rl endpoint 16a9970b. The only change from that endpoint is the TrainingTimeChart mount and its import, removed under one visual per concept, with the BatchScale scene kept as the page's one figure. Its lead-in now opens \"The scene below illustrates\" for \"The scene and chart below illustrate\" and says \"Press Play, then try Step forward from 64 environments upward\" for \"Then drag the chart's slider from 64 upward\". No fact, number or citation changed.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-131",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "isaac-v1-twelve-originals-1-20260908",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "03922c2d4ac019087ce635755701f7f6fb1c70c582880393a7b3cb46586a4831"
+        },
+        {
+          "id": "rudin-protocol-20260909-b1d210de386473c2d5",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "06bd5d64a999f11ab74db05d4bf9a112a0c6c2b213fa45680559c2f4016f85c8"
+        },
+        {
+          "id": "rudin-four-placement-20260909-a981a05d2fe91c6e7d",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "b6827e2ea6b4cfac9e072192741290dd270ff1460007d6130312771ee9242caf"
+        },
+        {
+          "id": "newton-engine-20260912-2f6e8bc798bf35e18a",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4"
+        },
+        {
+          "id": "parallel-sim-rl-r3-20260916-1",
+          "oldHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4",
+          "newHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4"
+        },
+        {
+          "id": "parallel-sim-rl-r5-20260916-1",
+          "oldHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4",
+          "newHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4"
+        },
+        {
+          "id": "parallel-sim-rl-r6-20260916-1",
+          "oldHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4",
+          "newHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4"
+        },
+        {
+          "id": "parallel-sim-rl-r18-20260916-1",
+          "oldHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4",
+          "newHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4"
+        },
+        {
+          "id": "parallel-sim-rl-r1-20260916-1",
+          "oldHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4",
+          "newHash": "0a3c06a2d19b52530c88d39ac49fdabfa3654d2706eb9b868f403b1d10eae7d6"
+        },
+        {
+          "id": "seo-merge-20260916-prose-parallel-sim-rl",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "0a3c06a2d19b52530c88d39ac49fdabfa3654d2706eb9b868f403b1d10eae7d6"
+        },
+        {
+          "id": "round5-closeout-parallel-sim-rl-prose",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "0a3c06a2d19b52530c88d39ac49fdabfa3654d2706eb9b868f403b1d10eae7d6"
+        },
+        {
+          "id": "parallel-local-20260923-1",
+          "oldHash": "0a3c06a2d19b52530c88d39ac49fdabfa3654d2706eb9b868f403b1d10eae7d6",
+          "newHash": "ee5038d71f1c6d9a5a3369386d0f4c69a9e2ba0866d21ab401680b2a187ef3a5"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-0740-prose-article-rl-sim2real-parallel-sim-rl",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "ee5038d71f1c6d9a5a3369386d0f4c69a9e2ba0866d21ab401680b2a187ef3a5"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-rl-sim2real-parallel-sim-rl",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "ee5038d71f1c6d9a5a3369386d0f4c69a9e2ba0866d21ab401680b2a187ef3a5"
+        },
+        {
+          "id": "motion-rl-sim2real-humanizer-v3-20260927-prose-parallel-sim-rl",
+          "oldHash": "ee5038d71f1c6d9a5a3369386d0f4c69a9e2ba0866d21ab401680b2a187ef3a5",
+          "newHash": "18f11b1e97665df80a0928345e98952d3e6b01e1d590035418bd9fafb53ac6e5"
+        },
+        {
+          "id": "motion-rl-sim2real-20260927-reconcile-parallel-sim-rl",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "18f11b1e97665df80a0928345e98952d3e6b01e1d590035418bd9fafb53ac6e5"
+        },
+        {
+          "id": "round5-first-screen-cd-20260929-prose-parallel-sim-rl",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "16a9970b03691a66d3ad57e002e4875957a185c31515387e279cecb913c04013"
+        }
+      ]
+    },
+    {
+      "id": "opus-figure-migration-20261001-prose-sim2real-transfer",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/sim2real-transfer",
+      "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+      "newHash": "bc6d26bca16c8d13d485b162541534997b3278587e936b41890995580c32c080",
+      "reason": "Resolution from the sealed member to the current bytes, required because this member's approval history already ends in a reconciling resolution; it binds all 21 prior approvals by ID and both hashes. The pre-change bytes are the round6-prose-restores-20260929-prose-sim2real-transfer endpoint 281dc1bf. Two changes from that endpoint. First, the prediction step that mounted a second FrictionTransfer at half-width 0.65 is removed under one visual per concept, and the page keeps its one friction chart, which the text now places \"above\" for \"below\". The callout says \"The chart starts at half-width 0.35. Reset restores its initial\" for the two-panel wording. The values that left (0.65, 0.7375, 0.5725, 74% and 57%) were the removed panel's own readings of the authored formula the callout still states. Second, without that step's words the page went over the not-X disclaimer floor, so the 3DGS sentence drops \", not a learned simulator,\" and the next sentence names the misreading directly: \"Treating such a twin as a learned simulator\" for \"Confusing the two\". No sourced fact, number or citation changed.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-131",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "isaac-v1-twelve-originals-3-20260908",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "b61ad004390917d5f117905e6d08747b16b21b7d1ce0d5fdfb87ca3a5340ec36"
+        },
+        {
+          "id": "rma-asynchronous-latent-1-20260909",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "ea1eebe9d2c019c630660f0c93f48569d536a39a8306a41f67948ba7bbc9db1a"
+        },
+        {
+          "id": "domain-randomization-source-1-20260909",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "e69163064966555ef0c762bf7254b51518a04b399df291c59540677bc3c1a739"
+        },
+        {
+          "id": "randomization-local-citation-placement-20260909",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "bb2ed4c749dabe4b0d34cbf9d5e8e07e2f569630f174359de5fe1599d83835d3"
+        },
+        {
+          "id": "splat-transfer-prose-1-20260909",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "9ecfc2ec34476dd0b6a32a3d41b481b5496ab255ffaa9490d43e6bc09287e8e7"
+        },
+        {
+          "id": "splat-transfer-mobile-citation-position-20260909",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "dd918afc1e63563815a79a7e8ac1296ac2e8ed326a92c84f7c5d14a9047eb03d"
+        },
+        {
+          "id": "learned-locomotion-20260909-da83a3636f6fbbbc7d",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "34c5fb9b01ec0bcd4f25f85668de7105ade19d8a32312e522c48e3e1bff9e60f"
+        },
+        {
+          "id": "humanoid-motion-20260909-160f56bf40a985daf6",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "8dffcd50cc04f689da54d3f2a8b42810413ee7126e539376b33e4f29d9782055"
+        },
+        {
+          "id": "humanoid-placement-20260909-c76fa386485b9c9a4c",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "88c4ad4d990ea57dc1f8ae0dbb7a00afc57130a337121d4fddaf96562c8bf841"
+        },
+        {
+          "id": "newton-engine-20260912-6a115dfde665c0aa65",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b"
+        },
+        {
+          "id": "sim2real-transfer-r1-20260916-1",
+          "oldHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b",
+          "newHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b"
+        },
+        {
+          "id": "sim2real-transfer-r7-20260916-1",
+          "oldHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b",
+          "newHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b"
+        },
+        {
+          "id": "sim2real-transfer-r21-20260916-1",
+          "oldHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b",
+          "newHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b"
+        },
+        {
+          "id": "sim2real-transfer-r22-20260916-1",
+          "oldHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b",
+          "newHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b"
+        },
+        {
+          "id": "sim2real-local-20260923-1",
+          "oldHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b",
+          "newHash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-0740-prose-article-rl-sim2real-sim2real-transfer",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-rl-sim2real-sim2real-transfer",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+        },
+        {
+          "id": "educational-convergence-20260926-prose-sim2real-transfer",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "7c03a6d64301dbc245ef7f8172e316d0b28b28efd3f3bf470154341a8673c1b3"
+        },
+        {
+          "id": "motion-rl-sim2real-humanizer-v3-20260927-prose-sim2real-transfer",
+          "oldHash": "7c03a6d64301dbc245ef7f8172e316d0b28b28efd3f3bf470154341a8673c1b3",
+          "newHash": "e2d60b86f053241afc7ddcc3565bb56d4322ccb399c807f0265b80479f6bab9e"
+        },
+        {
+          "id": "motion-rl-sim2real-20260927-reconcile-sim2real-transfer",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "e2d60b86f053241afc7ddcc3565bb56d4322ccb399c807f0265b80479f6bab9e"
+        },
+        {
+          "id": "round6-prose-restores-20260929-prose-sim2real-transfer",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "281dc1bf11a08eee65687477ea62fd20b84b3513c89329fe87dd30ef3719e7c5"
+        }
+      ]
+    },
+    {
+      "id": "opus-figure-migration-20261001-prose-generative-sim",
+      "manifest": "prose",
+      "memberId": "article:world-models/generative-sim",
+      "oldHash": "fc6578de34784263b16681fcbe5808f494bb9d9753d289752faf886e522a2a86",
+      "newHash": "43f1e12418c27b8d2e205f623e068444e4b41261db1562e8b981e7c3ed99db42",
+      "reason": "The PushLayers scene and its import are removed: the scene and the AppearancePhysicsPush lab were one scene-plus-lab pair on the same concept, and the lab stays as the page's one graphite figure under one visual per concept. No other line changed, and no fact, number or citation changed. The edge starts from the round5-first-screen-cd-20260929-prose-generative-sim endpoint fc6578de.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-131",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-prose-generative-video",
+      "manifest": "prose",
+      "memberId": "article:world-models/generative-video",
+      "oldHash": "567163089b84a153754a53be294f00e25280ae6dea24c311727348f85b21b8c1",
+      "newHash": "c41c79c5064f9cc5eac39ee02e9bce6247aff23718c75980fdd96a0978b77492",
+      "reason": "The ActionFork scene and its import are removed: the scene and the ActionConditioning lab were one scene-plus-lab pair on the same concept, and the lab stays as the page's one graphite figure under one visual per concept. No other line changed, and no fact, number or citation changed. The edge starts from the round5-first-screen-cd-20260929-prose-generative-video endpoint 56716308.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-131",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-prose-latent-dynamics",
+      "manifest": "prose",
+      "memberId": "article:world-models/latent-dynamics",
+      "oldHash": "e549d756bb8b49aeb3f0736327a5c9a0bddec87711d00972789c930b415c154c",
+      "newHash": "b73f4e13febc5f3a40196b8fce610bf6f578b664a1dffb33574dfc08368dd935",
+      "reason": "The LatentDrift scene and its import are removed: the scene and the LatentImagination lab were one scene-plus-lab pair on the same concept, and the lab stays as the page's one graphite figure under one visual per concept. No other line changed, and no fact, number or citation changed. The edge starts from the round5-first-screen-cd-20260929-prose-latent-dynamics endpoint e549d756.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-131",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

@@ -392,18 +392,19 @@ test.describe('classical grasp-planning module', () => {
   }) => {
     await page.goto(ROUTE);
     const label = page.locator('label[for="grasp-mu"]');
-    // The label keeps the design system's uppercase transform for its Latin
-    // text, while the mu is exempted inside a normal-case span.
-    await expect(label).toHaveCSS('text-transform', 'uppercase');
+    // Figure control labels are sentence case, so no transform may turn
+    // the mu into its capital lookalike.
+    await expect(label).toHaveCSS('text-transform', 'none');
     // innerText reflects the RENDERED text (text-transform applied), which
-    // textContent-based assertions cannot see: pre-fix this read "Μ ..."
-    // (U+039C, visually a Latin M) even though the DOM always held μ.
+    // textContent-based assertions cannot see: an uppercase transform once
+    // made this read "Μ ..." (U+039C, visually a Latin M) even though the
+    // DOM always held μ.
     const rendered = await label.evaluate(
       (el) => (el as HTMLElement).innerText,
     );
     expect(rendered).toContain('μ'); // U+03BC greek small letter mu
     expect(rendered).not.toContain('Μ'); // U+039C capital mu
-    expect(rendered).toContain('FRICTION COEFFICIENT');
+    expect(rendered).toContain('friction coefficient');
   });
 
   test('no horizontal page scroll at 375px', async ({ browser }) => {

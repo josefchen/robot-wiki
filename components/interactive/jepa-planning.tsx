@@ -1,28 +1,47 @@
 'use client';
 
 import { useId, useState } from 'react';
+import { ChartDescription } from '@/components/ui/chart-description';
 import {
-  ChartDescription,
+  ControlField,
   ControlLabel,
-  InstrumentFrame,
+  INSTRUMENT_SECONDARY_CONTROL_CLASS,
+  INSTRUMENT_SLIDER_CLASS,
+  INSTRUMENT_TOGGLE_CLASS,
+  InstrumentFigure,
+  InstrumentLegend,
   InstrumentReadout,
   InstrumentReset,
+  LegendItem,
   PlotStage,
-} from '@/components/ui';
+} from '@/components/ui/instrument';
+import { FigureStage } from '@/components/motion/figure-frame';
+import {
+  CHART_STROKE,
+  CHART_STRUCTURE,
+  CHART_TYPE,
+  CHART_VIEW_WIDTH,
+  ChartAxes,
+  LegendSwatch,
+  LineTrace,
+  PointMarker,
+  linearScale,
+  roleColour,
+} from '@/components/motion/chart';
 import {
   DEFAULT_CANDIDATES,
   GOALS,
+  GOAL_TOLERANCE,
   INITIAL_STATE,
   MAX_CANDIDATES,
   MAX_STEPS,
   MIN_CANDIDATES,
+  type CandidateSequence,
   type LatentPoint,
   type PlanStepResult,
   goalDistance,
   planStep,
 } from '@/lib/jepa-planning';
-import { EDGE_DASH } from '@/lib/semantic-mark-cues';
-import { cx } from '@/lib/utils';
 
 /**
  * Deterministic two-dimensional teaching model for goal-directed replanning.
@@ -37,60 +56,160 @@ type JepaPlanningProps = {
   className?: string;
 };
 
-const PLANE_W = 560;
-const PLANE_H = 360;
-const PLANE_PAD = 30;
-const TRACE_W = 560;
-const TRACE_H = 64;
-const TRACE_PAD = { top: 14, right: 16, bottom: 22, left: 56 };
+const W = CHART_VIEW_WIDTH;
 
-const MONO = 'var(--font-mono)';
-const DIM = 'var(--color-text-dim)';
-const ACCENT = 'var(--color-accent)';
-const OK = 'var(--color-ok)';
-const BORDER = 'var(--color-border)';
-const BORDER_STRONG = 'var(--color-border-strong)';
+/**
+ * The plotted window of the synthetic plane. It holds every candidate
+ * endpoint and executed state that lib/jepa-planning.ts produces for both
+ * goals at every budget, so no mark leaves the frame.
+ */
+const DOMAIN = { x: [0.04, 0.92], y: [0.2, 1.1] } as const;
+const PLANE_INSET = { left: 8, right: 8, top: 26, bottom: 8 } as const;
+/** One plane unit in stage units, equal on both axes so distances read true. */
+const UNIT = (W - PLANE_INSET.left - PLANE_INSET.right) / (DOMAIN.x[1] - DOMAIN.x[0]);
+const PLANE_H = Math.round(
+  PLANE_INSET.top + (DOMAIN.y[1] - DOMAIN.y[0]) * UNIT + PLANE_INSET.bottom,
+);
+const GRID = [0.2, 0.4, 0.6, 0.8, 1];
+const GOAL_RING = 9;
+
+const TRACE_H = 168;
+const TRACE_PLOT = { left: 50, right: W - 12, top: 26, bottom: TRACE_H - 46 } as const;
+const STEP_TICKS = [0, 4, 8, 12];
 
 function px(x: number): number {
-  return PLANE_PAD + x * (PLANE_W - 2 * PLANE_PAD);
+  return PLANE_INSET.left + (x - DOMAIN.x[0]) * UNIT;
 }
 
 function py(y: number): number {
-  return PLANE_PAD + (1 - y) * (PLANE_H - 2 * PLANE_PAD);
+  return PLANE_INSET.top + (DOMAIN.y[1] - y) * UNIT;
 }
 
 function formatDistance(value: number): string {
   return value.toFixed(3);
 }
 
-/** Crossed-out frame: the visual marker that no pixel decoder is involved. */
-function CrossedFrame() {
+const f = (n: number) => n.toFixed(1);
+
+function PlaneFrame() {
+  const left = px(DOMAIN.x[0]);
+  const right = px(DOMAIN.x[1]);
+  const top = py(DOMAIN.y[1]);
+  const bottom = py(DOMAIN.y[0]);
   return (
-    <svg viewBox="0 0 88 56" aria-hidden="true" className="block w-24 shrink-0">
-      <rect
-        x={0}
-        y={0}
-        width={88}
-        height={56}
-        fill="none"
-        stroke={BORDER_STRONG}
-        strokeWidth={1}
-      />
-      <line x1={0} y1={0} x2={88} y2={56} stroke={BORDER_STRONG} strokeWidth={1} />
-      <line x1={88} y1={0} x2={0} y2={56} stroke={BORDER_STRONG} strokeWidth={1} />
+    <g data-scene-structure="">
       <text
-        x={44}
-        y={66}
-        textAnchor="middle"
-        fill={DIM}
-        fontSize={8}
-        fontFamily={MONO}
+        data-scene-tick=""
+        x={left}
+        y={13}
+        dominantBaseline="middle"
+        fontSize={CHART_TYPE.tickPx}
+        fill={CHART_STRUCTURE.labelSecondary}
       >
-        no pixels
+        synthetic embedding plane
       </text>
-    </svg>
+      {GRID.map((g) => (
+        <g key={g}>
+          {g > DOMAIN.x[0] && g < DOMAIN.x[1] ? (
+            <line data-chart-grid="" x1={f(px(g))} x2={f(px(g))} y1={f(top)} y2={f(bottom)} stroke={CHART_STRUCTURE.grid} strokeWidth={CHART_STROKE.structure} opacity={CHART_STRUCTURE.gridOpacity} />
+          ) : null}
+          {g > DOMAIN.y[0] && g < DOMAIN.y[1] ? (
+            <line data-chart-grid="" x1={f(left)} x2={f(right)} y1={f(py(g))} y2={f(py(g))} stroke={CHART_STRUCTURE.grid} strokeWidth={CHART_STROKE.structure} opacity={CHART_STRUCTURE.gridOpacity} />
+          ) : null}
+        </g>
+      ))}
+      <rect
+        x={f(left)}
+        y={f(top)}
+        width={f(right - left)}
+        height={f(bottom - top)}
+        fill="none"
+        stroke={CHART_STRUCTURE.axes}
+        strokeWidth={CHART_STROKE.structure}
+        opacity={CHART_STRUCTURE.axesOpacity}
+      />
+    </g>
   );
 }
+
+/** The goal latent, the encoded goal image: a dashed reference ring around a cross. */
+function GoalMarker({ point }: { point: LatentPoint }) {
+  const x = px(point.x);
+  const y = py(point.y);
+  return (
+    <g data-chart-role="reference">
+      <circle
+        cx={f(x)}
+        cy={f(y)}
+        r={GOAL_RING}
+        fill="none"
+        stroke={roleColour('reference')}
+        strokeWidth={CHART_STROKE.reference}
+        strokeDasharray={CHART_STROKE.dash}
+      />
+      <PointMarker x={x} y={y} role="reference" shape="cross" />
+    </g>
+  );
+}
+
+const ACTION = roleColour('action');
+
+/** A candidate as a curve that bows off its chord by the prescribed bend. */
+function candidatePath(origin: LatentPoint, c: CandidateSequence): string {
+  const end = c.endpoint;
+  const nx = -(end.y - origin.y);
+  const ny = end.x - origin.x;
+  const length = Math.hypot(nx, ny) || 1;
+  const qx = (origin.x + end.x) / 2 + (nx / length) * c.bend;
+  const qy = (origin.y + end.y) / 2 + (ny / length) * c.bend;
+  return `M${f(px(origin.x))} ${f(py(origin.y))} Q${f(px(qx))} ${f(py(qy))} ${f(px(end.x))} ${f(py(end.y))}`;
+}
+
+/**
+ * Every sequence the last Plan step scored, drawn from the latent that step
+ * planned from rather than the latent it reached. The energy minimizer is
+ * solid and drawn last, on top of the dashed alternatives.
+ */
+function CandidateFan({ origin, plan }: { origin: LatentPoint; plan: PlanStepResult }) {
+  const chosen = plan.candidates[plan.chosenIndex];
+  return (
+    <g data-testid="candidate-fan" data-chart-role="action">
+      {plan.candidates.map((c, i) =>
+        i === plan.chosenIndex ? null : (
+          <path
+            key={i}
+            data-testid="candidate-sequence"
+            d={candidatePath(origin, c)}
+            fill="none"
+            stroke={ACTION}
+            strokeOpacity={0.6}
+            strokeWidth={CHART_STROKE.reference}
+            strokeDasharray={CHART_STROKE.dash}
+            strokeLinecap="round"
+          />
+        ),
+      )}
+      <path
+        data-testid="candidate-sequence"
+        d={candidatePath(origin, chosen)}
+        fill="none"
+        stroke={ACTION}
+        strokeWidth={CHART_STROKE.trace}
+        strokeLinecap="round"
+      />
+    </g>
+  );
+}
+
+const LEGEND = (
+  <InstrumentLegend>
+    <LegendItem swatch={<LegendSwatch role="reference" mark="cross" />}>goal latent z_goal</LegendItem>
+    <LegendItem swatch={<LegendSwatch role="state" mark="dot" />}>current latent z_t</LegendItem>
+    <LegendItem swatch={<LegendSwatch role="state" mark="line" />}>executed path</LegendItem>
+    <LegendItem swatch={<LegendSwatch role="action" mark="dash" />}>candidate sequences</LegendItem>
+    <LegendItem swatch={<LegendSwatch role="action" mark="line" />}>chosen sequence</LegendItem>
+  </InstrumentLegend>
+);
 
 export function JepaPlanning({
   defaultCandidates = DEFAULT_CANDIDATES,
@@ -107,7 +226,7 @@ export function JepaPlanning({
   const steps = history.length - 1;
   const distance = goalDistance(state, goal.point);
   const initialDistance = goalDistance(INITIAL_STATE, goal.point);
-  const reached = distance <= 0.03;
+  const reached = distance <= GOAL_TOLERANCE;
   const exhausted = steps >= MAX_STEPS;
 
   function plan() {
@@ -135,358 +254,168 @@ export function JepaPlanning({
     setLastPlan(null);
   }
 
+  const distances = history.map((p) => goalDistance(p, goal.point));
   const trace = {
-    plotW: TRACE_W - TRACE_PAD.left - TRACE_PAD.right,
-    plotH: TRACE_H - TRACE_PAD.top - TRACE_PAD.bottom,
+    yTicks: [0, distances[0]],
     yMax: initialDistance * 1.08,
   };
-  const traceX = (t: number) =>
-    TRACE_PAD.left + (t / MAX_STEPS) * trace.plotW;
-  const traceY = (d: number) =>
-    TRACE_PAD.top + trace.plotH - (d / trace.yMax) * trace.plotH;
-  const distances = history.map((p) => goalDistance(p, goal.point));
-  const tracePath = distances
-    .map((d, i) => `${i === 0 ? 'M' : 'L'}${traceX(i).toFixed(1)},${traceY(d).toFixed(1)}`)
-    .join(' ');
+  const traceX = linearScale([0, MAX_STEPS], [TRACE_PLOT.left, TRACE_PLOT.right]);
+  const traceY = linearScale([0, trace.yMax], [TRACE_PLOT.bottom, TRACE_PLOT.top]);
 
-  // The plane clause follows what the plane actually renders: two latents
-  // at step 0, then the executed path plus the searched candidate fan from
-  // the first Plan step on. lastPlan is set by the same click that grows
-  // history, so steps >= 1 always has a fan to count.
+  // The plane clause follows what the plane actually renders. At step 0 no
+  // search has run, so the fan is empty and the plane holds only the start
+  // and the goal; from the first Plan step on it adds the executed path and
+  // the scored fan. lastPlan is set by the same click that grows history,
+  // so steps >= 1 always has a fan to count.
   const fanCount = lastPlan ? lastPlan.candidates.length : candidateCount;
   const planeClause =
     steps === 0
       ? 'shows the start and goal as two points'
       : `shows the executed path and the candidate fan of ${fanCount} scored sequences`;
 
-  const toggleBase =
-    'rounded-sm border px-3 py-1.5 font-mono text-xs transition-colors active:translate-y-[1px]';
-  const toggleOn = 'border-accent text-accent';
-  const toggleOff =
-    'border-border bg-surface-2 text-text-dim hover:border-border-strong hover:text-text';
+  const controls = (
+    <>
+      <ControlField>
+        <ControlLabel htmlFor="jp-budget" value={`${candidateCount} sequences`}>
+          Search budget
+        </ControlLabel>
+        <input
+          id="jp-budget"
+          type="range"
+          data-brand-control-id="control:input"
+          min={MIN_CANDIDATES}
+          max={MAX_CANDIDATES}
+          step={4}
+          value={candidateCount}
+          onChange={(e) => setCandidateCount(Number(e.target.value))}
+          aria-label={`Search budget in candidate action sequences, currently ${candidateCount}`}
+          className={INSTRUMENT_SLIDER_CLASS}
+        />
+      </ControlField>
+      <div role="group" aria-label="Goal" className="flex flex-wrap gap-2">
+        {GOALS.map((g, i) => (
+          <button
+            data-brand-control-id="control:selection"
+            key={g.id}
+            type="button"
+            aria-pressed={goalIndex === i}
+            onClick={() => selectGoal(i)}
+            className={INSTRUMENT_TOGGLE_CLASS}
+          >
+            {g.label}
+          </button>
+        ))}
+      </div>
+      <button
+        data-brand-control-id="control:secondary-action"
+        data-pagefind-ignore
+        type="button"
+        onClick={plan}
+        disabled={reached || exhausted}
+        className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
+      >
+        Plan step
+      </button>
+      <InstrumentReset onClick={reset} />
+    </>
+  );
+
+  // The trace and its readings sit beside the plane once the stage is wide
+  // enough, which also keeps the plane from scaling up past legibility. Each
+  // drawing keeps its own container so its type scale follows its column.
+  const stageBody = (
+    <div className="@container">
+      <div className="grid gap-x-3 @min-[34rem]:grid-cols-2 @min-[34rem]:items-center">
+        <div className="@container">
+          <PlotStage
+            viewBox={`0 0 ${W} ${PLANE_H}`}
+            aria-label={`Latent space planning view. The current latent is at distance ${formatDistance(distance)} from the goal latent after ${steps} planning steps toward ${goal.label}.`}
+            aria-describedby={descriptionId}
+          >
+            <PlaneFrame />
+            {lastPlan ? <CandidateFan origin={history[steps - 1]} plan={lastPlan} /> : null}
+            {steps > 0 ? (
+              <LineTrace points={history.map((p) => [px(p.x), py(p.y)] as const)} role="state" />
+            ) : null}
+            <GoalMarker point={goal.point} />
+            <PointMarker x={px(state.x)} y={py(state.y)} role="state" />
+          </PlotStage>
+        </div>
+        <div className="grid gap-y-2 pb-3">
+          <div className="@container">
+            <PlotStage
+              viewBox={`0 0 ${W} ${TRACE_H}`}
+              aria-label={`Goal-embedding distance per planning step. The distance falls from ${formatDistance(initialDistance)} at step 0 to ${formatDistance(distance)} at step ${steps}.`}
+              aria-describedby={descriptionId}
+            >
+              <ChartAxes
+                plot={TRACE_PLOT}
+                x={traceX}
+                y={traceY}
+                xTicks={STEP_TICKS}
+                yTicks={trace.yTicks}
+                formatY={(v) => (v === 0 ? '0' : formatDistance(v))}
+                xLabel="planning step"
+                yLabel="goal distance"
+              />
+              {steps > 0 ? (
+                <g data-testid="distance-trace">
+                  <LineTrace points={distances.map((d, i) => [traceX(i), traceY(d)] as const)} role="value" />
+                </g>
+              ) : null}
+              <PointMarker x={traceX(steps)} y={traceY(distance)} role="value" />
+            </PlotStage>
+          </div>
+          <div data-figure-stage-band="aside" className="grid gap-y-1.5 px-3">
+            {LEGEND}
+            <InstrumentReadout>
+              <span className="text-text-dim">d(z_t, z_goal) =</span>{' '}
+              <span data-testid="distance-readout" style={{ color: roleColour('value') }}>
+                {formatDistance(distance)}
+              </span>{' '}
+              <span className="text-text-dim">after planning step</span>{' '}
+              <span data-testid="step-readout">{steps}</span>
+              {reached ? (
+                <>
+                  {', '}
+                  <span data-testid="goal-reached" className="whitespace-nowrap">
+                    goal reached
+                  </span>
+                </>
+              ) : null}
+            </InstrumentReadout>
+            <ChartDescription
+              id={descriptionId}
+              form="state"
+              summary="Current JEPA planning state"
+              description={`At a search budget of ${candidateCount} sequences the current latent sits ${formatDistance(distance)} away from the ${goal.id} goal after ${steps} planning steps; the embedding-space plane ${planeClause}, and the distance strip is ${steps === 0 ? 'a single sample at step 0' : `a falling trace from ${formatDistance(initialDistance)} to ${formatDistance(distance)}`}.`}
+              states={[
+                { label: 'search budget', value: `${candidateCount} sequences` },
+                { label: 'goal', value: goal.label },
+                { label: 'steps', value: String(steps) },
+                { label: 'distance', value: formatDistance(distance) },
+              ]}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
-    <InstrumentFrame className={className}>
-      <div className="grid gap-4 sm:grid-cols-[1fr_auto_auto] sm:items-end">
-        <div>
-          <ControlLabel
-            htmlFor="jp-budget"
-            value={`${candidateCount} sequences`}
-          >
-            Search budget
-          </ControlLabel>
-          <input
-            id="jp-budget"
-            type="range"
-            data-brand-control-id="control:input"
-            min={MIN_CANDIDATES}
-            max={MAX_CANDIDATES}
-            step={4}
-            value={candidateCount}
-            onChange={(e) => setCandidateCount(Number(e.target.value))}
-            aria-label={`Search budget in candidate action sequences, currently ${candidateCount}`}
-            className="mt-2 w-full accent-accent"
-          />
-        </div>
-        <div role="group" aria-label="Goal" className="flex gap-2">
-          {GOALS.map((g, i) => (
-            <button
-              data-brand-control-id="control:selection"
-              key={g.id}
-              type="button"
-              aria-pressed={goalIndex === i}
-              onClick={() => selectGoal(i)}
-              className={cx(toggleBase, goalIndex === i ? toggleOn : toggleOff)}
-            >
-              {g.label}
-            </button>
-          ))}
-        </div>
-        <div className="flex gap-2">
-          <button
-            data-brand-control-id="control:secondary-action"
-            data-pagefind-ignore
-            type="button"
-            onClick={plan}
-            disabled={reached || exhausted}
-            className={cx(
-              'rounded-sm border px-3 py-1.5 font-sans text-xs transition-colors active:translate-y-[1px]',
-              reached || exhausted
-                ? 'cursor-not-allowed border-border bg-surface-2 text-text-dim opacity-50'
-                : 'border-accent text-accent hover:bg-surface-2',
-            )}
-          >
-            Plan step
-          </button>
-          <InstrumentReset onClick={reset} />
-        </div>
-      </div>
-
-      <PlotStage
-        viewBox={`0 0 ${PLANE_W} ${PLANE_H}`}
-        aria-label={`Latent space planning view. The current latent is at distance ${formatDistance(distance)} from the goal latent after ${steps} planning steps toward ${goal.label}.`}
-        aria-describedby={descriptionId}
-        className="mt-4"
-      >
-        <text x={PLANE_PAD} y={16} fill={DIM} fontSize={10} fontFamily={MONO}>
-          synthetic 2-D teaching space: goal and state points
-        </text>
-        {[0.25, 0.5, 0.75].map((f) => (
-          <g key={f}>
-            <line
-              x1={px(f)}
-              x2={px(f)}
-              y1={py(0)}
-              y2={py(1)}
-              stroke={BORDER}
-              strokeWidth={1}
-            />
-            <line
-              x1={px(0)}
-              x2={px(1)}
-              y1={py(f)}
-              y2={py(f)}
-              stroke={BORDER}
-              strokeWidth={1}
-            />
-          </g>
-        ))}
-        <rect
-          x={px(0)}
-          y={py(1)}
-          width={px(1) - px(0)}
-          height={py(0) - py(1)}
-          fill="none"
-          stroke={BORDER_STRONG}
-          strokeWidth={1}
-        />
-
-        {/* executed path through the embedding space */}
-        {history.length > 1 && (
-          <polyline
-            points={history.map((p) => `${px(p.x)},${py(p.y)}`).join(' ')}
-            fill="none"
-            stroke={ACCENT}
-            strokeWidth={1.5}
-            opacity={0.6}
-          />
-        )}
-
-        {/* candidate fan from the latest planning step */}
-        {lastPlan && (
-          <g data-testid="candidate-fan">
-            {lastPlan.candidates.map((c, i) => {
-              const sx = px(state.x);
-              const sy = py(state.y);
-              const mx = (sx + px(c.endpoint.x)) / 2;
-              const my = (sy + py(c.endpoint.y)) / 2;
-              const nx = -(py(c.endpoint.y) - sy);
-              const ny = px(c.endpoint.x) - sx;
-              const nlen = Math.hypot(nx, ny) || 1;
-              const bx = mx + (nx / nlen) * c.bend * (PLANE_W - 2 * PLANE_PAD);
-              const by = my + (ny / nlen) * c.bend * (PLANE_H - 2 * PLANE_PAD);
-              const chosen = i === lastPlan.chosenIndex;
-              return (
-                <polyline
-                  key={i}
-                  data-testid="candidate-sequence"
-                  points={`${sx},${sy} ${bx.toFixed(1)},${by.toFixed(1)} ${px(c.endpoint.x)},${py(c.endpoint.y)}`}
-                  fill="none"
-                  stroke={chosen ? ACCENT : DIM}
-                  strokeWidth={chosen ? 2 : 1}
-                  opacity={chosen ? 1 : 0.3}
-                />
-              );
-            })}
-          </g>
-        )}
-
-        {/* energy connector between current latent and goal latent */}
-        <line
-          x1={px(state.x)}
-          y1={py(state.y)}
-          x2={px(goal.point.x)}
-          y2={py(goal.point.y)}
-          stroke={DIM}
-          strokeWidth={1}
-          strokeDasharray="4 4"
-        />
-        <text
-          x={(px(state.x) + px(goal.point.x)) / 2}
-          y={(py(state.y) + py(goal.point.y)) / 2 - 6}
-          textAnchor="middle"
-          fill={DIM}
-          fontSize={9}
-          fontFamily={MONO}
-        >
-          d = {formatDistance(distance)}
-        </text>
-
-        {/* Goal latent (the encoded goal image), drawn as a broken ring
-            around a cross. The current state is a closed ring around empty
-            space, so the two markers are told apart by shape. */}
-        <circle
-          cx={px(goal.point.x)}
-          cy={py(goal.point.y)}
-          r={8}
-          fill="none"
-          stroke={OK}
-          strokeWidth={1.5}
-          strokeDasharray={EDGE_DASH.ok}
-        />
-        <path
-          d={`M ${px(goal.point.x) - 4} ${py(goal.point.y)} L ${px(goal.point.x) + 4} ${py(goal.point.y)} M ${px(goal.point.x)} ${py(goal.point.y) - 4} L ${px(goal.point.x)} ${py(goal.point.y) + 4}`}
-          stroke={OK}
-          strokeWidth={1.5}
-          strokeLinecap="round"
-        />
-        <text
-          x={px(goal.point.x)}
-          y={py(goal.point.y) - 14}
-          textAnchor="middle"
-          fill={OK}
-          fontSize={9}
-          fontFamily={MONO}
-        >
-          z_goal
-        </text>
-
-        {/* current latent state */}
-        <circle
-          cx={px(state.x)}
-          cy={py(state.y)}
-          r={6}
-          fill="var(--color-bg)"
-          stroke={ACCENT}
-          strokeWidth={2}
-        />
-        <text
-          x={px(state.x)}
-          y={py(state.y) - 12}
-          textAnchor="middle"
-          fill={ACCENT}
-          fontSize={9}
-          fontFamily={MONO}
-        >
-          z_t
-        </text>
-      </PlotStage>
-
-      {/* Self-label: this instrument is a schematic or an authored model, not a measured result. */}
-      <p className="mt-1 font-sans text-xs text-text-dim">Teaching schematic: synthetic points and Euclidean distance, not learned V-JEPA 2 features.</p>
-
-      <PlotStage
-        viewBox={`0 0 ${TRACE_W} ${TRACE_H}`}
-        aria-label={`Goal-embedding distance per planning step. The distance falls from ${formatDistance(initialDistance)} at step 0 to ${formatDistance(distance)} at step ${steps}.`}
-        aria-describedby={descriptionId}
-        className="mt-2"
-      >
-        <text
-          x={TRACE_PAD.left}
-          y={10}
-          fill={DIM}
-          fontSize={10}
-          fontFamily={MONO}
-        >
-          goal-embedding distance vs planning step
-        </text>
-        {[0, 1].map((f) => {
-          const y = TRACE_PAD.top + f * trace.plotH;
-          return (
-            <g key={f}>
-              <line
-                x1={TRACE_PAD.left}
-                x2={TRACE_PAD.left + trace.plotW}
-                y1={y}
-                y2={y}
-                stroke={BORDER}
-                strokeWidth={1}
-              />
-              <text
-                x={TRACE_PAD.left - 8}
-                y={y + 4}
-                textAnchor="end"
-                fill={DIM}
-                fontSize={10}
-                fontFamily={MONO}
-              >
-                {formatDistance(trace.yMax * (1 - f))}
-              </text>
-            </g>
-          );
-        })}
-        {[0, MAX_STEPS].map((t) => (
-          <text
-            key={t}
-            x={traceX(t)}
-            y={TRACE_H - 6}
-            textAnchor={t === MAX_STEPS ? 'end' : 'middle'}
-            fill={DIM}
-            fontSize={10}
-            fontFamily={MONO}
-          >
-            {t}
-          </text>
-        ))}
-        {distances.length > 1 && (
-          <path
-            data-testid="distance-trace"
-            d={tracePath}
-            fill="none"
-            stroke={ACCENT}
-            strokeWidth={2}
-          />
-        )}
-        <circle
-          cx={traceX(steps)}
-          cy={traceY(distance)}
-          r={4.5}
-          fill="var(--color-bg)"
-          stroke={ACCENT}
-          strokeWidth={2}
-        />
-      </PlotStage>
-
-      <div data-testid="no-decoder-note" className="mt-3 flex items-start gap-3">
-        <CrossedFrame />
-        <p className="font-sans text-xs leading-relaxed text-text-dim">
-          No pixel decoder is used to select V-JEPA 2-AC control actions. This
-          display uses synthetic two-dimensional points and Euclidean distance;
-          it loads no trained encoder or predictor. The candidate fan and
-          shrinking trace are prescribed by a deterministic teaching model, not
-          the paper’s Cross-Entropy Method or measured robot behavior.
-        </p>
-      </div>
-
-      <InstrumentReadout>
-        <span className="text-text-dim">d(z_t, z_goal) =</span>{' '}
-        <span data-testid="distance-readout" className="text-accent">
-          {formatDistance(distance)}
-        </span>{' '}
-        <span className="text-text-dim">after planning step</span>{' '}
-        <span data-testid="step-readout">{steps}</span>
-        {reached && (
-          <>
-            {' '}
-            <span data-testid="goal-reached" className="text-ok">
-              goal reached
-            </span>
-          </>
-        )}
-      </InstrumentReadout>
-      <ChartDescription
-        id={descriptionId}
-        className="mt-3"
-        form="state"
-        summary="Current JEPA planning state"
-        description={`Synthetic teaching model, not learned embeddings or measured robot behavior. At a search budget of ${candidateCount} sequences the current latent sits ${formatDistance(distance)} away from the ${goal.id} goal after ${steps} planning steps; the embedding-space plane ${planeClause}, and the distance strip is ${steps === 0 ? 'a single sample at step 0' : `a falling trace from ${formatDistance(initialDistance)} to ${formatDistance(distance)}`}.`}
-        states={[
-          { label: 'search budget', value: `${candidateCount} sequences` },
-          { label: 'goal', value: goal.label },
-          { label: 'steps', value: String(steps) },
-          { label: 'distance', value: formatDistance(distance) },
-        ]}
-      />
-    </InstrumentFrame>
+    <InstrumentFigure
+      figureId="jepa-planning"
+      className={className}
+      heading="Replanning toward a goal latent"
+      controls={controls}
+      stage={<FigureStage>{stageBody}</FigureStage>}
+      caption="Each Plan step scores every candidate sequence by its predicted distance to the goal latent and executes the closest."
+      source={
+        <span data-testid="no-decoder-note">
+          No pixel decoder is used to select V-JEPA 2-AC control actions; this toy plans over
+          synthetic two-dimensional points and loads no trained encoder or predictor.
+        </span>
+      }
+    />
   );
 }

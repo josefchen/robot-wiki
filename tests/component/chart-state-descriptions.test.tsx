@@ -230,8 +230,8 @@ describe('state-form chart descriptions', () => {
     expect(new Set(ids).size).toBe(1);
     const { text } = assertDescribed(imgs[0], container);
     expect(container.querySelectorAll('[data-chart-description]')).toHaveLength(1);
-    expect(text).toMatch(/Padded|human video/i);
-    fireEvent.click(screen.getByRole('button', { name: /relative/i }));
+    expect(text).toMatch(/relative end-effector|human video/i);
+    fireEvent.click(screen.getByRole('button', { name: /padded shared vector/i }));
     const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
     expect(moved).not.toBe(text);
   });

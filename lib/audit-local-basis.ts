@@ -19,6 +19,7 @@ import { retainedRound5ReaderPinSource, round5ReaderPinEndpoint } from './audit-
 import { retainedRound6KinematicsReaderSource, round6KinematicsReaderEndpoint } from './audit-round6-kinematics-reader-continuity.ts';
 import { round6ProseRestorePredecessor } from './audit-round6-prose-restores-continuity.ts';
 import { round6RemainingRepairPredecessor } from './audit-round6-remaining-repairs-continuity.ts';
+import { figureMigrationPredecessor, figureMigrationRegistry } from './audit-figure-migration-continuity.ts';
 import {
   currentDataHardwareMotionArtifact,
 } from './audit-data-hardware-motion-continuity.ts';
@@ -906,8 +907,8 @@ function verifyMergedControlArticle(root: string, current: Buffer): Buffer {
   return local;
 }
 function readRetainedDependency(root: string, ref: LocalArtifact, parsedInputCache?: Map<string, unknown>): Buffer {
-  const current = round6ProseRestorePredecessor(root, ref,
-    round6RemainingRepairPredecessor(root, ref, readBoundedLocalFile(root, ref.path)));
+  const current = round6ProseRestorePredecessor(root, ref, round6RemainingRepairPredecessor(root, ref,
+    figureMigrationPredecessor(root, ref, readBoundedLocalFile(root, ref.path))));
   const readContinuity = () => readKrogerContinuity(root, parsedInputCache);
   if (current.length === ref.bytes && sha256(current) === ref.sha256) return current;
   if ((ref.path === 'components/interactive/gait-diagram.tsx' &&
@@ -1286,7 +1287,8 @@ export type LocalBasisContext = {
 };
 export function loadLocalBasisContext(root: string, publishedRoutes: readonly string[]): LocalBasisContext {
   const catalog = parseLocalBasisCatalog(JSON.parse(readBoundedLocalFile(root, 'audit/local-basis.json').toString('utf8')));
-  const registry = JSON.parse(readBoundedLocalFile(root, 'contract/brand-v2-registries.json').toString('utf8')).interactive as Registry;
+  const registry = figureMigrationRegistry(root,
+    JSON.parse(readBoundedLocalFile(root, 'contract/brand-v2-registries.json').toString('utf8')).interactive as Registry);
   distinct(registry.sources.map(s => s.id), 'registry source');
   distinct(registry.mounts.map(m => m.id), 'registry mount');
   for (const plan of catalog.plans) {

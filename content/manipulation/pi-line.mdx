@@ -29,15 +29,12 @@ seeAlso:
 
 import { FlowMatchingTrajectory } from '@/components/interactive/flow-matching-trajectory';
 import { PiGenerationTimeline } from '@/components/interactive/pi-generation-timeline';
-import { FlowTransport } from '@/components/motion/scenes/flow-transport';
 
 The [VLA module](/manipulation/vla-models) ended on a bottleneck: <Term id="action-tokenization">discrete action tokens</Term> let a web-pretrained model emit actions with the machinery it already has, but autoregressive decoding caps the control rate an order of magnitude below what dexterous manipulation needs. Physical Intelligence's pi line answers it with a different split of labor. Keep the pretrained backbone, replace the token head with a <Term id="flow-matching">flow-matching</Term> action expert, and then keep fixing what that first design got wrong. This module walks the line from π0 (October 2024) to π0.7 (April 2026), including what the pinned checkpoint catalogue actually lists.
 
 The whole design rests on one empirical curve. Drag the integration steps slider below from 1 upward: at one or two steps the transported cloud misses the action modes badly, by five to ten it has concentrated on them, and pushing to 50 buys nothing measurable. That is why a flow-matching head can close a 50 Hz loop where an autoregressive token head cannot.
 
 <FlowMatchingTrajectory className="my-6" />
-
-<FlowTransport className="my-6" />
 
 ## π0: the action expert
 

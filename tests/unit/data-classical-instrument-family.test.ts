@@ -7,7 +7,9 @@ import { publishedModules } from '@/data/modules';
  * The data/hardware and classical interactives are explanatory
  * instruments and must mount the shared instrument family from
  * components/ui/instrument.tsx rather than hand-rolled presentation
- * chrome. The population is derived from the module registry: every
+ * chrome. A plain prose table is not a figure: it mounts the shared Table
+ * primitive and draws nothing of its own. The population is derived from
+ * the module registry: every
  * interactive a data-hardware or classical article imports from
  * components/interactive is in scope, so a newly published article in
  * either domain joins the sweep without editing this file.
@@ -51,11 +53,15 @@ describe('data/classical instruments use the shared instrument family', () => {
         join(ROOT, 'components', 'interactive', `${name}.tsx`),
         'utf8',
       );
-      const importsFamily = /import\s+\{[^}]*InstrumentFrame[^}]*\}\s+from\s+['"]@\/components\/ui(?:\/instrument)?['"]/.test(
+      const importsFamily = /import\s+\{[^}]*\b(?:InstrumentFigure|InstrumentFrame)\b[^}]*\}\s+from\s+['"]@\/components\/ui(?:\/instrument)?['"]/.test(
         text,
       );
-      const mountsFrame = /<InstrumentFrame\b/.test(text);
-      if (!importsFamily || !mountsFrame) unmigrated.push(name);
+      const mountsFrame = /<(?:InstrumentFigure|InstrumentFrame)\b/.test(text);
+      const plainTable =
+        /import\s+\{[^}]*\bTable\b[^}]*\}\s+from\s+['"]@\/components\/ui(?:\/table)?['"]/.test(text) &&
+        /<Table\b/.test(text) &&
+        !/<svg\b/.test(text);
+      if (!(importsFamily && mountsFrame) && !plainTable) unmigrated.push(name);
     }
     expect(
       unmigrated,

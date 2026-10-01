@@ -589,7 +589,7 @@ test.describe('classical scene-representation module', () => {
     // The diagram is wider than the control column beside it.
     expect(geometry.svgWidth).toBeGreaterThan(geometry.controlsWidth);
     // The drawing fills its own panel box (no half-empty frame).
-    const aspect = 220 / 300; // viewBox height/width incl. title band
+    const aspect = 256 / 340; // viewBox height/width incl. title and sensor bands
     const expectedHeight = geometry.svgWidth * aspect;
     expect(geometry.panelHeight).toBeLessThan(expectedHeight * 1.25);
     await context.close();

@@ -7,6 +7,7 @@ import { METHODS } from '../../data/methods';
 import { publishedModules } from '../../data/modules';
 import { compoundPartDigest, compoundPlanDigest, originalClaimDigest, parseLedger, type CompoundPlan } from '../../lib/audit-ledger';
 import { collectArticleTruthManifests } from '../../scripts/brand-v2-baseline';
+import { buildManifest } from '../../lib/brand-v2-baseline';
 import { committedSource, preservedApprovalPacket, preservedCompoundPacket, RELEASE_BASE } from '../helpers/continuation-integration';
 import { headReanchorFor, showAt } from './helpers/continuation-merge-ledger';
 import { currentAuditContext, finalSevenPriorPlans } from '../helpers/residual-integration';
@@ -84,8 +85,16 @@ describe('VLA21 and comparison1 current identity and scoped introduction', { tim
       .find((a: { id: string }) => a.id === 'round5-first-screen-cd-20260929-prose-vla-models');
     expect(vlaFirstScreen).toBeDefined();
     expect(vlaFirstScreen.oldHash).toBe(vlaSceneMount.newHash);
+    // The 2026-10-01 figure migration removed that scene and its import again,
+    // which returns the prose exactly to the educational-cue endpoint the
+    // chain already approved.
+    const vlaPath = 'content/manipulation/vla-models.mdx';
+    const vlaHash = (text: string) => buildManifest('prose', [{
+      id: 'article:manipulation/vla-models', value: { path: vlaPath, body: matter(text).content.trim() },
+    }]).members[0].hash;
+    expect(vlaHash(committedSource('e4784342', vlaPath))).toBe(vlaFirstScreen.newHash);
     expect(truthManifests['prose'].members.find(m => m.id === 'article:manipulation/vla-models')?.hash)
-      .toBe(vlaFirstScreen.newHash);
+      .toBe(vlaCue.newHash);
     // The original VLA packet did not alter the registry. NASA was added by
     // the later industrial packet, whose complete record has its own test.
     expect(committedSource('89cda67', 'data/citations.ts')).toBe(before('data/citations.ts'));

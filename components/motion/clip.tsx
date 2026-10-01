@@ -13,17 +13,17 @@
  * through aria-describedby, so the clip has a complete text alternative
  * without playing it.
  *
- * The stage sits in the same instrument chrome as the live scenes: frame,
- * header band, bounded-dark stage, caption, status line. A playing clip
- * pauses when it leaves the viewport or the tab hides, matching the
- * player contract the live scenes keep.
+ * The clip sits in the shared figure frame, like the live scenes: a
+ * one-line title, the video on the graphite stage, one caption, and the
+ * status note as the source line. Its beat captions play inside the video,
+ * so the frame exports their word counts for the figure check the way a
+ * scene does. A playing clip pauses when it leaves the viewport or the tab
+ * hides, matching the player contract the live scenes keep.
  */
 import { useEffect, useRef, useState } from 'react';
-import {
-  InstrumentFrame,
-  InstrumentHeader,
-} from '@/components/ui/instrument';
-import { Surface } from '@/components/ui/surface';
+import { FigureStage } from '@/components/motion/figure-frame';
+import { InstrumentFigure } from '@/components/ui/instrument';
+import { words } from '@/lib/figure-system-paint';
 import { getMotionClip } from '@/lib/motion-clips';
 
 export interface ClipProps {
@@ -75,82 +75,68 @@ export function Clip({ id, className }: ClipProps) {
   const alternativeId = `motion-clip-${clip.id}-text`;
 
   return (
-    <InstrumentFrame
+    <InstrumentFigure
+      as="div"
+      figureId={`clip:${clip.id}`}
       data-motion-clip={clip.id}
+      data-figure-beat-words={clip.beats
+        .map((beat) => words(beat.caption))
+        .join(' ')}
       data-pagefind-ignore
       role="region"
       aria-label={`Cinematic clip: ${clip.title}`}
       aria-describedby={alternativeId}
       className={className}
-    >
-      <InstrumentHeader
-        label="cinematic clip"
-        meta={
-          <span data-testid="motion-clip-length">
-            {(clip.durationMs / 1000).toFixed(0)} s · captions available
-          </span>
-        }
-      />
-
-      <Surface
-        level="bounded-dark"
-        data-motion-clip-stage
-        className="mt-4 overflow-hidden"
-      >
-        <div className="relative">
-          <video
-            ref={videoRef}
-            controls
-            preload="none"
-            poster={clip.files.poster}
-            onLoadedData={() => setPosterVisible(false)}
-            width={clip.width}
-            height={clip.height}
-            playsInline
-            aria-label={`${clip.title} (${clip.status})`}
-            className="block h-auto w-full"
-          >
-            <source src={clip.files.webm} type="video/webm" />
-            <source src={clip.files.mp4} type="video/mp4" />
-            <track
-              kind="captions"
-              src={clip.files.vtt}
-              srcLang="en"
-              label="Captions"
-            />
-          </video>
-          {posterVisible && (
-            // Chrome can draw an idle spinner over a native poster even after
-            // the PNG has loaded. Keep its controls exposed below this inert
-            // still until the first frame has decoded.
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-[78%] overflow-hidden">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                data-motion-clip-poster
-                src={clip.files.poster}
-                alt=""
-                aria-hidden="true"
-                className="block h-auto w-full"
+      heading={clip.title}
+      stage={
+        <FigureStage data-motion-clip-stage>
+          <div className="relative">
+            <video
+              ref={videoRef}
+              controls
+              preload="none"
+              poster={clip.files.poster}
+              onLoadedData={() => setPosterVisible(false)}
+              width={clip.width}
+              height={clip.height}
+              playsInline
+              aria-label={`${clip.title} (${clip.status})`}
+              className="block h-auto w-full"
+            >
+              <source src={clip.files.webm} type="video/webm" />
+              <source src={clip.files.mp4} type="video/mp4" />
+              <track
+                kind="captions"
+                src={clip.files.vtt}
+                srcLang="en"
+                label="Captions"
               />
-            </div>
-          )}
-        </div>
-      </Surface>
-
-      <p
-        data-testid="motion-clip-caption"
-        className="mt-3 font-sans text-sm leading-relaxed text-text"
-      >
-        {clip.teaches}
-      </p>
-
-      <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
-        {clip.statusNote}
-      </p>
-
-      <p id={alternativeId} className="sr-only">
+            </video>
+            {posterVisible && (
+              // Chrome can draw an idle spinner over a native poster even
+              // after the PNG has loaded. Keep its controls exposed below
+              // this inert still until the first frame has decoded.
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-[78%] overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  data-motion-clip-poster
+                  src={clip.files.poster}
+                  alt=""
+                  aria-hidden="true"
+                  className="block h-auto w-full"
+                />
+              </div>
+            )}
+          </div>
+        </FigureStage>
+      }
+      caption={clip.teaches}
+      captionProps={{ 'data-testid': 'motion-clip-caption' }}
+      source={clip.statusNote}
+    >
+      <div id={alternativeId} className="sr-only">
         {clip.textAlternative}
-      </p>
-    </InstrumentFrame>
+      </div>
+    </InstrumentFigure>
   );
 }

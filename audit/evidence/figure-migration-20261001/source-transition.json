@@ -1,0 +1,887 @@
+{
+  "schemaVersion": "figure-migration-source-continuity-v1",
+  "name": "one-figure-system-migration",
+  "archivedFrom": "e478434225e07843ae2428c38dd8c1baa5ac82e4",
+  "reviewedBy": "Figure-migration implementer (not independent acceptance)",
+  "rationale": "The one-figure-system migration moved every instrument onto the figure frame, retired overview scenes and calculator copies that repeated another figure on the same page, and reworded the lead-ins that named a retired figure. Each source is archived here at its pre-migration bytes. The archive stands in for the live file only while the live file is exactly the reviewed successor, every phrase an earlier review requires is still present, every withdrawn phrase is still absent, the frontmatter and citation order of each article are unchanged, each replaced phrase is named with its successor and reason, and each retired mount literal is gone while its named survivor remains. The replaced phrases named here are the ones earlier reviews constrain. Other changes, such as moved paragraphs and prediction steps, removed imports, other reworded lead-ins, notation-only KaTeX rewrites and the sim2real prediction step that held the retired chart copy, are bound only by the exact successor bytes; the migration's article-truth approved deltas describe each article's prose change. Recorded observations of retired mounts are history and are not repeated. Ledger rows parallel-sim-rl:18, legged-locomotion:8 and legged-locomotion:17 still describe labs this migration removed and are owed a re-scope by the rl-sim2real domain pass. The local-basis plans for rows sim2real-transfer:23, data-bottleneck:3, data-bottleneck:5 and evaluation-crisis:1 bind both mounts of a pair whose duplicate this migration retired; their observations of the retired mount are history, and those rows are owed a re-scope by the rl-sim2real and data-hardware domain passes.",
+  "observedAt": "2026-10-01T12:08:06Z",
+  "sources": [
+    {
+      "name": "collaborative-operation-modes",
+      "before": {
+        "path": "audit/evidence/figure-migration-20261001/collaborative-operation-modes-before.tsx.txt",
+        "bytes": 19581,
+        "sha256": "fdd669e1313c1def05df50c29cb92821d450440b74fe8e322031e511dd9384dd"
+      },
+      "after": {
+        "path": "components/interactive/collaborative-operation-modes.tsx",
+        "bytes": 18893,
+        "sha256": "b29dc0b3e8db7c1ecb9345150b1bcddf2cc8c71149e7bade7f05f382aee568e1"
+      },
+      "preserved": [
+        "import {\n  CONTACT_LIMIT_LABEL,\n  CONTACT_LIMIT_N,\n  DEFAULT_HUMAN_SPEED_M_S,\n  DEFAULT_MODE,\n  DEFAULT_ROBOT_SPEED_M_S,\n  HUMAN_SPEED_RANGE,\n  INTRUSION_MARGIN_M,\n  MODES,\n  POSITION_UNCERTAINTY_M,\n  REACTION_TIME_S,\n  ROBOT_DECELERATION_M_PER_S2,\n  ROBOT_SPEED_RANGE,\n  WORKCELL_SEPARATION_M,\n  formatForce,\n  formatMetres,\n  formatSpeed,\n  modeById,\n  peakContactForceN,\n  protectiveSeparationM,\n  separationTerms,\n  verdict,\n  type ModeId,\n} from '@/lib/safety-modes';",
+        "with both sliders choosing 0 to 2 m/s",
+        "in 0.05 m/s steps",
+        "illustrative, not measurements or safety certification."
+      ],
+      "preservedOnce": [],
+      "absent": [],
+      "replaced": [],
+      "retired": []
+    },
+    {
+      "name": "data-scale-chart",
+      "before": {
+        "path": "audit/evidence/figure-migration-20261001/data-scale-chart-before.tsx.txt",
+        "bytes": 19374,
+        "sha256": "10664b665c58529e71fcaa15b8693782b41c88bef4de81e84454fe98327f4e7f"
+      },
+      "after": {
+        "path": "components/interactive/data-scale-chart.tsx",
+        "bytes": 22243,
+        "sha256": "1f730c35ce607f90e9bb552a9618a05af50a2c67c4eadf11c94e9c2299081e3b"
+      },
+      "preserved": [
+        "import {\n  COLLECTION_RATES,\n  DEFAULT_RIGS,\n  FRONTIER_HOURS,\n  LLM_POINTS,\n  MAX_RIGS,\n  MIN_RIGS,\n  OXE_SCALE_HOURS,\n  OXE_DURATION,\n  ROBOT_POINTS,\n  formatDuration,\n  formatHours,\n  formatRigs,\n  hoursPerYear,\n  rateById,\n  yearsToTarget,\n  type CollectionRateId,\n} from '@/lib/data-scaling';"
+      ],
+      "preservedOnce": [],
+      "absent": [],
+      "replaced": [],
+      "retired": []
+    },
+    {
+      "name": "deployment-economics",
+      "before": {
+        "path": "audit/evidence/figure-migration-20261001/deployment-economics-before.tsx.txt",
+        "bytes": 9226,
+        "sha256": "79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893"
+      },
+      "after": {
+        "path": "components/interactive/deployment-economics.tsx",
+        "bytes": 11379,
+        "sha256": "0db208d1123c840befe00b530ba479c0efb0bc1b5998294878c6822ea920e88f"
+      },
+      "preserved": [
+        "import {\n  AMORTIZATION_MONTHS,\n  DEFAULT_INPUTS,\n  INPUT_RANGES,\n  PAYBACK_TARGET_MONTHS,\n  ROBOT_HOURS_PER_MONTH,\n  SECONDS_PER_HOUR,\n  computeEconomics,\n  paysBackWithinTarget,\n  type EconomicsInputs,\n} from '@/lib/deployment-economics';"
+      ],
+      "preservedOnce": [],
+      "absent": [],
+      "replaced": [],
+      "retired": []
+    },
+    {
+      "name": "eureka-loop",
+      "before": {
+        "path": "audit/evidence/figure-migration-20261001/eureka-loop-before.tsx.txt",
+        "bytes": 7697,
+        "sha256": "ee97b823504dba5e83fad0413d6cbc51e6575eb6bf58992e96ebcdee6e07931f"
+      },
+      "after": {
+        "path": "components/interactive/eureka-loop.tsx",
+        "bytes": 8758,
+        "sha256": "63bde0083bb93f53dc8c5bd026da07581e4c81eb630d2d4816f274900c9367dd"
+      },
+      "preserved": [
+        "import {\n  EUREKA_GENERATIONS,\n  EUREKA_TASK,\n  diffLines,\n} from '@/lib/eureka';"
+      ],
+      "preservedOnce": [],
+      "absent": [],
+      "replaced": [],
+      "retired": []
+    },
+    {
+      "name": "friction-transfer",
+      "before": {
+        "path": "audit/evidence/figure-migration-20261001/friction-transfer-before.tsx.txt",
+        "bytes": 15835,
+        "sha256": "45e15e842760f8109e19cd9cded9b066557fc235c0a4ebb51488590b9a2dee44"
+      },
+      "after": {
+        "path": "components/interactive/friction-transfer.tsx",
+        "bytes": 16665,
+        "sha256": "dab247ff28e8fe7a559606cd4c19788e1dae7df68e04f9429bb390312f3d53c1"
+      },
+      "preserved": [
+        "  }, [realMu, range]);\n\n  // Named width regime so two mounts on one route describe distinct regimes\n  // even after digit normalisation (mirrors the latency `marked ${status}`).\n  const widthMark = range >= 0.5 ? 'wide' : 'ordinary';\n\n  const descriptionText =",
+        "Dashed edges mark an assumed range, not a confidence interval. The randomization band is marked ${widthMark} at the selected half-width. Reset restores this panel"
+      ],
+      "preservedOnce": [],
+      "absent": [],
+      "replaced": [
+        {
+          "before": "import {\n  DEFAULT_DR_RANGE,\n  DEFAULT_REAL_MU,\n  DR_RANGE_MAX,\n  DR_RANGE_MIN,\n  MU_MAX,\n  MU_MIN,\n  MU_TRAIN,\n  POINT_PEAK,\n  drCurvePoints,\n  drPeak,\n  drSuccess,\n  formatMu,\n  formatPct,\n  pointCurvePoints,\n  pointSuccess,\n} from '@/lib/sim2real';",
+          "after": "import {\n  DEFAULT_DR_RANGE,\n  DEFAULT_REAL_MU,\n  DR_RANGE_MAX,\n  DR_RANGE_MIN,\n  MU_MAX,\n  MU_MIN,\n  MU_TRAIN,\n  POINT_PEAK,\n  POINT_SIGMA,\n  drCurvePoints,\n  drPeak,\n  drSuccess,\n  formatMu,\n  formatPct,\n  pointCurvePoints,\n  pointSuccess,\n} from '@/lib/sim2real';",
+          "reason": "Adds POINT_SIGMA, the recipe's own point-curve width, to place the curve label. Every name the archived component imported from lib/sim2real.ts is still imported."
+        }
+      ],
+      "retired": []
+    },
+    {
+      "name": "generalist-release-timeline",
+      "before": {
+        "path": "audit/evidence/figure-migration-20261001/generalist-release-timeline-before.tsx.txt",
+        "bytes": 14919,
+        "sha256": "a68326be90d5d666bcc67e855ec727b77881558628c22d9a1e47cce6dbee4f88"
+      },
+      "after": {
+        "path": "components/interactive/generalist-release-timeline.tsx",
+        "bytes": 16098,
+        "sha256": "3fc65b1697c8000e3c74fbecf95fc16bf23d55947d1f71e0be3a95c42d0b61a5"
+      },
+      "preserved": [
+        "import {\n  GENERALIST_RELEASES,\n  PROVENANCE_TIERS,\n  filterReleases,\n  isVendorReported,\n  provenanceLabel,\n  releaseWeightLabel,\n  releaseWeightState,\n  type GeneralistRelease,\n  type OpenFilter,\n  type ProvenanceTier,\n} from '@/lib/generalist-policies';"
+      ],
+      "preservedOnce": [],
+      "absent": [],
+      "replaced": [],
+      "retired": []
+    },
+    {
+      "name": "impedance-contact-lab",
+      "before": {
+        "path": "audit/evidence/figure-migration-20261001/impedance-contact-lab-before.tsx.txt",
+        "bytes": 16264,
+        "sha256": "9ee19883e1d9787f8cc7c86cccb37f9accf9a6de4f2b7e0da26c27a0673f33f2"
+      },
+      "after": {
+        "path": "components/interactive/impedance-contact-lab.tsx",
+        "bytes": 16654,
+        "sha256": "5178ab338d1ead296c94496fae251661bae1fdf4f4455033289abe64ed7a56f8"
+      },
+      "preserved": [
+        "import {\n  TRANSIENT_CONTACT_LIMIT_CITATION,\n  TRANSIENT_CONTACT_LIMIT_LABEL,\n  TRANSIENT_CONTACT_LIMIT_N,\n} from '@/lib/force-limits';"
+      ],
+      "preservedOnce": [],
+      "absent": [],
+      "replaced": [
+        {
+          "before": "import {\n  CRUSH_LIMIT_N,\n  DEFAULT_PARAMS,\n  SLIDER_SPECS,\n  classifyOutcome,\n  effectiveStiffness,\n  simulateContact,\n  type HardwareMode,\n  type LabParams,\n} from '@/lib/impedance';",
+          "after": "import {\n  CRUSH_LIMIT_N,\n  DEFAULT_PARAMS,\n  EFFECTIVE_MASS_KG,\n  SLIDER_SPECS,\n  classifyOutcome,\n  effectiveStiffness,\n  simulateContact,\n  type HardwareMode,\n  type LabParams,\n} from '@/lib/impedance';",
+          "reason": "Adds EFFECTIVE_MASS_KG from lib/impedance.ts so a model note can print the schematic end-effector mass. Every name the archived component imported is still imported."
+        }
+      ],
+      "retired": []
+    },
+    {
+      "name": "pendulum-controller",
+      "before": {
+        "path": "audit/evidence/figure-migration-20261001/pendulum-controller-before.tsx.txt",
+        "bytes": 18637,
+        "sha256": "eade20a4a0a513bb452ef8aa17a0dcdb1e1e4046049e5640f168e68e431aa88a"
+      },
+      "after": {
+        "path": "components/interactive/pendulum-controller.tsx",
+        "bytes": 18878,
+        "sha256": "8a1086da53876ed485f0c9717d68c2e43b6fc98e0b08245a7ab9285b4d4cd10e"
+      },
+      "preserved": [
+        "import {\n  DEFAULT_GAINS,\n  GAIN_SPECS,\n  INITIAL_STATE,\n  PENDULUM_PARAMS,\n  advancePendulum,\n  applyPush,\n  classifyStability,\n  controlTorque,\n  formatDeg,\n  playbackCadence,\n  tipPosition,\n  type PidGains,\n  type PendulumState,\n  type Stability,\n} from '@/lib/pendulum';"
+      ],
+      "preservedOnce": [],
+      "absent": [],
+      "replaced": [],
+      "retired": []
+    },
+    {
+      "name": "perception-error-budget",
+      "before": {
+        "path": "audit/evidence/figure-migration-20261001/perception-error-budget-before.tsx.txt",
+        "bytes": 16745,
+        "sha256": "975355aeffe1d4e5f47f94e842ab379b1b257d4f18ecd0bb10e0bc1d3bb545cd"
+      },
+      "after": {
+        "path": "components/interactive/perception-error-budget.tsx",
+        "bytes": 17967,
+        "sha256": "97e3c0ea19bab721cb4c7e101dc7967e4bb2928918e38bec61fc666782c88880"
+      },
+      "preserved": [
+        "import {\n  CLEARANCE_MM,\n  DEFAULT_PARAMS,\n  NOMINAL_RANGE_M,\n  PUBLISHED_DEPTH_SPEC_PCT,\n  SLIDER_SPECS,\n  TARGET_CLASSES,\n  composeBudget,\n  depthFloorPct,\n  getTargetClass,\n  type BudgetParams,\n  type TargetId,\n} from '@/lib/perception-error';"
+      ],
+      "preservedOnce": [],
+      "absent": [],
+      "replaced": [],
+      "retired": []
+    },
+    {
+      "name": "planar-fk-arm",
+      "before": {
+        "path": "audit/evidence/figure-migration-20261001/planar-fk-arm-before.tsx.txt",
+        "bytes": 8827,
+        "sha256": "ad94ec5712bd2e1208466d90da56d625193895de509c731c97fef8f23a9cb055"
+      },
+      "after": {
+        "path": "components/interactive/planar-fk-arm.tsx",
+        "bytes": 10072,
+        "sha256": "ae71932097c181a0bc71463e1de009c1bc992bdfc4a6e6cbc255e99bef247419"
+      },
+      "preserved": [
+        "import {\n  DEFAULT_ANGLES_DEG,\n  JOINT_LIMIT_DEG,\n  LINK_LENGTHS,\n  planarForwardKinematics,\n  totalReach,\n} from '@/lib/planar-fk';"
+      ],
+      "preservedOnce": [],
+      "absent": [],
+      "replaced": [],
+      "retired": []
+    },
+    {
+      "name": "reliability-compounding",
+      "before": {
+        "path": "audit/evidence/figure-migration-20261001/reliability-compounding-before.tsx.txt",
+        "bytes": 10857,
+        "sha256": "823d2573c9ec90fde8b7d8ea3131852a0adc6c2955d1c3dec6122b7663917382"
+      },
+      "after": {
+        "path": "components/interactive/reliability-compounding.tsx",
+        "bytes": 14060,
+        "sha256": "c50d6ba2fc0ae6e9ba55ab7eed332cd69b646b7e9adcb56bf52ebffd1ff2b6f4"
+      },
+      "preserved": [
+        "import { compoundingCurve, compoundedSuccessRate } from '@/lib/reliability';"
+      ],
+      "preservedOnce": [],
+      "absent": [],
+      "replaced": [],
+      "retired": []
+    },
+    {
+      "name": "reward-shaping",
+      "before": {
+        "path": "audit/evidence/figure-migration-20261001/reward-shaping-before.tsx.txt",
+        "bytes": 15814,
+        "sha256": "d0eb1244422184c4e2943e38859fb1c654dcc592b2467df4ea59e35b0a8dc551"
+      },
+      "after": {
+        "path": "components/interactive/reward-shaping.tsx",
+        "bytes": 16807,
+        "sha256": "b59d2dab22ef912829f7e782911f0a4eae41f5055bcb7f416d3119237632e404"
+      },
+      "preserved": [
+        "import {\n  ATTRACTOR_DOMINANCE_RATIO,\n  ATTRACTOR_WEIGHT_MIN,\n  BEHAVIORS,\n  STRIDE_PX,\n  TERMS,\n  WEIGHT_MAX,\n  WEIGHT_MIN,\n  classifyBehavior,\n  defaultWeights,\n  formatTotal,\n  formatWeight,\n  playbackCadence,\n  quadrupedPose,\n  weightedTotal,\n  type BehaviorId,\n  type Weights,\n} from '@/lib/reward-shaping';",
+        "import { type LegId } from '@/lib/gait';"
+      ],
+      "preservedOnce": [],
+      "absent": [],
+      "replaced": [],
+      "retired": []
+    },
+    {
+      "name": "rrt-explorer",
+      "before": {
+        "path": "audit/evidence/figure-migration-20261001/rrt-explorer-before.tsx.txt",
+        "bytes": 14890,
+        "sha256": "13eac9e082f0b7b114c501af3da070a1fbc43a98ba5f926fa3ac83b56d4f80b2"
+      },
+      "after": {
+        "path": "components/interactive/rrt-explorer.tsx",
+        "bytes": 16114,
+        "sha256": "07bfef8d62c3b0c2b65ba2fcf772960a84280b7addbf0701d668a500792991ff"
+      },
+      "preserved": [
+        "import {\n  RRT_SCENE,\n  buildRrt,\n  edgesUpTo,\n  formatLength,\n  nodesUpTo,\n  pathIfReached,\n  playbackCadence,\n} from '@/lib/rrt';"
+      ],
+      "preservedOnce": [],
+      "absent": [],
+      "replaced": [],
+      "retired": []
+    },
+    {
+      "name": "teacher-student",
+      "before": {
+        "path": "audit/evidence/figure-migration-20261001/teacher-student-before.tsx.txt",
+        "bytes": 9905,
+        "sha256": "9afb93ac502792bc74ed43e9b5d7a0990ebaf244f13c4af9144c1b405a9fa11a"
+      },
+      "after": {
+        "path": "components/interactive/teacher-student.tsx",
+        "bytes": 11268,
+        "sha256": "954f0540bb590956032fc04959f0f25bf4f64ddd465e9aae232ef48cedfaa6c8"
+      },
+      "preserved": [],
+      "preservedOnce": [],
+      "absent": [],
+      "replaced": [
+        {
+          "before": "import {\n  DEFAULT_DEGRADATION,\n  TERRAIN,\n  TERRAIN_CELLS,\n  actionDivergence,\n  formatDivergence,\n  formatMeters,\n  occludedCells,\n  proprioReadings,\n  reconstruction,\n  reconstructionMae,\n  terrainColor,\n} from '@/lib/sim2real';",
+          "after": "import {\n  DEFAULT_DEGRADATION,\n  TERRAIN,\n  TERRAIN_CELLS,\n  TERRAIN_MAX,\n  TERRAIN_MIN,\n  actionDivergence,\n  formatDivergence,\n  formatMeters,\n  occludedCells,\n  proprioReadings,\n  reconstruction,\n  reconstructionMae,\n} from '@/lib/sim2real';",
+          "reason": "Adds TERRAIN_MIN and TERRAIN_MAX and drops terrainColor: terrain cells are now painted with the figure palette from the normalized height. The terrain, reconstruction, occlusion and divergence functions are still imported from lib/sim2real.ts."
+        }
+      ],
+      "retired": []
+    },
+    {
+      "name": "control",
+      "before": {
+        "path": "audit/evidence/figure-migration-20261001/control-before.mdx.txt",
+        "bytes": 21029,
+        "sha256": "939fecc899a9a3dcf93ab8d37e43104666c53aa3e4ad6e30d90042ffe5629766"
+      },
+      "after": {
+        "path": "content/classical/control.mdx",
+        "bytes": 20898,
+        "sha256": "9b41f7f068697599c9040c66eaf3dae0b2d90a18742b15e6b2d369dd0fa74bfc"
+      },
+      "preserved": [
+        "<PendulumController",
+        "<ImpedanceContactLab",
+        "<SelfCheck",
+        "<PredictThenReveal",
+        "<Cite id=\"ziegler-nichols-1942\" />",
+        "<Cite id=\"tedrake-underactuated\" />",
+        "A^{\\top} P + P A - P B R^{-1} B^{\\top} P + Q = 0"
+      ],
+      "preservedOnce": [],
+      "absent": [
+        "astrom-murray-2008",
+        "kalman-1960",
+        ">95%",
+        "more than 95%",
+        "Kalman's 1960"
+      ],
+      "replaced": [],
+      "retired": [
+        {
+          "literal": "<PendulumController className=\"my-6\" />",
+          "survivor": "<PendulumController defaultKp={9.5} className=\"mt-3\" />",
+          "reason": "The standalone pendulum lab repeated the lab inside the prediction step; the prediction step, mounted at Kp 9.5, now stands where the standalone lab stood and is the page's only pendulum lab."
+        }
+      ]
+    },
+    {
+      "name": "kinematics",
+      "before": {
+        "path": "audit/evidence/figure-migration-20261001/kinematics-before.mdx.txt",
+        "bytes": 11838,
+        "sha256": "0441641cea205541d216c4b6c2aefeb4bf5109561c4d8a3814b904215ee6837e"
+      },
+      "after": {
+        "path": "content/classical/kinematics.mdx",
+        "bytes": 11841,
+        "sha256": "3972d6e123cdee5910beacb08f15f3ba853877c07029a9b7dcf4b0b439fdbbaa"
+      },
+      "preserved": [
+        "<PlanarFkArm",
+        "<DhParameterTable",
+        "/playground",
+        "±0.5mm",
+        "product-of-exponentials",
+        "A_i = \\begin{bmatrix}"
+      ],
+      "preservedOnce": [],
+      "absent": [
+        "Wampler",
+        "Levenberg-Marquardt",
+        "\\lambda^2 I",
+        "residual decreases monotonically",
+        "wampler-1986",
+        "levenberg-1944",
+        "marquardt-1963"
+      ],
+      "replaced": [],
+      "retired": [
+        {
+          "literal": "<FkChain className=\"my-6\" />",
+          "survivor": "<PlanarFkArm className=\"my-6\" />",
+          "reason": "The FkChain scene replayed the ordered transform chain the planar arm lab teaches; one visual per concept keeps the arm lab."
+        }
+      ]
+    },
+    {
+      "name": "motion-planning",
+      "before": {
+        "path": "audit/evidence/figure-migration-20261001/motion-planning-before.mdx.txt",
+        "bytes": 24327,
+        "sha256": "2bef2a93acfbaef49fd1db39b51c317a877b0d9607f1517584a1996259b238ce"
+      },
+      "after": {
+        "path": "content/classical/motion-planning.mdx",
+        "bytes": 24194,
+        "sha256": "b785f6d9a2da5b98d31dc9d384707218ab3dec14d2d9fae9b96e06942b7e58e6"
+      },
+      "preserved": [
+        "Constructing the collision-constrained space is difficult, but it does not become impossible beyond a fixed number of dimensions.",
+        "These properties do not guarantee fast coverage on every problem: the report leaves convergence-rate analysis open, and the book distinguishes exploring free space from solving a start-goal query",
+        "Those experiments found faster refinement than RRT\\* in that setup. They do not establish a universal speedup, and when the informed set covers the planning domain,",
+        "The paper's description of its Sample routine says every sampled state admits an improving path, a stronger claim than the admissible-superset construction in its algorithm supports."
+      ],
+      "preservedOnce": [],
+      "absent": [],
+      "replaced": [
+        {
+          "before": "The paused overview and the lab below use the same authored 2D scene: a 100 by 64 world with five obstacles.",
+          "after": "The lab below uses an authored 2D scene: a 100 by 64 world with five obstacles.",
+          "reason": "The paused RrtGrowth overview scene above the RRT lab was retired because it replayed the same fixed-seed tree the lab grows. The lead-in now names only the lab; the authored 2D scene, the 100 by 64 world and the five obstacles it discloses are unchanged."
+        }
+      ],
+      "retired": [
+        {
+          "literal": "<RrtGrowth className=\"my-6\" />",
+          "survivor": "<RrtExplorer className=\"my-6\" />",
+          "reason": "The paused RrtGrowth overview scene above the RRT lab was retired because it replayed the same fixed-seed tree the lab grows. The RRT lab stays. Its recorded observations are history and are not repeated."
+        }
+      ]
+    },
+    {
+      "name": "perception",
+      "before": {
+        "path": "audit/evidence/figure-migration-20261001/perception-before.mdx.txt",
+        "bytes": 35573,
+        "sha256": "c8bb4dbf082baca8081d81b253cccfd009528353056d2a8c26e243df3e5b8a36"
+      },
+      "after": {
+        "path": "content/classical/perception.mdx",
+        "bytes": 35527,
+        "sha256": "18e39a144d4085232b2e7dbd4bca98798cd99085fc44340dbdcf2330a7cb0f65"
+      },
+      "preserved": [
+        "The instrument combines three authored input magnitudes labelled hand-eye, depth and pose.",
+        "That authored grouping is an editorial guide, not an exhaustive subsystem count or proof that their errors form one statistical budget.",
+        "The instrument uses an illustrative ray-to-plane model. It does not calculate the full three-dimensional hand-eye error."
+      ],
+      "preservedOnce": [],
+      "absent": [],
+      "replaced": [],
+      "retired": []
+    },
+    {
+      "name": "data-bottleneck",
+      "before": {
+        "path": "audit/evidence/figure-migration-20261001/data-bottleneck-before.mdx.txt",
+        "bytes": 12009,
+        "sha256": "9720088a7610a92ee62ad2fbd148b95618d27ba098832a6946185031d373285c"
+      },
+      "after": {
+        "path": "content/data-hardware/data-bottleneck.mdx",
+        "bytes": 11865,
+        "sha256": "844681ad63310e95b716d1b348d35132de9b4ccda7c3d51ed11e3730fff34e2a"
+      },
+      "preserved": [
+        "The 10,000-hour and 1,000,000-hour targets are hypothetical too; neither is OXE duration or a measured frontier requirement.",
+        "Both the rate and target are authored hypothetical inputs. Neither measures DROID productivity or OXE duration.",
+        "The reported collector count and elapsed collection period do not establish each robot’s annual working exposure."
+      ],
+      "preservedOnce": [],
+      "absent": [
+        "Both the rate and target are authored hypothetical inputs, not measurements of DROID productivity or OXE duration."
+      ],
+      "replaced": [],
+      "retired": [
+        {
+          "literal": "<DataScaleChart className=\"my-6\" />",
+          "survivor": "<DataScaleChart defaultRigs={10} defaultRate=\"droid-measured\" className=\"mt-3\" />",
+          "reason": "The standalone demonstration-hours chart repeated the chart inside the prediction step, which is now the page's only copy. Its recorded observations are history and are not repeated."
+        },
+        {
+          "literal": "<FarmThroughput className=\"my-6\" />",
+          "survivor": "<DataScaleChart defaultRigs={10} defaultRate=\"droid-measured\" className=\"mt-3\" />",
+          "reason": "The farm-throughput scene replayed the same rig-count projection the remaining demonstration-hours chart shows."
+        }
+      ]
+    },
+    {
+      "name": "evaluation-crisis",
+      "before": {
+        "path": "audit/evidence/figure-migration-20261001/evaluation-crisis-before.mdx.txt",
+        "bytes": 17487,
+        "sha256": "193a4eda0bcaf6ff1da6b3e34b60acbfd810a20d99593ab4e23155466fa335de"
+      },
+      "after": {
+        "path": "content/data-hardware/evaluation-crisis.mdx",
+        "bytes": 17322,
+        "sha256": "2337aa7c35bf33dbdc468905802b7346f8247ae39486ce3eb2c291b7d41c9492"
+      },
+      "preserved": [
+        "the same probability p of success conditional on all earlier decisions succeeding",
+        "These are methods for reducing the gaps, not guarantees that they are closed",
+        "These model-dependent derivations do not infer per-step reliability from real benchmark results."
+      ],
+      "preservedOnce": [],
+      "absent": [
+        "Both methods reduce gaps without guaranteeing that they are closed"
+      ],
+      "replaced": [
+        {
+          "before": "<ReliabilityCompounding defaultPerStep={0.95} defaultSteps={14} descriptionVariant=\"prediction\" className=\"mt-3\" />",
+          "after": "<ReliabilityCompounding defaultPerStep={0.95} defaultSteps={14} minPerStepPercent={0} maxPerStepPercent={100} descriptionVariant=\"evaluation\" className=\"mt-3\" />",
+          "reason": "The remaining calculator inside the prediction step takes over the retired standalone calculator's full 0 to 100 percent slider range and evaluation description; its 0.95 per-step and 14-step start is unchanged."
+        }
+      ],
+      "retired": [
+        {
+          "literal": "<ReliabilityCompounding minPerStepPercent={0} maxPerStepPercent={100} descriptionVariant=\"evaluation\" className=\"my-6\" />",
+          "survivor": "<ReliabilityCompounding defaultPerStep={0.95} defaultSteps={14} minPerStepPercent={0} maxPerStepPercent={100} descriptionVariant=\"evaluation\" className=\"mt-3\" />",
+          "reason": "The standalone episode-success calculator repeated the calculator inside the prediction step, which now carries its full slider range. Its recorded observations are history and are not repeated."
+        },
+        {
+          "literal": "<EpisodeSurvival className=\"my-6\" />",
+          "survivor": "<ReliabilityCompounding defaultPerStep={0.95} defaultSteps={14} minPerStepPercent={0} maxPerStepPercent={100} descriptionVariant=\"evaluation\" className=\"mt-3\" />",
+          "reason": "The episode-survival scene replayed the same p to the n product the remaining calculator computes."
+        }
+      ]
+    },
+    {
+      "name": "legged-locomotion",
+      "before": {
+        "path": "audit/evidence/figure-migration-20261001/legged-locomotion-before.mdx.txt",
+        "bytes": 15213,
+        "sha256": "515a7768bdc7e0882516a76110324c392f0a9a0b03bff2e8e92bd1436160cceb"
+      },
+      "after": {
+        "path": "content/rl-sim2real/legged-locomotion.mdx",
+        "bytes": 15138,
+        "sha256": "d646ead47e43757b3bb2174ca7fd666c5a4aa64062bac05c080b88b2434de4af"
+      },
+      "preserved": [
+        "The diagram fixes authored illustrative duty factors: walk 0.75, trot 0.50, bound 0.45, and pronk 0.35. Its phase offsets and support readouts describe those chosen timing examples, not a universal gait law or a measured controller’s response to speed.",
+        "<GaitSupport className=\"my-6\" />",
+        "so the stance-time scaling is one classical controller’s schedule rather than a universal timing law",
+        "<Cite id=\"park-2017-bounding\" />",
+        "<Image id=\"anymal-anybotics-2022\" />"
+      ],
+      "preservedOnce": [],
+      "absent": [],
+      "replaced": [],
+      "retired": [
+        {
+          "literal": "<GaitDiagram className=\"my-6\" />",
+          "survivor": "<GaitSupport className=\"my-6\" />",
+          "reason": "The GaitDiagram lab repeated the gait sequence the GaitSupport scene teaches from the same lib/gait.ts duty factors; the scene stays. Its recorded observations are history and are not repeated. Ledger rows legged-locomotion:8 and legged-locomotion:17 still describe the removed lab and are owed a re-scope by the rl-sim2real domain pass."
+        }
+      ]
+    },
+    {
+      "name": "parallel-sim-rl",
+      "before": {
+        "path": "audit/evidence/figure-migration-20261001/parallel-sim-rl-before.mdx.txt",
+        "bytes": 13046,
+        "sha256": "37e4930effe0dcfdb8a9ad02c0f9dcfe4e32b124577f7c4e510ff3cb92e0f1f4"
+      },
+      "after": {
+        "path": "content/rl-sim2real/parallel-sim-rl.mdx",
+        "bytes": 12933,
+        "sha256": "f311364a94dc11f6b1e98bc7ecf7ff80005d4148c8fc64b5beaab45ddb9984bf"
+      },
+      "preserved": [
+        "This authored fixed-transitions model is not a benchmark. We choose a budget of 220 million transitions and 24 rollout steps per environment per iteration, with 4,096 environments and the CPU toggle off by default. Each iteration costs 0.02 seconds plus 0.000004 seconds per environment for simulation, 0.04 seconds for learning, and 0.03 seconds for CPU and transfer work. The toggle adds 0.000022 seconds per environment to the CPU bucket. These costs and the fixed budget are illustrative choices, not estimates recovered from either paper. The curve uses 49 logarithmically spaced environment counts from 64 to 16,384, rounded to integers, and sample times rounded to 0.01 minute. Its near-four-minute default is a chosen calibration, not validation by the flat-terrain result. The flat diamond also uses a chosen 4,096-environment position; only the separate rough-run protocol establishes that count.",
+        "<BatchScale className=\"my-6\" />",
+        "The flat diamond is placed at 4,096 environments for illustration",
+        "<Cite id=\"rudin-2021\" />"
+      ],
+      "preservedOnce": [],
+      "absent": [],
+      "replaced": [],
+      "retired": [
+        {
+          "literal": "<TrainingTimeChart className=\"my-6\" />",
+          "survivor": "<BatchScale className=\"my-6\" />",
+          "reason": "The TrainingTimeChart lab repeated the fixed-transitions arithmetic the BatchScale scene teaches; the scene stays. Its recorded observations are history and are not repeated. Ledger row parallel-sim-rl:18 still describes the removed lab and is owed a re-scope by the rl-sim2real domain pass."
+        }
+      ]
+    },
+    {
+      "name": "sim2real-transfer",
+      "before": {
+        "path": "audit/evidence/figure-migration-20261001/sim2real-transfer-before.mdx.txt",
+        "bytes": 21785,
+        "sha256": "41ee8c98aa44551dfd2c747223fb9a4e4f8a688c634bd856a49da275df07813c"
+      },
+      "after": {
+        "path": "content/rl-sim2real/sim2real-transfer.mdx",
+        "bytes": 20184,
+        "sha256": "47ee34b59c1a6aec096d78cee228d2488ec71c3e871e951821f6be433191a72b"
+      },
+      "preserved": [
+        "Both curves and every plotted success value are authored assumptions, not paper measurements.",
+        "The point curve is a Gaussian centered at friction 0.80, with peak 0.97 and width 0.09.",
+        "The DR curve has height 0.93 minus 0.55 times the selected half-width, stays flat inside that range, and has Gaussian tails of width 0.10.",
+        "Changing friction selects a position on fixed formulas; changing half-width redraws the DR formula.",
+        "The panel below is an authored toy, not measured robot data. It uses chosen terrain and noise, not a trained teacher or student. Its 24 terrain cells combine two sine waves with a step and a depression. Two seeded sequences (123456789 and 987654321) fix the noise and channel-dropout thresholds. A Gaussian blur of width three cells, a noise coefficient of 0.06, and a same-sign occlusion error of 0.12 define the reconstruction error; the degradation control scales that error from zero to one and starts at 0.15. The reconstruction is calculated directly from this terrain and error field, not inferred from the displayed input strip.",
+        "<FrictionTransfer className=\"my-6\" />",
+        "<TeacherStudent className=\"my-6\" />",
+        "<Cite id=\"tobin-2017\" />",
+        "<Cite id=\"peng-2018\" />",
+        "This simulated evaluation cannot stand in for real-robot testing."
+      ],
+      "preservedOnce": [],
+      "absent": [],
+      "replaced": [
+        {
+          "before": "The ordinary panel starts at half-width 0.35; the prediction panel starts at 0.65. Reset restores each panel’s own initial friction and half-width.",
+          "after": "The chart starts at half-width 0.35. Reset restores its initial friction and half-width.",
+          "reason": "The prediction-step copy of the friction chart (FrictionTransfer mount 2, starting at half-width 0.65) was retired, so the callout describes the one remaining chart. Its starting half-width of 0.35 and its Reset behaviour are unchanged, and every other sentence of the disclosure reads verbatim."
+        }
+      ],
+      "retired": [
+        {
+          "literal": "<FrictionTransfer defaultRange={0.65} className=\"mt-3\" />",
+          "survivor": "<FrictionTransfer className=\"my-6\" />",
+          "reason": "The prediction-step copy of the friction chart, mounted at half-width 0.65, repeated the chart above it; that chart stays. The prediction step that held the copy went with it: its prompt, its three options with their feedback, including the authored 74% and 57% values and the note that they do not come from Peng paper results, its reveal hint and its takeaway. The remaining chart's callout still marks every plotted value as an authored assumption. Its recorded observations are history and are not repeated."
+        }
+      ]
+    },
+    {
+      "name": "control-spec",
+      "before": {
+        "path": "audit/evidence/figure-migration-20261001/control-spec-before.ts.txt",
+        "bytes": 24751,
+        "sha256": "c99b16fdeebf05cb45f47778f1bd1e5259034dfa617385981ebd8f60d102e561"
+      },
+      "after": {
+        "path": "tests/e2e/control.spec.ts",
+        "bytes": 25472,
+        "sha256": "61673685f0936d8d9bf2dc688ea5be0752fb528a30bdb057550645abee9e81f4"
+      },
+      "preserved": [],
+      "preservedOnce": [
+        "test.describe('classical control module'",
+        "test('observes corrected sources, quiz and both labs at desktop and mobile'",
+        "test('renders full prose on PID, LQR, MPC, and whole-body QP (VAL-CLASS-014)'",
+        "test('citation chips resolve and link externally (VAL-CLASS-015, VAL-CLASS-016)'",
+        "test('KaTeX renders with no raw math delimiters (VAL-CLASS-017)'",
+        "test('pendulum controller renders scene, sliders, and readouts (VAL-CLASS-018)'",
+        "test('gain changes visibly alter stability live; reset restores (VAL-CLASS-019)'",
+        "test('push disturbs the balanced pole and the loop recovers'",
+        "test('the interactive is keyboard-operable'",
+        "test('reduced motion still advances the sim in coarse jumps'",
+        "test('no horizontal page scroll at 375px'",
+        "test('zero axe violations'",
+        "test('impedance section names the three schemes with resolving chips (VAL-CLASS-033)'",
+        "test('the hardware consequence is stated as prose (VAL-CLASS-034)'",
+        "test('impedance lab renders first paint with a live trace, torque default (VAL-CLASS-035 setup)'",
+        "test('stiffness slider moves the peak-force readout (VAL-CLASS-035)'",
+        "test('position mode disables compliance inputs and reads unbounded, both directions (VAL-CLASS-036)'",
+        "test('the contact-force limit line names its basis with a resolving caption chip (VAL-CLASS-037)'",
+        "test('keyboard operation: tab order, arrow keys, reset (VAL-CLASS-038)'",
+        "      expect(text).not.toMatch(/more than 95%|>95%|Kalman's 1960|Åström and Murray/i);",
+        "      await expect(page.locator('[data-cite-id=\"astrom-murray-2008\"]')).toHaveCount(0);",
+        "      await expect(page.locator('[data-cite-id=\"kalman-1960\"]')).toHaveCount(0);",
+        "      await expect(zn).toHaveAttribute('href', 'https://doi.org/10.1115/1.2899060');",
+        "      await expect(lqr).toHaveAttribute('href', 'https://underactuated.mit.edu/');",
+        "      await expect(page.locator('#ref-ziegler-nichols-1942')).toHaveCount(1);",
+        "      await expect(page.locator('#ref-tedrake-underactuated')).toHaveCount(1);"
+      ],
+      "absent": [],
+      "replaced": [
+        {
+          "before": "    .locator('div.prose > [data-brand-module-signature=\"instrument-frame\"]:has([data-testid=\"pendulum-scene\"])')",
+          "after": "    '[data-predict] [data-brand-module-signature=\"instrument-frame\"]:has([data-testid=\"pendulum-scene\"])',",
+          "reason": "The standalone pendulum lab was retired, so the per-mount locator now targets the one remaining lab inside the prediction step, which the spec opens first; the page renders one pendulum scene instead of two. The seven citation and reference checks the control correction records rely on are unchanged."
+        }
+      ],
+      "retired": []
+    },
+    {
+      "name": "economics-release-evidence-spec",
+      "before": {
+        "path": "audit/evidence/figure-migration-20261001/economics-release-evidence-spec-before.ts.txt",
+        "bytes": 6952,
+        "sha256": "0ec2a0eae15a7507aec8b53cd9a48a213fbeeede42be3a73ab33cbffcb03ae5e"
+      },
+      "after": {
+        "path": "tests/e2e/economics-release-evidence.spec.ts",
+        "bytes": 7215,
+        "sha256": "d303dcd54f8b0457ac38bcb1089a51ed5c61d9bde3d37151384fd191794eb6b7"
+      },
+      "preserved": [
+        "  const mount = page.locator('div.prose > [data-brand-module-signature=\"instrument-frame\"]:has([data-testid=\"payback-months\"])');",
+        "    await expect(page.locator('p').filter({ hasText: /^This calculator is an authored worked example/ })).toContainText('no sourced arm-price quote');"
+      ],
+      "preservedOnce": [
+        "test('industrial52 actual default robot-cost endpoints and reset'",
+        "    await expect(mount).not.toContainText('$25k-$80k');",
+        "      await expect(mount.getByTestId(id)).toHaveText(o.display[i]);",
+        "    await expect(mount.getByTestId('payback-verdict')).toHaveText(o.paysBack ? 'Pays back inside 24 months' : 'Outside a 24-month horizon');",
+        "    await expect(page.locator('p').filter({ hasText: 'The calculator above reports capital cost per modeled pick' })).toContainText('It does not include running costs.');",
+        "  expect(errors).toEqual([]);"
+      ],
+      "absent": [],
+      "replaced": [
+        {
+          "before": "    await expect(slider.locator('xpath=following-sibling::p')).toContainText('not a sourced arm-price quote');",
+          "after": "    await expect(slider.locator('xpath=following-sibling::*[@data-control-note]')).toContainText('not a sourced arm-price quote');",
+          "reason": "The note under each calculator slider is now the figure frame's control note, a div marked data-control-note instead of a paragraph, so the locator targets that element. The asserted text is unchanged. The recorded economics run used the archived spec and is not repeated here."
+        }
+      ],
+      "retired": []
+    },
+    {
+      "name": "final-seven-closure-evidence-spec",
+      "before": {
+        "path": "audit/evidence/figure-migration-20261001/final-seven-closure-evidence-spec-before.ts.txt",
+        "bytes": 8563,
+        "sha256": "4e26e157c74aff621400ff7a7781d236bed4502e38caced66c5eb97d542b140e"
+      },
+      "after": {
+        "path": "tests/e2e/final-seven-closure-evidence.spec.ts",
+        "bytes": 7396,
+        "sha256": "53b66fa3ea26f8cac221bec114158ae2205b448be0d4ae282d806e4aed963442"
+      },
+      "preserved": [],
+      "preservedOnce": [
+        "test('final seven: actually mounted corrected arithmetic on two viewports'"
+      ],
+      "absent": [],
+      "replaced": [
+        {
+          "before": "expect(observations).toHaveLength(30);",
+          "after": "expect(observations).toHaveLength(18);",
+          "reason": "The capture of the retired standalone episode-success calculator is gone and the remaining calculator is captured at its prediction-step start (0.95 per step, 14 steps, 48.8%). GaitDiagram mounts on no route, so its four cases leave both viewports. The data-bottleneck page keeps one data-scale chart, inside its prediction step, so its load capture is gone. The spec now expects 18 observations instead of 30. The recorded run used the archived spec."
+        }
+      ],
+      "retired": [
+        {
+          "literal": "    await capture(evaluationRoute, 'ReliabilityCompounding', 2, 'default', 'unmounted',",
+          "survivor": "    await capture(evaluationRoute, 'ReliabilityCompounding', 1, 'default', 'unmounted',",
+          "reason": "The capture of episode-success mount 2 is gone because the standalone calculator was retired and the prediction-step calculator is now mount 1."
+        },
+        {
+          "literal": "    await capture(gaitRoute, 'GaitDiagram', 1, 'default', 'unmounted', 'load', 'walk@0', gait,",
+          "survivor": "    await expect(page.getByTestId('duty-readout')).toHaveCount(0);",
+          "reason": "The GaitDiagram captures are gone because the gait-support scene is the page's gait figure and GaitDiagram mounts on no route; the spec now proves the instrument is absent."
+        },
+        {
+          "literal": "    await capture(dataRoute, 'DataScaleChart', 1, 'default', 'unmounted', 'load', '15-dedicated', mainChart,",
+          "survivor": "    await capture(dataRoute, 'DataScaleChart', 1, 'default', 'unmounted', 'reveal prediction',",
+          "reason": "The load capture of data-scale mount 1 is gone because the standalone chart repeated the one inside the prediction step, which is now mount 1."
+        },
+        {
+          "literal": "    await capture(dataRoute, 'DataScaleChart', 2, 'default', 'unmounted', 'reveal prediction',",
+          "survivor": "    await capture(dataRoute, 'DataScaleChart', 1, 'default', 'unmounted', 'reveal prediction',",
+          "reason": "The prediction-step data-scale chart is captured as mount 1 because the standalone chart that was mount 1 was retired."
+        }
+      ]
+    },
+    {
+      "name": "industrial-citation-refresh-spec",
+      "before": {
+        "path": "audit/evidence/figure-migration-20261001/industrial-citation-refresh-spec-before.ts.txt",
+        "bytes": 7769,
+        "sha256": "2299b9b4fe4d46fb12981693d5f3212b8f1c61484a72527d8140027b65ab9be5"
+      },
+      "after": {
+        "path": "tests/e2e/industrial-citation-refresh.spec.ts",
+        "bytes": 7789,
+        "sha256": "7d5e30450b260058dc06a573026d9544844a47e4f38a50f7e042644e76be28dd"
+      },
+      "preserved": [
+        "  return page.locator('div.prose > [data-brand-module-signature=\"instrument-frame\"]:has([data-testid=\"payback-months\"])');",
+        "    await expect(page.locator('#main-content')).toContainText('no measured intervention rate behind it');",
+        "    checkedText.push('no measured intervention rate behind it', 'no published success rate');"
+      ],
+      "preservedOnce": [
+        "test('industrial closure paired cases and complete reader surfaces'",
+        "      await expect(tooltip).toContainText(canonical!.definition);",
+        "    for (const value of ['4,663,698', '542,076', '54%']) {",
+        "  const dashboardLinkStatus = (await page.request.get('/frontier/reliability-gap/')).status();",
+        "  expect(dashboardLinkStatus).toBe(200); expect(errors).toEqual([]);",
+        "    await expect(page.locator('#main-content')).toContainText('no published success rate');"
+      ],
+      "absent": [],
+      "replaced": [],
+      "retired": []
+    },
+    {
+      "name": "industrial-deployment-spec",
+      "before": {
+        "path": "audit/evidence/figure-migration-20261001/industrial-deployment-spec-before.ts.txt",
+        "bytes": 20004,
+        "sha256": "7dd10d5236af121c4d612064030943a2123d454c28dc6fb9d0f8f6e2645f4c8b"
+      },
+      "after": {
+        "path": "tests/e2e/industrial-deployment.spec.ts",
+        "bytes": 20044,
+        "sha256": "93a643879e5be329fa4887d30cabff8a4c5abba5b00b741cbd283e9e56b545cc"
+      },
+      "preserved": [
+        "[data-brand-module-signature=\"instrument-frame\"]:has([data-testid=\"payback-months\"])",
+        "no measured intervention rate behind it",
+        "no published success rate",
+        "import { setHydratedSlider as setSlider } from './interaction-ready';"
+      ],
+      "preservedOnce": [
+        "test.describe('data-hardware industrial-deployment module'",
+        "test('renders the installed base with a cited figure and the humanoid contrast (VAL-DATA-030)'",
+        "test('names OSHA use examples and the logistics stack, and links to the humanoid table instead of restating it'",
+        "test('defines the operational vocabulary with at least three Terms (VAL-DATA-031)'",
+        "test('integration-cost claim carries components and a citation (VAL-DATA-032)'",
+        "test('jam-rate argument in prose and labour disagreement named (two positions)'",
+        "test('the calculator isolates the jam-rate argument (VAL-DATA-033)'",
+        "test('every calculator default is sourced or labelled an assumption (VAL-DATA-034)'",
+        "test('reset restores all inputs'",
+        "test('keyboard operation moves a slider with arrow keys'",
+        "test('internal links to reliability-gap and market-map resolve (VAL-DATA-034)'",
+        "test('wiki apparatus: see-also, linked-from, breadcrumbs, references match header count'",
+        "test('zero axe violations, zero console errors, no horizontal scroll at 375px'",
+        "test('industrial closure paired cases and complete reader surfaces'"
+      ],
+      "absent": [
+        "div.prose > div.rounded-md:has([data-testid=\"payback-months\"])"
+      ],
+      "replaced": [],
+      "retired": []
+    },
+    {
+      "name": "reward-local-evidence-spec",
+      "before": {
+        "path": "audit/evidence/figure-migration-20261001/reward-local-evidence-spec-before.ts.txt",
+        "bytes": 7622,
+        "sha256": "57066b284cf21fd1aea8dec55ea33634cf4988129c8f9cb27719bbe748ee0b98"
+      },
+      "after": {
+        "path": "tests/e2e/reward-local-evidence.spec.ts",
+        "bytes": 7622,
+        "sha256": "55523a6c8f3707db36b18438943e51d857e8ad752ae60dac0861d8681d62efe8"
+      },
+      "preserved": [],
+      "preservedOnce": [
+        "test('observes the mounted authored reward and complete scripted replay'",
+        "test('renders both disclosures without horizontal overflow on mobile'"
+      ],
+      "absent": [],
+      "replaced": [],
+      "retired": []
+    },
+    {
+      "name": "sim2real-local-evidence-spec",
+      "before": {
+        "path": "audit/evidence/figure-migration-20261001/sim2real-local-evidence-spec-before.ts.txt",
+        "bytes": 9585,
+        "sha256": "153d57c2f04268763d3389bf1a3c4fa43c84ace261f808d58035318a96cc16fb"
+      },
+      "after": {
+        "path": "tests/e2e/sim2real-local-evidence.spec.ts",
+        "bytes": 8662,
+        "sha256": "b4131e7bc949d87310fc1430b40afbc8f481c30b5be8f368636887ba03f4cae9"
+      },
+      "preserved": [],
+      "preservedOnce": [
+        "  const initial = await frictionState(ordinary, 'friction-default', 0.8, 0.35);",
+        "  const far = await frictionState(ordinary, 'friction-far', 1.5, 0.35);",
+        "  const wide = await frictionState(ordinary, 'friction-wide', 0.8, 0.65);",
+        "  expect(await frictionState(ordinary, 'friction-reset', 0.8, 0.35)).toEqual(initial);",
+        "  const teacherInitial = await teacherState('teacher-default', 0.15);",
+        "  const teacherHigh = await teacherState('teacher-high', 1);",
+        "  await teacherState('teacher-zero', 0);",
+        "  expect(await teacherState('teacher-reset', 0.15)).toEqual(teacherInitial);"
+      ],
+      "absent": [],
+      "replaced": [
+        {
+          "before": "test('sim2real raw mounted evidence covers both friction mounts and teacher transitions'",
+          "after": "test('sim2real raw mounted evidence covers the friction mount and teacher transitions'",
+          "reason": "The prediction-step friction chart (mount 2) was retired, so the test title names the one remaining friction mount. The recorded run used the archived spec."
+        },
+        {
+          "before": "  await expect(panels).toHaveCount(2);",
+          "after": "  await expect(panels).toHaveCount(1);",
+          "reason": "With the prediction-step friction chart retired, the page renders one friction chart on the figure frame, and the spec counts one panel."
+        }
+      ],
+      "retired": [
+        {
+          "literal": "  const revealInitial = await frictionState(reveal, 'reveal-default', 0.8, 0.65);",
+          "survivor": "  const initial = await frictionState(ordinary, 'friction-default', 0.8, 0.35);",
+          "reason": "The capture block for the retired prediction-step friction chart is gone; the remaining chart is still captured at its default, far, wide and reset states."
+        }
+      ]
+    }
+  ]
+}

@@ -121,7 +121,7 @@ export function BatchScale({ className }: { className?: string }) {
         return <><span className="text-text-dim">envs</span> {formatEnvs(frame.environments)}{' '}
           <span className="text-text-dim">toy time</span> {formatWallClock(frame.wallSeconds)}</>;
       }}
-      statusLine="Illustrative fixed-transition calculation, not a measured training curve. The reported Rudin time bounds, their separate protocols and the CPU benchmark qualification remain in the lab above."
+      statusLine="Illustrative fixed-transition calculation, not a measured training curve. The reported Rudin time bounds, their separate protocols and the CPU benchmark qualification are in the article text."
       textAlternative={`${BATCH_SCALE_SCENE.title}. ${BATCH_SCALE_SCENE.beats.map((beat, index) => `Beat ${index + 1}: ${beat.caption}`).join(' ')}`}
     />
   );

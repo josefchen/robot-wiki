@@ -58,7 +58,9 @@ describe('article change dates', () => {
           ? articleModifiedAt(entry.domain, entry.slug)
           : committed,
       }))
-      .sort((left, right) => Date.parse(right.at) - Date.parse(left.at))
+      // One commit can change several articles; a tie falls back to the key.
+      .sort((left, right) => Date.parse(right.at) - Date.parse(left.at) ||
+        left.key.localeCompare(right.key))
       .slice(0, 5)
       .map((row) => row.key);
     expect(recentlyUpdated(publishedModules(), 5).map(key)).toEqual(expected);

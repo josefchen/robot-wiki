@@ -570,16 +570,14 @@ test.describe('excerpt chrome: figure credits and interactive controls', () => {
     await expect(readout).toContainText('beat');
     expect(await readout.getAttribute('data-pagefind-ignore')).toBeNull();
 
-    // Selector chips are concept nouns and stay indexed (gait names on
-    // the legged-locomotion GaitDiagram).
-    await page.goto(`${BASE}/rl-sim2real/legged-locomotion/`);
-    const trot = page.getByRole('button', { name: 'Trot', exact: true });
-    await expect(trot).toBeVisible();
-    expect(await trot.getAttribute('data-pagefind-ignore')).toBeNull();
+    // Selector chips are concept nouns and stay indexed (scenario names
+    // on the why-rl-locomotion ContactGeometry).
+    await page.goto(`${BASE}/rl-sim2real/why-rl-locomotion/`);
+    const locomotion = page.getByRole('button', { name: 'Locomotion', exact: true });
+    await expect(locomotion).toBeVisible();
+    expect(await locomotion.getAttribute('data-pagefind-ignore')).toBeNull();
     const reset = page.getByRole('button', { name: 'Reset', exact: true });
     await expect(reset).toHaveAttribute('data-pagefind-ignore', 'true');
-    const play = page.getByRole('button', { name: 'Play gait cycle' });
-    await expect(play).toHaveAttribute('data-pagefind-ignore', 'true');
   });
 });
 

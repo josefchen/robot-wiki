@@ -374,9 +374,16 @@ describe('identity geometry and typography stay aligned', () => {
     expect(mot).not.toContain('text-accent">green</span>');
     expect(mot).not.toContain('dashed green: sideways attention');
     expect(cross).not.toContain('text-accent">green</span>');
-    expect(wbc).toMatch(/blue (?:still )?marks the (?:layer|VLA)/i);
-    expect(mot).toContain('text-accent">blue</span>');
-    expect(cross).toContain('text-accent">blue</span>');
+    // The WBC stack marks its actuator-facing layer with a lime highlight
+    // bar on the graphite stage, so its takeaway names the bar, not blue.
+    expect(wbc).toMatch(/lime bar (?:still )?marks the (?:layer|VLA)/i);
+    expect(wbc).not.toMatch(/blue (?:still )?marks the (?:layer|VLA)/i);
+    // The insulation diagram and the slot strips paint through the stage
+    // roles on the graphite stage, so no legend narrates a blue mark.
+    expect(mot).not.toContain('text-accent">blue</span>');
+    expect(cross).not.toContain('text-accent">blue</span>');
+    expect(mot).toContain("const actionColour = roleColour('action')");
+    expect(cross).toContain("active: roleColour('action')");
     // The registry is compared against the rendered DOM by
     // chart-description-registry.spec.ts, so its colour words must name
     // the marks the components actually paint (accent blue since v1).
@@ -384,16 +391,19 @@ describe('identity geometry and typography stay aligned', () => {
     // dim-node legend lives in the chart's aria-label, pinned below.
     expect(registry).not.toContain('green marks the layer');
     expect(registry).not.toMatch(/green nodes/i);
-    expect(registry).toContain('blue marks the layer');
+    expect(registry).toContain('lime bar marks the layer');
+    expect(registry).not.toContain('blue marks the layer');
     expect(registry).toContain('dim nodes do not establish closed licensing');
     expect(registry).not.toContain('dim nodes mark closed ones');
-    expect(generalist).toContain("open ? 'var(--color-accent)' : 'var(--color-surface-2)'");
+    expect(generalist).toContain("fill: open ? measurement : 'none'");
     expect(generalist).toContain('dim nodes include unavailable and not-disclosed records');
     expect(generalist).toContain('dim nodes do not establish closed licensing');
     expect(generalist).not.toMatch(/green/i);
-    // Fired timeline ticks are accent blue, not green.
-    expect(hierarchy).toContain('blue ticks: updates fired');
-    expect(hierarchy).not.toContain('green ticks');
+    // Fired timeline ticks take the action role, and the legend names the
+    // update state, not a hue.
+    expect(hierarchy).toContain("const fired = roleColour('action')");
+    expect(hierarchy).toContain('update fired');
+    expect(hierarchy).not.toMatch(/(?:blue|green) ticks/);
     // The same sweep over the three modules whose lead series is signal
     // blue: the Kalman uncertainty band, the JEPA current-latent marker,
     // and the sim-to-real DR plateau, plus the advantage-scrubber trace.
@@ -415,22 +425,32 @@ describe('identity geometry and typography stay aligned', () => {
     expect(stateEst).not.toMatch(/blue band/i);
     expect(kalmanScene).toContain('var(--role-state-stage)');
     expect(kalmanScene).not.toMatch(/green/i);
-    // The JEPA article no longer narrates the marker's colour; the
-    // current-latent marker itself still renders through ACCENT (signal
-    // blue) in the latent-imagination chart, and nothing calls it green.
+    // The JEPA article no longer narrates the marker's colour. The
+    // latent-imagination chart paints its imagined latent through the state
+    // role on the graphite stage, keeps signal blue off its marks, and
+    // nothing calls it green.
     expect(jepa).not.toMatch(/green marker/i);
-    expect(latentImagination).toContain('stroke={ACCENT}');
+    expect(latentImagination).toContain("roleColour('state')");
+    expect(latentImagination).not.toMatch(/ACCENT|--color-accent/);
     expect(latentImagination).not.toMatch(/green/i);
     expect(sim2real).not.toMatch(/green plateau/i);
-    // The DR plateau prose lost its colour word in the audit rewrite; the
-    // curve itself still paints through the accent token.
-    expect(frictionTransfer).toContain('var(--color-accent)');
+    // The DR plateau prose lost its colour word in the audit rewrite. The
+    // friction chart paints both success curves through the value role on
+    // the graphite stage, keeps signal blue off its marks, and nothing calls
+    // the plateau green.
+    expect(frictionTransfer).toContain("const valueColour = roleColour('value')");
+    expect(frictionTransfer).not.toMatch(/--color-accent/);
     expect(frictionTransfer).not.toMatch(/green/i);
     expect(jepa).toContain('Its synthetic coordinates and distance trace come from the toy model; they cannot measure learned robot embeddings or planning performance');
-    expect(jepaChart).toContain("const ACCENT = 'var(--color-accent)'");
-    expect(jepaChart).toMatch(/stroke=\{ACCENT\}[\s\S]*?>\s*z_t\s*</);
+    // The JEPA chart paints the current latent z_t, and the legend swatch
+    // that names it, through the state role on the graphite stage, keeps
+    // signal blue off its marks, and nothing calls it green.
+    expect(jepaChart).toContain('<PointMarker x={px(state.x)} y={py(state.y)} role="state" />');
+    expect(jepaChart).toMatch(/role="state" mark="dot"[\s\S]*?>\s*current latent z_t\s*</);
+    expect(jepaChart).not.toMatch(/ACCENT|--color-accent/);
+    expect(jepaChart).not.toMatch(/green/i);
     expect(sim2real).toContain('Widening the half-width lowers the plateau by construction; the cited papers establish no universal tradeoff of that shape');
-    expect(frictionChart).toMatch(/points=\{polyline\(drCurvePoints\(range\)\)\}[\s\S]*?stroke="var\(--color-accent\)"/);
+    expect(frictionChart).toMatch(/points=\{polyline\(drCurvePoints\(range\)\)\}[\s\S]*?stroke=\{valueColour\}/);
     expect(advantage).not.toContain('elapsed portion green');
     expect(advantage).not.toMatch(/green (?:line|trace)/i);
   });
@@ -440,7 +460,8 @@ describe('identity geometry and typography stay aligned', () => {
     // The shared-latent slots are a schematic for an undisclosed
     // representation: ok-green is a state colour and "schematic" is not a
     // success state, so the latent must render through a neutral hatch,
-    // which is also its non-colour distinction from the blue active dims.
+    // which is also its non-colour distinction from the action-role active
+    // dims.
     expect(cross).not.toContain("latent: 'var(--color-ok)'");
     expect(cross).toContain("latent: 'latent-hatch'");
     expect(cross).toContain('hatched: illustrative link, not model dimensions');

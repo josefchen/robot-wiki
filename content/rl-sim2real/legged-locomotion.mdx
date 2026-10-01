@@ -26,14 +26,11 @@ seeAlso:
   - "rl-sim2real/sim2real-transfer"
 ---
 
-import { GaitDiagram } from '@/components/interactive/gait-diagram';
 import { GaitSupport } from '@/components/motion/scenes/gait-support';
 
 The previous modules built the machinery: massively parallel simulation that trains a walking policy in minutes, and the transfer techniques that get it onto hardware. This module follows its deployment. <Term id="legged-locomotion">Legged locomotion</Term> is the domain where sim-to-real reinforcement learning became a shipping default, with an unusually well documented chain of results. Between 2019 and 2022, the ETH Zurich line around ANYmal took a quadruped from fragile lab behavior to blind alpine hiking, and every humanoid program since has tried to rerun the same recipe on two legs.
 
-Underneath all of it sits an older idea that learning did not replace: the gait. Switch the diagram below from walk to trot to bound and watch the support readout, three feet always down, then two, then a flight phase with none. That progression is the stability story of legged locomotion in miniature.
-
-<GaitDiagram className="my-6" />
+Underneath all of it sits an older idea that learning did not replace: the gait. Press Play on the scene below, then try Step forward from walk to trot to bound and watch the support readout, three feet always down, then two, then a flight phase with none. That progression is the stability story of legged locomotion in miniature.
 
 <GaitSupport className="my-6" />
 

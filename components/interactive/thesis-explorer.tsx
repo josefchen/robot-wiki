@@ -3,7 +3,12 @@
 import { Fragment, useId, useRef, useState } from 'react';
 import { CiteRef } from '@/components/article/citation-records';
 import { TableScroll } from '@/components/ui';
-import { InstrumentFrame, InstrumentReset } from '@/components/ui/instrument';
+import {
+  InstrumentFigure,
+  InstrumentReadout,
+  InstrumentReset,
+} from '@/components/ui/instrument';
+import { FigureStage } from '@/components/motion/figure-frame';
 import {
   DEFAULT_THESIS_ID,
   THESES,
@@ -22,18 +27,21 @@ import { cx } from '@/lib/utils';
  * (Tab + Enter, plus ArrowUp/ArrowDown/Home/End between rows), a visible
  * readout that names the selection, a reset control, and horizontal scroll
  * inside its own container at 375px. No animation at all, so the component
- * is reduced-motion safe by construction. Column headers and section
- * labels are mono and dim but deliberately NOT uppercase: the page's
- * uppercase micro-label budget is left unspent here.
+ * is reduced-motion safe by construction.
  */
 
-const HEADER_CELL =
-  'px-3 py-2.5 text-left font-mono text-[11px] font-medium tracking-[0.14em] text-text-dim';
+const HEADER_CELL = 'px-3 py-2 text-left font-sans text-xs font-medium text-text-dim';
 
 const CELL = 'px-3 py-2.5 align-top';
 
-const SECTION_LABEL =
-  'font-mono text-[11px] font-medium tracking-[0.14em] text-text-dim';
+const SECTION_LABEL = 'font-sans text-xs font-medium text-text-dim';
+
+/**
+ * Important, because the unlayered `.prose ul` and `.prose li` rules
+ * otherwise indent the stage's lists and space them like article prose.
+ */
+const STAGE_LIST = 'm-0! flex flex-col p-0!';
+const STAGE_ITEM = 'm-0! text-[13px] leading-relaxed';
 
 /** How many proponents the table cell names before collapsing to "+N". */
 const TABLE_PROPONENT_LIMIT = 3;
@@ -57,12 +65,9 @@ function EvidenceList({
   headingId: string;
 }) {
   return (
-    <ul aria-labelledby={headingId} className="space-y-2">
+    <ul aria-labelledby={headingId} className={cx(STAGE_LIST, 'gap-2')}>
       {items.map((item) => (
-        <li
-          key={item.text}
-          className="font-sans text-xs leading-relaxed text-text-dim"
-        >
+        <li key={item.text} className={cx(STAGE_ITEM, 'text-text-dim')}>
           {item.text}{' '}
           {item.citationIds.map((id) => {
             const chip = <CiteRef id={id} />;
@@ -113,156 +118,144 @@ export function ThesisExplorer({ className }: { className?: string }) {
   const readout = `${THESES.length} theses, showing: ${selected.name}`;
 
   return (
-    <InstrumentFrame data-testid="thesis-explorer" className={className}>
-      <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
-        <p
-          data-testid="thesis-readout"
-          aria-live="polite"
-          className="font-mono text-xs text-text-dim"
-        >
-          {readout}
-        </p>
-        <InstrumentReset
-          onClick={() => select(DEFAULT_THESIS_ID)}
-          className="ml-auto"
-        />
-      </div>
-
-      <TableScroll labelledBy={captionId} className="mt-4">
-        <table className="w-full min-w-[480px] border-collapse text-left">
-          <caption id={captionId} className="sr-only">
-            Six competing theses for robot intelligence. Select a row to read
-            its proponents, the evidence on both sides, and its falsification
-            criterion.
-          </caption>
-          <thead>
-            <tr className="border-b border-border">
-              <th scope="col" className={HEADER_CELL}>
-                Thesis
-              </th>
-              <th scope="col" className={HEADER_CELL}>
-                Proponents
-              </th>
-              <th scope="col" className={HEADER_CELL}>
-                Falsified if
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {THESES.map((thesis, index) => {
-              const isSelected = thesis.id === selected.id;
-              return (
-                <tr
-                  key={thesis.id}
-                  data-testid={`thesis-row-${thesis.id}`}
-                  data-selected={isSelected || undefined}
-                  className={cx(
-                    'border-b border-border transition-colors last:border-b-0',
-                    isSelected && 'bg-surface-2/60',
-                  )}
-                >
-                  <th scope="row" className={cx(CELL, 'min-w-[170px]')}>
-                    <button
-                      data-brand-control-id="control:selection"
-                      ref={(el) => {
-                        rowButtons.current[index] = el;
-                      }}
-                      type="button"
-                      aria-pressed={isSelected}
-                      onClick={() => select(thesis.id)}
-                      onKeyDown={(event) => handleRowKeyDown(event, index)}
-                      className={cx(
-                        'text-left font-mono text-xs font-medium transition-colors',
-                        isSelected
-                          ? 'text-accent'
-                          : 'text-text hover:text-accent',
-                      )}
-                    >
-                      {thesis.name}
-                    </button>
-                    <p className="mt-1 max-w-[30ch] font-sans text-[11px] leading-snug text-text-dim">
-                      {thesis.claim}
-                    </p>
-                  </th>
-                  <td
-                    className={cx(CELL, 'font-sans text-[11px] text-text-dim')}
-                  >
-                    <ProponentsCell thesis={thesis} />
-                  </td>
-                  <td
-                    className={cx(
-                      CELL,
-                      'min-w-[120px] font-sans text-[11px] text-text-dim',
-                    )}
-                  >
-                    {thesis.falsificationSignal}
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </TableScroll>
-
-      <div
-        data-testid="thesis-detail"
-        role="region"
-        aria-label={`${selected.name} detail`}
-        className="mt-4 border-t border-border pt-4"
-      >
-        <p className="font-sans text-sm font-medium text-text">
-          {selected.name}
-        </p>
-        <p className="mt-1 max-w-[65ch] font-sans text-xs leading-relaxed text-text-dim">
-          {selected.claim}
-        </p>
-
-        <div className="mt-4">
-          <p className={SECTION_LABEL}>Proponents</p>
-          <ul className="mt-1.5 space-y-1">
-            {selected.proponents.map((proponent) => (
-              <li
-                key={proponent}
-                className="font-sans text-xs leading-relaxed text-text"
+    <InstrumentFigure
+      figureId="thesis-explorer"
+      data-testid="thesis-explorer"
+      className={className}
+      heading="Competing theses for robot intelligence"
+      controls={<InstrumentReset onClick={() => select(DEFAULT_THESIS_ID)} />}
+      stage={
+        <FigureStage
+          footer={
+            <>
+              <InstrumentReadout data-testid="thesis-readout">{readout}</InstrumentReadout>
+              <div
+                data-testid="thesis-detail"
+                role="region"
+                aria-label={`${selected.name} detail`}
+                className="mt-1 basis-full border-t border-border-strong pt-3 font-sans"
               >
-                {proponent}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="mt-4 grid gap-4 sm:grid-cols-2">
-          <div>
-            <p id={`${selected.id}-for`} className={SECTION_LABEL}>
-              Evidence for
-            </p>
-            <div className="mt-1.5">
-              <EvidenceList
-                items={selected.evidenceFor}
-                headingId={`${selected.id}-for`}
-              />
-            </div>
-          </div>
-          <div>
-            <p id={`${selected.id}-against`} className={SECTION_LABEL}>
-              Evidence against
-            </p>
-            <div className="mt-1.5">
-              <EvidenceList
-                items={selected.evidenceAgainst}
-                headingId={`${selected.id}-against`}
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-4">
-          <p className={SECTION_LABEL}>Falsification criterion</p>
-          <p className="mt-1.5 max-w-[65ch] font-sans text-xs leading-relaxed text-text">
-            {selected.falsification}
-          </p>
-        </div>
-      </div>
-    </InstrumentFrame>
+                <div className="text-sm font-medium text-text">{selected.name}</div>
+                <div className="mt-1 max-w-[65ch] text-[13px] leading-relaxed text-text-dim">
+                  {selected.claim}
+                </div>
+                <div className="mt-3">
+                  <div className={SECTION_LABEL}>Proponents</div>
+                  <div className="mt-1">
+                    <ul className={cx(STAGE_LIST, 'gap-1')}>
+                      {selected.proponents.map((proponent) => (
+                        <li key={proponent} className={cx(STAGE_ITEM, 'text-text')}>
+                          {proponent}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+                <div className="mt-3 grid gap-3 sm:grid-cols-2">
+                  <div>
+                    <div id={`${selected.id}-for`} className={SECTION_LABEL}>
+                      Evidence for
+                    </div>
+                    <div className="mt-1">
+                      <EvidenceList
+                        items={selected.evidenceFor}
+                        headingId={`${selected.id}-for`}
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <div id={`${selected.id}-against`} className={SECTION_LABEL}>
+                      Evidence against
+                    </div>
+                    <div className="mt-1">
+                      <EvidenceList
+                        items={selected.evidenceAgainst}
+                        headingId={`${selected.id}-against`}
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-3">
+                  <div className={SECTION_LABEL}>Falsification criterion</div>
+                  <div className="mt-1 max-w-[65ch] text-[13px] leading-relaxed text-text">
+                    {selected.falsification}
+                  </div>
+                </div>
+              </div>
+            </>
+          }
+        >
+          <TableScroll labelledBy={captionId} className="px-1 pt-1.5 pb-1">
+            <table className="w-full min-w-[480px] border-collapse text-left font-sans text-[13px] text-text">
+              <caption id={captionId} className="sr-only">
+                Six competing theses for robot intelligence. Select a row to read
+                its proponents, the evidence on both sides, and its falsification
+                criterion.
+              </caption>
+              <thead>
+                <tr className="border-b border-border-strong">
+                  <th scope="col" className={HEADER_CELL}>
+                    Thesis
+                  </th>
+                  <th scope="col" className={HEADER_CELL}>
+                    Proponents
+                  </th>
+                  <th scope="col" className={HEADER_CELL}>
+                    Falsified if
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {THESES.map((thesis, index) => {
+                  const isSelected = thesis.id === selected.id;
+                  return (
+                    <tr
+                      key={thesis.id}
+                      data-testid={`thesis-row-${thesis.id}`}
+                      data-selected={isSelected || undefined}
+                      className="border-b border-border-strong last:border-b-0"
+                    >
+                      {/* Selection is the lime bar on the row's edge. */}
+                      <th
+                        scope="row"
+                        className={cx(
+                          CELL,
+                          'min-w-[170px] border-l-[3px] font-normal',
+                          isSelected ? 'border-l-highlight' : 'border-l-transparent',
+                        )}
+                      >
+                        <button
+                          data-brand-control-id="control:selection"
+                          ref={(el) => {
+                            rowButtons.current[index] = el;
+                          }}
+                          type="button"
+                          aria-pressed={isSelected}
+                          onClick={() => select(thesis.id)}
+                          onKeyDown={(event) => handleRowKeyDown(event, index)}
+                          className="min-h-6 text-left font-medium text-text underline decoration-border-strong decoration-1 underline-offset-4 transition-colors hover:decoration-text aria-pressed:no-underline"
+                        >
+                          {thesis.name}
+                        </button>
+                        <span className="mt-1 block max-w-[30ch] text-xs leading-snug text-text-dim">
+                          {thesis.claim}
+                        </span>
+                      </th>
+                      <td className={cx(CELL, 'text-xs leading-snug text-text-dim')}>
+                        <ProponentsCell thesis={thesis} />
+                      </td>
+                      <td className={cx(CELL, 'min-w-[120px] text-xs leading-snug text-text-dim')}>
+                        {thesis.falsificationSignal}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </TableScroll>
+        </FigureStage>
+      }
+      caption="Each thesis is a falsifiable bet; the detail panel cites evidence on both sides and names its falsification test."
+    />
   );
 }

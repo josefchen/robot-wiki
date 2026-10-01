@@ -57,6 +57,29 @@ describe('validateRenderedChartDescriptionRoutes', () => {
     expect(problems).toHaveLength(1);
     expect(problems[0].message).toContain('owning route / was not collected');
   });
+
+  it('passes an unmounted entry whose text renders on no route', () => {
+    expect(
+      validateRenderedChartDescriptionRoutes(
+        [{ ...ENTRY, unmounted: true }],
+        new Map([['/', new Set(['A different description at 1 step and 2 steps.'])]]),
+      ),
+    ).toEqual([]);
+  });
+
+  it('fails an unmounted entry whose text still renders, naming the route', () => {
+    const problems = validateRenderedChartDescriptionRoutes(
+      [{ ...ENTRY, unmounted: true }],
+      new Map([
+        ['/', new Set<string>()],
+        ['/frontier/reliability-gap/', new Set([ENTRY.text])],
+      ]),
+    );
+    expect(problems).toHaveLength(1);
+    expect(problems[0].component).toBe('ReliabilityCompounding');
+    expect(problems[0].message).toContain('registered as unmounted');
+    expect(problems[0].message).toContain('/frontier/reliability-gap/');
+  });
 });
 
 describe('digitTokens', () => {

@@ -636,11 +636,23 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
       const windows = [{ left: 0, right: geometry.width }];
       await capture(`equation-${i + 1}-start`, { ...geometry, glyphs: undefined, keyboardFocused: true });
       const max = geometry.scrollWidth - geometry.width;
+      // Keyboard scrolling animates; a reading taken mid-animation is not a
+      // state the reader ends up in, so each step counts once it settles.
+      const settledScrollLeft = async () => {
+        let last = await formula.evaluate(el => el.scrollLeft);
+        for (let attempt = 0; attempt < 40; attempt++) {
+          await page.waitForTimeout(50);
+          const now = await formula.evaluate(el => el.scrollLeft);
+          if (now === last) break;
+          last = now;
+        }
+        return last;
+      };
       let previous = 0;
       while (previous < max - 1) {
         await page.keyboard.press('ArrowRight');
         await expect.poll(() => formula.evaluate(el => el.scrollLeft)).toBeGreaterThan(previous);
-        previous = await formula.evaluate(el => el.scrollLeft);
+        previous = await settledScrollLeft();
       }
       if (max > 1) {
         await expect(formula).toBeFocused();

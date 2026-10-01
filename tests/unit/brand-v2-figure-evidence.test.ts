@@ -393,19 +393,44 @@ describe('VAL-B2-IMG-005 alt text and static delivery', () => {
   it('reports a figure that reserves no space', () => {
     const failures = failuresOf(
       altTextAndDeliveryVerdicts(
-        mutated(schematic, { declaredWidth: null }),
+        mutated(photograph, { declaredWidth: null }),
       ),
     );
-    expect(failures.some((f) => /not the intrinsic 640/.test(f))).toBe(true);
+    expect(failures.some((f) => /declares width nothing, not the intrinsic \d+/.test(f))).toBe(true);
   });
 
   it('reports a figure whose file never arrived', () => {
     const failures = failuresOf(
       altTextAndDeliveryVerdicts(
-        mutated(schematic, { complete: false, naturalWidth: 0 }),
+        mutated(photograph, { complete: false, naturalWidth: 0 }),
       ),
     );
     expect(failures.some((f) => /never decoded/.test(f))).toBe(true);
+  });
+
+  it('reports an inline schematic that paints no drawing', () => {
+    const failures = failuresOf(
+      altTextAndDeliveryVerdicts(
+        mutated(schematic, { src: '', renderedWidth: 0 }),
+      ),
+    );
+    expect(failures.some((f) => /paints no drawing on its stage/.test(f))).toBe(true);
+  });
+
+  it('holds an inline schematic to its drawing, not to a file it does not have', () => {
+    const failures = failuresOf(
+      altTextAndDeliveryVerdicts(
+        mutated(schematic, {
+          src: '',
+          declaredWidth: null,
+          declaredHeight: null,
+          complete: false,
+          naturalWidth: 0,
+          naturalHeight: 0,
+        }),
+      ),
+    );
+    expect(failures).toEqual([]);
   });
 
   it('reports a figure wider than the phone it is being read on', () => {

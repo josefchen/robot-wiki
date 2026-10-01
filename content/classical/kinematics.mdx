@@ -22,16 +22,14 @@ seeAlso:
 
 import { PlanarFkArm } from '@/components/interactive/planar-fk-arm';
 import { DhParameterTable } from '@/components/mdx/dh-parameter-table';
-import { FkChain } from '@/components/motion/scenes/fk-chain';
 
 Kinematics describes the geometry of a robot's motion without modelling its forces or torques. Joint angles and link lengths determine where the end of an arm lands. Simulators integrate dynamics on top of a kinematic chain, <Term id="teleoperation">teleoperation</Term> rigs map an operator's hand through one, and learned manipulation policies eventually emit commands in the robot's coordinates.
 
 Two directions dominate. <Term id="forward-kinematics">Forward kinematics</Term> takes joint angles and computes the <Term id="end-effector">end-effector</Term> pose. <Term id="inverse-kinematics">Inverse kinematics</Term> asks the reverse question: which joint angles place the end effector here? The first direction is a plain composition of transforms, cheap and unique. The second is a nonlinear inverse problem that can have no solution, one solution, or many. Most of the classical machinery, and most of this module, concerns that asymmetry.
 
-The chain below reveals the ordered transformations. In the arm lab, move the base joint slider and watch every downstream link move with it. Then try to put the fingertip at a chosen point using the sliders alone. That is the inverse problem.
+In the arm lab below, move the base joint slider and watch every downstream link move with it. Then try to put the fingertip at a chosen point using the sliders alone. That is the inverse problem.
 
 <PlanarFkArm className="my-6" />
-<FkChain className="my-6" />
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="DH parameters per joint" value="4" note="theta, d, a, alpha" />
@@ -77,11 +75,17 @@ A_i = \mathrm{Rot}_z(\theta_i)\,\mathrm{Trans}_z(d_i)\,\mathrm{Trans}_x(a_i)\,\m
 $$
 
 $$
-A_i = \begin{bmatrix}
-\cos\theta_i & -\sin\theta_i\cos\alpha_i & \sin\theta_i\sin\alpha_i & a_i\cos\theta_i \\
-\sin\theta_i & \cos\theta_i\cos\alpha_i & -\cos\theta_i\sin\alpha_i & a_i\sin\theta_i \\
-0 & \sin\alpha_i & \cos\alpha_i & d_i \\
-0 & 0 & 0 & 1
+\def\arraystretch{0.9}
+A_i = \begin{bmatrix} R_i & t_i \\ \mathbf{0} & 1 \end{bmatrix},\quad
+t_i = \begin{bmatrix} a_i\cos\theta_i \\ a_i\sin\theta_i \\ d_i \end{bmatrix}
+$$
+
+$$
+\def\arraystretch{0.9}
+R_i = \begin{bmatrix}
+\cos\theta_i & -\sin\theta_i\cos\alpha_i & \sin\theta_i\sin\alpha_i \\
+\sin\theta_i & \cos\theta_i\cos\alpha_i & -\cos\theta_i\sin\alpha_i \\
+0 & \sin\alpha_i & \cos\alpha_i
 \end{bmatrix}
 $$
 

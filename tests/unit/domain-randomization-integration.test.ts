@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { CITATIONS } from '../../data/citations';
 import { compoundPartDigest, compoundPlanDigest, parseCompoundPlans, parseLedger } from '../../lib/audit-ledger';
+import { preFigureMigration } from '../helpers/figure-migration';
 
 const transfer = readFileSync('content/rl-sim2real/sim2real-transfer.mdx', 'utf8');
 const why = readFileSync('content/rl-sim2real/why-rl-locomotion.mdx', 'utf8');
@@ -58,9 +59,16 @@ describe('Domain randomization source integration', () => {
     expect(transfer).not.toMatch(/optimal for none|papers almost never quantify|every DR paper reports/);
     expect(transfer).toContain('maximize expected return');
     expect(transfer).toContain('authored assumptions');
-    expect(transfer).toContain('do not come from Peng paper results');
-    const prediction = transfer.split('<PredictThenReveal')[1].split('</PredictThenReveal>')[0];
-    expect(prediction).not.toContain("cite: 'peng-2018'");
+    // The reviewed feedback disclaims Peng for its authored values; the
+    // 2026-10-01 figure migration retired that prediction step with values
+    // and disclaimer together, so the values may not return without it.
+    const reviewed = preFigureMigration('content/rl-sim2real/sim2real-transfer.mdx').toString('utf8');
+    expect(reviewed).toContain('do not come from Peng paper results');
+    expect(reviewed.split('<PredictThenReveal')).toHaveLength(2);
+    for (const block of [reviewed, transfer].flatMap((text) => text.split('<PredictThenReveal').slice(1))) {
+      expect(block.split('</PredictThenReveal>')[0]).not.toContain("cite: 'peng-2018'");
+    }
+    expect(/0\.7375|0\.5725/.test(transfer) && !transfer.includes('do not come from Peng paper results')).toBe(false);
   });
   it('preserves RMA inference and does not complete held original 23', () => {
     expect(transfer).toContain('These processes perform inference without online gradient updates.');

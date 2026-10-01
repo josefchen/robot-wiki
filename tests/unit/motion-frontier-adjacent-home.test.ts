@@ -67,6 +67,16 @@ describe('frontier, adjacent and home motion inventory', () => {
       mounts.push(`home:${element}:1`);
       expect(inventory.find((row) => row.article === 'home' && row.element === element)?.decision).toBe('remove');
     }
+    // An article row marked remove records a mount that left the article:
+    // its occurrence lies past the element's remaining mounts there, so a
+    // removed duplicate is told apart from the mount that stays.
+    for (const row of inventory.filter((row) => row.decision === 'remove' && row.article !== 'home')) {
+      const body = readFileSync(join(root, 'content', `${row.article}.mdx`), 'utf8');
+      const remaining = body.match(new RegExp(`<${row.element}\\b`, 'g'))?.length ?? 0;
+      expect(row.occurrence ?? 1).toBeGreaterThan(remaining);
+      expect(row.reason).toMatch(/^Removed: /);
+      mounts.push(`${row.article}:${row.element}:${row.occurrence ?? 1}`);
+    }
     const covered = inventory.map((row) => `${row.article}:${row.element}:${row.occurrence ?? 1}`);
     expect(covered.sort()).toEqual(mounts.sort());
     expect(new Set(covered).size).toBe(inventory.length);
@@ -129,13 +139,25 @@ describe('frontier and adjacent scene truth', () => {
   });
 });
 
+// Reviewed token corrections made after e14e2504, as [file, old, new]. The
+// EgoScale prediction step quoted 0.95 at 100k hours, but the chart it wraps
+// draws the completion fit from lib/egoscale-law.ts: 0.887, shown as 0.89.
+const REVIEWED_TOKEN_CHANGES: ReadonlyArray<readonly [string, string, string]> = [
+  ['frontier/generalization.mdx', 'reads 0.95, high', 'reads 0.89, high'],
+];
+
 describe('frontier and adjacent prose continuity', () => {
   it('preserves the original ordered citation IDs and numeric tokens', () => {
     for (const file of articles) {
       const current = readFileSync(join(root, 'content', file), 'utf8');
-      const before = execFileSync('git', ['show', `e14e2504:content/${file}`], {
+      let before = execFileSync('git', ['show', `e14e2504:content/${file}`], {
         cwd: root, encoding: 'utf8',
       });
+      for (const [changed, from, to] of REVIEWED_TOKEN_CHANGES) {
+        if (changed !== file) continue;
+        expect(before.split(from), `${file} holds "${from}" once at e14e2504`).toHaveLength(2);
+        before = before.replace(from, to);
+      }
       const numbers = (text: string) => text
         .replace(/\b(?:Tables?|Tab\.|Figures?|Fig\.|Equation|Eq\.|Algorithm|Sections?)\s*\(?\s*(?:\d+(?:\.\d+)*[a-z]?|[IVXL]+)\b|\bAppendix\s+[A-Z]\d*(?:\.\d+)?\b|\bv\d+\b/g, '')
         .match(/(?<![\w-])\d(?:[\d,]*\d)?(?:\.\d+)?(?:%|x|Hz|ms|s|m|M|k)?/g)

@@ -15,6 +15,9 @@ describe('ExecutionModes', () => {
     expect(note).toHaveTextContent(/arbitrary units/i);
     expect(note).toHaveTextContent(/discontinuity proxy, not physical jerk/i);
     expect(note).toHaveTextContent(/five-tick linear blend/i);
+    expect(note).toHaveTextContent(
+      /sine-shaped plan, delay-dependent offset, four-tick ramps and five-tick linear blend are teaching assumptions/i,
+    );
     expect(note).toHaveTextContent(/do not reproduce its experiments or guarantee safety/i);
     for (const image of screen.getAllByRole('img')) {
       expect(image).toHaveAccessibleName(/discontinuity-proxy limit, not physical jerk/i);

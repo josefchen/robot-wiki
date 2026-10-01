@@ -220,12 +220,11 @@ for (const width of [375, 1440]) {
 const CONCEPTS = [
   { name: 'episode-success chart', selector: 'svg[aria-label^="Line chart of episode success"]', canonical: '/data-hardware/evaluation-crisis/' },
   // The scene's own hook, not its frame's, so a run over the pre-frame export still finds it.
-  { name: 'reliability-threshold scene', selector: '[data-motion-scene="reliability-threshold"]', canonical: '/frontier/reliability-gap/' },
+  // It left /frontier/reliability-gap/, where the calculator presets carry its beats (VAL-OPUS-131).
+  { name: 'reliability-threshold scene', selector: '[data-motion-scene="reliability-threshold"]', canonical: '/' },
 ];
 /** Repeats a later pass owns by name; an entry that stops repeating fails, so this only shrinks. */
-const KNOWN_REPEATS: Record<string, string> = {
-  'episode-success chart /data-hardware/evaluation-crisis/': 'opus-pass-data-hardware, VAL-OPUS-089',
-};
+const KNOWN_REPEATS: Record<string, string> = {};
 
 test('each named concept has one canonical visual and every other placement links to it (VAL-OPUS-011)', async ({ browser }, info) => {
   test.setTimeout(180_000);

@@ -95,7 +95,7 @@ test('industrial closure paired cases and complete reader surfaces', async ({ pa
       await expect(page.locator('#main-content')).toContainText(value); checkedText.push(value);
     }
     const sliders = mount.getByRole('slider'); expect(await sliders.count()).toBe(7);
-    for (const slider of await sliders.all()) await expect(slider.locator('xpath=following-sibling::p')).toContainText(/assumption|sourced/i);
+    for (const slider of await sliders.all()) await expect(slider.locator('xpath=following-sibling::*[@data-control-note]')).toContainText(/assumption|sourced/i);
     await expect(page.locator('#main-content')).toContainText('no measured intervention rate behind it');
     await expect(page.locator('#main-content')).toContainText('no published success rate');
     checkedText.push('no measured intervention rate behind it', 'no published success rate');

@@ -136,7 +136,13 @@ export function ChartAxes({
         <text
           data-scene-axis=""
           x={plot.right}
-          y={plot.bottom + tick + CHART_TYPE.tickPx + CHART_TYPE.axisPx + tick / 2}
+          y={
+            plot.bottom +
+            tick +
+            CHART_TYPE.tickPx * (1 + CHART_TYPE.descent) +
+            CHART_TYPE.axisPx * CHART_TYPE.ascent +
+            tick / 4
+          }
           textAnchor="end"
           fontSize={CHART_TYPE.axisPx}
           fill={CHART_STRUCTURE.labelSecondary}

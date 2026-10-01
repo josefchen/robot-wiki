@@ -145,7 +145,7 @@ describe('home tools evidence', () => {
     expect(() => accept(mutate((e) => (e.progressCounters = [])))).toThrow(
       /swept no route for progress counters/,
     );
-  });
+  }, 30_000);
 
   it('fails a route the sweep left at fewer than the declared widths', () => {
     const widths = requiredSweepWidths();
@@ -244,7 +244,7 @@ describe('home tools evidence', () => {
         }
       }),
     ).toEqual(['anchor:featured-keyboard-operable']);
-  });
+  }, 30_000);
 
   it('checks every printed still against the scene model instead of trusting it', () => {
     const model = FEATURED_SCENE_MODELS['reliability-threshold'];

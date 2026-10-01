@@ -45,7 +45,7 @@ test('industrial52 actual default robot-cost endpoints and reset', async ({ page
       await expect(control).toHaveValue(String(input[key]));
       for (const attribute of ['min', 'max', 'step'] as const) await expect(control).toHaveAttribute(attribute, String(ranges[key][attribute]));
     }
-    await expect(slider.locator('xpath=following-sibling::p')).toContainText('not a sourced arm-price quote');
+    await expect(slider.locator('xpath=following-sibling::*[@data-control-note]')).toContainText('not a sourced arm-price quote');
     await expect(mount).not.toContainText('$25k-$80k');
     const readouts = [];
     for (const [i, id] of ['cost-per-pick', 'payback-months'].entries()) {
@@ -56,7 +56,11 @@ test('industrial52 actual default robot-cost endpoints and reset', async ({ page
     await expect(mount).toContainText(o.summary);
     const bar = mount.getByTestId('time-breakdown');
     await expect(bar).toHaveAttribute('aria-label', `Time breakdown per elapsed hour: ${o.shares[0]} productive cycles, ${o.shares[1]} jam clearing, ${o.shares[2]} downtime`);
-    for (const [i, title] of ['Productive cycles', 'Jam clearing', 'Downtime'].entries()) expect(await bar.locator(`[title="${title}"]`).evaluate(e => Number.parseFloat((e as HTMLElement).style.width))).toBe(Number.parseFloat(o.shares[i]));
+    const painted = await bar.locator('[data-breakdown-segment]').evaluateAll(gs => gs.map(g => (g as SVGGraphicsElement).getBBox().width));
+    for (const [i, title] of ['Productive cycles', 'Jam clearing', 'Downtime'].entries()) {
+      await expect(bar.locator(`[data-breakdown-segment="${title}"]`)).toHaveAttribute('data-share', o.shares[i]);
+      expect(Math.abs((painted[i] / painted.reduce((a, b) => a + b)) * 100 - Number.parseFloat(o.shares[i]))).toBeLessThan(0.06);
+    }
     for (const [id, key, label] of [
       ['breakdown-productive', 'productive', 'productive'],
       ['breakdown-jams', 'jamClearing', 'jam clearing'],
