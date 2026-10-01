@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "6c0f49ded90f6b91a1188d5e3b8b01a81ba8c935238a65816a7b3493d01dcfd4",
+  "fingerprint": "a3a09c6e1237674df1e87e221154a004de0b7b17f735eac2cd6b6c7c00e9a123",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -253,7 +253,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3315,
+      "visibleTextLength": 3333,
       "route": "/",
       "viewport": "1440x900"
     },
@@ -761,7 +761,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 29407,
+      "visibleTextLength": 30039,
       "route": "/adjacent/autonomous-vehicles/",
       "viewport": "1440x900"
     },
@@ -4190,7 +4190,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 21461,
+      "visibleTextLength": 23515,
       "route": "/frontier/dexterity/",
       "viewport": "1440x900"
     },
@@ -5460,7 +5460,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 16240,
+      "visibleTextLength": 16985,
       "route": "/manipulation/cross-embodiment/",
       "viewport": "1440x900"
     },
@@ -5714,7 +5714,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 12296,
+      "visibleTextLength": 12941,
       "route": "/manipulation/foundation-models/",
       "viewport": "1440x900"
     },
@@ -8635,7 +8635,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 12590,
+      "visibleTextLength": 13244,
       "route": "/world-models/evaluation/",
       "viewport": "1440x900"
     },
@@ -9270,7 +9270,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 11148,
+      "visibleTextLength": 12336,
       "route": "/world-models/model-based-robot-learning/",
       "viewport": "1440x900"
     },
@@ -9697,7 +9697,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3093,
+      "visibleTextLength": 3111,
       "route": "/",
       "viewport": "375x812"
     },
@@ -10205,7 +10205,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 29089,
+      "visibleTextLength": 29721,
       "route": "/adjacent/autonomous-vehicles/",
       "viewport": "375x812"
     },
@@ -13634,7 +13634,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 21126,
+      "visibleTextLength": 23180,
       "route": "/frontier/dexterity/",
       "viewport": "375x812"
     },
@@ -14904,7 +14904,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 15613,
+      "visibleTextLength": 16358,
       "route": "/manipulation/cross-embodiment/",
       "viewport": "375x812"
     },
@@ -15158,7 +15158,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 11669,
+      "visibleTextLength": 12314,
       "route": "/manipulation/foundation-models/",
       "viewport": "375x812"
     },
@@ -18079,7 +18079,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 12106,
+      "visibleTextLength": 12760,
       "route": "/world-models/evaluation/",
       "viewport": "375x812"
     },
@@ -18714,7 +18714,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 10664,
+      "visibleTextLength": 11852,
       "route": "/world-models/model-based-robot-learning/",
       "viewport": "375x812"
     },

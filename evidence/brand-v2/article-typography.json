@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "402a07c1259faba9992141797c73e8a595d79c0820b999df0baafea4bdf25600",
+  "fingerprint": "04fbc132f97c25544a91c909434b876db16c6af71e55ba315b4f5afcefcbc19d",
   "viewports": [
     "375x812",
     "1440x900"
@@ -142,7 +142,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3093,
+      "visibleTextLength": 3111,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -1186,7 +1186,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 29089,
+      "visibleTextLength": 29721,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -1253,12 +1253,12 @@
           "Autonomous Vehicles"
         ],
         "lastReviewed": "2026-08-18",
-        "readingMinutes": 18,
-        "citationCount": 20,
+        "readingMinutes": 19,
+        "citationCount": 21,
         "reviewDateText": "18 August 2026",
         "reviewDateTime": "2026-08-18",
-        "readingTimeText": "18 min",
-        "citationCountText": "20",
+        "readingTimeText": "19 min",
+        "citationCountText": "21",
         "bibliographyIds": [
           "alvinn-1988",
           "no-hands-across-america-1995",
@@ -1279,7 +1279,8 @@
           "waymo-world-model-2026",
           "vla-ad-survey-2026",
           "open-x-embodiment-2023",
-          "genie-3-2025"
+          "genie-3-2025",
+          "paxton-autonomous-trucks-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -1467,6 +1468,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Formal approaches have been proposed to escape the statistic"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "In September 2026, Chris Paxton argued that an automated sys"
         },
         {
           "familyHead": "newsreader",
@@ -1856,7 +1866,7 @@
         },
         {
           "kind": "reference",
-          "count": 20,
+          "count": 21,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -1866,7 +1876,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 20,
+              "count": 21,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -1878,7 +1888,7 @@
         },
         {
           "kind": "citation",
-          "count": 80,
+          "count": 84,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -1888,7 +1898,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 80,
+              "count": 84,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -19982,7 +19992,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21126,
+      "visibleTextLength": 23180,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -20050,11 +20060,11 @@
         ],
         "lastReviewed": "2026-08-18",
         "readingMinutes": 13,
-        "citationCount": 24,
+        "citationCount": 27,
         "reviewDateText": "18 August 2026",
         "reviewDateTime": "2026-08-18",
         "readingTimeText": "13 min",
-        "citationCountText": "24",
+        "citationCountText": "27",
         "bibliographyIds": [
           "brooks-dexterity-2025",
           "macefield-touch-2022",
@@ -20079,7 +20089,10 @@
           "gemini-robotics-2-2026",
           "pi-olympics-2025",
           "pi07-2026",
-          "rl-100-2025"
+          "rl-100-2025",
+          "t-rex-2026",
+          "chord-2026",
+          "trace-cables-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -20212,6 +20225,15 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "In June 2026, Dantong Niu, Yuke Zhu, Trevor Darrell and coll"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "The honest 2026 position is intermediate, and both camps occ"
         },
         {
@@ -20257,6 +20279,15 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "In June 2026, Xinghao Zhu, Yuke Zhu and colleagues reported "
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Rigid objects are the easy case. A wooden block rests on one"
         },
         {
@@ -20267,6 +20298,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "The measured record is thin but no longer empty. RL-100 fold"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "In September 2026, Nidhya Shivakumar, Ken Goldberg and colle"
         },
         {
           "familyHead": "newsreader",
@@ -20431,7 +20471,7 @@
         },
         {
           "kind": "reference",
-          "count": 24,
+          "count": 27,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -20441,7 +20481,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 24,
+              "count": 27,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -20453,7 +20493,7 @@
         },
         {
           "kind": "citation",
-          "count": 74,
+          "count": 80,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -20463,7 +20503,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 74,
+              "count": 80,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -20779,6 +20819,30 @@
         {
           "tag": "button",
           "text": "Show all 87 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 9 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 34 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 21 authors",
           "familyHead": "ibm plex sans",
           "sizePx": 13,
           "inProse": false,
@@ -26924,7 +26988,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15613,
+      "visibleTextLength": 16358,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -26992,11 +27056,11 @@
         ],
         "lastReviewed": "2026-08-17",
         "readingMinutes": 9,
-        "citationCount": 10,
+        "citationCount": 11,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
         "readingTimeText": "9 min",
-        "citationCountText": "10",
+        "citationCountText": "11",
         "bibliographyIds": [
           "act-aloha-2023",
           "pi0-2024",
@@ -27007,7 +27071,8 @@
           "gemini-robotics-2-2026",
           "isaac-gr00t-repo-2026",
           "egoscale-2026",
-          "pi-human-to-robot-2025"
+          "pi-human-to-robot-2025",
+          "morphometric-imitation-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -27185,6 +27250,15 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "In September 2026, Tara Sadjadpour, Jitendra Malik and colle"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Physical Intelligence’s Simar Kareer and colleagues reported"
         },
         {
@@ -27332,7 +27406,7 @@
         },
         {
           "kind": "reference",
-          "count": 10,
+          "count": 11,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -27342,7 +27416,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 10,
+              "count": 11,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -27354,7 +27428,7 @@
         },
         {
           "kind": "citation",
-          "count": 42,
+          "count": 44,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -27364,7 +27438,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 42,
+              "count": 44,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -28377,7 +28451,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 11669,
+      "visibleTextLength": 12314,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -28445,11 +28519,11 @@
         ],
         "lastReviewed": "2026-09-24",
         "readingMinutes": 6,
-        "citationCount": 8,
+        "citationCount": 9,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
         "readingTimeText": "6 min",
-        "citationCountText": "8",
+        "citationCountText": "9",
         "bibliographyIds": [
           "rt2-2023",
           "openvla-2024",
@@ -28458,7 +28532,8 @@
           "gr00t-n1-2025",
           "vjepa2-2025",
           "cosmos-3-2026",
-          "knowledge-insulation-paper-2025"
+          "knowledge-insulation-paper-2025",
+          "dreamzero-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -28610,6 +28685,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Cosmos 3 unifies understanding, generation, forward dynamics"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "In February 2026, Seonghyeon Ye, Yuke Zhu and colleagues des"
         },
         {
           "familyHead": "newsreader",
@@ -28846,7 +28930,7 @@
         },
         {
           "kind": "reference",
-          "count": 8,
+          "count": 9,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -28856,7 +28940,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 8,
+              "count": 9,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -28868,7 +28952,7 @@
         },
         {
           "kind": "citation",
-          "count": 16,
+          "count": 18,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -28878,7 +28962,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 16,
+              "count": 18,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -29103,6 +29187,14 @@
         {
           "tag": "button",
           "text": "Show all 11 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 36 authors",
           "familyHead": "ibm plex sans",
           "sizePx": 13,
           "inProse": false,
@@ -45085,7 +45177,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 12106,
+      "visibleTextLength": 12760,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -45153,11 +45245,11 @@
         ],
         "lastReviewed": "2026-09-24",
         "readingMinutes": 6,
-        "citationCount": 7,
+        "citationCount": 8,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
         "readingTimeText": "6 min",
-        "citationCountText": "7",
+        "citationCountText": "8",
         "bibliographyIds": [
           "world-model-survey-2026",
           "genie-3-2025",
@@ -45165,7 +45257,8 @@
           "libero-plus-2025",
           "interactive-world-simulator-2026",
           "roboworld-2026",
-          "roboarena-2025"
+          "roboarena-2025",
+          "simfoundry-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -45353,6 +45446,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "RoboWorld targets this layer with a fast autoregressive neur"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Physics simulation sets the bar a learned evaluator should m"
         },
         {
           "familyHead": "newsreader",
@@ -45625,7 +45727,7 @@
         },
         {
           "kind": "reference",
-          "count": 7,
+          "count": 8,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -45635,7 +45737,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 7,
+              "count": 8,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -45647,7 +45749,7 @@
         },
         {
           "kind": "citation",
-          "count": 14,
+          "count": 16,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -45657,7 +45759,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 14,
+              "count": 16,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -45847,6 +45949,14 @@
         {
           "tag": "button",
           "text": "Show all 32 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 18 authors",
           "familyHead": "ibm plex sans",
           "sizePx": 13,
           "inProse": false,
@@ -48837,7 +48947,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 10664,
+      "visibleTextLength": 11852,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -48905,11 +49015,11 @@
         ],
         "lastReviewed": "2026-09-24",
         "readingMinutes": 6,
-        "citationCount": 8,
+        "citationCount": 10,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
         "readingTimeText": "6 min",
-        "citationCountText": "8",
+        "citationCountText": "10",
         "bibliographyIds": [
           "dreamer-2019",
           "dreamerv3-2023",
@@ -48918,7 +49028,9 @@
           "tdmpc2-2023",
           "robotic-world-model-2025",
           "mujoco-2012",
-          "world-model-survey-2026"
+          "world-model-survey-2026",
+          "excavator-mbrl-2026",
+          "insertion-world-models-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -49070,6 +49182,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "DayDreamer is important because it crossed the physical boun"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "In September 2026, Marco Hutter and colleagues at ETH Zurich"
         },
         {
           "familyHead": "newsreader",
@@ -49315,7 +49436,7 @@
         },
         {
           "kind": "reference",
-          "count": 8,
+          "count": 10,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -49325,7 +49446,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 8,
+              "count": 10,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -49337,7 +49458,7 @@
         },
         {
           "kind": "citation",
-          "count": 16,
+          "count": 20,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -49347,7 +49468,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 16,
+              "count": 20,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -49516,6 +49637,14 @@
         {
           "tag": "button",
           "text": "Show all 18 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 10 authors",
           "familyHead": "ibm plex sans",
           "sizePx": 13,
           "inProse": false,
@@ -51386,7 +51515,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 3315,
+      "visibleTextLength": 3333,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -52430,7 +52559,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 29407,
+      "visibleTextLength": 30039,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -52497,12 +52626,12 @@
           "Autonomous Vehicles"
         ],
         "lastReviewed": "2026-08-18",
-        "readingMinutes": 18,
-        "citationCount": 20,
+        "readingMinutes": 19,
+        "citationCount": 21,
         "reviewDateText": "18 August 2026",
         "reviewDateTime": "2026-08-18",
-        "readingTimeText": "18 min",
-        "citationCountText": "20",
+        "readingTimeText": "19 min",
+        "citationCountText": "21",
         "bibliographyIds": [
           "alvinn-1988",
           "no-hands-across-america-1995",
@@ -52523,7 +52652,8 @@
           "waymo-world-model-2026",
           "vla-ad-survey-2026",
           "open-x-embodiment-2023",
-          "genie-3-2025"
+          "genie-3-2025",
+          "paxton-autonomous-trucks-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -52711,6 +52841,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Formal approaches have been proposed to escape the statistic"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "In September 2026, Chris Paxton argued that an automated sys"
         },
         {
           "familyHead": "newsreader",
@@ -53100,7 +53239,7 @@
         },
         {
           "kind": "reference",
-          "count": 20,
+          "count": 21,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -53110,7 +53249,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 20,
+              "count": 21,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -53122,7 +53261,7 @@
         },
         {
           "kind": "citation",
-          "count": 80,
+          "count": 84,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -53132,7 +53271,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 80,
+              "count": 84,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -71226,7 +71365,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21461,
+      "visibleTextLength": 23515,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -71294,11 +71433,11 @@
         ],
         "lastReviewed": "2026-08-18",
         "readingMinutes": 13,
-        "citationCount": 24,
+        "citationCount": 27,
         "reviewDateText": "18 August 2026",
         "reviewDateTime": "2026-08-18",
         "readingTimeText": "13 min",
-        "citationCountText": "24",
+        "citationCountText": "27",
         "bibliographyIds": [
           "brooks-dexterity-2025",
           "macefield-touch-2022",
@@ -71323,7 +71462,10 @@
           "gemini-robotics-2-2026",
           "pi-olympics-2025",
           "pi07-2026",
-          "rl-100-2025"
+          "rl-100-2025",
+          "t-rex-2026",
+          "chord-2026",
+          "trace-cables-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -71456,6 +71598,15 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "In June 2026, Dantong Niu, Yuke Zhu, Trevor Darrell and coll"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "The honest 2026 position is intermediate, and both camps occ"
         },
         {
@@ -71501,6 +71652,15 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "In June 2026, Xinghao Zhu, Yuke Zhu and colleagues reported "
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Rigid objects are the easy case. A wooden block rests on one"
         },
         {
@@ -71511,6 +71671,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "The measured record is thin but no longer empty. RL-100 fold"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "In September 2026, Nidhya Shivakumar, Ken Goldberg and colle"
         },
         {
           "familyHead": "newsreader",
@@ -71675,7 +71844,7 @@
         },
         {
           "kind": "reference",
-          "count": 24,
+          "count": 27,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -71685,7 +71854,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 24,
+              "count": 27,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -71697,7 +71866,7 @@
         },
         {
           "kind": "citation",
-          "count": 74,
+          "count": 80,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -71707,7 +71876,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 74,
+              "count": 80,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -72023,6 +72192,30 @@
         {
           "tag": "button",
           "text": "Show all 87 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 9 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 34 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 21 authors",
           "familyHead": "ibm plex sans",
           "sizePx": 13,
           "inProse": false,
@@ -78168,7 +78361,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16240,
+      "visibleTextLength": 16985,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -78236,11 +78429,11 @@
         ],
         "lastReviewed": "2026-08-17",
         "readingMinutes": 9,
-        "citationCount": 10,
+        "citationCount": 11,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
         "readingTimeText": "9 min",
-        "citationCountText": "10",
+        "citationCountText": "11",
         "bibliographyIds": [
           "act-aloha-2023",
           "pi0-2024",
@@ -78251,7 +78444,8 @@
           "gemini-robotics-2-2026",
           "isaac-gr00t-repo-2026",
           "egoscale-2026",
-          "pi-human-to-robot-2025"
+          "pi-human-to-robot-2025",
+          "morphometric-imitation-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -78429,6 +78623,15 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "In September 2026, Tara Sadjadpour, Jitendra Malik and colle"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Physical Intelligence’s Simar Kareer and colleagues reported"
         },
         {
@@ -78576,7 +78779,7 @@
         },
         {
           "kind": "reference",
-          "count": 10,
+          "count": 11,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -78586,7 +78789,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 10,
+              "count": 11,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -78598,7 +78801,7 @@
         },
         {
           "kind": "citation",
-          "count": 42,
+          "count": 44,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -78608,7 +78811,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 42,
+              "count": 44,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -79621,7 +79824,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12296,
+      "visibleTextLength": 12941,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -79689,11 +79892,11 @@
         ],
         "lastReviewed": "2026-09-24",
         "readingMinutes": 6,
-        "citationCount": 8,
+        "citationCount": 9,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
         "readingTimeText": "6 min",
-        "citationCountText": "8",
+        "citationCountText": "9",
         "bibliographyIds": [
           "rt2-2023",
           "openvla-2024",
@@ -79702,7 +79905,8 @@
           "gr00t-n1-2025",
           "vjepa2-2025",
           "cosmos-3-2026",
-          "knowledge-insulation-paper-2025"
+          "knowledge-insulation-paper-2025",
+          "dreamzero-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -79854,6 +80058,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Cosmos 3 unifies understanding, generation, forward dynamics"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "In February 2026, Seonghyeon Ye, Yuke Zhu and colleagues des"
         },
         {
           "familyHead": "newsreader",
@@ -80090,7 +80303,7 @@
         },
         {
           "kind": "reference",
-          "count": 8,
+          "count": 9,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -80100,7 +80313,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 8,
+              "count": 9,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -80112,7 +80325,7 @@
         },
         {
           "kind": "citation",
-          "count": 16,
+          "count": 18,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -80122,7 +80335,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 16,
+              "count": 18,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -80347,6 +80560,14 @@
         {
           "tag": "button",
           "text": "Show all 11 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 36 authors",
           "familyHead": "ibm plex sans",
           "sizePx": 13,
           "inProse": false,
@@ -96329,7 +96550,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 12590,
+      "visibleTextLength": 13244,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -96397,11 +96618,11 @@
         ],
         "lastReviewed": "2026-09-24",
         "readingMinutes": 6,
-        "citationCount": 7,
+        "citationCount": 8,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
         "readingTimeText": "6 min",
-        "citationCountText": "7",
+        "citationCountText": "8",
         "bibliographyIds": [
           "world-model-survey-2026",
           "genie-3-2025",
@@ -96409,7 +96630,8 @@
           "libero-plus-2025",
           "interactive-world-simulator-2026",
           "roboworld-2026",
-          "roboarena-2025"
+          "roboarena-2025",
+          "simfoundry-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -96597,6 +96819,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "RoboWorld targets this layer with a fast autoregressive neur"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Physics simulation sets the bar a learned evaluator should m"
         },
         {
           "familyHead": "newsreader",
@@ -96869,7 +97100,7 @@
         },
         {
           "kind": "reference",
-          "count": 7,
+          "count": 8,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -96879,7 +97110,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 7,
+              "count": 8,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -96891,7 +97122,7 @@
         },
         {
           "kind": "citation",
-          "count": 14,
+          "count": 16,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -96901,7 +97132,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 14,
+              "count": 16,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -97091,6 +97322,14 @@
         {
           "tag": "button",
           "text": "Show all 32 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 18 authors",
           "familyHead": "ibm plex sans",
           "sizePx": 13,
           "inProse": false,
@@ -100081,7 +100320,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 11148,
+      "visibleTextLength": 12336,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -100149,11 +100388,11 @@
         ],
         "lastReviewed": "2026-09-24",
         "readingMinutes": 6,
-        "citationCount": 8,
+        "citationCount": 10,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
         "readingTimeText": "6 min",
-        "citationCountText": "8",
+        "citationCountText": "10",
         "bibliographyIds": [
           "dreamer-2019",
           "dreamerv3-2023",
@@ -100162,7 +100401,9 @@
           "tdmpc2-2023",
           "robotic-world-model-2025",
           "mujoco-2012",
-          "world-model-survey-2026"
+          "world-model-survey-2026",
+          "excavator-mbrl-2026",
+          "insertion-world-models-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -100314,6 +100555,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "DayDreamer is important because it crossed the physical boun"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "In September 2026, Marco Hutter and colleagues at ETH Zurich"
         },
         {
           "familyHead": "newsreader",
@@ -100559,7 +100809,7 @@
         },
         {
           "kind": "reference",
-          "count": 8,
+          "count": 10,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -100569,7 +100819,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 8,
+              "count": 10,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -100581,7 +100831,7 @@
         },
         {
           "kind": "citation",
-          "count": 16,
+          "count": 20,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -100591,7 +100841,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 16,
+              "count": 20,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -100760,6 +101010,14 @@
         {
           "tag": "button",
           "text": "Show all 18 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 10 authors",
           "familyHead": "ibm plex sans",
           "sizePx": 13,
           "inProse": false,

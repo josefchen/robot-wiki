@@ -589,7 +589,26 @@ const opusFigureMigrationAppends = opusFigureMigrationEndpoints.map(([slug, mani
 const opusFigureMigrationEdges = (manifest: string, memberId: string) => opusFigureMigrationAppends
   .filter((_, index) => opusFigureMigrationEndpoints[index][1] === manifest
     && opusFigureMigrationEndpoints[index][2] === memberId);
-const afterOpusHomepage = merged.length - opusFigureMigrationAppends.length;
+// The 2026-10-01 KOL backlog batch appends, per domain commit, one plain edge
+// for each changed article member and new citation, and one resolution for
+// the shared citation rendering.
+const kolBacklogAppends = [
+  ...['frontmatter-evaluation', 'frontmatter-model-based-robot-learning', 'citation-rendering',
+    'citation-excavator-mbrl-2026', 'citation-insertion-world-models-2026', 'citation-simfoundry-2026',
+    'prose-evaluation', 'prose-model-based-robot-learning', 'relationships-evaluation',
+    'relationships-model-based-robot-learning'].map(suffix => `kol-backlog-20261001-world-models-${suffix}`),
+  ...['frontmatter-autonomous-vehicles', 'citation-rendering', 'citation-paxton-autonomous-trucks-2026',
+    'prose-autonomous-vehicles', 'relationships-autonomous-vehicles'].map(suffix => `kol-backlog-20261001-adjacent-${suffix}`),
+  ...['frontmatter-cross-embodiment', 'frontmatter-foundation-models', 'citation-rendering',
+    'citation-dreamzero-2026', 'citation-morphometric-imitation-2026', 'prose-cross-embodiment',
+    'prose-foundation-models', 'relationships-cross-embodiment',
+    'relationships-foundation-models'].map(suffix => `kol-backlog-20261001-manipulation-${suffix}`),
+  ...['frontmatter-dexterity', 'citation-rendering', 'citation-chord-2026', 'citation-t-rex-2026',
+    'citation-trace-cables-2026', 'prose-dexterity',
+    'relationships-dexterity'].map(suffix => `kol-backlog-20261001-frontier-${suffix}`),
+];
+const afterOpusFigureMigration = merged.length - kolBacklogAppends.length;
+const afterOpusHomepage = afterOpusFigureMigration - opusFigureMigrationAppends.length;
 const afterOpusFigureSystem = afterOpusHomepage - opusHomepageAppends.length;
 const afterRound6 = afterOpusFigureSystem - opusFigureSystemAppends.length;
 const afterRound6Prose = afterRound6 - round6RemainingRepairAppends.length;
@@ -611,12 +630,13 @@ describe('two-parent exact approval reconciliation', () => {
     // two manipulation mounts, eight RL article endpoints and five RL
     // reconciliation edges, all named below in ledger order, and the round-6
     // prose restores and remaining repairs, the figure-system resolution, the
-    // home front page and the figure migration add the edges named above.
-    expect([main.length, local.length, localOnly.length, merged.length]).toEqual([1558, 1104, 7, 1886]);
+    // home front page and the figure migration add the edges named above,
+    // and the KOL backlog batch appends its own named block last.
+    expect([main.length, local.length, localOnly.length, merged.length]).toEqual([1558, 1104, 7, 1917]);
     expect(merged.slice(0, main.length)).toEqual(main);
     expect(merged.slice(main.length, main.length + localOnly.length)).toEqual(localOnly);
     expect(merged.slice(main.length + localOnly.length).map(x => x.id))
-      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends, ...opusFigureMigrationAppends]);
+      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends, ...opusFigureMigrationAppends, ...kolBacklogAppends]);
     expect(merged.slice(beforeRound6.length, afterRound6Prose)).toMatchObject(round6ProseRestoreEndpoints.map(
       ([memberId, , newHash], index) => ({
         id: round6ProseRestoreAppends[index], manifest: 'prose', memberId, newHash,
@@ -636,11 +656,15 @@ describe('two-parent exact approval reconciliation', () => {
         id: opusHomepageAppends[index], manifest, memberId, oldHash, newHash,
         responsibleMilestone: 'opus-pass', disposition: 'permanent',
       })));
-    expect(merged.slice(afterOpusHomepage)).toMatchObject(opusFigureMigrationEndpoints.map(
+    expect(merged.slice(afterOpusHomepage, afterOpusFigureMigration)).toMatchObject(opusFigureMigrationEndpoints.map(
       ([, manifest, memberId], index) => ({
         id: opusFigureMigrationAppends[index], manifest, memberId,
         responsibleMilestone: 'opus-pass', disposition: 'permanent',
       })));
+    expect(merged.slice(afterOpusFigureMigration)).toMatchObject(kolBacklogAppends.map(id => ({
+      id, responsibleMilestone: 'brand-v2-hygiene', disposition: 'permanent',
+      affectedAssertions: ['VAL-KOL-001', 'VAL-B2-BASE-002', 'VAL-B2-BASE-010', 'VAL-B2-BASE-011'],
+    })));
     expect(beforeRound6.slice(-1)).toMatchObject([{
       id: sharedReaderLayoutAppends[0], manifest: 'article-metadata',
       memberId: 'canonical-metadata-source:app/layout.tsx',
@@ -984,5 +1008,31 @@ describe('two-parent exact approval reconciliation', () => {
         'opus-figure-migration-20261001-prose-sim2real-transfer',
         'opus-figure-migration-20261001-behavioral-defaults-collaborative-operation-modes-11',
       ]);
+  });
+
+  it('binds each KOL backlog edge to its previous endpoint and to the sealed hash', () => {
+    for (const id of kolBacklogAppends) {
+      const entry = merged.find(x => x.id === id)!;
+      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(
+        readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));
+      const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;
+      const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);
+      const prior = edges.slice(0, edges.indexOf(entry));
+      const path = approvedDeltaPath([...prior, entry], sealed, entry.newHash);
+      expect(path.status).toBe('approved');
+      expect(path.path.at(-1)).toBe(entry);
+      if (entry.reconciles) {
+        expect(entry.oldHash).toBe(sealed);
+        expect(entry.reconciles).toEqual(prior.map(x => ({ id: x.id, oldHash: x.oldHash, newHash: x.newHash })));
+      } else {
+        expect(prior.some(x => x.reconciles !== undefined)).toBe(false);
+        expect(entry.oldHash).toBe(prior.at(-1)?.newHash ?? sealed);
+      }
+      expect(approvedDeltaPath(prior, sealed, entry.newHash).status).not.toBe('approved');
+    }
+    expect(kolBacklogAppends.filter(id => merged.find(x => x.id === id)?.reconciles))
+      .toEqual(['kol-backlog-20261001-world-models-citation-rendering',
+        'kol-backlog-20261001-adjacent-citation-rendering', 'kol-backlog-20261001-manipulation-citation-rendering',
+        'kol-backlog-20261001-frontier-citation-rendering']);
   });
 });

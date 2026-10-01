@@ -1,0 +1,1403 @@
+{
+ "width": 1440,
+ "limit": 0.1,
+ "stage": "#242D33",
+ "routes": 71,
+ "figures": 103,
+ "pending": {
+  "/playground/ <canvas": "The SO-101 scene clears to paper; VAL-B2-PLAY-001 makes the canvas a graphite instrument in the playground rollout."
+ },
+ "failures": [],
+ "rows": [
+  {
+   "route": "/playground/",
+   "figure": "<canvas data-engine=\"three.js r185\">",
+   "stage": "raster",
+   "stageArea": 711892,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": [
+    {
+     "id": "0-stage",
+     "area": 1,
+     "light": 0.976
+    }
+   ]
+  },
+  {
+   "route": "/credits/",
+   "figure": "<div.rounded-sm.border.border-graphite data-brand-surface-id=\"surface:bounded-dark-instrument\" data-brand-surface-level=\"bounded-dark\">",
+   "stage": "#242D33",
+   "stageArea": 163142,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": [
+    {
+     "id": "0-0",
+     "area": 0.794,
+     "light": 0.011
+    }
+   ]
+  },
+  {
+   "route": "/credits/",
+   "figure": "<div.rounded-sm.border.border-graphite data-brand-surface-id=\"surface:bounded-dark-instrument\" data-brand-surface-level=\"bounded-dark\">",
+   "stage": "#242D33",
+   "stageArea": 163142,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": [
+    {
+     "id": "1-0",
+     "area": 0.794,
+     "light": 0.011
+    }
+   ]
+  },
+  {
+   "route": "/manipulation/bc-foundations/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 942783,
+   "light": null,
+   "mark": null,
+   "signal": [
+    "<path>",
+    "<path>",
+    "<circle>"
+   ],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/bc-foundations/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 861710,
+   "light": null,
+   "mark": null,
+   "signal": [
+    "<path>",
+    "<path>",
+    "<circle>"
+   ],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/bc-foundations/",
+   "figure": "<div.rounded-sm.border.border-graphite data-brand-surface-id=\"surface:bounded-dark-instrument\" data-brand-surface-level=\"bounded-dark\">",
+   "stage": "#242D33",
+   "stageArea": 225326,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": [
+    {
+     "id": "2-0",
+     "area": 0.823,
+     "light": 0.014
+    }
+   ]
+  },
+  {
+   "route": "/manipulation/action-chunking/",
+   "figure": "<svg>",
+   "stage": "#F5F6F7",
+   "stageArea": 168,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/action-chunking/",
+   "figure": "<svg>",
+   "stage": "#F5F6F7",
+   "stageArea": 335,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/action-chunking/",
+   "figure": "<svg>",
+   "stage": "#F5F6F7",
+   "stageArea": 168,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/action-chunking/",
+   "figure": "<svg>",
+   "stage": "#F5F6F7",
+   "stageArea": 139,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/action-chunking/",
+   "figure": "<svg>",
+   "stage": "#F5F6F7",
+   "stageArea": 277,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/action-chunking/",
+   "figure": "<svg>",
+   "stage": "#F5F6F7",
+   "stageArea": 139,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/action-chunking/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 692846,
+   "light": null,
+   "mark": null,
+   "signal": [
+    "<path data-series=\"measured-rise\">",
+    "<path data-series=\"illustrative-taper\">",
+    "<circle>",
+    "<circle>",
+    "<circle>"
+   ],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/action-chunking/",
+   "figure": "<div.rounded-sm.border.border-graphite data-brand-surface-id=\"surface:bounded-dark-instrument\" data-brand-surface-level=\"bounded-dark\">",
+   "stage": "#242D33",
+   "stageArea": 225326,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": [
+    {
+     "id": "7-0",
+     "area": 0.823,
+     "light": 0.013
+    }
+   ]
+  },
+  {
+   "route": "/manipulation/action-chunking/",
+   "figure": "<figure data-rehype-pretty-code-figure>",
+   "stage": "#F5F6F7",
+   "stageArea": 167947,
+   "light": {
+    "share": 0.858,
+    "colour": "#FFFFFF",
+    "at": "<pre data-brand-surface-id=\"surface:flat\" data-language=\"python\">"
+   },
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/action-chunking/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 1057116,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/action-chunking/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 951586,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/diffusion-policy/",
+   "figure": "scene:diffusion-denoising",
+   "stage": "#242D33",
+   "stageArea": 492389,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/diffusion-policy/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 502444,
+   "light": null,
+   "mark": null,
+   "signal": [
+    "<rect data-testid=\"rh-committed\">",
+    "<rect data-testid=\"rh-committed\">",
+    "<rect data-testid=\"rh-committed\">",
+    "<rect data-testid=\"rh-committed\">"
+   ],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/vla-models/",
+   "figure": "scene:action-decode",
+   "stage": "#242D33",
+   "stageArea": 477419,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/vla-models/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 985069,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/pi-line/",
+   "figure": "scene:flow-transport",
+   "stage": "#242D33",
+   "stageArea": 479609,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/pi-line/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 581317,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/pi-line/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 572659,
+   "light": {
+    "share": 0.201,
+    "colour": "#F8F8F9",
+    "at": "<div.mt-3.rounded-sm.border data-testid=\"generation-detail\" data-brand-surface-id=\"surface:flat\">"
+   },
+   "mark": null,
+   "signal": [
+    "<circle>",
+    "<circle>",
+    "<circle>",
+    "<circle>",
+    "<circle>",
+    "<circle>"
+   ],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/generalist-policies/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 746225,
+   "light": {
+    "share": 0.225,
+    "colour": "#F8F8F9",
+    "at": "<div.mt-3.rounded-sm.border data-testid=\"release-detail\" data-brand-surface-id=\"surface:flat\">"
+   },
+   "mark": null,
+   "signal": [
+    "<polygon>",
+    "<circle>",
+    "<circle>",
+    "<circle>",
+    "<circle>",
+    "<circle>",
+    "<circle>",
+    "<rect>",
+    "<rect>"
+   ],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/comparison-matrix/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 5136912,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/hierarchical/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 746136,
+   "light": {
+    "share": 0.104,
+    "colour": "#F8F8F9",
+    "at": "<div.mt-3.rounded-sm.border data-testid=\"system-detail\" data-brand-surface-id=\"surface:flat\">"
+   },
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/rl-finetuning/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 1018529,
+   "light": null,
+   "mark": null,
+   "signal": [
+    "<path>",
+    "<circle>"
+   ],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/rl-finetuning/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 630563,
+   "light": null,
+   "mark": null,
+   "signal": [
+    "<rect>",
+    "<rect>",
+    "<rect>",
+    "<rect>",
+    "<rect>"
+   ],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/realtime-execution/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 902196,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/realtime-execution/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 772726,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/realtime-execution/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 888622,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/cross-embodiment/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 708788,
+   "light": {
+    "share": 0.165,
+    "colour": "#F8F8F9",
+    "at": "<div.mt-3.rounded-sm.border data-testid=\"strategy-detail\" data-brand-surface-id=\"surface:flat\">"
+   },
+   "mark": null,
+   "signal": [
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect data-series=\"active\">",
+    "<rect>"
+   ],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/knowledge-insulation/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 756347,
+   "light": null,
+   "mark": null,
+   "signal": [
+    "<rect data-testid=\"backbone-layer-0\">",
+    "<rect data-testid=\"backbone-layer-0\">",
+    "<rect data-testid=\"expert-layer-0\">",
+    "<rect data-testid=\"expert-layer-0\">",
+    "<rect data-testid=\"backbone-layer-1\">",
+    "<rect data-testid=\"backbone-layer-1\">",
+    "<rect data-testid=\"expert-layer-1\">",
+    "<rect data-testid=\"expert-layer-1\">",
+    "<rect data-testid=\"backbone-layer-2\">",
+    "<rect data-testid=\"backbone-layer-2\">",
+    "<rect data-testid=\"expert-layer-2\">",
+    "<rect data-testid=\"expert-layer-2\">",
+    "<rect data-testid=\"backbone-layer-3\">",
+    "<rect data-testid=\"backbone-layer-3\">",
+    "<rect data-testid=\"expert-layer-3\">",
+    "<rect data-testid=\"expert-layer-3\">",
+    "<rect data-testid=\"backbone-layer-4\">",
+    "<rect data-testid=\"backbone-layer-4\">",
+    "<rect data-testid=\"expert-layer-4\">",
+    "<rect data-testid=\"expert-layer-4\">",
+    "<rect data-testid=\"backbone-layer-5\">",
+    "<rect data-testid=\"backbone-layer-5\">",
+    "<rect data-testid=\"expert-layer-5\">",
+    "<rect data-testid=\"expert-layer-5\">",
+    "<rect data-testid=\"backbone-layer-6\">",
+    "<rect data-testid=\"backbone-layer-6\">",
+    "<rect data-testid=\"expert-layer-6\">",
+    "<rect data-testid=\"expert-layer-6\">",
+    "<rect data-testid=\"backbone-layer-7\">",
+    "<rect data-testid=\"backbone-layer-7\">",
+    "<rect data-testid=\"expert-layer-7\">",
+    "<rect data-testid=\"expert-layer-7\">",
+    "<rect data-testid=\"language-meter-fill\">"
+   ],
+   "rasters": []
+  },
+  {
+   "route": "/rl-sim2real/rl-for-robotics/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 1044704,
+   "light": null,
+   "mark": null,
+   "signal": [
+    "<rect>",
+    "<rect data-testid=\"sample-lane-sim\">"
+   ],
+   "rasters": []
+  },
+  {
+   "route": "/rl-sim2real/why-rl-locomotion/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 567029,
+   "light": null,
+   "mark": null,
+   "signal": [
+    "<circle>",
+    "<circle>",
+    "<circle>",
+    "<circle>"
+   ],
+   "rasters": []
+  },
+  {
+   "route": "/rl-sim2real/parallel-sim-rl/",
+   "figure": "scene:batch-scale",
+   "stage": "#242D33",
+   "stageArea": 463968,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/rl-sim2real/parallel-sim-rl/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 783048,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/rl-sim2real/sim2real-transfer/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 749063,
+   "light": {
+    "share": 0.122,
+    "colour": "#245FFF",
+    "at": "<rect>"
+   },
+   "mark": null,
+   "signal": [
+    "<rect>",
+    "<polyline data-testid=\"dr-curve\">",
+    "<circle data-testid=\"dr-marker\">"
+   ],
+   "rasters": []
+  },
+  {
+   "route": "/rl-sim2real/sim2real-transfer/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 663329,
+   "light": {
+    "share": 0.207,
+    "colour": "#245FFF",
+    "at": "<rect>"
+   },
+   "mark": null,
+   "signal": [
+    "<rect>",
+    "<polyline data-testid=\"dr-curve\">",
+    "<circle data-testid=\"dr-marker\">"
+   ],
+   "rasters": []
+  },
+  {
+   "route": "/rl-sim2real/sim2real-transfer/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 541221,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/rl-sim2real/legged-locomotion/",
+   "figure": "scene:gait-support",
+   "stage": "#242D33",
+   "stageArea": 479609,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/rl-sim2real/legged-locomotion/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 662191,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/rl-sim2real/humanoid-wbc/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 573653,
+   "light": null,
+   "mark": null,
+   "signal": [
+    "<rect>"
+   ],
+   "rasters": []
+  },
+  {
+   "route": "/rl-sim2real/reward-design-mpc/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 718575,
+   "light": null,
+   "mark": null,
+   "signal": [
+    "<circle>",
+    "<circle>",
+    "<circle>",
+    "<circle>"
+   ],
+   "rasters": []
+  },
+  {
+   "route": "/rl-sim2real/reward-design-mpc/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 482804,
+   "light": {
+    "share": 0.105,
+    "colour": "#F5F6F7",
+    "at": "<blockquote.mt-2.rounded-sm.border data-testid=\"eureka-reflection\" data-brand-surface-id=\"surface:flat\">"
+   },
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/rl-sim2real/reward-design-mpc/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 750415,
+   "light": null,
+   "mark": null,
+   "signal": [
+    "<polyline data-testid=\"mpc-trace\">"
+   ],
+   "rasters": []
+  },
+  {
+   "route": "/world-models/taxonomy/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 637445,
+   "light": null,
+   "mark": null,
+   "signal": [
+    "<rect>",
+    "<rect>",
+    "<rect>",
+    "<rect>",
+    "<rect>",
+    "<rect>",
+    "<path>",
+    "<circle>",
+    "<rect>",
+    "<rect>",
+    "<rect>",
+    "<polygon>",
+    "<rect>",
+    "<circle>",
+    "<rect>"
+   ],
+   "rasters": []
+  },
+  {
+   "route": "/world-models/latent-dynamics/",
+   "figure": "scene:latent-drift",
+   "stage": "#242D33",
+   "stageArea": 463968,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/world-models/latent-dynamics/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 956759,
+   "light": null,
+   "mark": null,
+   "signal": [
+    "<path>",
+    "<circle>",
+    "<path data-testid=\"deviation-curve\">",
+    "<circle>",
+    "<circle>",
+    "<circle>",
+    "<circle>"
+   ],
+   "rasters": []
+  },
+  {
+   "route": "/world-models/generative-video/",
+   "figure": "scene:action-fork",
+   "stage": "#242D33",
+   "stageArea": 479609,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/world-models/generative-video/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 714520,
+   "light": null,
+   "mark": null,
+   "signal": [
+    "<rect>",
+    "<rect data-testid=\"block-a-1\">",
+    "<rect data-testid=\"block-a-2\">",
+    "<rect data-testid=\"block-a-3\">",
+    "<rect data-testid=\"block-a-4\">",
+    "<rect data-testid=\"block-b-1\">",
+    "<rect data-testid=\"block-b-2\">",
+    "<rect data-testid=\"block-b-3\">",
+    "<rect data-testid=\"block-b-4\">"
+   ],
+   "rasters": []
+  },
+  {
+   "route": "/world-models/jepa/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 676915,
+   "light": null,
+   "mark": null,
+   "signal": [
+    "<circle>",
+    "<circle>"
+   ],
+   "rasters": []
+  },
+  {
+   "route": "/world-models/generative-sim/",
+   "figure": "scene:push-layers",
+   "stage": "#242D33",
+   "stageArea": 479609,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/world-models/generative-sim/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 579854,
+   "light": null,
+   "mark": null,
+   "signal": [
+    "<rect>",
+    "<rect>"
+   ],
+   "rasters": []
+  },
+  {
+   "route": "/data-hardware/data-bottleneck/",
+   "figure": "scene:farm-throughput",
+   "stage": "#242D33",
+   "stageArea": 477419,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/data-hardware/data-bottleneck/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 1015803,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/data-hardware/data-bottleneck/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 961433,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/data-hardware/datasets/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 824688,
+   "light": {
+    "share": 0.149,
+    "colour": "#FFFFFF",
+    "at": "<tr.scroll-mt-24.border-t.border-border data-entity-id=\"dataset-robomind\">"
+   },
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/data-hardware/hardware-taxonomy/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 4339824,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/data-hardware/teleop-rigs/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 807024,
+   "light": {
+    "share": 0.199,
+    "colour": "#FFFFFF",
+    "at": "<tr.scroll-mt-24.border-t.border-border>"
+   },
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/data-hardware/evaluation-crisis/",
+   "figure": "scene:episode-survival",
+   "stage": "#242D33",
+   "stageArea": 463968,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/data-hardware/evaluation-crisis/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 584390,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/data-hardware/evaluation-crisis/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 521147,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/data-hardware/industrial-deployment/",
+   "figure": "scene:jam-overhead",
+   "stage": "#242D33",
+   "stageArea": 479609,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/data-hardware/industrial-deployment/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 657286,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/classical/kinematics/",
+   "figure": "scene:fk-chain",
+   "stage": "#242D33",
+   "stageArea": 464638,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/classical/kinematics/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 680222,
+   "light": null,
+   "mark": null,
+   "signal": [
+    "<circle>",
+    "<circle>"
+   ],
+   "rasters": []
+  },
+  {
+   "route": "/classical/kinematics/",
+   "figure": "<svg>",
+   "stage": "#F5F6F7",
+   "stageArea": 1202,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/classical/kinematics/",
+   "figure": "<svg>",
+   "stage": "#F5F6F7",
+   "stageArea": 1202,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/classical/motion-planning/",
+   "figure": "scene:rrt-growth",
+   "stage": "#242D33",
+   "stageArea": 479609,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/classical/motion-planning/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 570928,
+   "light": {
+    "share": 0.494,
+    "colour": "#F8F8F9",
+    "at": "<rect>"
+   },
+   "mark": null,
+   "signal": [
+    "<circle>",
+    "<circle>"
+   ],
+   "rasters": []
+  },
+  {
+   "route": "/classical/motion-planning/",
+   "figure": "<svg>",
+   "stage": "#F5F6F7",
+   "stageArea": 66,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/classical/control/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 663933,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/classical/control/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 585469,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/classical/control/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 669877,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/classical/state-estimation/",
+   "figure": "scene:kalman-predict-update",
+   "stage": "#242D33",
+   "stageArea": 479609,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/classical/state-estimation/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 402500,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": [
+    {
+     "id": "1-0",
+     "area": 0.614,
+     "light": 0.011
+    },
+    {
+     "id": "1-1",
+     "area": 0.614,
+     "light": 0.011
+    }
+   ]
+  },
+  {
+   "route": "/classical/grasp-planning/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 1028628,
+   "light": null,
+   "mark": null,
+   "signal": [
+    "<path>",
+    "<path>",
+    "<circle>",
+    "<path>",
+    "<path>",
+    "<circle>",
+    "<path>",
+    "<path>",
+    "<circle>",
+    "<polygon>",
+    "<polygon>",
+    "<polygon>",
+    "<polygon>",
+    "<polygon>",
+    "<polygon>",
+    "<polygon>",
+    "<polygon>",
+    "<polygon>",
+    "<polygon>",
+    "<polygon>",
+    "<polygon>",
+    "<polygon>",
+    "<polygon>",
+    "<polygon>",
+    "<polygon>",
+    "<circle>",
+    "<circle>",
+    "<circle>",
+    "<circle>",
+    "<circle>",
+    "<circle>"
+   ],
+   "rasters": []
+  },
+  {
+   "route": "/classical/perception/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 781205,
+   "light": null,
+   "mark": null,
+   "signal": [
+    "<rect>",
+    "<rect data-testid=\"perception-bar-total\">"
+   ],
+   "rasters": []
+  },
+  {
+   "route": "/classical/perception/",
+   "figure": "<svg>",
+   "stage": "#F5F6F7",
+   "stageArea": 55,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/classical/perception/",
+   "figure": "<svg>",
+   "stage": "#F5F6F7",
+   "stageArea": 53,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/classical/perception/",
+   "figure": "<svg>",
+   "stage": "#F5F6F7",
+   "stageArea": 375,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/classical/perception/",
+   "figure": "<svg>",
+   "stage": "#F5F6F7",
+   "stageArea": 55,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/classical/perception/",
+   "figure": "<svg>",
+   "stage": "#F5F6F7",
+   "stageArea": 53,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/classical/perception/",
+   "figure": "<svg>",
+   "stage": "#F5F6F7",
+   "stageArea": 375,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/classical/perception/",
+   "figure": "<svg>",
+   "stage": "#F5F6F7",
+   "stageArea": 375,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/classical/perception/",
+   "figure": "<svg>",
+   "stage": "#F5F6F7",
+   "stageArea": 55,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/classical/perception/",
+   "figure": "<svg>",
+   "stage": "#F5F6F7",
+   "stageArea": 53,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/classical/perception/",
+   "figure": "<svg>",
+   "stage": "#F5F6F7",
+   "stageArea": 375,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/classical/scene-representation/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 711056,
+   "light": {
+    "share": 0.218,
+    "colour": "#F8F8F9",
+    "at": "<div.rounded-sm.border.border-border data-brand-surface-id=\"surface:flat\">"
+   },
+   "mark": null,
+   "signal": [
+    "<circle>",
+    "<circle>"
+   ],
+   "rasters": []
+  },
+  {
+   "route": "/frontier/reliability-gap/",
+   "figure": "scene:reliability-threshold",
+   "stage": "#242D33",
+   "stageArea": 451858,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/frontier/reliability-gap/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 584390,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/frontier/reliability-gap/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 469085,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/frontier/dexterity/",
+   "figure": "scene:tactile-slip",
+   "stage": "#242D33",
+   "stageArea": 464638,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/frontier/dexterity/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 542328,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/frontier/generalization/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 876579,
+   "light": null,
+   "mark": null,
+   "signal": [
+    "<path data-series=\"loss-law\" data-testid=\"uncertainty-band\">",
+    "<path data-series=\"loss-law\" data-testid=\"measured-loss-law\">",
+    "<circle data-series=\"measured\" data-testid=\"loss-point-1000\">",
+    "<circle data-series=\"measured\" data-testid=\"loss-point-2000\">",
+    "<circle data-series=\"measured\" data-testid=\"loss-point-4000\">",
+    "<circle data-series=\"measured\" data-testid=\"loss-point-10000\">",
+    "<circle data-series=\"measured\" data-testid=\"loss-point-20000\">",
+    "<path data-series=\"loss-law\" data-testid=\"extrapolated-loss-law\">",
+    "<circle data-testid=\"horizon-marker\">"
+   ],
+   "rasters": []
+  },
+  {
+   "route": "/frontier/generalization/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 771184,
+   "light": null,
+   "mark": null,
+   "signal": [
+    "<path data-series=\"loss-law\" data-testid=\"uncertainty-band\">",
+    "<path data-series=\"loss-law\" data-testid=\"measured-loss-law\">",
+    "<circle data-series=\"measured\" data-testid=\"loss-point-1000\">",
+    "<circle data-series=\"measured\" data-testid=\"loss-point-2000\">",
+    "<circle data-series=\"measured\" data-testid=\"loss-point-4000\">",
+    "<circle data-series=\"measured\" data-testid=\"loss-point-10000\">",
+    "<circle data-series=\"measured\" data-testid=\"loss-point-20000\">",
+    "<path data-series=\"loss-law\" data-testid=\"extrapolated-loss-law\">",
+    "<circle data-testid=\"horizon-marker\">"
+   ],
+   "rasters": []
+  },
+  {
+   "route": "/frontier/competing-theses/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 1815563,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/frontier/bear-case/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 1057994,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/frontier/safety-and-assurance/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 747924,
+   "light": null,
+   "mark": null,
+   "signal": [
+    "<rect data-testid=\"separation-band\">",
+    "<line>",
+    "<line>",
+    "<circle>",
+    "<circle>"
+   ],
+   "rasters": []
+  },
+  {
+   "route": "/adjacent/drones/",
+   "figure": "scene:sense-avoid",
+   "stage": "#242D33",
+   "stageArea": 479609,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/adjacent/drones/",
+   "figure": "<div.rounded-none.border.border-border data-brand-surface-id=\"surface:flat\" data-brand-module-signature=\"instrument-frame\">",
+   "stage": "#FFFFFF",
+   "stageArea": 445858,
+   "light": null,
+   "mark": null,
+   "signal": [
+    "<rect data-testid=\"avoid-band\">"
+   ],
+   "rasters": []
+  }
+ ]
+}

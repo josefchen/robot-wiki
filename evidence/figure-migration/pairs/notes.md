@@ -1,6 +1,6 @@
 # Pair notes
 
-`capture/before` is the static export of the base commit, e4784342, and `capture/after` the export of d070b2d3, the last commit that changed a figure. Both cover all 72 Sitemap URLs at 1440 px, with no capture failure (210 visuals before, 180 after). `pairs.json` and the pair sheets in `sheets/` hold the 185 visuals whose screenshots differ, ten pairs a sheet. Only the JSON files, these notes and the JPG sheets are committed. The PNG screenshots and the HTML pages the sheets are drawn from are not; the two forms of `scripts/capture-visuals.ts` rebuild them from the two static exports.
+`capture/before` is the static export of the base commit, e4784342, and `capture/after` the export of d070b2d3, the last commit that changed how a figure looks. Both cover all 72 Sitemap URLs at 1440 px, with no capture failure (210 visuals before, 180 after). `pairs.json` and the pair sheets in `sheets/` hold the 185 visuals whose screenshots differ, ten pairs a sheet. Only the JSON files, these notes and the JPG sheets are committed. The PNG screenshots and the HTML pages the sheets are drawn from are not; the two forms of `scripts/capture-visuals.ts` rebuild them from the two static exports.
 
 The full contact sheets are `capture/before/sheets/` and `capture/after/sheets/`; the pair sheets are `sheets/pairs-01.jpg` to `sheets/pairs-19.jpg` here.
 

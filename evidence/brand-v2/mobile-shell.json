@@ -81,7 +81,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3093,
+      "visibleTextLength": 3111,
       "header": {
         "present": true,
         "display": "flex",
@@ -725,7 +725,7 @@
     },
     {
       "route": "/adjacent/autonomous-vehicles/",
-      "visibleTextLength": 29089,
+      "visibleTextLength": 29721,
       "header": {
         "present": true,
         "display": "flex",
@@ -5118,7 +5118,7 @@
     },
     {
       "route": "/frontier/dexterity/",
-      "visibleTextLength": 21126,
+      "visibleTextLength": 23180,
       "header": {
         "present": true,
         "display": "flex",
@@ -6748,7 +6748,7 @@
     },
     {
       "route": "/manipulation/cross-embodiment/",
-      "visibleTextLength": 15613,
+      "visibleTextLength": 16358,
       "header": {
         "present": true,
         "display": "flex",
@@ -7074,7 +7074,7 @@
     },
     {
       "route": "/manipulation/foundation-models/",
-      "visibleTextLength": 11669,
+      "visibleTextLength": 12314,
       "header": {
         "present": true,
         "display": "flex",
@@ -10807,7 +10807,7 @@
     },
     {
       "route": "/world-models/evaluation/",
-      "visibleTextLength": 12106,
+      "visibleTextLength": 12760,
       "header": {
         "present": true,
         "display": "flex",
@@ -11622,7 +11622,7 @@
     },
     {
       "route": "/world-models/model-based-robot-learning/",
-      "visibleTextLength": 10664,
+      "visibleTextLength": 11852,
       "header": {
         "present": true,
         "display": "flex",

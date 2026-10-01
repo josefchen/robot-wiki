@@ -1,0 +1,634 @@
+{
+ "width": 1440,
+ "limit": 0.1,
+ "stage": "#242D33",
+ "routes": 71,
+ "figures": 60,
+ "pending": {
+  "/playground/ <canvas": "The SO-101 scene clears to paper; VAL-B2-PLAY-001 makes the canvas a graphite instrument in the playground rollout."
+ },
+ "failures": [],
+ "rows": [
+  {
+   "route": "/playground/",
+   "figure": "<canvas data-engine=\"three.js r185\">",
+   "stage": "raster",
+   "stageArea": 711892,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": [
+    {
+     "id": "0-stage",
+     "area": 1,
+     "light": 0.976
+    }
+   ]
+  },
+  {
+   "route": "/credits/",
+   "figure": "covariate-shift",
+   "stage": "#242D33",
+   "stageArea": 199290,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/credits/",
+   "figure": "temporal-ensembling",
+   "stage": "#242D33",
+   "stageArea": 322522,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/bc-foundations/",
+   "figure": "compounding-error",
+   "stage": "#242D33",
+   "stageArea": 665833,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/bc-foundations/",
+   "figure": "covariate-shift",
+   "stage": "#242D33",
+   "stageArea": 278046,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/action-chunking/",
+   "figure": "chunk-size-curve",
+   "stage": "#242D33",
+   "stageArea": 557041,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/action-chunking/",
+   "figure": "temporal-ensembling",
+   "stage": "#242D33",
+   "stageArea": 451981,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/action-chunking/",
+   "figure": "latency-comparison",
+   "stage": "#242D33",
+   "stageArea": 1081426,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/diffusion-policy/",
+   "figure": "receding-horizon",
+   "stage": "#242D33",
+   "stageArea": 369398,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/diffusion-policy/",
+   "figure": "scene:diffusion-denoising",
+   "stage": "#242D33",
+   "stageArea": 463789,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/vla-models/",
+   "figure": "action-tokenization",
+   "stage": "#242D33",
+   "stageArea": 902978,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/pi-line/",
+   "figure": "flow-matching-trajectory",
+   "stage": "#242D33",
+   "stageArea": 480357,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/pi-line/",
+   "figure": "pi-generation-timeline",
+   "stage": "#242D33",
+   "stageArea": 344820,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/generalist-policies/",
+   "figure": "generalist-release-timeline",
+   "stage": "#242D33",
+   "stageArea": 654024,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/comparison-matrix/",
+   "figure": "comparison-matrix",
+   "stage": "#242D33",
+   "stageArea": 4900518,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/hierarchical/",
+   "figure": "hierarchy-timescales",
+   "stage": "#242D33",
+   "stageArea": 687137,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/rl-finetuning/",
+   "figure": "advantage-scrubber",
+   "stage": "#242D33",
+   "stageArea": 841108,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/rl-finetuning/",
+   "figure": "expo-ft-results",
+   "stage": "#242D33",
+   "stageArea": 442607,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/realtime-execution/",
+   "figure": "control-loop-budget",
+   "stage": "#242D33",
+   "stageArea": 603940,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/realtime-execution/",
+   "figure": "execution-modes",
+   "stage": "#242D33",
+   "stageArea": 657141,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/cross-embodiment/",
+   "figure": "cross-embodiment-strategies",
+   "stage": "#242D33",
+   "stageArea": 532720,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/manipulation/knowledge-insulation/",
+   "figure": "mot-insulation",
+   "stage": "#242D33",
+   "stageArea": 505728,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/rl-sim2real/rl-for-robotics/",
+   "figure": "sample-efficiency-ledger",
+   "stage": "#242D33",
+   "stageArea": 585976,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/rl-sim2real/why-rl-locomotion/",
+   "figure": "contact-geometry",
+   "stage": "#242D33",
+   "stageArea": 303428,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/rl-sim2real/parallel-sim-rl/",
+   "figure": "scene:batch-scale",
+   "stage": "#242D33",
+   "stageArea": 437558,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/rl-sim2real/sim2real-transfer/",
+   "figure": "friction-transfer",
+   "stage": "#242D33",
+   "stageArea": 591785,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/rl-sim2real/sim2real-transfer/",
+   "figure": "teacher-student",
+   "stage": "#242D33",
+   "stageArea": 399383,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/rl-sim2real/legged-locomotion/",
+   "figure": "scene:gait-support",
+   "stage": "#242D33",
+   "stageArea": 451009,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/rl-sim2real/humanoid-wbc/",
+   "figure": "wbc-decomposition",
+   "stage": "#242D33",
+   "stageArea": 534999,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/rl-sim2real/reward-design-mpc/",
+   "figure": "reward-shaping",
+   "stage": "#242D33",
+   "stageArea": 271175,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/rl-sim2real/reward-design-mpc/",
+   "figure": "eureka-loop",
+   "stage": "#242D33",
+   "stageArea": 188403,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/rl-sim2real/reward-design-mpc/",
+   "figure": "mpc-vs-rl",
+   "stage": "#242D33",
+   "stageArea": 614744,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/world-models/taxonomy/",
+   "figure": "wm-disambiguator",
+   "stage": "#242D33",
+   "stageArea": 280436,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/world-models/latent-dynamics/",
+   "figure": "latent-imagination",
+   "stage": "#242D33",
+   "stageArea": 450863,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/world-models/generative-video/",
+   "figure": "action-conditioning",
+   "stage": "#242D33",
+   "stageArea": 184247,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/world-models/jepa/",
+   "figure": "jepa-planning",
+   "stage": "#242D33",
+   "stageArea": 270460,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/world-models/generative-sim/",
+   "figure": "appearance-physics-push",
+   "stage": "#242D33",
+   "stageArea": 262874,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/data-hardware/data-bottleneck/",
+   "figure": "data-scale-chart",
+   "stage": "#242D33",
+   "stageArea": 762453,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/data-hardware/evaluation-crisis/",
+   "figure": "reliability-compounding",
+   "stage": "#242D33",
+   "stageArea": 435225,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/data-hardware/industrial-deployment/",
+   "figure": "scene:jam-overhead",
+   "stage": "#242D33",
+   "stageArea": 451009,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/data-hardware/industrial-deployment/",
+   "figure": "deployment-economics",
+   "stage": "#242D33",
+   "stageArea": 192045,
+   "light": null,
+   "mark": {
+    "share": 0.21,
+    "colour": "#A6CF8C",
+    "at": "<rect data-chart-mark=\"bar\" data-chart-role=\"value\">"
+   },
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/classical/kinematics/",
+   "figure": "planar-fk-arm",
+   "stage": "#242D33",
+   "stageArea": 430117,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/classical/motion-planning/",
+   "figure": "rrt-explorer",
+   "stage": "#242D33",
+   "stageArea": 406880,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/classical/control/",
+   "figure": "pendulum-controller",
+   "stage": "#242D33",
+   "stageArea": 347661,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/classical/control/",
+   "figure": "impedance-contact-lab",
+   "stage": "#242D33",
+   "stageArea": 409818,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/classical/state-estimation/",
+   "figure": "scene:kalman-predict-update",
+   "stage": "#242D33",
+   "stageArea": 451009,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/classical/state-estimation/",
+   "figure": "clip:kalman-episode",
+   "stage": "#242D33",
+   "stageArea": 288190,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": [
+    {
+     "id": "1-0",
+     "area": 0.992,
+     "light": 0.062
+    },
+    {
+     "id": "1-1",
+     "area": 0.992,
+     "light": 0.062
+    }
+   ]
+  },
+  {
+   "route": "/classical/grasp-planning/",
+   "figure": "grasp-wrench-lab",
+   "stage": "#242D33",
+   "stageArea": 339591,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/classical/perception/",
+   "figure": "perception-error-budget",
+   "stage": "#242D33",
+   "stageArea": 409539,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/classical/scene-representation/",
+   "figure": "scene-representation-ladder",
+   "stage": "#242D33",
+   "stageArea": 411259,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/frontier/reliability-gap/",
+   "figure": "reliability-compounding",
+   "stage": "#242D33",
+   "stageArea": 505863,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/frontier/reliability-gap/",
+   "figure": "deployment-dashboard",
+   "stage": "#242D33",
+   "stageArea": 421761,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/frontier/dexterity/",
+   "figure": "hand-comparison",
+   "stage": "#242D33",
+   "stageArea": 418096,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/frontier/dexterity/",
+   "figure": "scene:tactile-slip",
+   "stage": "#242D33",
+   "stageArea": 436038,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/frontier/generalization/",
+   "figure": "egoscale-scaling",
+   "stage": "#242D33",
+   "stageArea": 592507,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/frontier/competing-theses/",
+   "figure": "thesis-explorer",
+   "stage": "#242D33",
+   "stageArea": 1543944,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/frontier/bear-case/",
+   "figure": "milestones-watchlist",
+   "stage": "#242D33",
+   "stageArea": 895344,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/frontier/safety-and-assurance/",
+   "figure": "collaborative-operation-modes",
+   "stage": "#242D33",
+   "stageArea": 359801,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/adjacent/drones/",
+   "figure": "perception-latency",
+   "stage": "#242D33",
+   "stageArea": 254819,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  },
+  {
+   "route": "/adjacent/drones/",
+   "figure": "scene:sense-avoid",
+   "stage": "#242D33",
+   "stageArea": 451009,
+   "light": null,
+   "mark": null,
+   "signal": [],
+   "rasters": []
+  }
+ ]
+}

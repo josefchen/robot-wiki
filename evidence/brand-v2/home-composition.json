@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "fingerprint": "4edc89c40bb63f5b5268a9a292bec7c8b8b96220f5093a1009f90ed194d5681c",
+  "fingerprint": "64fd5863fdf523966afa56d3ce9b69c22d48b7c7b2849f3d41bee7340600af13",
   "viewport": "1440x900",
   "route": "/",
-  "visibleTextLength": 2941,
+  "visibleTextLength": 2959,
   "documentScrollWidthPx": 1440,
   "documentClientWidthPx": 1440,
   "heroLockups": [
@@ -718,8 +718,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "ROS 2 for Machine Learning Engineers",
-      "href": "/classical/ros2-for-ml-engineers/",
+      "accessibleName": "Dexterity",
+      "href": "/frontier/dexterity/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2302.48,
@@ -727,8 +727,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Sim-to-Real Transfer",
-      "href": "/rl-sim2real/sim2real-transfer/",
+      "accessibleName": "Cross-Embodiment Transfer",
+      "href": "/manipulation/cross-embodiment/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2333.48,
@@ -736,8 +736,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Generalization",
-      "href": "/frontier/generalization/",
+      "accessibleName": "Foundation Models for Robotics",
+      "href": "/manipulation/foundation-models/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2364.48,
@@ -745,8 +745,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "The Data Bottleneck",
-      "href": "/data-hardware/data-bottleneck/",
+      "accessibleName": "Autonomous Vehicles",
+      "href": "/adjacent/autonomous-vehicles/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2395.48,
@@ -754,8 +754,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "The Pi Line",
-      "href": "/manipulation/pi-line/",
+      "accessibleName": "World Model Evaluation for Robotics",
+      "href": "/world-models/evaluation/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2426.48,
@@ -786,7 +786,7 @@
       "carriers": [
         "background"
       ],
-      "text": "434 sources",
+      "text": "443 sources",
       "nonColourCue": "mark-element",
       "rejectedStateCues": [],
       "annotation": "home-source-count",
@@ -936,7 +936,7 @@
       "headingSizePx": null
     }
   ],
-  "chromeText": "Robot Wiki Citation-first encyclopedia of modern robot learning. 57 articles 434 sources 119 glossary terms Search | Robot Wiki | Search |  | Search | Contents | Behavior Cloning Foundations Action Chunking (ACT and ALOHA) Diffusion Policy Vision-Language-Action Models The Pi Line Other Generalist Policies Comparison Matrix Hierarchical Approaches RL Fine-Tuning of Policies Real-Time Execution Cross-Embodiment Transfer Knowledge Insulation Robot Learning Curriculum for ML Engineers Action Spaces for Robot Learning Foundation Models for Robotics | RL for Robotics Why RL Won Locomotion but Not Manipulation Massively Parallel Sim RL Sim-to-Real Transfer Legged Locomotion Lineage Humanoid Whole-Body Control Reward Design and the MPC Debate Offline Reinforcement Learning for Robotics | What Is a World Model? Latent-Dynamics World Models Generative Video World Models JEPA and the Non-Generative Counterargument Generative Simulation Model-Based Robot Learning World Model Evaluation for Robotics World Models vs Physics Simulators | The Data Bottleneck Major Datasets Hardware Taxonomy Teleoperation Rigs The Evaluation Crisis Industrial Deployment The Robot Learning Stack | Kinematics Motion Planning Control State Estimation Grasp Planning Perception for Manipulation Scene Representation and Mapping Robot Calibration ROS 2 for Machine Learning Engineers | The Reliability Gap Dexterity Generalization Competing Theses The Bear Case Safety and Assurance | Autonomous Vehicles Drones and Aerial Robotics Surgical Robotics Space Robotics | Featured article | Featured scene | The last stretch of episode reliability Play Step back Step forward Reset toy model · 30 decisions 95% 21.5% 99% 74.0% 99.9% 97.0% compare the last bar episode success beat 4 / 4 conditional rate 99.9% episode 97.0% Illustrative model: all 30 decisions succeed independently at the same rate. The same horizon exposes the last stretch. From The Reliability Gap | Play | Step back | Step forward | Reset | Did you know | Recently updated | Tools Playground Market Map | Introduction | Search the wiki | Search articles, sources and glossary terms | Manipulation & Learned Policies articles | RL, Sim-to-Real & Locomotion articles | World Models articles | Data, Hardware & Evaluation articles | Classical Foundations articles | Frontier & Open Problems articles | Adjacent Domains articles | Motion scene: The last stretch of episode reliability | Play the motion scene: The last stretch of episode reliability | Step back one beat | Step forward one beat | Reset the scene to its poster still | Tools",
+  "chromeText": "Robot Wiki Citation-first encyclopedia of modern robot learning. 57 articles 443 sources 119 glossary terms Search | Robot Wiki | Search |  | Search | Contents | Behavior Cloning Foundations Action Chunking (ACT and ALOHA) Diffusion Policy Vision-Language-Action Models The Pi Line Other Generalist Policies Comparison Matrix Hierarchical Approaches RL Fine-Tuning of Policies Real-Time Execution Cross-Embodiment Transfer Knowledge Insulation Robot Learning Curriculum for ML Engineers Action Spaces for Robot Learning Foundation Models for Robotics | RL for Robotics Why RL Won Locomotion but Not Manipulation Massively Parallel Sim RL Sim-to-Real Transfer Legged Locomotion Lineage Humanoid Whole-Body Control Reward Design and the MPC Debate Offline Reinforcement Learning for Robotics | What Is a World Model? Latent-Dynamics World Models Generative Video World Models JEPA and the Non-Generative Counterargument Generative Simulation Model-Based Robot Learning World Model Evaluation for Robotics World Models vs Physics Simulators | The Data Bottleneck Major Datasets Hardware Taxonomy Teleoperation Rigs The Evaluation Crisis Industrial Deployment The Robot Learning Stack | Kinematics Motion Planning Control State Estimation Grasp Planning Perception for Manipulation Scene Representation and Mapping Robot Calibration ROS 2 for Machine Learning Engineers | The Reliability Gap Dexterity Generalization Competing Theses The Bear Case Safety and Assurance | Autonomous Vehicles Drones and Aerial Robotics Surgical Robotics Space Robotics | Featured article | Featured scene | The last stretch of episode reliability Play Step back Step forward Reset toy model · 30 decisions 95% 21.5% 99% 74.0% 99.9% 97.0% compare the last bar episode success beat 4 / 4 conditional rate 99.9% episode 97.0% Illustrative model: all 30 decisions succeed independently at the same rate. The same horizon exposes the last stretch. From The Reliability Gap | Play | Step back | Step forward | Reset | Did you know | Recently updated | Tools Playground Market Map | Introduction | Search the wiki | Search articles, sources and glossary terms | Manipulation & Learned Policies articles | RL, Sim-to-Real & Locomotion articles | World Models articles | Data, Hardware & Evaluation articles | Classical Foundations articles | Frontier & Open Problems articles | Adjacent Domains articles | Motion scene: The last stretch of episode reliability | Play the motion scene: The last stretch of episode reliability | Step back one beat | Step forward one beat | Reset the scene to its poster still | Tools",
   "domainAnchorCounts": {
     "Manipulation & Learned Policies": 1,
     "RL, Sim-to-Real & Locomotion": 1,
@@ -976,8 +976,8 @@
     {
       "label": "Introduction",
       "signature": "sheet/display-lockup/search-form",
-      "prose": "Citation-first encyclopedia of modern robot learning. 57 articles 434 sources 119 glossary terms",
-      "text": "Robot Wiki Citation-first encyclopedia of modern robot learning. 57 articles 434 sources 119 glossary terms Search"
+      "prose": "Citation-first encyclopedia of modern robot learning. 57 articles 443 sources 119 glossary terms",
+      "text": "Robot Wiki Citation-first encyclopedia of modern robot learning. 57 articles 443 sources 119 glossary terms Search"
     },
     {
       "label": "Contents",
@@ -1007,7 +1007,7 @@
       "label": "Recently updated",
       "signature": "plain/module-heading/dated-links",
       "prose": "",
-      "text": "Recently updated 2026-10-01 ROS 2 for Machine Learning Engineers 2026-10-01 Sim-to-Real Transfer 2026-10-01 Generalization 2026-10-01 The Data Bottleneck 2026-10-01 The Pi Line"
+      "text": "Recently updated 2026-10-02 Dexterity 2026-10-01 Cross-Embodiment Transfer 2026-10-01 Foundation Models for Robotics 2026-10-01 Autonomous Vehicles 2026-10-01 World Model Evaluation for Robotics"
     },
     {
       "label": "Tools",

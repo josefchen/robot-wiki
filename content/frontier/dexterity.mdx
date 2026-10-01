@@ -31,6 +31,9 @@ citations:
   - pi-olympics-2025
   - pi07-2026
   - rl-100-2025
+  - t-rex-2026
+  - chord-2026
+  - trace-cables-2026
 seeAlso:
   - "frontier/reliability-gap"
   - "manipulation/generalist-policies"
@@ -74,6 +77,8 @@ The other side argues the bet cannot pay off, because the information is not in 
 
 The hardware is arriving regardless of which thesis wins. Figure's October 2025 announcement describes a palm camera in each Figure 03 hand and says each fingertip sensor can detect "three grams of pressure", comparing the sensitivity to a paperclip's weight <Cite id="figure-03-2025" />. Its January 2026 Helix 02 announcement lists head cameras, palm cameras, fingertip tactile sensors, and full-body proprioception as System 1 inputs. Figure describes this as "the first time we've demonstrated neural network policies that depend on these modalities" <Cite id="helix-02-2026" />. Shadow Robot's Dexterous Hand, the two-decade research benchmark, runs more than 100 sensors at 1 kHz <Cite id="shadow-dexterous-hand-2026" />. On the research flank, tactile foundation models now exist: Sparsh-X pretrained on about a million contact-rich interactions from Meta's Digit 360 sensor and lifted policy success rates by 63% over an end-to-end model using tactile images <Cite id="sparsh-x-2025" />, and TouchWorld couples a tactile world model with a fast tactile refinement policy to reach 65% success on six long-horizon contact-rich tasks, 15.7 points over the strongest baseline <Cite id="touchworld-2026" />.
 
+In June 2026, Dantong Niu, Yuke Zhu, Trevor Darrell and colleagues described T-Rex, which pairs a 100-hour tactile-rich dataset with a vision-language-action model that reads high-frequency touch through a variable-rate mixture-of-transformers and a temporal tactile encoder. On 12 tasks requiring delicate force control and deformable-object manipulation, its average success rate was more than 30% higher than the strongest baseline's <Cite id="t-rex-2026" />.
+
 The honest 2026 position is intermediate, and both camps occupy it. Tactile sensors ship on flagship hands, and even Figure, the loudest vision-data bet, now runs its newest policy on touch. What does not exist yet is a tactile training pipeline at anything like vision scale: the largest public tactile pretraining effort is built on about a million interactions, where vision pipelines consume billions of images. The results show the distance left. Google's Gemini Robotics 2 drives the 22-DoF SharpaWave hand, itself a tactile design <Cite id="gemini-robotics-2-2026" /><Cite id="robozaps-unitree-h2-2026" />, and reports 92% success unscrewing a light bulb but 32 to 44% on its other multi-finger tasks, a spread DeepMind itself flags as the hard remainder <Cite id="gemini-robotics-2-2026" />. The question of whether dexterity needs touch will be settled less by argument than by which training pipeline reaches deployment-grade reliability first.
 
 ## Five hands, five bets
@@ -88,11 +93,15 @@ The spread is the story. Tesla's 22-<Term id="degrees-of-freedom">degree-of-free
 
 Progress here is real but narrow. Sanctuary announced in-hand manipulation with its 21-DoF hydraulic hands in December 2024, reorienting held objects without setting them down <Cite id="sanctuary-inhand-2024" /> <Cite id="robozaps-phoenix-2026" />, then showed a sim-trained reinforcement-learning policy reorienting objects against gravity with a 500 g weight added, a vendor-run result the company published itself <Cite id="sanctuary-hydraulic-rl-2025" />. Figure says Helix 02, using Figure 03's fingertip sensors and palm cameras, performs four tasks it describes as manipulation previously out of reach for its stack, in videos it calls fully autonomous and without teleoperation: unscrewing a bottle cap, extracting a single pill from an organizer, a task titled "Push exactly 5 ml from a syringe", and picking small metal parts from clutter. The announcement publishes no task-level success rates, volume calibration, or sensor-ablation results <Cite id="helix-02-2026" />. Shadow's hand was designed for exactly this: each finger has independent side-to-side motion for in-hand work <Cite id="shadow-dexterous-hand-2026" />. None of these is the general skill. Each is a task or a task family with its own training run.
 
+In June 2026, Xinghao Zhu, Yuke Zhu and colleagues reported CHORD, a reinforcement-learning framework for long-horizon dexterous manipulation that compares human and robot motions by the forces and torques they can induce on the object. On 1,831 tasks from its simulated benchmark of 4,739 bimanual tasks, it averaged 82.12% success, and its learned policies transferred to the real world <Cite id="chord-2026" />.
+
 ## Deformables and the long tail
 
 Rigid objects are the easy case. A wooden block rests on one of six sides; a towel can be bunched up in more ways than any state estimator will ever enumerate, and that is before the task involves water, grease, or peanut butter <Cite id="holson-olympics-2025" />. Cloth, liquids, and compliant packaging dominate actual housework, which is why Holson's task list is full of them: hang a dress shirt that starts with one sleeve inside out, clean peanut butter off your own manipulator.
 
 The measured record is thin but no longer empty. RL-100 folds cloth and ran a juicing robot in a shopping mall for about seven hours without failure, both per-task results earned through on-robot reinforcement learning <Cite id="rl-100-2025" />. Physical Intelligence's π0.7 does laundry and espresso tasks with language steering <Cite id="pi07-2026" />. The most informative datapoint is the Olympics scoreboard itself: Physical Intelligence fine-tuned its π0.6-based model on Holson's tasks and took gold in three of five categories with under nine hours of data for most tasks, but averaged 52% success and 72% task progress, while a baseline VLM without robot pretraining managed 9% progress <Cite id="pi-olympics-2025" />. Two gold tasks were physically impossible for their gripper; peeling an orange needed a tool and did not count <Cite id="pi-olympics-2025" />. Read the number both ways: half-success on tasks chosen by a critic is real progress, and half-success is not a product.
+
+In September 2026, Nidhya Shivakumar, Ken Goldberg and colleagues reported TRACE, which traces monochrome cables in both directions and uses interactive perception primitives to resolve ambiguous crossings. In 110 physical experiments with up to 4 cables and 40 crossings, it raised the share of cable length traced correctly from about 60% with the strongest prior method, HANDLOOM 2.0, to about 90% <Cite id="trace-cables-2026" />.
 
 ## What solved would look like
 
