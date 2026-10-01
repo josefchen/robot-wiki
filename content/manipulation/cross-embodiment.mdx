@@ -17,6 +17,7 @@ citations:
   - isaac-gr00t-repo-2026
   - egoscale-2026
   - pi-human-to-robot-2025
+  - morphometric-imitation-2026
 seeAlso:
   - "manipulation/vla-models"
   - "manipulation/generalist-policies"
@@ -65,6 +66,8 @@ The disclosure is partial. The model card specifies continuous numerical robot a
 NVIDIA’s N1.7 README describes a relative end-effector action space shared across human and robot embodiments, with actions expressed as deltas from the current pose. It calls this representation a key factor in cross-embodiment performance and reports **20K hours of EgoScale human video** in pretraining alongside diverse robot demonstrations <Cite id="isaac-gr00t-repo-2026" />. That README statement does not establish the former claim that EmbodimentTag is a geometric frame transform.
 
 The separate EgoScale paper makes the motion representation more specific. It uses relative wrist motion and retargets 21 human hand keypoints into a 22-DoF Sharpa hand action space. Robot arms use relative end-effector control, but the hands use target joint angles. Its embodiment-conditioned MLP adapters encode <Term id="proprioception">proprioception</Term> and decode hand actions; wrist prediction, the backbone, and the action expert are shared <Cite id="egoscale-2026" />. EgoScale also uses aligned human-robot mid-training, so its method should not be described as transfer with “no domain-adaptation step.” The N1.7 README’s pretraining statement and the EgoScale paper’s full training pipeline are distinct claims.
+
+In September 2026, Tara Sadjadpour, Jitendra Malik and colleagues reported Morphometric Imitation, which retargets reconstructed human hand-object interactions across robot hand morphologies while keeping the demonstrated contacts, refines the motion with residual reinforcement learning and distills it into visuomotor policies. On a Sharpa hand, those policies reached 89.3% zero-shot success in 300 real-world trials on 30 objects spanning 10 categories <Cite id="morphometric-imitation-2026" />.
 
 
 ## Two reported human-to-robot transfer recipes

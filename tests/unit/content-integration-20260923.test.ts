@@ -97,14 +97,19 @@ describe('content integration of 2026-09-23', () => {
           a.manifest === entry.manifest && a.memberId === entry.memberId &&
           a.id !== next?.id), sealedHash(entry.manifest, entry.memberId), next!.oldHash).status)
           .toBe('approved');
-        expect(next?.newHash).toBe(currentHash(entry.manifest, entry.memberId));
+        // The 2026-10-01 KOL backlog batch continues one of these articles
+        // from the humanizer endpoint with exactly one plain edge.
+        const later = approvals.find(a => a.id ===
+          `kol-backlog-20261001-world-models-prose-${entry.memberId.slice('article:world-models/'.length)}`);
+        if (later) expect(later.oldHash).toBe(next?.newHash);
+        expect((later ?? next)?.newHash).toBe(currentHash(entry.manifest, entry.memberId));
       } else {
         expect(head.newHash).toBe(currentHash(entry.manifest, entry.memberId));
       }
       expect(entry.ownerApproval).toMatch(/^Owner-delegated approval: Josef Chen delegated release decisions to the delegated release reviewer on 2026-09-22\/23 \('you think and decide all'\); approved after primary-source verification of \S/);
     }
     expect(headReanchorFor(approvals, 'article-metadata', 'citation-rendering:label-and-meta')?.id)
-      .toBe('expo-ft-intake-20260925-citation-rendering');
+      .toBe('kol-backlog-20261001-frontier-citation-rendering');
     expect(approvals.find(a => a.id === 'main-merge-20260924-citation-rendering'))
       .toMatchObject({
         oldHash: sealedHash('article-metadata', 'citation-rendering:label-and-meta'),
@@ -164,13 +169,14 @@ describe('content integration of 2026-09-23', () => {
       'web.archive.org/web/20251118224554/',
     );
     expect(CITATIONS.map((c) => c.id).filter((id) => !baseIds.includes(id)).sort()).toEqual([
-      'agility-digit-production', 'dsrl-2025', 'expo-2025', 'expo-ft-2026',
-      'figure-bmw-production-2025', 'lei-cycle-time-definition',
-      'lei-takt-time-definition', 'llama-3-herd-2024', 'nasa-availability-prediction-analysis',
+      'agility-digit-production', 'chord-2026', 'dreamzero-2026', 'dsrl-2025', 'excavator-mbrl-2026', 'expo-2025',
+      'expo-ft-2026', 'figure-bmw-production-2025', 'insertion-world-models-2026', 'lei-cycle-time-definition',
+      'lei-takt-time-definition', 'llama-3-herd-2024', 'morphometric-imitation-2026',
+      'nasa-availability-prediction-analysis', 'paxton-autonomous-trucks-2026',
       'perry-dong-post-training-2026', 'realtime-expo-ft-2026',
-      'shiu-ahmad-1989', 'tesla-q1-2026-update',
+      'shiu-ahmad-1989', 'simfoundry-2026', 't-rex-2026', 'tesla-q1-2026-update', 'trace-cables-2026',
     ]);
-    expect(CITATIONS).toHaveLength(baseIds.length + 11);
+    expect(CITATIONS).toHaveLength(baseIds.length + 20);
     expect(CITATIONS.find((c) => c.id === 'agility-digit-production')).toMatchObject({
       year: 'n.d.',
       accessedOn: '2026-09-24',

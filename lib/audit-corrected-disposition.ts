@@ -50,9 +50,10 @@ export function correctedChildDigest(record: ClaimRecord): string {
 const KROGER_ARCHIVE = 'https://web.archive.org/web/20251118224554/https://www.thisismoney.co.uk/money/markets/article-15303311/Warehouse-closures-crush-Ocado-shares-US-partner-shuts-three-sites-devastating-blow-UK-firm.html';
 const P4_KROGER_CURRENT = {
   path: 'audit/evidence/citation-closeout-20260924/p4-current-children.json',
-  // Re-pinned 2026-09-25: the review now binds the live registry after the
-  // EXPO-FT intake additions; the file length is unchanged.
-  bytes: 2887, sha256: '0b487bf37ee3ca0512916483697a9ad01c5624d251a03a76ef1e747c62213716',
+  // Re-pinned 2026-09-25 after the EXPO-FT intake additions and again on
+  // 2026-10-01 after the KOL backlog batch additions: the review binds the
+  // live registry bytes.
+  bytes: 2887, sha256: 'ad0050523fe92c3cdcae829f7866eb35f584d49371fa04a9b570c52cabb32716',
 };
 /** A mounted reader observation, not an inferred future outcome or copied article claim. */
 export function verifyKrogerReaderObservation(capture: {

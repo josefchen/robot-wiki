@@ -14,6 +14,7 @@ import { applyPush, DEFAULT_FORCE_N, INITIAL_LAYERS, INITIAL_MUG } from '@/lib/a
 import { SCENE_TARGETS } from '@/lib/motion-scene-registry';
 import { NO_SLOP_EXCEPTIONS } from '@/data/no-slop-exceptions';
 import { findStructuralTells, structuralTellReport, STRUCTURAL_TELL_LIMIT } from '@/lib/no-slop';
+import { withoutKolBacklogParagraphs } from '../helpers/kol-backlog-20261001';
 
 type Decision = 'keep' | 'restyle' | 'rethink' | 'replace' | 'remove' | 'add';
 interface Row {
@@ -132,7 +133,7 @@ describe('world-models prose truth', () => {
       },
     };
     for (const file of articles) {
-      const current = readFileSync(join(folder, file), 'utf8');
+      const current = withoutKolBacklogParagraphs(`world-models/${file}`, readFileSync(join(folder, file), 'utf8'));
       const before = execFileSync('git', ['show', `68fd2b8:content/world-models/${file}`], {
         cwd: root, encoding: 'utf8',
       });

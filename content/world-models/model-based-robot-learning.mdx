@@ -16,6 +16,8 @@ citations:
   - robotic-world-model-2025
   - mujoco-2012
   - world-model-survey-2026
+  - excavator-mbrl-2026
+  - insertion-world-models-2026
 seeAlso:
   - "world-models/latent-dynamics"
   - "classical/control"
@@ -82,6 +84,8 @@ A robot observation is partial. Cameras miss forces, friction and object complia
 Physical data is also narrow. The model sees what the current policy visits, while a planner may later query counterfactual actions outside that experience. Model-based learning therefore faces its own distribution shift: planning deliberately searches for high-value action sequences, which can drive predictions outside the support of the dataset.
 
 DayDreamer is important because it crossed the physical boundary. A quadruped learned behaviors from scratch on hardware using a Dreamer-style world model, including standing and walking, with roughly one hour of experience for the reported learning process <Cite id="daydreamer-2022" />. The result shows that latent imagination can save real interaction when state and action dynamics are sufficiently learnable. It does not imply the same sample efficiency for deformable or contact-rich manipulation.
+
+In September 2026, Marco Hutter and colleagues at ETH Zurich's Robotic Systems Lab and the University of Chile learned a probabilistic dynamics ensemble from scratch on an 11.5-ton hydraulic excavator. After 20 minutes of interaction, their sampling-based model-predictive controller tracked paths as accurately as earlier learned controllers trained on 100 to 150 minutes of data; after 40 minutes it held sub-centimeter mean path error at high speed <Cite id="excavator-mbrl-2026" />. The same month, Nicklas Hansen, Dieter Fox and colleagues trained one TD-MPC2 world model in simulation on up to 90 insertion tasks; it reached 56% zero-shot success on unseen objects of unknown geometry, against 7% for a model-free baseline <Cite id="insertion-world-models-2026" />.
 
 ## Model error is task-weighted
 
