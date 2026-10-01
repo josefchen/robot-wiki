@@ -25,7 +25,8 @@ export type OriginalSchematic = {
   title: string;
   /** The frame's one caption line, 20 words or fewer. */
   caption: string;
-  draw: (label: string) => ReactNode;
+  /** Draws the stage; `describedBy` is the id of the frame's caption. */
+  draw: (label: string, describedBy: string) => ReactNode;
 };
 
 const W = CHART_VIEW_WIDTH;
@@ -91,10 +92,14 @@ const ROLLOUT = 'M16 64.8 C71 32.6 115 78.8 159 111 C203 143.2 258 140.4 305.3 1
 const EXIT = { x: 114.4, y: 77.4 };
 const EXIT_LABEL_Y = 160;
 
-function CovariateShiftDrawing({ label }: { label: string }) {
+function CovariateShiftDrawing({ label, describedBy }: { label: string; describedBy: string }) {
   const ringRadius = CHART_STROKE.markerRadius + 2;
   return (
-    <PlotStage viewBox={`0 0 ${W} ${COVARIATE_HEIGHT}`} aria-label={label}>
+    <PlotStage
+      viewBox={`0 0 ${W} ${COVARIATE_HEIGHT}`}
+      aria-label={label}
+      aria-describedby={describedBy}
+    >
       <g data-series="demonstrations">
         <path
           data-chart-mark="band"
@@ -195,10 +200,10 @@ const CHUNKS = [-2, -1, 0].map((issued, i) => ({
   barY: 186 + i * 20,
 }));
 
-function TemporalEnsemblingDrawing({ label }: { label: string }) {
+function TemporalEnsemblingDrawing({ label, describedBy }: { label: string; describedBy: string }) {
   const now = step(0);
   return (
-    <PlotStage viewBox={`0 0 ${W} ${TE_HEIGHT}`} aria-label={label}>
+    <PlotStage viewBox={`0 0 ${W} ${TE_HEIGHT}`} aria-label={label} aria-describedby={describedBy}>
       <text
         data-scene-axis=""
         x={LEFT}
@@ -307,12 +312,14 @@ export const ORIGINAL_SCHEMATICS: Readonly<Record<string, OriginalSchematic>> = 
     title: 'Covariate shift',
     caption:
       'Each small error moves the policy into states the expert never visited, where its next error is larger.',
-    draw: (label) => <CovariateShiftDrawing label={label} />,
+    draw: (label, describedBy) => <CovariateShiftDrawing label={label} describedBy={describedBy} />,
   },
   'temporal-ensembling': {
     title: 'Temporal ensembling',
     caption:
       'Three overlapping chunks each predict the current action; the oldest gets the largest weight.',
-    draw: (label) => <TemporalEnsemblingDrawing label={label} />,
+    draw: (label, describedBy) => (
+      <TemporalEnsemblingDrawing label={label} describedBy={describedBy} />
+    ),
   },
 };

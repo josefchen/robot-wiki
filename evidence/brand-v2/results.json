@@ -78410,6 +78410,34 @@
       }
     },
     {
+      "resultId": "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/execution-modes.tsx:aria-label:1",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "accessible-names:literal:components/interactive/execution-modes.tsx:aria-label:1",
+      "coveredPopulationMemberIds": [
+        "accessible-names:literal:components/interactive/execution-modes.tsx:aria-label:1"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "accessible-names member literal:components/interactive/execution-modes.tsx:aria-label:1 moved from null to d5235017e4ec84b02e26c2c8c4bf745390e43bf543884c43397c8fa7b9f00e00 exactly as approved delta opus-figure-migration-20261001-accessible-names-execution-modes-literal-aria-label-1 permits: New accessible name \"Velocity traces for the three execution modes on one time axis\" on the ExecutionModes plot on /manipulation/realtime-execution/. At e4784342 each of the three modes drew its own svg, an image that the shared takeaway described. The three are now small-multiple panels in one plot on one shared time axis (VAL-OPUS-129), so the plot is a group that the takeaway describes once, and this short name keeps the group's name apart from that takeaway (VAL-EDU-021). Each panel keeps its own name. No fact, number or citation changed.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "accessible-names",
+          "member": "literal:components/interactive/execution-modes.tsx:aria-label:1",
+          "baselineHash": null,
+          "currentHash": "d5235017e4ec84b02e26c2c8c4bf745390e43bf543884c43397c8fa7b9f00e00",
+          "status": "approved-addition",
+          "approvedDelta": "opus-figure-migration-20261001-accessible-names-execution-modes-literal-aria-label-1"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
       "resultId": "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/expo-ft-results.tsx:aria-label:1",
       "assertionId": "VAL-B2-BASE-002",
       "populationMemberId": "accessible-names:literal:components/interactive/expo-ft-results.tsx:aria-label:1",

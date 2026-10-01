@@ -1,0 +1,2416 @@
+[
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 4,
+   "label": "Demonstrations cover a narrow corridor of states around the expert path. The policy's first mistake takes it outside tha",
+   "file": "credits__04.png"
+  },
+  "after": {
+   "idx": 4,
+   "label": "Each small error moves the policy into states the expert never visited, where its next error is larger.",
+   "file": "credits__04.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 5,
+   "label": "Three chunks issued at t-2, t-1, and t predict the current action. Oldest-to-newest raw weights are 1.00, 0.61, and 0.37",
+   "file": "credits__05.png"
+  },
+  "after": {
+   "idx": 5,
+   "label": "Three overlapping chunks each predict the current action; the oldest gets the largest weight.",
+   "file": "credits__05.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 7,
+   "label": "Covariant logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__07.png"
+  },
+  "after": {
+   "idx": 7,
+   "label": "Covariant logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__07.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 8,
+   "label": "NVIDIA wordmark from Wikimedia Commons, used on the market map.",
+   "file": "credits__08.png"
+  },
+  "after": {
+   "idx": 8,
+   "label": "NVIDIA wordmark from Wikimedia Commons, used on the market map.",
+   "file": "credits__08.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 9,
+   "label": "Hugging Face logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__09.png"
+  },
+  "after": {
+   "idx": 9,
+   "label": "Hugging Face logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__09.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 11,
+   "label": "Agility Robotics logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__11.png"
+  },
+  "after": {
+   "idx": 11,
+   "label": "Agility Robotics logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__11.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 12,
+   "label": "Tesla mark from Wikimedia Commons, used on the market map.",
+   "file": "credits__12.png"
+  },
+  "after": {
+   "idx": 12,
+   "label": "Tesla mark from Wikimedia Commons, used on the market map.",
+   "file": "credits__12.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 13,
+   "label": "Unitree Robotics logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__13.png"
+  },
+  "after": {
+   "idx": 13,
+   "label": "Unitree Robotics logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__13.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 15,
+   "label": "NEURA Robotics logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__15.png"
+  },
+  "after": {
+   "idx": 15,
+   "label": "NEURA Robotics logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__15.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 16,
+   "label": "Wandercraft logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__16.png"
+  },
+  "after": {
+   "idx": 16,
+   "label": "Wandercraft logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__16.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 17,
+   "label": "Rainbow Robotics logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__17.png"
+  },
+  "after": {
+   "idx": 17,
+   "label": "Rainbow Robotics logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__17.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 19,
+   "label": "Amazon Robotics logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__19.png"
+  },
+  "after": {
+   "idx": 19,
+   "label": "Amazon Robotics logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__19.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 20,
+   "label": "Bedrock Robotics logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__20.png"
+  },
+  "after": {
+   "idx": 20,
+   "label": "Bedrock Robotics logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__20.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 21,
+   "label": "Intuitive Surgical logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__21.png"
+  },
+  "after": {
+   "idx": 21,
+   "label": "Intuitive Surgical logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__21.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 23,
+   "label": "Nuro logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__23.png"
+  },
+  "after": {
+   "idx": 23,
+   "label": "Nuro logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__23.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 24,
+   "label": "iRobot logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__24.png"
+  },
+  "after": {
+   "idx": 24,
+   "label": "iRobot logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__24.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 25,
+   "label": "Harmonic Drive logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__25.png"
+  },
+  "after": {
+   "idx": 25,
+   "label": "Harmonic Drive logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__25.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 27,
+   "label": "Wonik logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__27.png"
+  },
+  "after": {
+   "idx": 27,
+   "label": "Wonik logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__27.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 28,
+   "label": "OpenAI wordmark from Wikimedia Commons, used on the market map.",
+   "file": "credits__28.png"
+  },
+  "after": {
+   "idx": 28,
+   "label": "OpenAI wordmark from Wikimedia Commons, used on the market map.",
+   "file": "credits__28.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 29,
+   "label": "Meta Platforms logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__29.png"
+  },
+  "after": {
+   "idx": 29,
+   "label": "Meta Platforms logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__29.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 31,
+   "label": "Hanson Robotics logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__31.png"
+  },
+  "after": {
+   "idx": 31,
+   "label": "Hanson Robotics logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__31.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 32,
+   "label": "Starship Technologies logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__32.png"
+  },
+  "after": {
+   "idx": 32,
+   "label": "Starship Technologies logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__32.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 33,
+   "label": "Pollen Robotics logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__33.png"
+  },
+  "after": {
+   "idx": 33,
+   "label": "Pollen Robotics logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__33.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 35,
+   "label": "ABB logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__35.png"
+  },
+  "after": {
+   "idx": 35,
+   "label": "ABB logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__35.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 36,
+   "label": "Mitsubishi mark from Wikimedia Commons, used on the market map.",
+   "file": "credits__36.png"
+  },
+  "after": {
+   "idx": 36,
+   "label": "Mitsubishi mark from Wikimedia Commons, used on the market map.",
+   "file": "credits__36.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 37,
+   "label": "Monarch Tractor logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__37.png"
+  },
+  "after": {
+   "idx": 37,
+   "label": "Monarch Tractor logo from Wikimedia Commons, used on the market map.",
+   "file": "credits__37.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 39,
+   "label": "Generalist AI logo from the official website, used on the market map.",
+   "file": "credits__39.png"
+  },
+  "after": {
+   "idx": 39,
+   "label": "Generalist AI logo from the official website, used on the market map.",
+   "file": "credits__39.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 40,
+   "label": "Dyna Robotics logo from the official website, used on the market map.",
+   "file": "credits__40.png"
+  },
+  "after": {
+   "idx": 40,
+   "label": "Dyna Robotics logo from the official website, used on the market map.",
+   "file": "credits__40.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 41,
+   "label": "Sunday Robotics logo from the official website, used on the market map.",
+   "file": "credits__41.png"
+  },
+  "after": {
+   "idx": 41,
+   "label": "Sunday Robotics logo from the official website, used on the market map.",
+   "file": "credits__41.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 43,
+   "label": "Genesis AI logo from the official website, used on the market map.",
+   "file": "credits__43.png"
+  },
+  "after": {
+   "idx": 43,
+   "label": "Genesis AI logo from the official website, used on the market map.",
+   "file": "credits__43.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 44,
+   "label": "Rhoda AI logo from the official website, used on the market map.",
+   "file": "credits__44.png"
+  },
+  "after": {
+   "idx": 44,
+   "label": "Rhoda AI logo from the official website, used on the market map.",
+   "file": "credits__44.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 45,
+   "label": "Mind Robotics logo from the official website, used on the market map.",
+   "file": "credits__45.png"
+  },
+  "after": {
+   "idx": 45,
+   "label": "Mind Robotics logo from the official website, used on the market map.",
+   "file": "credits__45.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 47,
+   "label": "Applied Intuition logo from the official website, used on the market map.",
+   "file": "credits__47.png"
+  },
+  "after": {
+   "idx": 47,
+   "label": "Applied Intuition logo from the official website, used on the market map.",
+   "file": "credits__47.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 48,
+   "label": "XDOF logo from the official website, used on the market map.",
+   "file": "credits__48.png"
+  },
+  "after": {
+   "idx": 48,
+   "label": "XDOF logo from the official website, used on the market map.",
+   "file": "credits__48.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 49,
+   "label": "Encord logo from the official website, used on the market map.",
+   "file": "credits__49.png"
+  },
+  "after": {
+   "idx": 49,
+   "label": "Encord logo from the official website, used on the market map.",
+   "file": "credits__49.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 51,
+   "label": "1X Technologies logo from the official website, used on the market map.",
+   "file": "credits__51.png"
+  },
+  "after": {
+   "idx": 51,
+   "label": "1X Technologies logo from the official website, used on the market map.",
+   "file": "credits__51.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 52,
+   "label": "Apptronik logo from the official website, used on the market map.",
+   "file": "credits__52.png"
+  },
+  "after": {
+   "idx": 52,
+   "label": "Apptronik logo from the official website, used on the market map.",
+   "file": "credits__52.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 53,
+   "label": "Boston Dynamics logo from the official website, used on the market map.",
+   "file": "credits__53.png"
+  },
+  "after": {
+   "idx": 53,
+   "label": "Boston Dynamics logo from the official website, used on the market map.",
+   "file": "credits__53.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 55,
+   "label": "Galbot logo from the official website, used on the market map.",
+   "file": "credits__55.png"
+  },
+  "after": {
+   "idx": 55,
+   "label": "Galbot logo from the official website, used on the market map.",
+   "file": "credits__55.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 56,
+   "label": "AgiBot logo from the official website, used on the market map.",
+   "file": "credits__56.png"
+  },
+  "after": {
+   "idx": 56,
+   "label": "AgiBot logo from the official website, used on the market map.",
+   "file": "credits__56.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 57,
+   "label": "Sanctuary AI logo from the official website, used on the market map.",
+   "file": "credits__57.png"
+  },
+  "after": {
+   "idx": 57,
+   "label": "Sanctuary AI logo from the official website, used on the market map.",
+   "file": "credits__57.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 59,
+   "label": "Spirit AI logo from the official website, used on the market map.",
+   "file": "credits__59.png"
+  },
+  "after": {
+   "idx": 59,
+   "label": "Spirit AI logo from the official website, used on the market map.",
+   "file": "credits__59.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 60,
+   "label": "Galaxea logo from the official website header, used on the market map.",
+   "file": "credits__60.png"
+  },
+  "after": {
+   "idx": 60,
+   "label": "Galaxea logo from the official website header, used on the market map.",
+   "file": "credits__60.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 61,
+   "label": "EngineAI logo from the official website, used on the market map.",
+   "file": "credits__61.png"
+  },
+  "after": {
+   "idx": 61,
+   "label": "EngineAI logo from the official website, used on the market map.",
+   "file": "credits__61.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 62,
+   "label": "RobotEra logo from the official website, used on the market map.",
+   "file": "credits__62.png"
+  },
+  "after": {
+   "idx": 62,
+   "label": "RobotEra logo from the official website, used on the market map.",
+   "file": "credits__62.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 63,
+   "label": "TARS Robotics logo from the official website, used on the market map.",
+   "file": "credits__63.png"
+  },
+  "after": {
+   "idx": 63,
+   "label": "TARS Robotics logo from the official website, used on the market map.",
+   "file": "credits__63.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 64,
+   "label": "X Square Robot logo from the official website, used on the market map.",
+   "file": "credits__64.png"
+  },
+  "after": {
+   "idx": 64,
+   "label": "X Square Robot logo from the official website, used on the market map.",
+   "file": "credits__64.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 65,
+   "label": "Deep Robotics logo from the official website, used on the market map.",
+   "file": "credits__65.png"
+  },
+  "after": {
+   "idx": 65,
+   "label": "Deep Robotics logo from the official website, used on the market map.",
+   "file": "credits__65.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 66,
+   "label": "Kepler Robot logo from the official website, used on the market map.",
+   "file": "credits__66.png"
+  },
+  "after": {
+   "idx": 66,
+   "label": "Kepler Robot logo from the official website, used on the market map.",
+   "file": "credits__66.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 67,
+   "label": "LimX Dynamics logo from the official website, used on the market map.",
+   "file": "credits__67.png"
+  },
+  "after": {
+   "idx": 67,
+   "label": "LimX Dynamics logo from the official website, used on the market map.",
+   "file": "credits__67.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 68,
+   "label": "Clone Robotics logo from the official website, used on the market map.",
+   "file": "credits__68.png"
+  },
+  "after": {
+   "idx": 68,
+   "label": "Clone Robotics logo from the official website, used on the market map.",
+   "file": "credits__68.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 69,
+   "label": "Mentee Robotics logo from the official website, used on the market map.",
+   "file": "credits__69.png"
+  },
+  "after": {
+   "idx": 69,
+   "label": "Mentee Robotics logo from the official website, used on the market map.",
+   "file": "credits__69.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 71,
+   "label": "Symbotic logo from the official website, used on the market map.",
+   "file": "credits__71.png"
+  },
+  "after": {
+   "idx": 71,
+   "label": "Symbotic logo from the official website, used on the market map.",
+   "file": "credits__71.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 72,
+   "label": "Dexterity logo from the official website, used on the market map.",
+   "file": "credits__72.png"
+  },
+  "after": {
+   "idx": 72,
+   "label": "Dexterity logo from the official website, used on the market map.",
+   "file": "credits__72.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 73,
+   "label": "Nimble logo from the official website, used on the market map.",
+   "file": "credits__73.png"
+  },
+  "after": {
+   "idx": 73,
+   "label": "Nimble logo from the official website, used on the market map.",
+   "file": "credits__73.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 75,
+   "label": "Mujin logo from the official website, used on the market map.",
+   "file": "credits__75.png"
+  },
+  "after": {
+   "idx": 75,
+   "label": "Mujin logo from the official website, used on the market map.",
+   "file": "credits__75.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 76,
+   "label": "RightHand Robotics logo from the official website, used on the market map.",
+   "file": "credits__76.png"
+  },
+  "after": {
+   "idx": 76,
+   "label": "RightHand Robotics logo from the official website, used on the market map.",
+   "file": "credits__76.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 77,
+   "label": "Ambi Robotics logo from the official website, used on the market map.",
+   "file": "credits__77.png"
+  },
+  "after": {
+   "idx": 77,
+   "label": "Ambi Robotics logo from the official website, used on the market map.",
+   "file": "credits__77.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 79,
+   "label": "Carbon Robotics logo from the official website, used on the market map.",
+   "file": "credits__79.png"
+  },
+  "after": {
+   "idx": 79,
+   "label": "Carbon Robotics logo from the official website, used on the market map.",
+   "file": "credits__79.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 80,
+   "label": "Farm-ng logo from the official website, used on the market map.",
+   "file": "credits__80.png"
+  },
+  "after": {
+   "idx": 80,
+   "label": "Farm-ng logo from the official website, used on the market map.",
+   "file": "credits__80.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 81,
+   "label": "Chef Robotics logo from the official website, used on the market map.",
+   "file": "credits__81.png"
+  },
+  "after": {
+   "idx": 81,
+   "label": "Chef Robotics logo from the official website, used on the market map.",
+   "file": "credits__81.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 83,
+   "label": "Moon Surgical logo from the official website, used on the market map.",
+   "file": "credits__83.png"
+  },
+  "after": {
+   "idx": 83,
+   "label": "Moon Surgical logo from the official website, used on the market map.",
+   "file": "credits__83.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 84,
+   "label": "Serve Robotics logo from the official website, used on the market map.",
+   "file": "credits__84.png"
+  },
+  "after": {
+   "idx": 84,
+   "label": "Serve Robotics logo from the official website, used on the market map.",
+   "file": "credits__84.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 85,
+   "label": "Gecko Robotics logo from the official website, used on the market map.",
+   "file": "credits__85.png"
+  },
+  "after": {
+   "idx": 85,
+   "label": "Gecko Robotics logo from the official website, used on the market map.",
+   "file": "credits__85.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 87,
+   "label": "Collaborative Robotics logo from the official website, used on the market map.",
+   "file": "credits__87.png"
+  },
+  "after": {
+   "idx": 87,
+   "label": "Collaborative Robotics logo from the official website, used on the market map.",
+   "file": "credits__87.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 88,
+   "label": "The Bot Company logo from the official website, used on the market map.",
+   "file": "credits__88.png"
+  },
+  "after": {
+   "idx": 88,
+   "label": "The Bot Company logo from the official website, used on the market map.",
+   "file": "credits__88.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 89,
+   "label": "Weave Robotics logo from the official website, used on the market map.",
+   "file": "credits__89.png"
+  },
+  "after": {
+   "idx": 89,
+   "label": "Weave Robotics logo from the official website, used on the market map.",
+   "file": "credits__89.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 90,
+   "label": "K-Scale Labs logo from the official website, used on the market map.",
+   "file": "credits__90.png"
+  },
+  "after": {
+   "idx": 90,
+   "label": "K-Scale Labs logo from the official website, used on the market map.",
+   "file": "credits__90.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 91,
+   "label": "Automata logo from the official website, used on the market map.",
+   "file": "credits__91.png"
+  },
+  "after": {
+   "idx": 91,
+   "label": "Automata logo from the official website, used on the market map.",
+   "file": "credits__91.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 92,
+   "label": "Lila Sciences logo from the official website, used on the market map.",
+   "file": "credits__92.png"
+  },
+  "after": {
+   "idx": 92,
+   "label": "Lila Sciences logo from the official website, used on the market map.",
+   "file": "credits__92.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 93,
+   "label": "Avidbots logo from the official website, used on the market map.",
+   "file": "credits__93.png"
+  },
+  "after": {
+   "idx": 93,
+   "label": "Avidbots logo from the official website, used on the market map.",
+   "file": "credits__93.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 95,
+   "label": "Sanhua logo from the official website, used on the market map.",
+   "file": "credits__95.png"
+  },
+  "after": {
+   "idx": 95,
+   "label": "Sanhua logo from the official website, used on the market map.",
+   "file": "credits__95.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 96,
+   "label": "Shadow Robot logo from the official website, used on the market map.",
+   "file": "credits__96.png"
+  },
+  "after": {
+   "idx": 96,
+   "label": "Shadow Robot logo from the official website, used on the market map.",
+   "file": "credits__96.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 97,
+   "label": "Sharpa logo from the official website, used on the market map.",
+   "file": "credits__97.png"
+  },
+  "after": {
+   "idx": 97,
+   "label": "Sharpa logo from the official website, used on the market map.",
+   "file": "credits__97.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 99,
+   "label": "Assured Robot Intelligence logo from the official website, used on the market map.",
+   "file": "credits__99.png"
+  },
+  "after": {
+   "idx": 99,
+   "label": "Assured Robot Intelligence logo from the official website, used on the market map.",
+   "file": "credits__99.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 100,
+   "label": "Saronic logo from the official website, used on the market map.",
+   "file": "credits__100.png"
+  },
+  "after": {
+   "idx": 100,
+   "label": "Saronic logo from the official website, used on the market map.",
+   "file": "credits__100.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 101,
+   "label": "Eka Robotics logo from the official website, used on the market map.",
+   "file": "credits__101.png"
+  },
+  "after": {
+   "idx": 101,
+   "label": "Eka Robotics logo from the official website, used on the market map.",
+   "file": "credits__101.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 102,
+   "label": "Foundry Robotics logo from the official website, used on the market map.",
+   "file": "credits__102.png"
+  },
+  "after": {
+   "idx": 102,
+   "label": "Foundry Robotics logo from the official website, used on the market map.",
+   "file": "credits__102.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 103,
+   "label": "Mytra logo from the official website, used on the market map.",
+   "file": "credits__103.png"
+  },
+  "after": {
+   "idx": 103,
+   "label": "Mytra logo from the official website, used on the market map.",
+   "file": "credits__103.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 104,
+   "label": "Formic logo from the official website, used on the market map.",
+   "file": "credits__104.png"
+  },
+  "after": {
+   "idx": 104,
+   "label": "Formic logo from the official website, used on the market map.",
+   "file": "credits__104.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 105,
+   "label": "Astribot logo from the official website, used on the market map.",
+   "file": "credits__105.png"
+  },
+  "after": {
+   "idx": 105,
+   "label": "Astribot logo from the official website, used on the market map.",
+   "file": "credits__105.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 107,
+   "label": "Leju Robotics logo from the official website, used on the market map.",
+   "file": "credits__107.png"
+  },
+  "after": {
+   "idx": 107,
+   "label": "Leju Robotics logo from the official website, used on the market map.",
+   "file": "credits__107.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 108,
+   "label": "PaXini logo from the official website, used on the market map.",
+   "file": "credits__108.png"
+  },
+  "after": {
+   "idx": 108,
+   "label": "PaXini logo from the official website, used on the market map.",
+   "file": "credits__108.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 109,
+   "label": "Miso Robotics logo from the official website, used on the market map.",
+   "file": "credits__109.png"
+  },
+  "after": {
+   "idx": 109,
+   "label": "Miso Robotics logo from the official website, used on the market map.",
+   "file": "credits__109.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 111,
+   "label": "Knightscope logo from the official website, used on the market map.",
+   "file": "credits__111.png"
+  },
+  "after": {
+   "idx": 111,
+   "label": "Knightscope logo from the official website, used on the market map.",
+   "file": "credits__111.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 112,
+   "label": "Brain Corp logo from the official website, used on the market map.",
+   "file": "credits__112.png"
+  },
+  "after": {
+   "idx": 112,
+   "label": "Brain Corp logo from the official website, used on the market map.",
+   "file": "credits__112.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 113,
+   "label": "Diligent Robotics logo from the official website, used on the market map.",
+   "file": "credits__113.png"
+  },
+  "after": {
+   "idx": 113,
+   "label": "Diligent Robotics logo from the official website, used on the market map.",
+   "file": "credits__113.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 115,
+   "label": "Zebra Technologies (Robotics Automation) logo from the official website, used on the market map.",
+   "file": "credits__115.png"
+  },
+  "after": {
+   "idx": 115,
+   "label": "Zebra Technologies (Robotics Automation) logo from the official website, used on the market map.",
+   "file": "credits__115.png"
+  }
+ },
+ {
+  "route": "/credits/",
+  "changed": true,
+  "before": {
+   "idx": 116,
+   "label": "Robotphoenix logo from the official website, used on the market map.",
+   "file": "credits__116.png"
+  },
+  "after": {
+   "idx": 116,
+   "label": "Robotphoenix logo from the official website, used on the market map.",
+   "file": "credits__116.png"
+  }
+ },
+ {
+  "route": "/manipulation/bc-foundations/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Demonstrations cover a narrow corridor of states around the expert path. The policy's first mistake takes it outside tha",
+   "file": "manipulation__bc-foundations__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Drift from the demonstration compounds with the horizon; chunking and relabeling both cut the summed deviation.",
+   "file": "manipulation__bc-foundations__00.png"
+  }
+ },
+ {
+  "route": "/manipulation/bc-foundations/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "Rollout trace of a policy with per-step error 5.0 percent over 120 steps, drifting away from the demonstrated path.",
+   "file": "manipulation__bc-foundations__01.png"
+  },
+  "after": {
+   "idx": 1,
+   "label": "Each small error moves the policy into states the expert never visited, where its next error is larger.",
+   "file": "manipulation__bc-foundations__01.png"
+  }
+ },
+ {
+  "route": "/manipulation/bc-foundations/",
+  "changed": true,
+  "before": {
+   "idx": 2,
+   "label": "Accumulated toy deviation and illustrative reference curves over the episode horizon on a logarithmic deviation axis; ne",
+   "file": "manipulation__bc-foundations__02.png"
+  },
+  "after": null
+ },
+ {
+  "route": "/manipulation/bc-foundations/",
+  "changed": true,
+  "before": {
+   "idx": 3,
+   "label": "Rollout trace of a policy with per-step error 5.0 percent over 240 steps, drifting away from the demonstrated path.",
+   "file": "manipulation__bc-foundations__03.png"
+  },
+  "after": null
+ },
+ {
+  "route": "/manipulation/bc-foundations/",
+  "changed": true,
+  "before": {
+   "idx": 4,
+   "label": "Accumulated toy deviation and illustrative reference curves over the episode horizon on a logarithmic deviation axis; ne",
+   "file": "manipulation__bc-foundations__04.png"
+  },
+  "after": null
+ },
+ {
+  "route": "/manipulation/action-chunking/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Three chunks issued at t-2, t-1, and t predict the current action. Oldest-to-newest raw weights are 1.00, 0.61, and 0.37",
+   "file": "manipulation__action-chunking__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Success climbs from 1% at k = 1 to the measured 44% at k = 100, then tapers slightly.",
+   "file": "manipulation__action-chunking__00.png"
+  }
+ },
+ {
+  "route": "/manipulation/action-chunking/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "temporal_ensembling.py",
+   "file": "manipulation__action-chunking__01.png"
+  },
+  "after": {
+   "idx": 1,
+   "label": "Three overlapping chunks each predict the current action; the oldest gets the largest weight.",
+   "file": "manipulation__action-chunking__01.png"
+  }
+ },
+ {
+  "route": "/manipulation/action-chunking/",
+  "changed": true,
+  "before": {
+   "idx": 2,
+   "label": "Line chart of task success rate against chunk size k. Success rises to 44 percent at k of 100, then tapers. Current posi",
+   "file": "manipulation__action-chunking__02.png"
+  },
+  "after": {
+   "idx": 2,
+   "label": "Added delay collapses the toy ensembling score and pulls its averaged action between the two modes; real-time chunking h",
+   "file": "manipulation__action-chunking__02.png"
+  }
+ },
+ {
+  "route": "/manipulation/action-chunking/",
+  "changed": true,
+  "before": {
+   "idx": 3,
+   "label": "Toy normalized throughput scores against added inference delay, not measured task throughput. Temporal ensembling falls ",
+   "file": "manipulation__action-chunking__03.png"
+  },
+  "after": null
+ },
+ {
+  "route": "/manipulation/action-chunking/",
+  "changed": true,
+  "before": {
+   "idx": 4,
+   "label": "Trace of the executed action across a chunk hand-off at 0 ms delay. The temporal ensembling trace stays on the committed",
+   "file": "manipulation__action-chunking__04.png"
+  },
+  "after": null
+ },
+ {
+  "route": "/manipulation/action-chunking/",
+  "changed": true,
+  "before": {
+   "idx": 5,
+   "label": "Toy normalized throughput scores against added inference delay, not measured task throughput. Temporal ensembling falls ",
+   "file": "manipulation__action-chunking__05.png"
+  },
+  "after": null
+ },
+ {
+  "route": "/manipulation/action-chunking/",
+  "changed": true,
+  "before": {
+   "idx": 6,
+   "label": "Trace of the executed action across a chunk hand-off at 100 ms delay. The temporal ensembling trace leaves both valid mo",
+   "file": "manipulation__action-chunking__06.png"
+  },
+  "after": null
+ },
+ {
+  "route": "/manipulation/diffusion-policy/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: Diffusion policy: denoising actions",
+   "file": "manipulation__diffusion-policy__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Motion scene: Diffusion policy: denoising actions",
+   "file": "manipulation__diffusion-policy__00.png"
+  }
+ },
+ {
+  "route": "/manipulation/diffusion-policy/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "Receding horizon rolling plan over 32 control steps. 4 chunks, each predicting T_p of 16 actions and committing the firs",
+   "file": "manipulation__diffusion-policy__01.png"
+  },
+  "after": {
+   "idx": 1,
+   "label": "Each lane is one plan: the robot executes the solid steps, then replans and drops the dashed tail.",
+   "file": "manipulation__diffusion-policy__01.png"
+  }
+ },
+ {
+  "route": "/manipulation/vla-models/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: From continuous action to token",
+   "file": "manipulation__vla-models__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Each control step's seven coordinates fall into 256 uniform bins and leave the model as seven sequential tokens.",
+   "file": "manipulation__vla-models__00.png"
+  }
+ },
+ {
+  "route": "/manipulation/vla-models/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "Continuous action chunk: 7 dimensions over 16 control steps. The marker at step 7 selects the action vector being tokeni",
+   "file": "manipulation__vla-models__01.png"
+  },
+  "after": null
+ },
+ {
+  "route": "/manipulation/vla-models/",
+  "changed": true,
+  "before": {
+   "idx": 2,
+   "label": "Binning detail for Δx: the value -0.056 at step 7 falls into bin 120 of 255 on a uniform grid of 256 bins per dimension.",
+   "file": "manipulation__vla-models__02.png"
+  },
+  "after": null
+ },
+ {
+  "route": "/manipulation/pi-line/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: Flow matching transports action samples",
+   "file": "manipulation__pi-line__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "One Euler step cuts the corner and lands short of the modes; five to ten steps land on them.",
+   "file": "manipulation__pi-line__00.png"
+  }
+ },
+ {
+  "route": "/manipulation/pi-line/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "2D action-space view with the learned vector field at mid-transport. 48 samples start as Gaussian noise and are transpor",
+   "file": "manipulation__pi-line__01.png"
+  },
+  "after": {
+   "idx": 1,
+   "label": "Source months of the π line; filled nodes are listed in the pinned openpi checkpoint catalogue.",
+   "file": "manipulation__pi-line__01.png"
+  }
+ },
+ {
+  "route": "/manipulation/pi-line/",
+  "changed": true,
+  "before": {
+   "idx": 2,
+   "label": "Timeline of dated Physical Intelligence sources from Oct 2024 to Apr 2026. The pinned checkpoint catalogue ends at π0.5;",
+   "file": "manipulation__pi-line__02.png"
+  },
+  "after": null
+ },
+ {
+  "route": "/manipulation/generalist-policies/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Selected generalist robot policy records. Highlighted nodes have a reported weight download; dim nodes include unavailab",
+   "file": "manipulation__generalist-policies__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Release months of selected generalist policies; filled marks have a reported weight download, and shape gives the source",
+   "file": "manipulation__generalist-policies__00.png"
+  }
+ },
+ {
+  "route": "/manipulation/hierarchical/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Schematic timescale lanes for π0.5 by Physical Intelligence. Four drawn lanes combine reported output rates with illustr",
+   "file": "manipulation__hierarchical__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Fast control lanes fire many updates while slower planning lanes hold a single decision.",
+   "file": "manipulation__hierarchical__00.png"
+  }
+ },
+ {
+  "route": "/manipulation/rl-finetuning/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Value-function trace over a 40 second espresso episode. Playhead at 0.0 seconds in the Reach segment, tagged high advant",
+   "file": "manipulation__rl-finetuning__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "The value score falls at the grasp, 20 s before the insertion failure it sets up.",
+   "file": "manipulation__rl-finetuning__00.png"
+  }
+ },
+ {
+  "route": "/manipulation/rl-finetuning/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "Successful trials out of 30 for five methods across four manipulation tasks",
+   "file": "manipulation__rl-finetuning__01.png"
+  },
+  "after": {
+   "idx": 1,
+   "label": "EXPO-FT finishes 30 of 30 trials on all four tasks; the four other methods range from 0 to 26.",
+   "file": "manipulation__rl-finetuning__01.png"
+  }
+ },
+ {
+  "route": "/manipulation/realtime-execution/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Control-loop timeline at 3.0B parameters",
+   "file": "manipulation__realtime-execution__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "One synchronous inference call against the 20 ms budget; each deadline under the hatched overrun is missed.",
+   "file": "manipulation__realtime-execution__00.png"
+  }
+ },
+ {
+  "route": "/manipulation/realtime-execution/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "Control-loop timeline at 1.1B parameters",
+   "file": "manipulation__realtime-execution__01.png"
+  },
+  "after": {
+   "idx": 1,
+   "label": "Under delay, waiting stops the robot, an instant switch jumps the command, and blending stays under the 0.30 limit.",
+   "file": "manipulation__realtime-execution__01.png"
+  }
+ },
+ {
+  "route": "/manipulation/realtime-execution/",
+  "changed": true,
+  "before": {
+   "idx": 2,
+   "label": "Illustrative velocity trace for synchronous execution at 0 milliseconds of inference delay. Peak per-tick velocity step ",
+   "file": "manipulation__realtime-execution__02.png"
+  },
+  "after": null
+ },
+ {
+  "route": "/manipulation/realtime-execution/",
+  "changed": true,
+  "before": {
+   "idx": 3,
+   "label": "Illustrative velocity trace for naive switch execution at 0 milliseconds of inference delay. Peak per-tick velocity step",
+   "file": "manipulation__realtime-execution__03.png"
+  },
+  "after": null
+ },
+ {
+  "route": "/manipulation/realtime-execution/",
+  "changed": true,
+  "before": {
+   "idx": 4,
+   "label": "Illustrative velocity trace for real-time chunking execution at 0 milliseconds of inference delay. Peak per-tick velocit",
+   "file": "manipulation__realtime-execution__04.png"
+  },
+  "after": null
+ },
+ {
+  "route": "/manipulation/knowledge-insulation/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Mixture-of-Transformers diagram. Forward pass at depth 8 of 8. Tokens flow up both stacks; the expert attends into backb",
+   "file": "manipulation__knowledge-insulation__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "With the stop-gradient on, expert gradients stop at the barrier; turned off, they flow into the language model.",
+   "file": "manipulation__knowledge-insulation__00.png"
+  }
+ },
+ {
+  "route": "/rl-sim2real/rl-for-robotics/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Modelled wall-clock time for 158M environment steps under constant-rate assumptions. Paper anchors include different uni",
+   "file": "rl-sim2real__rl-for-robotics__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "In this constant-rate model, the same step budget takes thousands of times longer on one robot than in simulation.",
+   "file": "rl-sim2real__rl-for-robotics__00.png"
+  }
+ },
+ {
+  "route": "/rl-sim2real/why-rl-locomotion/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Locomotion contact geometry. Quadruped stance: four near-point foot-ground contacts on a rigid substrate. Injected conta",
+   "file": "rl-sim2real__why-rl-locomotion__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "A gait absorbs centimeter-scale contact error through feedback, while a 0.5 mm insertion clearance makes the same error ",
+   "file": "rl-sim2real__why-rl-locomotion__00.png"
+  }
+ },
+ {
+  "route": "/rl-sim2real/parallel-sim-rl/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: Parallel rollouts change a fixed training budget",
+   "file": "rl-sim2real__parallel-sim-rl__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Motion scene: Parallel rollouts change a fixed training budget",
+   "file": "rl-sim2real__parallel-sim-rl__00.png"
+  }
+ },
+ {
+  "route": "/rl-sim2real/parallel-sim-rl/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "Wall-clock training time against parallel environments, 4,096 envs",
+   "file": "rl-sim2real__parallel-sim-rl__01.png"
+  },
+  "after": null
+ },
+ {
+  "route": "/rl-sim2real/sim2real-transfer/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Task success against ground friction. Point policy 97% vs DR policy 74% at mu 0.80.",
+   "file": "rl-sim2real__sim2real-transfer__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "In this authored toy, the point policy peaks sharply at its training friction; randomized training trades that peak for ",
+   "file": "rl-sim2real__sim2real-transfer__00.png"
+  }
+ },
+ {
+  "route": "/rl-sim2real/sim2real-transfer/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "Task success against ground friction. Point policy 97% vs DR policy 57% at mu 0.80.",
+   "file": "rl-sim2real__sim2real-transfer__01.png"
+  },
+  "after": {
+   "idx": 1,
+   "label": "In this authored toy, reconstruction error and action divergence rise by construction as proprioceptive degradation incr",
+   "file": "rl-sim2real__sim2real-transfer__01.png"
+  }
+ },
+ {
+  "route": "/rl-sim2real/sim2real-transfer/",
+  "changed": true,
+  "before": {
+   "idx": 2,
+   "label": "Teacher-student distillation at 15 percent degradation. Top panel: the teacher's privileged terrain heightfield. Middle ",
+   "file": "rl-sim2real__sim2real-transfer__02.png"
+  },
+  "after": null
+ },
+ {
+  "route": "/rl-sim2real/legged-locomotion/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: Foot support over an authored stride cycle",
+   "file": "rl-sim2real__legged-locomotion__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Motion scene: Foot support over an authored stride cycle",
+   "file": "rl-sim2real__legged-locomotion__00.png"
+  }
+ },
+ {
+  "route": "/rl-sim2real/legged-locomotion/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "ANYmal, the ANYbotics quadruped behind the ETH Zurich locomotion lineage, on an industrial inspection floor. The actuato",
+   "file": "rl-sim2real__legged-locomotion__01.png"
+  },
+  "after": {
+   "idx": 1,
+   "label": "ANYmal, the ANYbotics quadruped behind the ETH Zurich locomotion lineage, on an industrial inspection floor. The actuato",
+   "file": "rl-sim2real__legged-locomotion__01.png"
+  }
+ },
+ {
+  "route": "/rl-sim2real/legged-locomotion/",
+  "changed": true,
+  "before": {
+   "idx": 2,
+   "label": "Footfall timing for the Walk gait, duty factor 0.75, phase 0%",
+   "file": "rl-sim2real__legged-locomotion__02.png"
+  },
+  "after": null
+ },
+ {
+  "route": "/rl-sim2real/humanoid-wbc/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Whole-body control stack for the Motion-tracking RL decomposition, representative system Figure Helix 02 S0. 3 layers fr",
+   "file": "rl-sim2real__humanoid-wbc__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Every stack drives the same actuators; the stacks differ in where the learning boundary sits and what crosses it.",
+   "file": "rl-sim2real__humanoid-wbc__00.png"
+  }
+ },
+ {
+  "route": "/rl-sim2real/reward-design-mpc/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Rollout preview: balanced gait. This toy selects a balanced trot when none of its three failure-category rules fires. Th",
+   "file": "rl-sim2real__reward-design-mpc__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "A dominant torque or air-time weight, or a near-zero action-rate weight, moves the drawn gait off its balanced trot.",
+   "file": "rl-sim2real__reward-design-mpc__00.png"
+  }
+ },
+ {
+  "route": "/rl-sim2real/reward-design-mpc/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "Base-height deviation after a lateral push. MPC: recovers. RL policy: recovers.",
+   "file": "rl-sim2real__reward-design-mpc__01.png"
+  },
+  "after": {
+   "idx": 1,
+   "label": "Each generation pairs the training statistics with the reflection written before the reward code mutates.",
+   "file": "rl-sim2real__reward-design-mpc__01.png"
+  }
+ },
+ {
+  "route": "/rl-sim2real/reward-design-mpc/",
+  "changed": true,
+  "before": null,
+  "after": {
+   "idx": 2,
+   "label": "Same robot, same perturbation, two controllers; each trace is the base-height deviation after the disturbance.",
+   "file": "rl-sim2real__reward-design-mpc__02.png"
+  }
+ },
+ {
+  "route": "/world-models/taxonomy/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Latent-dynamics panel art: latent cells, reward scalar, fuzzy reconstruction",
+   "file": "world-models__taxonomy__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Generative video and world-action models predict pixels; the other four groups predict latents, embeddings or symbolic s",
+   "file": "world-models__taxonomy__00.png"
+  }
+ },
+ {
+  "route": "/world-models/taxonomy/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "",
+   "file": "world-models__taxonomy__01.png"
+  },
+  "after": null
+ },
+ {
+  "route": "/world-models/taxonomy/",
+  "changed": true,
+  "before": {
+   "idx": 2,
+   "label": "",
+   "file": "world-models__taxonomy__02.png"
+  },
+  "after": null
+ },
+ {
+  "route": "/world-models/taxonomy/",
+  "changed": true,
+  "before": {
+   "idx": 3,
+   "label": "",
+   "file": "world-models__taxonomy__03.png"
+  },
+  "after": null
+ },
+ {
+  "route": "/world-models/taxonomy/",
+  "changed": true,
+  "before": {
+   "idx": 4,
+   "label": "",
+   "file": "world-models__taxonomy__04.png"
+  },
+  "after": null
+ },
+ {
+  "route": "/world-models/taxonomy/",
+  "changed": true,
+  "before": {
+   "idx": 5,
+   "label": "",
+   "file": "world-models__taxonomy__05.png"
+  },
+  "after": null
+ },
+ {
+  "route": "/world-models/latent-dynamics/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: Small model errors accumulate in imagination",
+   "file": "world-models__latent-dynamics__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Each imagined step adds error, so the rollout drifts further from the true latent as the horizon grows.",
+   "file": "world-models__latent-dynamics__00.png"
+  }
+ },
+ {
+  "route": "/world-models/latent-dynamics/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "Imagined rollout in latent space over 15 steps, peeling away from the true latent trajectory as one-step errors compound",
+   "file": "world-models__latent-dynamics__01.png"
+  },
+  "after": null
+ },
+ {
+  "route": "/world-models/latent-dynamics/",
+  "changed": true,
+  "before": {
+   "idx": 2,
+   "label": "Latent deviation versus imagination step in a deterministic toy. Deviation reaches 0.301 units at step 15. The shaded 3 ",
+   "file": "world-models__latent-dynamics__02.png"
+  },
+  "after": null
+ },
+ {
+  "route": "/world-models/latent-dynamics/",
+  "changed": true,
+  "before": {
+   "idx": 3,
+   "label": "",
+   "file": "world-models__latent-dynamics__03.png"
+  },
+  "after": null
+ },
+ {
+  "route": "/world-models/generative-video/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: Two actions fork one predicted future",
+   "file": "world-models__generative-video__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Strong conditioning makes the two actions predict different futures; weak conditioning predicts the same future for both",
+   "file": "world-models__generative-video__00.png"
+  }
+ },
+ {
+  "route": "/world-models/generative-video/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "Shared initial frame: a block centered on a table with a gripper above it and a goal zone marked on the left.",
+   "file": "world-models__generative-video__01.png"
+  },
+  "after": null
+ },
+ {
+  "route": "/world-models/generative-video/",
+  "changed": true,
+  "before": {
+   "idx": 2,
+   "label": "Rollout A: predicted frames under the action Push left, strong conditioning.",
+   "file": "world-models__generative-video__02.png"
+  },
+  "after": null
+ },
+ {
+  "route": "/world-models/generative-video/",
+  "changed": true,
+  "before": {
+   "idx": 3,
+   "label": "Rollout B: predicted frames under the action Lift gripper, strong conditioning.",
+   "file": "world-models__generative-video__03.png"
+  },
+  "after": null
+ },
+ {
+  "route": "/world-models/jepa/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Latent space planning view. The current latent is at distance 0.813 from the goal latent after 0 planning steps toward g",
+   "file": "world-models__jepa__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Each Plan step scores every candidate sequence by its predicted distance to the goal latent and executes the closest.",
+   "file": "world-models__jepa__00.png"
+  }
+ },
+ {
+  "route": "/world-models/generative-sim/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: A rendered scene needs a solver to answer a push",
+   "file": "world-models__generative-sim__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "The same push moves the mug only when a physics proxy supplies collision geometry, friction and a solver.",
+   "file": "world-models__generative-sim__00.png"
+  }
+ },
+ {
+  "route": "/world-models/generative-sim/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "Three-layer scene. Appearance layer on, physics proxy off, simulation layer on. Mug displacement 0.0 cm after 0 effectiv",
+   "file": "world-models__generative-sim__01.png"
+  },
+  "after": null
+ },
+ {
+  "route": "/data-hardware/data-bottleneck/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: How a farm rate changes time to an authored target",
+   "file": "data-hardware__data-bottleneck__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Demonstration datasets top out at 20,854 hours while LLM corpora reach 15 trillion tokens, nine orders of magnitude apar",
+   "file": "data-hardware__data-bottleneck__00.png"
+  }
+ },
+ {
+  "route": "/data-hardware/data-bottleneck/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "Demonstration hours against pretraining tokens, 15-rig hypothetical farm projection",
+   "file": "data-hardware__data-bottleneck__01.png"
+  },
+  "after": null
+ },
+ {
+  "route": "/data-hardware/data-bottleneck/",
+  "changed": true,
+  "before": {
+   "idx": 2,
+   "label": "Demonstration hours against pretraining tokens, 10-rig hypothetical farm projection",
+   "file": "data-hardware__data-bottleneck__02.png"
+  },
+  "after": null
+ },
+ {
+  "route": "/data-hardware/evaluation-crisis/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: Conditional success compounds over an illustrative episode",
+   "file": "data-hardware__evaluation-crisis__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Episode success is per-step success raised to the episode length, so small per-step errors compound over long episodes.",
+   "file": "data-hardware__evaluation-crisis__00.png"
+  }
+ },
+ {
+  "route": "/data-hardware/evaluation-crisis/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "Line chart of episode success against episode length at 95.0 percent per-step success",
+   "file": "data-hardware__evaluation-crisis__01.png"
+  },
+  "after": null
+ },
+ {
+  "route": "/data-hardware/evaluation-crisis/",
+  "changed": true,
+  "before": {
+   "idx": 2,
+   "label": "Line chart of episode success against episode length at 95.0 percent per-step success",
+   "file": "data-hardware__evaluation-crisis__02.png"
+  },
+  "after": null
+ },
+ {
+  "route": "/data-hardware/industrial-deployment/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: Clearing time takes capacity from an authored picking cell",
+   "file": "data-hardware__industrial-deployment__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Motion scene: Clearing time takes capacity from an authored picking cell",
+   "file": "data-hardware__industrial-deployment__00.png"
+  }
+ },
+ {
+  "route": "/data-hardware/industrial-deployment/",
+  "changed": true,
+  "before": null,
+  "after": {
+   "idx": 1,
+   "label": "Every failed pick takes human clearing time out of the hour, which lowers modeled output and lengthens payback.",
+   "file": "data-hardware__industrial-deployment__01.png"
+  }
+ },
+ {
+  "route": "/classical/kinematics/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: A joint turns every link downstream",
+   "file": "classical__kinematics__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Each joint angle is relative to its parent link, so moving the base joint swings the whole arm.",
+   "file": "classical__kinematics__00.png"
+  }
+ },
+ {
+  "route": "/classical/kinematics/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "A PUMA 560 at NASA Ames, photographed in a stroboscopic exposure as it cycles through its workspace. The six-revolute PU",
+   "file": "classical__kinematics__01.png"
+  },
+  "after": {
+   "idx": 1,
+   "label": "A PUMA 560 at NASA Ames, photographed in a stroboscopic exposure as it cycles through its workspace. The six-revolute PU",
+   "file": "classical__kinematics__01.png"
+  }
+ },
+ {
+  "route": "/classical/kinematics/",
+  "changed": true,
+  "before": {
+   "idx": 2,
+   "label": "Planar three-link arm. Base angle 110 degrees, elbow -45 degrees, wrist -35 degrees. End effector at x +0.45, y +1.89 li",
+   "file": "classical__kinematics__02.png"
+  },
+  "after": null
+ },
+ {
+  "route": "/classical/motion-planning/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: A seeded tree finds a path around obstacles",
+   "file": "classical__motion-planning__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Each accepted step grows from the tree node nearest a random sample, so the tree spreads into open space.",
+   "file": "classical__motion-planning__00.png"
+  }
+ },
+ {
+  "route": "/classical/motion-planning/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "RRT exploration of a 2D planning scene with 5 obstacles between a start on the left and a goal on the right. Iteration 0",
+   "file": "classical__motion-planning__01.png"
+  },
+  "after": null
+ },
+ {
+  "route": "/classical/control/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Inverted pendulum with PID control. Pole angle +12.0 degrees from upright, status holding at release.",
+   "file": "classical__control__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Below Kp 9.81, the mgl threshold of this plant, no setting of Ki or Kd keeps the pole up.",
+   "file": "classical__control__00.png"
+  }
+ },
+ {
+  "route": "/classical/control/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "Inverted pendulum with PID control. Pole angle +12.0 degrees from upright, status holding at release.",
+   "file": "classical__control__01.png"
+  },
+  "after": {
+   "idx": 1,
+   "label": "A softer K lowers the peak contact force; a position-controlled arm has no force channel to program.",
+   "file": "classical__control__01.png"
+  }
+ },
+ {
+  "route": "/classical/control/",
+  "changed": true,
+  "before": {
+   "idx": 2,
+   "label": "Contact force over the approach. Peak 23.7 newtons, outcome task succeeded.",
+   "file": "classical__control__02.png"
+  },
+  "after": null
+ },
+ {
+  "route": "/classical/state-estimation/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: Kalman filter: predict and update",
+   "file": "classical__state-estimation__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Motion scene: Kalman filter: predict and update",
+   "file": "classical__state-estimation__00.png"
+  }
+ },
+ {
+  "route": "/classical/state-estimation/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "after: The Kalman filter",
+   "file": "classical__state-estimation__01.png"
+  },
+  "after": {
+   "idx": 1,
+   "label": "after: The Kalman filter",
+   "file": "classical__state-estimation__01.png"
+  }
+ },
+ {
+  "route": "/classical/grasp-planning/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Square object held by 3 frictional point contacts; each contact shows its friction cone opening inward.",
+   "file": "classical__grasp-planning__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "The default three-contact grasp holds force closure: the origin sits inside the wrench hull, and ε measures the margin.",
+   "file": "classical__grasp-planning__00.png"
+  }
+ },
+ {
+  "route": "/classical/grasp-planning/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "Grasp wrench space: the convex hull of the primitive contact wrenches. Force closure yes, quality epsilon 0.444.",
+   "file": "classical__grasp-planning__01.png"
+  },
+  "after": null
+ },
+ {
+  "route": "/classical/perception/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Authored input magnitudes and root-sum-of-squares total against the model band. Total 11.3 millimetres.",
+   "file": "classical__perception__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Only the hand-eye term grows with working distance, so distance moves the total only when that angle is non-zero.",
+   "file": "classical__perception__00.png"
+  }
+ },
+ {
+  "route": "/classical/scene-representation/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Plan view of the scene as an occupancy grid: free, occupied and unknown cells, with the region behind the occluder held ",
+   "file": "classical__scene-representation__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "The representation sets which of the three queries the store answers; resolution changes only cost and detail.",
+   "file": "classical__scene-representation__00.png"
+  }
+ },
+ {
+  "route": "/frontier/reliability-gap/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: The last stretch of episode reliability",
+   "file": "frontier__reliability-gap__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Episode success is per-step success raised to the episode length, so small per-step errors compound over long episodes.",
+   "file": "frontier__reliability-gap__00.png"
+  }
+ },
+ {
+  "route": "/frontier/reliability-gap/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "Line chart of episode success against episode length at 95.0 percent per-step success",
+   "file": "frontier__reliability-gap__01.png"
+  },
+  "after": {
+   "idx": 1,
+   "label": "Verified rows trace to a cited company document; claimed rows are vendor demonstrations without a published deployment m",
+   "file": "frontier__reliability-gap__01.png"
+  }
+ },
+ {
+  "route": "/frontier/dexterity/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: A contact channel can reveal slip",
+   "file": "frontier__dexterity__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Motion scene: A contact channel can reveal slip",
+   "file": "frontier__dexterity__00.png"
+  }
+ },
+ {
+  "route": "/frontier/dexterity/",
+  "changed": true,
+  "before": null,
+  "after": {
+   "idx": 1,
+   "label": "Two rows list a tactile threshold, two list a cost, and no row lists both.",
+   "file": "frontier__dexterity__01.png"
+  }
+ },
+ {
+  "route": "/frontier/generalization/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "EgoScale scaling law: validation loss and task completion against pretraining hours, horizon 100k h",
+   "file": "frontier__generalization__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Measured to 20k hours; beyond that both series are extrapolation, and the completion fit passes 100% near 250k hours.",
+   "file": "frontier__generalization__00.png"
+  }
+ },
+ {
+  "route": "/frontier/generalization/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "EgoScale scaling law: validation loss and task completion against pretraining hours, horizon 250k h",
+   "file": "frontier__generalization__01.png"
+  },
+  "after": null
+ },
+ {
+  "route": "/frontier/safety-and-assurance/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Workcell with a robot at the left wall and an operator 1.60 m away, under speed and separation monitoring. Robot speed 1",
+   "file": "frontier__safety-and-assurance__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Separation monitoring needs more room as the robot speeds up; force limiting allows contact below a force cap.",
+   "file": "frontier__safety-and-assurance__00.png"
+  }
+ },
+ {
+  "route": "/adjacent/drones/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: Perception delay lowers the safe speed",
+   "file": "adjacent__drones__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Motion scene: Perception delay lowers the safe speed",
+   "file": "adjacent__drones__00.png"
+  }
+ },
+ {
+  "route": "/adjacent/drones/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "Sense-and-avoid timeline at the maximum speed of 19.21 m/s. Obstacle detected at the sensing range, 70 ms of perception ",
+   "file": "adjacent__drones__01.png"
+  },
+  "after": {
+   "idx": 1,
+   "label": "At the maximum safe speed, latency and the avoidance maneuver fill the whole time to contact.",
+   "file": "adjacent__drones__01.png"
+  }
+ },
+ {
+  "route": "/manipulation/comparison-matrix/",
+  "changed": true,
+  "before": null,
+  "after": {
+   "idx": 0,
+   "label": "18 manipulation policies on eight architectural axes; unpublished cells read not disclosed and sort last.",
+   "file": "manipulation__comparison-matrix__00.png"
+  }
+ },
+ {
+  "route": "/manipulation/cross-embodiment/",
+  "changed": true,
+  "before": null,
+  "after": {
+   "idx": 0,
+   "label": "Three ways to fit four bodies into one 32-slot action vector; only shared relative EEF populates the human-hand row.",
+   "file": "manipulation__cross-embodiment__00.png"
+  }
+ },
+ {
+  "route": "/frontier/competing-theses/",
+  "changed": true,
+  "before": null,
+  "after": {
+   "idx": 0,
+   "label": "Each thesis is a falsifiable bet; the detail panel cites evidence on both sides and names its falsification test.",
+   "file": "frontier__competing-theses__00.png"
+  }
+ },
+ {
+  "route": "/frontier/bear-case/",
+  "changed": true,
+  "before": null,
+  "after": {
+   "idx": 0,
+   "label": "Each status is an editorial call on published evidence; the detail panel names the observation that would change it.",
+   "file": "frontier__bear-case__00.png"
+  }
+ }
+]

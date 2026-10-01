@@ -58,8 +58,8 @@
       },
       "after": {
         "path": "components/interactive/deployment-economics.tsx",
-        "bytes": 11379,
-        "sha256": "0db208d1123c840befe00b530ba479c0efb0bc1b5998294878c6822ea920e88f"
+        "bytes": 11507,
+        "sha256": "94ff1dbeee421bf5f375a2c4cf418f669899607eabb9e8978f68f97b20574e01"
       },
       "preserved": [
         "import {\n  AMORTIZATION_MONTHS,\n  DEFAULT_INPUTS,\n  INPUT_RANGES,\n  PAYBACK_TARGET_MONTHS,\n  ROBOT_HOURS_PER_MONTH,\n  SECONDS_PER_HOUR,\n  computeEconomics,\n  paysBackWithinTarget,\n  type EconomicsInputs,\n} from '@/lib/deployment-economics';"

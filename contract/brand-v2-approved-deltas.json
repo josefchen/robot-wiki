@@ -38390,6 +38390,697 @@
         "VAL-B2-BASE-012"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-interactive-sources-mounts-control-pendulum-controller-1",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "mount:content/classical/control.mdx:PendulumController:1",
+      "oldHash": "7d12de5f291052f9cc5ef6ffb9e80152c72f2b0507f315b1da12c5ecfe867669",
+      "newHash": "2258a1ef4c92d421c2dbdf35b354dd2644b0111ed31b0be0eee3569c9643f43f",
+      "reason": "/classical/control/ mounted PendulumController twice: in the body (className=\"my-6\") and again inside the prediction step, the in-page repeat that VAL-OPUS-131 names. The body mount was removed, and the prediction step now wraps the page's one PendulumController at the configuration its hint names, so the first mount now reads defaultKp={9.5} className=\"mt-3\".",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-131",
+        "VAL-EDU-011",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-interactive-sources-mounts-control-pendulum-controller-2",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "mount:content/classical/control.mdx:PendulumController:2",
+      "oldHash": "2258a1ef4c92d421c2dbdf35b354dd2644b0111ed31b0be0eee3569c9643f43f",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "The second PendulumController mount on /classical/control/, inside the prediction step (defaultKp={9.5} className=\"mt-3\"), is gone with the in-page repeat that VAL-OPUS-131 names. The page mounts PendulumController once, and that mount (member 1) sits inside the prediction step at the same configuration.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-131",
+        "VAL-EDU-011",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-interactive-sources-mounts-data-bottleneck-data-scale-chart-1",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "mount:content/data-hardware/data-bottleneck.mdx:DataScaleChart:1",
+      "oldHash": "462c50a7395f33d2d3d68218b9cfa11a70b5211431818a63417df7af3c579720",
+      "newHash": "e4a9a7c62b9e5d3b82e4be1966a79ee74a7271e5700d606299378381b56a307b",
+      "reason": "/data-hardware/data-bottleneck/ mounted DataScaleChart twice: in the body (className=\"my-6\") and again inside the prediction step, the in-page repeat that VAL-OPUS-131 names. The body mount was removed, and the prediction step now wraps the page's one DataScaleChart at the configuration its hint names, so the first mount now reads defaultRigs={10} defaultRate=\"droid-measured\" className=\"mt-3\".",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-131",
+        "VAL-EDU-011",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-interactive-sources-mounts-data-bottleneck-data-scale-chart-2",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "mount:content/data-hardware/data-bottleneck.mdx:DataScaleChart:2",
+      "oldHash": "e4a9a7c62b9e5d3b82e4be1966a79ee74a7271e5700d606299378381b56a307b",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "The second DataScaleChart mount on /data-hardware/data-bottleneck/, inside the prediction step (defaultRigs={10} defaultRate=\"droid-measured\" className=\"mt-3\"), is gone with the in-page repeat that VAL-OPUS-131 names. The page mounts DataScaleChart once, and that mount (member 1) sits inside the prediction step at the same configuration.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-131",
+        "VAL-EDU-011",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-interactive-sources-mounts-evaluation-crisis-reliability-compounding-1",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "mount:content/data-hardware/evaluation-crisis.mdx:ReliabilityCompounding:1",
+      "oldHash": "e3e0240306c18f4ad2c85008a359d364a5bfdbb0911b2b5b9a4ffe57bf7a1ee1",
+      "newHash": "8372ba72cff3df4e9af89eb95d17f0aae7d8d262e4268feec06bcfcbfd07c632",
+      "reason": "/data-hardware/evaluation-crisis/ mounted ReliabilityCompounding twice: in the body (minPerStepPercent={0} maxPerStepPercent={100} descriptionVariant=\"evaluation\" className=\"my-6\") and again inside the prediction step, the in-page repeat that VAL-OPUS-131 names. The body mount was removed, and the prediction step now wraps the page's one ReliabilityCompounding at the configuration its hint names, so the first mount now reads defaultPerStep={0.95} defaultSteps={14} minPerStepPercent={0} maxPerStepPercent={100} descriptionVariant=\"evaluation\" className=\"mt-3\". It keeps the body mount's 0 to 100 per-step range and evaluation description and takes the step's defaults; the step copy's prediction description variant went with the copy.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-131",
+        "VAL-EDU-011",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-interactive-sources-mounts-evaluation-crisis-reliability-compounding-2",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "mount:content/data-hardware/evaluation-crisis.mdx:ReliabilityCompounding:2",
+      "oldHash": "33e76cc931302a87529e3ac96f0132d7511933e0ea443ae04cecf87e97e0d710",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "The second ReliabilityCompounding mount on /data-hardware/evaluation-crisis/, inside the prediction step (defaultPerStep={0.95} defaultSteps={14} descriptionVariant=\"prediction\" className=\"mt-3\"), is gone with the in-page repeat that VAL-OPUS-131 names. The page mounts ReliabilityCompounding once, and that mount (member 1) sits inside the prediction step with the same defaults.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-131",
+        "VAL-EDU-011",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-interactive-sources-mounts-generalization-ego-scale-scaling-1",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "mount:content/frontier/generalization.mdx:EgoScaleScaling:1",
+      "oldHash": "4ed83fc83f4bb1692dcd7b187c8c492628a7fbf49bef7f6176e034f2e610cd6c",
+      "newHash": "4344a63b3ccab815b75d75997e6688dd0767b4ba5e6006e8067e8b82e61eb72e",
+      "reason": "/frontier/generalization/ mounted EgoScaleScaling twice: in the body (className=\"my-6\") and again inside the prediction step, the in-page repeat that VAL-OPUS-131 names. The body mount was removed, and the prediction step now wraps the page's one EgoScaleScaling at the configuration its hint names, so the first mount now reads defaultHorizonHours={250_000} className=\"mt-3\".",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-131",
+        "VAL-EDU-011",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-interactive-sources-mounts-generalization-ego-scale-scaling-2",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "mount:content/frontier/generalization.mdx:EgoScaleScaling:2",
+      "oldHash": "4344a63b3ccab815b75d75997e6688dd0767b4ba5e6006e8067e8b82e61eb72e",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "The second EgoScaleScaling mount on /frontier/generalization/, inside the prediction step (defaultHorizonHours={250_000} className=\"mt-3\"), is gone with the in-page repeat that VAL-OPUS-131 names. The page mounts EgoScaleScaling once, and that mount (member 1) sits inside the prediction step at the same configuration.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-131",
+        "VAL-EDU-011",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-interactive-sources-mounts-reliability-gap-reliability-compounding-1",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "mount:content/frontier/reliability-gap.mdx:ReliabilityCompounding:1",
+      "oldHash": "fec9de380fe0dc5409d3d642226d87dcd98b983c6711e04907ad664b5bfcca41",
+      "newHash": "b7a36fd3ee16e6a65d27fc2baa3ddd801c0526877e326f0649a279ee6ca0f021",
+      "reason": "The four ReliabilityThreshold scene beats on /frontier/reliability-gap/ became presets on the page's one p^N calculator (VAL-OPUS-131), and the scene left the page. The mount gains presets=\"per-step-thresholds\"; its 0 to 100 per-step range, reliability description and the FigureReuse link to Evaluation crisis are unchanged.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-131",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-interactive-sources-mounts-action-chunking-latency-comparison-2",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "mount:content/manipulation/action-chunking.mdx:LatencyComparison:2",
+      "oldHash": "067c218062a6f15031a7f5cb207f9a52c9bdd19c756d81c681957d4b4c814d0b",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "The prediction step on /manipulation/action-chunking/ mounted a second LatencyComparison (defaultDelayMs={100} className=\"mt-3\"), the in-page repeat that VAL-OPUS-131 names. The step was dropped together with its route entry in tests/e2e/predict-then-reveal.spec.ts, five prediction-step routes remain (VAL-EDU-016), and the page keeps its one LatencyComparison mount (member 1, unchanged).",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-131",
+        "VAL-EDU-016",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-interactive-sources-mounts-bc-foundations-compounding-error-1",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "mount:content/manipulation/bc-foundations.mdx:CompoundingError:1",
+      "oldHash": "86dc418850eda7bb2f68b90248cf02f8dd734772ec957efe9fb4065711f059cd",
+      "newHash": "ebfabe16f371c8d3155004c66c0a141ea9d1d0d7054f98d65e7f0ac349e6d322",
+      "reason": "/manipulation/bc-foundations/ mounted CompoundingError twice: in the body (className=\"my-6\") and again inside the prediction step, the in-page repeat that VAL-OPUS-131 names. The body mount was removed, and the prediction step now wraps the page's one CompoundingError at the configuration its hint names, so the first mount now reads defaultEpsilon={0.05} defaultSteps={240} className=\"mt-3\".",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-131",
+        "VAL-EDU-011",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-interactive-sources-mounts-bc-foundations-compounding-error-2",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "mount:content/manipulation/bc-foundations.mdx:CompoundingError:2",
+      "oldHash": "ebfabe16f371c8d3155004c66c0a141ea9d1d0d7054f98d65e7f0ac349e6d322",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "The second CompoundingError mount on /manipulation/bc-foundations/, inside the prediction step (defaultEpsilon={0.05} defaultSteps={240} className=\"mt-3\"), is gone with the in-page repeat that VAL-OPUS-131 names. The page mounts CompoundingError once, and that mount (member 1) sits inside the prediction step at the same configuration.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-131",
+        "VAL-EDU-011",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-interactive-sources-mounts-realtime-execution-control-loop-budget-2",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "mount:content/manipulation/realtime-execution.mdx:ControlLoopBudget:2",
+      "oldHash": "1defcee721aae9f56ce0d16dd004efae738a68a81d70e96638953d80eed64a39",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "The prediction step on /manipulation/realtime-execution/ mounted a second ControlLoopBudget (defaultParamsB={1.1} className=\"mt-3\"), the in-page repeat that VAL-OPUS-131 names. The step was dropped together with its route entry in tests/e2e/predict-then-reveal.spec.ts, five prediction-step routes remain (VAL-EDU-016), and the page keeps its one ControlLoopBudget mount (member 1, unchanged).",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-131",
+        "VAL-EDU-016",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-interactive-sources-mounts-legged-locomotion-gait-diagram-1",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "mount:content/rl-sim2real/legged-locomotion.mdx:GaitDiagram:1",
+      "oldHash": "50d29b47a8de4ea7ee36238215301698ec7eb03f06464233def4cbf4dd57a26e",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "/rl-sim2real/legged-locomotion/ showed the GaitSupport scene and the GaitDiagram footfall lab, a scene-plus-lab pair that VAL-OPUS-131 names. Both drew the same foot-support pattern, so the page keeps the scene on the graphite stage and drops the lab's mount.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-131",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-interactive-sources-mounts-parallel-sim-rl-training-time-chart-1",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "mount:content/rl-sim2real/parallel-sim-rl.mdx:TrainingTimeChart:1",
+      "oldHash": "74ca645f0431b43a78b294abb29b451d56373b7e468052d6699cbbe99d256a1f",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "/rl-sim2real/parallel-sim-rl/ showed the BatchScale scene and the TrainingTimeChart log-log lab, a scene-plus-lab pair that VAL-OPUS-131 names. Both taught the same fixed-budget point, so the page keeps the scene and drops the lab's mount.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-131",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-interactive-sources-mounts-sim2real-transfer-friction-transfer-2",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "mount:content/rl-sim2real/sim2real-transfer.mdx:FrictionTransfer:2",
+      "oldHash": "12297c9fe3c4da32aacc7f79046c19669e0cf3345b172beca17c64b632995067",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "The prediction step on /rl-sim2real/sim2real-transfer/ mounted a second FrictionTransfer (defaultRange={0.65} className=\"mt-3\"), the in-page repeat that VAL-OPUS-131 names. The step was dropped together with its route entry in tests/e2e/predict-then-reveal.spec.ts, five prediction-step routes remain (VAL-EDU-016), and the page keeps its one FrictionTransfer mount (member 1, unchanged).",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-131",
+        "VAL-EDU-016",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-behavioral-defaults-action-conditioning-5",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/action-conditioning.tsx:5",
+      "oldHash": "39ad7542afd166e7c740a183bada68ab93b7dd53ee500b276864cb5fd82ac721",
+      "newHash": "952f03871dd31f5f5342cdf0425342750923f47b122ccd2e6ca1e2bb38abdeff",
+      "reason": "Positional member of ActionConditioning on /world-models/generative-video/. Redrawing the rollout panels as graphite diagrams (VAL-OPUS-126) added one INITIAL_STATE read ahead of the defaults (GRIPPER_X = blockLeft(INITIAL_STATE.blockX) + BLOCK_SIZE / 2), which moves every later default expression down one index, and the shared initial frame adds four reads at the end. The defaults themselves are unchanged: defaultActionA = 'push-left', defaultActionB = 'lift', defaultConditioning = 'strong', and INITIAL_STATE = { blockX: 0.5, gripperY: 0.12 } in lib/action-conditioning.ts. This index held \"defaultActionA = 'push-left',\" and now holds \"INITIAL_STATE.blockX) + BLOCK_SIZE / 2;\".",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-126",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-behavioral-defaults-action-conditioning-6",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/action-conditioning.tsx:6",
+      "oldHash": "07373f895c154e0d4599cf7dd036f3fb2a7bc59cea2c35a64d10f63fa598d8c5",
+      "newHash": "39ad7542afd166e7c740a183bada68ab93b7dd53ee500b276864cb5fd82ac721",
+      "reason": "Positional member of ActionConditioning on /world-models/generative-video/. Redrawing the rollout panels as graphite diagrams (VAL-OPUS-126) added one INITIAL_STATE read ahead of the defaults (GRIPPER_X = blockLeft(INITIAL_STATE.blockX) + BLOCK_SIZE / 2), which moves every later default expression down one index, and the shared initial frame adds four reads at the end. The defaults themselves are unchanged: defaultActionA = 'push-left', defaultActionB = 'lift', defaultConditioning = 'strong', and INITIAL_STATE = { blockX: 0.5, gripperY: 0.12 } in lib/action-conditioning.ts. This index held \"defaultActionB = 'lift',\" and now holds \"defaultActionA = 'push-left',\".",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-126",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-behavioral-defaults-action-conditioning-7",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/action-conditioning.tsx:7",
+      "oldHash": "1ec1fed39d19125ef28a2e53ed2f8985fba34d8af1dd89306b78183fa4928fcd",
+      "newHash": "07373f895c154e0d4599cf7dd036f3fb2a7bc59cea2c35a64d10f63fa598d8c5",
+      "reason": "Positional member of ActionConditioning on /world-models/generative-video/. Redrawing the rollout panels as graphite diagrams (VAL-OPUS-126) added one INITIAL_STATE read ahead of the defaults (GRIPPER_X = blockLeft(INITIAL_STATE.blockX) + BLOCK_SIZE / 2), which moves every later default expression down one index, and the shared initial frame adds four reads at the end. The defaults themselves are unchanged: defaultActionA = 'push-left', defaultActionB = 'lift', defaultConditioning = 'strong', and INITIAL_STATE = { blockX: 0.5, gripperY: 0.12 } in lib/action-conditioning.ts. This index held \"defaultConditioning = 'strong',\" and now holds \"defaultActionB = 'lift',\".",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-126",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-behavioral-defaults-action-conditioning-8",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/action-conditioning.tsx:8",
+      "oldHash": "fe6601d58dc91aeb05505a86996ee7b7b7b109f2835e86c801a60dd19e01fab3",
+      "newHash": "1ec1fed39d19125ef28a2e53ed2f8985fba34d8af1dd89306b78183fa4928fcd",
+      "reason": "Positional member of ActionConditioning on /world-models/generative-video/. Redrawing the rollout panels as graphite diagrams (VAL-OPUS-126) added one INITIAL_STATE read ahead of the defaults (GRIPPER_X = blockLeft(INITIAL_STATE.blockX) + BLOCK_SIZE / 2), which moves every later default expression down one index, and the shared initial frame adds four reads at the end. The defaults themselves are unchanged: defaultActionA = 'push-left', defaultActionB = 'lift', defaultConditioning = 'strong', and INITIAL_STATE = { blockX: 0.5, gripperY: 0.12 } in lib/action-conditioning.ts. This index held \"defaultActionA);\" and now holds \"defaultConditioning = 'strong',\".",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-126",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-behavioral-defaults-action-conditioning-9",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/action-conditioning.tsx:9",
+      "oldHash": "3984680da5ea1f940021255bc468a1b9eed9e4f84f0c03f2cf3906b919bbffd2",
+      "newHash": "fe6601d58dc91aeb05505a86996ee7b7b7b109f2835e86c801a60dd19e01fab3",
+      "reason": "Positional member of ActionConditioning on /world-models/generative-video/. Redrawing the rollout panels as graphite diagrams (VAL-OPUS-126) added one INITIAL_STATE read ahead of the defaults (GRIPPER_X = blockLeft(INITIAL_STATE.blockX) + BLOCK_SIZE / 2), which moves every later default expression down one index, and the shared initial frame adds four reads at the end. The defaults themselves are unchanged: defaultActionA = 'push-left', defaultActionB = 'lift', defaultConditioning = 'strong', and INITIAL_STATE = { blockX: 0.5, gripperY: 0.12 } in lib/action-conditioning.ts. This index held \"defaultActionB);\" and now holds \"defaultActionA);\".",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-126",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-behavioral-defaults-action-conditioning-10",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/action-conditioning.tsx:10",
+      "oldHash": "33e0963270fae11a19789ad9678eefeb7def2a3bf6d662e2b9a0079968e54d5a",
+      "newHash": "3984680da5ea1f940021255bc468a1b9eed9e4f84f0c03f2cf3906b919bbffd2",
+      "reason": "Positional member of ActionConditioning on /world-models/generative-video/. Redrawing the rollout panels as graphite diagrams (VAL-OPUS-126) added one INITIAL_STATE read ahead of the defaults (GRIPPER_X = blockLeft(INITIAL_STATE.blockX) + BLOCK_SIZE / 2), which moves every later default expression down one index, and the shared initial frame adds four reads at the end. The defaults themselves are unchanged: defaultActionA = 'push-left', defaultActionB = 'lift', defaultConditioning = 'strong', and INITIAL_STATE = { blockX: 0.5, gripperY: 0.12 } in lib/action-conditioning.ts. This index held \"defaultConditioning);\" and now holds \"defaultActionB);\".",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-126",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-behavioral-defaults-action-conditioning-11",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/action-conditioning.tsx:11",
+      "oldHash": "fe6601d58dc91aeb05505a86996ee7b7b7b109f2835e86c801a60dd19e01fab3",
+      "newHash": "33e0963270fae11a19789ad9678eefeb7def2a3bf6d662e2b9a0079968e54d5a",
+      "reason": "Positional member of ActionConditioning on /world-models/generative-video/. Redrawing the rollout panels as graphite diagrams (VAL-OPUS-126) added one INITIAL_STATE read ahead of the defaults (GRIPPER_X = blockLeft(INITIAL_STATE.blockX) + BLOCK_SIZE / 2), which moves every later default expression down one index, and the shared initial frame adds four reads at the end. The defaults themselves are unchanged: defaultActionA = 'push-left', defaultActionB = 'lift', defaultConditioning = 'strong', and INITIAL_STATE = { blockX: 0.5, gripperY: 0.12 } in lib/action-conditioning.ts. This index held \"defaultActionA);\" and now holds \"defaultConditioning);\".",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-126",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-behavioral-defaults-action-conditioning-12",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/action-conditioning.tsx:12",
+      "oldHash": "3984680da5ea1f940021255bc468a1b9eed9e4f84f0c03f2cf3906b919bbffd2",
+      "newHash": "fe6601d58dc91aeb05505a86996ee7b7b7b109f2835e86c801a60dd19e01fab3",
+      "reason": "Positional member of ActionConditioning on /world-models/generative-video/. Redrawing the rollout panels as graphite diagrams (VAL-OPUS-126) added one INITIAL_STATE read ahead of the defaults (GRIPPER_X = blockLeft(INITIAL_STATE.blockX) + BLOCK_SIZE / 2), which moves every later default expression down one index, and the shared initial frame adds four reads at the end. The defaults themselves are unchanged: defaultActionA = 'push-left', defaultActionB = 'lift', defaultConditioning = 'strong', and INITIAL_STATE = { blockX: 0.5, gripperY: 0.12 } in lib/action-conditioning.ts. This index held \"defaultActionB);\" and now holds \"defaultActionA);\".",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-126",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-behavioral-defaults-action-conditioning-13",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/action-conditioning.tsx:13",
+      "oldHash": "33e0963270fae11a19789ad9678eefeb7def2a3bf6d662e2b9a0079968e54d5a",
+      "newHash": "3984680da5ea1f940021255bc468a1b9eed9e4f84f0c03f2cf3906b919bbffd2",
+      "reason": "Positional member of ActionConditioning on /world-models/generative-video/. Redrawing the rollout panels as graphite diagrams (VAL-OPUS-126) added one INITIAL_STATE read ahead of the defaults (GRIPPER_X = blockLeft(INITIAL_STATE.blockX) + BLOCK_SIZE / 2), which moves every later default expression down one index, and the shared initial frame adds four reads at the end. The defaults themselves are unchanged: defaultActionA = 'push-left', defaultActionB = 'lift', defaultConditioning = 'strong', and INITIAL_STATE = { blockX: 0.5, gripperY: 0.12 } in lib/action-conditioning.ts. This index held \"defaultConditioning);\" and now holds \"defaultActionB);\".",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-126",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-behavioral-defaults-action-conditioning-14",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/action-conditioning.tsx:14",
+      "oldHash": "641508bcad67ec03a04a23f3dc75a82ffe73c885df7b121faf23f8903d1e3535",
+      "newHash": "33e0963270fae11a19789ad9678eefeb7def2a3bf6d662e2b9a0079968e54d5a",
+      "reason": "Positional member of ActionConditioning on /world-models/generative-video/. Redrawing the rollout panels as graphite diagrams (VAL-OPUS-126) added one INITIAL_STATE read ahead of the defaults (GRIPPER_X = blockLeft(INITIAL_STATE.blockX) + BLOCK_SIZE / 2), which moves every later default expression down one index, and the shared initial frame adds four reads at the end. The defaults themselves are unchanged: defaultActionA = 'push-left', defaultActionB = 'lift', defaultConditioning = 'strong', and INITIAL_STATE = { blockX: 0.5, gripperY: 0.12 } in lib/action-conditioning.ts. This index held \"INITIAL_STATE} />\" and now holds \"defaultConditioning);\".",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-126",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-behavioral-defaults-action-conditioning-15",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/action-conditioning.tsx:15",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "bc7c912a04b71495bd06c68dd46bcdcfd1141f2bc3fbd7a9767e3775a0319faf",
+      "reason": "Positional member of ActionConditioning on /world-models/generative-video/. Redrawing the rollout panels as graphite diagrams (VAL-OPUS-126) added one INITIAL_STATE read ahead of the defaults (GRIPPER_X = blockLeft(INITIAL_STATE.blockX) + BLOCK_SIZE / 2), which moves every later default expression down one index, and the shared initial frame adds four reads at the end. The defaults themselves are unchanged: defaultActionA = 'push-left', defaultActionB = 'lift', defaultConditioning = 'strong', and INITIAL_STATE = { blockX: 0.5, gripperY: 0.12 } in lib/action-conditioning.ts. This index is new and holds \"initialFrame = (\".",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-126",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-behavioral-defaults-action-conditioning-16",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/action-conditioning.tsx:16",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "6e83d751dbd0323c2ab67fcc1cb05d19ce9fd1f93547ef3ebe71098b1a7ebecb",
+      "reason": "Positional member of ActionConditioning on /world-models/generative-video/. Redrawing the rollout panels as graphite diagrams (VAL-OPUS-126) added one INITIAL_STATE read ahead of the defaults (GRIPPER_X = blockLeft(INITIAL_STATE.blockX) + BLOCK_SIZE / 2), which moves every later default expression down one index, and the shared initial frame adds four reads at the end. The defaults themselves are unchanged: defaultActionA = 'push-left', defaultActionB = 'lift', defaultConditioning = 'strong', and INITIAL_STATE = { blockX: 0.5, gripperY: 0.12 } in lib/action-conditioning.ts. This index is new and holds \"INITIAL_STATE} final />\".",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-126",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-behavioral-defaults-action-conditioning-17",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/action-conditioning.tsx:17",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "77a6aeb73b6c02ce6227445caf2494551e3921974f30e773f508f98f6ecfe69a",
+      "reason": "Positional member of ActionConditioning on /world-models/generative-video/. Redrawing the rollout panels as graphite diagrams (VAL-OPUS-126) added one INITIAL_STATE read ahead of the defaults (GRIPPER_X = blockLeft(INITIAL_STATE.blockX) + BLOCK_SIZE / 2), which moves every later default expression down one index, and the shared initial frame adds four reads at the end. The defaults themselves are unchanged: defaultActionA = 'push-left', defaultActionB = 'lift', defaultConditioning = 'strong', and INITIAL_STATE = { blockX: 0.5, gripperY: 0.12 } in lib/action-conditioning.ts. This index is new and holds \"INITIAL_STATE.gripperY} />\".",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-126",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-behavioral-defaults-action-conditioning-18",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/action-conditioning.tsx:18",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "5f31c2f7bdf6c34f10d7c449a9b154a6a93204534633c5fcba75867b4d2932d5",
+      "reason": "Positional member of ActionConditioning on /world-models/generative-video/. Redrawing the rollout panels as graphite diagrams (VAL-OPUS-126) added one INITIAL_STATE read ahead of the defaults (GRIPPER_X = blockLeft(INITIAL_STATE.blockX) + BLOCK_SIZE / 2), which moves every later default expression down one index, and the shared initial frame adds four reads at the end. The defaults themselves are unchanged: defaultActionA = 'push-left', defaultActionB = 'lift', defaultConditioning = 'strong', and INITIAL_STATE = { blockX: 0.5, gripperY: 0.12 } in lib/action-conditioning.ts. This index is new and holds \"initialFrame}\".",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-126",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-behavioral-defaults-collaborative-operation-modes-4",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/collaborative-operation-modes.tsx:4",
+      "oldHash": "76639607fc6dc92d339337962aea18f429814636c7da864a4969e695b3119851",
+      "newHash": "429bf69654fa9ec5f7ce5ab728af8ccc61d259c4600b97ff9ae481a2f2f0f5d3",
+      "reason": "Positional member of CollaborativeOperationModes on /frontier/safety-and-assurance/. Moving the instrument onto the figure frame moved the Model assumptions disclosure, whose sentence names the default speeds, from the end of the component into a ModelAssumptions helper above it, so the same eight default expressions now sit at different indexes. No default changed: DEFAULT_MODE, DEFAULT_ROBOT_SPEED_M_S and DEFAULT_HUMAN_SPEED_M_S, with both sliders choosing 0 to 2 m/s. This index held \"DEFAULT_MODE);\" and now holds \"DEFAULT_ROBOT_SPEED_M_S)} and operator default{' '}\".",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-125",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-behavioral-defaults-collaborative-operation-modes-5",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/collaborative-operation-modes.tsx:5",
+      "oldHash": "bd4805c549cffffd447d370cf33ed4a14f5d1b60476c4e390e8432314862aa09",
+      "newHash": "f6d22dc4120c1310e79662f0d2bab37763e5d5b43df43c451b2ef04ef6a16e40",
+      "reason": "Positional member of CollaborativeOperationModes on /frontier/safety-and-assurance/. Moving the instrument onto the figure frame moved the Model assumptions disclosure, whose sentence names the default speeds, from the end of the component into a ModelAssumptions helper above it, so the same eight default expressions now sit at different indexes. No default changed: DEFAULT_MODE, DEFAULT_ROBOT_SPEED_M_S and DEFAULT_HUMAN_SPEED_M_S, with both sliders choosing 0 to 2 m/s. This index held \"DEFAULT_ROBOT_SPEED_M_S);\" and now holds \"DEFAULT_HUMAN_SPEED_M_S)}, with both sliders choosing 0 to 2 m/s\".",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-125",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-behavioral-defaults-collaborative-operation-modes-6",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/collaborative-operation-modes.tsx:6",
+      "oldHash": "50dba3e8d725157cdb902dc3981c83ae2124cbfe9a64a2005c4abad73720d2a4",
+      "newHash": "76639607fc6dc92d339337962aea18f429814636c7da864a4969e695b3119851",
+      "reason": "Positional member of CollaborativeOperationModes on /frontier/safety-and-assurance/. Moving the instrument onto the figure frame moved the Model assumptions disclosure, whose sentence names the default speeds, from the end of the component into a ModelAssumptions helper above it, so the same eight default expressions now sit at different indexes. No default changed: DEFAULT_MODE, DEFAULT_ROBOT_SPEED_M_S and DEFAULT_HUMAN_SPEED_M_S, with both sliders choosing 0 to 2 m/s. This index held \"DEFAULT_HUMAN_SPEED_M_S);\" and now holds \"DEFAULT_MODE);\".",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-125",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-behavioral-defaults-collaborative-operation-modes-7",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/collaborative-operation-modes.tsx:7",
+      "oldHash": "76639607fc6dc92d339337962aea18f429814636c7da864a4969e695b3119851",
+      "newHash": "bd4805c549cffffd447d370cf33ed4a14f5d1b60476c4e390e8432314862aa09",
+      "reason": "Positional member of CollaborativeOperationModes on /frontier/safety-and-assurance/. Moving the instrument onto the figure frame moved the Model assumptions disclosure, whose sentence names the default speeds, from the end of the component into a ModelAssumptions helper above it, so the same eight default expressions now sit at different indexes. No default changed: DEFAULT_MODE, DEFAULT_ROBOT_SPEED_M_S and DEFAULT_HUMAN_SPEED_M_S, with both sliders choosing 0 to 2 m/s. This index held \"DEFAULT_MODE);\" and now holds \"DEFAULT_ROBOT_SPEED_M_S);\".",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-125",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-behavioral-defaults-collaborative-operation-modes-8",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/collaborative-operation-modes.tsx:8",
+      "oldHash": "bd4805c549cffffd447d370cf33ed4a14f5d1b60476c4e390e8432314862aa09",
+      "newHash": "50dba3e8d725157cdb902dc3981c83ae2124cbfe9a64a2005c4abad73720d2a4",
+      "reason": "Positional member of CollaborativeOperationModes on /frontier/safety-and-assurance/. Moving the instrument onto the figure frame moved the Model assumptions disclosure, whose sentence names the default speeds, from the end of the component into a ModelAssumptions helper above it, so the same eight default expressions now sit at different indexes. No default changed: DEFAULT_MODE, DEFAULT_ROBOT_SPEED_M_S and DEFAULT_HUMAN_SPEED_M_S, with both sliders choosing 0 to 2 m/s. This index held \"DEFAULT_ROBOT_SPEED_M_S);\" and now holds \"DEFAULT_HUMAN_SPEED_M_S);\".",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-125",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-behavioral-defaults-collaborative-operation-modes-9",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/collaborative-operation-modes.tsx:9",
+      "oldHash": "50dba3e8d725157cdb902dc3981c83ae2124cbfe9a64a2005c4abad73720d2a4",
+      "newHash": "76639607fc6dc92d339337962aea18f429814636c7da864a4969e695b3119851",
+      "reason": "Positional member of CollaborativeOperationModes on /frontier/safety-and-assurance/. Moving the instrument onto the figure frame moved the Model assumptions disclosure, whose sentence names the default speeds, from the end of the component into a ModelAssumptions helper above it, so the same eight default expressions now sit at different indexes. No default changed: DEFAULT_MODE, DEFAULT_ROBOT_SPEED_M_S and DEFAULT_HUMAN_SPEED_M_S, with both sliders choosing 0 to 2 m/s. This index held \"DEFAULT_HUMAN_SPEED_M_S);\" and now holds \"DEFAULT_MODE);\".",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-125",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-behavioral-defaults-collaborative-operation-modes-10",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/collaborative-operation-modes.tsx:10",
+      "oldHash": "429bf69654fa9ec5f7ce5ab728af8ccc61d259c4600b97ff9ae481a2f2f0f5d3",
+      "newHash": "bd4805c549cffffd447d370cf33ed4a14f5d1b60476c4e390e8432314862aa09",
+      "reason": "Positional member of CollaborativeOperationModes on /frontier/safety-and-assurance/. Moving the instrument onto the figure frame moved the Model assumptions disclosure, whose sentence names the default speeds, from the end of the component into a ModelAssumptions helper above it, so the same eight default expressions now sit at different indexes. No default changed: DEFAULT_MODE, DEFAULT_ROBOT_SPEED_M_S and DEFAULT_HUMAN_SPEED_M_S, with both sliders choosing 0 to 2 m/s. This index held \"DEFAULT_ROBOT_SPEED_M_S)} and operator default{' '}\" and now holds \"DEFAULT_ROBOT_SPEED_M_S);\".",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-125",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-behavioral-defaults-collaborative-operation-modes-11",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/collaborative-operation-modes.tsx:11",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "50dba3e8d725157cdb902dc3981c83ae2124cbfe9a64a2005c4abad73720d2a4",
+      "reason": "Positional member of CollaborativeOperationModes on /frontier/safety-and-assurance/. Moving the instrument onto the figure frame moved the Model assumptions disclosure, whose sentence names the default speeds, from the end of the component into a ModelAssumptions helper above it, so the same eight default expressions now sit at different indexes. No default changed: DEFAULT_MODE, DEFAULT_ROBOT_SPEED_M_S and DEFAULT_HUMAN_SPEED_M_S, with both sliders choosing 0 to 2 m/s. This index held \"DEFAULT_HUMAN_SPEED_M_S)}, with both sliders choosing 0 to 2 m/s\" and now holds \"DEFAULT_HUMAN_SPEED_M_S);\". This resolution starts from the sealed absence of the member and reconciles its earlier approvals, final-seven-closure-20260923-10 and continuation-merge-2026-09-24-safety-range-behavioral-defaults.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-125",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "final-seven-closure-20260923-10",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "bc0586686f7ebc56979580674ca75e18e0d0e7d6b8552b7c38b5abc6df026cc2"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-safety-range-behavioral-defaults",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "f6d22dc4120c1310e79662f0d2bab37763e5d5b43df43c451b2ef04ef6a16e40"
+        }
+      ]
+    },
+    {
+      "id": "opus-figure-migration-20261001-behavioral-defaults-cross-embodiment-strategies-1",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/cross-embodiment-strategies.tsx:1",
+      "oldHash": "a92a8525520cb2b3e5e5f02c276a8e0e323688ec4ac2a91e874b59e4a83c064b",
+      "newHash": "cd6f2ff9c4f66ff70e4d56e424d9f477ce0a388b0e7e629a8114ab64e7c45700",
+      "reason": "CrossEmbodimentStrategies on /manipulation/cross-embodiment/ now opens on the shared relative end-effector strategy (defaultStrategy = 'relative-eef') in place of padding ('padded'). Under padding the toy defines no human-hand adapter, so the human-hand row of the slot strip is empty and the graphite stage opened on an empty band (VAL-OPUS-006); in relative end-effector space that row is populated. The chart description in lib/chart-descriptions.ts follows the new default, and Reset returns to it. No strategy, slot or source changed.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-006",
+        "VAL-OPUS-125",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-behavioral-defaults-thesis-explorer-3",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/thesis-explorer.tsx:3",
+      "oldHash": "c280ffb7c8939a9f1e560a633dd969887331ac6e80e2b2ba0e27fc3f60d561f7",
+      "newHash": "315854ba052fd5599082ddb0c18bcf4040b817a57695f24d25a60cccd1922a6a",
+      "reason": "ThesisExplorer on /frontier/competing-theses/ now resets through the figure frame's shared reset control (controls={<InstrumentReset onClick={() => select(DEFAULT_THESIS_ID)} />}), so the captured expression ends in the control's closing tag. Reset still selects DEFAULT_THESIS_ID, and the initial selection, useState(DEFAULT_THESIS_ID), is unchanged.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-001",
+        "VAL-OPUS-125",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-behavioral-defaults-wbc-decomposition-5",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/wbc-decomposition.tsx:5",
+      "oldHash": "43eb18aaacd1951fdf9ad0e514fad9e5beed5cc362659b3785c58923386301d2",
+      "newHash": "2cb8028f0d486cebe2f7b274be1f602067690df285291b9004dff58ca9f3ba62",
+      "reason": "WbcDecomposition on /rl-sim2real/humanoid-wbc/ now resets through the figure frame's shared InstrumentReset control (onClick={() => setApproachId(DEFAULT_APPROACH)}) in place of a local reset function, so the captured expression ends in the control's closing tag. Reset still sets DEFAULT_APPROACH, and the initial approach (defaultApproach = DEFAULT_APPROACH) is unchanged.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-001",
+        "VAL-OPUS-125",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-value-states-comparison-matrix-not-disclosed-4",
+      "manifest": "value-states",
+      "memberId": "state-site:components/interactive/comparison-matrix.tsx:not-disclosed:4",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "d8c7193124701a6ae6a9a6b6919f160cc5d764686db12a456113a2893e0dd573",
+      "reason": "ComparisonMatrix on /manipulation/comparison-matrix/ gained the figure frame's one caption line, which ends \"unpublished cells read not disclosed and sort last.\", and the scanner counts that sentence as a fourth \"not disclosed\" text site. No cell changed state: undisclosed values still render NOT_DISCLOSED_TEXT and sort last.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-125",
+        "VAL-B2-BASE-013"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-value-states-hand-comparison-not-disclosed-3",
+      "manifest": "value-states",
+      "memberId": "state-site:components/interactive/hand-comparison.tsx:not-disclosed:3",
+      "oldHash": "87746674a9c7a0d2a93dfe598377ed6b3541a50b0770e8d28d74c652ccf92046",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "HandComparison on /frontier/dexterity/ wrote \"not disclosed\" inline in two cells, tactile and cost. Both cells now render one NotDisclosed helper, so the file holds one fewer \"not disclosed\" text site and the third positional site is gone. Every hand whose tactile or cost figure is unpublished still reads \"not disclosed\".",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Figure placement, source order and initial state only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-125",
+        "VAL-B2-BASE-013"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-figure-migration-20261001-accessible-names-execution-modes-literal-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/execution-modes.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "d5235017e4ec84b02e26c2c8c4bf745390e43bf543884c43397c8fa7b9f00e00",
+      "reason": "New accessible name \"Velocity traces for the three execution modes on one time axis\" on the ExecutionModes plot on /manipulation/realtime-execution/. At e4784342 each of the three modes drew its own svg, an image that the shared takeaway described. The three are now small-multiple panels in one plot on one shared time axis (VAL-OPUS-129), so the plot is a group that the takeaway describes once, and this short name keeps the group's name apart from that takeaway (VAL-EDU-021). Each panel keeps its own name. No fact, number or citation changed.",
+      "ownerApproval": "Owner directive of 2026-09-30 14:00 (figure migration moves up, top of active-correction-status.md) and the owner visual audit of 2026-09-29 (one figure system, one visual per concept), sealed in contract/opus-pass.md as VAL-OPUS-048 and VAL-OPUS-125 to VAL-OPUS-134. Presentation and accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-129",
+        "VAL-EDU-021",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
     }
   ]
 }
