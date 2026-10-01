@@ -58,7 +58,7 @@ describe('DeploymentEconomics component', () => {
     }
     // Seven sourcing notes, each naming its input's default a source or an
     // assumption (VAL-DATA-034).
-    const notes = document.querySelectorAll('p.text-\\[11px\\].leading-snug');
+    const notes = document.querySelectorAll('[data-control-note]');
     const noteTexts = Array.from(notes).map((n) => n.textContent ?? '');
     expect(
       noteTexts.filter((t) => /assumption|sourced/i.test(t)).length,

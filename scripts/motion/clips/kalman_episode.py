@@ -2,48 +2,44 @@
 
 The pilot tier-(b) clip of the motion language. Every number on screen
 comes from scripts/motion/data/kalman-episode.json, which the TypeScript
-filter in lib/kalman.ts exports (seed 1, matched noise beliefs); the
-visual language comes from scripts/motion/motion_theme.py, generated from
-motion-tokens.json. The beat durations are read from motion-clips.json so
-the render, the WebVTT cues and the page registry share one timeline.
+filter in lib/kalman.ts exports (seed 1, matched noise beliefs). Every
+colour, font and size comes from scripts/motion/motion_theme.py, generated
+from motion-tokens.json, through clip_kit. The beat durations are read
+from motion-clips.json so the render, the WebVTT cues and the page
+registry share one timeline.
 
-Annotations occupy a separate rail and the fusion beat clears the
-whole-run traces before focusing the actual seeded update. Nothing here
-runs at build or deploy time.
+The frame is a legend band over the run. The native video controls and
+their scrim cover the bottom of the frame whenever the clip is paused,
+ended or showing its poster (the bottom quarter at desktop widths, half
+at phone widths), so no label sits there and the run ends above it. The
+fusion beat clears the run and draws the seeded update as two beliefs on
+one line, labelled from above. Nothing here runs at build or deploy time.
 """
 
 import json
+import math
 import pathlib
 import sys
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(REPO_ROOT / "scripts" / "motion"))
 
+import clip_kit as kit  # noqa: E402
 import motion_theme as theme  # noqa: E402
 
 from manim import (  # noqa: E402
-    DOWN,
-    LEFT,
-    RIGHT,
-    UL,
-    Axes,
     Create,
-    DashedVMobject,
-    Dot,
-    Ellipse,
     FadeIn,
     FadeOut,
     LaggedStart,
     Line,
-    MathTex,
-    MovingCameraScene,
     Polygon,
-    Text,
-    UP,
+    Scene,
+    Transform,
     VGroup,
-    VMobject,
     ValueTracker,
     always_redraw,
+    config,
     linear,
 )
 
@@ -53,10 +49,33 @@ EASE = theme.smooth
 
 CLIP_ID = "kalman-episode"
 RUN_STEPS = 240
-# The seeded episode reaches -10.02 at the lower two-sigma boundary.
-# Its full band must fit, not merely its mean.
-Y_SPAN = 11.5
 TWO_SIGMA = 2.0
+
+# Layout in stage px on the stage the frame stands for (CLIP_STAGE_PX wide,
+# origin at the centre, y up). The run's 2-sigma band reaches 6.27 in the
+# first RUN_STEPS steps, so +-6.5 holds the whole band, not just its mean.
+EDGE = 137.5
+LEGEND_BASELINES = (64, 45)
+LEGEND_GAP = 12
+SWATCH = 15
+SWATCH_GAP = 4
+PLOT_TOP = 35
+PLOT_BOTTOM = -48
+POSITION_SPAN = 6.5
+
+# The fusion close-up, also in stage px. The offsets are an explanatory
+# layout, not model values: the seeded gain places the posterior on the
+# predicted-to-reading segment and the seeded sigma ratio narrows it.
+FUSION_LINE = -12
+PREDICTED_X = -84
+READING_X = 76
+PREDICTED_SIGMA = 20
+PREDICTED_PEAK = 34
+ABOVE_GAP = 8
+CLEARANCE = 3
+# A belief's curve is drawn out to this many sigmas, where it has fallen
+# below 4% of its peak.
+BUMP_REACH = 2.6
 
 
 def _load():
@@ -68,300 +87,312 @@ def _load():
     return data, clip
 
 
-def _polyline(points):
-    line = VMobject()
-    if len(points) >= 2:
-        line.set_points_as_corners(points)
-    return line
+def _point(x_px, y_px):
+    return [kit.units(x_px), kit.units(y_px), 0]
 
 
-class KalmanEpisode(MovingCameraScene):
+def _plot_x(step):
+    return -EDGE + 2 * EDGE * step / RUN_STEPS
+
+
+def _plot_y(position):
+    span = (position + POSITION_SPAN) / (2 * POSITION_SPAN)
+    return PLOT_BOTTOM + span * (PLOT_TOP - PLOT_BOTTOM)
+
+
+def _plot(step, position):
+    return _point(_plot_x(step), _plot_y(position))
+
+
+def _bump_height(mean_px, sigma_px, peak_px, x_px):
+    return peak_px * math.exp(-0.5 * ((x_px - mean_px) / sigma_px) ** 2)
+
+
+def _bump(mean_px, sigma_px, peak_px):
+    """A belief on the fusion line: its curve and the filled area under it."""
+    xs = [mean_px + sigma_px * (i / 30 - 1) * BUMP_REACH for i in range(61)]
+    curve = [
+        _point(x, FUSION_LINE + _bump_height(mean_px, sigma_px, peak_px, x)) for x in xs
+    ]
+    area = kit.fill(
+        Polygon(*curve, _point(xs[-1], FUSION_LINE), _point(xs[0], FUSION_LINE)),
+        "state",
+    )
+    edge = kit.dashed(kit.trace(curve, "reference", "state"))
+    return VGroup(area, edge)
+
+
+def _clear_of(label, *beliefs):
+    """Fail the render if a fusion label touches a belief curve it spans
+    (each belief a mean, sigma, peak triple) or a marker on the line."""
+    left = kit.stage_px(label.get_left()[0])
+    right = kit.stage_px(label.get_right()[0])
+    bottom = kit.stage_px(label.get_bottom()[1])
+    floor = FUSION_LINE + theme.MARKER_RADIUS_PX["single"]
+    for mean, sigma, peak in beliefs:
+        nearest = min(max(mean, left), right)
+        floor = max(floor, FUSION_LINE + _bump_height(mean, sigma, peak, nearest))
+    assert bottom - floor >= CLEARANCE, "a fusion label collides with the marks below it"
+    return label
+
+
+def _legend(row, entries):
+    """One legend row, laid out once so an item appearing later never shifts
+    the others. A swatch builder gets the swatch's left edge and the label's
+    x-height middle, both in stage px."""
+    items = []
+    cursor = -EDGE
+    for swatch, word in entries:
+        label = kit.text(word)
+        if swatch is None:
+            kit.place(label, cursor, row, edge=-1)
+            items.append(label)
+        else:
+            kit.place(label, cursor + SWATCH + SWATCH_GAP, row, edge=-1)
+            items.append(VGroup(swatch(cursor, kit.x_middle(label)), label))
+        cursor = kit.stage_px(label.get_right()[0]) + LEGEND_GAP
+    return items
+
+
+def _dash_swatch(left, mid):
+    line = Line(_point(left, mid), _point(left + SWATCH, mid))
+    return kit.dashed(kit.stroke(line, "reference", "reference"))
+
+
+def _dot_swatch(left, mid):
+    return kit.marker(_point(left + SWATCH / 2, mid), "measurement")
+
+
+def _band_swatch(left, mid):
+    half = theme.TYPE_PX["label"] / 3
+    band = kit.fill(
+        Polygon(
+            _point(left, mid - half), _point(left + SWATCH, mid - half),
+            _point(left + SWATCH, mid + half), _point(left, mid + half),
+        ),
+        "state",
+    )
+    line = kit.stroke(Line(_point(left, mid), _point(left + SWATCH, mid)), "trace", "state")
+    return VGroup(band, line)
+
+
+class KalmanEpisode(Scene):
     def construct(self):
+        with kit.clip_font():
+            self._episode()
+
+    def _episode(self):
         data, clip = _load()
         beats = [beat["durationMs"] / 1000.0 for beat in clip["beats"]]
-
+        steps = range(RUN_STEPS + 1)
         truth = data["truth"]
         measurements = data["measurements"]
-        frames = data["frames"]
-        est = [frame["est"] for frame in frames]
-        sigma = [frame["sigma"] for frame in frames]
+        est = [frame["est"] for frame in data["frames"]]
+        sigma = [frame["sigma"] for frame in data["frames"]]
         focus = data["focus"]
-        assert max(
-            abs(value)
-            for values in (
-                truth,
-                (value for value in measurements if value is not None),
-                (frame["est"] + sign * TWO_SIGMA * frame["sigma"]
-                 for frame in frames for sign in (-1, 1)),
-            )
-            for value in values
-        ) < Y_SPAN, "the episode exceeds the plot's vertical bounds"
+        reach = max(
+            [abs(truth[t]) for t in steps]
+            + [abs(measurements[t]) for t in steps if measurements[t] is not None]
+            + [abs(est[t]) + TWO_SIGMA * sigma[t] for t in steps]
+        )
+        assert reach < POSITION_SPAN, "the run exceeds the plot's vertical bounds"
 
         self.camera.background_color = theme.STAGE_BACKGROUND
-
-        state_c = theme.ROLE_COLORS["state"]
-        measurement_c = theme.ROLE_COLORS["measurement"]
-        reference_c = theme.ROLE_COLORS["reference"]
-        highlight_c = theme.ROLE_COLORS["highlight"]
-
-        axes = Axes(
-            x_range=[0, RUN_STEPS, 60],
-            y_range=[-Y_SPAN, Y_SPAN, 5],
-            x_length=8.8,
-            y_length=4.3,
-            tips=False,
-            axis_config={"stroke_width": 1.5, "include_ticks": True, "tick_size": 0.035},
-        )
-        axes.shift(LEFT * 0.9 + DOWN * 0.7)
-        axes.set_stroke(color=theme.STAGE_AXES, opacity=theme.STAGE_AXES_OPACITY)
-        rail_x = 4.45
-
-        def rail_label(text, color, y, anchor, *, dashed=False):
-            """A label outside the plotting region, attached to its mark."""
-            label = Text(text, font_size=35, color=color).move_to([rail_x, y, 0])
-            leader = Line(anchor, label.get_left() + LEFT * 0.12)
-            leader.set_stroke(color=color, width=1.2, opacity=0.8)
-            if dashed:
-                leader = DashedVMobject(leader, num_dashes=4)
-            return VGroup(leader, label)
-
-        title = Text(clip["title"], font_size=32, color=theme.STAGE_LABEL)
-        title.to_corner(UL, buff=0.45)
-
-        truth_curve = _polyline(
-            [axes.c2p(t, truth[t]) for t in range(RUN_STEPS + 1)]
-        ).set_stroke(color=reference_c, width=2.2)
-        truth_dashes = DashedVMobject(truth_curve, num_dashes=72)
-        truth_label = rail_label(
-            "truth", reference_c, 0.82, axes.c2p(RUN_STEPS, truth[-1]), dashed=True
-        )
-
-        measured_steps = [t for t in range(RUN_STEPS + 1) if measurements[t] is not None]
-        dots = [
-            Dot(axes.c2p(t, measurements[t]), radius=0.045, color=measurement_c)
-            for t in measured_steps
-        ]
-        final_reading = measured_steps[-1]
-        readings_label = rail_label(
-            "readings",
-            measurement_c,
-            0.15,
-            axes.c2p(final_reading, measurements[final_reading]),
-        )
-
-        spent = [0.0]
+        fps = config.frame_rate
+        beat_end = [0.0]
 
         def play(*animations, run_time, rate_func=EASE, **kwargs):
-            spent[0] += run_time
             self.play(*animations, run_time=run_time, rate_func=rate_func, **kwargs)
 
-        def rest(budget):
-            """Hold the still frame for whatever remains of the beat."""
-            remaining = budget - spent[0]
-            if remaining > 1e-6:
-                self.wait(remaining)
+        def frames():
+            return round(self.renderer.time * fps)
+
+        def rest(duration):
+            """Hold the still frame to the beat's end on the manifest timeline.
+
+            The renderer rounds every animation and wait to whole frames on
+            its own, so the hold is counted against the frames already
+            written; otherwise beats drift early and the WebVTT cues and the
+            beat stills fall out of step with the picture."""
+            beat_end[0] += duration
+            target = round(beat_end[0] * fps)
+            hold = target - frames()
+            assert hold >= 0, "a beat overran its manifest duration"
+            if hold:
+                # A frozen wait writes int(duration * fps) frames.
+                self.wait((hold + 0.5) / fps, frozen_frame=True)
+            assert frames() == target
+
+        # ---- the run's legend band ----------------------------------------
+        # The run's length stands in the band, not on a bottom axis, which
+        # the paused controls would cover.
+        length_note = kit.place(
+            kit.text(f"{RUN_STEPS} steps", size="axis", tone="secondary"),
+            EDGE, LEGEND_BASELINES[1], edge=1,
+        )
+        truth_item, readings_item, estimate_item = _legend(
+            LEGEND_BASELINES[0],
+            [(_dash_swatch, "truth"), (_dot_swatch, "readings"), (_band_swatch, "estimate")],
+        )
+        predict_item, update_item = _legend(
+            LEGEND_BASELINES[1], [(None, "predict widens"), (None, "update narrows")]
+        )
+        assert (
+            kit.stage_px(length_note.get_left()[0] - update_item.get_right()[0]) >= LEGEND_GAP
+        ), "the run-length note crowds the second legend row"
+        truth_dashes = kit.dashed(
+            kit.trace([_plot(t, truth[t]) for t in steps], "reference", "reference")
+        )
+        dots = VGroup(
+            *(
+                kit.marker(_plot(t, measurements[t]), "measurement", dense=True)
+                for t in steps
+                if measurements[t] is not None
+            )
+        )
 
         # ---- beat 1: the wandering target --------------------------------
-        play(Create(axes), run_time=0.7)
-        play(FadeIn(title), run_time=0.3)
+        play(FadeIn(truth_item), FadeIn(length_note), run_time=0.5)
+        # Steps appear at a constant rate: the reveal is model time.
         play(
             LaggedStart(
-                *(Create(dash) for dash in truth_dashes),
+                *(Create(dash, rate_func=EASE) for dash in truth_dashes),
                 lag_ratio=theme.LAG_DENSE,
             ),
-            run_time=1.4,
+            run_time=1.6,
+            rate_func=linear,
         )
-        play(FadeIn(truth_label), run_time=0.3)
         rest(beats[0])
 
         # ---- beat 2: the sensor -------------------------------------------
-        spent[0] = 0.0
+        play(FadeIn(readings_item), run_time=0.3)
         play(
             LaggedStart(
-                *(FadeIn(dot, scale=0.6) for dot in dots),
+                *(FadeIn(dot, scale=0.6, rate_func=EASE) for dot in dots),
                 lag_ratio=theme.LAG_DENSE,
             ),
-            run_time=2.3,
+            run_time=2.2,
+            rate_func=linear,
         )
-        play(FadeIn(readings_label), run_time=0.4)
         rest(beats[1])
 
         # ---- beat 3: one fusion up close ----------------------------------
-        spent[0] = 0.0
-        t_focus = focus["t"]
-        focus_point = axes.c2p(t_focus, focus["posterior"]["est"])
-        frame = self.camera.frame
-        full_width = frame.width
-        full_center = frame.get_center()
-
-        # The x offsets are an explanatory layout, not new model values:
-        # the actual seeded gain determines the dot's position on the
-        # predicted-to-reading segment and the sigma ratio the narrowing.
-        prior_point = focus_point + LEFT * 1.25
-        reading_point = focus_point + RIGHT * 1.4
-        posterior_point = prior_point + RIGHT * (2.65 * focus["gain"])
-
-        def belief_band(center, sigma_value):
-            """State-coloured uncertainty with its dashed edge."""
-            height = 1.48 * sigma_value / focus["predicted"]["sigma"]
-            shape = Ellipse(width=2.1, height=height).move_to(center)
-            fill = shape.copy().set_fill(
-                state_c, opacity=theme.UNCERTAINTY_FILL_ALPHA
-            ).set_stroke(width=0)
-            edge = DashedVMobject(
-                shape.set_stroke(color=state_c, width=1.8), num_dashes=18
-            )
-            return VGroup(fill, edge)
-
-        predicted_band = belief_band(prior_point, focus["predicted"]["sigma"])
-        posterior_band = belief_band(posterior_point, focus["posterior"]["sigma"])
-        prior_dot = Dot(prior_point, radius=0.055, color=state_c)
-        reading_dot = Dot(reading_point, radius=0.065, color=measurement_c)
-        gain_dot = Dot(posterior_point, radius=0.065, color=highlight_c)
-        band_label = Text(
-            "predicted belief", font_size=16, color=state_c
-        ).move_to(focus_point + LEFT * 1.45 + UP * 1.06)
-        band_leader = Line(
-            band_label.get_bottom() + DOWN * 0.04,
-            prior_point + UP * 0.08,
-        ).set_stroke(color=state_c, width=0.75)
-        reading_label = Text(
-            "reading z", font_size=16, color=measurement_c
-        ).move_to(focus_point + RIGHT * 1.65 + UP * 1.06)
-        reading_leader = Line(
-            reading_label.get_bottom() + DOWN * 0.04,
-            reading_point + UP * 0.08,
-        ).set_stroke(color=measurement_c, width=0.75)
-        gain_label = Text(
-            "gain K", font_size=16, color=highlight_c
-        ).move_to(focus_point + UP * 1.07)
-        gain_leader = Line(
-            gain_label.get_bottom() + DOWN * 0.04,
-            posterior_point + UP * 0.09,
-        ).set_stroke(color=highlight_c, width=0.75)
-        fusion_segment = Line(
-            prior_point, reading_point
-        ).set_stroke(color=theme.STAGE_LABEL_SECONDARY, width=1.3, opacity=0.6)
-
-        # The whole-run traces vanish before the close-up. Otherwise the
-        # camera magnifies dozens of unrelated marks and clips their labels.
-        plot_art = VGroup(axes, truth_dashes, truth_label, *dots, readings_label)
-        play(FadeOut(plot_art), run_time=0.25)
-        play(frame.animate.move_to(focus_point).set(width=5.2), run_time=0.5)
-        play(
-            FadeIn(predicted_band), FadeIn(prior_dot),
-            FadeIn(band_label), FadeIn(band_leader),
-            run_time=0.45,
+        ratio = focus["posterior"]["sigma"] / focus["predicted"]["sigma"]
+        posterior_x = PREDICTED_X + focus["gain"] * (READING_X - PREDICTED_X)
+        posterior_sigma = PREDICTED_SIGMA * ratio
+        posterior_peak = PREDICTED_PEAK / ratio
+        beliefs = (
+            (PREDICTED_X, PREDICTED_SIGMA, PREDICTED_PEAK),
+            (posterior_x, posterior_sigma, posterior_peak),
         )
-        play(
-            FadeIn(fusion_segment), FadeIn(reading_dot),
-            FadeIn(reading_label), FadeIn(reading_leader), run_time=0.4,
+        dot_radius = theme.MARKER_RADIUS_PX["single"]
+        on_line = FUSION_LINE + dot_radius + ABOVE_GAP
+        fusion_line = kit.structure(Line(_point(-EDGE, FUSION_LINE), _point(EDGE, FUSION_LINE)))
+        predicted = _bump(*beliefs[0])
+        posterior = _bump(*beliefs[1])
+        predicted_dot = kit.marker(_point(PREDICTED_X, FUSION_LINE), "state")
+        reading_dot = kit.marker(_point(READING_X, FUSION_LINE), "measurement")
+        posterior_dot = kit.marker(_point(posterior_x, FUSION_LINE), "state")
+        predicted_label = _clear_of(
+            kit.place(
+                kit.text("predicted", tone="state"),
+                PREDICTED_X, FUSION_LINE + PREDICTED_PEAK + ABOVE_GAP,
+            ),
+            *beliefs,
         )
+        posterior_label = _clear_of(
+            kit.place(
+                kit.text("posterior", tone="state"),
+                posterior_x, FUSION_LINE + posterior_peak + ABOVE_GAP,
+            ),
+            *beliefs,
+        )
+        assert (
+            kit.stage_px(config.frame_height / 2 - posterior_label.get_top()[1]) >= ABOVE_GAP
+        ), "the posterior label leaves the top of the frame"
+        # The reading label runs right from its dot: centred, it would
+        # meet the posterior's flank.
+        reading_label = _clear_of(
+            kit.place(
+                kit.text("reading z", tone="measurement"),
+                READING_X - dot_radius, on_line, edge=-1,
+            ),
+            *beliefs,
+        )
+        gain_arrow = kit.arrow(
+            _point(PREDICTED_X + dot_radius, FUSION_LINE),
+            _point(posterior_x - dot_radius, FUSION_LINE),
+            "label",
+        )
+        # Centred on the gap between the two drawn curves.
+        gap_centre = (
+            PREDICTED_X + BUMP_REACH * PREDICTED_SIGMA + posterior_x - BUMP_REACH * posterior_sigma
+        ) / 2
+        gain_label = _clear_of(kit.place(kit.text("gain K"), gap_centre, on_line), *beliefs)
+
+        # The run leaves before the close-up, so no unrelated mark sits
+        # under the two beliefs.
+        run_art = VGroup(length_note, truth_item, readings_item, truth_dashes, dots)
+        play(FadeOut(run_art), run_time=0.25)
         play(
-            predicted_band.animate.become(posterior_band),
+            Create(fusion_line), FadeIn(predicted), FadeIn(predicted_dot),
+            FadeIn(predicted_label), run_time=0.45,
+        )
+        play(FadeIn(reading_dot), FadeIn(reading_label), run_time=0.3)
+        narrowing = predicted.copy()
+        self.add(narrowing)
+        play(
+            Transform(narrowing, posterior), Create(gain_arrow), FadeIn(posterior_dot),
             run_time=0.6,
         )
-        play(
-            FadeIn(gain_dot), FadeIn(gain_label), FadeIn(gain_leader),
-            run_time=0.3,
-        )
+        play(FadeIn(posterior_label), FadeIn(gain_label), run_time=0.3)
+        play(kit.indicate(narrowing), run_time=theme.INDICATE, rate_func=theme.there_and_back)
         rest(beats[2])
 
         # ---- beat 4: the whole run ----------------------------------------
-        spent[0] = 0.0
-        zoom_artifacts = VGroup(
-            predicted_band,
-            band_label,
-            band_leader,
-            reading_label,
-            reading_leader,
+        closeup = VGroup(
+            fusion_line, predicted, predicted_dot, predicted_label, reading_dot,
+            reading_label, narrowing, posterior_dot, posterior_label, gain_arrow,
             gain_label,
-            gain_leader,
-            gain_dot,
-            prior_dot,
-            reading_dot,
-            fusion_segment,
         )
-        play(FadeOut(zoom_artifacts), run_time=0.3)
-        play(
-            frame.animate.move_to(full_center).set(width=full_width),
-            run_time=0.5,
-        )
-        play(FadeIn(plot_art), run_time=0.4)
+        play(FadeOut(closeup), run_time=0.3)
+        play(FadeIn(run_art), FadeIn(estimate_item), run_time=0.4)
 
-        tracker = ValueTracker(2.0)
+        tracker = ValueTracker(1)
 
-        def estimate_curve():
-            index = max(1, min(RUN_STEPS, int(round(tracker.get_value()))))
-            return _polyline(
-                [axes.c2p(t, est[t]) for t in range(index + 1)]
-            ).set_stroke(color=state_c, width=3.0)
+        def reached():
+            return max(1, min(RUN_STEPS, int(round(tracker.get_value()))))
 
         def estimate_band():
-            index = max(1, min(RUN_STEPS, int(round(tracker.get_value()))))
-            upper = [
-                axes.c2p(t, est[t] + TWO_SIGMA * sigma[t])
-                for t in range(index + 1)
-            ]
-            lower = [
-                axes.c2p(t, est[t] - TWO_SIGMA * sigma[t])
-                for t in range(index + 1)
-            ]
-            return Polygon(
-                *upper,
-                *reversed(lower),
-                fill_color=state_c,
-                fill_opacity=theme.UNCERTAINTY_FILL_ALPHA,
-                stroke_width=0,
-            )
+            span = range(reached() + 1)
+            upper = [_plot(t, est[t] + TWO_SIGMA * sigma[t]) for t in span]
+            lower = [_plot(t, est[t] - TWO_SIGMA * sigma[t]) for t in reversed(span)]
+            return kit.fill(Polygon(*upper, *lower), "state")
+
+        def estimate_curve():
+            return kit.trace([_plot(t, est[t]) for t in range(reached() + 1)], "trace", "state")
 
         def estimate_tip():
-            index = max(0, min(RUN_STEPS, int(round(tracker.get_value()))))
-            return Dot(axes.c2p(index, est[index]), radius=0.05, color=state_c)
+            return kit.marker(_plot(reached(), est[reached()]), "state")
 
-        curve = always_redraw(estimate_curve)
-        band = always_redraw(estimate_band)
-        tip = always_redraw(estimate_tip)
+        band = always_redraw(estimate_band).set_z_index(-1)
+        curve = always_redraw(estimate_curve).set_z_index(1)
+        tip = always_redraw(estimate_tip).set_z_index(2)
         self.add(band, curve, tip)
         # Simulation time runs linear in model time: never eased.
-        play(
-            tracker.animate.set_value(RUN_STEPS),
-            run_time=4.9,
-            rate_func=linear,
-        )
-        estimate_label = rail_label(
-            "estimate", state_c, -0.53,
-            axes.c2p(RUN_STEPS, est[RUN_STEPS]),
-        )
-        play(FadeIn(estimate_label), run_time=0.3)
+        play(tracker.animate.set_value(RUN_STEPS), run_time=4.9, rate_func=linear)
+        for mobject in (band, curve, tip):
+            mobject.clear_updaters()
         rest(beats[3])
 
         # ---- beat 5: the recursion ----------------------------------------
-        spent[0] = 0.0
-        predict_line = MathTex(
-            r"\text{predict:}\quad \bar{\mu}_t = A\,\mu_{t-1}",
-            font_size=30,
-            color=theme.STAGE_LABEL,
-        )
-        update_line = MathTex(
-            r"\text{update:}\quad \mu_t = \bar{\mu}_t + K_t\,(z_t - C\,\bar{\mu}_t)",
-            font_size=30,
-            color=theme.STAGE_LABEL,
-        )
-        predict_line.next_to(title, DOWN, buff=0.35)
-        update_line.next_to(predict_line, DOWN, buff=0.25)
-        play(Create(predict_line), run_time=0.8)
-        play(Create(update_line), run_time=0.9)
-        # Indicate, per the vocabulary: scale up and switch to the
-        # highlight role, out and back on the language's easing.
+        play(FadeIn(predict_item), FadeIn(update_item), run_time=0.4)
+        # The band keeps its geometry: it is the data the two labels name.
         play(
-            update_line.animate.scale(1.05).set_color(highlight_c),
-            run_time=0.4,
-            rate_func=EASE,
-        )
-        play(
-            update_line.animate.scale(1 / 1.05).set_color(theme.STAGE_LABEL),
-            run_time=0.4,
-            rate_func=EASE,
+            kit.indicate(band, grow=False),
+            kit.indicate(predict_item),
+            kit.indicate(update_item),
+            run_time=theme.INDICATE,
+            rate_func=theme.there_and_back,
         )
         rest(beats[4])

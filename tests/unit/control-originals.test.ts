@@ -4,6 +4,7 @@ import { join } from 'node:path';
 import { parseLedger, parseCompoundPlans } from '../../lib/audit-ledger.ts';
 import { CITATIONS } from '../../data/citations.ts';
 import { CORRECTION_TARGETS, parseCorrectedDispositions, validateCorrectedDisposition } from '../../lib/audit-corrected-disposition.ts';
+import { carriesThroughFigureMigration, preFigureMigration } from '../helpers/figure-migration';
 
 /**
  * Pins the 2026-09-15 control-originals integration: the eleven dispatched
@@ -89,7 +90,13 @@ describe('control originals integration (2026-09-16 evidence completions)', () =
     expect(article).not.toContain('<Cite id="kalman-1960" />');
     expect(article).toContain('<Cite id="ziegler-nichols-1942" />');
     expect(article).toContain('<Cite id="tedrake-underactuated" />');
-    expect(article.match(/<PendulumController\b/g)).toHaveLength(2);
+    // The claim removal kept both controller mounts; the 2026-10-01 figure
+    // migration later retired the standalone one under its reviewed survivor.
+    const reviewed = preFigureMigration('content/classical/control.mdx').toString('utf8');
+    expect(reviewed.match(/<PendulumController\b/g)).toHaveLength(2);
+    expect(carriesThroughFigureMigration('content/classical/control.mdx',
+      '<PendulumController className="my-6" />', article)).toBe(true);
+    expect(article.match(/<PendulumController\b/g)).toHaveLength(1);
     expect(article).toContain('<ImpedanceContactLab');
     expect(article).toContain('<SelfCheck');
     expect(article).toContain('<PredictThenReveal');

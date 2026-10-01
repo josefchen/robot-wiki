@@ -124,9 +124,12 @@ const DEVIATION_AXIS_SPAN = Math.log10(
   1 + DEVIATION_AXIS_CEILING / DEVIATION_AXIS_KNEE,
 );
 
-/** Gridline values, in model units. Ascending, spanning the full domain. */
+/**
+ * Gridline values, in model units. Ascending, up to the ceiling. The axis
+ * is labelled as a log scale, so the zero baseline is the x axis itself
+ * and carries no tick label.
+ */
 export const DEVIATION_AXIS_TICKS: readonly number[] = [
-  0,
   100,
   500,
   2000,

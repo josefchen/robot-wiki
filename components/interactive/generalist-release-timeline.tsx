@@ -3,13 +3,25 @@
 import Link from 'next/link';
 import { useId, useRef, useState } from 'react';
 import { useCitationLookup } from '@/components/article/citation-records';
+import { ChartDescription } from '@/components/ui/chart-description';
 import {
-  ChartDescription,
-  InstrumentFrame,
-  InstrumentHeader,
+  INSTRUMENT_TOGGLE_CLASS,
+  InstrumentFigure,
+  InstrumentLegend,
   InstrumentReset,
+  LegendItem,
   PlotStage,
-} from '@/components/ui';
+} from '@/components/ui/instrument';
+import { FigureStage } from '@/components/motion/figure-frame';
+import {
+  ChartAxes,
+  CHART_STROKE,
+  CHART_STRUCTURE,
+  CHART_TYPE,
+  CHART_VIEW_WIDTH,
+  LegendSwatch,
+  roleColour,
+} from '@/components/motion/chart';
 import {
   GENERALIST_RELEASES,
   PROVENANCE_TIERS,
@@ -22,20 +34,20 @@ import {
   type OpenFilter,
   type ProvenanceTier,
 } from '@/lib/generalist-policies';
-import { cx } from '@/lib/utils';
 
 /**
  * GeneralistReleaseTimeline: every current generalist policy on one time
- * axis, Feb 2025 to Jul 2026. Node fill distinguishes reported downloads;
- * text labels separate unavailable and not-disclosed weights. Shape records
- * provenance (circle paper, square repo
- * notes, triangle lab blog, diamond press release). A segmented filter
- * hides the non-matching side. Selecting a node (click or arrow keys) shows
- * its capability annotation, provenance tier, and primary source below.
+ * axis, Feb 2025 to Jul 2026, one row per release so no label collides.
+ * A filled node marks a reported download; each row's text label separates
+ * unavailable and not-disclosed weights. Shape records provenance (circle
+ * paper, square repo notes, triangle lab blog, diamond press release). A
+ * segmented filter hides the non-matching side. Selecting a release (click
+ * or arrow keys) shows its capability annotation, provenance tier, and
+ * primary source below.
  *
  * Interactive contract: deterministic render, keyboard-accessible selection
- * with arrow keys, visible detail readout, filter + reset controls,
- * fixed-height SVG (no layout shift), no auto-playing motion.
+ * with arrow keys, visible detail readout, filter + reset controls, no
+ * auto-playing motion.
  */
 type GeneralistReleaseTimelineProps = {
   /** Initially selected release id. Default 'helix' (first chronologically). */
@@ -43,18 +55,25 @@ type GeneralistReleaseTimelineProps = {
   className?: string;
 };
 
-const WIDTH = 720;
-const HEIGHT = 230;
-const AXIS_Y = 116;
-const AXIS_LEFT = 40;
-const AXIS_RIGHT = WIDTH - 16;
+const WIDTH = CHART_VIEW_WIDTH;
+const AXIS_LEFT = 32;
+const AXIS_RIGHT = WIDTH - 14;
+const ROWS_TOP = 6;
+const ROW_H = 20;
+/** Room below the last row for the tick marks and month labels. */
+const AXIS_BAND = 30;
+const NODE_SIZE = 4.5;
+const LABEL_GAP = 12;
+/** Conservative advance width of a 12 px label character, for side choice. */
+const CHAR_W = 7.4;
+/** Clear space a label keeps from the plot edge. */
+const EDGE = 6;
 
 /** Time axis bounds (month precision), slightly padded past the data. */
 const AXIS_MIN = '2025-01';
 const AXIS_MAX = '2026-09';
-
-/** Horizontal spread between releases sharing a month. */
-const CLUSTER_GAP = 30;
+const AXIS_TICKS = ['2025-01', '2025-07', '2026-01', '2026-07'];
+const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 function monthIndex(ym: string): number {
   const [year, month] = ym.split('-').map(Number);
@@ -64,15 +83,14 @@ function monthIndex(ym: string): number {
 /** Round to 2 decimals so SSR HTML and client hydration serialize identically. */
 const f = (v: number) => Number(v.toFixed(2));
 
-function dateToX(ym: string): number {
+function monthToX(index: number): number {
   const span = monthIndex(AXIS_MAX) - monthIndex(AXIS_MIN);
-  return f(
-    AXIS_LEFT +
-      ((monthIndex(ym) - monthIndex(AXIS_MIN)) / span) * (AXIS_RIGHT - AXIS_LEFT),
-  );
+  return f(AXIS_LEFT + ((index - monthIndex(AXIS_MIN)) / span) * (AXIS_RIGHT - AXIS_LEFT));
 }
 
-/** Short node labels: full names collide in the Mar 2025 / Apr 2026 clusters. */
+const monthLabel = (index: number) => `${MONTH_NAMES[index % 12]} ${2025 + Math.floor(index / 12)}`;
+
+/** Short row labels; the detail readout and buttons carry the full names. */
 const SHORT_NAME: Record<string, string> = {
   'Gemini Robotics 1.0': 'GR 1.0',
   'Gemini Robotics 1.5': 'GR 1.5',
@@ -89,32 +107,27 @@ const FILTERS: readonly { id: OpenFilter; label: string }[] = [
   { id: 'undisclosed', label: 'Not disclosed' },
 ];
 
+const STAGE_LINK = 'underline-offset-2';
+
 /** Node glyph per provenance tier: circle, square, triangle, diamond. */
 function TierGlyph({
   tier,
   x,
   y,
   size,
-  selected,
   open,
 }: {
   tier: ProvenanceTier;
   x: number;
   y: number;
   size: number;
-  selected: boolean;
   open: boolean | null;
 }) {
-  const fill = open ? 'var(--color-accent)' : 'var(--color-surface-2)';
-  const stroke = selected
-    ? 'var(--color-accent)'
-    : open
-      ? 'var(--color-accent)'
-      : 'var(--color-text-dim)';
+  const measurement = roleColour('measurement');
   const common = {
-    fill,
-    stroke,
-    strokeWidth: selected ? 2 : 1,
+    fill: open ? measurement : 'none',
+    stroke: measurement,
+    strokeWidth: 1.5,
   } as const;
   if (tier === 'paper') {
     return <circle cx={x} cy={y} r={size} {...common} />;
@@ -140,6 +153,26 @@ function TierGlyph({
   );
 }
 
+/** A legend-sized hollow glyph for one provenance tier. */
+function TierSwatch({ tier }: { tier: ProvenanceTier }) {
+  const h = CHART_TYPE.tickPx;
+  return (
+    <svg aria-hidden="true" focusable="false" width={h} height={h} viewBox={`0 0 ${h} ${h}`} className="shrink-0">
+      <TierGlyph tier={tier} x={h / 2} y={h / 2} size={3.5} open={false} />
+    </svg>
+  );
+}
+
+/** The selection ring drawn around the selected node. */
+function RingSwatch() {
+  const h = CHART_TYPE.tickPx;
+  return (
+    <svg aria-hidden="true" focusable="false" width={h * 2} height={h} viewBox={`0 0 ${h * 2} ${h}`} className="shrink-0">
+      <circle cx={h} cy={h / 2} r={5} fill="none" stroke={roleColour('highlight')} strokeWidth={CHART_STROKE.trace} />
+    </svg>
+  );
+}
+
 export function GeneralistReleaseTimeline({
   defaultSelected = 'helix',
   className,
@@ -155,16 +188,9 @@ export function GeneralistReleaseTimeline({
   const citationFor = useCitationLookup();
   const citation = citationFor(selected.citationId);
 
-  // Spread releases that share a month so every node stays visible.
-  const nodeX = (r: GeneralistRelease): number => {
-    const base = dateToX(r.released);
-    const siblings = GENERALIST_RELEASES.filter(
-      (other) => other.released === r.released,
-    );
-    if (siblings.length === 1) return base;
-    const position = siblings.findIndex((other) => other.id === r.id);
-    return f(base + (position - (siblings.length - 1) / 2) * CLUSTER_GAP);
-  };
+  const rowsBottom = ROWS_TOP + visible.length * ROW_H;
+  const height = rowsBottom + AXIS_BAND;
+  const highlight = roleColour('highlight');
 
   function applyFilter(next: OpenFilter) {
     setFilter(next);
@@ -186,260 +212,220 @@ export function GeneralistReleaseTimeline({
   }
 
   return (
-    <InstrumentFrame className={className}>
-      <InstrumentHeader
-        role="group"
-        aria-label="Filter by weight availability"
-        className="gap-1.5"
-        meta={
-          <span
-            data-testid="provenance-legend"
-            className="flex flex-wrap items-center gap-3"
+    <InstrumentFigure
+      figureId="generalist-release-timeline"
+      className={className}
+      heading="Generalist policy releases by month"
+      controls={
+        <>
+          <div
+            role="group"
+            aria-label="Filter by weight availability"
+            className="flex flex-wrap items-center gap-1"
           >
-            {PROVENANCE_TIERS.map((tier) => (
-              <span key={tier} className="flex items-center gap-1.5">
-                <svg width={12} height={12} aria-hidden="true">
-                  <TierGlyph tier={tier} x={6} y={6} size={3.5} selected={false} open={false} />
-                </svg>
-                {provenanceLabel(tier)}
-              </span>
-            ))}
-          </span>
-        }
-      >
-        {FILTERS.map(({ id, label }) => (
-          <button
-            data-brand-control-id="control:selection"
-            key={id}
-            type="button"
-            aria-pressed={filter === id}
-            onClick={() => applyFilter(id)}
-            className={cx(
-              'rounded-sm border px-3 py-1.5 font-mono text-xs transition-colors active:translate-y-[1px]',
-              filter === id
-                ? 'border-accent text-text'
-                : 'border-border bg-surface-2 text-text-dim hover:border-border-strong hover:text-text',
-            )}
-          >
-            {label}
-          </button>
-        ))}
-        <InstrumentReset onClick={reset} />
-      </InstrumentHeader>
-
-      <PlotStage
-        viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-        aria-label={`Selected generalist robot policy records. Highlighted nodes have a reported weight download; dim nodes include unavailable and not-disclosed records, distinguished by their text labels. Node shape encodes provenance: circle for papers, square for repo release notes, triangle for lab blogs, diamond for press releases. Currently showing ${visible.length} of ${GENERALIST_RELEASES.length} releases.`}
-        aria-describedby={descriptionId}
-        className="mt-3"
-      >
-        {/* Time axis */}
-        <line
-          x1={AXIS_LEFT}
-          x2={AXIS_RIGHT}
-          y1={AXIS_Y}
-          y2={AXIS_Y}
-          stroke="var(--color-border-strong)"
-          strokeWidth={1}
-        />
-        {['2025-07', '2026-01', '2026-07'].map((ym) => (
-          <g key={ym}>
-            <line
-              x1={dateToX(ym)}
-              x2={dateToX(ym)}
-              y1={AXIS_Y - 4}
-              y2={AXIS_Y + 4}
-              stroke="var(--color-border-strong)"
-              strokeWidth={1}
-            />
-          </g>
-        ))}
-        {['2025', '2026'].map((year) => (
-          <text
-            key={year}
-            x={dateToX(`${year}-07`)}
-            y={HEIGHT - 8}
-            textAnchor="middle"
-            fill="var(--color-text-dim)"
-            fontSize={10}
-            fontFamily="var(--font-mono)"
-          >
-            {year}
-          </text>
-        ))}
-
-        {/* Release nodes. Labels alternate above/below by index and stagger
-            near/far within each side, so the dense Mar 2025 and Apr 2026
-            clusters never overlap. */}
-        {visible.map((r, i) => {
-          const x = nodeX(r);
-          const above = i % 2 === 0;
-          const far = Math.floor(i / 2) % 2 === 1;
-          const labelY = above
-            ? far
-              ? AXIS_Y - 64
-              : AXIS_Y - 38
-            : far
-              ? AXIS_Y + 74
-              : AXIS_Y + 46;
-          const isSelected = r.id === selected.id;
-          return (
-            <g key={r.id}>
-              <line
-                x1={x}
-                x2={x}
-                y1={above ? labelY + 12 : AXIS_Y + 8}
-                y2={above ? AXIS_Y - 8 : labelY - 10}
-                stroke="var(--color-border)"
-                strokeWidth={1}
-              />
-              <TierGlyph
-                tier={r.provenance}
-                x={x}
-                y={AXIS_Y}
-                size={isSelected ? 6 : 4.5}
-                selected={isSelected}
-                open={r.openWeights}
-              />
-              <text
-                x={x}
-                y={labelY}
-                textAnchor="middle"
-                fill={isSelected ? 'var(--color-text)' : 'var(--color-text-dim)'}
-                fontSize={10}
-                fontFamily="var(--font-mono)"
+            {FILTERS.map(({ id, label }) => (
+              <button
+                data-brand-control-id="control:selection"
+                key={id}
+                type="button"
+                aria-pressed={filter === id}
+                onClick={() => applyFilter(id)}
+                className={INSTRUMENT_TOGGLE_CLASS}
               >
-                {SHORT_NAME[r.name] ?? r.name}
-              </text>
-            </g>
-          );
-        })}
-      </PlotStage>
-
-      <InstrumentHeader
-        data-testid="release-track"
-        role="group"
-        aria-label="Select a release"
-        className="mt-3 gap-1.5"
-        meta={`${visible.length} of ${GENERALIST_RELEASES.length} shown`}
-      >
-        {visible.map((r, i) => (
-          <button
-            data-brand-control-id="control:selection"
-            key={r.id}
-            ref={(el) => {
-              buttonRefs.current[i] = el;
-            }}
-            type="button"
-            data-status={releaseWeightState(r)}
-            data-provenance={r.provenance}
-            aria-label={r.name}
-            aria-pressed={r.id === selected.id}
-            onClick={() => select(i)}
-            onKeyDown={(e) => {
-              if (e.key === 'ArrowRight') {
-                e.preventDefault();
-                select(i + 1);
-              } else if (e.key === 'ArrowLeft') {
-                e.preventDefault();
-                select(i - 1);
-              }
-            }}
-            className={cx(
-              'flex items-baseline gap-2 rounded-sm border px-2.5 py-1.5 font-mono text-xs transition-colors active:translate-y-[1px]',
-              r.id === selected.id
-                ? 'border-accent text-text'
-                : 'border-border bg-surface-2 text-text-dim hover:border-border-strong hover:text-text',
-            )}
+                {label}
+              </button>
+            ))}
+            <InstrumentReset onClick={reset} />
+          </div>
+          <div
+            data-testid="release-track"
+            role="group"
+            aria-label="Select a release"
+            className="flex basis-full flex-wrap items-center gap-1"
           >
-            <span>{r.name}</span>
-            <span className="text-[10px] text-text-dim">{r.dateLabel}</span>
-            <span
-              className={cx(
-                'text-[10px]',
-                r.openWeights ? 'text-accent' : 'text-text-dim',
-              )}
-            >
-              {releaseWeightLabel(r)}
+            {visible.map((r, i) => (
+              <button
+                data-brand-control-id="control:selection"
+                key={r.id}
+                ref={(el) => {
+                  buttonRefs.current[i] = el;
+                }}
+                type="button"
+                data-status={releaseWeightState(r)}
+                data-provenance={r.provenance}
+                aria-label={r.name}
+                aria-pressed={r.id === selected.id}
+                onClick={() => select(i)}
+                onKeyDown={(e) => {
+                  if (e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    select(i + 1);
+                  } else if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    select(i - 1);
+                  }
+                }}
+                className={INSTRUMENT_TOGGLE_CLASS}
+              >
+                {r.name}
+              </button>
+            ))}
+            <span className="ml-1 font-sans text-[13px] text-text-dim">
+              {`${visible.length} of ${GENERALIST_RELEASES.length} shown`}
             </span>
-          </button>
-        ))}
-      </InstrumentHeader>
-
-      <div
-        data-testid="release-detail"
-        data-brand-surface-id="surface:flat"
-        aria-live="polite"
-        className="mt-3 rounded-sm border border-border bg-surface-2 px-3 py-2.5"
-      >
-        <p className="font-mono text-sm text-text">
-          <span className="text-accent">{selected.name}</span>{' '}
-          <span className="text-text-dim">{selected.org}</span>{' '}
-          <span className="text-text-dim">{selected.dateLabel}</span>{' '}
-          <span
-            className={cx(
-              'whitespace-nowrap text-xs',
-              selected.openWeights ? 'text-accent' : 'text-text-dim',
-            )}
+          </div>
+        </>
+      }
+      stage={
+        <FigureStage
+          footer={
+            <>
+              <InstrumentLegend data-testid="provenance-legend">
+                {PROVENANCE_TIERS.map((tier) => (
+                  <LegendItem key={tier} swatch={<TierSwatch tier={tier} />}>
+                    {provenanceLabel(tier)}
+                  </LegendItem>
+                ))}
+                <LegendItem swatch={<LegendSwatch role="measurement" mark="dot" />}>filled: downloadable</LegendItem>
+                <LegendItem swatch={<RingSwatch />}>selected</LegendItem>
+              </InstrumentLegend>
+              <div
+                data-testid="release-detail"
+                aria-live="polite"
+                className="basis-full border-t border-border-strong pt-3 font-sans text-[13px]"
+              >
+                <div className="flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
+                  <span className="text-sm font-medium text-text">{selected.name}</span>
+                  <span className="text-text-dim">{selected.org}</span>
+                  <span className="text-text-dim">{selected.dateLabel}</span>
+                  <span className="whitespace-nowrap text-text-dim">
+                    weights: {releaseWeightLabel(selected)}
+                  </span>
+                </div>
+                <div className="mt-1 text-text-dim">
+                  Provenance: {provenanceLabel(selected.provenance)}
+                </div>
+                <p className="mt-1.5 max-w-[65ch] leading-relaxed text-text">
+                  {selected.capability}
+                </p>
+                {selected.weightsNote && (
+                  <p className="mt-1.5 max-w-[65ch] leading-relaxed text-text">
+                    {selected.weightsNote}
+                  </p>
+                )}
+                {selected.context && (
+                  <p className="mt-1.5 text-text-dim">
+                    Cross-reference: full treatment in{' '}
+                    <Link
+                      data-brand-control-id="control:link-focus"
+                      href="/manipulation/pi-line"
+                      className={STAGE_LINK}
+                    >
+                      The Pi Line
+                    </Link>
+                    .
+                  </p>
+                )}
+                {citation && (
+                  <div className="mt-1.5">
+                    <a
+                      data-brand-control-id="control:link-focus"
+                      href={citation.url}
+                      target="_blank"
+                      rel="noopener"
+                      className={STAGE_LINK}
+                    >
+                      Source: {citation.label}
+                    </a>
+                    {isVendorReported(selected) && (
+                      <span className="text-text-dim"> (vendor-reported)</span>
+                    )}
+                  </div>
+                )}
+              </div>
+              <ChartDescription
+                id={descriptionId}
+                form="state"
+                summary="Current generalist release"
+                description={`${visible.length} of ${GENERALIST_RELEASES.length} selected generalist policy records are shown; selected is ${selected.name} from ${selected.org} (${releaseWeightLabel(selected)}, ${provenanceLabel(selected.provenance)}) and weight availability is stated by each node label; dim nodes do not establish closed licensing.`}
+                states={[
+                  { label: 'selected', value: selected.name },
+                  { label: 'org', value: selected.org },
+                  { label: 'released', value: selected.dateLabel },
+                  { label: 'weights', value: releaseWeightLabel(selected) },
+                  { label: 'shown', value: `${visible.length} of ${GENERALIST_RELEASES.length}` },
+                ]}
+              />
+            </>
+          }
+        >
+          <PlotStage
+            viewBox={`0 0 ${WIDTH} ${height}`}
+            aria-label={`Selected generalist robot policy records. Highlighted nodes have a reported weight download; dim nodes include unavailable and not-disclosed records, distinguished by their text labels. Node shape encodes provenance: circle for papers, square for repo release notes, triangle for lab blogs, diamond for press releases. Currently showing ${visible.length} of ${GENERALIST_RELEASES.length} releases.`}
+            aria-describedby={descriptionId}
           >
-            weights: {releaseWeightLabel(selected)}
-          </span>
-        </p>
-        <p className="mt-1 font-mono text-xs text-text-dim">
-          Provenance: {provenanceLabel(selected.provenance)}
-        </p>
-        <p className="mt-1.5 font-sans text-xs leading-relaxed text-text">
-          {selected.capability}
-        </p>
-        {selected.weightsNote && (
-          <p className="mt-1.5 font-sans text-xs leading-relaxed text-text">
-            {selected.weightsNote}
-          </p>
-        )}
-        {selected.context && (
-          <p className="mt-1.5 font-mono text-xs text-text-dim">
-            Cross-reference: full treatment in{' '}
-            <Link
-              data-brand-control-id="control:link-focus"
-              href="/manipulation/pi-line"
-              className="text-accent underline decoration-border-strong underline-offset-2 transition-colors hover:decoration-accent"
-            >
-              The Pi Line
-            </Link>
-            .
-          </p>
-        )}
-        {citation && (
-          <p className="mt-1.5 font-mono text-xs">
-            <a
-              data-brand-control-id="control:link-focus"
-              href={citation.url}
-              target="_blank"
-              rel="noopener"
-              className="text-accent underline decoration-border-strong underline-offset-2 transition-colors hover:decoration-accent"
-            >
-              Source: {citation.label}
-            </a>
-            {isVendorReported(selected) && (
-              <span className="text-text-dim"> (vendor-reported)</span>
-            )}
-          </p>
-        )}
-      </div>
-      <ChartDescription
-        id={descriptionId}
-        className="mt-3"
-        form="state"
-        summary="Current generalist release"
-        description={`${visible.length} of ${GENERALIST_RELEASES.length} selected generalist policy records are shown; selected is ${selected.name} from ${selected.org} (${releaseWeightLabel(selected)}, ${provenanceLabel(selected.provenance)}) and weight availability is stated by each node label; dim nodes do not establish closed licensing.`}
-        states={[
-          { label: 'selected', value: selected.name },
-          { label: 'org', value: selected.org },
-          { label: 'released', value: selected.dateLabel },
-          { label: 'weights', value: releaseWeightLabel(selected) },
-          { label: 'shown', value: `${visible.length} of ${GENERALIST_RELEASES.length}` },
-        ]}
-      />
-    </InstrumentFrame>
+            <ChartAxes
+              plot={{ left: AXIS_LEFT, right: AXIS_RIGHT, top: ROWS_TOP, bottom: rowsBottom }}
+              x={monthToX}
+              y={(v) => v}
+              xTicks={AXIS_TICKS.map(monthIndex)}
+              formatX={monthLabel}
+              grid={false}
+              yAxis={false}
+            />
+            {/* One row per release; a label sits on whichever side of its
+                node has room, so same-month releases never collide. */}
+            {visible.map((r, i) => {
+              const cy = f(ROWS_TOP + i * ROW_H + ROW_H / 2);
+              const x = monthToX(monthIndex(r.released));
+              const name = SHORT_NAME[r.name] ?? r.name;
+              const weight = releaseWeightLabel(r);
+              const labelWidth = (name.length + weight.length + 1) * CHAR_W;
+              const right = x + LABEL_GAP + labelWidth <= WIDTH - EDGE;
+              const isSelected = r.id === selected.id;
+              return (
+                <g key={r.id} data-release={r.id}>
+                  <line
+                    x1={AXIS_LEFT}
+                    x2={AXIS_RIGHT}
+                    y1={cy}
+                    y2={cy}
+                    stroke={CHART_STRUCTURE.grid}
+                    strokeWidth={CHART_STROKE.structure}
+                    opacity={CHART_STRUCTURE.gridOpacity}
+                  />
+                  <TierGlyph tier={r.provenance} x={x} y={cy} size={NODE_SIZE} open={r.openWeights} />
+                  {isSelected ? (
+                    <circle
+                      cx={x}
+                      cy={cy}
+                      r={NODE_SIZE + 3.5}
+                      fill="none"
+                      stroke={highlight}
+                      strokeWidth={CHART_STROKE.trace}
+                    />
+                  ) : null}
+                  <text
+                    x={right ? f(x + LABEL_GAP) : f(x - LABEL_GAP)}
+                    y={cy}
+                    dominantBaseline="middle"
+                    textAnchor={right ? 'start' : 'end'}
+                    fontSize={CHART_TYPE.tickPx}
+                    fill={CHART_STRUCTURE.label}
+                  >
+                    <tspan fill={isSelected ? highlight : CHART_STRUCTURE.label}>{name}</tspan>
+                    <tspan dx={6} fill={CHART_STRUCTURE.labelSecondary}>
+                      {weight}
+                    </tspan>
+                  </text>
+                </g>
+              );
+            })}
+          </PlotStage>
+        </FigureStage>
+      }
+      caption="Release months of selected generalist policies; filled marks have a reported weight download, and shape gives the source type."
+      source={`Authored selection of ${GENERALIST_RELEASES.length} records; dates and weight availability follow each record's primary source.`}
+    />
   );
 }

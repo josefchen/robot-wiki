@@ -14,6 +14,8 @@ export type Column<T> = {
   render?: (row: T) => ReactNode;
   /** Custom sort accessor. Defaults to the raw value. */
   sortValue?: (row: T) => string | number | null;
+  /** Extra classes on this column's body cells, such as a highlighted column. */
+  cellClassName?: string;
 };
 
 type TableProps<T> = {
@@ -117,7 +119,7 @@ export function Table<T extends Record<string, unknown>>({
       data-brand-frame-depth="1"
       data-brand-frame-interior-registered="table"
       className={cx(
-        'overflow-x-auto rounded-sm border border-border',
+        'overflow-x-auto rounded-sm border border-border [container-type:inline-size]',
         className,
       )}
     >
@@ -126,7 +128,13 @@ export function Table<T extends Record<string, unknown>>({
           id={captionId}
           className="border-b border-border bg-surface-2 px-3 py-2 text-left font-sans text-xs text-text-dim"
         >
-          {caption}
+          {/* A caption box is as wide as the table, which on a narrow screen
+              runs past the scroll region. Capping the text at the region's
+              visible width (cqw resolves against the region) and pinning it
+              keeps every caption line readable without scrolling sideways. */}
+          <span className="sticky left-3 block max-w-[calc(100cqw_-_1.5rem)]">
+            {caption}
+          </span>
         </caption>
         <thead>
           <tr className="border-b border-border bg-surface-2">
@@ -162,7 +170,7 @@ export function Table<T extends Record<string, unknown>>({
                       className="-my-1 inline-flex cursor-pointer items-center gap-1 py-1 hover:text-text"
                     >
                       {column.header}
-                      <span aria-hidden="true" className="font-sans text-[10px]">
+                      <span aria-hidden="true" className="font-sans text-xs">
                         {isSorted ? (sort.direction === 'asc' ? '↑' : '↓') : ''}
                       </span>
                     </button>
@@ -200,6 +208,7 @@ export function Table<T extends Record<string, unknown>>({
                   className={cx(
                     'px-3 py-2 text-text',
                     column.numeric && 'text-right font-mono tabular-nums',
+                    column.cellClassName,
                   )}
                 >
                   {column.render

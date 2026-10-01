@@ -218,6 +218,7 @@ describe('industrial release preserves both evidence histories', { timeout: 60_0
             'audit/evidence/motion-round6-kinematics-reader-20260929',
             'audit/evidence/motion-round6-prose-restores-20260929',
             'audit/evidence/motion-round6-remaining-repairs-20260929',
+            'audit/evidence/figure-migration-20261001',
             'audit/evidence/citation-closeout-20260924/relevant-continuity.json',
             'audit/evidence/technology-withdrawal-20260924',
             'content/data-hardware/industrial-deployment.mdx',

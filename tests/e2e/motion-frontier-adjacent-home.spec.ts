@@ -4,7 +4,7 @@ import { auditSceneElement } from '@/lib/motion-scene-audit';
 const scenes = [
   {
     id: 'reliability-threshold',
-    route: '/frontier/reliability-gap/',
+    route: '/',
     captions: [/episode/i, /95%/i, /99.9%/i, /same horizon/i],
   },
   {
@@ -139,7 +139,9 @@ test('reliability labels arrive with their bars, including on home', async ({ br
       const context = await browser.newContext({ colorScheme, viewport: { width, height: 900 } });
       try {
         const page = await context.newPage();
-        for (const route of ['/frontier/reliability-gap/', '/']) {
+        // The article pairs its compounding instrument with no scene; the
+        // threshold scene is the home page's only figure.
+        for (const route of ['/']) {
           await page.goto(route, { waitUntil: 'networkidle' });
           const scene = page.locator('[data-motion-scene="reliability-threshold"]');
           await scene.getByTestId('motion-poster').click();

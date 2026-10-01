@@ -32,6 +32,23 @@ function bundle(old: boolean, historical = false): BaselineBundle {
   return { ...sealed, manifests };
 }
 
+// The figure migration (e4784342..511806df) moved some reviewed articles one
+// step further: each changed article continues its prose chain with exactly
+// one plain edge from its prior endpoint, and an unchanged one stays on it.
+const FIGURE_MIGRATION_BASE = 'e4784342';
+function throughFigureMigration(path: string, id: string, endpoint: string, hashOf: (text: string) => string) {
+  expect(hashOf(committedSource(FIGURE_MIGRATION_BASE, path))).toBe(endpoint);
+  if (committedSource(FIGURE_MIGRATION_BASE, path) === read(path)) {
+    expect(hashOf(read(path))).toBe(endpoint);
+    return;
+  }
+  const edges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id && a.oldHash === endpoint);
+  expect(edges).toHaveLength(1);
+  expect(edges[0].id).toMatch(/figure-migration-20261001-prose-/);
+  expect(edges[0].reconciles).toBeUndefined();
+  expect(hashOf(read(path))).toBe(edges[0].newHash);
+}
+
 describe('merged reader corrections preserve production additions and exact approvals', () => {
   it('retains the production prefix and every mission transaction in order', () => {
     const production: ApprovedDelta[] = JSON.parse(committedSource(READER_RELEASE_BASE, ledger)).entries;
@@ -70,7 +87,7 @@ describe('merged reader corrections preserve production additions and exact appr
       expect(hashOf(committedSource('f41cf895^', path))).toBe(motion.newHash);
       expect(round5.oldHash).toBe(motion.newHash);
       expect(round5.reconciles).toBeUndefined();
-      expect(hashOf(read(path))).toBe(round5.newHash);
+      throughFigureMigration(path, 'article:data-hardware/data-bottleneck', round5.newHash, hashOf);
       expect(round5.newHash).toBe('2a399628a0d3d47c483619e0563664aa50e82ca704050c69ccb7d44a73f8a161');
       expect(read(path)).toContain('Real-world robot data is different. Every hour of it');
     } else if (path.startsWith('content/data-hardware/')) {
@@ -133,7 +150,7 @@ describe('merged reader corrections preserve production additions and exact appr
         // its plain edge continues from the s12 endpoint.
         const moved = approvals.find(a => a.id === 'round5-first-screen-cd-20260929-prose-generative-sim')!;
         expect(moved).toMatchObject({ manifest: 'prose', memberId: id, oldHash: prose.newHash });
-        expect(hashOf(read(path))).toBe(moved.newHash);
+        throughFigureMigration(path, id, moved.newHash, hashOf);
 
         const relationship = approvals.find(a => a.id ===
           'motion-scrutiny-s12-20260928-relationships-generative-sim-citation')!;
@@ -158,7 +175,7 @@ describe('merged reader corrections preserve production additions and exact appr
         const moved = approvals.find(a => a.id ===
           `round5-first-screen-cd-20260929-prose-${path.slice('content/world-models/'.length, -4)}`);
         if (moved) expect(moved.oldHash).toBe(pass.newHash);
-        expect(hashOf(read(path))).toBe((moved ?? pass).newHash);
+        throughFigureMigration(path, id, (moved ?? pass).newHash, hashOf);
       }
     } else if (path === 'content/frontier/bear-case.mdx') {
       const source = committedSource('ebf13b4', path);

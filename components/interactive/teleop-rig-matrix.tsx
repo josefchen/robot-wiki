@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo, useState, type ReactNode } from 'react';
-import { Table, InstrumentFrame, InstrumentReset, type Column } from '@/components/ui';
+import { Table, InstrumentReset, type Column } from '@/components/ui';
 import { TELEOP_RIGS } from '@/data/teleop-rigs';
 import type { TeleopRig } from '@/data/schemas/teleop-rig';
 import {
@@ -32,26 +32,7 @@ const NOT_DISCLOSED: ReactNode = (
   <span className="text-text-dim">not disclosed</span>
 );
 
-/** Fills the td padding so the highlight tint covers the whole cell. */
-function cellWrap(
-  highlighted: boolean,
-  children: ReactNode,
-  extra?: string,
-): ReactNode {
-  return (
-    <div
-      data-highlighted={highlighted || undefined}
-      className={cx(
-        'min-w-0',
-        highlighted &&
-          '-mx-3 -my-2 border-l-2 border-accent bg-surface-2 px-3 py-2',
-        extra,
-      )}
-    >
-      {children}
-    </div>
-  );
-}
+const HIGHLIGHTED_CELL = 'bg-selection';
 
 function formatUsd(value: number): string {
   return `$${value.toLocaleString('en-US')}`;
@@ -76,16 +57,15 @@ export function TeleopRigMatrix({ className }: TeleopRigMatrixProps) {
       key: 'name',
       header: 'Rig',
       sortable: true,
-      render: (rig) =>
-        cellWrap(false, (
-          <span>
-            <span className="text-text">{rig.name}</span>
-            <span className="block text-xs text-text-dim">{rig.family}</span>
-            <span className="block text-xs text-text-dim">
-              {rig.representatives.join(', ')}
-            </span>
+      render: (rig) => (
+        <span>
+          <span className="text-text">{rig.name}</span>
+          <span className="block text-xs text-text-dim">{rig.family}</span>
+          <span className="block text-xs text-text-dim">
+            {rig.representatives.join(', ')}
           </span>
-        )),
+        </span>
+      ),
     };
 
     const costColumn: Column<TeleopRig> = {
@@ -94,28 +74,26 @@ export function TeleopRigMatrix({ className }: TeleopRigMatrixProps) {
       sortable: true,
       numeric: true,
       sortValue: (rig) => rigSortValue(rig, 'cost'),
+      cellClassName: highlight === 'cost' ? HIGHLIGHTED_CELL : undefined,
       render: (rig) =>
-        cellWrap(
-          highlight === 'cost',
-          rig.costUsd === null ? (
-            <span>
-              {NOT_DISCLOSED}
-              {rig.costNote ? (
-                <span className="block font-sans text-xs text-text-dim">
-                  {rig.costNote}
-                </span>
-              ) : null}
-            </span>
-          ) : (
-            <span className="font-mono tabular-nums">
-              {formatUsd(rig.costUsd)}
-              {rig.costNote ? (
-                <span className="block font-sans text-xs text-text-dim">
-                  {rig.costNote}
-                </span>
-              ) : null}
-            </span>
-          ),
+        rig.costUsd === null ? (
+          <span>
+            {NOT_DISCLOSED}
+            {rig.costNote ? (
+              <span className="block font-sans text-xs text-text-dim">
+                {rig.costNote}
+              </span>
+            ) : null}
+          </span>
+        ) : (
+          <span className="font-mono tabular-nums">
+            {formatUsd(rig.costUsd)}
+            {rig.costNote ? (
+              <span className="block font-sans text-xs text-text-dim">
+                {rig.costNote}
+              </span>
+            ) : null}
+          </span>
         ),
     };
 
@@ -128,6 +106,7 @@ export function TeleopRigMatrix({ className }: TeleopRigMatrixProps) {
         header,
         sortable: true,
         sortValue: (rig) => rigSortValue(rig, field),
+        cellClassName: highlight === field ? HIGHLIGHTED_CELL : undefined,
         render: (rig) => {
           const rating = rig[field];
           const note =
@@ -136,19 +115,18 @@ export function TeleopRigMatrix({ className }: TeleopRigMatrixProps) {
               : field === 'throughput'
                 ? rig.throughputNote
                 : rig.embodimentGapNote;
-          return cellWrap(
-            highlight === field,
+          return (
             <span>
               <span
                 data-brand-surface-id="surface:flat"
-                className="inline-flex items-center rounded-xs border border-border bg-surface-2 px-1.5 py-0.5 font-mono text-[11px] leading-none tracking-wide text-text"
+                className="inline-flex items-center rounded-xs border border-border bg-surface-2 px-1.5 py-0.5 font-mono text-xs leading-none tracking-wide text-text"
               >
                 {rating}
               </span>
               <span className="mt-1 block font-sans text-xs text-text-dim">
                 {note}
               </span>
-            </span>,
+            </span>
           );
         },
       };
@@ -198,7 +176,7 @@ export function TeleopRigMatrix({ className }: TeleopRigMatrixProps) {
   }
 
   return (
-    <InstrumentFrame className={className}>
+    <div className={className}>
       <div className="flex flex-wrap items-end gap-x-5 gap-y-3">
         <div
           role="group"
@@ -217,12 +195,13 @@ export function TeleopRigMatrix({ className }: TeleopRigMatrixProps) {
                 aria-pressed={highlight === field.id}
                 onClick={() => toggleHighlight(field.id)}
                 className={cx(
-                  'cursor-pointer rounded-sm border px-2.5 py-1.5 font-mono text-xs transition-colors active:translate-y-[1px]',
+                  'inline-flex min-h-6 cursor-pointer items-center gap-1 rounded-xs border px-2 py-1 font-sans text-xs transition-colors active:translate-y-[1px]',
                   highlight === field.id
-                    ? 'border-accent text-text'
-                    : 'border-border bg-surface-2 text-text-dim hover:border-border-strong hover:text-text',
+                    ? 'border-highlight bg-selection font-semibold text-ink'
+                    : 'border-border bg-surface text-text hover:border-border-strong',
                 )}
               >
+                {highlight === field.id ? <span aria-hidden="true">✓</span> : null}
                 {field.label}
               </button>
             ))}
@@ -230,9 +209,9 @@ export function TeleopRigMatrix({ className }: TeleopRigMatrixProps) {
         </div>
 
         <div className="ml-auto flex items-center gap-3">
-          <p aria-live="polite" className="font-mono text-xs text-text-dim">
+          <div aria-live="polite" className="font-mono text-xs text-text-dim">
             {TELEOP_RIGS.length} of {TELEOP_RIGS.length} rigs
-          </p>
+          </div>
           <InstrumentReset onClick={reset} className="cursor-pointer" />
         </div>
       </div>
@@ -243,7 +222,7 @@ export function TeleopRigMatrix({ className }: TeleopRigMatrixProps) {
           aria-label="Dimension detail"
           className="mt-4 rounded-sm border border-border bg-surface-2 p-4"
         >
-          <p className="font-mono text-xs text-accent">
+          <p className="font-sans text-xs font-semibold text-text">
             {activeField.label} highlighted
           </p>
           <p className="mt-1 font-sans text-xs text-text-dim">
@@ -270,6 +249,6 @@ export function TeleopRigMatrix({ className }: TeleopRigMatrixProps) {
         rows={TELEOP_RIGS}
         initialSort={{ key: 'costUsd', direction: 'asc' }}
       />
-    </InstrumentFrame>
+    </div>
   );
 }

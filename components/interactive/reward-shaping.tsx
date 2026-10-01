@@ -2,13 +2,28 @@
 
 import { useEffect, useId, useRef, useState } from 'react';
 import { Pause, Play } from '@phosphor-icons/react';
+import { ChartDescription } from '@/components/ui/chart-description';
 import {
-  ChartDescription,
+  ControlField,
   ControlLabel,
-  InstrumentFrame,
+  INSTRUMENT_SECONDARY_CONTROL_CLASS,
+  INSTRUMENT_SLIDER_CLASS,
+  InstrumentFigure,
+  InstrumentLegend,
+  InstrumentReadout,
   InstrumentReset,
+  LegendItem,
   PlotStage,
-} from '@/components/ui';
+} from '@/components/ui/instrument';
+import { FigureStage } from '@/components/motion/figure-frame';
+import {
+  CHART_STROKE,
+  CHART_STRUCTURE,
+  CHART_TYPE,
+  CHART_VIEW_WIDTH,
+  LegendSwatch,
+  roleColour,
+} from '@/components/motion/chart';
 import { type LegId } from '@/lib/gait';
 import {
   ATTRACTOR_DOMINANCE_RATIO,
@@ -28,7 +43,6 @@ import {
   type BehaviorId,
   type Weights,
 } from '@/lib/reward-shaping';
-import { cx } from '@/lib/utils';
 
 /**
  * RewardShaping: the weighted-sum reality of locomotion rewards. Twelve
@@ -36,27 +50,29 @@ import { cx } from '@/lib/utils';
  * A stick quadruped shows the local teaching model categories, not learned
  * policy rollouts: freeze when
  * torque dominates, prance when foot air time dominates, chatter when the
- * action-rate penalty collapses). A monospace readout reports the
- * weighted sum of fixed illustrative per-term magnitudes.
+ * action-rate penalty collapses). A readout reports the weighted sum of
+ * fixed illustrative per-term magnitudes.
  *
  * The classification is an illustrative teaching model, labeled as such
  * in the surrounding prose.
  *
  * Interactive contract: deterministic initial render (default weights,
  * balanced trot, paused), native range inputs (keyboard-accessible),
- * visible monospace readouts, reset control, fixed SVG viewport (no
- * layout shift). Playback runs on an interval (not rAF) and degrades to
- * discrete jumps under prefers-reduced-motion.
+ * visible readouts, reset control, fixed SVG viewport (no layout shift).
+ * Playback runs on an interval (not rAF) and degrades to discrete jumps
+ * under prefers-reduced-motion.
  */
 
-const WIDTH = 640;
-const HEIGHT = 280;
-const GROUND_Y = 232;
-const BODY_Y = 158;
-const BODY_LEFT = 246;
-const BODY_RIGHT = 398;
-const HIP_FRONT_X = 384;
-const HIP_HIND_X = 262;
+const WIDTH = CHART_VIEW_WIDTH;
+const HEIGHT = 140;
+const GROUND_Y = 122;
+const BODY_Y = 48;
+const BODY_LEFT = 84;
+const BODY_RIGHT = 236;
+const HIP_FRONT_X = BODY_RIGHT - 14;
+const HIP_HIND_X = BODY_LEFT + 16;
+/** Enough ground ticks to cover the stage while they scroll by a stride. */
+const GROUND_TICKS = Math.ceil((WIDTH + STRIDE_PX) / STRIDE_PX);
 
 const f = (v: number) => Number(v.toFixed(2));
 
@@ -67,18 +83,6 @@ function prefersReducedMotion(): boolean {
     window.matchMedia('(prefers-reduced-motion: reduce)').matches
   );
 }
-
-const TONE_TEXT: Record<'ok' | 'warn' | 'err', string> = {
-  ok: 'text-ok',
-  warn: 'text-warn',
-  err: 'text-err',
-};
-
-const TONE_FILL: Record<'ok' | 'warn' | 'err', string> = {
-  ok: 'var(--color-ok)',
-  warn: 'var(--color-warn)',
-  err: 'var(--color-err)',
-};
 
 const PHASE_STEP = 0.05;
 
@@ -111,6 +115,23 @@ function attractorTakeaway(
   // ATTRACTOR_DOMINANCE_RATIO x velTrack. High velTrack keeps heavy
   // penalties balanced, so an absolute "below 2.5" claim would be false.
   return `The ${n} weighted reward terms give an illustrative total of ${total} per step, and the preview is a balanced trot: neither torque ${formatWeight(weights.torque)} nor air time ${formatWeight(weights.airTime)} clears the ${ATTRACTOR_WEIGHT_MIN} attractor bar and ${ATTRACTOR_DOMINANCE_RATIO}x the ${formatWeight(weights.velTrack)} velocity-tracking weight together, so the chosen rule draws a trot instead of freezing, prancing, or chattering.`;
+}
+
+/** The legend swatch for a foot in swing: the hollow marker the stage draws. */
+function SwingFootSwatch() {
+  const h = CHART_TYPE.tickPx;
+  return (
+    <svg aria-hidden="true" focusable="false" width={h * 2} height={h} viewBox={`0 0 ${h * 2} ${h}`} className="shrink-0">
+      <circle
+        cx={h}
+        cy={h / 2}
+        r={CHART_STROKE.markerRadius}
+        fill="none"
+        stroke={roleColour('state')}
+        strokeWidth={CHART_STROKE.reference}
+      />
+    </svg>
+  );
 }
 
 export function RewardShaping({ className }: { className?: string }) {
@@ -182,275 +203,237 @@ export function RewardShaping({ className }: { className?: string }) {
     setPhase(0);
   };
 
-  const buttonBase =
-    'rounded-sm border px-2.5 py-1.5 font-sans text-xs transition-colors active:translate-y-[1px]';
-  const buttonIdle =
-    'border-border bg-surface-2 text-text-dim hover:border-border-strong hover:text-text';
-
   const bodyY = f(BODY_Y + pose.bodyY);
   const hipY = f(bodyY + 10);
+  const robot = roleColour('state');
 
   return (
-    <InstrumentFrame className={className}>
-      <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-        <button
-          data-brand-control-id="control:secondary-action"
-          data-pagefind-ignore
-          type="button"
-          onClick={() => setPlaying((p) => !p)}
-          aria-label={playing ? 'Pause rollout preview' : 'Play rollout preview'}
-          className={cx(buttonBase, buttonIdle, 'inline-flex items-center gap-1.5')}
-        >
-          {playing ? (
-            <Pause size={12} weight="bold" aria-hidden />
-          ) : (
-            <Play size={12} weight="bold" aria-hidden />
-          )}
-          {playing ? 'Pause' : 'Play'}
-        </button>
-        <button
-          data-brand-control-id="control:secondary-action"
-          data-pagefind-ignore
-          type="button"
-          onClick={() => setPhase((p) => f((p + PHASE_STEP) % 1))}
-          aria-label="Step the preview forward"
-          className={cx(buttonBase, buttonIdle)}
-        >
-          Step
-        </button>
-        <InstrumentReset onClick={reset} />
-        <span
-          data-testid="behavior-status"
-          className={cx('font-mono text-xs', TONE_TEXT[behavior.tone])}
-        >
-          {behavior.status}
-        </span>
-      </div>
-
-      <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1 font-mono text-xs">
-        <span className="text-text-dim">
-          Weighted total:{' '}
-          <span data-testid="total-readout" className="text-accent">
-            {formatTotal(total)} / step
-          </span>
-        </span>
-        <span className="text-text-dim">
-          Terms: <span className="text-text">{TERMS.length}</span>
-        </span>
-        <span className="text-text-dim">
-          Preview phase:{' '}
-          <span className="text-text">{Math.round(phase * 100)}%</span>
-        </span>
-      </div>
-
-      <PlotStage
-        viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-        data-testid="quad-preview"
-        aria-label={`Rollout preview: ${behavior.status}. ${behavior.description}`}
-        aria-describedby={descriptionId}
-        className="mt-3"
-      >
-        {/* Status annotation in the guaranteed-empty sky region */}
-        <text
-          x={16}
-          y={24}
-          fill={TONE_FILL[behavior.tone]}
-          fontSize={11}
-          fontFamily="var(--font-mono)"
-        >
-          {behavior.name}
-        </text>
-        <text
-          x={WIDTH - 16}
-          y={24}
-          textAnchor="end"
-          fill="var(--color-text-dim)"
-          fontSize={10}
-          fontFamily="var(--font-mono)"
-        >
-          {behaviorId === 'balanced'
-            ? 'ground scrolls: forward progress'
-            : 'no forward progress'}
-        </text>
-
-        {/* Ground line with scrolling ticks */}
-        <line
-          x1={0}
-          x2={WIDTH}
-          y1={GROUND_Y}
-          y2={GROUND_Y}
-          stroke="var(--color-border-strong)"
-          strokeWidth={1}
-        />
-        {Array.from({ length: 22 }, (_, i) => {
-          const x = f(
-            ((i * STRIDE_PX - pose.groundOffset) % (WIDTH + STRIDE_PX) +
-              WIDTH +
-              STRIDE_PX) %
-              (WIDTH + STRIDE_PX) -
-              STRIDE_PX / 2,
-          );
-          return (
-            <line
-              key={i}
-              x1={x}
-              x2={x}
-              y1={GROUND_Y}
-              y2={GROUND_Y + 6}
-              stroke="var(--color-border)"
-              strokeWidth={1}
-            />
-          );
-        })}
-
-        {/* Far-side legs (dimmer, behind the body) */}
-        {(['rf', 'rh'] as LegId[]).map((id) => {
-          const hipX = id === 'rf' ? HIP_FRONT_X : HIP_HIND_X;
-          const leg = pose.legs[id];
-          const footX = f(hipX - 7 + leg.footDx);
-          const footY = f(GROUND_Y - leg.footDy);
-          const kneeX = f(hipX - 7 + leg.footDx * 0.5 + 8);
-          const kneeY = f((hipY + footY) / 2 - 10);
-          return (
-            <g key={id} opacity={0.4}>
-              <polyline
-                points={`${f(hipX - 7)},${hipY} ${kneeX},${kneeY} ${footX},${footY}`}
-                fill="none"
-                stroke="var(--color-text-dim)"
-                strokeWidth={2}
-                strokeLinejoin="round"
-              />
-            </g>
-          );
-        })}
-
-        {/* Body */}
-        <rect
-          x={BODY_LEFT}
-          y={bodyY}
-          width={BODY_RIGHT - BODY_LEFT}
-          height={22}
-          rx={3}
-          fill="var(--color-surface-2)"
-          stroke="var(--color-border-strong)"
-          strokeWidth={1}
-        />
-        <rect
-          x={BODY_RIGHT}
-          y={f(bodyY - 6)}
-          width={20}
-          height={16}
-          rx={3}
-          fill="var(--color-surface-2)"
-          stroke="var(--color-border-strong)"
-          strokeWidth={1}
-        />
-
-        {/* Near-side legs */}
-        {(['lf', 'lh'] as LegId[]).map((id) => {
-          const hipX = id === 'lf' ? HIP_FRONT_X : HIP_HIND_X;
-          const leg = pose.legs[id];
-          const footX = f(hipX + leg.footDx);
-          const footY = f(GROUND_Y - leg.footDy);
-          const kneeX = f(hipX + leg.footDx * 0.5 + 8);
-          const kneeY = f((hipY + footY) / 2 - 10);
-          return (
-            <g key={id}>
-              <polyline
-                points={`${hipX},${hipY} ${kneeX},${kneeY} ${footX},${footY}`}
-                fill="none"
-                stroke="var(--color-text)"
-                strokeWidth={2.5}
-                strokeLinejoin="round"
-              />
-              <circle
-                cx={footX}
-                cy={footY}
-                r={3}
-                fill={
-                  leg.footDy > 0.5
-                    ? 'var(--color-surface)'
-                    : 'var(--color-accent)'
-                }
-                stroke={
-                  leg.footDy > 0.5
-                    ? 'var(--color-text-dim)'
-                    : 'var(--color-accent)'
-                }
-                strokeWidth={1}
-              />
-            </g>
-          );
-        })}
-
-        {/* Hip markers */}
-        {[HIP_FRONT_X, HIP_HIND_X].map((x) => (
-          <circle
-            key={x}
-            cx={x}
-            cy={hipY}
-            r={2.5}
-            fill="var(--color-text-dim)"
-          />
-        ))}
-
-        <text
-          x={16}
-          y={HEIGHT - 8}
-          fill="var(--color-text-dim)"
-          fontSize={10}
-          fontFamily="var(--font-mono)"
-        >
-          illustrative terms and weights, not a source configuration
-        </text>
-      </PlotStage>
-
-      <div className="mt-4 grid grid-cols-1 gap-x-5 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
-        {TERMS.map((term) => (
-          <div key={term.id}>
-            <ControlLabel
-              htmlFor={`rs-${term.id}`}
-              value={formatWeight(weights[term.id])}
-            >
-              {term.label}
-            </ControlLabel>
-            <input
-              id={`rs-${term.id}`}
-              type="range"
-              data-brand-control-id="control:input"
-              min={toSlider(WEIGHT_MIN)}
-              max={toSlider(WEIGHT_MAX)}
-              step={1}
-              value={toSlider(weights[term.id])}
-              onChange={(e) => setWeight(term.id, Number(e.target.value))}
-              aria-label={`${term.label} weight`}
-              className="mt-1.5 w-full accent-accent"
-            />
+    <InstrumentFigure
+      figureId="reward-shaping"
+      className={className}
+      heading="Reward weights and the gait they select"
+      controls={
+        <>
+          <button
+            data-brand-control-id="control:secondary-action"
+            data-pagefind-ignore
+            type="button"
+            onClick={() => setPlaying((p) => !p)}
+            aria-label={playing ? 'Pause rollout preview' : 'Play rollout preview'}
+            className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
+          >
+            {playing ? (
+              <Pause size={14} weight="bold" aria-hidden />
+            ) : (
+              <Play size={14} weight="bold" aria-hidden />
+            )}
+            {playing ? 'Pause' : 'Play'}
+          </button>
+          <button
+            data-brand-control-id="control:secondary-action"
+            data-pagefind-ignore
+            type="button"
+            onClick={() => setPhase((p) => f((p + PHASE_STEP) % 1))}
+            aria-label="Step the preview forward"
+            className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
+          >
+            Step
+          </button>
+          <InstrumentReset onClick={reset} />
+          <div className="grid basis-full grid-cols-2 gap-x-3 gap-y-2 sm:grid-cols-3">
+            {TERMS.map((term) => (
+              <ControlField key={term.id}>
+                <ControlLabel
+                  htmlFor={`rs-${term.id}`}
+                  value={formatWeight(weights[term.id])}
+                >
+                  {term.label}
+                </ControlLabel>
+                <input
+                  id={`rs-${term.id}`}
+                  type="range"
+                  data-brand-control-id="control:input"
+                  min={toSlider(WEIGHT_MIN)}
+                  max={toSlider(WEIGHT_MAX)}
+                  step={1}
+                  value={toSlider(weights[term.id])}
+                  onChange={(e) => setWeight(term.id, Number(e.target.value))}
+                  aria-label={`${term.label} weight`}
+                  className={INSTRUMENT_SLIDER_CLASS}
+                />
+              </ControlField>
+            ))}
           </div>
-        ))}
-      </div>
+        </>
+      }
+      stage={
+        <FigureStage
+          footer={
+            <>
+              <InstrumentLegend>
+                <LegendItem swatch={<LegendSwatch role="state" mark="dot" />}>
+                  foot in contact
+                </LegendItem>
+                <LegendItem swatch={<SwingFootSwatch />}>foot in swing</LegendItem>
+              </InstrumentLegend>
+              <InstrumentReadout className="flex flex-wrap gap-x-4 gap-y-1">
+                <span data-testid="behavior-status">{behavior.status}</span>
+                <span>
+                  Weighted total:{' '}
+                  <span data-testid="total-readout" style={{ color: roleColour('value') }}>
+                    {formatTotal(total)} / step
+                  </span>
+                </span>
+              </InstrumentReadout>
+              {/* Outside the live readout: during playback the phase moves
+                  every tick, too often for a polite region to announce. */}
+              <span className="font-sans text-[13px] leading-snug tabular-nums text-text-dim">
+                Preview phase: <span>{Math.round(phase * 100)}%</span>
+              </span>
+              <ChartDescription
+                id={descriptionId}
+                form="state"
+                summary="Current reward-weight attractor"
+                description={attractorTakeaway(behaviorId, weights, formatTotal(total))}
+                states={[
+                  { label: 'attractor', value: behavior.name },
+                  { label: 'total', value: `${formatTotal(total)} / step` },
+                  { label: 'torque', value: formatWeight(weights.torque) },
+                  { label: 'air time', value: formatWeight(weights.airTime) },
+                  { label: 'action-rate', value: formatWeight(weights.actionRate) },
+                ]}
+              />
+            </>
+          }
+        >
+          <PlotStage
+            viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
+            data-testid="quad-preview"
+            aria-label={`Rollout preview: ${behavior.status}. ${behavior.description}`}
+            aria-describedby={descriptionId}
+          >
+            <text data-scene-note="" x={12} y={20} fill={CHART_STRUCTURE.labelSecondary}>
+              {behaviorId === 'balanced'
+                ? 'ground scrolls: forward progress'
+                : 'no forward progress'}
+            </text>
 
-      <p className="mt-4 font-sans text-sm leading-relaxed text-text">
-        Local teaching model: twelve illustrative terms and weights, not the paper reward or a source configuration. No policy is trained here.
-      </p>
-      <p className="mt-4 font-sans text-xs leading-relaxed text-text-dim" aria-live="polite">
-        <span className={TONE_TEXT[behavior.tone]}>{behavior.status}.</span>{' '}
-        {behavior.description}
-      </p>
-      <ChartDescription
-        id={descriptionId}
-        className="mt-3"
-        form="state"
-        summary="Current reward-weight attractor"
-        description={attractorTakeaway(behaviorId, weights, formatTotal(total))}
-        states={[
-          { label: 'attractor', value: behavior.name },
-          { label: 'total', value: `${formatTotal(total)} / step` },
-          { label: 'torque', value: formatWeight(weights.torque) },
-          { label: 'air time', value: formatWeight(weights.airTime) },
-          { label: 'action-rate', value: formatWeight(weights.actionRate) },
-        ]}
-      />
-    </InstrumentFrame>
+            <g data-scene-structure="" opacity={CHART_STRUCTURE.axesOpacity}>
+              <line
+                x1={0}
+                x2={WIDTH}
+                y1={GROUND_Y}
+                y2={GROUND_Y}
+                stroke={CHART_STRUCTURE.axes}
+                strokeWidth={CHART_STROKE.structure}
+              />
+              {Array.from({ length: GROUND_TICKS }, (_, i) => {
+                const x = f(
+                  ((i * STRIDE_PX - pose.groundOffset) % (WIDTH + STRIDE_PX) +
+                    WIDTH +
+                    STRIDE_PX) %
+                    (WIDTH + STRIDE_PX) -
+                    STRIDE_PX / 2,
+                );
+                return (
+                  <line
+                    key={i}
+                    x1={x}
+                    x2={x}
+                    y1={GROUND_Y}
+                    y2={GROUND_Y + 6}
+                    stroke={CHART_STRUCTURE.axes}
+                    strokeWidth={CHART_STROKE.structure}
+                  />
+                );
+              })}
+            </g>
+
+            <g data-series="robot">
+              {/* Far-side legs, dimmer, behind the body */}
+              {(['rf', 'rh'] as LegId[]).map((id) => {
+                const hipX = id === 'rf' ? HIP_FRONT_X : HIP_HIND_X;
+                const leg = pose.legs[id];
+                const footX = f(hipX - 7 + leg.footDx);
+                const footY = f(GROUND_Y - leg.footDy);
+                const kneeX = f(hipX - 7 + leg.footDx * 0.5 + 8);
+                const kneeY = f((hipY + footY) / 2 - 10);
+                return (
+                  <polyline
+                    key={id}
+                    points={`${f(hipX - 7)},${hipY} ${kneeX},${kneeY} ${footX},${footY}`}
+                    fill="none"
+                    stroke={robot}
+                    strokeOpacity={0.45}
+                    strokeWidth={2}
+                    strokeLinejoin="round"
+                  />
+                );
+              })}
+
+              <rect
+                x={BODY_LEFT}
+                y={bodyY}
+                width={BODY_RIGHT - BODY_LEFT}
+                height={22}
+                rx={3}
+                fill={robot}
+                fillOpacity={0.18}
+                stroke={robot}
+                strokeWidth={CHART_STROKE.reference}
+              />
+              <rect
+                x={BODY_RIGHT}
+                y={f(bodyY - 6)}
+                width={20}
+                height={16}
+                rx={3}
+                fill={robot}
+                fillOpacity={0.18}
+                stroke={robot}
+                strokeWidth={CHART_STROKE.reference}
+              />
+
+              {/* Near-side legs; a foot on the ground is filled, a foot in
+                  swing is hollow */}
+              {(['lf', 'lh'] as LegId[]).map((id) => {
+                const hipX = id === 'lf' ? HIP_FRONT_X : HIP_HIND_X;
+                const leg = pose.legs[id];
+                const footX = f(hipX + leg.footDx);
+                const footY = f(GROUND_Y - leg.footDy);
+                const kneeX = f(hipX + leg.footDx * 0.5 + 8);
+                const kneeY = f((hipY + footY) / 2 - 10);
+                const swing = leg.footDy > 0.5;
+                return (
+                  <g key={id}>
+                    <polyline
+                      points={`${hipX},${hipY} ${kneeX},${kneeY} ${footX},${footY}`}
+                      fill="none"
+                      stroke={robot}
+                      strokeWidth={2.5}
+                      strokeLinejoin="round"
+                    />
+                    <circle
+                      cx={footX}
+                      cy={footY}
+                      r={CHART_STROKE.markerRadius}
+                      fill={swing ? 'none' : robot}
+                      stroke={robot}
+                      strokeWidth={CHART_STROKE.reference}
+                    />
+                  </g>
+                );
+              })}
+
+              {[HIP_FRONT_X, HIP_HIND_X].map((x) => (
+                <circle key={x} cx={x} cy={hipY} r={2.5} fill={robot} />
+              ))}
+            </g>
+          </PlotStage>
+        </FigureStage>
+      }
+      caption="A dominant torque or air-time weight, or a near-zero action-rate weight, moves the drawn gait off its balanced trot."
+      source="Local teaching model: twelve illustrative terms and weights, not a source configuration or the paper reward. No policy is trained here."
+    />
   );
 }

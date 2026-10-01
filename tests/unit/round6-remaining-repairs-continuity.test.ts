@@ -12,6 +12,9 @@ import { round6ProseRestoresCheckerPredecessor } from '../../lib/audit-round6-pr
 import {
   round6RemainingRepairPredecessor, round6RemainingRepairsCheckerPredecessor,
 } from '../../lib/audit-round6-remaining-repairs-continuity.ts';
+// The 2026-10-01 figure migration later edited the three repaired specs; its
+// reviewed successor returns the bytes this review names.
+import { carriesThroughFigureMigration, preFigureMigration } from '../helpers/figure-migration';
 
 const root = resolve(import.meta.dirname, '../..');
 const directory = 'audit/evidence/motion-round6-remaining-repairs-20260929/';
@@ -144,7 +147,7 @@ it('reviews exactly the six named repairs under the recorded schema', () => {
 
 it.each(repairs)('returns the archived $name bytes exactly where its prior record still points', (repair) => {
   const source = sourceOf(repair.name);
-  const live = read(repair.path);
+  const live = preFigureMigration(source.after);
   const archived = read(source.before.path);
   expect({ bytes: live.length, sha256: digest(live) }).toEqual({ bytes: source.after.bytes, sha256: source.after.sha256 });
   expect({ bytes: archived.length, sha256: digest(archived) })
@@ -161,7 +164,7 @@ it('hands the data-hardware motion review the pre-repair spec it still gates', (
   const index = loadDataHardwareMotionReview(root).entries
     .findIndex((entry) => entry.current.path === 'tests/e2e/industrial-deployment.spec.ts');
   const entry = loadDataHardwareMotionReview(root).entries[index];
-  const live = read(entry.current.path);
+  const live = preFigureMigration(sourceOf('industrial-deployment-hydrated-slider').after);
   expect(() => currentDataHardwareMotionArtifact(root, index, live)).toThrow(/endpoint identity drift/);
   expect(currentDataHardwareMotionArtifact(root, index, round6RemainingRepairPredecessor(root, entry.current, live)))
     .toEqual(read(entry.snapshot.path));
@@ -169,7 +172,7 @@ it('hands the data-hardware motion review the pre-repair spec it still gates', (
 
 it.each(repairs)('changes only the named $name edits and keeps every assertion line', (repair) => {
   const before = read(sourceOf(repair.name).before.path).toString();
-  const after = read(repair.path).toString();
+  const after = preFigureMigration(sourceOf(repair.name).after).toString();
   let expected = before;
   for (const [from, to] of repair.edits) {
     expect(expected.split(from)).toHaveLength(2);
@@ -192,8 +195,10 @@ it.each(repairs)('changes only the named $name edits and keeps every assertion l
 
 it('keeps the recorded industrial and economics checks and matches the live article wording', () => {
   const article = read('content/data-hardware/industrial-deployment.mdx').toString();
-  const refresh = read('tests/e2e/industrial-citation-refresh.spec.ts').toString();
-  const economics = read('tests/e2e/economics-release-evidence.spec.ts').toString();
+  const refreshPath = 'tests/e2e/industrial-citation-refresh.spec.ts';
+  const economicsPath = 'tests/e2e/economics-release-evidence.spec.ts';
+  const refresh = preFigureMigration(sourceOf('citation-refresh-current-wording').after).toString();
+  const economics = preFigureMigration(sourceOf('economics-instrument-frame').after).toString();
   const refreshBefore = read(sourceOf('citation-refresh-current-wording').before.path).toString();
   const economicsBefore = read(sourceOf('economics-instrument-frame').before.path).toString();
   for (const line of [
@@ -205,6 +210,7 @@ it('keeps the recorded industrial and economics checks and matches the live arti
   ]) {
     expect(refreshBefore.split(line)).toHaveLength(2);
     expect(refresh.split(line)).toHaveLength(2);
+    expect(carriesThroughFigureMigration(refreshPath, line, read(refreshPath).toString())).toBe(true);
   }
   for (const line of [
     "    await expect(slider.locator('xpath=following-sibling::p')).toContainText('not a sourced arm-price quote');",
@@ -216,6 +222,7 @@ it('keeps the recorded industrial and economics checks and matches the live arti
   ]) {
     expect(economicsBefore.split(line)).toHaveLength(2);
     expect(economics.split(line)).toHaveLength(2);
+    expect(carriesThroughFigureMigration(economicsPath, line, read(economicsPath).toString())).toBe(true);
   }
   expect(article).toContain('no measured intervention rate behind it');
   expect(article).not.toContain('not a measured intervention rate');
@@ -252,7 +259,7 @@ it('changes only the taxonomy search description and keeps the release disclosur
 it('passes every other reference and byte string through to the exact checks', () => {
   for (const repair of repairs) {
     const source = sourceOf(repair.name);
-    const live = read(repair.path);
+    const live = preFigureMigration(source.after);
     const liveReference = { path: repair.path, bytes: live.length, sha256: digest(live) };
     expect(round6RemainingRepairPredecessor(root, liveReference, live)).toBe(live);
     const longer = Buffer.concat([live, Buffer.from('\n')]);
@@ -282,7 +289,7 @@ it.each(repairs.flatMap((repair) => sourceMutations
   const source = sourceOf(name);
   const destination = copied([reviewPath, source.before.path, ...priorFiles(repair)]);
   try {
-    const live = read(repair.path);
+    const live = preFigureMigration(source.after);
     const prior = priorEndpoint(repair, destination);
     expect(round6RemainingRepairPredecessor(destination, prior, live)).toEqual(read(source.before.path));
     if (mutation === 'missing-review') rmSync(join(destination, reviewPath));
@@ -348,6 +355,11 @@ const checkerEdits = [
 ] as const;
 
 it('admits only the exact remaining-repairs reader revision above the round6 prose-restores head', () => {
+  // This revision's output is now preserved as the input of the later
+  // figure-migration reader revision, which the live checker reaches first.
+  const reviewedAfter = read('audit/evidence/figure-migration-20261001/audit-local-basis-before.ts.txt');
+  expect(reviewedAfter.length).toBe(114006);
+  expect(digest(reviewedAfter)).toBe('a5bce56232d1ac63ce3f94add1bdc7d2a7964bf1f40bb6bd431b746ccb510a1a');
   const live = read('lib/audit-local-basis.ts');
   const archived = read(checkerArchivePath);
   expect(archived.length).toBe(113858);
@@ -356,7 +368,10 @@ it('admits only the exact remaining-repairs reader revision above the round6 pro
   expect(checkerReview.schemaVersion).toBe('round6-remaining-repairs-checker-revision-v1');
   expect(checkerReview.name).toBe('remaining-repairs-reader');
   expect(checkerReview.before).toEqual({ path: checkerArchivePath, bytes: archived.length, sha256: digest(archived) });
-  expect(checkerReview.after).toEqual({ path: 'lib/audit-local-basis.ts', bytes: live.length, sha256: digest(live) });
+  expect(checkerReview.after).toEqual({
+    path: 'lib/audit-local-basis.ts', bytes: reviewedAfter.length, sha256: digest(reviewedAfter),
+  });
+  expect(round6RemainingRepairsCheckerPredecessor(root, reviewedAfter)).toEqual(archived);
   expect(round6RemainingRepairsCheckerPredecessor(root, live)).toEqual(archived);
   expect(round6RemainingRepairsCheckerPredecessor(root, archived)).toEqual(archived);
   const proseArchived = read('audit/evidence/motion-round6-prose-restores-20260929/audit-local-basis-before.ts.txt');
@@ -365,18 +380,18 @@ it('admits only the exact remaining-repairs reader revision above the round6 pro
   let expected = archived.toString();
   for (const [from, to] of checkerEdits) {
     expect(expected.split(from)).toHaveLength(2);
-    expect(live.toString().split(to)).toHaveLength(2);
+    expect(reviewedAfter.toString().split(to)).toHaveLength(2);
     expected = expected.split(from).join(to);
   }
-  expect(expected).toBe(live.toString());
+  expect(expected).toBe(reviewedAfter.toString());
   for (const [from, to] of checkerEdits) {
-    const reverted = Buffer.from(live.toString().split(to).join(from));
+    const reverted = Buffer.from(reviewedAfter.toString().split(to).join(from));
     expect(() => round6RemainingRepairsCheckerPredecessor(root, reverted)).toThrow(
-      /round6 remaining repairs checker continuity drift/,
+      /figure migration checker continuity drift/,
     );
   }
-  expect(() => round6RemainingRepairsCheckerPredecessor(root, Buffer.concat([live, Buffer.from('\n')])))
-    .toThrow(/round6 remaining repairs checker continuity drift/);
+  expect(() => round6RemainingRepairsCheckerPredecessor(root, Buffer.concat([reviewedAfter, Buffer.from('\n')])))
+    .toThrow(/figure migration checker continuity drift/);
 });
 
 it('names the live classical-closure suite as the budget-only edit of the archived suite', () => {
@@ -392,7 +407,9 @@ it('names the live classical-closure suite as the budget-only edit of the archiv
 it.each(['missing-review', 'missing-predecessor', 'corrupt-predecessor', 'missing-suite', 'corrupt-suite',
   'review-before-hash', 'review-after-hash', 'wrong-name', 'wrong-schema', 'future-observation',
   'short-rationale'] as const)('rejects %s in the remaining-repairs checker transition', (mutation) => {
-  const destination = copied([checkerReviewPath, checkerArchivePath, suiteArchivePath]);
+  const destination = copied([checkerReviewPath, checkerArchivePath, suiteArchivePath,
+    'audit/evidence/figure-migration-20261001/checker-transition.json',
+    'audit/evidence/figure-migration-20261001/audit-local-basis-before.ts.txt']);
   try {
     const live = read('lib/audit-local-basis.ts');
     expect(round6RemainingRepairsCheckerPredecessor(destination, live)).toEqual(read(checkerArchivePath));

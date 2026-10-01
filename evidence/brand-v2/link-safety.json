@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "9bc53a7286a6f8f022f4bf6b22f50a0c44a3aea411b9e79c38a08399dcb1c100",
+  "fingerprint": "5d662879677b787c9c46d68955cb64b7eced308e72cdebeab8c669002b9ba43a",
   "source": "out/ static export",
   "routes": [
     {
@@ -114,6 +114,7 @@
       "distinctHrefs": 24,
       "shapes": [
         "citation-chip",
+        "figure-credit",
         "footer",
         "other",
         "reference-entry"
@@ -159,6 +160,7 @@
       "distinctHrefs": 31,
       "shapes": [
         "citation-chip",
+        "figure-credit",
         "footer",
         "other",
         "reference-entry"
@@ -181,6 +183,7 @@
       "distinctHrefs": 27,
       "shapes": [
         "citation-chip",
+        "figure-credit",
         "footer",
         "other",
         "reference-entry"
@@ -217,10 +220,11 @@
     },
     {
       "route": "/data-hardware/data-bottleneck/",
-      "outboundAnchors": 32,
+      "outboundAnchors": 31,
       "distinctHrefs": 17,
       "shapes": [
         "citation-chip",
+        "figure-credit",
         "footer",
         "other",
         "reference-entry"
@@ -316,6 +320,7 @@
       "distinctHrefs": 25,
       "shapes": [
         "citation-chip",
+        "figure-credit",
         "footer",
         "other",
         "reference-entry"
@@ -327,6 +332,7 @@
       "distinctHrefs": 26,
       "shapes": [
         "citation-chip",
+        "figure-credit",
         "footer",
         "other",
         "reference-entry"
@@ -338,6 +344,7 @@
       "distinctHrefs": 27,
       "shapes": [
         "citation-chip",
+        "figure-credit",
         "footer",
         "other",
         "reference-entry"
@@ -360,6 +367,7 @@
       "distinctHrefs": 13,
       "shapes": [
         "citation-chip",
+        "figure-credit",
         "footer",
         "other",
         "reference-entry"
@@ -434,6 +442,7 @@
       "distinctHrefs": 24,
       "shapes": [
         "citation-chip",
+        "figure-credit",
         "footer",
         "other",
         "reference-entry"
@@ -441,10 +450,11 @@
     },
     {
       "route": "/manipulation/cross-embodiment/",
-      "outboundAnchors": 35,
+      "outboundAnchors": 36,
       "distinctHrefs": 13,
       "shapes": [
         "citation-chip",
+        "figure-credit",
         "footer",
         "other",
         "reference-entry"
@@ -478,6 +488,7 @@
       "distinctHrefs": 18,
       "shapes": [
         "citation-chip",
+        "figure-credit",
         "footer",
         "other",
         "reference-entry"
@@ -489,6 +500,7 @@
       "distinctHrefs": 16,
       "shapes": [
         "citation-chip",
+        "figure-credit",
         "footer",
         "other",
         "reference-entry"
@@ -500,6 +512,7 @@
       "distinctHrefs": 10,
       "shapes": [
         "citation-chip",
+        "figure-credit",
         "footer",
         "other",
         "reference-entry"
@@ -511,6 +524,7 @@
       "distinctHrefs": 16,
       "shapes": [
         "citation-chip",
+        "figure-credit",
         "footer",
         "other",
         "reference-entry"
@@ -656,6 +670,7 @@
       "distinctHrefs": 30,
       "shapes": [
         "citation-chip",
+        "figure-credit",
         "footer",
         "other",
         "reference-entry"
@@ -792,14 +807,14 @@
   "outboundAnchors": 3133,
   "distinctOutboundHrefs": 855,
   "anchorsByShape": {
-    "citation-chip": 1386,
+    "citation-chip": 1368,
     "footer": 150,
     "reference-entry": 751,
-    "other": 604,
-    "figure-credit": 242
+    "other": 561,
+    "figure-credit": 303
   },
   "anchorsWithoutNoopener": 0,
-  "anchorsWithNoreferrer": 2596,
+  "anchorsWithNoreferrer": 2595,
   "keyboard": [
     {
       "route": "/",
@@ -895,7 +910,7 @@
       "reachedByTab": 51,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 182
+      "tabStops": 175
     },
     {
       "route": "/classical/grasp-planning/",
@@ -971,11 +986,11 @@
     },
     {
       "route": "/data-hardware/data-bottleneck/",
-      "outboundInDom": 32,
-      "reachedByTab": 32,
+      "outboundInDom": 31,
+      "reachedByTab": 31,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 124
+      "tabStops": 117
     },
     {
       "route": "/data-hardware/datasets/",
@@ -991,7 +1006,7 @@
       "reachedByTab": 39,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 140
+      "tabStops": 135
     },
     {
       "route": "/data-hardware/hardware-taxonomy/",
@@ -1071,7 +1086,7 @@
       "reachedByTab": 36,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 126
+      "tabStops": 123
     },
     {
       "route": "/frontier/reliability-gap/",
@@ -1079,7 +1094,7 @@
       "reachedByTab": 32,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 122
+      "tabStops": 124
     },
     {
       "route": "/frontier/safety-and-assurance/",
@@ -1111,7 +1126,7 @@
       "reachedByTab": 44,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 158
+      "tabStops": 156
     },
     {
       "route": "/manipulation/action-spaces/",
@@ -1127,7 +1142,7 @@
       "reachedByTab": 21,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 118
+      "tabStops": 110
     },
     {
       "route": "/manipulation/comparison-matrix/",
@@ -1135,15 +1150,15 @@
       "reachedByTab": 79,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 204
+      "tabStops": 205
     },
     {
       "route": "/manipulation/cross-embodiment/",
-      "outboundInDom": 35,
-      "reachedByTab": 35,
+      "outboundInDom": 36,
+      "reachedByTab": 36,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 127
+      "tabStops": 128
     },
     {
       "route": "/manipulation/diffusion-policy/",
@@ -1191,7 +1206,7 @@
       "reachedByTab": 54,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 192
+      "tabStops": 191
     },
     {
       "route": "/manipulation/realtime-execution/",
@@ -1199,7 +1214,7 @@
       "reachedByTab": 36,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 133
+      "tabStops": 132
     },
     {
       "route": "/manipulation/rl-finetuning/",
@@ -1223,7 +1238,7 @@
       "reachedByTab": 40,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 162
+      "tabStops": 161
     },
     {
       "route": "/market-map/",
@@ -1263,7 +1278,7 @@
       "reachedByTab": 41,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 138
+      "tabStops": 139
     },
     {
       "route": "/rl-sim2real/legged-locomotion/",
@@ -1271,7 +1286,7 @@
       "reachedByTab": 33,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 120
+      "tabStops": 110
     },
     {
       "route": "/rl-sim2real/offline-rl/",
@@ -1287,7 +1302,7 @@
       "reachedByTab": 31,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 118
+      "tabStops": 114
     },
     {
       "route": "/rl-sim2real/reward-design-mpc/",
@@ -1303,7 +1318,7 @@
       "reachedByTab": 77,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 209
+      "tabStops": 210
     },
     {
       "route": "/rl-sim2real/sim2real-transfer/",
@@ -1311,7 +1326,7 @@
       "reachedByTab": 40,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 145
+      "tabStops": 143
     },
     {
       "route": "/rl-sim2real/why-rl-locomotion/",
@@ -1351,7 +1366,7 @@
       "reachedByTab": 32,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 129
+      "tabStops": 128
     },
     {
       "route": "/world-models/generative-video/",
@@ -1359,7 +1374,7 @@
       "reachedByTab": 44,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 150
+      "tabStops": 149
     },
     {
       "route": "/world-models/jepa/",
@@ -1375,7 +1390,7 @@
       "reachedByTab": 31,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 117
+      "tabStops": 116
     },
     {
       "route": "/world-models/model-based-robot-learning/",

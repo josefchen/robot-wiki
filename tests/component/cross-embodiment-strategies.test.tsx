@@ -23,8 +23,25 @@ describe('CrossEmbodimentStrategies', () => {
     expect(screen.getByTestId('strategy-detail')).toBeInTheDocument();
   });
 
-  it('starts in padded mode with the toggle pressed and zero-padding visible', () => {
+  it('starts in the shared relative EEF space with the human-hand row populated', () => {
     render(<CrossEmbodimentStrategies />);
+    expect(strategyButton(/shared relative EEF/i)).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
+    expect(strategyButton(/padded shared vector/i)).toHaveAttribute(
+      'aria-pressed',
+      'false',
+    );
+    const hand = screen.getByTestId('row-human-hand');
+    expect(hand).toHaveTextContent(/8 shared dims/);
+    expect(hand.querySelectorAll('rect[data-series="active"]')).toHaveLength(8);
+    expect(screen.getByRole('img', { name: /7-DoF arm under the Shared relative EEF space strategy/ })).toBeInTheDocument();
+  });
+
+  it('padded mode shows the toggle pressed and zero-padding visible', () => {
+    render(<CrossEmbodimentStrategies />);
+    fireEvent.click(strategyButton(/padded shared vector/i));
     expect(strategyButton(/padded shared vector/i)).toHaveAttribute(
       'aria-pressed',
       'true',
@@ -39,6 +56,7 @@ describe('CrossEmbodimentStrategies', () => {
 
   it('shows the unmodelled human adapter in the padded toy', () => {
     render(<CrossEmbodimentStrategies />);
+    fireEvent.click(strategyButton(/padded shared vector/i));
     const hand = screen.getByTestId('row-human-hand');
     expect(hand).toHaveTextContent(/no adapter modelled/i);
     expect(screen.getByTestId('human-video-readout')).toHaveTextContent(
@@ -91,16 +109,18 @@ describe('CrossEmbodimentStrategies', () => {
     expect(screen.queryByTestId('underspecified-flag')).not.toBeInTheDocument();
   });
 
-  it('reset restores the default padded view', async () => {
+  it('reset restores the default relative EEF view', async () => {
     const user = userEvent.setup();
     render(<CrossEmbodimentStrategies />);
-    fireEvent.click(strategyButton(/shared relative EEF/i));
+    fireEvent.click(strategyButton(/padded shared vector/i));
+    expect(screen.getByTestId('row-arm')).toHaveTextContent(/24 zero-padded/);
     await user.click(screen.getByRole('button', { name: /reset/i }));
-    expect(strategyButton(/padded shared vector/i)).toHaveAttribute(
+    expect(strategyButton(/shared relative EEF/i)).toHaveAttribute(
       'aria-pressed',
       'true',
     );
-    expect(screen.getByTestId('row-arm')).toHaveTextContent(/24 zero-padded/);
+    expect(screen.getByTestId('row-arm')).toHaveTextContent(/8 shared dims/);
+    expect(screen.queryAllByText(/zero-padded/)).toHaveLength(0);
   });
 
   it('links every strategy to its source', () => {

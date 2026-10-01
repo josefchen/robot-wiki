@@ -5,16 +5,18 @@ import { waitForHydration } from './interaction-ready';
 const ROUTE = '/manipulation/bc-foundations/';
 
 /**
- * The standalone article mount of the compounding-error figure. The
- * article also renders a second CompoundingError inside the prediction
- * step's disclosure, so every per-mount locator must be scoped to one.
+ * The article's only compounding-error figure, mounted inside the
+ * prediction step's disclosure.
  */
 function ce(page: Page) {
-  return page
-    .locator(
-      'div.prose > [data-brand-module-signature="instrument-frame"]:has([data-testid="accumulated-deviation-readout"])',
-    )
-    .first();
+  return page.locator('[data-predict] [data-figure-frame="compounding-error"]');
+}
+
+/** Opens the prediction step so the figure inside it can be driven. */
+async function openPrediction(page: Page) {
+  await page.locator('[data-predict] details[data-reveal] > summary').click();
+  await expect(ce(page)).toHaveCount(1);
+  await expect(ce(page)).toBeVisible();
 }
 
 
@@ -58,6 +60,7 @@ test.describe('bc-foundations module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
+    await openPrediction(page);
     const readout = ce(page).getByTestId('accumulated-deviation-readout');
     const initial = Number.parseFloat((await readout.textContent()) ?? '');
     expect(Number.isFinite(initial)).toBe(true);

@@ -49,6 +49,18 @@ describe('HandComparison', () => {
     expect(screen.queryByText('n/a', { exact: true })).not.toBeInTheDocument();
   });
 
+  it('captions the disclosure counts the rows actually carry', () => {
+    render(<HandComparison />);
+    const tactile = DEXTEROUS_HANDS.filter((hand) => hand.tactileDisplay).length;
+    const cost = DEXTEROUS_HANDS.filter((hand) => hand.costDisplay).length;
+    const both = DEXTEROUS_HANDS.filter((hand) => hand.tactileDisplay && hand.costDisplay).length;
+    // The caption spells these counts out; a data change must rewrite it.
+    expect([tactile, cost, both]).toEqual([2, 2, 0]);
+    expect(
+      screen.getByText('Two rows list a tactile threshold, two list a cost, and no row lists both.'),
+    ).toHaveAttribute('data-figure-caption');
+  });
+
   it('opens sorted by tactile threshold, most sensitive first', () => {
     render(<HandComparison />);
     expect(rowOrder().slice(0, 2)).toEqual(DEFAULT_ORDER);

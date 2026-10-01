@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "family": "IBM Plex Sans",
+  "license": {
+    "id": "OFL-1.1",
+    "path": "scripts/motion/fonts/OFL.txt"
+  },
+  "upstream": {
+    "repositoryUrl": "https://github.com/google/fonts",
+    "revision": "0b58fb370093f9a9f4ff785d94405710b79de67c",
+    "googleFontsMetadataUrl": "https://raw.githubusercontent.com/google/fonts/0b58fb370093f9a9f4ff785d94405710b79de67c/ofl/ibmplexsans/METADATA.pb",
+    "licenseUrl": "https://raw.githubusercontent.com/google/fonts/0b58fb370093f9a9f4ff785d94405710b79de67c/ofl/ibmplexsans/OFL.txt",
+    "retrieved": "2026-10-01"
+  },
+  "clip": {
+    "path": "scripts/motion/fonts/IBMPlexSans-wdth-wght.ttf",
+    "sourceUrl": "https://raw.githubusercontent.com/google/fonts/0b58fb370093f9a9f4ff785d94405710b79de67c/ofl/ibmplexsans/IBMPlexSans%5Bwdth,wght%5D.ttf",
+    "sha256": "3b031aa4216174205bd8471f88a49b91f093169e9e87bd5262242bc5967fe2e3",
+    "format": "TTF",
+    "subset": "upstream-full",
+    "style": "normal",
+    "axes": {
+      "wdth": [75, 100],
+      "wght": [100, 700]
+    },
+    "use": "Offline cinematic-clip renderer only: scripts/motion/clip_kit.py registers it with Pango before a clip scene draws text. It is never served to readers."
+  }
+}

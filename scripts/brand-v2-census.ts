@@ -364,6 +364,8 @@ const INSTRUMENT_CONTROL_PRIMITIVES: Record<string, readonly string[]> = {
   LegendItem: [],
   InstrumentReset: ['<button'],
   PlotStage: [],
+  InstrumentFigure: [],
+  ControlField: [],
 };
 
 /** Names the instrument family actually exports, so a barrel co-import such

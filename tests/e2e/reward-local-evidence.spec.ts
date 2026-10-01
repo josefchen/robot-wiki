@@ -17,8 +17,8 @@ test('observes the mounted authored reward and complete scripted replay', async 
   await page.goto(route);
   await expect(page.getByText(rewardDisclosure, { exact: true })).toBeVisible();
   await expect(page.getByText(eurekaDisclosure, { exact: true })).toBeAttached();
-  const reward = page.getByTestId('quad-preview').locator('..');
-  const eureka = page.getByTestId('generation-readout').locator('../..');
+  const reward = page.locator('[data-figure-frame="reward-shaping"]');
+  const eureka = page.locator('[data-figure-frame="eureka-loop"]');
   const observations: unknown[] = [];
   async function capture(name: string, family: 'reward' | 'eureka', recipe: unknown, target: Locator) {
     const expected = extract(recipe);

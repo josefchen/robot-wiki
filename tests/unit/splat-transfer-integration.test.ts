@@ -55,7 +55,7 @@ describe('Splat transfer bounded integration', () => {
     expect(article.match(/<span className="max-sm:/g)).toHaveLength(9);
     expect(article).toContain('lastReviewed: "2026-08-17"');
     expect(article).toContain('Real-to-sim twins freeze the scene they captured.');
-    expect(article).toContain('Confusing the two is the most common misreading');
+    expect(article).toContain('Treating such a twin as a learned simulator is the most common misreading');
     // Original 21 was held when this pin was written but a later packet
     // completed it; 23 and 24 remain held.
     expect(record(21).evidenceFailures).toEqual([]);

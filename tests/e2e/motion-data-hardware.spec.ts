@@ -3,16 +3,6 @@ import { auditSceneElement } from '@/lib/motion-scene-audit';
 
 const scenes = [
   {
-    id: 'farm-throughput',
-    route: '/data-hardware/data-bottleneck/',
-    captions: [/authored inputs/i, /low-rate hypothetical/i, /dedicated-farm hypothetical/i, /same target/i],
-  },
-  {
-    id: 'episode-survival',
-    route: '/data-hardware/evaluation-crisis/',
-    captions: [/first decision/i, /fourteen decisions/i, /thirty decisions/i, /conditional-probability assumption/i],
-  },
-  {
     id: 'jam-overhead',
     route: '/data-hardware/industrial-deployment/',
     captions: [/authored cell/i, /short jam/i, /long clearing/i, /same success rate/i],
@@ -87,46 +77,57 @@ test('paired data/hardware labs retain semantic roles under both schemes and cha
       const context = await browser.newContext({ colorScheme, viewport: { width, height: 900 } });
       try {
         const page = await context.newPage();
-        const role = (name: string) => page.evaluate((value) => {
+        // Figures paint on the graphite stage, which remaps every role to its
+        // stage colour, so a stage mark is compared with a probe inside it.
+        const stageRole = (name: string, anchor: string) => page.evaluate(([value, selector]) => {
           const probe = document.createElement('span');
           probe.style.color = `var(--role-${value})`;
-          document.body.append(probe);
+          document.querySelector(selector)!.closest('[data-figure-stage]')!.append(probe);
           const result = getComputedStyle(probe).color;
           probe.remove();
           return result;
-        }, name);
+        }, [name, anchor] as const);
         const style = (selector: string, property: string) =>
           page.locator(selector).first().evaluate((node, field) =>
             getComputedStyle(node).getPropertyValue(field), property);
 
         await page.goto('/data-hardware/industrial-deployment/', { waitUntil: 'networkidle' });
-        expect(await style('[data-testid="time-breakdown"] > div:first-child', 'background-color')).toBe(await role('value-graphic'));
-        expect(await style('[data-testid="time-breakdown"] > div:nth-child(2)', 'background-color')).toBe(await role('constraint-graphic'));
-        expect(await style('[data-testid="breakdown-productive"]', 'color')).toBe(await role('value-text'));
-        expect(await style('[data-testid="breakdown-jams"]', 'color')).not.toBe(await role('value-text'));
+        const bar = '[data-testid="time-breakdown"]';
+        const jam = `${bar} [data-breakdown-segment="Jam clearing"] pattern line`;
+        expect(await style(`${bar} [data-breakdown-segment="Productive cycles"] rect`, 'fill')).toBe(await stageRole('value-graphic', bar));
+        expect(await style(jam, 'stroke')).toBe(await stageRole('constraint-graphic', bar));
+        expect(await style('[data-testid="breakdown-productive"]', 'color')).toBe(await stageRole('value-text', bar));
+        expect(await style('[data-testid="breakdown-jams"]', 'color')).not.toBe(await stageRole('value-text', bar));
         await page.getByRole('slider', { name: /jam-clearing time/i }).fill('45');
-        expect(await style('[data-testid="time-breakdown"] > div:nth-child(2)', 'background-color')).toBe(await role('constraint-graphic'));
+        expect(await style(jam, 'stroke')).toBe(await stageRole('constraint-graphic', bar));
         await expect(page.getByTestId('breakdown-jams')).toContainText('jam clearing');
 
         await page.goto('/data-hardware/data-bottleneck/', { waitUntil: 'networkidle' });
-        expect(await style('[data-testid="projection-marker"]', 'fill')).toBe(await role('value-graphic'));
-        expect(await style('[data-testid="projection-marker"] + text', 'fill')).toBe(await role('value-text'));
-        expect(await style('[data-instrument-legend] > span:nth-child(4) > span', 'background-color')).toBe(await role('value-graphic'));
-        expect(await style('[data-testid="hours-readout"]', 'color')).toBe(await role('value-text'));
-        expect(await style('[data-testid="rigs-readout"]', 'color')).toBe(await role('highlight-text'));
+        // The page's one data-scale chart is the reveal of its prediction step.
+        await page.locator('[data-predict]:has([data-testid="projection-marker"]) details[data-reveal] > summary').click();
+        const marker = '[data-testid="projection-marker"]';
+        expect(await style(marker, 'fill')).toBe(await stageRole('value-graphic', marker));
+        expect(await style(`${marker} + text`, 'fill')).toBe(await stageRole('value-text', marker));
+        expect(await style('[data-figure-frame="data-scale-chart"] [data-legend-series="farm-projection"] svg circle', 'fill'))
+          .toBe(await stageRole('value-graphic', marker));
+        expect(await style('[data-testid="hours-readout"]', 'color')).toBe(await stageRole('value-text', marker));
+        expect(await style('[data-testid="rigs-readout"]', 'color')).toBe(await stageRole('highlight-text', marker));
         await page.getByRole('slider', { name: /teleoperation rigs/i }).fill('11');
-        expect(await style('[data-testid="projection-marker"]', 'fill')).toBe(await role('value-graphic'));
+        expect(await style(marker, 'fill')).toBe(await stageRole('value-graphic', marker));
         await expect(page.getByTestId('rigs-readout').first()).toHaveText('11');
 
         await page.goto('/data-hardware/evaluation-crisis/', { waitUntil: 'networkidle' });
+        // The page's one calculator is the reveal of its prediction step.
+        await page.locator('[data-predict]:has([data-testid="episode-success-readout"]) details[data-reveal] > summary').click();
         const lab = page.locator('[data-brand-module-signature="instrument-frame"]:has([data-testid="episode-success-readout"])').first();
-        expect(await lab.locator('svg path[stroke="var(--color-accent)"]').evaluate((node) => getComputedStyle(node).stroke))
-          .toBe(await role('value-graphic'));
+        const trace = 'path[data-series="episode-success"]';
+        expect(await lab.locator(trace).evaluate((node) => getComputedStyle(node).stroke))
+          .toBe(await stageRole('value-graphic', trace));
         expect(await lab.getByTestId('episode-success-readout').evaluate((node) => getComputedStyle(node).color))
-          .toBe(await role('value-text'));
+          .toBe(await stageRole('value-text', trace));
         await lab.getByRole('slider', { name: /per-step success probability/i }).fill('99');
-        expect(await lab.locator('svg path[stroke="var(--color-accent)"]').evaluate((node) => getComputedStyle(node).stroke))
-          .toBe(await role('value-graphic'));
+        expect(await lab.locator(trace).evaluate((node) => getComputedStyle(node).stroke))
+          .toBe(await stageRole('value-graphic', trace));
         await expect(lab.getByTestId('episode-success-readout')).not.toBeEmpty();
       } finally {
         await context.close();

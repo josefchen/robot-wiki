@@ -16,6 +16,7 @@ import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { loadDataHardwareMotionReview } from './audit-data-hardware-motion-continuity.ts';
+import { figureMigrationCheckerPredecessor } from './audit-figure-migration-continuity.ts';
 
 const directory = 'audit/evidence/motion-round6-remaining-repairs-20260929/';
 const digest = (bytes: Buffer) => createHash('sha256').update(bytes).digest('hex');
@@ -349,12 +350,14 @@ const historicalCheckers = new Map([
 ]);
 
 /**
- * Older checker bytes pass through. The current checker is admitted only as
- * the exact remaining-repairs reader revision above the round6 prose-restores
- * head, and only while its new classical-closure test hash names the exact
- * budget-only edit of the archived suite.
+ * The figure-migration revision above this head is unwound first. Older
+ * checker bytes pass through. The remaining-repairs checker is admitted only
+ * as the exact reader revision above the round6 prose-restores head, and only
+ * while its new classical-closure test hash names the exact budget-only edit
+ * of the archived suite.
  */
-export function round6RemainingRepairsCheckerPredecessor(root: string, live: Buffer): Buffer {
+export function round6RemainingRepairsCheckerPredecessor(root: string, checker: Buffer): Buffer {
+  const live = figureMigrationCheckerPredecessor(root, checker);
   const liveHash = digest(live);
   if (liveHash === checkerBefore.sha256 && live.length === checkerBefore.bytes) return live;
   if (historicalCheckers.get(liveHash) === live.length) return live;

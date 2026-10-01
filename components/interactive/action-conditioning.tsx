@@ -1,13 +1,26 @@
 'use client';
 
-import { useId, useState } from 'react';
+import { useId, useState, type ReactNode } from 'react';
+import { ChartDescription } from '@/components/ui/chart-description';
 import {
-  ChartDescription,
-  InstrumentFrame,
+  INSTRUMENT_TOGGLE_CLASS,
+  InstrumentFigure,
+  InstrumentLegend,
   InstrumentReadout,
   InstrumentReset,
+  LegendItem,
   PlotStage,
-} from '@/components/ui';
+} from '@/components/ui/instrument';
+import { FigureStage } from '@/components/motion/figure-frame';
+import {
+  LegendSwatch,
+  CHART_STROKE,
+  CHART_STRUCTURE,
+  CHART_TYPE,
+  CHART_UNCERTAINTY,
+  CHART_VIEW_WIDTH,
+  roleColour,
+} from '@/components/motion/chart';
 import {
   ACTIONS,
   INITIAL_STATE,
@@ -20,27 +33,15 @@ import {
   type Conditioning,
   type SceneState,
 } from '@/lib/action-conditioning';
-import { cx } from '@/lib/utils';
 
 /**
- * ActionConditioning: plausible video versus action-faithful video.
- *
- * Two rollouts start from the same initial frame under two different
- * actions. Under strong conditioning the futures visibly diverge: push-left
- * slides the block into the goal zone, lift raises the gripper and leaves
- * the block. Under weak conditioning both futures collapse to the same
- * intention-consistent outcome (block drifts toward the goal, gripper
- * rises a little) because the model is predicting from task intent rather
- * than from the action. The action-sensitivity readout measures the
- * divergence; the visual-realism readout stays fixed at 0.91 in both
- * modes, because realistic video is exactly what a weakly conditioned
- * model still produces.
- *
- * Interactive contract: typed props, deterministic render, monospace
- * numeric readouts, reset control, native keyboard-accessible buttons,
- * fixed chart geometry (no layout shift). Scrub-driven only, no
- * auto-playing or JS-driven motion, so it is reduced-motion safe by
- * construction.
+ * Two rollouts from one initial frame under two actions. Strong
+ * conditioning makes the futures diverge; weak conditioning collapses both
+ * onto the same intention-consistent outcome. Visual realism stays fixed
+ * in both modes on purpose: a weakly conditioned model still renders
+ * plausible video, so only the action-sensitivity score separates them.
+ * Every lane shares the start frame's scale so block positions compare
+ * vertically.
  */
 type ActionConditioningProps = {
   /** Action for rollout A. Default 'push-left'. */
@@ -52,93 +53,119 @@ type ActionConditioningProps = {
   className?: string;
 };
 
-const SCENE_W = 140;
-const SCENE_H = 92;
-const SCENE_GAP = 10;
-const TABLE_Y = 78;
+const WIDTH = CHART_VIEW_WIDTH;
+const LANE_HEIGHT = 64;
+const LABEL_X = 16;
+const LABEL_Y = 45;
+const TABLE = { left: 134, right: WIDTH - 18, y: 56 };
 const BLOCK_SIZE = 14;
-const GRIPPER_X = 63;
+// Units per normalized table position. The weak-conditioning futures end
+// 0.012 apart, which must stay within a unit or two on screen.
+const BLOCK_SPAN = 150;
+const BLOCK_ORIGIN = 140;
+const GRIPPER_RISE = 32;
+const GOAL = { from: 0.04, to: 0.34, height: 18 };
 
-const MONO = 'var(--font-mono)';
-const DIM = 'var(--color-text-dim)';
-const ACCENT = 'var(--color-accent)';
-const BORDER_STRONG = 'var(--color-border-strong)';
-const SURFACE_2 = 'var(--color-surface-2)';
-
-function blockXToPx(blockX: number): number {
-  return 10 + blockX * (SCENE_W - 34);
-}
-
-function gripperBottomY(gripperY: number): number {
-  return TABLE_Y - BLOCK_SIZE - gripperY * 52;
-}
-
-/**
- * One predicted frame: the tabletop, the dashed goal zone on the left, the
- * signal-blue block, and the gripper hanging above the block's initial position.
- * Geometry is a pure function of the scene state, so identical states
- * render identical frames.
- */
-function Scene({
-  state,
-  testIdPrefix,
-}: {
-  state: SceneState;
-  testIdPrefix?: string;
-}) {
-  const bx = blockXToPx(state.blockX);
-  const gy = gripperBottomY(state.gripperY);
-  return (
-    <g>
-      <rect
-        x={0}
-        y={0}
-        width={SCENE_W}
-        height={SCENE_H}
-        fill={SURFACE_2}
-        stroke={BORDER_STRONG}
-        strokeWidth={1}
-      />
-      {/* goal zone */}
-      <rect
-        x={14}
-        y={TABLE_Y - 18}
-        width={32}
-        height={18}
-        fill="none"
-        stroke={DIM}
-        strokeWidth={1}
-        strokeDasharray="3 3"
-      />
-      <text x={30} y={TABLE_Y - 24} textAnchor="middle" fill={DIM} fontSize={7} fontFamily={MONO}>
-        goal
-      </text>
-      {/* table */}
-      <line x1={4} y1={TABLE_Y} x2={SCENE_W - 4} y2={TABLE_Y} stroke={DIM} strokeWidth={1.5} />
-      {/* block */}
-      <rect
-        data-testid={testIdPrefix}
-        x={bx}
-        y={TABLE_Y - BLOCK_SIZE}
-        width={BLOCK_SIZE}
-        height={BLOCK_SIZE}
-        fill={ACCENT}
-        opacity={0.9}
-      />
-      {/* gripper: stem plus two prongs */}
-      <rect x={GRIPPER_X - 2} y={gy - 22} width={4} height={22} fill={DIM} />
-      <rect x={GRIPPER_X - 8} y={gy - 8} width={3.5} height={8} fill={DIM} />
-      <rect x={GRIPPER_X + 4.5} y={gy - 8} width={3.5} height={8} fill={DIM} />
-    </g>
-  );
-}
+const blockLeft = (blockX: number) => BLOCK_ORIGIN + blockX * BLOCK_SPAN;
+const gripperBottom = (gripperY: number) => TABLE.y - BLOCK_SIZE - gripperY * GRIPPER_RISE;
+const GRIPPER_X = blockLeft(INITIAL_STATE.blockX) + BLOCK_SIZE / 2;
 
 function actionLabel(id: ActionId): string {
   return ACTIONS.find((a) => a.id === id)?.label ?? id;
 }
 
-function actionDescription(id: ActionId): string {
-  return ACTIONS.find((a) => a.id === id)?.description ?? '';
+/** The table, the dashed goal zone and, on the shared start, the goal label. */
+function Tabletop({ labelGoal = false }: { labelGoal?: boolean }) {
+  const left = blockLeft(GOAL.from);
+  const width = blockLeft(GOAL.to) - left;
+  return (
+    <>
+      <line
+        data-scene-structure="table"
+        x1={TABLE.left}
+        x2={TABLE.right}
+        y1={TABLE.y}
+        y2={TABLE.y}
+        stroke={CHART_STRUCTURE.axes}
+        strokeWidth={CHART_STROKE.structure}
+        opacity={CHART_STRUCTURE.axesOpacity}
+      />
+      <rect
+        data-series="goal"
+        data-chart-role="reference"
+        x={left}
+        y={TABLE.y - GOAL.height}
+        width={width}
+        height={GOAL.height}
+        fill="none"
+        stroke={roleColour('reference')}
+        strokeWidth={CHART_STROKE.reference}
+        strokeDasharray={CHART_STROKE.dash}
+      />
+      {labelGoal ? (
+        <text
+          data-scene-note=""
+          x={left + width / 2}
+          y={TABLE.y - GOAL.height - 6}
+          textAnchor="middle"
+          fontSize={CHART_TYPE.axisPx}
+          fill={CHART_STRUCTURE.labelSecondary}
+        >
+          goal
+        </text>
+      ) : null}
+    </>
+  );
+}
+
+/** The gripper: a stem and two fingers, bottom edge at the given height. */
+function Gripper({ gripperY }: { gripperY: number }) {
+  const y = gripperBottom(gripperY);
+  const action = roleColour('action');
+  return (
+    <g data-series="gripper" data-chart-role="action">
+      <line
+        x1={GRIPPER_X}
+        x2={GRIPPER_X}
+        y1={y - 13}
+        y2={y - 4}
+        stroke={action}
+        strokeWidth={CHART_STROKE.trace + 0.5}
+      />
+      <path
+        d={`M${GRIPPER_X - 6} ${y + 3}V${y - 4}H${GRIPPER_X + 6}V${y + 3}`}
+        fill="none"
+        stroke={action}
+        strokeWidth={CHART_STROKE.trace - 0.5}
+        strokeLinejoin="round"
+      />
+    </g>
+  );
+}
+
+/** A predicted block: the last frame solid, earlier frames faint. */
+function Block({ state, final, testId }: { state: SceneState; final: boolean; testId?: string }) {
+  return (
+    <rect
+      data-testid={testId}
+      data-series={final ? 'block' : 'block-earlier'}
+      data-chart-role="state"
+      x={blockLeft(state.blockX)}
+      y={TABLE.y - BLOCK_SIZE}
+      width={BLOCK_SIZE}
+      height={BLOCK_SIZE}
+      fill={roleColour('state')}
+      fillOpacity={final ? 1 : CHART_UNCERTAINTY.fillAlpha}
+    />
+  );
+}
+
+function LaneLabel({ children }: { children: ReactNode }) {
+  return (
+    <text x={LABEL_X} y={LABEL_Y} fontSize={CHART_TYPE.labelPx} fill={CHART_STRUCTURE.label}>
+      {children}
+    </text>
+  );
 }
 
 export function ActionConditioning({
@@ -161,10 +188,10 @@ export function ActionConditioning({
   const sameAction = actionA === actionB;
   const diverged = sensitivity > SENSITIVITY_THRESHOLD;
   const verdict = sameAction
-    ? 'same action in both panels: identical futures by definition'
+    ? 'Same action in both rollouts: identical futures by definition.'
     : diverged
-      ? 'futures diverge: the model responds to the action'
-      : 'futures near-identical: the model is following task intent, not the action';
+      ? 'The futures diverge: the model responds to the action.'
+      : 'The futures stay near-identical: the model follows task intent and ignores the action.';
 
   function reset() {
     setActionA(defaultActionA);
@@ -172,93 +199,98 @@ export function ActionConditioning({
     setConditioning(defaultConditioning);
   }
 
-  const toggleBase =
-    'rounded-sm border px-3 py-1.5 font-mono text-xs transition-colors active:translate-y-[1px]';
-  const toggleOn = 'border-accent text-accent';
-  const toggleOff =
-    'border-border bg-surface-2 text-text-dim hover:border-border-strong hover:text-text';
-
   function actionGroup(
     panel: 'a' | 'b',
     current: ActionId,
     set: (a: ActionId) => void,
   ) {
+    const name = panel.toUpperCase();
     return (
-      <div role="group" aria-label={`Rollout ${panel.toUpperCase()} action`}>
-        <div className="font-mono text-[11px] text-text-dim">
-          Rollout {panel.toUpperCase()} action
-        </div>
-        <div className="mt-1.5 flex flex-wrap gap-2">
-          {ACTIONS.map((a) => (
-            <button
-              data-brand-control-id="control:selection"
-              key={a.id}
-              type="button"
-              aria-pressed={current === a.id}
-              aria-label={`${a.label} for rollout ${panel.toUpperCase()}`}
-              title={a.description}
-              onClick={() => set(a.id)}
-              className={cx(toggleBase, current === a.id ? toggleOn : toggleOff)}
-            >
-              {a.label}
-            </button>
-          ))}
-        </div>
+      <div
+        role="group"
+        aria-label={`Rollout ${name} action`}
+        className="flex flex-wrap items-center gap-2"
+      >
+        <span aria-hidden="true" className="font-sans text-[13px] text-text-dim">
+          {name}
+        </span>
+        {ACTIONS.map((a) => (
+          <button
+            data-brand-control-id="control:selection"
+            key={a.id}
+            type="button"
+            aria-pressed={current === a.id}
+            aria-label={`${a.label} for rollout ${name}`}
+            title={a.description}
+            onClick={() => set(a.id)}
+            className={INSTRUMENT_TOGGLE_CLASS}
+          >
+            {a.label}
+          </button>
+        ))}
       </div>
     );
   }
 
-  function rolloutPanel(panel: 'a' | 'b', action: ActionId, frames: SceneState[]) {
-    const width = ROLLOUT_STEPS * SCENE_W + (ROLLOUT_STEPS - 1) * SCENE_GAP;
+  function lane(panel: 'a' | 'b', action: ActionId, frames: SceneState[]) {
+    const name = panel.toUpperCase();
     return (
-      <div data-testid={`rollout-panel-${panel}`}>
-        <div className="font-mono text-[11px] text-text-dim">
-          Rollout {panel.toUpperCase()}: {actionLabel(action).toLowerCase()}
-          <span> ({actionDescription(action)})</span>
-        </div>
+      <div data-testid={`rollout-panel-${panel}`} className="@container">
         <PlotStage
-          viewBox={`0 0 ${width} ${SCENE_H + 16}`}
-          aria-label={`Rollout ${panel.toUpperCase()}: predicted frames under the action ${actionLabel(action)}, ${conditioning} conditioning.`}
+          viewBox={`0 0 ${WIDTH} ${LANE_HEIGHT}`}
+          aria-label={`Rollout ${name}: predicted frames under the action ${actionLabel(action)}, ${conditioning} conditioning.`}
           aria-describedby={descriptionId}
-          className="mt-1.5"
         >
-          {frames.slice(1).map((state, i) => {
-            const k = i + 1;
-            return (
-              <g key={k} transform={`translate(${i * (SCENE_W + SCENE_GAP)},0)`}>
-                <Scene state={state} testIdPrefix={`block-${panel}-${k}`} />
-                <text
-                  x={SCENE_W / 2}
-                  y={SCENE_H + 11}
-                  textAnchor="middle"
-                  fill={DIM}
-                  fontSize={8}
-                  fontFamily={MONO}
-                >
-                  t = {k}
-                </text>
-              </g>
-            );
-          })}
+          <LaneLabel>
+            {name}: {actionLabel(action).toLowerCase()}
+          </LaneLabel>
+          <Tabletop />
+          {frames.slice(1).map((state, i) => (
+            <Block
+              key={i + 1}
+              state={state}
+              final={i + 1 === ROLLOUT_STEPS}
+              testId={`block-${panel}-${i + 1}`}
+            />
+          ))}
+          <Gripper gripperY={frames[frames.length - 1].gripperY} />
         </PlotStage>
       </div>
     );
   }
 
+  const initialFrame = (
+    <div
+      data-testid="initial-frame"
+      className="@container @min-[640px]:row-span-2 @min-[640px]:self-center"
+    >
+      <PlotStage
+        viewBox={`0 0 ${WIDTH} ${LANE_HEIGHT}`}
+        aria-label="Shared initial frame: a block centered on a table with a gripper above it and a goal zone marked on the left."
+        aria-describedby={descriptionId}
+      >
+        <LaneLabel>start</LaneLabel>
+        <Tabletop labelGoal />
+        <Block state={INITIAL_STATE} final />
+        <Gripper gripperY={INITIAL_STATE.gripperY} />
+      </PlotStage>
+    </div>
+  );
+
   return (
-    <InstrumentFrame className={className}>
-      <div className="flex flex-wrap items-end justify-between gap-3">
-        <div role="group" aria-label="Conditioning strength">
-          <div className="font-mono text-[11px] text-text-dim">
-            Model conditioning
-          </div>
-          <div className="mt-1.5 flex flex-wrap gap-2">
+    <InstrumentFigure
+      figureId="action-conditioning"
+      className={className}
+      heading="Two actions fork one predicted future"
+      controls={
+        <>
+          <div role="group" aria-label="Conditioning strength" className="flex flex-wrap gap-2">
             <button
               data-brand-control-id="control:selection"
               type="button"
               aria-pressed={conditioning === 'strong'}
               onClick={() => setConditioning('strong')}
-              className={cx(toggleBase, conditioning === 'strong' ? toggleOn : toggleOff)}
+              className={INSTRUMENT_TOGGLE_CLASS}
             >
               Strong conditioning
             </button>
@@ -267,74 +299,72 @@ export function ActionConditioning({
               type="button"
               aria-pressed={conditioning === 'weak'}
               onClick={() => setConditioning('weak')}
-              className={cx(toggleBase, conditioning === 'weak' ? toggleOn : toggleOff)}
+              className={INSTRUMENT_TOGGLE_CLASS}
             >
               Weak conditioning
             </button>
           </div>
-        </div>
-        <InstrumentReset onClick={reset} />
-      </div>
-
-      <div className="mt-4 grid gap-4 sm:grid-cols-2">
-        {actionGroup('a', actionA, setActionA)}
-        {actionGroup('b', actionB, setActionB)}
-      </div>
-
-      <div className="mt-4" data-testid="initial-frame">
-        <div className="font-mono text-[11px] text-text-dim">
-          Shared initial frame
-        </div>
-        <PlotStage
-          viewBox={`0 0 ${SCENE_W} ${SCENE_H}`}
-          aria-label="Shared initial frame: a block centered on a table with a gripper above it and a goal zone marked on the left."
-          aria-describedby={descriptionId}
-          className="mt-1.5 max-w-[240px]"
+          {actionGroup('a', actionA, setActionA)}
+          {actionGroup('b', actionB, setActionB)}
+          <InstrumentReset onClick={reset} />
+        </>
+      }
+      stage={
+        <FigureStage
+          footer={
+            <>
+              <InstrumentLegend>
+                <LegendItem series="block" swatch={<LegendSwatch role="state" mark="bar" />}>
+                  predicted block
+                </LegendItem>
+                <LegendItem series="block-earlier" swatch={<LegendSwatch role="state" mark="band" />}>
+                  earlier frames
+                </LegendItem>
+                <LegendItem series="gripper" swatch={<LegendSwatch role="action" mark="line" />}>
+                  commanded gripper
+                </LegendItem>
+                <LegendItem series="goal" swatch={<LegendSwatch role="reference" mark="dash" />}>
+                  goal zone
+                </LegendItem>
+              </InstrumentLegend>
+              <InstrumentReadout>
+                action sensitivity S ={' '}
+                <span data-testid="sensitivity-readout" style={{ color: roleColour('measurement') }}>
+                  {sensitivity.toFixed(3)}
+                </span>{' '}
+                (threshold {SENSITIVITY_THRESHOLD.toFixed(2)}), visual realism R ={' '}
+                <span data-testid="realism-readout">{realism.toFixed(2)}</span> in both modes.{' '}
+                {verdict}
+              </InstrumentReadout>
+              <ChartDescription
+                id={descriptionId}
+                form="state"
+                summary="Current action-conditioning pair"
+                description={
+                  diverged
+                    ? `Under ${conditioning} conditioning, ${actionLabel(actionA).toLowerCase()} and ${actionLabel(actionB).toLowerCase()} diverge across ${ROLLOUT_STEPS} predicted frames from the shared initial pose; action sensitivity is ${sensitivity.toFixed(3)} against the ${SENSITIVITY_THRESHOLD.toFixed(2)} threshold while visual realism stays ${realism.toFixed(2)} in both modes.`
+                    : `Under ${conditioning} conditioning, ${actionLabel(actionA).toLowerCase()} and ${actionLabel(actionB).toLowerCase()} stay near-identical across ${ROLLOUT_STEPS} predicted frames from the shared initial pose; action sensitivity is ${sensitivity.toFixed(3)} against the ${SENSITIVITY_THRESHOLD.toFixed(2)} threshold while visual realism stays ${realism.toFixed(2)} in both modes.`
+                }
+                states={[
+                  { label: 'conditioning', value: conditioning },
+                  { label: 'rollout A', value: actionLabel(actionA).toLowerCase() },
+                  { label: 'rollout B', value: actionLabel(actionB).toLowerCase() },
+                  { label: 'sensitivity', value: sensitivity.toFixed(3) },
+                  { label: 'realism', value: realism.toFixed(2) },
+                ]}
+              />
+            </>
+          }
         >
-          <Scene state={INITIAL_STATE} />
-        </PlotStage>
-      </div>
-
-      <div className="mt-4 grid gap-4">
-        {rolloutPanel('a', actionA, framesA)}
-        {rolloutPanel('b', actionB, framesB)}
-      </div>
-
-      <InstrumentReadout>
-        <span className="text-text-dim">action sensitivity S =</span>{' '}
-        <span data-testid="sensitivity-readout" className="text-accent">
-          {sensitivity.toFixed(3)}
-        </span>{' '}
-        <span className="text-text-dim">
-          (threshold {SENSITIVITY_THRESHOLD.toFixed(2)}), visual realism R =
-        </span>{' '}
-        <span data-testid="realism-readout">{realism.toFixed(2)}</span>{' '}
-        <span className="text-text-dim">in both modes</span>
-      </InstrumentReadout>
-      <p className="mt-1.5 font-sans text-xs leading-relaxed text-text-dim">
-        {verdict}. S is the mean per-frame distance between the two predicted
-        futures. Realism is reported separately because a weakly conditioned
-        model still renders sharp, plausible video: it just renders the same
-        future no matter which action you choose.
-      </p>
-      <ChartDescription
-        id={descriptionId}
-        className="mt-3"
-        form="state"
-        summary="Current action-conditioning pair"
-        description={
-          diverged
-            ? `Under ${conditioning} conditioning, ${actionLabel(actionA).toLowerCase()} and ${actionLabel(actionB).toLowerCase()} diverge across ${ROLLOUT_STEPS} predicted frames from the shared initial pose; action sensitivity is ${sensitivity.toFixed(3)} against the ${SENSITIVITY_THRESHOLD.toFixed(2)} threshold while visual realism stays ${realism.toFixed(2)} in both modes.`
-            : `Under ${conditioning} conditioning, ${actionLabel(actionA).toLowerCase()} and ${actionLabel(actionB).toLowerCase()} stay near-identical across ${ROLLOUT_STEPS} predicted frames from the shared initial pose; action sensitivity is ${sensitivity.toFixed(3)} against the ${SENSITIVITY_THRESHOLD.toFixed(2)} threshold while visual realism stays ${realism.toFixed(2)} in both modes.`
-        }
-        states={[
-          { label: 'conditioning', value: conditioning },
-          { label: 'rollout A', value: actionLabel(actionA).toLowerCase() },
-          { label: 'rollout B', value: actionLabel(actionB).toLowerCase() },
-          { label: 'sensitivity', value: sensitivity.toFixed(3) },
-          { label: 'realism', value: realism.toFixed(2) },
-        ]}
-      />
-    </InstrumentFrame>
+          <div className="grid @min-[640px]:grid-cols-2">
+            {initialFrame}
+            {lane('a', actionA, framesA)}
+            {lane('b', actionB, framesB)}
+          </div>
+        </FigureStage>
+      }
+      caption="Strong conditioning makes the two actions predict different futures; weak conditioning predicts the same future for both."
+      source="Illustrative toy with hand-set futures. S is the mean per-frame distance between the two rollouts; realism R is fixed."
+    />
   );
 }

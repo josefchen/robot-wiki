@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "fingerprint": "a1b1a7b2b3f0baa379a731de35758f93d0a168adb04c6ea9f23a8e4e246eee0f",
+  "fingerprint": "4edc89c40bb63f5b5268a9a292bec7c8b8b96220f5093a1009f90ed194d5681c",
   "viewport": "1440x900",
   "route": "/",
-  "visibleTextLength": 2924,
+  "visibleTextLength": 2941,
   "documentScrollWidthPx": 1440,
   "documentClientWidthPx": 1440,
   "heroLockups": [
@@ -610,8 +610,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Major Datasets",
-      "href": "/data-hardware/datasets/",
+      "accessibleName": "The Robot Learning Stack",
+      "href": "/data-hardware/robot-learning-stack/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 932.28,
@@ -718,8 +718,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "The Reliability Gap",
-      "href": "/frontier/reliability-gap/",
+      "accessibleName": "ROS 2 for Machine Learning Engineers",
+      "href": "/classical/ros2-for-ml-engineers/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2302.48,
@@ -727,8 +727,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "State Estimation",
-      "href": "/classical/state-estimation/",
+      "accessibleName": "Sim-to-Real Transfer",
+      "href": "/rl-sim2real/sim2real-transfer/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2333.48,
@@ -736,8 +736,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "What Is a World Model?",
-      "href": "/world-models/taxonomy/",
+      "accessibleName": "Generalization",
+      "href": "/frontier/generalization/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2364.48,
@@ -745,8 +745,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Motion Planning",
-      "href": "/classical/motion-planning/",
+      "accessibleName": "The Data Bottleneck",
+      "href": "/data-hardware/data-bottleneck/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2395.48,
@@ -754,8 +754,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Reward Design and the MPC Debate",
-      "href": "/rl-sim2real/reward-design-mpc/",
+      "accessibleName": "The Pi Line",
+      "href": "/manipulation/pi-line/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2426.48,
@@ -903,7 +903,7 @@
       "index": 3,
       "label": "Featured scene",
       "signature": "plain/module-heading/motion-scene",
-      "derivedSignature": "transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0],button[rgb(11, 11, 12)/rgb(255, 255, 255)/1],button[rgba(0, 0, 0, 0)/rgb(36, 45, 51)/1] || p=3,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=2,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0",
+      "derivedSignature": "transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0],button[rgb(11, 11, 12)/rgb(255, 255, 255)/1],button[rgba(0, 0, 0, 0)/rgb(36, 45, 51)/1] || p=2,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=2,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0",
       "derivedSurfaceHeadingAction": "transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0],button[rgb(11, 11, 12)/rgb(255, 255, 255)/1],button[rgba(0, 0, 0, 0)/rgb(36, 45, 51)/1]",
       "headingTag": "h2",
       "headingSizePx": 20
@@ -988,8 +988,8 @@
     {
       "label": "Featured article",
       "signature": "plain/module-heading/lead-excerpt",
-      "prose": "Five open datasets anchor robot learning in 2026, and each one is a different bet on how to collect at scale.",
-      "text": "Featured article Major Datasets Five open datasets anchor robot learning in 2026, and each one is a different bet on how to collect at scale."
+      "prose": "A robot-learning system is a pipeline from physical events to decisions and back again. The checkpoint is one component.",
+      "text": "Featured article The Robot Learning Stack A robot-learning system is a pipeline from physical events to decisions and back again. The checkpoint is one component."
     },
     {
       "label": "Featured scene",
@@ -1007,7 +1007,7 @@
       "label": "Recently updated",
       "signature": "plain/module-heading/dated-links",
       "prose": "",
-      "text": "Recently updated 2026-09-30 The Reliability Gap 2026-09-29 State Estimation 2026-09-29 What Is a World Model? 2026-09-29 Motion Planning 2026-09-29 Reward Design and the MPC Debate"
+      "text": "Recently updated 2026-10-01 ROS 2 for Machine Learning Engineers 2026-10-01 Sim-to-Real Transfer 2026-10-01 Generalization 2026-10-01 The Data Bottleneck 2026-10-01 The Pi Line"
     },
     {
       "label": "Tools",
@@ -1055,7 +1055,7 @@
       "declaredSignature": "plain/module-heading/motion-scene",
       "registeredOwner": "opus-pass-homepage",
       "registeredPurpose": "The featured scene: one registered motion scene on its poster frame that plays only when the reader starts it.",
-      "derivedStructuralForm": "transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0],button[rgb(11, 11, 12)/rgb(255, 255, 255)/1],button[rgba(0, 0, 0, 0)/rgb(36, 45, 51)/1] || p=3,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=2,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0",
+      "derivedStructuralForm": "transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0],button[rgb(11, 11, 12)/rgb(255, 255, 255)/1],button[rgba(0, 0, 0, 0)/rgb(36, 45, 51)/1] || p=2,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=2,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0",
       "derivedForm": "form:4",
       "derivedSurfaceHeadingActionForm": "form:4"
     },

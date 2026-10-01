@@ -42,18 +42,20 @@ const retainedEvidenceDigests: Record<number, string> = {
 
 describe('source-scoped pose metrics and BOP corrections', () => {
   it('preserves unsquared directed means and the inclusive Table 1 setting', () => {
+    // Plain \tilde and \lVert...\rVert keep KaTeX on font glyphs inside the
+    // figure frame; the norms are the same unsquared distances.
     for (const text of [
       String.raw`\operatorname{avg}_{x \in \mathcal M}`,
-      String.raw`\left\lVert (Rx+T)-(\widetilde R x+\widetilde T) \right\rVert`,
+      String.raw`\lVert (Rx+T)-(\tilde R x+\tilde T) \rVert`,
       String.raw`\operatorname{avg}_{x_1 \in \mathcal M}`,
       String.raw`\min_{x_2 \in \mathcal M}`,
-      String.raw`\left\lVert (Rx_1+T)-(\widetilde R x_2+\widetilde T) \right\rVert`,
+      String.raw`\lVert (Rx_1+T)-(\tilde R x_2+\tilde T) \rVert`,
       String.raw`$m \leq k_m d$`, 'Equality counts as correct.', 'Table 1 uses $k_m=0.1$',
       'subset of views', '“cup”, “bowl”, “box” and “glue”',
     ]) expect(has(text), text).toBe(true);
     const block = source.slice(source.indexOf('To read a pose-estimation result'), source.indexOf('The BOP Challenge'));
     expect(block.split('\n$$\n').length - 1).toBe(4);
-    expect(block.includes(String.raw`\right\rVert^2`)).toBe(false);
+    expect(block.includes(String.raw`\rVert^2`)).toBe(false);
     expect(block.includes('no camera could distinguish')).toBe(false);
     expect(has('lastReviewed: "2026-08-22"')).toBe(true);
   });

@@ -3368,6 +3368,7 @@
         "KaTeX_Math",
         "KaTeX_Size2",
         "KaTeX_Size3",
+        "KaTeX_Size4",
         "Newsreader",
         "math",
         "tektur"
@@ -3389,6 +3390,7 @@
         "KaTeX_Math",
         "KaTeX_Size2",
         "KaTeX_Size3",
+        "KaTeX_Size4",
         "Newsreader",
         "math",
         "tektur"
@@ -3410,6 +3412,7 @@
         "KaTeX_Math",
         "KaTeX_Size2",
         "KaTeX_Size3",
+        "KaTeX_Size4",
         "Newsreader",
         "math",
         "tektur"
@@ -3431,6 +3434,7 @@
         "KaTeX_Math",
         "KaTeX_Size2",
         "KaTeX_Size3",
+        "KaTeX_Size4",
         "Newsreader",
         "math",
         "tektur"
@@ -7891,6 +7895,7 @@
       "/_next/static/media/99e609270109b47d-s.p.40sczeszzbjw1.woff2",
       "/_next/static/media/KaTeX_AMS-Regular.25ieegmnh38ts.woff2",
       "/_next/static/media/KaTeX_Caligraphic-Regular.2eph4dlhid_m9.woff2",
+      "/_next/static/media/KaTeX_Main-Bold.3-rowy8o6_4ky.woff2",
       "/_next/static/media/KaTeX_Main-Regular.1ryvsdzh2w1_e.woff2",
       "/_next/static/media/KaTeX_Math-Italic.32405s1aq8vas.woff2",
       "/_next/static/media/KaTeX_Size1-Regular.03lhvx36ekcou.woff2",
@@ -8012,6 +8017,18 @@
         ],
         "payloadSignature": "774f4632",
         "sha256": "5d53e70ad607c2352162dec9e0923fb54ecdafaccbf604cd8dcf7d00facb989b"
+      },
+      {
+        "url": "/_next/static/media/KaTeX_Main-Bold.3-rowy8o6_4ky.woff2",
+        "origin": "same",
+        "resourceTypes": [
+          "font"
+        ],
+        "contentTypes": [
+          "font/woff2"
+        ],
+        "payloadSignature": "774f4632",
+        "sha256": "0f60d1b897938ec918c8ce073092411baf9438f6739465693ff18b0f9d20b021"
       },
       {
         "url": "/_next/static/media/KaTeX_Main-Regular.1ryvsdzh2w1_e.woff2",

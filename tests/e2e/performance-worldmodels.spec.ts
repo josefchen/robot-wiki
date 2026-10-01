@@ -92,13 +92,11 @@ for (const width of [375, 1440]) {
       const controls: { name: string; initial: string; changed: string }[] = [];
       await page.mouse.move(0, 0);
       if (route.slug === 'realtime-execution') {
-        // The second teaching mount is revealed by the reader's answer.
-        await page.getByRole('radio', { name: 'About 1B toy parameters', exact: true }).check();
         const sliders = page.getByRole('slider', { name: /Model size in billions/ });
-        await expect(sliders).toHaveCount(2);
-        for (let i = 0; i < 2; i++) {
+        await expect(sliders).toHaveCount(1);
+        for (let i = 0; i < 1; i++) {
           const slider = sliders.nth(i);
-          await expect(slider).toHaveValue(i === 0 ? '3' : '1.1');
+          await expect(slider).toHaveValue('3');
           await slider.focus();
           const initial = await slider.inputValue();
           await page.screenshot({ caret: 'initial', path: info.outputPath(`budget-${i}-default.png`) });

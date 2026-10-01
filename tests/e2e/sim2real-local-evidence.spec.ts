@@ -26,7 +26,7 @@ async function capture(page: Page, panel: Locator, name: string) {
   return { name, png, dom, pngSha256: sha256(readFileSync(png)), domSha256: sha256(readFileSync(dom)), url: page.url() };
 }
 
-test('sim2real raw mounted evidence covers both friction mounts and teacher transitions', async ({ page }) => {
+test('sim2real raw mounted evidence covers the friction mount and teacher transitions', async ({ page }) => {
   test.setTimeout(120_000);
   const startedAt = new Date().toISOString();
   const errors: string[] = [];
@@ -43,10 +43,9 @@ test('sim2real raw mounted evidence covers both friction mounts and teacher tran
   await page.goto('/rl-sim2real/sim2real-transfer/');
   await page.evaluate(() => document.fonts.ready);
   const panels = page.getByTestId('real-mu-readout')
-    .locator('xpath=ancestor::div[@data-brand-surface-id="surface:flat"][1]');
-  await expect(panels).toHaveCount(2);
+    .locator('xpath=ancestor::*[@data-figure-frame][1]');
+  await expect(panels).toHaveCount(1);
   const ordinary = panels.nth(0);
-  const reveal = panels.nth(1);
   const observations: unknown[] = [];
 
   async function frictionState(panel: Locator, name: string, mu: number, range: number) {
@@ -79,23 +78,8 @@ test('sim2real raw mounted evidence covers both friction mounts and teacher tran
   await ordinary.getByRole('button', { name: 'Reset', exact: true }).click();
   expect(await frictionState(ordinary, 'friction-reset', 0.8, 0.35)).toEqual(initial);
 
-  await expect(reveal).not.toBeVisible();
-  await page.locator('[data-predict]').getByRole('radio', {
-    name: 'The plateau widens and its peak falls because the formula makes it do so',
-  }).check();
-  await expect(page.locator('[data-predict] [data-reveal]')).toHaveAttribute('open', '');
-  const revealInitial = await frictionState(reveal, 'reveal-default', 0.8, 0.65);
-  await setSlider(reveal.getByRole('slider', { name: /real robot friction/i }), 150);
-  await setSlider(reveal.getByRole('slider', { name: /randomization half-width/i }), 35);
-  const revealChanged = await frictionState(reveal, 'reveal-changed', 1.5, 0.35);
-  expect(revealChanged.line).not.toEqual(revealInitial.line);
-  expect(revealChanged.curve).not.toEqual(revealInitial.curve);
-  await reveal.getByRole('button', { name: 'Reset', exact: true }).click();
-  expect(await frictionState(reveal, 'reveal-reset', 0.8, 0.65)).toEqual(revealInitial);
-  await expect(ordinary.getByRole('slider', { name: /randomization half-width/i })).toHaveValue('35');
-
   const teacher = page.getByTestId('teacher-panel')
-    .locator('xpath=ancestor::div[@data-brand-surface-id="surface:flat"][1]');
+    .locator('xpath=ancestor::*[@data-figure-frame][1]');
   const degradationSlider = teacher.getByRole('slider', { name: /proprioceptive degradation/i });
   async function teacherState(name: string, degradation: number) {
     const expected = teacherOracle(degradation);
@@ -117,8 +101,11 @@ test('sim2real raw mounted evidence covers both friction mounts and teacher tran
   expect(teacherHigh.input).not.toEqual(teacherInitial.input);
   await setSlider(degradationSlider, 0);
   await teacherState('teacher-zero', 0);
-  const teacherColors = await teacher.getByTestId('teacher-panel').locator('rect').evaluateAll(nodes => nodes.map(node => node.getAttribute('fill')));
-  const reconColors = await teacher.getByTestId('recon-panel').locator('rect').evaluateAll(nodes => nodes.map(node => node.getAttribute('fill')));
+  // Terrain height is painted as fill plus fill-opacity, so both are compared.
+  const cellPaint = (nodes: Element[]) => nodes.map(node => `${node.getAttribute('fill')} ${node.getAttribute('fill-opacity')}`);
+  const teacherColors = await teacher.getByTestId('teacher-panel').locator('rect').evaluateAll(cellPaint);
+  const reconColors = await teacher.getByTestId('recon-panel').locator('rect').evaluateAll(cellPaint);
+  expect(new Set(teacherColors).size).toBeGreaterThan(1);
   expect(reconColors).toEqual(teacherColors);
   await teacher.getByRole('button', { name: 'Reset', exact: true }).click();
   expect(await teacherState('teacher-reset', 0.15)).toEqual(teacherInitial);

@@ -42,39 +42,10 @@ import { ImpedanceContactLab } from '@/components/interactive/impedance-contact-
 
 Start with the simplest feedback law: correct the measured error, accumulate a persistent offset, and respond to how quickly the error changes. Those are the three actions in PID control. State feedback and constrained optimization ask what to do when that single-error loop is not enough.
 
-The loop is below, on the smallest problem that still shows everything: an inverted pendulum with a payload bolted off-center. Press Run, then drag the proportional gain down. Somewhere just under 9.81 in the slider's units the pole stops coming back up, and no setting of the other two gains rescues it.
-
-<PendulumController className="my-6" />
-
-<div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
-  <Stat label="PID" value="3 actions" note="proportional, reset, pre-act" />
-  <Stat label="LQR cost" value="Q / R" note="state error / control effort" />
-  <Stat label="Cheetah 3 MPC" value="<1 ms" note="per convex QP, at 20-30 Hz" />
-  <Stat label="whole-body layer" value="1 kHz" note="Di Carlo's estimation and leg loops" />
-</div>
-
-## PID: three ways to use an error
-
-Close the loop on a scalar error $e(t) = r(t) - y(t)$, the difference between the reference and the measured output. The PID controller turns that error into an actuator command with three terms:
-
-$$
-u(t) = K_p\, e(t) + K_i \int_0^{t} e(\tau)\, d\tau + K_d\, \frac{de}{dt}
-$$
-
-Ziegler and Nichols described proportional response as valve movement proportional to the measured displacement; automatic reset moves the valve to eliminate a sustained offset; and pre-act adds movement proportional to the rate of pen movement <Cite id="ziegler-nichols-1942" />. In the equation above, these are the proportional, integral and derivative actions. For a constant disturbance in this lab, proportional action alone leaves an offset; integral action accumulates that residual error to remove it, while derivative action responds to the rate of change.
-
-Tuning those three gains is its own craft. The Ziegler-Nichols rules of 1942, drive the loop into oscillation with proportional gain alone, then back off from the critical gain and period by fixed fractions, are still printed in every textbook <Cite id="ziegler-nichols-1942" />. The failure modes are just as canonical: integral windup, where a saturated actuator lets the integrator accumulate error it can never repay, and derivative kick, where a setpoint step spikes the derivative term.
-
-The lab below is that loop made physical. The plant is the canonical one from underactuated control, a torque-driven inverted pendulum <Cite id="tedrake-underactuated" />:
-
-$$
-\ddot{\theta} = \frac{g}{\ell} \sin\theta + \frac{u + \tau_{bias}}{m \ell^2}
-$$
-
-with $\theta$ measured from upright and $\tau_{bias}$ a constant disturbance from a payload bolted off-center. Linearized about the upright, the loop is stable only when $K_p > m g \ell$, which is the 9.81 threshold the lab at the top of this module is built around.
+The loop is below, on the smallest problem that still shows everything: an inverted pendulum with a payload bolted off-center. Make the prediction, then press Run and drag the proportional gain to test it.
 
 <PredictThenReveal
-  prompt="The lab above is released 12 degrees off vertical with the payload bias in place. Below what proportional gain does the loop lose the pole entirely, however the other two gains are set?"
+  prompt="The lab below is released 12 degrees off vertical with the payload bias in place. Below what proportional gain does the loop lose the pole entirely, however the other two gains are set?"
   options={[
     {
       value: 'mgl-threshold',
@@ -99,6 +70,33 @@ with $\theta$ measured from upright and $\tau_{bias}$ a constant disturbance fro
 >
   <PendulumController defaultKp={9.5} className="mt-3" />
 </PredictThenReveal>
+
+<div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+  <Stat label="PID" value="3 actions" note="proportional, reset, pre-act" />
+  <Stat label="LQR cost" value="Q / R" note="state error / control effort" />
+  <Stat label="Cheetah 3 MPC" value="<1 ms" note="per convex QP, at 20-30 Hz" />
+  <Stat label="whole-body layer" value="1 kHz" note="Di Carlo's estimation and leg loops" />
+</div>
+
+## PID: three ways to use an error
+
+Close the loop on a scalar error $e(t) = r(t) - y(t)$, the difference between the reference and the measured output. The PID controller turns that error into an actuator command with three terms:
+
+$$
+u(t) = K_p\, e(t) + K_i \int_0^{t} e(\tau)\, d\tau + K_d\, \frac{de}{dt}
+$$
+
+Ziegler and Nichols described proportional response as valve movement proportional to the measured displacement; automatic reset moves the valve to eliminate a sustained offset; and pre-act adds movement proportional to the rate of pen movement <Cite id="ziegler-nichols-1942" />. In the equation above, these are the proportional, integral and derivative actions. For a constant disturbance in this lab, proportional action alone leaves an offset; integral action accumulates that residual error to remove it, while derivative action responds to the rate of change.
+
+Tuning those three gains is its own craft. The Ziegler-Nichols rules of 1942, drive the loop into oscillation with proportional gain alone, then back off from the critical gain and period by fixed fractions, are still printed in every textbook <Cite id="ziegler-nichols-1942" />. The failure modes are just as canonical: integral windup, where a saturated actuator lets the integrator accumulate error it can never repay, and derivative kick, where a setpoint step spikes the derivative term.
+
+The pendulum lab above is that loop made physical. The plant is the canonical one from underactuated control, a torque-driven inverted pendulum <Cite id="tedrake-underactuated" />:
+
+$$
+\ddot{\theta} = \frac{g}{\ell} \sin\theta + \frac{u + \tau_{bias}}{m \ell^2}
+$$
+
+with $\theta$ measured from upright and $\tau_{bias}$ a constant disturbance from a payload bolted off-center. Linearized about the upright, the loop is stable only when $K_p > m g \ell$, which is the 9.81 threshold the lab at the top of this module is built around.
 
 ## State space and LQR
 

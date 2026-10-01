@@ -340,7 +340,24 @@ describe('brand-v2 token evidence', () => {
       'ok',
       'warn',
     ]);
-    expect(uses.length).toBeGreaterThan(20);
+    // Figures draw with chart tokens, so how many of them use a semantic
+    // token moves with the figure census. The shared surfaces that state a
+    // status in words do not, and each of them has to be found.
+    const usingModules = new Set(uses.map(({ module }) => module));
+    for (const surface of [
+      'components/article/citation-records.tsx',
+      'components/mdx/cite-ref.tsx',
+      'components/mdx/term-ref.tsx',
+      'components/search/search-interface.tsx',
+      'components/ui/badge.tsx',
+      'components/ui/callout.tsx',
+      'components/ui/input-field.tsx',
+    ]) {
+      expect(usingModules, surface).toContain(surface);
+    }
+    for (const token of ['error', 'ok', 'warn']) {
+      expect(uses.some((use) => use.token === token), token).toBe(true);
+    }
     expect(renderers.length).toBeGreaterThan(0);
     // The population is the assertion's own subject matter: no member of it
     // is a generic control-registry ID such as control:button-primary.

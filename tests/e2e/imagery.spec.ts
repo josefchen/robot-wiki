@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { IMAGES, licenceLabel } from '../../data/images';
+import { IMAGES, figureKind, licenceLabel } from '../../data/images';
 import { CREDIT_NOUNS } from '../../data/schemas/image';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
 import { forEachInOwnContext } from './helpers/per-route-context';
@@ -161,7 +161,18 @@ test.describe('licensed imagery', () => {
     await expect(entries).toHaveCount(IMAGES.length);
     for (const image of IMAGES) {
       const entry = page.locator(`[data-credits-entry="${image.id}"]`);
-      await expect(entry.locator('img')).toHaveCount(1);
+      if (figureKind(image) === 'original-schematic') {
+        // An original schematic is drawn inline on the graphite stage, so
+        // its credits entry holds the drawing, named by the alt text, and
+        // the "Original schematic" label instead of a raster file.
+        await expect(entry.locator('img')).toHaveCount(0);
+        const drawing = entry.locator('[data-figure-kind="original-schematic"] svg[aria-label]');
+        await expect(drawing).toHaveCount(1);
+        await expect(drawing).toHaveAttribute('aria-label', image.alt);
+        await expect(entry.locator('[data-figure-label]')).toHaveText('Original schematic');
+      } else {
+        await expect(entry.locator('img')).toHaveCount(1);
+      }
       const credit = entry.locator('[data-image-credit]');
       await expect(credit).toBeVisible();
       const text = (await credit.textContent()) ?? '';

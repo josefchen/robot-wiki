@@ -7,11 +7,13 @@ import { setSlider } from './slider';
  * legible without flattening the sliders.
  *
  * Geometry is measured from the rendered SVG, in the contract's terms:
- * plot height is the distance from the chart's zero baseline (the tick
- * labelled 0) to its topmost gridline, and marker height is the distance
- * from that baseline to the marker's centre, as a percentage of plot
- * height. Both mounts on /manipulation/bc-foundations are graded: the
- * article's lab and the one seeded inside the prediction step.
+ * plot height is the distance from the chart's zero baseline to its
+ * topmost gridline, and marker height is the distance from that baseline
+ * to the marker's centre, as a percentage of plot height. The axis is
+ * labelled as a log scale, which cannot show a zero, so the baseline is
+ * the x axis itself rather than a tick labelled 0. The page mounts one
+ * CompoundingError, seeded inside the prediction step, and that mount is
+ * graded.
  *
  * Why the bounds cut both ways: an axis fitted to whatever is currently
  * plotted satisfies (a) and (b) trivially and destroys (c) and (d),
@@ -26,7 +28,9 @@ const VIEWPORT = { width: 1440, height: 900 };
 interface Geometry {
   /** Marker centre height above the zero baseline, as a % of plot height. */
   markerPercent: number;
-  /** Tick label text with the y coordinate it is drawn at. */
+  /** The x axis line the deviation is measured up from. */
+  baselineY: number;
+  /** Tick label text with the y coordinate it is drawn at, lowest first. */
   ticks: Array<{ label: string; y: number }>;
   readout: string;
 }
@@ -34,7 +38,7 @@ interface Geometry {
 const DEVIATION_CHART = 'svg[role="img"][aria-label*="Accumulated toy deviation"]';
 
 /**
- * The accumulated-deviation chart of one CompoundingError mount, found by
+ * The accumulated-deviation chart of the CompoundingError mount, found by
  * its accessible name.
  */
 function boundsChart(mount: Locator): Locator {
@@ -45,56 +49,61 @@ async function readGeometry(mount: Locator): Promise<Geometry> {
   const svg = boundsChart(mount);
   const geo = await svg.evaluate((el) => {
     const svgEl = el as SVGSVGElement;
+    const num = (node: Element, name: string) => parseFloat(node.getAttribute(name) ?? 'NaN');
+    // The x axis is the widest horizontal axis line that is not a gridline.
+    const axisLines = Array.from(
+      svgEl.querySelectorAll('[data-chart-axes] line:not([data-chart-grid])'),
+    )
+      .map((l) => ({ y1: num(l, 'y1'), y2: num(l, 'y2'), length: num(l, 'x2') - num(l, 'x1') }))
+      .filter((l) => l.y1 === l.y2)
+      .sort((a, b) => b.length - a.length);
     // Tick labels are the end-anchored texts in the left gutter; the
     // gridline they annotate shares their y. Bind to the label text so
     // the measurement cannot silently read the x-axis row instead.
-    const texts = Array.from(svgEl.querySelectorAll('text')).filter(
-      (t) => t.getAttribute('text-anchor') === 'end',
-    );
-    const ticks = texts
+    const ticks = Array.from(svgEl.querySelectorAll('text'))
+      .filter((t) => t.getAttribute('text-anchor') === 'end')
       .map((t) => ({
         label: (t.textContent ?? '').trim(),
-        y: parseFloat(t.getAttribute('y') ?? '0'),
+        y: num(t, 'y'),
       }))
       .filter((t) => /^\d+$/.test(t.label))
       .sort((a, b) => b.y - a.y);
     const marker = svgEl.querySelector('circle');
     return {
+      baselineY: axisLines[0]?.y1 ?? NaN,
       ticks,
-      markerCy: marker ? parseFloat(marker.getAttribute('cy') ?? 'NaN') : NaN,
+      markerCy: marker ? num(marker, 'cy') : NaN,
     };
   });
+  expect(Number.isFinite(geo.baselineY), 'no x axis line on the bounds chart').toBe(true);
   expect(geo.ticks.length, 'no y tick labels found on the bounds chart').toBeGreaterThanOrEqual(2);
   expect(Number.isFinite(geo.markerCy), 'no position marker on the bounds chart').toBe(true);
-  const zero = geo.ticks[0];
-  expect(zero.label, 'the lowest y tick must be the zero baseline').toBe('0');
+  expect(
+    geo.ticks.map((t) => t.label),
+    'a log-scale axis cannot carry a tick labelled 0',
+  ).not.toContain('0');
   const top = geo.ticks[geo.ticks.length - 1];
-  const plotHeight = zero.y - top.y;
+  const plotHeight = geo.baselineY - top.y;
   expect(plotHeight, 'degenerate plot height').toBeGreaterThan(20);
   const readout = (
     await mount.getByTestId('accumulated-deviation-readout').textContent()
   )?.trim();
   return {
-    markerPercent: (100 * (zero.y - geo.markerCy)) / plotHeight,
+    markerPercent: (100 * (geo.baselineY - geo.markerCy)) / plotHeight,
+    baselineY: geo.baselineY,
     ticks: geo.ticks,
     readout: readout ?? '',
   };
 }
 
-/** The lab mount (article prose) and the seeded prediction-step mount. */
-async function mounts(page: Page): Promise<{ lab: Locator; predict: Locator }> {
+/** The page's only CompoundingError, seeded inside the prediction step. */
+async function seededMount(page: Page): Promise<Locator> {
   const predict = page.locator('[data-predict]');
   await expect(predict).toHaveCount(1);
   // Open the prediction step so its seeded figure is measurable.
   await predict.locator('details[data-reveal] > summary').click();
-  const all = page.locator(DEVIATION_CHART);
-  await expect(all).toHaveCount(2);
-  // The lab is the mount NOT inside the prediction step.
-  const lab = page
-    .locator('[data-pagefind-body] > div')
-    .filter({ has: page.locator(DEVIATION_CHART) })
-    .first();
-  return { lab, predict };
+  await expect(page.locator(DEVIATION_CHART)).toHaveCount(1);
+  return predict.locator('[data-figure-frame="compounding-error"]');
 }
 
 async function setEpsilon(mount: Locator, percent: number): Promise<void> {
@@ -114,15 +123,15 @@ test.describe('accumulated-deviation axis (VAL-MAN-067)', () => {
     page,
   }) => {
     await page.goto(ROUTE);
-    const { lab } = await mounts(page);
-    const atDefaults = await readGeometry(lab);
+    const mount = await seededMount(page);
+    const atDefaults = await readGeometry(mount);
     expect(
       atDefaults.markerPercent,
-      `(a) marker at the article defaults: ${atDefaults.markerPercent.toFixed(1)}% of plot height, readout ${atDefaults.readout}`,
+      `(a) marker at the mounted defaults: ${atDefaults.markerPercent.toFixed(1)}% of plot height, readout ${atDefaults.readout}`,
     ).toBeGreaterThanOrEqual(20);
 
-    await lab.getByRole('button', { name: /chunk of 25 actions/i }).click();
-    const chunked = await readGeometry(lab);
+    await mount.getByRole('button', { name: /chunk of 25 actions/i }).click();
+    const chunked = await readGeometry(mount);
     const drop = atDefaults.markerPercent - chunked.markerPercent;
     expect(
       drop,
@@ -132,12 +141,12 @@ test.describe('accumulated-deviation axis (VAL-MAN-067)', () => {
 
   test('(c): raising the per-step error still visibly increases divergence', async ({ page }) => {
     await page.goto(ROUTE);
-    const { lab } = await mounts(page);
-    await setHorizon(lab, 240);
+    const mount = await seededMount(page);
+    await setHorizon(mount, 240);
     const heights: number[] = [];
     for (const percent of [2.5, 5.0, 10.0, 15.0]) {
-      await setEpsilon(lab, percent);
-      const geo = await readGeometry(lab);
+      await setEpsilon(mount, percent);
+      const geo = await readGeometry(mount);
       heights.push(geo.markerPercent);
     }
     for (let i = 1; i < heights.length; i += 1) {
@@ -154,11 +163,11 @@ test.describe('accumulated-deviation axis (VAL-MAN-067)', () => {
 
   test('(d): raising the horizon still visibly increases divergence', async ({ page }) => {
     await page.goto(ROUTE);
-    const { lab } = await mounts(page);
+    const mount = await seededMount(page);
     const heights: number[] = [];
     for (const steps of [60, 120, 180, 240]) {
-      await setHorizon(lab, steps);
-      const geo = await readGeometry(lab);
+      await setHorizon(mount, steps);
+      const geo = await readGeometry(mount);
       heights.push(geo.markerPercent);
     }
     for (let i = 1; i < heights.length; i += 1) {
@@ -173,21 +182,23 @@ test.describe('accumulated-deviation axis (VAL-MAN-067)', () => {
     ).toBeGreaterThanOrEqual(20);
   });
 
-  test('(e): the seeded prediction-step mount clears the same bounds', async ({ page }) => {
+  test('(e): the seeded configuration is the one the hint names', async ({ page }) => {
     await page.goto(ROUTE);
-    const { predict } = await mounts(page);
+    const mount = await seededMount(page);
     // Seeded configuration, unchanged: 5.0% error over 240 steps. The
     // hint names it, so this must pass without touching the seed.
-    await expect(predict.getByRole('slider', { name: /episode horizon/i })).toHaveValue('240');
-    await expect(predict.getByRole('slider', { name: /per-step error/i })).toHaveValue('5');
-    const seeded = await readGeometry(predict);
+    await expect(mount.getByRole('slider', { name: /episode horizon/i })).toHaveValue('240');
+    await expect(mount.getByRole('slider', { name: /per-step error/i })).toHaveValue('5');
+    const seeded = await readGeometry(mount);
+    expect(seeded.readout, '(e) seeded readout').toMatch(/1505/);
     expect(
       seeded.markerPercent,
       `(e) seeded marker: ${seeded.markerPercent.toFixed(1)}% (readout ${seeded.readout})`,
     ).toBeGreaterThanOrEqual(20);
 
-    await setHorizon(predict, 120);
-    const pulled = await readGeometry(predict);
+    await setHorizon(mount, 120);
+    const pulled = await readGeometry(mount);
+    expect(pulled.readout, '(e) readout after pulling the horizon back').toMatch(/370/);
     expect(
       seeded.markerPercent - pulled.markerPercent,
       `(e) horizon drop: ${seeded.markerPercent.toFixed(1)}% to ${pulled.markerPercent.toFixed(1)}%`,
@@ -198,12 +209,12 @@ test.describe('accumulated-deviation axis (VAL-MAN-067)', () => {
     page,
   }) => {
     await page.goto(ROUTE);
-    const { lab } = await mounts(page);
+    const mount = await seededMount(page);
     const DASHES = /[\u2013\u2014]/;
 
     // The scale is non-linear, so it must say so in rendered chart text
     // of at least three characters.
-    const chartText = await boundsChart(lab).evaluate((el) =>
+    const chartText = await boundsChart(mount).evaluate((el) =>
       Array.from(el.querySelectorAll('text'))
         .map((t) => (t.textContent ?? '').trim())
         .join(' | '),
@@ -220,26 +231,25 @@ test.describe('accumulated-deviation axis (VAL-MAN-067)', () => {
     const states: Array<() => Promise<void>> = [
       async () => {},
       async () => {
-        await setEpsilon(lab, 15);
-        await setHorizon(lab, 240);
+        await setEpsilon(mount, 15);
+        await setHorizon(mount, 240);
       },
       async () => {
-        await lab.getByRole('button', { name: /chunk of 25 actions/i }).click();
-        await lab.getByRole('button', { name: /dagger relabeling/i }).click();
+        await mount.getByRole('button', { name: /chunk of 25 actions/i }).click();
+        await mount.getByRole('button', { name: /dagger relabeling/i }).click();
       },
     ];
     for (const [i, apply] of states.entries()) {
       await apply();
-      const geo = await readGeometry(lab);
-      const zeroY = geo.ticks[0].y;
+      const geo = await readGeometry(mount);
       const topY = geo.ticks[geo.ticks.length - 1].y;
-      const plotHeight = zeroY - topY;
+      const plotHeight = geo.baselineY - topY;
       expect(
         geo.ticks.map((t) => Number(t.label)),
         `(f) tick label set changed in state ${i}`,
       ).toEqual([...DEVIATION_AXIS_TICKS]);
       for (const tick of geo.ticks) {
-        const rendered = (zeroY - tick.y) / plotHeight;
+        const rendered = (geo.baselineY - tick.y) / plotHeight;
         const expected = deviationAxisFraction(Number(tick.label));
         expect(
           rendered,
