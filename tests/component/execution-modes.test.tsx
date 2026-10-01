@@ -106,4 +106,17 @@ describe('ExecutionModes', () => {
       before,
     );
   });
+
+  it('gives the plot group a short name and the shared takeaway as its description', () => {
+    const { container } = render(<ExecutionModes />);
+    const group = screen.getByRole('group', {
+      name: 'Velocity traces for the three execution modes on one time axis',
+    });
+    const desc = container.querySelector('[data-chart-description]');
+    expect(desc?.id).toBeTruthy();
+    expect(group).toHaveAttribute('aria-describedby', desc?.id);
+    expect(group.getAttribute('aria-label')!.length).toBeLessThan(
+      (desc?.textContent ?? '').length,
+    );
+  });
 });

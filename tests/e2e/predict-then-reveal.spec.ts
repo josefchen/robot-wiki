@@ -1,6 +1,7 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
 import { forEachInOwnContext } from './helpers/per-route-context';
+import { waitForHydration } from './interaction-ready';
 import { settleTransitions } from './settle';
 
 /**
@@ -11,6 +12,8 @@ import { settleTransitions } from './settle';
  * the props landed; pixel boxes are compared in the feature's evidence,
  * the deterministic text is pinned here).
  */
+
+const CORPUS_SWEEP_TIMEOUT_MS = 180_000;
 
 interface Placement {
   route: string;
@@ -281,10 +284,6 @@ test.describe('prediction step (PredictThenReveal)', () => {
 
     test(`${placement.route}: hint tokens match the mounted figure and the control stays live`, async ({ page }) => {
       await page.goto(placement.route);
-      // The keyboard probe below drives the wrapped figure's primary
-      // control; a native range moves its own value without script, but
-      // the React-rendered readout only tracks it once hydrated, so an
-      // unhydrated ArrowRight changes no digit-bearing token.
       await page.waitForLoadState('networkidle');
       const root = await region(page);
       const reveal = root.locator(':scope > details[data-reveal]');
@@ -306,6 +305,11 @@ test.describe('prediction step (PredictThenReveal)', () => {
       const control = figureRoot.getByRole('slider', {
         name: placement.primaryControl,
       });
+      // A native range moves its own value without script, but the
+      // React-rendered readout only tracks it once hydrated, so an
+      // unhydrated ArrowRight changes no digit-bearing token. Network idle
+      // can arrive before hydration on a loaded dev server.
+      await waitForHydration(control);
       await control.focus();
       const before = await figureRoot.innerText();
       await page.keyboard.press('ArrowRight');
@@ -423,6 +427,10 @@ test.describe('prediction step (PredictThenReveal)', () => {
    * list is derived from the module registry, not hardcoded.
    */
   test('corpus sweep: exactly 5 published routes render a prediction step (VAL-EDU-016)', async ({ browser }) => {
+    // Every published route in its own context on the dev server runs past
+    // the 30 s default; the site-wide sweeps in chart-coverage-sweep.spec.ts
+    // take the same budget.
+    test.setTimeout(CORPUS_SWEEP_TIMEOUT_MS);
     const { publishedModules } = await import('../../data/modules');
     const routes = publishedModules().map((m) => `/${m.domain}/${m.slug}/`);
     // Registry-derived: no literal published count is pinned (it drifted
@@ -470,6 +478,7 @@ test.describe('prediction step (PredictThenReveal)', () => {
    * visited here; the per-kind counts at the end are the drift guard.
    */
   test('corpus sweep: option sets across all 14 regions (VAL-EDU-017, VAL-EDU-041)', async ({ browser }) => {
+    test.setTimeout(CORPUS_SWEEP_TIMEOUT_MS);
     const HEDGE = /\b(only|could|may|might|unless|depends|typically|generally|usually|tends to|at least|roughly|approximately)\b/i;
     const FILLER = /\ball of the (above|these)\b|\bnone of the\b/i;
     const { publishedModules } = await import('../../data/modules');
@@ -609,6 +618,7 @@ test.describe('prediction step (PredictThenReveal)', () => {
    * the end catch a region added on any published route.
    */
   test('corpus sweep: cited answers and non-templated text (VAL-EDU-018, VAL-EDU-019)', async ({ browser }) => {
+    test.setTimeout(CORPUS_SWEEP_TIMEOUT_MS);
     const { publishedModules } = await import('../../data/modules');
     const { getCitation } = await import('../../data/citations');
     const routes = publishedModules().map((m) => `/${m.domain}/${m.slug}/`);

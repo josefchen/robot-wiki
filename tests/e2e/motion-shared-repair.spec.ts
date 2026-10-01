@@ -3,6 +3,7 @@ import { mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { SCENE_TARGETS } from '@/lib/motion-scene-registry';
 import { auditSceneElement } from '@/lib/motion-scene-audit';
+import { waitForHydration } from './interaction-ready';
 
 const descriptions = [
   {
@@ -43,6 +44,9 @@ for (const target of SCENE_TARGETS) {
           observedMarks += audit.markCount;
         };
         await probe('poster');
+        // A poster click before hydration is lost and the player never
+        // mounts; network idle can arrive first on a loaded dev server.
+        await waitForHydration(scope.getByTestId('motion-poster'));
         await scope.getByTestId('motion-poster').click();
         await expect(scope.getByTestId('motion-scrubber')).toBeVisible();
         const activeId = await scope.getAttribute('aria-describedby');
@@ -95,6 +99,7 @@ test('diffusion sample 60 approaches noise before the forward beat boundary', as
     await page.addStyleTag({ content: 'nextjs-portal { display: none !important; }' });
     await page.evaluate(() => document.fonts.ready);
     const group = page.locator('[data-motion-scene="diffusion-denoising"]');
+    await waitForHydration(group.getByTestId('motion-poster'));
     await group.getByTestId('motion-poster').click();
     const scrubber = group.getByTestId('motion-scrubber');
     await expect(scrubber).toBeVisible();

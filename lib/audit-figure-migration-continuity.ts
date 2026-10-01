@@ -35,14 +35,14 @@ export type FigureMigrationSource = {
 type SourceReview = Review & { archivedFrom: string; sources: FigureMigrationSource[] };
 
 /** The reviewed evidence files; a changed review needs a reviewed code change too. */
-const sourceReviewPin = { bytes: 48798, sha256: 'b34b6ad77656d011b57de85a0d4eefa651279242c075cf93a8fd00875443822a' };
+const sourceReviewPin = { bytes: 48798, sha256: '9d096c8a6bd37e33c21a1093fa5c42a87c378af1dbd331e499ca5cf985740700' };
 const registryReviewPin = { bytes: 8055, sha256: '2b9c7d0fa6e77dbcb58f2751c594d8cbb595fc16f384329f8b2cf50e53deb09a' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['components/interactive/collaborative-operation-modes.tsx', [18893, 'b29dc0b3e8db7c1ecb9345150b1bcddf2cc8c71149e7bade7f05f382aee568e1']],
   ['components/interactive/data-scale-chart.tsx', [22243, '1f730c35ce607f90e9bb552a9618a05af50a2c67c4eadf11c94e9c2299081e3b']],
-  ['components/interactive/deployment-economics.tsx', [11379, '0db208d1123c840befe00b530ba479c0efb0bc1b5998294878c6822ea920e88f']],
+  ['components/interactive/deployment-economics.tsx', [11507, '94ff1dbeee421bf5f375a2c4cf418f669899607eabb9e8978f68f97b20574e01']],
   ['components/interactive/eureka-loop.tsx', [8758, '63bde0083bb93f53dc8c5bd026da07581e4c81eb630d2d4816f274900c9367dd']],
   ['components/interactive/friction-transfer.tsx', [16665, 'dab247ff28e8fe7a559606cd4c19788e1dae7df68e04f9429bb390312f3d53c1']],
   ['components/interactive/generalist-release-timeline.tsx', [16098, '3fc65b1697c8000e3c74fbecf95fc16bf23d55947d1f71e0be3a95c42d0b61a5']],

@@ -137,6 +137,7 @@ const SEGMENTS = [
 export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
   const uid = useId();
   const hatchId = `economics-jam-hatch-${uid.replace(/[^a-zA-Z0-9_-]/g, '')}`;
+  const captionId = `${uid}-economics-caption`;
   const [inputs, setInputs] = useState<EconomicsInputs>(DEFAULT_INPUTS);
   const out = computeEconomics(inputs);
 
@@ -260,6 +261,7 @@ export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
             )} productive cycles, ${pct(
               breakdown.jamClearing,
             )} jam clearing, ${pct(breakdown.downtime)} downtime`}
+            aria-describedby={captionId}
           >
             <ChartAxes
               plot={PLOT}
@@ -294,6 +296,7 @@ export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
         </FigureStage>
       }
       caption="Every failed pick takes human clearing time out of the hour, which lowers modeled output and lengthens payback."
+      captionProps={{ id: captionId }}
       source="All seven defaults and slider ranges are authored assumptions; EVST’s guide supplies context, not exact inputs; none is a measured deployment result."
     />
   );
