@@ -9166,6 +9166,145 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.cs.cmu.edu/~tjochem/nhaa/nhaa_home_page.html',
     type: 'docs',
   },
+  {
+    // KOL backlog batch 2026-10-01 (Yuke Zhu intake). Abstract page fetched
+    // 2026-10-01; v1 submitted 26 June 2026, v4 revised 5 August 2026.
+    id: 'simfoundry-2026',
+    title: 'SimFoundry: Modular and Automated Scene Generation for Policy Learning and Evaluation',
+    authors: [
+      'Nadun Ranawaka', 'Josiah Wong', 'Wei-Lin Pai', 'Wei-Teng Chu', 'Tianyuan Dai',
+      'Masoud Moghani', 'Hang Yin', 'Yunfan Jiang', 'Wesley Durbano', 'Brandon Huynh',
+      'Yu Fang', 'Danfei Xu', 'Ruohan Zhang', 'Li Fei-Fei', 'Linxi Fan', 'Bowen Wen',
+      'Ajay Mandlekar', 'Yuke Zhu',
+    ],
+    year: 2026,
+    arxiv: '2606.28276',
+    url: 'https://arxiv.org/abs/2606.28276',
+    type: 'paper',
+  },
+  {
+    // KOL backlog batch 2026-10-01 (Marco Hutter intake). Abstract and HTML
+    // fetched 2026-10-01; submitted 25 September 2026. Affiliations from the
+    // HTML: Robotic Systems Lab, ETH Zurich; AMTC, Universidad de Chile.
+    id: 'excavator-mbrl-2026',
+    title:
+      'Precision at Speed: Sample-Efficient Online Model-Based Reinforcement Learning for Hydraulic Excavator Control',
+    authors: ['Claudio Canales', 'Fang Nan', 'Marco Hutter', 'Javier Ruiz-del-Solar'],
+    year: 2026,
+    arxiv: '2609.31025',
+    url: 'https://arxiv.org/abs/2609.31025',
+    type: 'paper',
+  },
+  {
+    // KOL backlog batch 2026-10-01 (Dieter Fox intake). Abstract and HTML
+    // fetched 2026-10-01; submitted 23 September 2026, IROS 2026. The HTML
+    // states the experiments run in simulation and build on TD-MPC2.
+    id: 'insertion-world-models-2026',
+    title: 'Generalizable Robotic Insertion with World Models',
+    authors: [
+      'Nicklas Hansen', 'Iretiayo Akinola', 'Yijie Guo', 'Jie Xu', 'Bingjie Tang', 'Hao Su',
+      'Xiaolong Wang', 'Abhishek Gupta', 'Dieter Fox', 'Yashraj Narang',
+    ],
+    year: 2026,
+    venue: 'IROS 2026',
+    arxiv: '2609.28258',
+    url: 'https://arxiv.org/abs/2609.28258',
+    type: 'paper',
+  },
+  {
+    // KOL backlog batch 2026-10-01 (Chris Paxton intake). Newsletter post
+    // dated 12 September 2026, fetched 2026-10-01 for the dated attribution.
+    id: 'paxton-autonomous-trucks-2026',
+    title: 'The State of Autonomous Trucks in 2026',
+    authors: ['Chris Paxton'],
+    year: 2026,
+    venue: 'It Can Think!',
+    url: 'https://itcanthink.substack.com/p/the-state-of-autonomous-trucks-in',
+    type: 'blog',
+  },
+  {
+    // KOL backlog batch 2026-10-01 (Jitendra Malik intake). Abstract page
+    // fetched 2026-10-01; v1 23 September 2026, v2 25 September 2026.
+    id: 'morphometric-imitation-2026',
+    title:
+      'Morphometric Imitation: From Morphology and Contact Aware Hand Retargeting to Sim-to-Real Visuomotor Policy',
+    authors: [
+      'Tara Sadjadpour', 'Siming He', 'C.K. Wolfe', 'Haozhi Qi', 'Lea Wilken', 'S. Shankar Sastry',
+      'Claire Tomlin', 'Jitendra Malik',
+    ],
+    year: 2026,
+    arxiv: '2609.28660',
+    url: 'https://arxiv.org/abs/2609.28660',
+    type: 'paper',
+  },
+  {
+    // KOL backlog batch 2026-10-01 (Yuke Zhu intake). Abstract page fetched
+    // 2026-10-01; v1 submitted 17 February 2026. The paper names the model
+    // DreamZero.
+    id: 'dreamzero-2026',
+    title: 'World Action Models are Zero-shot Policies',
+    authors: [
+      'Seonghyeon Ye', 'Yunhao Ge', 'Kaiyuan Zheng', 'Shenyuan Gao', 'Sihyun Yu', 'George Kurian',
+      'Suneel Indupuru', 'You Liang Tan', 'Chuning Zhu', 'Jiannan Xiang', 'Ayaan Malik', 'Kyungmin Lee',
+      'William Liang', 'Nadun Ranawaka', 'Jiasheng Gu', 'Yinzhen Xu', 'Guanzhi Wang', 'Fengyuan Hu',
+      'Avnish Narayan', 'Johan Bjorck', 'Jing Wang', 'Gwanghyun Kim', 'Dantong Niu', 'Ruijie Zheng',
+      'Yuqi Xie', 'Jimmy Wu', 'Qi Wang', 'Ryan Julian', 'Danfei Xu', 'Yilun Du', 'Yevgen Chebotar',
+      'Scott Reed', 'Jan Kautz', 'Yuke Zhu', 'Linxi "Jim" Fan', 'Joel Jang',
+    ],
+    year: 2026,
+    arxiv: '2602.15922',
+    url: 'https://arxiv.org/abs/2602.15922',
+    type: 'paper',
+  },
+  {
+    // KOL backlog batch 2026-10-01 (Yuke Zhu intake). Abstract page fetched
+    // 2026-10-02; v1 15 June 2026, v2 18 June 2026.
+    id: 't-rex-2026',
+    title: 'T-Rex: Tactile-Reactive Dexterous Manipulation',
+    authors: [
+      'Dantong Niu', 'Zhuoyang Liu', 'Zekai Wang', 'Boning Shao', 'Zhao-Heng Yin', 'Anirudh Pai',
+      'Yuvan Sharma', 'Stefano Saravalle', 'Ruijie Zheng', 'Jing Wang', 'Ryan Punamiya', 'Mengda Xu',
+      'Yuqi Xie', 'Yunfan Jiang', 'Letian Fu', 'Konstantinos Kallidromitis', 'Matteo Gioia',
+      'Junyi Zhang', 'Jiaxin Ge', 'Haiwen Feng', 'Fabio Galasso', 'Wei Zhan', 'David M. Chan',
+      'Yutong Bai', 'Roei Herzig', 'Jiahui Lei', 'Li Fei-Fei', 'Ken Goldberg', 'Jitendra Malik',
+      'Pieter Abbeel', 'Yuke Zhu', 'Danfei Xu', 'Linxi Fan', 'Trevor Darrell',
+    ],
+    year: 2026,
+    arxiv: '2606.17055',
+    url: 'https://arxiv.org/abs/2606.17055',
+    type: 'paper',
+  },
+  {
+    // KOL backlog batch 2026-10-01 (Yuke Zhu intake). Abstract page fetched
+    // 2026-10-02; v1 22 June 2026, v2 14 August 2026.
+    id: 'chord-2026',
+    title: 'Learning Dexterous Manipulation Using Contact Wrench Guidance From Human Demonstration',
+    authors: [
+      'Xinghao Zhu', 'Zixi Liu', 'Shalin Jain', 'Chenran Li', 'Milad Noori', 'Michael Andres Lin',
+      'Huihua Zhao', 'John Welsh', 'Mrinal Verghese', 'Wei Liu', 'Tingwu Wang', 'Xingye Da',
+      'Zhengyi Luo', 'Vishal Kulkarni', 'Naema Bhatti', 'Yuke Zhu', 'Linxi Fan', 'Bowen Wen',
+      'Danfei Xu', 'Soha Pouya', 'Yan Chang',
+    ],
+    year: 2026,
+    arxiv: '2607.00033',
+    url: 'https://arxiv.org/abs/2607.00033',
+    type: 'paper',
+  },
+  {
+    // KOL backlog batch 2026-10-01 (Ken Goldberg intake). Abstract page
+    // fetched 2026-10-02; submitted 24 September 2026, accepted to IROS 2026.
+    id: 'trace-cables-2026',
+    title: 'TRACE: Interactive Bi-Directional Tracing of Monochrome Cables Amid Clutter',
+    authors: [
+      'Nidhya Shivakumar', 'Ethan Ransing', 'Josh Zhang', 'Shamak Gowda', 'Kevin Yang', 'Miles Hua',
+      'Anika Agrawal', 'Justin Yu', 'Ken Goldberg',
+    ],
+    year: 2026,
+    venue: 'IROS 2026',
+    arxiv: '2609.29103',
+    url: 'https://arxiv.org/abs/2609.29103',
+    type: 'paper',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));

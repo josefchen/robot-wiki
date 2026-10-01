@@ -16,6 +16,7 @@ citations:
   - vjepa2-2025
   - cosmos-3-2026
   - knowledge-insulation-paper-2025
+  - dreamzero-2026
 seeAlso:
   - "manipulation/vla-models"
   - "manipulation/generalist-policies"
@@ -85,6 +86,8 @@ That distinction matters. A foundation can be domain-specific. Protein models, c
 World-model families pretrain a different capability. V-JEPA 2 uses over 1M hours of internet video for representation learning; its action-conditioned stage uses fewer than 62 hours of unlabeled DROID robot video <Cite id="vjepa2-2025" />. The transferable asset is a representation in which future states can be predicted and compared; no direct language-to-action map comes with it.
 
 Cosmos 3 unifies understanding, generation, forward dynamics, inverse dynamics and policy-oriented outputs in an omnimodal model for physical AI <Cite id="cosmos-3-2026" />. Its scale supports several downstream roles, but each role still needs an evaluation suited to that output. A visually convincing future is not automatically a useful control model; inspect action sensitivity and policy-ranking evidence when evaluating one.
+
+In February 2026, Seonghyeon Ye, Yuke Zhu and colleagues described DreamZero, a world action model that is built on a pretrained video diffusion backbone and predicts future video and actions together. In real-robot experiments it more than doubled generalization to new tasks and environments compared with state-of-the-art VLAs, and its 14-billion-parameter model ran closed-loop control at 7 Hz <Cite id="dreamzero-2026" />.
 
 The [world-model taxonomy](/world-models/taxonomy) separates generative video, latent dynamics, JEPA and unified world-action systems. Grouping them only by scale hides the functional differences that determine whether a model can plan, train a policy or generate data.
 

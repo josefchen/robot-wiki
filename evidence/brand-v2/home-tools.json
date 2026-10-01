@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "5671c147f34607094236c52569e4350df08daa01da1eb7dbeb3d509e12421b18",
+  "fingerprint": "99f5fcf081be674d1e71ec6799ac9a7b6703ebc0ff352a062cd446cf3afe2e0b",
   "route": "/",
   "viewport": "1440x900",
   "featured": {
@@ -2885,9 +2885,9 @@
         },
         {
           "memberId": "count:/:sources",
-          "text": "434 sources",
-          "expected": 434,
-          "actual": 434
+          "text": "443 sources",
+          "expected": 443,
+          "actual": 443
         },
         {
           "memberId": "count:/:glossary-terms",

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "5d662879677b787c9c46d68955cb64b7eced308e72cdebeab8c669002b9ba43a",
+  "fingerprint": "aae9c03aef4f8570491319a37206cfb8841468327315521929dc77a4da3cb330",
   "source": "out/ static export",
   "routes": [
     {
@@ -47,8 +47,8 @@
     },
     {
       "route": "/adjacent/autonomous-vehicles/",
-      "outboundAnchors": 63,
-      "distinctHrefs": 23,
+      "outboundAnchors": 66,
+      "distinctHrefs": 24,
       "shapes": [
         "citation-chip",
         "footer",
@@ -340,8 +340,8 @@
     },
     {
       "route": "/frontier/dexterity/",
-      "outboundAnchors": 74,
-      "distinctHrefs": 27,
+      "outboundAnchors": 80,
+      "distinctHrefs": 30,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -450,8 +450,8 @@
     },
     {
       "route": "/manipulation/cross-embodiment/",
-      "outboundAnchors": 36,
-      "distinctHrefs": 13,
+      "outboundAnchors": 38,
+      "distinctHrefs": 14,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -473,8 +473,8 @@
     },
     {
       "route": "/manipulation/foundation-models/",
-      "outboundAnchors": 19,
-      "distinctHrefs": 11,
+      "outboundAnchors": 21,
+      "distinctHrefs": 12,
       "shapes": [
         "citation-chip",
         "footer",
@@ -716,8 +716,8 @@
     },
     {
       "route": "/world-models/evaluation/",
-      "outboundAnchors": 17,
-      "distinctHrefs": 10,
+      "outboundAnchors": 19,
+      "distinctHrefs": 11,
       "shapes": [
         "citation-chip",
         "footer",
@@ -771,8 +771,8 @@
     },
     {
       "route": "/world-models/model-based-robot-learning/",
-      "outboundAnchors": 19,
-      "distinctHrefs": 11,
+      "outboundAnchors": 23,
+      "distinctHrefs": 13,
       "shapes": [
         "citation-chip",
         "footer",
@@ -804,17 +804,17 @@
     }
   ],
   "routesSwept": 75,
-  "outboundAnchors": 3133,
-  "distinctOutboundHrefs": 855,
+  "outboundAnchors": 3152,
+  "distinctOutboundHrefs": 864,
   "anchorsByShape": {
-    "citation-chip": 1368,
+    "citation-chip": 1378,
     "footer": 150,
-    "reference-entry": 751,
+    "reference-entry": 760,
     "other": 561,
     "figure-credit": 303
   },
   "anchorsWithoutNoopener": 0,
-  "anchorsWithNoreferrer": 2595,
+  "anchorsWithNoreferrer": 2614,
   "keyboard": [
     {
       "route": "/",
@@ -858,11 +858,11 @@
     },
     {
       "route": "/adjacent/autonomous-vehicles/",
-      "outboundInDom": 63,
-      "reachedByTab": 63,
+      "outboundInDom": 66,
+      "reachedByTab": 66,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 180
+      "tabStops": 185
     },
     {
       "route": "/adjacent/drones/",
@@ -1074,11 +1074,11 @@
     },
     {
       "route": "/frontier/dexterity/",
-      "outboundInDom": 74,
-      "reachedByTab": 74,
+      "outboundInDom": 80,
+      "reachedByTab": 80,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 186
+      "tabStops": 198
     },
     {
       "route": "/frontier/generalization/",
@@ -1154,11 +1154,11 @@
     },
     {
       "route": "/manipulation/cross-embodiment/",
-      "outboundInDom": 36,
-      "reachedByTab": 36,
+      "outboundInDom": 38,
+      "reachedByTab": 38,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 128
+      "tabStops": 131
     },
     {
       "route": "/manipulation/diffusion-policy/",
@@ -1170,11 +1170,11 @@
     },
     {
       "route": "/manipulation/foundation-models/",
-      "outboundInDom": 19,
-      "reachedByTab": 19,
+      "outboundInDom": 21,
+      "reachedByTab": 21,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 100
+      "tabStops": 104
     },
     {
       "route": "/manipulation/generalist-policies/",
@@ -1354,11 +1354,11 @@
     },
     {
       "route": "/world-models/evaluation/",
-      "outboundInDom": 17,
-      "reachedByTab": 17,
+      "outboundInDom": 19,
+      "reachedByTab": 19,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 94
+      "tabStops": 98
     },
     {
       "route": "/world-models/generative-sim/",
@@ -1394,11 +1394,11 @@
     },
     {
       "route": "/world-models/model-based-robot-learning/",
-      "outboundInDom": 19,
-      "reachedByTab": 19,
+      "outboundInDom": 23,
+      "reachedByTab": 23,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 87
+      "tabStops": 94
     },
     {
       "route": "/world-models/taxonomy/",

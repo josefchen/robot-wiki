@@ -40,13 +40,16 @@ describe('world-model motion prose and retained local-basis continuity', () => {
     // Later scoped passes append plain edges after the humanizer endpoint:
     // the s12 citation attachment on generative-sim, then the round-5
     // first-screen c/d mount swaps on three of these articles, then the
-    // figure migration's edge on the same three.
+    // figure migration's edge on the same three, then the 2026-10-01 KOL
+    // backlog batch's edge on two others.
     const subsequent = edges.slice(edges.indexOf(humanizer) + 1);
     expect(subsequent.map((entry) => entry.id)).toEqual([
       ...(slug === 'generative-sim' ? ['motion-scrutiny-s12-20260928-prose-generative-sim-citation-attachment'] : []),
       ...(['generative-sim', 'generative-video', 'latent-dynamics'].includes(slug)
         ? [`round5-first-screen-cd-20260929-prose-${slug}`,
           `opus-figure-migration-20261001-prose-${slug}`] : []),
+      ...(['evaluation', 'model-based-robot-learning'].includes(slug)
+        ? [`kol-backlog-20261001-world-models-prose-${slug}`] : []),
     ]);
     let endpoint = humanizer.newHash;
     for (const entry of subsequent) {

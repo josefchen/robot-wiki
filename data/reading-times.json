@@ -40,7 +40,7 @@
     "minutes": 12
   },
   "manipulation/cross-embodiment": {
-    "words": 1739,
+    "words": 1803,
     "minutes": 9
   },
   "manipulation/knowledge-insulation": {
@@ -56,7 +56,7 @@
     "minutes": 6
   },
   "manipulation/foundation-models": {
-    "words": 1137,
+    "words": 1199,
     "minutes": 6
   },
   "rl-sim2real/rl-for-robotics": {
@@ -112,11 +112,11 @@
     "minutes": 10
   },
   "world-models/model-based-robot-learning": {
-    "words": 1127,
+    "words": 1241,
     "minutes": 6
   },
   "world-models/evaluation": {
-    "words": 1178,
+    "words": 1238,
     "minutes": 6
   },
   "world-models/world-models-vs-simulators": {
@@ -192,7 +192,7 @@
     "minutes": 9
   },
   "frontier/dexterity": {
-    "words": 2508,
+    "words": 2699,
     "minutes": 13
   },
   "frontier/generalization": {
@@ -212,8 +212,8 @@
     "minutes": 15
   },
   "adjacent/autonomous-vehicles": {
-    "words": 3628,
-    "minutes": 18
+    "words": 3717,
+    "minutes": 19
   },
   "adjacent/drones": {
     "words": 2433,

@@ -27,6 +27,7 @@ citations:
   - vla-ad-survey-2026
   - open-x-embodiment-2023
   - genie-3-2025
+  - paxton-autonomous-trucks-2026
 seeAlso:
   - "frontier/reliability-gap"
   - "world-models/generative-video"
@@ -95,6 +96,8 @@ The industry's main answer is simulation, and the current frontier of that answe
 Even a safe system has to prove it is safe, and the arithmetic of that proof is brutal. Kalra and Paddock's RAND study put numbers on it in 2016: demonstrating autonomous-vehicle reliability through test driving alone would take hundreds of millions of miles, and sometimes hundreds of billions, to provide clear statistical evidence of safety, because the crash rates being compared to are so low that real-world miles accumulate evidence glacially <Cite id="kalra-paddock-2016" />. Their conclusion was that on-road testing cannot be the primary safety case, a conclusion the industry internalized in its shift to simulation, scenario testing, and safety cases built on multiple evidence lines.
 
 Formal approaches have been proposed to escape the statistics entirely. Mobileye's Responsibility-Sensitive Safety model specifies, as a white-box mathematical condition, what it means to drive safely in terms of safe distances in longitudinal and lateral motion, so that an attacker or auditor can check compliance without crash statistics <Cite id="rss-2017" />. Its authors were explicit that the goal was to make assurance verifiable and scalable, warning that without standardization the field risked a "winter of autonomous driving" <Cite id="rss-2017" />. The formal route has known limits: the model guarantees the vehicle behaved correctly by its own definition, which is not the same as never being in a crash, and learned perception does not expose the state estimates the formulas consume. Koopman's position is the complement: "safe enough" means more than crashes divided by miles, spanning net statistical safety, the absence of risk hot spots like reckless driving or shifted risk to vulnerable people, standards conformance, accountability, and meeting every stakeholder safety constraint, and treating safety as one number is how programs fool themselves <Cite id="koopman-safe-enough-2026" />.
+
+In September 2026, Chris Paxton argued that an automated system should be judged by its potential for catastrophic failure, which is much higher for a truck: it needs far longer to stop, and when one breaks down on a highway the law requires warning flares that a truck with no one aboard cannot set out <Cite id="paxton-autonomous-trucks-2026" />. He expected driverless trucks to spread over the following year mainly in China and the US Sun Belt, and put highways where ice forms years away <Cite id="paxton-autonomous-trucks-2026" />.
 
 ### The deployment record
 

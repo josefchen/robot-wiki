@@ -15,6 +15,7 @@ citations:
   - interactive-world-simulator-2026
   - roboworld-2026
   - roboarena-2025
+  - simfoundry-2026
 seeAlso:
   - "world-models/taxonomy"
   - "world-models/generative-video"
@@ -100,6 +101,8 @@ Policy evaluation rarely needs perfect trajectories. It needs the same ordering 
 Report rank correlation, calibration error and pairwise inversions. Include confidence intervals from both real and generated trials. A high correlation across checkpoints from one training run is weaker evidence than agreement across architectures and failure modes.
 
 RoboWorld targets this layer with a fast autoregressive neural simulator and task-progress-aware scoring. Its reported evaluation compares neural rankings with real policy evaluation in addition to video fidelity <Cite id="roboworld-2026" />. Independent replication and broader tasks remain necessary.
+
+Physics simulation sets the bar a learned evaluator should meet. In June 2026, Yuke Zhu and colleagues reported that SimFoundry, which rebuilds a real scene in simulation from a video, predicted real-world performance across 7 manipulation tasks and 5 policy architectures, with a mean Pearson correlation of 0.911 and a mean maximum ranking violation of 0.018 <Cite id="simfoundry-2026" />.
 
 ## Level 5: closed-loop usefulness
 

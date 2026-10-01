@@ -3,6 +3,11 @@ import { expect } from 'vitest';
 import { WITHDRAWAL_REGISTRY_RUNS } from '../../lib/audit-local-basis';
 import { committedSource } from './continuation-integration';
 
+// The 2026-10-01 KOL backlog batch appends its citations as one contiguous
+// block just before the closing bracket, each entry's comment starting with
+// the batch name. Historical byte checks strip the whole block.
+export const KOL_BACKLOG_ADDITIONS = /  \{\n    \/\/ KOL backlog batch 2026-10-01 [\s\S]*?(?=\];\n)/;
+
 // Keep old transaction assertions on their actual bytes. The two LEI additions
 // and their undated rendering are checked separately by undated-citations.
 export function preservedPreIndustrialCitations(ref: string): void {
@@ -57,6 +62,7 @@ export function preservedPreIndustrialCitations(ref: string): void {
     // after act-reference-2023; strip them for the pre-industrial
     // reconstruction, the same way the LEI additions are stripped above.
     .replace(/  \{\n    \/\/ arXiv abs page and HTML v2 full text both fetched 2026-09-25;[\s\S]*?id: 'perry-dong-post-training-2026',[\s\S]*?type: 'blog',\n  \},\n/, '')
+    .replace(KOL_BACKLOG_ADDITIONS, '')
     // The Where2Place Table 2 locator note moved into this registry entry
     // with the same intake; strip it for the pre-industrial bytes too.
     .replace(/  \{\n    \/\/ Where2Place point-in-mask accuracies[\s\S]*?id: 'robopoint-2024',/, "  {\n    id: 'robopoint-2024',")
