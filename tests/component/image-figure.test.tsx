@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import { FIGURE_TEXT_CLASS } from '@/components/motion/figure-frame';
 import { Figure } from '@/components/ui/figure';
+import { ORIGINAL_SCHEMATICS } from '@/components/ui/original-schematics';
 import { ImageRef } from '@/components/mdx/image-ref';
 import { getImage, licenceLabel, type SiteImage } from '@/data/images';
 
@@ -113,7 +114,14 @@ describe('figure treatment by kind', () => {
       'data-brand-surface-id',
       'surface:bounded-dark-instrument',
     );
-    expect(surface.querySelector('img')).not.toBeNull();
+    // The drawing is on the stage itself, named by the registry alt text.
+    const drawing = surface.querySelector('svg[role="img"]')!;
+    expect(drawing).not.toBeNull();
+    expect(drawing).toHaveAttribute(
+      'aria-label',
+      (getImage('covariate-shift') as SiteImage).alt,
+    );
+    expect(figure).toHaveAttribute('data-figure-frame', 'covariate-shift');
 
     const label = figure.querySelector('[data-figure-label]')!;
     expect(label.textContent).toBe('Original schematic');
@@ -151,9 +159,11 @@ describe('figure treatment by kind', () => {
     render(<ImageRef id="covariate-shift" />);
     const figure = document.querySelector('figure')!;
     const caption = figure.querySelector('figcaption')!;
-    expect(caption.textContent).toBe(
-      (getImage('covariate-shift') as SiteImage).caption,
-    );
+    // A schematic's frame carries its drawing's one caption line; the
+    // registry caption stays the record and is longer than a frame allows.
+    const own = ORIGINAL_SCHEMATICS['covariate-shift'].caption;
+    expect(caption.textContent).toBe(own);
+    expect(own.split(/\s+/).length).toBeLessThanOrEqual(20);
     expect(caption.className).toContain('font-sans');
     const credit = figure.querySelector('[data-image-credit]')!;
     // The credit is the figure's source line: the brand sans at 12px, the

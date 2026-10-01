@@ -85,7 +85,8 @@ export function SmallMultiples({
 
 export type LegendMark = 'line' | 'dash' | 'bar' | 'dot' | 'cross' | 'hatch' | 'band';
 
-function LegendSwatch({ role, mark }: { role: ChartRole; mark: LegendMark }) {
+/** One legend swatch drawn in the mark's own encoding and role colour. */
+export function LegendSwatch({ role, mark }: { role: ChartRole; mark: LegendMark }) {
   const h = CHART_TYPE.tickPx;
   const w = h * 2;
   const colour = roleColour(role);

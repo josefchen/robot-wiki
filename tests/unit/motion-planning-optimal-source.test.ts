@@ -5,6 +5,7 @@ import { parseLedger, parseCompoundPlans, compoundPartDigest } from '../../lib/a
 import { buildManifest } from '../../lib/brand-v2-baseline';
 import { CITATIONS } from '../../data/citations';
 import { committedSource } from '../helpers/continuation-integration';
+import { preFigureMigration } from '../helpers/figure-migration';
 const read = (p: string) => fs.readFileSync(p, 'utf8');
 const endpoints = [
   {
@@ -80,7 +81,13 @@ describe('Optimal sampling and OMPL source-bound endpoints', () => {
       // edge starts from the move.
       const restored = entries.find((entry) => entry.id === 'round6-prose-restores-20260929-prose-motion-planning')!;
       expect(restored.oldHash).toBe(moved.newHash);
-      expect(restored.newHash).toBe(digest(read(e.path)));
+      expect(restored.newHash).toBe(digest(preFigureMigration(e.path).toString('utf8')));
+      // The 2026-10-01 figure migration replaced the lead-in and retired one
+      // figure; its single plain edge starts from the restore.
+      const migrated = entries.filter((entry) => entry.oldHash === restored.newHash);
+      expect(migrated).toHaveLength(1);
+      expect(migrated[0].id).toMatch(/figure-migration-20261001-prose-motion-planning$/);
+      expect(migrated[0].newHash).toBe(digest(read(e.path)));
       if (e.id.startsWith('row9-')) {
         expect(read(e.path)).toContain('Differential constraints fall outside this setup');
         expect(read(e.path)).toContain('The latter\'s conservative condition is');

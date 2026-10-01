@@ -16,9 +16,9 @@
   {
     "article": "legged-locomotion",
     "element": "GaitDiagram",
-    "decision": "rethink",
+    "decision": "remove",
     "teachingGoal": "Read each authored stance interval and manipulate gait and phase independently after a support-pattern overview.",
-    "reason": "Keep the full reader-controlled lab; a paused scene ahead of it reveals how support changes by gait."
+    "reason": "The lab drew the same authored gaits as the gait-support scene, so the graphite scene alone now carries the support pattern."
   },
   {
     "article": "legged-locomotion",
@@ -45,9 +45,9 @@
   {
     "article": "parallel-sim-rl",
     "element": "TrainingTimeChart",
-    "decision": "rethink",
+    "decision": "remove",
     "teachingGoal": "Change the environment count and CPU assumption directly while comparing reported time bounds with a toy curve.",
-    "reason": "The source-qualified chart and its controls remain; a paused scene first exposes the fixed-budget arithmetic."
+    "reason": "The lab drew the same authored fixed-transition curve as the batch-scale scene, so the graphite scene alone now carries it."
   },
   {
     "article": "parallel-sim-rl",
@@ -102,17 +102,17 @@
   {
     "article": "sim2real-transfer",
     "element": "PredictThenReveal",
-    "decision": "keep",
+    "decision": "remove",
     "teachingGoal": "Ask for the wider-range prediction before exposing its separate initial-condition chart.",
-    "reason": "The disclosure preserves the answer-before-figure decision rather than autoplaying it."
+    "reason": "Its only content was a second friction panel that duplicated the first with a wider starting range, so the step went with that panel."
   },
   {
     "article": "sim2real-transfer",
     "element": "FrictionTransfer",
     "occurrence": 2,
-    "decision": "keep",
+    "decision": "remove",
     "teachingGoal": "Inspect the prediction exercise with its distinct, wider default randomization range.",
-    "reason": "This second mount keeps independent state and an explicit starting range."
+    "reason": "The second panel duplicated the first friction chart with a different starting value; its half-width slider reaches the same range."
   },
   {
     "article": "sim2real-transfer",

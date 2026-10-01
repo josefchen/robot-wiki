@@ -12,6 +12,13 @@ import {
 
 const root = join(import.meta.dirname, '../..');
 const entries = loadRlMotionContinuity(root);
+// The 2026-10-01 figure migration later edited three of these articles; the
+// reader hands this review their archived predecessors.
+const figureMigrationReview = 'audit/evidence/figure-migration-20261001/source-transition.json';
+const figureMigrationArchives = (JSON.parse(readFileSync(join(root, figureMigrationReview), 'utf8')) as {
+  sources: { before: { path: string }; after: { path: string } }[];
+}).sources.filter((source) => entries.some((entry) => entry.current.path === source.after.path))
+  .map((source) => source.before.path);
 const temporary: string[] = [];
 afterEach(() => {
   for (const path of temporary.splice(0)) rmSync(path, { recursive: true, force: true });
@@ -26,6 +33,8 @@ function fixture() {
     'audit/evidence/motion-round5-first-screen-cd-20260929/first-screen-transition.json',
     'audit/evidence/motion-round5-first-screen-cd-20260929/parallel-sim-rl-first-screen-before.mdx',
     'audit/evidence/motion-round5-first-screen-cd-20260929/legged-locomotion-first-screen-before.mdx',
+    figureMigrationReview,
+    ...figureMigrationArchives,
     ...entries.flatMap((entry) => [entry.snapshot.path, entry.current.path]),
   ]) {
     const to = join(destination, path);
@@ -76,6 +85,8 @@ it('retains all four exact historical articles and independently pins active dis
     'audit/evidence/motion-round6-prose-restores-20260929/checker-transition.json'), 'utf8'));
   const remainingRepairsChecker = JSON.parse(readFileSync(join(root,
     'audit/evidence/motion-round6-remaining-repairs-20260929/checker-transition.json'), 'utf8'));
+  const figureMigrationChecker = JSON.parse(readFileSync(join(root,
+    'audit/evidence/figure-migration-20261001/checker-transition.json'), 'utf8'));
   expect(checker.after.bytes).toBe(worldChecker.before.bytes);
   expect(checker.after.sha256).toBe(worldChecker.before.sha256);
   expect(worldChecker.after.bytes).toBe(dataHardwareChecker.before.bytes);
@@ -102,6 +113,8 @@ it('retains all four exact historical articles and independently pins active dis
   expect(kinematicsChecker.after.sha256).toBe(proseRestoresChecker.before.sha256);
   expect(proseRestoresChecker.after.bytes).toBe(remainingRepairsChecker.before.bytes);
   expect(proseRestoresChecker.after.sha256).toBe(remainingRepairsChecker.before.sha256);
+  expect(remainingRepairsChecker.after.bytes).toBe(figureMigrationChecker.before.bytes);
+  expect(remainingRepairsChecker.after.sha256).toBe(figureMigrationChecker.before.sha256);
   expect(domainPairsChecker.before.path)
     .toBe('audit/evidence/motion-domain-pairs-20260928/audit-local-basis-before.ts.txt');
   expect(domainPairsChecker.after.path).toBe('lib/audit-local-basis.ts');
@@ -132,6 +145,9 @@ it('retains all four exact historical articles and independently pins active dis
   expect(remainingRepairsChecker.before.path)
     .toBe('audit/evidence/motion-round6-remaining-repairs-20260929/audit-local-basis-before.ts.txt');
   expect(remainingRepairsChecker.after.path).toBe('lib/audit-local-basis.ts');
+  expect(figureMigrationChecker.before.path)
+    .toBe('audit/evidence/figure-migration-20261001/audit-local-basis-before.ts.txt');
+  expect(figureMigrationChecker.after.path).toBe('lib/audit-local-basis.ts');
   for (const artifact of [checker.before, worldChecker.before, dataHardwareChecker.before,
     frontierChecker.before, domainPairsChecker.before, domainPairsChecker.after,
     proofReaderChecker.before, proofReaderChecker.after, articleTruthChecker.before,
@@ -139,7 +155,8 @@ it('retains all four exact historical articles and independently pins active dis
     round5Checker.before, round5Checker.after, round5CdChecker.before, round5CdChecker.after,
     readerPinsChecker.before, readerPinsChecker.after, kinematicsChecker.before, kinematicsChecker.after,
     proseRestoresChecker.before, proseRestoresChecker.after,
-    remainingRepairsChecker.before, remainingRepairsChecker.after]) {
+    remainingRepairsChecker.before, remainingRepairsChecker.after,
+    figureMigrationChecker.before, figureMigrationChecker.after]) {
     const path = artifact === domainPairsChecker.after ? proofReaderChecker.before.path :
       artifact === proofReaderChecker.after ? articleTruthChecker.before.path :
       artifact === articleTruthChecker.after ? sharedUiChecker.before.path :
@@ -148,7 +165,8 @@ it('retains all four exact historical articles and independently pins active dis
       artifact === round5CdChecker.after ? readerPinsChecker.before.path :
       artifact === readerPinsChecker.after ? kinematicsChecker.before.path :
       artifact === kinematicsChecker.after ? proseRestoresChecker.before.path :
-      artifact === proseRestoresChecker.after ? remainingRepairsChecker.before.path : artifact.path;
+      artifact === proseRestoresChecker.after ? remainingRepairsChecker.before.path :
+      artifact === remainingRepairsChecker.after ? figureMigrationChecker.before.path : artifact.path;
     const bytes = readFileSync(join(root, path));
     expect(bytes.length).toBe(artifact.bytes);
     expect(createHash('sha256').update(bytes).digest('hex')).toBe(artifact.sha256);

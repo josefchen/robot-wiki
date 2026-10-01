@@ -275,11 +275,19 @@ describe('RL reader route, viewport and assertion preservation', () => {
     // off the route (AFFECTED_TITLES, capturePrefix, rendered); the RL
     // reader keeps every Term/widget/reset/table call inside its route
     // guard, and the other 282 calls are byte-identical.
-    expect(inventory.calls).toHaveLength(298);
+    // Re-frozen 2026-10-01 at the figure migration. Reviewed delta against the
+    // prior freeze (298 calls, 7911f2c3.../73a93219...): the framed ledger
+    // now has two disclosures, so the two chart-table openers select
+    // details[data-chart-data] instead of the first details, and the RL
+    // reader opens the collapsed source note (three calls) before it walks
+    // the citation chips. Titles, viewports, loops, graph bindings and the
+    // capture function are unchanged, and the other 296 calls are
+    // byte-identical.
+    expect(inventory.calls).toHaveLength(301);
     // The three navigation URLs now use the Playwright localhost host; all
     // routes, assertions, viewport loops and capture calls remain in place.
-    expect(digest(inventory)).toBe('7911f2c386f011fd25bafc4ca6c972a719fd436c7e5442eabdad83ea8b701f91');
-    expect(digest(routeBody)).toBe('73a932194807a99d8b271d4f2835666c508ee0b512ac439dd2ee9b09e21d4f4f');
+    expect(digest(inventory)).toBe('9b5a46fc641376db6bd916e07a12654f9e4be7850c4012363be6aef3f433c3c3');
+    expect(digest(routeBody)).toBe('210fa451bbbfb39a876378ae8ff5ba0bc27dbd510d7eabbd069561ecc1241d29');
     expect(helpers).toHaveLength(1);
     expect(helpers[0].arguments[0].getText(source)).toBe('browser');
     expect(helpers[0].arguments[1].getText(source)).toBe('affected');

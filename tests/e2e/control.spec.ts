@@ -6,14 +6,26 @@ import { writeFileSync } from 'node:fs';
 const ROUTE = '/classical/control/';
 
 /**
- * The standalone article mount of the pendulum lab. The article also
- * renders a second PendulumController inside the prediction step's
- * disclosure, so every per-mount locator must be scoped to exactly one.
+ * The article's only pendulum lab. The prediction step wraps it inside its
+ * closed disclosure, mounted at Kp 9.5, so a test opens the step first.
  */
 function pendulum(page: Page) {
-  return page
-    .locator('div.prose > [data-brand-module-signature="instrument-frame"]:has([data-testid="pendulum-scene"])')
-    .first();
+  return page.locator(
+    '[data-predict] [data-brand-module-signature="instrument-frame"]:has([data-testid="pendulum-scene"])',
+  );
+}
+
+async function openPendulum(page: Page): Promise<void> {
+  const reveal = page.locator('[data-predict] > details[data-reveal]');
+  await reveal.locator(':scope > summary').click();
+  await expect(reveal).toHaveAttribute('open');
+  await waitForHydration(pendulum(page).getByRole('button', { name: /run the simulation/i }));
+}
+
+/** The stock gain the loop settles at; the step mounts the lab below the threshold. */
+async function setStockKp(page: Page): Promise<void> {
+  await setSlider(pendulum(page).getByRole('slider', { name: /proportional gain kp/i }), 25);
+  await expect(pendulum(page).getByTestId('pendulum-gain-kp-value')).toHaveText('25.0');
 }
 
 function collectPageErrors(page: Page): string[] {
@@ -65,10 +77,10 @@ test.describe('classical control module', () => {
       await expect(page.locator('#ref-ziegler-nichols-1942')).toHaveCount(1);
       await expect(page.locator('#ref-tedrake-underactuated')).toHaveCount(1);
       expect(await page.locator('.katex-display').count()).toBeGreaterThanOrEqual(6);
-      await expect(page.getByTestId('pendulum-scene')).toHaveCount(2);
+      await expect(page.getByTestId('pendulum-scene')).toHaveCount(1);
       await expect(page.getByTestId('impedance-lab')).toBeVisible();
+      await openPendulum(page);
       const run = pendulum(page).getByRole('button', { name: /run the simulation/i });
-      await waitForHydration(run);
       await run.click();
       await expect(pendulum(page).getByRole('button', { name: /pause the simulation/i })).toBeVisible();
       await pendulum(page).getByRole('button', { name: /pause the simulation/i }).click();
@@ -208,6 +220,7 @@ test.describe('classical control module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
+    await openPendulum(page);
     const scene = pendulum(page).getByTestId('pendulum-scene');
     await expect(scene).toBeVisible();
     await expect(pendulum(page).getByTestId('pendulum-rod')).toBeVisible();
@@ -239,7 +252,6 @@ test.describe('classical control module', () => {
 
     // No layout shift: the scene box is stable before and after interaction.
     const before = await scene.boundingBox();
-    await waitForHydration(pendulum(page).getByRole('button', { name: /run the simulation/i }));
     await pendulum(page).getByRole('button', { name: /run the simulation/i }).click();
     const after = await scene.boundingBox();
     expect(after?.width).toBe(before?.width);
@@ -252,9 +264,10 @@ test.describe('classical control module', () => {
   }) => {
     test.setTimeout(90_000);
     await page.goto(ROUTE);
+    await openPendulum(page);
 
-    // Default gains: the loop settles into its small steady lean.
-    await waitForHydration(pendulum(page).getByRole('button', { name: /run the simulation/i }));
+    // Stock gains: the loop settles into its small steady lean.
+    await setStockKp(page);
     await pendulum(page).getByRole('button', { name: /run the simulation/i }).click();
     await expect(pendulum(page).getByTestId('pendulum-status-readout')).toHaveText(
       'settled',
@@ -275,7 +288,7 @@ test.describe('classical control module', () => {
     );
     expect(Math.abs(await angleDeg(page))).toBeGreaterThan(60);
 
-    // Reset restores the release state and the default gains.
+    // Reset restores the release state and the mount's gains (Kp 9.5).
     await pendulum(page).getByRole('button', { name: /reset/i }).click();
     await expect(pendulum(page).getByTestId('pendulum-angle-readout')).toHaveText(
       '+12.0°',
@@ -284,8 +297,10 @@ test.describe('classical control module', () => {
       /holding at release/i,
     );
     await expect(pendulum(page).getByTestId('pendulum-gain-kp-value')).toHaveText(
-      '25.0',
+      '9.5',
     );
+    await expect(pendulum(page).getByTestId('pendulum-gain-ki-value')).toHaveText('0.0');
+    await expect(pendulum(page).getByTestId('pendulum-gain-kd-value')).toHaveText('3.0');
     await expect(
       pendulum(page).getByRole('button', { name: /run the simulation/i }),
     ).toBeVisible();
@@ -296,7 +311,8 @@ test.describe('classical control module', () => {
   }) => {
     test.setTimeout(60_000);
     await page.goto(ROUTE);
-    await waitForHydration(pendulum(page).getByRole('button', { name: /run the simulation/i }));
+    await openPendulum(page);
+    await setStockKp(page);
     await pendulum(page).getByRole('button', { name: /run the simulation/i }).click();
     await expect(pendulum(page).getByTestId('pendulum-status-readout')).toHaveText(
       'settled',
@@ -318,8 +334,8 @@ test.describe('classical control module', () => {
 
   test('the interactive is keyboard-operable', async ({ page }) => {
     await page.goto(ROUTE);
+    await openPendulum(page);
     const kd = pendulum(page).getByRole('slider', { name: /derivative gain kd/i });
-    await waitForHydration(kd);
     await kd.focus();
     await expect(kd).toBeFocused();
     await kd.press('ArrowRight');
@@ -343,7 +359,9 @@ test.describe('classical control module', () => {
     await page.goto(ROUTE);
     const runButton = pendulum(page).getByRole('button', { name: /run the simulation/i });
     const pauseButton = pendulum(page).getByRole('button', { name: 'Pause the simulation' });
-    await waitForHydration(runButton);
+    await openPendulum(page);
+    // At the mount's Kp 9.5 the pole falls away; the stock gain pulls it in.
+    await setStockKp(page);
     await runButton.click();
     await expect(pauseButton).toHaveCount(1);
     // Coarse ticks at 320 ms: within 4 s the pole has visibly moved in from

@@ -7,7 +7,7 @@
       "id": "kalman-episode",
       "title": "One Kalman filter, a whole run",
       "route": "/classical/state-estimation",
-      "teaches": "The same seeded filter as the step-through scene, played over a whole run: the estimate tracks the wandering target through readings and dropouts while its uncertainty band breathes.",
+      "teaches": "The seeded filter tracks a wandering target; its uncertainty band widens in dropouts and narrows on readings.",
       "status": "schematic",
       "statusNote": "Seeded toy filter; schematic, not measured hardware.",
       "width": 1280,
@@ -30,11 +30,11 @@
           "durationMs": 6500
         },
         {
-          "caption": "Predict smears the belief, update sharpens it; that alternation, repeated forever, is the filter.",
+          "caption": "Predict widens the belief, update narrows it; that alternation, repeated forever, is the filter.",
           "durationMs": 2500
         }
       ],
-      "textAlternative": "Schematic cinematic clip, 18 seconds: one Kalman filter over a whole run. A target wanders in one dimension; the dashed line is its true position. A noisy position sensor reports on most steps and drops about one in five; its readings are the scattered markers. One fusion up close: the wide predicted belief meets a reading, and the gain K narrows the posterior between them. Run the whole episode: the estimate drifts through each dropout and corrects on each reading, staying close to the truth. Predict smears the belief, update sharpens it; that alternation, repeated forever, is the filter. Seeded toy filter; schematic, not measured hardware."
+      "textAlternative": "Schematic cinematic clip, 18 seconds: one Kalman filter over a whole run. A target wanders in one dimension; the dashed line is its true position. A noisy position sensor reports on most steps and drops about one in five; its readings are the scattered markers. One fusion up close: the wide predicted belief meets a reading, and the gain K narrows the posterior between them. Run the whole episode: the estimate drifts through each dropout and corrects on each reading, staying close to the truth. Predict widens the belief, update narrows it; that alternation, repeated forever, is the filter. Seeded toy filter; schematic, not measured hardware."
     }
   ]
 }

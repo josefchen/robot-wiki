@@ -103,138 +103,45 @@ test.describe('legged-locomotion module', () => {
     expect(await chips.count()).toBeGreaterThanOrEqual(12);
   });
 
-  test('gait diagram: selector, patterns, stepping, playback, reset', async ({
+  test('the gait-support scene carries the support story the pointer describes', async ({
     page,
   }) => {
     await page.goto(ROUTE, { waitUntil: 'networkidle' });
-
-    // Default: walk at cycle start, three feet down.
-    await expect(page.getByTestId('duty-readout')).toHaveText('0.75');
-    await expect(page.getByTestId('phase-readout')).toHaveText('0%');
-    await expect(page.getByTestId('support-readout')).toHaveText(
-      /always 3 feet/i,
-    );
-    for (const row of ['row-lf', 'row-rf', 'row-lh', 'row-rh']) {
-      await expect(page.getByTestId(row)).toBeVisible();
+    const prose = page.locator('div.prose[data-pagefind-body]');
+    const scene = prose.locator('[data-motion-scene="gait-support"]');
+    await expect(scene).toHaveCount(1);
+    // The retired gait lab leaves no controls or readouts behind.
+    for (const id of ['duty-readout', 'phase-readout', 'support-readout', 'row-lf', 'playhead']) {
+      await expect(page.getByTestId(id)).toHaveCount(0);
     }
-
-    // Trot: diagonal pairs, duty factor drops.
-    await page.getByRole('button', { name: 'Trot' }).click();
-    await expect(page.getByTestId('duty-readout')).toHaveText('0.50');
-    await expect(page.getByTestId('stance-readout')).toHaveText('LF + RH');
-
-    // Step halfway: the other diagonal takes over.
-    for (let i = 0; i < 10; i++) {
-      await page.getByRole('button', { name: 'Step forward', exact: true }).click();
-    }
-    await expect(page.getByTestId('phase-readout')).toHaveText('50%');
-    await expect(page.getByTestId('stance-readout')).toHaveText('RF + LH');
-
-    // Bound: a flight phase appears.
-    await page.getByRole('button', { name: 'Bound' }).click();
-    await expect(page.getByTestId('support-readout')).toHaveText(
-      /flight phase/i,
+    await expect(page.getByRole('button', { name: 'Play gait cycle' })).toHaveCount(0);
+    await expect(page.getByRole('slider', { name: /gait phase/i })).toHaveCount(0);
+    await expect(prose).toContainText(
+      'Press Play on the scene below, then try Step forward from walk to trot to bound and watch the support readout',
     );
 
-    // Play advances the cycle; pause holds it. The wait is on the
-    // observable phase readout (state-driven), not a wall-clock sleep,
-    // and the pause click auto-waits for the swapped control to appear.
-    await page.getByRole('button', { name: 'Play gait cycle' }).click();
-    await expect
-      .poll(
-        async () =>
-          (await page.getByTestId('phase-readout').textContent()) ?? '',
-        { timeout: 10_000 },
-      )
-      .not.toBe('0%');
-    await page.getByRole('button', { name: 'Pause gait cycle' }).click();
-    const afterPlay = await page.getByTestId('phase-readout').textContent();
-    expect(afterPlay).not.toBe('0%');
-
-    // Keyboard path on the phase slider.
-    const slider = page.getByRole('slider', { name: /gait phase/i });
-    await slider.focus();
+    const poster = scene.getByRole('button', { name: /^play the motion scene/i });
+    await expect(poster).toHaveText('Play');
+    await poster.click();
+    const scrubber = scene.getByTestId('motion-scrubber');
+    try {
+      await expect(scrubber).toBeVisible({ timeout: 4_000 });
+    } catch {
+      await poster.click();
+      await expect(scrubber).toBeVisible({ timeout: 10_000 });
+    }
+    await page.keyboard.press('k');
+    await page.keyboard.press('Home');
     await page.keyboard.press('ArrowRight');
-    await expect(page.getByTestId('phase-readout')).toHaveText(/\d+%/);
-
-    // Reset restores the default gait and phase.
-    const lab = page.getByTestId('duty-readout')
-      .locator('xpath=ancestor::*[@data-brand-module-signature][1]');
-    await lab.getByRole('button', { name: 'Reset' }).click();
-    await expect(page.getByTestId('phase-readout')).toHaveText('0%');
-    await expect(page.getByTestId('duty-readout')).toHaveText('0.75');
-    await expect(page.getByRole('button', { name: 'Walk' })).toHaveAttribute(
-      'aria-pressed',
-      'true',
-    );
-  });
-
-  test('reduced motion: playback steps discretely', async ({ browser }) => {
-    const context = await browser.newContext({ reducedMotion: 'reduce' });
-    const page = await context.newPage();
-    await page.goto(ROUTE, { waitUntil: 'networkidle' });
-    // Wait for the observable phase change instead of sleeping on the
-    // wall clock; under reduced motion playback advances the playhead in
-    // discrete 10% jumps.
-    await page.getByRole('button', { name: 'Play gait cycle' }).click();
-    await expect
-      .poll(
-        async () =>
-          (await page.getByTestId('phase-readout').textContent()) ?? '',
-        { timeout: 10_000 },
-      )
-      .not.toBe('0%');
-    await page.getByRole('button', { name: 'Pause gait cycle' }).click();
-    // Paused on a discrete jump: the phase is a multiple of 10%.
-    const phase = (await page.getByTestId('phase-readout').textContent()) ?? '';
-    expect(Number(phase.replace('%', '')) % 10).toBe(0);
-    await context.close();
-  });
-
-  test('reduced motion changes before and during playback rebuild the gait cadence', async ({
-    page,
-  }) => {
-    await page.goto(ROUTE, { waitUntil: 'networkidle' });
-    const phase = page.getByTestId('phase-readout');
-    const phaseNumber = async () =>
-      Number(((await phase.textContent()) ?? '0').replace('%', ''));
-
-    // Preference changed after mount but before playback.
-    await page.emulateMedia({ reducedMotion: 'reduce' });
-    await page.getByRole('button', { name: 'Play gait cycle' }).click();
-    await expect(phase).toHaveAttribute('data-playback-cadence', 'coarse');
-    await expect.poll(phaseNumber, { timeout: 5_000 }).toBeGreaterThan(0);
-    await page.getByRole('button', { name: 'Pause gait cycle' }).click();
-    await expect(phase).toHaveAttribute('data-playback-cadence', 'idle');
-    expect((await phaseNumber()) % 10).toBe(0);
-
-    // Preference changed again while smooth playback is active.
-    const lab = page.getByTestId('duty-readout')
-      .locator('xpath=ancestor::*[@data-brand-module-signature][1]');
-    await lab.getByRole('button', { name: 'Reset' }).click();
-    await page.emulateMedia({ reducedMotion: 'no-preference' });
-    await page.getByRole('button', { name: 'Play gait cycle' }).click();
-    await expect
-      .poll(async () => {
-        const value = await phaseNumber();
-        return value !== 0 && value % 10 !== 0;
-      }, { timeout: 5_000 })
-      .toBe(true);
-    await page.emulateMedia({ reducedMotion: 'reduce' });
-    await expect(phase).toHaveAttribute('data-playback-cadence', 'coarse');
-    const transitionedAt = await phaseNumber();
-    await expect
-      .poll(phaseNumber, { timeout: 5_000, intervals: [100] })
-      .not.toBe(transitionedAt);
-    await page.getByRole('button', { name: 'Pause gait cycle' }).click();
-    await expect(phase).toHaveAttribute('data-playback-cadence', 'idle');
-    const reachableCoarsePhases = new Set<number>();
-    let coarsePhase = transitionedAt;
-    for (let tick = 0; tick < 10; tick += 1) {
-      coarsePhase = coarsePhase + 10 >= 100 ? 0 : coarsePhase + 10;
-      reachableCoarsePhases.add(coarsePhase);
-    }
-    expect(reachableCoarsePhases.has(await phaseNumber())).toBe(true);
+    // Three feet always down, then two, then a flight phase with none.
+    const readout = scene.getByTestId('motion-readout');
+    await expect(readout).toContainText(/walk\s*minimum support 3 feet/i);
+    const forward = scene.getByRole('button', { name: 'Step forward one beat' });
+    await expect(forward).toHaveText('Step forward');
+    await forward.click();
+    await expect(readout).toContainText(/trot\s*minimum support 2 feet/i);
+    await forward.click();
+    await expect(readout).toContainText(/bound\s*minimum support 0 feet/i);
   });
 
   test('zero axe violations', async ({ page }) => {

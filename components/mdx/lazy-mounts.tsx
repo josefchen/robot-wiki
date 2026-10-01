@@ -194,38 +194,11 @@ export const KalmanPredictUpdate = dynamic(() =>
 export const DiffusionDenoising = dynamic(() =>
   import('@/components/motion/scenes/diffusion-denoising').then((m) => m.DiffusionDenoising),
 );
-export const ActionDecode = dynamic(() =>
-  import('@/components/motion/scenes/action-decode').then((m) => m.ActionDecode),
-);
-export const FlowTransport = dynamic(() =>
-  import('@/components/motion/scenes/flow-transport').then((m) => m.FlowTransport),
-);
-export const FkChain = dynamic(() =>
-  import('@/components/motion/scenes/fk-chain').then((m) => m.FkChain),
-);
-export const RrtGrowth = dynamic(() =>
-  import('@/components/motion/scenes/rrt-growth').then((m) => m.RrtGrowth),
-);
 export const BatchScale = dynamic(() =>
   import('@/components/motion/scenes/batch-scale').then((m) => m.BatchScale),
 );
 export const GaitSupport = dynamic(() =>
   import('@/components/motion/scenes/gait-support').then((m) => m.GaitSupport),
-);
-export const ActionFork = dynamic(() =>
-  import('@/components/motion/scenes/action-fork').then((m) => m.ActionFork),
-);
-export const LatentDrift = dynamic(() =>
-  import('@/components/motion/scenes/latent-drift').then((m) => m.LatentDrift),
-);
-export const PushLayers = dynamic(() =>
-  import('@/components/motion/scenes/push-layers').then((m) => m.PushLayers),
-);
-export const FarmThroughput = dynamic(() =>
-  import('@/components/motion/scenes/farm-throughput').then((m) => m.FarmThroughput),
-);
-export const EpisodeSurvival = dynamic(() =>
-  import('@/components/motion/scenes/episode-survival').then((m) => m.EpisodeSurvival),
 );
 export const JamOverhead = dynamic(() =>
   import('@/components/motion/scenes/jam-overhead').then((m) => m.JamOverhead),

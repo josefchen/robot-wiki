@@ -119,10 +119,10 @@
   {
     "article": "frontier/generalization",
     "element": "EgoScaleScaling",
-    "occurrence": 1,
-    "decision": "keep",
+    "occurrence": 2,
+    "decision": "remove",
     "teachingGoal": "Vary human-video pretraining hours and compare the reported fitted relationship.",
-    "reason": "The direct-control study chart preserves the measured fit and its source-qualified ranges."
+    "reason": "Removed: this standalone mount repeated the chart inside the prediction step, which now stands in its place as the page's only instance."
   },
   {
     "article": "frontier/generalization",
@@ -166,10 +166,10 @@
   {
     "article": "frontier/generalization",
     "element": "EgoScaleScaling",
-    "occurrence": 2,
+    "occurrence": 1,
     "decision": "keep",
     "teachingGoal": "Test the prediction against the same measured chart after revealing the answer.",
-    "reason": "The assessment chart retains its own adjustable view and cited limits."
+    "reason": "The page's only mount lives in the prediction step's feedback and keeps its own adjustable view and cited limits."
   },
   {
     "article": "frontier/reliability-gap",
@@ -177,7 +177,7 @@
     "occurrence": 1,
     "decision": "keep",
     "teachingGoal": "Read the first fixed-horizon illustrative success result beside its peers.",
-    "reason": "Three static anchors permit direct comparison after the paced explanation."
+    "reason": "Three static anchors permit direct comparison before the reader operates the calculator."
   },
   {
     "article": "frontier/reliability-gap",
@@ -185,7 +185,7 @@
     "occurrence": 2,
     "decision": "keep",
     "teachingGoal": "Compare the middle illustrative success result at the same horizon.",
-    "reason": "The static value remains available without operating the scene or calculator."
+    "reason": "The static value remains available without operating the calculator."
   },
   {
     "article": "frontier/reliability-gap",
@@ -198,17 +198,17 @@
   {
     "article": "frontier/reliability-gap",
     "element": "ReliabilityThreshold",
-    "decision": "add",
+    "decision": "remove",
     "sceneId": "reliability-threshold",
     "teachingGoal": "Hold thirty decisions constant while per-decision success rises across three toy cases.",
-    "reason": "A paced comparison isolates compounding before independent direct controls."
+    "reason": "Removed: the calculator's presets step the same three per-step bars over the same horizon under the reader's control, so the paced scene repeated it here. The scene stays on the front page."
   },
   {
     "article": "frontier/reliability-gap",
     "element": "ReliabilityCompounding",
     "decision": "rethink",
-    "teachingGoal": "Vary probability and episode length independently, including boundary values.",
-    "reason": "The new scene explains one fixed horizon; the original calculator keeps its full-range controls."
+    "teachingGoal": "Vary probability and episode length independently, including boundary values, and compare the three per-step bars through presets.",
+    "reason": "The presets carry the fixed-horizon comparison the paced scene made, and the full-range sliders keep the boundary cases honest."
   },
   {
     "article": "frontier/reliability-gap",

@@ -3,14 +3,26 @@
 import { useId, useMemo, useState } from 'react';
 import { ChartDescription } from '@/components/ui/chart-description';
 import {
+  ControlField,
   ControlLabel,
-  InstrumentFrame,
+  INSTRUMENT_SLIDER_CLASS,
+  InstrumentFigure,
   InstrumentLegend,
   LegendItem,
   InstrumentReadout,
   InstrumentReset,
   PlotStage,
 } from '@/components/ui/instrument';
+import { FigureStage } from '@/components/motion/figure-frame';
+import {
+  ChartAxes,
+  DirectLabel,
+  LegendSwatch,
+  PointMarker,
+  roleColour,
+  CHART_STROKE,
+  CHART_VIEW_WIDTH,
+} from '@/components/motion/chart';
 import {
   ACT_CHUNK_ANCHORS,
   MAX_CHUNK,
@@ -28,9 +40,9 @@ import {
  * unquantified taper there. A second readout shows closed-loop decisions
  * per episode (episode length / k), the quantity chunking actually shrinks.
  *
- * Interactive contract: deterministic initial render, visible monospace
- * readouts, reset control, native keyboard-accessible slider with an
- * aria-label, fixed-height chart (no layout shift), no auto-playing motion.
+ * Interactive contract: deterministic initial render, visible readouts,
+ * reset control, native keyboard-accessible slider with an aria-label,
+ * fixed-height chart (no layout shift), no auto-playing motion.
  */
 type ChunkSizeCurveProps = {
   /** Initial chunk size. Default 100 (the published ACT configuration). */
@@ -40,9 +52,9 @@ type ChunkSizeCurveProps = {
   className?: string;
 };
 
-const WIDTH = 640;
-const HEIGHT = 260;
-const PAD = { top: 14, right: 18, bottom: 30, left: 48 };
+const WIDTH = CHART_VIEW_WIDTH;
+const HEIGHT = 198;
+const PAD = { top: 30, right: 18, bottom: 46, left: 40 };
 
 /** Y axis tops out at 50% so the 44% peak uses most of the plot. */
 const MAX_SUCCESS = 0.5;
@@ -61,6 +73,13 @@ export function chunkScaleY(success: number): number {
   const plotHeight = HEIGHT - PAD.top - PAD.bottom;
   return Number((HEIGHT - PAD.bottom - (success / MAX_SUCCESS) * plotHeight).toFixed(2));
 }
+
+const PLOT = {
+  left: PAD.left,
+  right: WIDTH - PAD.right,
+  top: PAD.top,
+  bottom: HEIGHT - PAD.bottom,
+};
 
 function formatPercent(value: number): string {
   const percent = value * 100;
@@ -81,37 +100,25 @@ export function ChunkSizeCurve({
   const peakK = ACT_CHUNK_ANCHORS.at(-1)?.k ?? 100;
 
   const { risePath, taperPath, marker, anchors } = useMemo(() => {
-    const plotWidth = WIDTH - PAD.left - PAD.right;
-    const plotHeight = HEIGHT - PAD.top - PAD.bottom;
-    const x = (k: number) =>
-      PAD.left + ((k - MIN_CHUNK) / (MAX_CHUNK - MIN_CHUNK)) * plotWidth;
-    const y = (p: number) =>
-      HEIGHT - PAD.bottom - (p / MAX_SUCCESS) * plotHeight;
-
     const rise: string[] = [];
     for (let k = MIN_CHUNK; k <= peakK; k += 1) {
-      rise.push(
-        `${k === MIN_CHUNK ? 'M' : 'L'}${x(k).toFixed(2)},${y(successAtChunkSize(k)).toFixed(2)}`,
-      );
+      rise.push(`${k === MIN_CHUNK ? 'M' : 'L'}${chunkScaleX(k)},${chunkScaleY(successAtChunkSize(k))}`);
     }
-    const taper: string[] = [`M${x(peakK).toFixed(2)},${y(successAtChunkSize(peakK)).toFixed(2)}`];
+    const taper: string[] = [`M${chunkScaleX(peakK)},${chunkScaleY(successAtChunkSize(peakK))}`];
     for (let k = peakK + 5; k <= MAX_CHUNK; k += 5) {
-      taper.push(`L${x(k).toFixed(2)},${y(successAtChunkSize(k)).toFixed(2)}`);
+      taper.push(`L${chunkScaleX(k)},${chunkScaleY(successAtChunkSize(k))}`);
     }
     return {
       risePath: rise.join(' '),
       taperPath: taper.join(' '),
-      marker: { cx: x(chunkSize), cy: y(success) },
+      marker: { cx: chunkScaleX(chunkSize), cy: chunkScaleY(success) },
       anchors: ACT_CHUNK_ANCHORS.map((a) => ({
         ...a,
-        cx: x(a.k),
-        cy: y(a.success),
+        cx: chunkScaleX(a.k),
+        cy: chunkScaleY(a.success),
       })),
     };
   }, [chunkSize, success, peakK]);
-
-  const plotWidth = WIDTH - PAD.left - PAD.right;
-  const plotHeight = HEIGHT - PAD.top - PAD.bottom;
 
   // Sampled from successAtChunkSize, the same function the path is drawn
   // from; the provenance column carries the dashed region's qualification
@@ -139,203 +146,134 @@ export function ChunkSizeCurve({
     setChunkSize(defaultChunkSize);
   }
 
+  const value = roleColour('value');
+
   return (
-    <InstrumentFrame className={className}>
-      <div className="grid gap-4 sm:grid-cols-[1fr_auto] sm:items-end">
-        <div>
-          <ControlLabel htmlFor="csc-chunk-size" value={`k = ${chunkSize}`}>
-            Chunk size
-          </ControlLabel>
-          <input
-            id="csc-chunk-size"
-            type="range"
-            data-brand-control-id="control:input"
-            min={MIN_CHUNK}
-            max={MAX_CHUNK}
-            step={1}
-            value={chunkSize}
-            onChange={(e) => setChunkSize(Number(e.target.value))}
-            aria-label={`Chunk size k, currently ${chunkSize}`}
-            className="mt-2 w-full accent-accent"
-          />
-        </div>
-        <InstrumentReset onClick={reset} />
-      </div>
-
-      <PlotStage
-        viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-        aria-label={`Line chart of task success rate against chunk size k. Success rises to 44 percent at k of 100, then tapers. Current position k equals ${chunkSize}, success ${formatPercent(success)}.`}
-        aria-describedby={descriptionId}
-        className="mt-4"
-      >
-        {[0.1, 0.2, 0.3, 0.4, 0.5].map((p) => {
-          const y = PAD.top + (1 - p / MAX_SUCCESS) * plotHeight;
-          return (
-            <g key={p}>
-              <line
-                x1={PAD.left}
-                x2={PAD.left + plotWidth}
-                y1={y}
-                y2={y}
-                stroke="var(--color-border)"
-                strokeWidth={1}
-              />
-              <text
-                x={PAD.left - 8}
-                y={y + 4}
-                textAnchor="end"
-                fill="var(--color-text-dim)"
-                fontSize={11}
-                fontFamily="var(--font-mono)"
-              >
-                {Math.round(p * 100)}%
-              </text>
-            </g>
-          );
-        })}
-        {[1, 100, 200, 300, 400].map((k) => (
-          <text
-            key={k}
-            x={PAD.left + ((k - MIN_CHUNK) / (MAX_CHUNK - MIN_CHUNK)) * plotWidth}
-            y={HEIGHT - 8}
-            textAnchor={k === MAX_CHUNK ? 'end' : 'middle'}
-            fill="var(--color-text-dim)"
-            fontSize={11}
-            fontFamily="var(--font-mono)"
-          >
-            {k}
-          </text>
-        ))}
-        <text
-          x={PAD.left + plotWidth}
-          y={HEIGHT - 8 + 14}
-          textAnchor="end"
-          fill="var(--color-text-dim)"
-          fontSize={10}
-          fontFamily="var(--font-mono)"
-        >
-          chunk size k
-        </text>
-        <line
-          x1={PAD.left}
-          x2={PAD.left + plotWidth}
-          y1={PAD.top + plotHeight}
-          y2={PAD.top + plotHeight}
-          stroke="var(--color-border-strong)"
-          strokeWidth={1}
-        />
-        {/* Measured rise (solid) and illustrative taper (dashed). */}
-        <path
-          data-series="measured-rise"
-          d={risePath}
-          fill="none"
-          stroke="var(--color-accent)"
-          strokeWidth={2}
-        />
-        <path
-          data-series="illustrative-taper"
-          d={taperPath}
-          fill="none"
-          stroke="var(--color-accent)"
-          strokeWidth={2}
-          strokeDasharray="5 4"
-          opacity={0.65}
-        />
-        {anchors.map((a) => (
-          <g key={a.k}>
-            <circle cx={a.cx} cy={a.cy} r={3.5} fill="var(--color-accent)" />
-            <text
-              x={a.cx}
-              y={a.cy - 10}
-              textAnchor="middle"
-              fill="var(--color-text)"
-              fontSize={11}
-              fontFamily="var(--font-mono)"
-            >
-              {formatPercent(a.success)}
-            </text>
-          </g>
-        ))}
-        <circle
-          cx={marker.cx}
-          cy={marker.cy}
-          r={4.5}
-          fill="var(--color-bg)"
-          stroke="var(--color-accent)"
-          strokeWidth={2}
-        />
-      </PlotStage>
-
-      <InstrumentLegend className="mt-2">
-        <LegendItem
-          series="measured-rise"
-          swatch={
-            <span
-              className="inline-block h-[2px] w-4"
-              style={{ background: 'var(--color-accent)' }}
+    <InstrumentFigure
+      figureId="chunk-size-curve"
+      className={className}
+      heading="Chunk size and task success"
+      controls={
+        <>
+          <ControlField>
+            <ControlLabel htmlFor="csc-chunk-size" value={`k = ${chunkSize}`}>
+              Chunk size
+            </ControlLabel>
+            <input
+              id="csc-chunk-size"
+              type="range"
+              data-brand-control-id="control:input"
+              min={MIN_CHUNK}
+              max={MAX_CHUNK}
+              step={1}
+              value={chunkSize}
+              onChange={(e) => setChunkSize(Number(e.target.value))}
+              aria-label={`Chunk size k, currently ${chunkSize}`}
+              className={INSTRUMENT_SLIDER_CLASS}
             />
-          }
-        >
-          measured rise (k = 1 to 100)
-        </LegendItem>
-        <LegendItem
-          series="illustrative-taper"
-          swatch={
-            <svg width={16} height={4} aria-hidden className="shrink-0">
-              <line
-                x1={0}
-                y1={2}
-                x2={16}
-                y2={2}
-                stroke="var(--color-accent)"
-                strokeWidth={2}
-                strokeDasharray="5 4"
-                opacity={0.65}
+          </ControlField>
+          <InstrumentReset onClick={reset} />
+        </>
+      }
+      stage={
+        <FigureStage
+          footer={
+            <>
+              <InstrumentLegend>
+                <LegendItem series="measured-rise" swatch={<LegendSwatch role="value" mark="line" />}>
+                  measured rise, k = 1 to 100
+                </LegendItem>
+                <LegendItem series="illustrative-taper" swatch={<LegendSwatch role="value" mark="dash" />}>
+                  interpolated taper
+                </LegendItem>
+                <LegendItem swatch={<LegendSwatch role="measurement" mark="dot" />}>
+                  measured point
+                </LegendItem>
+              </InstrumentLegend>
+              <InstrumentReadout>
+                k = {chunkSize}:{' '}
+                <span data-testid="chunk-success-readout" style={{ color: value }}>
+                  {formatPercent(success)}
+                </span>{' '}
+                success,{' '}
+                <span data-testid="chunk-decisions-readout">{decisions}</span>{' '}
+                {decisions === 1 ? 'decision' : 'decisions'} per {episodeSteps}-step episode
+              </InstrumentReadout>
+              <ChartDescription
+                id={descriptionId}
+                form="table"
+                summary="Sampled success rate and decision count by chunk size"
+                rowHeader="chunk size k"
+                columns={[
+                  { header: 'success', numeric: true },
+                  { header: 'decisions', numeric: true },
+                  { header: 'provenance', numeric: false },
+                  { header: 'playhead', numeric: false },
+                ]}
+                rows={sampleRows}
+                description={descriptionText}
               />
-            </svg>
+            </>
           }
         >
-          illustrative taper (past the measured range)
-        </LegendItem>
-      </InstrumentLegend>
-
-      <InstrumentReadout>
-        <span className="text-text-dim">k = {chunkSize}:</span>{' '}
-        <span data-testid="chunk-success-readout" className="text-accent">
-          {formatPercent(success)}
-        </span>{' '}
-        <span className="text-text-dim">success,</span>{' '}
-        <span data-testid="chunk-decisions-readout" className="text-accent">
-          {decisions}
-        </span>{' '}
-        <span className="text-text-dim">
-          {decisions === 1 ? 'decision' : 'decisions'} per {episodeSteps}-step
-          episode
-        </span>
-      </InstrumentReadout>
-      <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
-        Solid points are the measured ACT ablation values (1% at k=1, 44% at
-        k=100, averaged over the paper&apos;s two simulated tasks with
-        scripted and human demonstrations). The dashed region past k=100 is
-        interpolated: the paper reports a slight decline at k=200 and k=400
-        without exact numbers.
-      </p>
-
-      <ChartDescription
-        id={descriptionId}
-        className="mt-3"
-        form="table"
-        summary="Sampled success rate and decision count by chunk size"
-        rowHeader="chunk size k"
-        columns={[
-          { header: 'success', numeric: true },
-          { header: 'decisions', numeric: true },
-          { header: 'provenance', numeric: false },
-          { header: 'playhead', numeric: false },
-        ]}
-        rows={sampleRows}
-        description={descriptionText}
-      />
-    </InstrumentFrame>
+          <PlotStage
+            viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
+            aria-label={`Line chart of task success rate against chunk size k. Success rises to 44 percent at k of 100, then tapers. Current position k equals ${chunkSize}, success ${formatPercent(success)}.`}
+            aria-describedby={descriptionId}
+          >
+            <ChartAxes
+              plot={PLOT}
+              x={chunkScaleX}
+              y={chunkScaleY}
+              xTicks={[1, 100, 200, 300, 400]}
+              yTicks={[0, 0.1, 0.2, 0.3, 0.4, 0.5]}
+              formatY={(p) => `${Math.round(p * 100)}%`}
+              xLabel="chunk size k"
+            />
+            {/* Measured rise (solid) and interpolated taper (dashed). */}
+            <path
+              data-series="measured-rise"
+              d={risePath}
+              fill="none"
+              stroke={value}
+              strokeWidth={CHART_STROKE.trace}
+              strokeLinejoin="round"
+            />
+            <path
+              data-series="illustrative-taper"
+              d={taperPath}
+              fill="none"
+              stroke={value}
+              strokeWidth={CHART_STROKE.trace}
+              strokeDasharray={CHART_STROKE.dash}
+            />
+            {anchors.map((a) => (
+              <g key={a.k}>
+                <PointMarker x={a.cx} y={a.cy} role="measurement" />
+                {/* The 1% anchor sits on the steep rise, so only the peak
+                    takes a direct label; the caption states both values. */}
+                {a.k === peakK ? (
+                  <DirectLabel x={a.cx} y={a.cy - 13} role="measurement" anchor="middle">
+                    {formatPercent(a.success)}
+                  </DirectLabel>
+                ) : null}
+              </g>
+            ))}
+            <circle
+              data-chart-mark="playhead"
+              data-chart-role="highlight"
+              cx={marker.cx}
+              cy={marker.cy}
+              r={CHART_STROKE.markerRadius + 2}
+              fill="none"
+              stroke={roleColour('highlight')}
+              strokeWidth={CHART_STROKE.trace}
+            />
+          </PlotStage>
+        </FigureStage>
+      }
+      caption="Success climbs from 1% at k = 1 to the measured 44% at k = 100, then tapers slightly."
+      source="Measured points: ACT ablation, mean of two simulated tasks. The taper past k = 100 is interpolated."
+    />
   );
 }

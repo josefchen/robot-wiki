@@ -62,22 +62,23 @@ describe('jsx element tree', () => {
   it('reads nesting out of the document rather than out of the mount', () => {
     const path = 'content/data-hardware/evaluation-crisis.mdx';
     const names = providedNames(path, ['PredictThenReveal']);
+    // The page mounts its one calculator inside the prediction step. A copy
+    // of that exact mount placed ahead of the step gives the tree two
+    // elements with identical props and different nesting.
+    const nested = read(path).match(/<ReliabilityCompounding\b[^>]*\/>/)![0];
+    const text = read(path).replace('<PredictThenReveal', `${nested}\n\n<PredictThenReveal`);
     const mounts = componentElementTree({
-      text: read(path),
+      text,
       path,
       componentNames: names,
     }).filter(({ name }) => name === 'ReliabilityCompounding');
     expect(mounts).toHaveLength(2);
     expect(mounts[0].ancestors).toEqual([]);
     expect(mounts[1].ancestors).toEqual(['PredictThenReveal']);
-    // The two mounts differ in their props as well, and the tree does not
-    // read the props: stripping the second mount's own configuration leaves
-    // it exactly as nested as it was.
-    const unconfigured = read(path).replace(
-      'defaultPerStep={0.95} defaultSteps={14} ',
-      '',
-    );
-    expect(unconfigured).not.toEqual(read(path));
+    // The tree does not read the props: stripping the configuration from
+    // both mounts leaves each exactly as nested as it was.
+    const unconfigured = text.replaceAll('defaultPerStep={0.95} defaultSteps={14} ', '');
+    expect(unconfigured).not.toEqual(text);
     const after = componentElementTree({
       text: unconfigured,
       path,

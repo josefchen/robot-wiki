@@ -1,6 +1,5 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { setSlider } from './slider';
 
 const ROUTE = '/rl-sim2real/parallel-sim-rl/';
 
@@ -59,46 +58,38 @@ test.describe('parallel-sim-rl module', () => {
     expect(await chips.count()).toBeGreaterThanOrEqual(7);
   });
 
-  test('training-time chart: slider, Rudin markers, CPU toggle, and reset', async ({
+  test('the batch-scale scene is the one throughput figure and the pointer names its controls', async ({
     page,
   }) => {
     await page.goto(ROUTE, { waitUntil: 'networkidle' });
+    const prose = page.locator('div.prose[data-pagefind-body]');
+    const scene = prose.locator('[data-motion-scene="batch-scale"]');
+    await expect(scene).toHaveCount(1);
+    // The retired training-time lab leaves no controls or readouts behind.
+    for (const id of ['envs-readout', 'wallclock-readout', 'active-curve', 'rudin-marker-flat', 'cpu-explanation']) {
+      await expect(page.getByTestId(id)).toHaveCount(0);
+    }
+    await expect(page.getByRole('slider', { name: /parallel environments/i })).toHaveCount(0);
+    await expect(prose).toContainText('Press Play, then try Step forward from 64 environments upward');
 
-    // Default: 4,096 envs at the four-minute anchor.
-    await expect(page.getByTestId('envs-readout')).toHaveText('4,096');
-    await expect(page.getByTestId('wallclock-readout')).toHaveText('4.0 min');
-    await expect(page.getByTestId('rudin-marker-flat')).toBeVisible();
-    await expect(page.getByTestId('rudin-marker-uneven')).toBeVisible();
-
-    // Slider: hours at 64 envs, minutes at 16,384.
-    const slider = page.getByRole('slider', {
-      name: /parallel environments/i,
-    });
-    await setSlider(slider, 6);
-    await expect(page.getByTestId('wallclock-readout')).toHaveText(/h$/);
-    await setSlider(slider, 14);
-    await expect(page.getByTestId('wallclock-readout')).toHaveText('1.5 min');
-
-    // CPU bottleneck: wall-clock rises, reference curve appears.
-    const toggle = page.getByRole('button', {
-      name: /cpu single-core bottleneck/i,
-    });
-    await toggle.click();
-    await expect(toggle).toHaveAttribute('aria-pressed', 'true');
-    await expect(page.getByTestId('wallclock-readout')).toHaveText('4.8 min');
-    await expect(page.getByTestId('reference-curve')).toBeVisible();
-    await expect(page.getByTestId('cpu-explanation')).toContainText('5090');
-
-    // Keyboard on the slider, then reset.
-    await slider.focus();
-    await page.keyboard.press('ArrowLeft');
-    await expect(page.getByTestId('envs-readout')).toHaveText('8,192');
-    const lab = page.getByTestId('wallclock-readout')
-      .locator('xpath=ancestor::*[@data-brand-module-signature][1]');
-    await lab.getByRole('button', { name: 'Reset' }).click();
-    await expect(page.getByTestId('envs-readout')).toHaveText('4,096');
-    await expect(page.getByTestId('wallclock-readout')).toHaveText('4.0 min');
-    await expect(toggle).toHaveAttribute('aria-pressed', 'false');
+    const poster = scene.getByRole('button', { name: /^play the motion scene/i });
+    await expect(poster).toHaveText('Play');
+    await poster.click();
+    const scrubber = scene.getByTestId('motion-scrubber');
+    try {
+      await expect(scrubber).toBeVisible({ timeout: 4_000 });
+    } catch {
+      await poster.click();
+      await expect(scrubber).toBeVisible({ timeout: 10_000 });
+    }
+    await page.keyboard.press('k');
+    await page.keyboard.press('Home');
+    await page.keyboard.press('ArrowRight');
+    await expect(scene.getByTestId('motion-caption')).toHaveText(/64 parallel environments/i);
+    const forward = scene.getByRole('button', { name: 'Step forward one beat' });
+    await expect(forward).toHaveText('Step forward');
+    await forward.click();
+    await expect(scene.getByTestId('motion-caption')).toHaveText(/4,096 environments/i);
   });
 
   test('zero axe violations', async ({ page }) => {

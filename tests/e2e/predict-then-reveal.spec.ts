@@ -4,7 +4,7 @@ import { forEachInOwnContext } from './helpers/per-route-context';
 import { settleTransitions } from './settle';
 
 /**
- * Prediction-step contract (VAL-EDU-011..020) over the eight placement
+ * Prediction-step contract (VAL-EDU-011..020) over the five placement
  * routes, plus the checked-in half of VAL-EDU-015: existing mounts of the
  * components that gained initial-state props keep their exact default
  * readouts and control values (the pre-change baseline was captured before
@@ -29,30 +29,10 @@ const PLACEMENTS: Placement[] = [
     mountedReadout: /48\.8%/,
   },
   {
-    route: '/manipulation/action-chunking/',
-    figure: 'LatencyComparison',
-    primaryControl: /injected inference delay/i,
-    mountedReadout: /0%\s*failed/,
-  },
-  {
-    route: '/manipulation/realtime-execution/',
-    figure: 'ControlLoopBudget',
-    primaryControl: /model size in billions/i,
-    mountedReadout: /closes at 50 Hz/,
-  },
-  {
     route: '/classical/control/',
     figure: 'PendulumController',
     primaryControl: /proportional gain kp/i,
     mountedReadout: /9\.5/,
-  },
-  {
-    route: '/rl-sim2real/sim2real-transfer/',
-    figure: 'FrictionTransfer',
-    // The half-width slider mounts at its max (0.65), so the real-robot
-    // friction slider is the control the keyboard probe drives.
-    primaryControl: /real robot friction/i,
-    mountedReadout: /57%/,
   },
   {
     route: '/frontier/generalization/',
@@ -98,7 +78,7 @@ async function region(page: Page) {
 }
 
 test.describe('prediction step (PredictThenReveal)', () => {
-  test('exactly the eight placement routes render one prediction step each', async ({ page }) => {
+  test('exactly the five placement routes render one prediction step each', async ({ page }) => {
     for (const { route } of PLACEMENTS) {
       await page.goto(route);
       await expect(page.locator('[data-predict]')).toHaveCount(1);
@@ -187,10 +167,10 @@ test.describe('prediction step (PredictThenReveal)', () => {
       expect(openingTag).not.toMatch(/\bopen\b/);
 
       // The figure is mounted at the configuration the hint names: the
-      // interactive root is the div directly after the reveal hint.
-      // textContent, not innerText: the disclosure is still closed, and a
-      // closed disclosure's content has no rendered innerText.
-      const figure = reveal.locator('[data-reveal-hint] + div');
+      // interactive root (a figure frame) is the element directly after the
+      // reveal hint. textContent, not innerText: the disclosure is still
+      // closed, and a closed disclosure's content has no rendered innerText.
+      const figure = reveal.locator('[data-reveal-hint] + *');
       await expect(figure.locator('svg').first()).toBeAttached();
       const figureText = await figure.textContent();
       expect(figureText, `${placement.route}: figure missing under the hint`).toMatch(
@@ -312,7 +292,7 @@ test.describe('prediction step (PredictThenReveal)', () => {
       await expect(reveal).toHaveAttribute('open');
 
       const hint = await root.locator('[data-reveal-hint]').innerText();
-      const figureRoot = reveal.locator('[data-reveal-hint] + div').first();
+      const figureRoot = reveal.locator('[data-reveal-hint] + *').first();
       await expect(figureRoot).toBeVisible();
       const figureText = await figureRoot.innerText();
 
@@ -364,11 +344,15 @@ test.describe('prediction step (PredictThenReveal)', () => {
   }
 
   /**
-   * VAL-EDU-015, checked-in half: the pre-existing mounts of the three
+   * VAL-EDU-015, checked-in half: the pre-existing mounts of the
    * components that gained initial-state props render at their previous
    * default configuration (identical readout text and control values to
    * the pre-change baseline; the bounding-box-within-1px half is
    * evidenced against the captured baseline in the feature handoff).
+   * The standalone PendulumController and EgoScaleScaling mounts left
+   * their pages under one visual per concept (VAL-OPUS-131); each page's
+   * one remaining instance is its prediction-step mount, which the
+   * placement tests above pin at the hint's configuration.
    */
   test('existing mounts keep their pre-change defaults (VAL-EDU-015)', async ({ page }) => {
     const consoleErrors: string[] = [];
@@ -383,7 +367,7 @@ test.describe('prediction step (PredictThenReveal)', () => {
     // the approved delta opus-homepage-20260930-mounts-home-reliability-compounding.
     await page.goto('/frontier/reliability-gap/');
     const reliabilityFigure = page
-      .locator('div.rounded-md, div.rounded-none')
+      .locator('[data-figure-frame]')
       .filter({
         has: page.locator('svg[aria-label^="Line chart of episode success"]'),
       })
@@ -397,10 +381,10 @@ test.describe('prediction step (PredictThenReveal)', () => {
     await expect(reliabilityFigure.getByTestId('episode-success-readout')).toHaveText('21.5%');
 
     // /manipulation/realtime-execution/ : the standalone ControlLoopBudget
-    // mount (document order puts it before the wrapped prediction figure).
+    // mount, the page's one instance since its prediction step left.
     await page.goto('/manipulation/realtime-execution/');
     const clbStandalone = page
-      .locator('div.rounded-md, div.rounded-none')
+      .locator('[data-figure-frame]')
       .filter({
         has: page.locator('svg[aria-label^="Control-loop timeline"]'),
       })
@@ -415,51 +399,6 @@ test.describe('prediction step (PredictThenReveal)', () => {
       'does not close at 50 Hz',
     );
     await expect(clbStandalone.getByTestId('missed-readout')).toHaveText('2');
-
-    // /classical/control/ : PendulumController (the standalone article
-    // mount, document order puts it before the wrapped prediction figure).
-    await page.goto('/classical/control/');
-    const pendulumStandalone = page
-      .locator('div.rounded-md, div.rounded-none')
-      .filter({
-        has: page.locator('svg[aria-label^="Inverted pendulum with PID control"]'),
-      })
-      .first();
-    await expect(
-      pendulumStandalone.getByTestId('pendulum-gain-kp-value'),
-    ).toHaveText('25.0');
-    await expect(
-      pendulumStandalone.getByTestId('pendulum-gain-ki-value'),
-    ).toHaveText('0.0');
-    await expect(
-      pendulumStandalone.getByTestId('pendulum-gain-kd-value'),
-    ).toHaveText('3.0');
-    await expect(
-      pendulumStandalone.getByTestId('pendulum-angle-readout'),
-    ).toHaveText('+12.0°');
-    await expect(
-      pendulumStandalone.getByTestId('pendulum-status-readout'),
-    ).toHaveText('holding at release');
-
-    // /frontier/generalization/ : EgoScaleScaling (the standalone mount).
-    await page.goto('/frontier/generalization/');
-    const egsStandalone = page
-      .locator('div.rounded-md, div.rounded-none')
-      .filter({
-        has: page.locator('[data-testid="horizon-readout"]'),
-      })
-      .first();
-    const egsSlider = egsStandalone.getByRole('slider', {
-      name: /extrapolation horizon in hours/i,
-    });
-    await expect(egsSlider).toHaveValue('5000');
-    await expect(egsStandalone.getByTestId('horizon-readout')).toHaveText('100k h');
-    await expect(egsStandalone.getByTestId('loss-readout')).toHaveText(
-      '0.0102 holds / 0.0150 plateau',
-    );
-    await expect(egsStandalone.getByTestId('completion-readout')).toHaveText(
-      '0.89 holds / 0.71 plateau, below the solved bar',
-    );
 
     expect(consoleErrors).toEqual([]);
 
@@ -480,10 +419,10 @@ test.describe('prediction step (PredictThenReveal)', () => {
   });
   /**
    * VAL-EDU-016 corpus half: sweeping every published article route,
-   * exactly 8 render a prediction step and none renders two. The route
+   * exactly 5 render a prediction step and none renders two. The route
    * list is derived from the module registry, not hardcoded.
    */
-  test('corpus sweep: exactly 8 published routes render a prediction step (VAL-EDU-016)', async ({ browser }) => {
+  test('corpus sweep: exactly 5 published routes render a prediction step (VAL-EDU-016)', async ({ browser }) => {
     const { publishedModules } = await import('../../data/modules');
     const routes = publishedModules().map((m) => `/${m.domain}/${m.slug}/`);
     // Registry-derived: no literal published count is pinned (it drifted
@@ -497,7 +436,7 @@ test.describe('prediction step (PredictThenReveal)', () => {
       expect(predicts, `${route}: more than one prediction step`).toBeLessThanOrEqual(1);
       if (predicts === 1) carriers.push({ route, predicts, selfChecks });
     });
-    expect(carriers.length).toBe(8);
+    expect(carriers.length).toBe(5);
     // On routes carrying both regions, the two are distinct elements with
     // distinct radio name values.
     await forEachInOwnContext(
@@ -606,12 +545,12 @@ test.describe('prediction step (PredictThenReveal)', () => {
     // matched zero regions fails here rather than passing vacuously.
     expect(regionCount, 'sweep visited no regions on any published route').toBeGreaterThan(0);
     // Drift guard replacing the old fixed total: per-kind oracles over the
-    // registry-derived walk. They currently protect 8 prediction steps and
+    // registry-derived walk. They currently protect 5 prediction steps and
     // 16 self-checks; a region added on ANY published route changes one of
     // them and the failure names the carrying routes. When a region is
     // added on purpose, re-derive both literals from content/ and update
     // them together.
-    expect(predictCount, `prediction steps found on: ${predictRoutes.join(', ')}`).toBe(8);
+    expect(predictCount, `prediction steps found on: ${predictRoutes.join(', ')}`).toBe(5);
     expect(selfCheckCount, `self-checks found on: ${selfCheckRoutes.join(', ')}`).toBe(16);
     expect(regionCount, 'discovered regions vs regions the walk visited').toBe(
       predictCount + selfCheckCount,
@@ -785,11 +724,11 @@ test.describe('prediction step (PredictThenReveal)', () => {
       'sweep visited no regions on any published route',
     ).toBeGreaterThan(0);
     // Same drift guard as the option-set sweep: per-kind oracles over the
-    // registry-derived walk, currently protecting 8 prediction steps and
+    // registry-derived walk, currently protecting 5 prediction steps and
     // 16 self-checks. Re-derive both literals from content/ when a region
     // is added on purpose.
-    expect(predictCount, `prediction steps found on: ${predictRoutes.join(', ')}`).toBe(8);
+    expect(predictCount, `prediction steps found on: ${predictRoutes.join(', ')}`).toBe(5);
     expect(selfCheckCount, `self-checks found on: ${selfCheckRoutes.join(', ')}`).toBe(16);
-    expect(prompts.size + takeaways.size + reasonings.size).toBe(24 * 3);
+    expect(prompts.size + takeaways.size + reasonings.size).toBe(21 * 3);
   });
 });

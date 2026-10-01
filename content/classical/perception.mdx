@@ -157,11 +157,11 @@ The Dex-Net planner samples and ranks antipodal candidates, checks reachability 
 
 **Model-free and novel-object** methods removed that constraint. MegaPose estimates the pose of novel objects by render-and-compare against a CAD model supplied at test time <Cite id="megapose-2022" />, and FoundationPose unifies model-based and model-free operation in one network: give it a CAD model, or give it a handful of reference images, and it runs on an object it never trained on, reaching results comparable to instance-level methods despite assuming far less <Cite id="foundationpose-2024" />.
 
-To read a pose-estimation result, check its evaluation protocol. Hinterstoisser and colleagues' LINEMOD-based paper evaluates a model $\mathcal M$ using its ground-truth rotation and translation $(R,T)$ and its estimated pose $(\widetilde R,\widetilde T)$. Equation (1) averages the distances between corresponding model points after the two transforms <br className="lg:hidden" /><Cite id="hinterstoisser-2012" />:
+To read a pose-estimation result, check its evaluation protocol. Hinterstoisser and colleagues' LINEMOD-based paper evaluates a model $\mathcal M$ using its ground-truth rotation and translation $(R,T)$ and its estimated pose $(\tilde R,\tilde T)$. Equation (1) averages the distances between corresponding model points after the two transforms <br className="lg:hidden" /><Cite id="hinterstoisser-2012" />:
 
 $$
 m = \operatorname{avg}_{x \in \mathcal M}
-\left\lVert (Rx+T)-(\widetilde R x+\widetilde T) \right\rVert
+\lVert (Rx+T)-(\tilde R x+\tilde T) \rVert
 $$
 
 The paper counts the detection and pose estimate as correct when $m \leq k_m d$, where $d$ is the model's diameter and $k_m$ is a chosen coefficient. Equality counts as correct. Table 1 uses $k_m=0.1$ for this evaluation; other evaluations may choose another threshold <br className="lg:hidden" /><Cite id="hinterstoisser-2012" />.
@@ -171,7 +171,7 @@ For the <Term id="add-s-metric">symmetry-aware pose error</Term>, Equation (2) c
 $$
 m = \operatorname{avg}_{x_1 \in \mathcal M}
 \min_{x_2 \in \mathcal M}
-\left\lVert (Rx_1+T)-(\widetilde R x_2+\widetilde T) \right\rVert
+\lVert (Rx_1+T)-(\tilde R x_2+\tilde T) \rVert
 $$
 
 The paper uses this rule for objects that are ambiguous, or appear ambiguous from a subset of views, naming “cup”, “bowl”, “box” and “glue” <br className="lg:hidden" /><Cite id="hinterstoisser-2012" />. The rule operates on supplied model points; an indistinguishable rotation of another bowl may still have nonzero error or fail the chosen threshold.

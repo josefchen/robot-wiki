@@ -14,6 +14,7 @@ import { applyTitleMismatchException, compareTitles, isAuditFailure, type Citati
 import { applyException, classifyStatus } from '../../lib/citation-links';
 import { DEFAULT_PARAMS, SLIDER_SPECS, composeBudget, handEyeErrorMm } from '../../lib/perception-error';
 import { committedSource, preservedApprovalPacket, preservedCompoundPacket, RELEASE_BASE } from '../helpers/continuation-integration';
+import { preFigureMigration } from '../helpers/figure-migration';
 
 const read = (path: string) => readFileSync(path, 'utf8');
 const hash = (text: string) => createHash('sha256').update(text).digest('hex');
@@ -104,10 +105,12 @@ describe('industrial32 and perception2/19: zero-completion truth repairs', () =>
     // The repair left both implementation files byte-identical; the
     // 2026-09-26 instrument migration later re-rendered the calculator's
     // presentation only, so the guarantee stays pinned between commits and
-    // the live file is pinned to the migrated rendering.
+    // the migrated rendering is pinned. The 2026-10-01 figure migration then
+    // moved the calculator onto the figure frame; its reviewed successor
+    // hands back that rendering only while the live file is the reviewed one.
     expect(committedSource('6235b1b', 'components/interactive/deployment-economics.tsx'))
       .toBe(committedSource('358f505', 'components/interactive/deployment-economics.tsx'));
-    expect(hash(read('components/interactive/deployment-economics.tsx')))
+    expect(hash(preFigureMigration('components/interactive/deployment-economics.tsx').toString('utf8')))
       .toBe('79a258e2b06cb2afff884e39067fce9aee5201e1de5683978c5ba57eef875893');
   });
 

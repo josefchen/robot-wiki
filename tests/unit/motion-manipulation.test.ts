@@ -3,18 +3,17 @@ import { join } from 'node:path';
 import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
-import { beatSpans, posterTime } from '@/components/motion/timeline';
+import { ActionTokenization } from '@/components/interactive/action-tokenization';
+import { FlowMatchingTrajectory } from '@/components/interactive/flow-matching-trajectory';
 import {
-  ActionDecode,
-  ACTION_DECODE_SCENE,
-  actionDecodeFrame,
-} from '@/components/motion/scenes/action-decode';
-import {
-  FLOW_TRANSPORT_SCENE,
-  flowTransportFrame,
-} from '@/components/motion/scenes/flow-transport';
-import { ACTION_DIMS, binIndex, generateActionChunk, tokenForBin } from '@/lib/action-tokenization';
-import { generateFlowField, integrateFlow } from '@/lib/flow-matching';
+  ACTION_DIMS,
+  BIN_COUNT,
+  binIndex,
+  generateActionChunk,
+  tokenForBin,
+} from '@/lib/action-tokenization';
+import { endpointDispersion, generateFlowField, PI0_STEPS } from '@/lib/flow-matching';
+import { SCENE_TARGETS } from '@/lib/motion-scene-registry';
 
 type Decision = 'keep' | 'restyle' | 'rethink' | 'replace' | 'remove' | 'add';
 interface InventoryRow {
@@ -29,6 +28,11 @@ interface InventoryRow {
 
 const root = process.cwd();
 const inventory = JSON.parse(readFileSync(join(root, 'docs/design/motion-manipulation-inventory.json'), 'utf8')) as InventoryRow[];
+const readArticle = (article: string) =>
+  readFileSync(join(root, 'content/manipulation', `${article}.mdx`), 'utf8');
+const escapeMarkup = (text: string) =>
+  text.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+
 describe('manipulation teaching inventory', () => {
   it('accounts for every mounted interactive and first-party figure exactly once', () => {
     const sourceRows: string[] = [];
@@ -36,7 +40,7 @@ describe('manipulation teaching inventory', () => {
       .filter((name) => name.endsWith('.mdx'))
       .map((name) => name.slice(0, -4));
     for (const article of articles) {
-      const mdx = readFileSync(join(root, 'content/manipulation', `${article}.mdx`), 'utf8');
+      const mdx = readArticle(article);
       const imported = [...mdx.matchAll(/^import\s+\{\s*([A-Z]\w+)\s*\}\s+from\s+'@\/components\/(?:interactive|motion\/scenes|mdx)\//gm)]
         .map((match) => match[1]);
       const widgets = new Set(imported);
@@ -55,70 +59,87 @@ describe('manipulation teaching inventory', () => {
       }
       for (const tag of imported) expect(mdx, `${article}:${tag} is imported but not mounted`).toContain(`<${tag}`);
     }
-    const recorded = inventory.filter((row) => row.decision !== 'add').map((row) => `${row.article}:${row.element}`);
+    const mounted = inventory.filter((row) => row.decision !== 'add' && row.decision !== 'remove');
+    const recorded = mounted.map((row) => `${row.article}:${row.element}`);
     for (const row of inventory) expect(articles, `unknown article ${row.article}`).toContain(row.article);
     expect(recorded.sort()).toEqual(sourceRows.sort());
-    const keyed = inventory.filter((row) => row.decision !== 'add')
-      .map((row) => `${row.article}:${row.element}:${row.occurrence ?? 1}`);
+    const keyed = inventory.map((row) => `${row.article}:${row.element}:${row.occurrence ?? 1}`);
     expect(new Set(keyed).size).toBe(keyed.length);
   });
 
-  it('gives every decision a concrete goal and registers each added scene', () => {
-    const sceneIds = new Set(['diffusion-denoising', 'action-decode', 'flow-transport']);
+  it('gives every decision a concrete goal, registers each added scene and unmounts removed ones', () => {
+    const sceneIds = new Set(
+      SCENE_TARGETS.filter((target) => target.route.startsWith('/manipulation/')).map((target) => target.id),
+    );
+    expect([...sceneIds]).toContain('diffusion-denoising');
     for (const row of inventory) {
       expect(row.teachingGoal.length, `${row.article}:${row.element} needs a goal`).toBeGreaterThan(25);
       expect(row.reason.length, `${row.article}:${row.element} needs a decision rationale`).toBeGreaterThan(25);
       if (row.sceneId) expect(sceneIds.has(row.sceneId)).toBe(true);
+      const mdx = readArticle(row.article);
       if (row.decision === 'add') {
         expect(row.sceneId).toBeTruthy();
-        const mdx = readFileSync(join(root, 'content/manipulation', `${row.article}.mdx`), 'utf8');
         expect(mdx).toContain(`<${row.element}`);
+      }
+      if (row.decision === 'remove') {
+        expect(row.sceneId).toBeUndefined();
+        expect(mdx).not.toMatch(new RegExp(`<${row.element}\\b`));
       }
     }
   });
 });
 
-describe('manipulation scene models', () => {
-  it('turns the existing toy vector into one bin and a sequential token stream', () => {
-    const chunk = generateActionChunk();
-    const end = posterTime(beatSpans(ACTION_DECODE_SCENE.beats));
-    const frame = actionDecodeFrame(end);
-    expect(frame.value).toBe(chunk[0][7]);
-    expect(frame.bin).toBe(binIndex(chunk[0][7]));
-    expect(frame.token).toBe(tokenForBin(frame.bin));
-    expect(frame.visibleTokens).toHaveLength(ACTION_DIMS.length);
-    expect(actionDecodeFrame(end)).toEqual(frame);
-    expect(ACTION_DECODE_SCENE.beats).toHaveLength(4);
-    expect(ACTION_DECODE_SCENE.beats.map((b) => b.caption)).toEqual(
-      ACTION_DECODE_SCENE.beats.map(() => expect.stringMatching(/[.!?]$/)),
-    );
+describe('manipulation merged figures', () => {
+  const merged = [
+    ['vla-models', 'ActionTokenization', 'ActionDecode'],
+    ['pi-line', 'FlowMatchingTrajectory', 'FlowTransport'],
+  ] as const;
+
+  it('mounts one figure per concept, with the lab in place of its scene', () => {
+    for (const [article, lab, scene] of merged) {
+      const mdx = readArticle(article);
+      expect(mdx.match(new RegExp(`<${lab}\\b`, 'g')), article).toHaveLength(1);
+      expect(mdx, article).not.toContain(`<${scene}`);
+      expect(inventory.find((row) => row.article === article && row.element === scene)?.decision)
+        .toBe('remove');
+    }
+    const routes = merged.map(([article]) => `/manipulation/${article}/`);
+    expect(SCENE_TARGETS.filter((target) => routes.includes(target.route))).toEqual([]);
   });
 
-  it('prints all seven computed tokens on the scene at partial reveal and on the poster', () => {
+  it('shows the former decode beats in the tokenization lab at its default step', () => {
+    // Beats: the step-7 value, its bin of 256, and seven tokens in decode order.
     const chunk = generateActionChunk();
+    const value = chunk[0][7];
     const tokens = ACTION_DIMS.map((_, i) => tokenForBin(binIndex(chunk[i][7])));
-    const spans = beatSpans(ACTION_DECODE_SCENE.beats);
-    const partial = actionDecodeFrame(spans[2].start + spans[2].duration / 2);
-    expect(partial.visibleTokens).toEqual(tokens.slice(0, 4));
-    expect(actionDecodeFrame(spans[2].end).visibleTokens).toEqual(tokens);
-    const poster = renderToStaticMarkup(createElement(ActionDecode));
-    const printed = [...poster.matchAll(/data-scene-token="(\d+)"[^>]*>([^<]*)<\/text>/g)]
-      .map((match) => ({ position: Number(match[1]), token: match[2].replaceAll('&lt;', '<').replaceAll('&gt;', '>') }));
-    expect(printed).toEqual(tokens.map((token, index) => ({ position: index + 1, token })));
+    const markup = renderToStaticMarkup(createElement(ActionTokenization));
+    expect(markup).toContain(`${ACTION_DIMS[0].label} = ${value.toFixed(3)}`);
+    expect(markup).toContain(`bin ${binIndex(value)} of ${BIN_COUNT - 1}`);
+    const stream = markup.slice(
+      markup.indexOf('data-testid="token-stream"'),
+      markup.indexOf('data-testid="decode-order"'),
+    );
+    let cursor = 0;
+    for (const token of tokens) {
+      const at = stream.indexOf(escapeMarkup(token), cursor);
+      expect(at, token).toBeGreaterThan(-1);
+      cursor = at + 1;
+    }
+    expect(markup).toContain(`${ACTION_DIMS.length} sequential decodes per control step`);
   });
 
-  it('moves the same seeded action samples through model time without easing them', () => {
-    const spans = beatSpans(FLOW_TRANSPORT_SCENE.beats);
-    const sample = generateFlowField().samples[0];
-    const path = integrateFlow(sample, 10);
-    const before = flowTransportFrame(spans[1].start);
-    const midway = flowTransportFrame((spans[1].start + spans[1].end) / 2);
-    const after = flowTransportFrame(spans[1].end);
-    expect(before.positions[0].x).toBeCloseTo(path[0].x);
-    expect(midway.positions[0].x).toBeCloseTo(path[5].x, 1);
-    expect(after.positions[0].x).toBeCloseTo(path[10].x);
-    expect(flowTransportFrame(spans[1].end)).toEqual(after);
-    expect(FLOW_TRANSPORT_SCENE.beats[1].linear).toBe(true);
-    expect(FLOW_TRANSPORT_SCENE.beats).toHaveLength(4);
+  it('reaches the former transport beats from the step presets', () => {
+    // Beats: the ten-step transport and the one-step endpoint left short of the modes.
+    const field = generateFlowField();
+    const oneStep = endpointDispersion(field, 1);
+    const tenSteps = endpointDispersion(field, PI0_STEPS);
+    expect(oneStep).toBeGreaterThan(5 * tenSteps);
+    const preset = renderToStaticMarkup(createElement(FlowMatchingTrajectory));
+    expect(preset).toContain(`k = ${PI0_STEPS} Euler steps`);
+    expect(preset).toContain(`>${tenSteps.toFixed(2)}<`);
+    for (const label of ['1 step', `${PI0_STEPS} steps`]) expect(preset).toContain(`>${label}</button>`);
+    const single = renderToStaticMarkup(createElement(FlowMatchingTrajectory, { defaultSteps: 1 }));
+    expect(single).toContain('k = 1 Euler step');
+    expect(single).toContain(`>${oneStep.toFixed(2)}<`);
   });
 });

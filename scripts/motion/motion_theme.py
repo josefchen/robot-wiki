@@ -46,6 +46,38 @@ LAG_DEFAULT = 0.1
 LAG_DENSE = 0.05
 LAG_DENSE_THRESHOLD = 12
 
+# Clip text. Every non-maths label is FONT_FAMILY, registered from
+# FONT_FILE (relative to this module) so the render never depends on the
+# fonts of the machine; LaTeX is for maths only.
+FONT_FAMILY = "IBM Plex Sans"
+FONT_FILE = "fonts/IBMPlexSans-wdth-wght.ttf"
+
+# A clip frame is a stage CLIP_STAGE_PX wide drawn at the render size, so a
+# length of s stage px spans s / CLIP_STAGE_PX of the frame width. Shown at
+# least CLIP_STAGE_PX wide, the clip paints its labels at or above the stage
+# type scale. Every size below is in those stage px.
+CLIP_STAGE_PX = 299
+
+TYPE_PX = {
+    'label': 14,
+    'axis': 13,
+    'tick': 12,
+}
+
+STROKE_PX = {
+    'trace': 2,
+    'reference': 1.5,
+    'structure': 1,
+}
+
+DASH_PX = (6, 3)
+TICK_LENGTH_PX = 6
+
+MARKER_RADIUS_PX = {
+    'single': 4,
+    'dense': 1,
+}
+
 
 def smooth(t: float) -> float:
     """The motion language's eased-motion curve, overriding the renderer default."""

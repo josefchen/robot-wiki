@@ -3,11 +3,7 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { beatSpans, posterTime } from '@/components/motion/timeline';
-import { FARM_THROUGHPUT_SCENE, farmThroughputFrame } from '@/components/motion/scenes/farm-throughput';
-import { EPISODE_SURVIVAL_SCENE, episodeSurvivalFrame } from '@/components/motion/scenes/episode-survival';
 import { JAM_OVERHEAD_SCENE, jamOverheadFrame } from '@/components/motion/scenes/jam-overhead';
-import { hoursPerYear, yearsToTarget, OXE_SCALE_HOURS } from '@/lib/data-scaling';
-import { compoundedSuccessRate } from '@/lib/reliability';
 import { computeEconomics, DEFAULT_INPUTS } from '@/lib/deployment-economics';
 import { NO_SLOP_EXCEPTIONS } from '@/data/no-slop-exceptions';
 import { findStructuralTells, structuralTellReport, STRUCTURAL_TELL_LIMIT } from '@/lib/no-slop';
@@ -37,7 +33,10 @@ const figures = new Set([
   'TeleopRigMatrix', 'Stat', 'PredictThenReveal', 'SelfCheck', 'Image',
   'FarmThroughput', 'EpisodeSurvival', 'JamOverhead',
 ]);
-const scenes = [FARM_THROUGHPUT_SCENE, EPISODE_SURVIVAL_SCENE, JAM_OVERHEAD_SCENE];
+const scenes = [JAM_OVERHEAD_SCENE];
+// A removed row stays in the inventory as the record of the decision, and
+// no longer stands for a mount.
+const active = inventory.filter((row) => row.decision !== 'remove');
 
 describe('data-hardware motion inventory', () => {
   it('accounts for every mount, including repeated labs, images and stats', () => {
@@ -54,45 +53,31 @@ describe('data-hardware motion inventory', () => {
         mounts.push(`${article}:${element}:${occurrence}`);
       }
     }
-    const covered = inventory.map((row) => `${row.article}:${row.element}:${row.occurrence ?? 1}`);
+    const covered = active.map((row) => `${row.article}:${row.element}:${row.occurrence ?? 1}`);
     expect(mounts.sort()).toEqual(covered.sort());
-    expect(new Set(covered).size).toBe(inventory.length);
+    expect(new Set(covered).size).toBe(active.length);
     expect(articles).toHaveLength(7);
     expect(inventory).toHaveLength(41);
     for (const row of inventory) {
       expect(articles).toContain(`${row.article}.mdx`);
       expect(row.teachingGoal.length).toBeGreaterThan(25);
       expect(row.reason.length).toBeGreaterThan(25);
+      const body = readFileSync(join(folder, `${row.article}.mdx`), 'utf8');
       if (row.decision === 'add') {
-        expect(['farm-throughput', 'episode-survival', 'jam-overhead']).toContain(row.sceneId);
-        expect(readFileSync(join(folder, `${row.article}.mdx`), 'utf8')).toContain(`<${row.element}`);
+        expect(row.sceneId).toBe('jam-overhead');
+        expect(body).toContain(`<${row.element}`);
+      }
+      if (row.decision === 'remove') {
+        expect(row.reason).toMatch(/^Removed: /);
+        const stillMounted = active.some((other) =>
+          other.article === row.article && other.element === row.element);
+        if (!stillMounted) expect(body).not.toContain(`<${row.element}`);
       }
     }
   });
 });
 
 describe('data-hardware scene truth', () => {
-  it('uses the farm projection without relabelling sourced DROID or OXE duration', () => {
-    const spans = beatSpans(FARM_THROUGHPUT_SCENE.beats);
-    const slow = farmThroughputFrame(spans[1].end);
-    const fast = farmThroughputFrame(spans[2].end);
-    expect(slow.hoursPerYear).toBe(hoursPerYear(10, 'droid-measured'));
-    expect(slow.years).toBe(yearsToTarget(10, 'droid-measured', OXE_SCALE_HOURS));
-    expect(fast.hoursPerYear).toBe(hoursPerYear(10, 'dedicated'));
-    expect(fast.years).toBe(yearsToTarget(10, 'dedicated', OXE_SCALE_HOURS));
-    expect(spans[1].linear).toBe(true);
-  });
-
-  it('derives episode survival from the existing conditional-probability model', () => {
-    const spans = beatSpans(EPISODE_SURVIVAL_SCENE.beats);
-    for (const index of [0, 1, 2, 3]) {
-      const frame = episodeSurvivalFrame(spans[index].end);
-      expect(frame.success).toBe(compoundedSuccessRate(0.95, frame.steps));
-    }
-    expect(episodeSurvivalFrame(spans[2].end).steps).toBe(30);
-    expect(spans[2].linear).toBe(true);
-  });
-
   it('compares jam cost from the same authored calculator inputs', () => {
     const spans = beatSpans(JAM_OVERHEAD_SCENE.beats);
     const quick = jamOverheadFrame(spans[1].end);
@@ -134,12 +119,17 @@ describe('data-hardware prose truth', () => {
       const qualification = edges.find((entry) =>
         entry.id === `motion-data-hardware-source-qualification-20260927-prose-${slug}`)!;
       // The round-5 pinned-leftover repair later moved evaluation-crisis's
-      // first interactive with one plain edge from the qualification endpoint.
+      // first interactive with one plain edge from the qualification endpoint,
+      // and the figure migration removed its repeated calculator and scene
+      // with a second plain edge from that endpoint.
       // The round-6 prose restore of the Vulcan coverage scope re-resolved
       // industrial-deployment from its seal, reconciling the qualification.
-      const later = edges.filter((entry) => entry.id === (slug === 'evaluation-crisis'
-        ? 'round5-pinned-leftovers-20260928-prose-evaluation-crisis'
-        : 'round6-prose-restores-20260929-prose-industrial-deployment'));
+      const laterIds = slug === 'evaluation-crisis'
+        ? ['round5-pinned-leftovers-20260928-prose-evaluation-crisis',
+          'opus-figure-migration-20261001-prose-evaluation-crisis']
+        : ['round6-prose-restores-20260929-prose-industrial-deployment'];
+      const later = edges.filter((entry) => laterIds.includes(entry.id));
+      expect(later.map((entry) => entry.id)).toEqual(laterIds);
       expect(edges.slice(edges.indexOf(qualification))).toEqual([qualification, ...later]);
       for (const [index, edge] of later.entries()) {
         if (slug === 'evaluation-crisis') {
@@ -152,7 +142,6 @@ describe('data-hardware prose truth', () => {
           });
         }
       }
-      expect(later).toHaveLength(1);
       expect(latest.newHash).toBe(current);
       expect(approvedDeltaPath(edges, sealed, current).status).toBe('approved');
       expect(approvedDeltaPath(edges.slice(0, -1), sealed, current).status).not.toBe('approved');

@@ -174,11 +174,11 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
         await button.scrollIntoViewIfNeeded();
         await page.screenshot({ caret: 'initial', path: info.outputPath('motion-transfer.png') });
         await page.getByRole('button', { name: 'Reset', exact: true }).click();
-        await expect(page.getByRole('button', { name: 'Padded shared vector', exact: true })).toHaveAttribute('aria-pressed', 'true');
+        await expect(page.getByRole('button', { name: 'Shared relative EEF space', exact: true })).toHaveAttribute('aria-pressed', 'true');
         if (closeoutProof) {
           const group = page.getByRole('group', { name: 'Select a cross-embodiment strategy' });
-          const panel = group.locator('..');
-          for (const mode of ['relative', 'padded']) {
+          const panel = group.locator('xpath=ancestor::*[@data-figure-frame][1]');
+          for (const mode of ['padded', 'relative']) {
             const control = group.getByRole('button', { name: mode === 'relative' ? /relative/i : 'Padded shared vector', exact: mode === 'padded' });
             await control.focus();
             await page.keyboard.press('Enter');
@@ -205,12 +205,12 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
             }
             await captureWholeElement(page, panel, info.outputPath(`full-${mode}-panel.png`));
           }
-          await group.getByRole('button', { name: /relative/i }).click();
+          await group.getByRole('button', { name: 'Padded shared vector', exact: true }).click();
           const reset = group.getByRole('button', { name: 'Reset', exact: true });
           await reset.focus();
           await page.keyboard.press('Enter');
           await expect(reset).toBeFocused();
-          await expect(group.getByRole('button', { name: 'Padded shared vector', exact: true })).toHaveAttribute('aria-pressed', 'true');
+          await expect(group.getByRole('button', { name: 'Shared relative EEF space', exact: true })).toHaveAttribute('aria-pressed', 'true');
         }
       }
       if ((transferProof || closeoutProof) && target.slug === 'hierarchical') {

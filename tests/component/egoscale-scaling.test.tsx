@@ -119,12 +119,15 @@ describe('EgoScaleScaling', () => {
     );
   });
 
-  it('states the validation-loss caveat in the accompanying text', () => {
-    render(<EgoScaleScaling />);
+  it('states the validation-loss caveat in the source line and the band status in the legend', () => {
+    const { container } = render(<EgoScaleScaling />);
     const caveat = screen.getByTestId('scaling-caveat');
     expect(caveat).toHaveTextContent(/validation loss/i);
-    expect(caveat).toHaveTextContent(/not a confidence interval/i);
     expect(caveat).toHaveTextContent(/real-world success rate/i);
+    const legend = container.querySelector('[data-figure-legend]');
+    expect(legend).toHaveTextContent(/not a confidence interval/i);
+    // The completion fit is this wiki's own fit, not the paper's law.
+    expect(legend).toHaveTextContent('editorial completion fit (Robot Wiki, R² = 0.96)');
   });
 
   it('honors a custom initial horizon', () => {

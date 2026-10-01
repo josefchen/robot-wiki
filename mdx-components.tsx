@@ -74,13 +74,22 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     // rather than each authored link is what keeps the registered
     // population equal to the rendered one.
     a: ProseLink,
+    // rehype-pretty-code wraps a fenced sample in a <figure> with a
+    // <figcaption> title bar. A code listing is prose, not a figure, so the
+    // wrapper and its title render as plain elements that keep their data
+    // hooks and the id the scroll region borrows its name from.
+    figure: (props: ComponentPropsWithoutRef<'figure'>) =>
+      'data-rehype-pretty-code-figure' in props ? <div {...props} /> : <figure {...props} />,
     // rehype-pretty-code emits the highlighted block's title bar and its
     // bordered <pre>; both are painted planes the surface registry governs,
     // and neither passes through a first-party component where the
     // annotation could otherwise live.
-    figcaption: (props: ComponentPropsWithoutRef<'figcaption'>) => (
-      <figcaption data-brand-surface-id="surface:flat" {...props} />
-    ),
+    figcaption: (props: ComponentPropsWithoutRef<'figcaption'>) =>
+      'data-rehype-pretty-code-title' in props ? (
+        <div data-brand-surface-id="surface:flat" {...props} />
+      ) : (
+        <figcaption data-brand-surface-id="surface:flat" {...props} />
+      ),
     pre: (props: ComponentPropsWithoutRef<'pre'>) => (
       <pre data-brand-surface-id="surface:flat" {...props} />
     ),

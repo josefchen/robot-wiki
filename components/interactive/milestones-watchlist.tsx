@@ -2,8 +2,15 @@
 
 import { useId, useRef, useState } from 'react';
 import { CiteRef } from '@/components/article/citation-records';
-import { Badge, TableScroll } from '@/components/ui';
-import { InstrumentFrame, InstrumentReset } from '@/components/ui/instrument';
+import { TableScroll } from '@/components/ui';
+import {
+  INSTRUMENT_TOGGLE_CLASS,
+  InstrumentFigure,
+  InstrumentReadout,
+  InstrumentReset,
+} from '@/components/ui/instrument';
+import { FigureStage } from '@/components/motion/figure-frame';
+import { StageStatusChip } from '@/components/ui/stage-status-chip';
 import {
   MILESTONES,
   filterMilestones,
@@ -27,9 +34,7 @@ import { cx } from '@/lib/utils';
  * inside its own container at 375px. No animation at all, so the component
  * is reduced-motion safe by construction. The "met" filter renders an
  * explicit empty state: as of writing, no milestone has been met, and that
- * absence is part of the module's argument. Column headers and section
- * labels are mono and dim but deliberately NOT uppercase: the page's
- * uppercase micro-label budget is left unspent here.
+ * absence is part of the module's argument.
  */
 
 const FILTERS: Array<{ value: MilestoneFilter; label: string }> = [
@@ -51,13 +56,26 @@ const STATUS_VARIANT: Record<MilestoneStatus, 'default' | 'warn' | 'ok'> = {
   met: 'ok',
 };
 
-const HEADER_CELL =
-  'px-3 py-2.5 text-left font-mono text-[11px] font-medium tracking-[0.14em] text-text-dim';
+/** The chip border repeats the status without colour: absent, some, all. */
+const STATUS_LINE: Record<MilestoneStatus, 'dashed' | 'solid' | 'bold'> = {
+  'not-met': 'dashed',
+  partial: 'solid',
+  met: 'bold',
+};
+
+const HEADER_CELL = 'px-3 py-2 text-left font-sans text-xs font-medium text-text-dim';
 
 const CELL = 'px-3 py-2.5 align-top';
 
-const SECTION_LABEL =
-  'font-mono text-[11px] font-medium tracking-[0.14em] text-text-dim';
+const SECTION_LABEL = 'font-sans text-xs font-medium text-text-dim';
+
+function StatusChip({ status }: { status: MilestoneStatus }) {
+  return (
+    <StageStatusChip variant={STATUS_VARIANT[status]} line={STATUS_LINE[status]}>
+      {STATUS_LABEL[status]}
+    </StageStatusChip>
+  );
+}
 
 export function MilestonesWatchlist({ className }: { className?: string }) {
   const [filter, setFilter] = useState<MilestoneFilter>('all');
@@ -110,171 +128,153 @@ export function MilestonesWatchlist({ className }: { className?: string }) {
       : `showing ${visible.length} of ${MILESTONES.length} milestones (${STATUS_LABEL[filter]})`;
 
   return (
-    <InstrumentFrame data-testid="milestones-watchlist" className={className}>
-      <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
-        <div
-          role="group"
-          aria-label="Filter by status"
-          className="flex flex-wrap items-center gap-1.5"
-        >
-          <span className="font-sans text-xs text-text-dim">Status</span>
-          {FILTERS.map((option) => (
-            <button
-              data-brand-control-id="control:selection"
-              key={option.value}
-              type="button"
-              aria-pressed={filter === option.value}
-              onClick={() => setFilter(option.value)}
-              className={cx(
-                'rounded-sm px-2.5 py-1 font-mono text-xs transition-colors active:translate-y-[1px]',
-                filter === option.value
-                  ? 'bg-surface-2 text-accent'
-                  : 'text-text-dim hover:text-text',
-              )}
-            >
-              {option.label}
-            </button>
-          ))}
-        </div>
-        <p
-          data-testid="watchlist-readout"
-          aria-live="polite"
-          className="ml-auto font-mono text-xs text-text-dim"
-        >
-          {readout}
-        </p>
-        <InstrumentReset onClick={reset} />
-      </div>
-
-      {visible.length === 0 ? (
-        <p
-          data-testid="watchlist-empty"
-          className="mt-4 border-t border-border pt-4 font-sans text-xs leading-relaxed text-text-dim"
-        >
-          None of the eight milestones has reached this status yet. That
-          absence is the bear case in one line: the evidence that would
-          settle the question does not exist.
-        </p>
-      ) : (
+    <InstrumentFigure
+      figureId="milestones-watchlist"
+      data-testid="milestones-watchlist"
+      className={className}
+      heading="Bear-case milestones by status"
+      controls={
         <>
-          <TableScroll labelledBy={captionId} className="mt-4">
-            <table className="w-full min-w-[480px] border-collapse text-left">
-              <caption id={captionId} className="sr-only">
-                Eight milestones that would settle the bear case. Select a row
-                to read the evidence behind its status and the observation
-                that would flip it.
-              </caption>
-              <thead>
-                <tr className="border-b border-border">
-                  <th scope="col" className={HEADER_CELL}>
-                    Milestone
-                  </th>
-                  <th scope="col" className={HEADER_CELL}>
-                    Why it matters
-                  </th>
-                  <th scope="col" className={HEADER_CELL}>
-                    Status
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {visible.map((milestone, index) => {
-                  const isSelected = milestone.id === selected?.id;
-                  return (
-                    <tr
-                      key={milestone.id}
-                      data-testid={`milestone-row-${milestone.id}`}
-                      data-selected={isSelected || undefined}
-                      className={cx(
-                        'border-b border-border transition-colors last:border-b-0',
-                        isSelected && 'bg-surface-2/60',
-                      )}
-                    >
-                      <th scope="row" className={cx(CELL, 'min-w-[170px]')}>
-                        <button
-                          data-brand-control-id="control:selection"
-                          ref={(el) => {
-                            rowButtons.current[index] = el;
-                          }}
-                          type="button"
-                          aria-pressed={isSelected}
-                          onClick={() => select(milestone.id)}
-                          onKeyDown={(event) => handleRowKeyDown(event, index)}
+          <div
+            role="group"
+            aria-label="Filter by status"
+            className="flex flex-wrap items-center gap-1"
+          >
+            <span className="font-sans text-[13px] text-text-dim">Status</span>
+            {FILTERS.map((option) => (
+              <button
+                data-brand-control-id="control:selection"
+                key={option.value}
+                type="button"
+                aria-pressed={filter === option.value}
+                onClick={() => setFilter(option.value)}
+                className={INSTRUMENT_TOGGLE_CLASS}
+              >
+                {option.label}
+              </button>
+            ))}
+          </div>
+          <InstrumentReset onClick={reset} />
+        </>
+      }
+      stage={
+        <FigureStage
+          footer={
+            <>
+              <InstrumentReadout data-testid="watchlist-readout">{readout}</InstrumentReadout>
+              {selected && (
+                <div
+                  data-testid="milestone-detail"
+                  role="region"
+                  aria-label={`${selected.name} detail`}
+                  className="mt-1 basis-full border-t border-border-strong pt-3 font-sans"
+                >
+                  <div className="flex flex-wrap items-center gap-2.5">
+                    <div className="text-sm font-medium text-text">{selected.name}</div>
+                    <StatusChip status={selected.status} />
+                  </div>
+                  <div className="mt-3">
+                    <div className={SECTION_LABEL}>Why it matters</div>
+                    <p className="mt-1 max-w-[65ch] text-[13px] leading-relaxed text-text">
+                      {selected.whyItMatters}
+                    </p>
+                  </div>
+                  <div className="mt-3 grid gap-3 sm:grid-cols-2">
+                    <div>
+                      <div className={SECTION_LABEL}>Current status</div>
+                      <p className="mt-1 text-[13px] leading-relaxed text-text-dim">
+                        {selected.statusDetail}{' '}
+                        {selected.citationIds.map((id) => (
+                          <CiteRef key={id} id={id} />
+                        ))}
+                      </p>
+                    </div>
+                    <div>
+                      <div className={SECTION_LABEL}>How we&rsquo;d know</div>
+                      <p className="mt-1 text-[13px] leading-relaxed text-text-dim">
+                        {selected.howWeKnow}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </>
+          }
+        >
+          {visible.length === 0 ? (
+            <p
+              data-testid="watchlist-empty"
+              className="px-3 py-6 font-sans text-[13px] leading-relaxed text-text-dim"
+            >
+              None of the eight milestones has reached this status yet. That
+              absence is the bear case in one line: the evidence that would
+              settle the question does not exist.
+            </p>
+          ) : (
+            <TableScroll labelledBy={captionId} className="px-1 pt-1.5 pb-1">
+              <table className="w-full min-w-[480px] border-collapse text-left font-sans text-[13px] text-text">
+                <caption id={captionId} className="sr-only">
+                  Eight milestones that would settle the bear case. Select a row
+                  to read the evidence behind its status and the observation
+                  that would flip it.
+                </caption>
+                <thead>
+                  <tr className="border-b border-border-strong">
+                    <th scope="col" className={HEADER_CELL}>Milestone</th>
+                    <th scope="col" className={HEADER_CELL}>Why it matters</th>
+                    <th scope="col" className={HEADER_CELL}>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {visible.map((milestone, index) => {
+                    const isSelected = milestone.id === selected?.id;
+                    return (
+                      <tr
+                        key={milestone.id}
+                        data-testid={`milestone-row-${milestone.id}`}
+                        data-selected={isSelected || undefined}
+                        className="border-b border-border-strong last:border-b-0"
+                      >
+                        {/* Selection is the lime bar on the row's edge. */}
+                        <th
+                          scope="row"
                           className={cx(
-                            'text-left font-mono text-xs font-medium transition-colors',
-                            isSelected
-                              ? 'text-accent'
-                              : 'text-text hover:text-accent',
+                            CELL,
+                            'min-w-[170px] border-l-[3px]',
+                            isSelected ? 'border-l-highlight' : 'border-l-transparent',
                           )}
                         >
-                          {milestone.name}
-                        </button>
-                      </th>
-                      <td
-                        className={cx(
-                          CELL,
-                          'max-w-[40ch] font-sans text-[11px] leading-snug text-text-dim',
-                        )}
-                      >
-                        {milestone.whyItMatters}
-                      </td>
-                      <td className={cx(CELL, 'whitespace-nowrap')}>
-                        <Badge variant={STATUS_VARIANT[milestone.status]}>
-                          {STATUS_LABEL[milestone.status]}
-                        </Badge>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </TableScroll>
-
-          {selected && (
-            <div
-              data-testid="milestone-detail"
-              role="region"
-              aria-label={`${selected.name} detail`}
-              className="mt-4 border-t border-border pt-4"
-            >
-              <div className="flex flex-wrap items-center gap-2.5">
-                <p className="font-sans text-sm font-medium text-text">
-                  {selected.name}
-                </p>
-                <Badge variant={STATUS_VARIANT[selected.status]}>
-                  {STATUS_LABEL[selected.status]}
-                </Badge>
-              </div>
-
-              <div className="mt-4">
-                <p className={SECTION_LABEL}>Why it matters</p>
-                <p className="mt-1.5 max-w-[65ch] font-sans text-xs leading-relaxed text-text">
-                  {selected.whyItMatters}
-                </p>
-              </div>
-
-              <div className="mt-4 grid gap-4 sm:grid-cols-2">
-                <div>
-                  <p className={SECTION_LABEL}>Current status</p>
-                  <p className="mt-1.5 font-sans text-xs leading-relaxed text-text-dim">
-                    {selected.statusDetail}{' '}
-                    {selected.citationIds.map((id) => (
-                      <CiteRef key={id} id={id} />
-                    ))}
-                  </p>
-                </div>
-                <div>
-                  <p className={SECTION_LABEL}>How we&rsquo;d know</p>
-                  <p className="mt-1.5 font-sans text-xs leading-relaxed text-text-dim">
-                    {selected.howWeKnow}
-                  </p>
-                </div>
-              </div>
-            </div>
+                          <button
+                            data-brand-control-id="control:selection"
+                            ref={(el) => {
+                              rowButtons.current[index] = el;
+                            }}
+                            type="button"
+                            aria-pressed={isSelected}
+                            onClick={() => select(milestone.id)}
+                            onKeyDown={(event) => handleRowKeyDown(event, index)}
+                            className="min-h-6 text-left font-medium text-text underline decoration-border-strong decoration-1 underline-offset-4 transition-colors hover:decoration-text aria-pressed:no-underline"
+                          >
+                            {milestone.name}
+                          </button>
+                        </th>
+                        <td className={cx(CELL, 'max-w-[40ch] text-xs leading-snug text-text-dim')}>
+                          {milestone.whyItMatters}
+                        </td>
+                        <td className={cx(CELL, 'whitespace-nowrap')}>
+                          <StatusChip status={milestone.status} />
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </TableScroll>
           )}
-        </>
-      )}
-    </InstrumentFrame>
+        </FigureStage>
+      }
+      caption="Each status is an editorial call on published evidence; the detail panel names the observation that would change it."
+    />
   );
 }
 

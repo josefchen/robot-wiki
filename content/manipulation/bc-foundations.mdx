@@ -27,13 +27,7 @@ The appeal is obvious: no reward function to design, no exploration to manage, j
 
 ## Watch the error compound
 
-This deterministic toy illustrates persistent drift; it is neither a source benchmark nor a task-cost theorem. Its error slider sets an additive error magnitude, with no measured failure probability behind it. Per-timestep mode adds an error at every step; chunked mode adds one every 25 steps. The DAgger-labelled toggle removes 75% of the current deviation every 20 steps. These are illustration rules; they implement neither ACT nor DAgger and measure neither. The readout sums absolute deviation; the dashed curves are reference scalings and bound nothing.
-
-<CompoundingError className="my-6" />
-
-<Callout variant="info">
-  At the toy defaults, the accumulated-deviation readout rounds to 370 units over 120 steps. At 240 steps it rounds to 1505 units. That approximately fourfold change describes this recurrence over this range; no measured robot result or proof of the paper’s worst-case bound rides on it.
-</Callout>
+This deterministic toy illustrates persistent drift; it is neither a source benchmark nor a task-cost theorem. Each prediction adds an error that grows with the drift. Toggle DAgger relabeling to cut the summed deviation.
 
 <PredictThenReveal
   prompt="Double the episode horizon from 120 to 240 steps at 5% per-step error, with prediction mode and corrections left alone. Roughly what happens to the accumulated deviation the readout reports?"
@@ -61,6 +55,10 @@ This deterministic toy illustrates persistent drift; it is neither a source benc
 >
   <CompoundingError defaultEpsilon={0.05} defaultSteps={240} className="mt-3" />
 </PredictThenReveal>
+
+<Callout variant="info">
+  At 5% per-step error, the accumulated-deviation readout rounds to 370 units over 120 steps. At 240 steps it rounds to 1505 units. That approximately fourfold change describes this recurrence over this range; no measured robot result or proof of the paper’s worst-case bound rides on it.
+</Callout>
 
 ## Covariate shift, stated precisely
 

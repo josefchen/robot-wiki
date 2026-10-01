@@ -52,41 +52,14 @@ These two papers address different parts of transfer. Tobin and colleagues rando
 
 OpenAI's Rubik's-cube system added the <Term id="curriculum-learning">curriculum</Term> version: automatic domain randomization widens the randomization range as the agent succeeds, <span className="max-sm:[&_[role=tooltip]]:-left-32">so the distribution grows with the policy's competence <Cite id="openai-rubiks-cube-2019" />.</span> Isaac Lab ships ADR as a configurable curriculum with reference configs in its dexterous-manipulation examples <Cite id="isaac-lab-2025" />.
 
-The implementation matters. In the 2025 Isaac Lab paper, simulation state is GPU-resident but mass, friction, contact offsets, and joint armature are modified through PhysX CPU APIs. Most other physics parameters can be randomized at runtime; mesh scale and collider type can change only before simulation starts. CPU parameter writes can occur beyond episode resets<br />Source: <Cite id="isaac-lab-2025" />. Peng and colleagues maximize expected return over a distribution of dynamics models <span className="max-sm:[&_[role=tooltip]]:-left-8">and evaluate randomization ablations on their Fetch pushing task <Cite id="peng-2018" />.</span> The friction chart below imposes its peak-versus-width relation by construction; it gives no measured performance frontier.
+The implementation matters. In the 2025 Isaac Lab paper, simulation state is GPU-resident but mass, friction, contact offsets, and joint armature are modified through PhysX CPU APIs. Most other physics parameters can be randomized at runtime; mesh scale and collider type can change only before simulation starts. CPU parameter writes can occur beyond episode resets<br />Source: <Cite id="isaac-lab-2025" />. Peng and colleagues maximize expected return over a distribution of dynamics models <span className="max-sm:[&_[role=tooltip]]:-left-8">and evaluate randomization ablations on their Fetch pushing task <Cite id="peng-2018" />.</span> The friction chart above imposes its peak-versus-width relation by construction; it gives no measured performance frontier.
 
 The figure draws a point-trained-policy toy curve and a distribution-trained-policy toy curve. No policy is trained here. The shaded interval marks the assumed training range. It is not an uncertainty or confidence interval.
 
 <Callout variant="warn" title="How to read this chart">
-  Both curves and every plotted success value are authored assumptions, not paper measurements. The point curve is a Gaussian centered at friction 0.80, with peak 0.97 and width 0.09. The DR curve has height 0.93 minus 0.55 times the selected half-width, stays flat inside that range, and has Gaussian tails of width 0.10. The ordinary panel starts at half-width 0.35; the prediction panel starts at 0.65. Reset restores each panel’s own initial friction and half-width. Changing friction selects a position on fixed formulas; changing half-width redraws the DR formula. <span className="max-sm:[&_[data-cite-id=tobin-2017]_[role=tooltip]]:-left-32">Tobin and Peng support the visual and dynamics randomization framing. The constants and curve shape are authored choices <Cite id="tobin-2017" /> <Cite id="peng-2018" />.</span>
+  Both curves and every plotted success value are authored assumptions, not paper measurements. The point curve is a Gaussian centered at friction 0.80, with peak 0.97 and width 0.09. The DR curve has height 0.93 minus 0.55 times the selected half-width, stays flat inside that range, and has Gaussian tails of width 0.10. The chart starts at half-width 0.35. Reset restores its initial friction and half-width. Changing friction selects a position on fixed formulas; changing half-width redraws the DR formula. <span className="max-sm:[&_[data-cite-id=tobin-2017]_[role=tooltip]]:-left-32">Tobin and Peng support the visual and dynamics randomization framing. The constants and curve shape are authored choices <Cite id="tobin-2017" /> <Cite id="peng-2018" />.</span>
 </Callout>
 
-<PredictThenReveal
-  prompt="In this authored toy, what happens to the DR plateau when its half-width increases?"
-  options={[
-    {
-      value: 'both-ways',
-      label: 'The plateau widens and its peak falls because the formula makes it do so',
-      why: 'The local formula is peak = 0.93 - 0.55 × half-width. It gives 0.7375 at half-width 0.35 and 0.5725 at 0.65, displayed as 74% and 57%. These authored values do not come from Peng paper results.',
-      anchorHref: '#domain-randomization-train-on-a-distribution-of-simulators',
-      anchorLabel: 'the authored formula',
-    },
-    {
-      value: 'monotone-up',
-      label: 'The plateau widens and its peak rises as the half-width increases',
-      why: 'In this toy the half-width has a negative coefficient in the plateau-height formula. Other randomized policies need not follow that formula.'
-    },
-    {
-      value: 'peak-flat',
-      label: 'The plateau widens but its peak stays unchanged as half-width increases',
-      why: 'The peak would stay unchanged only under a different formula. This toy explicitly couples its height to the selected half-width.'
-    }
-  ]}
-  answer="both-ways"
-  revealHint="This panel starts at friction 0.80 and half-width 0.65, where the authored DR height rounds to 57%. Reset restores those starting values."
-  takeaway="The slider demonstrates an assumed peak-versus-width relationship. Domain randomization has no measured universal law of this shape."
->
-  <FrictionTransfer defaultRange={0.65} className="mt-3" />
-</PredictThenReveal>
 ## Teacher-student distillation: privilege in, proprioception out
 
 Domain randomization still asks the policy to act on what the robot can sense. The teacher-student pattern separates those problems. Phase one trains a teacher with privileged, simulator-only observations: terrain geometry under the feet, friction coefficients, applied disturbances. Phase two trains a student that sees only deployable sensing, usually a short history of <Term id="proprioception">proprioception</Term>, to imitate the teacher's actions.
@@ -123,7 +96,7 @@ The setup uses a Robotiq 2F-85 gripper and two RealSense D455 cameras. Preparing
 
 This simulated evaluation cannot stand in for real-robot testing. On the UR5 ring-toss task, each model had ten trials with up to three grasp attempts per trial. The paper reports 90% placement for the real-data-trained model on the real robot but 30% in RoboGSim. Simulated evaluation avoids executing those actions on hardware; it gives no demonstrated safety guarantee for a deployed robot. The paper examines novel-pose rendering and trajectory replay separately from closed-loop policy evaluation <Cite id="robogsim-2024" />. The Newton 1.0 release post describes a Warp-based tiled camera sensor whose ray-tracing backend supports both triangle meshes and Gaussian splats <span className="max-sm:[&_[role=tooltip]]:-left-24"><Cite id="newton-manipulation-blog-2026" /></span>.
 
-Keep the division of labor straight: the splat supplies appearance, and a conventional physics engine still supplies dynamics. A 3DGS twin is a learned renderer bolted onto a simulator, not a learned simulator, and it reconstructs a static scene: articulated objects, deformables, and lighting changes each require extra machinery on top. Confusing the two is the most common misreading of the real-to-sim literature.
+Keep the division of labor straight: the splat supplies appearance, and a conventional physics engine still supplies dynamics. A 3DGS twin is a learned renderer bolted onto a simulator, and it reconstructs a static scene: articulated objects, deformables, and lighting changes each require extra machinery on top. Treating such a twin as a learned simulator is the most common misreading of the real-to-sim literature.
 
 ## The levers nobody demos
 

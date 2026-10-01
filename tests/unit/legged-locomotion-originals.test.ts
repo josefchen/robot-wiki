@@ -11,6 +11,7 @@ import { loadLocalBasisContext } from '../../lib/audit-local-basis';
 import { publishedModules } from '../../data/modules';
 import { currentAuditContext, finalSevenBefore, finalSevenPriorPlans } from '../helpers/residual-integration';
 import { committedJson, committedText } from '../helpers/editorial-current-context';
+import { carriesThroughFigureMigration, preFigureMigration } from '../helpers/figure-migration';
 
 /**
  * Pins the 2026-09-16i legged-locomotion originals integration: the one
@@ -270,11 +271,13 @@ describe('legged-locomotion originals integration (2026-09-16i row-8 correction)
       join(ROOT, 'components/interactive/gait-diagram.tsx'), 'utf8');
     expect(diagram).toContain('data-testid="duty-readout"');
     expect(diagram).toContain('formatDuty(gait.dutyFactor)');
-    // the article mounts the diagram and carries the audited disclaimer
-    // sentence with the registered Park citation on the span
-    const mdx = readFileSync(
-      join(ROOT, 'content/rl-sim2real/legged-locomotion.mdx'), 'utf8');
-    expect(mdx).toContain('<GaitDiagram className="my-6" />');
+    // the reviewed article mounts the diagram and carries the audited
+    // disclaimer sentence with the registered Park citation on the span; the
+    // 2026-10-01 figure migration retired that mount under a reviewed survivor
+    const mdxPath = 'content/rl-sim2real/legged-locomotion.mdx';
+    const mdx = readFileSync(join(ROOT, mdxPath), 'utf8');
+    expect(preFigureMigration(mdxPath).toString()).toContain('<GaitDiagram className="my-6" />');
+    expect(carriesThroughFigureMigration(mdxPath, '<GaitDiagram className="my-6" />', mdx)).toBe(true);
     expect(finalSevenBefore('content/rl-sim2real/legged-locomotion.mdx')).toContain('The duty factors shown here are canonical nominal values; real controllers, classical and learned alike, modulate duty factor continuously with speed <Cite id="park-2017-bounding" />');
     expect(mdx).not.toContain('classical and learned alike, modulate duty factor continuously with speed');
     expect(mdx).toContain('authored illustrative duty factors: walk 0.75, trot 0.50, bound 0.45, and pronk 0.35');

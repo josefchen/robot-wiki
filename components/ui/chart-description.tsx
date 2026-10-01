@@ -22,6 +22,11 @@ import { TableScroll } from './table-scroll';
  * scanned by nothing. Real DOM text outside the SVG is reached by the lint,
  * by Pagefind, by print, and by a screen reader.
  *
+ * It mounts in the footer band of a figure stage. The takeaway is the
+ * figure's screen-reader description, so it is visually hidden like a
+ * scene's text alternative, and the one-line figure caption carries the
+ * visible reading; the disclosure stays a visible stage control.
+ *
  * Design constraints this component exists to hold:
  * - The <summary> is sentence case, never an uppercase letterspaced
  *   micro-label (VAL-DESIGN-010 caps those at 5 per audited page).
@@ -32,8 +37,8 @@ import { TableScroll } from './table-scroll';
  *   leaves about 543px, so the table scrolls inside its own overflow
  *   container instead of breaking the page width (VAL-EDU-028). There are
  *   no .prose table styles in globals.css, so the styles are carried here.
- * - Column headers are non-uppercase mono micro-type, the
- *   deployment-dashboard idiom.
+ * - Every size sits on the figure type scale (12 px headers, 13 px cells),
+ *   in the brand sans.
  * - Zero em-dashes and en-dashes: the prose lint is zero tolerance.
  */
 
@@ -81,7 +86,7 @@ type ChartDescriptionProps = {
 };
 
 const HEADER_CELL =
-  'px-3 py-2 text-left font-mono text-[11px] font-medium text-text-dim';
+  'px-3 py-2 text-left font-sans text-xs font-medium text-text-dim';
 
 export function ChartDescription({
   description,
@@ -116,15 +121,15 @@ export function ChartDescription({
   }
 
   return (
-    <div className={className}>
-      <p id={id} data-chart-description className="font-sans text-sm leading-relaxed text-text">
+    <div className={cx('min-w-0 basis-full self-start', className)}>
+      <p id={id} data-chart-description className="sr-only">
         {description}
       </p>
-      <details data-chart-data data-chart-form={form} data-pagefind-ignore className="mt-2">
+      <details data-chart-data data-chart-form={form} data-pagefind-ignore>
         <summary
           id={summaryId}
           data-brand-control-id="control:secondary-action"
-          className="cursor-pointer select-none font-sans text-sm text-text-dim transition-colors hover:text-text"
+          className="inline-flex min-h-6 cursor-pointer select-none items-center font-sans text-[13px] text-text-dim underline decoration-border-strong decoration-1 underline-offset-4 transition-colors hover:text-text"
         >
           {summary ?? 'Chart data'}
         </summary>
@@ -157,9 +162,8 @@ export function ChartDescription({
                       <td
                         key={i}
                         className={cx(
-                          'px-3 py-2 font-sans text-sm text-text',
-                          columns![i]?.numeric &&
-                            'text-right font-mono tabular-nums',
+                          'px-3 py-2 font-sans text-[13px] text-text',
+                          columns![i]?.numeric && 'text-right tabular-nums',
                         )}
                       >
                         {value}
@@ -171,13 +175,13 @@ export function ChartDescription({
             </table>
           </TableScroll>
         ) : (
-          <dl className="mt-2 flex flex-col gap-1.5 font-sans text-sm sm:flex-row sm:flex-wrap sm:gap-x-6">
+          <dl className="mt-2 flex flex-col gap-1.5 font-sans text-[13px] sm:flex-row sm:flex-wrap sm:gap-x-6">
             {states!.map((state) => (
               <div key={state.label} className="flex items-baseline gap-2">
-                <dt className="font-mono text-[11px] text-text-dim">
+                <dt className="font-sans text-xs text-text-dim">
                   {state.label}
                 </dt>
-                <dd className="font-mono text-sm text-text">{state.value}</dd>
+                <dd className="font-sans text-[13px] tabular-nums text-text">{state.value}</dd>
               </div>
             ))}
           </dl>

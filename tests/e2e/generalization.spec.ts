@@ -11,16 +11,20 @@ import {
 const ROUTE = '/frontier/generalization/';
 
 /**
- * The standalone article mount of the scaling chart. The article also
- * renders a second EgoScaleScaling inside the prediction step's
- * disclosure, so every per-mount locator must be scoped to exactly one.
+ * The article's only scaling chart sits inside the prediction step's
+ * disclosure, seeded at the 250k h horizon; it is hidden until the step
+ * opens.
  */
 function egs(page: Page) {
-  return page
-    .locator(
-      'div.prose > div.rounded-md:has([data-testid="horizon-readout"]), div.prose > div.rounded-none:has([data-testid="horizon-readout"])',
-    )
-    .first();
+  return page.locator('[data-figure-frame="egoscale-scaling"]');
+}
+
+async function openStep(page: Page) {
+  const reveal = page.locator(
+    'details[data-reveal]:has([data-figure-frame="egoscale-scaling"])',
+  );
+  await reveal.locator(':scope > summary').click();
+  await expect(reveal).toHaveAttribute('open');
 }
 
 
@@ -121,26 +125,32 @@ test.describe('frontier generalization module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
+    await openStep(page);
     const slider = egs(page).getByRole('slider', HORIZON);
     await expect(slider).toBeVisible();
     await expect(
       egs(page).getByRole('button', { name: /reset/i }),
     ).toBeVisible();
 
-    // Default 100k horizon: the band and dashed extrapolation are visible
-    // on load, and both scenarios are read out.
+    // Default 250k horizon: the band and dashed extrapolation are visible
+    // once the step opens, both scenarios are read out, and the fit is
+    // already past 100%.
     const band = egs(page).getByTestId('uncertainty-band');
     await expect(band).toBeVisible();
     await expect(egs(page).getByTestId('extrapolated-loss-law')).toBeVisible();
-    await expect(egs(page).getByTestId('horizon-readout')).toHaveText('100k h');
-    await expect(egs(page).getByTestId('loss-readout')).toContainText('0.0102');
+    await expect(egs(page).getByTestId('horizon-readout')).toHaveText('250k h');
+    await expect(egs(page).getByTestId('loss-readout')).toContainText('0.0074');
     await expect(egs(page).getByTestId('loss-readout')).toContainText('0.0150');
+    await expect(egs(page).getByTestId('impossible-note')).toBeVisible();
 
-    // The validation-loss caveat is stated next to the chart.
+    // The validation-loss caveat is the figure's source line; the band's
+    // status is named in the legend.
     const caveat = egs(page).getByTestId('scaling-caveat');
     await expect(caveat).toContainText(/validation loss/i);
-    await expect(caveat).toContainText(/not a confidence interval/i);
     await expect(caveat).toContainText(/real-world success rate/i);
+    await expect(egs(page).locator('[data-figure-legend]')).toContainText(
+      /not a confidence interval/i,
+    );
 
     // Pulling back to the measured-range boundary removes the band.
     await setSlider(slider, SLIDER_MIN);
@@ -164,7 +174,7 @@ test.describe('frontier generalization module', () => {
 
     // Reset restores the default.
     await egs(page).getByRole('button', { name: /reset/i }).click();
-    await expect(egs(page).getByTestId('horizon-readout')).toHaveText('100k h');
+    await expect(egs(page).getByTestId('horizon-readout')).toHaveText('250k h');
   });
 
   test('defines the solved bar and notes no system meets it (VAL-FRONT-012)', async ({
@@ -181,8 +191,15 @@ test.describe('frontier generalization module', () => {
     expect(text).toMatch(
       /no current system has been evaluated this way/i,
     );
-    // The bar is drawn on the chart and every measured point sits below it.
+    // The bar is drawn on the chart, and at 100k hours the fit is still
+    // below it.
+    await openStep(page);
     await expect(egs(page).getByTestId('solved-bar')).toBeVisible();
+    await setSlider(
+      egs(page).getByRole('slider', HORIZON),
+      hoursToSlider(100_000),
+    );
+    await expect(egs(page).getByTestId('horizon-readout')).toHaveText('100k h');
     await expect(egs(page).getByTestId('completion-readout')).toContainText(
       /below the solved bar/i,
     );

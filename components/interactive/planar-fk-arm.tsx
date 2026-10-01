@@ -3,12 +3,25 @@
 import { useId, useState } from 'react';
 import { ChartDescription } from '@/components/ui';
 import {
+  ControlField,
   ControlLabel,
-  InstrumentFrame,
+  INSTRUMENT_SLIDER_CLASS,
+  InstrumentFigure,
+  InstrumentLegend,
   InstrumentReadout,
   InstrumentReset,
+  LegendItem,
   PlotStage,
 } from '@/components/ui/instrument';
+import { FigureStage } from '@/components/motion/figure-frame';
+import {
+  CHART_STROKE,
+  CHART_STRUCTURE,
+  CHART_TYPE,
+  CHART_VIEW_WIDTH,
+  LegendSwatch,
+  roleColour,
+} from '@/components/motion/chart';
 import {
   DEFAULT_ANGLES_DEG,
   JOINT_LIMIT_DEG,
@@ -30,12 +43,15 @@ import {
  * reduced-motion safe by construction).
  */
 
-const WIDTH = 640;
-const HEIGHT = 560;
-const ORIGIN_X = 320;
-const ORIGIN_Y = 280;
-const SCALE = 113; // px per link unit; reach 2.30 -> 259.9 px
-const REACH_PX = totalReach(LINK_LENGTHS) * SCALE;
+const WIDTH = CHART_VIEW_WIDTH;
+const HEIGHT = 246;
+const ORIGIN_X = 170;
+const ORIGIN_Y = 130;
+const REACH = totalReach(LINK_LENGTHS);
+// The reach disc keeps 100 units of radius so the axis names sit outside it.
+const REACH_PX = 100;
+const SCALE = REACH_PX / REACH;
+const LINK_WIDTH = CHART_STROKE.trace * 2.5;
 
 const JOINT_META = [
   { id: 'fk-joint-1', label: 'Base joint' },
@@ -60,6 +76,64 @@ function toSvgY(y: number): number {
   return f(ORIGIN_Y - y * SCALE);
 }
 
+const structure = {
+  stroke: CHART_STRUCTURE.axes,
+  strokeWidth: CHART_STROKE.structure,
+  opacity: CHART_STRUCTURE.axesOpacity,
+};
+
+/** The base frame and the reachable-workspace boundary: fixed geometry. */
+function Workspace() {
+  const reference = roleColour('reference');
+  return (
+    <>
+      <g data-scene-structure="base-frame">
+        <line x1={ORIGIN_X - REACH_PX} y1={ORIGIN_Y} x2={ORIGIN_X + REACH_PX} y2={ORIGIN_Y} {...structure} />
+        <line x1={ORIGIN_X} y1={ORIGIN_Y - REACH_PX} x2={ORIGIN_X} y2={ORIGIN_Y + REACH_PX} {...structure} />
+      </g>
+      <circle
+        data-series="fk-reach"
+        data-chart-role="reference"
+        cx={ORIGIN_X}
+        cy={ORIGIN_Y}
+        r={REACH_PX}
+        fill="none"
+        stroke={reference}
+        strokeWidth={CHART_STROKE.reference}
+        strokeDasharray={CHART_STROKE.dash}
+      />
+      <text
+        data-scene-axis=""
+        x={ORIGIN_X + REACH_PX + 6}
+        y={ORIGIN_Y + 4}
+        fontSize={CHART_TYPE.axisPx}
+        fill={CHART_STRUCTURE.labelSecondary}
+      >
+        +x
+      </text>
+      <text
+        data-scene-axis=""
+        x={ORIGIN_X + 6}
+        y={ORIGIN_Y - REACH_PX - 6}
+        fontSize={CHART_TYPE.axisPx}
+        fill={CHART_STRUCTURE.labelSecondary}
+      >
+        +y
+      </text>
+      <text
+        data-scene-note=""
+        x={WIDTH - 6}
+        y={HEIGHT - 8}
+        textAnchor="end"
+        fontSize={CHART_TYPE.axisPx}
+        fill={reference}
+      >
+        reach {REACH.toFixed(2)}
+      </text>
+    </>
+  );
+}
+
 export function PlanarFkArm({ className }: { className?: string }) {
   const descriptionId = `${useId()}-description`;
   const [angles, setAngles] = useState<number[]>([...DEFAULT_ANGLES_DEG]);
@@ -77,194 +151,147 @@ export function PlanarFkArm({ className }: { className?: string }) {
     setAngles([...DEFAULT_ANGLES_DEG]);
   }
 
+  const state = roleColour('state');
+  const highlight = roleColour('highlight');
+
   return (
-    <InstrumentFrame className={className}>
-      <div className="grid gap-4 lg:grid-cols-[1fr_1fr_1fr_auto] lg:items-end">
-        {JOINT_META.map((joint, i) => (
-          <div key={joint.id}>
-            <ControlLabel
-              htmlFor={joint.id}
-              value={
-                <span data-testid={`fk-theta-${i + 1}`}>{angles[i]}°</span>
-              }
+    <InstrumentFigure
+      figureId="planar-fk-arm"
+      className={className}
+      heading="Three-link planar arm"
+      controls={
+        <>
+          {JOINT_META.map((joint, i) => (
+            <ControlField key={joint.id}>
+              <ControlLabel
+                htmlFor={joint.id}
+                value={
+                  <span data-testid={`fk-theta-${i + 1}`}>{angles[i]}°</span>
+                }
+              >
+                {joint.label}
+              </ControlLabel>
+              <input
+                id={joint.id}
+                type="range"
+                data-brand-control-id="control:input"
+                min={-JOINT_LIMIT_DEG}
+                max={JOINT_LIMIT_DEG}
+                step={1}
+                value={angles[i]}
+                onChange={(e) => setJoint(i, Number(e.target.value))}
+                aria-label={`${joint.label} angle in degrees, currently ${angles[i]}`}
+                className={INSTRUMENT_SLIDER_CLASS}
+              />
+            </ControlField>
+          ))}
+          <InstrumentReset onClick={reset} />
+        </>
+      }
+      stage={
+        <FigureStage
+          footer={
+            <>
+              <InstrumentLegend>
+                <LegendItem series="fk-links" swatch={<LegendSwatch role="state" mark="line" />}>
+                  links
+                </LegendItem>
+                <LegendItem series="fk-effector" swatch={<LegendSwatch role="highlight" mark="dot" />}>
+                  current end-effector position
+                </LegendItem>
+                <LegendItem series="fk-reach" swatch={<LegendSwatch role="reference" mark="dash" />}>
+                  reach
+                </LegendItem>
+              </InstrumentLegend>
+              <InstrumentReadout>
+                end effector x{' '}
+                <span data-testid="fk-ee-x" style={{ color: highlight }}>
+                  {formatSigned(effector.x)}
+                </span>{' '}
+                y{' '}
+                <span data-testid="fk-ee-y" style={{ color: highlight }}>
+                  {formatSigned(effector.y)}
+                </span>{' '}
+                link units
+              </InstrumentReadout>
+              <ChartDescription
+                id={descriptionId}
+                form="state"
+                summary="Current arm pose"
+                description={`With base ${angles[0]} degrees, elbow ${angles[1]} degrees and wrist ${angles[2]} degrees the end effector sits at x ${formatSigned(effector.x)}, y ${formatSigned(effector.y)} link units; those three link lengths are 1.00, 0.75 and 0.55.`}
+                states={[
+                  { label: 'base', value: `${angles[0]}°` },
+                  { label: 'elbow', value: `${angles[1]}°` },
+                  { label: 'wrist', value: `${angles[2]}°` },
+                  { label: 'end effector x', value: formatSigned(effector.x) },
+                  { label: 'end effector y', value: formatSigned(effector.y) },
+                ]}
+              />
+            </>
+          }
+        >
+          <PlotStage
+            viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
+            aria-label={`Planar three-link arm. Base angle ${angles[0]} degrees, elbow ${angles[1]} degrees, wrist ${angles[2]} degrees. End effector at x ${formatSigned(effector.x)}, y ${formatSigned(effector.y)} link units.`}
+            aria-describedby={descriptionId}
+          >
+            <Workspace />
+            <g data-series="fk-links" data-chart-role="state">
+              {points.slice(0, -1).map((p, i) => {
+                const q = points[i + 1];
+                return (
+                  <line
+                    key={`link-${i}`}
+                    data-testid={`fk-link-${i + 1}`}
+                    x1={toSvgX(p.x)}
+                    y1={toSvgY(p.y)}
+                    x2={toSvgX(q.x)}
+                    y2={toSvgY(q.y)}
+                    stroke={state}
+                    strokeWidth={LINK_WIDTH}
+                    strokeLinecap="round"
+                  />
+                );
+              })}
+              {/* Joint hubs: the base ring, then the elbow and wrist pivots. */}
+              {pivots.map((p, i) => (
+                <circle
+                  key={`joint-${i}`}
+                  cx={toSvgX(p.x)}
+                  cy={toSvgY(p.y)}
+                  r={i === 0 ? LINK_WIDTH + 2 : LINK_WIDTH - 0.5}
+                  fill={i === 0 ? 'none' : state}
+                  stroke={i === 0 ? state : 'none'}
+                  strokeWidth={i === 0 ? CHART_STROKE.trace : 0}
+                />
+              ))}
+            </g>
+            <g
+              data-testid="fk-effector-marker"
+              data-series="fk-effector"
+              data-chart-role="highlight"
+              data-selection="end effector"
             >
-              {joint.label}
-            </ControlLabel>
-            <input
-              id={joint.id}
-              type="range"
-              data-brand-control-id="control:input"
-              min={-JOINT_LIMIT_DEG}
-              max={JOINT_LIMIT_DEG}
-              step={1}
-              value={angles[i]}
-              onChange={(e) => setJoint(i, Number(e.target.value))}
-              aria-label={`${joint.label} angle in degrees, currently ${angles[i]}`}
-              className="mt-2 w-full accent-accent"
-            />
-          </div>
-        ))}
-        <InstrumentReset onClick={reset} />
-      </div>
-
-      <PlotStage
-        viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-        aria-label={`Planar three-link arm. Base angle ${angles[0]} degrees, elbow ${angles[1]} degrees, wrist ${angles[2]} degrees. End effector at x ${formatSigned(effector.x)}, y ${formatSigned(effector.y)} link units.`}
-        aria-describedby={descriptionId}
-        className="mt-4"
-      >
-        {/* Reachable workspace disc. */}
-        <circle
-          cx={ORIGIN_X}
-          cy={ORIGIN_Y}
-          r={f(REACH_PX)}
-          fill="none"
-          stroke="var(--color-border)"
-          strokeWidth={1}
-          strokeDasharray="4 5"
-        />
-        {/* Base-frame axes. */}
-        <line
-          x1={f(ORIGIN_X - REACH_PX)}
-          y1={ORIGIN_Y}
-          x2={f(ORIGIN_X + REACH_PX)}
-          y2={ORIGIN_Y}
-          stroke="var(--color-border)"
-          strokeWidth={1}
-        />
-        <line
-          x1={ORIGIN_X}
-          y1={f(ORIGIN_Y - REACH_PX)}
-          x2={ORIGIN_X}
-          y2={f(ORIGIN_Y + REACH_PX)}
-          stroke="var(--color-border)"
-          strokeWidth={1}
-        />
-        <text
-          x={f(ORIGIN_X + REACH_PX - 4)}
-          y={ORIGIN_Y - 8}
-          textAnchor="end"
-          fill="var(--color-text-dim)"
-          fontSize={11}
-          fontFamily="var(--font-mono)"
-        >
-          +x
-        </text>
-        <text
-          x={ORIGIN_X + 8}
-          y={f(ORIGIN_Y - REACH_PX + 14)}
-          fill="var(--color-text-dim)"
-          fontSize={11}
-          fontFamily="var(--font-mono)"
-        >
-          +y
-        </text>
-        <text
-          x={f(ORIGIN_X + REACH_PX - 4)}
-          y={f(ORIGIN_Y + REACH_PX - 8)}
-          textAnchor="end"
-          fill="var(--color-text-dim)"
-          fontSize={10}
-          fontFamily="var(--font-mono)"
-        >
-          reach {totalReach(LINK_LENGTHS).toFixed(2)}
-        </text>
-
-        {/* Links. */}
-        {points.slice(0, -1).map((p, i) => {
-          const q = points[i + 1];
-          return (
-            <line
-              key={`link-${i}`}
-              data-testid={`fk-link-${i + 1}`}
-              x1={toSvgX(p.x)}
-              y1={toSvgY(p.y)}
-              x2={toSvgX(q.x)}
-              y2={toSvgY(q.y)}
-              stroke="var(--color-text-dim)"
-              strokeWidth={7}
-              strokeLinecap="round"
-            />
-          );
-        })}
-
-        {/* Joint hubs (base plus the two intermediate joints). */}
-        {pivots.map((p, i) => (
-          <g key={`joint-${i}`}>
-            <circle
-              cx={toSvgX(p.x)}
-              cy={toSvgY(p.y)}
-              r={i === 0 ? 10 : 8}
-              fill="var(--color-surface-2)"
-              stroke="var(--color-border-strong)"
-              strokeWidth={1.5}
-            />
-            <circle
-              cx={toSvgX(p.x)}
-              cy={toSvgY(p.y)}
-              r={2.5}
-              fill={i === 0 ? 'var(--color-text-dim)' : 'var(--color-border-strong)'}
-            />
-          </g>
-        ))}
-
-        {/* End-effector marker. */}
-        <g data-testid="fk-effector-marker">
-          <circle
-            cx={toSvgX(effector.x)}
-            cy={toSvgY(effector.y)}
-            r={7}
-            fill="var(--color-bg)"
-            stroke="var(--color-accent)"
-            strokeWidth={2}
-          />
-          <circle
-            cx={toSvgX(effector.x)}
-            cy={toSvgY(effector.y)}
-            r={2}
-            fill="var(--color-accent)"
-          />
-        </g>
-      </PlotStage>
-
-      {/* Self-label: this instrument is a schematic, not a measurement. */}
-      <p className="mt-1 font-sans text-xs text-text-dim">
-        Schematic: computed planar kinematics on chosen link lengths, not a
-        traced robot arm.
-      </p>
-
-      <InstrumentReadout>
-        <span className="text-text-dim">end effector</span>{' '}
-        <span className="text-text-dim">x</span>{' '}
-        <span data-testid="fk-ee-x" className="text-accent">
-          {formatSigned(effector.x)}
-        </span>{' '}
-        <span className="text-text-dim">y</span>{' '}
-        <span data-testid="fk-ee-y" className="text-accent">
-          {formatSigned(effector.y)}
-        </span>{' '}
-        <span className="text-text-dim">link units</span>
-      </InstrumentReadout>
-      <ChartDescription
-        id={descriptionId}
-        className="mt-3"
-        form="state"
-        summary="Current arm pose"
-        description={`With base ${angles[0]} degrees, elbow ${angles[1]} degrees and wrist ${angles[2]} degrees the end effector sits at x ${formatSigned(effector.x)}, y ${formatSigned(effector.y)} link units; those three link lengths are 1.00, 0.75 and 0.55.`}
-        states={[
-          { label: 'base', value: `${angles[0]}°` },
-          { label: 'elbow', value: `${angles[1]}°` },
-          { label: 'wrist', value: `${angles[2]}°` },
-          { label: 'end effector x', value: formatSigned(effector.x) },
-          { label: 'end effector y', value: formatSigned(effector.y) },
-        ]}
-      />
-      <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
-        Link lengths 1.00, 0.75, and 0.55. Each angle is measured relative to
-        its parent link, and the plotted position is the running sum of the
-        three link vectors: the planar form of the forward-kinematics
-        transform product.
-      </p>
-    </InstrumentFrame>
+              <circle
+                cx={toSvgX(effector.x)}
+                cy={toSvgY(effector.y)}
+                r={CHART_STROKE.markerRadius + 3}
+                fill="none"
+                stroke={highlight}
+                strokeWidth={CHART_STROKE.trace}
+              />
+              <circle
+                cx={toSvgX(effector.x)}
+                cy={toSvgY(effector.y)}
+                r={CHART_STROKE.markerRadius - 1.5}
+                fill={highlight}
+              />
+            </g>
+          </PlotStage>
+        </FigureStage>
+      }
+      caption="Each joint angle is relative to its parent link, so moving the base joint swings the whole arm."
+      source="Computed schematic on chosen link lengths 1.00, 0.75 and 0.55; the tip is the running sum of the three link vectors."
+    />
   );
 }

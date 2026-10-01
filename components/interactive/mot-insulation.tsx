@@ -2,16 +2,30 @@
 
 import { useId, useState } from 'react';
 import { useCitationLookup } from '@/components/article/citation-records';
+import { ChartDescription } from '@/components/ui/chart-description';
 import {
-  ChartDescription,
+  ControlField,
   ControlLabel,
-  InstrumentFrame,
+  INSTRUMENT_SLIDER_CLASS,
+  INSTRUMENT_TOGGLE_CLASS,
+  InstrumentFigure,
   InstrumentLegend,
   InstrumentReadout,
-  LegendItem,
   InstrumentReset,
+  LegendItem,
   PlotStage,
-} from '@/components/ui';
+} from '@/components/ui/instrument';
+import { FigureStage } from '@/components/motion/figure-frame';
+import {
+  CHART_STROKE,
+  CHART_STRUCTURE,
+  CHART_TYPE,
+  CHART_VIEW_WIDTH,
+  ConstraintHatch,
+  LegendSwatch,
+  roleColour,
+  type ChartRole,
+} from '@/components/motion/chart';
 import {
   KNOWLEDGE_INSULATION_CITATION_ID,
   LAYER_COUNT,
@@ -22,31 +36,24 @@ import {
   layerStates,
   type Pass,
 } from '@/lib/knowledge-insulation';
-import { cx } from '@/lib/utils';
 
 /**
  * MotInsulation: a layer-by-layer Mixture-of-Transformers view of a
- * pi0-style VLA. Two weight stacks side by side: the VLM backbone (3B)
- * and the flow-matching action expert (300M). A depth slider steps the
+ * pi0-style VLA. Two weight stacks side by side: the language-model
+ * backbone and the flow-matching action expert. A depth slider steps the
  * pass through the stacks, so nothing auto-plays.
  *
- * Forward pass: image, text, and state tokens flow up the backbone;
- * action tokens flow up the expert while attending sideways into backbone
- * activations at every layer (blue arrows).
- *
- * Backward pass: the stop-gradient toggle decides what reaches the
- * backbone. On (the Knowledge Insulation recipe): a green barrier at the
- * interface, gradients confined to the expert, and the FAST-token
- * cross-entropy loss shown as the backbone's only supervision. Off:
- * gradient arrows cross from the expert into the backbone at every
- * reached layer and the illustrative language-following meter drops,
- * matching the paper's spoon/trash symptom. The sourced 7.5x
- * training-step figure is pinned next to the meter.
- *
- * Interactive contract: deterministic render, visible monospace readouts,
- * native toggle buttons with aria-pressed plus a labelled slider, a reset
- * control, fixed-height diagram (no layout shift), no auto-playing motion
- * (reduced-motion safe by construction).
+ * The layer boxes are structure. What moves through them takes the role of
+ * what it carries: backbone activations (image, text and state tokens) the
+ * state role, action tokens and the expert's flow-matching gradients the
+ * action role. Forward, the expert attends sideways into the backbone at
+ * every reached layer (dashed). Backward with the stop-gradient on (the
+ * Knowledge Insulation recipe), a constraint-hatched barrier blocks the
+ * interface and FAST-token cross-entropy is the backbone's only
+ * supervision. Off, expert gradients cross into the backbone (dash-dot) and
+ * the illustrative language-following meter drops, matching the paper's
+ * spoon/trash symptom. The sourced 7.5x training-step figure sits beside
+ * the meter.
  */
 type MotInsulationProps = {
   /** Initial pass depth. Default shows the full stack. */
@@ -54,29 +61,35 @@ type MotInsulationProps = {
   className?: string;
 };
 
-const WIDTH = 640;
-const STACK_TOP = 64;
-const LAYER_H = 30;
-const LAYER_GAP = 8;
+const WIDTH = CHART_VIEW_WIDTH;
+const STACK_TOP = 50;
+const LAYER_H = 14;
+const LAYER_GAP = 5;
 const STACK_H = LAYER_COUNT * LAYER_H + (LAYER_COUNT - 1) * LAYER_GAP;
 const STACK_BOTTOM = STACK_TOP + STACK_H;
-const HEIGHT = STACK_BOTTOM + 44;
+const HEIGHT = STACK_BOTTOM + 33;
 
-const BACKBONE = { x: 56, w: 220 };
-const EXPERT = { x: 404, w: 180 };
-const BARRIER_X = 340;
+const BACKBONE = { x: 14, w: 134 };
+const EXPERT = { x: 194, w: 130 };
+const BARRIER = { x: 165, w: 12 };
+const HEADER_Y = 19;
+const SUBHEADER_Y = 37;
+const INPUT_Y = STACK_BOTTOM + 23;
 
 /** Round to 2 decimals so SSR HTML and client hydration serialize identically. */
 const f = (v: number) => Number(v.toFixed(2));
 
 /**
- * A gradient that crosses the insulation boundary is drawn dash-dot as well
- * as red, so the corruption the diagram is about is legible without hue.
+ * A gradient that crosses the insulation boundary is drawn dash-dot, so the
+ * corruption the diagram is about is legible without hue.
  */
 const CORRUPT_DASH = '9 3 2 3';
 
 const layerY = (index: number) =>
   f(STACK_TOP + (LAYER_COUNT - 1 - index) * (LAYER_H + LAYER_GAP));
+
+const backboneMid = f(BACKBONE.x + BACKBONE.w / 2);
+const expertMid = f(EXPERT.x + EXPERT.w / 2);
 
 const SUPERVISION_LABEL: Record<string, string> = {
   none: 'no gradients (inference)',
@@ -84,10 +97,55 @@ const SUPERVISION_LABEL: Record<string, string> = {
   'expert-gradient': 'expert flow-matching gradient (uninsulated)',
 };
 
+/** One arrowhead per role, sized in user units so it fits a layer box. */
+function ArrowMarker({ id, role }: { id: string; role: ChartRole }) {
+  return (
+    <marker
+      id={id}
+      markerUnits="userSpaceOnUse"
+      markerWidth={7}
+      markerHeight={7}
+      refX={5}
+      refY={3.5}
+      orient="auto"
+    >
+      <path
+        d="M0.75,0.75 L5.5,3.5 L0.75,6.25"
+        fill="none"
+        stroke={roleColour(role)}
+        strokeWidth={CHART_STROKE.reference}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </marker>
+  );
+}
+
+/** A swatch that repeats the dash-dot crossing gradient exactly. */
+function CrossingSwatch() {
+  const h = CHART_TYPE.tickPx;
+  const w = h * 2;
+  return (
+    <svg aria-hidden="true" focusable="false" width={w} height={h} viewBox={`0 0 ${w} ${h}`} className="shrink-0">
+      <path
+        d={`M1 ${h / 2} H${w - 1}`}
+        fill="none"
+        stroke={roleColour('action')}
+        strokeWidth={CHART_STROKE.reference}
+        strokeDasharray={CORRUPT_DASH}
+      />
+    </svg>
+  );
+}
+
+const STAGE_LINK = 'underline-offset-2';
+
 export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsulationProps) {
   const uid = useId();
   const descriptionId = `${uid}-description`;
-  const corruptTileId = `${uid}-corrupt-tile`;
+  const stateArrowId = `${uid}-arrow-state`;
+  const actionArrowId = `${uid}-arrow-action`;
+  const barrierHatchId = `${uid}-barrier-hatch`;
   const [pass, setPass] = useState<Pass>('forward');
   const [stopGradient, setStopGradient] = useState(true);
   const [step, setStep] = useState(defaultStep);
@@ -100,7 +158,8 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
   const citation = citationFor(KNOWLEDGE_INSULATION_CITATION_ID);
 
   const corrupted = pass === 'backward' && !stopGradient;
-  const meterColor = corrupted ? 'var(--color-err)' : 'var(--color-accent)';
+  const stateColour = roleColour('state');
+  const actionColour = roleColour('action');
 
   function toggleStopGradient() {
     // The toggle only has meaning in the backward view, so switching it
@@ -122,39 +181,71 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
         ? `Backward pass at depth ${step} of ${LAYER_COUNT} with the stop-gradient on. Gradients stay inside the expert; the backbone is supervised by FAST-token cross-entropy.`
         : `Backward pass at depth ${step} of ${LAYER_COUNT} with the stop-gradient off. Expert gradients cross into the backbone at every reached layer and the language-following score drops to ${score}.`;
 
+  const backboneSubheader =
+    pass === 'forward' ? 'FAST token logits' : stopGradient ? 'FAST cross-entropy' : 'expert gradient';
+  const expertSubheader = pass === 'forward' ? 'continuous actions' : 'flow-matching loss';
+
+  /** A vertical arrow inside one layer box: up on the forward pass, down on the backward. */
+  const flowArrow = (x: number, y: number, role: ChartRole, dash?: string) => (
+    <line
+      x1={x}
+      y1={pass === 'forward' ? f(y + LAYER_H - 2.5) : f(y + 2.5)}
+      x2={x}
+      y2={pass === 'forward' ? f(y + 3) : f(y + LAYER_H - 3)}
+      stroke={roleColour(role)}
+      strokeWidth={CHART_STROKE.trace}
+      strokeDasharray={dash}
+      markerEnd={`url(#${role === 'state' ? stateArrowId : actionArrowId})`}
+    />
+  );
+
+  const box = (testId: string, x: number, w: number, y: number, active: boolean) => (
+    <rect
+      data-testid={testId}
+      data-active={active ? 'true' : 'false'}
+      x={x}
+      y={y}
+      width={w}
+      height={LAYER_H}
+      fill="none"
+      stroke={CHART_STRUCTURE.axes}
+      strokeWidth={CHART_STROKE.structure}
+      opacity={active ? 0.9 : CHART_STRUCTURE.axesOpacity}
+    />
+  );
+
   return (
-    <InstrumentFrame className={className}>
-      <div className="grid gap-4 lg:grid-cols-[1fr_auto] lg:items-end">
-        <div>
-          <ControlLabel
-            htmlFor="mot-depth"
-            value={
-              <span data-testid="step-readout">
-                {step} / {LAYER_COUNT}
-              </span>
-            }
-          >
-            Pass depth
-          </ControlLabel>
-          <input
-            id="mot-depth"
-            type="range"
-            data-brand-control-id="control:input"
-            min={0}
-            max={LAYER_COUNT}
-            step={1}
-            value={step}
-            onChange={(e) => setStep(Number(e.target.value))}
-            aria-label={`Pass depth, currently ${step} of ${LAYER_COUNT} layers`}
-            className="mt-2 w-full accent-accent"
-          />
-        </div>
-        <div className="flex flex-wrap items-center gap-1.5">
-          <div
-            role="group"
-            aria-label="Select the pass direction"
-            className="flex flex-wrap gap-1"
-          >
+    <InstrumentFigure
+      figureId="mot-insulation"
+      className={className}
+      heading="Knowledge Insulation pass"
+      controls={
+        <>
+          <ControlField>
+            <ControlLabel
+              htmlFor="mot-depth"
+              value={
+                <span data-testid="step-readout">
+                  {step} / {LAYER_COUNT}
+                </span>
+              }
+            >
+              Pass depth
+            </ControlLabel>
+            <input
+              id="mot-depth"
+              type="range"
+              data-brand-control-id="control:input"
+              min={0}
+              max={LAYER_COUNT}
+              step={1}
+              value={step}
+              onChange={(e) => setStep(Number(e.target.value))}
+              aria-label={`Pass depth, currently ${step} of ${LAYER_COUNT} layers`}
+              className={INSTRUMENT_SLIDER_CLASS}
+            />
+          </ControlField>
+          <div role="group" aria-label="Select the pass direction" className="flex flex-wrap gap-1">
             {(['forward', 'backward'] as const).map((p) => (
               <button
                 data-brand-control-id="control:selection"
@@ -162,12 +253,7 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
                 type="button"
                 aria-pressed={p === pass}
                 onClick={() => setPass(p)}
-                className={cx(
-                  'rounded-sm border px-3 py-1.5 font-mono text-xs transition-colors active:translate-y-[1px]',
-                  p === pass
-                    ? 'border-accent text-text'
-                    : 'border-border bg-surface-2 text-text-dim hover:border-border-strong hover:text-text',
-                )}
+                className={INSTRUMENT_TOGGLE_CLASS}
               >
                 {p} pass
               </button>
@@ -178,503 +264,204 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
             type="button"
             aria-pressed={stopGradient}
             onClick={toggleStopGradient}
-            className={cx(
-              'rounded-sm border px-3 py-1.5 font-mono text-xs transition-colors active:translate-y-[1px]',
-              stopGradient
-                ? 'border-ok text-text'
-                : 'border-err text-text',
-            )}
+            className={INSTRUMENT_TOGGLE_CLASS}
           >
             Stop gradient: {stopGradient ? 'on' : 'off'}
           </button>
           <InstrumentReset onClick={reset} />
-        </div>
-      </div>
-
-      <PlotStage
-        viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-        aria-label={`Mixture-of-Transformers diagram. ${passDescription}`}
-        aria-describedby={descriptionId}
-        data-testid="mot-diagram"
-        className="mt-4"
-      >
-        <defs>
-          <marker
-            id="mot-arrow-accent"
-            markerWidth="8"
-            markerHeight="8"
-            refX="6"
-            refY="4"
-            orient="auto"
-          >
-            <path
-              d="M0.5,0.5 L7.5,4 L0.5,7.5"
-              fill="none"
-              stroke="var(--color-accent)"
-              strokeWidth={1.6}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </marker>
-          <marker
-            id="mot-arrow-err"
-            markerWidth="8"
-            markerHeight="8"
-            refX="6"
-            refY="4"
-            orient="auto"
-          >
-            <path
-              d="M0.5,0.5 L7.5,4 L0.5,7.5"
-              fill="none"
-              stroke="var(--color-err)"
-              strokeWidth={1.6}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </marker>
-          <marker
-            id="mot-arrow-ok"
-            markerWidth="8"
-            markerHeight="8"
-            refX="6"
-            refY="4"
-            orient="auto"
-          >
-            <path
-              d="M0.5,0.5 L7.5,4 L0.5,7.5"
-              fill="none"
-              stroke="var(--color-ok)"
-              strokeWidth={1.6}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </marker>
-        </defs>
-
-        {/* Column headers */}
-        <text
-          x={f(BACKBONE.x + BACKBONE.w / 2)}
-          y={18}
-          textAnchor="middle"
-          fill="var(--color-text)"
-          fontSize={12}
-          fontFamily="var(--font-mono)"
-        >
-          language model (2B)
-        </text>
-        <text
-          x={f(EXPERT.x + EXPERT.w / 2)}
-          y={18}
-          textAnchor="middle"
-          fill="var(--color-text)"
-          fontSize={12}
-          fontFamily="var(--font-mono)"
-        >
-          action expert (300M)
-        </text>
-        <text
-          x={f(BACKBONE.x + BACKBONE.w / 2)}
-          y={32}
-          textAnchor="middle"
-          fill="var(--color-text-dim)"
-          fontSize={10}
-          fontFamily="var(--font-mono)"
-        >
-          {pass === 'forward'
-            ? 'out: FAST token logits'
-            : stopGradient
-              ? 'loss: FAST cross-entropy'
-              : 'loss: expert gradient'}
-        </text>
-        <text
-          x={f(EXPERT.x + EXPERT.w / 2)}
-          y={32}
-          textAnchor="middle"
-          fill="var(--color-text-dim)"
-          fontSize={10}
-          fontFamily="var(--font-mono)"
-        >
-          {pass === 'forward' ? 'out: continuous actions' : 'loss: flow matching'}
-        </text>
-
-        {/* Loss arrows into the stack tops (backward view only) */}
-        {pass === 'backward' && (
-          <>
-            <line
-              x1={f(BACKBONE.x + BACKBONE.w / 2)}
-              y1={38}
-              x2={f(BACKBONE.x + BACKBONE.w / 2)}
-              y2={STACK_TOP - 4}
-              stroke={stopGradient ? 'var(--color-ok)' : 'var(--color-err)'}
-              strokeWidth={1.5}
-              strokeDasharray={stopGradient ? undefined : CORRUPT_DASH}
-              markerEnd={`url(#${stopGradient ? 'mot-arrow-ok' : 'mot-arrow-err'})`}
-            />
-            {stopGradient && (
-              <text
-                data-testid="fast-loss-label"
-                x={f(BACKBONE.x + BACKBONE.w / 2)}
-                y={STACK_TOP + 12}
-                textAnchor="middle"
-                fill="var(--color-ok)"
-                fontSize={10}
-                fontFamily="var(--font-mono)"
-              >
-                FAST cross-entropy
-              </text>
-            )}
-            <line
-              x1={f(EXPERT.x + EXPERT.w / 2)}
-              y1={38}
-              x2={f(EXPERT.x + EXPERT.w / 2)}
-              y2={STACK_TOP - 4}
-              stroke="var(--color-accent)"
-              strokeWidth={1.5}
-              markerEnd="url(#mot-arrow-accent)"
-            />
-          </>
-        )}
-
-        {/* Stop-gradient barrier */}
-        {barrier && (
-          <g data-testid="gradient-barrier">
-            <line
-              x1={BARRIER_X}
-              y1={STACK_TOP - 10}
-              x2={BARRIER_X}
-              y2={STACK_BOTTOM + 10}
-              stroke="var(--color-ok)"
-              strokeWidth={2}
-              strokeDasharray="6 4"
-            />
-            <text
-              x={BARRIER_X}
-              y={STACK_TOP - 16}
-              textAnchor="middle"
-              fill="var(--color-ok)"
-              fontSize={10}
-              fontFamily="var(--font-mono)"
-            >
-              stop-gradient
-            </text>
-          </g>
-        )}
-
-        {/* Layers */}
-        {states.map((s) => {
-          const y = layerY(s.index);
-          const cy = f(y + LAYER_H / 2);
-          return (
-            <g key={s.index}>
-              <rect
-                data-testid={`backbone-layer-${s.index}`}
-                x={BACKBONE.x}
-                y={y}
-                width={BACKBONE.w}
-                height={LAYER_H}
-                rx={2}
-                fill="var(--color-accent)"
-                fillOpacity={s.backboneActive ? (corrupted ? 0 : 0.16) : 0}
-                stroke={
-                  s.backboneActive && corrupted
-                    ? 'var(--color-err)'
-                    : s.backboneActive
-                      ? 'var(--color-accent)'
-                      : 'var(--color-border)'
-                }
-                strokeWidth={1}
-                strokeDasharray={
-                  s.backboneActive && corrupted ? '3 2' : undefined
-                }
+        </>
+      }
+      stage={
+        <FigureStage
+          footer={
+            <>
+              <InstrumentLegend>
+                <LegendItem swatch={<LegendSwatch role="state" mark="line" />}>backbone activations</LegendItem>
+                <LegendItem swatch={<LegendSwatch role="state" mark="dash" />}>sideways attention</LegendItem>
+                <LegendItem swatch={<LegendSwatch role="action" mark="line" />}>action expert flow</LegendItem>
+                <LegendItem swatch={<CrossingSwatch />}>expert gradient crossing in</LegendItem>
+                <LegendItem swatch={<LegendSwatch role="constraint" mark="hatch" />}>stop-gradient barrier</LegendItem>
+              </InstrumentLegend>
+              <LanguageMeter score={score} />
+              <InstrumentReadout className="basis-full">
+                Backbone supervision:{' '}
+                <span data-testid="supervision-readout">{SUPERVISION_LABEL[supervision]}</span>
+              </InstrumentReadout>
+              <div className="basis-full font-sans text-[13px] leading-snug text-text-dim">
+                Measured:{' '}
+                <span data-testid="speedup-readout" className="text-text">
+                  {TRAINING_STEP_SPEEDUP}x fewer training steps
+                </span>{' '}
+                for the π0.5 + KI generalist than π0, at similar table-bussing performance.
+                {citation && (
+                  <>
+                    {' '}
+                    <a
+                      data-brand-control-id="control:link-focus"
+                      href={citation.url}
+                      target="_blank"
+                      rel="noopener"
+                      className={STAGE_LINK}
+                    >
+                      Source: {citation.label}
+                    </a>
+                  </>
+                )}
+              </div>
+              <ChartDescription
+                id={descriptionId}
+                form="state"
+                summary="Current MoT pass"
+                description={`${pass === 'forward' ? 'Forward' : 'Backward'} pass at depth ${step} of ${LAYER_COUNT} keeps backbone supervision on ${SUPERVISION_LABEL[supervision]}, language following at ${score} of 100, and the separately reported ${TRAINING_STEP_SPEEDUP}x fewer training steps for the π0.5 + KI generalist versus π0 at similar table-bussing performance; the stop-gradient is ${stopGradient ? 'on' : 'off'} so expert gradients ${stopGradient ? 'stay inside the action expert' : 'cross into the backbone'}.`}
+                states={[
+                  { label: 'pass', value: pass },
+                  { label: 'depth', value: `${step} / ${LAYER_COUNT}` },
+                  { label: 'stop-gradient', value: stopGradient ? 'on' : 'off' },
+                  { label: 'supervision', value: SUPERVISION_LABEL[supervision] },
+                  { label: 'language score', value: `${score} / 100` },
+                ]}
               />
-              <rect
-                data-testid={`expert-layer-${s.index}`}
-                x={EXPERT.x}
-                y={y}
-                width={EXPERT.w}
-                height={LAYER_H}
-                rx={2}
-                fill="var(--color-accent)"
-                fillOpacity={s.expertActive ? 0.16 : 0}
-                stroke={
-                  s.expertActive ? 'var(--color-accent)' : 'var(--color-border)'
-                }
-                strokeWidth={1}
-              />
-
-              {/* In-stack flow arrows */}
-              {s.backboneActive && (
-                <line
-                  x1={f(BACKBONE.x + BACKBONE.w / 2)}
-                  y1={pass === 'forward' ? f(y + LAYER_H - 6) : f(y + 6)}
-                  x2={f(BACKBONE.x + BACKBONE.w / 2)}
-                  y2={pass === 'forward' ? f(y + 6) : f(y + LAYER_H - 6)}
-                  stroke={corrupted ? 'var(--color-err)' : 'var(--color-accent)'}
-                  strokeWidth={1.5}
-                  strokeDasharray={corrupted ? CORRUPT_DASH : undefined}
-                  markerEnd={`url(#${corrupted ? 'mot-arrow-err' : 'mot-arrow-accent'})`}
-                />
-              )}
-              {s.expertActive && (
-                <line
-                  x1={f(EXPERT.x + EXPERT.w / 2)}
-                  y1={pass === 'forward' ? f(y + LAYER_H - 6) : f(y + 6)}
-                  x2={f(EXPERT.x + EXPERT.w / 2)}
-                  y2={pass === 'forward' ? f(y + 6) : f(y + LAYER_H - 6)}
-                  stroke="var(--color-accent)"
-                  strokeWidth={1.5}
-                  markerEnd="url(#mot-arrow-accent)"
-                />
-              )}
-
-              {/* Sideways attention: expert reads backbone activations (forward) */}
-              {s.sidewaysAttention && (
-                <line
-                  data-testid={`attention-${s.index}`}
-                  x1={f(BACKBONE.x + BACKBONE.w + 6)}
-                  y1={cy}
-                  x2={f(EXPERT.x - 8)}
-                  y2={cy}
-                  stroke="var(--color-accent)"
-                  strokeWidth={1.5}
-                  strokeDasharray="3 3"
-                  markerEnd="url(#mot-arrow-accent)"
-                />
-              )}
-
-              {/* Corrupting gradient crossing into the backbone (backward, uninsulated) */}
-              {s.gradientCrosses && (
-                <line
-                  data-testid={`gradient-cross-${s.index}`}
-                  x1={f(EXPERT.x - 6)}
-                  y1={cy}
-                  x2={f(BACKBONE.x + BACKBONE.w + 8)}
-                  y2={cy}
-                  stroke="var(--color-err)"
-                  strokeWidth={1.5}
-                  strokeDasharray={CORRUPT_DASH}
-                  markerEnd="url(#mot-arrow-err)"
-                />
-              )}
-            </g>
-          );
-        })}
-
-        {/* Input labels */}
-        <text
-          x={f(BACKBONE.x + BACKBONE.w / 2)}
-          y={STACK_BOTTOM + 22}
-          textAnchor="middle"
-          fill="var(--color-text-dim)"
-          fontSize={10}
-          fontFamily="var(--font-mono)"
+            </>
+          }
         >
-          in: image, text, state tokens
-        </text>
-        <text
-          x={f(EXPERT.x + EXPERT.w / 2)}
-          y={STACK_BOTTOM + 22}
-          textAnchor="middle"
-          fill="var(--color-text-dim)"
-          fontSize={10}
-          fontFamily="var(--font-mono)"
-        >
-          in: action tokens + noise
-        </text>
-      </PlotStage>
-
-      {/* Language-following meter */}
-      <div className="mt-3">
-        <div className="flex items-baseline justify-between gap-2">
-          <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim">
-            Language following (illustrative)
-          </span>
-          <span className="font-mono text-xs text-text">
-            <span data-testid="language-score" style={{ color: meterColor }}>
-              {score}
-            </span>{' '}
-            <span className="text-text-dim">/ 100</span>
-          </span>
-        </div>
-        <div
-          role="meter"
-          data-brand-surface-id="surface:flat"
-          aria-valuenow={score}
-          aria-valuemin={0}
-          aria-valuemax={100}
-          aria-label={`Language-following score, ${score} of 100`}
-          className="mt-1.5 h-2 w-full overflow-hidden rounded-sm border border-border"
-        >
-          {/* Corruption is a texture, not only a hue: a solid bar means the
-              backbone is insulated, a dotted bar means expert gradients are
-              crossing into it. */}
-          <svg
-            viewBox="0 0 200 8"
-            preserveAspectRatio="none"
-            aria-hidden
-            className="block h-full w-full"
+          <PlotStage
+            viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
+            aria-label={`Mixture-of-Transformers diagram. ${passDescription}`}
+            aria-describedby={descriptionId}
+            data-testid="mot-diagram"
           >
             <defs>
-              <pattern
-                id={corruptTileId}
-                width={4}
-                height={4}
-                patternUnits="userSpaceOnUse"
-                patternTransform="rotate(45)"
-              >
-                <line
-                  x1={2}
-                  y1={0}
-                  x2={2}
-                  y2={4}
-                  stroke="var(--color-err)"
-                  strokeWidth={2}
-                  strokeDasharray="2 2"
-                />
-              </pattern>
+              <ArrowMarker id={stateArrowId} role="state" />
+              <ArrowMarker id={actionArrowId} role="action" />
             </defs>
-            <rect
-              data-testid="language-meter-fill"
-              x={0}
-              y={0}
-              width={f(score * 2)}
-              height={8}
-              fill={corrupted ? `url(#${corruptTileId})` : 'var(--color-accent)'}
-            />
-          </svg>
-        </div>
-      </div>
 
-      <InstrumentReadout>
-        <span className="text-text-dim">backbone supervision:</span>{' '}
-        <span data-testid="supervision-readout" className="text-accent">
-          {SUPERVISION_LABEL[supervision]}
-        </span>
-      </InstrumentReadout>
-      <p className="mt-1.5 font-mono text-sm text-text">
-        <span className="text-text-dim">measured effect:</span>{' '}
-        <span data-testid="speedup-readout" className="text-accent">
-          {TRAINING_STEP_SPEEDUP}x fewer training steps
-        </span>{' '}
-        <span className="text-text-dim">
-          π0.5 + KI generalist vs π0, to similar table-bussing performance
-        </span>
-      </p>
-
-      <ChartDescription
-        id={descriptionId}
-        className="mt-3"
-        form="state"
-        summary="Current MoT pass"
-        description={`${pass === 'forward' ? 'Forward' : 'Backward'} pass at depth ${step} of ${LAYER_COUNT} keeps backbone supervision on ${SUPERVISION_LABEL[supervision]}, language following at ${score} of 100, and the separately reported ${TRAINING_STEP_SPEEDUP}x fewer training steps for the π0.5 + KI generalist versus π0 at similar table-bussing performance; the stop-gradient is ${stopGradient ? 'on' : 'off'} so expert gradients ${stopGradient ? 'stay inside the action expert' : 'cross into the backbone'}.`}
-        states={[
-          { label: 'pass', value: pass },
-          { label: 'depth', value: `${step} / ${LAYER_COUNT}` },
-          { label: 'stop-gradient', value: stopGradient ? 'on' : 'off' },
-          { label: 'supervision', value: SUPERVISION_LABEL[supervision] },
-          { label: 'language score', value: `${score} / 100` },
-        ]}
-      />
-
-      <InstrumentLegend className="mt-2">
-        <LegendItem
-          swatch={
-            <svg width={16} height={8} aria-hidden className="shrink-0">
-              <line
-                x1={0}
-                y1={4}
-                x2={16}
-                y2={4}
-                stroke="var(--color-accent)"
-                strokeWidth={1.75}
-              />
-            </svg>
-          }
-        >
-          token and activation flow
-        </LegendItem>
-        <LegendItem
-          swatch={
-            <svg width={16} height={8} aria-hidden className="shrink-0">
-              <line
-                x1={0}
-                y1={4}
-                x2={16}
-                y2={4}
-                stroke="var(--color-accent)"
-                strokeWidth={1.75}
-                strokeDasharray="3 3"
-              />
-            </svg>
-          }
-        >
-          sideways attention (forward)
-        </LegendItem>
-        <LegendItem
-          swatch={
-            <svg width={16} height={8} aria-hidden className="shrink-0">
-              <line
-                x1={0}
-                y1={4}
-                x2={16}
-                y2={4}
-                stroke="var(--color-err)"
-                strokeWidth={1.75}
-                strokeDasharray="9 3 2 3"
-              />
-            </svg>
-          }
-        >
-          corrupting gradient (backward)
-        </LegendItem>
-        <LegendItem
-          swatch={
-            <svg width={16} height={8} aria-hidden className="shrink-0">
-              <line
-                x1={0}
-                y1={4}
-                x2={16}
-                y2={4}
-                stroke="var(--color-ok)"
-                strokeWidth={2}
-                strokeDasharray="6 4"
-              />
-            </svg>
-          }
-        >
-          gradient barrier
-        </LegendItem>
-      </InstrumentLegend>
-        <p className="mt-1 font-sans text-xs text-text-dim">
-          Signal <span className="text-accent">blue</span> carries the token
-          and activation flow in this schematic; each swatch above repeats
-          its rendered mark.
-        </p>
-
-      <p className="mt-3 font-sans text-xs leading-relaxed text-text-dim">
-        Schematic: {LAYER_COUNT} layers drawn per stack for legibility, and
-        the 0-100 language-following score is an illustrative rendering of
-        the paper&apos;s qualitative example (π0 is told to bus a spoon into
-        a bin but grasps trash), not a published curve. Appendix B specifies
-        the 2B language model and 300M expert. The {TRAINING_STEP_SPEEDUP}x
-        training-step comparison is for the π0.5 + KI generalist versus π0
-        at similar table-bussing performance.
-        {citation && (
-          <>
-            {' '}
-            <a
-              data-brand-control-id="control:link-focus"
-              href={citation.url}
-              target="_blank"
-              rel="noopener"
-              className="font-mono text-accent underline decoration-border-strong underline-offset-2 transition-colors hover:decoration-accent"
+            {/* Column headers, then what leaves or supervises each stack. */}
+            <text data-scene-axis="" x={backboneMid} y={HEADER_Y} textAnchor="middle" fontSize={CHART_TYPE.axisPx} fill={CHART_STRUCTURE.label}>
+              language model (2B)
+            </text>
+            <text data-scene-axis="" x={expertMid} y={HEADER_Y} textAnchor="middle" fontSize={CHART_TYPE.axisPx} fill={CHART_STRUCTURE.label}>
+              action expert (300M)
+            </text>
+            <text
+              data-scene-axis=""
+              data-testid={barrier ? 'fast-loss-label' : undefined}
+              x={backboneMid}
+              y={SUBHEADER_Y}
+              textAnchor="middle"
+              fontSize={CHART_TYPE.axisPx}
+              fill={CHART_STRUCTURE.labelSecondary}
             >
-              Source: {citation.label}
-            </a>
-          </>
-        )}
-      </p>
-    </InstrumentFrame>
+              {backboneSubheader}
+            </text>
+            <text data-scene-axis="" x={expertMid} y={SUBHEADER_Y} textAnchor="middle" fontSize={CHART_TYPE.axisPx} fill={CHART_STRUCTURE.labelSecondary}>
+              {expertSubheader}
+            </text>
+
+            {/* Stop-gradient barrier: a blocked path, in the constraint hatch. */}
+            {barrier && (
+              <g data-testid="gradient-barrier">
+                <ConstraintHatch
+                  id={barrierHatchId}
+                  x={BARRIER.x}
+                  y={STACK_TOP - 4}
+                  width={BARRIER.w}
+                  height={STACK_H + 8}
+                />
+              </g>
+            )}
+
+            {states.map((s) => {
+              const y = layerY(s.index);
+              const cy = f(y + LAYER_H / 2);
+              return (
+                <g key={s.index}>
+                  {box(`backbone-layer-${s.index}`, BACKBONE.x, BACKBONE.w, y, s.backboneActive)}
+                  {box(`expert-layer-${s.index}`, EXPERT.x, EXPERT.w, y, s.expertActive)}
+                  {/* Uninsulated, the backbone carries the expert's gradient. */}
+                  {s.backboneActive &&
+                    flowArrow(backboneMid, y, corrupted ? 'action' : 'state', corrupted ? CORRUPT_DASH : undefined)}
+                  {s.expertActive && flowArrow(expertMid, y, 'action')}
+                  {s.sidewaysAttention && (
+                    <line
+                      data-testid={`attention-${s.index}`}
+                      x1={f(BACKBONE.x + BACKBONE.w + 3)}
+                      y1={cy}
+                      x2={f(EXPERT.x - 3)}
+                      y2={cy}
+                      stroke={stateColour}
+                      strokeWidth={CHART_STROKE.reference}
+                      strokeDasharray={CHART_STROKE.dash}
+                      markerEnd={`url(#${stateArrowId})`}
+                    />
+                  )}
+                  {s.gradientCrosses && (
+                    <line
+                      data-testid={`gradient-cross-${s.index}`}
+                      x1={f(EXPERT.x - 3)}
+                      y1={cy}
+                      x2={f(BACKBONE.x + BACKBONE.w + 3)}
+                      y2={cy}
+                      stroke={actionColour}
+                      strokeWidth={CHART_STROKE.reference}
+                      strokeDasharray={CORRUPT_DASH}
+                      markerEnd={`url(#${actionArrowId})`}
+                    />
+                  )}
+                </g>
+              );
+            })}
+
+            {/* What enters each stack at the bottom. */}
+            <text data-scene-axis="" x={backboneMid} y={INPUT_Y} textAnchor="middle" fontSize={CHART_TYPE.axisPx} fill={CHART_STRUCTURE.labelSecondary}>
+              image, text, state
+            </text>
+            <text data-scene-axis="" x={expertMid} y={INPUT_Y} textAnchor="middle" fontSize={CHART_TYPE.axisPx} fill={CHART_STRUCTURE.labelSecondary}>
+              noisy action tokens
+            </text>
+          </PlotStage>
+        </FigureStage>
+      }
+      caption="With the stop-gradient on, expert gradients stop at the barrier; turned off, they flow into the language model."
+      source={`Schematic with ${LAYER_COUNT} layers per stack; the 0-100 language score illustrates the paper's spoon-and-trash example, not a published curve.`}
+    />
+  );
+}
+
+// Defined after the figure: the accessible-name baseline seals aria-label
+// expressions by their order in this file, and the meter's name follows the
+// diagram's.
+function LanguageMeter({ score }: { score: number }) {
+  return (
+    <div className="basis-full">
+      <div className="flex items-baseline justify-between gap-2 font-sans text-[13px]">
+        <span className="text-text-dim">Language following, illustrative</span>
+        <span className="tabular-nums text-text">
+          <span data-testid="language-score">{score}</span>
+          <span className="text-text-dim"> / 100</span>
+        </span>
+      </div>
+      <div
+        role="meter"
+        data-brand-surface-id="surface:flat"
+        aria-valuenow={score}
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-label={`Language-following score, ${score} of 100`}
+        className="mt-1 h-2 w-full overflow-hidden border border-border-strong"
+      >
+        <svg viewBox="0 0 200 8" preserveAspectRatio="none" aria-hidden className="block h-full w-full">
+          <rect
+            data-testid="language-meter-fill"
+            data-chart-mark="bar"
+            data-chart-role="value"
+            x={0}
+            y={0}
+            width={f(score * 2)}
+            height={8}
+            fill={roleColour('value')}
+          />
+        </svg>
+      </div>
+    </div>
   );
 }

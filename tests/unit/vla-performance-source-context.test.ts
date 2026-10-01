@@ -65,8 +65,9 @@ describe('VLA-Perf source context', () => {
     expect(text).toContain('RTX 4090 over 5G is slower at 55.7 ms');
     expect(text).toContain('not an FP4/FP8 2 to 4× speedup result or an accuracy-loss validation');
     expect(text).toContain('bind no universal robot-control requirement');
-    expect(text).toContain('defaultParamsB={1.1}');
-    expect(text).toContain('answer="one-b"');
+    // The page mounts the control-loop toy once, at its stock 3.0B default.
+    expect(text.match(/<ControlLoopBudget\b/g)).toHaveLength(1);
+    expect(text).not.toContain('defaultParamsB=');
     expect(text).toContain('deliberately chosen 3.0B reference coordinate');
     expect(text).toContain('five-tick linear blend');
     expect(text).toContain('a discontinuity proxy standing in for physical jerk');

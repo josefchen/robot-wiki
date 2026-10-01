@@ -1,0 +1,796 @@
+{
+  "schemaVersion": "figure-migration-registry-archive-v1",
+  "archivedFrom": "e478434225e07843ae2428c38dd8c1baa5ac82e4",
+  "path": "contract/brand-v2-registries.json",
+  "section": "interactive",
+  "sources": [
+    {
+      "id": "interactive:CollaborativeOperationModes",
+      "component": "CollaborativeOperationModes",
+      "sourcePath": "components/interactive/collaborative-operation-modes.tsx",
+      "cases": [
+        {
+          "id": "default",
+          "kind": "default"
+        },
+        {
+          "id": "focus-each-control",
+          "kind": "focus",
+          "selector": "button, input, select, summary, [tabindex]",
+          "expectedEnumeration": "every rendered enabled control independently"
+        },
+        {
+          "id": "meaningful-hover",
+          "kind": "hover",
+          "selector": "button:not(:disabled)",
+          "expectedEnumeration": "every rendered button with a hover treatment"
+        },
+        {
+          "id": "slider-boundaries-and-anchors",
+          "kind": "slider-boundaries",
+          "selector": "input[type=\"range\"]",
+          "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+        },
+        {
+          "id": "discrete-options",
+          "kind": "discrete-options",
+          "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+          "expectedEnumeration": "every rendered discrete option independently"
+        },
+        {
+          "id": "reset",
+          "kind": "reset"
+        },
+        {
+          "id": "pairwise-independent-controls",
+          "kind": "pairwise",
+          "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
+        },
+        {
+          "id": "loading-not-applicable",
+          "kind": "exception",
+          "notApplicableReason": "Source does not implement a loading state."
+        },
+        {
+          "id": "error-witness",
+          "kind": "discrete-options",
+          "expectedEnumeration": "one deterministic implemented error witness"
+        },
+        {
+          "id": "empty-not-applicable",
+          "kind": "exception",
+          "notApplicableReason": "Source does not implement a empty state."
+        },
+        {
+          "id": "unavailable-not-applicable",
+          "kind": "exception",
+          "notApplicableReason": "Source does not implement a unavailable state."
+        }
+      ],
+      "expectedCaseCount": 11,
+      "fingerprint": "a970761c6eda3429699b86c4a5c0ccc9eaaaa690aa430e3a1d03fa9643713e9a"
+    },
+    {
+      "id": "interactive:RewardShaping",
+      "component": "RewardShaping",
+      "sourcePath": "components/interactive/reward-shaping.tsx",
+      "cases": [
+        {
+          "id": "default",
+          "kind": "default"
+        },
+        {
+          "id": "focus-each-control",
+          "kind": "focus",
+          "selector": "button, input, select, summary, [tabindex]",
+          "expectedEnumeration": "every rendered enabled control independently"
+        },
+        {
+          "id": "meaningful-hover",
+          "kind": "hover",
+          "selector": "button:not(:disabled)",
+          "expectedEnumeration": "every rendered button with a hover treatment"
+        },
+        {
+          "id": "slider-boundaries-and-anchors",
+          "kind": "slider-boundaries",
+          "selector": "input[type=\"range\"]",
+          "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+        },
+        {
+          "id": "reset",
+          "kind": "reset"
+        },
+        {
+          "id": "loading-not-applicable",
+          "kind": "exception",
+          "notApplicableReason": "Source does not implement a loading state."
+        },
+        {
+          "id": "error-not-applicable",
+          "kind": "exception",
+          "notApplicableReason": "Source does not implement a error state."
+        },
+        {
+          "id": "empty-witness",
+          "kind": "discrete-options",
+          "expectedEnumeration": "one deterministic implemented empty witness"
+        },
+        {
+          "id": "unavailable-not-applicable",
+          "kind": "exception",
+          "notApplicableReason": "Source does not implement a unavailable state."
+        }
+      ],
+      "expectedCaseCount": 9,
+      "fingerprint": "80d52bbcc4462bed31d00fe96ba86c74ca4c8a82f56694d98c403948153412e1"
+    },
+    {
+      "id": "interactive:ReliabilityCompounding",
+      "component": "ReliabilityCompounding",
+      "sourcePath": "components/interactive/reliability-compounding.tsx",
+      "cases": [
+        {
+          "id": "default",
+          "kind": "default"
+        },
+        {
+          "id": "focus-each-control",
+          "kind": "focus",
+          "selector": "button, input, select, summary, [tabindex]",
+          "expectedEnumeration": "every rendered enabled control independently"
+        },
+        {
+          "id": "meaningful-hover",
+          "kind": "hover",
+          "selector": "button:not(:disabled)",
+          "expectedEnumeration": "every rendered button with a hover treatment"
+        },
+        {
+          "id": "slider-boundaries-and-anchors",
+          "kind": "slider-boundaries",
+          "selector": "input[type=\"range\"]",
+          "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+        },
+        {
+          "id": "reset",
+          "kind": "reset"
+        },
+        {
+          "id": "loading-not-applicable",
+          "kind": "exception",
+          "notApplicableReason": "Source does not implement a loading state."
+        },
+        {
+          "id": "error-witness",
+          "kind": "discrete-options",
+          "expectedEnumeration": "one deterministic implemented error witness"
+        },
+        {
+          "id": "empty-not-applicable",
+          "kind": "exception",
+          "notApplicableReason": "Source does not implement a empty state."
+        },
+        {
+          "id": "unavailable-not-applicable",
+          "kind": "exception",
+          "notApplicableReason": "Source does not implement a unavailable state."
+        }
+      ],
+      "expectedCaseCount": 9,
+      "fingerprint": "86c352301d888ebc0e664cec0b511530325d2d275f87fc08b7872cb6fa6acd01"
+    }
+  ],
+  "mounts": [
+    {
+      "id": "mount:/data-hardware/data-bottleneck/:DataScaleChart:1",
+      "sourceId": "interactive:DataScaleChart",
+      "route": "/data-hardware/data-bottleneck/",
+      "ownerPath": "content/data-hardware/data-bottleneck.mdx",
+      "ordinal": 1,
+      "props": "className=\"my-6\" /",
+      "containers": [],
+      "cases": [
+        {
+          "id": "default",
+          "kind": "default"
+        },
+        {
+          "id": "focus-each-control",
+          "kind": "focus",
+          "selector": "button, input, select, summary, [tabindex]",
+          "expectedEnumeration": "every rendered enabled control independently"
+        },
+        {
+          "id": "meaningful-hover",
+          "kind": "hover",
+          "selector": "button:not(:disabled)",
+          "expectedEnumeration": "every rendered button with a hover treatment"
+        },
+        {
+          "id": "slider-boundaries-and-anchors",
+          "kind": "slider-boundaries",
+          "selector": "input[type=\"range\"]",
+          "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+        },
+        {
+          "id": "discrete-options",
+          "kind": "discrete-options",
+          "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+          "expectedEnumeration": "every rendered discrete option independently"
+        },
+        {
+          "id": "reset",
+          "kind": "reset"
+        },
+        {
+          "id": "pairwise-independent-controls",
+          "kind": "pairwise",
+          "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
+        },
+        {
+          "id": "loading-not-applicable",
+          "kind": "exception",
+          "notApplicableReason": "Source does not implement a loading state."
+        },
+        {
+          "id": "error-not-applicable",
+          "kind": "exception",
+          "notApplicableReason": "Source does not implement a error state."
+        },
+        {
+          "id": "empty-witness",
+          "kind": "discrete-options",
+          "expectedEnumeration": "one deterministic implemented empty witness"
+        },
+        {
+          "id": "unavailable-not-applicable",
+          "kind": "exception",
+          "notApplicableReason": "Source does not implement a unavailable state."
+        }
+      ],
+      "expectedCaseCount": 11,
+      "fingerprint": "658414b521ef923cbadc0fed2dabab6c069277d1d0f1f30e94b53d2c2b62c7fb"
+    },
+    {
+      "id": "mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:1",
+      "sourceId": "interactive:ReliabilityCompounding",
+      "route": "/data-hardware/evaluation-crisis/",
+      "ownerPath": "content/data-hardware/evaluation-crisis.mdx",
+      "ordinal": 1,
+      "props": "minPerStepPercent={0} maxPerStepPercent={100} descriptionVariant=\"evaluation\" className=\"my-6\" /",
+      "containers": [],
+      "cases": [
+        {
+          "id": "default",
+          "kind": "default"
+        },
+        {
+          "id": "focus-each-control",
+          "kind": "focus",
+          "selector": "button, input, select, summary, [tabindex]",
+          "expectedEnumeration": "every rendered enabled control independently"
+        },
+        {
+          "id": "meaningful-hover",
+          "kind": "hover",
+          "selector": "button:not(:disabled)",
+          "expectedEnumeration": "every rendered button with a hover treatment"
+        },
+        {
+          "id": "slider-boundaries-and-anchors",
+          "kind": "slider-boundaries",
+          "selector": "input[type=\"range\"]",
+          "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+        },
+        {
+          "id": "reset",
+          "kind": "reset"
+        },
+        {
+          "id": "loading-not-applicable",
+          "kind": "exception",
+          "notApplicableReason": "Source does not implement a loading state."
+        },
+        {
+          "id": "error-witness",
+          "kind": "discrete-options",
+          "expectedEnumeration": "one deterministic implemented error witness"
+        },
+        {
+          "id": "empty-not-applicable",
+          "kind": "exception",
+          "notApplicableReason": "Source does not implement a empty state."
+        },
+        {
+          "id": "unavailable-not-applicable",
+          "kind": "exception",
+          "notApplicableReason": "Source does not implement a unavailable state."
+        }
+      ],
+      "expectedCaseCount": 9,
+      "fingerprint": "8e3883b2e2af605df627ca49399aa65a99790a91e1470ef74d40ea0497db53e2"
+    },
+    {
+      "id": "mount:/frontier/safety-and-assurance/:CollaborativeOperationModes:1",
+      "sourceId": "interactive:CollaborativeOperationModes",
+      "route": "/frontier/safety-and-assurance/",
+      "ownerPath": "content/frontier/safety-and-assurance.mdx",
+      "ordinal": 1,
+      "props": "className=\"my-6\" /",
+      "containers": [],
+      "cases": [
+        {
+          "id": "default",
+          "kind": "default"
+        },
+        {
+          "id": "focus-each-control",
+          "kind": "focus",
+          "selector": "button, input, select, summary, [tabindex]",
+          "expectedEnumeration": "every rendered enabled control independently"
+        },
+        {
+          "id": "meaningful-hover",
+          "kind": "hover",
+          "selector": "button:not(:disabled)",
+          "expectedEnumeration": "every rendered button with a hover treatment"
+        },
+        {
+          "id": "slider-boundaries-and-anchors",
+          "kind": "slider-boundaries",
+          "selector": "input[type=\"range\"]",
+          "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+        },
+        {
+          "id": "discrete-options",
+          "kind": "discrete-options",
+          "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+          "expectedEnumeration": "every rendered discrete option independently"
+        },
+        {
+          "id": "reset",
+          "kind": "reset"
+        },
+        {
+          "id": "pairwise-independent-controls",
+          "kind": "pairwise",
+          "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
+        },
+        {
+          "id": "loading-not-applicable",
+          "kind": "exception",
+          "notApplicableReason": "Source does not implement a loading state."
+        },
+        {
+          "id": "error-witness",
+          "kind": "discrete-options",
+          "expectedEnumeration": "one deterministic implemented error witness"
+        },
+        {
+          "id": "empty-not-applicable",
+          "kind": "exception",
+          "notApplicableReason": "Source does not implement a empty state."
+        },
+        {
+          "id": "unavailable-not-applicable",
+          "kind": "exception",
+          "notApplicableReason": "Source does not implement a unavailable state."
+        }
+      ],
+      "expectedCaseCount": 11,
+      "fingerprint": "f79f3755bcefab0916a124a0a27d05b872a64d652ea2b292b6c965cf6a8ec481"
+    },
+    {
+      "id": "mount:/rl-sim2real/reward-design-mpc/:RewardShaping:1",
+      "sourceId": "interactive:RewardShaping",
+      "route": "/rl-sim2real/reward-design-mpc/",
+      "ownerPath": "content/rl-sim2real/reward-design-mpc.mdx",
+      "ordinal": 1,
+      "props": "className=\"my-6\" /",
+      "containers": [],
+      "cases": [
+        {
+          "id": "default",
+          "kind": "default"
+        },
+        {
+          "id": "focus-each-control",
+          "kind": "focus",
+          "selector": "button, input, select, summary, [tabindex]",
+          "expectedEnumeration": "every rendered enabled control independently"
+        },
+        {
+          "id": "meaningful-hover",
+          "kind": "hover",
+          "selector": "button:not(:disabled)",
+          "expectedEnumeration": "every rendered button with a hover treatment"
+        },
+        {
+          "id": "slider-boundaries-and-anchors",
+          "kind": "slider-boundaries",
+          "selector": "input[type=\"range\"]",
+          "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+        },
+        {
+          "id": "reset",
+          "kind": "reset"
+        },
+        {
+          "id": "loading-not-applicable",
+          "kind": "exception",
+          "notApplicableReason": "Source does not implement a loading state."
+        },
+        {
+          "id": "error-not-applicable",
+          "kind": "exception",
+          "notApplicableReason": "Source does not implement a error state."
+        },
+        {
+          "id": "empty-witness",
+          "kind": "discrete-options",
+          "expectedEnumeration": "one deterministic implemented empty witness"
+        },
+        {
+          "id": "unavailable-not-applicable",
+          "kind": "exception",
+          "notApplicableReason": "Source does not implement a unavailable state."
+        }
+      ],
+      "expectedCaseCount": 9,
+      "fingerprint": "85b61c87055b332c1cec37c8c66344c5328df9a55b1598943ee1409d965107bd"
+    },
+    {
+      "id": "mount:/data-hardware/data-bottleneck/:DataScaleChart:2",
+      "sourceId": "interactive:DataScaleChart",
+      "route": "/data-hardware/data-bottleneck/",
+      "ownerPath": "content/data-hardware/data-bottleneck.mdx",
+      "ordinal": 2,
+      "props": "defaultRigs={10} defaultRate=\"droid-measured\" className=\"mt-3\" /",
+      "containers": [
+        {
+          "component": "PredictThenReveal",
+          "sourcePath": "components/article/commit-to-reveal.tsx",
+          "controlKinds": [
+            "discrete-options"
+          ]
+        }
+      ],
+      "cases": [
+        {
+          "id": "default",
+          "kind": "default"
+        },
+        {
+          "id": "focus-each-control",
+          "kind": "focus",
+          "selector": "button, input, select, summary, [tabindex]",
+          "expectedEnumeration": "every rendered enabled control independently"
+        },
+        {
+          "id": "meaningful-hover",
+          "kind": "hover",
+          "selector": "button:not(:disabled)",
+          "expectedEnumeration": "every rendered button with a hover treatment"
+        },
+        {
+          "id": "slider-boundaries-and-anchors",
+          "kind": "slider-boundaries",
+          "selector": "input[type=\"range\"]",
+          "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+        },
+        {
+          "id": "discrete-options",
+          "kind": "discrete-options",
+          "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+          "expectedEnumeration": "every rendered discrete option independently"
+        },
+        {
+          "id": "reset",
+          "kind": "reset"
+        },
+        {
+          "id": "pairwise-independent-controls",
+          "kind": "pairwise",
+          "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
+        },
+        {
+          "id": "loading-not-applicable",
+          "kind": "exception",
+          "notApplicableReason": "Source does not implement a loading state."
+        },
+        {
+          "id": "error-not-applicable",
+          "kind": "exception",
+          "notApplicableReason": "Source does not implement a error state."
+        },
+        {
+          "id": "empty-witness",
+          "kind": "discrete-options",
+          "expectedEnumeration": "one deterministic implemented empty witness"
+        },
+        {
+          "id": "unavailable-not-applicable",
+          "kind": "exception",
+          "notApplicableReason": "Source does not implement a unavailable state."
+        }
+      ],
+      "expectedCaseCount": 11,
+      "fingerprint": "0b9c760664d3f71e6a1bb956bf23da75b2b16e615ca38327a1e4e1d170a8971a"
+    },
+    {
+      "id": "mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:2",
+      "sourceId": "interactive:ReliabilityCompounding",
+      "route": "/data-hardware/evaluation-crisis/",
+      "ownerPath": "content/data-hardware/evaluation-crisis.mdx",
+      "ordinal": 2,
+      "props": "defaultPerStep={0.95} defaultSteps={14} descriptionVariant=\"prediction\" className=\"mt-3\" /",
+      "containers": [
+        {
+          "component": "PredictThenReveal",
+          "sourcePath": "components/article/commit-to-reveal.tsx",
+          "controlKinds": [
+            "discrete-options"
+          ]
+        }
+      ],
+      "cases": [
+        {
+          "id": "default",
+          "kind": "default"
+        },
+        {
+          "id": "focus-each-control",
+          "kind": "focus",
+          "selector": "button, input, select, summary, [tabindex]",
+          "expectedEnumeration": "every rendered enabled control independently"
+        },
+        {
+          "id": "meaningful-hover",
+          "kind": "hover",
+          "selector": "button:not(:disabled)",
+          "expectedEnumeration": "every rendered button with a hover treatment"
+        },
+        {
+          "id": "slider-boundaries-and-anchors",
+          "kind": "slider-boundaries",
+          "selector": "input[type=\"range\"]",
+          "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+        },
+        {
+          "id": "reset",
+          "kind": "reset"
+        },
+        {
+          "id": "loading-not-applicable",
+          "kind": "exception",
+          "notApplicableReason": "Source does not implement a loading state."
+        },
+        {
+          "id": "error-witness",
+          "kind": "discrete-options",
+          "expectedEnumeration": "one deterministic implemented error witness"
+        },
+        {
+          "id": "empty-not-applicable",
+          "kind": "exception",
+          "notApplicableReason": "Source does not implement a empty state."
+        },
+        {
+          "id": "unavailable-not-applicable",
+          "kind": "exception",
+          "notApplicableReason": "Source does not implement a unavailable state."
+        }
+      ],
+      "expectedCaseCount": 9,
+      "fingerprint": "6eeebffc2550b50513448e36e7d1bc08c503904013018922531a35575a16f34a"
+    },
+    {
+      "id": "mount:/rl-sim2real/legged-locomotion/:GaitDiagram:1",
+      "sourceId": "interactive:GaitDiagram",
+      "route": "/rl-sim2real/legged-locomotion/",
+      "ownerPath": "content/rl-sim2real/legged-locomotion.mdx",
+      "ordinal": 1,
+      "props": "className=\"my-6\" /",
+      "containers": [],
+      "cases": [
+        {
+          "id": "default",
+          "kind": "default"
+        },
+        {
+          "id": "focus-each-control",
+          "kind": "focus",
+          "selector": "button, input, select, summary, [tabindex]",
+          "expectedEnumeration": "every rendered enabled control independently"
+        },
+        {
+          "id": "meaningful-hover",
+          "kind": "hover",
+          "selector": "button:not(:disabled)",
+          "expectedEnumeration": "every rendered button with a hover treatment"
+        },
+        {
+          "id": "slider-boundaries-and-anchors",
+          "kind": "slider-boundaries",
+          "selector": "input[type=\"range\"]",
+          "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+        },
+        {
+          "id": "discrete-options",
+          "kind": "discrete-options",
+          "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+          "expectedEnumeration": "every rendered discrete option independently"
+        },
+        {
+          "id": "reset",
+          "kind": "reset"
+        },
+        {
+          "id": "pairwise-independent-controls",
+          "kind": "pairwise",
+          "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
+        },
+        {
+          "id": "loading-not-applicable",
+          "kind": "exception",
+          "notApplicableReason": "Source does not implement a loading state."
+        },
+        {
+          "id": "error-not-applicable",
+          "kind": "exception",
+          "notApplicableReason": "Source does not implement a error state."
+        },
+        {
+          "id": "empty-not-applicable",
+          "kind": "exception",
+          "notApplicableReason": "Source does not implement a empty state."
+        },
+        {
+          "id": "unavailable-not-applicable",
+          "kind": "exception",
+          "notApplicableReason": "Source does not implement a unavailable state."
+        }
+      ],
+      "expectedCaseCount": 11,
+      "fingerprint": "05e66f318e7af25723773c9a3f5e0ea7bee314719d9e362ac3368b98ebef0aca"
+    },
+    {
+      "id": "mount:/rl-sim2real/parallel-sim-rl/:TrainingTimeChart:1",
+      "sourceId": "interactive:TrainingTimeChart",
+      "route": "/rl-sim2real/parallel-sim-rl/",
+      "ownerPath": "content/rl-sim2real/parallel-sim-rl.mdx",
+      "ordinal": 1,
+      "props": "className=\"my-6\" /",
+      "containers": [],
+      "cases": [
+        {
+          "id": "default",
+          "kind": "default"
+        },
+        {
+          "id": "focus-each-control",
+          "kind": "focus",
+          "selector": "button, input, select, summary, [tabindex]",
+          "expectedEnumeration": "every rendered enabled control independently"
+        },
+        {
+          "id": "meaningful-hover",
+          "kind": "hover",
+          "selector": "button:not(:disabled)",
+          "expectedEnumeration": "every rendered button with a hover treatment"
+        },
+        {
+          "id": "slider-boundaries-and-anchors",
+          "kind": "slider-boundaries",
+          "selector": "input[type=\"range\"]",
+          "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+        },
+        {
+          "id": "discrete-options",
+          "kind": "discrete-options",
+          "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+          "expectedEnumeration": "every rendered discrete option independently"
+        },
+        {
+          "id": "reset",
+          "kind": "reset"
+        },
+        {
+          "id": "pairwise-independent-controls",
+          "kind": "pairwise",
+          "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
+        },
+        {
+          "id": "loading-not-applicable",
+          "kind": "exception",
+          "notApplicableReason": "Source does not implement a loading state."
+        },
+        {
+          "id": "error-witness",
+          "kind": "discrete-options",
+          "expectedEnumeration": "one deterministic implemented error witness"
+        },
+        {
+          "id": "empty-not-applicable",
+          "kind": "exception",
+          "notApplicableReason": "Source does not implement a empty state."
+        },
+        {
+          "id": "unavailable-not-applicable",
+          "kind": "exception",
+          "notApplicableReason": "Source does not implement a unavailable state."
+        }
+      ],
+      "expectedCaseCount": 11,
+      "fingerprint": "0fec34a5ff7cb2235fc5a1d1806b16e8a20bef2096f14b53d0e048c801346898"
+    },
+    {
+      "id": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:2",
+      "sourceId": "interactive:FrictionTransfer",
+      "route": "/rl-sim2real/sim2real-transfer/",
+      "ownerPath": "content/rl-sim2real/sim2real-transfer.mdx",
+      "ordinal": 2,
+      "props": "defaultRange={0.65} className=\"mt-3\" /",
+      "containers": [
+        {
+          "component": "PredictThenReveal",
+          "sourcePath": "components/article/commit-to-reveal.tsx",
+          "controlKinds": [
+            "discrete-options"
+          ]
+        }
+      ],
+      "cases": [
+        {
+          "id": "default",
+          "kind": "default"
+        },
+        {
+          "id": "focus-each-control",
+          "kind": "focus",
+          "selector": "button, input, select, summary, [tabindex]",
+          "expectedEnumeration": "every rendered enabled control independently"
+        },
+        {
+          "id": "meaningful-hover",
+          "kind": "hover",
+          "selector": "button:not(:disabled)",
+          "expectedEnumeration": "every rendered button with a hover treatment"
+        },
+        {
+          "id": "slider-boundaries-and-anchors",
+          "kind": "slider-boundaries",
+          "selector": "input[type=\"range\"]",
+          "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+        },
+        {
+          "id": "reset",
+          "kind": "reset"
+        },
+        {
+          "id": "loading-not-applicable",
+          "kind": "exception",
+          "notApplicableReason": "Source does not implement a loading state."
+        },
+        {
+          "id": "error-not-applicable",
+          "kind": "exception",
+          "notApplicableReason": "Source does not implement a error state."
+        },
+        {
+          "id": "empty-not-applicable",
+          "kind": "exception",
+          "notApplicableReason": "Source does not implement a empty state."
+        },
+        {
+          "id": "unavailable-not-applicable",
+          "kind": "exception",
+          "notApplicableReason": "Source does not implement a unavailable state."
+        }
+      ],
+      "expectedCaseCount": 9,
+      "fingerprint": "d4857020441db6a9a5c8bf477e298ed39ec90968a1d4a1ce49cc5a18ac4b6e46"
+    }
+  ]
+}

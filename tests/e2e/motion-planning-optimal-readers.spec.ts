@@ -150,7 +150,7 @@ test('optimal corrections retain qualifications, three repaired display blocks a
   const repaired = [
     String.raw`r_n = \min\!\left\{\eta,\; \gamma\left(\frac{\log n}{n}\right)^{1/d}\right\},`,
     String.raw`\mathbb{P}\!\left(\lim_{n\to\infty}c_n=c^*\right)=1.`,
-    String.raw`\widehat{X}_f=\left\{x:\lVert x-x_{start}\rVert_2+\lVert x-x_{goal}\rVert_2\leq c_{best}\right\}.`,
+    String.raw`\hat{X}_f=\left\{x:\lVert x-x_{start}\rVert_2+\lVert x-x_{goal}\rVert_2\leq c_{best}\right\}.`,
   ];
   for (const [index, expected] of repaired.entries()) await expect(displays.nth(index + 2).locator('annotation')).toHaveText(expected);
   for (let index = 0; index < await displays.count(); index++) {
@@ -247,7 +247,7 @@ test('actual RRT controls, disclosure and compact navigation remain keyboard ope
     await page.keyboard.press('Tab'); await expect(close).toBeFocused(); await e.capture('mobile-drawer');
     await page.keyboard.press('Escape'); await expect(dialog).toHaveCount(0); await expect(menu).toBeFocused();
   }
-  const scene = page.getByTestId('rrt-scene'), container = scene.locator('..'), slider = page.getByRole('slider', { name: /exploration iteration/i });
+  const scene = page.getByTestId('rrt-scene'), container = scene.locator('xpath=ancestor::*[@data-brand-module-signature="instrument-frame"][1]'), slider = page.getByRole('slider', { name: /exploration iteration/i });
   await expect(container.getByRole('slider')).toHaveCount(1); await expect(container.getByRole('button')).toHaveCount(3);
   await expect(container.getByRole('radio')).toHaveCount(0); await expect(container.getByRole('tab')).toHaveCount(0);
   await e.textCapture(container, 'rrt-default');

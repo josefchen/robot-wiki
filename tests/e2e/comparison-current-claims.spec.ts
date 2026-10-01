@@ -44,6 +44,10 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     await expect(row.locator('[data-method-source-id="pi07-2026"]')).toBeFocused();
     await page.screenshot({ path: info.outputPath('source-links.png') });
     await page.getByRole('button', { name: 'Reset', exact: true }).click();
+    // The click leaves the pointer where Reset was; once focusing a citation
+    // scrolls the page, that pointer can hover another citation and open a
+    // second tooltip.
+    await page.mouse.move(0, 0);
     await expect(table.locator('tbody tr')).toHaveCount(18);
     await expect(table.getByRole('columnheader', { name: /Year/ })).toHaveAttribute('aria-sort', 'ascending');
 

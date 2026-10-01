@@ -549,15 +549,15 @@ test.describe('brand-v2 dense surfaces on the sample module', () => {
     await setSlider(slider, Number(await slider.getAttribute('max')));
     await expect.poll(async () => text(decisions)).not.toBe(initialDecisions);
 
-    // The article mounts the latency interactive twice, so the slider, the
-    // readout and the reset all have to be taken from ONE surface: driving a
-    // control in one mount and reading the other would pass whatever either
-    // does. The first mount opens at zero delay, where the readout still has
-    // room to move; the second opens already saturated.
+    // The slider, the readout and the reset all have to be taken from the
+    // latency figure's own frame: driving a control found elsewhere on the
+    // page and reading this readout would pass whatever either does. The
+    // controls sit in the frame, outside its stage, and the figure opens at
+    // zero delay, where the readout still has room to move.
     const latencyMount = page
-      .locator('[data-brand-surface-id]')
-      .filter({ has: page.getByTestId('te-throughput-readout') })
-      .first();
+      .getByTestId('te-throughput-readout')
+      .first()
+      .locator('xpath=ancestor::*[@data-figure-frame][1]');
     const throughput = latencyMount.getByTestId('te-throughput-readout');
     const initialThroughput = await text(throughput);
     expect(initialThroughput.length).toBeGreaterThan(0);

@@ -369,8 +369,8 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
   'interactive:DataScaleChart': {
     // Published robot-hours and token counts plus a teleop-farm projection
     // the reader drives; the projection is the authored part. No lead
-    // series: the component is audit-frozen (see STATUS_LABEL_EXCEPTIONS)
-    // and ships no data-series marks.
+    // series: robot data, human video, LLM corpora and the farm projection
+    // are four peer series.
     kind: 'authored-model',
   },
   'interactive:DeploymentEconomics': {
@@ -395,8 +395,8 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
   'interactive:FrictionTransfer': {
     // Deterministic transfer model over a trained-mu policy sweep. The
     // rendered takeaway self-labels ("Authored toy, not measured robot
-    // data"), so VIZ-006 holds; no lead series is registered because the
-    // component is audit-frozen and ships no data-series marks.
+    // data"), so VIZ-006 holds. Both success curves share the value role,
+    // so no single lead series is registered.
     kind: 'authored-model',
   },
   'interactive:GaitDiagram': {
@@ -439,7 +439,7 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
     kind: 'authored-model',
   },
   'interactive:TeacherStudent': {
-    // "Authored illustration motivated by input mismatch".
+    // The caption self-labels ("In this authored toy").
     kind: 'authored-model',
   },
   'interactive:TrainingTimeChart': {

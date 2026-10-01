@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto';
 import { committedSource, CONTINUATION_CHECKPOINT, preservedApprovalPacket, preservedCompoundPacket } from '../helpers/continuation-integration';
 import { headReanchorFor } from './helpers/continuation-merge-ledger';
+import { preFigureMigration } from '../helpers/figure-migration';
 import { planPacket, preservedLegacySurvivors } from '../helpers/audit-plan-history';
 import type { LocalPlan } from '../../lib/audit-local-basis';
 import { readFileSync } from 'node:fs';
@@ -311,16 +312,29 @@ describe('four bounded local truth repairs without completion credit', { timeout
         (entry) => entry.manifest === delta.manifest && entry.memberId === delta.memberId,
       );
       expect(delta.oldHash).toBe(prior?.newHash);
-      const currentSource = read(path);
-      const currentValue: ManifestInput['value'] = delta.manifest === 'prose'
-        ? { path, body: matter(currentSource).content.trim() }
-        : { path, source: currentSource };
+      const memberHash = (text: string) => buildManifest(delta.manifest, [{
+        id: delta.memberId,
+        value: delta.manifest === 'prose' ? { path, body: matter(text).content.trim() } : { path, source: text },
+      }]).members[0].hash;
       const merged = headReanchorFor(entries, delta.manifest, delta.memberId);
       const restore = restores.find((entry) => entry.memberId === delta.memberId);
       if (restore) expect(restore.oldHash).toBe(merged!.newHash);
-      expect(restore?.newHash ?? merged?.newHash ?? delta.newHash).toBe(buildManifest(delta.manifest, [
-        { id: delta.memberId, value: currentValue },
-      ]).members[0].hash);
+      // The reviewed pre-migration bytes sit at the prior endpoint. A body the
+      // 2026-10-01 figure migration changed continues with exactly one plain
+      // edge from there, because the article-truth gate grades bodies. That
+      // gate does not grade interactive sources; for them the figure-migration
+      // review alone binds the live bytes to the endpoint bytes.
+      const endpoint = restore?.newHash ?? merged?.newHash ?? delta.newHash;
+      const reviewedSource = preFigureMigration(path).toString('utf8');
+      expect(endpoint).toBe(memberHash(reviewedSource));
+      const migrated = entries.filter((entry) => entry.manifest === delta.manifest &&
+        entry.memberId === delta.memberId && entry.oldHash === endpoint && /figure-migration-20261001-/.test(entry.id));
+      if (delta.manifest === 'prose') {
+        expect(migrated).toHaveLength(reviewedSource === read(path) ? 0 : 1);
+        expect(migrated[0]?.newHash ?? endpoint).toBe(memberHash(read(path)));
+      } else {
+        expect(migrated).toHaveLength(0);
+      }
       if (delta.manifest === 'prose') {
         expect(delta.newHash).not.toBe(buildManifest('prose', [{
           id: delta.memberId, value: { path, body: matter(source).content },

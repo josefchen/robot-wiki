@@ -17,15 +17,15 @@
     "article": "control",
     "element": "PendulumController",
     "occurrence": 2,
-    "decision": "keep",
+    "decision": "remove",
     "teachingGoal": "Test the prediction prompt at its separate initial proportional gain.",
-    "reason": "The second mount has a different initial condition and must keep that independent reader-driven control path."
+    "reason": "The page drew the pendulum twice; the standalone default-gain copy was deleted, and the Kp 9.5 mount inside the prediction step is now the single lab of the first row."
   },
   {
     "article": "control",
     "element": "PredictThenReveal",
     "decision": "keep",
-    "teachingGoal": "Ask the reader to predict the threshold behavior before revealing the second pendulum lab.",
+    "teachingGoal": "Ask the reader to predict the threshold behavior before revealing the pendulum lab.",
     "reason": "Its disclosure is a decision point, not a timeline, and replacing it would erase the answer-before-observation exercise."
   },
   {
@@ -54,15 +54,14 @@
     "element": "PlanarFkArm",
     "decision": "rethink",
     "teachingGoal": "See how an upstream rotation carries downstream links before using all three joint sliders.",
-    "reason": "Retain the independently controlled arm and put a paused scene-kit chain composition before it."
+    "reason": "Retain the independently controlled arm; the paused chain scene that preceded it drew the same default pose and was removed."
   },
   {
     "article": "kinematics",
     "element": "FkChain",
-    "decision": "add",
-    "sceneId": "fk-chain",
+    "decision": "remove",
     "teachingGoal": "Reveal each link's cumulative angle and indicate the resulting tip position in four beats.",
-    "reason": "The order of transformations is the mechanism, while the original lab remains available for arbitrary poses."
+    "reason": "It drew the arm lab's default 110, -45 and -35 degree pose a second time; the lab reaches every beat from its own sliders, so the scene was deleted."
   },
   {
     "article": "kinematics",
@@ -83,15 +82,14 @@
     "element": "RrtExplorer",
     "decision": "rethink",
     "teachingGoal": "See the accepted tree extend and reveal the first feasible route, then explore each iteration.",
-    "reason": "A paused scene-kit overview precedes the full seeded exploration lab without replacing its exact controls."
+    "reason": "The seeded exploration lab keeps its exact controls; the paused overview scene replayed the same tree and was removed."
   },
   {
     "article": "motion-planning",
     "element": "RrtGrowth",
-    "decision": "add",
-    "sceneId": "rrt-growth",
+    "decision": "remove",
     "teachingGoal": "Distinguish accepted extensions, the wall detour and goal connection from the eventual route.",
-    "reason": "Timed revelation teaches the causal order; the full lab still exposes all accepted iterations."
+    "reason": "It replayed the lab's seeded tree on the same map; Run, Step forward and the slider show every beat, including the goal connection at iteration 288, so the scene was deleted."
   },
   {
     "article": "motion-planning",

@@ -10,6 +10,7 @@ import {
   createLocalArtifactReader, loadLocalBasisContext, localPlanDigest, localPartDigest,
   validateLocalBasisPlan, type LocalPlan, type LocalProof, type LocalBasisContext, type LocalMember,
 } from '../../lib/audit-local-basis.ts';
+import { figureMigrationRegistry } from '../../lib/audit-figure-migration-continuity.ts';
 
 describe('authored-local-basis-v1', () => {
   it('accepts only the exact versioned empty envelope', () => {
@@ -66,8 +67,11 @@ function fixture(mixed = false, model: 'reward' | 'parallel' = 'reward') {
   const componentName = model === 'reward' ? 'RewardShaping' : 'TrainingTimeChart';
   const article = `content/rl-sim2real/${slug}.mdx`;
   const registry = JSON.parse(readFileSync(join(project, 'contract/brand-v2-registries.json'), 'utf8'));
-  const source = registry.interactive.sources.find((s: { id: string }) => s.id === `interactive:${componentName}`);
-  const mounted = registry.interactive.mounts.find((m: { id: string }) => m.id === `mount:/rl-sim2real/${slug}/:${componentName}:1`);
+  // The figure migration retired the TrainingTimeChart mount; plans older than
+  // it read its archived record through the reviewed registry successor.
+  const interactive = figureMigrationRegistry(project, registry.interactive);
+  const source = interactive.sources.find((s: { id: string }) => s.id === `interactive:${componentName}`);
+  const mounted = interactive.mounts.find((m: { id: string }) => m.id === `mount:/rl-sim2real/${slug}/:${componentName}:1`);
   const component = source.sourcePath as string;
   const test = 'tests/unit/audit-local-basis.test.ts';
   const dependencies = [...LOCAL_RECIPE_DEPENDENCIES[model], 'lib/audit-local-basis.ts', component, article, test];
@@ -82,6 +86,8 @@ function fixture(mixed = false, model: 'reward' | 'parallel' = 'reward') {
   const markdown = header + Array.from({ length: ordinal }, (_, i) => row(i === ordinal - 1 ? 'synthetic-local' : '')).join('\n');
   put('audit/fixtures/original.md', markdown);
   put('contract/brand-v2-registries.json', JSON.stringify(registry));
+  for (const path of ['audit/evidence/figure-migration-20261001/registry-transition.json',
+    'audit/evidence/figure-migration-20261001/registry-before.json']) put(path, readFileSync(join(project, path)));
   const plan: LocalPlan = {
     id: 'synthetic-local', kind: 'explicit-parts-v2', originalId: `audit/rl-sim2real.md:${slug}:${ordinal}`,
     ledgerPath: 'audit/rl-sim2real.md', articleSlug: slug, rowOrdinal: ordinal,
@@ -111,7 +117,7 @@ function fixture(mixed = false, model: 'reward' | 'parallel' = 'reward') {
       endedAt: '2026-01-01T00:00:01Z', exitCode: 0, test: ref(test),
       receipt: { path: 'audit/fixtures/run.json', bytes: 1, sha256: '0'.repeat(64) } },
   };
-  const context: LocalBasisContext = { root, registry: registry.interactive,
+  const context: LocalBasisContext = { root, registry: interactive,
     publishedRoutes: [mounted.route], catalog: { schemaVersion: 'authored-local-basis-v1', plans: [plan], proofs: [proof] } };
   const sealRun = (p: LocalProof) => {
     const { receipt: _receipt, ...run } = p.provenance; void _receipt;
@@ -473,6 +479,8 @@ describe('authored-local-basis-v1 compatibility cases', () => {
       'audit/evidence/motion-round6-remaining-repairs-20260929/checker-transition.json',
       'audit/evidence/motion-round6-remaining-repairs-20260929/audit-local-basis-before.ts.txt',
       'audit/evidence/motion-round6-remaining-repairs-20260929/classical-closure-evidence-before.test.ts.txt',
+      'audit/evidence/figure-migration-20261001/checker-transition.json',
+      'audit/evidence/figure-migration-20261001/audit-local-basis-before.ts.txt',
     ]) f.put(path, readFileSync(join(project, path)));
     const bind = (path: string, snapshot: string) => {
       const retained = `audit/evidence/local-proof-compat-20260923/${snapshot}`;
@@ -605,6 +613,15 @@ describe('authored-local-basis-v1 compatibility cases', () => {
     expect(f.validate().failures.join(' ')).toMatch(change === 'missing'
       ? /ENOENT.*motion-round6-remaining-repairs-20260929\/audit-local-basis-before\.ts\.txt/
       : /round6 remaining repairs checker continuity drift/);
+  });
+  it.each(['missing', 'corrupt'] as const)('rejects %s figure migration checker input', change => {
+    const f = historicalFixture();
+    const snapshot = 'audit/evidence/figure-migration-20261001/audit-local-basis-before.ts.txt';
+    if (change === 'missing') rmSync(join(f.root, snapshot));
+    else f.put(snapshot, 'corrupt retained checker');
+    expect(f.validate().failures.join(' ')).toMatch(change === 'missing'
+      ? /figure migration checker continuity drift: ENOENT.*figure-migration-20261001\/audit-local-basis-before\.ts\.txt/
+      : /figure migration checker continuity drift/);
   });
   it.each(['missing', 'corrupt'] as const)('rejects %s article-truth predecessor input', change => {
     const f = historicalFixture();

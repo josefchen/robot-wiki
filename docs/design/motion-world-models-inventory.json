@@ -23,10 +23,9 @@
   {
     "article": "generative-sim",
     "element": "PushLayers",
-    "decision": "add",
-    "sceneId": "push-layers",
+    "decision": "remove",
     "teachingGoal": "Reveal why a renderer cannot answer a push until a physics proxy supplies dynamics.",
-    "reason": "A reader-paced sequence shows one unchanged object before and after the authored solver is enabled."
+    "reason": "Merged into AppearancePhysicsPush (one visual per concept). Its graphite stage draws the same mug, push and collision hull, and the layer toggles reach every former beat."
   },
   {
     "article": "generative-sim",
@@ -70,10 +69,9 @@
   {
     "article": "generative-video",
     "element": "ActionFork",
-    "decision": "add",
-    "sceneId": "action-fork",
+    "decision": "remove",
     "teachingGoal": "Show two toy futures splitting under strong conditioning and collapsing under weak conditioning while realism stays fixed.",
-    "reason": "The same block and gripper keep identity across the fork instead of swapping static filmstrips."
+    "reason": "Merged into ActionConditioning (one visual per concept). Its graphite lanes draw the shared frame and both rollouts, and the conditioning toggle reaches every former beat."
   },
   {
     "article": "generative-video",
@@ -156,10 +154,9 @@
   {
     "article": "latent-dynamics",
     "element": "LatentDrift",
-    "decision": "add",
-    "sceneId": "latent-drift",
+    "decision": "remove",
     "teachingGoal": "Watch a predicted latent depart from a reference as one-step toy error compounds in model time.",
-    "reason": "A single identity-preserving path makes accumulation easier to see than two static plots alone."
+    "reason": "Merged into LatentImagination (one visual per concept). Its graphite rollout draws the imagined path peeling from the true latent, and the horizon slider reaches every former beat."
   },
   {
     "article": "latent-dynamics",

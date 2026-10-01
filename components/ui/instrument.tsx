@@ -1,11 +1,14 @@
 import type {
   ButtonHTMLAttributes,
+  CSSProperties,
   HTMLAttributes,
   LabelHTMLAttributes,
   ReactNode,
   Ref,
   SVGAttributes,
 } from 'react';
+import { CHART_TYPE } from '@/components/motion/chart/chart-tokens';
+import { FigureFrame, type FigureFrameProps } from '@/components/motion/figure-frame';
 import { cx } from '@/lib/utils';
 
 /**
@@ -37,6 +40,21 @@ const INSTRUMENT_CONTROL_BASE =
 export const INSTRUMENT_PRIMARY_CONTROL_CLASS = `${INSTRUMENT_CONTROL_BASE} bg-action px-3 text-on-action hover:bg-graphite`;
 export const INSTRUMENT_SECONDARY_CONTROL_CLASS = `${INSTRUMENT_CONTROL_BASE} justify-self-start bg-transparent px-2 text-text underline decoration-border-strong decoration-1 underline-offset-4 hover:decoration-text disabled:cursor-not-allowed disabled:text-text-dim disabled:no-underline disabled:active:translate-y-0`;
 
+/**
+ * A toggle or one option of a segmented choice. It reads as the secondary
+ * control at rest; the selected option takes the lime selection fill with
+ * ink text and drops its underline, so the state shows in fill and line as
+ * well as colour. Pair it with `aria-pressed` (or `aria-checked` on a
+ * radio) so the selected paint and the announced state never disagree.
+ */
+export const INSTRUMENT_TOGGLE_CLASS = `${INSTRUMENT_CONTROL_BASE} bg-transparent px-2.5 text-text underline decoration-border-strong decoration-1 underline-offset-4 hover:decoration-text aria-pressed:bg-highlight aria-pressed:text-ink aria-pressed:no-underline aria-checked:bg-highlight aria-checked:text-ink aria-checked:no-underline disabled:cursor-not-allowed disabled:text-text-dim disabled:no-underline disabled:active:translate-y-0`;
+
+/**
+ * A labelled slider among the figure controls: the shared scrubber track in
+ * the selection lime, at a 24px target height.
+ */
+export const INSTRUMENT_SLIDER_CLASS = 'block h-6 w-full min-w-40 cursor-pointer accent-highlight';
+
 type InstrumentFrameProps = HTMLAttributes<HTMLDivElement> & {
   children: ReactNode;
 };
@@ -61,6 +79,41 @@ export function InstrumentFrame({
         'rounded-none border border-border bg-surface p-4 text-left text-text sm:p-6',
         className,
       )}
+      {...props}
+    >
+      {children}
+    </div>
+  );
+}
+
+/**
+ * An instrument in the shared figure frame: FigureFrame carrying the
+ * instrument module signature, so the route and state sweeps that select
+ * instruments by it keep finding the same mounts. Header, graphite stage,
+ * one caption and at most one source line; see FigureFrame.
+ */
+export function InstrumentFigure(props: FigureFrameProps) {
+  return (
+    <FigureFrame
+      data-brand-module-signature={INSTRUMENT_SIGNATURE}
+      {...props}
+    />
+  );
+}
+
+/**
+ * One labelled control among the figure controls: a ControlLabel over its
+ * slider or select, sized so a slider keeps a usable track at 375px.
+ */
+export function ControlField({
+  className,
+  children,
+  ...props
+}: HTMLAttributes<HTMLDivElement> & { children: ReactNode }) {
+  return (
+    <div
+      data-figure-control-field=""
+      className={cx('grid min-w-40 flex-1 gap-1 sm:max-w-72', className)}
       {...props}
     >
       {children}
@@ -98,7 +151,7 @@ export function InstrumentHeader({
       {...props}
     >
       {label ? (
-        <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-text-dim">
+        <span className="font-sans text-[13px] text-text-dim">
           {label}
         </span>
       ) : null}
@@ -106,7 +159,7 @@ export function InstrumentHeader({
       {meta ? (
         <span
           data-instrument-meta
-          className="ml-auto font-mono text-[10px] text-text-dim"
+          className="ml-auto font-sans text-[13px] tabular-nums text-text-dim"
         >
           {meta}
         </span>
@@ -135,14 +188,14 @@ export function ControlLabel({
   return (
     <label
       className={cx(
-        'flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim',
+        'flex items-baseline justify-between gap-2 font-sans text-[13px] text-text-dim',
         className,
       )}
       {...props}
     >
       {children}
       {value ? (
-        <span className="whitespace-nowrap font-mono text-xs normal-case tracking-normal text-text">
+        <span className="whitespace-nowrap font-sans text-[13px] tabular-nums text-text">
           {value}
         </span>
       ) : null}
@@ -167,7 +220,8 @@ export function InstrumentReadout({
   return (
     <p
       aria-live="polite"
-      className={cx('mt-3 font-mono text-sm text-text', className)}
+      data-figure-readout=""
+      className={cx('font-sans text-[13px] leading-snug tabular-nums text-text', className)}
       {...props}
     >
       {children}
@@ -193,8 +247,9 @@ export function InstrumentLegend({
   return (
     <div
       data-instrument-legend
+      data-figure-legend=""
       className={cx(
-        'flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[11px] text-text-dim',
+        'flex flex-wrap items-center gap-x-4 gap-y-1 font-sans text-[13px] leading-snug text-text-dim',
         className,
       )}
       {...props}
@@ -275,23 +330,36 @@ type PlotStageProps = SVGAttributes<SVGSVGElement> & {
 };
 
 /**
- * The plot stage: the SVG surface a chart or diagram draws on. It carries
- * the accessible image role; the caller's `aria-label` and
- * `aria-describedby` pass through in their native spelling, so the source
- * keeps the accessible-name expression the sealed baseline records.
- * The geometry inside stays caller-authored next to the data it plots.
+ * The plot stage: the SVG surface a chart or diagram draws on, on the
+ * graphite figure stage. It carries the accessible image role; the caller's
+ * `aria-label` and `aria-describedby` pass through in their native
+ * spelling, so the source keeps the accessible-name expression the sealed
+ * baseline records. The geometry inside stays caller-authored next to the
+ * data it plots.
+ *
+ * It is a stage svg: stage.css paints its text on the shared type scale
+ * (label 14, axis and note 13, tick 12 CSS px at every width), in the
+ * brand sans, against the viewBox width passed through
+ * `--motion-stage-view-width`. Mark text with `data-scene-tick`,
+ * `data-scene-axis`, `data-scene-note` or `data-scene-readout` to take a
+ * role other than the label.
  */
 export function PlotStage({
   viewBox,
   className,
+  style,
   children,
   ...props
 }: PlotStageProps) {
+  const width = Number(viewBox.trim().split(/[\s,]+/)[2]);
   return (
     <svg
       viewBox={viewBox}
       role="img"
-      className={cx('block w-full', className)}
+      data-chart=""
+      className={cx('motion-stage-svg block h-auto w-full', className)}
+      fontFamily={CHART_TYPE.font}
+      style={{ '--motion-stage-view-width': `${width}px`, ...style } as CSSProperties}
       {...props}
     >
       {children}

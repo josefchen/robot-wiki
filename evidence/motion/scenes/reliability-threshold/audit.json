@@ -28,6 +28,12 @@
         "ratio": 12.95,
         "foreground": "rgb(36, 45, 51)",
         "background": "rgb(245, 246, 247)"
+      },
+      {
+        "control": "The Reliability Gap",
+        "ratio": 4.67,
+        "foreground": "rgb(36, 95, 255)",
+        "background": "rgb(245, 246, 247)"
       }
     ],
     "lowContrast": []
@@ -60,6 +66,12 @@
         "control": "Reset the scene to its poster still",
         "ratio": 12.95,
         "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(245, 246, 247)"
+      },
+      {
+        "control": "The Reliability Gap",
+        "ratio": 4.67,
+        "foreground": "rgb(36, 95, 255)",
         "background": "rgb(245, 246, 247)"
       }
     ],
@@ -100,6 +112,12 @@
         "ratio": 11.83,
         "foreground": "rgb(198, 255, 25)",
         "background": "rgb(36, 45, 51)"
+      },
+      {
+        "control": "The Reliability Gap",
+        "ratio": 4.67,
+        "foreground": "rgb(36, 95, 255)",
+        "background": "rgb(245, 246, 247)"
       }
     ],
     "lowContrast": []
@@ -139,6 +157,12 @@
         "ratio": 11.83,
         "foreground": "rgb(198, 255, 25)",
         "background": "rgb(36, 45, 51)"
+      },
+      {
+        "control": "The Reliability Gap",
+        "ratio": 4.67,
+        "foreground": "rgb(36, 95, 255)",
+        "background": "rgb(245, 246, 247)"
       }
     ],
     "lowContrast": []
@@ -178,6 +202,12 @@
         "ratio": 11.83,
         "foreground": "rgb(198, 255, 25)",
         "background": "rgb(36, 45, 51)"
+      },
+      {
+        "control": "The Reliability Gap",
+        "ratio": 4.67,
+        "foreground": "rgb(36, 95, 255)",
+        "background": "rgb(245, 246, 247)"
       }
     ],
     "lowContrast": []
@@ -217,6 +247,12 @@
         "ratio": 11.83,
         "foreground": "rgb(198, 255, 25)",
         "background": "rgb(36, 45, 51)"
+      },
+      {
+        "control": "The Reliability Gap",
+        "ratio": 4.67,
+        "foreground": "rgb(36, 95, 255)",
+        "background": "rgb(245, 246, 247)"
       }
     ],
     "lowContrast": []
@@ -250,6 +286,12 @@
         "ratio": 12.95,
         "foreground": "rgb(36, 45, 51)",
         "background": "rgb(245, 246, 247)"
+      },
+      {
+        "control": "The Reliability Gap",
+        "ratio": 4.67,
+        "foreground": "rgb(36, 95, 255)",
+        "background": "rgb(245, 246, 247)"
       }
     ],
     "lowContrast": []
@@ -282,6 +324,12 @@
         "control": "Reset the scene to its poster still",
         "ratio": 12.95,
         "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(245, 246, 247)"
+      },
+      {
+        "control": "The Reliability Gap",
+        "ratio": 4.67,
+        "foreground": "rgb(36, 95, 255)",
         "background": "rgb(245, 246, 247)"
       }
     ],
@@ -322,6 +370,12 @@
         "ratio": 11.83,
         "foreground": "rgb(198, 255, 25)",
         "background": "rgb(36, 45, 51)"
+      },
+      {
+        "control": "The Reliability Gap",
+        "ratio": 4.67,
+        "foreground": "rgb(36, 95, 255)",
+        "background": "rgb(245, 246, 247)"
       }
     ],
     "lowContrast": []
@@ -361,6 +415,12 @@
         "ratio": 11.83,
         "foreground": "rgb(198, 255, 25)",
         "background": "rgb(36, 45, 51)"
+      },
+      {
+        "control": "The Reliability Gap",
+        "ratio": 4.67,
+        "foreground": "rgb(36, 95, 255)",
+        "background": "rgb(245, 246, 247)"
       }
     ],
     "lowContrast": []
@@ -400,6 +460,12 @@
         "ratio": 11.83,
         "foreground": "rgb(198, 255, 25)",
         "background": "rgb(36, 45, 51)"
+      },
+      {
+        "control": "The Reliability Gap",
+        "ratio": 4.67,
+        "foreground": "rgb(36, 95, 255)",
+        "background": "rgb(245, 246, 247)"
       }
     ],
     "lowContrast": []
@@ -439,6 +505,12 @@
         "ratio": 11.83,
         "foreground": "rgb(198, 255, 25)",
         "background": "rgb(36, 45, 51)"
+      },
+      {
+        "control": "The Reliability Gap",
+        "ratio": 4.67,
+        "foreground": "rgb(36, 95, 255)",
+        "background": "rgb(245, 246, 247)"
       }
     ],
     "lowContrast": []

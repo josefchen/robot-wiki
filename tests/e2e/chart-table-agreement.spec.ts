@@ -15,6 +15,7 @@ import {
   type SliderInfo,
 } from './helpers/table-agreement';
 import { forEachInOwnContext } from './helpers/per-route-context';
+import { waitForHydration } from './interaction-ready';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
 
 /**
@@ -151,13 +152,13 @@ async function captureCharts(page: import('@playwright/test').Page): Promise<Omi
         const wrapper = d.parentElement!;
         const desc = wrapper.querySelector('[data-chart-description]');
         const descId = desc?.id ?? null;
+        // Small multiples describe each panel group, not the shared svg.
         const svg = descId
-          ? document.querySelector(`svg[aria-describedby="${descId}"]`)
+          ? document.querySelector(`svg[aria-describedby="${descId}"]`) ??
+            document.querySelector(`svg g[aria-describedby="${descId}"]`)?.closest('svg') ??
+            null
           : null;
-        let panel: Element | null = wrapper;
-        while (panel && !/rounded-(?:md|none)/.test(panel.getAttribute('class') ?? '')) {
-          panel = panel.parentElement;
-        }
+        const panel = wrapper.closest('[data-figure-frame]');
         const sliders = Array.from(
           panel?.querySelectorAll<HTMLInputElement>('input[type="range"]') ?? [],
         );
@@ -240,9 +241,12 @@ test('VAL-EDU-023: every table-form disclosure agrees with its chart', async ({ 
       'SampleEfficiencyLedger made it 28; the home SO-101 chain preview made ' +
       'it 29; the home front page, whose only figure is the featured scene, ' +
       'dropped that preview and the home ReliabilityCompounding mount, making ' +
-      'it 27; a change here means a chart was added, removed or re-declared ' +
-      'form)',
-  ).toBe(27);
+      'it 27; one visual per concept dropped the second instance of the seven ' +
+      'table-form charts repeated in their page\'s prediction step (eight ' +
+      'disclosures: LatencyComparison has two) and the GaitDiagram and ' +
+      'TrainingTimeChart mounts, making it 17; a change here means a chart ' +
+      'was added, removed or re-declared form)',
+  ).toBe(17);
 
   // Clause (a): endpoint agreement with rendered tick labels (graded only
   // where the SVG x-axis measures the table's row quantity; recorded
@@ -299,15 +303,22 @@ test('VAL-EDU-023: every table-form disclosure agrees with its chart', async ({ 
   // of the categorical-rows family. The 6 carve-outs: the two
   // realtime-execution ms-vs-model-size axes, the ms-vs-tick-index panel,
   // the SampleEfficiencyLedger categorical-source-rows axis, and the two
-  // categorical data-bottleneck axes.
+  // categorical data-bottleneck axes. Re-measured after one visual per
+  // concept left each chart on its page once (population 17, pinned
+  // above): pass=12 skip=5 fail=0. The 5 carve-outs: the realtime-execution
+  // ms-vs-model-size axis, its ms-vs-tick-index small multiples, the
+  // SampleEfficiencyLedger source rows, the categorical data-bottleneck
+  // datasets, and the categorical EXPO-FT task rows. The floor and the
+  // cap each allow two honest new carve-outs; with the population pinned
+  // they fail together.
   expect(
     aGraded.length,
-    'clause (a) graded population (measured 22 of 28 after the kalman chart gained x tick labels; 18 leaves margin for honest new carve-outs)',
-  ).toBeGreaterThanOrEqual(18);
+    'clause (a) graded population (measured 12 of 17 after one visual per concept; 10 leaves margin for two honest new carve-outs)',
+  ).toBeGreaterThanOrEqual(10);
   expect(
     aSkips.length,
-    'clause (a) skip count (measured 6 honest non-comparable axes; a mass carve-out must fail loudly, not pass silently)',
-  ).toBeLessThanOrEqual(8);
+    'clause (a) skip count (measured 5 honest non-comparable axes; a mass carve-out must fail loudly, not pass silently)',
+  ).toBeLessThanOrEqual(7);
 });
 
 test('VAL-EDU-023 clause (c): control probes move the readout to the sampled rows', async ({ browser }) => {
@@ -335,6 +346,17 @@ test('VAL-EDU-023 clause (c): control probes move the readout to the sampled row
         (inferred.length === 1 ? inferred[0] : null);
       if (!chosen || !chosen.inf) continue;
       const { s, inf } = chosen;
+      // A value set before the island hydrates reaches no onChange
+      // handler, so the readout would still show the default (the
+      // latent-dynamics probe read it that way). Wait on the probed range.
+      await waitForHydration(
+        page
+          .locator('details[data-chart-data][data-chart-form="table"]')
+          .nth(ci)
+          .locator('xpath=ancestor::*[@data-figure-frame][1]')
+          .locator('input[type="range"]')
+          .nth(s.index),
+      );
 
       // Probe EVERY row that lands on the slider grid, not just the first
       // two: a slice(0, 2) never visited the EgoScale 1M row, which is
@@ -349,10 +371,7 @@ test('VAL-EDU-023 clause (c): control probes move the readout to the sampled row
               'details[data-chart-data][data-chart-form="table"]',
             )[chartIdx] as HTMLElement | undefined;
             if (!d) return 'disclosure-missing';
-            let panel: Element | null = d.parentElement;
-            while (panel && !/rounded-(?:md|none)/.test(panel.getAttribute('class') ?? '')) {
-              panel = panel.parentElement;
-            }
+            const panel = d.closest('[data-figure-frame]');
             if (!panel) return 'panel-missing';
             const range = panel.querySelectorAll('input[type="range"]')[sliderIndex] as
               | HTMLInputElement
@@ -418,10 +437,7 @@ test('VAL-EDU-023 clause (c): control probes move the readout to the sampled row
             'details[data-chart-data][data-chart-form="table"]',
           )[chartIdx];
           if (!d) return;
-          let panel: Element | null = d.parentElement;
-          while (panel && !/rounded-(?:md|none)/.test(panel.getAttribute('class') ?? '')) {
-            panel = panel.parentElement;
-          }
+          const panel = d.closest('[data-figure-frame]');
           const range = panel?.querySelectorAll('input[type="range"]')[sliderIndex] as
             | HTMLInputElement
             | undefined;

@@ -130,7 +130,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     await expect(page.getByTestId('perception-target-opaque')).toBeChecked();
     await expect(page.getByTestId('perception-total-readout')).toHaveText(opening);
     await captureText(page.getByTestId('perception-target-note'), 'opaque-reset-note');
-    await captureText(budget.locator('p').last(), 'calculator-reference');
+    await captureText(budget.locator('[data-figure-source]'), 'calculator-reference');
 
     for (const [text, name, checks] of [
       ['The examples below report specifications', 'named-device-introduction', ['named devices', 'universal accuracy or speed ranking']],

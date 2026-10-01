@@ -5,7 +5,9 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { SCENE_TARGETS } from '@/lib/motion-scene-registry';
 import { expectedSceneRole, registeredRoleScenes } from '@/lib/motion-scene-roles';
-import { contactSheetPlan, sceneBundleBudget, verifySceneCaptures } from '../../scripts/motion-convergence';
+import {
+  contactSheetPlan, sceneBundleBudget, sceneSheetDomains, verifySceneCaptures,
+} from '../../scripts/motion-convergence';
 
 const ROOT = join(__dirname, '../..');
 
@@ -15,7 +17,9 @@ describe('site-wide motion convergence', () => {
       .filter((name) => name.endsWith('.tsx'))
       .map((name) => name.slice(0, -4)).sort();
     const ids = SCENE_TARGETS.map((scene) => scene.id);
-    expect(ids.length).toBeGreaterThan(10);
+    // Eight scenes remain once every scene that repeated its page's lab was
+    // deleted; retiring another one is a reviewed change to this floor.
+    expect(ids.length).toBeGreaterThanOrEqual(8);
     expect(new Set(ids).size).toBe(ids.length);
     expect([...ids].sort()).toEqual(files);
     for (const scene of SCENE_TARGETS) {
@@ -23,19 +27,21 @@ describe('site-wide motion convergence', () => {
       expect(source).toContain(`id: '${scene.id}'`);
       expect((source.match(/\bcaption:\s*['`\n]/g) ?? []).length, scene.id).toBe(scene.beats);
       expect(source).toContain('<SceneMount');
-      expect(scene.route).toMatch(/^\/[a-z0-9-/]+\/$/);
+      expect(scene.route).toMatch(/^\/(?:[a-z0-9-/]+\/)?$/);
     }
   });
 
   it('registers role semantics for the whole scene census, with shared quantities aligned', () => {
     expect(registeredRoleScenes().sort()).toEqual(SCENE_TARGETS.map((scene) => scene.id).sort());
     expect(expectedSceneRole('reliability-threshold', 'episode-0')).toBe('value');
-    expect(expectedSceneRole('episode-survival', 'episode-probability')).toBe('value');
-    expect(expectedSceneRole('farm-throughput', 'low-rate-year')).toBe('value');
-    expect(expectedSceneRole('farm-throughput', 'dedicated-year')).toBe('value');
+    // Time that produces work is a value and time spent on cost is a
+    // constraint, in every scene that splits time.
+    expect(expectedSceneRole('batch-scale', 'fixed-budget-time')).toBe('value');
+    expect(expectedSceneRole('jam-overhead', 'productive-time')).toBe('value');
+    expect(expectedSceneRole('batch-scale', 'cpu-cost-time')).toBe('constraint');
     expect(expectedSceneRole('jam-overhead', 'downtime')).toBe('constraint');
-    expect(expectedSceneRole('push-layers', 'displacement')).toBe('state');
-    expect(() => expectedSceneRole('farm-throughput', 'unclassified')).toThrow(/semantic roles/);
+    expect(expectedSceneRole('tactile-slip', 'held-object')).toBe('state');
+    expect(() => expectedSceneRole('jam-overhead', 'unclassified')).toThrow(/semantic roles/);
   });
 
   it('reconciles the six independently reviewed figure inventories with the scene registry', () => {
@@ -71,8 +77,9 @@ describe('site-wide motion convergence', () => {
   it('finds every captured beat and poster with a clean geometry/contrast audit', () => {
     const plans = verifySceneCaptures(ROOT, SCENE_TARGETS);
     expect(plans).toHaveLength(2);
+    const beats = SCENE_TARGETS.reduce((sum, scene) => sum + scene.beats, 0);
     expect(plans.map((plan) => plan.rows.reduce((sum, row) => sum + row.beats, 0)))
-      .toEqual([69, 69]);
+      .toEqual([beats, beats]);
     const evidence = JSON.parse(readFileSync(
       join(ROOT, 'evidence/motion/scenes/site-wide/manifest.json'), 'utf8',
     )) as {
@@ -81,14 +88,19 @@ describe('site-wide motion convergence', () => {
       sheets: string[]; images: { path: string; sha256: string }[];
     };
     expect(evidence.scenes).toBe(SCENE_TARGETS.length);
-    expect(evidence.beatImagesPerViewport).toBe(69);
+    expect(evidence.beatImagesPerViewport).toBe(beats);
     expect(evidence.images.map(({ path }) => path))
       .toEqual(plans.flatMap((plan) => plan.rows.flatMap((row) => row.images)));
     for (const image of evidence.images) {
       expect(image.sha256, image.path).toBe(createHash('sha256')
         .update(readFileSync(join(ROOT, image.path))).digest('hex'));
     }
-    expect(evidence.sheets).toHaveLength(14);
+    // One site-wide sheet per width, plus one per domain that still has a
+    // scene; a domain whose scenes all repeated a lab gets no sheet.
+    expect([...evidence.sheets].sort()).toEqual(['375', '1440'].flatMap((width) => [
+      `${width}-contact-sheet.png`,
+      ...sceneSheetDomains(SCENE_TARGETS).map((domain) => `${width}-${domain}.png`),
+    ]).sort());
     for (const sheet of evidence.sheets) {
       expect(readFileSync(join(ROOT, 'evidence/motion/scenes/site-wide', sheet)).length)
         .toBeGreaterThan(10_000);

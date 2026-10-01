@@ -1,14 +1,30 @@
 'use client';
 
 import { useId, useMemo, useState } from 'react';
-import { ChartDescription } from '@/components/ui';
+import { ChartDescription } from '@/components/ui/chart-description';
 import {
+  ControlField,
   ControlLabel,
-  InstrumentFrame,
+  INSTRUMENT_SLIDER_CLASS,
+  INSTRUMENT_TOGGLE_CLASS,
+  InstrumentFigure,
+  InstrumentLegend,
   InstrumentReadout,
   InstrumentReset,
+  LegendItem,
   PlotStage,
 } from '@/components/ui/instrument';
+import { FigureStage } from '@/components/motion/figure-frame';
+import {
+  ChartAxes,
+  CHART_STROKE,
+  CHART_STRUCTURE,
+  CHART_TYPE,
+  CHART_VIEW_WIDTH,
+  LegendSwatch,
+  linearScale,
+  roleColour,
+} from '@/components/motion/chart';
 import {
   FLOW_MODES,
   MAX_STEPS,
@@ -20,7 +36,6 @@ import {
   integrateFlow,
   vectorFieldAt,
 } from '@/lib/flow-matching';
-import { cx } from '@/lib/utils';
 
 /**
  * FlowMatchingTrajectory: the pi0 action expert's inference pass in a 2D
@@ -33,7 +48,7 @@ import { cx } from '@/lib/utils';
  * learns. The real configurations are preset buttons: pi0 ran 10 steps,
  * pi0.6 and pi0.7 run 5.
  *
- * Interactive contract: deterministic render (fixed seed), visible monospace
+ * Interactive contract: deterministic render (fixed seed), visible
  * readouts, slider plus step presets plus reset, ARIA labels, fixed-height
  * chart (no layout shift), no auto-playing motion (reduced-motion safe by
  * construction).
@@ -44,25 +59,64 @@ type FlowMatchingTrajectoryProps = {
   className?: string;
 };
 
-const WIDTH = 640;
-const HEIGHT = 340;
-const PAD = { top: 18, right: 16, bottom: 30, left: 40 };
+const WIDTH = CHART_VIEW_WIDTH;
+const HEIGHT = 270;
+/** Six by four action units at 50 px each, so both axes share one scale. */
+const PLOT = { left: 30, right: 330, top: 24, bottom: 224 };
 
 /** Action-space view window. */
 const X_RANGE = { min: -3, max: 3 };
 const Y_RANGE = { min: -2, max: 2 };
+const UNIT_PX = (PLOT.right - PLOT.left) / (X_RANGE.max - X_RANGE.min);
 
 const FIELD_COLS = 13;
 const FIELD_ROWS = 9;
 /** Tau at which the marginal vector field is displayed (mid-transport). */
 const FIELD_TAU = 0.5;
 
-const PRESETS: ReadonlyArray<{ steps: number; label: string; note: string }> = [
-  { steps: 1, label: '1 step', note: 'too few' },
-  { steps: PI06_STEPS, label: `${PI06_STEPS} steps`, note: 'π0.6 / π0.7' },
-  { steps: PI0_STEPS, label: `${PI0_STEPS} steps`, note: 'π0' },
-  { steps: MAX_STEPS, label: `${MAX_STEPS} steps`, note: 'unaffordable' },
+const PRESETS: ReadonlyArray<{ steps: number; label: string }> = [
+  { steps: 1, label: '1 step' },
+  { steps: PI06_STEPS, label: `${PI06_STEPS} steps` },
+  { steps: PI0_STEPS, label: `${PI0_STEPS} steps` },
+  { steps: MAX_STEPS, label: `${MAX_STEPS} steps` },
 ];
+
+/**
+ * Where each mode's name sits. The offsets keep the label clear of every
+ * seeded sample path, noise ring and endpoint at any step count from 1 to 50,
+ * so the name never sits on a mark.
+ */
+const MODE_LABELS = [
+  { name: 'mode A', dx: -32, dy: -20, anchor: 'end' as const },
+  { name: 'mode B', dx: 32, dy: 4, anchor: 'start' as const },
+];
+
+function regimeFor(steps: number): string {
+  if (steps <= 2) return 'too few, cutting the corner';
+  if (steps >= 50) return 'accurate but unaffordable';
+  return 'on the modes';
+}
+
+/** A hollow ring, the noise-sample mark, for the legend. */
+function NoiseSwatch() {
+  const h = CHART_TYPE.tickPx;
+  return (
+    <svg aria-hidden="true" focusable="false" width={h * 2} height={h} viewBox={`0 0 ${h * 2} ${h}`} className="shrink-0">
+      <circle cx={h} cy={h / 2} r={2.5} fill="none" stroke={roleColour('action')} strokeWidth={1} />
+    </svg>
+  );
+}
+
+/** A short arrow with a head dot, the vector-field mark, for the legend. */
+function FieldSwatch() {
+  const h = CHART_TYPE.tickPx;
+  return (
+    <svg aria-hidden="true" focusable="false" width={h * 2} height={h} viewBox={`0 0 ${h * 2} ${h}`} className="shrink-0">
+      <line x1={h * 0.4} y1={h / 2} x2={h * 1.6} y2={h / 2} stroke={CHART_STRUCTURE.axes} strokeWidth={1} />
+      <circle cx={h * 1.6} cy={h / 2} r={1.5} fill={CHART_STRUCTURE.axes} />
+    </svg>
+  );
+}
 
 export function FlowMatchingTrajectory({
   defaultSteps = PI0_STEPS,
@@ -81,39 +135,60 @@ export function FlowMatchingTrajectory({
   );
   const dispersion = endpointDispersion(field, steps);
 
-  const plotWidth = WIDTH - PAD.left - PAD.right;
-  const plotHeight = HEIGHT - PAD.top - PAD.bottom;
   // Round to 2 decimals: full-precision floats serialize differently on
   // server and client and trigger React hydration mismatches.
   const f = (v: number) => Number(v.toFixed(2));
-  const x = (u: number) =>
-    f(PAD.left + ((u - X_RANGE.min) / (X_RANGE.max - X_RANGE.min)) * plotWidth);
-  const y = (v: number) =>
-    f(PAD.top + (1 - (v - Y_RANGE.min) / (Y_RANGE.max - Y_RANGE.min)) * plotHeight);
+  const scaleX = linearScale([X_RANGE.min, X_RANGE.max], [PLOT.left, PLOT.right]);
+  const scaleY = linearScale([Y_RANGE.min, Y_RANGE.max], [PLOT.bottom, PLOT.top]);
+  const x = (u: number) => f(scaleX(u));
+  const y = (v: number) => f(scaleY(v));
 
   const maxMagnitude = Math.max(...arrows.map((a) => Math.hypot(a.vx, a.vy)), 1e-6);
+  const action = roleColour('action');
+  const reference = roleColour('reference');
+
+  // The field grid is denser than a label is wide, so no label position
+  // clears every arrow; the arrows under a mode name are left out instead.
+  const labelBoxes = FLOW_MODES.map((m, i) => {
+    const label = MODE_LABELS[i];
+    const width = label.name.length * CHART_TYPE.labelPx * 0.6;
+    const anchorX = x(m.x) + label.dx;
+    const left = label.anchor === 'end' ? anchorX - width : anchorX;
+    const baseline = y(m.y) + label.dy;
+    return {
+      left: left - 3,
+      right: left + width + 3,
+      top: baseline - CHART_TYPE.labelPx - 3,
+      bottom: baseline + CHART_TYPE.labelPx * 0.3 + 3,
+    };
+  });
+  const underLabel = (px: number, py: number) =>
+    labelBoxes.some((b) => px >= b.left && px <= b.right && py >= b.top && py <= b.bottom);
 
   return (
-    <InstrumentFrame className={className}>
-      <div className="grid gap-4 lg:grid-cols-[1fr_auto] lg:items-end">
-        <div>
-          <ControlLabel htmlFor="fm-steps" value={`k = ${steps} / ${MAX_STEPS}`}>
-            Integration steps
-          </ControlLabel>
-          <input
-            id="fm-steps"
-            type="range"
-            data-brand-control-id="control:input"
-            min={MIN_STEPS}
-            max={MAX_STEPS}
-            step={1}
-            value={steps}
-            onChange={(e) => setSteps(Number(e.target.value))}
-            aria-label={`Integration steps, currently ${steps} of ${MAX_STEPS}`}
-            className="mt-2 w-full accent-accent"
-          />
-        </div>
-        <div className="flex flex-wrap items-center gap-2">
+    <InstrumentFigure
+      figureId="flow-matching-trajectory"
+      className={className}
+      heading="Integration step budget"
+      controls={
+        <>
+          <ControlField>
+            <ControlLabel htmlFor="fm-steps" value={`k = ${steps} / ${MAX_STEPS}`}>
+              Integration steps
+            </ControlLabel>
+            <input
+              id="fm-steps"
+              type="range"
+              data-brand-control-id="control:input"
+              min={MIN_STEPS}
+              max={MAX_STEPS}
+              step={1}
+              value={steps}
+              onChange={(e) => setSteps(Number(e.target.value))}
+              aria-label={`Integration steps, currently ${steps} of ${MAX_STEPS}`}
+              className={INSTRUMENT_SLIDER_CLASS}
+            />
+          </ControlField>
           <div
             role="group"
             aria-label="Step presets from the shipped models"
@@ -126,193 +201,154 @@ export function FlowMatchingTrajectory({
                 type="button"
                 aria-pressed={steps === preset.steps}
                 onClick={() => setSteps(preset.steps)}
-                className={cx(
-                  'rounded-sm border px-2 py-1 font-mono text-xs transition-colors active:translate-y-[1px]',
-                  steps === preset.steps
-                    ? 'border-accent text-text'
-                    : 'border-border bg-surface-2 text-text-dim hover:border-border-strong hover:text-text',
-                )}
+                className={INSTRUMENT_TOGGLE_CLASS}
               >
                 {preset.label}
-                <span className="ml-1.5 text-[10px] text-text-dim">
-                  {preset.note}
-                </span>
               </button>
             ))}
           </div>
           <InstrumentReset onClick={() => setSteps(defaultSteps)} />
-        </div>
-      </div>
-
-      <PlotStage
-        viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-        aria-label={`2D action-space view with the learned vector field at mid-transport. ${field.samples.length} samples start as Gaussian noise and are transported toward two action modes along near-straight paths. With ${steps} integration steps the mean endpoint error is ${dispersion.toFixed(2)}.`}
-        aria-describedby={descriptionId}
-        className="mt-4"
-      >
-        {/* Axes */}
-        <line
-          x1={PAD.left}
-          x2={PAD.left + plotWidth}
-          y1={y(0)}
-          y2={y(0)}
-          stroke="var(--color-border)"
-          strokeWidth={1}
-        />
-        <line
-          x1={x(0)}
-          x2={x(0)}
-          y1={PAD.top}
-          y2={PAD.top + plotHeight}
-          stroke="var(--color-border)"
-          strokeWidth={1}
-        />
-        {[-3, -2, -1, 0, 1, 2, 3].map((u) => (
-          <text
-            key={u}
-            x={x(u)}
-            y={HEIGHT - 8}
-            textAnchor="middle"
-            fill="var(--color-text-dim)"
-            fontSize={10}
-            fontFamily="var(--font-mono)"
-          >
-            {u}
-          </text>
-        ))}
-        <text
-          x={PAD.left + plotWidth}
-          y={PAD.top - 6}
-          textAnchor="end"
-          fill="var(--color-text-dim)"
-          fontSize={10}
-          fontFamily="var(--font-mono)"
+        </>
+      }
+      stage={
+        <FigureStage
+          footer={
+            <>
+              <InstrumentLegend>
+                <LegendItem swatch={<NoiseSwatch />}>noise sample</LegendItem>
+                <LegendItem swatch={<LegendSwatch role="action" mark="line" />}>Euler path</LegendItem>
+                <LegendItem swatch={<LegendSwatch role="action" mark="dot" />}>endpoint</LegendItem>
+                <LegendItem swatch={<LegendSwatch role="reference" mark="dash" />}>action mode</LegendItem>
+                <LegendItem swatch={<FieldSwatch />}>learned field at τ = 0.5</LegendItem>
+              </InstrumentLegend>
+              <InstrumentReadout>
+                <span data-testid="fm-step-readout" style={{ color: action }}>
+                  k = {steps} Euler {steps === 1 ? 'step' : 'steps'}
+                </span>
+                : mean endpoint error{' '}
+                <span data-testid="fm-dispersion-readout" style={{ color: action }}>
+                  {dispersion.toFixed(2)}
+                </span>
+                , {regimeFor(steps)}
+              </InstrumentReadout>
+              <ChartDescription
+                id={descriptionId}
+                form="state"
+                summary="Current flow-matching transport"
+                description={`With ${steps} Euler steps the ${field.samples.length} samples travel near-straight from Gaussian noise toward the two action modes and finish at mean endpoint error ${dispersion.toFixed(2)}; one step would cut the corner, 50 steps is more compute than a 50 Hz loop can spend.`}
+                states={[
+                  { label: 'Euler steps', value: String(steps) },
+                  { label: 'samples', value: String(field.samples.length) },
+                  { label: 'endpoint error', value: dispersion.toFixed(2) },
+                  { label: 'regime', value: regimeFor(steps) },
+                ]}
+              />
+            </>
+          }
         >
-          action space (2 dims of the H x 14 chunk shown)
-        </text>
-
-        {/* Marginal vector field at mid-transport */}
-        {arrows.map((a, i) => {
-          const magnitude = Math.hypot(a.vx, a.vy);
-          const length = 3 + (magnitude / maxMagnitude) * 11;
-          const ux = a.vx / (magnitude || 1);
-          const uy = a.vy / (magnitude || 1);
-          return (
-            <g key={i} opacity={f(0.25 + 0.45 * (magnitude / maxMagnitude))}>
-              <line
-                x1={x(a.x)}
-                y1={y(a.y)}
-                x2={x(a.x + ux * (length / 90))}
-                y2={y(a.y + uy * (length / 90))}
-                stroke="var(--color-text-dim)"
-                strokeWidth={1}
-              />
-              <circle
-                cx={x(a.x + ux * (length / 90))}
-                cy={y(a.y + uy * (length / 90))}
-                r={1.4}
-                fill="var(--color-text-dim)"
-              />
-            </g>
-          );
-        })}
-
-        {/* Sample transport paths and endpoints */}
-        {paths.map((points, i) => {
-          const sample = field.samples[i];
-          const end = points[points.length - 1];
-          return (
-            <g key={i}>
-              <polyline
-                points={points.map((p) => `${x(p.x)},${y(p.y)}`).join(' ')}
-                fill="none"
-                stroke="var(--role-action-graphic)"
-                strokeWidth={1}
-                opacity={sample.mode === 0 ? 0.45 : 0.32}
-              />
-              <circle
-                cx={x(sample.noise.x)}
-                cy={y(sample.noise.y)}
-                r={1.6}
-                fill="none"
-                stroke="var(--color-text-dim)"
-                strokeWidth={0.75}
-                opacity={0.6}
-              />
-              <circle
-                cx={x(end.x)}
-                cy={y(end.y)}
-                r={3}
-                fill="var(--role-action-graphic)"
-                opacity={0.9}
-              />
-            </g>
-          );
-        })}
-
-        {/* Action mode targets (drawn over the paths so they stay visible) */}
-        {FLOW_MODES.map((m, i) => (
-          <g key={i}>
-            <path
-              d={`M${x(m.x) - 7},${y(m.y)} L${x(m.x) + 7},${y(m.y)} M${x(m.x)},${y(m.y) - 7} L${x(m.x)},${y(m.y) + 7}`}
-              stroke="var(--role-reference-graphic)"
-              strokeWidth={1.5}
-              strokeDasharray="3 2"
+          <PlotStage
+            viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
+            aria-label={`2D action-space view with the learned vector field at mid-transport. ${field.samples.length} samples start as Gaussian noise and are transported toward two action modes along near-straight paths. With ${steps} integration steps the mean endpoint error is ${dispersion.toFixed(2)}.`}
+            aria-describedby={descriptionId}
+          >
+            <ChartAxes
+              plot={PLOT}
+              x={scaleX}
+              y={scaleY}
+              xTicks={[-3, -2, -1, 0, 1, 2, 3]}
+              yTicks={[-2, -1, 0, 1, 2]}
+              xLabel="action dimension 1"
+              yLabel="action dimension 2"
+              grid={false}
             />
-            <text
-              x={x(m.x) + 10}
-              y={y(m.y) - 10}
-              fill="var(--role-reference-text)"
-              fontSize={10}
-              fontFamily="var(--font-mono)"
-            >
-              mode {i === 0 ? 'A' : 'B'}
-            </text>
-          </g>
-        ))}
-      </PlotStage>
 
-      <InstrumentReadout>
-        <span data-testid="fm-step-readout" className="text-accent">
-          k = {steps} Euler {steps === 1 ? 'step' : 'steps'}
-        </span>{' '}
-        <span className="text-text-dim">mean endpoint error</span>{' '}
-        <span data-testid="fm-dispersion-readout" className="text-accent">
-          {dispersion.toFixed(2)}
-        </span>
-      </InstrumentReadout>
-      <ChartDescription
-        id={descriptionId}
-        className="mt-3"
-        form="state"
-        summary="Current flow-matching transport"
-        description={`With ${steps} Euler steps the ${field.samples.length} samples travel near-straight from Gaussian noise toward the two action modes and finish at mean endpoint error ${dispersion.toFixed(2)}; one step would cut the corner, 50 steps is more compute than a 50 Hz loop can spend.`}
-        states={[
-          { label: 'Euler steps', value: String(steps) },
-          { label: 'samples', value: String(field.samples.length) },
-          { label: 'endpoint error', value: dispersion.toFixed(2) },
-          {
-            label: 'regime',
-            value:
-              steps <= 2
-                ? 'too few, cutting the corner'
-                : steps >= 50
-                  ? 'accurate but unaffordable'
-                  : 'on the modes',
-          },
-        ]}
-      />
-      <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
-        Illustrative model: {field.samples.length} samples with a fixed seed,
-        transported from Gaussian noise to two action modes along the
-        near-straight paths of rectified flow matching. The learned field is
-        slightly imperfect (the paths carry a small bend), so the step count
-        trades accuracy against latency: one Euler step cuts the corner and
-        lands short, 5-10 steps land on the modes, and 50 steps is compute a
-        50 Hz control loop cannot spend. pi0 shipped {PI0_STEPS} steps; pi0.6
-        and pi0.7 run {PI06_STEPS}. The real expert integrates a whole
-        50-step action chunk jointly; this view shows 2 of its dimensions.
-      </p>
-    </InstrumentFrame>
+            {/* Marginal vector field at mid-transport */}
+            {arrows.map((a, i) => {
+              const magnitude = Math.hypot(a.vx, a.vy);
+              const length = (2 + (magnitude / maxMagnitude) * 7) / UNIT_PX;
+              const ux = a.vx / (magnitude || 1);
+              const uy = a.vy / (magnitude || 1);
+              const tipX = x(a.x + ux * length);
+              const tipY = y(a.y + uy * length);
+              if (
+                underLabel(x(a.x), y(a.y)) ||
+                underLabel(tipX, tipY) ||
+                underLabel((x(a.x) + tipX) / 2, (y(a.y) + tipY) / 2)
+              ) {
+                return null;
+              }
+              return (
+                <g key={i} opacity={f(0.3 + 0.4 * (magnitude / maxMagnitude))}>
+                  <line
+                    x1={x(a.x)}
+                    y1={y(a.y)}
+                    x2={tipX}
+                    y2={tipY}
+                    stroke={CHART_STRUCTURE.axes}
+                    strokeWidth={CHART_STROKE.structure}
+                  />
+                  <circle cx={tipX} cy={tipY} r={1.2} fill={CHART_STRUCTURE.axes} />
+                </g>
+              );
+            })}
+
+            {/* Sample transport paths and endpoints; the endpoint dots are the
+                last circles drawn, so they stay on top of every path. */}
+            {paths.map((points, i) => {
+              const sample = field.samples[i];
+              const end = points[points.length - 1];
+              return (
+                <g key={i}>
+                  <polyline
+                    points={points.map((p) => `${x(p.x)},${y(p.y)}`).join(' ')}
+                    fill="none"
+                    stroke={action}
+                    strokeWidth={1}
+                    opacity={sample.mode === 0 ? 0.5 : 0.38}
+                  />
+                  <circle
+                    cx={x(sample.noise.x)}
+                    cy={y(sample.noise.y)}
+                    r={1.8}
+                    fill="none"
+                    stroke={action}
+                    strokeWidth={0.75}
+                    opacity={0.7}
+                  />
+                  <circle cx={x(end.x)} cy={y(end.y)} r={2.4} fill={action} />
+                </g>
+              );
+            })}
+
+            {/* Action mode targets, drawn over the paths so they stay visible */}
+            {FLOW_MODES.map((m, i) => {
+              const label = MODE_LABELS[i];
+              return (
+                <g key={i}>
+                  <path
+                    d={`M${x(m.x) - 6},${y(m.y)} L${x(m.x) + 6},${y(m.y)} M${x(m.x)},${y(m.y) - 6} L${x(m.x)},${y(m.y) + 6}`}
+                    fill="none"
+                    stroke={reference}
+                    strokeWidth={CHART_STROKE.reference}
+                    strokeDasharray="3 2"
+                  />
+                  <text
+                    x={x(m.x) + label.dx}
+                    y={y(m.y) + label.dy}
+                    textAnchor={label.anchor}
+                    fontSize={CHART_TYPE.labelPx}
+                    fill={reference}
+                  >
+                    {label.name}
+                  </text>
+                </g>
+              );
+            })}
+          </PlotStage>
+        </FigureStage>
+      }
+      caption="One Euler step cuts the corner and lands short of the modes; five to ten steps land on them."
+      source={`Illustrative model: ${field.samples.length} seeded samples in 2 of the chunk's dimensions; π0 ran ${PI0_STEPS} steps, π0.6 and π0.7 run ${PI06_STEPS}.`}
+    />
   );
 }

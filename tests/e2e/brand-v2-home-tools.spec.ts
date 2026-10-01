@@ -104,9 +104,15 @@ function sceneImport(documentPath: string, sceneId: string): string | null {
   return null;
 }
 
-/** The content document behind an article route, by the content layout. */
+/**
+ * The document behind a registered scene route, by the content layout. The
+ * scene registry can assign a scene to `/` when home is its only mount, and
+ * home's document is the app page rather than a content file.
+ */
 function articleDocument(route: string): string {
-  return `content${route.replace(/\/$/, '')}.mdx`;
+  return route === HOME_TOOLS_ROUTE
+    ? 'app/page.tsx'
+    : `content${route.replace(/\/$/, '')}.mdx`;
 }
 
 const normalise = (text: string) => text.replace(/\s+/g, ' ').trim();

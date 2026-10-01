@@ -72,6 +72,12 @@ export interface ChartDescriptionEntry {
   text: string;
   /** Both plotted quantity names that must appear in the text. */
   quantityNames: readonly string[];
+  /**
+   * The component file stays in the tree (an audit local basis) but no
+   * published route mounts it. Its default text must then render nowhere,
+   * so remounting it without dropping this flag fails the route check.
+   */
+  unmounted?: true;
 }
 
 export interface ChartDescriptionProblem {
@@ -91,6 +97,18 @@ export function validateRenderedChartDescriptionRoutes(
 ): ChartDescriptionProblem[] {
   const problems: ChartDescriptionProblem[] = [];
   for (const entry of entries) {
+    if (entry.unmounted) {
+      const hosts = [...renderedByRoute]
+        .filter(([, texts]) => texts.has(entry.text))
+        .map(([route]) => route);
+      if (hosts.length > 0) {
+        problems.push({
+          component: entry.component,
+          message: `is registered as unmounted but its default-state text renders on ${hosts.join(', ')}`,
+        });
+      }
+      continue;
+    }
     const rendered = renderedByRoute.get(entry.route);
     if (!rendered) {
       problems.push({

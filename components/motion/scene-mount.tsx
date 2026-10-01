@@ -165,9 +165,9 @@ export function SceneMount({
       captionProps={{ 'data-testid': 'motion-caption' }}
       source={source}
     >
-      <p id={descriptionId} className="sr-only" hidden>
+      <div id={descriptionId} className="sr-only" hidden>
         {textAlternative}
-      </p>
+      </div>
     </FigureFrame>
   );
 

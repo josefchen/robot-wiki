@@ -2,13 +2,16 @@ import { execFileSync } from 'node:child_process';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { beatSpans, posterTime } from '@/components/motion/timeline';
-import { ACTION_FORK_SCENE, actionForkFrame } from '@/components/motion/scenes/action-fork';
-import { LATENT_DRIFT_SCENE, latentDriftFrame } from '@/components/motion/scenes/latent-drift';
-import { PUSH_LAYERS_SCENE, pushLayersFrame } from '@/components/motion/scenes/push-layers';
-import { actionSensitivity, rollout, REALISM_SCORE } from '@/lib/action-conditioning';
+import {
+  actionSensitivity,
+  INITIAL_STATE,
+  realismScore,
+  rollout,
+  SENSITIVITY_THRESHOLD,
+} from '@/lib/action-conditioning';
 import { deviationAt, TYPICAL_HORIZON } from '@/lib/latent-imagination';
 import { applyPush, DEFAULT_FORCE_N, INITIAL_LAYERS, INITIAL_MUG } from '@/lib/appearance-physics-push';
+import { SCENE_TARGETS } from '@/lib/motion-scene-registry';
 import { NO_SLOP_EXCEPTIONS } from '@/data/no-slop-exceptions';
 import { findStructuralTells, structuralTellReport, STRUCTURAL_TELL_LIMIT } from '@/lib/no-slop';
 
@@ -51,7 +54,7 @@ describe('world-models motion inventory', () => {
         mounts.push(`${article}:${element}:${occurrence}`);
       }
     }
-    const covered = inventory.filter((row) => row.decision !== 'add')
+    const covered = inventory.filter((row) => row.decision !== 'add' && row.decision !== 'remove')
       .map((row) => `${row.article}:${row.element}:${row.occurrence ?? 1}`);
     expect(covered.sort()).toEqual(mounts.sort());
     expect(new Set(inventory.map((row) => `${row.article}:${row.element}:${row.occurrence ?? 1}`)).size)
@@ -60,56 +63,55 @@ describe('world-models motion inventory', () => {
       expect(articles).toContain(`${row.article}.mdx`);
       expect(row.teachingGoal.length).toBeGreaterThan(25);
       expect(row.reason.length).toBeGreaterThan(25);
+      const body = readFileSync(join(folder, `${row.article}.mdx`), 'utf8');
       if (row.decision === 'add') {
-        expect(['action-fork', 'latent-drift', 'push-layers']).toContain(row.sceneId);
-        expect(readFileSync(join(folder, `${row.article}.mdx`), 'utf8')).toContain(`<${row.element}`);
+        expect(row.sceneId).toBeTruthy();
+        expect(body).toContain(`<${row.element}`);
+      }
+      if (row.decision === 'remove') {
+        expect(row.sceneId).toBeUndefined();
+        expect(body).not.toMatch(new RegExp(`<${row.element}\\b`));
       }
     }
   });
 });
 
-describe('world-models scene truth', () => {
-  it('uses the original rollout model and keeps weak and strong scores distinct', () => {
-    const spans = beatSpans(ACTION_FORK_SCENE.beats);
-    const first = actionForkFrame(spans[0].end);
-    const strong = actionForkFrame(spans[1].end);
-    const weak = actionForkFrame(spans[2].end);
-    expect(first.rolloutA).toEqual(rollout({ action: 'push-left', conditioning: 'strong' })[0]);
-    expect(strong.rolloutB).toEqual(rollout({ action: 'lift', conditioning: 'strong' }).at(-1));
-    expect(weak.rolloutB).toEqual(rollout({ action: 'lift', conditioning: 'weak' }).at(-1));
-    expect(strong.sensitivity).toBe(actionSensitivity({ actionA: 'push-left', actionB: 'lift', conditioning: 'strong' }));
-    expect(weak.sensitivity).toBe(actionSensitivity({ actionA: 'push-left', actionB: 'lift', conditioning: 'weak' }));
-    expect(strong.realism).toBe(REALISM_SCORE);
-    expect(weak.realism).toBe(REALISM_SCORE);
-    expect(spans[1].linear).toBe(true);
-  });
+describe('world-models merged figures', () => {
+  const merged = [
+    ['latent-dynamics', 'LatentImagination', 'LatentDrift'],
+    ['generative-video', 'ActionConditioning', 'ActionFork'],
+    ['generative-sim', 'AppearancePhysicsPush', 'PushLayers'],
+  ] as const;
 
-  it('derives imagined deviation from the existing recurrence in linear model time', () => {
-    const spans = beatSpans(LATENT_DRIFT_SCENE.beats);
-    const atHorizon = latentDriftFrame(spans[2].end);
-    expect(atHorizon.horizon).toBe(TYPICAL_HORIZON[1]);
-    expect(atHorizon.deviation).toBe(deviationAt({ epsilon: 0.02, horizon: TYPICAL_HORIZON[1] }));
-    expect(spans[2].linear).toBe(true);
-    expect(latentDriftFrame(posterTime(spans))).toEqual(latentDriftFrame(posterTime(spans)));
-  });
-
-  it('replays the same push under appearance-only and physics-enabled layers', () => {
-    const spans = beatSpans(PUSH_LAYERS_SCENE.beats);
-    const noSolver = pushLayersFrame(spans[1].end);
-    const solver = pushLayersFrame(spans[2].end);
-    expect(noSolver.position).toBe(applyPush(INITIAL_MUG, INITIAL_LAYERS, DEFAULT_FORCE_N).state.position);
-    expect(solver.position).toBe(applyPush(INITIAL_MUG, { ...INITIAL_LAYERS, physics: true }, DEFAULT_FORCE_N).state.position);
-    expect(noSolver.position).toBe(0);
-    expect(solver.position).toBeGreaterThan(0);
-    expect(spans[2].linear).toBe(true);
-  });
-
-  it('writes one standalone caption per beat and keeps the recap still', () => {
-    for (const scene of [ACTION_FORK_SCENE, LATENT_DRIFT_SCENE, PUSH_LAYERS_SCENE]) {
-      expect(scene.beats).toHaveLength(4);
-      for (const beat of scene.beats) expect(beat.caption).toMatch(/[.!?]$/);
-      expect(posterTime(beatSpans(scene.beats))).toBeGreaterThan(0);
+  it('mounts one figure per concept, with the lab in place of its scene', () => {
+    for (const [article, lab, scene] of merged) {
+      const body = readFileSync(join(folder, `${article}.mdx`), 'utf8');
+      expect(body.match(new RegExp(`<${lab}\\b`, 'g')), article).toHaveLength(1);
+      expect(body, article).not.toContain(`<${scene}`);
+      expect(inventory.find((row) => row.article === article && row.element === scene)?.decision)
+        .toBe('remove');
     }
+    expect(SCENE_TARGETS.filter((target) => target.route.startsWith('/world-models/'))).toEqual([]);
+  });
+
+  it('reaches every former beat state from the lab models', () => {
+    // Action fork: one shared frame, a strong fork, a weak collapse, fixed realism.
+    const strongA = rollout({ action: 'push-left', conditioning: 'strong' });
+    const weakB = rollout({ action: 'lift', conditioning: 'weak' });
+    expect(strongA[0]).toEqual(INITIAL_STATE);
+    expect(weakB[0]).toEqual(INITIAL_STATE);
+    const strong = actionSensitivity({ actionA: 'push-left', actionB: 'lift', conditioning: 'strong' });
+    const weak = actionSensitivity({ actionA: 'push-left', actionB: 'lift', conditioning: 'weak' });
+    expect(strong).toBeGreaterThan(SENSITIVITY_THRESHOLD);
+    expect(weak).toBeLessThan(SENSITIVITY_THRESHOLD);
+    expect(realismScore('strong')).toBe(realismScore('weak'));
+    // Latent drift: the deviation keeps growing across the typical band.
+    expect(deviationAt({ epsilon: 0.02, horizon: TYPICAL_HORIZON[1] }))
+      .toBeGreaterThan(deviationAt({ epsilon: 0.02, horizon: TYPICAL_HORIZON[0] }));
+    // Push layers: the appearance-only push is unanswered; the proxy answers it.
+    expect(applyPush(INITIAL_MUG, INITIAL_LAYERS, DEFAULT_FORCE_N).state.position).toBe(0);
+    expect(applyPush(INITIAL_MUG, { ...INITIAL_LAYERS, physics: true }, DEFAULT_FORCE_N).state.position)
+      .toBeGreaterThan(0);
   });
 });
 

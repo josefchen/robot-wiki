@@ -146,7 +146,7 @@ for (const width of [375, 1440]) test(`Rudin scoped source readers ${width}`, as
         }
       }
       if (slug === 'reward-design-mpc') {
-        const panel = page.getByTestId('quad-preview').locator('..');
+        const panel = page.locator('[data-figure-frame="reward-shaping"]');
         await expect(panel).toContainText('No policy is trained here.');
         await capture(panel, 'reward-default');
         const torque = panel.getByRole('slider', { name: /torque/i });

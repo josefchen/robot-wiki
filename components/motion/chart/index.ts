@@ -13,13 +13,20 @@ export {
   UncertaintyBand,
   type ChartPoint,
 } from './chart-marks';
-export { ChartLegend, SmallMultiples, smallMultiplesLayout, type LegendMark } from './chart-layout';
+export {
+  ChartLegend,
+  LegendSwatch,
+  SmallMultiples,
+  smallMultiplesLayout,
+  type LegendMark,
+} from './chart-layout';
 export {
   CHART_HATCH,
   CHART_STROKE,
   CHART_STRUCTURE,
   CHART_TYPE,
   CHART_UNCERTAINTY,
+  CHART_VIEW_WIDTH,
   linearScale,
   roleColour,
   type ChartRole,

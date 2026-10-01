@@ -288,6 +288,50 @@ export const MOTION_EASING = {
 `;
 }
 
+/** The family each stage font token resolves to in the offline renderer. */
+const FONT_FAMILY_BY_VAR: Record<string, string> = {
+  'var(--font-sans)': 'IBM Plex Sans',
+};
+
+/** Vendored font files the clip renderer registers, relative to scripts/motion/. */
+const CLIP_FONT_FILE_BY_FAMILY: Record<string, string> = {
+  'IBM Plex Sans': 'fonts/IBMPlexSans-wdth-wght.ttf',
+};
+
+/** The number an encoding names before a unit, as the chart primitives read it. */
+function encodedNumber(encoding: string, unit: string): number {
+  const match = encoding.match(new RegExp(`(\\d+(?:\\.\\d+)?)\\s*${unit}`));
+  if (!match) throw new Error(`motion token encoding "${encoding}" names no ${unit}`);
+  return Number(match[1]);
+}
+
+/**
+ * The clip frame's type and stroke scale, in stage CSS px. Strokes follow
+ * the chart primitives: the state and reference encodings name the trace
+ * and reference widths, structure lines take half the trace, a lone marker
+ * twice it and a marker in a dense series half of it.
+ */
+function clipScale(tokens: MotionTokens) {
+  const family = FONT_FAMILY_BY_VAR[tokens.type.stageLabelFont];
+  const fontFile = family ? CLIP_FONT_FILE_BY_FAMILY[family] : undefined;
+  if (!family || !fontFile) {
+    throw new Error(`no clip font for stage label font ${tokens.type.stageLabelFont}`);
+  }
+  const trace = encodedNumber(tokens.roles.state.encoding, 'px');
+  const reference = encodedNumber(tokens.roles.reference.encoding, 'px');
+  const scale = tokens.type.stageScale;
+  return {
+    family,
+    fontFile,
+    stagePx: scale.fullSizeMinStagePx,
+    type: { label: scale.labelPx, axis: scale.axisPx, tick: scale.tickPx },
+    stroke: { trace, reference, structure: trace / 2 },
+    dash: [reference * 4, reference * 2],
+    tickLength: scale.tickPx / 2,
+    marker: { single: trace * 2, dense: trace / 2 },
+  };
+}
+
 export function buildPythonTheme(tokens: MotionTokens): string {
   const roles = roleNames(tokens)
     .map((role) => `    '${role}': '${tokens.roles[role].stage}',`)
@@ -295,6 +339,11 @@ export function buildPythonTheme(tokens: MotionTokens): string {
   const encodings = roleNames(tokens)
     .map((role) => `    '${role}': ${JSON.stringify(tokens.roles[role].encoding)},`)
     .join('\n');
+  const clip = clipScale(tokens);
+  const pyDict = (values: Record<string, number>) =>
+    Object.entries(values)
+      .map(([name, value]) => `    '${name}': ${value},`)
+      .join('\n');
   return `"""Generated from motion-tokens.json by scripts/generate-motion-tokens.ts.
 
 Theme module for offline cinematic clips. The renderer's own default
@@ -330,6 +379,33 @@ WRITE = ${(tokens.timing.write / 1000).toFixed(3)}
 LAG_DEFAULT = ${tokens.lag.default}
 LAG_DENSE = ${tokens.lag.dense}
 LAG_DENSE_THRESHOLD = ${tokens.lag.denseThreshold}
+
+# Clip text. Every non-maths label is FONT_FAMILY, registered from
+# FONT_FILE (relative to this module) so the render never depends on the
+# fonts of the machine; LaTeX is for maths only.
+FONT_FAMILY = "${clip.family}"
+FONT_FILE = "${clip.fontFile}"
+
+# A clip frame is a stage CLIP_STAGE_PX wide drawn at the render size, so a
+# length of s stage px spans s / CLIP_STAGE_PX of the frame width. Shown at
+# least CLIP_STAGE_PX wide, the clip paints its labels at or above the stage
+# type scale. Every size below is in those stage px.
+CLIP_STAGE_PX = ${clip.stagePx}
+
+TYPE_PX = {
+${pyDict(clip.type)}
+}
+
+STROKE_PX = {
+${pyDict(clip.stroke)}
+}
+
+DASH_PX = (${clip.dash.join(', ')})
+TICK_LENGTH_PX = ${clip.tickLength}
+
+MARKER_RADIUS_PX = {
+${pyDict(clip.marker)}
+}
 
 
 def smooth(t: float) -> float:

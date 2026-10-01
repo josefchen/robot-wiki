@@ -31,13 +31,17 @@ describe('WmDisambiguator', () => {
   it('each panel visualizes what its paradigm predicts', () => {
     render(<WmDisambiguator />);
     // Latent vector + reward scalar for Dreamer-style.
-    expect(screen.getByTestId('panel-art-latent-dynamics')).toHaveTextContent(
-      /r =/,
-    );
-    // MPPI fan and explicit no-image marker for TD-MPC-style.
+    const latent = screen.getByTestId('panel-art-latent-dynamics');
+    expect(latent).toHaveTextContent(/reward/);
+    expect(latent).toHaveTextContent(/0\.83/);
+    // MPPI fan and explicit no-decoder marker for TD-MPC-style.
     const decoderFree = screen.getByTestId('panel-art-decoder-free-latent');
-    expect(decoderFree).toHaveTextContent(/no image/i);
+    expect(decoderFree).toHaveTextContent(/no decoder/i);
     expect(decoderFree).toHaveTextContent(/MPPI/i);
+    // The video model's condition is spelled out in full.
+    expect(screen.getByTestId('panel-art-generative-video')).toHaveTextContent(
+      /conditioned on action \/ text/,
+    );
     // Explicit no-decoder marker for JEPA.
     expect(screen.getByTestId('panel-art-jepa')).toHaveTextContent(
       /no decoder/i,

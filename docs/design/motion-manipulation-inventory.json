@@ -9,17 +9,9 @@
   {
     "article": "action-chunking",
     "element": "Image:temporal-ensembling",
-    "decision": "keep",
+    "decision": "restyle",
     "teachingGoal": "Show overlapping ACT predictions and the oldest-to-newest weighted action at the current time.",
-    "reason": "The already-corrected brand-v2 SVG distinguishes illustration m=0.5 from reference m=0.01; changing its sealed semantics risks reversing the ordering again."
-  },
-  {
-    "article": "action-chunking",
-    "element": "LatencyComparison",
-    "occurrence": 2,
-    "decision": "keep",
-    "teachingGoal": "Reveal the same toy delay dial at a 100 ms starting position after the reader predicts the outcome.",
-    "reason": "This is the second mount in the prediction exercise, with its own default and feedback context; it must keep the interactive dial and toy disclaimer."
+    "reason": "Redrawn inline on the figure stage as an original schematic with the same semantics: oldest-first weights 1.00, 0.61 and 0.37, and illustration m=0.5 kept apart from reference m=0.01."
   },
   {
     "article": "action-chunking",
@@ -45,24 +37,16 @@
   {
     "article": "bc-foundations",
     "element": "CompoundingError",
-    "occurrence": 2,
     "decision": "keep",
-    "teachingGoal": "Compare the toy deviation at the prediction exercise's fixed error and longer starting horizon.",
-    "reason": "The second mount exists for the reader's before-and-after answer; its specified defaults are part of the teaching interaction."
-  },
-  {
-    "article": "bc-foundations",
-    "element": "CompoundingError",
-    "decision": "keep",
-    "teachingGoal": "Explore the horizon and error probability in the explicit illustrative behavioral-cloning model.",
-    "reason": "The parameter controls are the lesson; a canned rollout would obscure which values are adjustable and which are cited bounds."
+    "teachingGoal": "Check the reader's prediction at a 5 percent per-step error over 240 steps, then explore both parameters of the illustrative behavioral-cloning model.",
+    "reason": "The parameter controls are the lesson; one mount inside the prediction exercise keeps its answer defaults, and a canned rollout would obscure which values are adjustable and which are cited bounds."
   },
   {
     "article": "bc-foundations",
     "element": "Image:covariate-shift",
-    "decision": "keep",
+    "decision": "restyle",
     "teachingGoal": "Identify the point where a policy rollout leaves the demonstration corridor.",
-    "reason": "The sealed brand-v2 SVG already uses lime only for the observed divergence and gives the causal relationship in one readable still."
+    "reason": "Redrawn inline on the figure stage as an original schematic; lime marks only the point where the rollout leaves the demonstrations, so the causal relationship reads in one still."
   },
   {
     "article": "comparison-matrix",
@@ -74,9 +58,9 @@
   {
     "article": "cross-embodiment",
     "element": "CrossEmbodimentStrategies",
-    "decision": "keep",
+    "decision": "restyle",
     "teachingGoal": "Inspect distinct transfer strategies and their citations without implying one strategy succeeds everywhere.",
-    "reason": "Its selectable evidence cards keep alternatives independently legible; no common causal timeline is supported by the sources."
+    "reason": "Four slot strips on the figure stage share one 32-slot action vector; it opens on the shared relative end-effector space, the one account that fills the human-hand row, and each strategy keeps its own citation and caveat."
   },
   {
     "article": "diffusion-policy",
@@ -110,16 +94,16 @@
   {
     "article": "hierarchical",
     "element": "HierarchyTimescales",
-    "decision": "keep",
+    "decision": "restyle",
     "teachingGoal": "Compare high-level and low-level policy frequencies without treating their schedules as one universal rate.",
-    "reason": "The selectable timescale instrument carries different policies and source caveats; a fixed clip would erase that distinction."
+    "reason": "Four lanes share one two-second clock on the figure stage, with fired updates in the action role and a lime playhead; each system keeps its disclosed and schematic rates apart."
   },
   {
     "article": "knowledge-insulation",
     "element": "MotInsulation",
-    "decision": "keep",
+    "decision": "restyle",
     "teachingGoal": "Compare the gradient-routing alternatives in the stated knowledge-insulation setup.",
-    "reason": "The side-by-side mechanism and named ablations are a comparison, not an unfolding training trace with measured time."
+    "reason": "The box diagram moves to the graphite stage: boxes are structure, each flow takes the role it carries and the stop-gradient barrier is a constraint hatch, while the named ablations stay in the readouts."
   },
   {
     "article": "pi-line",
@@ -138,14 +122,6 @@
   {
     "article": "realtime-execution",
     "element": "ControlLoopBudget",
-    "occurrence": 2,
-    "decision": "keep",
-    "teachingGoal": "Use the same toy control-budget model to check the prediction with a 1.1B starting coordinate.",
-    "reason": "This second mount supplies a different starting value inside the reveal exercise and retains its explicitly illustrative assumptions."
-  },
-  {
-    "article": "realtime-execution",
-    "element": "ControlLoopBudget",
     "decision": "keep",
     "teachingGoal": "Test the timing budget against sensing, inference, and actuation without conflating their measured rates.",
     "reason": "Direct controls and explicit units matter more than a preselected timed story for this budget exercise."
@@ -153,23 +129,23 @@
   {
     "article": "realtime-execution",
     "element": "ExecutionModes",
-    "decision": "keep",
-    "teachingGoal": "Compare synchronous and asynchronous execution with their respective latency and control assumptions.",
-    "reason": "The mode selector already lets the reader contrast hypotheses; a single animated mode could imply generality across setups."
+    "decision": "restyle",
+    "teachingGoal": "Compare synchronous, naive-switch and real-time chunking execution under the same added inference delay.",
+    "reason": "Three compact small multiples share one delay control and one tick axis, so the reader compares the modes directly; each keeps its illustrative latency and control assumptions."
   },
   {
     "article": "rl-finetuning",
     "element": "AdvantageScrubber",
-    "decision": "keep",
+    "decision": "restyle",
     "teachingGoal": "Scrub a toy advantage trajectory to understand how a threshold selects training samples.",
-    "reason": "The input is a reader-driven mathematical dial, explicitly illustrative; it should not be mistaken for a sourced measured run."
+    "reason": "The scrubbed value trace, stage blocks and credit arc sit on the figure stage in the value role; the two tags differ by fill and dash, and the toy stays labelled as illustrative."
   },
   {
     "article": "rl-finetuning",
     "element": "ExpoFtResults",
-    "decision": "keep",
+    "decision": "restyle",
     "teachingGoal": "Read each EXPO-FT task result and the tested baseline under the same named protocol.",
-    "reason": "The comparison is source-backed data with important task-level exceptions; reveal animation could obscure those values."
+    "reason": "Four task panels of value-role bars share one method order, so each method is told apart by its row and direct count label; every count is the paper's own."
   },
   {
     "article": "rl-finetuning",
@@ -188,17 +164,15 @@
   {
     "article": "vla-models",
     "element": "ActionDecode",
-    "decision": "add",
-    "sceneId": "action-decode",
+    "decision": "remove",
     "teachingGoal": "Introduce quantization and autoregressive decoding in four reader-paced beats before the full toy lab.",
-    "reason": "A sequence makes the transition from scalar value to discrete bin to token stream visible; a labelled toy keeps it distinct from a rollout."
+    "reason": "Merged into ActionTokenization (one visual per concept). Its graphite stage draws the same toy chunk at step 7, the 256-bin strip and the seven-token stream, and the step slider and dimension toggles reach every former beat."
   },
   {
     "article": "pi-line",
     "element": "FlowTransport",
-    "decision": "add",
-    "sceneId": "flow-transport",
+    "decision": "remove",
     "teachingGoal": "Show seeded noise becoming two action modes along the flow field before the step-count lab.",
-    "reason": "A reader-paced scene exposes temporal integration without replacing the lab's measured configuration notes and direct step slider."
+    "reason": "Merged into FlowMatchingTrajectory (one visual per concept). Its graphite stage draws the same seeded noise, Euler paths and two modes, and the step presets reach every former beat from the one-step endpoint to ten steps."
   }
 ]

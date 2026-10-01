@@ -36,7 +36,7 @@ import { PolicyChunkingTable } from '@/components/mdx/policy-chunking-table';
 <Term id="behavior-cloning">Behavior cloning</Term> fails in closed loop for a precise reason: a policy with per-step error ε on the expert's state distribution can accumulate cost that grows quadratically with episode length, because each mistake carries the robot into states the expert never visited <Cite id="dagger-2011" />. Over a T-step episode the worst-case cost scales as
 
 $$
-\underbrace{O(\varepsilon T^2)}_{\text{behavior cloning}} \qquad \underbrace{O(\varepsilon T)}_{\text{DAgger}}
+\underset{\text{behavior cloning}}{O(\varepsilon T^2)} \qquad \underset{\text{DAgger}}{O(\varepsilon T)}
 $$
 
 where the second bound is what <Term id="dagger">DAgger</Term> buys by repeatedly relabeling the states the policy actually visits <Cite id="dagger-2011" />. <Term id="action-chunking">Action chunking</Term> attacks the same bound from a different side: it shrinks the effective horizon. Instead of predicting one action per inference, the policy predicts a sequence of k actions at once, so the number of sequential decisions in an episode drops by a factor of k.
@@ -116,33 +116,6 @@ For an illustrative scalar example **after selection**, oldest-to-newest predict
 The dial below is a deterministic toy of a cross-mode hand-off; it does not reproduce the RTC benchmark. Its percentages are a normalized toy score: the collapse curve, the fixed RTC line, and the interpolation between measured delay settings are assumptions. The paper reports average task throughput, and these percentages are the toy's own; the slider also extends beyond the experiment’s +200 ms endpoint <Cite id="real-time-chunking-2025" />.
 
 <LatencyComparison className="my-6" />
-
-<PredictThenReveal
-  prompt="In the reported π0.5 experiment, which added-delay setting already caused both tested temporal-ensembling variants to trigger protective stops?"
-  options={[
-    {
-      value: 'second',
-      label: 'Around a full second, the length of a 50-step chunk at 50 Hz',
-      why: 'A chunk horizon is not a latency tolerance guarantee. Both tested variants triggered protective stops at the much smaller +100 ms setting.'
-    },
-    {
-      value: 'half-second',
-      label: 'Around 500 ms, once a whole chunk has gone stale',
-      why: 'The experiment already reported protective stops at +100 ms of added delay. It did not establish a universal threshold from the fraction of the chunk that had elapsed.'
-    },
-    {
-      value: 'hundred',
-      label: '+100 ms, added to the existing model and network latency',
-      why: 'Both tested variants triggered protective stops at +100 ms and +200 ms. RTC maintained average task throughput across the tested delays. The panel below illustrates one possible cross-mode failure; its 0% and 100% are toy scores, distinct from measured task throughput.',
-      cite: 'pi-real-time-chunking-blog-2025'
-    }
-  ]}
-  answer="hundred"
-  revealHint="Both panels start at +100 ms: the toy assigns ensembling 0% and RTC 100%. Drag the slider to inspect the assumed transition; it estimates no measured failure threshold."
-  takeaway="Keep added delay separate from total latency. These π0.5 results support RTC under the tested conditions; a universal 100 ms limit or a guaranteed flat curve for every task is a stronger claim than they make."
->
-  <LatencyComparison defaultDelayMs={100} className="mt-3" />
-</PredictThenReveal>
 
 ## The lineage in numbers
 

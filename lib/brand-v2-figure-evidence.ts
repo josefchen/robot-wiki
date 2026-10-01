@@ -718,22 +718,31 @@ export function altTextAndDeliveryVerdicts(
       );
     }
     const file = figure.src.split('/').pop() ?? '';
-    if (alt.toLowerCase().includes(file.toLowerCase())) {
+    if (file && alt.toLowerCase().includes(file.toLowerCase())) {
       failures.push(`${id} names the file "${file}" in its alt text`);
     }
 
-    if (figure.declaredWidth !== String(entry.width)) {
-      failures.push(
-        `${id} declares width ${figure.declaredWidth ?? 'nothing'}, not the intrinsic ${entry.width} that reserves the space`,
-      );
-    }
-    if (figure.declaredHeight !== String(entry.height)) {
-      failures.push(
-        `${id} declares height ${figure.declaredHeight ?? 'nothing'}, not the intrinsic ${entry.height}`,
-      );
-    }
-    if (!figure.complete || figure.naturalWidth === 0) {
-      failures.push(`${id} never decoded: the browser fetched no pixels for ${figure.src}`);
+    // An original schematic is drawn inline on the graphite stage, so there
+    // is no file to fetch or intrinsic size to declare. Its delivery is the
+    // drawing itself: it has to paint, inside the viewport and its stage.
+    if (figure.figureKind === 'original-schematic' && figure.src === '') {
+      if (figure.renderedWidth === 0 || figure.renderedHeight === 0) {
+        failures.push(`${id} paints no drawing on its stage`);
+      }
+    } else {
+      if (figure.declaredWidth !== String(entry.width)) {
+        failures.push(
+          `${id} declares width ${figure.declaredWidth ?? 'nothing'}, not the intrinsic ${entry.width} that reserves the space`,
+        );
+      }
+      if (figure.declaredHeight !== String(entry.height)) {
+        failures.push(
+          `${id} declares height ${figure.declaredHeight ?? 'nothing'}, not the intrinsic ${entry.height}`,
+        );
+      }
+      if (!figure.complete || figure.naturalWidth === 0) {
+        failures.push(`${id} never decoded: the browser fetched no pixels for ${figure.src}`);
+      }
     }
     if (figure.renderedWidth > observation.viewportWidth) {
       failures.push(

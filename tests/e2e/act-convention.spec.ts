@@ -29,12 +29,17 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     await loss.screenshot({ caret: 'initial', path: join(dir, `act-${viewport.width}-loss-conflict.png`) });
     const heading = page.getByRole('heading', { name: 'Temporal ensembling and its limits', exact: true });
     await heading.scrollIntoViewIfNeeded();
-    const image = page.locator('img[src*="temporal-ensembling.svg"]');
-    await expect(image).toHaveAttribute('alt', /oldest-to-newest unnormalized weights are 1.00, 0.61, and 0.37/);
-    const figure = image.locator('xpath=ancestor::figure');
+    // The schematic is drawn inline on the figure stage and named by the
+    // registry alt text; its labels carry the illustrative and reference m.
+    const figure = page.locator('figure[data-image-id="temporal-ensembling"]');
+    const drawing = figure.locator('[data-figure-stage] svg[role="img"]');
+    await expect(drawing).toHaveAttribute('aria-label', /oldest-to-newest unnormalized weights are 1.00, 0.61, and 0.37/);
+    await expect(figure.locator('[data-figure-label]')).toHaveText('Original schematic');
     await expect(figure).toContainText('oldest gets the largest weight');
-    await expect(figure).toContainText('m=0.01, not 0.5');
+    await expect(drawing).toContainText('oldest first; divide by sum');
+    await expect(drawing).toContainText('illustration m=0.5; reference m=0.01');
     await expect(figure.getByRole('link', { name: /CC BY 4.0/ })).toHaveAttribute('href', 'https://creativecommons.org/licenses/by/4.0');
+    // The registered asset file stays served unchanged beside the drawing.
     const response = await page.request.get('/images/temporal-ensembling.svg');
     expect(response.status()).toBe(200);
     const svg = await response.body();
@@ -80,12 +85,13 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     await expect(page.getByTestId('rtc-throughput-readout').first()).toHaveText('100%');
     await page.getByRole('button', { name: 'Reset', exact: true }).last().click();
     await expect(delays.first()).toHaveValue('0');
-    await page.getByRole('radio', { name: '+100 ms, added to the existing model and network latency', exact: true }).check();
-    await expect(delays).toHaveCount(2);
-    await expect(delays.nth(1)).toHaveValue('100');
-    await expect(page.getByTestId('te-throughput-readout').nth(1)).toHaveText('0%');
-    await expect(page.getByText(/Keep added delay separate from total latency/)).toBeVisible();
-    await page.screenshot({ caret: 'initial', path: join(dir, `act-${viewport.width}-toy-reveal.png`) });
+    // The page mounts the delay figure once: no prediction step re-renders it.
+    await expect(page.locator('[data-figure-frame="latency-comparison"]')).toHaveCount(1);
+    await expect(page.getByTestId('te-throughput-readout')).toHaveCount(1);
+    await delays.first().fill('100');
+    await expect(page.getByTestId('te-throughput-readout')).toHaveText('0%');
+    await page.getByRole('button', { name: 'Reset', exact: true }).last().click();
+    await page.locator('[data-figure-frame="latency-comparison"]').screenshot({ caret: 'initial', path: join(dir, `act-${viewport.width}-latency-figure.png`) });
     const blog = page.locator('#ref-pi-real-time-chunking-blog-2025');
     await expect(blog).toContainText('Real-Time Action Chunking with Large Models');
     await expect(blog).toContainText('Kevin Black');

@@ -87,7 +87,7 @@ for (const { id, route, captions } of scenes) {
   });
 }
 
-test('paired RL figures keep value, constraint and stance roles in both schemes and changed states', async ({ browser }) => {
+test('paired RL scenes keep value, constraint, highlight and stance roles in both schemes and a stepped state', async ({ browser }) => {
   for (const colorScheme of ['light', 'dark'] as const) {
     for (const width of [375, 1440]) {
       const context = await browser.newContext({ colorScheme, viewport: { width, height: 900 } });
@@ -104,33 +104,39 @@ test('paired RL figures keep value, constraint and stance roles in both schemes 
         const style = (selector: string, property: string) =>
           page.locator(selector).first().evaluate((node, field) =>
             getComputedStyle(node).getPropertyValue(field), property);
+        const stepToFirstBeat = async (id: string) => {
+          const scene = page.locator(`[data-motion-scene="${id}"]`);
+          await scene.getByTestId('motion-poster').click();
+          const scrubber = scene.getByTestId('motion-scrubber');
+          try {
+            await expect(scrubber).toBeVisible({ timeout: 4_000 });
+          } catch {
+            await scene.getByTestId('motion-poster').click();
+            await expect(scrubber).toBeVisible({ timeout: 10_000 });
+          }
+          await page.keyboard.press('k');
+          await page.keyboard.press('Home');
+          await page.keyboard.press('ArrowRight');
+          await expect(scene.getByTestId('motion-beat-count')).toHaveText('beat 1 / 4');
+        };
 
         await page.goto('/rl-sim2real/parallel-sim-rl/', { waitUntil: 'networkidle' });
-        await expect(page.locator('[data-motion-scene="batch-scale"]')).toBeVisible();
-        const value = await role('value-graphic');
-        const constraint = await role('constraint-graphic');
-        expect(await style('[data-motion-scene="batch-scale"] [data-scene-mark="fixed-budget-time"]', 'stroke')).toBe(await role('value-stage'));
-        expect(await style('[data-testid="active-curve"]', 'stroke')).toBe(value);
-        expect(await style('[data-testid="breakdown-sim"]', 'fill')).toBe(value);
-        expect(await style('[data-instrument-legend] span:first-child > span:first-child', 'background-color')).toBe(value);
-        await page.getByRole('slider', { name: /parallel environments/i }).fill('14');
-        expect(await style('[data-testid="position-marker"]', 'fill')).toBe(await role('highlight-graphic'));
-        await page.getByRole('button', { name: /CPU single-core bottleneck/i }).click();
-        expect(await style('[data-testid="active-curve"]', 'stroke')).toBe(constraint);
-        expect(await style('[data-testid="position-marker"]', 'fill')).toBe(await role('highlight-graphic'));
-        expect(await style('[data-motion-scene="batch-scale"] [data-scene-mark="cpu-cost-time"]', 'stroke')).toBe(await role('constraint-stage'));
-        expect(await style('[data-testid="cpu-explanation"]', 'color')).not.toBe('');
+        const batch = '[data-motion-scene="batch-scale"]';
+        await expect(page.locator(batch)).toBeVisible();
+        for (const state of ['poster', 'beat 1']) {
+          if (state === 'beat 1') await stepToFirstBeat('batch-scale');
+          expect(await style(`${batch} [data-scene-mark="fixed-budget-time"]`, 'stroke'), state).toBe(await role('value-stage'));
+          expect(await style(`${batch} [data-scene-mark="cpu-cost-time"]`, 'stroke'), state).toBe(await role('constraint-stage'));
+          expect(await style(`${batch} [data-scene-mark="selected-environment-count"]`, 'fill'), state).toBe(await role('highlight-stage'));
+        }
 
         await page.goto('/rl-sim2real/legged-locomotion/', { waitUntil: 'networkidle' });
-        const row = page.getByTestId('row-lf');
-        const state = await role('state-graphic');
-        expect(await row.locator('rect').last().evaluate((node) => getComputedStyle(node).fill)).toBe(state);
-        expect(await style('[data-motion-scene="gait-support"] [data-scene-mark="walk-phase-0"]', 'fill')).toBe(await role('state-stage'));
-        await page.getByRole('button', { name: 'Trot', exact: true }).click();
-        await page.getByRole('slider', { name: /gait phase/i }).fill('50');
-        expect(await row.locator('rect').last().evaluate((node) => getComputedStyle(node).fill)).toBe(state);
-        expect(await style('[data-testid="playhead"] circle', 'fill')).toBe(await role('highlight-graphic'));
-        expect(await style('[data-testid="stance-readout"]', 'color')).toBe(await role('state-text'));
+        const gait = '[data-motion-scene="gait-support"]';
+        await expect(page.locator(gait)).toBeVisible();
+        for (const state of ['poster', 'beat 1']) {
+          if (state === 'beat 1') await stepToFirstBeat('gait-support');
+          expect(await style(`${gait} [data-scene-mark="walk-phase-0"]`, 'fill'), state).toBe(await role('state-stage'));
+        }
       } finally {
         await context.close();
       }

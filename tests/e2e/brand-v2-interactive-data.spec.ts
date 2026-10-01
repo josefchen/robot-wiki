@@ -1,4 +1,4 @@
-import type { Browser, Locator } from '@playwright/test';
+import type { Browser, Locator, Page } from '@playwright/test';
 import { brandV2Registry, expect, test } from './brand-v2-static-fixture';
 import { forEachInOwnContext } from './helpers/per-route-context';
 import { buildInteractiveExecutionPlan } from '../../lib/brand-v2-runners';
@@ -15,7 +15,15 @@ import {
 import { ACT_CHUNK_ANCHORS, successAtChunkSize } from '../../lib/chunk-size';
 import { COMPLETION_POINTS } from '../../lib/egoscale-law';
 import { chunkScaleX, chunkScaleY } from '../../components/interactive/chunk-size-curve';
-import { GROUPS, MAX_TRIALS, METHODS, PLOT, barX, yFor } from '../../components/interactive/expo-ft-results';
+import {
+  BAR_THICKNESS,
+  GROUPS,
+  MAX_TRIALS,
+  METHODS,
+  barLength,
+  barTop,
+  panelLeft,
+} from '../../components/interactive/expo-ft-results';
 import { xFor } from '../../components/interactive/egoscale-scaling';
 
 /**
@@ -24,8 +32,9 @@ import { xFor } from '../../components/interactive/egoscale-scaling';
  *
  * The population is the registry's own execution plan: every mount of every
  * registered interactive source, zipped one-to-one with the rendered
- * instrument frames on its route (the zip is asserted, so a route whose
- * frame count drifts from its mount count fails instead of mis-binding).
+ * instrument frames on its route, or for a plain prose table with its
+ * unframed table (the zip is asserted, so a route whose frame count drifts
+ * from its mount count fails instead of mis-binding).
  * Evidence is observed in the live DOM - computed paints, dash arrays,
  * geometry tags, legend swatches, table cells - and classified by the pure
  * predicates in lib/brand-v2-interactive-data.ts, which a unit test keeps
@@ -40,6 +49,48 @@ const VIEWPORT = { width: 1440, height: 900 } as const;
 // This corpus grades registered exploratory labs. Paused motion scenes and
 // clips own separate teaching/evidence contracts and share the frame primitive.
 const FRAME_SELECTOR = '[data-brand-module-signature="instrument-frame"]:not([data-motion-scene]):not([data-motion-clip])';
+// A plain prose table is not a figure, so its mount has no frame: its root is
+// the block around the shared table region that no frame contains. Its table
+// still answers to the same table-semantics and honesty gates below.
+const PLAIN_TABLE_SOURCES = new Set([
+  'interactive:DatasetTable',
+  'interactive:HardwareGuide',
+  'interactive:TeleopRigMatrix',
+]);
+const UNFRAMED_TABLE_REGION =
+  'main [data-brand-frame-interior-registered="table"]:not([data-brand-module-signature="instrument-frame"] *)';
+
+/**
+ * Each mount's root on its route, in registry order: the next frame, or for
+ * a plain-table mount the block around the next unframed table region. Both
+ * counts are asserted so a mount can never bind to another mount's markup.
+ */
+async function mountRoots(
+  page: Page,
+  route: string,
+  mounts: readonly { sourceId: string }[],
+): Promise<Locator[]> {
+  const plainCount = mounts.filter((mount) => PLAIN_TABLE_SOURCES.has(mount.sourceId)).length;
+  const frames = page.locator(FRAME_SELECTOR);
+  const regions = page.locator(UNFRAMED_TABLE_REGION);
+  expect(
+    await frames.count(),
+    `${route} renders one instrument frame per framed registry mount (${mounts.length - plainCount})`,
+  ).toBe(mounts.length - plainCount);
+  if (plainCount > 0) {
+    expect(
+      await regions.count(),
+      `${route} renders one unframed table per plain-table mount (${plainCount})`,
+    ).toBe(plainCount);
+  }
+  let frameIndex = 0;
+  let regionIndex = 0;
+  return mounts.map((mount) =>
+    PLAIN_TABLE_SOURCES.has(mount.sourceId)
+      ? regions.nth(regionIndex++).locator('xpath=..')
+      : frames.nth(frameIndex++),
+  );
+}
 
 const TOKEN_VARS = [
   '--color-accent',
@@ -433,21 +484,16 @@ async function runSweep(browser: Browser, staticBase: string): Promise<SweepEvid
     await page.setViewportSize(VIEWPORT);
     await page.goto(`${staticBase}${route}`);
     const routeText = (await page.locator('main').innerText()).replace(/\s+/g, ' ').trim();
-    const frameLocators = page.locator(FRAME_SELECTOR);
-    const frameCount = await frameLocators.count();
-    expect(
-      frameCount,
-      `${route} renders one instrument frame per registry mount (${mounts.length})`,
-    ).toBe(mounts.length);
+    const roots = await mountRoots(page, route, mounts);
     routeCanvasCounts.push({
       route,
       count: await page.locator('canvas').count(),
     });
-    for (let index = 0; index < frameCount; index += 1) {
+    for (let index = 0; index < roots.length; index += 1) {
       const mount = mounts[index];
       const source = sourceById.get(mount.sourceId);
       expect(source, `${mount.id} resolves to a source`).toBeTruthy();
-      const frameLocator = frameLocators.nth(index);
+      const frameLocator = roots[index];
       const evidence = await collectFrame(frameLocator);
       // A legend may name series that only other control states render
       // (a strategy that zeroes, links or blocks different slots). When
@@ -867,29 +913,31 @@ test.describe('brand-v2 interactive data legends and render parity', () => {
     const violations: string[] = [];
     let anchorsChecked = 0;
 
-    // EXPO-FT: every bar's top y and height recompute from yFor(trials).
+    // EXPO-FT: every horizontal bar starts at its task panel, sits in its
+    // method row, and its length recomputes from barLength(trials).
     for (const frame of frameFor('interactive:ExpoFtResults', frames)) {
       GROUPS.forEach((group, groupIndex) => {
         for (const [methodIndex, method] of METHODS.entries()) {
           const trials = method.values[groupIndex];
-          const expectedX = barX(groupIndex, methodIndex);
-          const expectedY = yFor(trials);
+          const expectedX = panelLeft(groupIndex);
+          const expectedY = barTop(methodIndex);
+          const expectedWidth = barLength(trials);
           const rect = frame.seriesRects.find(
             (candidate) =>
               candidate.seriesId === method.id &&
               near(candidate.x, expectedX, 1) &&
-              near(candidate.width, 20, 1),
+              near(candidate.y, expectedY, 1),
           );
           if (!rect) {
             violations.push(
-              `${frame.mountId}: no bar for ${method.id} at the recomputed x ${expectedX.toFixed(2)} (${group})`,
+              `${frame.mountId}: no bar for ${method.id} at the recomputed x ${expectedX.toFixed(2)}, y ${expectedY.toFixed(2)} (${group})`,
             );
             continue;
           }
           anchorsChecked += 1;
-          if (!near(rect.y, expectedY) || !near(rect.height, PLOT.bottom - expectedY)) {
+          if (!near(rect.width, expectedWidth) || !near(rect.height, BAR_THICKNESS)) {
             violations.push(
-              `${frame.mountId}: ${method.id} bar for ${group} renders y=${rect.y.toFixed(2)} h=${rect.height.toFixed(2)}; source expects y=${expectedY.toFixed(2)} h=${(PLOT.bottom - expectedY).toFixed(2)} (${trials}/30)`,
+              `${frame.mountId}: ${method.id} bar for ${group} renders w=${rect.width.toFixed(2)} h=${rect.height.toFixed(2)}; source expects w=${expectedWidth.toFixed(2)} h=${BAR_THICKNESS} (${trials}/30)`,
             );
           }
         }
@@ -1083,10 +1131,9 @@ test.describe('brand-v2 interactive data legends and render parity', () => {
             Object.keys(element).some((key) => key.startsWith('__reactFiber$')),
           ),
         );
-        const frames = page.locator(FRAME_SELECTOR);
-        expect(await frames.count(), `${route} renders one frame per mount`).toBe(mounts.length);
+        const roots = await mountRoots(page, route, mounts);
         for (let index = 0; index < mounts.length; index += 1) {
-          const frame = frames.nth(index);
+          const frame = roots[index];
           const sortButtons = frame.getByRole('button', { name: /^Sort by / });
           const buttonCount = await sortButtons.count();
           if (buttonCount === 0) continue;

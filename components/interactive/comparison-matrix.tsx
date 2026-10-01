@@ -2,13 +2,18 @@
 
 import { useMemo, useState, type ReactNode } from 'react';
 import { useCitationLookup } from '@/components/article/citation-records';
+import { Table, type Column } from '@/components/ui';
 import {
-  Badge,
-  InstrumentFrame,
+  ControlField,
+  ControlLabel,
+  INSTRUMENT_SECONDARY_CONTROL_CLASS,
+  INSTRUMENT_TOGGLE_CLASS,
+  InstrumentFigure,
+  InstrumentReadout,
   InstrumentReset,
-  Table,
-  type Column,
-} from '@/components/ui';
+} from '@/components/ui/instrument';
+import { StageStatusChip } from '@/components/ui/stage-status-chip';
+import { FigureStage } from '@/components/motion/figure-frame';
 import { METHODS, type Method } from '@/data/methods';
 import {
   methodConditioningText,
@@ -27,7 +32,6 @@ import {
   type RepresentationFilter,
   type WeightsFilter,
 } from '@/lib/methods';
-import { cx } from '@/lib/utils';
 
 /**
  * ComparisonMatrix: every major manipulation policy across the eight
@@ -44,6 +48,8 @@ import { cx } from '@/lib/utils';
  * affordance, and horizontal scroll inside its own container at 375px.
  */
 
+const STAGE_LINK = 'underline-offset-2';
+
 const NOT_DISCLOSED: ReactNode = (
   <span className="text-text-dim">{NOT_DISCLOSED_TEXT}</span>
 );
@@ -56,7 +62,7 @@ function horizonCell(method: Method): ReactNode {
   const note = method.actionHorizon.note;
   if (figure === null) return <>{NOT_DISCLOSED}{note ? <span className="block font-sans text-xs text-text-dim">{note}</span> : null}</>;
   return (
-    <span className="font-mono tabular-nums">
+    <span className="tabular-nums">
       {figure}
       {note ? (
         <span className="block font-sans text-xs text-text-dim">{note}</span>
@@ -79,7 +85,7 @@ function frequencyCell(method: Method): ReactNode {
     );
   }
   return (
-    <span className="font-mono tabular-nums">
+    <span className="tabular-nums">
       {figure}
       {note ? (
         <span className="block font-sans text-xs text-text-dim">{note}</span>
@@ -108,7 +114,7 @@ function MethodSources({ sources }: { sources: readonly string[] }) {
               rel="noopener noreferrer"
               data-brand-control-id="control:link-focus"
               data-method-source-id={id}
-              className="font-sans text-xs text-signal underline underline-offset-2"
+              className={`font-sans text-xs ${STAGE_LINK}`}
             >
               {citation.label}: {citation.title}
             </a>
@@ -184,7 +190,9 @@ const COLUMNS: Column<Method>[] = [
     sortable: true,
     sortValue: (row) => row.openWeights === null ? null : (row.openWeights ? 1 : 0),
     render: (row) => <>
-      {row.openWeights === null ? NOT_DISCLOSED : row.openWeights ? <Badge variant="ok">downloadable</Badge> : <Badge>not released</Badge>}
+      {row.openWeights === null ? NOT_DISCLOSED : row.openWeights
+        ? <StageStatusChip variant="ok" line="solid">downloadable</StageStatusChip>
+        : <StageStatusChip variant="default" line="dashed">not released</StageStatusChip>}
       {row.weightsNote ? <span className="block font-sans text-xs text-text-dim">{row.weightsNote}</span> : null}
     </>,
   },
@@ -213,14 +221,6 @@ const REPRESENTATION_OPTIONS: Array<{
   { value: 'flow', label: 'Flow' },
   { value: 'undisclosed', label: 'Not disclosed' },
 ];
-
-const filterButtonClasses = (active: boolean) =>
-  cx(
-    'cursor-pointer rounded-sm border px-2.5 py-1.5 font-mono text-xs transition-colors active:translate-y-[1px]',
-    active
-      ? 'border-accent text-text'
-      : 'border-border bg-surface-2 text-text-dim hover:border-border-strong hover:text-text',
-  );
 
 type ComparisonMatrixProps = {
   className?: string;
@@ -251,116 +251,121 @@ export function ComparisonMatrix({ className }: ComparisonMatrixProps) {
   }
 
   return (
-    <InstrumentFrame className={className}>
-      <div className="flex flex-wrap items-end gap-x-5 gap-y-3">
-        <div className="flex flex-col gap-1">
-          <label
-            htmlFor="matrix-filter"
-            className="font-sans text-xs text-text-dim"
+    <InstrumentFigure
+      figureId="comparison-matrix"
+      className={className}
+      heading="Policy comparison matrix"
+      controls={
+        <>
+          <ControlField>
+            <ControlLabel htmlFor="matrix-filter">Filter methods</ControlLabel>
+            <input
+              data-brand-control-id="control:input"
+              id="matrix-filter"
+              type="search"
+              value={filters.query}
+              onChange={(event) => patchFilters({ query: event.target.value })}
+              placeholder="name, backbone, conditioning"
+              className="h-9 w-full rounded-sm border border-border bg-surface-2 px-2.5 font-sans text-[13px] text-text placeholder:text-text-dim"
+            />
+          </ControlField>
+          <InstrumentReset onClick={reset} className="self-end" />
+          <div
+            role="group"
+            aria-label="Filter by weights"
+            className="grid basis-full gap-1"
           >
-            Filter methods
-          </label>
-          <input
-            data-brand-control-id="control:input"
-            id="matrix-filter"
-            type="search"
-            value={filters.query}
-            onChange={(event) => patchFilters({ query: event.target.value })}
-            placeholder="name, backbone, conditioning"
-            className="w-full rounded-sm border border-border bg-surface-2 px-2.5 py-1.5 font-mono text-xs text-text placeholder:text-text-dim sm:w-56"
-          />
-        </div>
-
-        <div
-          role="group"
-          aria-label="Filter by weights"
-          className="flex flex-col gap-1"
-        >
-          <span className="font-sans text-xs text-text-dim">Weights</span>
-          <div className="flex flex-wrap gap-1.5">
-            {WEIGHT_OPTIONS.map((option) => (
-              <button
-                data-brand-control-id="control:selection"
-                key={option.value}
-                type="button"
-                aria-pressed={filters.weights === option.value}
-                onClick={() => patchFilters({ weights: option.value })}
-                className={filterButtonClasses(filters.weights === option.value)}
-              >
-                {option.label}
-              </button>
-            ))}
+            <span className="font-sans text-[13px] text-text-dim">Weights</span>
+            <div className="flex flex-wrap gap-1">
+              {WEIGHT_OPTIONS.map((option) => (
+                <button
+                  data-brand-control-id="control:selection"
+                  key={option.value}
+                  type="button"
+                  aria-pressed={filters.weights === option.value}
+                  onClick={() => patchFilters({ weights: option.value })}
+                  className={INSTRUMENT_TOGGLE_CLASS}
+                >
+                  {option.label}
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
-
-        <div
-          role="group"
-          aria-label="Filter by action representation"
-          className="flex flex-col gap-1"
-        >
-          <span className="font-sans text-xs text-text-dim">
-            Action representation
-          </span>
-          <div className="flex flex-wrap gap-1.5">
-            {REPRESENTATION_OPTIONS.map((option) => (
-              <button
-                data-brand-control-id="control:selection"
-                key={option.value}
-                type="button"
-                aria-pressed={filters.representation === option.value}
-                onClick={() => patchFilters({ representation: option.value })}
-                className={filterButtonClasses(
-                  filters.representation === option.value,
-                )}
-              >
-                {option.label}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div className="ml-auto flex items-center gap-3">
-          <p aria-live="polite" className="font-mono text-xs text-text-dim">
-            {rows.length} of {METHODS.length} methods
-          </p>
-          <InstrumentReset onClick={reset} className="cursor-pointer" />
-        </div>
-      </div>
-
-      {rows.length === 0 ? (
-        <div
-          role="status"
-          className="mt-4 rounded-sm border border-dashed border-border bg-surface-2 px-4 py-6 text-center"
-        >
-          <p className="font-sans text-sm text-text">
-            No methods match these filters.
-          </p>
-          <p className="mt-1 font-sans text-xs text-text-dim">
-            Undisclosed rows only match the Not disclosed representation
-            filter; try widening the weights or representation selection.
-          </p>
-          <button
-            data-brand-control-id="control:secondary-action"
-            data-pagefind-ignore
-            type="button"
-            onClick={clearFilters}
-            className="mt-3 cursor-pointer rounded-sm border border-border bg-surface px-3 py-1.5 font-sans text-xs text-text transition-colors hover:border-border-strong active:translate-y-[1px]"
+          <div
+            role="group"
+            aria-label="Filter by action representation"
+            className="grid basis-full gap-1"
           >
-            Clear filters
-          </button>
-        </div>
-      ) : (
-        <Table
-          key={resetCount}
-          className="mt-4"
-          caption={`${METHODS.length} policies across the eight architectural axes. Horizon shows planned / executed steps (n.d. = not disclosed). Weights describe download availability, not license openness. Unknown availability is separate from not released. Cells the vendor has not published are marked not disclosed and always sort last, in both directions. Unset scalar rates do not prove that a source reports no setup-specific rate. Read the setting notes and linked sources before comparing cells.`}
-          columns={COLUMNS}
-          rows={rows}
-          initialSort={{ key: 'year', direction: 'asc' }}
-          rowAnchor={(row) => entityAnchorId('method', row.id)}
-          highlightedAnchor={highlightedAnchor}
-        />
-      )}
-    </InstrumentFrame>
+            <span className="font-sans text-[13px] text-text-dim">
+              Action representation
+            </span>
+            <div className="flex flex-wrap gap-1">
+              {REPRESENTATION_OPTIONS.map((option) => (
+                <button
+                  data-brand-control-id="control:selection"
+                  key={option.value}
+                  type="button"
+                  aria-pressed={filters.representation === option.value}
+                  onClick={() => patchFilters({ representation: option.value })}
+                  className={INSTRUMENT_TOGGLE_CLASS}
+                >
+                  {option.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        </>
+      }
+      stage={
+        <FigureStage
+          footer={
+            <InstrumentReadout>
+              {rows.length} of {METHODS.length} methods
+            </InstrumentReadout>
+          }
+        >
+          {rows.length === 0 ? (
+            <div
+              role="status"
+              className="mx-3 mt-3 mb-2 rounded-sm border border-dashed border-border px-4 py-6 text-center"
+            >
+              <p className="font-sans text-sm text-text">
+                No methods match these filters.
+              </p>
+              <p className="mt-1 font-sans text-[13px] text-text-dim">
+                Undisclosed rows only match the Not disclosed representation
+                filter; try widening the weights or representation selection.
+              </p>
+              <button
+                data-brand-control-id="control:secondary-action"
+                data-pagefind-ignore
+                type="button"
+                onClick={clearFilters}
+                className={`mt-3 ${INSTRUMENT_SECONDARY_CONTROL_CLASS}`}
+              >
+                Clear filters
+              </button>
+            </div>
+          ) : (
+            <Table
+              key={resetCount}
+              // The shared table marks an anchored row in signal blue and sets
+              // numeric columns in mono; on the stage signal is reserved for
+              // links and mono for readouts, so the anchored row takes the
+              // selection lime and every cell stays in the sans face.
+              className="mx-3 mt-3 mb-2 [&_tbody_tr]:border-l-highlight [&_td]:font-sans"
+              caption={`${METHODS.length} policies across the eight architectural axes. Horizon shows planned / executed steps (n.d. = not disclosed). Weights describe download availability, not license openness. Unknown availability is separate from not released. Cells the vendor has not published are marked not disclosed and always sort last, in both directions. Unset scalar rates do not prove that a source reports no setup-specific rate. Read the setting notes and linked sources before comparing cells.`}
+              columns={COLUMNS}
+              rows={rows}
+              initialSort={{ key: 'year', direction: 'asc' }}
+              rowAnchor={(row) => entityAnchorId('method', row.id)}
+              highlightedAnchor={highlightedAnchor}
+            />
+          )}
+        </FigureStage>
+      }
+      caption={`${METHODS.length} manipulation policies on eight architectural axes; unpublished cells read not disclosed and sort last.`}
+      source="Compiled from the primary sources linked in each row's Sources column."
+    />
   );
 }

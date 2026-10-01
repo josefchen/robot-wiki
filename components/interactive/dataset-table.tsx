@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo, useState, type ReactNode } from 'react';
-import { Table, InstrumentFrame, InstrumentReset, type Column } from '@/components/ui';
+import { Table, InstrumentReset, type Column } from '@/components/ui';
 import { DATASETS, type Dataset } from '@/data/datasets';
 import {
   datasetEmbodimentsLabel,
@@ -155,12 +155,15 @@ const TASK_OPTIONS: Array<{ value: TaskFilter; label: string }> = [
   { value: 'unknown', label: 'Unknown count' },
 ];
 
+// The filter-chip look, written out so this file still declares the
+// aria-pressed buttons it renders (the interactive-state census reads
+// each source's own markup).
 const filterButtonClasses = (active: boolean) =>
   cx(
-    'cursor-pointer rounded-sm border px-2.5 py-1.5 font-mono text-xs transition-colors active:translate-y-[1px]',
+    'inline-flex min-h-6 cursor-pointer items-center gap-1 rounded-xs border px-2 py-1 font-sans text-xs transition-colors active:translate-y-[1px]',
     active
-      ? 'border-accent text-text'
-      : 'border-border bg-surface-2 text-text-dim hover:border-border-strong hover:text-text',
+      ? 'border-highlight bg-selection font-semibold text-ink'
+      : 'border-border bg-surface text-text hover:border-border-strong',
   );
 
 type FilterGroupProps<T extends string> = {
@@ -189,6 +192,7 @@ function FilterGroup<T extends string>({
             onClick={() => onSelect(option.value)}
             className={filterButtonClasses(active === option.value)}
           >
+            {active === option.value ? <span aria-hidden="true">✓</span> : null}
             {option.label}
           </button>
         ))}
@@ -228,7 +232,7 @@ export function DatasetTable({ className }: DatasetTableProps) {
   }
 
   return (
-    <InstrumentFrame className={className}>
+    <div className={className}>
       <div className="flex flex-wrap items-end gap-x-5 gap-y-3">
         <FilterGroup
           label="Filter by size"
@@ -250,9 +254,9 @@ export function DatasetTable({ className }: DatasetTableProps) {
         />
 
         <div className="ml-auto flex items-center gap-3">
-          <p aria-live="polite" className="font-mono text-xs text-text-dim">
+          <div aria-live="polite" className="font-mono text-xs text-text-dim">
             {rows.length} of {DATASETS.length} datasets
-          </p>
+          </div>
           <InstrumentReset onClick={reset} className="cursor-pointer" />
         </div>
       </div>
@@ -291,6 +295,6 @@ export function DatasetTable({ className }: DatasetTableProps) {
           highlightedAnchor={highlightedAnchor}
         />
       )}
-    </InstrumentFrame>
+    </div>
   );
 }

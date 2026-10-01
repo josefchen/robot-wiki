@@ -146,7 +146,7 @@ for (const width of [1440, 375]) {
         await expect(page.getByTestId('sample-source-sim')).toBeChecked();
         await expect(page.getByTestId('sample-wallclock-readout')).toHaveText(opening!);
         await expect(page.getByTestId('sample-simplification-label')).toContainText('bands do not rule algorithms in or out');
-        const details = widget.locator('details');
+        const details = widget.locator('details[data-chart-data]');
         if (await details.count() && await details.getAttribute('open') === null) {
           await details.locator('summary').click();
         }
@@ -202,6 +202,10 @@ for (const width of [1440, 375]) {
     try {
       expect((await page.goto('http://localhost:3200/rl-sim2real/rl-for-robotics/'))?.ok()).toBe(true);
       await expect(page.getByRole('heading', { level: 1, name: 'RL for Robotics', exact: true })).toBeVisible();
+      // The ledger keeps its paper-source chips in a collapsed note under its
+      // source line; open it so the first chip of each source is the one a
+      // reader reaches there.
+      await page.getByTestId('sample-efficiency').locator('details:not([data-chart-data]) > summary').click();
       for (const id of [...changed, 'offline-rl-tutorial-2020']) {
         const chip = page.locator(`.prose [data-cite-id="${id}"]`).first();
         await chip.evaluate((element) => element.scrollIntoView({ block: 'center', behavior: 'instant' }));
@@ -229,7 +233,7 @@ for (const width of [1440, 375]) {
       await page.getByTestId('sample-source-fleet').check();
       await captureSlices(page, widget, `${width}-widget-minimum`, directory);
       await widget.getByRole('button', { name: /reset the budget/i }).click();
-      const details = widget.locator('details');
+      const details = widget.locator('details[data-chart-data]');
       if (await details.getAttribute('open') === null) await details.locator('summary').click();
       const table = widget.getByRole('table');
       await expect(table).toBeVisible();

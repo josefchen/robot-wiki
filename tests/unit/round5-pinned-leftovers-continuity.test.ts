@@ -8,11 +8,23 @@ import {
   retainedFrictionTransferSource, retainedRound5FirstScreenArticle,
   round5PinnedLeftoversCheckerPredecessor,
 } from '../../lib/audit-round5-pinned-leftovers-continuity.ts';
+import { preFigureMigration } from '../helpers/figure-migration';
 
 const root = resolve(import.meta.dirname, '../..');
 const directory = 'audit/evidence/motion-round5-pinned-leftovers-20260928/';
 const read = (path: string) => readFileSync(resolve(root, path));
 const digest = (bytes: Buffer) => createHash('sha256').update(bytes).digest('hex');
+type Artifact = { path: string; bytes: number; sha256: string };
+// The 2026-10-01 figure migration later edited the friction lab and both
+// data-hardware articles; its reviewed successor returns the bytes this review names.
+const frictionAfter = {
+  path: 'components/interactive/friction-transfer.tsx',
+  bytes: 15835,
+  sha256: '45e15e842760f8109e19cd9cded9b066557fc235c0a4ebb51488590b9a2dee44',
+};
+const reviewedFriction = () => preFigureMigration(frictionAfter);
+const reviewedFirstScreen = (index: 0 | 1) => preFigureMigration((JSON.parse(
+  read(`${directory}first-screen-transition.json`).toString()) as { sources: { after: Artifact }[] }).sources[index].after);
 
 function copied(paths: readonly string[]) {
   const destination = mkdtempSync(join(tmpdir(), 'round5-pinned-leftovers-'));
@@ -37,8 +49,8 @@ const frictionPaths = [
   'content/data-hardware/evaluation-crisis.mdx',
 ] as const;
 
-it('pins the live friction bytes and returns the exact catalog predecessor', () => {
-  const live = read('components/interactive/friction-transfer.tsx');
+it('pins the reviewed friction bytes and returns the exact catalog predecessor', () => {
+  const live = reviewedFriction();
   expect(live.length).toBe(15835);
   expect(digest(live)).toBe('45e15e842760f8109e19cd9cded9b066557fc235c0a4ebb51488590b9a2dee44');
   const retained = createLocalArtifactReader(root)({
@@ -52,7 +64,7 @@ it('pins the live friction bytes and returns the exact catalog predecessor', () 
 
 it.each(['wrong-mark', 'dropped-sentence'] as const)(
   'rejects a %s friction edit outside the named transition', change => {
-    const live = read('components/interactive/friction-transfer.tsx').toString();
+    const live = reviewedFriction().toString();
     const wrong = change === 'wrong-mark'
       ? live.replace("'wide' : 'ordinary'", "'narrow' : 'ordinary'")
       : live.replace(' The randomization band is marked ', ' A band is marked ');
@@ -68,7 +80,7 @@ it.each(['missing-review', 'missing-predecessor', 'corrupt-predecessor', 'review
   'rejects %s in the friction source transition', mutation => {
     const destination = copied(frictionPaths);
     try {
-      const live = read('components/interactive/friction-transfer.tsx');
+      const live = reviewedFriction();
       expect(retainedFrictionTransferSource(destination, live))
         .toEqual(read(`${directory}friction-transfer-before.tsx.txt`));
       const reviewPath = `${directory}friction-source-transition.json`;
@@ -99,9 +111,9 @@ it.each(['missing-review', 'missing-predecessor', 'corrupt-predecessor', 'review
 it('chains both first-screen successors on the unchanged data-hardware review', () => {
   const priorDataBottleneck = read(`${directory}data-bottleneck-first-screen-before.mdx`);
   const priorEvaluationCrisis = read(`${directory}evaluation-crisis-first-screen-before.mdx`);
-  expect(retainedRound5FirstScreenArticle(root, 0, read('content/data-hardware/data-bottleneck.mdx')))
+  expect(retainedRound5FirstScreenArticle(root, 0, reviewedFirstScreen(0)))
     .toEqual(read('audit/evidence/motion-data-hardware-20260927/data-bottleneck-before.mdx'));
-  expect(retainedRound5FirstScreenArticle(root, 1, read('content/data-hardware/evaluation-crisis.mdx')))
+  expect(retainedRound5FirstScreenArticle(root, 1, reviewedFirstScreen(1)))
     .toEqual(read('audit/evidence/motion-data-hardware-20260927/evaluation-crisis-before.mdx'));
   expect(createLocalArtifactReader(root)({
     path: 'content/data-hardware/data-bottleneck.mdx', bytes: 11947,
@@ -116,7 +128,9 @@ it.each(['reverted-move', 'dropped-citation', 'missing-review', 'wrong-after-has
     const destination = copied([...frictionPaths,
       'audit/evidence/motion-data-hardware-20260927/data-bottleneck-before.mdx']);
     try {
-      const live = read('content/data-hardware/data-bottleneck.mdx');
+      const live = reviewedFirstScreen(0);
+      expect(retainedRound5FirstScreenArticle(destination, 0, live))
+        .toEqual(read('audit/evidence/motion-data-hardware-20260927/data-bottleneck-before.mdx'));
       const reviewed = mutation === 'reverted-move'
         ? Buffer.from(live.toString()
           .replace('<DataScaleChart className="my-6" />\n\n<FarmThroughput className="my-6" />',
@@ -149,7 +163,7 @@ it('admits only the exact named checker revision above the shared-ui predecessor
   expect(round5PinnedLeftoversCheckerPredecessor(root, archived)).toEqual(archived);
   expect(() => round5PinnedLeftoversCheckerPredecessor(root,
     Buffer.concat([reviewedAfter, Buffer.from('\n')]))).toThrow(
-    /round6 remaining repairs checker continuity drift/,
+    /figure migration checker continuity drift/,
   );
 });
 
@@ -167,7 +181,9 @@ it.each(['missing-review', 'missing-predecessor', 'corrupt-predecessor', 'wrong-
       'audit/evidence/motion-round6-prose-restores-20260929/audit-local-basis-before.ts.txt',
       'audit/evidence/motion-round6-remaining-repairs-20260929/checker-transition.json',
       'audit/evidence/motion-round6-remaining-repairs-20260929/audit-local-basis-before.ts.txt',
-      'audit/evidence/motion-round6-remaining-repairs-20260929/classical-closure-evidence-before.test.ts.txt']);
+      'audit/evidence/motion-round6-remaining-repairs-20260929/classical-closure-evidence-before.test.ts.txt',
+      'audit/evidence/figure-migration-20261001/checker-transition.json',
+      'audit/evidence/figure-migration-20261001/audit-local-basis-before.ts.txt']);
     try {
       const live = read('lib/audit-local-basis.ts');
       expect(round5PinnedLeftoversCheckerPredecessor(destination, live))

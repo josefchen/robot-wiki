@@ -189,7 +189,7 @@ it('admits only the exact kinematics reader revision above the round5 reader-pin
   for (const changed of [Buffer.concat([reviewedAfter, Buffer.from('\n')]),
     Buffer.from(reviewedAfter.toString().replace(branch, ''))]) {
     expect(() => round6KinematicsReaderCheckerPredecessor(root, changed)).toThrow(
-      /round6 remaining repairs checker continuity drift/,
+      /figure migration checker continuity drift/,
     );
   }
 });
@@ -204,7 +204,9 @@ it.each(['missing-review', 'missing-predecessor', 'corrupt-predecessor', 'review
       'audit/evidence/motion-round6-prose-restores-20260929/audit-local-basis-before.ts.txt',
       'audit/evidence/motion-round6-remaining-repairs-20260929/checker-transition.json',
       'audit/evidence/motion-round6-remaining-repairs-20260929/audit-local-basis-before.ts.txt',
-      'audit/evidence/motion-round6-remaining-repairs-20260929/classical-closure-evidence-before.test.ts.txt']);
+      'audit/evidence/motion-round6-remaining-repairs-20260929/classical-closure-evidence-before.test.ts.txt',
+      'audit/evidence/figure-migration-20261001/checker-transition.json',
+      'audit/evidence/figure-migration-20261001/audit-local-basis-before.ts.txt']);
     try {
       const live = read('lib/audit-local-basis.ts');
       expect(round6KinematicsReaderCheckerPredecessor(destination, live)).toEqual(read(predecessorPath));

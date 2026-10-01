@@ -27,6 +27,21 @@ test.afterAll(async () => {
   await server?.stop();
 });
 
+/**
+ * A chart's shell: the shared figure frame, or the bordered instrument
+ * panel of a figure not yet on the frame.
+ */
+const SHELL = '[data-figure-frame], div.rounded-md.border, div.rounded-none.border';
+
+/** Opens every prediction-step reveal so a figure inside one renders text. */
+async function openReveals(page: Page) {
+  await page.evaluate(() => {
+    document.querySelectorAll('details[data-reveal]').forEach((d) => {
+      (d as HTMLDetailsElement).open = true;
+    });
+  });
+}
+
 const CHARTS: Array<{
   route: string;
   name: string;
@@ -34,6 +49,8 @@ const CHARTS: Array<{
   moves: string[];
   def: string;
   match?: string;
+  /** The figure is mounted inside a closed prediction-step reveal. */
+  reveal?: boolean;
 }> = [
   { route: '/classical/control', name: 'pendulum', control: 'range', moves: ['9.5', '40'], def: '25' },
   {
@@ -61,6 +78,7 @@ const CHARTS: Array<{
     moves: ['10', '1'],
     def: '5',
     match: 'Per-timestep prediction',
+    reveal: true,
   },
   {
     route: '/manipulation/diffusion-policy',
@@ -97,8 +115,8 @@ const CHARTS: Array<{
     route: '/manipulation/cross-embodiment',
     name: 'cross-embodiment',
     control: 'button',
-    moves: ['Shared relative EEF space', 'Motion transfer'],
-    def: 'Padded shared vector',
+    moves: ['Padded shared vector', 'Motion transfer'],
+    def: 'Shared relative EEF space',
   },
   {
     route: '/manipulation/hierarchical',
@@ -284,11 +302,12 @@ for (const chart of CHARTS) {
   test.describe(`${chart.name} state description (${chart.route})`, () => {
     test('SVG resolves a state-form dl that is richer than the name', async ({ page }) => {
       await page.goto(`${BASE}${chart.route}`);
+      if (chart.reveal) await openReveals(page);
       const desc = chart.match
         ? page.locator('[data-chart-description]', { hasText: chart.match }).first()
         : page.locator('[data-chart-description]').first();
       await expect(desc).toBeAttached();
-      const shell = page.locator('div.rounded-md.border, div.rounded-none.border', { has: desc }).first();
+      const shell = page.locator(SHELL, { has: desc }).first();
       const svg = shell.locator('svg[role][aria-describedby]').first();
       const describedby = await svg.getAttribute('aria-describedby');
       expect(describedby, 'aria-describedby is set').toBeTruthy();
@@ -338,13 +357,14 @@ for (const chart of CHARTS) {
 
     test('state list and takeaway track the primary control', async ({ page }) => {
       await page.goto(`${BASE}${chart.route}`);
+      if (chart.reveal) await openReveals(page);
       const desc = chart.match
         ? page.locator('[data-chart-description]', { hasText: chart.match }).first()
         : page.locator('[data-chart-description]').first();
       const descId = await desc.getAttribute('id');
       expect(descId, 'takeaway has an id').toBeTruthy();
       const descById = page.locator(`[id=${JSON.stringify(descId)}]`);
-      const shell = page.locator('div.rounded-md.border, div.rounded-none.border', { has: descById }).first();
+      const shell = page.locator(SHELL, { has: descById }).first();
       const details = descById.locator('xpath=../details[@data-chart-data]').first();
       await details.evaluate((el) => {
         (el as HTMLDetailsElement).open = true;

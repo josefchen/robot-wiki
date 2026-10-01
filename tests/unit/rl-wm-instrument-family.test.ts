@@ -51,10 +51,12 @@ describe('RL/world-model instruments use the shared instrument family', () => {
         join(ROOT, 'components', 'interactive', `${name}.tsx`),
         'utf8',
       );
-      const importsFamily = /import\s+\{[^}]*InstrumentFrame[^}]*\}\s+from\s+['"]@\/components\/ui(?:\/instrument)?['"]/.test(
+      // InstrumentFigure is the same frame with the figure-system header,
+      // caption and source line.
+      const importsFamily = /import\s+\{[^}]*\bInstrument(?:Frame|Figure)\b[^}]*\}\s+from\s+['"]@\/components\/ui(?:\/instrument)?['"]/.test(
         text,
       );
-      const mountsFrame = /<InstrumentFrame\b/.test(text);
+      const mountsFrame = /<Instrument(?:Frame|Figure)\b/.test(text);
       if (!importsFamily || !mountsFrame) unmigrated.push(name);
     }
     expect(
