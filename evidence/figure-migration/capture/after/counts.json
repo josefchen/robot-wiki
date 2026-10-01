@@ -1,0 +1,327 @@
+{
+ "width": 1440,
+ "routes": 72,
+ "counts": {
+  "/": {
+   "dom": 1,
+   "manifest": 1
+  },
+  "/manipulation/": {
+   "dom": 0,
+   "manifest": 0
+  },
+  "/rl-sim2real/": {
+   "dom": 0,
+   "manifest": 0
+  },
+  "/world-models/": {
+   "dom": 0,
+   "manifest": 0
+  },
+  "/data-hardware/": {
+   "dom": 0,
+   "manifest": 0
+  },
+  "/classical/": {
+   "dom": 0,
+   "manifest": 0
+  },
+  "/frontier/": {
+   "dom": 0,
+   "manifest": 0
+  },
+  "/adjacent/": {
+   "dom": 0,
+   "manifest": 0
+  },
+  "/market-map/": {
+   "dom": 0,
+   "manifest": 0
+  },
+  "/playground/": {
+   "dom": 1,
+   "manifest": 1
+  },
+  "/glossary/": {
+   "dom": 0,
+   "manifest": 0
+  },
+  "/credits/": {
+   "dom": 117,
+   "manifest": 117
+  },
+  "/editorial-policy/": {
+   "dom": 0,
+   "manifest": 0
+  },
+  "/about/": {
+   "dom": 0,
+   "manifest": 0
+  },
+  "/a-z/": {
+   "dom": 0,
+   "manifest": 0
+  },
+  "/manipulation/bc-foundations/": {
+   "dom": 2,
+   "manifest": 2
+  },
+  "/manipulation/action-chunking/": {
+   "dom": 3,
+   "manifest": 3
+  },
+  "/manipulation/diffusion-policy/": {
+   "dom": 2,
+   "manifest": 2
+  },
+  "/manipulation/vla-models/": {
+   "dom": 1,
+   "manifest": 1
+  },
+  "/manipulation/pi-line/": {
+   "dom": 2,
+   "manifest": 2
+  },
+  "/manipulation/generalist-policies/": {
+   "dom": 1,
+   "manifest": 1
+  },
+  "/manipulation/comparison-matrix/": {
+   "dom": 1,
+   "manifest": 1
+  },
+  "/manipulation/hierarchical/": {
+   "dom": 1,
+   "manifest": 1
+  },
+  "/manipulation/rl-finetuning/": {
+   "dom": 2,
+   "manifest": 2
+  },
+  "/manipulation/realtime-execution/": {
+   "dom": 2,
+   "manifest": 2
+  },
+  "/manipulation/cross-embodiment/": {
+   "dom": 1,
+   "manifest": 1
+  },
+  "/manipulation/knowledge-insulation/": {
+   "dom": 1,
+   "manifest": 1
+  },
+  "/manipulation/robot-learning-roadmap/": {
+   "dom": 0,
+   "manifest": 0
+  },
+  "/manipulation/action-spaces/": {
+   "dom": 0,
+   "manifest": 0
+  },
+  "/manipulation/foundation-models/": {
+   "dom": 0,
+   "manifest": 0
+  },
+  "/rl-sim2real/rl-for-robotics/": {
+   "dom": 1,
+   "manifest": 1
+  },
+  "/rl-sim2real/why-rl-locomotion/": {
+   "dom": 1,
+   "manifest": 1
+  },
+  "/rl-sim2real/parallel-sim-rl/": {
+   "dom": 1,
+   "manifest": 1
+  },
+  "/rl-sim2real/sim2real-transfer/": {
+   "dom": 2,
+   "manifest": 2
+  },
+  "/rl-sim2real/legged-locomotion/": {
+   "dom": 2,
+   "manifest": 2
+  },
+  "/rl-sim2real/humanoid-wbc/": {
+   "dom": 1,
+   "manifest": 1
+  },
+  "/rl-sim2real/reward-design-mpc/": {
+   "dom": 3,
+   "manifest": 3
+  },
+  "/rl-sim2real/offline-rl/": {
+   "dom": 0,
+   "manifest": 0
+  },
+  "/world-models/taxonomy/": {
+   "dom": 1,
+   "manifest": 1
+  },
+  "/world-models/latent-dynamics/": {
+   "dom": 1,
+   "manifest": 1
+  },
+  "/world-models/generative-video/": {
+   "dom": 1,
+   "manifest": 1
+  },
+  "/world-models/jepa/": {
+   "dom": 1,
+   "manifest": 1
+  },
+  "/world-models/generative-sim/": {
+   "dom": 1,
+   "manifest": 1
+  },
+  "/world-models/model-based-robot-learning/": {
+   "dom": 0,
+   "manifest": 0
+  },
+  "/world-models/evaluation/": {
+   "dom": 0,
+   "manifest": 0
+  },
+  "/world-models/world-models-vs-simulators/": {
+   "dom": 0,
+   "manifest": 0
+  },
+  "/data-hardware/data-bottleneck/": {
+   "dom": 1,
+   "manifest": 1
+  },
+  "/data-hardware/datasets/": {
+   "dom": 0,
+   "manifest": 0
+  },
+  "/data-hardware/hardware-taxonomy/": {
+   "dom": 2,
+   "manifest": 2
+  },
+  "/data-hardware/teleop-rigs/": {
+   "dom": 0,
+   "manifest": 0
+  },
+  "/data-hardware/evaluation-crisis/": {
+   "dom": 1,
+   "manifest": 1
+  },
+  "/data-hardware/industrial-deployment/": {
+   "dom": 2,
+   "manifest": 2
+  },
+  "/data-hardware/robot-learning-stack/": {
+   "dom": 0,
+   "manifest": 0
+  },
+  "/classical/kinematics/": {
+   "dom": 2,
+   "manifest": 2
+  },
+  "/classical/motion-planning/": {
+   "dom": 1,
+   "manifest": 1
+  },
+  "/classical/control/": {
+   "dom": 2,
+   "manifest": 2
+  },
+  "/classical/state-estimation/": {
+   "dom": 2,
+   "manifest": 2
+  },
+  "/classical/grasp-planning/": {
+   "dom": 1,
+   "manifest": 1
+  },
+  "/classical/perception/": {
+   "dom": 1,
+   "manifest": 1
+  },
+  "/classical/scene-representation/": {
+   "dom": 1,
+   "manifest": 1
+  },
+  "/classical/calibration/": {
+   "dom": 0,
+   "manifest": 0
+  },
+  "/classical/ros2-for-ml-engineers/": {
+   "dom": 0,
+   "manifest": 0
+  },
+  "/frontier/reliability-gap/": {
+   "dom": 2,
+   "manifest": 2
+  },
+  "/frontier/dexterity/": {
+   "dom": 2,
+   "manifest": 2
+  },
+  "/frontier/generalization/": {
+   "dom": 1,
+   "manifest": 1
+  },
+  "/frontier/competing-theses/": {
+   "dom": 1,
+   "manifest": 1
+  },
+  "/frontier/bear-case/": {
+   "dom": 1,
+   "manifest": 1
+  },
+  "/frontier/safety-and-assurance/": {
+   "dom": 1,
+   "manifest": 1
+  },
+  "/adjacent/autonomous-vehicles/": {
+   "dom": 0,
+   "manifest": 0
+  },
+  "/adjacent/drones/": {
+   "dom": 2,
+   "manifest": 2
+  },
+  "/adjacent/surgical/": {
+   "dom": 0,
+   "manifest": 0
+  },
+  "/adjacent/space/": {
+   "dom": 0,
+   "manifest": 0
+  }
+ },
+ "palette": [
+  "#00829A",
+  "#0B0B0C",
+  "#1A6F45",
+  "#242D33",
+  "#245FFF",
+  "#2EA1B9",
+  "#548200",
+  "#58C4DD",
+  "#5B8141",
+  "#6B1839",
+  "#767778",
+  "#789F5F",
+  "#7D7A73",
+  "#8A5A00",
+  "#8D67A1",
+  "#949595",
+  "#956F00",
+  "#A52A1E",
+  "#A6CF8C",
+  "#AE86C3",
+  "#B189C6",
+  "#B69000",
+  "#C6FF19",
+  "#D63E35",
+  "#D9DADB",
+  "#E8C11C",
+  "#F5F6F7",
+  "#FA6053",
+  "#FC6255",
+  "#FFFFFF"
+ ],
+ "failures": []
+}

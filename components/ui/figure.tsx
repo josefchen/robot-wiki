@@ -135,6 +135,8 @@ function SchematicFigure({
       `Original schematic "${imageId ?? alt}" has no inline drawing in components/ui/original-schematics.tsx`,
     );
   }
+  // A page shows each schematic once, so the image id keeps the caption id unique.
+  const captionId = `${imageId}-schematic-caption`;
   return (
     <FigureFrame
       figureId={imageId}
@@ -150,10 +152,11 @@ function SchematicFigure({
           >
             {SCHEMATIC_LABEL}
           </span>
-          {schematic.draw(alt)}
+          {schematic.draw(alt, captionId)}
         </FigureStage>
       }
       caption={schematic.caption}
+      captionProps={{ id: captionId }}
       source={
         credit ? <CreditLine credit={credit} className={FIGURE_TEXT_CLASS.source} /> : undefined
       }

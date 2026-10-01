@@ -236,8 +236,10 @@ export function HierarchyTimescales({
                 </LegendItem>
               </InstrumentLegend>
               {/* Important margins and padding, because the unlayered `.prose`
-                  list rules otherwise indent the rows inside the stage. */}
-              <ul className="m-0! basis-full list-none divide-y divide-border-strong border-t border-border-strong p-0! font-sans text-[13px]">
+                  list rules otherwise indent the rows inside the stage. Each
+                  row draws its own top rule: a bordered list between the rows
+                  and the stage would make them page dividers (VAL-DESIGN-018). */}
+              <ul className="m-0! basis-full list-none p-0! font-sans text-[13px] *:border-t *:border-t-border-strong">
                 {system.lanes.map((lane) => {
                   const last = lastUpdateAt(lane, playhead);
                   const count = updateCountAt(lane, playhead);

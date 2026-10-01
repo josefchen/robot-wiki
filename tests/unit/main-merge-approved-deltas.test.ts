@@ -388,9 +388,11 @@ const opusHomepageAppends = opusHomepageEndpoints.map(([slug, manifest]) =>
   `opus-homepage-20260930-${manifest === 'interactive-sources-mounts' ? 'mounts' : manifest}-${slug}`);
 // The figure migration of 2026-10-01 moved the remaining article figures onto
 // the shared figure frame. It removed the figures that a prediction step
-// repeated and the scenes that duplicated a lab, typeset four equations
-// without loose KaTeX SVGs, drew the two original schematics inline, and
-// re-ordered or renamed the accessible names of the instruments it redrew.
+// repeated (dropping three of those steps), merged the scene-plus-lab pairs,
+// typeset four equations without loose KaTeX SVGs, drew the two original
+// schematics inline, named the one plot that now holds the three execution
+// modes' panels, and re-ordered or renamed the accessible names, default
+// expressions and not-disclosed text sites of the instruments it redrew.
 // Each tuple is the slug, the manifest, the member and its endpoint before
 // the migration. A member whose history already ended in a reconciling
 // resolution gets a resolution from the sealed hash; the others get a plain
@@ -493,6 +495,94 @@ const opusFigureMigrationEndpoints: ReadonlyArray<readonly [string, string, stri
     '567163089b84a153754a53be294f00e25280ae6dea24c311727348f85b21b8c1'],
   ['latent-dynamics', 'prose', 'article:world-models/latent-dynamics',
     'e549d756bb8b49aeb3f0736327a5c9a0bddec87711d00972789c930b415c154c'],
+  ['control-pendulum-controller-1', 'interactive-sources-mounts', 'mount:content/classical/control.mdx:PendulumController:1',
+    '7d12de5f291052f9cc5ef6ffb9e80152c72f2b0507f315b1da12c5ecfe867669'],
+  ['control-pendulum-controller-2', 'interactive-sources-mounts', 'mount:content/classical/control.mdx:PendulumController:2',
+    '2258a1ef4c92d421c2dbdf35b354dd2644b0111ed31b0be0eee3569c9643f43f'],
+  ['data-bottleneck-data-scale-chart-1', 'interactive-sources-mounts', 'mount:content/data-hardware/data-bottleneck.mdx:DataScaleChart:1',
+    '462c50a7395f33d2d3d68218b9cfa11a70b5211431818a63417df7af3c579720'],
+  ['data-bottleneck-data-scale-chart-2', 'interactive-sources-mounts', 'mount:content/data-hardware/data-bottleneck.mdx:DataScaleChart:2',
+    'e4a9a7c62b9e5d3b82e4be1966a79ee74a7271e5700d606299378381b56a307b'],
+  ['evaluation-crisis-reliability-compounding-1', 'interactive-sources-mounts', 'mount:content/data-hardware/evaluation-crisis.mdx:ReliabilityCompounding:1',
+    'e3e0240306c18f4ad2c85008a359d364a5bfdbb0911b2b5b9a4ffe57bf7a1ee1'],
+  ['evaluation-crisis-reliability-compounding-2', 'interactive-sources-mounts', 'mount:content/data-hardware/evaluation-crisis.mdx:ReliabilityCompounding:2',
+    '33e76cc931302a87529e3ac96f0132d7511933e0ea443ae04cecf87e97e0d710'],
+  ['generalization-ego-scale-scaling-1', 'interactive-sources-mounts', 'mount:content/frontier/generalization.mdx:EgoScaleScaling:1',
+    '4ed83fc83f4bb1692dcd7b187c8c492628a7fbf49bef7f6176e034f2e610cd6c'],
+  ['generalization-ego-scale-scaling-2', 'interactive-sources-mounts', 'mount:content/frontier/generalization.mdx:EgoScaleScaling:2',
+    '4344a63b3ccab815b75d75997e6688dd0767b4ba5e6006e8067e8b82e61eb72e'],
+  ['reliability-gap-reliability-compounding-1', 'interactive-sources-mounts', 'mount:content/frontier/reliability-gap.mdx:ReliabilityCompounding:1',
+    'fec9de380fe0dc5409d3d642226d87dcd98b983c6711e04907ad664b5bfcca41'],
+  ['action-chunking-latency-comparison-2', 'interactive-sources-mounts', 'mount:content/manipulation/action-chunking.mdx:LatencyComparison:2',
+    '067c218062a6f15031a7f5cb207f9a52c9bdd19c756d81c681957d4b4c814d0b'],
+  ['bc-foundations-compounding-error-1', 'interactive-sources-mounts', 'mount:content/manipulation/bc-foundations.mdx:CompoundingError:1',
+    '86dc418850eda7bb2f68b90248cf02f8dd734772ec957efe9fb4065711f059cd'],
+  ['bc-foundations-compounding-error-2', 'interactive-sources-mounts', 'mount:content/manipulation/bc-foundations.mdx:CompoundingError:2',
+    'ebfabe16f371c8d3155004c66c0a141ea9d1d0d7054f98d65e7f0ac349e6d322'],
+  ['realtime-execution-control-loop-budget-2', 'interactive-sources-mounts', 'mount:content/manipulation/realtime-execution.mdx:ControlLoopBudget:2',
+    '1defcee721aae9f56ce0d16dd004efae738a68a81d70e96638953d80eed64a39'],
+  ['legged-locomotion-gait-diagram-1', 'interactive-sources-mounts', 'mount:content/rl-sim2real/legged-locomotion.mdx:GaitDiagram:1',
+    '50d29b47a8de4ea7ee36238215301698ec7eb03f06464233def4cbf4dd57a26e'],
+  ['parallel-sim-rl-training-time-chart-1', 'interactive-sources-mounts', 'mount:content/rl-sim2real/parallel-sim-rl.mdx:TrainingTimeChart:1',
+    '74ca645f0431b43a78b294abb29b451d56373b7e468052d6699cbbe99d256a1f'],
+  ['sim2real-transfer-friction-transfer-2', 'interactive-sources-mounts', 'mount:content/rl-sim2real/sim2real-transfer.mdx:FrictionTransfer:2',
+    '12297c9fe3c4da32aacc7f79046c19669e0cf3345b172beca17c64b632995067'],
+  ['action-conditioning-5', 'behavioral-defaults', 'default:components/interactive/action-conditioning.tsx:5',
+    '39ad7542afd166e7c740a183bada68ab93b7dd53ee500b276864cb5fd82ac721'],
+  ['action-conditioning-6', 'behavioral-defaults', 'default:components/interactive/action-conditioning.tsx:6',
+    '07373f895c154e0d4599cf7dd036f3fb2a7bc59cea2c35a64d10f63fa598d8c5'],
+  ['action-conditioning-7', 'behavioral-defaults', 'default:components/interactive/action-conditioning.tsx:7',
+    '1ec1fed39d19125ef28a2e53ed2f8985fba34d8af1dd89306b78183fa4928fcd'],
+  ['action-conditioning-8', 'behavioral-defaults', 'default:components/interactive/action-conditioning.tsx:8',
+    'fe6601d58dc91aeb05505a86996ee7b7b7b109f2835e86c801a60dd19e01fab3'],
+  ['action-conditioning-9', 'behavioral-defaults', 'default:components/interactive/action-conditioning.tsx:9',
+    '3984680da5ea1f940021255bc468a1b9eed9e4f84f0c03f2cf3906b919bbffd2'],
+  ['action-conditioning-10', 'behavioral-defaults', 'default:components/interactive/action-conditioning.tsx:10',
+    '33e0963270fae11a19789ad9678eefeb7def2a3bf6d662e2b9a0079968e54d5a'],
+  ['action-conditioning-11', 'behavioral-defaults', 'default:components/interactive/action-conditioning.tsx:11',
+    'fe6601d58dc91aeb05505a86996ee7b7b7b109f2835e86c801a60dd19e01fab3'],
+  ['action-conditioning-12', 'behavioral-defaults', 'default:components/interactive/action-conditioning.tsx:12',
+    '3984680da5ea1f940021255bc468a1b9eed9e4f84f0c03f2cf3906b919bbffd2'],
+  ['action-conditioning-13', 'behavioral-defaults', 'default:components/interactive/action-conditioning.tsx:13',
+    '33e0963270fae11a19789ad9678eefeb7def2a3bf6d662e2b9a0079968e54d5a'],
+  ['action-conditioning-14', 'behavioral-defaults', 'default:components/interactive/action-conditioning.tsx:14',
+    '641508bcad67ec03a04a23f3dc75a82ffe73c885df7b121faf23f8903d1e3535'],
+  ['action-conditioning-15', 'behavioral-defaults', 'default:components/interactive/action-conditioning.tsx:15',
+    MISSING_MEMBER],
+  ['action-conditioning-16', 'behavioral-defaults', 'default:components/interactive/action-conditioning.tsx:16',
+    MISSING_MEMBER],
+  ['action-conditioning-17', 'behavioral-defaults', 'default:components/interactive/action-conditioning.tsx:17',
+    MISSING_MEMBER],
+  ['action-conditioning-18', 'behavioral-defaults', 'default:components/interactive/action-conditioning.tsx:18',
+    MISSING_MEMBER],
+  ['collaborative-operation-modes-4', 'behavioral-defaults', 'default:components/interactive/collaborative-operation-modes.tsx:4',
+    '76639607fc6dc92d339337962aea18f429814636c7da864a4969e695b3119851'],
+  ['collaborative-operation-modes-5', 'behavioral-defaults', 'default:components/interactive/collaborative-operation-modes.tsx:5',
+    'bd4805c549cffffd447d370cf33ed4a14f5d1b60476c4e390e8432314862aa09'],
+  ['collaborative-operation-modes-6', 'behavioral-defaults', 'default:components/interactive/collaborative-operation-modes.tsx:6',
+    '50dba3e8d725157cdb902dc3981c83ae2124cbfe9a64a2005c4abad73720d2a4'],
+  ['collaborative-operation-modes-7', 'behavioral-defaults', 'default:components/interactive/collaborative-operation-modes.tsx:7',
+    '76639607fc6dc92d339337962aea18f429814636c7da864a4969e695b3119851'],
+  ['collaborative-operation-modes-8', 'behavioral-defaults', 'default:components/interactive/collaborative-operation-modes.tsx:8',
+    'bd4805c549cffffd447d370cf33ed4a14f5d1b60476c4e390e8432314862aa09'],
+  ['collaborative-operation-modes-9', 'behavioral-defaults', 'default:components/interactive/collaborative-operation-modes.tsx:9',
+    '50dba3e8d725157cdb902dc3981c83ae2124cbfe9a64a2005c4abad73720d2a4'],
+  ['collaborative-operation-modes-10', 'behavioral-defaults', 'default:components/interactive/collaborative-operation-modes.tsx:10',
+    '429bf69654fa9ec5f7ce5ab728af8ccc61d259c4600b97ff9ae481a2f2f0f5d3'],
+  ['collaborative-operation-modes-11', 'behavioral-defaults', 'default:components/interactive/collaborative-operation-modes.tsx:11',
+    'f6d22dc4120c1310e79662f0d2bab37763e5d5b43df43c451b2ef04ef6a16e40'],
+  ['cross-embodiment-strategies-1', 'behavioral-defaults', 'default:components/interactive/cross-embodiment-strategies.tsx:1',
+    'a92a8525520cb2b3e5e5f02c276a8e0e323688ec4ac2a91e874b59e4a83c064b'],
+  ['thesis-explorer-3', 'behavioral-defaults', 'default:components/interactive/thesis-explorer.tsx:3',
+    'c280ffb7c8939a9f1e560a633dd969887331ac6e80e2b2ba0e27fc3f60d561f7'],
+  ['wbc-decomposition-5', 'behavioral-defaults', 'default:components/interactive/wbc-decomposition.tsx:5',
+    '43eb18aaacd1951fdf9ad0e514fad9e5beed5cc362659b3785c58923386301d2'],
+  ['comparison-matrix-not-disclosed-4', 'value-states', 'state-site:components/interactive/comparison-matrix.tsx:not-disclosed:4',
+    MISSING_MEMBER],
+  ['hand-comparison-not-disclosed-3', 'value-states', 'state-site:components/interactive/hand-comparison.tsx:not-disclosed:3',
+    '87746674a9c7a0d2a93dfe598377ed6b3541a50b0770e8d28d74c652ccf92046'],
+  ['execution-modes-literal-aria-label-1', 'accessible-names', 'literal:components/interactive/execution-modes.tsx:aria-label:1',
+    MISSING_MEMBER],
 ];
 const opusFigureMigrationAppends = opusFigureMigrationEndpoints.map(([slug, manifest]) =>
   `opus-figure-migration-20261001-${manifest}-${slug}`);
@@ -522,7 +612,7 @@ describe('two-parent exact approval reconciliation', () => {
     // reconciliation edges, all named below in ledger order, and the round-6
     // prose restores and remaining repairs, the figure-system resolution, the
     // home front page and the figure migration add the edges named above.
-    expect([main.length, local.length, localOnly.length, merged.length]).toEqual([1558, 1104, 7, 1842]);
+    expect([main.length, local.length, localOnly.length, merged.length]).toEqual([1558, 1104, 7, 1886]);
     expect(merged.slice(0, main.length)).toEqual(main);
     expect(merged.slice(main.length, main.length + localOnly.length)).toEqual(localOnly);
     expect(merged.slice(main.length + localOnly.length).map(x => x.id))
@@ -892,6 +982,7 @@ describe('two-parent exact approval reconciliation', () => {
         'opus-figure-migration-20261001-prose-reliability-gap',
         'opus-figure-migration-20261001-prose-parallel-sim-rl',
         'opus-figure-migration-20261001-prose-sim2real-transfer',
+        'opus-figure-migration-20261001-behavioral-defaults-collaborative-operation-modes-11',
       ]);
   });
 });

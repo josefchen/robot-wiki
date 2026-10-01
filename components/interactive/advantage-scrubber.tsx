@@ -137,8 +137,10 @@ function PlayheadSwatch() {
   );
 }
 
+// Each row draws its own top rule: a bordered list between the rows and the
+// stage would turn the rows' rules into page dividers (VAL-DESIGN-018).
 const ROW_LIST =
-  'm-0! basis-full list-none divide-y divide-border-strong border-t border-border-strong p-0! font-sans text-[13px]';
+  'm-0! basis-full list-none p-0! font-sans text-[13px] *:border-t *:border-t-border-strong';
 
 export function AdvantageScrubber({ className }: { className?: string }) {
   const descriptionId = `${useId()}-adv-description`;

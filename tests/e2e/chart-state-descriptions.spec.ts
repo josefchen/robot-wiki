@@ -52,7 +52,15 @@ const CHARTS: Array<{
   /** The figure is mounted inside a closed prediction-step reveal. */
   reveal?: boolean;
 }> = [
-  { route: '/classical/control', name: 'pendulum', control: 'range', moves: ['9.5', '40'], def: '25' },
+  // The page's one pendulum lab is the prediction step's, mounted at Kp 9.5.
+  {
+    route: '/classical/control',
+    name: 'pendulum',
+    control: 'range',
+    moves: ['25', '40'],
+    def: '9.5',
+    reveal: true,
+  },
   {
     route: '/classical/grasp-planning',
     name: 'grasp-object',

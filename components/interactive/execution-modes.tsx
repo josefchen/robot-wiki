@@ -121,14 +121,11 @@ function ModePanel({
   delayMs,
   panel,
   hatchId,
-  descriptionId,
 }: {
   mode: ExecutionMode;
   delayMs: number;
   panel: PlotRect;
   hatchId: string;
-  /** All three panels share one takeaway, so all three point at it. */
-  descriptionId: string;
 }) {
   const meta = MODE_META[mode];
   const trace = executedTrace(mode, delayMs);
@@ -157,7 +154,6 @@ function ModePanel({
       data-testid={`panel-${mode}`}
       role="img"
       aria-label={`Illustrative velocity trace for ${meta.label} execution at ${delayMs} milliseconds of inference delay. Peak per-tick velocity step ${peak.toFixed(2)}, ${within ? 'within' : 'above'} the ${JERK_LIMIT.toFixed(2)} discontinuity-proxy limit, not physical jerk.`}
-      aria-describedby={descriptionId}
     >
       {pause > 0 ? (
         <ConstraintHatch
@@ -335,7 +331,14 @@ export function ExecutionModes({ className }: { className?: string }) {
             </>
           }
         >
-          <PlotStage viewBox={`0 0 ${WIDTH} ${HEIGHT}`} role="group">
+          {/* A group, not an image, so each panel keeps its own name; the
+              shared takeaway describes the group once. */}
+          <PlotStage
+            viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
+            role="group"
+            aria-label="Velocity traces for the three execution modes on one time axis"
+            aria-describedby={descriptionId}
+          >
             <SmallMultiples
               plot={PLOT}
               labels={MODE_ORDER.map((mode) => MODE_META[mode].label)}
@@ -349,7 +352,6 @@ export function ExecutionModes({ className }: { className?: string }) {
                   delayMs={delayMs}
                   panel={panel}
                   hatchId={hatchId}
-                  descriptionId={descriptionId}
                 />
               )}
             />
