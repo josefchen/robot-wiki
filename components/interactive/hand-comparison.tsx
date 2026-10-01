@@ -3,7 +3,12 @@
 import { useId, useMemo, useState } from 'react';
 import { useCitationLookup } from '@/components/article/citation-records';
 import { TableScroll } from '@/components/ui';
-import { InstrumentFrame, InstrumentReset } from '@/components/ui/instrument';
+import {
+  InstrumentFigure,
+  InstrumentReadout,
+  InstrumentReset,
+} from '@/components/ui/instrument';
+import { FigureStage } from '@/components/motion/figure-frame';
 import {
   DEFAULT_HAND_SORT,
   DEXTEROUS_HANDS,
@@ -25,23 +30,20 @@ import { cx } from '@/lib/utils';
  * Interactive contract: deterministic render, keyboard-operable sort
  * headers (aria-sort) and row selection (aria-pressed), a visible readout
  * that narrates the current sort and selection, a reset control, and
- * horizontal scroll inside its own container at 375px. Column headers are
- * mono and dim but deliberately NOT uppercase: the page's uppercase
- * micro-label budget is spent on the prose Stat grid.
+ * horizontal scroll inside its own container at 375px.
  */
 
-const HEADER_CELL =
-  'px-2 py-2.5 text-left font-mono text-[11px] font-medium tracking-[0.14em] text-text-dim';
+const HEADER_CELL = 'px-3 py-2 text-left font-sans text-xs font-medium text-text-dim';
 
-const CELL = 'px-2 py-2.5 align-top';
+const CELL = 'px-3 py-2.5 align-top';
 
 /** Small-print second line under a spec figure, e.g. a unit conversion. */
 function CellNote({ children }: { children: string }) {
-  return (
-    <span className="mt-0.5 block font-sans text-[11px] text-text-dim">
-      {children}
-    </span>
-  );
+  return <span className="mt-0.5 block text-xs text-text-dim">{children}</span>;
+}
+
+function NotDisclosed() {
+  return <span className="text-xs text-text-dim">not disclosed</span>;
 }
 
 const SORT_COLUMNS: Array<{ key: HandSortKey; label: string; ariaLabel: string }> =
@@ -79,9 +81,9 @@ function SourceLink({ id, label }: { id: string; label: string }) {
       href={citation.url}
       target="_blank"
       rel="noopener"
-      /* The link stands alone in its cell, so no inline-text exception
-          applies; the anchor itself carries the 24px minimum target. */
-      className="inline-flex min-h-6 items-center text-text-dim underline decoration-border underline-offset-2 transition-colors hover:text-text"
+      /* The link stands alone in its cell, so the anchor itself carries the
+          24px minimum target. */
+      className="inline-flex min-h-6 items-center whitespace-nowrap underline-offset-2"
     >
       {label}
     </a>
@@ -134,191 +136,183 @@ export function HandComparison({ className }: { className?: string }) {
   }${selected.length > 0 ? `, ${selected.length} selected` : ''}`;
 
   return (
-    <InstrumentFrame data-testid="hand-comparison" className={className}>
-      <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
-        <p
-          data-testid="hand-comparison-readout"
-          aria-live="polite"
-          className="font-mono text-xs text-text-dim"
+    <InstrumentFigure
+      figureId="hand-comparison"
+      data-testid="hand-comparison"
+      className={className}
+      heading="Dexterous hands by disclosed spec"
+      controls={<InstrumentReset onClick={reset} />}
+      stage={
+        <FigureStage
+          footer={
+            <>
+              <InstrumentReadout data-testid="hand-comparison-readout">
+                {readout}
+              </InstrumentReadout>
+              <div
+                data-testid="hand-comparison-selection"
+                className="mt-1 basis-full border-t border-border-strong pt-3 font-sans"
+              >
+                {selected.length === 0 ? (
+                  <p className="text-[13px] text-text-dim">
+                    Select hands to compare their trade-offs.
+                  </p>
+                ) : (
+                  // Important, because the unlayered `.prose ul` and `.prose li`
+                  // rules otherwise indent the list off the readout's edge.
+                  <ul className="m-0! flex flex-col gap-2 p-0!">
+                    {selected.map((hand) => (
+                      <li
+                        key={hand.id}
+                        className="m-0! max-w-[65ch] text-[13px] leading-relaxed text-text-dim"
+                      >
+                        <span className="font-medium text-text">{hand.name}.</span>{' '}
+                        {hand.tradeoff}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </>
+          }
         >
-          {readout}
-        </p>
-        <InstrumentReset onClick={reset} className="ml-auto" />
-      </div>
-
-      <TableScroll labelledBy={captionId} className="mt-4">
-        <table className="w-full min-w-[520px] border-collapse text-left">
-          <caption id={captionId} className="sr-only">
-            Five dexterous hands with their degrees of freedom, tactile
-            threshold, cost and training bet. Sort by any spec column, and
-            select a row to compare it against the others.
-          </caption>
-          <thead>
-            <tr className="border-b border-border">
-              <th scope="col" className={HEADER_CELL}>
-                Hand
-              </th>
-              {SORT_COLUMNS.map((column) => {
-                const active = sort.key === column.key;
-                return (
-                  <th
-                    key={column.key}
-                    scope="col"
-                    aria-sort={
-                      active
-                        ? sort.direction === 'asc'
-                          ? 'ascending'
-                          : 'descending'
-                        : undefined
-                    }
-                    className={HEADER_CELL}
-                  >
-                    <button
-                      data-brand-control-id="control:secondary-action"
-                      type="button"
-                      aria-label={column.ariaLabel}
-                      onClick={() => handleSort(column.key)}
-                      className="inline-flex items-center gap-1 font-sans transition-colors hover:text-text"
+          <TableScroll labelledBy={captionId} className="px-1 pt-1.5 pb-1">
+            <table className="w-full min-w-[560px] border-collapse text-left font-sans text-[13px] text-text">
+              <caption id={captionId} className="sr-only">
+                Five dexterous hands with their degrees of freedom, tactile
+                threshold, cost and training bet. Sort by any spec column, and
+                select a row to compare it against the others.
+              </caption>
+              <thead>
+                <tr className="border-b border-border-strong">
+                  <th scope="col" className={HEADER_CELL}>
+                    Hand
+                  </th>
+                  {SORT_COLUMNS.map((column) => {
+                    const active = sort.key === column.key;
+                    return (
+                      <th
+                        key={column.key}
+                        scope="col"
+                        aria-sort={
+                          active
+                            ? sort.direction === 'asc'
+                              ? 'ascending'
+                              : 'descending'
+                            : undefined
+                        }
+                        className={HEADER_CELL}
+                      >
+                        <button
+                          data-brand-control-id="control:secondary-action"
+                          type="button"
+                          aria-label={column.ariaLabel}
+                          onClick={() => handleSort(column.key)}
+                          className={cx(
+                            'inline-flex min-h-6 items-center gap-1 text-left font-medium transition-colors hover:text-text',
+                            active && 'text-text',
+                          )}
+                        >
+                          {column.label}
+                          <span aria-hidden="true">
+                            {active ? (sort.direction === 'asc' ? '↑' : '↓') : '↕'}
+                          </span>
+                        </button>
+                      </th>
+                    );
+                  })}
+                  <th scope="col" className={HEADER_CELL}>
+                    Training bet
+                  </th>
+                  <th scope="col" className={HEADER_CELL}>
+                    Source
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {rows.map((hand) => {
+                  const isSelected = selectedIds.has(hand.id);
+                  return (
+                    <tr
+                      key={hand.id}
+                      data-testid={`hand-row-${hand.id}`}
+                      data-selected={isSelected || undefined}
+                      className="border-b border-border-strong last:border-b-0"
                     >
-                      {column.label}
-                      <span
-                        aria-hidden="true"
+                      {/* Selection is the lime bar on the row's edge. */}
+                      <th
+                        scope="row"
                         className={cx(
-                          'text-[9px]',
-                          active ? 'text-accent' : 'text-text-dim/50',
+                          CELL,
+                          'min-w-[150px] border-l-[3px] font-normal',
+                          isSelected ? 'border-l-highlight' : 'border-l-transparent',
                         )}
                       >
-                        {active ? (sort.direction === 'asc' ? '↑' : '↓') : '↕'}
-                      </span>
-                    </button>
-                  </th>
-                );
-              })}
-              <th scope="col" className={HEADER_CELL}>
-                Training bet
-              </th>
-              <th scope="col" className={HEADER_CELL}>
-                Source
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((hand) => {
-              const isSelected = selectedIds.has(hand.id);
-              return (
-                <tr
-                  key={hand.id}
-                  data-testid={`hand-row-${hand.id}`}
-                  data-selected={isSelected || undefined}
-                  className={cx(
-                    'border-b border-border transition-colors last:border-b-0',
-                    isSelected && 'bg-surface-2/60',
-                  )}
-                >
-                  <th scope="row" className={cx(CELL, 'min-w-[140px]')}>
-                    <button
-                      data-brand-control-id="control:selection"
-                      type="button"
-                      aria-pressed={isSelected}
-                      aria-label={`Select ${hand.name} for comparison`}
-                      onClick={() => toggleSelect(hand.id)}
-                      className={cx(
-                        'text-left font-mono text-xs font-medium transition-colors',
-                        isSelected ? 'text-accent' : 'text-text hover:text-accent',
-                      )}
-                    >
-                      {hand.name}
-                    </button>
-                    <p className="mt-1 max-w-[24ch] font-sans text-[11px] leading-snug text-text-dim">
-                      {hand.maker} · {hand.actuation}
-                    </p>
-                  </th>
-                  <td
-                    className={cx(
-                      CELL,
-                      'whitespace-nowrap font-mono text-sm text-text',
-                    )}
-                  >
-                    {hand.dofDisplay}
-                  </td>
-                  <td className={cx(CELL, 'whitespace-nowrap font-mono text-sm')}>
-                    {hand.tactileDisplay ? (
-                      <>
-                        <span className="text-accent">{hand.tactileDisplay}</span>
-                        {hand.tactileNote ? (
-                          <CellNote>{hand.tactileNote}</CellNote>
+                        <button
+                          data-brand-control-id="control:selection"
+                          type="button"
+                          aria-pressed={isSelected}
+                          aria-label={`Select ${hand.name} for comparison`}
+                          onClick={() => toggleSelect(hand.id)}
+                          className="min-h-6 text-left font-medium text-text underline decoration-border-strong decoration-1 underline-offset-4 transition-colors hover:decoration-text aria-pressed:no-underline"
+                        >
+                          {hand.name}
+                        </button>
+                        <span className="mt-1 block max-w-[24ch] text-xs leading-snug text-text-dim">
+                          {hand.maker} · {hand.actuation}
+                        </span>
+                      </th>
+                      <td className={cx(CELL, 'whitespace-nowrap tabular-nums')}>
+                        {hand.dofDisplay}
+                      </td>
+                      <td className={cx(CELL, 'whitespace-nowrap tabular-nums')}>
+                        {hand.tactileDisplay ? (
+                          <>
+                            {hand.tactileDisplay}
+                            {hand.tactileNote ? <CellNote>{hand.tactileNote}</CellNote> : null}
+                          </>
+                        ) : (
+                          <NotDisclosed />
+                        )}
+                      </td>
+                      <td className={cx(CELL, 'whitespace-nowrap tabular-nums')}>
+                        {hand.costDisplay ? (
+                          <>
+                            {hand.costDisplay}
+                            {hand.costNote ? <CellNote>{hand.costNote}</CellNote> : null}
+                          </>
+                        ) : (
+                          <NotDisclosed />
+                        )}
+                      </td>
+                      <td className={cx(CELL, 'text-xs leading-snug text-text-dim')}>
+                        {TRAINING_BET_LABEL[hand.bet]}
+                      </td>
+                      <td className={cx(CELL, 'text-xs')}>
+                        <span className="block">
+                          <SourceLink id={hand.sourceId} label={hand.sourceLabel} />
+                        </span>
+                        {hand.secondarySourceId && hand.secondarySourceLabel ? (
+                          <span className="block">
+                            <SourceLink
+                              id={hand.secondarySourceId}
+                              label={hand.secondarySourceLabel}
+                            />
+                          </span>
                         ) : null}
-                      </>
-                    ) : (
-                      <span className="font-sans text-xs text-text-dim">
-                        not disclosed
-                      </span>
-                    )}
-                  </td>
-                  <td className={cx(CELL, 'whitespace-nowrap font-mono text-sm')}>
-                    {hand.costDisplay ? (
-                      <>
-                        <span className="text-text">{hand.costDisplay}</span>
-                        {hand.costNote ? (
-                          <CellNote>{hand.costNote}</CellNote>
-                        ) : null}
-                      </>
-                    ) : (
-                      <span className="font-sans text-xs text-text-dim">
-                        not disclosed
-                      </span>
-                    )}
-                  </td>
-                  <td className={cx(CELL, 'font-sans text-[11px] text-text-dim')}>
-                    {TRAINING_BET_LABEL[hand.bet]}
-                  </td>
-                  <td className={cx(CELL, 'font-mono text-[11px]')}>
-                    <span className="block">
-                      <SourceLink id={hand.sourceId} label={hand.sourceLabel} />
-                    </span>
-                    {hand.secondarySourceId && hand.secondarySourceLabel ? (
-                      <span className="block">
-                        <SourceLink
-                          id={hand.secondarySourceId}
-                          label={hand.secondarySourceLabel}
-                        />
-                      </span>
-                    ) : null}
-                    <span className="mt-0.5 block whitespace-nowrap text-text-dim">
-                      {hand.asOf}
-                    </span>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </TableScroll>
-
-      <div
-        data-testid="hand-comparison-selection"
-        className="mt-4 border-t border-border pt-3"
-      >
-        {selected.length === 0 ? (
-          <p className="font-sans text-xs text-text-dim">
-            Select hands to compare their trade-offs.
-          </p>
-        ) : (
-          <ul className="space-y-2">
-            {selected.map((hand) => (
-              <li
-                key={hand.id}
-                className="font-sans text-xs leading-relaxed text-text-dim"
-              >
-                <span className="font-mono font-medium text-text">
-                  {hand.name}.
-                </span>{' '}
-                {hand.tradeoff}
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-    </InstrumentFrame>
+                        <span className="mt-0.5 block whitespace-nowrap text-text-dim">
+                          {hand.asOf}
+                        </span>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </TableScroll>
+        </FigureStage>
+      }
+      caption="Two rows list a tactile threshold, two list a cost, and no row lists both."
+    />
   );
 }

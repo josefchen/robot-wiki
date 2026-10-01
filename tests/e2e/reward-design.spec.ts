@@ -14,7 +14,7 @@ const ROUTE = '/rl-sim2real/reward-design-mpc/';
 test.describe('RL reward-design and MPC module', () => {
   test('the reward-shaping panel renders weights, total, and preview', async ({ page }) => {
     await page.goto(ROUTE);
-    const panel = page.locator('[data-testid="quad-preview"]').locator('..');
+    const panel = page.locator('[data-figure-frame="reward-shaping"]');
     await expect(page.getByTestId('quad-preview')).toBeVisible();
     await expect(page.getByTestId('total-readout')).toContainText(/\/ step/);
     await expect(page.getByTestId('behavior-status')).toContainText(/balanced/i);
@@ -33,9 +33,9 @@ test.describe('RL reward-design and MPC module', () => {
       await page.keyboard.press('ArrowRight');
     }
     await expect(page.getByTestId('behavior-status')).toContainText(/freeze/i);
-    // Three interactives on this page carry a Reset; scope to the panel
-    // (the svg's parent is the reward-shaping panel root).
-    const panel = page.getByTestId('quad-preview').locator('..');
+    // Three interactives on this page carry a Reset; scope to the
+    // reward-shaping figure frame.
+    const panel = page.locator('[data-figure-frame="reward-shaping"]');
     await panel.getByRole('button', { name: 'Reset' }).click();
     await expect(page.getByTestId('behavior-status')).toContainText(/balanced/i);
   });

@@ -148,12 +148,12 @@ export function pushTestNote(layers: LayerState): PushTestNote {
   if (layers.physics) {
     return {
       title: 'The proxy does the work',
-      body: 'Collision geometry, a friction coefficient, and an integrator turn the same push into motion: the impulse gives the mug a velocity, friction dissipates it, and the mug stops after d = v²/(2μg). The generated scene inherited real dynamics from the solver, not from a learned model.',
+      body: 'Collision geometry, friction and an integrator turn the same push into motion, and the mug stops after d = v²/(2μg).',
     };
   }
   return {
     title: 'Nothing moves',
-    body: 'The appearance layer renders the mug but has no answer to a push: no collision hull, no friction, no integrator. A renderer is not a simulator. This is the failure mode of appearance-only digital twins and of generative dynamics that looks right but is not causally tied to the action.',
+    body: 'A renderer is not a simulator: the rendered mug has no collision hull, friction or integrator to answer the push.',
   };
 }
 

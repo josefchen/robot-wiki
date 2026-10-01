@@ -1,13 +1,9 @@
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { beatSpans, posterTime } from '@/components/motion/timeline';
-import { DEFAULT_ANGLES_DEG, LINK_LENGTHS, planarForwardKinematics } from '@/lib/planar-fk';
-import { RRT_SCENE, buildRrt, edgesUpTo, pathIfReached } from '@/lib/rrt';
+import { SCENE_TARGETS } from '@/lib/motion-scene-registry';
 import { NO_SLOP_EXCEPTIONS } from '@/data/no-slop-exceptions';
 import { findStructuralTells, structuralTellReport, STRUCTURAL_TELL_LIMIT } from '@/lib/no-slop';
-import { FK_CHAIN_SCENE, fkChainFrame } from '@/components/motion/scenes/fk-chain';
-import { RRT_GROWTH_SCENE, rrtGrowthFrame } from '@/components/motion/scenes/rrt-growth';
 
 type Decision = 'keep' | 'restyle' | 'rethink' | 'replace' | 'remove' | 'add';
 interface Row {
@@ -52,7 +48,7 @@ describe('classical teaching inventory', () => {
         mounts.push(`${article}:${tag}`);
       }
     }
-    expect(inventory.filter((row) => row.decision !== 'add')
+    expect(inventory.filter((row) => row.decision !== 'add' && row.decision !== 'remove')
       .map((row) => `${row.article}:${row.element}`).sort()).toEqual(mounts.sort());
     const keys = inventory.map((row) => `${row.article}:${row.element}:${row.occurrence ?? 1}`);
     expect(new Set(keys).size).toBe(keys.length);
@@ -60,66 +56,13 @@ describe('classical teaching inventory', () => {
       expect(articles).toContain(row.article);
       expect(row.teachingGoal.length).toBeGreaterThan(25);
       expect(row.reason.length).toBeGreaterThan(25);
+      if (row.decision === 'remove') expect(row.sceneId).toBeUndefined();
       if (row.decision === 'add') {
-        expect(['fk-chain', 'rrt-growth']).toContain(row.sceneId);
+        expect(SCENE_TARGETS.filter((scene) => scene.route.startsWith('/classical/'))
+          .map((scene) => scene.id)).toContain(row.sceneId);
         expect(readFileSync(join(root, 'content/classical', `${row.article}.mdx`), 'utf8'))
           .toContain(`<${row.element}`);
       }
-    }
-  });
-});
-
-describe('classical scene models', () => {
-  it('composes the existing three-link chain in order without changing its default pose', () => {
-    const spans = beatSpans(FK_CHAIN_SCENE.beats);
-    const expected = planarForwardKinematics(LINK_LENGTHS, DEFAULT_ANGLES_DEG);
-    const first = fkChainFrame(spans[0].end);
-    const second = fkChainFrame(spans[1].end);
-    const final = fkChainFrame(posterTime(spans));
-    expect(first.points[1]).toEqual(expected.pivots[1]);
-    expect(second.points[2]).toEqual(expected.pivots[2]);
-    expect(final.points[3]).toEqual(expected.effector);
-    expect(fkChainFrame(posterTime(spans))).toEqual(final);
-    expect(FK_CHAIN_SCENE.beats).toHaveLength(4);
-  });
-
-  it('reveals a seeded accepted-extension tree and only shows the path after connection', () => {
-    const result = buildRrt(RRT_SCENE);
-    const spans = beatSpans(RRT_GROWTH_SCENE.beats);
-    const before = rrtGrowthFrame(spans[0].end);
-    const after = rrtGrowthFrame(posterTime(spans));
-    expect(before.iteration).toBeLessThan(result.goalNodeId!);
-    expect(before.path).toEqual([]);
-    expect(after.iteration).toBe(result.goalNodeId);
-    expect(after.path).toEqual(pathIfReached(result, result.goalNodeId!));
-    expect(rrtGrowthFrame(posterTime(spans))).toEqual(after);
-    expect(RRT_GROWTH_SCENE.beats).toHaveLength(4);
-    expect(RRT_GROWTH_SCENE.beats[1].linear).toBe(true);
-  });
-
-  it('reports connection only when the actual accepted tree reaches the goal', () => {
-    const result = buildRrt(RRT_SCENE);
-    const goal = result.goalNodeId!;
-    const spans = beatSpans(RRT_GROWTH_SCENE.beats);
-    const middle = rrtGrowthFrame(spans[2].start + spans[2].duration / 2);
-    expect(goal).toBe(288);
-    expect(middle.iteration).toBeLessThan(goal);
-    expect(middle.edges.length).toBeLessThan(result.nodes.length - 1);
-    expect(middle.goalReached).toBe(false);
-    expect(middle.path).toEqual([]);
-    const reached = rrtGrowthFrame(spans[2].end);
-    expect(reached.iteration).toBe(goal);
-    expect(reached.goalReached).toBe(true);
-    expect(reached.edges).toEqual(edgesUpTo(result, goal));
-    expect(reached.path).toEqual([]);
-    expect(rrtGrowthFrame(spans[3].end).path).toEqual(pathIfReached(result, goal));
-  });
-
-  it('keeps every beat caption a sentence', () => {
-    for (const scene of [FK_CHAIN_SCENE, RRT_GROWTH_SCENE]) {
-      expect(scene.beats.map((beat) => beat.caption)).toEqual(
-        scene.beats.map(() => expect.stringMatching(/[.!?]$/)),
-      );
     }
   });
 });

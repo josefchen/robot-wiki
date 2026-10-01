@@ -1,0 +1,472 @@
+'use client';
+
+import { useId, useMemo, useRef, useState } from 'react';
+import { ChartDescription } from '@/components/ui/chart-description';
+import {
+  ControlLabel,
+  InstrumentFrame,
+  InstrumentLegend,
+  InstrumentReadout,
+  InstrumentReset,
+  PlotStage,
+} from '@/components/ui/instrument';
+import {
+  DEFAULT_DR_RANGE,
+  DEFAULT_REAL_MU,
+  DR_RANGE_MAX,
+  DR_RANGE_MIN,
+  MU_MAX,
+  MU_MIN,
+  MU_TRAIN,
+  POINT_PEAK,
+  drCurvePoints,
+  drPeak,
+  drSuccess,
+  formatMu,
+  formatPct,
+  pointCurvePoints,
+  pointSuccess,
+} from '@/lib/sim2real';
+
+/**
+ * FrictionTransfer draws authored success curves, not trained policies.
+ * The selected friction and half-width drive deterministic formulas.
+ * Peak-versus-width coupling is a local assumption, not a paper result.
+ *
+ * Interactive contract: deterministic initial render, native range inputs
+ * (keyboard-accessible) plus pointer drag on the real-robot line, visible
+ * monospace readouts, reset control, fixed SVG viewport (no layout shift),
+ * no JS-driven motion (scrub-only, so reduced-motion safe by construction).
+ */
+
+const WIDTH = 640;
+const HEIGHT = 340;
+const PLOT = { left: 56, right: 624, top: 20, bottom: 296 } as const;
+
+/** Round to 2 decimals so SSR HTML and client hydration serialize identically. */
+const f = (v: number) => Number(v.toFixed(2));
+
+function xFor(mu: number): number {
+  const t = (mu - MU_MIN) / (MU_MAX - MU_MIN);
+  return f(PLOT.left + t * (PLOT.right - PLOT.left));
+}
+
+function yFor(success: number): number {
+  return f(PLOT.bottom - success * (PLOT.bottom - PLOT.top));
+}
+
+const X_TICKS = [0.2, 0.5, 0.8, 1.1, 1.5] as const;
+const Y_TICKS = [0, 0.25, 0.5, 0.75, 1] as const;
+
+const POINT_POINTS = pointCurvePoints();
+
+function polyline(points: Array<{ mu: number; success: number }>): string {
+  return points.map((p) => `${xFor(p.mu)},${yFor(p.success)}`).join(' ');
+}
+
+export function FrictionTransfer({
+  defaultRealMu = DEFAULT_REAL_MU,
+  defaultRange = DEFAULT_DR_RANGE,
+  className,
+}: {
+  defaultRealMu?: number;
+  defaultRange?: number;
+  className?: string;
+}) {
+  // useId-derived input ids: this component legitimately renders twice on
+  // one page (article prose plus a prediction-step figure), and hardcoded
+  // ids would duplicate and cross-bind labels between the two mounts.
+  const uid = useId();
+  const [realMu, setRealMu] = useState(defaultRealMu);
+  const [range, setRange] = useState(defaultRange);
+  const [dragging, setDragging] = useState(false);
+  const svgRef = useRef<SVGSVGElement | null>(null);
+
+  const point = pointSuccess(realMu);
+  const dr = drSuccess(realMu, range);
+  const drPeakValue = drPeak(range);
+  const deltaPts = Math.round((dr - point) * 100);
+  const leader = point > dr ? 'point' : dr > point ? 'dr' : 'tie';
+
+  function muFromPointer(clientX: number): number {
+    const svg = svgRef.current;
+    if (!svg) return realMu;
+    const rect = svg.getBoundingClientRect();
+    const x = ((clientX - rect.left) / rect.width) * WIDTH;
+    const t = (x - PLOT.left) / (PLOT.right - PLOT.left);
+    const mu = MU_MIN + t * (MU_MAX - MU_MIN);
+    return Math.min(MU_MAX, Math.max(MU_MIN, Number(mu.toFixed(2))));
+  }
+
+  function reset() {
+    setRealMu(defaultRealMu);
+    setRange(defaultRange);
+  }
+
+  const sampleRows = useMemo(() => {
+    const mus = [...new Set([0.2, 0.5, 0.8, 1.1, 1.5, realMu])].sort(
+      (a, b) => a - b,
+    );
+    return mus.map((mu) => ({
+      label: formatMu(mu),
+      values: [
+        formatPct(pointSuccess(mu)),
+        formatPct(drSuccess(mu, range)),
+        Math.abs(mu - realMu) < 0.001 ? 'playhead' : 'off',
+      ],
+    }));
+  }, [realMu, range]);
+
+  // Named width regime so two mounts on one route describe distinct regimes
+  // even after digit normalisation (mirrors the latency `marked ${status}`).
+  const widthMark = range >= 0.5 ? 'wide' : 'ordinary';
+
+  const descriptionText =
+    `Authored toy, not measured robot data. At selected friction ${formatMu(realMu)}, the point curve is ${formatPct(point)} and the DR curve is ${formatPct(dr)}. The assumed DR half-width is ${formatMu(range)} and its plateau is ${formatPct(drPeakValue)}. Its height follows 0.93 minus 0.55 times the half-width; the point Gaussian has center 0.80, peak 0.97 and width 0.09, and the DR tails have width 0.10. Dashed edges mark an assumed range, not a confidence interval. The randomization band is marked ${widthMark} at the selected half-width. Reset restores this panel to friction ${formatMu(defaultRealMu)} and half-width ${formatMu(defaultRange)}. Selecting friction samples the formulas; no training or adaptation runs.`;
+
+  const lineX = xFor(realMu);
+  const labelAnchor = lineX > WIDTH - 150 ? 'end' : 'start';
+  const labelX = labelAnchor === 'end' ? f(lineX - 8) : f(lineX + 8);
+
+  return (
+    <InstrumentFrame className={className}>
+      <div className="grid gap-4 lg:grid-cols-[1fr_1fr_auto] lg:items-end">
+        <div>
+          <ControlLabel htmlFor={`${uid}-real-mu`} value={formatMu(realMu)}>
+            Real robot mu
+          </ControlLabel>
+          <input
+            id={`${uid}-real-mu`}
+            type="range"
+            data-brand-control-id="control:input"
+            min={Math.round(MU_MIN * 100)}
+            max={Math.round(MU_MAX * 100)}
+            step={1}
+            value={Math.round(realMu * 100)}
+            onChange={(e) => setRealMu(Number(e.target.value) / 100)}
+            aria-label={`Real robot friction, currently ${formatMu(realMu)}`}
+            className="mt-2 w-full accent-accent"
+          />
+        </div>
+        <div>
+          <ControlLabel
+            htmlFor={`${uid}-range`}
+            value={`+/- ${formatMu(range)}`}
+          >
+            DR half-width
+          </ControlLabel>
+          <input
+            id={`${uid}-range`}
+            type="range"
+            data-brand-control-id="control:input"
+            min={Math.round(DR_RANGE_MIN * 100)}
+            max={Math.round(DR_RANGE_MAX * 100)}
+            step={5}
+            value={Math.round(range * 100)}
+            onChange={(e) => setRange(Number(e.target.value) / 100)}
+            aria-label={`Randomization half-width, currently plus or minus ${formatMu(range)}`}
+            className="mt-2 w-full accent-accent"
+          />
+        </div>
+        <InstrumentReset onClick={reset} />
+      </div>
+
+      <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1 font-mono text-xs">
+        <span className="text-text-dim">
+          real mu:{' '}
+          <span data-testid="real-mu-readout" className="text-text">
+            {formatMu(realMu)}
+          </span>
+        </span>
+        <span className="text-text-dim">
+          point policy:{' '}
+          <span data-testid="point-readout" className="text-text">
+            {formatPct(point)}
+          </span>
+        </span>
+        <span className="text-text-dim">
+          DR policy:{' '}
+          <span data-testid="dr-readout" className="text-accent">
+            {formatPct(dr)}
+          </span>
+        </span>
+        <span className="text-text-dim">
+          edge:{' '}
+          <span data-testid="delta-readout" className="text-text">
+            {deltaPts >= 0
+              ? `DR +${deltaPts} pts`
+              : `point +${-deltaPts} pts`}
+          </span>
+        </span>
+      </div>
+
+      <PlotStage
+        ref={svgRef}
+        viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
+        aria-label={`Task success against ground friction. Point policy ${formatPct(point)} vs DR policy ${formatPct(dr)} at mu ${formatMu(realMu)}.`}
+        aria-describedby={`${uid}-ft-description`}
+        className="mt-3"
+        onPointerMove={(e) => {
+          if (dragging) setRealMu(muFromPointer(e.clientX));
+        }}
+        onPointerUp={() => setDragging(false)}
+        onPointerCancel={() => setDragging(false)}
+      >
+        <text
+          x={PLOT.left}
+          y={12}
+          fill="var(--color-text-dim)"
+          fontSize={10}
+          fontFamily="var(--font-mono)"
+        >
+          task success
+        </text>
+        {Y_TICKS.map((t) => (
+          <g key={t}>
+            <line
+              x1={PLOT.left}
+              x2={PLOT.right}
+              y1={yFor(t)}
+              y2={yFor(t)}
+              stroke="var(--color-border)"
+              strokeWidth={1}
+            />
+            <text
+              x={PLOT.left - 8}
+              y={f(yFor(t) + 3)}
+              textAnchor="end"
+              fill="var(--color-text-dim)"
+              fontSize={10}
+              fontFamily="var(--font-mono)"
+            >
+              {Math.round(t * 100)}%
+            </text>
+          </g>
+        ))}
+        {X_TICKS.map((mu) => (
+          <g key={mu}>
+            <line
+              x1={xFor(mu)}
+              x2={xFor(mu)}
+              y1={PLOT.top}
+              y2={PLOT.bottom}
+              stroke="var(--color-border)"
+              strokeWidth={1}
+            />
+            <text
+              x={xFor(mu)}
+              y={f(PLOT.bottom + 14)}
+              textAnchor={mu === MU_MAX ? 'end' : 'middle'}
+              fill="var(--color-text-dim)"
+              fontSize={10}
+              fontFamily="var(--font-mono)"
+            >
+              {formatMu(mu)}
+            </text>
+          </g>
+        ))}
+        <text
+          x={f((PLOT.left + PLOT.right) / 2)}
+          y={HEIGHT - 8}
+          textAnchor="middle"
+          fill="var(--color-text-dim)"
+          fontSize={10}
+          fontFamily="var(--font-mono)"
+        >
+          ground friction coefficient mu
+        </text>
+
+        {/* DR training distribution band. */}
+        <g data-testid="dr-band">
+          <rect
+            x={xFor(MU_TRAIN - range)}
+            y={PLOT.top}
+            width={f(xFor(MU_TRAIN + range) - xFor(MU_TRAIN - range))}
+            height={PLOT.bottom - PLOT.top}
+            fill="var(--color-accent)"
+            opacity={0.07}
+          />
+          <line
+            x1={xFor(MU_TRAIN - range)}
+            x2={xFor(MU_TRAIN - range)}
+            y1={PLOT.top}
+            y2={PLOT.bottom}
+            stroke="var(--color-accent)"
+            strokeWidth={1}
+            strokeDasharray="3 4"
+            opacity={0.4}
+          />
+          <line
+            x1={xFor(MU_TRAIN + range)}
+            x2={xFor(MU_TRAIN + range)}
+            y1={PLOT.top}
+            y2={PLOT.bottom}
+            stroke="var(--color-accent)"
+            strokeWidth={1}
+            strokeDasharray="3 4"
+            opacity={0.4}
+          />
+          <text
+            x={f(xFor(MU_TRAIN + range) - 6)}
+            y={f(PLOT.bottom - 8)}
+            textAnchor="end"
+            fill="var(--color-accent)"
+            fontSize={10}
+            fontFamily="var(--font-mono)"
+            opacity={0.8}
+          >
+            training distribution
+          </text>
+        </g>
+
+        {/* Policy curves. */}
+        <polyline
+          data-testid="point-curve"
+          points={polyline(POINT_POINTS)}
+          fill="none"
+          stroke="var(--color-text-dim)"
+          strokeWidth={2}
+        />
+        <polyline
+          data-testid="dr-curve"
+          points={polyline(drCurvePoints(range))}
+          fill="none"
+          stroke="var(--color-accent)"
+          strokeWidth={2}
+        />
+
+        {/* Peak annotations. */}
+        <text
+          x={f(xFor(MU_TRAIN) + 10)}
+          y={f(yFor(POINT_PEAK) + 4)}
+          fill="var(--color-text-dim)"
+          fontSize={10}
+          fontFamily="var(--font-mono)"
+        >
+          point peak {formatPct(POINT_PEAK)}
+        </text>
+        <text
+          data-testid="dr-peak-label"
+          x={f(xFor(MU_TRAIN - range) + 6)}
+          y={f(yFor(drPeakValue) - 8)}
+          fill="var(--color-accent)"
+          fontSize={10}
+          fontFamily="var(--font-mono)"
+        >
+          DR plateau {formatPct(drPeakValue)}
+        </text>
+
+        {/* Real-robot line, draggable. */}
+        <g data-testid="real-line">
+          <line
+            x1={lineX}
+            x2={lineX}
+            y1={PLOT.top}
+            y2={PLOT.bottom}
+            stroke="var(--color-text)"
+            strokeWidth={1.5}
+          />
+          <path
+            d={`M ${lineX},${PLOT.top - 6} L ${f(lineX + 5)},${PLOT.top + 2} L ${f(lineX - 5)},${PLOT.top + 2} Z`}
+            fill="var(--color-text)"
+          />
+          <text
+            x={labelX}
+            y={f(PLOT.bottom - 24)}
+            textAnchor={labelAnchor}
+            fill="var(--color-text)"
+            fontSize={10}
+            fontFamily="var(--font-mono)"
+          >
+            real robot
+          </text>
+          {/* Fat invisible hit area for pointer drag. */}
+          <rect
+            x={f(lineX - 12)}
+            y={PLOT.top - 6}
+            width={24}
+            height={PLOT.bottom - PLOT.top + 6}
+            fill="transparent"
+            style={{ cursor: 'ew-resize', touchAction: 'none' }}
+            onPointerDown={(e) => {
+              e.currentTarget.setPointerCapture(e.pointerId);
+              setDragging(true);
+              setRealMu(muFromPointer(e.clientX));
+            }}
+          />
+        </g>
+
+        {/* Success markers where the line crosses each curve. */}
+        <circle
+          data-testid="point-marker"
+          cx={lineX}
+          cy={yFor(point)}
+          r={4}
+          fill="var(--color-text-dim)"
+          stroke="var(--color-bg)"
+          strokeWidth={1.5}
+        />
+        <circle
+          data-testid="dr-marker"
+          cx={lineX}
+          cy={yFor(dr)}
+          r={4.5}
+          fill="var(--color-accent)"
+          stroke="var(--color-bg)"
+          strokeWidth={1.5}
+        />
+      </PlotStage>
+
+      <InstrumentLegend className="mt-2">
+        <span className="flex items-center gap-1.5">
+          <span
+            className="inline-block h-2 w-2 rounded-[1px]"
+            style={{ background: 'var(--color-text-dim)' }}
+          />
+          trained at mu = {formatMu(MU_TRAIN)} only
+        </span>
+        <span className="flex items-center gap-1.5">
+          <span
+            className="inline-block h-2 w-2 rounded-[1px]"
+            style={{ background: 'var(--color-accent)' }}
+          />
+          trained over uniform mu in [{formatMu(MU_TRAIN - range)},{' '}
+          {formatMu(MU_TRAIN + range)}]
+        </span>
+      </InstrumentLegend>
+
+      <InstrumentReadout>
+        <span className="text-text-dim">real mu {formatMu(realMu)}:</span>{' '}
+        <span className="text-text">point {formatPct(point)}</span>{' '}
+        <span className="text-text-dim">vs</span>{' '}
+        <span className="text-accent">DR {formatPct(dr)}</span>
+      </InstrumentReadout>
+      <p
+        data-testid="ft-explanation"
+        className="mt-2 font-sans text-xs leading-relaxed text-text-dim"
+      >
+        {leader === 'point'
+          ? 'In this authored toy, the point curve is higher at the selected friction. The curves are formulas, not measured robot performance.'
+          : leader === 'dr'
+            ? 'In this authored toy, the DR curve is higher at the selected friction. This can happen inside or outside the shaded range.'
+            : 'The two authored curves are equal at the selected friction.'}
+        {' '}All values and the falling DR peak are local assumptions. Reset restores this panel’s initial friction and half-width; moving a control samples or redraws formulas, not a trained policy.
+      </p>
+
+      <ChartDescription
+        id={`${uid}-ft-description`}
+        className="mt-3"
+        form="table"
+        summary="Sampled task success against ground friction"
+        rowHeader="mu"
+        columns={[
+          { header: 'point policy', numeric: true },
+          { header: 'DR policy', numeric: true },
+          { header: 'playhead', numeric: false },
+        ]}
+        rows={sampleRows}
+        description={descriptionText}
+      />
+    </InstrumentFrame>
+  );
+}

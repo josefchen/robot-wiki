@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "4cdd365f8fa3ad5e6926af627c10f0b0f4eb0e7b2824e2568bd385972349b107",
+  "fingerprint": "e3ffa7100303f86d02d20edbc9ae6a30b47a8b5012237d1bed2860c2f94141b0",
   "route": "/",
   "viewport": "1440x900",
   "featured": {
@@ -22,7 +22,7 @@
     "posterReadout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
     "posterCaption": "The same horizon exposes the last stretch.",
     "idleFrameRequests": 0,
-    "playingFrameRequests": 50,
+    "playingFrameRequests": 49,
     "focusOutlineWidthPx": 2,
     "focusOutlineStyle": "solid",
     "focusOutlineColour": "rgb(36, 95, 255)",
@@ -69,14 +69,14 @@
   },
   "moduleScene": {
     "sceneId": "reliability-threshold",
-    "route": "/frontier/reliability-gap/",
+    "route": "/",
     "sceneCount": 1,
     "frameRole": "group",
     "frameAriaLabel": "Motion scene: The last stretch of episode reliability",
     "describedByText": "The last stretch of episode reliability. Beat 1: At 95% success per decision, this thirty-decision toy episode succeeds about 21.5% of the time. Beat 2: Raising conditional success from 95% to 99% changes the thirty-step outcome from 21.5% to 74.0%. Beat 3: At 99.9% per decision, the same model gives 97.0% for thirty steps. Beat 4: The same horizon exposes the last stretch.",
     "graphicTag": "svg",
-    "graphicTopPx": 1765,
-    "graphicHeightPx": 503,
+    "graphicTopPx": 1139,
+    "graphicHeightPx": 688,
     "posterMarkCount": 3,
     "playerMountedAtFirstPaint": false,
     "posterControls": [
@@ -86,7 +86,7 @@
     "posterReadout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
     "posterCaption": "The same horizon exposes the last stretch.",
     "idleFrameRequests": 0,
-    "playingFrameRequests": 51,
+    "playingFrameRequests": 49,
     "focusOutlineWidthPx": 2,
     "focusOutlineStyle": "solid",
     "focusOutlineColour": "rgb(36, 95, 255)",

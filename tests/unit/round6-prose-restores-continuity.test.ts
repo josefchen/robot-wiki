@@ -16,6 +16,9 @@ import {
 } from '../../lib/audit-round6-prose-restores-continuity.ts';
 import { STRUCTURAL_TELL_LIMIT, structuralTellReport } from '../../lib/no-slop.ts';
 import { committedSource } from '../helpers/continuation-integration';
+// The 2026-10-01 figure migration later edited the motion-planning and
+// sim2real articles; its reviewed successor returns the articles this review names.
+import { carriesThroughFigureMigration, preFigureMigration } from '../helpers/figure-migration';
 
 const root = resolve(import.meta.dirname, '../..');
 const directory = 'audit/evidence/motion-round6-prose-restores-20260929/';
@@ -126,7 +129,7 @@ function copied(paths: readonly string[]) {
 
 it.each(restores)('returns the archived $slug article exactly where its prior review still points', ({ slug, path, prior, name }) => {
   const review = reviewOf(slug);
-  const live = read(review.after.path);
+  const live = preFigureMigration(review.after);
   const archived = read(review.before.path);
   expect(review.name).toBe(name);
   expect(review.before.path).toBe(`${directory}${slug}-before.mdx`);
@@ -153,7 +156,7 @@ it('hands the data-hardware motion review the pre-restore article it still gates
 
 it('hands the round-5 first-screen move review the pre-restore article it still gates', () => {
   const path = 'content/classical/motion-planning.mdx';
-  const live = read(path);
+  const live = preFigureMigration(reviewOf('motion-planning').after);
   expect(() => retainedRound5FirstScreenCdArticle(root, path, live))
     .toThrow(/round5 first-screen cd article continuity drift/);
   expect(retainedRound5FirstScreenCdArticle(root, path,
@@ -163,7 +166,7 @@ it('hands the round-5 first-screen move review the pre-restore article it still 
 it.each(restores)('changes only the named $name sentences', ({ slug, edits }) => {
   const review = reviewOf(slug);
   const before = read(review.before.path).toString();
-  const after = read(review.after.path).toString();
+  const after = preFigureMigration(review.after).toString();
   let expected = before;
   for (const [from, to] of edits) {
     expect(expected.split(from)).toHaveLength(2);
@@ -207,25 +210,34 @@ it('states each motion-planning scope the classical rewrite dropped, without add
   expect(after.density).toBeLessThanOrEqual(STRUCTURAL_TELL_LIMIT);
 });
 
-it('keeps the release preserved text on the live motion-planning article', () => {
+it('keeps the release preserved text on the live motion-planning article or its reviewed successor', () => {
   const path = 'content/classical/motion-planning.mdx';
   const dependencies = JSON.parse(read(dependencyPath).toString()) as Bindings;
   const preserved = dependencies.bindings.filter((binding) => binding.current?.path === path)
     .flatMap((binding) => binding.preservedText ?? []);
   expect(preserved).toHaveLength(1);
-  for (const phrase of preserved) expect(read(path).toString()).toContain(phrase);
+  const live = read(path).toString();
+  const reviewed = preFigureMigration(reviewOf('motion-planning').after).toString();
+  for (const phrase of preserved) {
+    expect(reviewed).toContain(phrase);
+    expect(carriesThroughFigureMigration(path, phrase, live)).toBe(true);
+  }
 });
 
-it('keeps every phrase the RL motion and release reviews require on each live RL article', () => {
+it('keeps every phrase the RL motion and release reviews require on each live RL article or its reviewed successor', () => {
   const entries = loadRlMotionContinuity(root);
   const dependencies = JSON.parse(read(dependencyPath).toString()) as Bindings;
   for (const { slug, path } of restores.filter((restore) => restore.prior === 'rl-motion')) {
     const live = read(path).toString();
+    const reviewed = preFigureMigration(reviewOf(slug).after).toString();
     const entry = entries.find((candidate) => candidate.article === path)!;
     const preserved = dependencies.bindings.filter((binding) => binding.current?.path === path)
       .flatMap((binding) => binding.preservedText ?? []);
     expect(preserved).toHaveLength(slug === 'sim2real-transfer' ? 1 : 0);
-    for (const phrase of [...entry.requiredPresent, ...preserved]) expect(live).toContain(phrase);
+    for (const phrase of [...entry.requiredPresent, ...preserved]) {
+      expect(reviewed).toContain(phrase);
+      expect(carriesThroughFigureMigration(path, phrase, live)).toBe(true);
+    }
   }
 });
 
@@ -252,7 +264,7 @@ it('keeps the data-hardware review phrases on the live industrial article with o
 it('passes every other reference and byte string through to the exact checks', () => {
   for (const { slug } of restores) {
     const review = reviewOf(slug);
-    const live = read(review.after.path);
+    const live = preFigureMigration(review.after);
     const liveReference = { path: review.after.path, bytes: live.length, sha256: digest(live) };
     expect(round6ProseRestorePredecessor(root, liveReference, live)).toBe(live);
     const longer = Buffer.concat([live, Buffer.from('\n')]);
@@ -291,7 +303,7 @@ it.each(restores.flatMap(({ slug, prior }) => articleMutations
       ? [reviewPath, review.before.path, firstScreenReviewPath, planningPreMovePath, dependencyPath]
       : [reviewPath, review.before.path, continuityPath, dependencyPath]);
   try {
-    const live = read(review.after.path);
+    const live = preFigureMigration(review.after);
     expect(round6ProseRestorePredecessor(destination, endpointOf(review), live)).toEqual(read(review.before.path));
     if (mutation === 'missing-review') rmSync(join(destination, reviewPath));
     if (mutation === 'missing-snapshot') rmSync(join(destination, review.before.path));
@@ -379,7 +391,7 @@ it('admits only the exact prose-restores reader revision above the round6 kinema
   for (const changed of [Buffer.concat([reviewedAfter, Buffer.from('\n')]),
     Buffer.from(reviewedAfter.toString().replace(hook, original))]) {
     expect(() => round6ProseRestoresCheckerPredecessor(root, changed)).toThrow(
-      /round6 remaining repairs checker continuity drift/,
+      /figure migration checker continuity drift/,
     );
   }
 });
@@ -392,7 +404,9 @@ it.each(['missing-review', 'missing-predecessor', 'corrupt-predecessor', 'review
     const destination = copied([reviewPath, predecessorPath,
       'audit/evidence/motion-round6-remaining-repairs-20260929/checker-transition.json',
       'audit/evidence/motion-round6-remaining-repairs-20260929/audit-local-basis-before.ts.txt',
-      'audit/evidence/motion-round6-remaining-repairs-20260929/classical-closure-evidence-before.test.ts.txt']);
+      'audit/evidence/motion-round6-remaining-repairs-20260929/classical-closure-evidence-before.test.ts.txt',
+      'audit/evidence/figure-migration-20261001/checker-transition.json',
+      'audit/evidence/figure-migration-20261001/audit-local-basis-before.ts.txt']);
     try {
       const live = read('lib/audit-local-basis.ts');
       expect(round6ProseRestoresCheckerPredecessor(destination, live)).toEqual(read(predecessorPath));

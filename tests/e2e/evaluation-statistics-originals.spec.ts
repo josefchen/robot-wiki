@@ -138,6 +138,8 @@ for (const width of [375, 1440]) {
         await capture(page, `peer-${route.replaceAll('/', '-')}-${width}`);
         observations.push({ route, box, fonts });
         if (route === bottleneck) {
+          // The page's one data-scale chart is the reveal of its prediction step.
+          await page.locator('[data-predict]:has([data-figure-frame="data-scale-chart"]) details[data-reveal] > summary').click();
           const slider = page.getByRole('slider', { name: /Teleoperation rigs/ }).first();
           const summary = page.getByTestId('projection-summary').first();
           const before = await summary.innerText();
@@ -167,14 +169,17 @@ for (const width of [375, 1440]) {
       await expect(prose).not.toContainText('Only the 50-trial number');
       await page.getByRole('heading', { name: 'Small samples limit comparison' }).scrollIntoViewIfNeeded();
       await capture(page, `science-${width}`);
-      const mount = page.locator('div.prose > div.rounded-md:has(svg[aria-label^="Line chart of episode success"]), div.prose > div.rounded-none:has(svg[aria-label^="Line chart of episode success"])');
+      // The page's one calculator is the reveal of its prediction step.
+      const step = page.locator('[data-predict]:has(svg[aria-label^="Line chart of episode success"])');
+      await step.locator('details[data-reveal] > summary').click();
+      const mount = step.locator('[data-brand-module-signature="instrument-frame"]');
       await setSlider(mount.getByRole('slider', { name: /per-step success/i }), 95);
       await setSlider(mount.getByRole('slider', { name: /episode length/i }), 30);
       await expect(mount.getByTestId('episode-success-readout')).toHaveText('21.5%');
       await setSlider(mount.getByRole('slider', { name: /per-step success/i }), 0);
       await expect(mount.getByTestId('episode-success-readout')).toHaveText('0.0%');
       await mount.getByRole('button', { name: /reset/i }).click();
-      await expect(mount.getByTestId('episode-success-readout')).toHaveText('21.5%');
+      await expect(mount.getByTestId('episode-success-readout')).toHaveText('48.8%');
       const check = page.locator('[data-self-check]');
       await expect(check.locator('details[data-reveal]')).not.toHaveAttribute('open');
       await check.getByRole('radio', { name: 'The identical reported success rates establish equivalent performance' }).check();

@@ -50,11 +50,16 @@ const CHARTS: Array<{
   /** When set, pick the description whose text contains this substring. */
   match?: string;
 }> = [
-  { route: '/', name: 'reliability', control: 'range', moves: ['90', '99'], def: '95' },
-  { route: '/frontier/generalization', name: 'egoscale', control: 'range', moves: ['5600', '4301'], def: '5000' },
-  { route: '/data-hardware/data-bottleneck', name: 'datascale', control: 'range', moves: ['100', '500'], def: '15' },
-  { route: '/rl-sim2real/legged-locomotion', name: 'gait', control: 'gait-phase', moves: ['50', '75'], def: '0' },
-  { route: '/rl-sim2real/parallel-sim-rl', name: 'trainingtime', control: 'range', moves: ['7', '13'], def: '12' },
+  // The home front page's only figure is the featured scene, so the
+  // reliability chart is graded on the reliability-gap calculator.
+  { route: '/frontier/reliability-gap', name: 'reliability', control: 'range', moves: ['90', '99'], def: '95' },
+  // EgoScale and the data-scale chart mount once, inside their prediction
+  // steps, so the defaults are the hint's configuration (250k h, 10 rigs).
+  { route: '/frontier/generalization', name: 'egoscale', control: 'range', moves: ['5600', '4301'], def: '5398' },
+  { route: '/data-hardware/data-bottleneck', name: 'datascale', control: 'range', moves: ['100', '500'], def: '10' },
+  // No gait or trainingtime rows: legged-locomotion and parallel-sim-rl
+  // keep their scenes, and GaitDiagram and TrainingTimeChart mount on no
+  // route (lib/chart-descriptions.ts marks both unmounted).
   { route: '/manipulation/realtime-execution', name: 'controlloop', control: 'range', moves: ['1.0', '9.1'], def: '3.0' },
   // No kalman row: /classical/state-estimation no longer mounts a chart.
   // The Kalman tracker was replaced by the kalman-predict-update motion
@@ -116,6 +121,19 @@ function disclosureFor(desc: Locator) {
   return desc.locator('xpath=../details[@data-chart-data]');
 }
 
+/**
+ * Open every prediction-step reveal. Where a page's one chart sits inside
+ * its prediction step, the closed reveal gives the chart no rendered
+ * innerText, so the text checks read it after the reveal opens.
+ */
+async function openReveals(page: Page) {
+  await page.evaluate(() => {
+    document.querySelectorAll('details[data-reveal]').forEach((d) => {
+      (d as HTMLDetailsElement).open = true;
+    });
+  });
+}
+
 for (const chart of CHARTS) {
   test.describe(`${chart.name} chart description (${chart.route})`, () => {
     test('SVG resolves a real description and a short name', async ({ page }) => {
@@ -124,16 +142,19 @@ for (const chart of CHARTS) {
         ? page.locator('[data-chart-description]', { hasText: chart.match }).first()
         : page.locator('[data-chart-description]').first();
       await expect(desc).toBeAttached();
-      const shell = page.locator('div.rounded-md.border, div.rounded-none.border', { has: desc }).first();
+      const shell = page.locator('[data-figure-frame]', { has: desc }).first();
       // Bind the SVG to the takeaway we selected. `.first()` on
       // svg[role][aria-describedby] silently picks CompoundingError's
       // rollout root when the test meant the bounds series.
       const descId = await desc.getAttribute('id');
       expect(descId, 'description has an id').toBeTruthy();
       // Bind by describedby so a sibling root is not checked. Several
-      // strips may share one takeaway (ExecutionModes); take the first
-      // of those matches rather than requiring uniqueness.
-      const svg = shell.locator(`svg[role][aria-describedby="${descId}"]`).first();
+      // panels may share one takeaway (the ExecutionModes small multiples
+      // are role="img" groups in one SVG); take the first of those matches
+      // rather than requiring uniqueness.
+      const svg = shell
+        .locator(`svg[role][aria-describedby="${descId}"], svg g[role][aria-describedby="${descId}"]`)
+        .first();
       await expect(svg).toBeAttached();
       const describedby = await svg.getAttribute('aria-describedby');
       expect(describedby, 'aria-describedby is set').toBe(descId);
@@ -196,10 +217,11 @@ for (const chart of CHARTS) {
 
     test('description tracks the primary control and restores exactly', async ({ page }) => {
       await page.goto(`${BASE}${chart.route}`);
+      await openReveals(page);
       const desc = chart.match
         ? page.locator('[data-chart-description]', { hasText: chart.match }).first()
         : page.locator('[data-chart-description]').first();
-      const shell = page.locator('div.rounded-md, div.rounded-none', { has: desc }).first();
+      const shell = page.locator('[data-figure-frame]', { has: desc }).first();
       const details = disclosureFor(desc);
       await details.evaluate((el) => (el as HTMLDetailsElement).open = true);
       const original = (await desc.innerText()).trim();
@@ -231,6 +253,7 @@ for (const chart of CHARTS) {
       const context = await browser.newContext({ javaScriptEnabled: false });
       const page = await context.newPage();
       await page.goto(`${BASE}${chart.route}`);
+      await openReveals(page);
       const desc = chart.match
         ? page.locator('[data-chart-description]', { hasText: chart.match }).first()
         : page.locator('[data-chart-description]').first();
@@ -239,7 +262,7 @@ for (const chart of CHARTS) {
       expect(text.length).toBeGreaterThanOrEqual(60);
       // The description's digit tokens that name plotted values appear in
       // the chart's own SSR readout or axis labels.
-      const shell = page.locator('div.rounded-md, div.rounded-none', { has: desc }).first();
+      const shell = page.locator('[data-figure-frame]', { has: desc }).first();
       const shellText = (await shell.innerText()).replace(text, '');
       const digits = text.match(/\S*\d\S*/g) ?? [];
       const plotted = digits.filter((d) => shellText.includes(d));
@@ -265,11 +288,12 @@ test.describe('compounding rollout state description (/manipulation/bc-foundatio
     page,
   }) => {
     await page.goto(`${BASE}/manipulation/bc-foundations`);
+    await openReveals(page);
     const desc = page
       .locator('[data-chart-description]', { hasText: 'Per-timestep prediction' })
       .first();
     await expect(desc).toBeAttached();
-    const shell = page.locator('div.rounded-md.border, div.rounded-none.border', { has: desc }).first();
+    const shell = page.locator('[data-figure-frame]', { has: desc }).first();
     const descId = await desc.getAttribute('id');
     expect(descId, 'description has an id').toBeTruthy();
     const svg = shell.locator(`svg[role][aria-describedby="${descId}"]`).first();

@@ -30,15 +30,12 @@ seeAlso:
 ---
 
 import { ActionConditioning } from '@/components/interactive/action-conditioning';
-import { ActionFork } from '@/components/motion/scenes/action-fork';
 
 The third paradigm in the [taxonomy](/world-models/taxonomy) is the one with the money and the attention: predict future pixels given the current frame and an action or a text prompt, then use the generator as a stand-in for the environment. A model that does this well is a learned simulator you can query with candidate actions, which is why the same systems show up under four different agendas: generating training data, evaluating policies, running RL post-training, and powering interactive worlds.
 
 A simulator needs to respond to the action, a measurable property that a movie generator can lack. Toggle the conditioning strength below from strong to weak: two rollouts from one shared frame under different actions collapse onto the same future, the action-sensitivity score falls to near zero, and the visual-realism score does not move at all.
 
 <ActionConditioning className="my-6" />
-
-<ActionFork className="my-6" />
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="Cosmos 3 Nano" value="16B" note="dense 8B basis; dual-tower MoT" accent />

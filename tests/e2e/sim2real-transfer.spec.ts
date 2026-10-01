@@ -9,15 +9,9 @@ import { splatTransferReaderProof } from './splat-transfer-reader-proof';
 
 const ROUTE = '/rl-sim2real/sim2real-transfer/';
 
-/**
- * The standalone article mount of the friction chart. The article also
- * renders a second FrictionTransfer inside the prediction step's
- * disclosure, so every per-mount locator must be scoped to exactly one.
- */
+/** The article's one friction chart, scoped by its figure frame. */
 function friction(page: Page) {
-  return page
-    .locator('div.prose > div.rounded-md:has([data-testid="real-mu-readout"]), div.prose > div.rounded-none:has([data-testid="real-mu-readout"])')
-    .first();
+  return page.locator('div.prose [data-figure-frame="friction-transfer"]');
 }
 
 
@@ -72,6 +66,7 @@ test.describe('sim2real-transfer module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
+    await expect(friction(page)).toHaveCount(1);
 
     // Default: real robot at the training friction, point policy ahead.
     await expect(friction(page).getByTestId('real-mu-readout')).toHaveText('0.80');

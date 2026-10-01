@@ -25,7 +25,6 @@ seeAlso:
 ---
 
 import { RrtExplorer } from '@/components/interactive/rrt-explorer';
-import { RrtGrowth } from '@/components/motion/scenes/rrt-growth';
 import {
   TrajOptArmTable,
   TrajOptFullBodyTable,
@@ -35,10 +34,9 @@ Motion planning finds a route from the robot's current configuration to a goal w
 
 Sampling-based planning and <Term id="trajectory-optimization">trajectory optimization</Term> start differently. A sampling planner explores configurations and connections; an optimizer starts with a complete candidate trajectory and improves an objective. Neither a smoothness objective nor an initial guess guarantees that local optimization will find a collision-free motion. CHOMP and TrajOpt both examine planning from infeasible guesses as well as refining existing trajectories <Cite id="ratliff-2009" /><Cite id="schulman-2013" />.
 
-The paused overview and the lab below use the same authored 2D scene: a 100 by 64 world with five obstacles. Its seed 19981001, maximum step of 2 world units, cap of 900 accepted extensions, obstacle layout and 1.5% goal-sampling probability are teaching settings for this example. The lab's iteration control counts accepted extensions of this fixed-seed tree. Run, Step forward and the slider reveal that tree; Reset returns to its opening state. Sampling is otherwise uniform. This example establishes no planner-wide success rate, completeness or optimality guarantee. Drag the exploration-iteration slider to inspect the accepted extensions.
+The lab below uses an authored 2D scene: a 100 by 64 world with five obstacles. Its seed 19981001, maximum step of 2 world units, cap of 900 accepted extensions, obstacle layout and 1.5% goal-sampling probability are teaching settings for this example. The lab's iteration control counts accepted extensions of this fixed-seed tree. Run, Step forward and the slider reveal that tree; Reset returns to its opening state. Sampling is otherwise uniform. This example establishes no planner-wide success rate, completeness or optimality guarantee. Drag the exploration-iteration slider to inspect the accepted extensions.
 
 <RrtExplorer className="my-6" />
-<RrtGrowth className="my-6" />
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="RRT introduced" value="1998" note="Iowa State TR 98-11; date in LaValle's bibliography" />
@@ -77,7 +75,7 @@ LaValle's 2006 Section 5.5 explicitly removes the original step-size parameter. 
 
 Nearest-neighbor selection gives RRT an exploration bias. In the report's planar holonomic example, frontier vertices have larger Voronoi regions and are more likely to be selected for expansion <Cite id="lavalle-1998" />. The book's step-size-free dense-tree construction assumes an infinite dense sample sequence; a random sequence, including a biased one, must be dense with probability one. Its obstacle-free construction reaches each sample, while collision checking limits extensions when obstacles are present. These properties do not guarantee fast coverage on every problem: the report leaves convergence-rate analysis open, and the book distinguishes exploring free space from solving a start-goal query <Cite id="lavalle-1998" /><Cite id="lavalle-2006" />. The same construction handles dynamics by steering with controls instead of straight lines, which is the kinodynamic version LaValle and Kuffner developed <Cite id="lavalle-kuffner-2001" />. Probabilistic completeness describes a probability that tends to one as sampling continues; it gives no finite-budget assurance for an arbitrary existing path <Cite id="lavalle-2006" />. For a precise example, Karaman and Frazzoli state it for simplified PRM (sPRM) and their geometric RRT under the Euclidean model $X=(0,1)^d$, $d\geq2$, an open goal region, and robust feasibility: a solution path must have some positive clearance $\delta>0$. Their algorithms use independent uniform free-space samples, a fixed positive connection radius for sPRM, RRT steering capped by a positive distance parameter, and collision tests over entire straight-line connections. Under those assumptions the probability of finding a solution tends to one. The result does not automatically extend to implementation heuristics; their 1-nearest sPRM counterexample is not probabilistically complete <Cite id="karaman-frazzoli-2011" />.
 
-The Voronoi bias is what the scene at the top of this module is showing: the tree spreads because unexplored space claims more of the frontier, and the start-to-goal path lights up only once the goal region is reached.
+The Voronoi bias is what the lab at the top of this module is showing: the tree spreads because unexplored space claims more of the frontier, and the start-to-goal path lights up only once the goal region is reached.
 
 ## Optimality: RRT\*
 
@@ -104,7 +102,7 @@ The computational comparison is narrower than a runtime promise: for fixed dimen
 RRT\* with global sampling also improves routes to states irrelevant to a particular start-goal query. Informed RRT\* addresses that work after a first solution is found. For Euclidean path length in $\mathbb{R}^d$ with fixed start and goal, it samples directly from the planning domain's intersection with
 
 $$
-\widehat{X}_f=\left\{x:\lVert x-x_{start}\rVert_2+\lVert x-x_{goal}\rVert_2\leq c_{best}\right\}.
+\hat{X}_f=\left\{x:\lVert x-x_{start}\rVert_2+\lVert x-x_{goal}\rVert_2\leq c_{best}\right\}.
 $$
 
 This is a prolate hyperspheroid with start and goal as its foci and current best path length $c_{best}$ as its transverse diameter. Writing $f(x)$ for the optimal start-goal cost constrained through $x$, the true improving set is $X_f=\{x:f(x)<c_{best}\}$. The distance sum is an admissible lower bound: the region contains every state on a strictly improving feasible path, but a state inside it need not be collision-free or belong to any improving path. The planner still performs collision checks. Before the first finite-cost solution, it samples globally like RRT\* <Cite id="gammell-2014" />.

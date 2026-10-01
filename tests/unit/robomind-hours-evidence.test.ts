@@ -191,7 +191,16 @@ describe('RoboMIND paper-v3 hours correction, zero completion credit', () => {
     expect(adjacentHash(committedSource('f41cf895^', adjacentPath))).toBe(motion.newHash);
     expect(round5.oldHash).toBe(motion.newHash);
     expect(round5.reconciles).toBeUndefined();
-    expect(adjacentHash(read(adjacentPath))).toBe(round5.newHash);
+    // The figure migration (from e4784342) then removed two figures and moved
+    // the prediction step with one plain edge from the round-5 endpoint.
+    expect(adjacentHash(committedSource('e4784342', adjacentPath))).toBe(round5.newHash);
+    const migrated = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries.filter(
+      (a: { id: string; manifest: string; memberId: string; oldHash: string }) => a.manifest === 'prose'
+        && a.memberId === 'article:data-hardware/data-bottleneck' && a.oldHash === round5.newHash);
+    expect(migrated).toHaveLength(1);
+    expect(migrated[0].id).toMatch(/figure-migration-20261001-prose-data-bottleneck$/);
+    expect(migrated[0].reconciles).toBeUndefined();
+    expect(adjacentHash(read(adjacentPath))).toBe(migrated[0].newHash);
     expect(read(adjacentPath)).toContain('Real-world robot data is different. Every hour of it');
     expect(matter(article).data).toEqual(matter(committedSource(READER_RELEASE_BASE, articlePath)).data);
     expect(committedSource(checkpoint, 'data/citations.ts')).toBe(before('data/citations.ts'));

@@ -2697,9 +2697,9 @@
       "category": "static-asset",
       "ownershipId": "owner:static-asset",
       "sourceRegistryId": null,
-      "byteHash": "e94802c88dd60176857a744324a56688fd449ada335eff295ce47e2be282496e",
+      "byteHash": "2f1b410520c36d5a0f1a14fb413736ffcfe9c97148efe7d0cf96f886a02a3504",
       "semanticHash": null,
-      "fingerprint": "e2c54d134725ea56c13279c0d5965f95d0864b13197b99a91d24f15596f3cf69"
+      "fingerprint": "a7a4c1838440c1182f234ca9eb6643dd17a84bc82ee9ff0a8cf98a93825e7951"
     },
     {
       "id": "asset:fonts/Tektur-latin-wdth-wght.woff2",
@@ -4516,9 +4516,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -4532,7 +4532,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "a970761c6eda3429699b86c4a5c0ccc9eaaaa690aa430e3a1d03fa9643713e9a"
+        "fingerprint": "485d50a73a41f0b5e291785db2876c54d4f45941a39251d1a7a7b7196dfa40a0"
       },
       {
         "id": "interactive:ComparisonMatrix",
@@ -4758,9 +4758,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -4774,7 +4774,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "6115f9eaa33629cb9fba08bc7a39485c04f7cd0243c5988f8a73d7353062cad0"
+        "fingerprint": "595e78de919d48fd0189bc5488e01f3bc512cdee3287393f1aecdcfd53465f64"
       },
       {
         "id": "interactive:CrossEmbodimentStrategies",
@@ -5544,9 +5544,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -5560,7 +5560,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "c15e5c94587f336f044c25ddd1953ff937fa435c7007d89a31a42f41b5238699"
+        "fingerprint": "5491af8156427461b56e8e1f0f03c06ac9b02001595d8830abacbea63469c6f3"
       },
       {
         "id": "interactive:HandComparison",
@@ -5907,9 +5907,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -5923,7 +5923,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "a93b6573df2013453af806a48e9daf8ae979db3d69a0c0daa73f301d677cac44"
+        "fingerprint": "db4caedfe10af13f9cda4661eed1cd82cc6dc3e80f6e9dfecfcdb44a96514c40"
       },
       {
         "id": "interactive:LatentImagination",
@@ -6547,8 +6547,19 @@
             "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
           },
           {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
             "id": "reset",
             "kind": "reset"
+          },
+          {
+            "id": "pairwise-independent-controls",
+            "kind": "pairwise",
+            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
           },
           {
             "id": "loading-not-applicable",
@@ -6571,8 +6582,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "86c352301d888ebc0e664cec0b511530325d2d275f87fc08b7872cb6fa6acd01"
+        "expectedCaseCount": 11,
+        "fingerprint": "ab43ab651494773ef953cc431aa97e5e6678c7a519142246b68d556447d54d8e"
       },
       {
         "id": "interactive:RewardShaping",
@@ -6616,9 +6627,9 @@
             "notApplicableReason": "Source does not implement a error state."
           },
           {
-            "id": "empty-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented empty witness"
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
           },
           {
             "id": "unavailable-not-applicable",
@@ -6627,7 +6638,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "80d52bbcc4462bed31d00fe96ba86c74ca4c8a82f56694d98c403948153412e1"
+        "fingerprint": "327a5f9e2b93170796c19331d2256174f8b675ec8369ff8cfd1a3eb0d6bd149a"
       },
       {
         "id": "interactive:RrtExplorer",
@@ -6722,11 +6733,6 @@
             "kind": "reset"
           },
           {
-            "id": "pairwise-independent-controls",
-            "kind": "pairwise",
-            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -6747,8 +6753,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 11,
-        "fingerprint": "3a1a4494e8ef8237b779f9c57ead1166147ad37bf623aca081169b5c03850134"
+        "expectedCaseCount": 10,
+        "fingerprint": "f792185fbe72246455f519a8acaa8b929df33bcae38d70a088b2e62ab072fe3c"
       },
       {
         "id": "interactive:SceneRepresentationLadder",
@@ -7305,65 +7311,6 @@
         "route": "/classical/control/",
         "ownerPath": "content/classical/control.mdx",
         "ordinal": 1,
-        "props": "className=\"my-6\" /",
-        "containers": [],
-        "cases": [
-          {
-            "id": "default",
-            "kind": "default"
-          },
-          {
-            "id": "focus-each-control",
-            "kind": "focus",
-            "selector": "button, input, select, summary, [tabindex]",
-            "expectedEnumeration": "every rendered enabled control independently"
-          },
-          {
-            "id": "meaningful-hover",
-            "kind": "hover",
-            "selector": "button:not(:disabled)",
-            "expectedEnumeration": "every rendered button with a hover treatment"
-          },
-          {
-            "id": "slider-boundaries-and-anchors",
-            "kind": "slider-boundaries",
-            "selector": "input[type=\"range\"]",
-            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
-          },
-          {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
-            "id": "loading-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a loading state."
-          },
-          {
-            "id": "error-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a error state."
-          },
-          {
-            "id": "empty-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a empty state."
-          },
-          {
-            "id": "unavailable-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a unavailable state."
-          }
-        ],
-        "expectedCaseCount": 9,
-        "fingerprint": "863cdd6ea398d15ff2184cf2ccc7a3b4bf6b66b5fa098f9acc324755c476c43b"
-      },
-      {
-        "id": "mount:/classical/control/:PendulumController:2",
-        "sourceId": "interactive:PendulumController",
-        "route": "/classical/control/",
-        "ownerPath": "content/classical/control.mdx",
-        "ordinal": 2,
         "props": "defaultKp={9.5} className=\"mt-3\" /",
         "containers": [
           {
@@ -7423,7 +7370,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "5cfb7a179b837f8015a79d02e78b732e43cbaad3d54583b51bc5e2d46c65b70a"
+        "fingerprint": "10fe32ae5a5c32cdfe5a9ea2b852a68fef2c2f6dcd574325827fab360d439a30"
       },
       {
         "id": "mount:/classical/grasp-planning/:GraspWrenchLab:1",
@@ -7466,9 +7413,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -7482,7 +7429,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "45ac730f6de243b7675ff95d2e80687f7e31ef55e674c5dd833f733958d95f0f"
+        "fingerprint": "6c3ff2cb09946b6b5ddc16b525cf5ad689796a97dd5f9cbf0cbe53fc3404b9e1"
       },
       {
         "id": "mount:/classical/kinematics/:PlanarFkArm:1",
@@ -7748,76 +7695,6 @@
         "route": "/data-hardware/data-bottleneck/",
         "ownerPath": "content/data-hardware/data-bottleneck.mdx",
         "ordinal": 1,
-        "props": "className=\"my-6\" /",
-        "containers": [],
-        "cases": [
-          {
-            "id": "default",
-            "kind": "default"
-          },
-          {
-            "id": "focus-each-control",
-            "kind": "focus",
-            "selector": "button, input, select, summary, [tabindex]",
-            "expectedEnumeration": "every rendered enabled control independently"
-          },
-          {
-            "id": "meaningful-hover",
-            "kind": "hover",
-            "selector": "button:not(:disabled)",
-            "expectedEnumeration": "every rendered button with a hover treatment"
-          },
-          {
-            "id": "slider-boundaries-and-anchors",
-            "kind": "slider-boundaries",
-            "selector": "input[type=\"range\"]",
-            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
-          },
-          {
-            "id": "discrete-options",
-            "kind": "discrete-options",
-            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
-            "expectedEnumeration": "every rendered discrete option independently"
-          },
-          {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
-            "id": "pairwise-independent-controls",
-            "kind": "pairwise",
-            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
-          },
-          {
-            "id": "loading-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a loading state."
-          },
-          {
-            "id": "error-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a error state."
-          },
-          {
-            "id": "empty-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented empty witness"
-          },
-          {
-            "id": "unavailable-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a unavailable state."
-          }
-        ],
-        "expectedCaseCount": 11,
-        "fingerprint": "658414b521ef923cbadc0fed2dabab6c069277d1d0f1f30e94b53d2c2b62c7fb"
-      },
-      {
-        "id": "mount:/data-hardware/data-bottleneck/:DataScaleChart:2",
-        "sourceId": "interactive:DataScaleChart",
-        "route": "/data-hardware/data-bottleneck/",
-        "ownerPath": "content/data-hardware/data-bottleneck.mdx",
-        "ordinal": 2,
         "props": "defaultRigs={10} defaultRate=\"droid-measured\" className=\"mt-3\" /",
         "containers": [
           {
@@ -7888,7 +7765,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "0b9c760664d3f71e6a1bb956bf23da75b2b16e615ca38327a1e4e1d170a8971a"
+        "fingerprint": "02eb2e81110e65635916aa7e2690d5d5389b341910fec96870201db91f457721"
       },
       {
         "id": "mount:/data-hardware/datasets/:DatasetTable:1",
@@ -7955,66 +7832,7 @@
         "route": "/data-hardware/evaluation-crisis/",
         "ownerPath": "content/data-hardware/evaluation-crisis.mdx",
         "ordinal": 1,
-        "props": "minPerStepPercent={0} maxPerStepPercent={100} descriptionVariant=\"evaluation\" className=\"my-6\" /",
-        "containers": [],
-        "cases": [
-          {
-            "id": "default",
-            "kind": "default"
-          },
-          {
-            "id": "focus-each-control",
-            "kind": "focus",
-            "selector": "button, input, select, summary, [tabindex]",
-            "expectedEnumeration": "every rendered enabled control independently"
-          },
-          {
-            "id": "meaningful-hover",
-            "kind": "hover",
-            "selector": "button:not(:disabled)",
-            "expectedEnumeration": "every rendered button with a hover treatment"
-          },
-          {
-            "id": "slider-boundaries-and-anchors",
-            "kind": "slider-boundaries",
-            "selector": "input[type=\"range\"]",
-            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
-          },
-          {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
-            "id": "loading-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a loading state."
-          },
-          {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
-          },
-          {
-            "id": "empty-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a empty state."
-          },
-          {
-            "id": "unavailable-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a unavailable state."
-          }
-        ],
-        "expectedCaseCount": 9,
-        "fingerprint": "8e3883b2e2af605df627ca49399aa65a99790a91e1470ef74d40ea0497db53e2"
-      },
-      {
-        "id": "mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:2",
-        "sourceId": "interactive:ReliabilityCompounding",
-        "route": "/data-hardware/evaluation-crisis/",
-        "ownerPath": "content/data-hardware/evaluation-crisis.mdx",
-        "ordinal": 2,
-        "props": "defaultPerStep={0.95} defaultSteps={14} descriptionVariant=\"prediction\" className=\"mt-3\" /",
+        "props": "defaultPerStep={0.95} defaultSteps={14} minPerStepPercent={0} maxPerStepPercent={100} descriptionVariant=\"evaluation\" className=\"mt-3\" /",
         "containers": [
           {
             "component": "PredictThenReveal",
@@ -8048,8 +7866,19 @@
             "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
           },
           {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
             "id": "reset",
             "kind": "reset"
+          },
+          {
+            "id": "pairwise-independent-controls",
+            "kind": "pairwise",
+            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
           },
           {
             "id": "loading-not-applicable",
@@ -8072,8 +7901,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "6eeebffc2550b50513448e36e7d1bc08c503904013018922531a35575a16f34a"
+        "expectedCaseCount": 11,
+        "fingerprint": "30da752eeef1db10a41ebd3646ddc12eafd89171da2683698a6be100a16fc7d2"
       },
       {
         "id": "mount:/data-hardware/hardware-taxonomy/:HardwareGuide:1",
@@ -8435,65 +8264,6 @@
         "route": "/frontier/generalization/",
         "ownerPath": "content/frontier/generalization.mdx",
         "ordinal": 1,
-        "props": "className=\"my-6\" /",
-        "containers": [],
-        "cases": [
-          {
-            "id": "default",
-            "kind": "default"
-          },
-          {
-            "id": "focus-each-control",
-            "kind": "focus",
-            "selector": "button, input, select, summary, [tabindex]",
-            "expectedEnumeration": "every rendered enabled control independently"
-          },
-          {
-            "id": "meaningful-hover",
-            "kind": "hover",
-            "selector": "button:not(:disabled)",
-            "expectedEnumeration": "every rendered button with a hover treatment"
-          },
-          {
-            "id": "slider-boundaries-and-anchors",
-            "kind": "slider-boundaries",
-            "selector": "input[type=\"range\"]",
-            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
-          },
-          {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
-            "id": "loading-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a loading state."
-          },
-          {
-            "id": "error-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a error state."
-          },
-          {
-            "id": "empty-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a empty state."
-          },
-          {
-            "id": "unavailable-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a unavailable state."
-          }
-        ],
-        "expectedCaseCount": 9,
-        "fingerprint": "1d06a82cd90a3db0c3be1ae8af0eddfa5075b413dba7fc754f5582ace14caedb"
-      },
-      {
-        "id": "mount:/frontier/generalization/:EgoScaleScaling:2",
-        "sourceId": "interactive:EgoScaleScaling",
-        "route": "/frontier/generalization/",
-        "ownerPath": "content/frontier/generalization.mdx",
-        "ordinal": 2,
         "props": "defaultHorizonHours={250_000} className=\"mt-3\" /",
         "containers": [
           {
@@ -8553,7 +8323,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "65777481b37f1e651ebfe2ae81b05b4a6c34de911952a74185bd826d11408821"
+        "fingerprint": "31d3fa9dff904ca411fa3b8b7f1f5716179eb92399e6ae3cd149d402a1468845"
       },
       {
         "id": "mount:/frontier/reliability-gap/:DeploymentDashboard:1",
@@ -8620,66 +8390,7 @@
         "route": "/frontier/reliability-gap/",
         "ownerPath": "content/frontier/reliability-gap.mdx",
         "ordinal": 1,
-        "props": "minPerStepPercent={0} maxPerStepPercent={100} descriptionVariant=\"reliability\" className=\"my-6\" /",
-        "containers": [],
-        "cases": [
-          {
-            "id": "default",
-            "kind": "default"
-          },
-          {
-            "id": "focus-each-control",
-            "kind": "focus",
-            "selector": "button, input, select, summary, [tabindex]",
-            "expectedEnumeration": "every rendered enabled control independently"
-          },
-          {
-            "id": "meaningful-hover",
-            "kind": "hover",
-            "selector": "button:not(:disabled)",
-            "expectedEnumeration": "every rendered button with a hover treatment"
-          },
-          {
-            "id": "slider-boundaries-and-anchors",
-            "kind": "slider-boundaries",
-            "selector": "input[type=\"range\"]",
-            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
-          },
-          {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
-            "id": "loading-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a loading state."
-          },
-          {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
-          },
-          {
-            "id": "empty-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a empty state."
-          },
-          {
-            "id": "unavailable-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a unavailable state."
-          }
-        ],
-        "expectedCaseCount": 9,
-        "fingerprint": "31eecb35fe60df11b490b522cbc717308bad5e9609dc2c11bde2b80248172954"
-      },
-      {
-        "id": "mount:/frontier/safety-and-assurance/:CollaborativeOperationModes:1",
-        "sourceId": "interactive:CollaborativeOperationModes",
-        "route": "/frontier/safety-and-assurance/",
-        "ownerPath": "content/frontier/safety-and-assurance.mdx",
-        "ordinal": 1,
-        "props": "className=\"my-6\" /",
+        "props": "minPerStepPercent={0} maxPerStepPercent={100} presets=\"per-step-thresholds\" descriptionVariant=\"reliability\" className=\"my-6\" /",
         "containers": [],
         "cases": [
           {
@@ -8741,7 +8452,77 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "f79f3755bcefab0916a124a0a27d05b872a64d652ea2b292b6c965cf6a8ec481"
+        "fingerprint": "746a8f271dd5af9e10fd585de3201938ef7d1f27e775bd3e22212a01dd87842e"
+      },
+      {
+        "id": "mount:/frontier/safety-and-assurance/:CollaborativeOperationModes:1",
+        "sourceId": "interactive:CollaborativeOperationModes",
+        "route": "/frontier/safety-and-assurance/",
+        "ownerPath": "content/frontier/safety-and-assurance.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "pairwise-independent-controls",
+            "kind": "pairwise",
+            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 11,
+        "fingerprint": "0be2a808630c845de2b66af9cd41b4b5f90df08223d925f1adf04747a9481125"
       },
       {
         "id": "mount:/manipulation/action-chunking/:ChunkSizeCurve:1",
@@ -8843,9 +8624,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -8859,74 +8640,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "9eb4d724b359d8608c4e5a7033b4262c4d7cf1b62fb5398a83d018f2c4d1d4e3"
-      },
-      {
-        "id": "mount:/manipulation/action-chunking/:LatencyComparison:2",
-        "sourceId": "interactive:LatencyComparison",
-        "route": "/manipulation/action-chunking/",
-        "ownerPath": "content/manipulation/action-chunking.mdx",
-        "ordinal": 2,
-        "props": "defaultDelayMs={100} className=\"mt-3\" /",
-        "containers": [
-          {
-            "component": "PredictThenReveal",
-            "sourcePath": "components/article/commit-to-reveal.tsx",
-            "controlKinds": [
-              "discrete-options"
-            ]
-          }
-        ],
-        "cases": [
-          {
-            "id": "default",
-            "kind": "default"
-          },
-          {
-            "id": "focus-each-control",
-            "kind": "focus",
-            "selector": "button, input, select, summary, [tabindex]",
-            "expectedEnumeration": "every rendered enabled control independently"
-          },
-          {
-            "id": "meaningful-hover",
-            "kind": "hover",
-            "selector": "button:not(:disabled)",
-            "expectedEnumeration": "every rendered button with a hover treatment"
-          },
-          {
-            "id": "slider-boundaries-and-anchors",
-            "kind": "slider-boundaries",
-            "selector": "input[type=\"range\"]",
-            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
-          },
-          {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
-            "id": "loading-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a loading state."
-          },
-          {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
-          },
-          {
-            "id": "empty-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a empty state."
-          },
-          {
-            "id": "unavailable-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a unavailable state."
-          }
-        ],
-        "expectedCaseCount": 9,
-        "fingerprint": "5a53b403fc8f5d73ef1c1bd0170476aacac7e9e99efdc0ec0fe12b5c18314c9d"
+        "fingerprint": "cc6e4d1f1501a1eb11bd78b36bec46be97b9b4e3f3b2177b12bd2aa2b0638cd1"
       },
       {
         "id": "mount:/manipulation/bc-foundations/:CompoundingError:1",
@@ -8934,76 +8648,6 @@
         "route": "/manipulation/bc-foundations/",
         "ownerPath": "content/manipulation/bc-foundations.mdx",
         "ordinal": 1,
-        "props": "className=\"my-6\" /",
-        "containers": [],
-        "cases": [
-          {
-            "id": "default",
-            "kind": "default"
-          },
-          {
-            "id": "focus-each-control",
-            "kind": "focus",
-            "selector": "button, input, select, summary, [tabindex]",
-            "expectedEnumeration": "every rendered enabled control independently"
-          },
-          {
-            "id": "meaningful-hover",
-            "kind": "hover",
-            "selector": "button:not(:disabled)",
-            "expectedEnumeration": "every rendered button with a hover treatment"
-          },
-          {
-            "id": "slider-boundaries-and-anchors",
-            "kind": "slider-boundaries",
-            "selector": "input[type=\"range\"]",
-            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
-          },
-          {
-            "id": "discrete-options",
-            "kind": "discrete-options",
-            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
-            "expectedEnumeration": "every rendered discrete option independently"
-          },
-          {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
-            "id": "pairwise-independent-controls",
-            "kind": "pairwise",
-            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
-          },
-          {
-            "id": "loading-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a loading state."
-          },
-          {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
-          },
-          {
-            "id": "empty-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a empty state."
-          },
-          {
-            "id": "unavailable-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a unavailable state."
-          }
-        ],
-        "expectedCaseCount": 11,
-        "fingerprint": "18f814ede0d5e9b9fad21a2941d720ef5b4ff8825e1192f9755d3042461126fa"
-      },
-      {
-        "id": "mount:/manipulation/bc-foundations/:CompoundingError:2",
-        "sourceId": "interactive:CompoundingError",
-        "route": "/manipulation/bc-foundations/",
-        "ownerPath": "content/manipulation/bc-foundations.mdx",
-        "ordinal": 2,
         "props": "defaultEpsilon={0.05} defaultSteps={240} className=\"mt-3\" /",
         "containers": [
           {
@@ -9074,7 +8718,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "65388b9d7978289ff8b2a8e08802d7d5e7792606aa76ec7943096d7531af44c1"
+        "fingerprint": "2e57f3ca00d11797b53c5ec9dd7abcab52c95ff25f1690b04301a16ae2d18bcc"
       },
       {
         "id": "mount:/manipulation/comparison-matrix/:ComparisonMatrix:1",
@@ -9622,9 +9266,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -9638,74 +9282,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "95d19f20db0ec5d29765ad5efd95181302478c3ff959e8d9e95f2e37e21d0517"
-      },
-      {
-        "id": "mount:/manipulation/realtime-execution/:ControlLoopBudget:2",
-        "sourceId": "interactive:ControlLoopBudget",
-        "route": "/manipulation/realtime-execution/",
-        "ownerPath": "content/manipulation/realtime-execution.mdx",
-        "ordinal": 2,
-        "props": "defaultParamsB={1.1} className=\"mt-3\" /",
-        "containers": [
-          {
-            "component": "PredictThenReveal",
-            "sourcePath": "components/article/commit-to-reveal.tsx",
-            "controlKinds": [
-              "discrete-options"
-            ]
-          }
-        ],
-        "cases": [
-          {
-            "id": "default",
-            "kind": "default"
-          },
-          {
-            "id": "focus-each-control",
-            "kind": "focus",
-            "selector": "button, input, select, summary, [tabindex]",
-            "expectedEnumeration": "every rendered enabled control independently"
-          },
-          {
-            "id": "meaningful-hover",
-            "kind": "hover",
-            "selector": "button:not(:disabled)",
-            "expectedEnumeration": "every rendered button with a hover treatment"
-          },
-          {
-            "id": "slider-boundaries-and-anchors",
-            "kind": "slider-boundaries",
-            "selector": "input[type=\"range\"]",
-            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
-          },
-          {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
-            "id": "loading-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a loading state."
-          },
-          {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
-          },
-          {
-            "id": "empty-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a empty state."
-          },
-          {
-            "id": "unavailable-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a unavailable state."
-          }
-        ],
-        "expectedCaseCount": 9,
-        "fingerprint": "191f8e12523973db2dc02c5831d580a25658e1b406d788e3fe7e7e7e3ef812e7"
+        "fingerprint": "89111bb22d956b9a79bff626ea403dde45b0f165631bfca9b46428911d3f02a7"
       },
       {
         "id": "mount:/manipulation/realtime-execution/:ExecutionModes:1",
@@ -10014,146 +9591,6 @@
         "fingerprint": "a609088cf8e411f354d4c6b158eb2d11749669150fe006aff2f174601b63d6ba"
       },
       {
-        "id": "mount:/rl-sim2real/legged-locomotion/:GaitDiagram:1",
-        "sourceId": "interactive:GaitDiagram",
-        "route": "/rl-sim2real/legged-locomotion/",
-        "ownerPath": "content/rl-sim2real/legged-locomotion.mdx",
-        "ordinal": 1,
-        "props": "className=\"my-6\" /",
-        "containers": [],
-        "cases": [
-          {
-            "id": "default",
-            "kind": "default"
-          },
-          {
-            "id": "focus-each-control",
-            "kind": "focus",
-            "selector": "button, input, select, summary, [tabindex]",
-            "expectedEnumeration": "every rendered enabled control independently"
-          },
-          {
-            "id": "meaningful-hover",
-            "kind": "hover",
-            "selector": "button:not(:disabled)",
-            "expectedEnumeration": "every rendered button with a hover treatment"
-          },
-          {
-            "id": "slider-boundaries-and-anchors",
-            "kind": "slider-boundaries",
-            "selector": "input[type=\"range\"]",
-            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
-          },
-          {
-            "id": "discrete-options",
-            "kind": "discrete-options",
-            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
-            "expectedEnumeration": "every rendered discrete option independently"
-          },
-          {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
-            "id": "pairwise-independent-controls",
-            "kind": "pairwise",
-            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
-          },
-          {
-            "id": "loading-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a loading state."
-          },
-          {
-            "id": "error-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a error state."
-          },
-          {
-            "id": "empty-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a empty state."
-          },
-          {
-            "id": "unavailable-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a unavailable state."
-          }
-        ],
-        "expectedCaseCount": 11,
-        "fingerprint": "05e66f318e7af25723773c9a3f5e0ea7bee314719d9e362ac3368b98ebef0aca"
-      },
-      {
-        "id": "mount:/rl-sim2real/parallel-sim-rl/:TrainingTimeChart:1",
-        "sourceId": "interactive:TrainingTimeChart",
-        "route": "/rl-sim2real/parallel-sim-rl/",
-        "ownerPath": "content/rl-sim2real/parallel-sim-rl.mdx",
-        "ordinal": 1,
-        "props": "className=\"my-6\" /",
-        "containers": [],
-        "cases": [
-          {
-            "id": "default",
-            "kind": "default"
-          },
-          {
-            "id": "focus-each-control",
-            "kind": "focus",
-            "selector": "button, input, select, summary, [tabindex]",
-            "expectedEnumeration": "every rendered enabled control independently"
-          },
-          {
-            "id": "meaningful-hover",
-            "kind": "hover",
-            "selector": "button:not(:disabled)",
-            "expectedEnumeration": "every rendered button with a hover treatment"
-          },
-          {
-            "id": "slider-boundaries-and-anchors",
-            "kind": "slider-boundaries",
-            "selector": "input[type=\"range\"]",
-            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
-          },
-          {
-            "id": "discrete-options",
-            "kind": "discrete-options",
-            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
-            "expectedEnumeration": "every rendered discrete option independently"
-          },
-          {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
-            "id": "pairwise-independent-controls",
-            "kind": "pairwise",
-            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
-          },
-          {
-            "id": "loading-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a loading state."
-          },
-          {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
-          },
-          {
-            "id": "empty-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a empty state."
-          },
-          {
-            "id": "unavailable-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a unavailable state."
-          }
-        ],
-        "expectedCaseCount": 11,
-        "fingerprint": "0fec34a5ff7cb2235fc5a1d1806b16e8a20bef2096f14b53d0e048c801346898"
-      },
-      {
         "id": "mount:/rl-sim2real/reward-design-mpc/:EurekaLoop:1",
         "sourceId": "interactive:EurekaLoop",
         "route": "/rl-sim2real/reward-design-mpc/",
@@ -10311,9 +9748,9 @@
             "notApplicableReason": "Source does not implement a error state."
           },
           {
-            "id": "empty-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented empty witness"
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
           },
           {
             "id": "unavailable-not-applicable",
@@ -10322,7 +9759,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "85b61c87055b332c1cec37c8c66344c5328df9a55b1598943ee1409d965107bd"
+        "fingerprint": "3a6579332c610250594e178b43141b49e1128e48cc2af9b6bab2af54eaf82e0d"
       },
       {
         "id": "mount:/rl-sim2real/rl-for-robotics/:SampleEfficiencyLedger:1",
@@ -10366,11 +9803,6 @@
             "kind": "reset"
           },
           {
-            "id": "pairwise-independent-controls",
-            "kind": "pairwise",
-            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -10391,8 +9823,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 11,
-        "fingerprint": "b9b0bf13cd3dec7c04f1c56c74e3a8461ecd81beb744a4f3f36e85747583c735"
+        "expectedCaseCount": 10,
+        "fingerprint": "679571d58c32f6d5789059b07ba13d844db9157486c594a8efc642e490c79bbe"
       },
       {
         "id": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:1",
@@ -10452,73 +9884,6 @@
         ],
         "expectedCaseCount": 9,
         "fingerprint": "53fde30dfdf3df5cd8ec248953a47ab553cd137c238be88f2076a4c41faf5346"
-      },
-      {
-        "id": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:2",
-        "sourceId": "interactive:FrictionTransfer",
-        "route": "/rl-sim2real/sim2real-transfer/",
-        "ownerPath": "content/rl-sim2real/sim2real-transfer.mdx",
-        "ordinal": 2,
-        "props": "defaultRange={0.65} className=\"mt-3\" /",
-        "containers": [
-          {
-            "component": "PredictThenReveal",
-            "sourcePath": "components/article/commit-to-reveal.tsx",
-            "controlKinds": [
-              "discrete-options"
-            ]
-          }
-        ],
-        "cases": [
-          {
-            "id": "default",
-            "kind": "default"
-          },
-          {
-            "id": "focus-each-control",
-            "kind": "focus",
-            "selector": "button, input, select, summary, [tabindex]",
-            "expectedEnumeration": "every rendered enabled control independently"
-          },
-          {
-            "id": "meaningful-hover",
-            "kind": "hover",
-            "selector": "button:not(:disabled)",
-            "expectedEnumeration": "every rendered button with a hover treatment"
-          },
-          {
-            "id": "slider-boundaries-and-anchors",
-            "kind": "slider-boundaries",
-            "selector": "input[type=\"range\"]",
-            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
-          },
-          {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
-            "id": "loading-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a loading state."
-          },
-          {
-            "id": "error-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a error state."
-          },
-          {
-            "id": "empty-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a empty state."
-          },
-          {
-            "id": "unavailable-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a unavailable state."
-          }
-        ],
-        "expectedCaseCount": 9,
-        "fingerprint": "d4857020441db6a9a5c8bf477e298ed39ec90968a1d4a1ce49cc5a18ac4b6e46"
       },
       {
         "id": "mount:/rl-sim2real/sim2real-transfer/:TeacherStudent:1",
@@ -11217,14 +10582,10 @@
         "components/article/commit-to-reveal.tsx",
         "components/home/home-search.tsx",
         "components/interactive/action-tokenization.tsx",
-        "components/interactive/cross-embodiment-strategies.tsx",
-        "components/interactive/deployment-economics.tsx",
         "components/interactive/eureka-loop.tsx",
-        "components/interactive/generalist-release-timeline.tsx",
-        "components/interactive/hierarchy-timescales.tsx",
+        "components/interactive/impedance-contact-lab.tsx",
         "components/interactive/mot-insulation.tsx",
         "components/interactive/mpc-vs-rl.tsx",
-        "components/interactive/pi-generation-timeline.tsx",
         "components/interactive/scene-representation-ladder.tsx",
         "components/interactive/teleop-rig-matrix.tsx",
         "components/interactive/training-time-chart.tsx",
@@ -11256,6 +10617,7 @@
         "components/ui/figure.tsx",
         "components/ui/input-field.tsx",
         "components/ui/instrument.tsx",
+        "components/ui/stage-status-chip.tsx",
         "components/ui/surface.tsx",
         "components/ui/table.tsx",
         "components/ui/tabs.tsx",
@@ -11266,17 +10628,12 @@
         "components/article/commit-to-reveal.tsx",
         "components/home/home-search.tsx",
         "components/interactive/action-tokenization.tsx",
-        "components/interactive/cross-embodiment-strategies.tsx",
-        "components/interactive/deployment-economics.tsx",
         "components/interactive/eureka-loop.tsx",
-        "components/interactive/generalist-release-timeline.tsx",
-        "components/interactive/hierarchy-timescales.tsx",
+        "components/interactive/impedance-contact-lab.tsx",
         "components/interactive/mot-insulation.tsx",
         "components/interactive/mpc-vs-rl.tsx",
-        "components/interactive/pi-generation-timeline.tsx",
         "components/interactive/scene-representation-ladder.tsx",
         "components/interactive/teleop-rig-matrix.tsx",
-        "components/interactive/training-time-chart.tsx",
         "components/interactive/wm-disambiguator.tsx",
         "components/market-map/company-card.tsx",
         "components/market-map/company-logo.tsx",
@@ -11302,11 +10659,12 @@
         "components/ui/cite.tsx",
         "components/ui/figure.tsx",
         "components/ui/instrument.tsx",
+        "components/ui/stage-status-chip.tsx",
         "components/ui/table.tsx",
         "mdx-components.tsx"
       ],
       "mountState": "production",
-      "fingerprint": "c6aae19dd39fc285096c2fc8d07753f18fd4f6b54f5403a038e8e562429e65c3"
+      "fingerprint": "7b2272e839d058880c428e3d84649f72c7704ae188cb3b101b617cdc1246ae3f"
     },
     {
       "id": "surface:raised",
@@ -11598,6 +10956,7 @@
         "components/article/commit-to-reveal.tsx",
         "components/article/heading-permalink.tsx",
         "components/interactive/appearance-physics-push.tsx",
+        "components/interactive/collaborative-operation-modes.tsx",
         "components/interactive/comparison-matrix.tsx",
         "components/interactive/dataset-table.tsx",
         "components/interactive/eureka-loop.tsx",
@@ -11635,10 +10994,10 @@
         "components/article/commit-to-reveal.tsx",
         "components/article/heading-permalink.tsx",
         "components/interactive/appearance-physics-push.tsx",
+        "components/interactive/collaborative-operation-modes.tsx",
         "components/interactive/comparison-matrix.tsx",
         "components/interactive/dataset-table.tsx",
         "components/interactive/eureka-loop.tsx",
-        "components/interactive/gait-diagram.tsx",
         "components/interactive/grasp-wrench-lab.tsx",
         "components/interactive/hand-comparison.tsx",
         "components/interactive/hardware-guide.tsx",
@@ -11679,7 +11038,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "e230a47183087e29c5132c2edd788e9f229c30955edc0be6e5fd9879f136a412"
+      "fingerprint": "140a4f5a19d83ae65578bf30f8621571cb7a678721609a87c0d154d6b24a89da"
     },
     {
       "id": "control:selection",
@@ -11726,6 +11085,7 @@
         "components/interactive/perception-error-budget.tsx",
         "components/interactive/perception-latency.tsx",
         "components/interactive/pi-generation-timeline.tsx",
+        "components/interactive/reliability-compounding.tsx",
         "components/interactive/sample-efficiency-ledger.tsx",
         "components/interactive/scene-representation-ladder.tsx",
         "components/interactive/teleop-rig-matrix.tsx",
@@ -11755,7 +11115,6 @@
         "components/interactive/dataset-table.tsx",
         "components/interactive/deployment-dashboard.tsx",
         "components/interactive/flow-matching-trajectory.tsx",
-        "components/interactive/gait-diagram.tsx",
         "components/interactive/generalist-release-timeline.tsx",
         "components/interactive/hand-comparison.tsx",
         "components/interactive/hardware-guide.tsx",
@@ -11769,11 +11128,11 @@
         "components/interactive/perception-error-budget.tsx",
         "components/interactive/perception-latency.tsx",
         "components/interactive/pi-generation-timeline.tsx",
+        "components/interactive/reliability-compounding.tsx",
         "components/interactive/sample-efficiency-ledger.tsx",
         "components/interactive/scene-representation-ladder.tsx",
         "components/interactive/teleop-rig-matrix.tsx",
         "components/interactive/thesis-explorer.tsx",
-        "components/interactive/training-time-chart.tsx",
         "components/interactive/wbc-decomposition.tsx",
         "components/interactive/wm-disambiguator.tsx",
         "components/market-map/bubble-view.tsx",
@@ -11795,7 +11154,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "015ac50a222e0bd8ac24ee1ed43188bbd5f49fe55445f2a0ff60fcf0e3519d3d"
+      "fingerprint": "44640bf69230ea76d0de054e45b2caf11abbc8f93f9fec7da7634b087c9f5690"
     },
     {
       "id": "control:link-focus",
@@ -12031,7 +11390,6 @@
         "components/interactive/execution-modes.tsx",
         "components/interactive/flow-matching-trajectory.tsx",
         "components/interactive/friction-transfer.tsx",
-        "components/interactive/gait-diagram.tsx",
         "components/interactive/grasp-wrench-lab.tsx",
         "components/interactive/hierarchy-timescales.tsx",
         "components/interactive/impedance-contact-lab.tsx",
@@ -12050,7 +11408,6 @@
         "components/interactive/sample-efficiency-ledger.tsx",
         "components/interactive/scene-representation-ladder.tsx",
         "components/interactive/teacher-student.tsx",
-        "components/interactive/training-time-chart.tsx",
         "components/market-map/filter-bar.tsx",
         "components/motion/scene-player.tsx",
         "components/nav/search-box.tsx",
@@ -12073,7 +11430,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "881e548b0ab1cf9aa6449c9d30d5cd8188349c0361d099c37d06c39c839043aa"
+      "fingerprint": "26a0e4c38b4fe94a6e825931508b9a64636850dbd73aed4f19b0ac6815136fe5"
     },
     {
       "id": "control:disabled",
@@ -12127,5 +11484,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "b185be345407e8a16360acc86659bcdd1c77ca19e9ff516346d7ec1397530144"
+  "rootFingerprint": "1efd25a0f8caf2448cbac6f9c65d013c56aa3c6ee925aaabc7e507b011b9b37d"
 }

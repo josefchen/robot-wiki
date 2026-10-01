@@ -9,6 +9,7 @@ import {
   retainedRound5ReaderPinSource, round5ReaderPinEndpoint, round5ReaderPinsCheckerPredecessor,
 } from '../../lib/audit-round5-reader-pins-continuity.ts';
 import { round6RemainingRepairPredecessor } from '../../lib/audit-round6-remaining-repairs-continuity.ts';
+import { preFigureMigration } from '../helpers/figure-migration';
 
 const root = resolve(import.meta.dirname, '../..');
 const directory = 'audit/evidence/motion-round5-reader-pins-20260929/';
@@ -23,9 +24,11 @@ const review = JSON.parse(read(`${directory}source-transition.json`).toString())
 const endpoint = (source: Source): Artifact =>
   ({ path: source.after.path, bytes: source.before.bytes, sha256: source.before.sha256 });
 // The round-6 remaining repairs later edited the citation chip and the
-// citation-refresh spec; their reviewed successor returns this revision's
-// output, which is what the reader-pins review still names.
-const reviewedLive = (artifact: Artifact) => round6RemainingRepairPredecessor(root, artifact, read(artifact.path));
+// citation-refresh spec, and the 2026-10-01 figure migration then edited both
+// specs; their reviewed successors return this revision's output, which is
+// what the reader-pins review still names.
+const reviewedLive = (artifact: Artifact) =>
+  round6RemainingRepairPredecessor(root, artifact, preFigureMigration(artifact));
 
 const sourcePaths = [
   `${directory}source-transition.json`,
@@ -81,7 +84,7 @@ it('keeps every recorded check in the specs and only inserts reader code in the 
   const once = (text: string, line: string) => text.split(line).length === 2;
   const [control, refresh, ...components] = review.sources;
   const controlBefore = read(control.before.path).toString();
-  const controlAfter = read(control.after.path).toString();
+  const controlAfter = reviewedLive(control.after).toString();
   expect(assertions(controlAfter)).toBe(assertions(controlBefore));
   for (const line of [
     "      await expect(page.locator('[data-cite-id=\"astrom-murray-2008\"]')).toHaveCount(0);",
@@ -114,7 +117,7 @@ it.each(['wrong-edit', 'dropped-assertion', 'missing-review', 'missing-snapshot'
     const destination = copied(sourcePaths);
     try {
       const source = review.sources[0];
-      const live = read(source.after.path);
+      const live = reviewedLive(source.after);
       expect(retainedRound5ReaderPinSource(destination, source.after.path, live)).toEqual(read(source.before.path));
       const reviewPath = join(destination, `${directory}source-transition.json`);
       let candidate = live;
@@ -186,7 +189,7 @@ it('admits only the exact named reader revision above the round5 first-screen cd
   for (const changed of [Buffer.concat([reviewedAfter, Buffer.from('\n')]),
     Buffer.from(reviewedAfter.toString().replace(branch, ''))]) {
     expect(() => round5ReaderPinsCheckerPredecessor(root, changed)).toThrow(
-      /round6 remaining repairs checker continuity drift/,
+      /figure migration checker continuity drift/,
     );
   }
 });
@@ -203,7 +206,9 @@ it.each(['missing-review', 'missing-predecessor', 'corrupt-predecessor', 'review
       'audit/evidence/motion-round6-prose-restores-20260929/audit-local-basis-before.ts.txt',
       'audit/evidence/motion-round6-remaining-repairs-20260929/checker-transition.json',
       'audit/evidence/motion-round6-remaining-repairs-20260929/audit-local-basis-before.ts.txt',
-      'audit/evidence/motion-round6-remaining-repairs-20260929/classical-closure-evidence-before.test.ts.txt']);
+      'audit/evidence/motion-round6-remaining-repairs-20260929/classical-closure-evidence-before.test.ts.txt',
+      'audit/evidence/figure-migration-20261001/checker-transition.json',
+      'audit/evidence/figure-migration-20261001/audit-local-basis-before.ts.txt']);
     try {
       const live = read('lib/audit-local-basis.ts');
       expect(round5ReaderPinsCheckerPredecessor(destination, live)).toEqual(read(predecessorPath));

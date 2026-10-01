@@ -326,14 +326,12 @@ test.describe('market map visualization', () => {
     // literally lowercase. innerText is the instrument that can see this:
     // it reflects text-transform, textContent does not.
     const cases: ReadonlyArray<{ route: string; labels: readonly string[] }> = [
+      // The generative-video rollout panels became one graphite-stage
+      // diagram: its group headings are now accessible names, and the
+      // visible text of its controls is the conditioning toggles.
       {
         route: '/world-models/generative-video/',
-        labels: [
-          'Model conditioning',
-          'Rollout A action',
-          'Rollout B action',
-          'Shared initial frame',
-        ],
+        labels: ['Strong conditioning', 'Weak conditioning'],
       },
       {
         route: '/rl-sim2real/reward-design-mpc/',
@@ -348,9 +346,12 @@ test.describe('market map visualization', () => {
           'Model-based MPC (iLQR + MuJoCo)',
         ],
       },
+      // The contact-geometry figure reads its contact count, patch and
+      // tolerance as one readout sentence, so its visible labels are the
+      // error control and the scenario that opens the readout.
       {
         route: '/rl-sim2real/why-rl-locomotion/',
-        labels: ['Contacts:', 'Patch:', 'Tolerance:'],
+        labels: ['Contact-model error', 'Locomotion at'],
       },
       {
         route: '/rl-sim2real/humanoid-wbc/',

@@ -22,6 +22,12 @@
 [data-figure-stage] {
   --color-text: var(--color-on-instrument);
   --color-text-dim: var(--color-instrument-muted);
+  /* Page-ground panels and knockouts take the stage ground, so nothing
+     written for paper paints a light patch on the graphite. */
+  --color-bg: var(--color-instrument);
+  --color-surface: var(--color-instrument);
+  --color-surface-2: var(--color-instrument);
+  --color-border-strong: var(--color-instrument-muted);
   --role-state-graphic: var(--role-state-stage);
   --role-state-text: var(--role-state-stage);
   --role-measurement-graphic: var(--role-measurement-stage);
@@ -42,6 +48,12 @@
    leave uneven gaps inside words. */
 .motion-stage-svg text {
   text-rendering: geometricPrecision;
+}
+
+/* Stage labels are the brand sans whatever face the markup names; only a
+   numeric readout takes the mono. */
+.motion-stage-svg text:not([data-scene-glyph]) {
+  font-family: var(--motion-stage-label-font);
 }
 
 .motion-stage-svg text[data-scene-readout] {
@@ -76,4 +88,46 @@
   .motion-stage-svg text[data-scene-readout] {
     font-size: calc(var(--motion-stage-readout-size) / var(--motion-stage-type-scale));
   }
+}
+
+/*
+ * A prediction step's reveal is inset twice (card and disclosure padding),
+ * which leaves a 375 px phone a stage narrower than the type scale's
+ * minimum width, and the stage text would shrink under 12 px. Below the sm
+ * breakpoint a reveal that holds a figure spends its own padding on the
+ * figure instead.
+ */
+@media (width < 40rem) {
+  [data-reveal]:has([data-figure-frame]) {
+    margin-inline: -0.75rem;
+  }
+}
+
+/* A citation chip inside a figure is words, so it reads in the frame's
+   sans at the source-line size rather than the prose chip's small mono. */
+[data-figure-frame] [data-cite-id] > span {
+  font-family: var(--font-sans);
+  font-size: 12px;
+}
+
+/*
+ * Signal blue falls below text contrast on graphite, so a link on the stage
+ * keeps the signal blue and underline of every source link and sits on the
+ * paper ground it is measured against elsewhere. A citation chip carries
+ * that ground on its own frame.
+ */
+[data-figure-stage] a[href] {
+  color: var(--color-accent);
+  background-color: var(--color-paper);
+  text-decoration-line: underline;
+  text-decoration-color: var(--color-accent);
+}
+
+[data-figure-stage] a[href]:not([data-cite-id] a) {
+  border-radius: 2px;
+  padding-inline: 4px;
+}
+
+[data-figure-stage] [data-cite-id] > span {
+  background-color: var(--color-paper);
 }

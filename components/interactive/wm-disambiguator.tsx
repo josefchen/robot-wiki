@@ -1,7 +1,23 @@
 'use client';
 
-import { useId, useState } from 'react';
-import { ChartDescription, InstrumentFrame, InstrumentReset } from '@/components/ui';
+import { useId, useState, type ReactNode } from 'react';
+import { ChartDescription } from '@/components/ui/chart-description';
+import {
+  InstrumentFigure,
+  InstrumentReadout,
+  InstrumentReset,
+  PlotStage,
+} from '@/components/ui/instrument';
+import { FigureStage } from '@/components/motion/figure-frame';
+import {
+  Bar,
+  CHART_STROKE,
+  CHART_STRUCTURE,
+  CHART_TYPE,
+  CHART_VIEW_WIDTH,
+  roleColour,
+  type ChartRole,
+} from '@/components/motion/chart';
 import {
   DEFAULT_PARADIGM,
   WM_PARADIGMS,
@@ -13,80 +29,436 @@ import {
 import { cx } from '@/lib/utils';
 
 /**
- * WmDisambiguator: the six-panel disambiguator for the
- * world-models/taxonomy module. One panel per paradigm, each drawing what
- * that paradigm actually predicts: Dreamer gets a latent vector, a reward
- * scalar, and a fuzzy reconstruction; TD-MPC gets a latent and an MPPI
- * candidate fan with no image at all; the video paradigm gets a predicted
- * frame; JEPA gets an embedding and a goal-distance meter with an
- * explicit no-decoder marker; the world-action model emits frames and an
- * action chunk together; the symbolic model is a predicate list.
- *
- * Activating a panel highlights which of {policy learning, planning,
- * evaluation, data generation} the paradigm is actually used for.
- *
- * Interactive contract: deterministic initial render (latent dynamics),
- * native buttons (keyboard-accessible, aria-pressed), visible monospace
- * readouts, reset control, fixed panel geometry (no layout shift). No
- * auto-playing or JS-driven motion, only hover/focus CSS transitions, so
- * the component is reduced-motion safe by construction.
+ * WmDisambiguator: the article's six example groups of world model. Each
+ * group is drawn on the stage as two columns, what the model reads now and
+ * what it predicts, with rows that line up across groups: the decoded-frame
+ * row is where the pixel question shows. The values drawn are illustrative.
  */
 
-const MONO = 'var(--font-mono)';
-const DIM = 'var(--color-text-dim)';
-const TEXT = 'var(--color-text)';
-const ACCENT = 'var(--color-accent)';
-const BORDER = 'var(--color-border)';
-const BORDER_STRONG = 'var(--color-border-strong)';
-const SURFACE_2 = 'var(--color-surface-2)';
+const W = CHART_VIEW_WIDTH;
+const H = 200;
+/** Left edges of the row names, the current-step column and the predicted column. */
+const NAME_X = 12;
+const NOW_X = 96;
+const NEXT_X = 222;
+/** The transition arrow between the columns; an action input enters it from below. */
+const STEP = { from: 186, to: 214, mid: 200 } as const;
+const HEAD_Y = 16;
+const CELL = 13;
+const CELL_GAP = 3;
+const BAR_MAX = 64;
+const FRAME_COLS = 6;
+const FRAME_ROWS = 5;
 
-function LatentCells({ x, y, cells = 8 }: { x: number; y: number; cells?: number }) {
+/** Fixed activations, so every render draws the same vectors. */
+const LATENT_NOW = [0.95, 0.4, 0.75, 0.25, 0.6];
+const LATENT_NEXT = [0.7, 0.55, 0.95, 0.3, 0.45];
+
+/** Cell intensities of a coarse frame: a lit 2 by 2 object above a floor row. */
+function frameLevels(col: number, row: number): number[] {
+  return Array.from({ length: FRAME_COLS * FRAME_ROWS }, (_, i) => {
+    const c = i % FRAME_COLS;
+    const r = Math.floor(i / FRAME_COLS);
+    if (c >= col && c < col + 2 && r >= row && r < row + 2) return 0.95;
+    return r === FRAME_ROWS - 1 ? 0.5 : 0.14;
+  });
+}
+
+const FRAME_NOW = frameLevels(1, 2);
+const FRAME_NEXT = frameLevels(2, 1);
+/** A decoder's reconstruction of the predicted frame: the same scene at low contrast. */
+const FRAME_DECODED = FRAME_NEXT.map((level) => 0.2 + level * 0.35);
+
+type TextProps = {
+  x: number;
+  y: number;
+  anchor?: 'start' | 'middle' | 'end';
+  colour?: string;
+  children: ReactNode;
+};
+
+function Note({ x, y, anchor = 'start', colour = CHART_STRUCTURE.label, children }: TextProps) {
+  return (
+    <text
+      data-scene-note=""
+      x={x}
+      y={y}
+      textAnchor={anchor}
+      dominantBaseline="middle"
+      fontSize={CHART_TYPE.axisPx}
+      fill={colour}
+    >
+      {children}
+    </text>
+  );
+}
+
+function Tick({ x, y, anchor = 'start', colour = CHART_STRUCTURE.labelSecondary, children }: TextProps) {
+  return (
+    <text
+      data-scene-tick=""
+      x={x}
+      y={y}
+      textAnchor={anchor}
+      dominantBaseline="middle"
+      fontSize={CHART_TYPE.tickPx}
+      fill={colour}
+    >
+      {children}
+    </text>
+  );
+}
+
+function ColumnHeads() {
+  return (
+    <>
+      <Tick x={NOW_X} y={HEAD_Y}>now</Tick>
+      <Tick x={NEXT_X} y={HEAD_Y}>predicted</Tick>
+    </>
+  );
+}
+
+function RowName({ y, note, children }: { y: number; note?: string; children: ReactNode }) {
+  return (
+    <>
+      <Note x={NAME_X} y={y}>{children}</Note>
+      {note ? <Tick x={NAME_X} y={y + 19}>{note}</Tick> : null}
+    </>
+  );
+}
+
+function Arrow({ x1, y1, x2, y2, colour }: { x1: number; y1: number; x2: number; y2: number; colour: string }) {
+  const angle = Math.atan2(y2 - y1, x2 - x1);
+  const bx = x2 - 7 * Math.cos(angle);
+  const by = y2 - 7 * Math.sin(angle);
+  const nx = -Math.sin(angle) * 4;
+  const ny = Math.cos(angle) * 4;
+  const f = (n: number) => n.toFixed(2);
   return (
     <g>
-      {Array.from({ length: cells }, (_, i) => (
+      <line x1={x1} y1={y1} x2={f(bx)} y2={f(by)} stroke={colour} strokeWidth={CHART_STROKE.trace} strokeLinecap="round" />
+      <path d={`M${f(x2)} ${f(y2)} L${f(bx + nx)} ${f(by + ny)} L${f(bx - nx)} ${f(by - ny)} Z`} fill={colour} />
+    </g>
+  );
+}
+
+/** The model's step from the current column to the predicted one. */
+function StepArrow({ y }: { y: number }) {
+  return (
+    <g data-scene-structure="">
+      <Arrow x1={STEP.from} y1={y} x2={STEP.to} y2={y} colour={CHART_STRUCTURE.labelSecondary} />
+    </g>
+  );
+}
+
+/**
+ * An action the step is taken under: its label below the step, with an
+ * arrow up into it and, when the same action drives a second row, one down.
+ */
+function ActionInput({ y, into, alsoInto, children }: { y: number; into: number; alsoInto?: number; children: ReactNode }) {
+  const action = roleColour('action');
+  return (
+    <g data-chart-role="action">
+      <Arrow x1={STEP.mid} y1={y - 15} x2={STEP.mid} y2={into + 7} colour={action} />
+      {alsoInto ? <Arrow x1={STEP.mid} y1={y + 12} x2={STEP.mid} y2={alsoInto - 7} colour={action} /> : null}
+      <Note x={STEP.mid} y={y} anchor="middle" colour={action}>{children}</Note>
+    </g>
+  );
+}
+
+/** A latent or embedding vector as a row of cells; `outline` draws a dashed goal. */
+function Cells({ x, y, levels, role = 'state', outline = false }: { x: number; y: number; levels: readonly number[]; role?: ChartRole; outline?: boolean }) {
+  return (
+    <g data-chart-role={role}>
+      {levels.map((level, i) => (
         <rect
           key={i}
-          x={x + i * 13}
-          y={y}
-          width={11}
-          height={11}
-          fill={i % 3 === 0 ? ACCENT : SURFACE_2}
-          stroke={BORDER_STRONG}
-          strokeWidth={1}
+          x={x + i * (CELL + CELL_GAP)}
+          y={y - CELL / 2}
+          width={CELL}
+          height={CELL}
+          fill={outline ? 'none' : roleColour(role)}
+          fillOpacity={outline ? undefined : level}
+          stroke={outline ? roleColour(role) : undefined}
+          strokeWidth={outline ? CHART_STROKE.reference : undefined}
+          strokeDasharray={outline ? CHART_STROKE.dash : undefined}
         />
       ))}
     </g>
   );
 }
 
-function CrossedFrame({ x, y, width: w, height: h, label }: { x: number; y: number; width: number; height: number; label: string }) {
+/** A coarse frame of pixels; `dashed` edges it as an uncertain reconstruction. */
+function Frame({ x, y, levels, role, cell = 12, dashed = false }: { x: number; y: number; levels: readonly number[]; role: ChartRole; cell?: number; dashed?: boolean }) {
+  const gap = 2;
+  const pitch = cell + gap;
   return (
-    <g>
-      <rect x={x} y={y} width={w} height={h} fill="none" stroke={BORDER_STRONG} strokeWidth={1} />
-      <line x1={x} y1={y} x2={x + w} y2={y + h} stroke={BORDER_STRONG} strokeWidth={1} />
-      <line x1={x + w} y1={y} x2={x} y2={y + h} stroke={BORDER_STRONG} strokeWidth={1} />
-      <text x={x + w / 2} y={y + h + 11} textAnchor="middle" fill={DIM} fontSize={8} fontFamily={MONO}>
-        {label}
-      </text>
+    <g data-chart-role={role}>
+      {levels.map((level, i) => (
+        <rect
+          key={i}
+          x={x + (i % FRAME_COLS) * pitch}
+          y={y + Math.floor(i / FRAME_COLS) * pitch}
+          width={cell}
+          height={cell}
+          fill={roleColour(role)}
+          fillOpacity={level}
+        />
+      ))}
+      {dashed ? (
+        <rect
+          x={x - gap}
+          y={y - gap}
+          width={FRAME_COLS * pitch + gap}
+          height={FRAME_ROWS * pitch + gap}
+          fill="none"
+          stroke={roleColour(role)}
+          strokeWidth={CHART_STROKE.reference}
+          strokeDasharray={CHART_STROKE.dash}
+        />
+      ) : null}
     </g>
   );
 }
 
-function VideoScene({ x, y, width: w, height: h }: { x: number; y: number; width: number; height: number }) {
+/** A predicted scalar in the value role, its number beside the bar. */
+function ValueBar({ y, value, children }: { y: number; value: number; children: ReactNode }) {
+  const width = value * BAR_MAX;
   return (
-    <g>
-      <rect x={x} y={y} width={w} height={h} fill={SURFACE_2} stroke={BORDER_STRONG} strokeWidth={1} />
-      {/* horizon */}
-      <line x1={x} y1={y + h * 0.62} x2={x + w} y2={y + h * 0.62} stroke={BORDER_STRONG} strokeWidth={1} />
-      {/* light source */}
-      <circle cx={x + w * 0.24} cy={y + h * 0.28} r={5} fill={ACCENT} />
-      {/* table */}
-      <rect x={x + w * 0.52} y={y + h * 0.52} width={w * 0.36} height={h * 0.12} fill="none" stroke={TEXT} strokeWidth={1} />
-      {/* cup */}
-      <circle cx={x + w * 0.66} cy={y + h * 0.46} r={3.5} fill="none" stroke={TEXT} strokeWidth={1} />
+    <>
+      <Bar x={NEXT_X} y={y - 6} width={width} height={12} role="value" />
+      <text
+        data-scene-readout=""
+        x={NEXT_X + width + 7}
+        y={y}
+        dominantBaseline="middle"
+        fontSize={CHART_TYPE.readoutPx}
+        fill={roleColour('value')}
+      >
+        {children}
+      </text>
+    </>
+  );
+}
+
+const CANDIDATE_YS = [76, 92, 108, 124];
+const CANDIDATE_REWARDS = [0.5, 0.65, 0.9, 0.35];
+const CHOSEN_CANDIDATE = 2;
+const FAN_Y = 100;
+
+/** MPPI's sampled action sequences from the current latent; the best one is solid. */
+function CandidateFan() {
+  return (
+    <g data-chart-role="action">
+      {CANDIDATE_YS.map((y, i) => (
+        <path
+          key={y}
+          d={`M${NOW_X} ${FAN_Y} Q${NOW_X + 40} ${FAN_Y + (y - FAN_Y) * 0.15} ${NOW_X + 78} ${y}`}
+          fill="none"
+          stroke={roleColour('action')}
+          strokeWidth={i === CHOSEN_CANDIDATE ? CHART_STROKE.trace : CHART_STROKE.reference}
+          strokeDasharray={i === CHOSEN_CANDIDATE ? undefined : CHART_STROKE.dash}
+          strokeLinecap="round"
+        />
+      ))}
     </g>
   );
 }
+
+/** The reward predicted for each candidate, the chosen one at full strength. */
+function CandidateRewards() {
+  return (
+    <g data-chart-role="value">
+      {CANDIDATE_YS.map((y, i) => (
+        <rect
+          key={y}
+          data-chart-mark="bar"
+          x={NEXT_X}
+          y={y - 4.5}
+          width={CANDIDATE_REWARDS[i] * BAR_MAX}
+          height={9}
+          fill={roleColour('value')}
+          fillOpacity={i === CHOSEN_CANDIDATE ? 1 : 0.45}
+        />
+      ))}
+      <Tick x={NEXT_X + 66} y={FAN_Y} colour={roleColour('value')}>reward</Tick>
+    </g>
+  );
+}
+
+const OCCUPANCY_COLS = 6;
+const OCCUPANCY_ROWS = 3;
+const OCCUPANCY_CELL = 11;
+
+/** A 6 by 3 occupancy grid: the table row is occupied, and so is the cup's cell. */
+function Occupancy({ x, y, cupRow }: { x: number; y: number; cupRow: number }) {
+  const pitch = OCCUPANCY_CELL + 2;
+  const top = y - (OCCUPANCY_ROWS * pitch - 2) / 2;
+  const cells = Array.from({ length: OCCUPANCY_COLS * OCCUPANCY_ROWS }, (_, i) => ({
+    col: i % OCCUPANCY_COLS,
+    row: Math.floor(i / OCCUPANCY_COLS),
+  }));
+  const level = (col: number, row: number) =>
+    row === OCCUPANCY_ROWS - 1 ? 0.5 : row === cupRow && col === 2 ? 0.95 : 0;
+  return (
+    <>
+      <g data-scene-structure="" opacity={CHART_STRUCTURE.axesOpacity}>
+        {cells
+          .filter(({ col, row }) => level(col, row) === 0)
+          .map(({ col, row }) => (
+            <rect
+              key={`${col}-${row}`}
+              x={x + col * pitch + 0.5}
+              y={top + row * pitch + 0.5}
+              width={OCCUPANCY_CELL - 1}
+              height={OCCUPANCY_CELL - 1}
+              fill="none"
+              stroke={CHART_STRUCTURE.axes}
+              strokeWidth={CHART_STROKE.structure}
+            />
+          ))}
+      </g>
+      <g data-chart-role="state">
+        {cells
+          .filter(({ col, row }) => level(col, row) > 0)
+          .map(({ col, row }) => (
+            <rect
+              key={`${col}-${row}`}
+              x={x + col * pitch}
+              y={top + row * pitch}
+              width={OCCUPANCY_CELL}
+              height={OCCUPANCY_CELL}
+              fill={roleColour('state')}
+              fillOpacity={level(col, row)}
+            />
+          ))}
+      </g>
+    </>
+  );
+}
+
+/** Four predicted actions emitted as one chunk. */
+const ACTION_CHUNK = [0.9, 0.65, 0.8, 0.55];
+
+function LatentDynamicsArt() {
+  return (
+    <>
+      <ColumnHeads />
+      <RowName y={44}>latent</RowName>
+      <Cells x={NOW_X} y={44} levels={LATENT_NOW} />
+      <StepArrow y={44} />
+      <Cells x={NEXT_X} y={44} levels={LATENT_NEXT} />
+      <ActionInput y={82} into={44}>action</ActionInput>
+      <RowName y={104}>reward</RowName>
+      <ValueBar y={104} value={0.83}>0.83</ValueBar>
+      <RowName y={130}>continue</RowName>
+      <ValueBar y={130} value={1}>1</ValueBar>
+      <RowName y={162} note="training only">decoded frame</RowName>
+      <Frame x={NEXT_X} y={144} levels={FRAME_DECODED} role="state" cell={7} dashed />
+    </>
+  );
+}
+
+function DecoderFreeArt() {
+  return (
+    <>
+      <ColumnHeads />
+      <RowName y={44}>latent</RowName>
+      <Cells x={NOW_X} y={44} levels={LATENT_NOW} />
+      <StepArrow y={44} />
+      <Cells x={NEXT_X} y={44} levels={LATENT_NEXT} />
+      <RowName y={94} note="MPPI">candidates</RowName>
+      <CandidateFan />
+      <StepArrow y={FAN_Y} />
+      <CandidateRewards />
+      <RowName y={162}>decoded frame</RowName>
+      <Note x={NEXT_X} y={162} colour={CHART_STRUCTURE.labelSecondary}>no decoder</Note>
+    </>
+  );
+}
+
+function GenerativeVideoArt() {
+  return (
+    <>
+      <ColumnHeads />
+      <RowName y={66}>frame</RowName>
+      <Frame x={NOW_X} y={32} levels={FRAME_NOW} role="measurement" />
+      <StepArrow y={66} />
+      <Frame x={NEXT_X} y={32} levels={FRAME_NEXT} role="state" />
+      <Tick x={NOW_X} y={116}>pixels in</Tick>
+      <Tick x={NEXT_X} y={116}>pixels out</Tick>
+      <ActionInput y={162} into={66}>
+        <tspan fill={CHART_STRUCTURE.label}>conditioned on </tspan>action / text
+      </ActionInput>
+    </>
+  );
+}
+
+function JepaArt() {
+  return (
+    <>
+      <ColumnHeads />
+      <RowName y={44}>embedding</RowName>
+      <Cells x={NOW_X} y={44} levels={LATENT_NOW} />
+      <StepArrow y={44} />
+      <Cells x={NEXT_X} y={44} levels={LATENT_NEXT} />
+      <RowName y={76}>goal</RowName>
+      <Cells x={NEXT_X} y={76} levels={LATENT_NEXT} role="reference" outline />
+      <RowName y={108}>distance</RowName>
+      <ValueBar y={108} value={0.31}>0.31</ValueBar>
+      <RowName y={162}>decoded frame</RowName>
+      <Note x={NEXT_X} y={162} colour={CHART_STRUCTURE.labelSecondary}>no decoder</Note>
+    </>
+  );
+}
+
+function WorldActionArt() {
+  const structure = CHART_STRUCTURE.labelSecondary;
+  return (
+    <>
+      <ColumnHeads />
+      <RowName y={66}>frame</RowName>
+      <Frame x={NOW_X} y={32} levels={FRAME_NOW} role="measurement" />
+      {/* One backbone forks into the frame head and the action head. */}
+      <g data-scene-structure="">
+        <Arrow x1={STEP.from} y1={66} x2={STEP.to} y2={66} colour={structure} />
+        <line x1={STEP.mid} y1={66} x2={STEP.mid} y2={140} stroke={structure} strokeWidth={CHART_STROKE.trace} />
+        <Arrow x1={STEP.mid} y1={140} x2={STEP.to} y2={140} colour={structure} />
+      </g>
+      <Frame x={NEXT_X} y={32} levels={FRAME_NEXT} role="state" />
+      <RowName y={140}>action chunk</RowName>
+      <Cells x={NEXT_X} y={140} levels={ACTION_CHUNK} role="action" />
+      <Tick x={STEP.mid} y={182} anchor="middle">one backbone, two heads</Tick>
+    </>
+  );
+}
+
+function SymbolicArt() {
+  const state = roleColour('state');
+  return (
+    <>
+      <ColumnHeads />
+      <RowName y={44}>predicates</RowName>
+      <Note x={NOW_X} y={44} colour={state}>on(cup, table)</Note>
+      <StepArrow y={44} />
+      <Note x={NEXT_X} y={44} colour={state}>in(cup, gripper)</Note>
+      <ActionInput y={97} into={44} alsoInto={150}>pick(cup)</ActionInput>
+      <RowName y={150}>occupancy</RowName>
+      <Occupancy x={NOW_X} y={150} cupRow={1} />
+      <StepArrow y={150} />
+      <Occupancy x={NEXT_X} y={150} cupRow={0} />
+    </>
+  );
+}
+
+const PANEL_ART: Record<WmParadigmId, () => ReactNode> = {
+  'latent-dynamics': LatentDynamicsArt,
+  'decoder-free-latent': DecoderFreeArt,
+  'generative-video': GenerativeVideoArt,
+  jepa: JepaArt,
+  'world-action': WorldActionArt,
+  symbolic: SymbolicArt,
+};
 
 const PANEL_ART_LABEL: Record<WmParadigmId, string> = {
   'latent-dynamics':
@@ -106,15 +478,15 @@ function paradigmTakeaway(p: WmParadigm): string {
     case 'latent-dynamics':
       return 'Latent-dynamics (Dreamer-style) predicts the next latent, a reward of 0.83 and a continue flag of 1, plus a fuzzy decoded frame used at training only; of the 4 uses, only policy learning is lit.';
     case 'decoder-free-latent':
-      return 'Decoder-free latent (TD-MPC-style) predicts the next latent and a reward with no image: 4 MPPI candidates fan from the current state and the decoder is crossed out; of the 4 uses, policy learning and planning are lit.';
+      return 'Decoder-free latent (TD-MPC-style) predicts the next latent and a reward with no image: 4 MPPI candidates fan from the current latent, each with a predicted reward, and the decoded-frame row reads no decoder; of the 4 uses, policy learning and planning are lit.';
     case 'generative-video':
-      return 'Generative video predicts future pixels: the panel shows predicted frame t+1 conditioned on action or text, pixels in and pixels out; of the 4 uses, policy learning, evaluation, and data generation are lit.';
+      return 'Generative video predicts future pixels: the current frame, conditioned on action or text, becomes a predicted frame, pixels in and pixels out; of the 4 uses, policy learning, evaluation, and data generation are lit.';
     case 'jepa':
-      return 'JEPA predicts a future embedding, never pixels, and the panel meter reads dist 0.31 to the goal with the decoder crossed out; of the 4 uses, only planning is lit.';
+      return 'JEPA predicts a future embedding, never pixels: the predicted embedding sits at dist 0.31 from the dashed goal embedding, and the decoded-frame row reads no decoder; of the 4 uses, only planning is lit.';
     case 'world-action':
-      return 'World-action predicts future frames and an action chunk from one backbone: 4 action bars sit beside predicted frame t+1; of the 4 uses, only policy learning is lit.';
+      return 'World-action predicts future frames and an action chunk from one backbone: the current frame forks into a predicted frame and a chunk of 4 actions; of the 4 uses, only policy learning is lit.';
     case 'symbolic':
-      return 'Symbolic predicts predicate transitions: on(cup, table) becomes in(cup, gripper) after pick(cup); of the 4 uses, only planning is lit.';
+      return 'Symbolic predicts predicate transitions: on(cup, table) becomes in(cup, gripper) after pick(cup), and the same pick lifts the cup one row in a 6 by 3 occupancy grid; of the 4 uses, only planning is lit.';
   }
 }
 
@@ -127,145 +499,26 @@ function PanelArt({
   hidden: boolean;
   describedBy?: string;
 }) {
+  const Art = PANEL_ART[id];
   return (
-    <svg
-      viewBox="0 0 200 120"
+    <PlotStage
+      viewBox={`0 0 ${W} ${H}`}
       aria-hidden={hidden ? true : undefined}
       role={hidden ? undefined : 'img'}
       aria-label={hidden ? undefined : PANEL_ART_LABEL[id]}
       aria-describedby={hidden ? undefined : describedBy}
       data-testid={`panel-art-${id}`}
-      className="block w-full"
     >
-      {id === 'latent-dynamics' && (
-        <g>
-          <text x={14} y={18} fill={DIM} fontSize={8} fontFamily={MONO}>
-            latent z (stochastic + deterministic)
-          </text>
-          <LatentCells x={14} y={24} />
-          <text x={14} y={58} fill={ACCENT} fontSize={10} fontFamily={MONO}>
-            r = 0.83
-          </text>
-          <text x={78} y={58} fill={DIM} fontSize={9} fontFamily={MONO}>
-            continue = 1
-          </text>
-          {/* fuzzy decoded reconstruction */}
-          <rect x={14} y={70} width={92} height={40} fill={SURFACE_2} stroke={BORDER} strokeWidth={1} />
-          <circle cx={46} cy={88} r={10} fill={DIM} opacity={0.35} />
-          <rect x={66} y={80} width={26} height={18} fill={DIM} opacity={0.22} />
-          <text x={116} y={86} fill={DIM} fontSize={8} fontFamily={MONO}>
-            decoded frame
-          </text>
-          <text x={116} y={97} fill={DIM} fontSize={8} fontFamily={MONO}>
-            (training only)
-          </text>
-        </g>
-      )}
-      {id === 'decoder-free-latent' && (
-        <g>
-          <text x={14} y={18} fill={DIM} fontSize={8} fontFamily={MONO}>
-            latent z (implicit)
-          </text>
-          <LatentCells x={14} y={24} />
-          {/* MPPI candidate fan */}
-          <path d="M 24 96 Q 70 70 130 62" fill="none" stroke={BORDER_STRONG} strokeWidth={1} />
-          <path d="M 24 96 Q 76 80 138 78" fill="none" stroke={BORDER_STRONG} strokeWidth={1} />
-          <path d="M 24 96 Q 82 88 146 92" fill="none" stroke={ACCENT} strokeWidth={1.5} />
-          <path d="M 24 96 Q 74 96 132 104" fill="none" stroke={BORDER_STRONG} strokeWidth={1} />
-          <text x={14} y={58} fill={DIM} fontSize={8} fontFamily={MONO}>
-            MPPI candidates
-          </text>
-          <CrossedFrame x={152} y={56} width={34} height={26} label="no image" />
-        </g>
-      )}
-      {id === 'generative-video' && (
-        <g>
-          <VideoScene x={14} y={14} width={112} height={76} />
-          <text x={14} y={104} fill={DIM} fontSize={8} fontFamily={MONO}>
-            predicted frame t+1
-          </text>
-          <text x={140} y={30} fill={DIM} fontSize={8} fontFamily={MONO}>
-            conditioned on
-          </text>
-          <text x={140} y={42} fill={ACCENT} fontSize={8} fontFamily={MONO}>
-            action / text
-          </text>
-          <text x={140} y={62} fill={DIM} fontSize={8} fontFamily={MONO}>
-            pixels in,
-          </text>
-          <text x={140} y={74} fill={DIM} fontSize={8} fontFamily={MONO}>
-            pixels out
-          </text>
-        </g>
-      )}
-      {id === 'jepa' && (
-        <g>
-          <text x={14} y={18} fill={DIM} fontSize={8} fontFamily={MONO}>
-            embedding e
-          </text>
-          <LatentCells x={14} y={24} />
-          {/* goal embedding */}
-          <polygon points="168,22 176,30 168,38 160,30" fill="none" stroke={ACCENT} strokeWidth={1.5} />
-          <text x={168} y={50} textAnchor="middle" fill={ACCENT} fontSize={8} fontFamily={MONO}>
-            goal
-          </text>
-          {/* distance meter */}
-          <rect x={14} y={66} width={120} height={8} fill="none" stroke={BORDER_STRONG} strokeWidth={1} />
-          <rect x={14} y={66} width={38} height={8} fill={ACCENT} />
-          <text x={14} y={90} fill={DIM} fontSize={9} fontFamily={MONO}>
-            dist(e_pred, e_goal) = 0.31
-          </text>
-          <CrossedFrame x={150} y={60} width={34} height={26} label="no decoder" />
-        </g>
-      )}
-      {id === 'world-action' && (
-        <g>
-          <VideoScene x={14} y={14} width={66} height={48} />
-          <text x={14} y={76} fill={DIM} fontSize={8} fontFamily={MONO}>
-            frame t+1
-          </text>
-          {/* action chunk bars */}
-          {[0, 1, 2, 3].map((i) => (
-            <rect
-              key={i}
-              x={104 + i * 22}
-              y={40 - i * 6}
-              width={14}
-              height={26 + i * 6}
-              fill="none"
-              stroke={i === 0 ? ACCENT : BORDER_STRONG}
-              strokeWidth={1}
-            />
-          ))}
-          <text x={104} y={76} fill={DIM} fontSize={8} fontFamily={MONO}>
-            action chunk
-          </text>
-          <text x={14} y={98} fill={DIM} fontSize={8} fontFamily={MONO}>
-            one backbone, two heads
-          </text>
-        </g>
-      )}
-      {id === 'symbolic' && (
-        <g>
-          <text x={14} y={28} fill={TEXT} fontSize={10} fontFamily={MONO}>
-            on(cup, table)
-          </text>
-          <text x={14} y={46} fill={TEXT} fontSize={10} fontFamily={MONO}>
-            clear(table)
-          </text>
-          <line x1={30} y1={54} x2={30} y2={72} stroke={BORDER_STRONG} strokeWidth={1} />
-          <polygon points="30,78 26,70 34,70" fill={BORDER_STRONG} />
-          <text x={40} y={68} fill={DIM} fontSize={8} fontFamily={MONO}>
-            pick(cup)
-          </text>
-          <text x={14} y={96} fill={ACCENT} fontSize={10} fontFamily={MONO}>
-            in(cup, gripper)
-          </text>
-        </g>
-      )}
-    </svg>
+      <Art />
+    </PlotStage>
   );
 }
+
+/** A use the selected group serves is outlined solid; the rest dashed and dim. */
+const USE_LINE = {
+  served: 'border-solid border-text text-text',
+  unserved: 'border-dashed border-border-strong text-text-dim',
+} as const;
 
 export function WmDisambiguator({
   defaultParadigm = DEFAULT_PARADIGM,
@@ -277,134 +530,135 @@ export function WmDisambiguator({
   const descriptionId = `${useId()}-description`;
   const [selectedId, setSelectedId] = useState<WmParadigmId>(defaultParadigm);
   const selected = paradigmById(selectedId);
+  const usedFor = selected.uses
+    .map((u) => WM_USES.find((x) => x.id === u)?.label)
+    .join(', ');
 
   const reset = () => setSelectedId(DEFAULT_PARADIGM);
 
   return (
-    <InstrumentFrame className={className}>
-      <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-        <div
-          className="flex flex-wrap gap-x-5 gap-y-1 font-mono text-xs"
-        >
-          <span className="text-text-dim">
-            Selected:{' '}
-            <span data-testid="selected-readout" className="text-accent">
-              {selected.short}
-            </span>
-          </span>
-          <span className="text-text-dim">
-            Predicts:{' '}
-            <span data-testid="predicts-readout" className="text-text">
-              {selected.predicts}
-            </span>
-          </span>
-        </div>
-        <InstrumentReset onClick={reset} />
-      </div>
-
-      <div
-        role="group"
-        aria-label="World-model paradigms"
-        className="mt-3 grid grid-cols-2 gap-2 md:grid-cols-3"
-      >
-        {WM_PARADIGMS.map((p) => {
-          const active = p.id === selectedId;
-          return (
-            <button
-              data-brand-control-id="control:selection"
-              key={p.id}
-              type="button"
-              aria-pressed={active}
-              aria-label={`${p.short}: predicts ${p.panelNote}`}
-              onClick={() => setSelectedId(p.id)}
-              className={cx(
-                'rounded-sm border p-2 text-left transition-colors active:translate-y-[1px]',
-                active
-                  ? 'border-accent bg-surface-2'
-                  : 'border-border bg-surface-2 hover:border-border-strong',
-              )}
-            >
-              <PanelArt
-                id={p.id}
-                hidden={!active}
-                describedBy={active ? descriptionId : undefined}
+    <InstrumentFigure
+      figureId="wm-disambiguator"
+      className={className}
+      heading="What each world model predicts"
+      controls={
+        <>
+          <div
+            role="group"
+            aria-label="World-model paradigms"
+            className="grid w-full grid-cols-2 gap-x-3 gap-y-2 sm:grid-cols-3"
+          >
+            {WM_PARADIGMS.map((p) => (
+              <button
+                data-brand-control-id="control:selection"
+                key={p.id}
+                type="button"
+                aria-pressed={p.id === selectedId}
+                aria-label={`${p.short}: predicts ${p.panelNote}`}
+                onClick={() => setSelectedId(p.id)}
+                className="group grid content-start justify-items-start gap-1 rounded-xs py-1 text-left font-sans active:translate-y-[1px]"
+              >
+                <span
+                  data-brand-surface-id="surface:flat"
+                  className="rounded-xs px-2 py-1 text-sm font-medium text-text underline decoration-border-strong decoration-1 underline-offset-4 transition-colors group-hover:decoration-text group-aria-pressed:bg-highlight group-aria-pressed:text-ink group-aria-pressed:no-underline">
+                  {p.short}
+                </span>
+                <span
+                  data-testid={`predicts-${p.id}`}
+                  className="px-2 text-[13px] leading-snug text-text-dim group-hover:text-text group-aria-pressed:text-text"
+                >
+                  {p.predicts}
+                </span>
+              </button>
+            ))}
+          </div>
+          <InstrumentReset onClick={reset} />
+        </>
+      }
+      stage={
+        <FigureStage
+          footer={
+            <>
+              {/* The pressed button already shows the selection and what it
+                  predicts, so the announcement is for assistive technology. */}
+              <InstrumentReadout data-testid="wm-live-summary" className="sr-only">
+                {'Selected: '}
+                <span data-testid="selected-readout">{selected.short}</span>
+                {'. Predicts: '}
+                <span data-testid="predicts-readout">{selected.predicts}</span>
+                {`. ${selected.name}, used for ${usedFor}.`}
+              </InstrumentReadout>
+              <ChartDescription
+                id={descriptionId}
+                form="state"
+                summary="Current world-model paradigm"
+                description={paradigmTakeaway(selected)}
+                states={[
+                  { label: 'paradigm', value: selected.short },
+                  { label: 'predicts', value: selected.predicts },
+                  { label: 'space', value: selected.space },
+                  { label: 'uses', value: selected.uses.length === 1 ? '1 of 4' : `${selected.uses.length} of 4` },
+                ]}
               />
-              <span
-                className={cx(
-                  'mt-1.5 block font-mono text-[11px]',
-                  active ? 'text-accent' : 'text-text-dim',
-                )}
-              >
-                {p.short}
-              </span>
-              <span
-                data-testid={`predicts-${p.id}`}
-                className="mt-1 block font-sans text-xs leading-relaxed text-text-dim"
-              >
-                {p.predicts}
-              </span>
-            </button>
-          );
-        })}
-      </div>
-
-      <div className="mt-3 border-t border-border pt-3">
-        <div className="font-mono text-[11px] text-text-dim">
-          Used for
-        </div>
-        <ul
-          aria-label="What the selected paradigm is used for"
-          className="mt-1.5 flex flex-wrap gap-1.5"
+            </>
+          }
         >
-          {WM_USES.map((use) => {
-            const active = selected.uses.includes(use.id);
-            return (
-              <li
-                key={use.id}
-                data-testid={`use-${use.id}`}
-                data-brand-surface-id="surface:flat"
-                data-active={active}
-                className={cx(
-                  'rounded-sm border px-2 py-1 font-mono text-xs',
-                  active
-                    ? 'border-accent text-accent'
-                    : 'border-border text-text-dim',
-                )}
+          {/* The uses sit beside the drawing when the stage is wide enough,
+              which also keeps the drawing from scaling up past legibility.
+              The drawing keeps its own container so its type scale follows
+              the column it sits in, not the whole stage. */}
+          <div className="@container">
+            <div className="grid items-start gap-x-4 @min-[34rem]:grid-cols-[minmax(0,1fr)_11rem]">
+              <div className="@container">
+                <PanelArt id={selectedId} hidden={false} describedBy={descriptionId} />
+              </div>
+              <div
+                data-figure-stage-band="aside"
+                className="flex flex-wrap items-center gap-x-2 gap-y-1.5 px-3 pb-3 @min-[34rem]:grid @min-[34rem]:content-start @min-[34rem]:justify-items-start @min-[34rem]:pl-0 @min-[34rem]:pt-5"
               >
-                {use.label}
-              </li>
-            );
-          })}
-        </ul>
+                <span className="font-sans text-[13px] text-text-dim">Used for</span>
+                {/* A role list, not a ul: the article's prose list margins
+                    are unlayered and would beat any utility class here. */}
+                <div
+                  role="list"
+                  aria-label="What the selected paradigm is used for"
+                  className="flex min-w-0 flex-1 flex-wrap gap-1.5 @min-[34rem]:grid @min-[34rem]:justify-items-start"
+                >
+                  {WM_USES.map((use) => {
+                    const served = selected.uses.includes(use.id);
+                    return (
+                      <div
+                        role="listitem"
+                        key={use.id}
+                        data-testid={`use-${use.id}`}
+                        data-brand-surface-id="surface:flat"
+                        data-active={served}
+                        className={cx(
+                          'rounded-xs border px-2 py-0.5 font-sans text-[13px] leading-snug',
+                          served ? USE_LINE.served : USE_LINE.unserved,
+                        )}
+                      >
+                        {use.label}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
+        </FigureStage>
+      }
+      caption="Generative video and world-action models predict pixels; the other four groups predict latents, embeddings or symbolic state."
+      source="Original schematic; the cells, frames and values drawn are illustrative."
+    >
+      {/* The unselected groups' drawings stay in the document, hidden and
+          aria-hidden: VAL-EDU-037 checks that exactly the selected one is
+          exposed as an image. */}
+      <div hidden>
+        {WM_PARADIGMS.filter((p) => p.id !== selectedId).map((p) => (
+          <PanelArt key={p.id} id={p.id} hidden />
+        ))}
       </div>
-
-      <p
-        data-testid="wm-live-summary"
-        aria-live="polite"
-        className="mt-3 font-sans text-xs leading-relaxed text-text-dim"
-      >
-        <span className="text-text">{selected.name}:</span>{' '}
-        {selected.panelNote}. Used for{' '}
-        {selected.uses
-          .map((u) => WM_USES.find((x) => x.id === u)?.label)
-          .join(', ')}
-        . Representative systems: {selected.systems}.
-      </p>
-      {/* Self-label: this instrument is a schematic, not a measurement. */}
-      <p className="mt-1 font-sans text-xs text-text-dim">Schematic panels: each paradigm drawn as it represents the world.</p>
-      <ChartDescription
-        id={descriptionId}
-        className="mt-3"
-        form="state"
-        summary="Current world-model paradigm"
-        description={paradigmTakeaway(selected)}
-        states={[
-          { label: 'paradigm', value: selected.short },
-          { label: 'predicts', value: selected.predicts },
-          { label: 'space', value: selected.space },
-          { label: 'uses', value: selected.uses.length === 1 ? '1 of 4' : `${selected.uses.length} of 4` },
-        ]}
-      />
-    </InstrumentFrame>
+    </InstrumentFigure>
   );
 }

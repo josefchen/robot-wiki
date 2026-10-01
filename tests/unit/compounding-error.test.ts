@@ -71,7 +71,11 @@ describe('deviationAxisFraction', () => {
   });
 
   it('places every tick inside the plotted domain, ascending', () => {
-    expect(DEVIATION_AXIS_TICKS[0]).toBe(0);
+    // The axis is labelled as a log scale, which cannot show a zero, so
+    // the baseline stays unlabelled and every tick sits above it.
+    expect(DEVIATION_AXIS_TICKS).not.toContain(0);
+    expect(DEVIATION_AXIS_TICKS[0]).toBeGreaterThan(0);
+    expect(deviationAxisFraction(DEVIATION_AXIS_TICKS[0])).toBeGreaterThan(0);
     expect(DEVIATION_AXIS_TICKS[DEVIATION_AXIS_TICKS.length - 1]).toBe(
       DEVIATION_AXIS_CEILING,
     );

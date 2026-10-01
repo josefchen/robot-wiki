@@ -386,7 +386,121 @@ const opusHomepageEndpoints: ReadonlyArray<readonly [string, string, string, str
 ];
 const opusHomepageAppends = opusHomepageEndpoints.map(([slug, manifest]) =>
   `opus-homepage-20260930-${manifest === 'interactive-sources-mounts' ? 'mounts' : manifest}-${slug}`);
-const afterOpusFigureSystem = merged.length - opusHomepageAppends.length;
+// The figure migration of 2026-10-01 moved the remaining article figures onto
+// the shared figure frame. It removed the figures that a prediction step
+// repeated and the scenes that duplicated a lab, typeset four equations
+// without loose KaTeX SVGs, drew the two original schematics inline, and
+// re-ordered or renamed the accessible names of the instruments it redrew.
+// Each tuple is the slug, the manifest, the member and its endpoint before
+// the migration. A member whose history already ended in a reconciling
+// resolution gets a resolution from the sealed hash; the others get a plain
+// edge from that endpoint. The tuples pin only the earlier endpoint: the
+// baseline gate checks the current bytes of every member against the tree.
+const opusFigureMigrationEndpoints: ReadonlyArray<readonly [string, string, string, string]> = [
+  ['action-conditioning-expression-aria-label-1', 'accessible-names', 'expression:components/interactive/action-conditioning.tsx:aria-label:1',
+    '4dc263e6a13e5886fbbfbcdaf0da7c6526b9409e66ef6ec0b14bfa3c99406992'],
+  ['action-conditioning-expression-aria-label-2', 'accessible-names', 'expression:components/interactive/action-conditioning.tsx:aria-label:2',
+    '331448d655ed78fb47e8a8fbb99e31a756768cb4140ffcac5d68819cf7ff768b'],
+  ['action-conditioning-expression-aria-label-4', 'accessible-names', 'expression:components/interactive/action-conditioning.tsx:aria-label:4',
+    '5b3fb08471bdbfd31c2e1fe41a3eb39e2cc984bf4fbe9f6f38ae5f1c7feb1b5b'],
+  ['appearance-physics-push-expression-aria-label-1', 'accessible-names', 'expression:components/interactive/appearance-physics-push.tsx:aria-label:1',
+    '443b1843e06bad68eef6a43c7d677445c57df83d95573c8d533b6a77061054d1'],
+  ['appearance-physics-push-expression-aria-label-2', 'accessible-names', 'expression:components/interactive/appearance-physics-push.tsx:aria-label:2',
+    '6cf78c9f1e33805cc078c4824d15cdd2113a695c3c72e5e7fd330467daa04169'],
+  ['deployment-economics-expression-aria-label-1', 'accessible-names', 'expression:components/interactive/deployment-economics.tsx:aria-label:1',
+    'e2f403af501cf8676da660787aceb6c3d44cae1557688ecc685476142c033527'],
+  ['deployment-economics-expression-aria-label-2', 'accessible-names', 'expression:components/interactive/deployment-economics.tsx:aria-label:2',
+    'b7a1bbfb6a7dcc6a4c4719f331bbe0b64d206999e4a2b9d9921b969ae7032895'],
+  ['generalist-release-timeline-expression-aria-label-1', 'accessible-names', 'expression:components/interactive/generalist-release-timeline.tsx:aria-label:1',
+    'b51dd847011dc6c17e8c9f69746fc75d063910d2db37aec6cead04f75b4b0357'],
+  ['generalist-release-timeline-expression-aria-label-2', 'accessible-names', 'expression:components/interactive/generalist-release-timeline.tsx:aria-label:2',
+    '86256fe5ef275859890a57fbc0ce09c0714c67ee4224af7975cd4598d7a2f418'],
+  ['latent-imagination-expression-aria-label-1', 'accessible-names', 'expression:components/interactive/latent-imagination.tsx:aria-label:1',
+    '86527a72fcad380278b7105f0f17c2d9bc702d18ae5c44872e8673d117ec8d7e'],
+  ['latent-imagination-expression-aria-label-2', 'accessible-names', 'expression:components/interactive/latent-imagination.tsx:aria-label:2',
+    'f1d3a8209b7ebb87c7f3a9de868d887e35fe1ccdd17bef3fca06a5dbab96e72e'],
+  ['latent-imagination-expression-aria-label-3', 'accessible-names', 'expression:components/interactive/latent-imagination.tsx:aria-label:3',
+    'cbd9f5fbd27779d5e7d2074a7f29d30b7e387739b7e5f8f2bef54c66bc099ca4'],
+  ['latent-imagination-expression-aria-label-4', 'accessible-names', 'expression:components/interactive/latent-imagination.tsx:aria-label:4',
+    'd5d4358ab2602a7ea24ef62934c64166dd0245a26bfbab9285d5e6a7c2b52346'],
+  ['pi-generation-timeline-expression-aria-label-1', 'accessible-names', 'expression:components/interactive/pi-generation-timeline.tsx:aria-label:1',
+    '0fae35ab6525bf34f9fb9800d94ebaf4ea1a261295eea8ecf54b29d277517774'],
+  ['pi-generation-timeline-expression-aria-label-2', 'accessible-names', 'expression:components/interactive/pi-generation-timeline.tsx:aria-label:2',
+    '377f4623c8c930c91a9f58373600a927d43548b2fe9a84db6e42f4753cb2c52b'],
+  ['reliability-compounding-expression-aria-label-3', 'accessible-names', 'expression:components/interactive/reliability-compounding.tsx:aria-label:3',
+    'd055f79f38588f140bfd44a2b8f43205bec6223b9d050a51ee0e3f5ef9698ba5'],
+  ['reliability-compounding-expression-aria-label-4', 'accessible-names', 'expression:components/interactive/reliability-compounding.tsx:aria-label:4',
+    MISSING_MEMBER],
+  ['reliability-compounding-expression-aria-label-5', 'accessible-names', 'expression:components/interactive/reliability-compounding.tsx:aria-label:5',
+    MISSING_MEMBER],
+  ['reliability-compounding-expression-aria-labelledby-3', 'accessible-names', 'expression:components/interactive/reliability-compounding.tsx:aria-labelledby:3',
+    MISSING_MEMBER],
+  ['reward-shaping-expression-aria-label-2', 'accessible-names', 'expression:components/interactive/reward-shaping.tsx:aria-label:2',
+    '045632e1fbde9b2ac65ab659b94c7989407bdc5e9b06895ddd5488e4e1670f44'],
+  ['reward-shaping-expression-aria-label-3', 'accessible-names', 'expression:components/interactive/reward-shaping.tsx:aria-label:3',
+    'c69ac205d266028aa32bfa55ee57a76a77b8f6213b8cb17a46af172ed6b7ba35'],
+  ['wbc-decomposition-expression-aria-label-1', 'accessible-names', 'expression:components/interactive/wbc-decomposition.tsx:aria-label:1',
+    'f6e2703e94768c6120e4726775cde23f6b87836dd2a8d4c0a05bfe0d75920f7d'],
+  ['figure-expression-alt-2', 'accessible-names', 'expression:components/ui/figure.tsx:alt:2',
+    MISSING_MEMBER],
+  ['original-schematics-expression-aria-label-1', 'accessible-names', 'expression:components/ui/original-schematics.tsx:aria-label:1',
+    MISSING_MEMBER],
+  ['original-schematics-expression-aria-label-2', 'accessible-names', 'expression:components/ui/original-schematics.tsx:aria-label:2',
+    MISSING_MEMBER],
+  ['action-conditioning-literal-aria-label-1', 'accessible-names', 'literal:components/interactive/action-conditioning.tsx:aria-label:1',
+    '9608eeb481783e41ed5f06a54f2ad09a6572dea7627666791aff5a62feb46e46'],
+  ['action-conditioning-literal-aria-label-2', 'accessible-names', 'literal:components/interactive/action-conditioning.tsx:aria-label:2',
+    '1a29d2f65f02a77dc01a071ecbe584663400b5e00d2fa3a97421b6e524fd16a0'],
+  ['deployment-economics-literal-title-1', 'accessible-names', 'literal:components/interactive/deployment-economics.tsx:title:1',
+    '8689434648b0b24a7433db350fcd1813f5fe5f3dbad100e0f9eb83c50fd7fe13'],
+  ['deployment-economics-literal-title-2', 'accessible-names', 'literal:components/interactive/deployment-economics.tsx:title:2',
+    'a5027a7b7cb37667a8c522f9eb031b58588581aa7832c1505e26964ed98e0614'],
+  ['deployment-economics-literal-title-3', 'accessible-names', 'literal:components/interactive/deployment-economics.tsx:title:3',
+    'a97d4eb60721e476589bd61f1099ccaa907b593ded5869a9248cf5ae71d40e8c'],
+  ['control', 'prose', 'article:classical/control',
+    '7ae2310f358c571397744a43cde65fe2ea18e6b924053b66b33deb0136f747e8'],
+  ['kinematics', 'prose', 'article:classical/kinematics',
+    'b8300ca0b4bd3553fb750c151d08c80056932753754b6a8c63ecdf52ddaa4262'],
+  ['motion-planning', 'prose', 'article:classical/motion-planning',
+    '2adda289cb9e9894cbd0d2c24b7dca521678b48bd3a6ca80359e423c315b583c'],
+  ['perception', 'prose', 'article:classical/perception',
+    '705982adff6141e5b24f3472f6c6fa9a0a4a7ab508637b7d8587bd5a267c4685'],
+  ['ros2-for-ml-engineers', 'prose', 'article:classical/ros2-for-ml-engineers',
+    'd68d9ca5c0cb992207f7e9e9b67bda3623a87d6b5ac6c896b1bbf5ab5470484d'],
+  ['data-bottleneck', 'prose', 'article:data-hardware/data-bottleneck',
+    '2a399628a0d3d47c483619e0563664aa50e82ca704050c69ccb7d44a73f8a161'],
+  ['evaluation-crisis', 'prose', 'article:data-hardware/evaluation-crisis',
+    '58eb66a343de12e685e540f7840313f33b841fa233b26462d428b2a298459557'],
+  ['generalization', 'prose', 'article:frontier/generalization',
+    'eea78a462a9118f10e46b7f310674ef7a25fb91190f456056c9918582531dc6e'],
+  ['reliability-gap', 'prose', 'article:frontier/reliability-gap',
+    'ec938d42bd87814a5ef1f3c3808a4fbc645107b4e94e6a822646a0465610a063'],
+  ['action-chunking', 'prose', 'article:manipulation/action-chunking',
+    'b5ae41bc08dbcd436221ae13da11a0345f423d804998f22c18a51333a4ad6c5b'],
+  ['bc-foundations', 'prose', 'article:manipulation/bc-foundations',
+    '463dec3caf678be3dff663a707008974a41944c1a273e6929b9dbbb7b9253559'],
+  ['realtime-execution', 'prose', 'article:manipulation/realtime-execution',
+    '241fbcd0e0966f7c2481e1c1a519e9e0a2d953d6b87b79fdfb61d64c257a01d7'],
+  ['legged-locomotion', 'prose', 'article:rl-sim2real/legged-locomotion',
+    '037a9544af297abc1b1e1d7a1ede04d1b612001c90a7525ec1c190b39df7e2e8'],
+  ['parallel-sim-rl', 'prose', 'article:rl-sim2real/parallel-sim-rl',
+    '16a9970b03691a66d3ad57e002e4875957a185c31515387e279cecb913c04013'],
+  ['sim2real-transfer', 'prose', 'article:rl-sim2real/sim2real-transfer',
+    '281dc1bf11a08eee65687477ea62fd20b84b3513c89329fe87dd30ef3719e7c5'],
+  ['generative-sim', 'prose', 'article:world-models/generative-sim',
+    'fc6578de34784263b16681fcbe5808f494bb9d9753d289752faf886e522a2a86'],
+  ['generative-video', 'prose', 'article:world-models/generative-video',
+    '567163089b84a153754a53be294f00e25280ae6dea24c311727348f85b21b8c1'],
+  ['latent-dynamics', 'prose', 'article:world-models/latent-dynamics',
+    'e549d756bb8b49aeb3f0736327a5c9a0bddec87711d00972789c930b415c154c'],
+];
+const opusFigureMigrationAppends = opusFigureMigrationEndpoints.map(([slug, manifest]) =>
+  `opus-figure-migration-20261001-${manifest}-${slug}`);
+const opusFigureMigrationEdges = (manifest: string, memberId: string) => opusFigureMigrationAppends
+  .filter((_, index) => opusFigureMigrationEndpoints[index][1] === manifest
+    && opusFigureMigrationEndpoints[index][2] === memberId);
+const afterOpusHomepage = merged.length - opusFigureMigrationAppends.length;
+const afterOpusFigureSystem = afterOpusHomepage - opusHomepageAppends.length;
 const afterRound6 = afterOpusFigureSystem - opusFigureSystemAppends.length;
 const afterRound6Prose = afterRound6 - round6RemainingRepairAppends.length;
 const beforeRound6 = merged.slice(0, afterRound6Prose - round6ProseRestoreAppends.length);
@@ -406,13 +520,13 @@ describe('two-parent exact approval reconciliation', () => {
     // The subsequent domain passes add nine classical article endpoints,
     // two manipulation mounts, eight RL article endpoints and five RL
     // reconciliation edges, all named below in ledger order, and the round-6
-    // prose restores and remaining repairs, the figure-system resolution and
-    // the home front page add the edges named above.
-    expect([main.length, local.length, localOnly.length, merged.length]).toEqual([1558, 1104, 7, 1794]);
+    // prose restores and remaining repairs, the figure-system resolution, the
+    // home front page and the figure migration add the edges named above.
+    expect([main.length, local.length, localOnly.length, merged.length]).toEqual([1558, 1104, 7, 1842]);
     expect(merged.slice(0, main.length)).toEqual(main);
     expect(merged.slice(main.length, main.length + localOnly.length)).toEqual(localOnly);
     expect(merged.slice(main.length + localOnly.length).map(x => x.id))
-      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends]);
+      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends, ...opusFigureMigrationAppends]);
     expect(merged.slice(beforeRound6.length, afterRound6Prose)).toMatchObject(round6ProseRestoreEndpoints.map(
       ([memberId, , newHash], index) => ({
         id: round6ProseRestoreAppends[index], manifest: 'prose', memberId, newHash,
@@ -427,9 +541,14 @@ describe('two-parent exact approval reconciliation', () => {
       oldHash: 'a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c',
       newHash: 'ec938d42bd87814a5ef1f3c3808a4fbc645107b4e94e6a822646a0465610a063',
     }]);
-    expect(merged.slice(afterOpusFigureSystem)).toMatchObject(opusHomepageEndpoints.map(
+    expect(merged.slice(afterOpusFigureSystem, afterOpusHomepage)).toMatchObject(opusHomepageEndpoints.map(
       ([, manifest, memberId, oldHash, newHash], index) => ({
         id: opusHomepageAppends[index], manifest, memberId, oldHash, newHash,
+        responsibleMilestone: 'opus-pass', disposition: 'permanent',
+      })));
+    expect(merged.slice(afterOpusHomepage)).toMatchObject(opusFigureMigrationEndpoints.map(
+      ([, manifest, memberId], index) => ({
+        id: opusFigureMigrationAppends[index], manifest, memberId,
         responsibleMilestone: 'opus-pass', disposition: 'permanent',
       })));
     expect(beforeRound6.slice(-1)).toMatchObject([{
@@ -539,8 +658,13 @@ describe('two-parent exact approval reconciliation', () => {
       resolution.oldHash, resolution.newHash).status).toBe('ambiguous');
       expect(approvedDeltaPath(path, resolution.oldHash, '0'.repeat(64)).status).toBe('ambiguous');
     }
-    const reliabilityEdges = merged.filter(x => x.manifest === 'prose'
+    const reliabilityAll = merged.filter(x => x.manifest === 'prose'
       && x.memberId === 'article:frontier/reliability-gap');
+    // The figure-migration resolution now closes the chain and binds every
+    // edge below; this block checks the chain as the figure-system
+    // resolution left it.
+    expect(reliabilityAll.at(-1)?.id).toBe('opus-figure-migration-20261001-prose-reliability-gap');
+    const reliabilityEdges = reliabilityAll.slice(0, -1);
     // The round-5 resolution closed the chain as it stood before the
     // figure-system resolution, which now binds it too.
     const reliabilityBefore = reliabilityEdges.slice(0, -1);
@@ -571,8 +695,12 @@ describe('two-parent exact approval reconciliation', () => {
     // The bytes before the reuse caption no longer pass on the full chain.
     expect(approvedDeltaPath(reliabilityEdges, reliabilityResolution.oldHash,
       round5Resolution.newHash).status).toBe('ambiguous');
-    const parallelEdges = merged.filter(x => x.manifest === 'prose'
+    const parallelAll = merged.filter(x => x.manifest === 'prose'
       && x.memberId === 'article:rl-sim2real/parallel-sim-rl');
+    // As with reliability-gap, the figure-migration resolution follows the
+    // round-5 resolution checked here.
+    expect(parallelAll.at(-1)?.id).toBe('opus-figure-migration-20261001-prose-parallel-sim-rl');
+    const parallelEdges = parallelAll.slice(0, -1);
     const parallelResolution = parallelEdges.at(-1)!;
     expect(parallelResolution.id).toBe(round5FirstScreenCdAppends[2]);
     expect(parallelResolution.reconciles).toEqual(parallelEdges.slice(0, -1).map(x => ({
@@ -591,10 +719,14 @@ describe('two-parent exact approval reconciliation', () => {
       readFileSync('evidence/brand-v2/baseline/prose.json', 'utf8'));
     for (const [index, [memberId, oldHash, newHash]] of round5FirstScreenCdEndpoints.entries()) {
       const all = merged.filter(x => x.manifest === 'prose' && x.memberId === memberId);
-      // Only a named round-6 restore may follow the move's own edge.
+      // Only a named round-6 restore or figure-migration edge may follow the
+      // move's own edge.
       const edges = all.slice(0, all.findIndex(x => x.id === round5FirstScreenCdAppends[index]) + 1);
-      expect(all.slice(edges.length).map(x => x.id)).toEqual(round6ProseRestoreAppends
-        .filter((_, restore) => round6ProseRestoreEndpoints[restore][0] === memberId));
+      expect(all.slice(edges.length).map(x => x.id)).toEqual([
+        ...round6ProseRestoreAppends
+          .filter((_, restore) => round6ProseRestoreEndpoints[restore][0] === memberId),
+        ...opusFigureMigrationEdges('prose', memberId),
+      ]);
       const sealed = sealedProse.members.find(x => x.id === memberId)!.hash;
       expect(edges.at(-1)?.newHash).toBe(newHash);
       expect(approvedDeltaPath(edges, sealed, newHash).status).toBe('approved');
@@ -638,7 +770,11 @@ describe('two-parent exact approval reconciliation', () => {
     const sealedProse: { members: Array<{ id: string; hash: string }> } = JSON.parse(
       readFileSync('evidence/brand-v2/baseline/prose.json', 'utf8'));
     for (const [index, [memberId, previous, current]] of round6ProseRestoreEndpoints.entries()) {
-      const edges = merged.filter(x => x.manifest === 'prose' && x.memberId === memberId);
+      const all = merged.filter(x => x.manifest === 'prose' && x.memberId === memberId);
+      // Only a named figure-migration edge may follow the restore; the restore
+      // is checked against the chain it closed.
+      const edges = all.slice(0, all.findIndex(x => x.id === round6ProseRestoreAppends[index]) + 1);
+      expect(all.slice(edges.length).map(x => x.id)).toEqual(opusFigureMigrationEdges('prose', memberId));
       const sealed = sealedProse.members.find(x => x.id === memberId)!.hash;
       const entry = edges.at(-1)!;
       const prior = edges.slice(0, -1);
@@ -711,5 +847,51 @@ describe('two-parent exact approval reconciliation', () => {
       expect(approvedDeltaPath(edges, sealed, current).status).toBe('approved');
       expect(approvedDeltaPath(prior, sealed, current).status).toBe('missing');
     }
+  });
+
+  it('binds each figure-migration edge to its previous endpoint and to the sealed hash', () => {
+    for (const [index, [, manifest, memberId, previous]] of opusFigureMigrationEndpoints.entries()) {
+      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(
+        readFileSync(`evidence/brand-v2/baseline/${manifest}.json`, 'utf8'));
+      const edges = merged.filter(x => x.manifest === manifest && x.memberId === memberId);
+      // A member the seal does not hold starts from the hash of 'missing'.
+      const sealed = sealedManifest.members.find(x => x.id === memberId)?.hash ?? MISSING_MEMBER;
+      const entry = edges.at(-1)!;
+      const prior = edges.slice(0, -1);
+      const current = entry.newHash;
+      expect(entry.id).toBe(opusFigureMigrationAppends[index]);
+      expect(current).not.toBe(previous);
+      if (prior.length === 0) {
+        expect(previous).toBe(sealed);
+      } else {
+        expect(prior.at(-1)?.newHash).toBe(previous);
+        expect(approvedDeltaPath(prior, sealed, previous).status).toBe('approved');
+      }
+      const path = approvedDeltaPath(edges, sealed, current);
+      expect(path.status).toBe('approved');
+      expect(path.path.at(-1)).toBe(entry);
+      expect(approvedDeltaPath(prior, sealed, current).status).not.toBe('approved');
+      if (prior.some(x => x.reconciles !== undefined)) {
+        expect(entry.oldHash).toBe(sealed);
+        expect(entry.reconciles).toEqual(prior.map(x => ({
+          id: x.id, oldHash: x.oldHash, newHash: x.newHash,
+        })));
+        // The endpoint before the migration no longer passes on the full chain.
+        expect(approvedDeltaPath(edges, sealed, previous).status).toBe('ambiguous');
+        expect(approvedDeltaPath(edges.map((edge, edgeIndex) => edgeIndex === 0
+          ? { ...edge, newHash: '0'.repeat(64) } : edge), sealed, current).status).toBe('ambiguous');
+      } else {
+        expect(entry.oldHash).toBe(previous);
+        expect(entry.reconciles).toBeUndefined();
+      }
+    }
+    expect(opusFigureMigrationAppends.filter(id => merged.find(x => x.id === id)?.reconciles))
+      .toEqual([
+        'opus-figure-migration-20261001-accessible-names-generalist-release-timeline-expression-aria-label-1',
+        'opus-figure-migration-20261001-prose-control',
+        'opus-figure-migration-20261001-prose-reliability-gap',
+        'opus-figure-migration-20261001-prose-parallel-sim-rl',
+        'opus-figure-migration-20261001-prose-sim2real-transfer',
+      ]);
   });
 });

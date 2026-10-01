@@ -76,6 +76,13 @@ function collectFigures(): Omit<RouteObservation, 'route' | 'viewport'> {
     seen.set(imageId, index + 1);
 
     const img = figure.querySelector('img');
+    // An original schematic is drawn inline on the stage, so its drawing is
+    // the named svg and its description is that svg's accessible name.
+    const drawing: Element | null =
+      img ??
+      (figure.dataset.figureKind === 'original-schematic'
+        ? figure.querySelector('svg[role="img"][aria-label]')
+        : null);
     const caption = figure.querySelector('figcaption');
     const credit = figure.querySelector('[data-image-credit]');
     const label = figure.querySelector('[data-figure-label]');
@@ -89,7 +96,7 @@ function collectFigures(): Omit<RouteObservation, 'route' | 'viewport'> {
       const [hi, lo] = a > b ? [a, b] : [b, a];
       return round((hi + 0.05) / (lo + 0.05));
     };
-    const box = img?.getBoundingClientRect();
+    const box = drawing?.getBoundingClientRect();
     // The container the figure is supposed to stay inside: the instrument
     // when there is one, otherwise the figure's own box.
     const container = (surface ?? figure).getBoundingClientRect();
@@ -99,7 +106,7 @@ function collectFigures(): Omit<RouteObservation, 'route' | 'viewport'> {
       index,
       figureKind: figure.dataset.figureKind ?? '',
       src: img?.getAttribute('src') ?? '',
-      alt: img?.getAttribute('alt') ?? '',
+      alt: (img ? img.getAttribute('alt') : drawing?.getAttribute('aria-label')) ?? '',
       declaredWidth: img?.getAttribute('width') ?? null,
       declaredHeight: img?.getAttribute('height') ?? null,
       loading: img?.getAttribute('loading') ?? null,

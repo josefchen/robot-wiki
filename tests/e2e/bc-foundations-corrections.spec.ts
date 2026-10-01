@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { setSlider } from './slider';
 
 for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 }]) {
   test(`BC corrections retain truthful math and toy behavior at ${viewport.width}`, async ({ page }, testInfo) => {
@@ -26,12 +27,20 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     };
     await capture('top');
     await page.screenshot({ path: testInfo.outputPath(`${viewport.width}-full.png`), fullPage: true });
-    const toy = page.locator('div.prose > div.rounded-md:has([data-testid="accumulated-deviation-readout"]), div.prose > div.rounded-none:has([data-testid="accumulated-deviation-readout"])').first();
+    // The toy is stated once, in the prose, and the figure lives inside
+    // the prediction step at its seeded 240-step horizon.
+    await expect(prose).toContainText('neither a source benchmark nor a task-cost theorem');
+    await page.locator('[data-predict] details[data-reveal] > summary').click();
+    const toy = page.locator('[data-predict] [data-figure-frame="compounding-error"]');
+    await expect(toy).toHaveCount(1);
     await toy.scrollIntoViewIfNeeded();
-    await expect(toy).toContainText('not a task-cost theorem');
-    await expect(toy.getByTestId('accumulated-deviation-readout')).toHaveText('370');
+    await expect(toy).toContainText('Original deterministic toy');
+    await expect(toy.getByTestId('accumulated-deviation-readout')).toHaveText('1505');
     await capture('toy-default');
     const horizon = toy.getByRole('slider', { name: /episode horizon/i });
+    await setSlider(horizon, 120);
+    await expect(horizon).toHaveValue('120');
+    await expect(toy.getByTestId('accumulated-deviation-readout')).toHaveText('370');
     await horizon.focus();
     await page.keyboard.press('End');
     await expect(horizon).toHaveValue('240');
@@ -42,7 +51,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     expect(Number(await toy.getByTestId('accumulated-deviation-readout').textContent())).toBeLessThan(chunk);
     await capture('toy-changed');
     await toy.getByRole('button', { name: 'Reset', exact: true }).click();
-    await expect(toy.getByTestId('accumulated-deviation-readout')).toHaveText('370');
+    await expect(toy.getByTestId('accumulated-deviation-readout')).toHaveText('1505');
     for (const [name, heading] of [
       ['theory', 'Covariate shift, stated precisely'],
       ['dagger', 'DAgger: relabel the states you actually visit'],
@@ -50,6 +59,10 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
       await page.getByRole('heading', { name: heading, exact: false }).scrollIntoViewIfNeeded();
       await capture(name);
     }
+    // The pointer still rests where the Reset click left it, which after
+    // the scrolls above can be over a glossary term; park it so no hover
+    // tooltip competes with the focused citation's.
+    await page.mouse.move(0, 0);
     const hg = prose.locator('[data-cite-id="hg-dagger-2019"] a').first();
     await hg.focus();
     await expect(page.getByRole('tooltip')).toContainText('arXiv v2 (11 March 2019)');

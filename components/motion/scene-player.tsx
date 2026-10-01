@@ -377,9 +377,9 @@ export function ScenePlayer({
       }}
       source={source}
     >
-      <p id={descriptionId} className="sr-only">
+      <div id={descriptionId} className="sr-only">
         {textAlternative}
-      </p>
+      </div>
     </FigureFrame>
   );
 }

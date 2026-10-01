@@ -1,0 +1,110 @@
+{
+  "schemaVersion": "figure-migration-registry-continuity-v1",
+  "name": "one-figure-system-registry",
+  "reviewedBy": "Figure-migration implementer (not independent acceptance)",
+  "rationale": "Local-basis plans bind these interactive registry records by fingerprint. The one-figure-system migration changed three source records through census keyword and control-kind detection, renumbered two prediction-step mounts after their standalone copies were retired, and retired three more mounts whose figures repeated a survivor on the same page. The archived record stands in for the live one only while the live record is exactly the reviewed successor, or, for a retired id, while the id stays absent and its named survivor is present.",
+  "observedAt": "2026-10-01T11:10:44Z",
+  "before": {
+    "path": "audit/evidence/figure-migration-20261001/registry-before.json",
+    "bytes": 28146,
+    "sha256": "ff1e8444a32b1476c84112c138e994a2eaf9ddff8638d5368993e44e80f033dc"
+  },
+  "records": [
+    {
+      "id": "interactive:CollaborativeOperationModes",
+      "change": "changed",
+      "before": "d582e6172aa6d6963bf72187b5b48b7de5146edb5fa8763cd947163ec62ffe5b",
+      "after": "798bf5e68b4a0caf32dc40eec511842e997cc1d30683fe9e7739195dc4a670ea",
+      "reason": "The state census types a loading, error, empty or unavailable witness only when that word appears in the component source. The migration repainted the separation overrun with the figure palette and dropped the EDGE_DASH.error dash style, the only place the word appeared, so the error case is now typed not applicable. The mode outcomes, controls and lib/safety-modes.ts recipe are unchanged."
+    },
+    {
+      "id": "interactive:RewardShaping",
+      "change": "changed",
+      "before": "fcf290a7c725ad10ca077c0dfd7373b1899789254d3c6744dd56ad3f9a8dc3c7",
+      "after": "9a20f439580a262f895ef8da309cc34804ff3cf18da33c4e04450efda97b3c59",
+      "reason": "The state census types a loading, error, empty or unavailable witness only when that word appears in the component source. The word empty appeared only in a code comment about the chart's sky region, which the migration removed, so the empty case is now typed not applicable. The reward terms, weights, behaviours and recipe imports are unchanged."
+    },
+    {
+      "id": "interactive:ReliabilityCompounding",
+      "change": "changed",
+      "before": "5b37ad4130cc5b3103b62275720ee13ff987b2be70ce5733cf1714a6c2f8cbab",
+      "after": "39bddd5841be2e25b9303c62420c03e23067471cf9ed671e709d1556fa794df0",
+      "reason": "The calculator gained optional preset buttons with aria-pressed, which only the frontier reliability-gap mount enables. The census reads control kinds from the component source, so the source gains a discrete-options case and, with the range sliders, a pairwise-controls case (9 to 11 cases). The p to the n computation from lib/reliability.ts is unchanged."
+    },
+    {
+      "id": "mount:/data-hardware/data-bottleneck/:DataScaleChart:1",
+      "change": "changed",
+      "before": "51677e4fe6022ee3b88bbae02ff47b1e285bfb3bfa0cc1af64b407628abc49df",
+      "after": "28564f16f60f008d0352570178540eb6d83c8747482dcb2b23453ca2df17036f",
+      "reason": "The standalone chart that was mount 1 (<DataScaleChart className=\"my-6\" />) was retired as a repeat of the prediction-step chart, so the prediction-step chart that was mount 2 is now mount 1. This id now carries the former mount-2 props (10 rigs at the DROID-measured rate) and its PredictThenReveal container."
+    },
+    {
+      "id": "mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:1",
+      "change": "changed",
+      "before": "fbba4c7f02e2eb9e40a6194698e51898ae7193966c74590609df82a3ef17eda8",
+      "after": "02f41a82940bcdc2d330166240ed5c40d1e000383a46bb0cc65ebdfff7adb2fd",
+      "reason": "The standalone calculator that was mount 1 was retired as a repeat of the prediction-step calculator, which is now mount 1. It keeps its 0.95 per-step, 14-step start inside the PredictThenReveal container, takes over the standalone calculator's 0 to 100 percent range and evaluation description, and carries the source record's two new census cases (9 to 11). It sets no presets."
+    },
+    {
+      "id": "mount:/frontier/safety-and-assurance/:CollaborativeOperationModes:1",
+      "change": "changed",
+      "before": "73bbe04f1fe570a72ea36c5baaea68a63f8321f070b509563a5742e54137a0a5",
+      "after": "828aa872e188a09023726965d4cd9efeea7a9264027bdbfab11f2da6c656d063",
+      "reason": "The mount mirrors its source record: the error case is now typed not applicable because the word left the component source. Its props, route and containers are unchanged."
+    },
+    {
+      "id": "mount:/rl-sim2real/reward-design-mpc/:RewardShaping:1",
+      "change": "changed",
+      "before": "6e548b6cce85baf2a70fb04b89fc3886f51cd59d12d5421e292b1d0505332d74",
+      "after": "71542d917ebcc1ab36171b46812271722a4de2bac192dd3e9abf20809cdd79ba",
+      "reason": "The mount mirrors its source record: the empty case is now typed not applicable because the word left the component source. Its props, route and containers are unchanged."
+    },
+    {
+      "id": "mount:/data-hardware/data-bottleneck/:DataScaleChart:2",
+      "change": "retired",
+      "before": "5e144f954d330a29116db974bca398dbcb1a488993bf8b21d64109c3cae0a84c",
+      "survivor": {
+        "mountId": "mount:/data-hardware/data-bottleneck/:DataScaleChart:1"
+      },
+      "reason": "The id no longer exists: when the standalone chart was retired, the prediction-step chart it names was renumbered to mount 1. Observations recorded against this id are history and are not repeated."
+    },
+    {
+      "id": "mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:2",
+      "change": "retired",
+      "before": "d65c5a4639ba532ea9cb63d1bda6eb5de200d21f18131cce97668ff533132566",
+      "survivor": {
+        "mountId": "mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:1"
+      },
+      "reason": "The id no longer exists: when the standalone calculator was retired, the prediction-step calculator it names was renumbered to mount 1. Observations recorded against this id are history and are not repeated."
+    },
+    {
+      "id": "mount:/rl-sim2real/legged-locomotion/:GaitDiagram:1",
+      "change": "retired",
+      "before": "6848c1c83c6e68d4071e7094fbd570808f627abd4f36958b9bccc76e1f9f79dd",
+      "survivor": {
+        "path": "content/rl-sim2real/legged-locomotion.mdx",
+        "literal": "<GaitSupport className=\"my-6\" />"
+      },
+      "reason": "The GaitDiagram lab was retired as a repeat of the GaitSupport scene, which stays on the page and is not an interactive registry mount. Observations recorded against this id are history and are not repeated. Ledger rows legged-locomotion:8 and legged-locomotion:17 are owed a re-scope by the rl-sim2real domain pass."
+    },
+    {
+      "id": "mount:/rl-sim2real/parallel-sim-rl/:TrainingTimeChart:1",
+      "change": "retired",
+      "before": "8d16aa6a2c290496edd0c4400359ec105aac287d3adf923a67d388e64b4f8ba2",
+      "survivor": {
+        "path": "content/rl-sim2real/parallel-sim-rl.mdx",
+        "literal": "<BatchScale className=\"my-6\" />"
+      },
+      "reason": "The TrainingTimeChart lab was retired as a repeat of the BatchScale scene, which stays on the page and is not an interactive registry mount. Observations recorded against this id are history and are not repeated. Ledger row parallel-sim-rl:18 is owed a re-scope by the rl-sim2real domain pass."
+    },
+    {
+      "id": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:2",
+      "change": "retired",
+      "before": "60516eb1c7fdf6600b61ca28f432c488fd96e6a869faaaff175de04272b93d3a",
+      "survivor": {
+        "mountId": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:1"
+      },
+      "reason": "The prediction-step copy of the friction chart, mounted at half-width 0.65, was retired; the chart above it, mount 1, stays. Observations recorded against this id are history and are not repeated."
+    }
+  ]
+}

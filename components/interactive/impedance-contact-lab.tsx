@@ -4,6 +4,7 @@ import { useId, useState } from 'react';
 import {
   CRUSH_LIMIT_N,
   DEFAULT_PARAMS,
+  EFFECTIVE_MASS_KG,
   SLIDER_SPECS,
   classifyOutcome,
   effectiveStiffness,
@@ -16,14 +17,32 @@ import {
   TRANSIENT_CONTACT_LIMIT_LABEL,
   TRANSIENT_CONTACT_LIMIT_N,
 } from '@/lib/force-limits';
+import { cx } from '@/lib/utils';
 import { ChartDescription } from '@/components/ui';
 import {
+  ControlField,
   ControlLabel,
-  InstrumentFrame,
+  INSTRUMENT_SLIDER_CLASS,
+  INSTRUMENT_TOGGLE_CLASS,
+  InstrumentFigure,
+  InstrumentLegend,
   InstrumentReadout,
   InstrumentReset,
+  LegendItem,
   PlotStage,
 } from '@/components/ui/instrument';
+import { FigureStage } from '@/components/motion/figure-frame';
+import {
+  CHART_STROKE,
+  CHART_STRUCTURE,
+  CHART_TYPE,
+  CHART_VIEW_WIDTH,
+  ChartAxes,
+  ConstraintHatch,
+  LegendSwatch,
+  roleColour,
+  type PlotRect,
+} from '@/components/motion/chart';
 import { CiteRef } from '@/components/article/citation-records';
 
 /**
@@ -41,58 +60,62 @@ import { CiteRef } from '@/components/article/citation-records';
  * has no force channel at all: the hardware claim of the section is
  * something the reader discovers rather than reads.
  *
- * The chart draws the contact-force trace against two labelled reference
- * lines: the object's crush limit and the transient contact-force limit
- * for the relevant body region (research basis stated in the label and
- * cited in the caption, from the shared lib/force-limits module that the
- * frontier safety instrument also imports).
+ * The chart draws the contact-force trace against the object's crush limit
+ * and the transient contact-force limit for the relevant body region, whose
+ * research basis the legend states and the source line cites, from the
+ * shared lib/force-limits module that the frontier safety instrument also
+ * imports.
  *
  * Interactive contract: deterministic simulation recomputed from pure
  * functions on every input change (no interval needed: the trace is a
  * fixed-horizon response), native range inputs and a native radio group
- * (keyboard-accessible), visible monospace readouts, Reset restoring the
- * defaults, fixed SVG viewport (no layout shift).
+ * (keyboard-accessible), visible readouts, Reset restoring the defaults,
+ * fixed SVG viewport (no layout shift).
  */
 
-const WIDTH = 640;
-const HEIGHT = 300;
-const PAD_L = 46;
-const PAD_R = 10;
-const PAD_T = 16;
-const PAD_B = 26;
+const WIDTH = CHART_VIEW_WIDTH;
+const HEIGHT = 204;
+const PLOT: PlotRect = { left: 36, right: 322, top: 26, bottom: 158 };
 /** Force axis ceiling, N: comfortably above the transient limit so both
  * reference lines and every reachable trace fit. */
 const AXIS_MAX_N = 320;
+/** The simulated approach, s: simulateContact runs a fixed 0.6 s horizon. */
+const HORIZON_S = 0.6;
+const HATCH_ID = 'impedance-contact-hatch';
 
-const HARDWARE_OPTIONS: ReadonlyArray<{
-  value: HardwareMode;
-  label: string;
-  hint: string;
-}> = [
-  {
-    value: 'position',
-    label: 'position-controlled geared arm',
-    hint: 'no force channel; the commanded position is enforced against the surface',
-  },
-  {
-    value: 'torque',
-    label: 'torque-controlled arm',
-    hint: 'joint torques commanded directly, so the impedance law is realizable',
-  },
-  {
-    value: 'sea',
-    label: 'series-elastic joint',
-    hint: 'a physical spring in the drivetrain filters the contact',
-  },
+const HARDWARE_OPTIONS: ReadonlyArray<{ value: HardwareMode; label: string }> = [
+  { value: 'position', label: 'position-controlled geared arm' },
+  { value: 'torque', label: 'torque-controlled arm' },
+  { value: 'sea', label: 'series-elastic joint' },
 ];
+
+/**
+ * A hardware option in the shared toggle look. Its native radio covers the
+ * whole option, transparent, so the option is the radio's own hit target;
+ * the checked option takes the selection fill and the focused one the
+ * focus ring the hidden radio cannot paint.
+ */
+const HARDWARE_OPTION_CLASS = cx(
+  INSTRUMENT_TOGGLE_CLASS,
+  'relative cursor-pointer has-[:checked]:bg-highlight has-[:checked]:text-ink has-[:checked]:no-underline has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-focus',
+);
+
+const DISABLED_SLIDER_CLASS = 'disabled:cursor-not-allowed disabled:opacity-40';
 
 /** Round every rendered geometry value: SSR HTML and hydration agree. */
 const f = (v: number) => Number(v.toFixed(2));
 
+function xFor(seconds: number): number {
+  return PLOT.left + (seconds / HORIZON_S) * (PLOT.right - PLOT.left);
+}
+
 function yFor(forceN: number): number {
   const clamped = Math.min(forceN, AXIS_MAX_N);
-  return PAD_T + (1 - clamped / AXIS_MAX_N) * (HEIGHT - PAD_T - PAD_B);
+  return PLOT.bottom - (clamped / AXIS_MAX_N) * (PLOT.bottom - PLOT.top);
 }
+
+/** Tick labels in seconds, the zero bare. */
+const formatSeconds = (s: number) => (s === 0 ? '0' : s.toFixed(1));
 
 export function ImpedanceContactLab({ className }: { className?: string }) {
   const uid = useId();
@@ -119,322 +142,271 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
   // The force trace over the run's simulated time, clamped to the axis.
   const path = run.steps
     .map((s, i) => {
-      const x = PAD_L + (i / (run.steps.length - 1)) * (WIDTH - PAD_L - PAD_R);
+      const x = xFor((i / (run.steps.length - 1)) * HORIZON_S);
       const y = yFor(s.forceN);
       return `${i === 0 ? 'M' : 'L'} ${f(x)} ${f(y)}`;
     })
     .join(' ');
 
+  const constraint = roleColour('constraint');
+  const failedTone = outcome === 'success' ? undefined : { color: constraint };
+  const plotWidth = PLOT.right - PLOT.left;
+  const noteX = (PLOT.left + PLOT.right) / 2;
+  const noteY = yFor(AXIS_MAX_N / 2);
+
   return (
-    <InstrumentFrame
+    <InstrumentFigure
+      figureId="impedance-contact-lab"
       data-testid="impedance-lab"
       className={className}
-    >
-      {/* Hardware selector: a native radio group, tab-reachable in visual
-          order, arrow-key operable. */}
-      <fieldset className="border-0 p-0">
-        <legend className="font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim">
-          hardware
-        </legend>
-        <div className="mt-2 grid gap-2 sm:grid-cols-3">
-          {HARDWARE_OPTIONS.map((opt) => (
-            <label
-              key={opt.value}
-              className="flex cursor-pointer items-start gap-2 font-sans text-xs text-text"
-            >
-              <input
-                type="radio"
-                data-brand-control-id="control:selection"
-                name={`${uid}-hardware`}
-                value={opt.value}
-                checked={params.hardware === opt.value}
-                onChange={() => setParam('hardware', opt.value)}
-                aria-label={opt.label}
-                data-testid={`impedance-hardware-${opt.value}`}
-                className="mt-0.5 accent-accent"
-              />
-              <span>
+      heading="Contact force against a stiff surface"
+      controls={
+        <>
+          {/* A native radio group: tab-reachable in visual order and
+              arrow-key operable. */}
+          <fieldset className="m-0 flex basis-full flex-wrap items-center gap-2 border-0 p-0">
+            <legend className="float-left mr-1 font-sans text-[13px] text-text-dim">
+              hardware
+            </legend>
+            {HARDWARE_OPTIONS.map((opt) => (
+              <label
+                key={opt.value}
+                data-brand-surface-id="surface:flat"
+                className={HARDWARE_OPTION_CLASS}
+              >
+                <input
+                  type="radio"
+                  data-brand-control-id="control:selection"
+                  name={`${uid}-hardware`}
+                  value={opt.value}
+                  checked={params.hardware === opt.value}
+                  onChange={() => setParam('hardware', opt.value)}
+                  aria-label={opt.label}
+                  data-testid={`impedance-hardware-${opt.value}`}
+                  className="absolute inset-0 m-0 cursor-pointer opacity-0"
+                />
                 {opt.label}
-                <span className="block text-[11px] leading-snug text-text-dim">
-                  {opt.hint}
+              </label>
+            ))}
+          </fieldset>
+          {/* In position mode K and D are natively disabled: not
+              tab-reachable, visibly greyed, honestly unavailable. */}
+          <ControlField>
+            <ControlLabel
+              htmlFor={`${uid}-depth`}
+              value={
+                <span data-testid="impedance-depth-value">
+                  {(params.depthM * 1000).toFixed(1)}
                 </span>
-              </span>
-            </label>
-          ))}
-        </div>
-      </fieldset>
-
-      {/* Sliders. In position mode K and D are NATIVELY disabled: not
-          tab-reachable, visibly greyed, honestly unavailable. */}
-      <div className="mt-4 grid gap-4 sm:grid-cols-3">
-        <div>
-          <ControlLabel
-            htmlFor={`${uid}-depth`}
-            value={
-              <span data-testid="impedance-depth-value">
-                {(params.depthM * 1000).toFixed(1)}
-              </span>
-            }
-          >
-            depth {`(mm)`}
-          </ControlLabel>
-          <input
-            id={`${uid}-depth`}
-            type="range"
-            data-brand-control-id="control:input"
-            min={SLIDER_SPECS.depth.min}
-            max={SLIDER_SPECS.depth.max}
-            step={SLIDER_SPECS.depth.step}
-            value={params.depthM}
-            onChange={(e) => setParam('depthM', Number(e.target.value))}
-            aria-label={`Commanded penetration depth in millimetres, currently ${(params.depthM * 1000).toFixed(1)}`}
-            data-testid="impedance-depth-slider"
-            className="mt-2 w-full accent-accent"
-          />
-          <p className="mt-1 font-sans text-[11px] leading-snug text-text-dim">
-            the surface is closer than the model said, by this much
-          </p>
-        </div>
-        <div>
-          <ControlLabel
-            htmlFor={`${uid}-stiffness`}
-            value={
-              <span data-testid="impedance-stiffness-value">
-                {params.stiffnessKNPerM.toFixed(0)}
-              </span>
-            }
-          >
-            stiffness K {`(N/m)`}
-          </ControlLabel>
-          <input
-            id={`${uid}-stiffness`}
-            type="range"
-            data-brand-control-id="control:input"
-            min={SLIDER_SPECS.stiffness.min}
-            max={SLIDER_SPECS.stiffness.max}
-            step={SLIDER_SPECS.stiffness.step}
-            value={params.stiffnessKNPerM}
-            onChange={(e) => setParam('stiffnessKNPerM', Number(e.target.value))}
-            disabled={positionMode}
-            aria-label={`Desired stiffness in newtons per metre, currently ${params.stiffnessKNPerM.toFixed(0)}`}
-            data-testid="impedance-stiffness-slider"
-            className="mt-2 w-full accent-accent"
-          />
-          <p className="mt-1 font-sans text-[11px] leading-snug text-text-dim">
-            the programmable spring at the contact
-          </p>
-        </div>
-        <div>
-          <ControlLabel
-            htmlFor={`${uid}-damping`}
-            value={
-              <span data-testid="impedance-damping-value">
-                {params.dampingNPerM.toFixed(0)}
-              </span>
-            }
-          >
-            damping D {`(N·s/m)`}
-          </ControlLabel>
-          <input
-            id={`${uid}-damping`}
-            type="range"
-            data-brand-control-id="control:input"
-            min={SLIDER_SPECS.damping.min}
-            max={SLIDER_SPECS.damping.max}
-            step={SLIDER_SPECS.damping.step}
-            value={params.dampingNPerM}
-            onChange={(e) => setParam('dampingNPerM', Number(e.target.value))}
-            disabled={positionMode}
-            aria-label={`Desired damping in newton-seconds per metre, currently ${params.dampingNPerM.toFixed(0)}`}
-            data-testid="impedance-damping-slider"
-            className="mt-2 w-full accent-accent"
-          />
-          <p className="mt-1 font-sans text-[11px] leading-snug text-text-dim">
-            the programmable damper at the contact
-          </p>
-        </div>
-      </div>
-
-      <PlotStage
-        viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-        aria-label={`Contact force over the approach. Peak ${positionMode ? 'unbounded' : `${run.peakForceN.toFixed(1)} newtons`}, outcome ${outcomeText[outcome]}.`}
-        aria-describedby={descriptionId}
-        data-testid="impedance-chart"
-        className="mt-4"
-      >
-        {/* Force axis ticks */}
-        {[0, 100, 200, AXIS_MAX_N].map((tick) => (
-          <g key={tick}>
-            <line
-              x1={PAD_L}
-              y1={yFor(tick)}
-              x2={WIDTH - PAD_R}
-              y2={yFor(tick)}
-              stroke="var(--color-border)"
-              strokeWidth={1}
-              opacity={0.5}
-            />
-            <text
-              x={PAD_L - 6}
-              y={yFor(tick) + 3}
-              textAnchor="end"
-              fill="var(--color-text-dim)"
-              fontSize={10}
-              fontFamily="var(--font-mono)"
+              }
             >
-              {tick}
-            </text>
-          </g>
-        ))}
-        <text
-          x={12}
-          y={PAD_T + 8}
-          fill="var(--color-text-dim)"
-          fontSize={10}
-          fontFamily="var(--font-mono)"
-          transform={`rotate(-90 12 ${PAD_T + 8})`}
-          textAnchor="end"
-        >
-          contact force (N)
-        </text>
-
-        {/* Reference line 1: the object's crush limit. */}
-        <line
-          x1={PAD_L}
-          y1={yFor(CRUSH_LIMIT_N)}
-          x2={WIDTH - PAD_R}
-          y2={yFor(CRUSH_LIMIT_N)}
-          stroke="var(--color-err)"
-          strokeWidth={1}
-          strokeDasharray="6 4"
-        />
-        <text
-          data-testid="impedance-crush-label"
-          x={WIDTH - PAD_R - 4}
-          y={yFor(CRUSH_LIMIT_N) - 4}
-          textAnchor="end"
-          fill="var(--color-err)"
-          fontSize={10}
-          fontFamily="var(--font-mono)"
-        >
-          object crush limit {CRUSH_LIMIT_N} N
-        </text>
-
-        {/* Reference line 2: the transient contact-force limit, labelled
-            with its research basis from the shared force-limits module. */}
-        <line
-          x1={PAD_L}
-          y1={yFor(TRANSIENT_CONTACT_LIMIT_N)}
-          x2={WIDTH - PAD_R}
-          y2={yFor(TRANSIENT_CONTACT_LIMIT_N)}
-          stroke="var(--color-accent)"
-          strokeWidth={1}
-          strokeDasharray="6 4"
-        />
-        <text
-          data-testid="impedance-limit-label"
-          x={WIDTH - PAD_R - 4}
-          y={yFor(TRANSIENT_CONTACT_LIMIT_N) - 4}
-          textAnchor="end"
-          fill="var(--color-accent)"
-          fontSize={10}
-          fontFamily="var(--font-mono)"
-        >
-          {TRANSIENT_CONTACT_LIMIT_LABEL}
-        </text>
-
-        {/* The force trace itself. */}
-        {positionMode ? (
-          <text
-            x={(WIDTH + PAD_L) / 2}
-            y={HEIGHT / 2}
-            textAnchor="middle"
-            fill="var(--color-text-dim)"
-            fontSize={12}
-            fontFamily="var(--font-mono)"
-          >
-            no force channel: the position loop pins the contact force
-          </text>
-        ) : (
-          <path
-            data-testid="impedance-force-trace"
-            d={path}
-            fill="none"
-            stroke="var(--color-text)"
-            strokeWidth={2}
-            strokeLinejoin="round"
+              depth (mm)
+            </ControlLabel>
+            <input
+              id={`${uid}-depth`}
+              type="range"
+              data-brand-control-id="control:input"
+              min={SLIDER_SPECS.depth.min}
+              max={SLIDER_SPECS.depth.max}
+              step={SLIDER_SPECS.depth.step}
+              value={params.depthM}
+              onChange={(e) => setParam('depthM', Number(e.target.value))}
+              aria-label={`Commanded penetration depth in millimetres, currently ${(params.depthM * 1000).toFixed(1)}`}
+              data-testid="impedance-depth-slider"
+              className={INSTRUMENT_SLIDER_CLASS}
+            />
+          </ControlField>
+          <ControlField>
+            <ControlLabel
+              htmlFor={`${uid}-stiffness`}
+              value={
+                <span data-testid="impedance-stiffness-value">
+                  {params.stiffnessKNPerM.toFixed(0)}
+                </span>
+              }
+            >
+              stiffness K (N/m)
+            </ControlLabel>
+            <input
+              id={`${uid}-stiffness`}
+              type="range"
+              data-brand-control-id="control:input"
+              min={SLIDER_SPECS.stiffness.min}
+              max={SLIDER_SPECS.stiffness.max}
+              step={SLIDER_SPECS.stiffness.step}
+              value={params.stiffnessKNPerM}
+              onChange={(e) => setParam('stiffnessKNPerM', Number(e.target.value))}
+              disabled={positionMode}
+              aria-label={`Desired stiffness in newtons per metre, currently ${params.stiffnessKNPerM.toFixed(0)}`}
+              data-testid="impedance-stiffness-slider"
+              className={cx(INSTRUMENT_SLIDER_CLASS, DISABLED_SLIDER_CLASS)}
+            />
+          </ControlField>
+          <ControlField>
+            <ControlLabel
+              htmlFor={`${uid}-damping`}
+              value={
+                <span data-testid="impedance-damping-value">
+                  {params.dampingNPerM.toFixed(0)}
+                </span>
+              }
+            >
+              damping D (N·s/m)
+            </ControlLabel>
+            <input
+              id={`${uid}-damping`}
+              type="range"
+              data-brand-control-id="control:input"
+              min={SLIDER_SPECS.damping.min}
+              max={SLIDER_SPECS.damping.max}
+              step={SLIDER_SPECS.damping.step}
+              value={params.dampingNPerM}
+              onChange={(e) => setParam('dampingNPerM', Number(e.target.value))}
+              disabled={positionMode}
+              aria-label={`Desired damping in newton-seconds per metre, currently ${params.dampingNPerM.toFixed(0)}`}
+              data-testid="impedance-damping-slider"
+              className={cx(INSTRUMENT_SLIDER_CLASS, DISABLED_SLIDER_CLASS)}
+            />
+          </ControlField>
+          <InstrumentReset
+            onClick={reset}
+            aria-label="Reset the lab to the torque-controlled defaults"
           />
-        )}
-      </PlotStage>
-
-      {/* Self-label: this instrument is a schematic, not a measurement. */}
-      <p className="mt-1 font-sans text-xs text-text-dim">
-        Schematic lab: computed traces on an idealized one-dimensional
-        contact model, not measured contact forces.
-      </p>
-
-      <div className="mt-3 flex flex-wrap items-center gap-2">
-        <InstrumentReset
-          onClick={reset}
-          aria-label="Reset the lab to the torque-controlled defaults"
-        />
-      </div>
-
-      <InstrumentReadout>
-        <span className="text-text-dim">steady</span>{' '}
-        <span data-testid="impedance-steady-readout" className="text-text">
-          {positionMode ? 'unbounded' : `${run.steadyForceN.toFixed(1)} N`}
-        </span>{' '}
-        <span className="text-text-dim">peak</span>{' '}
-        <span
-          data-testid="impedance-peak-readout"
-          className={outcome === 'success' ? 'text-accent' : 'text-err'}
+        </>
+      }
+      stage={
+        <FigureStage
+          footer={
+            <>
+              <InstrumentLegend>
+                <LegendItem series="impedance-force" swatch={<LegendSwatch role="state" mark="line" />}>
+                  contact force
+                </LegendItem>
+                <LegendItem series="impedance-crush" swatch={<LegendSwatch role="constraint" mark="dash" />}>
+                  <span data-testid="impedance-crush-label">object crush limit {CRUSH_LIMIT_N} N</span>
+                </LegendItem>
+                <LegendItem series="impedance-limit" swatch={<LegendSwatch role="constraint" mark="hatch" />}>
+                  <span data-testid="impedance-limit-label">{TRANSIENT_CONTACT_LIMIT_LABEL}</span>
+                </LegendItem>
+              </InstrumentLegend>
+              <InstrumentReadout className="flex flex-wrap gap-x-3">
+                <span>
+                  steady{' '}
+                  <span data-testid="impedance-steady-readout">
+                    {positionMode ? 'unbounded' : `${run.steadyForceN.toFixed(1)} N`}
+                  </span>
+                </span>
+                <span>
+                  peak{' '}
+                  <span data-testid="impedance-peak-readout" style={failedTone}>
+                    {positionMode ? 'unbounded' : `${run.peakForceN.toFixed(1)} N`}
+                  </span>
+                </span>
+                <span>
+                  outcome{' '}
+                  <span data-testid="impedance-outcome-readout" style={failedTone}>
+                    {outcomeText[outcome]}
+                  </span>
+                </span>
+              </InstrumentReadout>
+              <ChartDescription
+                id={descriptionId}
+                form="state"
+                summary="Current contact lab settings and outcome"
+                description={
+                  positionMode
+                    ? `With the position-controlled geared arm selected, stiffness and damping are unavailable and the contact force is unbounded by construction: the position loop has no force channel.`
+                    : `On the ${HARDWARE_OPTIONS.find((o) => o.value === params.hardware)?.label ?? ''} at depth ${(params.depthM * 1000).toFixed(1)} mm, stiffness ${params.stiffnessKNPerM.toFixed(0)} N/m and damping ${params.dampingNPerM.toFixed(0)} N·s/m, the contact peaks at ${run.peakForceN.toFixed(1)} N and settles at ${run.steadyForceN.toFixed(1)} N against the ${TRANSIENT_CONTACT_LIMIT_N} N research-basis transient limit: ${outcomeText[outcome]}.`
+                }
+                states={[
+                  { label: 'depth', value: `${(params.depthM * 1000).toFixed(1)} mm` },
+                  { label: 'K', value: positionMode ? 'n/a' : `${params.stiffnessKNPerM.toFixed(0)} N/m` },
+                  { label: 'D', value: positionMode ? 'n/a' : `${params.dampingNPerM.toFixed(0)} N·s/m` },
+                  { label: 'peak', value: positionMode ? 'unbounded' : `${run.peakForceN.toFixed(1)} N` },
+                  { label: 'outcome', value: outcomeText[outcome] },
+                ]}
+              />
+            </>
+          }
         >
-          {positionMode ? 'unbounded' : `${run.peakForceN.toFixed(1)} N`}
-        </span>{' '}
-        <span className="text-text-dim">outcome</span>{' '}
-        <span
-          data-testid="impedance-outcome-readout"
-          className={outcome === 'success' ? 'text-accent' : 'text-err'}
-        >
-          {outcomeText[outcome]}
-        </span>
-      </InstrumentReadout>
-
-      <ChartDescription
-        id={descriptionId}
-        className="mt-3"
-        form="state"
-        summary="Current contact lab settings and outcome"
-        description={
-          positionMode
-            ? `With the position-controlled geared arm selected, stiffness and damping are unavailable and the contact force is unbounded by construction: the position loop has no force channel.`
-            : `On the ${HARDWARE_OPTIONS.find((o) => o.value === params.hardware)?.label ?? ''} at depth ${(params.depthM * 1000).toFixed(1)} mm, stiffness ${params.stiffnessKNPerM.toFixed(0)} N/m and damping ${params.dampingNPerM.toFixed(0)} N·s/m, the contact peaks at ${run.peakForceN.toFixed(1)} N and settles at ${run.steadyForceN.toFixed(1)} N against the ${TRANSIENT_CONTACT_LIMIT_N} N research-basis transient limit: ${outcomeText[outcome]}.`
-        }
-        states={[
-          { label: 'depth', value: `${(params.depthM * 1000).toFixed(1)} mm` },
-          { label: 'K', value: positionMode ? 'n/a' : `${params.stiffnessKNPerM.toFixed(0)} N/m` },
-          { label: 'D', value: positionMode ? 'n/a' : `${params.dampingNPerM.toFixed(0)} N·s/m` },
-          { label: 'peak', value: positionMode ? 'unbounded' : `${run.peakForceN.toFixed(1)} N` },
-          { label: 'outcome', value: outcomeText[outcome] },
-        ]}
-      />
-
-      <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
-        A 4 kg effective end-effector mass pressing into a surface modelled
-        as a {(kEff / 1000).toFixed(0)} kN/m spring, under the impedance
-        law the stiffness and damping sliders program. The two reference
-        lines are the object&apos;s crush limit and the transient
-        contact-force limit for the thigh, {TRANSIENT_CONTACT_LIMIT_N} N,
-        stated on the research basis of measured 75th-percentile force
-        pain thresholds <CiteRef id={TRANSIENT_CONTACT_LIMIT_CITATION} />{' '}
-        rather than the paywalled ISO/TS 15066 table. Things worth trying:
-        soften K and the peak force falls with it; harden K toward its
-        maximum and the transient limit is crossed even though the steady
-        force barely moves; select the position-controlled arm and the
-        compliance sliders grey out, because a position loop has no force
-        to program.
-      </p>
-    </InstrumentFrame>
+          <PlotStage
+            viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
+            aria-label={`Contact force over the approach. Peak ${positionMode ? 'unbounded' : `${run.peakForceN.toFixed(1)} newtons`}, outcome ${outcomeText[outcome]}.`}
+            aria-describedby={descriptionId}
+            data-testid="impedance-chart"
+          >
+            <ChartAxes
+              plot={PLOT}
+              x={xFor}
+              y={yFor}
+              xTicks={[0, 0.2, 0.4, 0.6]}
+              yTicks={[0, 100, 200, 300]}
+              formatX={formatSeconds}
+              xLabel="time (s)"
+              yLabel="contact force (N)"
+            />
+            {/* The band above the transient limit, the region no contact
+                may enter. */}
+            <g data-series="impedance-limit" data-chart-role="constraint">
+              <ConstraintHatch
+                id={HATCH_ID}
+                x={PLOT.left}
+                y={PLOT.top}
+                width={plotWidth}
+                height={f(yFor(TRANSIENT_CONTACT_LIMIT_N) - PLOT.top)}
+              />
+            </g>
+            <g data-series="impedance-crush" data-chart-role="constraint">
+              <line
+                x1={PLOT.left}
+                y1={f(yFor(CRUSH_LIMIT_N))}
+                x2={PLOT.right}
+                y2={f(yFor(CRUSH_LIMIT_N))}
+                stroke={constraint}
+                strokeWidth={CHART_STROKE.reference}
+                strokeDasharray={CHART_STROKE.dash}
+              />
+            </g>
+            {positionMode ? (
+              <text
+                data-scene-note=""
+                x={noteX}
+                y={noteY}
+                textAnchor="middle"
+                fontSize={CHART_TYPE.axisPx}
+                fill={CHART_STRUCTURE.label}
+              >
+                <tspan x={noteX}>no force channel:</tspan>
+                <tspan x={noteX} dy={CHART_TYPE.axisPx * 1.4}>
+                  the position loop pins the contact force
+                </tspan>
+              </text>
+            ) : (
+              <g data-series="impedance-force" data-chart-role="state">
+                <path
+                  data-testid="impedance-force-trace"
+                  d={path}
+                  fill="none"
+                  stroke={roleColour('state')}
+                  strokeWidth={CHART_STROKE.trace}
+                  strokeLinejoin="round"
+                  strokeLinecap="round"
+                />
+              </g>
+            )}
+          </PlotStage>
+        </FigureStage>
+      }
+      caption="A softer K lowers the peak contact force; a position-controlled arm has no force channel to program."
+      source={
+        <>
+          Schematic model: a {EFFECTIVE_MASS_KG} kg end-effector mass on a{' '}
+          {(kEff / 1000).toFixed(kEff < 10_000 ? 1 : 0)} kN/m contact spring.
+          Limit from measured pain thresholds{' '}
+          <CiteRef id={TRANSIENT_CONTACT_LIMIT_CITATION} />, in place of the
+          paywalled ISO/TS 15066 table.
+        </>
+      }
+    />
   );
 }

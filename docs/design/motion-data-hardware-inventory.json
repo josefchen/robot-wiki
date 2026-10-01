@@ -3,17 +3,16 @@
     "article": "data-bottleneck",
     "element": "DataScaleChart",
     "occurrence": 1,
-    "decision": "rethink",
+    "decision": "remove",
     "teachingGoal": "Compare published robot and human hours with language tokens, then vary hypothetical farm inputs directly.",
-    "reason": "The source-scoped dual axes and two slider choices remain intact; an independent scene walks through how rate changes accumulation."
+    "reason": "Removed: this standalone mount repeated the chart inside the prediction step, which now stands in its place as the page's only instance."
   },
   {
     "article": "data-bottleneck",
     "element": "FarmThroughput",
-    "decision": "add",
-    "sceneId": "farm-throughput",
+    "decision": "remove",
     "teachingGoal": "Watch a fixed, authored hour target accumulate at two explicit hypothetical per-rig rates.",
-    "reason": "A paced accumulation makes rate, fleet and target distinct without turning DROID collectors into annual rig exposure."
+    "reason": "Removed: the scene replayed the chart's farm projection beside it; the chart's rigs slider and rate toggle teach the same rate and fleet arithmetic. The farm-throughput scene file and its registry row are deleted."
   },
   {
     "article": "data-bottleneck",
@@ -57,10 +56,10 @@
   {
     "article": "data-bottleneck",
     "element": "DataScaleChart",
-    "occurrence": 2,
+    "occurrence": 1,
     "decision": "keep",
     "teachingGoal": "Let the reader correct the farm prediction by choosing fleet size and hypothetical rate.",
-    "reason": "This second mount lives in assessment feedback and must retain its independently adjustable controls."
+    "reason": "The page's only mount lives in the prediction step's feedback and keeps its independently adjustable controls."
   },
   {
     "article": "data-bottleneck",
@@ -143,18 +142,17 @@
   {
     "article": "evaluation-crisis",
     "element": "EpisodeSurvival",
-    "decision": "add",
-    "sceneId": "episode-survival",
+    "decision": "remove",
     "teachingGoal": "Follow conditional success through an authored horizon before changing the probability and steps directly.",
-    "reason": "The one-timeline scene shows multiplication, while the calculator below keeps exact boundary cases and independent sliders."
+    "reason": "Removed: the calculator inside the prediction step draws the same compounding curve under the reader's control, so the scene repeated it. The episode-survival scene file and its registry row are deleted."
   },
   {
     "article": "evaluation-crisis",
     "element": "ReliabilityCompounding",
     "occurrence": 1,
-    "decision": "rethink",
+    "decision": "remove",
     "teachingGoal": "Set per-decision success and horizon to inspect the model's episode-level probability.",
-    "reason": "The scene introduces compounding but does not replace the full-range sliders or imply measured per-step reliability."
+    "reason": "Removed: this standalone calculator repeated the one inside the prediction step. The step now stands where it stood and carries the page's only calculator, with the full slider range."
   },
   {
     "article": "evaluation-crisis",
@@ -166,10 +164,10 @@
   {
     "article": "evaluation-crisis",
     "element": "ReliabilityCompounding",
-    "occurrence": 2,
+    "occurrence": 1,
     "decision": "keep",
-    "teachingGoal": "Test the predicted crossing with its own per-step and horizon sliders.",
-    "reason": "The assessment instance starts at a different state and must stay independent."
+    "teachingGoal": "Test the predicted crossing, then set per-decision success and horizon to inspect the model's episode-level probability.",
+    "reason": "The page's one calculator sits inside the prediction step, so the reader commits to an answer before moving either slider across its full range."
   },
   {
     "article": "evaluation-crisis",

@@ -13,4 +13,4 @@ One fusion up close: the wide predicted belief meets a reading, and the gain K n
 Run the whole episode: the estimate drifts through each dropout and corrects on each reading, staying close to the truth.
 
 00:00:15.500 --> 00:00:18.000
-Predict smears the belief, update sharpens it; that alternation, repeated forever, is the filter.
+Predict widens the belief, update narrows it; that alternation, repeated forever, is the filter.

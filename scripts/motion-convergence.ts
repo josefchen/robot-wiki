@@ -1,6 +1,6 @@
 /** Production scene budget and deterministic site-wide beat contact sheets. */
 import { createHash } from 'node:crypto';
-import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { gzipSync } from 'node:zlib';
 import { chromium } from '@playwright/test';
@@ -78,6 +78,21 @@ export function sceneBundleBudget(chunkDir: string, targets: readonly SceneTarge
   });
 }
 
+const SHEET_DOMAINS = [
+  'classical', 'manipulation', 'rl-sim2real', 'world-models', 'data-hardware', 'frontier-adjacent',
+] as const;
+
+function domainScenes(targets: readonly SceneTarget[], domain: (typeof SHEET_DOMAINS)[number]) {
+  return targets.filter((scene) => domain === 'frontier-adjacent'
+    ? scene.route.startsWith('/frontier/') || scene.route.startsWith('/adjacent/')
+    : scene.route.startsWith(`/${domain}/`));
+}
+
+/** Domains that still mount a scene, in sheet order. */
+export function sceneSheetDomains(targets: readonly SceneTarget[]) {
+  return SHEET_DOMAINS.filter((domain) => domainScenes(targets, domain).length > 0);
+}
+
 const escape = (value: string) => value.replace(/[&<>"']/g, (char) =>
   ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]!);
 
@@ -128,12 +143,14 @@ async function main() {
     for (const plan of plans) {
       await renderSheet(browser, plan.viewport, SCENE_TARGETS, join(output, `${plan.viewport}-contact-sheet.png`));
       console.log(`${plan.viewport}px: ${plan.rows.length} scenes, ${plan.rows.reduce((sum, row) => sum + row.beats, 0)} beats`);
-      for (const domain of ['classical', 'manipulation', 'rl-sim2real', 'world-models', 'data-hardware', 'frontier-adjacent']) {
-        const subset = SCENE_TARGETS.filter((scene) => domain === 'frontier-adjacent'
-          ? scene.route.startsWith('/frontier/') || scene.route.startsWith('/adjacent/')
-          : scene.route.startsWith(`/${domain}/`));
-        if (subset.length === 0) throw new Error(`empty scene domain: ${domain}`);
-        await renderSheet(browser, plan.viewport, subset, join(output, `${plan.viewport}-${domain}.png`));
+      const domains = sceneSheetDomains(SCENE_TARGETS);
+      for (const domain of SHEET_DOMAINS) {
+        const file = join(output, `${plan.viewport}-${domain}.png`);
+        if (domains.includes(domain)) {
+          await renderSheet(browser, plan.viewport, domainScenes(SCENE_TARGETS, domain), file);
+        } else {
+          rmSync(file, { force: true });
+        }
       }
     }
   } finally {

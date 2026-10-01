@@ -1,7 +1,11 @@
 /* eslint-disable @next/next/no-img-element -- static export serves plain images */
-import { FIGURE_TEXT_CLASS } from '@/components/motion/figure-frame';
+import {
+  FIGURE_TEXT_CLASS,
+  FigureFrame,
+  FigureStage,
+} from '@/components/motion/figure-frame';
 import { LOGO_MARK_CLASS, LOGO_TILE_CLASS } from '@/components/ui/logo-tile';
-import { Surface } from '@/components/ui/surface';
+import { ORIGINAL_SCHEMATICS } from '@/components/ui/original-schematics';
 import { cx } from '@/lib/utils';
 import type { FigureKind } from '@/data/schemas/image';
 
@@ -63,6 +67,100 @@ type FigureProps = {
  */
 const SCHEMATIC_LABEL = 'Original schematic';
 
+const CREDIT_LINK_CLASS =
+  'underline decoration-border-strong underline-offset-2 transition-colors hover:text-accent hover:decoration-accent';
+
+function CreditLine({ credit, className }: { credit: FigureCredit; className: string }) {
+  return (
+    <span
+      data-image-credit
+      // Index-only exclusion: the credit is attribution chrome that
+      // fused into search excerpts ("...guiding it by hand.Photo: Ims
+      // / Wikimedia Commons. Licence: CC BY-SA 4.0."). It stays
+      // VISIBLE here with both links; the licensing
+      // guarantee is a rendered-DOM guarantee, untouched by this.
+      // The caption above is content and stays indexed.
+      data-pagefind-ignore
+      className={className}
+    >
+      {credit.kind}: {credit.creator} /{' '}
+      {credit.sourceUrl ? (
+        <a
+          href={credit.sourceUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-brand-control-id="control:link-focus"
+          className={CREDIT_LINK_CLASS}
+        >
+          {credit.sourceName}
+        </a>
+      ) : (
+        credit.sourceName
+      )}
+      . Licence:{' '}
+      <a
+        href={credit.licenceUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        data-brand-control-id="control:link-focus"
+        className={CREDIT_LINK_CLASS}
+      >
+        {credit.licenceLabel}
+      </a>
+      .
+    </span>
+  );
+}
+
+/**
+ * An original schematic is drawn inline in the shared figure frame, so its
+ * labels sit on the stage type scale. The frame takes the drawing's own
+ * one-line caption: the registry caption is the longer record and runs past
+ * the frame's 20-word limit.
+ */
+function SchematicFigure({
+  imageId,
+  alt,
+  credit,
+  className,
+}: {
+  imageId?: string;
+  alt: string;
+  credit?: FigureCredit;
+  className?: string;
+}) {
+  const schematic = imageId ? ORIGINAL_SCHEMATICS[imageId] : undefined;
+  if (!imageId || !schematic) {
+    throw new Error(
+      `Original schematic "${imageId ?? alt}" has no inline drawing in components/ui/original-schematics.tsx`,
+    );
+  }
+  return (
+    <FigureFrame
+      figureId={imageId}
+      data-figure-kind="original-schematic"
+      data-image-id={imageId}
+      className={className}
+      heading={schematic.title}
+      stage={
+        <FigureStage>
+          <span
+            data-figure-label
+            className="block px-3 pt-2.5 font-sans text-xs font-semibold leading-none text-instrument-muted"
+          >
+            {SCHEMATIC_LABEL}
+          </span>
+          {schematic.draw(alt)}
+        </FigureStage>
+      }
+      caption={schematic.caption}
+      source={
+        credit ? <CreditLine credit={credit} className={FIGURE_TEXT_CLASS.source} /> : undefined
+      }
+    />
+  );
+}
+
 export function Figure({
   src,
   alt,
@@ -75,7 +173,11 @@ export function Figure({
   cropFocus = 'center',
   className,
 }: FigureProps) {
-  const schematic = figureKind === 'original-schematic';
+  if (figureKind === 'original-schematic') {
+    return (
+      <SchematicFigure imageId={imageId} alt={alt} credit={credit} className={className} />
+    );
+  }
   const mark = figureKind === 'official-mark';
   const photo = figureKind === 'photograph';
   const image = (
@@ -87,10 +189,6 @@ export function Figure({
       loading="lazy"
       decoding="async"
       className={cx(
-        // Inside the instrument the plate already carries the boundary, so a
-        // second border here would be the redundant nested frame the
-        // repetition rubric counts.
-        schematic && 'h-auto w-full rounded-xs',
         mark && cx(LOGO_MARK_CLASS, 'h-full w-auto'),
         // The border stays on the image rather than the crop box: a bordered
         // box holding an element is a surface the registry would govern.
@@ -111,17 +209,7 @@ export function Figure({
         className,
       )}
     >
-      {schematic ? (
-        <Surface level="bounded-dark" className="p-3">
-          <span
-            data-figure-label
-            className="block font-sans text-xs font-semibold leading-none text-instrument-muted"
-          >
-            {SCHEMATIC_LABEL}
-          </span>
-          <span className="mt-2 block">{image}</span>
-        </Surface>
-      ) : mark ? (
+      {mark ? (
         <span
           data-logo-tile=""
           data-brand-surface-id="surface:flat"
@@ -142,44 +230,8 @@ export function Figure({
         {caption}
       </figcaption>
       {credit ? (
-        <span
-          data-image-credit
-          // Index-only exclusion: the credit is attribution chrome that
-          // fused into search excerpts ("...guiding it by hand.Photo: Ims
-          // / Wikimedia Commons. Licence: CC BY-SA 4.0."). It stays
-          // VISIBLE here with both links — the licensing
-          // guarantee is a rendered-DOM guarantee, untouched by this.
-          // The caption above is content and stays indexed.
-          data-pagefind-ignore
-          // The credit is the figure system's source line.
-          className={FIGURE_TEXT_CLASS.source + ' mt-1 block'}
-        >
-          {credit.kind}: {credit.creator} /{' '}
-          {credit.sourceUrl ? (
-            <a
-              href={credit.sourceUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-brand-control-id="control:link-focus"
-              className="underline decoration-border-strong underline-offset-2 transition-colors hover:text-accent hover:decoration-accent"
-            >
-              {credit.sourceName}
-            </a>
-          ) : (
-            credit.sourceName
-          )}
-          . Licence:{' '}
-          <a
-            href={credit.licenceUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            data-brand-control-id="control:link-focus"
-            className="underline decoration-border-strong underline-offset-2 transition-colors hover:text-accent hover:decoration-accent"
-          >
-            {credit.licenceLabel}
-          </a>
-          .
-        </span>
+        // The credit is the figure system's source line.
+        <CreditLine credit={credit} className={FIGURE_TEXT_CLASS.source + ' mt-1 block'} />
       ) : null}
     </figure>
   );

@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { setHydratedSlider as setSlider } from './interaction-ready';
+import { setHydratedSlider as setSlider, waitForHydration } from './interaction-ready';
 
 const ROUTE = '/data-hardware/evaluation-crisis/';
 
@@ -8,17 +8,16 @@ const PER_STEP = { name: /per-step success/i };
 const HORIZON = { name: /episode length/i };
 
 /**
- * The standalone calculator mount. The article also renders the same
- * component inside its prediction step (mounted at 95%/14 steps inside a
- * closed disclosure), so page-global slider locators would resolve to two
- * elements; every assertion here targets the original mount, the one
- * placed directly in the prose rather than inside the [data-predict]
- * section's disclosure.
+ * The article's one calculator is the reveal of its prediction step,
+ * mounted at 95%/14 steps inside a closed disclosure. Opening the
+ * disclosure is the reader's own path to it, so every test opens it first.
  */
-function calculator(page: import('@playwright/test').Page) {
-  return page.locator(
-    'div.prose > div.rounded-md:has(svg[aria-label^="Line chart of episode success"]), div.prose > div.rounded-none:has(svg[aria-label^="Line chart of episode success"])',
-  );
+async function calculator(page: import('@playwright/test').Page) {
+  const step = page.locator('[data-predict]:has(svg[aria-label^="Line chart of episode success"])');
+  const summary = step.locator('details[data-reveal] > summary');
+  await waitForHydration(summary);
+  await summary.click();
+  return step.locator('[data-brand-module-signature="instrument-frame"]');
 }
 
 /** Parse the compounded-success readout, e.g. "21.5%" -> 21.5. */
@@ -139,7 +138,7 @@ test.describe('data-hardware evaluation-crisis module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
-    const mount = calculator(page);
+    const mount = await calculator(page);
     const perStep = mount.getByRole('slider', PER_STEP);
     const horizon = mount.getByRole('slider', HORIZON);
     await expect(perStep).toBeVisible();
@@ -155,7 +154,7 @@ test.describe('data-hardware evaluation-crisis module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
-    const mount = calculator(page);
+    const mount = await calculator(page);
     const perStep = mount.getByRole('slider', PER_STEP);
     const readout = mount.getByTestId('episode-success-readout');
 
@@ -186,7 +185,7 @@ test.describe('data-hardware evaluation-crisis module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
-    const mount = calculator(page);
+    const mount = await calculator(page);
     const horizon = mount.getByRole('slider', HORIZON);
     await setSlider(mount.getByRole('slider', PER_STEP), 95);
 
@@ -206,7 +205,7 @@ test.describe('data-hardware evaluation-crisis module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
-    const mount = calculator(page);
+    const mount = await calculator(page);
     const perStep = mount.getByRole('slider', PER_STEP);
     const horizon = mount.getByRole('slider', HORIZON);
     const readout = mount.getByTestId('episode-success-readout');
@@ -245,13 +244,13 @@ test.describe('data-hardware evaluation-crisis module', () => {
 
   test('reset restores the anchor state', async ({ page }) => {
     await page.goto(ROUTE);
-    const mount = calculator(page);
+    const mount = await calculator(page);
     await setSlider(mount.getByRole('slider', PER_STEP), 0);
     await setSlider(mount.getByRole('slider', HORIZON), 100);
     await mount.getByRole('button', { name: /reset/i }).click();
-    await expect(mount.getByTestId('episode-success-readout')).toHaveText('21.5%');
+    await expect(mount.getByTestId('episode-success-readout')).toHaveText('48.8%');
     await expect(mount.getByRole('slider', PER_STEP)).toHaveValue('95');
-    await expect(mount.getByRole('slider', HORIZON)).toHaveValue('30');
+    await expect(mount.getByRole('slider', HORIZON)).toHaveValue('14');
   });
 
   test('no horizontal page scroll at 375px', async ({ browser }) => {

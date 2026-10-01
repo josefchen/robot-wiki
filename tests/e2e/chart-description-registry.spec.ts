@@ -91,11 +91,16 @@ async function collectRenderedDescriptions(
   for (const route of ROUTES) {
     const response = await page.goto(`${BASE}${route}`, { waitUntil: 'load' });
     expect(response?.status(), `${route} serves 200`).toBe(200);
-    const texts = await page.evaluate(() =>
-      Array.from(document.querySelectorAll('[data-chart-description]')).map((el) =>
+    // A figure wrapped by a prediction step sits in a closed reveal, whose
+    // content has no innerText until it opens. Opening it moves no control.
+    const texts = await page.evaluate(() => {
+      document.querySelectorAll('details[data-reveal]').forEach((d) => {
+        (d as HTMLDetailsElement).open = true;
+      });
+      return Array.from(document.querySelectorAll('[data-chart-description]')).map((el) =>
         (el as HTMLElement).innerText,
-      ),
-    );
+      );
+    });
     const normalized = new Set(texts.map(normalize));
     byRoute.set(route, normalized);
     rootCount += texts.length;
@@ -122,10 +127,11 @@ test.describe('registry text equals the rendered default-state description', () 
   test('every registry entry renders verbatim on its owning route', async ({ page }) => {
     test.setTimeout(180_000);
     const rendered = await collectRenderedDescriptions(page);
+    // Unmounted entries render nowhere; the route check below proves it.
     expect(
       rendered.rootCount,
       'the DOM sweep saw described charts (non-zero rendered population)',
-    ).toBeGreaterThanOrEqual(CHART_DESCRIPTIONS.length);
+    ).toBeGreaterThanOrEqual(CHART_DESCRIPTIONS.filter((entry) => !entry.unmounted).length);
     const problems = validateRenderedChartDescriptionRoutes(
       CHART_DESCRIPTIONS.map((entry) => ({ ...entry, text: normalize(entry.text) })),
       rendered.byRoute,

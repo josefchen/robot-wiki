@@ -29,7 +29,21 @@ export const CHART_TYPE = {
   axisPx: MOTION_STAGE_TYPE.axisPx,
   tickPx: MOTION_STAGE_TYPE.tickPx,
   readoutPx: MOTION_STAGE_TYPE.readoutPx,
+  /**
+   * The brand sans's box around the baseline, in ems. A text element's
+   * bounding box spans ascent plus descent, so labels stacked by these
+   * never touch, and the probes that compare boxes agree.
+   */
+  ascent: 1.03,
+  descent: 0.28,
 } as const;
+
+/**
+ * Chart geometry is authored in the stage's own units at 340 wide, the
+ * stage width at a 375px viewport, so one unit is about one CSS pixel
+ * where the type is largest relative to the drawing.
+ */
+export const CHART_VIEW_WIDTH = 340;
 
 const trace = encodedNumber(MOTION_ROLES.state.encoding, 'px');
 const reference = encodedNumber(MOTION_ROLES.reference.encoding, 'px');

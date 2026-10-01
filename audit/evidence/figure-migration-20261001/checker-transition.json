@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "figure-migration-checker-revision-v1",
+  "name": "figure-migration-reader",
+  "before": {
+    "path": "audit/evidence/figure-migration-20261001/audit-local-basis-before.ts.txt",
+    "bytes": 114006,
+    "sha256": "a5bce56232d1ac63ce3f94add1bdc7d2a7964bf1f40bb6bd431b746ccb510a1a"
+  },
+  "after": {
+    "path": "lib/audit-local-basis.ts",
+    "bytes": 114190,
+    "sha256": "df2ad1d487103f41f8b939a67aa15d61ceb63843b9ef3d9b2c39353070e14fe5"
+  },
+  "reviewedBy": "Figure-migration implementer (not independent acceptance)",
+  "rationale": "The checker gains exactly three edits over the round6 remaining-repairs reader: it imports the figure-migration continuity module, its artifact reader passes each live file through the figure-migration successor review before the round6 reviews, and its local-basis context passes the interactive registry through the figure-migration registry review. No computation, threshold, ledger rule or negative check changes.",
+  "observedAt": "2026-10-01T11:10:44Z"
+}
