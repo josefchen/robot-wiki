@@ -1,6 +1,7 @@
 import { expect, test, type Locator } from '@playwright/test';
 import { auditSceneElement } from '@/lib/motion-scene-audit';
 import { MOTION_STAGE_TYPE } from '@/lib/motion-tokens';
+import { openAdjustMore } from './helpers/figure-fold';
 
 /**
  * Motion-language scenes, end to end (VAL-MOTION-007..010, 012, 013).
@@ -285,6 +286,7 @@ for (const scene of SCENES) {
       await expect(caption).toHaveText(scene.beats[scene.beats.length - 1]);
 
       // Stepping jumps between beat end-states, no tweening.
+      await openAdjustMore(scope);
       await scope
         .getByRole('button', { name: /step back one beat/i })
         .click();

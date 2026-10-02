@@ -638,12 +638,16 @@ const seoPassAppends = [
   ...seoPassArticles.map(id => `seo-pass-20261002-relationships-${id.replace('/', '-')}`),
   'seo-pass-20261002-citation-rendering',
 ];
+// The 2026-10-02 reader-first figure frame appends one accessible name: the
+// shared preset group borrows the label it prints above its buttons.
+const readerFirstAppends = ['reader-first-20261002-expression-name-preset-group-label'];
 // Earlier blocks check each chain as it stood before the SEO pass; the SEO
 // pass block below checks the entries that now close those chains.
 const beforeSeoPass = (entries: ApprovedDelta[]) => entries.filter(x => !seoPassAppends.includes(x.id));
 const seoPassEdges = (manifest: string, memberId: string) => merged
   .filter(x => seoPassAppends.includes(x.id) && x.manifest === manifest && x.memberId === memberId).map(x => x.id);
-const afterKolBacklog = merged.length - seoPassAppends.length;
+const afterSeoPass = merged.length - readerFirstAppends.length;
+const afterKolBacklog = afterSeoPass - seoPassAppends.length;
 const afterOpusFigureMigration = afterKolBacklog - kolBacklogAppends.length;
 const afterOpusHomepage = afterOpusFigureMigration - opusFigureMigrationAppends.length;
 const afterOpusFigureSystem = afterOpusHomepage - opusHomepageAppends.length;
@@ -668,13 +672,13 @@ describe('two-parent exact approval reconciliation', () => {
     // reconciliation edges, all named below in ledger order, and the round-6
     // prose restores and remaining repairs, the figure-system resolution, the
     // home front page and the figure migration add the edges named above,
-    // the KOL backlog batch appends its own named block, and the SEO pass
-    // appends its block last.
-    expect([main.length, local.length, localOnly.length, merged.length]).toEqual([1558, 1104, 7, 2026]);
+    // the KOL backlog batch appends its own named block, the SEO pass
+    // appends its block, and the reader-first figure frame appends its block last.
+    expect([main.length, local.length, localOnly.length, merged.length]).toEqual([1558, 1104, 7, 2027]);
     expect(merged.slice(0, main.length)).toEqual(main);
     expect(merged.slice(main.length, main.length + localOnly.length)).toEqual(localOnly);
     expect(merged.slice(main.length + localOnly.length).map(x => x.id))
-      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends, ...opusFigureMigrationAppends, ...kolBacklogAppends, ...seoPassAppends]);
+      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends, ...opusFigureMigrationAppends, ...kolBacklogAppends, ...seoPassAppends, ...readerFirstAppends]);
     expect(merged.slice(beforeRound6.length, afterRound6Prose)).toMatchObject(round6ProseRestoreEndpoints.map(
       ([memberId, , newHash], index) => ({
         id: round6ProseRestoreAppends[index], manifest: 'prose', memberId, newHash,
@@ -703,9 +707,16 @@ describe('two-parent exact approval reconciliation', () => {
       id, responsibleMilestone: 'brand-v2-hygiene', disposition: 'permanent',
       affectedAssertions: ['VAL-KOL-001', 'VAL-B2-BASE-002', 'VAL-B2-BASE-010', 'VAL-B2-BASE-011'],
     })));
-    expect(merged.slice(afterKolBacklog)).toMatchObject(seoPassAppends.map(id => ({
+    expect(merged.slice(afterKolBacklog, afterSeoPass)).toMatchObject(seoPassAppends.map(id => ({
       id, responsibleMilestone: 'opus-pass', disposition: 'permanent',
     })));
+    expect(merged.slice(afterSeoPass)).toMatchObject([{
+      id: readerFirstAppends[0], manifest: 'accessible-names',
+      memberId: 'expression:components/ui/instrument.tsx:aria-labelledby:1',
+      oldHash: 'ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d',
+      newHash: '5365423d7ce3ace32c008459465c944c95d5df4afd331ad26413b336316be72b',
+      responsibleMilestone: 'opus-pass', disposition: 'permanent',
+    }]);
     expect(beforeRound6.slice(-1)).toMatchObject([{
       id: sharedReaderLayoutAppends[0], manifest: 'article-metadata',
       memberId: 'canonical-metadata-source:app/layout.tsx',

@@ -195,7 +195,7 @@ export type SeoPassSpec = { name: string; before: Artifact; after: Artifact; edi
 type SpecReview = Review & { archivedFrom: string; sources: SeoPassSpec[] };
 
 /** The reviewed spec evidence file; a changed review needs a reviewed code change too. */
-const specReviewPin = { bytes: 48697, sha256: '03fb00e95fbd31b2deb73fb13be82f05945d078aed39dc39b3a0646938a67e57' };
+const specReviewPin = { bytes: 50996, sha256: 'b421b8d70c463f8f8f58fa181f2e58234a28bbe852daec507b461e93e06a4369' };
 
 /** Reviewed successor bytes per end-to-end spec the pass edited. */
 const specSuccessors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -219,9 +219,9 @@ const specSuccessors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/e2e/jepa.spec.ts', [5648, '1c64baeed85610bf6ba277a0b8615510471fc44609da2cdb9e97e90aed3909b2']],
   ['tests/e2e/kinematics.spec.ts', [21277, '82195d46be60e26cdb6bf7ad549d3f71453e76886c1f3a552873a82f5ca9815e']],
   ['tests/e2e/latent-dynamics.spec.ts', [6422, '3b722cb38c66336e2923d044a6b1d69406d2d34fb1a72650e9ecc31519ca7bc1']],
-  ['tests/e2e/legged-locomotion.spec.ts', [7331, '195ca9fed8738029674241251993395642627bdbabf23a58f45fe6d95a3764b6']],
+  ['tests/e2e/legged-locomotion.spec.ts', [7420, '75655120e239bd08f8b789c1bb8629afb3a5e8709497bb963a238161e11e3d22']],
   ['tests/e2e/motion-planning.spec.ts', [16638, 'aff9d4374c9f0267550d3bf6ce33e3a589f71dc7d07523c5291175f53e154307']],
-  ['tests/e2e/parallel-sim-rl.spec.ts', [4176, '56bc40bacdb2c7ddfd32d6478d6682c6a8e28e100506296b9bfada5551a84969']],
+  ['tests/e2e/parallel-sim-rl.spec.ts', [4265, 'd28fe2b2b6cc1461efa8e3201289366cc63e20b75c7a6b7fcda38a99775b0a45']],
   ['tests/e2e/perception-depth-readers.spec.ts', [22545, '542f88c9af8baf6dd733be81bbba352240930922cda10e39e9988534b23ffa67']],
   ['tests/e2e/perception.spec.ts', [36500, '40f915a16e85405ea0b8fa5a8754dcfb4b56e4e50d95090d029c38187fa0c37c']],
   ['tests/e2e/reliability-gap.spec.ts', [11845, 'f826f404946b5784cf142da08107b22d85d3b5423f4084f57fddeec41c031da5']],
@@ -233,7 +233,7 @@ const specSuccessors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/e2e/seo-static-integrity.spec.ts', [19190, 'a7f23fa65c7a57d253c086157a0fb959532ff3c9edc9d896602483bc4daff73b']],
   ['tests/e2e/sim2real-transfer.spec.ts', [10225, '62dad0f8e651f98d0ae52256023715d65bdf21cd52189073fdba573aed7819e3']],
   ['tests/e2e/space.spec.ts', [10140, '51fa6706329ea15cfbffbcd24da1722a10797ea7d50946a11db34521dfc128b0']],
-  ['tests/e2e/state-estimation.spec.ts', [13378, '4818178f66a2ef8344d644026bbbd1b9b5a9b2f0fba40e71ad76dd394309aef4']],
+  ['tests/e2e/state-estimation.spec.ts', [13500, '03cf55b5f93b2f885762ebccbc61ed38b7ad06c77a669c6b88cef8ef697606e0']],
   ['tests/e2e/surgical.spec.ts', [6841, 'c827a674b1211aaeb18174c2c8b60300d71dc618f58a8ac32c3c0ec06398553b']],
   ['tests/e2e/teleop-rigs.spec.ts', [8889, 'dac84b81f54dce9add7715ba5b25a9fe0d1c5e834b823b8ad6cb6e87055bb0da']],
   ['tests/e2e/why-rl-locomotion.spec.ts', [4589, 'b5371e1488f7a8f522b81344c5dbf872116717bfb6ea09efb307111422bcb64f']],

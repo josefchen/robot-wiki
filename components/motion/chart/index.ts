@@ -10,6 +10,7 @@ export {
   DirectLabel,
   LineTrace,
   PointMarker,
+  StageAnnotation,
   UncertaintyBand,
   type ChartPoint,
 } from './chart-marks';

@@ -4,10 +4,11 @@ import { cx } from '@/lib/utils';
 
 /**
  * The one frame every explanatory figure renders in, in this order: a
- * header with a short title and the shared controls, the bounded graphite
- * stage, one caption line, and at most one source line. Legends, readouts
- * and the scene timeline live on the stage, so nothing else sits between
- * the stage and the prose that follows it.
+ * header (an optional kicker, the takeaway headline, at most two visible
+ * controls and the "Adjust more" fold), the bounded graphite stage, one
+ * caption sentence, the "How this was made" fold, and at most one source
+ * line. Legends, readouts and the scene timeline live on the stage, so
+ * nothing else sits between the stage and the prose that follows it.
  *
  * The data-figure-* hooks are what scripts/check-figure-system.ts reads in
  * the static export, so a figure that drops out of this frame fails the
@@ -15,16 +16,82 @@ import { cx } from '@/lib/utils';
  */
 
 /**
- * Frame text on the shared scale: 14px for the title and caption, 13px on
- * the stage, 12px for the source line. With the stage type roles (14, 13,
- * 12) that keeps every figure on three sizes.
+ * Frame text on three sizes: 16px for the headline, 14px for the caption,
+ * the controls and everything on the stage, 12px for the kicker and the
+ * source line.
  */
 export const FIGURE_TEXT_CLASS = {
-  title: 'font-sans text-sm font-semibold leading-snug text-text',
+  kicker: 'font-sans text-xs font-medium leading-snug text-text-dim',
+  title: 'font-sans text-base font-semibold leading-snug text-text',
   caption: 'font-sans text-sm leading-snug text-text',
   source: 'font-sans text-xs leading-snug text-text-dim',
-  stage: 'font-sans text-[13px] leading-snug text-on-instrument',
+  stage: 'font-sans text-sm leading-snug text-on-instrument',
+  fold: 'font-sans text-sm leading-snug text-text',
 } as const;
+
+/** The exact summaries of the two folds the frame owns. */
+export const FIGURE_FOLD_LABEL = {
+  adjust: 'Adjust more',
+  method: 'How this was made',
+} as const;
+
+const FOLD_SUMMARY_CLASS =
+  'inline-flex min-h-11 cursor-pointer select-none list-none items-center gap-1.5 font-sans text-sm text-text-dim underline decoration-border-strong decoration-1 underline-offset-4 transition-colors hover:text-text [&::-webkit-details-marker]:hidden';
+
+/** A border-drawn chevron: no glyph, so the summary's text is its label alone. */
+function FoldMarker() {
+  return (
+    <span
+      aria-hidden="true"
+      className="inline-block size-1.5 -rotate-45 border-b-[1.5px] border-r-[1.5px] border-current transition-transform group-open/fold:rotate-45"
+    />
+  );
+}
+
+/**
+ * One of the frame's two folds: collapsed in the served HTML, opened by
+ * the native disclosure, so keyboard, pointer and no-script readers all
+ * reach the same content.
+ */
+function FigureFold({
+  kind,
+  defaultOpen = false,
+  className,
+  children,
+}: {
+  kind: keyof typeof FIGURE_FOLD_LABEL;
+  defaultOpen?: boolean;
+  className?: string;
+  children: ReactNode;
+}) {
+  return (
+    <details
+      data-figure-fold={kind}
+      open={defaultOpen || undefined}
+      className={cx('group/fold', className)}
+    >
+      <summary
+        data-brand-control-id="control:secondary-action"
+        data-pagefind-ignore
+        className={FOLD_SUMMARY_CLASS}
+      >
+        <FoldMarker />
+        {FIGURE_FOLD_LABEL[kind]}
+      </summary>
+      <div
+        data-figure-fold-body=""
+        className={cx(
+          FIGURE_TEXT_CLASS.fold,
+          kind === 'adjust'
+            ? 'flex flex-wrap items-end gap-x-3 gap-y-2 pb-1 pt-1'
+            : 'space-y-2 pb-1 pt-1',
+        )}
+      >
+        {children}
+      </div>
+    </details>
+  );
+}
 
 type FrameElement = 'figure' | 'div';
 
@@ -33,14 +100,26 @@ export type FigureFrameProps = HTMLAttributes<HTMLElement> & {
   figureId: string;
   /** `figure` for a static figure; `div` when the root carries role="group". */
   as?: FrameElement;
-  /** The title: a short noun phrase that fits on one line at 375px. */
+  /** Optional technical name above the headline, six words or fewer. */
+  kicker?: ReactNode;
+  /** The headline: the figure's takeaway in plain words, ten or fewer. */
   heading: ReactNode;
-  /** The shared controls, right of the title and wrapping below it. */
+  /** At most two visible controls, under the headline. */
   controls?: ReactNode;
+  /** Every further control, inside the "Adjust more" fold. */
+  adjust?: ReactNode;
+  /**
+   * Render "Adjust more" open. Only for a frame that replaces another
+   * after the reader acted inside the fold, so the fold stays where the
+   * reader left it; every frame is served with both folds closed.
+   */
+  adjustOpen?: boolean;
   /** The FigureStage. */
   stage: ReactNode;
-  /** One caption line, 20 words or fewer. */
+  /** One sentence on why the point matters, 25 words or fewer. */
   caption: ReactNode;
+  /** Method, data, sources and caveats, inside "How this was made". */
+  method?: ReactNode;
   /** Attributes for the caption element (live region, test id, ref). */
   captionProps?: HTMLAttributes<HTMLElement> & {
     ref?: Ref<HTMLDivElement>;
@@ -56,11 +135,15 @@ export type FigureFrameProps = HTMLAttributes<HTMLElement> & {
 export function FigureFrame({
   figureId,
   as = 'figure',
+  kicker,
   heading,
   controls,
+  adjust,
+  adjustOpen = false,
   stage,
   caption,
   captionProps,
+  method,
   source,
   className,
   children,
@@ -78,19 +161,28 @@ export function FigureFrame({
   // a figure title or caption is figure text in the sans, not body prose.
   const body = (
     <>
-      <div
-        data-figure-header=""
-        className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2"
-      >
-        <div data-figure-title="" className={FIGURE_TEXT_CLASS.title}>
-          {heading}
+      <div data-figure-header="" className="flex flex-col gap-y-2">
+        <div data-figure-heading="" className="flex flex-col gap-y-0.5">
+          {kicker ? (
+            <div data-figure-kicker="" className={FIGURE_TEXT_CLASS.kicker}>
+              {kicker}
+            </div>
+          ) : null}
+          <div data-figure-title="" className={FIGURE_TEXT_CLASS.title}>
+            {heading}
+          </div>
         </div>
-        {controls ? (
+        {controls || adjust ? (
           <div
             data-figure-controls=""
-            className="flex flex-wrap items-center gap-2"
+            className="flex flex-wrap items-end gap-x-3 gap-y-2"
           >
             {controls}
+            {adjust ? (
+              <FigureFold kind="adjust" defaultOpen={adjustOpen} className="open:basis-full">
+                {adjust}
+              </FigureFold>
+            ) : null}
           </div>
         ) : null}
       </div>
@@ -109,6 +201,11 @@ export function FigureFrame({
           {caption}
         </div>
       )}
+      {method ? (
+        <FigureFold kind="method" className="mt-1">
+          {method}
+        </FigureFold>
+      ) : null}
       {source ? (
         <div
           data-figure-source=""
@@ -224,6 +321,28 @@ export function StageReadout({
   );
 }
 
+/**
+ * The status label a toy, authored or illustrative figure keeps on its
+ * stage, in the VAL-MOTION-016 vocabulary ("Illustrative, not measured").
+ * Only the label: the method and caveats behind it belong in "How this
+ * was made".
+ */
+export function StageStatus({
+  className,
+  children,
+  ...props
+}: HTMLAttributes<HTMLParagraphElement> & { children: ReactNode }) {
+  return (
+    <p
+      data-figure-status=""
+      className={cx('basis-full font-sans text-sm leading-snug text-text-dim', className)}
+      {...props}
+    >
+      {children}
+    </p>
+  );
+}
+
 /** A numeric value inside a readout: digits, signs, units, separators. */
 export function StageNumber({
   className,
@@ -238,5 +357,27 @@ export function StageNumber({
     >
       {children}
     </span>
+  );
+}
+
+/**
+ * The plain-words note on an HTML stage (a table, cards, a list): the
+ * highlight-role text that names what the reader should see. One per
+ * figure, two at most, visible at settle.
+ */
+export function StageCallout({
+  className,
+  children,
+  ...props
+}: HTMLAttributes<HTMLParagraphElement> & { children: ReactNode }) {
+  return (
+    <p
+      data-figure-annotation=""
+      className={cx('font-sans text-sm font-semibold leading-snug', className)}
+      style={{ color: 'var(--role-highlight-stage)' }}
+      {...props}
+    >
+      {children}
+    </p>
   );
 }

@@ -8,7 +8,7 @@
     "minutes": 14
   },
   "manipulation/diffusion-policy": {
-    "words": 1822,
+    "words": 1819,
     "minutes": 9
   },
   "manipulation/vla-models": {
@@ -68,7 +68,7 @@
     "minutes": 7
   },
   "rl-sim2real/parallel-sim-rl": {
-    "words": 1807,
+    "words": 1804,
     "minutes": 9
   },
   "rl-sim2real/sim2real-transfer": {
@@ -76,7 +76,7 @@
     "minutes": 14
   },
   "rl-sim2real/legged-locomotion": {
-    "words": 2196,
+    "words": 2193,
     "minutes": 11
   },
   "rl-sim2real/humanoid-wbc": {
@@ -144,8 +144,8 @@
     "minutes": 10
   },
   "data-hardware/industrial-deployment": {
-    "words": 2901,
-    "minutes": 15
+    "words": 2898,
+    "minutes": 14
   },
   "data-hardware/robot-learning-stack": {
     "words": 1245,
@@ -164,7 +164,7 @@
     "minutes": 15
   },
   "classical/state-estimation": {
-    "words": 2994,
+    "words": 2991,
     "minutes": 15
   },
   "classical/grasp-planning": {
@@ -192,7 +192,7 @@
     "minutes": 9
   },
   "frontier/dexterity": {
-    "words": 2737,
+    "words": 2734,
     "minutes": 14
   },
   "frontier/generalization": {
@@ -216,7 +216,7 @@
     "minutes": 19
   },
   "adjacent/drones": {
-    "words": 2493,
+    "words": 2490,
     "minutes": 12
   },
   "adjacent/surgical": {

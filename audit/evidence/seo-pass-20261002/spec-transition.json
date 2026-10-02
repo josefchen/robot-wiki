@@ -3,8 +3,8 @@
   "name": "seo-pass-end-to-end-pins",
   "archivedFrom": "953a891b42e762aa1e6ddbf77421fc8f727019f4",
   "reviewedBy": "release steward re-anchoring the SEO pass (not independent acceptance)",
-  "rationale": "The SEO pass updated the end-to-end specs it made stale: citation chips are found by their new author labels, internal link checks expect the trailing-slash form, the apparatus and related-list tests name edges that still exist, the Article structured-data and sitemap tests expect the page profile and change dates, the OG test expects the search-facing home description, and the dexterity wrapper test counts the punctuated cluster-ends from the article. Each spec change is recorded here as exact edits over its pre-pass bytes. The pre-pass bytes stand in for the live spec only while the live spec is exactly the reviewed successor, reversing the edits rebuilds bytes that hash to the recorded predecessor, and the successor keeps at least as many expect and test calls as its predecessor, so older reviews, runs and receipts that pinned the pre-pass spec still check the bytes they recorded.",
-  "observedAt": "2026-10-02T06:09:36Z",
+  "rationale": "The SEO pass updated the end-to-end specs it made stale: citation chips are found by their new author labels, internal link checks expect the trailing-slash form, the apparatus and related-list tests name edges that still exist, the Article structured-data and sitemap tests expect the page profile and change dates, the OG test expects the search-facing home description, and the dexterity wrapper test counts the punctuated cluster-ends from the article. Each spec change is recorded here as exact edits over its pre-pass bytes. The pre-pass bytes stand in for the live spec only while the live spec is exactly the reviewed successor, reversing the edits rebuilds bytes that hash to the recorded predecessor, and the successor keeps at least as many expect and test calls as its predecessor, so older reviews, runs and receipts that pinned the pre-pass spec still check the bytes they recorded. The reader-first figure pass then moved scene stepping and reset into each figure's Adjust more fold, so the scene specs that step or reset a scene open that fold first; those edits are appended to the same specs as further exact edits over the SEO-pass bytes.",
+  "observedAt": "2026-10-02T09:47:55Z",
   "sources": [
     {
       "name": "autonomous-vehicles",
@@ -611,8 +611,8 @@
       },
       "after": {
         "path": "tests/e2e/legged-locomotion.spec.ts",
-        "bytes": 7331,
-        "sha256": "195ca9fed8738029674241251993395642627bdbabf23a58f45fe6d95a3764b6"
+        "bytes": 7420,
+        "sha256": "75655120e239bd08f8b789c1bb8629afb3a5e8709497bb963a238161e11e3d22"
       },
       "edits": [
         {
@@ -626,6 +626,14 @@
         {
           "before": "      main.getByRole('link', { name: /Miki 2022/ }).first(),\n",
           "after": "      main.getByRole('link', { name: /Miki et al\\. 2022/ }).first(),\n"
+        },
+        {
+          "before": "import AxeBuilder from '@axe-core/playwright';\n\n",
+          "after": "import AxeBuilder from '@axe-core/playwright';\nimport { openAdjustMore } from './helpers/figure-fold';\n\n"
+        },
+        {
+          "before": "    await expect(readout).toContainText(/walk\\s*minimum support 3 feet/i);\n    const forward = scene.getByRole('button', { name: 'Step forward one beat' });\n",
+          "after": "    await expect(readout).toContainText(/walk\\s*minimum support 3 feet/i);\n    await openAdjustMore(scene);\n    const forward = scene.getByRole('button', { name: 'Step forward one beat' });\n"
         }
       ]
     },
@@ -665,8 +673,8 @@
       },
       "after": {
         "path": "tests/e2e/parallel-sim-rl.spec.ts",
-        "bytes": 4176,
-        "sha256": "56bc40bacdb2c7ddfd32d6478d6682c6a8e28e100506296b9bfada5551a84969"
+        "bytes": 4265,
+        "sha256": "d28fe2b2b6cc1461efa8e3201289366cc63e20b75c7a6b7fcda38a99775b0a45"
       },
       "edits": [
         {
@@ -676,6 +684,14 @@
         {
           "before": "      main.getByRole('link', { name: /NVIDIA 2025/ }).first(),\n",
           "after": "      main.getByRole('link', { name: /NVIDIA et al\\. 2025/ }).first(),\n"
+        },
+        {
+          "before": "import AxeBuilder from '@axe-core/playwright';\n\n",
+          "after": "import AxeBuilder from '@axe-core/playwright';\nimport { openAdjustMore } from './helpers/figure-fold';\n\n"
+        },
+        {
+          "before": "    await expect(scene.getByTestId('motion-caption')).toHaveText(/64 parallel environments/i);\n    const forward = scene.getByRole('button', { name: 'Step forward one beat' });\n",
+          "after": "    await expect(scene.getByTestId('motion-caption')).toHaveText(/64 parallel environments/i);\n    await openAdjustMore(scene);\n    const forward = scene.getByRole('button', { name: 'Step forward one beat' });\n"
         }
       ]
     },
@@ -969,8 +985,8 @@
       },
       "after": {
         "path": "tests/e2e/state-estimation.spec.ts",
-        "bytes": 13378,
-        "sha256": "4818178f66a2ef8344d644026bbbd1b9b5a9b2f0fba40e71ad76dd394309aef4"
+        "bytes": 13500,
+        "sha256": "03cf55b5f93b2f885762ebccbc61ed38b7ad06c77a669c6b88cef8ef697606e0"
       },
       "edits": [
         {
@@ -1000,6 +1016,18 @@
         {
           "before": "      main.getByRole('link', { name: 'Forster 2017' }).first(),\n",
           "after": "      main.getByRole('link', { name: 'Forster et al. 2017' }).first(),\n"
+        },
+        {
+          "before": "import AxeBuilder from '@axe-core/playwright';\n\n",
+          "after": "import AxeBuilder from '@axe-core/playwright';\nimport { openAdjustMore } from './helpers/figure-fold';\n\n"
+        },
+        {
+          "before": "    // Reset returns to the poster still.\n    await scene\n",
+          "after": "    // Reset returns to the poster still.\n    await openAdjustMore(scene);\n    await scene\n"
+        },
+        {
+          "before": "    // Stepping jumps between beat end-states with no tweening.\n    await scene\n",
+          "after": "    // Stepping jumps between beat end-states with no tweening.\n    await openAdjustMore(scene);\n    await scene\n"
         }
       ]
     },

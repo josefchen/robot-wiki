@@ -1,5 +1,6 @@
 import { expect, test, type Page } from './helpers/state-smoothing-fixture';
 import AxeBuilder from '@axe-core/playwright';
+import { openAdjustMore } from './helpers/figure-fold';
 
 const ROUTE = '/classical/state-estimation/';
 
@@ -251,6 +252,7 @@ test.describe('classical state-estimation module', () => {
     );
 
     // Reset returns to the poster still.
+    await openAdjustMore(scene);
     await scene
       .getByRole('button', { name: /reset the scene to its poster still/i })
       .click();
@@ -297,6 +299,7 @@ test.describe('classical state-estimation module', () => {
     ).toBeVisible();
     await expect(caption).toHaveText(/written out/i);
     // Stepping jumps between beat end-states with no tweening.
+    await openAdjustMore(scene);
     await scene
       .getByRole('button', { name: /step back one beat/i })
       .click();

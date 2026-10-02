@@ -60,8 +60,8 @@ CLIP_STAGE_PX = 299
 
 TYPE_PX = {
     'label': 14,
-    'axis': 13,
-    'tick': 12,
+    'axis': 14,
+    'tick': 14,
 }
 
 STROKE_PX = {
@@ -71,7 +71,7 @@ STROKE_PX = {
 }
 
 DASH_PX = (6, 3)
-TICK_LENGTH_PX = 6
+TICK_LENGTH_PX = 7
 
 MARKER_RADIUS_PX = {
     'single': 4,

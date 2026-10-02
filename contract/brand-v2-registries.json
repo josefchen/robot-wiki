@@ -10974,6 +10974,7 @@
         "components/market-map/filter-bar.tsx",
         "components/market-map/funding-timeline.tsx",
         "components/market-map/market-map.tsx",
+        "components/motion/figure-frame.tsx",
         "components/motion/scene-mount.tsx",
         "components/motion/scene-player.tsx",
         "components/nav/nav-tree.tsx",
@@ -11011,6 +11012,7 @@
         "components/market-map/filter-bar.tsx",
         "components/market-map/funding-timeline.tsx",
         "components/market-map/market-map.tsx",
+        "components/motion/figure-frame.tsx",
         "components/motion/scene-mount.tsx",
         "components/motion/scene-player.tsx",
         "components/nav/nav-tree.tsx",
@@ -11038,7 +11040,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "140a4f5a19d83ae65578bf30f8621571cb7a678721609a87c0d154d6b24a89da"
+      "fingerprint": "10dab0bf3b2177bdd953eac69ba474b9bc5454212c3d24fcf60d1c5a5b575c5c"
     },
     {
       "id": "control:selection",
@@ -11098,6 +11100,7 @@
         "components/search/type-facet-bar.tsx",
         "components/three/trajectory-panel.tsx",
         "components/ui/chip.tsx",
+        "components/ui/instrument.tsx",
         "components/ui/tabs.tsx"
       ],
       "ownerRouteOrMount": [
@@ -11138,7 +11141,8 @@
         "components/market-map/bubble-view.tsx",
         "components/market-map/filter-bar.tsx",
         "components/search/type-facet-bar.tsx",
-        "components/three/trajectory-panel.tsx"
+        "components/three/trajectory-panel.tsx",
+        "components/ui/instrument.tsx"
       ],
       "mountState": "production",
       "disabledException": null,
@@ -11154,7 +11158,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "44640bf69230ea76d0de054e45b2caf11abbc8f93f9fec7da7634b087c9f5690"
+      "fingerprint": "bf3359fed9d3cb78402940284ac3c3d15a7bb604ad3a2d9d6791687d0d847a1a"
     },
     {
       "id": "control:link-focus",
@@ -11484,5 +11488,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "e0b0f228cec76b1b3b431cc73dab6fa24299b9f817bbaea4b1dcb4b09231dcd0"
+  "rootFingerprint": "5c52f682233cd2e3f68eb153ea1ded5da236beb248955159aa97a0818031beca"
 }

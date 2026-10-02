@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "14e6049d8db4ebea411ea16bd949034f878dca6135257fae5ae97107bfd99146",
+  "fingerprint": "07f3a81676906c74153e3391bdf5b3233b14dd06b6d390be0f92eca500de47db",
   "viewports": [
     "375x812",
     "1440x900"
@@ -142,7 +142,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3110,
+      "visibleTextLength": 3093,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -459,6 +459,14 @@
           "sizePx": 14,
           "inProse": false,
           "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "button",
@@ -2115,7 +2123,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18760,
+      "visibleTextLength": 18743,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -2243,7 +2251,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 309,
           "zeroAdvancePx": 8,
@@ -2261,7 +2269,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 309,
           "zeroAdvancePx": 8,
@@ -2270,7 +2278,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 309,
           "zeroAdvancePx": 8,
@@ -2782,7 +2790,7 @@
           "tag": "summary",
           "text": "Current sense-and-avoid budget",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -2793,6 +2801,14 @@
           "sizePx": 14,
           "inProse": true,
           "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "button",
@@ -5107,7 +5123,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 275,
           "zeroAdvancePx": 8,
@@ -5323,7 +5339,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 309,
           "zeroAdvancePx": 8,
@@ -5793,7 +5809,7 @@
           "tag": "summary",
           "text": "Current pendulum gains and regim",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -5809,7 +5825,7 @@
           "tag": "summary",
           "text": "Current contact lab settings and",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -5978,9 +5994,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 232,
+          "widthPx": 240,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "contacts 3 · force closure yes · ε 0.444"
@@ -6537,7 +6553,7 @@
           "tag": "summary",
           "text": "Current object contacts and cone",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -6545,7 +6561,7 @@
           "tag": "summary",
           "text": "Current wrench-space quality",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         }
@@ -6694,9 +6710,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 227,
+          "widthPx": 235,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "end effector x +0.45 y +1.89 link units"
@@ -7284,7 +7300,7 @@
           "tag": "summary",
           "text": "Current arm pose",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         }
@@ -7437,7 +7453,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 309,
           "zeroAdvancePx": 8,
@@ -8221,7 +8237,7 @@
           "tag": "summary",
           "text": "Current RRT tree state",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         }
@@ -8392,7 +8408,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 309,
           "zeroAdvancePx": 8,
@@ -9341,7 +9357,7 @@
           "tag": "summary",
           "text": "Current authored budget and mode",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -10386,7 +10402,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 309,
           "zeroAdvancePx": 8,
@@ -11132,7 +11148,7 @@
           "tag": "summary",
           "text": "Current representation, resoluti",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -11171,7 +11187,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20004,
+      "visibleTextLength": 19987,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -11303,16 +11319,16 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 267.81,
+          "widthPx": 208.47,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 5 / 5 σ 0.94 → 1.27 → 0.79 K 0.62 z 0.82"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 309,
           "zeroAdvancePx": 8,
@@ -11868,6 +11884,14 @@
           "sizePx": 14,
           "inProse": true,
           "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "button",
@@ -12517,7 +12541,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 275,
           "zeroAdvancePx": 8,
@@ -12987,7 +13011,7 @@
           "tag": "summary",
           "text": "Datasets and corpora by scale, w",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -14104,9 +14128,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 226,
+          "widthPx": 229,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "(0.950)^14 = 48.8% episode success"
@@ -14619,7 +14643,7 @@
           "tag": "summary",
           "text": "Sampled episode success by episo",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -15652,7 +15676,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 25194,
+      "visibleTextLength": 25177,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -15719,11 +15743,11 @@
           "Industrial Deployment"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 15,
+        "readingMinutes": 14,
         "citationCount": 22,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "15 min",
+        "readingTimeText": "14 min",
         "citationCountText": "22",
         "bibliographyIds": [
           "ifr-world-robotics-2025",
@@ -15785,7 +15809,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 309,
           "zeroAdvancePx": 8,
@@ -15794,7 +15818,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 309,
           "zeroAdvancePx": 8,
@@ -15803,9 +15827,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 165,
+          "widthPx": 170,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Pays back inside 24 months"
@@ -16305,6 +16329,14 @@
           "sizePx": 14,
           "inProse": true,
           "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "button",
@@ -18464,9 +18496,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 238,
+          "widthPx": 247,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "8 milestones: 4 not met, 4 partial, 0 met"
@@ -19324,9 +19356,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 251,
+          "widthPx": 266,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "6 theses, showing: End-to-end VLA scaling"
@@ -19992,7 +20024,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23908,
+      "visibleTextLength": 23891,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -20130,7 +20162,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 309,
           "zeroAdvancePx": 8,
@@ -20148,16 +20180,16 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 58,
+          "widthPx": 0,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 309,
           "zeroAdvancePx": 8,
@@ -20777,6 +20809,14 @@
           "controlId": "control:primary-action"
         },
         {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
@@ -21007,7 +21047,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 275,
           "zeroAdvancePx": 8,
@@ -21532,7 +21572,7 @@
           "tag": "summary",
           "text": "Sampled loss and completion by p",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -21724,9 +21764,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 226,
+          "widthPx": 229,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "(0.950)^30 = 21.5% episode success"
@@ -21823,9 +21863,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 68,
+          "widthPx": 70,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "4 of 4 rows"
@@ -22240,7 +22280,7 @@
           "tag": "summary",
           "text": "Sampled episode success by episo",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -22485,7 +22525,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 309,
           "zeroAdvancePx": 8,
@@ -23159,7 +23199,7 @@
           "tag": "summary",
           "text": "Current workcell settings",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -23806,7 +23846,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 309,
           "zeroAdvancePx": 8,
@@ -23968,7 +24008,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 309,
           "zeroAdvancePx": 8,
@@ -24456,7 +24496,7 @@
           "tag": "summary",
           "text": "Sampled success rate and decisio",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -24472,7 +24512,7 @@
           "tag": "summary",
           "text": "Sampled toy throughput scores by",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -24480,7 +24520,7 @@
           "tag": "summary",
           "text": "Sampled executed action across t",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -25449,7 +25489,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 275,
           "zeroAdvancePx": 8,
@@ -26018,7 +26058,7 @@
           "tag": "summary",
           "text": "Current rollout regime",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -26026,7 +26066,7 @@
           "tag": "summary",
           "text": "Sampled toy deviation and refere",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -26197,9 +26237,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 108,
+          "widthPx": 110,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "18 of 18 methods"
@@ -27110,7 +27150,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 309,
           "zeroAdvancePx": 8,
@@ -27643,7 +27683,7 @@
           "tag": "summary",
           "text": "Current cross-embodiment mapping",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -27706,7 +27746,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14327,
+      "visibleTextLength": 14310,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -27835,7 +27875,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 309,
           "zeroAdvancePx": 8,
@@ -27862,16 +27902,16 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 309,
+          "widthPx": 271.73,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4 samples 60 steps 10 dispersion 1.79 → 0.27"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 309,
           "zeroAdvancePx": 8,
@@ -28394,7 +28434,7 @@
           "tag": "summary",
           "text": "Current receding-horizon plan",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -28405,6 +28445,14 @@
           "sizePx": 14,
           "inProse": true,
           "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "button",
@@ -30093,7 +30141,7 @@
           "tag": "summary",
           "text": "Current generalist release",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -30855,7 +30903,7 @@
           "tag": "summary",
           "text": "Current timescale playhead",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -31062,7 +31110,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 309,
           "zeroAdvancePx": 8,
@@ -31577,7 +31625,7 @@
           "tag": "summary",
           "text": "Current MoT pass",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -31772,7 +31820,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 309,
           "zeroAdvancePx": 8,
@@ -32466,7 +32514,7 @@
           "tag": "summary",
           "text": "Current flow-matching transport",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -32538,7 +32586,7 @@
           "tag": "summary",
           "text": "Current π generation",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -32758,7 +32806,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 309,
           "zeroAdvancePx": 8,
@@ -32902,7 +32950,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 309,
           "zeroAdvancePx": 8,
@@ -33283,7 +33331,7 @@
           "tag": "summary",
           "text": "Teaching-model inference by toy ",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -33299,7 +33347,7 @@
           "tag": "summary",
           "text": "Sampled commanded velocity acros",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -33466,7 +33514,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 309,
           "zeroAdvancePx": 8,
@@ -34357,7 +34405,7 @@
           "tag": "summary",
           "text": "Toy value along the fictional es",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -34365,7 +34413,7 @@
           "tag": "summary",
           "text": "Per-task successes out of 30",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -35307,7 +35355,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 309,
           "zeroAdvancePx": 8,
@@ -35969,7 +36017,7 @@
           "tag": "summary",
           "text": "Sampled action value along the s",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -35977,7 +36025,7 @@
           "tag": "summary",
           "text": "Current bin assignment",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -38219,7 +38267,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 309,
           "zeroAdvancePx": 8,
@@ -38791,7 +38839,7 @@
           "tag": "summary",
           "text": "Current whole-body stack",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -38862,7 +38910,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18412,
+      "visibleTextLength": 18395,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -38986,16 +39034,16 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 309,
+          "widthPx": 265,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4 new pattern Pronk minimum support 0 feet"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 309,
           "zeroAdvancePx": 8,
@@ -39504,6 +39552,14 @@
           "sizePx": 14,
           "inProse": true,
           "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "button",
@@ -40624,7 +40680,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15648,
+      "visibleTextLength": 15631,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -40743,16 +40799,16 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 233,
+          "widthPx": 176,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4 envs 16,384 toy time 1.5 min"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 309,
           "zeroAdvancePx": 8,
@@ -41274,6 +41330,14 @@
           "controlId": "control:primary-action"
         },
         {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
@@ -41477,9 +41541,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 262,
+          "widthPx": 278,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "balanced gaitWeighted total: -5.52 / step"
@@ -41612,9 +41676,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 198,
+          "widthPx": 203,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Generation 0 of 2Fitness: 0.31"
@@ -41729,9 +41793,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 278,
+          "widthPx": 289,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Peak deviation: MPC 6.00 cm, RL policy 8.00 cm"
@@ -42176,7 +42240,7 @@
           "tag": "summary",
           "text": "Current reward-weight attractor",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -42240,7 +42304,7 @@
           "tag": "summary",
           "text": "Sampled base-height deviation fo",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -42442,7 +42506,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 309,
           "zeroAdvancePx": 8,
@@ -43203,7 +43267,7 @@
           "tag": "summary",
           "text": "Modelled wall-clock cost of this",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -43406,7 +43470,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 309,
           "zeroAdvancePx": 8,
@@ -43532,7 +43596,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 309,
           "zeroAdvancePx": 8,
@@ -44003,7 +44067,7 @@
           "tag": "summary",
           "text": "Sampled task success against gro",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -44019,7 +44083,7 @@
           "tag": "summary",
           "text": "Current teacher-student gap",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -44208,7 +44272,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 309,
           "zeroAdvancePx": 8,
@@ -44217,7 +44281,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 309,
           "zeroAdvancePx": 8,
@@ -44677,7 +44741,7 @@
           "tag": "summary",
           "text": "Current contact-model error",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -46133,7 +46197,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 309,
           "zeroAdvancePx": 8,
@@ -46735,7 +46799,7 @@
           "tag": "summary",
           "text": "Current push-test layers",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -46924,7 +46988,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 309,
           "zeroAdvancePx": 8,
@@ -47540,7 +47604,7 @@
           "tag": "summary",
           "text": "Current action-conditioning pair",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -47739,7 +47803,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 309,
           "zeroAdvancePx": 8,
@@ -48252,7 +48316,7 @@
           "tag": "summary",
           "text": "Current JEPA planning state",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -48426,7 +48490,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 309,
           "zeroAdvancePx": 8,
@@ -48949,7 +49013,7 @@
           "tag": "summary",
           "text": "Current imagined rollout",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -48957,7 +49021,7 @@
           "tag": "summary",
           "text": "Sampled latent deviation by imag",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         }
@@ -49834,7 +49898,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
@@ -50608,7 +50672,7 @@
           "tag": "summary",
           "text": "Current world-model paradigm",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -51548,7 +51612,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 3332,
+      "visibleTextLength": 3315,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -51865,6 +51929,14 @@
           "sizePx": 14,
           "inProse": false,
           "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "button",
@@ -53521,7 +53593,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19078,
+      "visibleTextLength": 19061,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -53649,7 +53721,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 689,
           "zeroAdvancePx": 8,
@@ -53667,16 +53739,16 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 419,
+          "widthPx": 365,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4 delay 200 ms avoidance 346 ms maximum speed 14.64"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 689,
           "zeroAdvancePx": 8,
@@ -54188,7 +54260,7 @@
           "tag": "summary",
           "text": "Current sense-and-avoid budget",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -54199,6 +54271,14 @@
           "sizePx": 14,
           "inProse": true,
           "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "button",
@@ -56513,9 +56593,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 514,
+          "widthPx": 542,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "angle +12.0°rate +0.0°/sintegral 0.00torque -2.0 N·mstatus h"
@@ -56729,9 +56809,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 325,
+          "widthPx": 332,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "steady 1.6 Npeak 23.7 Noutcome task succeeded"
@@ -57199,7 +57279,7 @@
           "tag": "summary",
           "text": "Current pendulum gains and regim",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -57215,7 +57295,7 @@
           "tag": "summary",
           "text": "Current contact lab settings and",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -57384,9 +57464,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 232,
+          "widthPx": 240,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "contacts 3 · force closure yes · ε 0.444"
@@ -57943,7 +58023,7 @@
           "tag": "summary",
           "text": "Current object contacts and cone",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -57951,7 +58031,7 @@
           "tag": "summary",
           "text": "Current wrench-space quality",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         }
@@ -58100,9 +58180,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 227,
+          "widthPx": 235,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "end effector x +0.45 y +1.89 link units"
@@ -58690,7 +58770,7 @@
           "tag": "summary",
           "text": "Current arm pose",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         }
@@ -58843,9 +58923,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 381,
+          "widthPx": 396,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "iteration 0 / 288nodes 1tree not startedpath length n/a"
@@ -59627,7 +59707,7 @@
           "tag": "summary",
           "text": "Current RRT tree state",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         }
@@ -59798,9 +59878,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 518,
+          "widthPx": 530,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "composed 11.32 mm · depth term 10.00 mm at 2.0% · model band"
@@ -60747,7 +60827,7 @@
           "tag": "summary",
           "text": "Current authored budget and mode",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -61792,7 +61872,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 196,
           "zeroAdvancePx": 8,
@@ -62538,7 +62618,7 @@
           "tag": "summary",
           "text": "Current representation, resoluti",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -62577,7 +62657,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20423,
+      "visibleTextLength": 20406,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -62709,16 +62789,16 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 267.81,
+          "widthPx": 208.47,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 5 / 5 σ 0.94 → 1.27 → 0.79 K 0.62 z 0.82"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 689,
           "zeroAdvancePx": 8,
@@ -63274,6 +63354,14 @@
           "sizePx": 14,
           "inProse": true,
           "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "button",
@@ -63923,7 +64011,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 623,
           "zeroAdvancePx": 8,
@@ -64393,7 +64481,7 @@
           "tag": "summary",
           "text": "Datasets and corpora by scale, w",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -65510,9 +65598,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 226,
+          "widthPx": 229,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "(0.950)^14 = 48.8% episode success"
@@ -66025,7 +66113,7 @@
           "tag": "summary",
           "text": "Sampled episode success by episo",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -67058,7 +67146,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 25573,
+      "visibleTextLength": 25556,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -67125,11 +67213,11 @@
           "Industrial Deployment"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 15,
+        "readingMinutes": 14,
         "citationCount": 22,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "15 min",
+        "readingTimeText": "14 min",
         "citationCountText": "22",
         "bibliographyIds": [
           "ifr-world-robotics-2025",
@@ -67191,16 +67279,16 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 501,
+          "widthPx": 450,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4 pick success 99.0% clearing 300 s output 380.0 pi"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 689,
           "zeroAdvancePx": 8,
@@ -67209,9 +67297,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 165,
+          "widthPx": 170,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Pays back inside 24 months"
@@ -67711,6 +67799,14 @@
           "sizePx": 14,
           "inProse": true,
           "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "button",
@@ -69870,9 +69966,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 238,
+          "widthPx": 247,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "8 milestones: 4 not met, 4 partial, 0 met"
@@ -70730,9 +70826,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 251,
+          "widthPx": 266,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "6 theses, showing: End-to-end VLA scaling"
@@ -71398,7 +71494,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24243,
+      "visibleTextLength": 24226,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -71536,9 +71632,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 334,
+          "widthPx": 348,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "5 hands, sorted by tactile threshold, most sensitive first"
@@ -71554,16 +71650,16 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 58,
+          "widthPx": 0,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 689,
           "zeroAdvancePx": 8,
@@ -72183,6 +72279,14 @@
           "controlId": "control:primary-action"
         },
         {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
@@ -72413,7 +72517,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 623,
           "zeroAdvancePx": 8,
@@ -72938,7 +73042,7 @@
           "tag": "summary",
           "text": "Sampled loss and completion by p",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -73130,9 +73234,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 226,
+          "widthPx": 229,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "(0.950)^30 = 21.5% episode success"
@@ -73229,9 +73333,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 68,
+          "widthPx": 70,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "4 of 4 rows"
@@ -73646,7 +73750,7 @@
           "tag": "summary",
           "text": "Sampled episode success by episo",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -73891,7 +73995,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 689,
           "zeroAdvancePx": 8,
@@ -74565,7 +74669,7 @@
           "tag": "summary",
           "text": "Current workcell settings",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -75212,9 +75316,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 344,
+          "widthPx": 348,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "k = 100: 44% success, 4 decisions per 400-step episode"
@@ -75374,9 +75478,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 473,
+          "widthPx": 493,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "d = 0 ms: temporal ensembling 100% nominal, real-time chunki"
@@ -75862,7 +75966,7 @@
           "tag": "summary",
           "text": "Sampled success rate and decisio",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -75878,7 +75982,7 @@
           "tag": "summary",
           "text": "Sampled toy throughput scores by",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -75886,7 +75990,7 @@
           "tag": "summary",
           "text": "Sampled executed action across t",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -76855,9 +76959,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 464,
+          "widthPx": 486,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "accumulated deviation = 1505 units over 240 steps, final dev"
@@ -77424,7 +77528,7 @@
           "tag": "summary",
           "text": "Current rollout regime",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -77432,7 +77536,7 @@
           "tag": "summary",
           "text": "Sampled toy deviation and refere",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -77603,9 +77707,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 108,
+          "widthPx": 110,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "18 of 18 methods"
@@ -78516,7 +78620,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 689,
           "zeroAdvancePx": 8,
@@ -79049,7 +79153,7 @@
           "tag": "summary",
           "text": "Current cross-embodiment mapping",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -79112,7 +79216,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14954,
+      "visibleTextLength": 14937,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -79241,9 +79345,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 376,
+          "widthPx": 395,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "T_p = 16, T_a = 8: 1.25 Hz replan rate, 0.8 s committed per "
@@ -79268,16 +79372,16 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 328.91,
+          "widthPx": 271.73,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4 samples 60 steps 10 dispersion 1.79 → 0.27"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 689,
           "zeroAdvancePx": 8,
@@ -79800,7 +79904,7 @@
           "tag": "summary",
           "text": "Current receding-horizon plan",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -79811,6 +79915,14 @@
           "sizePx": 14,
           "inProse": true,
           "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "button",
@@ -81499,7 +81611,7 @@
           "tag": "summary",
           "text": "Current generalist release",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -82261,7 +82373,7 @@
           "tag": "summary",
           "text": "Current timescale playhead",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -82468,7 +82580,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 689,
           "zeroAdvancePx": 8,
@@ -82983,7 +83095,7 @@
           "tag": "summary",
           "text": "Current MoT pass",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -83178,9 +83290,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 357,
+          "widthPx": 364,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "k = 10 Euler steps: mean endpoint error 0.05, on the modes"
@@ -83872,7 +83984,7 @@
           "tag": "summary",
           "text": "Current flow-matching transport",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -83944,7 +84056,7 @@
           "tag": "summary",
           "text": "Current π generation",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -84164,9 +84276,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 647,
+          "widthPx": 663,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Synchronous toy: does not close at 50 Hz: 19 Hz reciprocal i"
@@ -84308,9 +84420,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 531,
+          "widthPx": 555,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "d = 0 ms: all three toy traces stay below the proxy limit; Δ"
@@ -84689,7 +84801,7 @@
           "tag": "summary",
           "text": "Teaching-model inference by toy ",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -84705,7 +84817,7 @@
           "tag": "summary",
           "text": "Sampled commanded velocity acros",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -84872,7 +84984,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 689,
           "zeroAdvancePx": 8,
@@ -85763,7 +85875,7 @@
           "tag": "summary",
           "text": "Toy value along the fictional es",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -85771,7 +85883,7 @@
           "tag": "summary",
           "text": "Per-task successes out of 30",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -86713,9 +86825,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 482.81,
+          "widthPx": 495.47,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Δx = -0.056 → bin 120 of 255 → <a120> reconstructs to -0.058"
@@ -87375,7 +87487,7 @@
           "tag": "summary",
           "text": "Sampled action value along the s",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -87383,7 +87495,7 @@
           "tag": "summary",
           "text": "Current bin assignment",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -89625,9 +89737,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 424,
+          "widthPx": 438,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Representative: Figure Helix 02 S0Layers: 3Fastest loop: 100"
@@ -90197,7 +90309,7 @@
           "tag": "summary",
           "text": "Current whole-body stack",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -90268,7 +90380,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18887,
+      "visibleTextLength": 18870,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -90392,16 +90504,16 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 318,
+          "widthPx": 265,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4 new pattern Pronk minimum support 0 feet"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 689,
           "zeroAdvancePx": 8,
@@ -90910,6 +91022,14 @@
           "sizePx": 14,
           "inProse": true,
           "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "button",
@@ -92030,7 +92150,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16123,
+      "visibleTextLength": 16106,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -92149,16 +92269,16 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 233,
+          "widthPx": 176,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "beat 4 / 4 envs 16,384 toy time 1.5 min"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 689,
           "zeroAdvancePx": 8,
@@ -92680,6 +92800,14 @@
           "controlId": "control:primary-action"
         },
         {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
           "tag": "button",
           "text": "Step back",
           "familyHead": "ibm plex sans",
@@ -92883,9 +93011,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 262,
+          "widthPx": 278,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "balanced gaitWeighted total: -5.52 / step"
@@ -93018,9 +93146,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 198,
+          "widthPx": 203,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Generation 0 of 2Fitness: 0.31"
@@ -93135,9 +93263,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 278,
+          "widthPx": 289,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Peak deviation: MPC 6.00 cm, RL policy 8.00 cm"
@@ -93582,7 +93710,7 @@
           "tag": "summary",
           "text": "Current reward-weight attractor",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -93646,7 +93774,7 @@
           "tag": "summary",
           "text": "Sampled base-height deviation fo",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -93848,9 +93976,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 496,
+          "widthPx": 516,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Model wall clock 21.5 min at 123k steps/s, 1.0x slower than "
@@ -94609,7 +94737,7 @@
           "tag": "summary",
           "text": "Modelled wall-clock cost of this",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -94812,9 +94940,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 433,
+          "widthPx": 448,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Real robot mu 0.80: point policy 97%, DR policy 74%, edge po"
@@ -94938,9 +95066,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 565,
+          "widthPx": 584,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Degradation 15%: reconstruction MAE 0.01 m, action divergenc"
@@ -95409,7 +95537,7 @@
           "tag": "summary",
           "text": "Sampled task success against gro",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -95425,7 +95553,7 @@
           "tag": "summary",
           "text": "Current teacher-student gap",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -95614,18 +95742,18 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 312.91,
+          "widthPx": 328.73,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Locomotion at ε = 2.0 mm → stable: all 4 feet loaded"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 346.91,
+          "widthPx": 359.73,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "4 contacts, patch r ≤ 5 mm, near-point, tolerance ±20 mm"
@@ -96083,7 +96211,7 @@
           "tag": "summary",
           "text": "Current contact-model error",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -97539,9 +97667,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 313,
+          "widthPx": 326,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "mug displacement = 0.0 cm after 0 effective pushes"
@@ -98141,7 +98269,7 @@
           "tag": "summary",
           "text": "Current push-test layers",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -98330,7 +98458,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 689,
           "zeroAdvancePx": 8,
@@ -98946,7 +99074,7 @@
           "tag": "summary",
           "text": "Current action-conditioning pair",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -99145,7 +99273,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 326.5,
           "zeroAdvancePx": 8,
@@ -99658,7 +99786,7 @@
           "tag": "summary",
           "text": "Current JEPA planning state",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -99832,9 +99960,9 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 352,
+          "widthPx": 368,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "latent deviation Δ(15) = 0.301 units at one-step error 2.0%"
@@ -100355,7 +100483,7 @@
           "tag": "summary",
           "text": "Current imagined rollout",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -100363,7 +100491,7 @@
           "tag": "summary",
           "text": "Sampled latent deviation by imag",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         }
@@ -101240,7 +101368,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
@@ -102014,7 +102142,7 @@
           "tag": "summary",
           "text": "Current world-model paradigm",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },

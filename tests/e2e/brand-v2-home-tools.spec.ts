@@ -237,6 +237,14 @@ async function observeScene(
     steps.push({ key, ...(await sceneStill(page, id)) });
   }
 
+  // Reset sits in the frame's closed "Adjust more" fold; open it the way a
+  // reader does, through its summary.
+  const adjustFold = scene.locator('[data-figure-fold="adjust"]').first();
+  if (!(await adjustFold.evaluate((element) => (element as HTMLDetailsElement).open))) {
+    await adjustFold.locator(':scope > summary').click();
+  }
+  await expect(adjustFold).toHaveJSProperty('open', true);
+
   const reset = scene.getByRole('button', { name: /reset the scene/i });
   const resetControlNames = await reset.evaluateAll((controls) =>
     controls.map((control) => control.getAttribute('aria-label') ?? ''),
@@ -327,6 +335,9 @@ function collectTextMembers() {
       .join('')
       .trim();
     if (own.length === 0) continue;
+    // Visually hidden text is announced, never painted, so a sighted
+    // reader cannot find it clipped at any text size.
+    if (element.closest('.sr-only')) continue;
     const rect = element.getBoundingClientRect();
     if (rect.width === 0 || rect.height === 0) continue;
     element.setAttribute('data-text-scale-id', String(index));

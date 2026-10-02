@@ -7,6 +7,7 @@ import { ownedEvidencePath } from './helpers/keypoint-reader-oracle';
 import { readerGateInputs } from './helpers/reader-gate-inputs';
 import { termConsumerInventory } from './helpers/term-consumer-inventory';
 import { collectBrowserReferenceFeatures, type BrowserReferenceFeatureConfig } from '../../lib/brand-v2-reference-rubric';
+import { openAdjustMore } from './helpers/figure-fold';
 const ROUTE = '/classical/state-estimation/';
 const PROSE = 'div.prose[data-pagefind-body]';
 // Exact retained corrected definition and registry values. These are rendering
@@ -233,6 +234,7 @@ test('state scene transport and seeded readout retain keyboard paths', async ({ 
   await e.capture('kalman-predict-beat');
   await page.keyboard.press('End');
   await expect(scene.getByTestId('motion-beat-readout')).toHaveText('5 / 5');
+  await openAdjustMore(scene);
   const reset = scene.getByRole('button', { name: 'Reset the scene to its poster still' });
   await scrubber.press('Home');
   await reset.focus(); await page.keyboard.press('Enter');

@@ -44615,6 +44615,22 @@
           "newHash": "bacb386d64e42b7c3c9e8d2d79257fa1c4bc2a2245cbd846ceb9c9cc495f08fa"
         }
       ]
+    },
+    {
+      "id": "reader-first-20261002-expression-name-preset-group-label",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/ui/instrument.tsx:aria-labelledby:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "5365423d7ce3ace32c008459465c944c95d5df4afd331ad26413b336316be72b",
+      "reason": "Fact-preserving accessible-name addition. The shared PresetGroup primitive renders a figure's named presets as one `role=\"group\"` and names that group by pointing `aria-labelledby` at the plain-words label it already prints above the buttons (`{id}`). The name is the visible label itself, so no new wording, figure, unit or attribution enters the page.",
+      "ownerApproval": "contract/opus-pass.md VAL-OPUS-138 with contract/design-integrity.md VAL-B2-BASE-002: named presets with plain labels are the reader-first control, and a group of toggles must carry an accessible name; borrowing the printed label restates text the reader already sees.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011",
+        "VAL-OPUS-138"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

@@ -29,6 +29,10 @@ export interface SceneDefinition {
   id: string;
   /** Short human title, used by the poster button label. */
   title: string;
+  /** The takeaway headline above the stage; the title names the scene. */
+  headline?: string;
+  /** Optional technical name above the headline, six words or fewer. */
+  kicker?: string;
   beats: SceneBeat[];
 }
 

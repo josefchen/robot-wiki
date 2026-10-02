@@ -36,9 +36,9 @@
   --motion-stage-label-font: var(--font-sans);
   --motion-stage-readout-font: var(--font-mono);
   --motion-stage-label-size: 14px;
-  --motion-stage-axis-size: 13px;
-  --motion-stage-tick-size: 12px;
-  --motion-stage-readout-size: 13px;
+  --motion-stage-axis-size: 14px;
+  --motion-stage-tick-size: 14px;
+  --motion-stage-readout-size: 14px;
   --motion-stage-type-min-width: 299px;
   --motion-uncertainty-fill-alpha: 0.22;
   --motion-beat: 1000ms;

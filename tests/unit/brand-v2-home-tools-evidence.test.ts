@@ -382,8 +382,12 @@ describe('home tools evidence', () => {
         }));
       }),
     ).toEqual(['bound:home-micro-labels']);
-    // Home mounts no chart now; one added later is measured, not excused.
-    expect(committed().designBounds.chartDisclosureSummaries).toEqual([]);
+    // Home's one figure carries the frame's "Adjust more" fold, and its
+    // summary is measured like any other chart disclosure, not excused.
+    expect(
+      committed().designBounds.chartDisclosureSummaries.map(({ text }) => text),
+    ).toEqual(['Adjust more']);
+    expect(failing(homeDesignBoundVerdicts(accept(committed())))).toEqual([]);
     expect(
       planted((e) =>
         e.designBounds.chartDisclosureSummaries.push({

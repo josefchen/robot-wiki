@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "b6b7d1c464ad300eacfe7cc62575d46338666f18186558f8ecc444fc1739ef45",
+  "fingerprint": "ec2cc2f55b567de6fc6e335dfe6aeee3b1ac4ee4abb6f9a334e86b8d3bf7cf78",
   "route": "/",
   "viewport": "1440x900",
   "featured": {
@@ -11,18 +11,21 @@
     "frameAriaLabel": "Motion scene: The last stretch of episode reliability",
     "describedByText": "The last stretch of episode reliability. Beat 1: At 95% success per decision, this thirty-decision toy episode succeeds about 21.5% of the time. Beat 2: Raising conditional success from 95% to 99% changes the thirty-step outcome from 21.5% to 74.0%. Beat 3: At 99.9% per decision, the same model gives 97.0% for thirty steps. Beat 4: The same horizon exposes the last stretch.",
     "graphicTag": "svg",
-    "graphicTopPx": 1139,
+    "graphicTopPx": 1177,
     "graphicHeightPx": 688,
     "posterMarkCount": 3,
     "playerMountedAtFirstPaint": false,
     "posterControls": [
-      "Play the motion scene: The last stretch of episode reliability"
+      "Play the motion scene: The last stretch of episode reliability",
+      "Step back one beat",
+      "Step forward one beat",
+      "Reset the scene to its poster still"
     ],
     "statusLine": "Illustrative model: all 30 decisions succeed independently at the same rate.",
     "posterReadout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
     "posterCaption": "The same horizon exposes the last stretch.",
     "idleFrameRequests": 0,
-    "playingFrameRequests": 49,
+    "playingFrameRequests": 51,
     "focusOutlineWidthPx": 2,
     "focusOutlineStyle": "solid",
     "focusOutlineColour": "rgb(36, 95, 255)",
@@ -75,18 +78,21 @@
     "frameAriaLabel": "Motion scene: The last stretch of episode reliability",
     "describedByText": "The last stretch of episode reliability. Beat 1: At 95% success per decision, this thirty-decision toy episode succeeds about 21.5% of the time. Beat 2: Raising conditional success from 95% to 99% changes the thirty-step outcome from 21.5% to 74.0%. Beat 3: At 99.9% per decision, the same model gives 97.0% for thirty steps. Beat 4: The same horizon exposes the last stretch.",
     "graphicTag": "svg",
-    "graphicTopPx": 1139,
+    "graphicTopPx": 1177,
     "graphicHeightPx": 688,
     "posterMarkCount": 3,
     "playerMountedAtFirstPaint": false,
     "posterControls": [
-      "Play the motion scene: The last stretch of episode reliability"
+      "Play the motion scene: The last stretch of episode reliability",
+      "Step back one beat",
+      "Step forward one beat",
+      "Reset the scene to its poster still"
     ],
     "statusLine": "Illustrative model: all 30 decisions succeed independently at the same rate.",
     "posterReadout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
     "posterCaption": "The same horizon exposes the last stretch.",
     "idleFrameRequests": 0,
-    "playingFrameRequests": 49,
+    "playingFrameRequests": 50,
     "focusOutlineWidthPx": 2,
     "focusOutlineStyle": "solid",
     "focusOutlineColour": "rgb(36, 95, 255)",
@@ -135,12 +141,12 @@
       {
         "text": "Playground",
         "path": "/playground/",
-        "topPx": 2505
+        "topPx": 2566
       },
       {
         "text": "Market Map",
         "path": "/market-map/",
-        "topPx": 2505
+        "topPx": 2566
       }
     ],
     "graphics": [],
@@ -2846,7 +2852,7 @@
       "documentScrollWidthPx": 320,
       "documentClientWidthPx": 320,
       "failures": [],
-      "measuredMembers": 278
+      "measuredMembers": 283
     },
     {
       "id": "profile:home-zoom-200-equivalent",
@@ -2857,7 +2863,7 @@
       "documentScrollWidthPx": 720,
       "documentClientWidthPx": 720,
       "failures": [],
-      "measuredMembers": 278
+      "measuredMembers": 283
     },
     {
       "id": "profile:home-text-200",
@@ -2868,7 +2874,7 @@
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "failures": [],
-      "measuredMembers": 154
+      "measuredMembers": 153
     }
   ],
   "progressCounters": [
@@ -3045,7 +3051,16 @@
       }
     ],
     "borderedBoxCount": 2,
-    "chartDisclosureSummaries": [],
+    "chartDisclosureSummaries": [
+      {
+        "text": "Adjust more",
+        "textTransform": "none",
+        "letterSpacing": "normal",
+        "fontSizePx": 14,
+        "borderTopWidthPx": 0,
+        "borderBottomWidthPx": 0
+      }
+    ],
     "axeViolationIds": [],
     "consoleErrors": []
   }

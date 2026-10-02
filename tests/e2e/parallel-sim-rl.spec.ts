@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { openAdjustMore } from './helpers/figure-fold';
 
 const ROUTE = '/rl-sim2real/parallel-sim-rl/';
 
@@ -86,6 +87,7 @@ test.describe('parallel-sim-rl module', () => {
     await page.keyboard.press('Home');
     await page.keyboard.press('ArrowRight');
     await expect(scene.getByTestId('motion-caption')).toHaveText(/64 parallel environments/i);
+    await openAdjustMore(scene);
     const forward = scene.getByRole('button', { name: 'Step forward one beat' });
     await expect(forward).toHaveText('Step forward');
     await forward.click();

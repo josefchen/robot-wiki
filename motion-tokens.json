@@ -11,7 +11,7 @@
     "label": "#FFFFFF",
     "labelSecondary": "#D9DADB",
     "labelFont": "var(--font-sans)",
-    "labelMinPx": 12
+    "labelMinPx": 14
   },
   "roles": {
     "state": {
@@ -110,16 +110,16 @@
   },
   "type": {
     "stageLabelFont": "var(--font-sans)",
-    "stageLabelMinPx": 12,
+    "stageLabelMinPx": 14,
     "stageLabelFill": "#FFFFFF",
     "stageSecondaryFill": "#D9DADB",
     "stageReadoutFont": "var(--font-mono)",
     "stageScale": {
-      "note": "Painted CSS pixels at any stage at least fullSizeMinStagePx wide (the stage of the 375 px article layout). Object labels and stage headings use label, axis names and secondary notes use axis, tick values use tick, and only numeric readouts use the mono readout. A narrower stage shrinks the whole figure, text included, so its layout still fits.",
+      "note": "Painted CSS pixels at any stage at least fullSizeMinStagePx wide (the stage of the 375 px article layout). Every stage role paints at 14 px, the smallest size a reader with no engineering background reads at a glance; roles differ by weight and colour, not size. Only numeric readouts use the mono readout. A narrower stage shrinks the whole figure, text included, so its layout still fits.",
       "labelPx": 14,
-      "axisPx": 13,
-      "tickPx": 12,
-      "readoutPx": 13,
+      "axisPx": 14,
+      "tickPx": 14,
+      "readoutPx": 14,
       "fullSizeMinStagePx": 299
     }
   }

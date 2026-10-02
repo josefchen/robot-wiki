@@ -6,8 +6,10 @@
  * Contract (docs/design/motion-language.md):
  * - Click-to-play, never autoplay. The poster is the prerendered final
  *   frame of the last beat; play is a click.
- * - Play/pause, step back and step forward one beat, a native range
- *   scrubber whose aria-valuetext is the current beat's caption, reset.
+ * - Two visible controls: play/pause and a native range scrubber whose
+ *   aria-valuetext is the current beat's caption. Step back, step forward
+ *   and reset sit in the frame's "Adjust more" fold. A finished run ends
+ *   on the final frame with a hint that hands the timeline to the reader.
  * - Keys: Space or K play/pause, arrows step a beat, Home and End.
  * - The scene renders in the shared figure frame: title and controls, the
  *   graphite stage with its legend, readout and timeline, then the caption.
@@ -75,8 +77,12 @@ export interface ScenePlayerProps {
   statusLine?: ReactNode;
   /** Scene summary + the captions in order; the text alternative. */
   textAlternative: string;
+  /** Method, sources and caveats for the "How this was made" fold. */
+  method?: ReactNode;
   /** Start playing on mount (used by the poster activation click). */
   autoPlayOnMount?: boolean;
+  /** Step once on mount (a step pressed in the poster's fold). */
+  initialStep?: 1 | -1;
   className?: string;
 }
 
@@ -88,15 +94,22 @@ export function ScenePlayer({
   readout,
   statusLine,
   textAlternative,
+  method,
   autoPlayOnMount = false,
+  initialStep,
   className,
 }: ScenePlayerProps) {
   const descriptionId = `${useId()}-motion-alt`;
   const spans = useMemo(() => beatSpans(scene.beats), [scene.beats]);
   const total = totalDuration(spans);
   const poster = posterTime(spans);
-  const time = useMotionValue(poster);
+  const time = useMotionValue(
+    initialStep ? stepTarget(spans, poster, initialStep) : poster,
+  );
   const [playing, setPlaying] = useState(autoPlayOnMount);
+  // Set once a reader-started run reaches the end; it shows the hint that
+  // hands the timeline to the reader.
+  const [finished, setFinished] = useState(false);
   const [beatIndex, setBeatIndex] = useState(() =>
     Math.max(0, spans.length - 1),
   );
@@ -113,15 +126,20 @@ export function ScenePlayer({
   const frameRef = useRef<HTMLElement | null>(null);
   const scrubberRef = useRef<HTMLInputElement | null>(null);
   const playButtonRef = useRef<HTMLButtonElement | null>(null);
+  const stepBackRef = useRef<HTMLButtonElement | null>(null);
+  const stepForwardRef = useRef<HTMLButtonElement | null>(null);
   const captionRef = useRef<HTMLDivElement | null>(null);
 
   // Poster activation replaces the focused poster button with the player;
-  // focus follows the reader's click into the play control so the keyboard
-  // contract works immediately. The focus must not scroll: the reader's
-  // viewport stays where it was.
+  // focus follows the reader's click into the matching control so the
+  // keyboard contract works immediately. The focus must not scroll: the
+  // reader's viewport stays where it was.
   useEffect(() => {
-    if (autoPlayOnMount) playButtonRef.current?.focus({ preventScroll: true });
-  }, [autoPlayOnMount]);
+    const target = initialStep === -1 ? stepBackRef.current
+      : initialStep === 1 ? stepForwardRef.current
+        : autoPlayOnMount ? playButtonRef.current : null;
+    target?.focus({ preventScroll: true });
+  }, [autoPlayOnMount, initialStep]);
 
   // Beat index follows the clock, but only changes at beat boundaries, so
   // captions and readouts update once per beat, never per frame.
@@ -145,6 +163,7 @@ export function ScenePlayer({
       time.set(next);
       if (next >= total) {
         setPlaying(false);
+        setFinished(true);
         return;
       }
       frame = requestAnimationFrame(tick);
@@ -160,7 +179,10 @@ export function ScenePlayer({
     const timer = window.setInterval(() => {
       const next = stepTarget(spans, time.get(), 1);
       time.set(next);
-      if (next >= total) setPlaying(false);
+      if (next >= total) {
+        setPlaying(false);
+        setFinished(true);
+      }
     }, MOTION_TIMING.reducedMotionHold);
     return () => window.clearInterval(timer);
   }, [playing, reducedMotion, spans, time, total]);
@@ -206,6 +228,7 @@ export function ScenePlayer({
   }, [time, lastScrub]);
 
   const togglePlay = useCallback(() => {
+    setFinished(false);
     setPlaying((wasPlaying) => {
       if (wasPlaying) return false;
       if (time.get() >= total) time.set(0);
@@ -216,6 +239,7 @@ export function ScenePlayer({
   const step = useCallback(
     (delta: 1 | -1) => {
       setPlaying(false);
+      setFinished(false);
       time.set(stepTarget(spans, time.get(), delta));
     },
     [spans, time],
@@ -223,16 +247,18 @@ export function ScenePlayer({
 
   const reset = useCallback(() => {
     setPlaying(false);
+    setFinished(false);
     time.set(poster);
   }, [poster, time]);
 
   const onKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
     if (event.defaultPrevented) return;
     const target = event.target as HTMLElement;
-    const onButton = target.closest('button') !== null;
+    // A fold summary or a link inside the frame keeps its own Space.
+    const onButton = target.closest('button, summary, a') !== null;
     switch (event.key) {
       case ' ':
-        if (onButton) return; // the button's native activation
+        if (onButton) return; // the control's native activation
         event.preventDefault();
         togglePlay();
         break;
@@ -283,27 +309,32 @@ export function ScenePlayer({
       className={className}
       ref={frameRef}
       onKeyDown={onKeyDown}
-      heading={scene.title}
+      kicker={scene.kicker}
+      heading={scene.headline ?? scene.title}
       controls={
+        <button
+          ref={playButtonRef}
+          data-brand-control-id="control:primary-action"
+          data-pagefind-ignore
+          data-testid="motion-play"
+          type="button"
+          onClick={togglePlay}
+          aria-label={playing ? 'Pause the scene' : 'Play the scene'}
+          className={INSTRUMENT_PRIMARY_CONTROL_CLASS}
+        >
+          {playing ? (
+            <Pause size={14} weight="bold" aria-hidden />
+          ) : (
+            <Play size={14} weight="bold" aria-hidden />
+          )}
+          {playing ? 'Pause' : 'Play'}
+        </button>
+      }
+      adjustOpen={initialStep !== undefined}
+      adjust={
         <>
           <button
-            ref={playButtonRef}
-            data-brand-control-id="control:primary-action"
-            data-pagefind-ignore
-            data-testid="motion-play"
-            type="button"
-            onClick={togglePlay}
-            aria-label={playing ? 'Pause the scene' : 'Play the scene'}
-            className={INSTRUMENT_PRIMARY_CONTROL_CLASS}
-          >
-            {playing ? (
-              <Pause size={14} weight="bold" aria-hidden />
-            ) : (
-              <Play size={14} weight="bold" aria-hidden />
-            )}
-            {playing ? 'Pause' : 'Play'}
-          </button>
-          <button
+            ref={stepBackRef}
             data-brand-control-id="control:secondary-action"
             data-pagefind-ignore
             data-testid="motion-step-back"
@@ -315,6 +346,7 @@ export function ScenePlayer({
             Step back
           </button>
           <button
+            ref={stepForwardRef}
             data-brand-control-id="control:secondary-action"
             data-pagefind-ignore
             data-testid="motion-step-forward"
@@ -340,6 +372,7 @@ export function ScenePlayer({
                   legend={legend}
                   readout={<SceneReadout state={state} readout={readout} />}
                   statusLine={statusLine}
+                  hint={finished ? 'Drag the timeline to look again' : undefined}
                 />
               }
               timeline={
@@ -356,6 +389,7 @@ export function ScenePlayer({
                   defaultValue={poster}
                   onChange={(event) => {
                     setLastScrub(Date.now());
+                    setFinished(false);
                     time.set(Number(event.target.value));
                   }}
                   aria-label="Scene timeline"
@@ -375,6 +409,7 @@ export function ScenePlayer({
         'aria-live': 'polite',
         'data-testid': 'motion-caption',
       }}
+      method={method}
       source={source}
     >
       <div id={descriptionId} className="sr-only">
