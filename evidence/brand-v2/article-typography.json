@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "51017d3361325a2f3896db57f396e28ea5fe3e81197d0f157cd4295572632d20",
+  "fingerprint": "14e6049d8db4ebea411ea16bd949034f878dca6135257fae5ae97107bfd99146",
   "viewports": [
     "375x812",
     "1440x900"
@@ -142,7 +142,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3096,
+      "visibleTextLength": 3110,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -8244,7 +8244,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 42051,
+      "visibleTextLength": 41915,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -12384,7 +12384,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 14254,
+      "visibleTextLength": 13986,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -12451,11 +12451,11 @@
           "The Data Bottleneck"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 8,
+        "readingMinutes": 7,
         "citationCount": 13,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "8 min",
+        "readingTimeText": "7 min",
         "citationCountText": "13",
         "bibliographyIds": [
           "gpt3-2020",
@@ -27706,7 +27706,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14461,
+      "visibleTextLength": 14327,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -27831,7 +27831,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "TaT_aTa​ is the same dial as ACT's chunk size, named differe"
+          "text": "TaT_aTa​ is the same dial as ACT's chunk size: a large value"
         },
         {
           "familyHead": "ibm plex sans",
@@ -51548,7 +51548,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 3318,
+      "visibleTextLength": 3332,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -59650,7 +59650,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 42465,
+      "visibleTextLength": 42329,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -63790,7 +63790,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 14633,
+      "visibleTextLength": 14365,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -63857,11 +63857,11 @@
           "The Data Bottleneck"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 8,
+        "readingMinutes": 7,
         "citationCount": 13,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "8 min",
+        "readingTimeText": "7 min",
         "citationCountText": "13",
         "bibliographyIds": [
           "gpt3-2020",
@@ -79112,7 +79112,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15088,
+      "visibleTextLength": 14954,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -79237,7 +79237,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "TaT_aTa​ is the same dial as ACT's chunk size, named differe"
+          "text": "TaT_aTa​ is the same dial as ACT's chunk size: a large value"
         },
         {
           "familyHead": "ibm plex sans",

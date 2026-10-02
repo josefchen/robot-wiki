@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "5a9a32e15b9342bdefb961e382c3b0b9bbcab5547d7b30e4fa6bac48c550f12e",
+  "fingerprint": "90acad5ece5e15a127e004a6e91a045f9b01c666e76704d75882c61fb713a13b",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -253,7 +253,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3318,
+      "visibleTextLength": 3332,
       "route": "/",
       "viewport": "1440x900"
     },
@@ -2031,7 +2031,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 42465,
+      "visibleTextLength": 42329,
       "route": "/classical/perception/",
       "viewport": "1440x900"
     },
@@ -2793,7 +2793,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 14633,
+      "visibleTextLength": 14365,
       "route": "/data-hardware/data-bottleneck/",
       "viewport": "1440x900"
     },
@@ -5587,7 +5587,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 15088,
+      "visibleTextLength": 14954,
       "route": "/manipulation/diffusion-policy/",
       "viewport": "1440x900"
     },
@@ -9697,7 +9697,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3096,
+      "visibleTextLength": 3110,
       "route": "/",
       "viewport": "375x812"
     },
@@ -11475,7 +11475,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 42051,
+      "visibleTextLength": 41915,
       "route": "/classical/perception/",
       "viewport": "375x812"
     },
@@ -12237,7 +12237,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 14254,
+      "visibleTextLength": 13986,
       "route": "/data-hardware/data-bottleneck/",
       "viewport": "375x812"
     },
@@ -15031,7 +15031,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 14461,
+      "visibleTextLength": 14327,
       "route": "/manipulation/diffusion-policy/",
       "viewport": "375x812"
     },

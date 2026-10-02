@@ -2347,11 +2347,11 @@
                   "The Data Bottleneck"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 8,
+                "readingMinutes": 7,
                 "citationCount": 13,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "8 min",
+                "readingTimeText": "7 min",
                 "citationCountText": "13",
                 "bibliographyIds": [
                   "gpt3-2020",
@@ -55650,17 +55650,17 @@
               "observed": {
                 "index": 11,
                 "display": true,
-                "mathmlText": "Atk−1=α(Atk−γ ϵθ(Ot,Atk,k)+N(0,σ2I))A_t^{k-1} = \\alpha \\left( A_t^k - \\gamma \\, \\epsilon_\\theta(O_t, A_t^k, k) + \\mathcal{N}(0, \\sigma^2 I) \\right)",
-                "annotationTex": "A_t^{k-1} = \\alpha \\left( A_t^k - \\gamma \\, \\epsilon_\\theta(O_t, A_t^k, k) + \\mathcal{N}(0, \\sigma^2 I) \\right)",
+                "mathmlText": "Atτ=τAt+(1−τ)ε,u(Atτ∣At)=At−εA_t^\\tau = \\tau A_t + (1 - \\tau)\\varepsilon, \\qquad u(A_t^\\tau \\mid A_t) = A_t - \\varepsilon",
+                "annotationTex": "A_t^\\tau = \\tau A_t + (1 - \\tau)\\varepsilon, \\qquad u(A_t^\\tau \\mid A_t) = A_t - \\varepsilon",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "Atk−1​=α(Atk​−γϵθ​(Ot​,Atk​,k)+N(0,σ2I))",
+                "renderedText": "Atτ​=τAt​+(1−τ)ε,u(Atτ​∣At​)=At​−ε",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 715,
                 "clientWidth": 715,
                 "tabIndex": 0,
                 "role": "region",
-                "accessibleName": "Display equation 1",
+                "accessibleName": "Display equation 2",
                 "viewportOverflowPx": 0
               }
             }
@@ -55675,39 +55675,39 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|display#13",
+      "resultId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|display#9",
       "assertionId": "VAL-B2-ART-007",
-      "populationMemberId": "/manipulation/diffusion-policy/|1440x900|display#13",
+      "populationMemberId": "/manipulation/diffusion-policy/|1440x900|display#9",
       "coveredPopulationMemberIds": [
-        "/manipulation/diffusion-policy/|1440x900|display#13"
+        "/manipulation/diffusion-policy/|1440x900|display#9"
       ],
       "coverageKind": "per-member",
       "expected": "Equations expose accessible text or an equivalent explanation.",
-      "actual": "/manipulation/diffusion-policy/|1440x900|display#13 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 1440x900",
+      "actual": "/manipulation/diffusion-policy/|1440x900|display#9 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 1440x900",
       "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "member": "/manipulation/diffusion-policy/|1440x900|display#13",
+          "member": "/manipulation/diffusion-policy/|1440x900|display#9",
           "measured": [
             {
-              "id": "/manipulation/diffusion-policy/|1440x900|display#13",
+              "id": "/manipulation/diffusion-policy/|1440x900|display#9",
               "observed": {
-                "index": 13,
+                "index": 9,
                 "display": true,
-                "mathmlText": "Atτ=τAt+(1−τ)ε,u(Atτ∣At)=At−εA_t^\\tau = \\tau A_t + (1 - \\tau)\\varepsilon, \\qquad u(A_t^\\tau \\mid A_t) = A_t - \\varepsilon",
-                "annotationTex": "A_t^\\tau = \\tau A_t + (1 - \\tau)\\varepsilon, \\qquad u(A_t^\\tau \\mid A_t) = A_t - \\varepsilon",
+                "mathmlText": "Atk−1=α(Atk−γ ϵθ(Ot,Atk,k)+N(0,σ2I))A_t^{k-1} = \\alpha \\left( A_t^k - \\gamma \\, \\epsilon_\\theta(O_t, A_t^k, k) + \\mathcal{N}(0, \\sigma^2 I) \\right)",
+                "annotationTex": "A_t^{k-1} = \\alpha \\left( A_t^k - \\gamma \\, \\epsilon_\\theta(O_t, A_t^k, k) + \\mathcal{N}(0, \\sigma^2 I) \\right)",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "Atτ​=τAt​+(1−τ)ε,u(Atτ​∣At​)=At​−ε",
+                "renderedText": "Atk−1​=α(Atk​−γϵθ​(Ot​,Atk​,k)+N(0,σ2I))",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 715,
                 "clientWidth": 715,
                 "tabIndex": 0,
                 "role": "region",
-                "accessibleName": "Display equation 2",
+                "accessibleName": "Display equation 1",
                 "viewportOverflowPx": 0
               }
             }
@@ -55838,11 +55838,11 @@
               "observed": {
                 "index": 10,
                 "display": false,
-                "mathmlText": "ϵθ\\epsilon_\\theta",
-                "annotationTex": "\\epsilon_\\theta",
+                "mathmlText": "ε\\varepsilon",
+                "annotationTex": "\\varepsilon",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "ϵθ​",
+                "renderedText": "ε",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -55885,11 +55885,58 @@
               "observed": {
                 "index": 12,
                 "display": false,
-                "mathmlText": "ε\\varepsilon",
-                "annotationTex": "\\varepsilon",
+                "mathmlText": "uu",
+                "annotationTex": "u",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "ε",
+                "renderedText": "u",
+                "fontFamilyHead": "KaTeX_Main",
+                "scrollWidth": 0,
+                "clientWidth": 0,
+                "tabIndex": -1,
+                "role": null,
+                "accessibleName": "",
+                "viewportOverflowPx": 0
+              }
+            }
+          ],
+          "viewports": [
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-tables-math.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#13",
+      "assertionId": "VAL-B2-ART-007",
+      "populationMemberId": "/manipulation/diffusion-policy/|1440x900|inline#13",
+      "coveredPopulationMemberIds": [
+        "/manipulation/diffusion-policy/|1440x900|inline#13"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Equations expose accessible text or an equivalent explanation.",
+      "actual": "/manipulation/diffusion-policy/|1440x900|inline#13 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 1440x900",
+      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "/manipulation/diffusion-policy/|1440x900|inline#13",
+          "measured": [
+            {
+              "id": "/manipulation/diffusion-policy/|1440x900|inline#13",
+              "observed": {
+                "index": 13,
+                "display": false,
+                "mathmlText": "τ\\tau",
+                "annotationTex": "\\tau",
+                "htmlLayerHidden": true,
+                "renderError": false,
+                "renderedText": "τ",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -55932,11 +55979,11 @@
               "observed": {
                 "index": 14,
                 "display": false,
-                "mathmlText": "uu",
-                "annotationTex": "u",
+                "mathmlText": "τ=0\\tau = 0",
+                "annotationTex": "\\tau = 0",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "u",
+                "renderedText": "τ=0",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -55979,11 +56026,11 @@
               "observed": {
                 "index": 15,
                 "display": false,
-                "mathmlText": "τ\\tau",
-                "annotationTex": "\\tau",
+                "mathmlText": "τ=1\\tau = 1",
+                "annotationTex": "\\tau = 1",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "τ",
+                "renderedText": "τ=1",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -56025,100 +56072,6 @@
               "id": "/manipulation/diffusion-policy/|1440x900|inline#16",
               "observed": {
                 "index": 16,
-                "display": false,
-                "mathmlText": "τ=0\\tau = 0",
-                "annotationTex": "\\tau = 0",
-                "htmlLayerHidden": true,
-                "renderError": false,
-                "renderedText": "τ=0",
-                "fontFamilyHead": "KaTeX_Main",
-                "scrollWidth": 0,
-                "clientWidth": 0,
-                "tabIndex": -1,
-                "role": null,
-                "accessibleName": "",
-                "viewportOverflowPx": 0
-              }
-            }
-          ],
-          "viewports": [
-            "1440x900"
-          ],
-          "evidence": [
-            "evidence/brand-v2/article-tables-math.json"
-          ]
-        }
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#17",
-      "assertionId": "VAL-B2-ART-007",
-      "populationMemberId": "/manipulation/diffusion-policy/|1440x900|inline#17",
-      "coveredPopulationMemberIds": [
-        "/manipulation/diffusion-policy/|1440x900|inline#17"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Equations expose accessible text or an equivalent explanation.",
-      "actual": "/manipulation/diffusion-policy/|1440x900|inline#17 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 1440x900",
-      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "browser-state",
-        "computed": {
-          "member": "/manipulation/diffusion-policy/|1440x900|inline#17",
-          "measured": [
-            {
-              "id": "/manipulation/diffusion-policy/|1440x900|inline#17",
-              "observed": {
-                "index": 17,
-                "display": false,
-                "mathmlText": "τ=1\\tau = 1",
-                "annotationTex": "\\tau = 1",
-                "htmlLayerHidden": true,
-                "renderError": false,
-                "renderedText": "τ=1",
-                "fontFamilyHead": "KaTeX_Main",
-                "scrollWidth": 0,
-                "clientWidth": 0,
-                "tabIndex": -1,
-                "role": null,
-                "accessibleName": "",
-                "viewportOverflowPx": 0
-              }
-            }
-          ],
-          "viewports": [
-            "1440x900"
-          ],
-          "evidence": [
-            "evidence/brand-v2/article-tables-math.json"
-          ]
-        }
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#18",
-      "assertionId": "VAL-B2-ART-007",
-      "populationMemberId": "/manipulation/diffusion-policy/|1440x900|inline#18",
-      "coveredPopulationMemberIds": [
-        "/manipulation/diffusion-policy/|1440x900|inline#18"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Equations expose accessible text or an equivalent explanation.",
-      "actual": "/manipulation/diffusion-policy/|1440x900|inline#18 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 1440x900",
-      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "browser-state",
-        "computed": {
-          "member": "/manipulation/diffusion-policy/|1440x900|inline#18",
-          "measured": [
-            {
-              "id": "/manipulation/diffusion-policy/|1440x900|inline#18",
-              "observed": {
-                "index": 18,
                 "display": false,
                 "mathmlText": "TaT_a",
                 "annotationTex": "T_a",
@@ -56214,11 +56167,11 @@
               "observed": {
                 "index": 3,
                 "display": false,
-                "mathmlText": "TaT_a",
-                "annotationTex": "T_a",
+                "mathmlText": "Ta=8T_a = 8",
+                "annotationTex": "T_a = 8",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "Ta​",
+                "renderedText": "Ta​=8",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -56261,14 +56214,14 @@
               "observed": {
                 "index": 4,
                 "display": false,
-                "mathmlText": "TaT_a",
-                "annotationTex": "T_a",
+                "mathmlText": "a∼p(a∣o)a \\sim p(a \\mid o)",
+                "annotationTex": "a \\sim p(a \\mid o)",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "Ta​",
+                "renderedText": "a∼p(a∣o)",
                 "fontFamilyHead": "KaTeX_Main",
-                "scrollWidth": 0,
-                "clientWidth": 0,
+                "scrollWidth": 78,
+                "clientWidth": 78,
                 "tabIndex": -1,
                 "role": null,
                 "accessibleName": "",
@@ -56308,11 +56261,11 @@
               "observed": {
                 "index": 5,
                 "display": false,
-                "mathmlText": "Ta=8T_a = 8",
-                "annotationTex": "T_a = 8",
+                "mathmlText": "at=fθ(ot)a_t = f_\\theta(o_t)",
+                "annotationTex": "a_t = f_\\theta(o_t)",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "Ta​=8",
+                "renderedText": "at​=fθ​(ot​)",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -56355,14 +56308,14 @@
               "observed": {
                 "index": 6,
                 "display": false,
-                "mathmlText": "a∼p(a∣o)a \\sim p(a \\mid o)",
-                "annotationTex": "a \\sim p(a \\mid o)",
+                "mathmlText": "p(At∣Ot)p(A_t \\mid O_t)",
+                "annotationTex": "p(A_t \\mid O_t)",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "a∼p(a∣o)",
+                "renderedText": "p(At​∣Ot​)",
                 "fontFamilyHead": "KaTeX_Main",
-                "scrollWidth": 78,
-                "clientWidth": 78,
+                "scrollWidth": 0,
+                "clientWidth": 0,
                 "tabIndex": -1,
                 "role": null,
                 "accessibleName": "",
@@ -56402,11 +56355,11 @@
               "observed": {
                 "index": 7,
                 "display": false,
-                "mathmlText": "at=fθ(ot)a_t = f_\\theta(o_t)",
-                "annotationTex": "a_t = f_\\theta(o_t)",
+                "mathmlText": "TpT_p",
+                "annotationTex": "T_p",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "at​=fθ​(ot​)",
+                "renderedText": "Tp​",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -56449,58 +56402,11 @@
               "observed": {
                 "index": 8,
                 "display": false,
-                "mathmlText": "p(At∣Ot)p(A_t \\mid O_t)",
-                "annotationTex": "p(A_t \\mid O_t)",
+                "mathmlText": "ϵθ\\epsilon_\\theta",
+                "annotationTex": "\\epsilon_\\theta",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "p(At​∣Ot​)",
-                "fontFamilyHead": "KaTeX_Main",
-                "scrollWidth": 0,
-                "clientWidth": 0,
-                "tabIndex": -1,
-                "role": null,
-                "accessibleName": "",
-                "viewportOverflowPx": 0
-              }
-            }
-          ],
-          "viewports": [
-            "1440x900"
-          ],
-          "evidence": [
-            "evidence/brand-v2/article-tables-math.json"
-          ]
-        }
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#9",
-      "assertionId": "VAL-B2-ART-007",
-      "populationMemberId": "/manipulation/diffusion-policy/|1440x900|inline#9",
-      "coveredPopulationMemberIds": [
-        "/manipulation/diffusion-policy/|1440x900|inline#9"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Equations expose accessible text or an equivalent explanation.",
-      "actual": "/manipulation/diffusion-policy/|1440x900|inline#9 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 1440x900",
-      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "browser-state",
-        "computed": {
-          "member": "/manipulation/diffusion-policy/|1440x900|inline#9",
-          "measured": [
-            {
-              "id": "/manipulation/diffusion-policy/|1440x900|inline#9",
-              "observed": {
-                "index": 9,
-                "display": false,
-                "mathmlText": "TpT_p",
-                "annotationTex": "T_p",
-                "htmlLayerHidden": true,
-                "renderError": false,
-                "renderedText": "Tp​",
+                "renderedText": "ϵθ​",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -56543,17 +56449,17 @@
               "observed": {
                 "index": 11,
                 "display": true,
-                "mathmlText": "Atk−1=α(Atk−γ ϵθ(Ot,Atk,k)+N(0,σ2I))A_t^{k-1} = \\alpha \\left( A_t^k - \\gamma \\, \\epsilon_\\theta(O_t, A_t^k, k) + \\mathcal{N}(0, \\sigma^2 I) \\right)",
-                "annotationTex": "A_t^{k-1} = \\alpha \\left( A_t^k - \\gamma \\, \\epsilon_\\theta(O_t, A_t^k, k) + \\mathcal{N}(0, \\sigma^2 I) \\right)",
+                "mathmlText": "Atτ=τAt+(1−τ)ε,u(Atτ∣At)=At−εA_t^\\tau = \\tau A_t + (1 - \\tau)\\varepsilon, \\qquad u(A_t^\\tau \\mid A_t) = A_t - \\varepsilon",
+                "annotationTex": "A_t^\\tau = \\tau A_t + (1 - \\tau)\\varepsilon, \\qquad u(A_t^\\tau \\mid A_t) = A_t - \\varepsilon",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "Atk−1​=α(Atk​−γϵθ​(Ot​,Atk​,k)+N(0,σ2I))",
+                "renderedText": "Atτ​=τAt​+(1−τ)ε,u(Atτ​∣At​)=At​−ε",
                 "fontFamilyHead": "KaTeX_Main",
-                "scrollWidth": 388,
+                "scrollWidth": 389,
                 "clientWidth": 335,
                 "tabIndex": 0,
                 "role": "region",
-                "accessibleName": "Display equation 1",
+                "accessibleName": "Display equation 2",
                 "viewportOverflowPx": 0
               }
             }
@@ -56568,39 +56474,39 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|display#13",
+      "resultId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|display#9",
       "assertionId": "VAL-B2-ART-007",
-      "populationMemberId": "/manipulation/diffusion-policy/|375x812|display#13",
+      "populationMemberId": "/manipulation/diffusion-policy/|375x812|display#9",
       "coveredPopulationMemberIds": [
-        "/manipulation/diffusion-policy/|375x812|display#13"
+        "/manipulation/diffusion-policy/|375x812|display#9"
       ],
       "coverageKind": "per-member",
       "expected": "Equations expose accessible text or an equivalent explanation.",
-      "actual": "/manipulation/diffusion-policy/|375x812|display#13 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 375x812",
+      "actual": "/manipulation/diffusion-policy/|375x812|display#9 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 375x812",
       "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "member": "/manipulation/diffusion-policy/|375x812|display#13",
+          "member": "/manipulation/diffusion-policy/|375x812|display#9",
           "measured": [
             {
-              "id": "/manipulation/diffusion-policy/|375x812|display#13",
+              "id": "/manipulation/diffusion-policy/|375x812|display#9",
               "observed": {
-                "index": 13,
+                "index": 9,
                 "display": true,
-                "mathmlText": "Atτ=τAt+(1−τ)ε,u(Atτ∣At)=At−εA_t^\\tau = \\tau A_t + (1 - \\tau)\\varepsilon, \\qquad u(A_t^\\tau \\mid A_t) = A_t - \\varepsilon",
-                "annotationTex": "A_t^\\tau = \\tau A_t + (1 - \\tau)\\varepsilon, \\qquad u(A_t^\\tau \\mid A_t) = A_t - \\varepsilon",
+                "mathmlText": "Atk−1=α(Atk−γ ϵθ(Ot,Atk,k)+N(0,σ2I))A_t^{k-1} = \\alpha \\left( A_t^k - \\gamma \\, \\epsilon_\\theta(O_t, A_t^k, k) + \\mathcal{N}(0, \\sigma^2 I) \\right)",
+                "annotationTex": "A_t^{k-1} = \\alpha \\left( A_t^k - \\gamma \\, \\epsilon_\\theta(O_t, A_t^k, k) + \\mathcal{N}(0, \\sigma^2 I) \\right)",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "Atτ​=τAt​+(1−τ)ε,u(Atτ​∣At​)=At​−ε",
+                "renderedText": "Atk−1​=α(Atk​−γϵθ​(Ot​,Atk​,k)+N(0,σ2I))",
                 "fontFamilyHead": "KaTeX_Main",
-                "scrollWidth": 389,
+                "scrollWidth": 388,
                 "clientWidth": 335,
                 "tabIndex": 0,
                 "role": "region",
-                "accessibleName": "Display equation 2",
+                "accessibleName": "Display equation 1",
                 "viewportOverflowPx": 0
               }
             }
@@ -56731,11 +56637,11 @@
               "observed": {
                 "index": 10,
                 "display": false,
-                "mathmlText": "ϵθ\\epsilon_\\theta",
-                "annotationTex": "\\epsilon_\\theta",
+                "mathmlText": "ε\\varepsilon",
+                "annotationTex": "\\varepsilon",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "ϵθ​",
+                "renderedText": "ε",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -56778,11 +56684,58 @@
               "observed": {
                 "index": 12,
                 "display": false,
-                "mathmlText": "ε\\varepsilon",
-                "annotationTex": "\\varepsilon",
+                "mathmlText": "uu",
+                "annotationTex": "u",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "ε",
+                "renderedText": "u",
+                "fontFamilyHead": "KaTeX_Main",
+                "scrollWidth": 0,
+                "clientWidth": 0,
+                "tabIndex": -1,
+                "role": null,
+                "accessibleName": "",
+                "viewportOverflowPx": 0
+              }
+            }
+          ],
+          "viewports": [
+            "375x812"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-tables-math.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#13",
+      "assertionId": "VAL-B2-ART-007",
+      "populationMemberId": "/manipulation/diffusion-policy/|375x812|inline#13",
+      "coveredPopulationMemberIds": [
+        "/manipulation/diffusion-policy/|375x812|inline#13"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Equations expose accessible text or an equivalent explanation.",
+      "actual": "/manipulation/diffusion-policy/|375x812|inline#13 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 375x812",
+      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "/manipulation/diffusion-policy/|375x812|inline#13",
+          "measured": [
+            {
+              "id": "/manipulation/diffusion-policy/|375x812|inline#13",
+              "observed": {
+                "index": 13,
+                "display": false,
+                "mathmlText": "τ\\tau",
+                "annotationTex": "\\tau",
+                "htmlLayerHidden": true,
+                "renderError": false,
+                "renderedText": "τ",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -56825,11 +56778,11 @@
               "observed": {
                 "index": 14,
                 "display": false,
-                "mathmlText": "uu",
-                "annotationTex": "u",
+                "mathmlText": "τ=0\\tau = 0",
+                "annotationTex": "\\tau = 0",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "u",
+                "renderedText": "τ=0",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -56872,11 +56825,11 @@
               "observed": {
                 "index": 15,
                 "display": false,
-                "mathmlText": "τ\\tau",
-                "annotationTex": "\\tau",
+                "mathmlText": "τ=1\\tau = 1",
+                "annotationTex": "\\tau = 1",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "τ",
+                "renderedText": "τ=1",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -56918,100 +56871,6 @@
               "id": "/manipulation/diffusion-policy/|375x812|inline#16",
               "observed": {
                 "index": 16,
-                "display": false,
-                "mathmlText": "τ=0\\tau = 0",
-                "annotationTex": "\\tau = 0",
-                "htmlLayerHidden": true,
-                "renderError": false,
-                "renderedText": "τ=0",
-                "fontFamilyHead": "KaTeX_Main",
-                "scrollWidth": 0,
-                "clientWidth": 0,
-                "tabIndex": -1,
-                "role": null,
-                "accessibleName": "",
-                "viewportOverflowPx": 0
-              }
-            }
-          ],
-          "viewports": [
-            "375x812"
-          ],
-          "evidence": [
-            "evidence/brand-v2/article-tables-math.json"
-          ]
-        }
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#17",
-      "assertionId": "VAL-B2-ART-007",
-      "populationMemberId": "/manipulation/diffusion-policy/|375x812|inline#17",
-      "coveredPopulationMemberIds": [
-        "/manipulation/diffusion-policy/|375x812|inline#17"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Equations expose accessible text or an equivalent explanation.",
-      "actual": "/manipulation/diffusion-policy/|375x812|inline#17 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 375x812",
-      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "browser-state",
-        "computed": {
-          "member": "/manipulation/diffusion-policy/|375x812|inline#17",
-          "measured": [
-            {
-              "id": "/manipulation/diffusion-policy/|375x812|inline#17",
-              "observed": {
-                "index": 17,
-                "display": false,
-                "mathmlText": "τ=1\\tau = 1",
-                "annotationTex": "\\tau = 1",
-                "htmlLayerHidden": true,
-                "renderError": false,
-                "renderedText": "τ=1",
-                "fontFamilyHead": "KaTeX_Main",
-                "scrollWidth": 0,
-                "clientWidth": 0,
-                "tabIndex": -1,
-                "role": null,
-                "accessibleName": "",
-                "viewportOverflowPx": 0
-              }
-            }
-          ],
-          "viewports": [
-            "375x812"
-          ],
-          "evidence": [
-            "evidence/brand-v2/article-tables-math.json"
-          ]
-        }
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#18",
-      "assertionId": "VAL-B2-ART-007",
-      "populationMemberId": "/manipulation/diffusion-policy/|375x812|inline#18",
-      "coveredPopulationMemberIds": [
-        "/manipulation/diffusion-policy/|375x812|inline#18"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Equations expose accessible text or an equivalent explanation.",
-      "actual": "/manipulation/diffusion-policy/|375x812|inline#18 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 375x812",
-      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "browser-state",
-        "computed": {
-          "member": "/manipulation/diffusion-policy/|375x812|inline#18",
-          "measured": [
-            {
-              "id": "/manipulation/diffusion-policy/|375x812|inline#18",
-              "observed": {
-                "index": 18,
                 "display": false,
                 "mathmlText": "TaT_a",
                 "annotationTex": "T_a",
@@ -57107,11 +56966,11 @@
               "observed": {
                 "index": 3,
                 "display": false,
-                "mathmlText": "TaT_a",
-                "annotationTex": "T_a",
+                "mathmlText": "Ta=8T_a = 8",
+                "annotationTex": "T_a = 8",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "Ta​",
+                "renderedText": "Ta​=8",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -57154,14 +57013,14 @@
               "observed": {
                 "index": 4,
                 "display": false,
-                "mathmlText": "TaT_a",
-                "annotationTex": "T_a",
+                "mathmlText": "a∼p(a∣o)a \\sim p(a \\mid o)",
+                "annotationTex": "a \\sim p(a \\mid o)",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "Ta​",
+                "renderedText": "a∼p(a∣o)",
                 "fontFamilyHead": "KaTeX_Main",
-                "scrollWidth": 0,
-                "clientWidth": 0,
+                "scrollWidth": 78,
+                "clientWidth": 78,
                 "tabIndex": -1,
                 "role": null,
                 "accessibleName": "",
@@ -57201,11 +57060,11 @@
               "observed": {
                 "index": 5,
                 "display": false,
-                "mathmlText": "Ta=8T_a = 8",
-                "annotationTex": "T_a = 8",
+                "mathmlText": "at=fθ(ot)a_t = f_\\theta(o_t)",
+                "annotationTex": "a_t = f_\\theta(o_t)",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "Ta​=8",
+                "renderedText": "at​=fθ​(ot​)",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -57248,14 +57107,14 @@
               "observed": {
                 "index": 6,
                 "display": false,
-                "mathmlText": "a∼p(a∣o)a \\sim p(a \\mid o)",
-                "annotationTex": "a \\sim p(a \\mid o)",
+                "mathmlText": "p(At∣Ot)p(A_t \\mid O_t)",
+                "annotationTex": "p(A_t \\mid O_t)",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "a∼p(a∣o)",
+                "renderedText": "p(At​∣Ot​)",
                 "fontFamilyHead": "KaTeX_Main",
-                "scrollWidth": 78,
-                "clientWidth": 78,
+                "scrollWidth": 0,
+                "clientWidth": 0,
                 "tabIndex": -1,
                 "role": null,
                 "accessibleName": "",
@@ -57295,11 +57154,11 @@
               "observed": {
                 "index": 7,
                 "display": false,
-                "mathmlText": "at=fθ(ot)a_t = f_\\theta(o_t)",
-                "annotationTex": "a_t = f_\\theta(o_t)",
+                "mathmlText": "TpT_p",
+                "annotationTex": "T_p",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "at​=fθ​(ot​)",
+                "renderedText": "Tp​",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -57342,58 +57201,11 @@
               "observed": {
                 "index": 8,
                 "display": false,
-                "mathmlText": "p(At∣Ot)p(A_t \\mid O_t)",
-                "annotationTex": "p(A_t \\mid O_t)",
+                "mathmlText": "ϵθ\\epsilon_\\theta",
+                "annotationTex": "\\epsilon_\\theta",
                 "htmlLayerHidden": true,
                 "renderError": false,
-                "renderedText": "p(At​∣Ot​)",
-                "fontFamilyHead": "KaTeX_Main",
-                "scrollWidth": 0,
-                "clientWidth": 0,
-                "tabIndex": -1,
-                "role": null,
-                "accessibleName": "",
-                "viewportOverflowPx": 0
-              }
-            }
-          ],
-          "viewports": [
-            "375x812"
-          ],
-          "evidence": [
-            "evidence/brand-v2/article-tables-math.json"
-          ]
-        }
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#9",
-      "assertionId": "VAL-B2-ART-007",
-      "populationMemberId": "/manipulation/diffusion-policy/|375x812|inline#9",
-      "coveredPopulationMemberIds": [
-        "/manipulation/diffusion-policy/|375x812|inline#9"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Equations expose accessible text or an equivalent explanation.",
-      "actual": "/manipulation/diffusion-policy/|375x812|inline#9 emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on, measured at 375x812",
-      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#equations",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "browser-state",
-        "computed": {
-          "member": "/manipulation/diffusion-policy/|375x812|inline#9",
-          "measured": [
-            {
-              "id": "/manipulation/diffusion-policy/|375x812|inline#9",
-              "observed": {
-                "index": 9,
-                "display": false,
-                "mathmlText": "TpT_p",
-                "annotationTex": "T_p",
-                "htmlLayerHidden": true,
-                "renderError": false,
-                "renderedText": "Tp​",
+                "renderedText": "ϵθ​",
                 "fontFamilyHead": "KaTeX_Main",
                 "scrollWidth": 0,
                 "clientWidth": 0,
@@ -64890,11 +64702,11 @@
                   "The Data Bottleneck"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 8,
+                "readingMinutes": 7,
                 "citationCount": 13,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "8 min",
+                "readingTimeText": "7 min",
                 "citationCountText": "13",
                 "bibliographyIds": [
                   "gpt3-2020",
@@ -99617,7 +99429,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:classical/perception moved from 1108c88f43998e5ddfd982871ef4a55946cb9269fa5c76089d9306f8318dd9c8 to 16b193bf70ded1af7473066e55bde95e9423c78e897dc2fbaf9a01f9831fd4c9 exactly as approved delta seo-pass-20261002-prose-classical-perception permits: SEO pass of 2026-10-02 on classical/perception: the lead now opens with the definitional sentence \"Perception for manipulation is the pipeline that turns camera and depth data into object poses in the robot's own frame\", where it opened with \"Grasp planning computes force closure against a known object pose\". Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/seo-pass-20261002/source-transition.json.",
+      "actual": "prose member article:classical/perception moved from 1108c88f43998e5ddfd982871ef4a55946cb9269fa5c76089d9306f8318dd9c8 to 2ecfcf37cd382a22f7d6e8de5714c522885479d83539e13125d3da66f71c96a8 exactly as approved delta seo-pass-20261002-prose-classical-perception permits: SEO pass of 2026-10-02 on classical/perception: the lead now opens with the definitional sentence \"Perception for manipulation is the pipeline that turns camera and depth data into object poses in the robot's own frame\", where it opened with \"Grasp planning computes force closure against a known object pose\". Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/seo-pass-20261002/source-transition.json. The opening section is also shorter, so the first interactive stays within the first-screen word budget of VAL-EDU-045.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -99629,7 +99441,7 @@
           "manifest": "prose",
           "member": "article:classical/perception",
           "baselineHash": "1108c88f43998e5ddfd982871ef4a55946cb9269fa5c76089d9306f8318dd9c8",
-          "currentHash": "16b193bf70ded1af7473066e55bde95e9423c78e897dc2fbaf9a01f9831fd4c9",
+          "currentHash": "2ecfcf37cd382a22f7d6e8de5714c522885479d83539e13125d3da66f71c96a8",
           "status": "approved-delta",
           "approvedDelta": "seo-pass-20261002-prose-classical-perception"
         },
@@ -99729,7 +99541,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:data-hardware/data-bottleneck moved from 91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2 to cc1720d38f60ae04bdb1b6d54183e9cd832296d59da5f7a70cdc9db6cf7adeae exactly as approved delta seo-pass-20261002-prose-data-hardware-data-bottleneck permits: SEO pass of 2026-10-02 on data-hardware/data-bottleneck: the lead now opens with the definitional sentence \"The data bottleneck is the shortage of robot demonstration data compared with the text that language models train on\", where it opened with \"Language model pretraining runs on text scraped at internet scale\". Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/seo-pass-20261002/source-transition.json.",
+      "actual": "prose member article:data-hardware/data-bottleneck moved from 91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2 to e7d6259b3539357195eb63f8470b0f772a343685f796d71950081cc6e4b0a8d6 exactly as approved delta seo-pass-20261002-prose-data-hardware-data-bottleneck permits: SEO pass of 2026-10-02 on data-hardware/data-bottleneck: the lead now opens with the definitional sentence \"The data bottleneck is the shortage of robot demonstration data compared with the internet-scale text that language models train on\", where it opened with \"Language model pretraining runs on text scraped at internet scale\". Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/seo-pass-20261002/source-transition.json. The opening section is also shorter, so the first interactive stays within the first-screen word budget of VAL-EDU-045.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -99741,7 +99553,7 @@
           "manifest": "prose",
           "member": "article:data-hardware/data-bottleneck",
           "baselineHash": "91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2",
-          "currentHash": "cc1720d38f60ae04bdb1b6d54183e9cd832296d59da5f7a70cdc9db6cf7adeae",
+          "currentHash": "e7d6259b3539357195eb63f8470b0f772a343685f796d71950081cc6e4b0a8d6",
           "status": "approved-delta",
           "approvedDelta": "seo-pass-20261002-prose-data-hardware-data-bottleneck"
         },
@@ -100233,7 +100045,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:manipulation/diffusion-policy moved from e306e7bc393b1f46637b4eae6bd7e83b3f9eeff0174e4bbf658b83560a9ecba2 to abec0904375feebe8078e23153b4d57f4abf0d426c4d4e1362501ef630db8b14 exactly as approved delta seo-pass-20261002-prose-manipulation-diffusion-policy permits: SEO pass of 2026-10-02 on manipulation/diffusion-policy: the lead now opens with the definitional sentence \"Diffusion Policy is a visuomotor robot policy that generates its actions with a diffusion model\", where it opened with \"Human demonstrations are multimodal: faced with an obstacle, one operator goes left, another goes right, and both are correct\". Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/seo-pass-20261002/source-transition.json.",
+      "actual": "prose member article:manipulation/diffusion-policy moved from e306e7bc393b1f46637b4eae6bd7e83b3f9eeff0174e4bbf658b83560a9ecba2 to a908f7a1fc3ff0e4a5a8d418d1c0ce003cb7405901f62068049c3b4b244a8a81 exactly as approved delta seo-pass-20261002-prose-manipulation-diffusion-policy permits: SEO pass of 2026-10-02 on manipulation/diffusion-policy: the lead now opens with the definitional sentence \"Diffusion Policy is a visuomotor robot policy that generates its actions with a diffusion model\", where it opened with \"Human demonstrations are multimodal: faced with an obstacle, one operator goes left, another goes right, and both are correct\". Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/seo-pass-20261002/source-transition.json. The opening section is also shorter, so the first interactive stays within the first-screen word budget of VAL-EDU-045.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100245,7 +100057,7 @@
           "manifest": "prose",
           "member": "article:manipulation/diffusion-policy",
           "baselineHash": "e306e7bc393b1f46637b4eae6bd7e83b3f9eeff0174e4bbf658b83560a9ecba2",
-          "currentHash": "abec0904375feebe8078e23153b4d57f4abf0d426c4d4e1362501ef630db8b14",
+          "currentHash": "a908f7a1fc3ff0e4a5a8d418d1c0ce003cb7405901f62068049c3b4b244a8a81",
           "status": "approved-delta",
           "approvedDelta": "seo-pass-20261002-prose-manipulation-diffusion-policy"
         },
@@ -127626,7 +127438,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 6414 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 6442 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -128287,7 +128099,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/classical/perception/ rendered no v1 identity spelling and no v1 descriptor in 84516 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/classical/perception/ rendered no v1 identity spelling and no v1 descriptor in 84244 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -128569,7 +128381,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/data-bottleneck/ rendered no v1 identity spelling and no v1 descriptor in 28887 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/data-bottleneck/ rendered no v1 identity spelling and no v1 descriptor in 28351 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -129603,7 +129415,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/diffusion-policy/ rendered no v1 identity spelling and no v1 descriptor in 29549 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/diffusion-policy/ rendered no v1 identity spelling and no v1 descriptor in 29281 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",

@@ -8,7 +8,7 @@
     "minutes": 14
   },
   "manipulation/diffusion-policy": {
-    "words": 1852,
+    "words": 1822,
     "minutes": 9
   },
   "manipulation/vla-models": {
@@ -124,8 +124,8 @@
     "minutes": 11
   },
   "data-hardware/data-bottleneck": {
-    "words": 1520,
-    "minutes": 8
+    "words": 1473,
+    "minutes": 7
   },
   "data-hardware/datasets": {
     "words": 2123,
@@ -172,7 +172,7 @@
     "minutes": 12
   },
   "classical/perception": {
-    "words": 5493,
+    "words": 5469,
     "minutes": 27
   },
   "classical/scene-representation": {

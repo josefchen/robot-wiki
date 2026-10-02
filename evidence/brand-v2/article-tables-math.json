@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "64f1b0040fd09d36536efd70545a346d49fcb20eaf2e37497ca7880c6b58bab1",
+  "fingerprint": "bb16822bdc51f3bad708d711684e16ae8d7534a1c3867efa2d39b6c2cf68cae9",
   "viewports": [
     "375x812",
     "1440x900"
@@ -2797,7 +2797,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 42051,
+      "visibleTextLength": 41915,
       "tables": [],
       "equations": [
         {
@@ -3886,7 +3886,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14254,
+      "visibleTextLength": 13986,
       "tables": [
         {
           "index": 0,
@@ -5579,7 +5579,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14461,
+      "visibleTextLength": 14327,
       "tables": [],
       "equations": [
         {
@@ -5633,38 +5633,6 @@
         {
           "index": 3,
           "display": false,
-          "mathmlText": "TaT_a",
-          "annotationTex": "T_a",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "Ta​",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 0,
-          "clientWidth": 0,
-          "tabIndex": -1,
-          "role": null,
-          "accessibleName": "",
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 4,
-          "display": false,
-          "mathmlText": "TaT_a",
-          "annotationTex": "T_a",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "Ta​",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 0,
-          "clientWidth": 0,
-          "tabIndex": -1,
-          "role": null,
-          "accessibleName": "",
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 5,
-          "display": false,
           "mathmlText": "Ta=8T_a = 8",
           "annotationTex": "T_a = 8",
           "htmlLayerHidden": true,
@@ -5679,7 +5647,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 6,
+          "index": 4,
           "display": false,
           "mathmlText": "a∼p(a∣o)a \\sim p(a \\mid o)",
           "annotationTex": "a \\sim p(a \\mid o)",
@@ -5695,7 +5663,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 7,
+          "index": 5,
           "display": false,
           "mathmlText": "at=fθ(ot)a_t = f_\\theta(o_t)",
           "annotationTex": "a_t = f_\\theta(o_t)",
@@ -5711,7 +5679,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 8,
+          "index": 6,
           "display": false,
           "mathmlText": "p(At∣Ot)p(A_t \\mid O_t)",
           "annotationTex": "p(A_t \\mid O_t)",
@@ -5727,7 +5695,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 9,
+          "index": 7,
           "display": false,
           "mathmlText": "TpT_p",
           "annotationTex": "T_p",
@@ -5743,7 +5711,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 10,
+          "index": 8,
           "display": false,
           "mathmlText": "ϵθ\\epsilon_\\theta",
           "annotationTex": "\\epsilon_\\theta",
@@ -5759,7 +5727,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 11,
+          "index": 9,
           "display": true,
           "mathmlText": "Atk−1=α(Atk−γ ϵθ(Ot,Atk,k)+N(0,σ2I))A_t^{k-1} = \\alpha \\left( A_t^k - \\gamma \\, \\epsilon_\\theta(O_t, A_t^k, k) + \\mathcal{N}(0, \\sigma^2 I) \\right)",
           "annotationTex": "A_t^{k-1} = \\alpha \\left( A_t^k - \\gamma \\, \\epsilon_\\theta(O_t, A_t^k, k) + \\mathcal{N}(0, \\sigma^2 I) \\right)",
@@ -5775,7 +5743,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 12,
+          "index": 10,
           "display": false,
           "mathmlText": "ε\\varepsilon",
           "annotationTex": "\\varepsilon",
@@ -5791,7 +5759,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 13,
+          "index": 11,
           "display": true,
           "mathmlText": "Atτ=τAt+(1−τ)ε,u(Atτ∣At)=At−εA_t^\\tau = \\tau A_t + (1 - \\tau)\\varepsilon, \\qquad u(A_t^\\tau \\mid A_t) = A_t - \\varepsilon",
           "annotationTex": "A_t^\\tau = \\tau A_t + (1 - \\tau)\\varepsilon, \\qquad u(A_t^\\tau \\mid A_t) = A_t - \\varepsilon",
@@ -5807,7 +5775,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 14,
+          "index": 12,
           "display": false,
           "mathmlText": "uu",
           "annotationTex": "u",
@@ -5823,7 +5791,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 15,
+          "index": 13,
           "display": false,
           "mathmlText": "τ\\tau",
           "annotationTex": "\\tau",
@@ -5839,7 +5807,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 16,
+          "index": 14,
           "display": false,
           "mathmlText": "τ=0\\tau = 0",
           "annotationTex": "\\tau = 0",
@@ -5855,7 +5823,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 17,
+          "index": 15,
           "display": false,
           "mathmlText": "τ=1\\tau = 1",
           "annotationTex": "\\tau = 1",
@@ -5871,7 +5839,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 18,
+          "index": 16,
           "display": false,
           "mathmlText": "TaT_a",
           "annotationTex": "T_a",
@@ -9962,7 +9930,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 42465,
+      "visibleTextLength": 42329,
       "tables": [],
       "equations": [
         {
@@ -11051,7 +11019,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14633,
+      "visibleTextLength": 14365,
       "tables": [
         {
           "index": 0,
@@ -12744,7 +12712,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15088,
+      "visibleTextLength": 14954,
       "tables": [],
       "equations": [
         {
@@ -12798,38 +12766,6 @@
         {
           "index": 3,
           "display": false,
-          "mathmlText": "TaT_a",
-          "annotationTex": "T_a",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "Ta​",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 0,
-          "clientWidth": 0,
-          "tabIndex": -1,
-          "role": null,
-          "accessibleName": "",
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 4,
-          "display": false,
-          "mathmlText": "TaT_a",
-          "annotationTex": "T_a",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "Ta​",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 0,
-          "clientWidth": 0,
-          "tabIndex": -1,
-          "role": null,
-          "accessibleName": "",
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 5,
-          "display": false,
           "mathmlText": "Ta=8T_a = 8",
           "annotationTex": "T_a = 8",
           "htmlLayerHidden": true,
@@ -12844,7 +12780,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 6,
+          "index": 4,
           "display": false,
           "mathmlText": "a∼p(a∣o)a \\sim p(a \\mid o)",
           "annotationTex": "a \\sim p(a \\mid o)",
@@ -12860,7 +12796,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 7,
+          "index": 5,
           "display": false,
           "mathmlText": "at=fθ(ot)a_t = f_\\theta(o_t)",
           "annotationTex": "a_t = f_\\theta(o_t)",
@@ -12876,7 +12812,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 8,
+          "index": 6,
           "display": false,
           "mathmlText": "p(At∣Ot)p(A_t \\mid O_t)",
           "annotationTex": "p(A_t \\mid O_t)",
@@ -12892,7 +12828,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 9,
+          "index": 7,
           "display": false,
           "mathmlText": "TpT_p",
           "annotationTex": "T_p",
@@ -12908,7 +12844,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 10,
+          "index": 8,
           "display": false,
           "mathmlText": "ϵθ\\epsilon_\\theta",
           "annotationTex": "\\epsilon_\\theta",
@@ -12924,7 +12860,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 11,
+          "index": 9,
           "display": true,
           "mathmlText": "Atk−1=α(Atk−γ ϵθ(Ot,Atk,k)+N(0,σ2I))A_t^{k-1} = \\alpha \\left( A_t^k - \\gamma \\, \\epsilon_\\theta(O_t, A_t^k, k) + \\mathcal{N}(0, \\sigma^2 I) \\right)",
           "annotationTex": "A_t^{k-1} = \\alpha \\left( A_t^k - \\gamma \\, \\epsilon_\\theta(O_t, A_t^k, k) + \\mathcal{N}(0, \\sigma^2 I) \\right)",
@@ -12940,7 +12876,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 12,
+          "index": 10,
           "display": false,
           "mathmlText": "ε\\varepsilon",
           "annotationTex": "\\varepsilon",
@@ -12956,7 +12892,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 13,
+          "index": 11,
           "display": true,
           "mathmlText": "Atτ=τAt+(1−τ)ε,u(Atτ∣At)=At−εA_t^\\tau = \\tau A_t + (1 - \\tau)\\varepsilon, \\qquad u(A_t^\\tau \\mid A_t) = A_t - \\varepsilon",
           "annotationTex": "A_t^\\tau = \\tau A_t + (1 - \\tau)\\varepsilon, \\qquad u(A_t^\\tau \\mid A_t) = A_t - \\varepsilon",
@@ -12972,7 +12908,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 14,
+          "index": 12,
           "display": false,
           "mathmlText": "uu",
           "annotationTex": "u",
@@ -12988,7 +12924,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 15,
+          "index": 13,
           "display": false,
           "mathmlText": "τ\\tau",
           "annotationTex": "\\tau",
@@ -13004,7 +12940,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 16,
+          "index": 14,
           "display": false,
           "mathmlText": "τ=0\\tau = 0",
           "annotationTex": "\\tau = 0",
@@ -13020,7 +12956,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 17,
+          "index": 15,
           "display": false,
           "mathmlText": "τ=1\\tau = 1",
           "annotationTex": "\\tau = 1",
@@ -13036,7 +12972,7 @@
           "viewportOverflowPx": 0
         },
         {
-          "index": 18,
+          "index": 16,
           "display": false,
           "mathmlText": "TaT_a",
           "annotationTex": "T_a",

@@ -3,8 +3,8 @@
   "name": "seo-pass-related-links-and-leads",
   "archivedFrom": "953a891b42e762aa1e6ddbf77421fc8f727019f4",
   "reviewedBy": "SEO-pass implementer (not independent acceptance)",
-  "rationale": "The SEO pass gave every published article two or three related articles taken from its domain report's internal links to add, and gave most leads a first sentence that defines the article's subject, either new or moved forward from later in the lead. A few later sentences lost a glossary wrapper that the new first sentence now carries. Each article's change is recorded here as exact edits over its pre-pass bytes. The pre-pass bytes stand in for the live article only while the live article is exactly the reviewed successor, reversing the edits rebuilds bytes that hash to the recorded predecessor, the frontmatter differs only in its seeAlso list of two or three entries, every edit sits in the region it names, and the citation order and every digit-bearing token of the body are unchanged. The pass's approved deltas describe each article's prose and relationship change.",
-  "observedAt": "2026-10-02T01:34:14Z",
+  "rationale": "The SEO pass gave every published article two or three related articles taken from its domain report's internal links to add, and gave most leads a first sentence that defines the article's subject, either new or moved forward from later in the lead. A few later sentences lost a glossary wrapper that the new first sentence now carries. On diffusion-policy, data-bottleneck and perception the opening section was also shortened, keeping every cited fact, number and citation, so the first interactive stays within the first-screen word budget. Each article's change is recorded here as exact edits over its pre-pass bytes. The pre-pass bytes stand in for the live article only while the live article is exactly the reviewed successor, reversing the edits rebuilds bytes that hash to the recorded predecessor, the frontmatter differs only in its seeAlso list of two or three entries, every edit sits in the region it names, and the citation order and every digit-bearing token of the body are unchanged. The pass's approved deltas describe each article's prose and relationship change.",
+  "observedAt": "2026-10-02T06:47:22Z",
   "sources": [
     {
       "name": "adjacent/autonomous-vehicles",
@@ -230,8 +230,8 @@
       },
       "after": {
         "path": "content/classical/perception.mdx",
-        "bytes": 35586,
-        "sha256": "7c9cbd63c3b056412b7d0f46e49112bf6df8950a81d79e00ac02ce1ebe502e0b"
+        "bytes": 35450,
+        "sha256": "3a894877c233a7d5be63fadbb051c626c716261ce54230217c68ed9577727aae"
       },
       "edits": [
         {
@@ -242,7 +242,7 @@
         {
           "region": "body",
           "before": "[Grasp planning](/classical/grasp-planning) computes force closure against a known object pose. Notice what that assumes: somebody upstream has already said where the object is, in the robot's own frame, to a tolerance the gripper can act on. That upstream somebody is the perception pipeline, and this is the module about it.",
-          "after": "Perception for manipulation is the pipeline that turns camera and depth data into object poses in the robot's own frame. [Grasp planning](/classical/grasp-planning) computes force closure against a known object pose. Notice what that assumes: somebody upstream has already said where the object is, in the robot's own frame, to a tolerance the gripper can act on. That upstream somebody is the perception pipeline, and this is the module about it."
+          "after": "Perception for manipulation is the pipeline that turns camera and depth data into object poses in the robot's own frame. [Grasp planning](/classical/grasp-planning) computes force closure against a known object pose, which assumes perception has already located the object to a tolerance the gripper can act on."
         }
       ]
     },
@@ -325,8 +325,8 @@
       },
       "after": {
         "path": "content/data-hardware/data-bottleneck.mdx",
-        "bytes": 11990,
-        "sha256": "99c2cba2e37c8a843a664472f04132db8c63c332cfac4bb902bdce813040823a"
+        "bytes": 11722,
+        "sha256": "9ef710d2e4307f7465976256e9690fd545f8ee91b5c41221649e873203075c97"
       },
       "edits": [
         {
@@ -337,7 +337,7 @@
         {
           "region": "body",
           "before": "Language model pretraining runs on text scraped at internet scale. GPT-3 consumed 300 billion tokens in 2020 <Cite id=\"gpt3-2020\" />; Llama 3 consumed over 15 trillion in 2024 <Cite id=\"llama-3-2024\" />, a scale the open FineWeb corpus replicates from 96 Common Crawl snapshots <Cite id=\"fineweb-2024\" />. Robot learning has no equivalent. <Term id=\"open-x-embodiment\">Open X-Embodiment</Term> pools over a million trajectories across 22 robot embodiments <Cite id=\"open-x-embodiment-2023\" />. The chart assigns it no hour estimate: trajectory count alone does not establish duration. The largest single-organization release, AgiBot World, holds 1,001,552 trajectories, and it does publish an hour count: 2,976 hours, which works out to about 11 seconds per trajectory <Cite id=\"agibot-world-2025\" />. A million trajectories, in other words, is under three thousand hours. DROID reports 76,000 successful trajectories totaling 350 interaction hours. Fifty data collectors used 18 robots across 13 institutions over 12 months <Cite id=\"droid-2024\" />. The paper also reports roughly 16,000 unsuccessful trajectories, released separately from the headline count. The 12 months describe elapsed collection time; they do not establish a full working year for each collector or robot. Toyota Research Institute's Large Behavior Model program trained on about 1,700 hours in total, spread across its own bimanual data, simulation, UMI, and Open X-Embodiment <Cite id=\"tri-lbm-2025\" />. That gap, and everything the field is doing about it, is the subject of this module.",
-          "after": "The data bottleneck is the shortage of robot demonstration data compared with the text that language models train on. Language model pretraining runs on text scraped at internet scale. GPT-3 consumed 300 billion tokens in 2020 <Cite id=\"gpt3-2020\" />; Llama 3 consumed over 15 trillion in 2024 <Cite id=\"llama-3-2024\" />, a scale the open FineWeb corpus replicates from 96 Common Crawl snapshots <Cite id=\"fineweb-2024\" />. Robot learning has no equivalent. <Term id=\"open-x-embodiment\">Open X-Embodiment</Term> pools over a million trajectories across 22 robot embodiments <Cite id=\"open-x-embodiment-2023\" />. The chart assigns it no hour estimate: trajectory count alone does not establish duration. The largest single-organization release, AgiBot World, holds 1,001,552 trajectories, and it does publish an hour count: 2,976 hours, which works out to about 11 seconds per trajectory <Cite id=\"agibot-world-2025\" />. A million trajectories, in other words, is under three thousand hours. DROID reports 76,000 successful trajectories totaling 350 interaction hours. Fifty data collectors used 18 robots across 13 institutions over 12 months <Cite id=\"droid-2024\" />. The paper also reports roughly 16,000 unsuccessful trajectories, released separately from the headline count. The 12 months describe elapsed collection time; they do not establish a full working year for each collector or robot. Toyota Research Institute's Large Behavior Model program trained on about 1,700 hours in total, spread across its own bimanual data, simulation, UMI, and Open X-Embodiment <Cite id=\"tri-lbm-2025\" />. That gap, and everything the field is doing about it, is the subject of this module."
+          "after": "The data bottleneck is the shortage of robot demonstration data compared with the internet-scale text that language models train on. GPT-3 consumed 300 billion tokens in 2020 <Cite id=\"gpt3-2020\" />; Llama 3 consumed over 15 trillion in 2024 <Cite id=\"llama-3-2024\" />, a scale the open FineWeb corpus replicates from 96 Common Crawl snapshots <Cite id=\"fineweb-2024\" />. <Term id=\"open-x-embodiment\">Open X-Embodiment</Term> pools over a million trajectories across 22 robot embodiments <Cite id=\"open-x-embodiment-2023\" />. The chart assigns it no hour estimate: trajectory count alone does not establish duration. The largest single-organization release, AgiBot World, holds 1,001,552 trajectories and publishes an hour count: 2,976 hours, about 11 seconds per trajectory <Cite id=\"agibot-world-2025\" />. DROID reports 76,000 successful trajectories totaling 350 interaction hours. Fifty data collectors used 18 robots across 13 institutions over 12 months <Cite id=\"droid-2024\" />. The paper also reports roughly 16,000 unsuccessful trajectories, released separately from the headline count. The 12 months describe elapsed collection time; they do not establish a full working year for each collector or robot. Toyota Research Institute's Large Behavior Model program trained on about 1,700 hours in total, spread across its own bimanual data, simulation, UMI, and Open X-Embodiment <Cite id=\"tri-lbm-2025\" />."
         }
       ]
     },
@@ -760,8 +760,8 @@
       },
       "after": {
         "path": "content/manipulation/diffusion-policy.mdx",
-        "bytes": 11140,
-        "sha256": "288fb3f98ca83ca87241a15e72f383ad73b48169d48cd0af5b4c9b88acb91be1"
+        "bytes": 11026,
+        "sha256": "0e27e0619aac140a86f5034d37833abb9456dae33f35c30e7475514e389a7131"
       },
       "edits": [
         {
@@ -772,7 +772,17 @@
         {
           "region": "body",
           "before": "Human demonstrations are multimodal: faced with an obstacle, one operator goes left, another goes right, and both are correct. A policy trained with mean-squared error on that data learns the average of the modes, and the average of \"left\" and \"right\" is \"straight into the obstacle.\" <Term id=\"diffusion-policy\">Diffusion Policy</Term>, introduced by Chi et al. in 2023, sidesteps the averaging problem by changing what the policy outputs: a conditional denoising process over a whole action sequence instead of a single action <Cite id=\"diffusion-policy-2023\" />. The extended journal version describes a 15-task evaluation. It reports a 46.9% average relative improvement for its simulation comparisons; the paper's baseline selection takes the strongest baseline and diffusion backbone per reported column and excludes multi-human results <Cite id=\"diffusion-policy-2023\" />.",
-          "after": "<Term id=\"diffusion-policy\">Diffusion Policy</Term> is a visuomotor robot policy that generates its actions with a diffusion model. Human demonstrations are multimodal: faced with an obstacle, one operator goes left, another goes right, and both are correct. A policy trained with mean-squared error on that data learns the average of the modes, and the average of \"left\" and \"right\" is \"straight into the obstacle.\" Diffusion Policy, introduced by Chi et al. in 2023, sidesteps the averaging problem by changing what the policy outputs: a conditional denoising process over a whole action sequence instead of a single action <Cite id=\"diffusion-policy-2023\" />. The extended journal version describes a 15-task evaluation. It reports a 46.9% average relative improvement for its simulation comparisons; the paper's baseline selection takes the strongest baseline and diffusion backbone per reported column and excludes multi-human results <Cite id=\"diffusion-policy-2023\" />."
+          "after": "<Term id=\"diffusion-policy\">Diffusion Policy</Term> is a visuomotor robot policy that generates its actions with a diffusion model. Human demonstrations are multimodal: faced with an obstacle, one operator goes left, another goes right, and both are correct. A policy trained with mean-squared error learns the average of the modes, and the average of \"left\" and \"right\" is \"straight into the obstacle.\" Diffusion Policy, introduced by Chi et al. in 2023, sidesteps the averaging problem by generating a whole action sequence through conditional denoising instead of a single action <Cite id=\"diffusion-policy-2023\" />. The extended journal version describes a 15-task evaluation. It reports a 46.9% average relative improvement for its simulation comparisons; the paper's baseline selection takes the strongest baseline and diffusion backbone per reported column and excludes multi-human results <Cite id=\"diffusion-policy-2023\" />."
+        },
+        {
+          "region": "body",
+          "before": "Diffusion Policy executes $T_a$ actions from a $T_p$-action prediction before observing again and replanning. The CNN configuration uses eight of sixteen actions for many of the reported tasks; the formulation also permits warm-starting the next inference from a previous prediction <Cite id=\"diffusion-policy-2023\" />. The tail of each chunk exists to make the committed part coherent; it is revised away before it ever runs.",
+          "after": "Diffusion Policy executes $T_a$ actions from a $T_p$-action prediction before observing again and replanning. The CNN configuration uses eight of sixteen actions for many of the reported tasks; the formulation also permits warm-starting the next inference from a previous prediction <Cite id=\"diffusion-policy-2023\" />. The unexecuted tail keeps the committed part coherent."
+        },
+        {
+          "region": "body",
+          "before": "$T_a$ is the same dial as ACT's chunk size, named differently: large $T_a$ gives smooth, committed motion but a slow reaction to anything changing mid-chunk; small $T_a$ reacts quickly but re-samples often, and each new sample can pick a different mode mid-motion <Cite id=\"act-aloha-2023\" />. The policy issues commands at 10 Hz, so $T_a = 8$ means the robot commits to each plan for 0.8 seconds. Drag the executed horizon slider below 8 and watch the replan rate climb.",
+          "after": "$T_a$ is the same dial as ACT's chunk size: a large value gives smooth, committed motion but reacts slowly to anything changing mid-chunk; a small one reacts quickly but re-samples often, and each new sample can pick a different mode mid-motion <Cite id=\"act-aloha-2023\" />. The policy issues commands at 10 Hz, so $T_a = 8$ means the robot commits to each plan for 0.8 seconds. Drag the executed horizon slider below 8 and watch the replan rate climb."
         }
       ]
     },
