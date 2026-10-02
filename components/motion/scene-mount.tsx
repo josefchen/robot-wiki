@@ -6,10 +6,9 @@
  * Code-splitting: each scene loads through the article's lazy mount. The
  * placeholder is the poster frame, which prerenders the scene's final frame
  * server-side inside the same figure frame (header, graphite stage with its
- * legend, readout and timeline, caption) with the transport controls
- * disabled. The poster draws the timeline at its end and the player swaps
- * in the live scrubber at the same height, so activation moves nothing the
- * reader is looking at.
+ * legend, readout and timeline, caption). The poster draws the timeline at
+ * its end and the player swaps in the live scrubber at the same height, so
+ * activation moves nothing the reader is looking at.
  *
  * No autoplay, ever: the poster's play control is the click. Under reduced
  * motion the click activates the scene paused on the poster still; the
@@ -53,6 +52,8 @@ export interface SceneMountProps {
   }) => ReactNode;
   statusLine?: ReactNode;
   textAlternative: string;
+  /** Method, sources and caveats for the "How this was made" fold. */
+  method?: ReactNode;
   className?: string;
 }
 
@@ -63,10 +64,12 @@ export function SceneMount({
   readout,
   statusLine,
   textAlternative,
+  method,
   className,
 }: SceneMountProps) {
   const [active, setActive] = useState(false);
   const [autoPlay, setAutoPlay] = useState(false);
+  const [initialStep, setInitialStep] = useState<1 | -1 | undefined>();
   const descriptionId = `${useId()}-motion-poster-alt`;
   const reducedMotion = usePrefersReducedMotion();
   const source = useSceneSource();
@@ -79,6 +82,12 @@ export function SceneMount({
     // The click is the play consent; reduced motion keeps it a pause on
     // the poster still, with the step controls doing the teaching.
     setAutoPlay(!reducedMotion);
+  };
+  // A step pressed in the poster's fold activates the player paused, one
+  // beat away from the poster, with the fold still open.
+  const activateStep = (delta: 1 | -1) => {
+    setActive(true);
+    setInitialStep(delta);
   };
 
   const posterState = {
@@ -97,30 +106,32 @@ export function SceneMount({
       aria-label={`Motion scene: ${scene.title}`}
       aria-describedby={descriptionId}
       className={className}
-      heading={scene.title}
+      kicker={scene.kicker}
+      heading={scene.headline ?? scene.title}
       controls={
+        <button
+          data-brand-control-id="control:primary-action"
+          data-pagefind-ignore
+          data-testid="motion-poster"
+          type="button"
+          onClick={activate}
+          aria-label={`Play the motion scene: ${scene.title}`}
+          className={INSTRUMENT_PRIMARY_CONTROL_CLASS}
+        >
+          <Play size={14} weight="bold" aria-hidden />
+          Play
+        </button>
+      }
+      // The poster's fold holds the same transport as the player's. A step
+      // activates the player one beat away; reset finds the poster already
+      // at its settle still.
+      adjust={
         <>
-          <button
-            data-brand-control-id="control:primary-action"
-            data-pagefind-ignore
-            data-testid="motion-poster"
-            type="button"
-            onClick={activate}
-            aria-label={`Play the motion scene: ${scene.title}`}
-            className={INSTRUMENT_PRIMARY_CONTROL_CLASS}
-          >
-            <Play size={14} weight="bold" aria-hidden />
-            Play
-          </button>
-          {/* Transport controls exist but wait for the play click, so the
-              header row is the same height before and after activation.
-              The disabled controls keep their registry annotations: the
-              control census sweeps the poster too. */}
           <button
             data-brand-control-id="control:secondary-action"
             data-pagefind-ignore
             type="button"
-            disabled
+            onClick={() => activateStep(-1)}
             aria-label="Step back one beat"
             className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
           >
@@ -130,7 +141,7 @@ export function SceneMount({
             data-brand-control-id="control:secondary-action"
             data-pagefind-ignore
             type="button"
-            disabled
+            onClick={() => activateStep(1)}
             aria-label="Step forward one beat"
             className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
           >
@@ -138,7 +149,6 @@ export function SceneMount({
           </button>
           <InstrumentReset
             onClick={() => {}}
-            disabled
             aria-label="Reset the scene to its poster still"
           />
         </>
@@ -163,6 +173,7 @@ export function SceneMount({
       // reader is looking at, in the same slot the live caption uses.
       caption={posterBeat.caption}
       captionProps={{ 'data-testid': 'motion-caption' }}
+      method={method}
       source={source}
     >
       <div id={descriptionId} className="sr-only" hidden>
@@ -180,7 +191,9 @@ export function SceneMount({
       readout={readout}
       statusLine={statusLine}
       textAlternative={textAlternative}
+      method={method}
       autoPlayOnMount={autoPlay}
+      initialStep={initialStep}
       className={className}
     >
       {stage}

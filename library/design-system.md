@@ -553,21 +553,26 @@ The approved article reference is the baseline for long-form composition.
 
 Every explanatory figure, scene and tool preview uses one frame (`components/motion/figure-frame.tsx`), in this order:
 
-1. A header with a short title that fits on one line at 375px, and the shared controls.
-2. The bounded graphite stage (`--color-instrument`). Legends, readouts and the scene timeline sit on it.
-3. One caption line of 20 words or fewer. For a scene this is the current beat caption.
-4. At most one source line.
+1. A header: an optional kicker of 6 words or fewer that names the technique, then a headline of 10 words or fewer that states what the figure shows (a claim, not a topic). The headline may wrap at 375px. Beside it sit at most two visible controls in plain words or named presets, and a fold labelled exactly "Adjust more" that holds every other control and the reset.
+2. The bounded graphite stage (`--color-instrument`). Legends, readouts, the status label and the scene timeline sit on it. At settle it already shows the point the headline names, with one plain-words annotation in the highlight role (two at most).
+3. One caption sentence of 25 words or fewer that tells a non-expert why the point matters. For a scene this is the current beat caption.
+4. A fold labelled exactly "How this was made" with the method, sources, parameters, formulas, caveats and the chart data.
+5. At most one source line, which keeps an external credit visible.
 
-Nothing else sits between the stage and the next prose block.
+Both folds are closed at settle and keep their content in the served HTML. Nothing else sits between the stage and the next prose block.
 
-- Data marks use the stage role palette (`--role-*-stage`). Signal blue marks links and focus only. Status colours mark status only. The constraint red appears only as a hatch.
-- Stage text is IBM Plex Sans at 12px or more, in at most three sizes (14, 13 and 12px). IBM Plex Mono is for numeric readouts only.
+- The main view (header, stage, controls and caption at settle) carries no symbol and no bare unit: no Greek letter or one- or two-letter variable used as a quantity, no sub- or superscript, power or formula, no Hz, ms, rad or "/step". The same line may gloss one in plain words ("10 times a second (10 Hz)"). %, currency, dates, and kg, km, km/h, m, cm and mm after a number are everyday forms. Maths and units live in the article text or "How this was made". `lib/figure-main-view.ts` holds the pattern list.
+- Data marks use the stage role palette (`--role-*-stage`). Signal blue marks links and focus only. Status colours mark status only. The constraint red appears only as a hatch. The mark group the annotation points at is the only one at full emphasis; lime marks only the annotation, its pointer and the current selection.
+- Stage text is IBM Plex Sans at 14px displayed, in at most three sizes across the frame (16px headline, 14px stage, caption and controls, 12px kicker and source). IBM Plex Mono is for numeric readouts only. Each axis has at most five labelled ticks.
+- Robots, arms, hands, legs, drones and handled objects are drawn so a lay reader recognises them; no box on sticks stands in for one.
+- At 375px every visible control is a 44px touch target, and the headline, the visible controls and the annotated point fit one viewport.
+- A guided beat runs only when the reader starts it, lasts 3 to 6 seconds and ends on the annotated frame with a plain hint.
 - The stage fits its content: no band wider than the plot and taller than 20% of the stage is empty.
 - Charts are drawn with the primitives in `components/motion/chart/`, which read the tokens.
 - Company marks sit on one tile: the mid-grey logo plate, drawn in thresholded monochrome so white and dark marks both clear 3:1. That threshold is the only registered filter (`VAL-B2-MAP-007`).
 - Photographs use one 3:2 cover crop, one width per viewport, the figure caption style and the figure source line for credit.
 - A concept has one canonical visual. Another page links to it, or reuses it with a caption that names a different purpose.
-- `npm run check:figure-system` reads the static export and fails on reserved or hard-coded colours, text off the scale and figures outside the frame. It runs in `postbuild` and `vercel-build`. Figures not yet migrated sit on `contract/figure-system-allowlist.json`, one entry per figure with the pass that owns it. An entry that no longer matches a violation fails the check, so the list only shrinks. `npm run check:figure-system:plant` plants one violation of each rule into a copy of the export and fails unless the check names every one.
+- `npm run check:figure-system` reads the static export and fails on reserved or hard-coded colours, text off the scale, figures outside the frame, a headline over 10 words, a kicker over 6, a caption over 25, a fold with another label and a symbol in the main view. It runs in `postbuild` and `vercel-build`. Figures not yet migrated sit on `contract/figure-system-allowlist.json`, one entry per figure with the pass that owns it. An entry that no longer matches a violation fails the check, so the list only shrinks. `npm run check:figure-system:plant` plants one violation of each rule into a copy of the export and fails unless the check names every one.
 - `npm run capture:visuals` screenshots every visual on every Sitemap URL of the export and writes the manifest and contact sheets.
 
 ## 14. Discovery: search, A–Z, glossary, and indexes

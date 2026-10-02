@@ -109,7 +109,7 @@ describe('chart primitives on the graphite stage', () => {
     expect(items.map((i) => i.getAttribute('data-legend-series'))).toEqual([
       'state', 'reference', 'measurement', 'value', 'constraint', 'state',
     ]);
-    expect(legend.className).toContain('text-[13px]');
+    expect(legend.className).toContain('text-sm');
   });
 
   it('paints only token colours, on three text sizes of at least 12 px', () => {

@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { openAdjustMore } from './helpers/figure-fold';
 
 const ROUTE = '/rl-sim2real/legged-locomotion/';
 
@@ -136,6 +137,7 @@ test.describe('legged-locomotion module', () => {
     // Three feet always down, then two, then a flight phase with none.
     const readout = scene.getByTestId('motion-readout');
     await expect(readout).toContainText(/walk\s*minimum support 3 feet/i);
+    await openAdjustMore(scene);
     const forward = scene.getByRole('button', { name: 'Step forward one beat' });
     await expect(forward).toHaveText('Step forward');
     await forward.click();

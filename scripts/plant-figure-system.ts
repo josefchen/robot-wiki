@@ -28,6 +28,8 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
 const FRAME = 'main figure[data-figure-frame]';
 const stageSvg = (frame: Element) => frame.querySelector(':scope > [data-figure-stage] svg') as Element;
 const caption = (frame: Element) => frame.querySelector(':scope > [data-figure-caption]') as Element;
+const title = (frame: Element) => frame.querySelector(':scope > [data-figure-header] [data-figure-title]') as Element;
+const wordRun = (n: number) => Array.from({ length: n }, (_, i) => `word${i + 1}`).join(' ');
 const svgEl = (document: Document, tag: string, attrs: Record<string, string>, text = '') => {
   const el = document.createElementNS(SVG_NS, tag);
   for (const [name, value] of Object.entries(attrs)) el.setAttribute(name, value);
@@ -56,8 +58,28 @@ const PLANTS: { rule: FigureRule; plant: string; apply: (frame: Element, documen
   },
   { rule: 'outside-frame', plant: 'the frame hook removed', apply: (f) => f.removeAttribute('data-figure-frame') },
   { rule: 'frame-structure', plant: 'a paragraph between stage and caption', apply: (f, d) => caption(f).before(htmlEl(d, 'p', {}, 'A note between the stage and the caption.')) },
-  { rule: 'caption-words', plant: 'a 21-word caption', apply: (f) => { caption(f).textContent = `${Array.from({ length: 21 }, (_, i) => `word${i + 1}`).join(' ')}.`; } },
+  { rule: 'caption-words', plant: 'a 26-word caption', apply: (f) => { caption(f).textContent = `${wordRun(26)}.`; } },
   { rule: 'legend-off-stage', plant: 'a legend below the stage', apply: (f, d) => caption(f).before(htmlEl(d, 'div', { 'data-figure-legend': '' }, 'Legend')) },
+  { rule: 'headline-words', plant: 'an 11-word headline', apply: (f) => { title(f).textContent = wordRun(11); } },
+  {
+    rule: 'kicker-words',
+    plant: 'a 7-word kicker',
+    apply: (f, d) => {
+      const kicker = f.querySelector(':scope > [data-figure-header] [data-figure-kicker]');
+      if (kicker) kicker.textContent = wordRun(7);
+      else title(f).before(htmlEl(d, 'div', { 'data-figure-kicker': '' }, wordRun(7)));
+    },
+  },
+  {
+    rule: 'fold-label',
+    plant: 'a fold labelled "More detail"',
+    apply: (f, d) => {
+      f.querySelector(':scope > details')?.remove();
+      const fold = htmlEl(d, 'details', { 'data-figure-fold': 'method' }, '');
+      fold.append(htmlEl(d, 'summary', {}, 'More detail'), htmlEl(d, 'div', {}, 'Method notes.'));
+      caption(f).after(fold);
+    },
+  },
 ];
 
 const copy = mkdtempSync(join(tmpdir(), 'figure-system-plant-'));

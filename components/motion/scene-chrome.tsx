@@ -66,11 +66,11 @@ export function SceneReadout({
 }) {
   return (
     <StageReadout data-testid="motion-readout">
-      <span data-testid="motion-beat-count">
-        <span className="text-text-dim">beat</span>{' '}
-        <span data-testid="motion-beat-readout" className="text-text">
-          {state.beatLabel}
-        </span>
+      {/* The beat position is announced, not shown: a reader watches the
+          timeline, and "beat 2 / 4" is player bookkeeping. */}
+      <span data-testid="motion-beat-count" className="sr-only">
+        <span>beat</span>{' '}
+        <span data-testid="motion-beat-readout">{state.beatLabel}</span>
       </span>{' '}
       {readout ? readout(state) : null}
     </StageReadout>
@@ -81,19 +81,30 @@ export function SceneStageFooter({
   legend,
   readout,
   statusLine,
+  hint,
 }: {
   legend?: ReactNode;
   readout: ReactNode;
   statusLine?: ReactNode;
+  /** Shown when a reader-started run has ended on the final frame. */
+  hint?: string;
 }) {
   return (
     <>
       {legend ? <StageLegend>{legend}</StageLegend> : null}
       {readout}
+      {hint ? (
+        <span
+          data-scene-hint=""
+          className="font-sans text-sm leading-snug text-text"
+        >
+          {hint}
+        </span>
+      ) : null}
       {statusLine ? (
         <p
           data-scene-status=""
-          className="basis-full font-sans text-[13px] leading-snug text-text-dim"
+          className="basis-full font-sans text-sm leading-snug text-text-dim"
         >
           {statusLine}
         </p>
@@ -108,12 +119,13 @@ export function SceneTimelineAtEnd() {
     <div
       aria-hidden="true"
       data-scene-timeline="poster"
-      className="flex h-6 items-center"
+      className="flex h-11 items-center"
     >
       <span className="block h-1 w-full rounded-xs bg-highlight" />
     </div>
   );
 }
 
+/** The live scrubber: a 44px touch target over the same track. */
 export const SCENE_SCRUBBER_CLASS =
-  'block h-6 w-full cursor-pointer accent-highlight';
+  'block h-11 w-full cursor-pointer accent-highlight';

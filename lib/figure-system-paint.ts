@@ -9,9 +9,12 @@ export const FIGURE_RULES = {
   'hard-coded-colour': 'a colour literal stands in for a token',
   'sub-scale-text': 'text renders below 12 px or off the stage type scale',
   'outside-frame': 'the figure renders outside the shared figure frame',
-  'frame-structure': 'the frame is not a header, one stage, one caption and at most one source line',
-  'caption-words': 'the caption runs over 20 words',
+  'frame-structure': 'the frame is not a header, one stage, one caption, the method fold and at most one source line',
+  'caption-words': 'the caption runs over 25 words',
   'legend-off-stage': 'a legend sits outside the stage',
+  'headline-words': 'the headline runs over 10 words',
+  'kicker-words': 'the kicker runs over 6 words',
+  'fold-label': 'a fold in the frame is not labelled "Adjust more" or "How this was made"',
 } as const;
 
 export type FigureRule = keyof typeof FIGURE_RULES;
@@ -23,7 +26,10 @@ export type FigureViolation = {
   detail: string;
 };
 
-export const CAPTION_MAX_WORDS = 20;
+export const CAPTION_MAX_WORDS = 25;
+export const HEADLINE_MAX_WORDS = 10;
+export const KICKER_MAX_WORDS = 6;
+export const FOLD_LABELS = { adjust: 'Adjust more', method: 'How this was made' } as const;
 export const MIN_TEXT_PX = 12;
 export const STAGE_SURFACE = 'surface:bounded-dark-instrument';
 

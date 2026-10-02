@@ -12,6 +12,9 @@
 import { JSDOM } from 'jsdom';
 import {
   CAPTION_MAX_WORDS,
+  FOLD_LABELS,
+  HEADLINE_MAX_WORDS,
+  KICKER_MAX_WORDS,
   MIN_TEXT_PX,
   STAGE_SURFACE,
   declaredPaints,
@@ -152,7 +155,40 @@ function isHidden(el: Element): boolean {
   return el.matches(HIDDEN) || (el.getAttribute('class') ?? '').split(/\s+/).includes('hidden');
 }
 
-/** The frame's shape: header, one graphite stage, one short caption, at most one source line. */
+const FRAME_SHAPES = new Set([
+  'header stage caption',
+  'header stage caption method',
+  'header stage caption source',
+  'header stage caption method source',
+]);
+
+function summaryText(fold: Element): string {
+  return (fold.querySelector(':scope > summary')?.textContent ?? '').replace(/\s+/g, ' ').trim();
+}
+
+/**
+ * The frame's two folds: "Adjust more" among the header controls and
+ * "How this was made" under the caption. A disclosure nested inside a
+ * fold belongs to that fold's content.
+ */
+function foldViolations(frame: Element): [FigureRule, string][] {
+  const found: [FigureRule, string][] = [];
+  const header = frame.querySelector(':scope > [data-figure-header]');
+  const headerFolds = header
+    ? [...header.querySelectorAll('details')].filter((d) => !d.parentElement?.closest('details'))
+    : [];
+  const frameFolds = [...frame.children].filter((child) => child.tagName === 'DETAILS');
+  for (const [folds, expected] of [[headerFolds, FOLD_LABELS.adjust], [frameFolds, FOLD_LABELS.method]] as const) {
+    for (const fold of folds) {
+      const label = summaryText(fold);
+      if (label !== expected) found.push(['fold-label', `fold reads "${label}" where "${expected}" belongs`]);
+    }
+    if (folds.length > 1) found.push(['fold-label', `${folds.length} folds where one "${expected}" belongs`]);
+  }
+  return found;
+}
+
+/** The frame's shape: header, one graphite stage, one caption, the method fold, at most one source line. */
 function frameViolations(frame: Element): [FigureRule, string][] {
   const found: [FigureRule, string][] = [];
   const parts = [...frame.children].filter((child) => !isHidden(child));
@@ -160,14 +196,21 @@ function frameViolations(frame: Element): [FigureRule, string][] {
     child.hasAttribute('data-figure-header') ? 'header'
       : child.hasAttribute('data-figure-stage') ? 'stage'
         : child.hasAttribute('data-figure-caption') ? 'caption'
-          : child.hasAttribute('data-figure-source') ? 'source' : child.tagName.toLowerCase(),
+          : child.tagName === 'DETAILS' ? 'method'
+            : child.hasAttribute('data-figure-source') ? 'source' : child.tagName.toLowerCase(),
   );
   const shape = order.join(' ');
-  if (shape !== 'header stage caption' && shape !== 'header stage caption source') {
+  if (!FRAME_SHAPES.has(shape)) {
     found.push(['frame-structure', `frame reads "${shape}"`]);
   }
   const title = frame.querySelector(':scope > [data-figure-header] [data-figure-title]');
   if (!title?.textContent?.trim()) found.push(['frame-structure', 'header has no title']);
+  const headline = words(title?.textContent ?? '');
+  if (headline > HEADLINE_MAX_WORDS) found.push(['headline-words', `headline has ${headline} words`]);
+  const kicker = frame.querySelector(':scope > [data-figure-header] [data-figure-kicker]');
+  const kickerWords = words(kicker?.textContent ?? '');
+  if (kickerWords > KICKER_MAX_WORDS) found.push(['kicker-words', `kicker has ${kickerWords} words`]);
+  found.push(...foldViolations(frame));
   const stage = frame.querySelector(':scope > [data-figure-stage]');
   if (stage && stage.getAttribute('data-brand-surface-id') !== STAGE_SURFACE) {
     found.push(['frame-structure', `stage surface is ${stage.getAttribute('data-brand-surface-id')}`]);

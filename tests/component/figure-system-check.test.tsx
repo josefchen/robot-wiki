@@ -7,6 +7,7 @@ import {
   inspectFigureDocument,
   type Allowlist,
 } from '@/lib/figure-system-check';
+import { mainViewSymbolHits } from '@/lib/figure-main-view';
 import { ChartFixtureFigure } from '../fixtures/figure-system/chart-fixture';
 
 const ROUTE = '/fixture/';
@@ -50,7 +51,7 @@ describe('figure-system check', () => {
   it('fails sub-scale text and names the figure', () => {
     // The legend set below the 12px floor. (Text inside the stage svg is
     // sized by stage.css, which overrides a font-size attribute.)
-    const planted = plant(clean, /text-\[13px\]/, 'text-[10px]');
+    const planted = plant(clean, /(data-figure-legend=""[^>]*?)text-sm/, '$1text-[10px]');
     expect(rulesFor(planted)).toContainEqual([FIGURE, 'sub-scale-text']);
     // Text in an svg that is not on the stage scale fails as well.
     const offStage = plant(clean, /class="motion-stage-svg /, 'class="');
@@ -65,13 +66,45 @@ describe('figure-system check', () => {
     expect(rulesFor(clean + loose)).toContainEqual(['Loose success chart', 'outside-frame']);
   });
 
-  it('fails a caption over 20 words and a legend off the stage', () => {
-    const long = Array.from({ length: 21 }, (_, i) => `word${i}`).join(' ');
-    const captioned = plant(clean, /(<figcaption data-figure-caption=""[^>]*>)[^<]*/, `$1${long}`);
-    expect(rulesFor(captioned)).toContainEqual([FIGURE, 'caption-words']);
+  it('fails a caption over 25 words and a legend off the stage', () => {
+    const run = (n: number) => Array.from({ length: n }, (_, i) => `word${i}`).join(' ');
+    const at = (n: number) => plant(clean, /(<figcaption data-figure-caption=""[^>]*>)[^<]*/, `$1${run(n)}`);
+    expect(rulesFor(at(25))).not.toContainEqual([FIGURE, 'caption-words']);
+    expect(rulesFor(at(26))).toContainEqual([FIGURE, 'caption-words']);
     const legend = '<div data-figure-legend="">state</div>';
     const moved = plant(clean, /(<figcaption)/, `${legend}$1`);
     expect(rulesFor(moved)).toContainEqual([FIGURE, 'legend-off-stage']);
+  });
+
+  it('admits a kicker, a wrapping headline and the two folds, and holds each to its limit', () => {
+    const run = (n: number) => Array.from({ length: n }, (_, i) => `word${i}`).join(' ');
+    const headline = (n: number) => plant(clean, /(<div data-figure-title=""[^>]*>)[^<]*/, `$1${run(n)}`);
+    expect(rulesFor(headline(10))).toEqual([]);
+    expect(rulesFor(headline(11))).toContainEqual([FIGURE, 'headline-words']);
+    const kicker = (n: number) => plant(clean, /(<div data-figure-kicker=""[^>]*>)[^<]*/, `$1${run(n)}`);
+    expect(rulesFor(kicker(6))).toEqual([]);
+    expect(rulesFor(kicker(7))).toContainEqual([FIGURE, 'kicker-words']);
+    const method = plant(clean, /How this was made/, 'More detail');
+    expect(rulesFor(method)).toContainEqual([FIGURE, 'fold-label']);
+    const adjust = plant(clean, /Adjust more/, 'More controls');
+    expect(rulesFor(adjust)).toContainEqual([FIGURE, 'fold-label']);
+    const extra = plant(clean, /(<div data-figure-source)/, '<details><summary>Notes</summary>x</details>$1');
+    expect(rulesFor(extra)).toContainEqual([FIGURE, 'fold-label']);
+  });
+
+  it('finds "k = 8" planted in a stage label, and passes plain words and glossed symbols', () => {
+    const hitsIn = (html: string) => {
+      const frame = new DOMParser().parseFromString(page(html), 'text/html')
+        .querySelector('main figure[data-figure-frame]')!;
+      return mainViewSymbolHits(frame);
+    };
+    expect(hitsIn(clean)).toEqual([]);
+    const planted = hitsIn(plant(clean, /(<text[^>]*>)target(<\/text>)/, '$1k = 8$2'));
+    expect(planted.map((hit) => hit.line)).toContain('k = 8');
+    const glossed = plant(clean, /(<text[^>]*>)target(<\/text>)/, '$1ten times a second <tspan data-figure-gloss="">(10 Hz)</tspan>$2');
+    expect(hitsIn(glossed)).toEqual([]);
+    const everyday = plant(clean, /(<text[^>]*>)target(<\/text>)/, '$1a 5 km walk at 12% in the 2010s costs $30$2');
+    expect(hitsIn(everyday)).toEqual([]);
   });
 
   it('holds allowlisted figures to their recorded rules and reports stale entries', () => {

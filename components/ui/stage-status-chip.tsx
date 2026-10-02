@@ -25,7 +25,7 @@ export function StageStatusChip({ variant, line, children }: StageStatusChipProp
       data-variant={variant}
       data-brand-surface-id="surface:flat"
       className={cx(
-        'inline-flex items-center rounded-xs px-1.5 py-0.5 font-sans text-xs leading-none text-text',
+        'inline-flex items-center rounded-xs px-1.5 py-0.5 font-sans text-sm leading-none text-text',
         line === 'solid' && 'border border-solid border-text',
         line === 'dashed' && 'border border-dashed border-text-dim',
         line === 'bold' && 'border border-solid border-text font-semibold',

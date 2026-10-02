@@ -102,7 +102,7 @@ export const MOTION_STAGE = {
   label: 'var(--color-white)',
   labelSecondary: 'var(--color-concrete)',
   labelFont: 'var(--font-sans)',
-  labelMinPx: 12,
+  labelMinPx: 14,
 } as const;
 
 /**
@@ -113,11 +113,11 @@ export const MOTION_STAGE = {
 export const MOTION_STAGE_TYPE = {
   labelFont: 'var(--font-sans)',
   readoutFont: 'var(--font-mono)',
-  minPx: 12,
+  minPx: 14,
   labelPx: 14,
-  axisPx: 13,
-  tickPx: 12,
-  readoutPx: 13,
+  axisPx: 14,
+  tickPx: 14,
+  readoutPx: 14,
   fullSizeMinStagePx: 299,
 } as const;
 

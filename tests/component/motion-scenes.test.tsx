@@ -51,20 +51,28 @@ describe('motion scene mount', () => {
     vi.restoreAllMocks();
   });
 
-  it('prerenders the poster as the final beat still, with no live controls', () => {
+  it('prerenders the poster as the final beat still, with Play the only visible control', () => {
     render(<KalmanPredictUpdate />);
     const poster = screen.getByTestId('motion-poster');
     expect(poster).toHaveAccessibleName(/play the motion scene: kalman filter/i);
     // The poster frame carries the full chrome statically: the stage svg
-    // at the final frame, the recap caption, and no scrubber or live
-    // transport (the placeholder controls are disabled).
+    // at the final frame and the recap caption, with no scrubber. Play is
+    // the one control in the header; the step and reset controls wait in
+    // the closed "Adjust more" fold, and none of them is disabled.
     expect(screen.getByTestId('motion-caption')).toHaveTextContent(/written out/i);
     expect(screen.queryByTestId('motion-scrubber')).not.toBeInTheDocument();
     expect((poster as HTMLButtonElement).disabled).toBe(false);
+    const fold = document.querySelector('[data-figure-fold="adjust"]') as HTMLDetailsElement;
+    expect(fold.open).toBe(false);
+    expect(fold.querySelector('summary')).toHaveTextContent('Adjust more');
+    expect(fold).not.toContainElement(poster);
+    for (const name of [/step back one beat/i, /step forward one beat/i, /reset the scene/i]) {
+      expect(fold).toContainElement(screen.getByRole('button', { name }));
+    }
     const disabled = screen
       .getAllByRole('button')
       .filter((button) => (button as HTMLButtonElement).disabled);
-    expect(disabled.length).toBe(3);
+    expect(disabled.length).toBe(0);
     // The poster belief ellipse is exactly the posterior's.
     const posterFrame = kalmanFrameAt(8000);
     expect(covarianceEllipse(posterFrame.belief.cov).rx).toBeCloseTo(
@@ -135,6 +143,21 @@ describe('motion scene mount', () => {
     expect(screen.getByRole('slider', { name: /scene timeline/i })).toBeInTheDocument();
   });
 
+  it('a step from the poster fold opens the player paused one beat away', async () => {
+    render(<KalmanPredictUpdate />);
+    fireEvent.click(screen.getByRole('button', { name: /step back one beat/i }));
+    await waitFor(() =>
+      expect(screen.getByTestId('motion-scrubber')).toBeInTheDocument(),
+    );
+    expect(screen.getByRole('button', { name: /play the scene/i })).toBeInTheDocument();
+    expect(screen.getByTestId('motion-beat-count')).toHaveTextContent('beat 4 / 5');
+    const fold = document.querySelector('[data-figure-fold="adjust"]') as HTMLDetailsElement;
+    expect(fold.open).toBe(true);
+    expect(document.activeElement).toBe(
+      screen.getByRole('button', { name: /step back one beat/i }),
+    );
+  });
+
   it('keeps the diffusion scene code-split behind the same poster pattern', () => {
     render(<DiffusionDenoising />);
     expect(screen.getByTestId('motion-poster')).toHaveAccessibleName(
@@ -193,6 +216,29 @@ describe('motion scene player', () => {
     });
     expect(caption).toHaveTextContent(/predict/i);
     expect(screen.getByTestId('motion-beat-count')).toHaveTextContent('beat 2 / 5');
+  });
+
+  it('a finished run ends on the poster frame with a hint, which a step clears', () => {
+    vi.useFakeTimers();
+    render(
+      <ScenePlayer scene={KALMAN_SCENE} autoPlayOnMount textAlternative="alt">
+        <svg viewBox="0 0 340 240" />
+      </ScenePlayer>,
+    );
+    act(() => {});
+    expect(document.querySelector('[data-scene-hint]')).toBeNull();
+    for (let i = 0; i < 120; i += 1) {
+      act(() => {
+        vi.advanceTimersByTime(100);
+      });
+    }
+    expect(screen.getByRole('button', { name: /play the scene/i })).toBeInTheDocument();
+    expect(screen.getByTestId('motion-caption')).toHaveTextContent(/written out/i);
+    expect(document.querySelector('[data-scene-hint]')).toHaveTextContent(
+      'Drag the timeline to look again',
+    );
+    fireEvent.click(screen.getByRole('button', { name: /step back one beat/i }));
+    expect(document.querySelector('[data-scene-hint]')).toBeNull();
   });
 
   it('keyboard: K toggles, arrows step one beat, Home and End land on the ends', () => {
