@@ -25,7 +25,7 @@
     "posterReadout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
     "posterCaption": "The same horizon exposes the last stretch.",
     "idleFrameRequests": 0,
-    "playingFrameRequests": 50,
+    "playingFrameRequests": 51,
     "focusOutlineWidthPx": 2,
     "focusOutlineStyle": "solid",
     "focusOutlineColour": "rgb(36, 95, 255)",
