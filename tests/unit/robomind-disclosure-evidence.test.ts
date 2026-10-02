@@ -19,6 +19,7 @@ import {
 import { collectArticleTruthManifests } from '../../scripts/brand-v2-baseline';
 import { committedSource, preservedApprovalPacket } from '../helpers/continuation-integration';
 import { headReanchorFor, sealedHash } from './helpers/continuation-merge-ledger';
+import { preSeoPassHash, preSeoPassText } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
 const base = '1e07db26e614dd24e9f1c0c79a651df26cdec88b';
@@ -97,7 +98,7 @@ function assertDisclosure(text: string, dataset: Dataset) {
   expect(text).not.toContain('The 107k dataset is licensed under Apache-2.0.');
 }
 
-function scopedBundle(stage: 'before' | 'historical' | 'sealed' | 'preMotion' | 'current'): BaselineBundle {
+function scopedBundle(stage: 'before' | 'historical' | 'sealed' | 'preMotion' | 'preSeoPass' | 'current'): BaselineBundle {
   const members = [
     ['prose', 'article:data-hardware/datasets', '4d2f822a1df86e4a4a78b4fdc6bba8fd580bf78ee1ab98d5beaa45902041cf95'],
     ['relationships', 'article:data-hardware/datasets', '40bbf9cc032869ee25165c5d9b2ab3c88cc848bbdaa5f3063050409103f2cc39'],
@@ -107,6 +108,7 @@ function scopedBundle(stage: 'before' | 'historical' | 'sealed' | 'preMotion' | 
     const relevant = members.filter(([k]) => k === kind).map(([, id, hash]) => {
       if (stage === 'before') return { id, hash };
       if (stage === 'sealed') return { id, hash: sealedHash(kind, id) };
+      if (stage === 'preSeoPass') return { id, hash: preSeoPassHash(kind, id) };
       const manifests = stage === 'historical' ? historicalTruth
         : stage === 'preMotion' ? [
           buildManifest('prose', [{
@@ -140,7 +142,10 @@ describe('RoboMIND original10 truthful release licensing disclosure', { timeout:
   it('states the badge and release-specific uncertainty without granting permission', () => {
     assertDisclosure(article, DATASETS.find(d => d.id === 'robomind')!);
     expect(historicalArticle.data).toEqual(matter(before(articlePath)).data);
-    expect(matter(article).data).toEqual(matter(committedSource(releaseBase, articlePath)).data);
+    // The 2026-10-02 SEO pass replaced only the related links.
+    const preSeoPassData = matter(preSeoPassText(articlePath)).data;
+    expect({ ...matter(article).data, seeAlso: undefined }).toEqual({ ...preSeoPassData, seeAlso: undefined });
+    expect(preSeoPassData).toEqual(matter(committedSource(releaseBase, articlePath)).data);
     expect(committedSource(disclosureCommit, 'data/citations.ts')).toBe(before('data/citations.ts'));
     preservedPreIndustrialCitations(releaseBase);
     expect(matter(atDisclosure(articlePath)).data).toEqual(matter(before(articlePath)).data);
@@ -294,12 +299,17 @@ describe('RoboMIND original10 truthful release licensing disclosure', { timeout:
       ['4d2f822a1df86e4a4a78b4fdc6bba8fd580bf78ee1ab98d5beaa45902041cf95',
         '40bbf9cc032869ee25165c5d9b2ab3c88cc848bbdaa5f3063050409103f2cc39'].includes(a.oldHash));
     const reanchors = (['prose', 'relationships'] as const).map(kind =>
-      headReanchorFor(approvals, kind, 'article:data-hardware/datasets')!);
+      headReanchorFor(approvals.filter(a => !a.id.startsWith('seo-pass-20261002-')),
+        kind, 'article:data-hardware/datasets')!);
     const motion = approvals.find(a => a.id === 'motion-data-hardware-humanizer-v3-20260927-prose-datasets')!;
+    const seoPass = approvals.filter(a => a.id.startsWith('seo-pass-20261002-') &&
+      a.memberId === 'article:data-hardware/datasets');
+    expect(seoPass.map(a => a.manifest)).toEqual(['prose', 'relationships']);
     for (const [previous, next, edges] of [
       [scopedBundle('before'), scopedBundle('historical'), relevant],
       [scopedBundle('sealed'), scopedBundle('preMotion'), reanchors],
-      [scopedBundle('preMotion'), scopedBundle('current'), [motion]],
+      [scopedBundle('preMotion'), scopedBundle('preSeoPass'), [motion]],
+      [scopedBundle('preSeoPass'), scopedBundle('current'), seoPass],
     ] as const) {
       const comparison = compareBaseline(previous, next, edges);
       expect(comparison.ok, JSON.stringify(comparison)).toBe(true);

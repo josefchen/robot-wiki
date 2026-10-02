@@ -16,6 +16,7 @@
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { seoPassCheckerPredecessor } from './audit-seo-pass-continuity.ts';
 
 const directory = 'audit/evidence/figure-migration-20261001/';
 const digest = (bytes: Buffer | string) => createHash('sha256').update(bytes).digest('hex');
@@ -273,11 +274,12 @@ const historicalCheckers = new Map([
 ]);
 
 /**
- * Older checker bytes pass through. The current checker is admitted only as
- * the exact figure-migration reader revision above the round6 remaining-repairs
- * head.
+ * The SEO-pass revision above this head is unwound first. Older checker
+ * bytes pass through. The figure-migration checker is admitted only as the
+ * exact reader revision above the round6 remaining-repairs head.
  */
-export function figureMigrationCheckerPredecessor(root: string, live: Buffer): Buffer {
+export function figureMigrationCheckerPredecessor(root: string, checker: Buffer): Buffer {
+  const live = seoPassCheckerPredecessor(root, checker);
   const liveHash = digest(live);
   if (liveHash === checkerBefore.sha256 && live.length === checkerBefore.bytes) return live;
   if (historicalCheckers.get(liveHash) === live.length) return live;

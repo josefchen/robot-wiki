@@ -8,6 +8,8 @@ import { round5ReaderPinsCheckerPredecessor } from '../../lib/audit-round5-reade
 import {
   retainedRound6KinematicsReaderSource, round6KinematicsReaderCheckerPredecessor, round6KinematicsReaderEndpoint,
 } from '../../lib/audit-round6-kinematics-reader-continuity.ts';
+// The live kinematics spec is read as the SEO-pass layer hands it back.
+import { preSeoPass } from '../helpers/seo-pass.ts';
 
 const root = resolve(import.meta.dirname, '../..');
 const directory = 'audit/evidence/motion-round6-kinematics-reader-20260929/';
@@ -33,7 +35,7 @@ function copied(paths: readonly string[]) {
 }
 
 it('returns the archived spec exactly where the 37 closure proofs and their run still point', () => {
-  const live = read(source.after.path);
+  const live = preSeoPass(source.after.path);
   const archived = read(source.before.path);
   expect(review.sources.map((entry) => entry.name)).toEqual(['kinematics-spec-exact-reset-hydrated']);
   expect({ bytes: archived.length, sha256: digest(archived) })
@@ -60,7 +62,7 @@ it('returns the archived spec exactly where the 37 closure proofs and their run 
 it('keeps every recorded check and changes only the reset locators and readiness waits', () => {
   const assertions = (text: string) => text.split('\n').filter((line) => line.includes('expect(')).length;
   const before = read(source.before.path).toString();
-  const after = read(source.after.path).toString();
+  const after = preSeoPass(source.after.path).toString();
   expect(assertions(after)).toBe(assertions(before));
   const inserted = [
     "import { waitForHydration } from './interaction-ready';",
@@ -92,7 +94,7 @@ it.each(['wrong-edit', 'dropped-assertion', 'missing-review', 'missing-snapshot'
   'rejects a %s kinematics reader successor', mutation => {
     const destination = copied([`${directory}source-transition.json`, source.before.path, catalogPath]);
     try {
-      const live = read(source.after.path);
+      const live = preSeoPass(source.after.path);
       expect(retainedRound6KinematicsReaderSource(destination, source.after.path, live))
         .toEqual(read(source.before.path));
       const reviewPath = join(destination, `${directory}source-transition.json`);
@@ -142,7 +144,7 @@ it.each(['wrong-edit', 'dropped-assertion', 'missing-review', 'missing-snapshot'
 it('reuses only the parse of unchanged catalog bytes across calls', () => {
   const destination = copied([`${directory}source-transition.json`, source.before.path, catalogPath]);
   try {
-    const live = read(source.after.path);
+    const live = preSeoPass(source.after.path);
     const cache = new Map<string, unknown>();
     expect(retainedRound6KinematicsReaderSource(destination, source.after.path, live, cache))
       .toEqual(read(source.before.path));
@@ -206,7 +208,8 @@ it.each(['missing-review', 'missing-predecessor', 'corrupt-predecessor', 'review
       'audit/evidence/motion-round6-remaining-repairs-20260929/audit-local-basis-before.ts.txt',
       'audit/evidence/motion-round6-remaining-repairs-20260929/classical-closure-evidence-before.test.ts.txt',
       'audit/evidence/figure-migration-20261001/checker-transition.json',
-      'audit/evidence/figure-migration-20261001/audit-local-basis-before.ts.txt']);
+      'audit/evidence/figure-migration-20261001/audit-local-basis-before.ts.txt',
+      'audit/evidence/seo-pass-20261002/checker-transition.json']);
     try {
       const live = read('lib/audit-local-basis.ts');
       expect(round6KinematicsReaderCheckerPredecessor(destination, live)).toEqual(read(predecessorPath));

@@ -66,13 +66,13 @@ test.describe('frontier reliability-gap module', () => {
     const main = page.locator('#main-content');
     // Headline sources named by the module brief.
     await expect(
-      main.getByRole('link', { name: 'Levine 2026' }).first(),
+      main.getByRole('link', { name: 'Levine et al. 2026' }).first(),
     ).toHaveAttribute(
       'href',
       'https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai',
     );
     await expect(
-      main.getByRole('link', { name: 'Lei 2025' }).first(),
+      main.getByRole('link', { name: 'Lei et al. 2025' }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2510.14830');
     await expect(main.locator('a[href="https://www.agilityrobotics.com/"]').first()).toBeVisible();
     await expect(main.locator('a[href="https://www.figure.ai/news/production-at-bmw"]').first()).toBeVisible();

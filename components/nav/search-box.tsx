@@ -27,7 +27,7 @@ export function SearchBox({ idPrefix, onNavigate, className }: SearchBoxProps) {
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const q = query.trim();
-    router.push(q ? `/search?q=${encodeURIComponent(q)}` : '/search');
+    router.push(q ? `/search/?q=${encodeURIComponent(q)}` : '/search/');
     onNavigate?.();
   }
 

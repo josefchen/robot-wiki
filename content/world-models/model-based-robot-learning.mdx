@@ -19,13 +19,12 @@ citations:
   - excavator-mbrl-2026
   - insertion-world-models-2026
 seeAlso:
-  - "world-models/latent-dynamics"
-  - "classical/control"
-  - "rl-sim2real/rl-for-robotics"
-  - "world-models/evaluation"
+  - "rl-sim2real/reward-design-mpc"
+  - "rl-sim2real/offline-rl"
+  - "world-models/generative-video"
 ---
 
-Model-based robot learning inserts a predictive model between experience and action. The system learns how relevant parts of the world change under candidate actions alongside a policy or value function. It can then plan through that model, train a policy on imagined rollouts, or use prediction as an auxiliary objective.
+Model-based robot learning is the family of methods that insert a predictive model between experience and action. The system learns how relevant parts of the world change under candidate actions alongside a policy or value function. It can then plan through that model, train a policy on imagined rollouts, or use prediction as an auxiliary objective.
 
 The phrase covers several algorithms, but the engineering loop is stable: encode the current state, predict futures under actions, score those futures, choose or improve an action, observe the real transition, and update the model. Every benefit and failure follows from how accurately that loop preserves the consequences that matter for control.
 

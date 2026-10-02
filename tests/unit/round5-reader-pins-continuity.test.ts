@@ -208,7 +208,8 @@ it.each(['missing-review', 'missing-predecessor', 'corrupt-predecessor', 'review
       'audit/evidence/motion-round6-remaining-repairs-20260929/audit-local-basis-before.ts.txt',
       'audit/evidence/motion-round6-remaining-repairs-20260929/classical-closure-evidence-before.test.ts.txt',
       'audit/evidence/figure-migration-20261001/checker-transition.json',
-      'audit/evidence/figure-migration-20261001/audit-local-basis-before.ts.txt']);
+      'audit/evidence/figure-migration-20261001/audit-local-basis-before.ts.txt',
+      'audit/evidence/seo-pass-20261002/checker-transition.json']);
     try {
       const live = read('lib/audit-local-basis.ts');
       expect(round5ReaderPinsCheckerPredecessor(destination, live)).toEqual(read(predecessorPath));

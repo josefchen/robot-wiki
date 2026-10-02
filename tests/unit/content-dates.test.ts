@@ -2,13 +2,21 @@ import { describe, expect, it } from 'vitest';
 import dates from '@/data/content-dates.json' with { type: 'json' };
 import { publishedModules } from '@/data/modules';
 import {
+  ROUTE_SOURCES,
   articleDateModified,
+  articleDatePublished,
   articleModifiedAt,
   calendarDate,
   contentFilePath,
   recentlyUpdated,
+  routeDateModified,
 } from '@/lib/content-dates';
-import { gitModifiedAt, hasUncommittedChange } from '@/lib/content-dates-git';
+import {
+  gitAddedAt,
+  gitModifiedAt,
+  gitModifiedAtAny,
+  hasUncommittedChange,
+} from '@/lib/content-dates-git';
 import { moduleDatePublished } from '@/lib/module-source';
 
 const root = process.cwd();
@@ -84,12 +92,44 @@ describe('article change dates', () => {
 
   it('never dates a publication after the latest change', () => {
     for (const entry of publishedModules()) {
-      const published = moduleDatePublished(entry.domain, entry.slug);
-      if (!published) continue;
+      const published = articleDatePublished(
+        entry.domain,
+        entry.slug,
+        moduleDatePublished(entry.domain, entry.slug),
+      );
+      expect(published, key(entry)).toMatch(/^\d{4}-\d{2}-\d{2}$/);
       expect(
         published <= articleDateModified(entry.domain, entry.slug),
         `${key(entry)} datePublished ${published}`,
       ).toBe(true);
     }
   });
+
+  it('records the commit that added every article', () => {
+    const records = dates.articles as Record<string, { published: string }>;
+    for (const entry of publishedModules()) {
+      const added = gitAddedAt(root, contentFilePath(entry.domain, entry.slug));
+      if (added === null) continue;
+      expect(records[key(entry)].published, key(entry)).toBe(added);
+    }
+  }, 60_000);
+
+  it('dates every other route by the latest change to its sources', () => {
+    expect(Object.keys(dates.routes).sort()).toEqual(
+      Object.keys(ROUTE_SOURCES).sort(),
+    );
+    for (const [route, sources] of Object.entries(ROUTE_SOURCES)) {
+      const committed = gitModifiedAtAny(root, sources);
+      if (committed === null) continue;
+      if (sources.some((source) => hasUncommittedChange(root, source))) {
+        expect(
+          Date.parse((dates.routes as Record<string, { modified: string }>)[route].modified),
+          route,
+        ).toBeGreaterThanOrEqual(Date.parse(committed));
+        continue;
+      }
+      expect(routeDateModified(route), `${route}: run npm run generate:content-dates`)
+        .toBe(calendarDate(committed));
+    }
+  }, 120_000);
 });

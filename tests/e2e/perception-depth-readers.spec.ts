@@ -337,7 +337,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
       for (const id of sourceIds) {
         const source = CITATIONS.find(c => c.id === id)!;
         const chip = page.locator(`div.prose [data-cite-id="${id}"]`).first();
-        await expect(chip.locator('a').first()).toHaveText(id === 'realsense-tuning-2026' ? 'Grunnet-Jepsen 2026' : 'Microsoft 2019');
+        await expect(chip.locator('a').first()).toHaveText(id === 'realsense-tuning-2026' ? 'Grunnet-Jepsen et al. 2026' : 'Microsoft 2019');
         await expect(chip.locator('a').first()).toHaveAttribute('href', source.url);
         await expect(chip.locator('a').first()).toHaveAttribute('rel', /noopener/);
         const before = page.url();

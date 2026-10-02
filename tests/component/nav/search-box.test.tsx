@@ -31,7 +31,7 @@ describe('SearchBox', () => {
       'compounding error',
     );
     await user.click(screen.getByRole('button', { name: 'Search the wiki' }));
-    expect(mockPush).toHaveBeenCalledWith('/search?q=compounding%20error');
+    expect(mockPush).toHaveBeenCalledWith('/search/?q=compounding%20error');
   });
 
   it('submits on Enter', async () => {
@@ -39,14 +39,14 @@ describe('SearchBox', () => {
     render(<SearchBox idPrefix="test" />);
     const input = screen.getByRole('searchbox', { name: 'Search' });
     await user.type(input, 'GR00T{Enter}');
-    expect(mockPush).toHaveBeenCalledWith('/search?q=GR00T');
+    expect(mockPush).toHaveBeenCalledWith('/search/?q=GR00T');
   });
 
   it('navigates to bare /search for an empty query', async () => {
     const user = userEvent.setup();
     render(<SearchBox idPrefix="test" />);
     await user.click(screen.getByRole('button', { name: 'Search the wiki' }));
-    expect(mockPush).toHaveBeenCalledWith('/search');
+    expect(mockPush).toHaveBeenCalledWith('/search/');
   });
 
   it('falls back to a native GET form when JS is unavailable', () => {

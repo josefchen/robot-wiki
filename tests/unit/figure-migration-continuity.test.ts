@@ -7,10 +7,13 @@ import {
   figureMigrationCheckerPredecessor, figureMigrationPredecessor, figureMigrationRegistry,
   verifyFigureMigrationSource, type FigureMigrationSource,
 } from '../../lib/audit-figure-migration-continuity';
+import { preSeoPass } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
 const dir = 'audit/evidence/figure-migration-20261001/';
 const read = (path: string) => readFileSync(join(root, path));
+// The figure-migration successors as the SEO-pass layer hands them back.
+const successor = (path: string) => preSeoPass(path);
 const sha = (bytes: Buffer) => createHash('sha256').update(bytes).digest('hex');
 const review = JSON.parse(read(`${dir}source-transition.json`).toString()) as { sources: FigureMigrationSource[] };
 const source = (path: string) => review.sources.find(({ after }) => after.path === path)!;
@@ -41,7 +44,7 @@ describe('figure migration source successors', () => {
   it('hands every reviewed successor exactly its archived pre-migration bytes', () => {
     expect(review.sources).toHaveLength(30);
     for (const s of review.sources) {
-      const live = read(s.after.path);
+      const live = successor(s.after.path);
       expect([live.length, sha(live)]).toEqual([s.after.bytes, s.after.sha256]);
       const archive = figureMigrationPredecessor(root, pre(s), live);
       expect([archive.length, sha(archive)]).toEqual([s.before.bytes, s.before.sha256]);
@@ -50,7 +53,7 @@ describe('figure migration source successors', () => {
   });
 
   it('passes through bytes that are not a reviewed successor', () => {
-    const drifted = Buffer.concat([read(control.after.path), Buffer.from('\n')]);
+    const drifted = Buffer.concat([successor(control.after.path), Buffer.from('\n')]);
     expect(figureMigrationPredecessor(root, pre(control), drifted)).toBe(drifted);
     const unreviewed = read('content/manipulation/vla-models.mdx');
     expect(figureMigrationPredecessor(root,
@@ -60,14 +63,14 @@ describe('figure migration source successors', () => {
   it('rejects a missing pre-migration snapshot', () => {
     const tmp = scratch();
     unlinkSync(join(tmp, control.before.path));
-    expect(() => figureMigrationPredecessor(tmp, pre(control), read(control.after.path)))
+    expect(() => figureMigrationPredecessor(tmp, pre(control), successor(control.after.path)))
       .toThrow(/figure migration source continuity drift: ENOENT/);
   });
 
   it('rejects a corrupt pre-migration snapshot', () => {
     const tmp = scratch();
     writeFileSync(join(tmp, control.before.path), 'corrupt');
-    expect(() => figureMigrationPredecessor(tmp, pre(control), read(control.after.path))).toThrow(sourceDrift);
+    expect(() => figureMigrationPredecessor(tmp, pre(control), successor(control.after.path))).toThrow(sourceDrift);
   });
 
   it('rejects a source review that drifted from its pinned bytes', () => {
@@ -77,18 +80,18 @@ describe('figure migration source successors', () => {
     const drifted = text.replace('"name": "control"', '"name": "control-drift"');
     expect(drifted).not.toBe(text);
     writeFileSync(path, drifted);
-    expect(() => figureMigrationPredecessor(tmp, pre(control), read(control.after.path))).toThrow(sourceDrift);
+    expect(() => figureMigrationPredecessor(tmp, pre(control), successor(control.after.path))).toThrow(sourceDrift);
   });
 });
 
 describe('figure migration source obligations', () => {
   const archive = read(control.before.path);
-  const live = read(control.after.path).toString();
+  const live = successor(control.after.path).toString();
   const survivor = '<PendulumController defaultKp={9.5} className="mt-3" />';
 
   it('admits the reviewed successors themselves', () => {
     expect(() => verifyFigureMigrationSource(control, archive, Buffer.from(live))).not.toThrow();
-    expect(() => verifyFigureMigrationSource(planning, read(planning.before.path), read(planning.after.path))).not.toThrow();
+    expect(() => verifyFigureMigrationSource(planning, read(planning.before.path), successor(planning.after.path))).not.toThrow();
   });
 
   it.each([
@@ -106,7 +109,7 @@ describe('figure migration source obligations', () => {
 
   it('rejects a successor that restores or drops a replaced phrase', () => {
     const before = read(planning.before.path);
-    const current = read(planning.after.path).toString();
+    const current = successor(planning.after.path).toString();
     const [{ before: from, after: to }] = planning.replaced;
     for (const mutated of [current.replace(to, from), current.replace(to, 'The lab below is a scene.')]) {
       expect(mutated).not.toBe(current);
@@ -116,7 +119,7 @@ describe('figure migration source obligations', () => {
 
   it('rejects a duplicated once-only line and a review with no obligations', () => {
     const once = review.sources.find((s) => s.preservedOnce.length > 0)!;
-    const current = read(once.after.path);
+    const current = successor(once.after.path);
     expect(() => verifyFigureMigrationSource(once, read(once.before.path), current)).not.toThrow();
     expect(() => verifyFigureMigrationSource(once, read(once.before.path),
       Buffer.from(`${current}\n${once.preservedOnce[0]}\n`))).toThrow(sourceDrift);
@@ -182,7 +185,8 @@ describe('figure migration registry successors', () => {
 });
 
 describe('figure migration checker revision', () => {
-  const checker = read('lib/audit-local-basis.ts');
+  // The figure-migration revision, as the SEO-pass checker layer hands it back.
+  const checker = preSeoPass('lib/audit-local-basis.ts');
 
   it('hands the reviewed checker its archived predecessor and passes older checkers through', () => {
     const before = figureMigrationCheckerPredecessor(root, checker);

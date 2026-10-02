@@ -50,7 +50,7 @@ test.describe('world-models jepa module', () => {
     await page.goto(ROUTE);
     const main = page.locator('#main-content');
     await expect(
-      main.getByRole('link', { name: /Assran 2025/ }).first(),
+      main.getByRole('link', { name: /Assran et al\. 2025/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2506.09985');
     await expect(
       main.getByRole('link', { name: /Heim 2026/ }).first(),

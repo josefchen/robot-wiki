@@ -16,6 +16,7 @@ import {
   PUBLIC_IDENTITY,
 } from '@/lib/identity';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
+import { webPageJsonLd } from '@/lib/structured-data';
 import {
   STANDALONE_SEO_DESCRIPTIONS,
   STANDALONE_SEO_TITLES,
@@ -100,6 +101,16 @@ export default function CreditsPage() {
 
   return (
     <div className="mx-auto w-full max-w-[65ch] px-6 py-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: webPageJsonLd({
+            path: '/credits/',
+            name: title,
+            description: STANDALONE_SEO_DESCRIPTIONS.credits,
+          }),
+        }}
+      />
       {/* data-pagefind-body: Pagefind excludes every page that declares no
           body region once one page declares one (VAL-SEARCH-021). Scoped
           to the header, so the licence list below stays out of the prose

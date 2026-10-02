@@ -1,0 +1,1111 @@
+{
+  "schemaVersion": "seo-pass-spec-continuity-v1",
+  "name": "seo-pass-end-to-end-pins",
+  "archivedFrom": "953a891b42e762aa1e6ddbf77421fc8f727019f4",
+  "reviewedBy": "release steward re-anchoring the SEO pass (not independent acceptance)",
+  "rationale": "The SEO pass updated the end-to-end specs it made stale: citation chips are found by their new author labels, internal link checks expect the trailing-slash form, the apparatus and related-list tests name edges that still exist, the Article structured-data and sitemap tests expect the page profile and change dates, the OG test expects the search-facing home description, and the dexterity wrapper test counts the punctuated cluster-ends from the article. Each spec change is recorded here as exact edits over its pre-pass bytes. The pre-pass bytes stand in for the live spec only while the live spec is exactly the reviewed successor, reversing the edits rebuilds bytes that hash to the recorded predecessor, and the successor keeps at least as many expect and test calls as its predecessor, so older reviews, runs and receipts that pinned the pre-pass spec still check the bytes they recorded.",
+  "observedAt": "2026-10-02T06:09:36Z",
+  "sources": [
+    {
+      "name": "autonomous-vehicles",
+      "before": {
+        "path": "tests/e2e/autonomous-vehicles.spec.ts",
+        "bytes": 5437,
+        "sha256": "12490fe6d2fa2004d58b99836c8914f20c7904af88f80a001346be24041d3697"
+      },
+      "after": {
+        "path": "tests/e2e/autonomous-vehicles.spec.ts",
+        "bytes": 5465,
+        "sha256": "27684ebcf2f8cc84089bd94fee514453907ed166a8d70df36c6e0b23c4ee760f"
+      },
+      "edits": [
+        {
+          "before": "      prose.getByRole('link', { name: 'Hu 2023' }).first(),\n",
+          "after": "      prose.getByRole('link', { name: 'Hu et al. 2023' }).first(),\n"
+        },
+        {
+          "before": "      prose.getByRole('link', { name: 'Gao 2020' }).first(),\n",
+          "after": "      prose.getByRole('link', { name: 'Gao et al. 2020' }).first(),\n"
+        },
+        {
+          "before": "      prose.getByRole('link', { name: 'Kusano 2025' }).first(),\n",
+          "after": "      prose.getByRole('link', { name: 'Kusano et al. 2025' }).first(),\n"
+        },
+        {
+          "before": "      prose.getByRole('link', { name: 'Hwang 2024' }).first(),\n",
+          "after": "      prose.getByRole('link', { name: 'Hwang et al. 2024' }).first(),\n"
+        }
+      ]
+    },
+    {
+      "name": "bc-foundations",
+      "before": {
+        "path": "tests/e2e/bc-foundations.spec.ts",
+        "bytes": 4163,
+        "sha256": "dfb6a47b495462820957f37404980c999d39f34f11f34cd912c7c7fac0d9a1a7"
+      },
+      "after": {
+        "path": "tests/e2e/bc-foundations.spec.ts",
+        "bytes": 4171,
+        "sha256": "b5314be7b3afea8df9af142435c404e1c91ead538ca71a93889866dd2c3bb707"
+      },
+      "edits": [
+        {
+          "before": "    const dagger = main.getByRole('link', { name: /Ross 2011/ }).first();\n",
+          "after": "    const dagger = main.getByRole('link', { name: /Ross et al\\. 2011/ }).first();\n"
+        }
+      ]
+    },
+    {
+      "name": "brand-v2-og",
+      "before": {
+        "path": "tests/e2e/brand-v2-og.spec.ts",
+        "bytes": 2817,
+        "sha256": "c686a71260c913b1d3c56c2693c409473054f99c5a3f25fa2ccafa518feb6d40"
+      },
+      "after": {
+        "path": "tests/e2e/brand-v2-og.spec.ts",
+        "bytes": 3028,
+        "sha256": "914a225ee9025956691432c58cedc1c4a85ecf3b6e0f3f59970f4adec4f7ee4e"
+      },
+      "edits": [
+        {
+          "before": "import { cardTextRuns } from '../../lib/og-card-artwork';\n",
+          "after": "import { HOME_META_DESCRIPTION } from '../../lib/seo';\nimport { cardTextRuns } from '../../lib/og-card-artwork';\n"
+        },
+        {
+          "before": "      PUBLIC_IDENTITY,\n    );\n    await expect(\n      page.locator('meta[property=\"og:description\"]'),\n    ).toHaveAttribute('content', PUBLIC_DESCRIPTOR);\n",
+          "after": "      PUBLIC_IDENTITY,\n    );\n    // The search-facing description opens with the exact descriptor.\n    expect(HOME_META_DESCRIPTION.startsWith(`${PUBLIC_DESCRIPTOR} `)).toBe(true);\n    await expect(\n      page.locator('meta[property=\"og:description\"]'),\n    ).toHaveAttribute('content', PUBLIC_DESCRIPTOR);\n"
+        },
+        {
+          "before": "    ).toHaveAttribute('content', PUBLIC_DESCRIPTOR);\n",
+          "after": "    ).toHaveAttribute('content', HOME_META_DESCRIPTION);\n"
+        }
+      ]
+    },
+    {
+      "name": "cite-punctuation",
+      "before": {
+        "path": "tests/e2e/cite-punctuation.spec.ts",
+        "bytes": 6555,
+        "sha256": "fa5a57ef5d5223e4d90371bdea61bfcfd3d17e1e7d060e8d79b2e0d7acb9370e"
+      },
+      "after": {
+        "path": "tests/e2e/cite-punctuation.spec.ts",
+        "bytes": 7213,
+        "sha256": "67ce541055ff9e9e471db69c94a4660d2a095c39653b3764e6fa136e98b80520"
+      },
+      "edits": [
+        {
+          "before": "import { existsSync } from 'node:fs';\n",
+          "after": "import { existsSync, readFileSync } from 'node:fs';\n"
+        },
+        {
+          "before": "  test('dexterity renders exactly the 33 plugin wrappers that replaced the hand-fix', async ({\n",
+          "after": "  test('dexterity renders exactly one plugin wrapper per punctuated cluster-end, replacing the hand-fix', async ({\n"
+        },
+        {
+          "before": "    await page.goto(`${BASE}/frontier/dexterity/`, { waitUntil: 'networkidle' });\n",
+          "after": "    // Counted from the source on a rule independent of the plugin: the last\n    // chip of each run of whitespace-separated chips, when punctuation\n    // follows it. 33 when the hand-fix was stripped; each cited sentence\n    // added since adds one.\n    const body = readFileSync(\n      join(process.cwd(), 'content', 'frontier', 'dexterity.mdx'),\n      'utf8',\n    ).replace(/^---\\n[\\s\\S]*?\\n---\\n/, '');\n    const expected = [\n      ...body.matchAll(/<Cite id=\"[^\"]+\"\\s*\\/>(?!\\s*<Cite)/g),\n    ].filter((m) => /^\\s*[.,;:!?]/.test(body.slice(m.index + m[0].length))).length;\n    expect(expected).toBeGreaterThanOrEqual(33);\n\n    await page.goto(`${BASE}/frontier/dexterity/`, { waitUntil: 'networkidle' });\n"
+        },
+        {
+          "before": "    // regenerates exactly one wrapper per cluster-end (33 on this article).\n    expect(count).toBe(33);\n",
+          "after": "    // regenerates exactly one wrapper per punctuated cluster-end.\n    expect(count).toBe(expected);\n"
+        }
+      ]
+    },
+    {
+      "name": "competing-theses",
+      "before": {
+        "path": "tests/e2e/competing-theses.spec.ts",
+        "bytes": 9637,
+        "sha256": "449cf9283ee848d974ad1e41e8ad66604f71b0e589ec7c3c554fe2ae41ffa3e6"
+      },
+      "after": {
+        "path": "tests/e2e/competing-theses.spec.ts",
+        "bytes": 9651,
+        "sha256": "65f27430d2e73aeca7eb899bd0f8d201acb93d41b2b175e1026c1a631b730ced"
+      },
+      "edits": [
+        {
+          "before": "      main.getByRole('link', { name: 'Xiao 2026' }).first(),\n",
+          "after": "      main.getByRole('link', { name: 'Xiao et al. 2026' }).first(),\n"
+        },
+        {
+          "before": "      detail.getByRole('link', { name: 'Assran 2025' }).first(),\n",
+          "after": "      detail.getByRole('link', { name: 'Assran et al. 2025' }).first(),\n"
+        }
+      ]
+    },
+    {
+      "name": "control",
+      "before": {
+        "path": "tests/e2e/control.spec.ts",
+        "bytes": 25472,
+        "sha256": "61673685f0936d8d9bf2dc688ea5be0752fb528a30bdb057550645abee9e81f4"
+      },
+      "after": {
+        "path": "tests/e2e/control.spec.ts",
+        "bytes": 25507,
+        "sha256": "89a13d2f6686aa546c4affe576d83139a296a1fd8c3be26ad848df3a02a2178f"
+      },
+      "edits": [
+        {
+          "before": "    await expect(main.getByRole('link', { name: 'Ziegler 1942' }).first())\n",
+          "after": "    await expect(main.getByRole('link', { name: 'Ziegler et al. 1942' }).first())\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: 'Mayne 2000' }).first(),\n",
+          "after": "      main.getByRole('link', { name: 'Mayne et al. 2000' }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: 'Di Carlo 2018' }).first(),\n",
+          "after": "      main.getByRole('link', { name: 'Di Carlo et al. 2018' }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: 'Zhang 2026' }).first(),\n",
+          "after": "      main.getByRole('link', { name: 'Zhang et al. 2026' }).first(),\n"
+        },
+        {
+          "before": "    const pidChip = main.getByRole('link', { name: 'Ziegler 1942' }).first();\n",
+          "after": "    const pidChip = main.getByRole('link', { name: 'Ziegler et al. 1942' }).first();\n"
+        }
+      ]
+    },
+    {
+      "name": "data-bottleneck",
+      "before": {
+        "path": "tests/e2e/data-bottleneck.spec.ts",
+        "bytes": 7200,
+        "sha256": "52e6bb5b0c9fd24b691b5fd7f8d013c31db07e824327cc8c85f68e1358461e22"
+      },
+      "after": {
+        "path": "tests/e2e/data-bottleneck.spec.ts",
+        "bytes": 7232,
+        "sha256": "e38654e41dc58dba226883384830db081eca62004ceec5e16221e86e58abb500"
+      },
+      "edits": [
+        {
+          "before": "      main.getByRole('link', { name: /Brown 2020/ }).first(),\n",
+          "after": "      main.getByRole('link', { name: /Brown et al\\. 2020/ }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: /Lin 2024/ }).first(),\n",
+          "after": "      main.getByRole('link', { name: /Lin et al\\. 2024/ }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: /Shi 2025/ }).first(),\n",
+          "after": "      main.getByRole('link', { name: /Shi et al\\. 2025/ }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: /Zheng 2026/ }).first(),\n",
+          "after": "      main.getByRole('link', { name: /Zheng et al\\. 2026/ }).first(),\n"
+        }
+      ]
+    },
+    {
+      "name": "datasets",
+      "before": {
+        "path": "tests/e2e/datasets.spec.ts",
+        "bytes": 5629,
+        "sha256": "85eabcbe4948af4adfa80b12767cc7b01ed66ec95c19d7737b57551b86523e57"
+      },
+      "after": {
+        "path": "tests/e2e/datasets.spec.ts",
+        "bytes": 5645,
+        "sha256": "4bcb0d70855796a90ead61942828bbe4ac18cb04d728952b226fb826155356b0"
+      },
+      "edits": [
+        {
+          "before": "      main.getByRole('link', { name: /Walke 2023/ }).first(),\n",
+          "after": "      main.getByRole('link', { name: /Walke et al\\. 2023/ }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: /Wu 2024/ }).first(),\n",
+          "after": "      main.getByRole('link', { name: /Wu et al\\. 2024/ }).first(),\n"
+        }
+      ]
+    },
+    {
+      "name": "drones",
+      "before": {
+        "path": "tests/e2e/drones.spec.ts",
+        "bytes": 7477,
+        "sha256": "fdc97c801b912530107de4e57782f3af718d4aa3cc351ca7594931fc7eea9cbc"
+      },
+      "after": {
+        "path": "tests/e2e/drones.spec.ts",
+        "bytes": 7519,
+        "sha256": "67d6d79889d227aaf0e9aed3f826d30165268982da74ae9b2a9614c19db24e00"
+      },
+      "edits": [
+        {
+          "before": "      prose.getByRole('link', { name: 'Loquercio 2021' }).first(),\n",
+          "after": "      prose.getByRole('link', { name: 'Loquercio et al. 2021' }).first(),\n"
+        },
+        {
+          "before": "      prose.getByRole('link', { name: 'Kaufmann 2023' }).first(),\n",
+          "after": "      prose.getByRole('link', { name: 'Kaufmann et al. 2023' }).first(),\n"
+        },
+        {
+          "before": "      prose.getByRole('link', { name: 'Song 2023' }).first(),\n",
+          "after": "      prose.getByRole('link', { name: 'Song et al. 2023' }).first(),\n"
+        },
+        {
+          "before": "      prose.getByRole('link', { name: 'Falanga 2019' }).first(),\n",
+          "after": "      prose.getByRole('link', { name: 'Falanga et al. 2019' }).first(),\n"
+        },
+        {
+          "before": "      prose.getByRole('link', { name: 'Zhou 2022' }).first(),\n",
+          "after": "      prose.getByRole('link', { name: 'Zhou et al. 2022' }).first(),\n"
+        },
+        {
+          "before": "      prose.getByRole('link', { name: 'Soria 2021' }).first(),\n",
+          "after": "      prose.getByRole('link', { name: 'Soria et al. 2021' }).first(),\n"
+        }
+      ]
+    },
+    {
+      "name": "evaluation-crisis",
+      "before": {
+        "path": "tests/e2e/evaluation-crisis.spec.ts",
+        "bytes": 11232,
+        "sha256": "9ea8d250d2daa0546fc1a0cb147d5c5457a33d74f5f012d33ebacf08cc2aab45"
+      },
+      "after": {
+        "path": "tests/e2e/evaluation-crisis.spec.ts",
+        "bytes": 11267,
+        "sha256": "9701723672940655f2a46de639593e46461ee7d7dda3c91be98c1ffd49963e59"
+      },
+      "edits": [
+        {
+          "before": "      main.getByRole('link', { name: 'TRI LBM Team 2025' }).first(),\n",
+          "after": "      main.getByRole('link', { name: 'TRI LBM Team et al. 2025' }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: 'Li 2024' }).first(),\n",
+          "after": "      main.getByRole('link', { name: 'Li et al. 2024' }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: 'Atreya 2025' }).first(),\n",
+          "after": "      main.getByRole('link', { name: 'Atreya et al. 2025' }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: 'Snyder 2025' }).first(),\n",
+          "after": "      main.getByRole('link', { name: 'Snyder et al. 2025' }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: 'Fei 2025' }).first(),\n",
+          "after": "      main.getByRole('link', { name: 'Fei et al. 2025' }).first(),\n"
+        }
+      ]
+    },
+    {
+      "name": "generalization",
+      "before": {
+        "path": "tests/e2e/generalization.spec.ts",
+        "bytes": 8684,
+        "sha256": "a7d929a1182c4246663a6668fb51557319322fc4ea0cde058e460c80b92772db"
+      },
+      "after": {
+        "path": "tests/e2e/generalization.spec.ts",
+        "bytes": 8714,
+        "sha256": "21fd3bf7103c326cdcbe88ba41a70fb2fc9d66652c323ad00d8d4a367c621d44"
+      },
+      "edits": [
+        {
+          "before": "      main.getByRole('link', { name: 'Black 2025' }).first(),\n",
+          "after": "      main.getByRole('link', { name: 'Physical Intelligence et al. 2025' }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: 'Zheng 2026' }).first(),\n",
+          "after": "      main.getByRole('link', { name: 'Zheng et al. 2026' }).first(),\n"
+        }
+      ]
+    },
+    {
+      "name": "generative-sim",
+      "before": {
+        "path": "tests/e2e/generative-sim.spec.ts",
+        "bytes": 10534,
+        "sha256": "fb88b9d03f98e2b67ee8e68e2fbe4c814bae3b4e7fbdf69f35a96fbbfcbed7e4"
+      },
+      "after": {
+        "path": "tests/e2e/generative-sim.spec.ts",
+        "bytes": 10612,
+        "sha256": "156fa17ed74829943bda8318fd7ea312914a609a4169ea670c70d50bc49f3217"
+      },
+      "edits": [
+        {
+          "before": "      main.getByRole('link', { name: /Wang 2024/ }).first(),\n",
+          "after": "      main.getByRole('link', { name: /Wang et al\\. 2024/ }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: /Yang 2024/ }).first(),\n",
+          "after": "      main.getByRole('link', { name: /Yang et al\\. 2024/ }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: /Nasiriany 2024/ }).first(),\n",
+          "after": "      main.getByRole('link', { name: /Nasiriany et al\\. 2024/ }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: /Nasiriany 2026/ }).first(),\n",
+          "after": "      main.getByRole('link', { name: /Nasiriany et al\\. 2026/ }).first(),\n"
+        },
+        {
+          "before": "    await expect(sentence.getByRole('link', { name: /Nasiriany 2024/ }))\n",
+          "after": "    await expect(sentence.getByRole('link', { name: /Nasiriany et al\\. 2024/ }))\n"
+        },
+        {
+          "before": "    await expect(sentence.getByRole('link', { name: /Nasiriany 2026/ }))\n",
+          "after": "    await expect(sentence.getByRole('link', { name: /Nasiriany et al\\. 2026/ }))\n"
+        },
+        {
+          "before": "    expect(sequence.indexOf('Nasiriany 2024')).toBeLessThan(sequence.indexOf('RoboCasa365 reports'));\n    expect(sequence.indexOf('Nasiriany 2026')).toBeGreaterThan(sequence.indexOf('RoboCasa365 reports'));\n",
+          "after": "    expect(sequence.indexOf('Nasiriany et al. 2024')).toBeLessThan(sequence.indexOf('RoboCasa365 reports'));\n    expect(sequence.indexOf('Nasiriany et al. 2026')).toBeGreaterThan(sequence.indexOf('RoboCasa365 reports'));\n"
+        },
+        {
+          "before": "      inventory.getByRole('link', { name: /Nasiriany 2024/ }),\n",
+          "after": "      inventory.getByRole('link', { name: /Nasiriany et al\\. 2024/ }),\n"
+        },
+        {
+          "before": "      scaling.getByRole('link', { name: /Nasiriany 2024/ }),\n",
+          "after": "      scaling.getByRole('link', { name: /Nasiriany et al\\. 2024/ }),\n"
+        }
+      ]
+    },
+    {
+      "name": "generative-video",
+      "before": {
+        "path": "tests/e2e/generative-video.spec.ts",
+        "bytes": 12704,
+        "sha256": "5c836f03919f350a4198e6366b21d775aeabddcab6b2f5fb28922f3f8835ddef"
+      },
+      "after": {
+        "path": "tests/e2e/generative-video.spec.ts",
+        "bytes": 12759,
+        "sha256": "6321a1c7410185802976f048481e71db4408d54edbe77237f241a686ca02688a"
+      },
+      "edits": [
+        {
+          "before": "      main.getByRole('link', { name: /Parker-Holder 2025/ }).first(),\n",
+          "after": "      main.getByRole('link', { name: /Parker-Holder et al\\. 2025/ }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: /Wang 2026/ }).first(),\n",
+          "after": "      main.getByRole('link', { name: /Wang et al\\. 2026/ }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: /Jeon 2026/ }).first(),\n",
+          "after": "      main.getByRole('link', { name: /Jeon et al\\. 2026/ }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: /Hou 2026/ }).first(),\n",
+          "after": "      main.getByRole('link', { name: /Hou et al\\. 2026/ }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: /Wu 2023/ }).first(),\n",
+          "after": "      main.getByRole('link', { name: /Wu et al\\. 2023/ }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: /Cheang 2024/ }).first(),\n",
+          "after": "      main.getByRole('link', { name: /Cheang et al\\. 2024/ }).first(),\n"
+        },
+        {
+          "before": "    const source = prose.getByRole('link', { name: 'NVIDIA 2026', exact: true }).first();\n",
+          "after": "    const source = prose.getByRole('link', { name: 'NVIDIA et al. 2026', exact: true }).first();\n"
+        }
+      ]
+    },
+    {
+      "name": "grasp-planning",
+      "before": {
+        "path": "tests/e2e/grasp-planning.spec.ts",
+        "bytes": 17587,
+        "sha256": "03617a7de70d619228b72517480645b226f99ec19801593baa26d28ebcf15764"
+      },
+      "after": {
+        "path": "tests/e2e/grasp-planning.spec.ts",
+        "bytes": 17643,
+        "sha256": "5d5c8eaa2d4dcf2aa03093df6b6aed25fe6c5d04edd073f481e1ec1dab16317b"
+      },
+      "edits": [
+        {
+          "before": "      main.getByRole('link', { name: 'Ferrari 1992' }).first(),\n",
+          "after": "      main.getByRole('link', { name: 'Ferrari et al. 1992' }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: 'Murray 1994' }).first(),\n",
+          "after": "      main.getByRole('link', { name: 'Murray et al. 1994' }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: 'Mishra 1987' }).first(),\n",
+          "after": "      main.getByRole('link', { name: 'Mishra et al. 1987' }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: 'Markenscoff 1990' }).first(),\n",
+          "after": "      main.getByRole('link', { name: 'Markenscoff et al. 1990' }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: 'Bicchi 2000' }).first(),\n",
+          "after": "      main.getByRole('link', { name: 'Bicchi et al. 2000' }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: 'Prattichizzo 2016' }).first(),\n",
+          "after": "      main.getByRole('link', { name: 'Prattichizzo et al. 2016' }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: 'Roa 2015' }).first(),\n",
+          "after": "      main.getByRole('link', { name: 'Roa et al. 2015' }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: 'Mahler 2017' }).first(),\n",
+          "after": "      main.getByRole('link', { name: 'Mahler et al. 2017' }).first(),\n"
+        }
+      ]
+    },
+    {
+      "name": "hardware-taxonomy",
+      "before": {
+        "path": "tests/e2e/hardware-taxonomy.spec.ts",
+        "bytes": 8167,
+        "sha256": "9b58c55e660a5fd5cf25ba9178516b87afb65bf4092aebc6249be077dd192d04"
+      },
+      "after": {
+        "path": "tests/e2e/hardware-taxonomy.spec.ts",
+        "bytes": 8198,
+        "sha256": "1a7dfae5e05947d52ccb1aedf0f0dcbc2c348578b5454afa5904e372cf2bb0ad"
+      },
+      "edits": [
+        {
+          "before": "      main.getByRole('link', { name: /Shaw 2023/ }).first(),\n",
+          "after": "      main.getByRole('link', { name: /Shaw et al\\. 2023/ }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: /Luo 2025/ }).first(),\n",
+          "after": "      main.getByRole('link', { name: /Luo et al\\. 2025/ }).first(),\n"
+        },
+        {
+          "before": "      // author list (Jiang et al.), so the chip now reads \"Jiang 2026\".\n      main.getByRole('link', { name: /Jiang 2026/ }).first(),\n",
+          "after": "      // author list (Jiang et al.), so the chip now reads \"Jiang et al. 2026\".\n      main.getByRole('link', { name: /Jiang et al\\. 2026/ }).first(),\n"
+        }
+      ]
+    },
+    {
+      "name": "industrial-deployment",
+      "before": {
+        "path": "tests/e2e/industrial-deployment.spec.ts",
+        "bytes": 20044,
+        "sha256": "93a643879e5be329fa4887d30cabff8a4c5abba5b00b741cbd283e9e56b545cc"
+      },
+      "after": {
+        "path": "tests/e2e/industrial-deployment.spec.ts",
+        "bytes": 20047,
+        "sha256": "7dfe06863ce47ad1cade5600ac94ee28060313a3260b1054b10691b91c8892e0"
+      },
+      "edits": [
+        {
+          "before": "    const link = main.locator('a[href=\"/frontier/reliability-gap\"]').first();\n",
+          "after": "    const link = main.locator('a[href=\"/frontier/reliability-gap/\"]').first();\n"
+        },
+        {
+          "before": "    for (const href of ['/frontier/reliability-gap', '/market-map']) {\n",
+          "after": "    for (const href of ['/frontier/reliability-gap/', '/market-map/']) {\n"
+        }
+      ]
+    },
+    {
+      "name": "industrial-engineering-originals",
+      "before": {
+        "path": "tests/e2e/industrial-engineering-originals.spec.ts",
+        "bytes": 11611,
+        "sha256": "1615626c44191451c21b920f84f950b19459fe577494629b4f21e85025f85ba6"
+      },
+      "after": {
+        "path": "tests/e2e/industrial-engineering-originals.spec.ts",
+        "bytes": 11618,
+        "sha256": "3aac456e16e7b3126fff1bab2880baee38b2b827304a3a7a6a6107c1271ea830"
+      },
+      "edits": [
+        {
+          "before": "      await expect(link).toHaveText('Levine 2026');\n",
+          "after": "      await expect(link).toHaveText('Levine et al. 2026');\n"
+        }
+      ]
+    },
+    {
+      "name": "jepa",
+      "before": {
+        "path": "tests/e2e/jepa.spec.ts",
+        "bytes": 5640,
+        "sha256": "964a0831d5ebb4bbac8b8d1de2952bdb2a92e4b147b79900a2b6eb6b24f398c4"
+      },
+      "after": {
+        "path": "tests/e2e/jepa.spec.ts",
+        "bytes": 5648,
+        "sha256": "1c64baeed85610bf6ba277a0b8615510471fc44609da2cdb9e97e90aed3909b2"
+      },
+      "edits": [
+        {
+          "before": "      main.getByRole('link', { name: /Assran 2025/ }).first(),\n",
+          "after": "      main.getByRole('link', { name: /Assran et al\\. 2025/ }).first(),\n"
+        }
+      ]
+    },
+    {
+      "name": "kinematics",
+      "before": {
+        "path": "tests/e2e/kinematics.spec.ts",
+        "bytes": 21269,
+        "sha256": "9119b301459511dffd0708f878072974d7c49d21cdc79c95aab7f494ab31e12e"
+      },
+      "after": {
+        "path": "tests/e2e/kinematics.spec.ts",
+        "bytes": 21277,
+        "sha256": "82195d46be60e26cdb6bf7ad549d3f71453e76886c1f3a552873a82f5ca9815e"
+      },
+      "edits": [
+        {
+          "before": "    await expect(main.getByRole('link', { name: '3D kinematics playground' })).toHaveAttribute('href', '/playground');\n",
+          "after": "    await expect(main.getByRole('link', { name: '3D kinematics playground' })).toHaveAttribute('href', '/playground/');\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: 'Lynch 2017' }).first(),\n",
+          "after": "      main.getByRole('link', { name: 'Lynch et al. 2017' }).first(),\n"
+        }
+      ]
+    },
+    {
+      "name": "latent-dynamics",
+      "before": {
+        "path": "tests/e2e/latent-dynamics.spec.ts",
+        "bytes": 6398,
+        "sha256": "04c6a6dbb2bb758a18b6ce4d6476d6e7eb2c7765e11273e0ff42fe1bb82ad997"
+      },
+      "after": {
+        "path": "tests/e2e/latent-dynamics.spec.ts",
+        "bytes": 6422,
+        "sha256": "3b722cb38c66336e2923d044a6b1d69406d2d34fb1a72650e9ecc31519ca7bc1"
+      },
+      "edits": [
+        {
+          "before": "      main.getByRole('link', { name: /Hafner 2023/ }).first(),\n",
+          "after": "      main.getByRole('link', { name: /Hafner et al\\. 2023/ }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: /Hansen 2023/ }).first(),\n",
+          "after": "      main.getByRole('link', { name: /Hansen et al\\. 2023/ }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: /Wu 2022/ }).first(),\n",
+          "after": "      main.getByRole('link', { name: /Wu et al\\. 2022/ }).first(),\n"
+        }
+      ]
+    },
+    {
+      "name": "legged-locomotion",
+      "before": {
+        "path": "tests/e2e/legged-locomotion.spec.ts",
+        "bytes": 7307,
+        "sha256": "5e4991d27d323231df3633831d47844162b68e3d49bb80bf5bed9607d236dcfb"
+      },
+      "after": {
+        "path": "tests/e2e/legged-locomotion.spec.ts",
+        "bytes": 7331,
+        "sha256": "195ca9fed8738029674241251993395642627bdbabf23a58f45fe6d95a3764b6"
+      },
+      "edits": [
+        {
+          "before": "      main.getByRole('link', { name: /Lee 2020/ }).first(),\n",
+          "after": "      main.getByRole('link', { name: /Lee et al\\. 2020/ }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: /Rudin 2021/ }).first(),\n",
+          "after": "      main.getByRole('link', { name: /Rudin et al\\. 2021/ }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: /Miki 2022/ }).first(),\n",
+          "after": "      main.getByRole('link', { name: /Miki et al\\. 2022/ }).first(),\n"
+        }
+      ]
+    },
+    {
+      "name": "motion-planning",
+      "before": {
+        "path": "tests/e2e/motion-planning.spec.ts",
+        "bytes": 16617,
+        "sha256": "cdf5b63f8769b6e9b1abc9adc71d5abda2ba8a8ae1aa5938bc987724feae7c73"
+      },
+      "after": {
+        "path": "tests/e2e/motion-planning.spec.ts",
+        "bytes": 16638,
+        "sha256": "aff9d4374c9f0267550d3bf6ce33e3a589f71dc7d07523c5291175f53e154307"
+      },
+      "edits": [
+        {
+          "before": "      main.getByRole('link', { name: 'Karaman 2011' }).first(),\n",
+          "after": "      main.getByRole('link', { name: 'Karaman et al. 2011' }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: 'Ratliff 2009' }).first(),\n",
+          "after": "      main.getByRole('link', { name: 'Ratliff et al. 2009' }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: 'Schulman 2013' }).first(),\n",
+          "after": "      main.getByRole('link', { name: 'Schulman et al. 2013' }).first(),\n"
+        }
+      ]
+    },
+    {
+      "name": "parallel-sim-rl",
+      "before": {
+        "path": "tests/e2e/parallel-sim-rl.spec.ts",
+        "bytes": 4160,
+        "sha256": "295390c6a481f7d4862e03ae09e6156687a9b2a563217115b42710d3b3844449"
+      },
+      "after": {
+        "path": "tests/e2e/parallel-sim-rl.spec.ts",
+        "bytes": 4176,
+        "sha256": "56bc40bacdb2c7ddfd32d6478d6682c6a8e28e100506296b9bfada5551a84969"
+      },
+      "edits": [
+        {
+          "before": "      main.getByRole('link', { name: /Rudin 2021/ }).first(),\n",
+          "after": "      main.getByRole('link', { name: /Rudin et al\\. 2021/ }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: /NVIDIA 2025/ }).first(),\n",
+          "after": "      main.getByRole('link', { name: /NVIDIA et al\\. 2025/ }).first(),\n"
+        }
+      ]
+    },
+    {
+      "name": "perception-depth-readers",
+      "before": {
+        "path": "tests/e2e/perception-depth-readers.spec.ts",
+        "bytes": 22538,
+        "sha256": "b7fb86b051fef62e845d013d49ef4b0dc93b8321c6289298a3f50a73512394f4"
+      },
+      "after": {
+        "path": "tests/e2e/perception-depth-readers.spec.ts",
+        "bytes": 22545,
+        "sha256": "542f88c9af8baf6dd733be81bbba352240930922cda10e39e9988534b23ffa67"
+      },
+      "edits": [
+        {
+          "before": "        await expect(chip.locator('a').first()).toHaveText(id === 'realsense-tuning-2026' ? 'Grunnet-Jepsen 2026' : 'Microsoft 2019');\n",
+          "after": "        await expect(chip.locator('a').first()).toHaveText(id === 'realsense-tuning-2026' ? 'Grunnet-Jepsen et al. 2026' : 'Microsoft 2019');\n"
+        }
+      ]
+    },
+    {
+      "name": "perception",
+      "before": {
+        "path": "tests/e2e/perception.spec.ts",
+        "bytes": 36490,
+        "sha256": "cdfb041603f1f3a953038d3e979aae79222a216404b63496ad0a3ca698f4f373"
+      },
+      "after": {
+        "path": "tests/e2e/perception.spec.ts",
+        "bytes": 36500,
+        "sha256": "40f915a16e85405ea0b8fa5a8754dcfb4b56e4e50d95090d029c38187fa0c37c"
+      },
+      "edits": [
+        {
+          "before": "    // Linked from: at least the state-estimation inbound edge.\n",
+          "after": "    // Linked from: at least the grasp-planning inbound edge, a prose link.\n"
+        },
+        {
+          "before": "      linkedFrom.getByRole('link', { name: /state estimation/i }),\n",
+          "after": "      linkedFrom.getByRole('link', { name: /grasp planning/i }),\n"
+        }
+      ]
+    },
+    {
+      "name": "reliability-gap",
+      "before": {
+        "path": "tests/e2e/reliability-gap.spec.ts",
+        "bytes": 11831,
+        "sha256": "ead4bbf2fb4bd5ffe9d2268592d57adcfd8c5b754ea9e1e5f477ca6c17456298"
+      },
+      "after": {
+        "path": "tests/e2e/reliability-gap.spec.ts",
+        "bytes": 11845,
+        "sha256": "f826f404946b5784cf142da08107b22d85d3b5423f4084f57fddeec41c031da5"
+      },
+      "edits": [
+        {
+          "before": "      main.getByRole('link', { name: 'Levine 2026' }).first(),\n",
+          "after": "      main.getByRole('link', { name: 'Levine et al. 2026' }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: 'Lei 2025' }).first(),\n",
+          "after": "      main.getByRole('link', { name: 'Lei et al. 2025' }).first(),\n"
+        }
+      ]
+    },
+    {
+      "name": "residual-release-classical",
+      "before": {
+        "path": "tests/e2e/residual-release-classical.spec.ts",
+        "bytes": 9436,
+        "sha256": "7b1eafca461fa2585e454dc0a5e6ca2bb2fe14dcdd1f57b00f3ae24591070b69"
+      },
+      "after": {
+        "path": "tests/e2e/residual-release-classical.spec.ts",
+        "bytes": 9437,
+        "sha256": "4f057853c66c5d4c27981439c21053b65303153e5796f7d03f2b485b284c0b4a"
+      },
+      "edits": [
+        {
+          "before": "    await expect(main.getByRole('link', { name: '3D kinematics playground' })).toHaveAttribute('href', '/playground');\n",
+          "after": "    await expect(main.getByRole('link', { name: '3D kinematics playground' })).toHaveAttribute('href', '/playground/');\n"
+        }
+      ]
+    },
+    {
+      "name": "rl-finetuning",
+      "before": {
+        "path": "tests/e2e/rl-finetuning.spec.ts",
+        "bytes": 11283,
+        "sha256": "aab8fce8494ac240db973673f3c54b7689545a26f0492ed056ff43365ea686a0"
+      },
+      "after": {
+        "path": "tests/e2e/rl-finetuning.spec.ts",
+        "bytes": 11299,
+        "sha256": "dfbc170810f0406fb80f07955606e7e774c630b164f2f2e7aa92256dff5e3c93"
+      },
+      "edits": [
+        {
+          "before": "      main.getByRole('link', { name: /Luo 2024/ }).first(),\n",
+          "after": "      main.getByRole('link', { name: /Luo et al\\. 2024/ }).first(),\n"
+        },
+        {
+          "before": "    await expect(prose.getByRole('link', { name: /Xiao 2025/ }).first())\n",
+          "after": "    await expect(prose.getByRole('link', { name: /Xiao et al\\. 2025/ }).first())\n"
+        }
+      ]
+    },
+    {
+      "name": "rma-kl-reader",
+      "before": {
+        "path": "tests/e2e/rma-kl-reader.spec.ts",
+        "bytes": 13518,
+        "sha256": "dcd74ce4e4697b7c11986919b3565afab66e1d7fc7dc1182f08557f95aec4212"
+      },
+      "after": {
+        "path": "tests/e2e/rma-kl-reader.spec.ts",
+        "bytes": 13532,
+        "sha256": "ccb91ae7ee0129b4480d5e95515253ef484501856e4230dc500338288e9d5883"
+      },
+      "edits": [
+        {
+          "before": "   const id=kind==='kl'?'rudin-2021':'rma-2021';const cite=para.locator(`[data-cite-id=\"${id}\"]`);const link=cite.getByRole('link',{name:kind==='kl'?'Rudin 2021':'Kumar 2021',exact:true});await expect(link).toHaveCount(1);await expect(link).toHaveAttribute('href',kind==='kl'?'https://arxiv.org/abs/2109.11978':'https://arxiv.org/abs/2107.04034');\n",
+          "after": "   const id=kind==='kl'?'rudin-2021':'rma-2021';const cite=para.locator(`[data-cite-id=\"${id}\"]`);const link=cite.getByRole('link',{name:kind==='kl'?'Rudin et al. 2021':'Kumar et al. 2021',exact:true});await expect(link).toHaveCount(1);await expect(link).toHaveAttribute('href',kind==='kl'?'https://arxiv.org/abs/2109.11978':'https://arxiv.org/abs/2107.04034');\n"
+        }
+      ]
+    },
+    {
+      "name": "scene-representation",
+      "before": {
+        "path": "tests/e2e/scene-representation.spec.ts",
+        "bytes": 25311,
+        "sha256": "9f96216e19c2b0af7716d01271b8f00e9128889e97a96a83712b4ea1297fcae8"
+      },
+      "after": {
+        "path": "tests/e2e/scene-representation.spec.ts",
+        "bytes": 25254,
+        "sha256": "4ebf6119e96116f6ef3029e68a5533e4f59d7d5dc618962ec2f12ceab3268288"
+      },
+      "edits": [
+        {
+          "before": "    // The inbound edge added at publish time.\n",
+          "after": "    // An inbound edge from a sibling's prose link.\n"
+        },
+        {
+          "before": "    // the article's title, and world-models/taxonomy is titled for the\n    // question it answers.\n",
+          "after": "    // the article's title.\n"
+        },
+        {
+          "before": "      (m) => m.domain === 'world-models' && m.slug === 'taxonomy',\n",
+          "after": "      (m) => m.domain === 'classical' && m.slug === 'state-estimation',\n"
+        },
+        {
+          "before": "    expect(inbound, 'world-models/taxonomy is published').toBeDefined();\n",
+          "after": "    expect(inbound, 'classical/state-estimation is published').toBeDefined();\n"
+        }
+      ]
+    },
+    {
+      "name": "see-also",
+      "before": {
+        "path": "tests/e2e/see-also.spec.ts",
+        "bytes": 15275,
+        "sha256": "5a59cdc464377ed28fdfdd2317fcb8be69554e8d0dfb8b6d0720f51e24194476"
+      },
+      "after": {
+        "path": "tests/e2e/see-also.spec.ts",
+        "bytes": 15115,
+        "sha256": "34dabe21a183a04dd6ccca3f02f6b9faa2263aef8e57af6faa9f499eb330ff09"
+      },
+      "edits": [
+        {
+          "before": "  test('action-chunking reaches diffusion-policy through both a prose link and a seeAlso edge (VAL-WIKI-011)', async ({\n",
+          "after": "  test('action-chunking reaches pi-line through both a prose link and a seeAlso edge (VAL-WIKI-011)', async ({\n"
+        },
+        {
+          "before": "    // The edge exists twice over by design (VAL-CROSS-006 requires an\n    // in-prose link; the curated seeAlso edge predates it): prose link\n    // plus seeAlso entry, deduped to one backlink.\n    expect(internalLinkTargets(source.body)).toContain(\n      '/manipulation/diffusion-policy',\n    );\n    expect(source.seeAlso).toContain('manipulation/diffusion-policy');\n",
+          "after": "    // The edge exists twice over: a prose link plus a seeAlso entry,\n    // deduped to one backlink.\n    expect(internalLinkTargets(source.body)).toContain('/manipulation/pi-line');\n    expect(source.seeAlso).toContain('manipulation/pi-line');\n"
+        },
+        {
+          "before": "    // Linked from list on diffusion-policy shows it.\n    const inbound = expectedBacklinks.get('manipulation/diffusion-policy') ?? [];\n",
+          "after": "    // Linked from list on pi-line shows it.\n    const inbound = expectedBacklinks.get('manipulation/pi-line') ?? [];\n"
+        },
+        {
+          "before": "    await page.goto('/manipulation/diffusion-policy/');\n",
+          "after": "    await page.goto('/manipulation/pi-line/');\n"
+        }
+      ]
+    },
+    {
+      "name": "seo-static-integrity",
+      "before": {
+        "path": "tests/e2e/seo-static-integrity.spec.ts",
+        "bytes": 18640,
+        "sha256": "388faad4e1e1b9d91b8ec8081014d38b239a4b6cabb47956429d09e34070e863"
+      },
+      "after": {
+        "path": "tests/e2e/seo-static-integrity.spec.ts",
+        "bytes": 19190,
+        "sha256": "a7f23fa65c7a57d253c086157a0fb959532ff3c9edc9d896602483bc4daff73b"
+      },
+      "edits": [
+        {
+          "before": "import { moduleLastReviewed } from '../../lib/module-source';\nimport { articleStructuredImagePaths } from '../../lib/og-cards';\n",
+          "after": "import { articleStructuredImagePaths } from '../../lib/og-cards';\n"
+        },
+        {
+          "before": "import { startStaticExportServer, type StaticExportServer } from './static-export-server';\n",
+          "after": "import { articleSeoProfile } from '../../lib/seo';\nimport { startStaticExportServer, type StaticExportServer } from './static-export-server';\n"
+        },
+        {
+          "before": "    );\n    for (const entry of publishedModules()) {\n",
+          "after": "    );\n    // Every URL carries a calendar-date lastmod; an article's is the git\n    // date of its latest content change, which its JSON-LD also states.\n    expect(blocks).toHaveLength(locs.length);\n    for (const block of blocks) {\n      expect(block, block).toMatch(/<lastmod>\\d{4}-\\d{2}-\\d{2}<\\/lastmod>/);\n    }\n    for (const entry of publishedModules()) {\n"
+        },
+        {
+          "before": "        `<lastmod>${moduleLastReviewed(entry.domain, entry.slug)}</lastmod>`,\n",
+          "after": "        `<lastmod>${articleDateModified(entry.domain, entry.slug)}</lastmod>`,\n"
+        },
+        {
+          "before": "      expect(article).toMatchObject({\n",
+          "after": "      // The description is the page's meta description, and `about` names\n      // the head term the title and description lead with.\n      const profile = articleSeoProfile(entry);\n      expect(article).toMatchObject({\n"
+        },
+        {
+          "before": "        description: entry.summary,\n",
+          "after": "        description: profile.description,\n        about: { '@type': 'Thing', name: profile.headTerm },\n"
+        }
+      ]
+    },
+    {
+      "name": "sim2real-transfer",
+      "before": {
+        "path": "tests/e2e/sim2real-transfer.spec.ts",
+        "bytes": 10201,
+        "sha256": "1e15fcdb8175028e8a5dd20b59ec96f8fe157835a3590b8d825b6ce8e88c9594"
+      },
+      "after": {
+        "path": "tests/e2e/sim2real-transfer.spec.ts",
+        "bytes": 10225,
+        "sha256": "62dad0f8e651f98d0ae52256023715d65bdf21cd52189073fdba573aed7819e3"
+      },
+      "edits": [
+        {
+          "before": "      main.getByRole('link', { name: /Lee 2020/ }).first(),\n",
+          "after": "      main.getByRole('link', { name: /Lee et al\\. 2020/ }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: /Kumar 2021/ }).first(),\n",
+          "after": "      main.getByRole('link', { name: /Kumar et al\\. 2021/ }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: /He 2025/ }).first(),\n",
+          "after": "      main.getByRole('link', { name: /He et al\\. 2025/ }).first(),\n"
+        }
+      ]
+    },
+    {
+      "name": "space",
+      "before": {
+        "path": "tests/e2e/space.spec.ts",
+        "bytes": 10119,
+        "sha256": "3ce0367953062ba58c26016b0602c8f05b5e5c6296191d411214a934d84d42b8"
+      },
+      "after": {
+        "path": "tests/e2e/space.spec.ts",
+        "bytes": 10140,
+        "sha256": "51fa6706329ea15cfbffbcd24da1722a10797ea7d50946a11db34521dfc128b0"
+      },
+      "edits": [
+        {
+          "before": "      prose.getByRole('link', { name: 'Francis 2017' }).first(),\n",
+          "after": "      prose.getByRole('link', { name: 'Francis et al. 2017' }).first(),\n"
+        },
+        {
+          "before": "      prose.getByRole('link', { name: 'Verma 2023' }).first(),\n",
+          "after": "      prose.getByRole('link', { name: 'Verma et al. 2023' }).first(),\n"
+        },
+        {
+          "before": "      prose.getByRole('link', { name: 'Kawano 2001' }).first(),\n",
+          "after": "      prose.getByRole('link', { name: 'Kawano et al. 2001' }).first(),\n"
+        }
+      ]
+    },
+    {
+      "name": "state-estimation",
+      "before": {
+        "path": "tests/e2e/state-estimation.spec.ts",
+        "bytes": 13329,
+        "sha256": "9ebaf91eee9df626b2d180bf01d3129eb9c95115008dc96bf00db5b979935d28"
+      },
+      "after": {
+        "path": "tests/e2e/state-estimation.spec.ts",
+        "bytes": 13378,
+        "sha256": "4818178f66a2ef8344d644026bbbd1b9b5a9b2f0fba40e71ad76dd394309aef4"
+      },
+      "edits": [
+        {
+          "before": "      main.getByRole('link', { name: 'McGee 1985' }).first(),\n",
+          "after": "      main.getByRole('link', { name: 'McGee et al. 1985' }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: 'Thrun 2005' }).first(),\n",
+          "after": "      main.getByRole('link', { name: 'Thrun et al. 2005' }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: 'Kschischang 2001' }).first(),\n",
+          "after": "      main.getByRole('link', { name: 'Kschischang et al. 2001' }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: 'Dellaert 2006' }).first(),\n",
+          "after": "      main.getByRole('link', { name: 'Dellaert et al. 2006' }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: 'Kaess 2012' }).first(),\n",
+          "after": "      main.getByRole('link', { name: 'Kaess et al. 2012' }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: 'Cadena 2016' }).first(),\n",
+          "after": "      main.getByRole('link', { name: 'Cadena et al. 2016' }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: 'Forster 2017' }).first(),\n",
+          "after": "      main.getByRole('link', { name: 'Forster et al. 2017' }).first(),\n"
+        }
+      ]
+    },
+    {
+      "name": "surgical",
+      "before": {
+        "path": "tests/e2e/surgical.spec.ts",
+        "bytes": 6827,
+        "sha256": "72ff8fdf7d5e5d4b6308fbc30f081e0c3c662c99558e2edc8e9274101c1f85e5"
+      },
+      "after": {
+        "path": "tests/e2e/surgical.spec.ts",
+        "bytes": 6841,
+        "sha256": "c827a674b1211aaeb18174c2c8b60300d71dc618f58a8ac32c3c0ec06398553b"
+      },
+      "edits": [
+        {
+          "before": "      prose.getByRole('link', { name: 'Yang 2017' }).first(),\n",
+          "after": "      prose.getByRole('link', { name: 'Yang et al. 2017' }).first(),\n"
+        },
+        {
+          "before": "      prose.getByRole('link', { name: 'Shademan 2016' }).first(),\n",
+          "after": "      prose.getByRole('link', { name: 'Shademan et al. 2016' }).first(),\n"
+        }
+      ]
+    },
+    {
+      "name": "teleop-rigs",
+      "before": {
+        "path": "tests/e2e/teleop-rigs.spec.ts",
+        "bytes": 8861,
+        "sha256": "dd12a71b92b02fefd63b54a07181807a3cd6923ab8e3e5d8a21a8c3da88e257a"
+      },
+      "after": {
+        "path": "tests/e2e/teleop-rigs.spec.ts",
+        "bytes": 8889,
+        "sha256": "dac84b81f54dce9add7715ba5b25a9fe0d1c5e834b823b8ad6cb6e87055bb0da"
+      },
+      "edits": [
+        {
+          "before": "      main.getByRole('link', { name: 'Zhao 2023' }).first(),\n",
+          "after": "      main.getByRole('link', { name: 'Zhao et al. 2023' }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: 'Wu 2023' }).first(),\n",
+          "after": "      main.getByRole('link', { name: 'Wu et al. 2023' }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: 'Chi 2024' }).first(),\n",
+          "after": "      main.getByRole('link', { name: 'Chi et al. 2024' }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: 'Khazatsky 2024' }).first(),\n",
+          "after": "      main.getByRole('link', { name: 'Khazatsky et al. 2024' }).first(),\n"
+        }
+      ]
+    },
+    {
+      "name": "why-rl-locomotion",
+      "before": {
+        "path": "tests/e2e/why-rl-locomotion.spec.ts",
+        "bytes": 4573,
+        "sha256": "8f8ee24a5f0f3ff5cfd177656e87789e824b500fe38c7352b1d360fd89e4aee0"
+      },
+      "after": {
+        "path": "tests/e2e/why-rl-locomotion.spec.ts",
+        "bytes": 4589,
+        "sha256": "b5371e1488f7a8f522b81344c5dbf872116717bfb6ea09efb307111422bcb64f"
+      },
+      "edits": [
+        {
+          "before": "      main.getByRole('link', { name: /Aljalbout 2025/ }).first(),\n",
+          "after": "      main.getByRole('link', { name: /Aljalbout et al\\. 2025/ }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: /Rudin 2021/ }).first(),\n",
+          "after": "      main.getByRole('link', { name: /Rudin et al\\. 2021/ }).first(),\n"
+        }
+      ]
+    },
+    {
+      "name": "wm-taxonomy",
+      "before": {
+        "path": "tests/e2e/wm-taxonomy.spec.ts",
+        "bytes": 5477,
+        "sha256": "0d0c24ad953716fc237e97e01141ec00ebe4295703f34cfed10a554c712ec313"
+      },
+      "after": {
+        "path": "tests/e2e/wm-taxonomy.spec.ts",
+        "bytes": 5501,
+        "sha256": "c2d3bac09a42ef4e53a73501b5aa7e2911137a95270afd2f5e5570bcef35f37b"
+      },
+      "edits": [
+        {
+          "before": "      main.getByRole('link', { name: /Hou 2026/ }).first(),\n",
+          "after": "      main.getByRole('link', { name: /Hou et al\\. 2026/ }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: /Hafner 2023/ }).first(),\n",
+          "after": "      main.getByRole('link', { name: /Hafner et al\\. 2023/ }).first(),\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: /Assran 2025/ }).first(),\n",
+          "after": "      main.getByRole('link', { name: /Assran et al\\. 2025/ }).first(),\n"
+        }
+      ]
+    }
+  ]
+}

@@ -70,7 +70,7 @@ test.describe('frontier competing-theses module', () => {
       'https://deepmind.google/models/gemini-robotics/embodied-reasoning/',
     );
     await expect(
-      main.getByRole('link', { name: 'Xiao 2026' }).first(),
+      main.getByRole('link', { name: 'Xiao et al. 2026' }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2606.19980');
     // Scoped to the authored prose: the generated References bibliography
     // also renders external links inside main, and with every inline chip
@@ -149,7 +149,7 @@ test.describe('frontier competing-theses module', () => {
     await expect(detail).toContainText('Cosmos 3');
     // Citations are present in the detail view.
     await expect(
-      detail.getByRole('link', { name: 'Assran 2025' }).first(),
+      detail.getByRole('link', { name: 'Assran et al. 2025' }).first(),
     ).toHaveAttribute('href', expect.stringMatching(/^https?:\/\//));
 
     // Mouse: select the teleop bridge thesis.

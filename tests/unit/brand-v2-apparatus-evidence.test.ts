@@ -683,29 +683,51 @@ describe('the apparatus verdict families', () => {
     // The rollout edits an article's seeAlso list or drops a <Cite> from a
     // body. The derived expectation moves with it and the rendered
     // comparison stays green; only the sealed manifest can see it.
-    // Plant the move on a member no approved relationships delta names, so
-    // the only thing that can see it is the sealed manifest.
+    // Every sealed article already carries an approved relationships move,
+    // so the plant goes past the approved endpoint to a hash no delta names.
+    // A member whose ledger holds a reconciliation is skipped, because the
+    // closing delta appended below would stop being its last entry.
+    const deltas = readRelationshipDeltas(ROOT);
+    const ledgerOf = (id: string) =>
+      deltas.filter(
+        (delta) => `article:${delta.memberId.replace(/^article:/, '')}` === id,
+      );
     const target = current.findIndex(
       (member) =>
-        !readRelationshipDeltas(ROOT).some(({ memberId }) => memberId === member.id),
+        sealed.some(({ id }) => id === member.id) &&
+        ledgerOf(member.id).length > 0 &&
+        ledgerOf(member.id).every((delta) => !('reconciles' in delta)),
     );
     expect(target).toBeGreaterThanOrEqual(0);
+    const memberId = current[target].id;
+    const sealedHash = sealed.find(({ id }) => id === memberId)!.hash;
     const moved = current.map((member, index) =>
       index === target ? { ...member, hash: '0'.repeat(64) } : member,
     );
-    const drift = relationshipBaselineDrift({
-      sealed,
-      current: moved,
-      deltas: readRelationshipDeltas(ROOT),
-    });
-    // This selected member has no approval, independent of ledger order.
+    const drift = relationshipBaselineDrift({ sealed, current: moved, deltas });
+    // Against the shipped ledger the plant is the only drift in the corpus.
+    expect([...drift.keys()]).toEqual([`/${memberId.replace(/^article:/, '')}/`]);
     expect([...drift.values()].flat().join('\n')).toMatch(
+      /is covered by approved delta \S+ for [0-9a-f]{12} -> [0-9a-f]{12}, but the tree moved [0-9a-f]{12} -> 000000000000/,
+    );
+    // With this member's approvals withheld, the same plant reads as a change
+    // no approved delta names, independent of ledger order.
+    const withheld = new Set(ledgerOf(memberId));
+    expect(
+      [
+        ...relationshipBaselineDrift({
+          sealed,
+          current: moved,
+          deltas: deltas.filter((delta) => !withheld.has(delta)),
+        }).values(),
+      ]
+        .flat()
+        .join('\n'),
+    ).toMatch(
       /changed the relationships the migration sealed \([0-9a-f]{12} -> 000000000000\), and no approved delta names the change/,
     );
 
     // An approved delta closes it, and only for the change it names.
-    const memberId = current[target].id;
-    const sealedHash = sealed.find(({ id }) => id === memberId)!.hash;
     expect(
       [
         ...relationshipBaselineDrift({

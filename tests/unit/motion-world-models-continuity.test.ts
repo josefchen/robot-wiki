@@ -11,6 +11,7 @@ import { collectArticleTruthManifests } from '@/scripts/brand-v2-baseline';
 import { createLocalArtifactReader } from '@/lib/audit-local-basis';
 import { reviewedDataHardwareChecker } from '@/lib/audit-data-hardware-motion-continuity';
 import { round6RemainingRepairPredecessor } from '@/lib/audit-round6-remaining-repairs-continuity';
+import { preSeoPass } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
 const read = (path: string) => readFileSync(resolve(root, path));
@@ -37,11 +38,12 @@ describe('world-model motion prose and retained local-basis continuity', () => {
       entry.id === `motion-world-models-humanizer-v3-20260927-prose-${slug}`)!;
     const sealed = baseline.manifests.prose.members.find((member) => member.id === id)?.hash ?? sha256('missing');
     expect(humanizer).toBeDefined();
-    // Later scoped passes append plain edges after the humanizer endpoint:
-    // the s12 citation attachment on generative-sim, then the round-5
+    // Later scoped passes append edges after the humanizer endpoint: the
+    // s12 citation attachment on generative-sim, then the round-5
     // first-screen c/d mount swaps on three of these articles, then the
     // figure migration's edge on the same three, then the 2026-10-01 KOL
-    // backlog batch's edge on two others.
+    // backlog batch's edge on two others, then the 2026-10-02 SEO pass's
+    // edge on all eight.
     const subsequent = edges.slice(edges.indexOf(humanizer) + 1);
     expect(subsequent.map((entry) => entry.id)).toEqual([
       ...(slug === 'generative-sim' ? ['motion-scrutiny-s12-20260928-prose-generative-sim-citation-attachment'] : []),
@@ -50,10 +52,17 @@ describe('world-model motion prose and retained local-basis continuity', () => {
           `opus-figure-migration-20261001-prose-${slug}`] : []),
       ...(['evaluation', 'model-based-robot-learning'].includes(slug)
         ? [`kol-backlog-20261001-world-models-prose-${slug}`] : []),
+      `seo-pass-20261002-prose-world-models-${slug}`,
     ]);
     let endpoint = humanizer.newHash;
     for (const entry of subsequent) {
-      expect(entry.oldHash).toBe(endpoint);
+      // A resolution restarts from the seal and binds the edge it follows.
+      if (entry.reconciles) {
+        expect(entry.oldHash).toBe(sealed);
+        expect(entry.reconciles.at(-1)?.newHash).toBe(endpoint);
+      } else {
+        expect(entry.oldHash).toBe(endpoint);
+      }
       endpoint = entry.newHash;
     }
     if (subsequent.length > 0) {
@@ -87,7 +96,9 @@ describe('world-model motion prose and retained local-basis continuity', () => {
     expect(prior).toBeDefined();
     // The round-6 search-snippet repair changed only the live description;
     // its reviewed successor returns the article this binding still names.
-    const bound = round6RemainingRepairPredecessor(root, current.current, read('content/world-models/taxonomy.mdx'));
+    // The SEO pass's own reviewed successor sits on top of that one.
+    const preSeoPassTaxonomy = preSeoPass('content/world-models/taxonomy.mdx');
+    const bound = round6RemainingRepairPredecessor(root, current.current, preSeoPassTaxonomy);
     expect(current).toEqual({ ...prior, current: {
       path: 'content/world-models/taxonomy.mdx',
       bytes: bound.length,
@@ -101,7 +112,7 @@ describe('world-model motion prose and retained local-basis continuity', () => {
     expect(sha256(bound)).toBe(current.current.sha256);
     expect(current.current.sha256).not.toBe(prior.current.sha256);
     expect(current.preservedText.every((text: string) =>
-      read('content/world-models/taxonomy.mdx').toString().includes(text))).toBe(true);
+      preSeoPassTaxonomy.toString().includes(text))).toBe(true);
     expect(createLocalArtifactReader(root)(current.historical))
       .toEqual(read(current.snapshot.path));
   });
@@ -132,8 +143,15 @@ describe('world-model motion prose and retained local-basis continuity', () => {
     for (const entry of selected) {
       const mutated = approvals.map((candidate) => candidate.id === entry.id
         ? { ...candidate, newHash: sha256('wrong endpoint') } : candidate);
-      expect(compareBaseline(baseline, current, mutated).failures.some((failure) =>
-        failure.manifest === 'prose' && failure.memberId === entry.memberId)).toBe(true);
+      // A later resolution that binds the mutated edge rejects the ledger
+      // itself, naming that resolution, before any member is compared.
+      const resolutions = new Set(approvals.filter((candidate) => candidate.reconciles &&
+        candidate.manifest === 'prose' && candidate.memberId === entry.memberId).map(({ id }) => id));
+      const result = compareBaseline(baseline, current, mutated);
+      expect(result.ok).toBe(false);
+      expect(result.failures.some((failure) =>
+        (failure.manifest === 'prose' && failure.memberId === entry.memberId) ||
+        (failure.reason === 'invalid-approved-delta' && resolutions.has(failure.memberId!)))).toBe(true);
     }
   });
 });

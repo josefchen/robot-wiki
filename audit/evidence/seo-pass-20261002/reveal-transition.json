@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "seo-pass-reveal-revision-v1",
+  "name": "seo-pass-reveal-citation-label",
+  "before": {
+    "path": "components/article/commit-to-reveal.tsx",
+    "bytes": 12895,
+    "sha256": "cd89e02019c260f36f091bae34b1deeffebbfe5128025f7dbe3b99b43140f4d4"
+  },
+  "after": {
+    "path": "components/article/commit-to-reveal.tsx",
+    "bytes": 13176,
+    "sha256": "cd996c964173cca0529068624d827b94f9f57f0227a866a3ab413cf8db24da5f"
+  },
+  "reviewedBy": "SEO-pass implementer (not independent acceptance)",
+  "rationale": "The reveal primitive gains exactly two edits: an optional citeLabel field on each option, and the citation chip shows that label in place of the registry id when it is given. A compile-time rehype plugin (lib/rehype-reveal-cite-labels.mjs) fills the label from citationLabel, so the three answer chips that showed dagger-2011, egoscale-2026 and tedrake-underactuated now show author-year labels. SelfCheck and PredictThenReveal stay registered in mdx-components.tsx as the primitive's own exports, so the interactive census still reads their containers from this file. The chip's href, markup, classes, data hooks and reveal mechanics are unchanged.",
+  "observedAt": "2026-10-02T03:18:45Z"
+}

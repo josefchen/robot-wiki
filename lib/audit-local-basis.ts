@@ -20,6 +20,7 @@ import { retainedRound6KinematicsReaderSource, round6KinematicsReaderEndpoint } 
 import { round6ProseRestorePredecessor } from './audit-round6-prose-restores-continuity.ts';
 import { round6RemainingRepairPredecessor } from './audit-round6-remaining-repairs-continuity.ts';
 import { figureMigrationPredecessor, figureMigrationRegistry } from './audit-figure-migration-continuity.ts';
+import { seoPassPredecessor } from './audit-seo-pass-continuity.ts';
 import {
   currentDataHardwareMotionArtifact,
 } from './audit-data-hardware-motion-continuity.ts';
@@ -908,7 +909,7 @@ function verifyMergedControlArticle(root: string, current: Buffer): Buffer {
 }
 function readRetainedDependency(root: string, ref: LocalArtifact, parsedInputCache?: Map<string, unknown>): Buffer {
   const current = round6ProseRestorePredecessor(root, ref, round6RemainingRepairPredecessor(root, ref,
-    figureMigrationPredecessor(root, ref, readBoundedLocalFile(root, ref.path))));
+    figureMigrationPredecessor(root, ref, seoPassPredecessor(root, ref, readBoundedLocalFile(root, ref.path)))));
   const readContinuity = () => readKrogerContinuity(root, parsedInputCache);
   if (current.length === ref.bytes && sha256(current) === ref.sha256) return current;
   if ((ref.path === 'components/interactive/gait-diagram.tsx' &&

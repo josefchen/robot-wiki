@@ -20,16 +20,14 @@ citations:
   - forster-2017
   - gtsam-2026
 seeAlso:
-  - "classical/calibration"
-  - "classical/ros2-for-ml-engineers"
-  - "classical/perception"
-  - "world-models/latent-dynamics"
+  - "rl-sim2real/legged-locomotion"
+  - "adjacent/autonomous-vehicles"
 ---
 
 import { KalmanPredictUpdate } from '@/components/motion/scenes/kalman-predict-update';
 import { Clip } from '@/components/motion/clip';
 
-[Control](/classical/control) closes the loop under one quiet assumption: that someone knows the state. The pole's angle, the arm's configuration, the quadruped's velocity over ground. Nobody does. What the robot actually has is a stream of sensor readings, each one noisy, some biased, a few missing outright. State estimation is the discipline that turns that stream into a usable estimate, with an honest number attached describing how wrong the estimate might be.
+State estimation is the discipline that turns a robot's stream of sensor readings into a usable estimate of its state, with an honest number attached describing how wrong the estimate might be. [Control](/classical/control) closes the loop under one quiet assumption: that someone knows the state. The pole's angle, the arm's configuration, the quadruped's velocity over ground. Nobody does. What the robot actually has is a stream of sensor readings, each one noisy, some biased, a few missing outright.
 
 The honest number is what separates the field from curve fitting. A controller that knows the estimate's uncertainty can act cautiously when the number is large and aggressively when it is small; a controller handed a bare guess cannot. Every estimator in this module is built to carry both.
 

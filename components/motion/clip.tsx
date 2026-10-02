@@ -101,6 +101,7 @@ export function Clip({ id, className }: ClipProps) {
               height={clip.height}
               playsInline
               aria-label={`${clip.title} (${clip.status})`}
+              aria-describedby={alternativeId}
               className="block h-auto w-full"
             >
               <source src={clip.files.webm} type="video/webm" />
@@ -121,7 +122,7 @@ export function Clip({ id, className }: ClipProps) {
                 <img
                   data-motion-clip-poster
                   src={clip.files.poster}
-                  alt=""
+                  alt={`${clip.title}: final frame`}
                   aria-hidden="true"
                   className="block h-auto w-full"
                 />

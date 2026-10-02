@@ -1,5 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
 
@@ -150,9 +150,22 @@ test.describe('cite punctuation binding', () => {
     ).toEqual([]);
   });
 
-  test('dexterity renders exactly the 33 plugin wrappers that replaced the hand-fix', async ({
+  test('dexterity renders exactly one plugin wrapper per punctuated cluster-end, replacing the hand-fix', async ({
     page,
   }) => {
+    // Counted from the source on a rule independent of the plugin: the last
+    // chip of each run of whitespace-separated chips, when punctuation
+    // follows it. 33 when the hand-fix was stripped; each cited sentence
+    // added since adds one.
+    const body = readFileSync(
+      join(process.cwd(), 'content', 'frontier', 'dexterity.mdx'),
+      'utf8',
+    ).replace(/^---\n[\s\S]*?\n---\n/, '');
+    const expected = [
+      ...body.matchAll(/<Cite id="[^"]+"\s*\/>(?!\s*<Cite)/g),
+    ].filter((m) => /^\s*[.,;:!?]/.test(body.slice(m.index + m[0].length))).length;
+    expect(expected).toBeGreaterThanOrEqual(33);
+
     await page.goto(`${BASE}/frontier/dexterity/`, { waitUntil: 'networkidle' });
     const count = await page.evaluate(
       () =>
@@ -163,7 +176,7 @@ test.describe('cite punctuation binding', () => {
         ).length,
     );
     // The 32 hand-written wrappers were stripped from the MDX; the plugin
-    // regenerates exactly one wrapper per cluster-end (33 on this article).
-    expect(count).toBe(33);
+    // regenerates exactly one wrapper per punctuated cluster-end.
+    expect(count).toBe(expected);
   });
 });

@@ -18,13 +18,12 @@ citations:
   - espiau-1992
   - foundationpose-2024
 seeAlso:
-  - "classical/perception"
-  - "classical/kinematics"
-  - "classical/state-estimation"
-  - "data-hardware/robot-learning-stack"
+  - "manipulation/action-spaces"
+  - "data-hardware/datasets"
+  - "rl-sim2real/sim2real-transfer"
 ---
 
-Calibration makes measurements and commands refer to the same physical world. A camera pixel, depth value, joint encoder and motor command each has its own coordinate system, clock and error. A robot policy can learn around a stable bias; it cannot reliably absorb a transform that changes after every camera bump or a label stream shifted by a variable delay.
+Calibration is the work that makes measurements and commands refer to the same physical world. A camera pixel, depth value, joint encoder and motor command each has its own coordinate system, clock and error. A robot policy can learn around a stable bias; it cannot reliably absorb a transform that changes after every camera bump or a label stream shifted by a variable delay.
 
 The useful unit is not one calibration file. It is a chain with a validation residual at every link: intrinsics, depth, camera-to-robot transform, robot kinematics, time alignment and actuator response.
 

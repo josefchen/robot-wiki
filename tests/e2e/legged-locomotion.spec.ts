@@ -87,13 +87,13 @@ test.describe('legged-locomotion module', () => {
     await page.goto(ROUTE);
     const main = page.locator('#main-content');
     await expect(
-      main.getByRole('link', { name: /Lee 2020/ }).first(),
+      main.getByRole('link', { name: /Lee et al\. 2020/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2010.11251');
     await expect(
-      main.getByRole('link', { name: /Rudin 2021/ }).first(),
+      main.getByRole('link', { name: /Rudin et al\. 2021/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2109.11978');
     await expect(
-      main.getByRole('link', { name: /Miki 2022/ }).first(),
+      main.getByRole('link', { name: /Miki et al\. 2022/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2201.08117');
     // Scoped to the authored prose: the generated References bibliography
     // also renders external links inside main, and with every inline chip deleted its 12 registry anchors alone still passed this floor.

@@ -158,21 +158,21 @@ test.describe('classical control module', () => {
     const main = page.locator('#main-content');
 
     // Primary sources for the main strands, each with its exact href.
-    await expect(main.getByRole('link', { name: 'Ziegler 1942' }).first())
+    await expect(main.getByRole('link', { name: 'Ziegler et al. 1942' }).first())
       .toHaveAttribute('href', 'https://doi.org/10.1115/1.2899060');
     await expect(main.getByRole('link', { name: 'Tedrake 2024' }).first())
       .toHaveAttribute('href', 'https://underactuated.mit.edu/');
     await expect(
-      main.getByRole('link', { name: 'Mayne 2000' }).first(),
+      main.getByRole('link', { name: 'Mayne et al. 2000' }).first(),
     ).toHaveAttribute(
       'href',
       'https://doi.org/10.1016/S0005-1098(99)00214-9',
     );
     await expect(
-      main.getByRole('link', { name: 'Di Carlo 2018' }).first(),
+      main.getByRole('link', { name: 'Di Carlo et al. 2018' }).first(),
     ).toHaveAttribute('href', 'https://doi.org/10.1109/IROS.2018.8594448');
     await expect(
-      main.getByRole('link', { name: 'Zhang 2026' }).first(),
+      main.getByRole('link', { name: 'Zhang et al. 2026' }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2503.04613');
 
     // Every chip is a real external link; no unresolved ids render.
@@ -188,7 +188,7 @@ test.describe('classical control module', () => {
 
     // A chip is keyboard-focusable and reveals its metadata on focus. The
     // Scope the tooltip to the focused chip's group.
-    const pidChip = main.getByRole('link', { name: 'Ziegler 1942' }).first();
+    const pidChip = main.getByRole('link', { name: 'Ziegler et al. 1942' }).first();
     await pidChip.focus();
     const tooltip = pidChip.locator(
       'xpath=../following-sibling::span[@role="tooltip"]',

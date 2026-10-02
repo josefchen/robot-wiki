@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { PlaygroundCanvas } from '@/components/three/playground-canvas';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
+import { playgroundJsonLd } from '@/lib/structured-data';
 import {
   STANDALONE_SEO_DESCRIPTIONS,
   STANDALONE_SEO_TITLES,
@@ -22,6 +23,12 @@ export const metadata: Metadata = {
 export default function PlaygroundPage() {
   return (
     <div className="mx-auto w-full max-w-6xl px-6 py-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: playgroundJsonLd(STANDALONE_SEO_DESCRIPTIONS.playground),
+        }}
+      />
       {/* data-pagefind-body scoped to the heading and the description:
           Pagefind excludes every page that declares no body region once
           one page declares one, so this route needed its own

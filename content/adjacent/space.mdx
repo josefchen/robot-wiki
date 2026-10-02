@@ -22,15 +22,14 @@ citations:
   - adras-j-15m-2024
   - osam1-discontinued-2024
 seeAlso:
-  - "adjacent/surgical"
-  - "frontier/reliability-gap"
-  - "classical/motion-planning"
-  - "data-hardware/teleop-rigs"
+  - "adjacent/drones"
+  - "classical/state-estimation"
+  - "manipulation/vla-models"
 ---
 
 import { OrbitalServicingTable } from '@/components/mdx/orbital-servicing-table';
 
-Space is the domain where the two assumptions of everyday robotics fail at once. There is no repair: a rover on Mars cannot be serviced, and a satellite that fails in geosynchronous orbit is written off or, at best, visited once by a purpose-built spacecraft. And there is no live supervision: a signal between Earth and Mars takes minutes to arrive and minutes to return, so no operator closes a control loop in real time. Everything this wiki's manipulation modules treat as hard, generalization and dexterity, is secondary in space; everything they treat as background, reliability and verification, is the entire engineering problem. The result is a field that runs decades behind terrestrial robotics in raw capability and decades ahead of it in discipline, and both facts trace back to the same constraint.
+Space robotics is the domain where the two assumptions of everyday robotics fail at once. There is no repair: a rover on Mars cannot be serviced, and a satellite that fails in geosynchronous orbit is written off or, at best, visited once by a purpose-built spacecraft. And there is no live supervision: a signal between Earth and Mars takes minutes to arrive and minutes to return, so no operator closes a control loop in real time. Everything this wiki's manipulation modules treat as hard, generalization and dexterity, is secondary in space; everything they treat as background, reliability and verification, is the entire engineering problem. The result is a field that runs decades behind terrestrial robotics in raw capability and decades ahead of it in discipline, and both facts trace back to the same constraint.
 
 This module covers the three places that discipline is visible. First the NASA/JPL rover program, which is the longest-running deployment of field autonomy anywhere, and the only one where autonomy is forced by physics, irrespective of capability. Second <Term id="in-situ-resource-utilization">in-situ resource utilization</Term>, or ISRU, the program of turning local material into propellant and consumables, whose robotics half is excavation and drilling under the worst conditions manipulation has. Third <Term id="on-orbit-servicing">on-orbit servicing</Term>: rendezvous, capture, refueling, and debris removal, the one branch of space robotics that has become a commercial industry in the last five years.
 

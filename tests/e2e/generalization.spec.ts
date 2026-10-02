@@ -92,10 +92,10 @@ test.describe('frontier generalization module', () => {
     await page.goto(ROUTE);
     const main = page.locator('#main-content');
     await expect(
-      main.getByRole('link', { name: 'Black 2025' }).first(),
+      main.getByRole('link', { name: 'Physical Intelligence et al. 2025' }).first(),
     ).toHaveAttribute('href', CITATIONS.find((c) => c.id === 'pi05-2025')!.url);
     await expect(
-      main.getByRole('link', { name: 'Zheng 2026' }).first(),
+      main.getByRole('link', { name: 'Zheng et al. 2026' }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2602.16710');
     await expect(
       main.getByRole('link', { name: 'Goldberg 2025' }).first(),

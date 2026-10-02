@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Breadcrumbs } from '@/components/article/breadcrumbs';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
+import { webPageJsonLd } from '@/lib/structured-data';
 import {
   STANDALONE_SEO_DESCRIPTIONS,
   STANDALONE_SEO_TITLES,
@@ -23,6 +24,16 @@ const prose = 'mt-4 font-serif text-[1.0625rem] leading-relaxed text-text';
 export default function PrivacyPage() {
   return (
     <article className="mx-auto w-full max-w-[65ch] px-6 py-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: webPageJsonLd({
+            path: '/privacy/',
+            name: title,
+            description: STANDALONE_SEO_DESCRIPTIONS.privacy,
+          }),
+        }}
+      />
       <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: title }]} />
       <header data-pagefind-body>
         <h1 className="font-display text-3xl font-semibold tracking-tight text-text">

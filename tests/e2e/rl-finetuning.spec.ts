@@ -60,7 +60,7 @@ test.describe('rl-finetuning module', () => {
     await page.goto(ROUTE);
     const main = page.locator('#main-content');
     await expect(
-      main.getByRole('link', { name: /Luo 2024/ }).first(),
+      main.getByRole('link', { name: /Luo et al\. 2024/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2410.21845');
     // Recap cites the pi.website lab report.
     await expect(
@@ -174,7 +174,7 @@ test.describe('rl-finetuning module', () => {
     await expect(prose).toContainText('50.6-percentage-point gain');
     await expect(prose).toContainText('displayed means differ by 24.8 points');
     await expect(prose).toContainText('per-stage one-shot success is not 100%');
-    await expect(prose.getByRole('link', { name: /Xiao 2025/ }).first())
+    await expect(prose.getByRole('link', { name: /Xiao et al\. 2025/ }).first())
       .toHaveAttribute('href', 'https://arxiv.org/abs/2511.00091');
   });
 

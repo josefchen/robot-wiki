@@ -14,15 +14,15 @@ citations:
   - real-time-chunking-2025
   - vla-perf-2026
 seeAlso:
-  - "manipulation/action-chunking"
-  - "manipulation/diffusion-policy"
-  - "manipulation/pi-line"
+  - "data-hardware/hardware-taxonomy"
+  - "manipulation/rl-finetuning"
+  - "classical/control"
 ---
 
 import { ControlLoopBudget } from '@/components/interactive/control-loop-budget';
 import { ExecutionModes } from '@/components/interactive/execution-modes';
 
-A policy that needs 60 ms per inference cannot finish a new inference within every 20 ms tick of a 50 Hz controller. Chunked execution can still provide commands at 50 Hz. The control period at 50 Hz is 20 ms, and every component in the loop, cameras, network, preprocessing, model, spends from that budget. The earlier modules treated <Term id="action-chunking">action chunking</Term> as an algorithmic choice; this module is about what happens when the algorithm meets the clock. Real-time execution turns out to be a first-class architectural problem. The way a policy hands off from one chunk to the next while inference is still running changes what the robot physically does, and the naive ways to do it fail in documented, measurable ways <Cite id="real-time-chunking-2025" />.
+Real-time execution is the problem of delivering a policy's actions on its controller's clock while the next inference is still running. A policy that needs 60 ms per inference cannot finish a new inference within every 20 ms tick of a 50 Hz controller. Chunked execution can still provide commands at 50 Hz. The control period at 50 Hz is 20 ms, and every component in the loop, cameras, network, preprocessing, model, spends from that budget. The earlier modules treated <Term id="action-chunking">action chunking</Term> as an algorithmic choice; this module is about what happens when the algorithm meets the clock. Real-time execution turns out to be a first-class architectural problem. The way a policy hands off from one chunk to the next while inference is still running changes what the robot physically does, and the naive ways to do it fail in documented, measurable ways <Cite id="real-time-chunking-2025" />.
 
 The teaching model below compares one synchronous inference with a 20 ms tick. Its slider uses illustrative scaling and a deliberately chosen 3.0B reference coordinate; it is not a hardware profiler or a proof that a chunked 50 Hz robot controller cannot run. Slide the model-size control and the missed-deadline count follows the new inference time.
 

@@ -371,12 +371,12 @@ test.describe('classical perception module', () => {
     expect(seeAlsoCount).toBeGreaterThanOrEqual(2);
     expect(seeAlsoCount).toBeLessThanOrEqual(4);
 
-    // Linked from: at least the state-estimation inbound edge.
+    // Linked from: at least the grasp-planning inbound edge, a prose link.
     const linkedFrom = page.locator('section[data-section="linked-from"]');
     await expect(linkedFrom).toBeVisible();
     expect(await linkedFrom.getByRole('link').count()).toBeGreaterThanOrEqual(1);
     await expect(
-      linkedFrom.getByRole('link', { name: /state estimation/i }),
+      linkedFrom.getByRole('link', { name: /grasp planning/i }),
     ).toBeVisible();
 
     // References: one entry per declared citation, in declaration order.

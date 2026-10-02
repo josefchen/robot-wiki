@@ -14,6 +14,8 @@ import { verifyKrogerReaderObservation } from '../../lib/audit-corrected-disposi
 import { currentDataHardwareMotionArtifact, loadDataHardwareMotionReview } from '../../lib/audit-data-hardware-motion-continuity';
 import { round6ProseRestorePredecessor } from '../../lib/audit-round6-prose-restores-continuity';
 import { KOL_BACKLOG_ADDITIONS } from '../helpers/industrial-integration';
+import { preFigureMigration } from '../helpers/figure-migration';
+import { withPreSeoPassLabelCode } from '../helpers/seo-pass';
 import {
   compoundPartDigest,
   compoundPlanDigest,
@@ -57,10 +59,11 @@ describe('finite Kroger source and historical correction continuation', () => {
       merged.replace('20251118224554', '20251127101227'), old)).toBe(false);
     // The live registry now also carries the 2026-09-25 EXPO-FT intake
     // additions (five citations after act-reference-2023 plus the RoboPoint
-    // Table 2 note); strip them before the exact-withdrawal comparison.
+    // Table 2 note); strip them before the exact-withdrawal comparison, and
+    // restore the label code the 2026-10-02 SEO pass replaced.
     const intakeAdditions = /  \{\n    \/\/ arXiv abs page and HTML v2 full text both fetched 2026-09-25;[\s\S]*?id: 'perry-dong-post-training-2026',[\s\S]*?type: 'blog',\n  \},\n/;
     const robopointNote = /    \/\/ Where2Place point-in-mask accuracies[\s\S]*?\n(?=    id: 'robopoint-2024',)/;
-    const withoutIntake = read('data/citations.ts')
+    const withoutIntake = withPreSeoPassLabelCode(read('data/citations.ts'))
       .replace(intakeAdditions, '').replace(robopointNote, '').replace(KOL_BACKLOG_ADDITIONS, '');
     expect(verifyTechnologyWithdrawalRegistryTransition(merged, withoutIntake)).toBe(true);
     expect(verifyTechnologyWithdrawalRegistryTransition(merged, read('data/citations.ts'))).toBe(false);
@@ -97,9 +100,10 @@ describe('finite Kroger source and historical correction continuation', () => {
       review.beforeClause, review.afterClause, review.preservedDisclosure)).toBe(true);
     expect(after.replace('2021–2024 each above 500k', '2021-2024 each above 500k'))
       .toBe(withdrawalBefore);
-    const live = readFileSync(review.articleAfter.path);
-    // The live article is the reviewed 2026-09-29 prose restore; the motion
-    // review still gates the pre-restore bytes that restore was made from.
+    // The article before the SEO pass and figure migration is the reviewed
+    // 2026-09-29 prose restore; the motion review still gates the
+    // pre-restore bytes that restore was made from.
+    const live = preFigureMigration(review.articleAfter.path);
     const preRestore = round6ProseRestorePredecessor(process.cwd(),
       loadDataHardwareMotionReview(process.cwd()).entries[2].current, live);
     const preMotion = currentDataHardwareMotionArtifact(process.cwd(), 2, preRestore).toString();

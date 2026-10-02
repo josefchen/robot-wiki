@@ -137,18 +137,18 @@ test.describe('classical motion-planning module', () => {
       main.getByRole('link', { name: 'LaValle 1998' }).first(),
     ).toHaveAttribute('href', 'https://lavalle.pl/papers/Lav98c.pdf');
     await expect(
-      main.getByRole('link', { name: 'Karaman 2011' }).first(),
+      main.getByRole('link', { name: 'Karaman et al. 2011' }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/1105.1186');
     // The registry keeps the audited www.ri.cmu.edu URL, which redirects
     // (301, 301) to the same CMU publication page (audit/citations.md).
     await expect(
-      main.getByRole('link', { name: 'Ratliff 2009' }).first(),
+      main.getByRole('link', { name: 'Ratliff et al. 2009' }).first(),
     ).toHaveAttribute(
       'href',
       'https://www.ri.cmu.edu/publications/chomp-gradient-optimization-techniques-for-efficient-motion-planning/',
     );
     await expect(
-      main.getByRole('link', { name: 'Schulman 2013' }).first(),
+      main.getByRole('link', { name: 'Schulman et al. 2013' }).first(),
     ).toHaveAttribute(
       'href',
       'https://www.roboticsproceedings.org/rss09/p31.pdf',

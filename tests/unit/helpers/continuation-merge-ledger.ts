@@ -310,6 +310,7 @@ export const LATER_REANCHOR_PREFIXES = [
   'motion-rl-sim2real-20260927-reconcile-',
   'round5-first-screen-cd-20260929-',
   'kol-backlog-20261001-',
+  'seo-pass-20261002-',
 ] as const;
 
 let integratedObservations: Map<string, string | undefined> | undefined;
