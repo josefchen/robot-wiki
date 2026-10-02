@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "b879067e1c905826db16af9310bfe793900c900603778169c1442a37e7db6863",
+  "fingerprint": "6586786a1535d62e75b8fec6bee96003a53ae94c79e17a2d7bff8d8ac42a9fa0",
   "viewports": [
     "375x812",
     "1440x900"
@@ -6772,7 +6772,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 42051,
+      "visibleTextLength": 41915,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -10523,7 +10523,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 14254,
+      "visibleTextLength": 13986,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -26396,7 +26396,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 14461,
+      "visibleTextLength": 14327,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -52089,7 +52089,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 42465,
+      "visibleTextLength": 42329,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -55840,7 +55840,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 14633,
+      "visibleTextLength": 14365,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -71713,7 +71713,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 15088,
+      "visibleTextLength": 14954,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",

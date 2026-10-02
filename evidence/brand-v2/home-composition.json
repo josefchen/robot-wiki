@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "fingerprint": "edb4e1084ff92505cb2be518260e263c57850e0bec559a1de71308d30ff552b7",
+  "fingerprint": "beb571ed701bcaf2646f8a86904f00dba685ce1b83cf90526cae6705e3864c4e",
   "viewport": "1440x900",
   "route": "/",
-  "visibleTextLength": 2944,
+  "visibleTextLength": 2958,
   "documentScrollWidthPx": 1440,
   "documentClientWidthPx": 1440,
   "heroLockups": [
@@ -718,8 +718,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Autonomous Vehicles",
-      "href": "/adjacent/autonomous-vehicles/",
+      "accessibleName": "Perception for Manipulation",
+      "href": "/classical/perception/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2302.48,
@@ -727,8 +727,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Drones and Aerial Robotics",
-      "href": "/adjacent/drones/",
+      "accessibleName": "The Data Bottleneck",
+      "href": "/data-hardware/data-bottleneck/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2333.48,
@@ -736,8 +736,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Space Robotics",
-      "href": "/adjacent/space/",
+      "accessibleName": "Diffusion Policy",
+      "href": "/manipulation/diffusion-policy/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2364.48,
@@ -745,8 +745,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Surgical Robotics",
-      "href": "/adjacent/surgical/",
+      "accessibleName": "Autonomous Vehicles",
+      "href": "/adjacent/autonomous-vehicles/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2395.48,
@@ -754,8 +754,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Robot Calibration",
-      "href": "/classical/calibration/",
+      "accessibleName": "Drones and Aerial Robotics",
+      "href": "/adjacent/drones/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2426.48,
@@ -1007,7 +1007,7 @@
       "label": "Recently updated",
       "signature": "plain/module-heading/dated-links",
       "prose": "",
-      "text": "Recently updated 2026-10-02 Autonomous Vehicles 2026-10-02 Drones and Aerial Robotics 2026-10-02 Space Robotics 2026-10-02 Surgical Robotics 2026-10-02 Robot Calibration"
+      "text": "Recently updated 2026-10-02 Perception for Manipulation 2026-10-02 The Data Bottleneck 2026-10-02 Diffusion Policy 2026-10-02 Autonomous Vehicles 2026-10-02 Drones and Aerial Robotics"
     },
     {
       "label": "Tools",

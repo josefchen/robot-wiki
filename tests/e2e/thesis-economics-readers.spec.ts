@@ -79,7 +79,9 @@ test('economics article and explorer retain named claims, source caveats and rea
   await reference.focus();
   await expect(reference).toBeFocused();
   await page.screenshot({ path: info.outputPath('bessemer-reference.png') });
-  const term = prose.locator('a[href="/glossary/#teleoperation"]').first();
+  // The first plain mention also links to the glossary entry; the authored
+  // Term further down is the trigger that carries the tooltip.
+  const term = prose.locator('[data-term-id="teleoperation"] a.term-link').first();
   await term.scrollIntoViewIfNeeded();
   await term.focus();
   await expect(page.getByRole('tooltip')).toBeVisible();

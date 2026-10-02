@@ -27,9 +27,12 @@ import { forEachInOwnContext } from './helpers/per-route-context';
  *   banning it would degrade the writing.
  */
 
-const EXPECTED_PREDICT = 8;
+// The figure migration dropped the prediction steps on action-chunking,
+// realtime-execution and sim2real-transfer together with their registry
+// entries, as VAL-OPUS-131 allows; the first two had no other region.
+const EXPECTED_PREDICT = 5;
 const EXPECTED_SELF_CHECK = 16;
-const EXPECTED_REGION_ROUTES = 20;
+const EXPECTED_REGION_ROUTES = 18;
 
 const VERDICT =
   /^\s*(correct|incorrect|wrong|right|nice|well done|good job|try again|yes|no|✓|✗|✔|✘)\s*[.!]?\s*$/i;
@@ -244,13 +247,14 @@ test.describe('answer feedback (VAL-EDU-042/043/044)', () => {
   let regions: Region[] | undefined;
 
   test.beforeAll(async ({ browser }) => {
-    // The 47-route isolated sweep is corpus setup, not one page interaction.
+    // The isolated sweep of every published route is corpus setup, not one
+    // page interaction.
     // Keep its budget separate from the 30s feedback-state test budgets.
     test.setTimeout(60_000);
     regions = await derivedRegions(browser);
   });
 
-  test('the derived corpus is 8 prediction steps and 6 self-checks', () => {
+  test('the derived corpus is 5 prediction steps and 16 self-checks', () => {
     expectCompleteRegions(regions);
   });
 
@@ -258,7 +262,7 @@ test.describe('answer feedback (VAL-EDU-042/043/044)', () => {
     browser,
   }) => {
     // The commit path settles each route to networkidle before touching the
-    // radios (see the settle below); across the full 14-region corpus that
+    // radios (see the settle below); across the full corpus that
     // honest wait needs more than the default 30s budget.
     test.slow();
     const complete = expectCompleteRegions(regions);

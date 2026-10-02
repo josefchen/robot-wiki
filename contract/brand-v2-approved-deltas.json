@@ -40833,8 +40833,8 @@
       "manifest": "prose",
       "memberId": "article:classical/perception",
       "oldHash": "52f66bc35a1f33b0404a1e8bddf73847aa87c26fe390e26da831d07ab056963e",
-      "newHash": "16b193bf70ded1af7473066e55bde95e9423c78e897dc2fbaf9a01f9831fd4c9",
-      "reason": "SEO pass of 2026-10-02 on classical/perception: the lead now opens with the definitional sentence \"Perception for manipulation is the pipeline that turns camera and depth data into object poses in the robot's own frame\", where it opened with \"Grasp planning computes force closure against a known object pose\". Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/seo-pass-20261002/source-transition.json.",
+      "newHash": "2ecfcf37cd382a22f7d6e8de5714c522885479d83539e13125d3da66f71c96a8",
+      "reason": "SEO pass of 2026-10-02 on classical/perception: the lead now opens with the definitional sentence \"Perception for manipulation is the pipeline that turns camera and depth data into object poses in the robot's own frame\", where it opened with \"Grasp planning computes force closure against a known object pose\". Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/seo-pass-20261002/source-transition.json. The opening section is also shorter, so the first interactive stays within the first-screen word budget of VAL-EDU-045.",
       "ownerApproval": "Owner decision owner-decision-seo-20260929 (use every SEO lever), sealed in the opus-pass contract as VAL-OPUS-023 to VAL-OPUS-039: item 10 keeps the first sentence of every lead in the pattern \"X is ...\" so the definition is what search engines quote (VAL-OPUS-036), with every cited fact, number and citation kept. Not release approval.",
       "responsibleMilestone": "opus-pass",
       "affectedAssertions": [
@@ -40884,8 +40884,8 @@
       "manifest": "prose",
       "memberId": "article:data-hardware/data-bottleneck",
       "oldHash": "9aa9008e04058ada619127fdc018646844ee4f643ace2ca57720dddacd459b45",
-      "newHash": "cc1720d38f60ae04bdb1b6d54183e9cd832296d59da5f7a70cdc9db6cf7adeae",
-      "reason": "SEO pass of 2026-10-02 on data-hardware/data-bottleneck: the lead now opens with the definitional sentence \"The data bottleneck is the shortage of robot demonstration data compared with the text that language models train on\", where it opened with \"Language model pretraining runs on text scraped at internet scale\". Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/seo-pass-20261002/source-transition.json.",
+      "newHash": "e7d6259b3539357195eb63f8470b0f772a343685f796d71950081cc6e4b0a8d6",
+      "reason": "SEO pass of 2026-10-02 on data-hardware/data-bottleneck: the lead now opens with the definitional sentence \"The data bottleneck is the shortage of robot demonstration data compared with the internet-scale text that language models train on\", where it opened with \"Language model pretraining runs on text scraped at internet scale\". Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/seo-pass-20261002/source-transition.json. The opening section is also shorter, so the first interactive stays within the first-screen word budget of VAL-EDU-045.",
       "ownerApproval": "Owner decision owner-decision-seo-20260929 (use every SEO lever), sealed in the opus-pass contract as VAL-OPUS-023 to VAL-OPUS-039: item 10 keeps the first sentence of every lead in the pattern \"X is ...\" so the definition is what search engines quote (VAL-OPUS-036), with every cited fact, number and citation kept. Not release approval.",
       "responsibleMilestone": "opus-pass",
       "affectedAssertions": [
@@ -41881,8 +41881,8 @@
       "manifest": "prose",
       "memberId": "article:manipulation/diffusion-policy",
       "oldHash": "67925c3ecc80d2e381175f6eee29423df7adfa9afec379db9192810eb45f61f2",
-      "newHash": "abec0904375feebe8078e23153b4d57f4abf0d426c4d4e1362501ef630db8b14",
-      "reason": "SEO pass of 2026-10-02 on manipulation/diffusion-policy: the lead now opens with the definitional sentence \"Diffusion Policy is a visuomotor robot policy that generates its actions with a diffusion model\", where it opened with \"Human demonstrations are multimodal: faced with an obstacle, one operator goes left, another goes right, and both are correct\". Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/seo-pass-20261002/source-transition.json.",
+      "newHash": "a908f7a1fc3ff0e4a5a8d418d1c0ce003cb7405901f62068049c3b4b244a8a81",
+      "reason": "SEO pass of 2026-10-02 on manipulation/diffusion-policy: the lead now opens with the definitional sentence \"Diffusion Policy is a visuomotor robot policy that generates its actions with a diffusion model\", where it opened with \"Human demonstrations are multimodal: faced with an obstacle, one operator goes left, another goes right, and both are correct\". Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/seo-pass-20261002/source-transition.json. The opening section is also shorter, so the first interactive stays within the first-screen word budget of VAL-EDU-045.",
       "ownerApproval": "Owner decision owner-decision-seo-20260929 (use every SEO lever), sealed in the opus-pass contract as VAL-OPUS-023 to VAL-OPUS-039: item 10 keeps the first sentence of every lead in the pattern \"X is ...\" so the definition is what search engines quote (VAL-OPUS-036), with every cited fact, number and citation kept. Not release approval.",
       "responsibleMilestone": "opus-pass",
       "affectedAssertions": [

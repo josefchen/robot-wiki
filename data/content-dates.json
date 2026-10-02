@@ -38,7 +38,7 @@
     },
     "classical/perception": {
       "published": "2026-08-22T00:55:00+01:00",
-      "modified": "2026-10-02T05:08:36+02:00"
+      "modified": "2026-10-02T09:10:22+02:00"
     },
     "classical/ros2-for-ml-engineers": {
       "published": "2026-09-16T07:39:57+02:00",
@@ -54,7 +54,7 @@
     },
     "data-hardware/data-bottleneck": {
       "published": "2026-08-08T23:06:19+01:00",
-      "modified": "2026-10-02T05:08:36+02:00"
+      "modified": "2026-10-02T09:10:22+02:00"
     },
     "data-hardware/datasets": {
       "published": "2026-08-09T16:59:07+01:00",
@@ -126,7 +126,7 @@
     },
     "manipulation/diffusion-policy": {
       "published": "2026-08-08T03:05:28+01:00",
-      "modified": "2026-10-02T05:08:36+02:00"
+      "modified": "2026-10-02T09:10:22+02:00"
     },
     "manipulation/foundation-models": {
       "published": "2026-09-16T07:39:57+02:00",
@@ -231,7 +231,7 @@
   },
   "routes": {
     "/": {
-      "modified": "2026-10-02T05:08:36+02:00"
+      "modified": "2026-10-02T09:10:22+02:00"
     },
     "/manipulation/": {
       "modified": "2026-10-02T05:08:36+02:00"
