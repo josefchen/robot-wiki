@@ -44631,6 +44631,1209 @@
         "VAL-OPUS-138"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261002-prose-adjacent-drones",
+      "manifest": "prose",
+      "memberId": "article:adjacent/drones",
+      "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+      "newHash": "94643293092ae3ebd0241bcecdff0b6d46967dfc99e70cf1f3b9c4ab2ea599f0",
+      "reason": "Reader-first figure pass of 2026-10-02 on adjacent/drones: the prose that sends the reader to a figure now names the plain-words controls and folds the figure prints, in one passage. For example it reads \"Switch the drone below between an ordinary camera, which takes about 70 ms to report what it sees, and a faster event camera, and try each swerve setting: the top safe speed moves with every choice.\" where it read \"Drag the perception latency slider up from 70 ms and watch the maximum safe speed fall on all four airframes.\". Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/reader-first-20261002/source-transition.json.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: every figure is rewritten for a reader with no engineering background, and the article prose names the plain-words controls the figure now prints (VAL-OPUS-137, VAL-OPUS-138). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-137",
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "dr-r1-20260916-1",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89"
+        },
+        {
+          "id": "dr-r2-20260916-1",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89"
+        },
+        {
+          "id": "dr-r3-20260916-1",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89"
+        },
+        {
+          "id": "dr-r4-20260916-1",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89"
+        },
+        {
+          "id": "dr-r5-20260916-1",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89"
+        },
+        {
+          "id": "dr-r6-20260916-1",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89"
+        },
+        {
+          "id": "dr-r7-20260916-1",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89"
+        },
+        {
+          "id": "dr-r8-20260916-1",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89"
+        },
+        {
+          "id": "dr-r9-20260916-1",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89"
+        },
+        {
+          "id": "dr-r10-20260916-1",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89"
+        },
+        {
+          "id": "dr-r11-20260916-1",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89"
+        },
+        {
+          "id": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-drones",
+          "oldHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89",
+          "newHash": "57fede5c2c9e935af23c2591d021aa42217c420f53f98733fee97f4e9e1f80ab"
+        },
+        {
+          "id": "round5-chart-first-screen-20260928-prose-drones",
+          "oldHash": "57fede5c2c9e935af23c2591d021aa42217c420f53f98733fee97f4e9e1f80ab",
+          "newHash": "fa823b5469df1868ac25fd324077b5aa44a2075fef250591e1ba46373cd78e29"
+        },
+        {
+          "id": "seo-pass-20261002-prose-adjacent-drones",
+          "oldHash": "fa823b5469df1868ac25fd324077b5aa44a2075fef250591e1ba46373cd78e29",
+          "newHash": "e56f7ce5f9385c6edbf63a09e2ab452d27360bd70e01eb2b0f0887a8b1e3a75e"
+        }
+      ]
+    },
+    {
+      "id": "reader-first-20261002-prose-frontier-bear-case",
+      "manifest": "prose",
+      "memberId": "article:frontier/bear-case",
+      "oldHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
+      "newHash": "4aa83a510ad0baeae217a62f1fa5639205c1bc5369285017b47f37ea2a4e7233",
+      "reason": "Reader-first figure pass of 2026-10-02 on frontier/bear-case: the prose that sends the reader to a figure now names the plain-words controls and folds the figure prints, in 2 passages. For example it reads \"Pick \"Done\" under \"Show\" and the board empties; pick \"Partly\" and four tiles survive, each opening onto the published evidence behind the call.\" where it read \"Switch the status filter to Met and the board empties; switch it to Partial and four rows survive, each with the published evidence behind the call.\". Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/reader-first-20261002/source-transition.json.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: every figure is rewritten for a reader with no engineering background, and the article prose names the plain-words controls the figure now prints (VAL-OPUS-137, VAL-OPUS-138). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-137",
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "bc-b1-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b2-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b3-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b4-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b5-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b6-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b7-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b8-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b9-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b10-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b11-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b13-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b14-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b15-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b16-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "seo-merge-20260916-prose-12",
+          "oldHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
+          "newHash": "ee25c44e69bb54344a189f648839e85a1ee7556d3bb06124f036739d4bc2aebc"
+        },
+        {
+          "id": "single-leftovers-b12-20260917-1",
+          "oldHash": "ee25c44e69bb54344a189f648839e85a1ee7556d3bb06124f036739d4bc2aebc",
+          "newHash": "ee25c44e69bb54344a189f648839e85a1ee7556d3bb06124f036739d4bc2aebc"
+        },
+        {
+          "id": "round5-closeout-bear-case-prose",
+          "oldHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
+          "newHash": "ee25c44e69bb54344a189f648839e85a1ee7556d3bb06124f036739d4bc2aebc"
+        },
+        {
+          "id": "reader-f20-dates-20260923-3",
+          "oldHash": "ee25c44e69bb54344a189f648839e85a1ee7556d3bb06124f036739d4bc2aebc",
+          "newHash": "1f985fdf9b73c9df01b5ea32141641e7b1c953073fa2a986560661970d22c68f"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1745-prose-article-frontier-bear-case",
+          "oldHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
+          "newHash": "1f985fdf9b73c9df01b5ea32141641e7b1c953073fa2a986560661970d22c68f"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-frontier-bear-case",
+          "oldHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
+          "newHash": "1f985fdf9b73c9df01b5ea32141641e7b1c953073fa2a986560661970d22c68f"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-tech-withdrawal-prose-bear-case",
+          "oldHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
+          "newHash": "cfdf501ea057007bf575b7f2f69a864cb984a64f592eba42f14310c4564faafd"
+        },
+        {
+          "id": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-bear-case",
+          "oldHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
+          "newHash": "14e01223255123acd903423c97c66fbafb9773d84d1031230616b9e92134c347"
+        },
+        {
+          "id": "seo-pass-20261002-prose-frontier-bear-case",
+          "oldHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
+          "newHash": "cf9ecfe4893d7663eea5ae83f5a2ae1e9385356a9fab7eb35516d0f96b6d1a71"
+        }
+      ]
+    },
+    {
+      "id": "reader-first-20261002-prose-frontier-competing-theses",
+      "manifest": "prose",
+      "memberId": "article:frontier/competing-theses",
+      "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+      "newHash": "405a6cf555b8a9bb78df40c323f400bf2a8f2ca9c64a50c0c4c9011e5fd79b2d",
+      "reason": "Reader-first figure pass of 2026-10-02 on frontier/competing-theses: the prose that sends the reader to a figure now names the plain-words controls and folds the figure prints, in 2 passages. For example it reads \"The cards below are the map.\" where it read \"The table below is the map.\". Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/reader-first-20261002/source-transition.json.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: every figure is rewritten for a reader with no engineering background, and the article prose names the plain-words controls the figure now prints (VAL-OPUS-137, VAL-OPUS-138). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-137",
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "cosmos-reader-closeout-20260908-1",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "503e83d1c6a6a04167a7a00aaef3abd3b24e09a9fa7e2de4eda6468e65a82adf"
+        },
+        {
+          "id": "brooks-theses-20260913-1",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "a56425425bd904d6c36138657bc0b46a1a2203bc4ed0544de1010258a37aa77f"
+        },
+        {
+          "id": "pi-helix-theses-20260913-1",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "da08b089142a4649e8ce859ab1301328b9ffc3e5ac7d2d1b61d3ccf1c138c8c3"
+        },
+        {
+          "id": "thesis-economics-two-20260914-1",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de"
+        },
+        {
+          "id": "ct-r1-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r2-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r9-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r7-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r8-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r12-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r13-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r14-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r17-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r18-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r20-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r23-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r25-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "seo-merge-20260916-prose-13",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "round5-closeout-competing-theses-prose",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-frontier-competing-theses",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-tech-withdrawal-prose-competing-theses",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "fa3f42df226fbe66e68ddfcf351079068fc6e0684bfb3a6fce4d632585911e23"
+        },
+        {
+          "id": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-competing-theses",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "ec8ddfe81684a9e34321102dd6b8543ce47c81018def615e68ad16242e7e6193"
+        },
+        {
+          "id": "round6-prose-restores-20260929-prose-competing-theses",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "cde24c4b7e4837954bd1a539bedad8f5f9b6c0a1144454dbf847f59bc4d01149"
+        },
+        {
+          "id": "seo-pass-20261002-prose-frontier-competing-theses",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "51a98514da9abcf0cd09afe918d316467412d66bacf25cae28e144de6d6b0f4a"
+        }
+      ]
+    },
+    {
+      "id": "reader-first-20261002-prose-frontier-dexterity",
+      "manifest": "prose",
+      "memberId": "article:frontier/dexterity",
+      "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+      "newHash": "18d2f738d3097cc288cb8f4fa88cec26fec6a96f86acbd8bfdb473e1363cb7a3",
+      "reason": "Reader-first figure pass of 2026-10-02 on frontier/dexterity: the prose that sends the reader to a figure now names the plain-words controls and folds the figure prints, in 2 passages. For example it reads \"Switch \"Sort by\" from \"Lightest touch felt\" to \"Lowest price\" and the disagreement is immediate: the two orders do not match, and several cards read \"not disclosed\" because the maker never published the number.\" where it read \"Switch the sort from tactile threshold to cost and the disagreement is immediate: the two columns do not order the same way, and several cells are blank because the maker never published the number.\". Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/reader-first-20261002/source-transition.json.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: every figure is rewritten for a reader with no engineering background, and the article prose names the plain-words controls the figure now prints (VAL-OPUS-137, VAL-OPUS-138). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-137",
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "dexterity-brooks-four-20260914-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "aa38e524616bee37d42d9350a7cc3a69d607928cb6d9c8f3cf3ba3bd595fedb8"
+        },
+        {
+          "id": "dexterity-figure15-20260914-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "191c0065fb6913e9c987df66bca3465522fe47fbb7f02d7ee9083e33f7035876"
+        },
+        {
+          "id": "dexterity-holson-pipeline-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "1c0b85dc5dc97ba464e7aa21be7f10e8617ffa294c02cb894fe3fe0cdd487196"
+        },
+        {
+          "id": "dexterity-tactile-outlook-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "1c0b85dc5dc97ba464e7aa21be7f10e8617ffa294c02cb894fe3fe0cdd487196"
+        },
+        {
+          "id": "dexterity-keyring-rules-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "1c0b85dc5dc97ba464e7aa21be7f10e8617ffa294c02cb894fe3fe0cdd487196"
+        },
+        {
+          "id": "dexterity-brooks-ernst-1-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "64e29b28a9dc02d9a35b524ff454b78536881cd61f54d64907bf550b3ce7554d"
+        },
+        {
+          "id": "dexterity-brooks-eweek-4-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "64e29b28a9dc02d9a35b524ff454b78536881cd61f54d64907bf550b3ce7554d"
+        },
+        {
+          "id": "dexterity-brooks-forecast-7-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "64e29b28a9dc02d9a35b524ff454b78536881cd61f54d64907bf550b3ce7554d"
+        },
+        {
+          "id": "dexterity-holson-original8-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "bd901726bf90552b94a7c77646e8409a198ca5fdb3c4686e18860f111f1e16c0"
+        },
+        {
+          "id": "dexterity-gobig-navigation-12-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "bd901726bf90552b94a7c77646e8409a198ca5fdb3c4686e18860f111f1e16c0"
+        },
+        {
+          "id": "dexterity-figure02-dof-23-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "bd901726bf90552b94a7c77646e8409a198ca5fdb3c4686e18860f111f1e16c0"
+        },
+        {
+          "id": "dexterity-helix02-tasks-25-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "bd901726bf90552b94a7c77646e8409a198ca5fdb3c4686e18860f111f1e16c0"
+        },
+        {
+          "id": "dex-r9-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r13-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r14-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r16-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r17-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r18-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r19-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r20-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r21-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r22-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r24-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r26-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r27-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r29-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r30-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-dexterity",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "e4bc7f30b385437286b631fa642bec0c209a4d0352e04530670bfd57697b4878"
+        },
+        {
+          "id": "kol-backlog-20261001-frontier-prose-dexterity",
+          "oldHash": "e4bc7f30b385437286b631fa642bec0c209a4d0352e04530670bfd57697b4878",
+          "newHash": "488ab8aeb5cecc9f8911316d4e2005b9bade9fb8d7ce314b91642bfbfde69408"
+        },
+        {
+          "id": "seo-pass-20261002-prose-frontier-dexterity",
+          "oldHash": "488ab8aeb5cecc9f8911316d4e2005b9bade9fb8d7ce314b91642bfbfde69408",
+          "newHash": "cf0888dfe6b0e5adcd4266d6f125a46c5896632cc9c4318ce90763ef661b4350"
+        }
+      ]
+    },
+    {
+      "id": "reader-first-20261002-prose-frontier-generalization",
+      "manifest": "prose",
+      "memberId": "article:frontier/generalization",
+      "oldHash": "1fee314336a48372c330af41a4f53293ca8b8c209ea8cd149ce90fff26f0e433",
+      "newHash": "22e843bf9fa7e9202c43b12fe5511d9df10ab74e7cf5179d4edc98ad97cfae06",
+      "reason": "Reader-first figure pass of 2026-10-02 on frontier/generalization: the prose that sends the reader to a figure now names the plain-words controls and folds the figure prints, in 3 passages. For example it reads \"Pick a larger amount under \"How much video?\" and the line continues, dashed, past the end of the measurements; \"Adjust more\" holds the horizon slider and the paper's own error measure, drawn with a band that brackets the law holding against a plateau.\" where it read \"Drag the extrapolation horizon slider past the measured range and the two series continue as dashed lines inside a band that brackets the law holding against a plateau.\". Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/reader-first-20261002/source-transition.json.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: every figure is rewritten for a reader with no engineering background, and the article prose names the plain-words controls the figure now prints (VAL-OPUS-137, VAL-OPUS-138). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-137",
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "go-helix-cross-transfer-20260908-1",
+          "oldHash": "1fee314336a48372c330af41a4f53293ca8b8c209ea8cd149ce90fff26f0e433",
+          "newHash": "982d197681c2163b045018da286781d70b71b07737fd2bf482dd4f5e2906e0c1"
+        },
+        {
+          "id": "generalization-g1-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g2-20260915-1",
+          "oldHash": "1fee314336a48372c330af41a4f53293ca8b8c209ea8cd149ce90fff26f0e433",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g3-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g4-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g5-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g6-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g7-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g8-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g9-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g10-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g11-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g12-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g13-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g14-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g15-20260915-1",
+          "oldHash": "1fee314336a48372c330af41a4f53293ca8b8c209ea8cd149ce90fff26f0e433",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g16-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g18-20260915-1",
+          "oldHash": "1fee314336a48372c330af41a4f53293ca8b8c209ea8cd149ce90fff26f0e433",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g19-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g20-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g21-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "single-leftovers-g17-20260917-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-generalization",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "eea78a462a9118f10e46b7f310674ef7a25fb91190f456056c9918582531dc6e"
+        },
+        {
+          "id": "opus-figure-migration-20261001-prose-generalization",
+          "oldHash": "eea78a462a9118f10e46b7f310674ef7a25fb91190f456056c9918582531dc6e",
+          "newHash": "8c9b0831f170cb82a636067f1c6fb98812e197341f4c98208c6c315798b0fc68"
+        },
+        {
+          "id": "seo-pass-20261002-prose-frontier-generalization",
+          "oldHash": "8c9b0831f170cb82a636067f1c6fb98812e197341f4c98208c6c315798b0fc68",
+          "newHash": "07e05611c771d6612130ffad5af3eadcba99864d1a74e7dc2aaa719c69285beb"
+        }
+      ]
+    },
+    {
+      "id": "reader-first-20261002-prose-frontier-safety-and-assurance",
+      "manifest": "prose",
+      "memberId": "article:frontier/safety-and-assurance",
+      "oldHash": "2c204df57e99f0e6aeb52ff40985cd7c7933475dd5a58ba87110adecd1280d6f",
+      "newHash": "04ae23ad7a566cf01a90599eea17242cda96d2c43201df46bb624c49ef51fd02",
+      "reason": "Reader-first figure pass of 2026-10-02 on frontier/safety-and-assurance: the prose that sends the reader to a figure now names the plain-words controls and folds the figure prints, in one passage. For example it reads \"Pick each mode under \"How it keeps you safe\" below, then drag \"Robot speed\" under \"Keeps its distance\" (speed and separation monitoring) and watch the protective separation distance recompose from its four terms in the bar under the drawing.\" where it read \"Select each mode below, then drag the robot-speed slider under speed and separation monitoring and watch the protective separation distance recompose from its four terms.\". Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/reader-first-20261002/source-transition.json.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: every figure is rewritten for a reader with no engineering background, and the article prose names the plain-words controls the figure now prints (VAL-OPUS-137, VAL-OPUS-138). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-137",
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "content-audit-2026-09-06-safety-and-assurance",
+          "oldHash": "2c204df57e99f0e6aeb52ff40985cd7c7933475dd5a58ba87110adecd1280d6f",
+          "newHash": "59b265bf4a5043e0a5ee2193ee3662c302fb8b930de2e81206cf317b1836db98"
+        },
+        {
+          "id": "brand-v2-audit-frontier-emergency-stop-unsourced-classification",
+          "oldHash": "2c204df57e99f0e6aeb52ff40985cd7c7933475dd5a58ba87110adecd1280d6f",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa3-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa10-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa11-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa12-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa13-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa14-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa15-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa16-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa17-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa19-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa20-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa21-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa22-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa24-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa27-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa28-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa29-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa30-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa31-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa34-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa35-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa37-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "sa-r5-20260916-1",
+          "oldHash": "cf6aa06c33d2a27b573fb188f2a67e56cb9c2f520cfcc891188a1cc94e971794",
+          "newHash": "d68791a9e4e0c5b637d8927622a9668fb1710a55b0960375afb66362bd549836"
+        },
+        {
+          "id": "sa-r6-20260916-1",
+          "oldHash": "cf6aa06c33d2a27b573fb188f2a67e56cb9c2f520cfcc891188a1cc94e971794",
+          "newHash": "d68791a9e4e0c5b637d8927622a9668fb1710a55b0960375afb66362bd549836"
+        },
+        {
+          "id": "sa-r7-20260916-1",
+          "oldHash": "cf6aa06c33d2a27b573fb188f2a67e56cb9c2f520cfcc891188a1cc94e971794",
+          "newHash": "d68791a9e4e0c5b637d8927622a9668fb1710a55b0960375afb66362bd549836"
+        },
+        {
+          "id": "sa-r8-20260916-1",
+          "oldHash": "cf6aa06c33d2a27b573fb188f2a67e56cb9c2f520cfcc891188a1cc94e971794",
+          "newHash": "d68791a9e4e0c5b637d8927622a9668fb1710a55b0960375afb66362bd549836"
+        },
+        {
+          "id": "sa-r9-20260916-1",
+          "oldHash": "cf6aa06c33d2a27b573fb188f2a67e56cb9c2f520cfcc891188a1cc94e971794",
+          "newHash": "d68791a9e4e0c5b637d8927622a9668fb1710a55b0960375afb66362bd549836"
+        },
+        {
+          "id": "sa-r25-20260916-1",
+          "oldHash": "cf6aa06c33d2a27b573fb188f2a67e56cb9c2f520cfcc891188a1cc94e971794",
+          "newHash": "d68791a9e4e0c5b637d8927622a9668fb1710a55b0960375afb66362bd549836"
+        },
+        {
+          "id": "sa-r26-20260916-1",
+          "oldHash": "cf6aa06c33d2a27b573fb188f2a67e56cb9c2f520cfcc891188a1cc94e971794",
+          "newHash": "d68791a9e4e0c5b637d8927622a9668fb1710a55b0960375afb66362bd549836"
+        },
+        {
+          "id": "sa-r32-20260916-1",
+          "oldHash": "cf6aa06c33d2a27b573fb188f2a67e56cb9c2f520cfcc891188a1cc94e971794",
+          "newHash": "d68791a9e4e0c5b637d8927622a9668fb1710a55b0960375afb66362bd549836"
+        },
+        {
+          "id": "sa-r33-20260916-1",
+          "oldHash": "cf6aa06c33d2a27b573fb188f2a67e56cb9c2f520cfcc891188a1cc94e971794",
+          "newHash": "d68791a9e4e0c5b637d8927622a9668fb1710a55b0960375afb66362bd549836"
+        },
+        {
+          "id": "sa-r36-20260916-1",
+          "oldHash": "cf6aa06c33d2a27b573fb188f2a67e56cb9c2f520cfcc891188a1cc94e971794",
+          "newHash": "d68791a9e4e0c5b637d8927622a9668fb1710a55b0960375afb66362bd549836"
+        },
+        {
+          "id": "sa-r38-20260916-1",
+          "oldHash": "cf6aa06c33d2a27b573fb188f2a67e56cb9c2f520cfcc891188a1cc94e971794",
+          "newHash": "d68791a9e4e0c5b637d8927622a9668fb1710a55b0960375afb66362bd549836"
+        },
+        {
+          "id": "sa-r39-20260916-1",
+          "oldHash": "cf6aa06c33d2a27b573fb188f2a67e56cb9c2f520cfcc891188a1cc94e971794",
+          "newHash": "d68791a9e4e0c5b637d8927622a9668fb1710a55b0960375afb66362bd549836"
+        },
+        {
+          "id": "sa-r40-20260916-1",
+          "oldHash": "cf6aa06c33d2a27b573fb188f2a67e56cb9c2f520cfcc891188a1cc94e971794",
+          "newHash": "d68791a9e4e0c5b637d8927622a9668fb1710a55b0960375afb66362bd549836"
+        },
+        {
+          "id": "seo-merge-20260916-prose-15",
+          "oldHash": "2c204df57e99f0e6aeb52ff40985cd7c7933475dd5a58ba87110adecd1280d6f",
+          "newHash": "0c3836e0bfbe4a43bc222824b83026fcfcad5e40496d1beb10f2e223aa7c7981"
+        },
+        {
+          "id": "round5-closeout-safety-and-assurance-prose",
+          "oldHash": "2c204df57e99f0e6aeb52ff40985cd7c7933475dd5a58ba87110adecd1280d6f",
+          "newHash": "0c3836e0bfbe4a43bc222824b83026fcfcad5e40496d1beb10f2e223aa7c7981"
+        },
+        {
+          "id": "final-seven-closure-20260923-4",
+          "oldHash": "2c204df57e99f0e6aeb52ff40985cd7c7933475dd5a58ba87110adecd1280d6f",
+          "newHash": "97b468d68082e6972bea82c89dd46d6523d852f9c3a10de7073f7e5e1f2d9a55"
+        },
+        {
+          "id": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-safety-and-assurance",
+          "oldHash": "97b468d68082e6972bea82c89dd46d6523d852f9c3a10de7073f7e5e1f2d9a55",
+          "newHash": "f3732cfd2319b505b1bcf5f83b5f742b87957a55836e1ce4276f547cff2e87e9"
+        },
+        {
+          "id": "seo-pass-20261002-prose-frontier-safety-and-assurance",
+          "oldHash": "f3732cfd2319b505b1bcf5f83b5f742b87957a55836e1ce4276f547cff2e87e9",
+          "newHash": "e8f0e5712a165ab6edc17bb3d31e2ad197a53fdea51391f28e85db58f4cb5055"
+        }
+      ]
+    },
+    {
+      "id": "reader-first-20261002-name-collaborative-operation-modes-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/collaborative-operation-modes.tsx:aria-label:1",
+      "oldHash": "c4abb1ac4745b513596361623c162070eab1f4e25b6de9cdf4ed39cf6a2014da",
+      "newHash": "fc7536a52649baa45849c0b150ef60caedcf9ec194c860ec2c2a44e4c1f36ebf",
+      "reason": "Reader-first rewrite of the collaborative-operation-modes figure (VAL-OPUS-138): this aria-label expression is reworded; it reads \"{Robot speed, currently ${speedWords(robotSpeed)}}\" where it read \"{Robot speed, currently ${formatSpeed(robotSpeed)}}\". The name describes the same control or drawing in the plain words the figure now prints, and no figure, unit, fact or attribution changes.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261002-name-collaborative-operation-modes-expression-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/collaborative-operation-modes.tsx:aria-label:2",
+      "oldHash": "b6443a41e2467a76600fcf30f37993ce4c5427657eac64d24e34cdd6d2aede2f",
+      "newHash": "2d6444aa4634eab8d0f620dd4e9f62449e5042e31f998e2d4e3f1b6b9b40c740",
+      "reason": "Reader-first rewrite of the collaborative-operation-modes figure (VAL-OPUS-138): this aria-label expression is reworded; it reads \"{Your walking speed (operator approach speed), currently ${speedWords(humanSpeed)}}\" where it read \"{Operator approach speed, currently ${formatSpeed(humanSpeed)}}\". The name describes the same control or drawing in the plain words the figure now prints, and no figure, unit, fact or attribution changes.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261002-name-collaborative-operation-modes-expression-aria-label-3",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/collaborative-operation-modes.tsx:aria-label:3",
+      "oldHash": "79ec2f32f5e109772a4bef1a05f80e43db6c9612322cc07c442b3d9141c0927f",
+      "newHash": "0309c1e83eed5b078d4a3c56cbcfbd04de02b0a219127afaa9b1fbb88bc02445",
+      "reason": "Reader-first rewrite of the collaborative-operation-modes figure (VAL-OPUS-138): this aria-label expression is reworded; it reads \"{A robot arm at the left and a person ${formatMetres( WORKCELLSEPARATIONM, )} away, under ${mode.name.toLowerCase()}. Robot speed ${formatSpeed( robotSpeed, )}, operator approach ${formatSpeed(humanSpeed)}. ${ mode.readout === 'separation' ? Protective separation distance ${formatMetres(separatio...\" where it read \"{Workcell with a robot at the left wall and an operator ${formatMetres( WORKCELLSEPARATIONM, )} away, under ${mode.name.toLowerCase()}. Robot speed ${formatSpeed( robotSpeed, )}, operator approach ${formatSpeed(humanSpeed)}. ${ mode.readout === 'separation' ? Protective separation distance ${form...\". The name describes the same control or drawing in the plain words the figure now prints, and no figure, unit, fact or attribution changes.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261002-name-egoscale-scaling-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/egoscale-scaling.tsx:aria-label:1",
+      "oldHash": "f88f094061770ddf9d2eb111d3b7599bc8005878dc47b81c497894d6cd213e11",
+      "newHash": "0c2a05e67e1158ef4b7e2a97df66766ed3ea4671744feca6c2ebc5fcadb3f8eb",
+      "reason": "Reader-first rewrite of the egoscale-scaling figure (VAL-OPUS-138): this aria-label expression is reworded; it reads \"{Hours of video (extrapolation horizon, log scale), currently ${plainHours(horizon)} hours}\" where it read \"{Extrapolation horizon in hours of egocentric human video, log scale, currently ${formatHours(horizon)}}\". The name describes the same control or drawing in the plain words the figure now prints, and no figure, unit, fact or attribution changes.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261002-name-egoscale-scaling-expression-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/egoscale-scaling.tsx:aria-label:2",
+      "oldHash": "58ff8490a589f0d6fb226da7ced8c6876c2a4accd3af54568b01c56213290dcd",
+      "newHash": "0652f96e3a8bf67e40f4222c4c5f1e0b97630ddebfc79ae1fd1eaabd24cb9d69",
+      "reason": "Reader-first rewrite of the egoscale-scaling figure (VAL-OPUS-138): this aria-label expression is reworded; it reads \"{Task completion against hours of human video, measured from 1,000 to 20,000 hours, with a straight-line trend extended to ${plainHours(horizon)} hours (${formatHours(horizon)})${showLaw ? ', above the paper\\u2019s validation-loss law' : ''}}\" where it read \"{EgoScale scaling law: validation loss and task completion against pretraining hours, horizon ${formatHours(horizon)}}\". The name describes the same control or drawing in the plain words the figure now prints, and no figure, unit, fact or attribution changes.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261002-name-hand-comparison-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/hand-comparison.tsx:aria-label:1",
+      "oldHash": "69266c25ff143d0fb9a6d2dce0b9a2c7809c4e67318f98463ed18c6c8129a354",
+      "newHash": "266e95385052ab5e090aaf6ecfc8acb880671c72eccd5930f69bd25170d17cb5",
+      "reason": "Reader-first rewrite of the hand-comparison figure (VAL-OPUS-138): this aria-label expression is reworded; it reads \"{Select ${hand.name} for comparison}\" where it read \"{column.ariaLabel}\". The name describes the same control or drawing in the plain words the figure now prints, and no figure, unit, fact or attribution changes.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261002-name-hand-comparison-expression-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/hand-comparison.tsx:aria-label:2",
+      "oldHash": "266e95385052ab5e090aaf6ecfc8acb880671c72eccd5930f69bd25170d17cb5",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Reader-first rewrite of the hand-comparison figure (VAL-OPUS-138): this aria-label expression is no longer written in this file; it read \"{Select ${hand.name} for comparison}\". The control it named now takes its name from the plain-words label the figure prints beside it, or gave way to a control that does, and no figure, unit, fact or attribution changes.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261002-name-milestones-watchlist-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/milestones-watchlist.tsx:aria-label:1",
+      "oldHash": "9be59015f7c92bd62a9b76d4c30c03f8766eee0ca84b99676a308920ec11ee1f",
+      "newHash": "1a801b9f139892df761c2fca693b820cf60d0f516e52891658c5affc51b95cb5",
+      "reason": "Reader-first rewrite of the milestones-watchlist figure (VAL-OPUS-138): this aria-label expression is reworded; it reads \"{${name} detail}\" where it read \"{${selected.name} detail}\". The name describes the same control or drawing in the plain words the figure now prints, and no figure, unit, fact or attribution changes.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261002-name-milestones-watchlist-expression-aria-labelledby-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/milestones-watchlist.tsx:aria-labelledby:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "7f24b500128e125c2a667f305c0eefe9cb2b51e6ce6455a3003dc611b18a93d7",
+      "reason": "Reader-first rewrite of the milestones-watchlist figure (VAL-OPUS-138): this aria-labelledby expression is new; it reads \"{nameId}\". The name describes the same control or drawing in the plain words the figure now prints, and no figure, unit, fact or attribution changes.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261002-name-perception-latency-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/perception-latency.tsx:aria-label:1",
+      "oldHash": "6d64eabb721a04c478119c89e3eed2d490e72fd9b9f75b93909300dc2dd990dd",
+      "newHash": "55d30b3edcfea69cfa87e089fb888cd2ac88166c76d2db69896f331c6e6279c4",
+      "reason": "Reader-first rewrite of the perception-latency figure (VAL-OPUS-138): this aria-label expression is reworded; it reads \"{Camera delay (perception latency), currently ${formatSeconds(latencyS)}}\" where it read \"{Perception latency, currently ${formatSeconds(latencyS)}}\". The name describes the same control or drawing in the plain words the figure now prints, and no figure, unit, fact or attribution changes.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261002-name-perception-latency-expression-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/perception-latency.tsx:aria-label:2",
+      "oldHash": "88c93b50b9550468a9f1a38fd9640270d366a16bf28b78951643a10119ab94f4",
+      "newHash": "feabf61f8bfc4bb3f5048570e691e270ab6c3fcce97b25d299c519f5cb80c6d8",
+      "reason": "Reader-first rewrite of the perception-latency figure (VAL-OPUS-138): this aria-label expression is reworded; it reads \"{A drone flying at a wall it can see ${rangeM} metres ahead, at a top safe speed of about ${speedKmh} kilometres an hour. It flies about ${metres( blindM, )} before its camera reports the wall, then swerves for about ${metres(swerveM)}, finishing at the wall.}\" where it read \"{Sense-and-avoid timeline at the maximum speed of ${formatSpeed( outcome.maxSpeedMs, )}. Obstacle detected at the sensing range, ${formatSeconds( latencyS, )} of perception latency before control acts, then an avoidance maneuver of ${formatSeconds( tAvoid, )} at ${agility} meters per second squar...\". The name describes the same control or drawing in the plain words the figure now prints, and no figure, unit, fact or attribution changes.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261002-name-thesis-explorer-expression-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/thesis-explorer.tsx:aria-label:2",
+      "oldHash": "9be59015f7c92bd62a9b76d4c30c03f8766eee0ca84b99676a308920ec11ee1f",
+      "newHash": "e9ad54b7287b5f5c4f8d1a53520a5e77e9c967e51c2335be870f387fc59f89d0",
+      "reason": "Reader-first rewrite of the thesis-explorer figure (VAL-OPUS-138): this aria-label expression is reworded; it reads \"{${plain.name} detail}\" where it read \"{${selected.name} detail}\". The name describes the same control or drawing in the plain words the figure now prints, and no figure, unit, fact or attribution changes.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261002-name-thesis-explorer-expression-aria-labelledby-3",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/thesis-explorer.tsx:aria-labelledby:3",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "e920d3b69044b795fab94191a2ee7d966546896272464fa8bc93a6101903b686",
+      "reason": "Reader-first rewrite of the thesis-explorer figure (VAL-OPUS-138): this aria-labelledby expression is new; it reads \"{${captionId}-name-${thesis.id}}\". The name describes the same control or drawing in the plain words the figure now prints, and no figure, unit, fact or attribution changes.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261002-name-collaborative-operation-modes-literal-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/collaborative-operation-modes.tsx:aria-label:1",
+      "oldHash": "2c3f761069389e112733f38001b9ec7a0a4d68092c31c312e2bb601818060726",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Reader-first rewrite of the collaborative-operation-modes figure (VAL-OPUS-138): this aria-label fixed text is no longer written in this file; it read \"Collaborative operation mode\". The control it named now takes its name from the plain-words label the figure prints beside it, or gave way to a control that does, and no figure, unit, fact or attribution changes.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261002-name-hand-comparison-literal-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/hand-comparison.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "eeee968fa8e723d3787b0e8646fcb9e046303cf0b1ac7cc4f43978ab7f857cb3",
+      "reason": "Reader-first rewrite of the hand-comparison figure (VAL-OPUS-138): this aria-label fixed text is new; it reads \"Compare hands\". The name describes the same control or drawing in the plain words the figure now prints, and no figure, unit, fact or attribution changes.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261002-name-milestones-watchlist-literal-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/milestones-watchlist.tsx:aria-label:1",
+      "oldHash": "7e3b18fcfc3c4f0577e91ae972ac2e0ea8681717b306ae00654b75d0fa7b6bf2",
+      "newHash": "623a987949a4bef8c835925f47a41c32ce2176b7c466c469d0f9ae12c54fcd7c",
+      "reason": "Reader-first rewrite of the milestones-watchlist figure (VAL-OPUS-138): this aria-label fixed text is reworded; it reads \"Milestones. Tap one to read the evidence behind its status\" where it read \"Filter by status\". The name describes the same control or drawing in the plain words the figure now prints, and no figure, unit, fact or attribution changes.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261002-name-perception-latency-literal-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/perception-latency.tsx:aria-label:1",
+      "oldHash": "99cfee78b41929d6569de830fb0e0e53bd18d0cbea94bc6be06e6defef6228f7",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Reader-first rewrite of the perception-latency figure (VAL-OPUS-138): this aria-label fixed text is no longer written in this file; it read \"Maximum lateral acceleration\". The control it named now takes its name from the plain-words label the figure prints beside it, or gave way to a control that does, and no figure, unit, fact or attribution changes.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261002-name-thesis-explorer-literal-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/thesis-explorer.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "2fa2be5b06487d5dfb8040327229eba27263527940acb5b42e071453d054b1da",
+      "reason": "Reader-first rewrite of the thesis-explorer figure (VAL-OPUS-138): this aria-label fixed text is new; it reads \"Six bets. Tap one to read its evidence\". The name describes the same control or drawing in the plain words the figure now prints, and no figure, unit, fact or attribution changes.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

@@ -1,5 +1,6 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
+import { figureFold, openAdjustMore } from './helpers/figure-fold';
 import { forEachInOwnContext } from './helpers/per-route-context';
 import { waitForHydration } from './interaction-ready';
 import { settleTransitions } from './settle';
@@ -22,6 +23,8 @@ interface Placement {
   primaryControl: RegExp;
   /** A readout string that proves the figure mounted at the hint's config. */
   mountedReadout: RegExp;
+  /** The primary control sits in the figure's "Adjust more" fold, not the main view. */
+  primaryControlInAdjust?: true;
 }
 
 const PLACEMENTS: Placement[] = [
@@ -40,8 +43,11 @@ const PLACEMENTS: Placement[] = [
   {
     route: '/frontier/generalization/',
     figure: 'EgoScaleScaling',
-    primaryControl: /extrapolation horizon/i,
+    primaryControl: /hours of video/i,
     mountedReadout: /250k h/,
+    // The main view offers "How much video?" presets; the raw horizon
+    // slider moved into "Adjust more".
+    primaryControlInAdjust: true,
   },
   {
     route: '/data-hardware/data-bottleneck/',
@@ -142,61 +148,107 @@ test.describe('prediction step (PredictThenReveal)', () => {
       );
       expect([...reasonKeys].sort()).toEqual([...optionValues].sort());
 
-      // VAL-EDU-011a: closed on load; no blur/visibility/opacity gate on
-      // the reveal or any ancestor up to body.
+      // "Guess first": the hint and the figure sit in one block between the
+      // question and the reasoning, outside the disclosure, so the chart is
+      // shown whether or not the reader answers.
+      const predictFigure = root.locator(':scope > [data-predict-figure]');
+      await expect(predictFigure).toHaveCount(1);
+      await expect(predictFigure.locator(':scope > [data-reveal-hint]')).toHaveCount(1);
+      await expect(reveal.locator('[data-reveal-hint]')).toHaveCount(0);
+      await expect(reveal.locator('[data-figure-frame]')).toHaveCount(0);
+      await expect(reveal.locator('svg')).toHaveCount(0);
+      const order = await root.evaluate((el) => {
+        const fieldsetEl = el.querySelector(':scope > fieldset');
+        const figureEl = el.querySelector(':scope > [data-predict-figure]');
+        const revealEl = el.querySelector(':scope > details[data-reveal]');
+        if (!fieldsetEl || !figureEl || !revealEl) return 'missing';
+        const follows = (a: Element, b: Element) =>
+          Boolean(a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING);
+        return follows(fieldsetEl, figureEl) && follows(figureEl, revealEl)
+          ? 'question-figure-reasoning'
+          : 'out-of-order';
+      });
+      expect(order, `${placement.route}: question, then figure, then reasoning`).toBe(
+        'question-figure-reasoning',
+      );
+
+      // VAL-EDU-011a: the reasoning is closed on load; no blur/visibility/
+      // opacity gate on the reveal, the figure, or any ancestor up to body.
       await expect(reveal).not.toHaveAttribute('open');
-      const gateStyles = await reveal.evaluate((el) => {
+      const gateStyles = await root.evaluate((el) => {
         const bad: string[] = [];
-        let node = el as HTMLElement | null;
-        while (node && node !== document.body) {
-          const cs = getComputedStyle(node);
-          if (cs.filter.includes('blur(')) bad.push('blur');
-          if (cs.visibility === 'hidden') bad.push('visibility');
-          if (cs.opacity === '0') bad.push('opacity');
-          node = node.parentElement;
+        const starts = [
+          el.querySelector(':scope > details[data-reveal]'),
+          el.querySelector(':scope > [data-predict-figure]'),
+        ];
+        for (const start of starts) {
+          let node = start as HTMLElement | null;
+          while (node && node !== document.body) {
+            const cs = getComputedStyle(node);
+            if (cs.filter.includes('blur(')) bad.push('blur');
+            if (cs.visibility === 'hidden') bad.push('visibility');
+            if (cs.opacity === '0') bad.push('opacity');
+            node = node.parentElement;
+          }
         }
         return bad;
       });
       expect(gateStyles).toEqual([]);
 
-      // VAL-EDU-011b: the served HTML ships the figure's svg inside the
-      // closed disclosure (gating is disclosure state, not absence).
+      // VAL-EDU-011b: the served HTML ships the figure's svg after the hint
+      // and before the closed disclosure, and the disclosure carries none of
+      // the figure (it holds only the reasoning and the takeaway).
       const html = await page.request.get(placement.route).then((r) => r.text());
-      const revealAt = html.indexOf('data-reveal');
-      expect(revealAt).toBeGreaterThan(-1);
+      const figureAt = html.indexOf('data-predict-figure');
+      expect(figureAt).toBeGreaterThan(-1);
+      const revealAt = html.indexOf('data-reveal=', figureAt);
+      expect(revealAt).toBeGreaterThan(figureAt);
+      const figureSlice = html.slice(figureAt, revealAt);
+      expect(figureSlice).toContain('data-reveal-hint');
+      expect(figureSlice).toContain('<svg');
       const revealSlice = html.slice(revealAt, html.indexOf('</details>', revealAt));
-      expect(revealSlice).toContain('<svg');
+      expect(revealSlice).toContain('data-takeaway');
+      expect(revealSlice).not.toContain('data-figure-frame');
       const openingTag = html.slice(Math.max(0, revealAt - 100), html.indexOf('>', revealAt));
       expect(openingTag).not.toMatch(/\bopen\b/);
 
       // The figure is mounted at the configuration the hint names: the
       // interactive root (a figure frame) is the element directly after the
-      // reveal hint. textContent, not innerText: the disclosure is still
-      // closed, and a closed disclosure's content has no rendered innerText.
-      const figure = reveal.locator('[data-reveal-hint] + *');
-      await expect(figure.locator('svg').first()).toBeAttached();
+      // hint, and its chart is visible at settle without answering.
+      // textContent for the readout: a figure may keep its exact readout in
+      // its own closed "How this was made" fold.
+      const figure = predictFigure.locator(':scope > [data-reveal-hint] + *');
+      await expect(figure).toBeVisible();
+      await expect(figure.locator('svg').first()).toBeVisible();
       const figureText = await figure.textContent();
       expect(figureText, `${placement.route}: figure missing under the hint`).toMatch(
         placement.mountedReadout,
       );
+      await expect(reveal).not.toHaveAttribute('open');
     });
 
-    test(`${placement.route}: no-JS reader opens the disclosure and sees the figure`, async ({ browser }) => {
+    test(`${placement.route}: no-JS reader sees the figure without opening anything`, async ({ browser }) => {
       const context = await browser.newContext({ javaScriptEnabled: false });
       const page = await context.newPage();
       await page.goto(placement.route);
       const root = await region(page);
       const reveal = root.locator(':scope > details[data-reveal]');
       await expect(reveal).not.toHaveAttribute('open');
-      await reveal.locator(':scope > summary').click();
-      await expect(reveal).toHaveAttribute('open');
-      const svg = reveal.locator('svg').first();
+      // The figure is drawn with the reasoning still closed.
+      const figure = root.locator(':scope > [data-predict-figure] > [data-reveal-hint] + *');
+      const svg = figure.locator('svg').first();
       await expect(svg).toBeVisible();
       const box = await svg.boundingBox();
       expect(box?.width ?? 0).toBeGreaterThan(0);
       expect(box?.height ?? 0).toBeGreaterThan(0);
-      const text = await reveal.innerText();
+      await expect(reveal).not.toHaveAttribute('open');
+      const text = await figure.textContent();
       expect(text).toMatch(placement.mountedReadout);
+      // The reasoning stays one native click away without script.
+      await reveal.locator(':scope > summary').click();
+      await expect(reveal).toHaveAttribute('open');
+      await expect(reveal.locator('[data-takeaway]')).toBeVisible();
+      await expect(svg).toBeVisible();
       await context.close();
     });
 
@@ -206,17 +258,38 @@ test.describe('prediction step (PredictThenReveal)', () => {
         const root = await region(page);
         const reveal = root.locator(':scope > details[data-reveal]');
         const summary = reveal.locator(':scope > summary');
-        // Tab-reachability: the radio group is the tab stop before the
-        // summary; Tab from the group lands on the summary.
+        const figureSvg = root
+          .locator(':scope > [data-predict-figure] > [data-reveal-hint] + *')
+          .locator('svg')
+          .first();
+        // The figure is already shown before the reader opens anything.
+        await expect(figureSvg).toBeVisible();
+        await expect(reveal).not.toHaveAttribute('open');
+        // Tab-reachability: the summary follows the radio group and the
+        // figure's own controls in tab order; tabbing on from the group
+        // reaches it.
         const lastRadio = root.locator('fieldset input[type="radio"]').last();
         await lastRadio.focus();
-        await page.keyboard.press('Tab');
-        const focused = await summary.evaluate(
-          (el) => document.activeElement === el,
-        );
+        let focused = false;
+        const strayStops: string[] = [];
+        for (let presses = 0; presses < 40 && !focused; presses += 1) {
+          await page.keyboard.press('Tab');
+          focused = await summary.evaluate((el) => document.activeElement === el);
+          if (!focused) {
+            const stray = await root.evaluate((el) => {
+              const active = document.activeElement;
+              const figureEl = el.querySelector(':scope > [data-predict-figure]');
+              return active && figureEl?.contains(active) ? null : (active?.outerHTML.slice(0, 80) ?? 'none');
+            });
+            if (stray) strayStops.push(stray);
+          }
+        }
         expect(focused, `${key}: summary must be reachable by Tab`).toBe(true);
+        // Between the question and the summary, Tab visits only the figure.
+        expect(strayStops, `${key}: tab stops outside the figure`).toEqual([]);
         await page.keyboard.press(key);
         await expect(reveal).toHaveAttribute('open');
+        await expect(figureSvg).toBeVisible();
         // Takeaway and every option's reasoning render.
         await expect(root.locator('[data-takeaway]')).toBeVisible();
         await expect(root.locator('[data-reason]').first()).toBeVisible();
@@ -263,7 +336,11 @@ test.describe('prediction step (PredictThenReveal)', () => {
         .check();
       const reveal = root2.locator('details[data-reveal]');
       await expect(reveal).toHaveAttribute('open');
-      const svgBox = await reveal.locator('svg').first().boundingBox();
+      // The figure stays where it was, outside the opened reasoning.
+      const svgBox = await root2
+        .locator(':scope > [data-predict-figure] > [data-reveal-hint] + * svg')
+        .first()
+        .boundingBox();
       expect(svgBox?.width ?? 0).toBeGreaterThan(0);
       expect(svgBox?.height ?? 0).toBeGreaterThan(0);
       const takeawayByCommit = await root2.locator('[data-takeaway]').innerText();
@@ -287,11 +364,12 @@ test.describe('prediction step (PredictThenReveal)', () => {
       await page.waitForLoadState('networkidle');
       const root = await region(page);
       const reveal = root.locator(':scope > details[data-reveal]');
-      await root.locator(':scope > details[data-reveal] > summary').click();
-      await expect(reveal).toHaveAttribute('open');
+      // No answer and no opened disclosure: the hint and the figure are
+      // read at settle.
+      await expect(reveal).not.toHaveAttribute('open');
 
-      const hint = await root.locator('[data-reveal-hint]').innerText();
-      const figureRoot = reveal.locator('[data-reveal-hint] + *').first();
+      const hint = await root.locator(':scope > [data-predict-figure] > [data-reveal-hint]').innerText();
+      const figureRoot = root.locator(':scope > [data-predict-figure] > [data-reveal-hint] + *').first();
       await expect(figureRoot).toBeVisible();
       const figureText = await figureRoot.innerText();
 
@@ -302,6 +380,13 @@ test.describe('prediction step (PredictThenReveal)', () => {
       }
 
       // The primary control still works by keyboard and moves a readout.
+      // Where it lives in the closed "Adjust more" fold, the reader opens
+      // that fold first; the reasoning disclosure stays shut either way.
+      if (placement.primaryControlInAdjust) {
+        await expect(figureFold(figureRoot, 'adjust')).toHaveJSProperty('open', false);
+        await openAdjustMore(figureRoot);
+        await expect(reveal).not.toHaveAttribute('open');
+      }
       const control = figureRoot.getByRole('slider', {
         name: placement.primaryControl,
       });

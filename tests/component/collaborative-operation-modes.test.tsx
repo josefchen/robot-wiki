@@ -12,7 +12,8 @@ function robotSlider() {
 }
 
 function humanSlider() {
-  return screen.getByRole('slider', { name: /operator approach speed/i });
+  // The walking-speed slider sits in the closed "Adjust more" fold.
+  return screen.getByRole('slider', { name: /operator approach speed/i, hidden: true });
 }
 
 describe('CollaborativeOperationModes', () => {
@@ -33,7 +34,56 @@ describe('CollaborativeOperationModes', () => {
     }
     expect(robotSlider()).toBeInTheDocument();
     expect(humanSlider()).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /reset/i })).toBeInTheDocument();
+    const reset = screen.getByRole('button', { name: /reset/i, hidden: true });
+    expect(reset.closest('details')).not.toBeNull();
+    expect(humanSlider().closest('details')).not.toBeNull();
+    expect(robotSlider().closest('details')).toBeNull();
+  });
+
+  it('leads with a plain claim, plain mode names and a robot-speed slider with worded ends', () => {
+    render(<CollaborativeOperationModes />);
+    expect(screen.getByText('A faster robot needs a bigger gap from people')).toBeInTheDocument();
+    for (const label of [
+      'Stops when you step in',
+      'You guide it by hand',
+      'Keeps its distance',
+      'Gentle enough to bump',
+    ]) {
+      expect(screen.getByRole('button', { name: label })).toBeInTheDocument();
+    }
+    expect(screen.getByText('1 metre a second, a slow walk')).toBeInTheDocument();
+    expect(screen.getByText('slow')).toBeInTheDocument();
+    expect(screen.getByText('fast')).toBeInTheDocument();
+    expect(screen.getByText('illustrative')).toHaveAttribute('data-figure-status');
+  });
+
+  it('splits the gap into its four parts in words and points at the zone edge', () => {
+    const { container } = render(<CollaborativeOperationModes />);
+    const bar = screen.getByTestId('gap-bar');
+    expect(bar).toHaveTextContent('You walk in while it reacts: 0.32 metres');
+    expect(bar).toHaveTextContent('It keeps moving: 0.10 metres');
+    expect(bar).toHaveTextContent('Braking: 0.05 metres');
+    expect(bar).toHaveTextContent('Safety margin: 0.95 metres');
+    expect(container.querySelector('[data-figure-annotation]')).toHaveTextContent(
+      'The robot must stay out of this zone,about 1.4 metres from you',
+    );
+    expect(screen.getByTestId('safety-plain-readout')).toHaveTextContent(
+      'At this speed the robot needs a gap of about 1.4 metres; you are 1.6 metres away, so it keeps working.',
+    );
+  });
+
+  it('compares a bump with the safe limit in words under the gentle mode', async () => {
+    const user = userEvent.setup();
+    render(<CollaborativeOperationModes />);
+    await user.click(screen.getByRole('button', { name: 'Gentle enough to bump' }));
+    expect(screen.getByTestId('force-bar')).toHaveTextContent(
+      'Bump: about 316 newtons. Safe limit (the line): 255 newtons.',
+    );
+    expect(readout('force-limited-speed')).toBe('0.81 m/s');
+    fireEvent.change(robotSlider(), { target: { value: '0.5' } });
+    expect(screen.getByTestId('safety-plain-readout')).toHaveTextContent(
+      'A bump at this speed stays under the safe limit, so the robot may touch you.',
+    );
   });
 
   it('opens on speed and separation monitoring with a live separation readout', () => {
@@ -136,7 +186,7 @@ describe('CollaborativeOperationModes', () => {
     await user.click(screen.getByTestId('mode-power-force'));
     fireEvent.change(robotSlider(), { target: { value: '1.75' } });
     fireEvent.change(humanSlider(), { target: { value: '0.5' } });
-    await user.click(screen.getByRole('button', { name: /reset/i }));
+    await user.click(screen.getByRole('button', { name: /reset/i, hidden: true }));
     expect(screen.getByTestId('mode-speed-separation')).toHaveAttribute(
       'aria-pressed',
       'true',

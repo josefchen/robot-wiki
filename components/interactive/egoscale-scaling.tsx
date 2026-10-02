@@ -1,28 +1,29 @@
 'use client';
 
-import { useId, useState } from 'react';
+import { useId, useState, type ReactNode } from 'react';
 import { ChartDescription } from '@/components/ui/chart-description';
 import {
   ControlField,
   ControlLabel,
   INSTRUMENT_SLIDER_CLASS,
+  INSTRUMENT_TOGGLE_CLASS,
   InstrumentFigure,
-  InstrumentLegend,
-  InstrumentReadout,
   InstrumentReset,
-  LegendItem,
   PlotStage,
+  PresetGroup,
+  SliderEnds,
 } from '@/components/ui/instrument';
-import { FigureStage } from '@/components/motion/figure-frame';
+import { FigureStage, StageReadout } from '@/components/motion/figure-frame';
 import {
   CHART_STROKE,
   CHART_STRUCTURE,
   CHART_TYPE,
+  CHART_UNCERTAINTY,
   CHART_VIEW_WIDTH,
   ChartAxes,
   DirectLabel,
-  LegendSwatch,
   PointMarker,
+  StageAnnotation,
   UncertaintyBand,
   roleColour,
   type ChartPoint,
@@ -49,63 +50,53 @@ import {
   solvedBarCrossingHours,
   validationLoss,
 } from '@/lib/egoscale-law';
+import { MOTION_STAGE_TYPE } from '@/lib/motion-tokens';
 import { PUBLIC_IDENTITY } from '@/lib/identity';
 
 /**
- * EgoScaleScaling: the EgoScale log-linear scaling law with an honest
- * extrapolation control.
+ * EgoScaleScaling: what the EgoScale study measured, and how far a straight
+ * line through it can honestly be pushed.
  *
- * Two panels share one log hours axis. The upper panel plots the paper's
- * published law, validation loss L = 0.024 - 0.003 * ln(D) (D in thousands
- * of hours, R^2 = 0.9983), solid over its measured range (1k to 20k hours of
- * egocentric human video). The lower panel plots the five reported
- * downstream task-completion scores (0.30 at 1k rising to 0.71 at 20k) with
- * this wiki's own log-linear fit through them, dashed throughout because it
- * is an editorial fit rather than the paper's. The slider extends an
- * extrapolation horizon out to 1M hours: past 20k the loss law goes dashed
- * and a band in each panel brackets the two honest scenarios, the law
- * holding versus a plateau at the last measured value. The band is a
- * scenario bracket, not a confidence interval, and the legend says so.
+ * The main view is the downstream result alone: the five reported
+ * task-completion scores (0.30 at 1k hours rising to 0.71 at 20k) with this
+ * wiki's own log-linear fit through them, solid where it is measured and
+ * dashed past 20k hours, where the stage is shaded and the annotation says
+ * the rest is a guess. Three presets move the reader's point along the
+ * line: the measured end, five times more video (100k hours, the fit reads
+ * 0.89, still under the 0.90 solved bar) and about twelve times more (250k
+ * hours, where the fit passes 100%, which is impossible, so the chart stops
+ * the line there and says so).
  *
- * The solved bar sits at 0.90 completion: the module's criterion for
- * generalization being solved. Every measured point sits below it, and the
- * completion fit crosses it only deep in the extrapolated region (~111k
- * hours). Past ~250k hours the fit exceeds 100%, which is impossible; the
- * chart stops the line at the crossing and flags it instead of drawing
- * through it.
+ * "Adjust more" holds the raw horizon slider (20k to 1M hours, log scale),
+ * a toggle that adds the paper's own published law, validation loss
+ * L = 0.024 - 0.003 ln D (R^2 = 0.9983), as an upper panel together with
+ * the scenario bands (law holds against a plateau at the last measured
+ * value, a bracket and not a confidence interval), and the reset.
  *
- * Interactive contract: deterministic initial render at the 100k-hour
- * default (band and dashed region visible on load), native range input
- * with aria-label, visible readouts, reset control, fixed SVG viewport (no
- * layout shift), no JS-driven motion (scrub-only, so reduced-motion safe by
- * construction).
+ * No JS-driven motion: the figure changes only when the reader acts.
  */
 
 const WIDTH = CHART_VIEW_WIDTH;
-const HEIGHT = 240;
+/** Stage units per CSS px of text on the narrowest full-size stage. */
+const TEXT_UNITS = CHART_VIEW_WIDTH / MOTION_STAGE_TYPE.fullSizeMinStagePx;
+const ASCENT = CHART_TYPE.labelPx * TEXT_UNITS * CHART_TYPE.ascent;
+const LINE = CHART_TYPE.labelPx * TEXT_UNITS * 1.25;
+
 /**
- * Sized for the narrowest stage: inside the prediction step at a 375px
- * viewport the stage is about 300px wide while stage text keeps its CSS
- * size, so the tick labels and in-plot labels take more room than the
- * 340-unit geometry suggests.
+ * Right edge leaves room for the "1 million" tick label, which centres on
+ * the last tick.
  */
-const LEFT = 52;
-const RIGHT = WIDTH - 18;
-/**
- * The completion panel is the taller one: it carries the measured scores,
- * the solved bar and that bar's label, and the label needs clear space
- * between the bar and the fit below it.
- */
-const LOSS_PANEL = { left: LEFT, right: RIGHT, top: 28, bottom: 86 } as const;
-const SCORE_PANEL = { left: LEFT, right: RIGHT, top: 112, bottom: HEIGHT - 46 } as const;
-/**
- * The boundary note sits right of the boundary between the 0.03 and 0.02
- * gridlines of the loss panel: past 20k hours the loss stays at or below
- * the 0.0150 plateau, so nothing is drawn there, while the row between
- * the panels is too narrow at 375px for both the note and the lower
- * panel's axis name.
- */
-const BOUNDARY_NOTE_Y = LOSS_PANEL.top + 14;
+const LEFT = 44;
+const RIGHT = WIDTH - 38;
+
+/** The loss panel only exists when the reader asks for it. */
+const LOSS_PANEL = { left: LEFT, right: RIGHT, top: 30, bottom: 104 } as const;
+const LOSS_BLOCK = 118;
+/** Two annotation rows and the y-axis name sit above the completion panel. */
+const SCORE_TOP_BAND = ASCENT + LINE * 2 + 12;
+/** Tall enough that the 10% between the solved bar and the ceiling holds a label. */
+const SCORE_PLOT_HEIGHT = 220;
+const SCORE_BOTTOM_BAND = 46;
 
 const HOURS_LOG_MIN = 3; // 10^3 = 1k h
 const HOURS_LOG_MAX = 6; // 10^6 = 1M h
@@ -122,14 +113,6 @@ export function xFor(hours: number): number {
   const t =
     (Math.log10(hours) - HOURS_LOG_MIN) / (HOURS_LOG_MAX - HOURS_LOG_MIN);
   return f(LEFT + t * (RIGHT - LEFT));
-}
-
-function yLoss(loss: number): number {
-  return f(LOSS_PANEL.bottom - (loss / LOSS_MAX) * (LOSS_PANEL.bottom - LOSS_PANEL.top));
-}
-
-function yScore(score: number): number {
-  return f(SCORE_PANEL.bottom - score * (SCORE_PANEL.bottom - SCORE_PANEL.top));
 }
 
 /** Sample fn(hours) at log-spaced hours between two hour values. */
@@ -154,7 +137,8 @@ function pathOf(points: readonly ChartPoint[]): string {
   return points.map(([x, y], i) => `${i === 0 ? 'M' : 'L'}${x},${y}`).join(' ');
 }
 
-const X_TICKS = [1000, 10_000, MEASURED_MAX_HOURS, 100_000, MAX_HORIZON_HOURS];
+/** 100k would crowd the 20k label at 375px on a log axis, so it gets no tick. */
+const X_TICKS = [MEASURED_MIN_HOURS, MEASURED_MAX_HOURS, MAX_HORIZON_HOURS];
 const LOSS_TICKS = [0, 0.01, 0.02, 0.03];
 /**
  * The solved bar's level carries the tick label; the 100% ceiling keeps
@@ -162,10 +146,26 @@ const LOSS_TICKS = [0, 0.01, 0.02, 0.03];
  */
 const SCORE_TICKS = [0, 0.5, SOLVED_BAR_SCORE, 1];
 
-const formatHourTick = (hours: number) =>
-  hours >= 1_000_000 ? `${hours / 1_000_000}M` : `${hours / 1000}k`;
+/** "1,000", "20,000", "100,000", "1 million": plain numbers, no unit letters. */
+function plainHours(hours: number): string {
+  if (hours >= 999_500) return '1 million';
+  const rounded = hours >= 10_000 ? Math.round(hours / 1000) * 1000 : Math.round(hours / 100) * 100;
+  return rounded.toLocaleString('en-US');
+}
+/** "20k", "250k", "1 million": the article's own way of writing hours. */
+function shortHours(hours: number): string {
+  return hours >= 999_500 ? '1 million' : `${Math.round(hours / 1000)}k`;
+}
 const formatLossTick = (loss: number) => (loss === 0 ? '0' : loss.toFixed(2));
 const formatScoreTick = (score: number) => (score === 1 ? '' : `${Math.round(score * 100)}%`);
+const percent = (score: number) => `${Math.round(score * 100)}%`;
+
+type HorizonPreset = 'measured' | 'five' | 'twelve';
+const PRESET_HOURS: Record<HorizonPreset, number> = {
+  measured: MEASURED_MAX_HOURS,
+  five: 100_000,
+  twelve: 250_000,
+};
 
 type EgoScaleScalingProps = {
   /**
@@ -189,6 +189,7 @@ export function EgoScaleScaling({
   const [sliderValue, setSliderValue] = useState(() =>
     hoursToSlider(defaultHorizonHours),
   );
+  const [showLaw, setShowLaw] = useState(false);
   // Derive state during render when the initial prop changes (the repo
   // pattern, never useEffect): compare against the previous prop value
   // and resync before painting.
@@ -199,6 +200,10 @@ export function EgoScaleScaling({
   }
   const horizon = sliderToHours(sliderValue);
   const extrapolating = horizon > MEASURED_MAX_HOURS * 1.001;
+  const preset =
+    (Object.keys(PRESET_HOURS) as HorizonPreset[]).find(
+      (id) => hoursToSlider(PRESET_HOURS[id]) === sliderValue,
+    ) ?? null;
 
   const lawAtHorizon = validationLoss(horizon);
   const plateauAtHorizon = plateauLoss(horizon);
@@ -210,6 +215,19 @@ export function EgoScaleScaling({
     1000 *
     Math.exp((1 - COMPLETION_FIT.intercept) / COMPLETION_FIT.slope);
   const pastImpossible = fitAtHorizon > 1;
+
+  const scoreOffset = showLaw ? LOSS_BLOCK : 0;
+  const SCORE_PANEL = {
+    left: LEFT,
+    right: RIGHT,
+    top: f(scoreOffset + SCORE_TOP_BAND),
+    bottom: f(scoreOffset + SCORE_TOP_BAND + SCORE_PLOT_HEIGHT),
+  };
+  const HEIGHT = Math.round(SCORE_PANEL.bottom + SCORE_BOTTOM_BAND);
+  const yLoss = (loss: number) =>
+    f(LOSS_PANEL.bottom - (loss / LOSS_MAX) * (LOSS_PANEL.bottom - LOSS_PANEL.top));
+  const yScore = (score: number) =>
+    f(SCORE_PANEL.bottom - score * (SCORE_PANEL.bottom - SCORE_PANEL.top));
 
   const measuredLoss = sample(MEASURED_MIN_HOURS, MEASURED_MAX_HOURS, validationLoss, yLoss);
   const measuredFit = sample(MEASURED_MIN_HOURS, MEASURED_MAX_HOURS, completionFit, yScore);
@@ -236,9 +254,11 @@ export function EgoScaleScaling({
     [horizonX, yScore(plateauScoreAtHorizon)],
   ];
   const solvedY = yScore(SOLVED_BAR_SCORE);
+  const lastMeasured = COMPLETION_POINTS[COMPLETION_POINTS.length - 1];
 
   function reset() {
     setSliderValue(hoursToSlider(defaultHorizonHours));
+    setShowLaw(false);
   }
 
   const barRelation = pastImpossible
@@ -249,7 +269,7 @@ export function EgoScaleScaling({
 
   const state = roleColour('state');
   const value = roleColour('value');
-  const constraint = roleColour('constraint');
+  const reference = roleColour('reference');
   const highlight = roleColour('highlight');
 
   const sampleRows = [
@@ -297,19 +317,87 @@ export function EgoScaleScaling({
       ? `The generalization prediction-step law panel is seeded past the 100 percent crossing: validation loss still falls from ${formatLoss(validationLoss(MEASURED_MIN_HOURS))} at 1k hours to ${formatLoss(validationLoss(MEASURED_MAX_HOURS))} at 20k hours, but the completion fit is already flagged as impossible at the ${formatHours(horizon)} horizon rather than drawn through 100 percent.`
       : `Validation loss falls from ${formatLoss(validationLoss(MEASURED_MIN_HOURS))} at 1k hours to ${formatLoss(validationLoss(MEASURED_MAX_HOURS))} at 20k hours, the end of the measured range, while task completion rises from 0.30 to 0.71; past that boundary the dashed extrapolation to the ${formatHours(horizon)} horizon reads ${formatLoss(lawAtHorizon)} if the law holds against ${formatLoss(plateauAtHorizon)} at the plateau, the shaded scenario band between them is a scenario bracket and not a confidence interval, the completion fit stays below the 90 percent solved bar until ${Math.round(solvedBarCrossingHours() / 1000)}k hours, and it exceeds 100 percent past ${Math.round(impossibleHours / 1000)}k hours, which the chart flags instead of drawing.`;
 
+  // The first note names the end of the measurements and rings the last
+  // measured score; it is written from the left edge because the shaded
+  // region alone is too narrow for it at 375px.
+  const noteRow1 = scoreOffset + ASCENT;
+  const noteRow2 = noteRow1 + LINE;
+  const lastMeasuredPoint: [number, number] = [boundaryX, yScore(lastMeasured.score)];
+  // The second note, only past the crossing, sits low in the shaded region
+  // where the line never goes, and its leader climbs to the crossing.
+  const crossing: [number, number] = [xFor(impossibleHours), yScore(1)];
+  const bendNoteTop = yScore(0.43);
+  const bendLines = ['Here a straight line', 'would pass 100%:', 'impossible, so the', 'real curve must bend'];
+
+  const ringAt: [number, number] | null = pastImpossible
+    ? null
+    : extrapolating
+      ? [horizonX, yScore(fitAtHorizon)]
+      : lastMeasuredPoint;
+
+  // The readout gives the score as the article and its prediction step
+  // write it (0.89) and as a percentage, so the two always agree.
+  let readout: ReactNode;
+  if (!extrapolating) {
+    readout = (
+      <>
+        At {shortHours(MEASURED_MAX_HOURS)} hours, the most the study measured, robots finished{' '}
+        <span data-testid="completion-readout" style={{ color: value }}>
+          {percent(lastMeasured.score)} of each task (a score of {formatScore(lastMeasured.score)})
+        </span>
+        .
+      </>
+    );
+  } else if (pastImpossible) {
+    readout = (
+      <>
+        At {shortHours(horizon)} hours a straight line would{' '}
+        <span data-testid="completion-readout" style={{ color: value }}>
+          pass 100% (a score of {formatScore(fitAtHorizon)}), which is impossible
+        </span>
+        .
+      </>
+    );
+  } else {
+    readout = (
+      <>
+        At {shortHours(horizon)} hours the trend line scores{' '}
+        <span data-testid="completion-readout" style={{ color: value }}>
+          {formatScore(fitAtHorizon)}, or {percent(fitAtHorizon)},{' '}
+          {fitAtHorizon >= SOLVED_BAR_SCORE ? 'past' : 'still below'} the bar for solved
+        </span>
+        .
+      </>
+    );
+  }
+
   return (
     <InstrumentFigure
       figureId="egoscale-scaling"
       className={className}
-      heading="EgoScale scaling law"
+      kicker="EgoScale scaling law"
+      heading="Robots improve with more video; beyond 20,000 hours is guesswork"
       controls={
+        <PresetGroup<HorizonPreset>
+          label="How much video?"
+          presets={[
+            { id: 'measured', label: 'Measured (20,000 hours)' },
+            { id: 'five', label: '5 times more' },
+            { id: 'twelve', label: 'About 12 times more' },
+          ]}
+          value={preset}
+          onChange={(id) => setSliderValue(hoursToSlider(PRESET_HOURS[id]))}
+          testId="egoscale-preset"
+        />
+      }
+      adjust={
         <>
           <ControlField>
             <ControlLabel
               htmlFor={horizonId}
               value={<span data-testid="horizon-readout">{formatHours(horizon)}</span>}
             >
-              Extrapolation horizon
+              Hours of video
             </ControlLabel>
             <input
               id={horizonId}
@@ -320,114 +408,109 @@ export function EgoScaleScaling({
               step={1}
               value={sliderValue}
               onChange={(e) => setSliderValue(Number(e.target.value))}
-              aria-label={`Extrapolation horizon in hours of egocentric human video, log scale, currently ${formatHours(horizon)}`}
+              aria-label={`Hours of video (extrapolation horizon, log scale), currently ${plainHours(horizon)} hours`}
+              aria-valuetext={`${plainHours(horizon)} hours`}
               className={INSTRUMENT_SLIDER_CLASS}
             />
+            <SliderEnds low="20,000" high="1 million" />
           </ControlField>
+          <button
+            data-brand-control-id="control:selection"
+            type="button"
+            aria-pressed={showLaw}
+            onClick={() => setShowLaw((v) => !v)}
+            className={INSTRUMENT_TOGGLE_CLASS}
+          >
+            Show the paper&rsquo;s error measure
+          </button>
           <InstrumentReset onClick={reset} />
         </>
       }
       stage={
         <FigureStage
           footer={
-            <>
-              <InstrumentLegend>
-                <LegendItem series="loss-law" swatch={<LegendSwatch role="state" mark="line" />}>
-                  loss law (EgoScale, R² = {R_SQUARED})
-                </LegendItem>
-                <LegendItem series="completion-fit" swatch={<LegendSwatch role="value" mark="dash" />}>
-                  editorial completion fit ({PUBLIC_IDENTITY}, R² ={' '}
-                  {COMPLETION_FIT.rSquared.toFixed(2)})
-                </LegendItem>
-                <LegendItem series="measured" swatch={<LegendSwatch role="measurement" mark="dot" />}>
-                  measured (1k-20k h)
-                </LegendItem>
-                <LegendItem
-                  swatch={
-                    <span className="flex shrink-0 gap-0.5">
-                      <LegendSwatch role="state" mark="band" />
-                      <LegendSwatch role="value" mark="band" />
-                    </span>
-                  }
-                >
-                  scenario band, not a confidence interval
-                </LegendItem>
-              </InstrumentLegend>
-              <InstrumentReadout data-testid="projection-summary">
-                At {formatHours(horizon)}
-                {extrapolating ? '' : ', the end of the measured range'}: loss{' '}
-                <span data-testid="loss-readout" style={{ color: state }}>
-                  {formatLoss(lawAtHorizon)} holds / {formatLoss(plateauAtHorizon)} plateau
-                </span>
-                ; completion fit{' '}
-                <span data-testid="completion-readout" style={{ color: value }}>
-                  {formatScore(fitAtHorizon)} holds / {formatScore(plateauScoreAtHorizon)}{' '}
-                  plateau, {barRelation}
-                </span>
-                {pastImpossible ? '; the curve must bend before then' : ''}.
-              </InstrumentReadout>
-              <ChartDescription
-                id={descriptionId}
-                form="table"
-                summary="Sampled loss and completion by pretraining hours"
-                rowHeader="pretraining hours"
-                columns={[
-                  { header: 'loss (MSE)', numeric: true },
-                  { header: 'reported completion', numeric: true },
-                  { header: 'completion fit', numeric: true },
-                  { header: 'region', numeric: false },
-                ]}
-                rows={sampleRows}
-                description={description}
-              />
-            </>
+            <StageReadout data-testid="projection-summary">{readout}</StageReadout>
           }
         >
           <PlotStage
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-            aria-label={`EgoScale scaling law: validation loss and task completion against pretraining hours, horizon ${formatHours(horizon)}`}
+            aria-label={`Task completion against hours of human video, measured from 1,000 to 20,000 hours, with a straight-line trend extended to ${plainHours(horizon)} hours (${formatHours(horizon)})${showLaw ? ', above the paper\u2019s validation-loss law' : ''}`}
             aria-describedby={descriptionId}
           >
-            <ChartAxes
-              plot={LOSS_PANEL}
-              x={xFor}
-              y={yLoss}
-              yTicks={LOSS_TICKS}
-              formatY={formatLossTick}
-              yLabel="validation loss (MSE)"
+            {/* Everything right of 20k hours is not measured: shaded. */}
+            <rect
+              data-chart-mark="region"
+              data-chart-role="reference"
+              x={boundaryX}
+              y={showLaw ? LOSS_PANEL.top : SCORE_PANEL.top}
+              width={f(RIGHT - boundaryX)}
+              height={f(SCORE_PANEL.bottom - (showLaw ? LOSS_PANEL.top : SCORE_PANEL.top))}
+              fill={reference}
+              fillOpacity={CHART_UNCERTAINTY.fillAlpha * 0.6}
             />
-            <ChartAxes
-              plot={SCORE_PANEL}
-              x={xFor}
-              y={yScore}
-              xTicks={X_TICKS}
-              formatX={formatHourTick}
-              yTicks={SCORE_TICKS}
-              formatY={formatScoreTick}
-              xLabel="egocentric human video (hours, log)"
-              yLabel="avg task completion"
-            />
-
-            {/* The measured range ends at 20k hours in both panels. */}
             <line
               x1={boundaryX}
               x2={boundaryX}
-              y1={LOSS_PANEL.top}
+              y1={showLaw ? LOSS_PANEL.top : SCORE_PANEL.top}
               y2={SCORE_PANEL.bottom}
               stroke={CHART_STRUCTURE.axes}
               strokeWidth={CHART_STROKE.structure}
               strokeDasharray={CHART_STROKE.dash}
               opacity={CHART_STRUCTURE.axesOpacity}
             />
-            <text
-              data-scene-note=""
-              x={f(boundaryX + 4)}
-              y={BOUNDARY_NOTE_Y}
-              fontSize={CHART_TYPE.axisPx}
-              fill={CHART_STRUCTURE.labelSecondary}
-            >
-              measured range ends
-            </text>
+
+            {showLaw ? (
+              <g data-series="loss-law">
+                <ChartAxes
+                  plot={LOSS_PANEL}
+                  x={xFor}
+                  y={yLoss}
+                  yTicks={LOSS_TICKS}
+                  formatY={formatLossTick}
+                  yLabel="prediction error, lower is better"
+                />
+                {extrapolatedLoss ? (
+                  <g data-testid="uncertainty-band">
+                    <UncertaintyBand upper={extrapolatedLoss} lower={lossPlateau} role="state" />
+                  </g>
+                ) : null}
+                <path
+                  data-testid="measured-loss-law"
+                  d={pathOf(measuredLoss)}
+                  fill="none"
+                  stroke={state}
+                  strokeWidth={CHART_STROKE.reference}
+                  strokeLinejoin="round"
+                />
+                {extrapolatedLoss ? (
+                  <path
+                    data-testid="extrapolated-loss-law"
+                    d={pathOf(extrapolatedLoss)}
+                    fill="none"
+                    stroke={state}
+                    strokeWidth={CHART_STROKE.reference}
+                    strokeDasharray={CHART_STROKE.dash}
+                  />
+                ) : null}
+                {COMPLETION_POINTS.map((p) => (
+                  <g key={`loss-${p.hours}`} data-testid={`loss-point-${p.hours}`}>
+                    <circle cx={xFor(p.hours)} cy={yLoss(validationLoss(p.hours))} r={CHART_STROKE.markerRadius - 1} fill={state} />
+                  </g>
+                ))}
+              </g>
+            ) : null}
+
+            <ChartAxes
+              plot={SCORE_PANEL}
+              x={xFor}
+              y={yScore}
+              xTicks={X_TICKS}
+              formatX={plainHours}
+              yTicks={SCORE_TICKS}
+              formatY={formatScoreTick}
+              xLabel="hours of first-person human video"
+              yLabel="share of each task finished"
+            />
 
             {/* The labelled group gives the bar a real bounding box. */}
             <g data-testid="solved-bar">
@@ -436,44 +519,18 @@ export function EgoScaleScaling({
                 x2={SCORE_PANEL.right}
                 y1={solvedY}
                 y2={solvedY}
-                stroke={roleColour('reference')}
+                stroke={reference}
                 strokeWidth={CHART_STROKE.reference}
                 strokeDasharray={CHART_STROKE.dash}
               />
-              <DirectLabel x={SCORE_PANEL.left + 4} y={f(solvedY + 18)} role="reference">
-                solved bar
+              <DirectLabel x={SCORE_PANEL.left + 6} y={f(solvedY - 5)} role="reference">
+                the bar for &ldquo;solved&rdquo;
               </DirectLabel>
             </g>
 
-            <g data-series="loss-law">
-              {extrapolatedLoss ? (
-                <g data-testid="uncertainty-band">
-                  <UncertaintyBand upper={extrapolatedLoss} lower={lossPlateau} role="state" />
-                </g>
-              ) : null}
-              <path
-                data-testid="measured-loss-law"
-                d={pathOf(measuredLoss)}
-                fill="none"
-                stroke={state}
-                strokeWidth={CHART_STROKE.trace}
-                strokeLinejoin="round"
-              />
-              {extrapolatedLoss ? (
-                <path
-                  data-testid="extrapolated-loss-law"
-                  d={pathOf(extrapolatedLoss)}
-                  fill="none"
-                  stroke={state}
-                  strokeWidth={CHART_STROKE.trace}
-                  strokeDasharray={CHART_STROKE.dash}
-                />
-              ) : null}
-            </g>
-
-            {/* The editorial fit is dashed in and past the measured range. */}
+            {/* The editorial fit: thin through the measurements, dashed past them. */}
             <g data-series="completion-fit">
-              {cappedFit ? (
+              {showLaw && cappedFit ? (
                 <g data-testid="completion-band">
                   <UncertaintyBand upper={cappedFit} lower={scorePlateau} role="value" />
                 </g>
@@ -483,8 +540,8 @@ export function EgoScaleScaling({
                 d={pathOf(measuredFit)}
                 fill="none"
                 stroke={value}
-                strokeWidth={CHART_STROKE.trace}
-                strokeDasharray={CHART_STROKE.dash}
+                strokeWidth={CHART_STROKE.reference}
+                strokeLinejoin="round"
               />
               {extrapolatedFit ? (
                 <path
@@ -496,68 +553,123 @@ export function EgoScaleScaling({
                   strokeDasharray={CHART_STROKE.dash}
                 />
               ) : null}
+              {extrapolatedFit ? (
+                <DirectLabel x={f(boundaryX + 6)} y={yScore(0.58)} role="value">
+                  if the trend held
+                </DirectLabel>
+              ) : null}
             </g>
 
             <g data-series="measured">
-              {COMPLETION_POINTS.map((p) => (
-                <g key={`loss-${p.hours}`} data-testid={`loss-point-${p.hours}`}>
-                  <PointMarker x={xFor(p.hours)} y={yLoss(validationLoss(p.hours))} />
-                </g>
-              ))}
               {COMPLETION_POINTS.map((p) => (
                 <g key={`completion-${p.hours}`} data-testid={`completion-point-${p.hours}`}>
                   <PointMarker x={xFor(p.hours)} y={yScore(p.score)} />
                 </g>
               ))}
+              <DirectLabel x={LEFT + 8} y={yScore(0.62)} role="measurement">
+                measured
+              </DirectLabel>
             </g>
 
-            {pastImpossible ? (
-              <text
-                data-testid="impossible-note"
-                data-scene-note=""
-                x={RIGHT - 2}
-                y={f(yScore(plateauScoreAtHorizon) + 26)}
-                textAnchor="end"
-                fontSize={CHART_TYPE.axisPx}
-                fill={constraint}
-              >
-                fit &gt; 100%: impossible
-              </text>
-            ) : null}
-
-            {/* The reader's horizon, drawn last; past 100% the fit has no point to mark. */}
-            <g data-selection="current horizon">
-              <circle
-                data-testid="horizon-marker"
-                cx={horizonX}
-                cy={yLoss(lawAtHorizon)}
-                r={CHART_STROKE.markerRadius + 2}
-                fill="none"
-                stroke={highlight}
-                strokeWidth={CHART_STROKE.trace}
-              />
-              {pastImpossible ? null : (
+            {ringAt ? (
+              <g data-selection="current horizon">
                 <circle
-                  cx={horizonX}
-                  cy={yScore(fitAtHorizon)}
+                  data-testid="horizon-marker"
+                  cx={ringAt[0]}
+                  cy={ringAt[1]}
                   r={CHART_STROKE.markerRadius + 2}
                   fill="none"
                   stroke={highlight}
                   strokeWidth={CHART_STROKE.trace}
                 />
-              )}
-            </g>
+              </g>
+            ) : null}
+
+            <StageAnnotation
+              x={8}
+              y={f(noteRow1)}
+              lines={['Measurements stop at 20,000 hours;', 'everything to the right is a guess']}
+              from={[boundaryX, f(noteRow2 + 6)]}
+              target={lastMeasuredPoint}
+            />
+            {pastImpossible ? (
+              <g data-testid="impossible-note">
+                <StageAnnotation
+                  x={RIGHT}
+                  y={f(bendNoteTop)}
+                  anchor="end"
+                  lines={bendLines}
+                  from={[crossing[0], f(bendNoteTop - ASCENT - 2)]}
+                  target={crossing}
+                />
+              </g>
+            ) : null}
           </PlotStage>
         </FigureStage>
       }
-      caption="Measured to 20k hours; beyond that both series are extrapolation, and the completion fit passes 100% near 250k hours."
-      source={
-        <span data-testid="scaling-caveat">
-          EgoScale (2026) fits the law to held-out human-video validation loss, a proxy that
-          correlates with downstream robot performance without establishing real-world success
-          rate across unseen environments.
-        </span>
+      caption="Training on more first-person human video made robots finish more tasks, but the study stopped at 20,000 hours, so further gains are unproven."
+      method={
+        <>
+          <p>
+            EgoScale (Zheng et al. 2026) pretrained one robot model on 1k, 2k, 4k, 10k and 20k
+            hours of first-person (egocentric) human video, then post-trained each on robot tasks
+            with a 22-DoF dexterous hand. Average task completion rose from 0.30 at 1k hours to
+            0.71 at 20k; the dots are those five reported scores. The paper states that it does
+            not extrapolate beyond the measured range.
+          </p>
+          <p data-testid="scaling-legend">
+            The line is this wiki&rsquo;s own least-squares log-linear fit through the five
+            scores, an editorial completion fit ({PUBLIC_IDENTITY}, R&sup2; ={' '}
+            {COMPLETION_FIT.rSquared.toFixed(2)}), not the paper&rsquo;s law. It reads 0.89 at
+            100k hours, crosses the 0.90 solved bar near{' '}
+            {Math.round(solvedBarCrossingHours() / 1000)}k hours and passes 100% near{' '}
+            {Math.round(impossibleHours / 1000)}k hours, which is impossible. The hours axis is
+            logarithmic. The solved bar is this article&rsquo;s criterion: one policy above 90%
+            success across many unseen homes with no per-site data.
+          </p>
+          <p>
+            The paper&rsquo;s published law is about validation loss (MSE on held-out human
+            video): L = 0.024 &minus; 0.003 ln D, D in thousands of hours, R&sup2; = {R_SQUARED},
+            over the five scales. &ldquo;Show the paper&rsquo;s error measure&rdquo; in
+            &ldquo;Adjust more&rdquo; draws it above the completion panel. Past 20k hours both
+            panels then show a scenario band, a scenario bracket between the law holding and a
+            plateau at the last measured value, not a confidence interval.
+          </p>
+          <p>
+            At the current setting ({formatHours(horizon)}): loss{' '}
+            <span data-testid="loss-readout" style={{ color: state }}>
+              {formatLoss(lawAtHorizon)} holds / {formatLoss(plateauAtHorizon)} plateau
+            </span>
+            ; completion fit{' '}
+            <span data-testid="completion-fit-readout" style={{ color: value }}>
+              {formatScore(fitAtHorizon)} holds / {formatScore(plateauScoreAtHorizon)} plateau,{' '}
+              {barRelation}
+            </span>
+            {pastImpossible ? '; the curve must bend before then' : ''}.
+          </p>
+          <p data-testid="scaling-caveat">
+            EgoScale (2026) fits the law to held-out human-video validation loss, a proxy that
+            correlates with downstream robot performance without establishing real-world success
+            rate across unseen environments.
+          </p>
+          <ChartDescription
+            id={descriptionId}
+            form="table"
+            open
+            summary="Sampled loss and completion by pretraining hours"
+            rowHeader="pretraining hours"
+            columns={[
+              { header: 'loss (MSE)', numeric: true },
+              { header: 'reported completion', numeric: true },
+              { header: 'completion fit', numeric: true },
+              { header: 'region', numeric: false },
+            ]}
+            rows={sampleRows}
+            description={description}
+          />
+        </>
       }
+      source="Measured points: EgoScale (Zheng et al. 2026), Figure 5."
     />
   );
 }

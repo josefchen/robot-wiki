@@ -5,7 +5,7 @@ import { z } from 'zod';
 import { approvedDeltaPath, sha256 } from './brand-v2-baseline.ts';
 import { DOMAIN_META, modules, publishedModules } from '../data/modules.ts';
 import { getCitation } from '../data/citations.ts';
-import { DEFAULT_THESIS_ID, THESES } from './competing-theses.ts';
+import { THESES } from './competing-theses.ts';
 import { MILESTONES } from './bear-case.ts';
 import { publishedBacklinkGraph, resolveArticleEntries } from './backlinks.ts';
 import {
@@ -368,32 +368,32 @@ function mappedCitationOccurrences(
   expression: string,
 ): DynamicCitationSite['occurrences'] {
   if (sourcePath === 'components/interactive/milestones-watchlist.tsx' && expression === 'id') {
-    const selected = MILESTONES[0];
-    if (!selected || selected.citationIds.length === 0) {
-      throw new Error('the default milestone has no citation occurrences');
+    // No tile is open at rest; the "How this was made" table renders every
+    // milestone's evidence with its sources.
+    const occurrences = MILESTONES.flatMap((milestone) =>
+      milestone.citationIds.map((id, index) => ({
+        key: `${milestone.id}/citationIds/${index}`,
+        id,
+      })),
+    );
+    if (occurrences.length === 0) {
+      throw new Error('the milestone table has no citation occurrences');
     }
-    return selected.citationIds.map((id, index) => ({
-      key: `${selected.id}/citationIds/${index}`,
-      id,
-    }));
+    return occurrences;
   }
   if (sourcePath !== 'components/interactive/thesis-explorer.tsx' || expression !== 'id') {
     throw new Error(
       `${sourcePath} has an unmodelled mapped citation id={${expression}}; derive its complete default-state occurrences before grading it`,
     );
   }
-  const selected = THESES.find(({ id }) => id === DEFAULT_THESIS_ID);
-  if (!selected) throw new Error('the default thesis has no data row');
-  const occurrences = (['evidenceFor', 'evidenceAgainst'] as const).flatMap((side) =>
-    selected[side].flatMap((row, rowIndex) =>
-      row.citationIds.map((id, citationIndex) => ({
-        key: `${selected.id}/${side}/${rowIndex}/${citationIndex}`,
-        id,
-      })),
-    ),
+  // No card is open at rest, so the evidence chips render only after a
+  // reader taps a card. The explorer must still hold cited evidence, or
+  // there is nothing for a tap to open.
+  const cited = THESES.flatMap((thesis) =>
+    [...thesis.evidenceFor, ...thesis.evidenceAgainst].flatMap((row) => row.citationIds),
   );
-  if (occurrences.length === 0) throw new Error('the default thesis has no citation occurrences');
-  return occurrences;
+  if (cited.length === 0) throw new Error('the thesis explorer holds no cited evidence');
+  return [];
 }
 
 /**

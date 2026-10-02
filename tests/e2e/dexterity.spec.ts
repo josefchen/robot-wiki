@@ -1,5 +1,6 @@
 import { expect, test } from './dexterity-reader-fixture';
 import AxeBuilder from '@axe-core/playwright';
+import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
 
 const ROUTE = '/frontier/dexterity/';
 
@@ -153,12 +154,31 @@ test.describe('frontier dexterity module', () => {
     const panel = page.getByTestId('hand-comparison');
     await expect(panel).toBeVisible();
     const readout = page.getByTestId('hand-comparison-readout');
+    const cardIds = () =>
+      page
+        .getByTestId(/^hand-card-/)
+        .evaluateAll((cards) =>
+          cards.map((card) => (card.getAttribute('data-testid') ?? '').replace('hand-card-', '')),
+        );
     const rowIds = () =>
       page
         .getByTestId(/^hand-row-/)
-        .evaluateAll((rows) => rows.map((row) => row.getAttribute('data-testid')));
+        .evaluateAll((rows) =>
+          rows.map((row) => (row.getAttribute('data-testid') ?? '').replace('hand-row-', '')),
+        );
 
-    // All five hands are present, with the specs the contract anchors on.
+    await expect(
+      panel.getByText('No hand here publishes both touch sensitivity and price'),
+    ).toBeVisible();
+    await expect(page.getByTestId(/^hand-card-/)).toHaveCount(5);
+    await expect(page.getByTestId('hand-gap-note')).toBeVisible();
+    // Unitree's listed price is the whole robot, labelled as such on its card.
+    await expect(page.getByTestId('whole-robot-price')).toHaveText('Whole robot: $29,900');
+    // Cards stamp every undisclosed spec; none is guessed.
+    await expect(panel.locator('[data-hand-gap]')).toHaveCount(7);
+
+    // The full table, with the specs the contract anchors on, is in the method.
+    await openHowThisWasMade(panel);
     await expect(page.getByTestId(/^hand-row-/)).toHaveCount(5);
     await expect(page.getByTestId('hand-row-tesla-optimus-gen3')).toContainText('22');
     await expect(page.getByTestId('hand-row-tesla-optimus-gen3')).toContainText(
@@ -172,49 +192,47 @@ test.describe('frontier dexterity module', () => {
     );
     await expect(page.getByTestId('hand-row-shadow-dexterous')).toContainText('€110,000');
     await expect(page.getByTestId('hand-row-unitree-h2')).toContainText('$29,900');
+    await expect(page.getByTestId('hand-row-unitree-h2')).toContainText('whole robot');
+    expect(
+      await page
+        .getByTestId(/^hand-row-/)
+        .getByText('not disclosed', { exact: true })
+        .count(),
+    ).toBe(6);
 
-    // Undisclosed specs render as "not disclosed", never as guessed numbers.
-    expect(await panel.getByText('not disclosed', { exact: true }).count()).toBe(6);
+    // Default order: lightest touch felt first; undisclosed thresholds last.
+    await expect(readout).toHaveText('5 hands, lightest touch felt first');
+    const defaultOrder = [
+      'sanctuary-phoenix',
+      'figure-02-03',
+      'tesla-optimus-gen3',
+      'shadow-dexterous',
+      'unitree-h2',
+    ];
+    expect(await cardIds()).toEqual(defaultOrder);
+    expect(await rowIds()).toEqual(defaultOrder);
 
-    // Default order: tactile threshold, most sensitive first; nulls last.
-    await expect(readout).toHaveText(
-      '5 hands, sorted by tactile threshold, most sensitive first',
-    );
-    expect(await rowIds()).toEqual([
-      'hand-row-sanctuary-phoenix',
-      'hand-row-figure-02-03',
-      'hand-row-tesla-optimus-gen3',
-      'hand-row-shadow-dexterous',
-      'hand-row-unitree-h2',
-    ]);
-
-    // Sort by DoF: switches to most-first on the first click, flips on the second.
-    const dofButton = page.getByRole('button', { name: 'Sort by DoF' });
-    await dofButton.click();
-    await expect(readout).toHaveText(
-      '5 hands, sorted by degrees of freedom, most first',
-    );
-    expect((await rowIds())?.[0]).toBe('hand-row-tesla-optimus-gen3');
+    // Most joints: most first; "Reverse the order" flips it.
+    await panel.getByRole('button', { name: 'Most joints' }).click();
+    await expect(readout).toHaveText('5 hands, most ways to move first');
+    expect((await cardIds())[0]).toBe('tesla-optimus-gen3');
     await expect(
       page.getByRole('columnheader', { name: /dof/i }),
     ).toHaveAttribute('aria-sort', 'descending');
-    await dofButton.click();
-    expect((await rowIds())?.[0]).toBe('hand-row-unitree-h2');
+    await openAdjustMore(panel);
+    await panel.getByRole('button', { name: 'Reverse the order' }).click();
+    expect((await cardIds())[0]).toBe('unitree-h2');
 
-    // Sort by cost: cheapest first, undisclosed prices stay last.
-    await page.getByRole('button', { name: 'Sort by cost' }).click();
-    await expect(readout).toHaveText('5 hands, sorted by cost, lowest first');
-    expect((await rowIds())?.slice(0, 2)).toEqual([
-      'hand-row-unitree-h2',
-      'hand-row-shadow-dexterous',
-    ]);
+    // Lowest price compares hand prices only: the whole-robot price never
+    // ranks as the cheapest hand.
+    await panel.getByRole('button', { name: 'Lowest price' }).click();
+    await expect(readout).toHaveText('5 hands, lowest hand price first');
+    expect((await cardIds())[0]).toBe('shadow-dexterous');
 
-    // Keyboard operation: focus the header button and press Enter.
-    await page.getByRole('button', { name: 'Sort by tactile threshold' }).focus();
+    // Keyboard operation.
+    await panel.getByRole('button', { name: 'Lightest touch felt' }).focus();
     await page.keyboard.press('Enter');
-    await expect(readout).toHaveText(
-      '5 hands, sorted by tactile threshold, most sensitive first',
-    );
+    await expect(readout).toHaveText('5 hands, lightest touch felt first');
 
     // Selection reveals the trade-off lines and updates the readout.
     await page
@@ -232,13 +250,7 @@ test.describe('frontier dexterity module', () => {
     ).toHaveAttribute('aria-pressed', 'true');
 
     // Every row carries an external source link and an as-of date.
-    for (const id of [
-      'tesla-optimus-gen3',
-      'figure-02-03',
-      'sanctuary-phoenix',
-      'shadow-dexterous',
-      'unitree-h2',
-    ]) {
+    for (const id of defaultOrder) {
       const row = page.getByTestId(`hand-row-${id}`);
       await expect(row.getByRole('link').first()).toHaveAttribute('href', /^https:\/\//);
       await expect(row).toContainText(/[A-Z][a-z]{2} \d{4}/);
@@ -246,9 +258,7 @@ test.describe('frontier dexterity module', () => {
 
     // Reset restores the default sort and clears the selection.
     await panel.getByRole('button', { name: 'Reset' }).click();
-    await expect(readout).toHaveText(
-      '5 hands, sorted by tactile threshold, most sensitive first',
-    );
+    await expect(readout).toHaveText('5 hands, lightest touch felt first');
     await expect(selection).toContainText('Select hands to compare their trade-offs.');
     await expect(
       page.getByRole('button', { name: 'Select Optimus Gen 3 for comparison' }),

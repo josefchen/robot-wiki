@@ -81,7 +81,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3093,
+      "visibleTextLength": 3064,
       "header": {
         "present": true,
         "display": "flex",
@@ -888,7 +888,7 @@
     },
     {
       "route": "/adjacent/drones/",
-      "visibleTextLength": 18743,
+      "visibleTextLength": 18653,
       "header": {
         "present": true,
         "display": "flex",
@@ -4792,7 +4792,7 @@
     },
     {
       "route": "/frontier/bear-case/",
-      "visibleTextLength": 17725,
+      "visibleTextLength": 15770,
       "header": {
         "present": true,
         "display": "flex",
@@ -4955,7 +4955,7 @@
     },
     {
       "route": "/frontier/competing-theses/",
-      "visibleTextLength": 25100,
+      "visibleTextLength": 22622,
       "header": {
         "present": true,
         "display": "flex",
@@ -5118,7 +5118,7 @@
     },
     {
       "route": "/frontier/dexterity/",
-      "visibleTextLength": 23891,
+      "visibleTextLength": 23686,
       "header": {
         "present": true,
         "display": "flex",
@@ -5281,7 +5281,7 @@
     },
     {
       "route": "/frontier/generalization/",
-      "visibleTextLength": 16008,
+      "visibleTextLength": 16125,
       "header": {
         "present": true,
         "display": "flex",
@@ -5607,7 +5607,7 @@
     },
     {
       "route": "/frontier/safety-and-assurance/",
-      "visibleTextLength": 26564,
+      "visibleTextLength": 26044,
       "header": {
         "present": true,
         "display": "flex",

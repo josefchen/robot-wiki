@@ -2,6 +2,7 @@ import { expect, test as base } from '@playwright/test';
 import { test as evidenceTest } from './helpers/state-smoothing-fixture';
 import { writeFileSync } from 'node:fs';
 import AxeBuilder from '@axe-core/playwright';
+import { openAdjustMore } from './helpers/figure-fold';
 
 // Match existing thesis readers: strict input-bound/offline mode only in the program lane.
 const test = process.env.ROBOT_WIKI_GATE_INPUTS ? evidenceTest : base;
@@ -50,7 +51,7 @@ test('economics article and explorer retain named claims, source caveats and rea
     await expect(chip).toBeFocused();
   }
   const explorer = page.getByTestId('thesis-explorer');
-  const choice = explorer.getByRole('button', { name: 'Teleoperation as a bridge', exact: true });
+  const choice = explorer.getByRole('button', { name: 'Humans steer while robots learn', exact: true });
   await choice.focus();
   await page.keyboard.press('Enter');
   await expect(choice).toHaveAttribute('aria-pressed', 'true');
@@ -71,8 +72,9 @@ test('economics article and explorer retain named claims, source caveats and rea
   const axe = await new AxeBuilder({ page }).include('[data-testid="thesis-explorer"]').analyze();
   writeFileSync(info.outputPath('axe-economics.json'), JSON.stringify(axe, null, 2));
   expect(axe.violations).toEqual([]);
+  await openAdjustMore(explorer);
   await explorer.getByRole('button', { name: 'Reset', exact: true }).click();
-  await expect(page.getByTestId('thesis-readout')).toHaveText('6 theses, showing: End-to-end VLA scaling');
+  await expect(page.getByTestId('thesis-readout')).toHaveText('6 bets. Tap one to read the evidence for and against.');
   const reference = page.locator('#ref-bessemer-robotics-2026').locator(`a[href="${source}"]`);
   await expect(reference).toHaveCount(1);
   await reference.scrollIntoViewIfNeeded();

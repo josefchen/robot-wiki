@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "fingerprint": "2cbe1b5369b5d00fabf85ffc34bff59ee634beb93206c4988187ad241bf88eb1",
+  "fingerprint": "6159cf14deb9916b63a900771b5f595b4d4cd15699f50670ae44ec9c89c15251",
   "viewport": "1440x900",
   "route": "/",
-  "visibleTextLength": 2941,
+  "visibleTextLength": 2912,
   "documentScrollWidthPx": 1440,
   "documentClientWidthPx": 1440,
   "heroLockups": [
@@ -718,8 +718,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Perception for Manipulation",
-      "href": "/classical/perception/",
+      "accessibleName": "Drones and Aerial Robotics",
+      "href": "/adjacent/drones/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2362.92,
@@ -727,8 +727,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "The Data Bottleneck",
-      "href": "/data-hardware/data-bottleneck/",
+      "accessibleName": "The Bear Case",
+      "href": "/frontier/bear-case/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2393.92,
@@ -736,8 +736,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Diffusion Policy",
-      "href": "/manipulation/diffusion-policy/",
+      "accessibleName": "Competing Theses",
+      "href": "/frontier/competing-theses/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2424.92,
@@ -745,8 +745,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Autonomous Vehicles",
-      "href": "/adjacent/autonomous-vehicles/",
+      "accessibleName": "Dexterity",
+      "href": "/frontier/dexterity/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2455.92,
@@ -754,8 +754,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Drones and Aerial Robotics",
-      "href": "/adjacent/drones/",
+      "accessibleName": "Generalization",
+      "href": "/frontier/generalization/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2486.92,
@@ -1007,7 +1007,7 @@
       "label": "Recently updated",
       "signature": "plain/module-heading/dated-links",
       "prose": "",
-      "text": "Recently updated 2026-10-02 Perception for Manipulation 2026-10-02 The Data Bottleneck 2026-10-02 Diffusion Policy 2026-10-02 Autonomous Vehicles 2026-10-02 Drones and Aerial Robotics"
+      "text": "Recently updated 2026-10-02 Drones and Aerial Robotics 2026-10-02 The Bear Case 2026-10-02 Competing Theses 2026-10-02 Dexterity 2026-10-02 Generalization"
     },
     {
       "label": "Tools",

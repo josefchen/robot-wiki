@@ -638,14 +638,20 @@ const seoPassAppends = [
   ...seoPassArticles.map(id => `seo-pass-20261002-relationships-${id.replace('/', '-')}`),
   'seo-pass-20261002-citation-rendering',
 ];
-// The 2026-10-02 reader-first figure frame appends one accessible name: the
-// shared preset group borrows the label it prints above its buttons.
-const readerFirstAppends = ['reader-first-20261002-expression-name-preset-group-label'];
+// The 2026-10-02 reader-first figure pass appends its block last: first the
+// shared preset group's accessible name, which borrows the label it prints
+// above its buttons, then one edge per article and accessible name each
+// rewritten figure moved, batch by batch.
+const readerFirstAppends = merged.filter(x => x.id.startsWith('reader-first-20261002-')).map(x => x.id);
+const beforeReaderFirst = (entries: ApprovedDelta[]) => entries.filter(x => !readerFirstAppends.includes(x.id));
 // Earlier blocks check each chain as it stood before the SEO pass; the SEO
-// pass block below checks the entries that now close those chains.
-const beforeSeoPass = (entries: ApprovedDelta[]) => entries.filter(x => !seoPassAppends.includes(x.id));
+// pass block below checks the entries that closed those chains, and the
+// reader-first block the entries that now close them.
+const beforeSeoPass = (entries: ApprovedDelta[]) => beforeReaderFirst(entries).filter(x => !seoPassAppends.includes(x.id));
 const seoPassEdges = (manifest: string, memberId: string) => merged
   .filter(x => seoPassAppends.includes(x.id) && x.manifest === manifest && x.memberId === memberId).map(x => x.id);
+const readerFirstEdges = (manifest: string, memberId: string) => merged
+  .filter(x => readerFirstAppends.includes(x.id) && x.manifest === manifest && x.memberId === memberId).map(x => x.id);
 const afterSeoPass = merged.length - readerFirstAppends.length;
 const afterKolBacklog = afterSeoPass - seoPassAppends.length;
 const afterOpusFigureMigration = afterKolBacklog - kolBacklogAppends.length;
@@ -673,8 +679,9 @@ describe('two-parent exact approval reconciliation', () => {
     // prose restores and remaining repairs, the figure-system resolution, the
     // home front page and the figure migration add the edges named above,
     // the KOL backlog batch appends its own named block, the SEO pass
-    // appends its block, and the reader-first figure frame appends its block last.
-    expect([main.length, local.length, localOnly.length, merged.length]).toEqual([1558, 1104, 7, 2027]);
+    // appends its block, and the reader-first figure pass appends its block last.
+    expect([main.length, local.length, localOnly.length, merged.length])
+      .toEqual([1558, 1104, 7, 2026 + readerFirstAppends.length]);
     expect(merged.slice(0, main.length)).toEqual(main);
     expect(merged.slice(main.length, main.length + localOnly.length)).toEqual(localOnly);
     expect(merged.slice(main.length + localOnly.length).map(x => x.id))
@@ -710,13 +717,16 @@ describe('two-parent exact approval reconciliation', () => {
     expect(merged.slice(afterKolBacklog, afterSeoPass)).toMatchObject(seoPassAppends.map(id => ({
       id, responsibleMilestone: 'opus-pass', disposition: 'permanent',
     })));
-    expect(merged.slice(afterSeoPass)).toMatchObject([{
-      id: readerFirstAppends[0], manifest: 'accessible-names',
+    expect(merged.slice(afterSeoPass, afterSeoPass + 1)).toMatchObject([{
+      id: 'reader-first-20261002-expression-name-preset-group-label', manifest: 'accessible-names',
       memberId: 'expression:components/ui/instrument.tsx:aria-labelledby:1',
       oldHash: 'ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d',
       newHash: '5365423d7ce3ace32c008459465c944c95d5df4afd331ad26413b336316be72b',
       responsibleMilestone: 'opus-pass', disposition: 'permanent',
     }]);
+    expect(merged.slice(afterSeoPass)).toMatchObject(readerFirstAppends.map(id => ({
+      id, responsibleMilestone: 'opus-pass', disposition: 'permanent',
+    })));
     expect(beforeRound6.slice(-1)).toMatchObject([{
       id: sharedReaderLayoutAppends[0], manifest: 'article-metadata',
       memberId: 'canonical-metadata-source:app/layout.tsx',
@@ -938,11 +948,11 @@ describe('two-parent exact approval reconciliation', () => {
       readFileSync('evidence/brand-v2/baseline/prose.json', 'utf8'));
     for (const [index, [memberId, previous, current]] of round6ProseRestoreEndpoints.entries()) {
       const all = merged.filter(x => x.manifest === 'prose' && x.memberId === memberId);
-      // Only a named figure-migration or SEO pass edge may follow the restore;
-      // the restore is checked against the chain it closed.
+      // Only a named figure-migration, SEO pass or reader-first edge may follow
+      // the restore; the restore is checked against the chain it closed.
       const edges = all.slice(0, all.findIndex(x => x.id === round6ProseRestoreAppends[index]) + 1);
-      expect(all.slice(edges.length).map(x => x.id))
-        .toEqual([...opusFigureMigrationEdges('prose', memberId), ...seoPassEdges('prose', memberId)]);
+      expect(all.slice(edges.length).map(x => x.id)).toEqual([...opusFigureMigrationEdges('prose', memberId),
+        ...seoPassEdges('prose', memberId), ...readerFirstEdges('prose', memberId)]);
       const sealed = sealedProse.members.find(x => x.id === memberId)!.hash;
       const entry = edges.at(-1)!;
       const prior = edges.slice(0, -1);
@@ -1096,7 +1106,8 @@ describe('two-parent exact approval reconciliation', () => {
       const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(
         readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));
       const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;
-      const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);
+      // The chain as the SEO pass closed it; a reader-first edge may follow.
+      const edges = beforeReaderFirst(merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId));
       expect(edges.at(-1)).toBe(entry);
       const prior = edges.slice(0, -1);
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -1123,7 +1134,7 @@ describe('two-parent exact approval reconciliation', () => {
     }
     expect(seoPassAppends.filter(id => {
       const entry = merged.find(x => x.id === id)!;
-      const prior = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId
+      const prior = beforeReaderFirst(merged).filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId
         && x !== entry);
       return entry.reconciles === undefined && entry.oldHash !== (prior.at(-1)?.newHash ?? entry.oldHash);
     })).toEqual(['seo-pass-20261002-prose-manipulation-pi-line', 'seo-pass-20261002-prose-manipulation-vla-models']);
@@ -1140,5 +1151,35 @@ describe('two-parent exact approval reconciliation', () => {
       ].map(id => `seo-pass-20261002-relationships-${id}`),
       'seo-pass-20261002-citation-rendering',
     ]);
+  });
+
+  it('binds each reader-first edge to its previous endpoint and to the sealed hash', () => {
+    expect(readerFirstAppends.length).toBeGreaterThan(1);
+    for (const id of readerFirstAppends) {
+      const entry = merged.find(x => x.id === id)!;
+      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(
+        readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));
+      const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;
+      const all = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);
+      // A later reader-first batch may close the chain again; this edge is
+      // checked against the chain as it stood when it was appended.
+      const edges = all.slice(0, all.indexOf(entry) + 1);
+      expect(all.slice(edges.length).every(x => readerFirstAppends.includes(x.id))).toBe(true);
+      const prior = edges.slice(0, -1);
+      const previous = prior.at(-1)?.newHash ?? sealed;
+      expect(entry.newHash).not.toBe(previous);
+      expect(entry.newHash).not.toBe(entry.oldHash);
+      const path = approvedDeltaPath(edges, sealed, entry.newHash);
+      expect(path.status).toBe('approved');
+      expect(path.path.at(-1)).toBe(entry);
+      expect(approvedDeltaPath(prior, sealed, entry.newHash).status).not.toBe('approved');
+      if (entry.reconciles) {
+        expect(entry.oldHash).toBe(sealed);
+        expect(entry.reconciles).toEqual(prior.map(x => ({ id: x.id, oldHash: x.oldHash, newHash: x.newHash })));
+      } else {
+        expect(prior.some(x => x.reconciles !== undefined)).toBe(false);
+        expect(entry.oldHash).toBe(previous);
+      }
+    }
   });
 });

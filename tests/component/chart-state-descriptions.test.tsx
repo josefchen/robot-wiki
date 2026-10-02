@@ -368,7 +368,7 @@ describe('state-form chart descriptions', () => {
     const { container } = render(<PerceptionLatency />);
     const { text } = assertDescribed(screen.getByRole('img'), container);
     expect(text).toMatch(/70 ms of perception latency/);
-    fireEvent.change(screen.getByRole('slider', { name: /perception latency/i }), {
+    fireEvent.change(screen.getByRole('slider', { name: /perception latency/i, hidden: true }), {
       target: { value: '150' },
     });
     const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';

@@ -18,6 +18,7 @@
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { readerFirstPredecessor } from './audit-reader-first-continuity.ts';
 
 const directory = 'audit/evidence/seo-pass-20261002/';
 const digest = (bytes: Buffer | string) => createHash('sha256').update(bytes).digest('hex');
@@ -351,8 +352,10 @@ function revealPredecessor(root: string, ref: Artifact, live: Buffer): Buffer {
  * live bytes, a path with no reviewed successor, and any bytes other than the
  * reviewed successor come back unchanged, so those checks still decide them.
  * The reviewed successor is verified, and its rebuilt predecessor returned.
+ * The reader-first layer, which is newer, sees the live bytes first.
  */
-export function seoPassPredecessor(root: string, ref: Artifact, live: Buffer): Buffer {
+export function seoPassPredecessor(root: string, ref: Artifact, liveBytes: Buffer): Buffer {
+  const live = readerFirstPredecessor(root, ref, liveBytes);
   if (ref.path === revealAfter.path) return revealPredecessor(root, ref, live);
   const spec = specSuccessors.get(ref.path);
   if (spec) {

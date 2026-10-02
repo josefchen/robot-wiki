@@ -1,7 +1,7 @@
 import { screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
-import { ThesisExplorer } from '@/components/interactive/thesis-explorer';
+import { ThesisExplorer, plainThesisName } from '@/components/interactive/thesis-explorer';
 import { DEFAULT_THESIS_ID, THESES } from '@/lib/competing-theses';
 import { renderWithCitations } from '../helpers/widget-citations';
 
@@ -13,30 +13,64 @@ function thesisById(id: string) {
   return thesis;
 }
 
+const card = (id: string) =>
+  screen.getByRole('button', { name: plainThesisName(id) });
+
 describe('ThesisExplorer', () => {
-  it('renders a row for each of the six theses with its claim and falsification signal', () => {
+  it('draws six bet cards with plain names, the bet and a "wrong if" line', () => {
+    render(<ThesisExplorer />);
+    expect(screen.getByText('Six competing bets on how robots will get smart')).toBeInTheDocument();
+    expect(screen.getAllByTestId(/^thesis-card-/)).toHaveLength(6);
+    expect(
+      [
+        'Just make it bigger',
+        'A planner directs simple skills',
+        'Let the robot imagine first',
+        'Copy first, then practise',
+        'Humans steer while robots learn',
+        'Human-shaped or built for the job',
+      ],
+    ).toEqual(THESES.map((thesis) => plainThesisName(thesis.id)));
+    for (const thesis of THESES) {
+      const scope = within(screen.getByTestId(`thesis-card-${thesis.id}`));
+      expect(scope.getByRole('button', { name: plainThesisName(thesis.id) })).toBeInTheDocument();
+      expect(scope.getByText(/wrong/)).toHaveAttribute('data-thesis-wrong-if');
+      const drawing = screen.getByTestId(`thesis-card-${thesis.id}`).querySelector('svg');
+      expect(drawing).toHaveAttribute('aria-hidden', 'true');
+      expect(drawing?.querySelectorAll('rect, line, path, circle, ellipse').length).toBeGreaterThan(2);
+    }
+    expect(screen.getByTestId('thesis-wrong-if-note')).toHaveTextContent(
+      'Each bet names the result that would prove it wrong',
+    );
+    expect(screen.getByTestId('thesis-readout')).toHaveTextContent(
+      '6 bets. Tap one to read the evidence for and against.',
+    );
+  });
+
+  it('keeps the technical names, claims, proponents and falsification wording in the method table', () => {
     render(<ThesisExplorer />);
     expect(screen.getAllByTestId(/^thesis-row-/)).toHaveLength(6);
     for (const thesis of THESES) {
       const row = screen.getByTestId(`thesis-row-${thesis.id}`);
+      expect(row.closest('details')).not.toBeNull();
       const scope = within(row);
-      expect(
-        scope.getByRole('button', { name: thesis.name }),
-      ).toBeInTheDocument();
+      expect(scope.getByText(thesis.name)).toBeInTheDocument();
       expect(scope.getByText(thesis.claim)).toBeInTheDocument();
       expect(scope.getByText(thesis.falsificationSignal)).toBeInTheDocument();
+      expect(scope.getByText(thesis.falsification)).toBeInTheDocument();
+      for (const proponent of thesis.proponents) {
+        expect(row).toHaveTextContent(proponent);
+      }
     }
-    expect(screen.getByTestId('thesis-readout')).toHaveTextContent(
-      /^6 theses, showing: /,
-    );
   });
 
-  it('opens with the default thesis selected and its four detail fields visible', () => {
+  it('opens with no card selected, then shows the four detail fields of a tapped card', async () => {
+    const user = userEvent.setup();
     render(<ThesisExplorer />);
+    expect(screen.queryByTestId('thesis-detail')).not.toBeInTheDocument();
     const thesis = thesisById(DEFAULT_THESIS_ID);
-    expect(
-      screen.getByRole('button', { name: thesis.name }),
-    ).toHaveAttribute('aria-pressed', 'true');
+    await user.click(card(thesis.id));
+    expect(card(thesis.id)).toHaveAttribute('aria-pressed', 'true');
 
     const detail = screen.getByTestId('thesis-detail');
     const scope = within(detail);
@@ -53,42 +87,37 @@ describe('ThesisExplorer', () => {
     expect(scope.getByText(thesis.falsification)).toBeInTheDocument();
     expect(scope.getByText(/evidence for/i)).toBeInTheDocument();
     expect(scope.getByText(/evidence against/i)).toBeInTheDocument();
-    expect(scope.getByText(/falsification/i)).toBeInTheDocument();
+    expect(scope.getByText(/wrong if/i)).toBeInTheDocument();
   });
 
-  it('switches the detail view when another thesis row is clicked', async () => {
+  it('switches the detail view when another card is tapped', async () => {
     const user = userEvent.setup();
     render(<ThesisExplorer />);
+    await user.click(card(DEFAULT_THESIS_ID));
     const target = thesisById('world-model-training');
-    await user.click(screen.getByRole('button', { name: target.name }));
+    await user.click(card(target.id));
 
-    expect(
-      screen.getByRole('button', { name: target.name }),
-    ).toHaveAttribute('aria-pressed', 'true');
+    expect(card(target.id)).toHaveAttribute('aria-pressed', 'true');
+    expect(card(DEFAULT_THESIS_ID)).toHaveAttribute('aria-pressed', 'false');
     const detail = screen.getByTestId('thesis-detail');
     expect(detail).toHaveTextContent(target.falsification);
     for (const item of target.evidenceFor) {
       expect(detail).toHaveTextContent(item.text);
     }
-    // The previous thesis's detail is gone.
-    const previous = thesisById(DEFAULT_THESIS_ID);
-    expect(detail).not.toHaveTextContent(previous.falsification);
+    expect(detail).not.toHaveTextContent(thesisById(DEFAULT_THESIS_ID).falsification);
     expect(screen.getByTestId('thesis-readout')).toHaveTextContent(
-      `showing: ${target.name}`,
+      `showing: ${plainThesisName(target.id)}`,
     );
   });
 
-  it('renders evidence citations as external links', () => {
+  it('renders evidence citations as external links', async () => {
+    const user = userEvent.setup();
     render(<ThesisExplorer />);
     const thesis = thesisById(DEFAULT_THESIS_ID);
+    await user.click(card(thesis.id));
     const detail = screen.getByTestId('thesis-detail');
-    // The detail view cites the ids the data row declares; each chip's
-    // primary link goes out to the source (the chip also carries an
-    // in-page anchor to the References entry, which is internal).
     const cited = new Set(
-      [...thesis.evidenceFor, ...thesis.evidenceAgainst].flatMap(
-        (item) => item.citationIds,
-      ),
+      [...thesis.evidenceFor, ...thesis.evidenceAgainst].flatMap((item) => item.citationIds),
     );
     expect(cited.size).toBeGreaterThanOrEqual(2);
     for (const id of cited) {
@@ -100,54 +129,43 @@ describe('ThesisExplorer', () => {
     }
   });
 
-  it('is operable from the keyboard: Enter selects, arrows move between theses', async () => {
+  it('is operable from the keyboard: Enter selects, arrows move between cards', async () => {
     const user = userEvent.setup();
     render(<ThesisExplorer />);
-    const first = thesisById('end-to-end-vla');
-    const second = thesisById('hierarchical-planner');
-    const third = thesisById('world-model-training');
-
-    const firstButton = screen.getByRole('button', { name: first.name });
-    firstButton.focus();
+    card('end-to-end-vla').focus();
+    await user.keyboard('{Enter}');
+    expect(card('end-to-end-vla')).toHaveAttribute('aria-pressed', 'true');
     await user.keyboard('{ArrowDown}');
-    expect(
-      screen.getByRole('button', { name: second.name }),
-    ).toHaveAttribute('aria-pressed', 'true');
+    expect(card('hierarchical-planner')).toHaveAttribute('aria-pressed', 'true');
     expect(screen.getByTestId('thesis-detail')).toHaveTextContent(
-      second.falsification,
+      thesisById('hierarchical-planner').falsification,
     );
-
-    await user.keyboard('{ArrowDown}');
-    expect(
-      screen.getByRole('button', { name: third.name }),
-    ).toHaveAttribute('aria-pressed', 'true');
-
+    await user.keyboard('{ArrowRight}');
+    expect(card('world-model-training')).toHaveAttribute('aria-pressed', 'true');
     await user.keyboard('{ArrowUp}');
     await user.keyboard('{Enter}');
-    expect(
-      screen.getByRole('button', { name: second.name }),
-    ).toHaveAttribute('aria-pressed', 'true');
+    expect(card('hierarchical-planner')).toHaveAttribute('aria-pressed', 'true');
+    await user.keyboard('{End}');
+    expect(card('form-factor')).toHaveAttribute('aria-pressed', 'true');
+    await user.keyboard('{Home}');
+    expect(card('end-to-end-vla')).toHaveAttribute('aria-pressed', 'true');
   });
 
-  it('reset restores the default selection', async () => {
+  it('reset under "Adjust more" closes the open card', async () => {
     const user = userEvent.setup();
     render(<ThesisExplorer />);
-    const target = thesisById('form-factor');
-    await user.click(screen.getByRole('button', { name: target.name }));
-    expect(
-      screen.getByRole('button', { name: target.name }),
-    ).toHaveAttribute('aria-pressed', 'true');
+    await user.click(card('form-factor'));
+    expect(card('form-factor')).toHaveAttribute('aria-pressed', 'true');
 
-    await user.click(screen.getByRole('button', { name: /reset/i }));
-    const fallback = thesisById(DEFAULT_THESIS_ID);
-    expect(
-      screen.getByRole('button', { name: fallback.name }),
-    ).toHaveAttribute('aria-pressed', 'true');
-    expect(screen.getByTestId('thesis-detail')).toHaveTextContent(
-      fallback.falsification,
-    );
+    const reset = screen.getByRole('button', { name: /reset/i, hidden: true });
+    expect(reset.closest('details')).not.toBeNull();
+    await user.click(reset);
+    for (const thesis of THESES) {
+      expect(card(thesis.id)).toHaveAttribute('aria-pressed', 'false');
+    }
+    expect(screen.queryByTestId('thesis-detail')).not.toBeInTheDocument();
     expect(screen.getByTestId('thesis-readout')).toHaveTextContent(
-      `showing: ${fallback.name}`,
+      '6 bets. Tap one to read the evidence for and against.',
     );
   });
 });

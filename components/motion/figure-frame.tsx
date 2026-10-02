@@ -52,6 +52,11 @@ function FoldMarker() {
  * One of the frame's two folds: collapsed in the served HTML, opened by
  * the native disclosure, so keyboard, pointer and no-script readers all
  * reach the same content.
+ *
+ * The body is a flat surface on the page ground. Its notes, lists and
+ * tables are figure text, and Chromium lays out a closed disclosure's
+ * content, so without the surface the article sheet would grade them as
+ * running prose and unregistered rules.
  */
 function FigureFold({
   kind,
@@ -80,6 +85,8 @@ function FigureFold({
       </summary>
       <div
         data-figure-fold-body=""
+        data-brand-surface-id="surface:flat"
+        data-brand-surface-level="flat"
         className={cx(
           FIGURE_TEXT_CLASS.fold,
           kind === 'adjust'

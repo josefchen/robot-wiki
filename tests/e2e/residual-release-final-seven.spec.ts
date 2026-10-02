@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto';
+import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { expect, test, type Locator, type Page } from '@playwright/test';
 import { setSlider } from './slider';
@@ -102,9 +103,8 @@ test('final seven: actually mounted corrected arithmetic on two viewports', asyn
     await expect(page.locator('#main-content')).toContainText('2000 mm/s may be more prudent');
     const safety = chart(page, 'mode-constraint', 0);
     expect(await safety.innerText()).not.toMatch(/[–—]/);
-    // The teaching choices render after the frame, in its Model assumptions disclosure.
-    const assumptions = safety.locator('xpath=following-sibling::details[1]');
-    await assumptions.locator('summary').click();
+    // The teaching choices render in the frame's "How this was made" fold.
+    const assumptions = await openHowThisWasMade(safety);
     await expect(assumptions).toContainText('both sliders choosing 0 to 2 m/s in 0.05 m/s steps');
     expect(await assumptions.innerText()).not.toMatch(/[–—]/);
     await capture(safetyRoute, 'CollaborativeOperationModes', 1, 'default', 'unmounted', 'load',
@@ -114,6 +114,7 @@ test('final seven: actually mounted corrected arithmetic on two viewports', asyn
     await capture(safetyRoute, 'CollaborativeOperationModes', 1, 'discrete-options',
       'distance-r1-h1.6', 'select power-force', 'force-r1-h1.6', safety,
       ['force-readout', 'force-limit-readout'], ['316 N', '255 N'], viewport);
+    await openAdjustMore(safety);
     await safety.getByRole('button', { name: 'Reset' }).click();
     await capture(safetyRoute, 'CollaborativeOperationModes', 1, 'reset', 'force-r1-h1.6',
       'reset', 'distance-r1-h1.6', safety, ['separation-readout'], ['1.42 m'], viewport);

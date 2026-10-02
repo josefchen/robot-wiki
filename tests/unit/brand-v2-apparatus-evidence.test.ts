@@ -29,7 +29,8 @@ import {
   currentArticleFactFrontmatterMembers,
   currentRelationshipMembers,
 } from '@/lib/relationship-manifest';
-import { DEFAULT_THESIS_ID, THESES } from '@/lib/competing-theses';
+import { MILESTONES } from '@/lib/bear-case';
+import { THESES } from '@/lib/competing-theses';
 import { collectArticleTruthManifests } from '@/scripts/brand-v2-baseline';
 
 /**
@@ -441,8 +442,8 @@ describe('the apparatus verdict families', () => {
 
   it('fails a mount whose data-driven chips all disappeared', () => {
     const graph = expectedApparatusGraph(ROOT);
-    const dynamic = [...graph.entries()].filter(
-      ([, value]) => value.dynamicCitationSites.length > 0,
+    const dynamic = [...graph.entries()].filter(([, value]) =>
+      value.dynamicCitationSites.some(({ occurrences }) => occurrences.length > 0),
     );
     expect(
       dynamic.length,
@@ -485,11 +486,20 @@ describe('the apparatus verdict families', () => {
     );
   });
 
-  it('fails one missing mapped citation even when seven mapped citations and every body citation survive', () => {
-    const route = '/frontier/competing-theses/';
-    const id = 'bessemer-robotics-2026';
+  it('fails one missing mapped citation even when every other mapped citation and every body citation survive', () => {
+    const route = '/frontier/bear-case/';
     const graph = expectedApparatusGraph(ROOT);
+    const occurrences = graph
+      .get(route)!
+      .dynamicCitationSites.flatMap((site) => site.occurrences);
+    expect(occurrences.length, 'the watchlist maps no citation, so this case is vacuous').toBeGreaterThan(1);
     const bodyMarkers = graph.get(route)!.citationMarkers;
+    // Prefer an id the body also cites, so the body guard is what would
+    // mask the loss if the mapped count were not checked.
+    const id =
+      occurrences.find((occurrence) => bodyMarkers.includes(occurrence.id))?.id ??
+      occurrences[0]!.id;
+    const mapped = occurrences.filter((occurrence) => occurrence.id === id).length;
     const bodyCount = bodyMarkers.filter(
       (candidate) => candidate === id,
     ).length;
@@ -498,10 +508,9 @@ describe('the apparatus verdict families', () => {
         if (observation.route !== route) continue;
         const positions = observation.citations
           .flatMap((chip, index) => (chip.id === id ? [index] : []));
-        expect(positions).toHaveLength(bodyCount + 1);
-        // The final matching chip belongs to closing body prose, not the
-        // explorer. Remove the surplus occurrence that leaves the complete
-        // ordered body subsequence intact, so the old body guard stays green.
+        expect(positions).toHaveLength(bodyCount + mapped);
+        // Remove a surplus occurrence that leaves the complete ordered body
+        // subsequence intact, so the old body guard stays green.
         const victim = positions.reverse().find((position) => {
           let next = 0;
           observation.citations.forEach((chip, index) => {
@@ -512,13 +521,34 @@ describe('the apparatus verdict families', () => {
         expect(victim).toBeDefined();
         observation.citations.splice(victim!, 1);
         expect(observation.citations.filter((chip) => chip.id === id))
-          .toHaveLength(bodyCount);
+          .toHaveLength(bodyCount + mapped - 1);
       }
     });
     expect(
       relationshipPreservationVerdicts(accept(evidence), ROOT, sourceDrift())
         .get(route)!.failures.join(' '),
-    ).toMatch(/mapped.*bessemer-robotics-2026/);
+    ).toContain(`mapped citation "${id}"`);
+  });
+
+  it('fails a thesis chip that renders before any card is tapped', () => {
+    const route = '/frontier/competing-theses/';
+    const graph = expectedApparatusGraph(ROOT);
+    const sites = graph.get(route)!.dynamicCitationSites;
+    expect(sites.length, 'the explorer has no mapped site, so this case is vacuous').toBeGreaterThan(0);
+    expect(sites.flatMap(({ occurrences }) => occurrences)).toEqual([]);
+    const owner = graph
+      .get(route)!
+      .mountCitationOwners.find(({ mountId }) => sites.some((site) => site.mountId === mountId))!;
+    const evidence = mutate((copy) => {
+      for (const observation of copy.observations) {
+        if (observation.route !== route) continue;
+        observation.citations.push({ ...observation.citations[0], id: owner.ids[0]! });
+      }
+    });
+    expect(
+      relationshipPreservationVerdicts(accept(evidence), ROOT, sourceDrift())
+        .get(route)!.failures.join(' '),
+    ).toMatch(/expand to 0 mapped occurrences/);
   });
 
   it('refuses a citation-site scan that stopped finding one of its spellings', () => {
@@ -536,24 +566,27 @@ describe('the apparatus verdict families', () => {
 
   it('expands one occurrence population per data source, not one per JSX spelling of the same expression', () => {
     const graph = expectedApparatusGraph(ROOT);
-    const route = '/frontier/competing-theses/';
-    const expected = graph.get(route)!;
-    // thesis-explorer.tsx spells <CiteRef id={id}/> twice inside one
-    // .map() callback: a block-level branch for two specific source ids
-    // and the bare rendering for every other row. Both spellings draw from
-    // the same data rows, so the mount owes each default-state occurrence
-    // exactly once, not once per branch.
+    // milestones-watchlist.tsx spells <CiteRef key={id} id={id} /> twice:
+    // once on the open tile and once in the "How this was made" table.
+    // Both spellings draw from the same milestone rows, and at rest only
+    // the table renders, so the mount owes each milestone citation exactly
+    // once, not once per spelling.
+    const source = readFileSync(
+      join(ROOT, 'components/interactive/milestones-watchlist.tsx'),
+      'utf8',
+    );
+    expect(
+      source.match(/<CiteRef\b[^>]*\bid=\{id\}/g)?.length ?? 0,
+      'the watchlist no longer spells the same expression twice, so this case is vacuous',
+    ).toBeGreaterThan(1);
     const perMount = new Map<string, number>();
-    for (const site of expected.dynamicCitationSites) {
+    for (const site of graph.get('/frontier/bear-case/')!.dynamicCitationSites) {
       perMount.set(
         site.mountId,
         (perMount.get(site.mountId) ?? 0) + site.occurrences.length,
       );
     }
-    const selected = THESES.find(({ id }) => id === DEFAULT_THESIS_ID)!;
-    const dataRows = (
-      ['evidenceFor', 'evidenceAgainst'] as const
-    ).flatMap((side) => selected[side].flatMap((row) => row.citationIds));
+    const dataRows = MILESTONES.flatMap((milestone) => milestone.citationIds);
     expect(dataRows.length).toBeGreaterThan(0);
     expect(perMount.size).toBeGreaterThan(0);
     for (const [mountId, expanded] of perMount) {
@@ -562,6 +595,17 @@ describe('the apparatus verdict families', () => {
         `${mountId} expanded its mapped occurrences once per JSX spelling of the same expression`,
       ).toBe(dataRows.length);
     }
+    // The thesis explorer keeps one site per mount for its one expression,
+    // and owes nothing at rest because no card is open until a reader taps one.
+    const theses = graph.get('/frontier/competing-theses/')!.dynamicCitationSites;
+    expect(theses.length).toBeGreaterThan(0);
+    expect(new Set(theses.map(({ mountId }) => mountId)).size).toBe(theses.length);
+    expect(theses.flatMap(({ occurrences }) => occurrences)).toEqual([]);
+    expect(
+      THESES.flatMap((thesis) =>
+        [...thesis.evidenceFor, ...thesis.evidenceAgainst].flatMap((row) => row.citationIds),
+      ).length,
+    ).toBeGreaterThan(0);
   });
 
   it('binds the References the frontmatter declares to the sealed frontmatter', () => {

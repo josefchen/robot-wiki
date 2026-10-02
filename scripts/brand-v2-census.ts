@@ -366,6 +366,8 @@ const INSTRUMENT_CONTROL_PRIMITIVES: Record<string, readonly string[]> = {
   PlotStage: [],
   InstrumentFigure: [],
   ControlField: [],
+  PresetGroup: ['<button', 'aria-pressed'],
+  SliderEnds: [],
 };
 
 /** Names the instrument family actually exports, so a barrel co-import such

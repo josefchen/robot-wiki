@@ -6,7 +6,7 @@
     },
     "adjacent/drones": {
       "published": "2026-08-15T15:50:32+01:00",
-      "modified": "2026-10-02T05:08:36+02:00"
+      "modified": "2026-10-02T21:22:33+02:00"
     },
     "adjacent/space": {
       "published": "2026-08-15T18:35:31+01:00",
@@ -82,19 +82,19 @@
     },
     "frontier/bear-case": {
       "published": "2026-08-12T17:20:13+01:00",
-      "modified": "2026-10-02T05:08:36+02:00"
+      "modified": "2026-10-02T21:22:33+02:00"
     },
     "frontier/competing-theses": {
       "published": "2026-08-12T16:14:42+01:00",
-      "modified": "2026-10-02T05:08:36+02:00"
+      "modified": "2026-10-02T21:22:33+02:00"
     },
     "frontier/dexterity": {
       "published": "2026-08-12T04:47:30+01:00",
-      "modified": "2026-10-02T05:08:36+02:00"
+      "modified": "2026-10-02T21:22:33+02:00"
     },
     "frontier/generalization": {
       "published": "2026-08-12T15:08:41+01:00",
-      "modified": "2026-10-02T05:08:36+02:00"
+      "modified": "2026-10-02T21:22:33+02:00"
     },
     "frontier/reliability-gap": {
       "published": "2026-08-12T04:02:00+01:00",
@@ -102,7 +102,7 @@
     },
     "frontier/safety-and-assurance": {
       "published": "2026-08-22T18:00:18+01:00",
-      "modified": "2026-10-02T05:08:36+02:00"
+      "modified": "2026-10-02T21:22:33+02:00"
     },
     "manipulation/action-chunking": {
       "published": "2026-08-07T17:34:21+01:00",
@@ -231,7 +231,7 @@
   },
   "routes": {
     "/": {
-      "modified": "2026-10-02T09:10:22+02:00"
+      "modified": "2026-10-02T21:22:33+02:00"
     },
     "/manipulation/": {
       "modified": "2026-10-02T05:08:36+02:00"

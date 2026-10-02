@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "07f3a81676906c74153e3391bdf5b3233b14dd06b6d390be0f92eca500de47db",
+  "fingerprint": "dce127fe3cfe50d05f35f1982b964a786d4c7783e438a2a671dd4bc750ef8319",
   "viewports": [
     "375x812",
     "1440x900"
@@ -142,7 +142,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3093,
+      "visibleTextLength": 3064,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -2123,7 +2123,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18743,
+      "visibleTextLength": 18653,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -2256,11 +2256,56 @@
           "widthPx": 309,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Maximum speed19.21 m/sTime to contact416 ms"
+          "text": "At about 69 kilometres an hour the drone flies about 1.3 met"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 309,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "not measured"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Model, from Falanga, Kim and Scaramuzza: maximum speed = ran"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Swerve settings, as sideways acceleration: Gentle 10 m/s² (a"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Reference latencies from the study (8 m sensing range): Ster"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The same budget on a time axis, at the current settings (Sta"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
@@ -2274,7 +2319,7 @@
           "widthPx": 309,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "beat 4 / 4 delay 200 ms avoidance 346 ms maximum speed 14.64"
+          "text": "beat 4 / 4 Slow camera: top safe speed about 53 km/h, after "
         },
         {
           "familyHead": "ibm plex sans",
@@ -2283,7 +2328,34 @@
           "widthPx": 309,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Falanga et al.'s cited 8 m range, 25 m/s² agility, and stere"
+          "text": "illustrative"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The starting model is Falanga, Kim and Scaramuzza's: an 8 m "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Quick camera: 70 ms delay, 19.21 m/s, about 1.3 m flown befo"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The four steps, in order:"
         },
         {
           "familyHead": "newsreader",
@@ -2748,7 +2820,7 @@
         },
         {
           "tag": "button",
-          "text": "10 m/s²",
+          "text": "Ordinary camera (7 hundredths of",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -2756,7 +2828,7 @@
         },
         {
           "tag": "button",
-          "text": "25 m/s²",
+          "text": "Faster camera (about 1 hundredth",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -2764,7 +2836,7 @@
         },
         {
           "tag": "button",
-          "text": "50 m/s²",
+          "text": "Gentle",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -2772,15 +2844,47 @@
         },
         {
           "tag": "button",
-          "text": "200 m/s²",
+          "text": "Standard (the study’s)",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Hard",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Extreme",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "button",
           "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -2829,6 +2933,14 @@
         {
           "tag": "button",
           "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -18363,7 +18475,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 17725,
+      "visibleTextLength": 15770,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -18430,11 +18542,11 @@
           "The Bear Case"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 9,
+        "readingMinutes": 8,
         "citationCount": 22,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "9 min",
+        "readingTimeText": "8 min",
         "citationCountText": "22",
         "bibliographyIds": [
           "brooks-dexterity-2025",
@@ -18498,37 +18610,19 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 247,
+          "widthPx": 206,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "8 milestones: 4 not met, 4 partial, 0 met"
+          "text": "4 partly there, 4 not yet, 0 done"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
-          "lineHeightRatio": 1.63,
-          "widthPx": 309,
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 83,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "The generalization test: a single policy succeeding across m"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 13,
-          "lineHeightRatio": 1.63,
-          "widthPx": 309,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "π0.5 cleaned kitchens and bedrooms in homes that were entire"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 13,
-          "lineHeightRatio": 1.63,
-          "widthPx": 309,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "A published, reproducible evaluation of one policy across mo"
+          "text": "Showing all 8"
         },
         {
           "familyHead": "newsreader",
@@ -18645,7 +18739,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Back to the board at the top of this module. Each row carrie"
+          "text": "Back to the board at the top of this module. Each tile opens"
         },
         {
           "familyHead": "newsreader",
@@ -18841,21 +18935,21 @@
         },
         {
           "kind": "citation",
-          "count": 56,
+          "count": 80,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
-          "decorationColour": "rgb(36, 95, 255)",
+          "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
           "familyHead": "ibm plex sans",
           "shape": "chip border:0px/solid radius:0px",
           "variants": [
             {
-              "signature": "rgb(36, 95, 255)|underline|solid|rgb(36, 95, 255)|ibm plex sans|chip border:0px/solid radius:0px",
-              "count": 2,
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|chip border:0px/solid radius:0px",
+              "count": 26,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
-              "decorationColour": "rgb(36, 95, 255)",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
               "familyHead": "ibm plex sans",
               "shape": "chip border:0px/solid radius:0px"
             },
@@ -19029,7 +19123,7 @@
         },
         {
           "tag": "button",
-          "text": "Not met",
+          "text": "Not yet",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -19037,7 +19131,7 @@
         },
         {
           "tag": "button",
-          "text": "Partial",
+          "text": "Partly",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -19045,11 +19139,19 @@
         },
         {
           "tag": "button",
-          "text": "Met",
+          "text": "Done (0)",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "button",
@@ -19061,67 +19163,139 @@
         },
         {
           "tag": "button",
-          "text": "One policy, >90% in unseen homes",
+          "text": "One robot brain succeeds in 9 of",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Verified 10,000-unit deployment",
+          "text": "Partly there",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Open benchmark, cross-lab agreem",
+          "text": "10,000 humanoids doing documente",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "RL >99% across a broad task set",
+          "text": "Not yet",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Tactile model inside a VLA pipel",
+          "text": "Labs agree on one shared public ",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Contact-rich sim-to-real, zero r",
+          "text": "Partly there",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Humanoid cost-per-task parity",
+          "text": "Practice gets robots to 99% on m",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "100x data, proportional gain",
+          "text": "Partly there",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Touch sensing built into the rob",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Not yet",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Hand skills learned only in simu",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Not yet",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "A humanoid matches a specialist ",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Not yet",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "100 times more data brings match",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Partly there",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "button",
@@ -19222,7 +19396,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 25100,
+      "visibleTextLength": 22622,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -19289,11 +19463,11 @@
           "Competing Theses"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 15,
+        "readingMinutes": 13,
         "citationCount": 23,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "15 min",
+        "readingTimeText": "13 min",
         "citationCountText": "23",
         "bibliographyIds": [
           "brooks-better-lesson-2019",
@@ -19352,16 +19526,25 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The table below is the map. Each row is one thesis with its "
+          "text": "The cards below are the map. Each card is one thesis in plai"
         },
         {
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 266,
+          "widthPx": 309,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "6 theses, showing: End-to-end VLA scaling"
+          "text": "Each bet names the result that would prove it wrong"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 309,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "6 bets. Tap one to read the evidence for and against."
         },
         {
           "familyHead": "newsreader",
@@ -19487,7 +19670,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Read back down the falsification column and a watchlist fall"
+          "text": "Read back down the cards' \"wrong if\" lines and a watchlist f"
         }
       ],
       "sectionLinks": [
@@ -19683,7 +19866,7 @@
         },
         {
           "kind": "citation",
-          "count": 106,
+          "count": 90,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -19699,16 +19882,6 @@
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
               "familyHead": "ibm plex mono",
-              "shape": "chip border:0px/solid radius:0px"
-            },
-            {
-              "signature": "rgb(36, 95, 255)|underline|solid|rgb(36, 95, 255)|ibm plex sans|chip border:0px/solid radius:0px",
-              "count": 16,
-              "colour": "rgb(36, 95, 255)",
-              "decorationLine": "underline",
-              "decorationStyle": "solid",
-              "decorationColour": "rgb(36, 95, 255)",
-              "familyHead": "ibm plex sans",
               "shape": "chip border:0px/solid radius:0px"
             }
           ]
@@ -19862,6 +20035,14 @@
           "controlId": "control:secondary-action"
         },
         {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
@@ -19871,51 +20052,155 @@
         },
         {
           "tag": "button",
-          "text": "End-to-end VLA scaling",
+          "text": "Just make it bigger",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Hierarchical planner over skills",
+          "text": "More data and bigger models will",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "World-model-based training",
+          "text": "We’d know it’s wrong if 10 times",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "RL fine-tuning on imitation",
+          "text": "A planner directs simple skills",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Teleoperation as a bridge",
+          "text": "A reasoning model breaks a goal ",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Humanoid versus task-specific",
+          "text": "We’d know it’s wrong if one sing",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Let the robot imagine first",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "A model that predicts what happe",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "We’d know it’s wrong if it adds ",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Copy first, then practise",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Robots copy people first, then p",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "We’d know it’s wrong if practice",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Humans steer while robots learn",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "People remote-control robots doi",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "We’d know it’s wrong if robots r",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Human-shaped or built for the jo",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Human-shaped robots fit a world ",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "A cost-per-job comparison agains",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "button",
@@ -20024,7 +20309,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23891,
+      "visibleTextLength": 23686,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -20164,19 +20449,46 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 309,
+          "widthPx": 87,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "5 hands, sorted by tactile threshold, most sensitive first"
+          "text": "Select hands to compare their trade-offs."
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 309,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Select hands to compare their trade-offs."
+          "text": "Grey means the maker hasn’t published it. No hand shows both"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 198,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "5 hands, lightest touch felt first"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "“Ways it can move” is the hand’s degrees of freedom (DoF), t"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Unitree’s $29,900 is the list price of the whole H2 robot; t"
         },
         {
           "familyHead": "ibm plex sans",
@@ -20194,7 +20506,25 @@
           "widthPx": 309,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Schematic toy of contact feedback, not a sensor measurement "
+          "text": "schematic"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "A schematic of contact feedback, drawn to show where the inf"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The four steps, in order:"
         },
         {
           "familyHead": "newsreader",
@@ -20573,19 +20903,19 @@
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
-          "decorationColour": "rgb(36, 95, 255)",
+          "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
           "familyHead": "ibm plex sans",
-          "shape": "inline border:0px/solid radius:2px",
+          "shape": "inline border:0px/solid radius:0px",
           "variants": [
             {
-              "signature": "rgb(36, 95, 255)|underline|solid|rgb(36, 95, 255)|ibm plex sans|inline border:0px/solid radius:2px",
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
               "count": 10,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
-              "decorationColour": "rgb(36, 95, 255)",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
               "familyHead": "ibm plex sans",
-              "shape": "inline border:0px/solid radius:2px"
+              "shape": "inline border:0px/solid radius:0px"
             }
           ]
         },
@@ -20706,7 +21036,31 @@
         },
         {
           "tag": "button",
-          "text": "Reset",
+          "text": "Most joints",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Lightest touch felt",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Lowest price",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -20714,57 +21068,17 @@
         },
         {
           "tag": "button",
-          "text": "DoF",
+          "text": "Reverse the order",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
         {
           "tag": "button",
-          "text": "↕",
+          "text": "Optimus Gen 3",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Tactile threshold",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "↑",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Cost",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "↕",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Phoenix hand",
-          "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
         },
@@ -20772,15 +21086,15 @@
           "tag": "button",
           "text": "Figure 02/03",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Optimus Gen 3",
+          "text": "Phoenix hand",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
         },
@@ -20788,7 +21102,7 @@
           "tag": "button",
           "text": "Dexterous Hand",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
         },
@@ -20796,9 +21110,25 @@
           "tag": "button",
           "text": "H2 (Dex5-1 option)",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "button",
@@ -20835,6 +21165,14 @@
         {
           "tag": "button",
           "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -20915,7 +21253,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16008,
+      "visibleTextLength": 16125,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -21052,11 +21390,56 @@
           "widthPx": 275,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "At 250k h: loss 0.0074 holds / 0.0150 plateau; completion fi"
+          "text": "At 250k hours a straight line would pass 100% (a score of 1."
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "EgoScale (Zheng et al. 2026) pretrained one robot model on 1"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The line is this wiki’s own least-squares log-linear fit thr"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The paper’s published law is about validation loss (MSE on h"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "At the current setting (250k h): loss 0.0074 holds / 0.0150 "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "EgoScale (2026) fits the law to held-out human-video validat"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
@@ -21196,7 +21579,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The chart at the top of this module plots that law over its "
+          "text": "The chart at the top of this module plots what that study me"
         },
         {
           "familyHead": "newsreader",
@@ -21562,7 +21945,55 @@
         },
         {
           "tag": "button",
+          "text": "Measured (20,000 hours)",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "5 times more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "About 12 times more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show the paper’s error measure",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
           "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -22367,7 +22798,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26564,
+      "visibleTextLength": 26044,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -22521,7 +22952,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Select each mode below, then drag the robot-speed slider und"
+          "text": "Pick each mode under \"How it keeps you safe\" below, then dra"
         },
         {
           "familyHead": "ibm plex sans",
@@ -22530,25 +22961,61 @@
           "widthPx": 309,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Protective separation1.42 mOperator travel0.32 mRobot travel"
+          "text": "At this speed the robot needs a gap of about 1.4 metres; you"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 309,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "illustrative"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Speed and separation monitoring. The robot and the person ma"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Speed and separation monitoring is available at these speeds"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "“Stops when you step in” is a safety-rated monitored stop; “"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Separation model: S = v_H(T_R + T_S) + v_R T_R + B + (C + Z_"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "At 1.00 m/s robot speed and 1.60 m/s operator approach, the "
-        },
-        {
-          "familyHead": "newsreader",
-          "sizePx": 19,
-          "lineHeightRatio": 1.7,
-          "widthPx": 335,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": false,
-          "text": "Separation model: S = v_H(T_R + T_S) + v_R T_R + B + (C + Z_"
         },
         {
           "familyHead": "newsreader",
@@ -23157,7 +23624,7 @@
         },
         {
           "tag": "button",
-          "text": "monitored stop",
+          "text": "Stops when you step in",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -23165,7 +23632,7 @@
         },
         {
           "tag": "button",
-          "text": "hand guiding",
+          "text": "You guide it by hand",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -23173,7 +23640,7 @@
         },
         {
           "tag": "button",
-          "text": "speed + separation",
+          "text": "Keeps its distance",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -23181,11 +23648,19 @@
         },
         {
           "tag": "button",
-          "text": "power + force",
+          "text": "Gentle enough to bump",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "button",
@@ -23197,7 +23672,7 @@
         },
         {
           "tag": "summary",
-          "text": "Current workcell settings",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -23205,7 +23680,7 @@
         },
         {
           "tag": "summary",
-          "text": "Model assumptions",
+          "text": "Current workcell settings",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -51612,7 +52087,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 3315,
+      "visibleTextLength": 3286,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -53593,7 +54068,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19061,
+      "visibleTextLength": 18971,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -53726,11 +54201,56 @@
           "widthPx": 689,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Maximum speed19.21 m/sTime to contact416 ms"
+          "text": "At about 69 kilometres an hour the drone flies about 1.3 met"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 689,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "not measured"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Model, from Falanga, Kim and Scaramuzza: maximum speed = ran"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Swerve settings, as sideways acceleration: Gentle 10 m/s² (a"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Reference latencies from the study (8 m sensing range): Ster"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The same budget on a time axis, at the current settings (Sta"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
@@ -53741,10 +54261,10 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 365,
+          "widthPx": 638,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "beat 4 / 4 delay 200 ms avoidance 346 ms maximum speed 14.64"
+          "text": "beat 4 / 4 Slow camera: top safe speed about 53 km/h, after "
         },
         {
           "familyHead": "ibm plex sans",
@@ -53753,7 +54273,34 @@
           "widthPx": 689,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Falanga et al.'s cited 8 m range, 25 m/s² agility, and stere"
+          "text": "illustrative"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The starting model is Falanga, Kim and Scaramuzza's: an 8 m "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Quick camera: 70 ms delay, 19.21 m/s, about 1.3 m flown befo"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The four steps, in order:"
         },
         {
           "familyHead": "newsreader",
@@ -54218,7 +54765,7 @@
         },
         {
           "tag": "button",
-          "text": "10 m/s²",
+          "text": "Ordinary camera (7 hundredths of",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -54226,7 +54773,7 @@
         },
         {
           "tag": "button",
-          "text": "25 m/s²",
+          "text": "Faster camera (about 1 hundredth",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -54234,7 +54781,7 @@
         },
         {
           "tag": "button",
-          "text": "50 m/s²",
+          "text": "Gentle",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -54242,15 +54789,47 @@
         },
         {
           "tag": "button",
-          "text": "200 m/s²",
+          "text": "Standard (the study’s)",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Hard",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Extreme",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "button",
           "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -54299,6 +54878,14 @@
         {
           "tag": "button",
           "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -69833,7 +70420,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 18060,
+      "visibleTextLength": 16105,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -69900,11 +70487,11 @@
           "The Bear Case"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 9,
+        "readingMinutes": 8,
         "citationCount": 22,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "9 min",
+        "readingTimeText": "8 min",
         "citationCountText": "22",
         "bibliographyIds": [
           "brooks-dexterity-2025",
@@ -69968,37 +70555,19 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 247,
+          "widthPx": 206,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "8 milestones: 4 not met, 4 partial, 0 met"
+          "text": "4 partly there, 4 not yet, 0 done"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
-          "lineHeightRatio": 1.63,
-          "widthPx": 520,
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 83,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "The generalization test: a single policy succeeding across m"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 13,
-          "lineHeightRatio": 1.63,
-          "widthPx": 533,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "π0.5 cleaned kitchens and bedrooms in homes that were entire"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 13,
-          "lineHeightRatio": 1.63,
-          "widthPx": 533,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "A published, reproducible evaluation of one policy across mo"
+          "text": "Showing all 8"
         },
         {
           "familyHead": "newsreader",
@@ -70115,7 +70684,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Back to the board at the top of this module. Each row carrie"
+          "text": "Back to the board at the top of this module. Each tile opens"
         },
         {
           "familyHead": "newsreader",
@@ -70311,21 +70880,21 @@
         },
         {
           "kind": "citation",
-          "count": 56,
+          "count": 80,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
-          "decorationColour": "rgb(36, 95, 255)",
+          "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
           "familyHead": "ibm plex sans",
           "shape": "chip border:0px/solid radius:0px",
           "variants": [
             {
-              "signature": "rgb(36, 95, 255)|underline|solid|rgb(36, 95, 255)|ibm plex sans|chip border:0px/solid radius:0px",
-              "count": 2,
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|chip border:0px/solid radius:0px",
+              "count": 26,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
-              "decorationColour": "rgb(36, 95, 255)",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
               "familyHead": "ibm plex sans",
               "shape": "chip border:0px/solid radius:0px"
             },
@@ -70499,7 +71068,7 @@
         },
         {
           "tag": "button",
-          "text": "Not met",
+          "text": "Not yet",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -70507,7 +71076,7 @@
         },
         {
           "tag": "button",
-          "text": "Partial",
+          "text": "Partly",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -70515,11 +71084,19 @@
         },
         {
           "tag": "button",
-          "text": "Met",
+          "text": "Done (0)",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "button",
@@ -70531,67 +71108,139 @@
         },
         {
           "tag": "button",
-          "text": "One policy, >90% in unseen homes",
+          "text": "One robot brain succeeds in 9 of",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Verified 10,000-unit deployment",
+          "text": "Partly there",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Open benchmark, cross-lab agreem",
+          "text": "10,000 humanoids doing documente",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "RL >99% across a broad task set",
+          "text": "Not yet",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Tactile model inside a VLA pipel",
+          "text": "Labs agree on one shared public ",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Contact-rich sim-to-real, zero r",
+          "text": "Partly there",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Humanoid cost-per-task parity",
+          "text": "Practice gets robots to 99% on m",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "100x data, proportional gain",
+          "text": "Partly there",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Touch sensing built into the rob",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Not yet",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Hand skills learned only in simu",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Not yet",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "A humanoid matches a specialist ",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Not yet",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "100 times more data brings match",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Partly there",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "button",
@@ -70692,7 +71341,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 25435,
+      "visibleTextLength": 22957,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -70759,11 +71408,11 @@
           "Competing Theses"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 15,
+        "readingMinutes": 13,
         "citationCount": 23,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "15 min",
+        "readingTimeText": "13 min",
         "citationCountText": "23",
         "bibliographyIds": [
           "brooks-better-lesson-2019",
@@ -70822,16 +71471,25 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The table below is the map. Each row is one thesis with its "
+          "text": "The cards below are the map. Each card is one thesis in plai"
         },
         {
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 266,
+          "widthPx": 1078,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "6 theses, showing: End-to-end VLA scaling"
+          "text": "Each bet names the result that would prove it wrong"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 330,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "6 bets. Tap one to read the evidence for and against."
         },
         {
           "familyHead": "newsreader",
@@ -70957,7 +71615,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Read back down the falsification column and a watchlist fall"
+          "text": "Read back down the cards' \"wrong if\" lines and a watchlist f"
         }
       ],
       "sectionLinks": [
@@ -71153,7 +71811,7 @@
         },
         {
           "kind": "citation",
-          "count": 106,
+          "count": 90,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -71169,16 +71827,6 @@
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
               "familyHead": "ibm plex mono",
-              "shape": "chip border:0px/solid radius:0px"
-            },
-            {
-              "signature": "rgb(36, 95, 255)|underline|solid|rgb(36, 95, 255)|ibm plex sans|chip border:0px/solid radius:0px",
-              "count": 16,
-              "colour": "rgb(36, 95, 255)",
-              "decorationLine": "underline",
-              "decorationStyle": "solid",
-              "decorationColour": "rgb(36, 95, 255)",
-              "familyHead": "ibm plex sans",
               "shape": "chip border:0px/solid radius:0px"
             }
           ]
@@ -71332,6 +71980,14 @@
           "controlId": "control:secondary-action"
         },
         {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
           "tag": "button",
           "text": "Reset",
           "familyHead": "ibm plex sans",
@@ -71341,51 +71997,155 @@
         },
         {
           "tag": "button",
-          "text": "End-to-end VLA scaling",
+          "text": "Just make it bigger",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Hierarchical planner over skills",
+          "text": "More data and bigger models will",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "World-model-based training",
+          "text": "We’d know it’s wrong if 10 times",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "RL fine-tuning on imitation",
+          "text": "A planner directs simple skills",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Teleoperation as a bridge",
+          "text": "A reasoning model breaks a goal ",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Humanoid versus task-specific",
+          "text": "We’d know it’s wrong if one sing",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Let the robot imagine first",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "A model that predicts what happe",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "We’d know it’s wrong if it adds ",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Copy first, then practise",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Robots copy people first, then p",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "We’d know it’s wrong if practice",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Humans steer while robots learn",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "People remote-control robots doi",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "We’d know it’s wrong if robots r",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Human-shaped or built for the jo",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Human-shaped robots fit a world ",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "A cost-per-job comparison agains",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "button",
@@ -71494,7 +72254,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24226,
+      "visibleTextLength": 24021,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -71634,19 +72394,46 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 348,
+          "widthPx": 87,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "5 hands, sorted by tactile threshold, most sensitive first"
+          "text": "Select hands to compare their trade-offs."
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 689,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Select hands to compare their trade-offs."
+          "text": "Grey means the maker hasn’t published it. No hand shows both"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 198,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "5 hands, lightest touch felt first"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "“Ways it can move” is the hand’s degrees of freedom (DoF), t"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Unitree’s $29,900 is the list price of the whole H2 robot; t"
         },
         {
           "familyHead": "ibm plex sans",
@@ -71664,7 +72451,25 @@
           "widthPx": 689,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Schematic toy of contact feedback, not a sensor measurement "
+          "text": "schematic"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "A schematic of contact feedback, drawn to show where the inf"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The four steps, in order:"
         },
         {
           "familyHead": "newsreader",
@@ -72043,19 +72848,19 @@
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
-          "decorationColour": "rgb(36, 95, 255)",
+          "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
           "familyHead": "ibm plex sans",
-          "shape": "inline border:0px/solid radius:2px",
+          "shape": "inline border:0px/solid radius:0px",
           "variants": [
             {
-              "signature": "rgb(36, 95, 255)|underline|solid|rgb(36, 95, 255)|ibm plex sans|inline border:0px/solid radius:2px",
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
               "count": 10,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
-              "decorationColour": "rgb(36, 95, 255)",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
               "familyHead": "ibm plex sans",
-              "shape": "inline border:0px/solid radius:2px"
+              "shape": "inline border:0px/solid radius:0px"
             }
           ]
         },
@@ -72176,7 +72981,31 @@
         },
         {
           "tag": "button",
-          "text": "Reset",
+          "text": "Most joints",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Lightest touch felt",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Lowest price",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -72184,57 +73013,17 @@
         },
         {
           "tag": "button",
-          "text": "DoF",
+          "text": "Reverse the order",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
         {
           "tag": "button",
-          "text": "↕",
+          "text": "Optimus Gen 3",
           "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Tactile threshold",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "↑",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Cost",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "↕",
-          "familyHead": "ibm plex sans",
-          "sizePx": 12,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Phoenix hand",
-          "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
         },
@@ -72242,15 +73031,15 @@
           "tag": "button",
           "text": "Figure 02/03",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Optimus Gen 3",
+          "text": "Phoenix hand",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
         },
@@ -72258,7 +73047,7 @@
           "tag": "button",
           "text": "Dexterous Hand",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
         },
@@ -72266,9 +73055,25 @@
           "tag": "button",
           "text": "H2 (Dex5-1 option)",
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "button",
@@ -72305,6 +73110,14 @@
         {
           "tag": "button",
           "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -72385,7 +73198,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16343,
+      "visibleTextLength": 16460,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -72519,14 +73332,59 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 623,
+          "widthPx": 522,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "At 250k h: loss 0.0074 holds / 0.0150 plateau; completion fi"
+          "text": "At 250k hours a straight line would pass 100% (a score of 1."
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 649,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "EgoScale (Zheng et al. 2026) pretrained one robot model on 1"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 649,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The line is this wiki’s own least-squares log-linear fit thr"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 649,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The paper’s published law is about validation loss (MSE on h"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 649,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "At the current setting (250k h): loss 0.0074 holds / 0.0150 "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 649,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "EgoScale (2026) fits the law to held-out human-video validat"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
@@ -72666,7 +73524,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The chart at the top of this module plots that law over its "
+          "text": "The chart at the top of this module plots what that study me"
         },
         {
           "familyHead": "newsreader",
@@ -73032,7 +73890,55 @@
         },
         {
           "tag": "button",
+          "text": "Measured (20,000 hours)",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "5 times more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "About 12 times more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show the paper’s error measure",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
           "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -73837,7 +74743,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26899,
+      "visibleTextLength": 26379,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -73991,7 +74897,16 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Select each mode below, then drag the robot-speed slider und"
+          "text": "Pick each mode under \"How it keeps you safe\" below, then dra"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 640,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "At this speed the robot needs a gap of about 1.4 metres; you"
         },
         {
           "familyHead": "ibm plex sans",
@@ -74000,25 +74915,52 @@
           "widthPx": 689,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Protective separation1.42 mOperator travel0.32 mRobot travel"
+          "text": "illustrative"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Speed and separation monitoring. The robot and the person ma"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Speed and separation monitoring is available at these speeds"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "“Stops when you step in” is a safety-rated monitored stop; “"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Separation model: S = v_H(T_R + T_S) + v_R T_R + B + (C + Z_"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "At 1.00 m/s robot speed and 1.60 m/s operator approach, the "
-        },
-        {
-          "familyHead": "newsreader",
-          "sizePx": 19,
-          "lineHeightRatio": 1.7,
-          "widthPx": 715,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": false,
-          "text": "Separation model: S = v_H(T_R + T_S) + v_R T_R + B + (C + Z_"
         },
         {
           "familyHead": "newsreader",
@@ -74627,7 +75569,7 @@
         },
         {
           "tag": "button",
-          "text": "monitored stop",
+          "text": "Stops when you step in",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -74635,7 +75577,7 @@
         },
         {
           "tag": "button",
-          "text": "hand guiding",
+          "text": "You guide it by hand",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -74643,7 +75585,7 @@
         },
         {
           "tag": "button",
-          "text": "speed + separation",
+          "text": "Keeps its distance",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -74651,11 +75593,19 @@
         },
         {
           "tag": "button",
-          "text": "power + force",
+          "text": "Gentle enough to bump",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "button",
@@ -74667,7 +75617,7 @@
         },
         {
           "tag": "summary",
-          "text": "Current workcell settings",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -74675,7 +75625,7 @@
         },
         {
           "tag": "summary",
-          "text": "Model assumptions",
+          "text": "Current workcell settings",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,

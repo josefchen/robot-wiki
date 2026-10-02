@@ -1,6 +1,7 @@
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { readerFirstPredecessor } from '../../lib/audit-reader-first-continuity.ts';
 import { seoPassCheckerPredecessor, seoPassPredecessor } from '../../lib/audit-seo-pass-continuity.ts';
 
 const root = resolve(import.meta.dirname, '../..');
@@ -11,12 +12,21 @@ const specReview = JSON.parse(readFileSync(resolve(root,
   'audit/evidence/seo-pass-20261002/spec-transition.json'), 'utf8')) as { sources: { before: Artifact; after: Artifact }[] };
 
 /**
+ * The bytes the reader-first layer hands every check older than the
+ * reader-first figure pass: the rebuilt pre-pass file while the live file is
+ * the reviewed successor, otherwise the live bytes.
+ */
+export function preReaderFirst(path: string): Buffer {
+  return readerFirstPredecessor(root, { path, bytes: 0, sha256: '' }, readFileSync(resolve(root, path)));
+}
+
+/**
  * The bytes the artifact reader hands every check older than the SEO pass:
  * the rebuilt pre-pass article, end-to-end spec or checker while the live
  * file is the reviewed successor, otherwise the live bytes.
  */
 export function preSeoPass(path: string): Buffer {
-  const live = readFileSync(resolve(root, path));
+  const live = preReaderFirst(path);
   if (path === 'lib/audit-local-basis.ts') return seoPassCheckerPredecessor(root, live);
   if (path === 'components/article/commit-to-reveal.tsx') {
     return seoPassPredecessor(root, { path, bytes: 0, sha256: '' }, live);

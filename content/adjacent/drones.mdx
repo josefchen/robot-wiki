@@ -29,7 +29,7 @@ Drones are aircraft that fly with no pilot on board. A quadrotor is among the mo
 
 This module covers the two halves of aerial robotics that matter to an ML engineer moving into robotics: autonomous flight, where the field's sim-to-real and learning-versus-control arguments were settled first, and <Term id="swarm-robotics">swarm robotics</Term>, where many cheap flying robots coordinate through local interaction. The treatment is honest about scope: these are domains where the core problems are closer to solved than manipulation is, and the reasons trace back to one structural fact about the dynamics.
 
-The hardest constraint on a flying robot is below, and it is not the control law. Drag the perception latency slider up from 70 ms and watch the maximum safe speed fall on all four airframes. No controller recovers what latency has already spent.
+The hardest constraint on a flying robot is below, and it is not the control law. Switch the drone below between an ordinary camera, which takes about 70 ms to report what it sees, and a faster event camera, and try each swerve setting: the top safe speed moves with every choice. No controller recovers what latency has already spent.
 
 <PerceptionLatency className="my-6" />
 
