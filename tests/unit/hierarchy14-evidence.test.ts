@@ -3,6 +3,7 @@ import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
 import { CITATIONS } from '../../data/citations';
 import { committedSource } from '../helpers/continuation-integration';
+import { preSeoPassText } from '../helpers/seo-pass';
 import { originalClaimDigest, parseLedger, type CompoundPlan } from '../../lib/audit-ledger';
 import {
   buildManifest, compareBaseline, sha256, validateApprovedDeltas,
@@ -10,7 +11,9 @@ import {
 } from '../../lib/brand-v2-baseline';
 
 const articlePath = 'content/manipulation/hierarchical.mdx';
-const article = readFileSync(articlePath, 'utf8');
+// The article as it stood before the 2026-10-02 SEO pass, whose resolution
+// is checked against the live article below.
+const article = preSeoPassText(articlePath);
 const ledger = readFileSync('audit/manipulation.md', 'utf8');
 const plans: CompoundPlan[] = JSON.parse(readFileSync('audit/compound-evidence.json', 'utf8'));
 const registry = new Set(CITATIONS.map(c => c.id));
@@ -206,5 +209,9 @@ describe('hierarchy original 14 source-backed correction', () => {
       ok: true, failures: [], approvedDifferences: [cue[0].id, pass[0].id],
     });
     expect(compareBaseline(after15, bundle(article + '\nUnapproved extra assertion.'), synthesis).ok).toBe(false);
+    // The SEO pass resolution binds the cue endpoint and reaches the live article.
+    const seo = approvals.find(d => d.id === 'seo-pass-20261002-prose-manipulation-hierarchical')!;
+    expect(seo.reconciles?.some(binding => binding.id === cue[0].id && binding.newHash === cueHash)).toBe(true);
+    expect(prose(readFileSync(articlePath, 'utf8')).members[0].hash).toBe(seo.newHash);
   });
 });

@@ -5,8 +5,8 @@ import { join } from 'node:path';
 import { DOMAINS, modules, publishedModules } from '../../data/modules';
 import { AUTHOR_NAME, AUTHOR_PROFILE_URL } from '../../lib/identity';
 import { articleDateModified } from '../../lib/content-dates';
-import { moduleLastReviewed } from '../../lib/module-source';
 import { articleStructuredImagePaths } from '../../lib/og-cards';
+import { articleSeoProfile } from '../../lib/seo';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
 
 /**
@@ -128,6 +128,12 @@ test.describe('sitemap.xml (VAL-BUILD-003, VAL-ADJ-015)', () => {
     const blocks = [...xml.matchAll(/<url>([\s\S]*?)<\/url>/g)].map(
       (match) => match[1],
     );
+    // Every URL carries a calendar-date lastmod; an article's is the git
+    // date of its latest content change, which its JSON-LD also states.
+    expect(blocks).toHaveLength(locs.length);
+    for (const block of blocks) {
+      expect(block, block).toMatch(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/);
+    }
     for (const entry of publishedModules()) {
       const url = `${SITE_ORIGIN}/${entry.domain}/${entry.slug}/`;
       const block = blocks.find((candidate) =>
@@ -135,7 +141,7 @@ test.describe('sitemap.xml (VAL-BUILD-003, VAL-ADJ-015)', () => {
       );
       expect(block, `sitemap block for ${url}`).toBeDefined();
       expect(block).toContain(
-        `<lastmod>${moduleLastReviewed(entry.domain, entry.slug)}</lastmod>`,
+        `<lastmod>${articleDateModified(entry.domain, entry.slug)}</lastmod>`,
       );
     }
   });
@@ -317,9 +323,13 @@ test.describe('structured data', () => {
       );
       expect(articles, `${route} has one Article object`).toHaveLength(1);
       const article = articles[0];
+      // The description is the page's meta description, and `about` names
+      // the head term the title and description lead with.
+      const profile = articleSeoProfile(entry);
       expect(article).toMatchObject({
         headline: entry.title,
-        description: entry.summary,
+        description: profile.description,
+        about: { '@type': 'Thing', name: profile.headTerm },
         url: `${SITE_ORIGIN}${route}`,
         dateModified: articleDateModified(entry.domain, entry.slug),
         author: {

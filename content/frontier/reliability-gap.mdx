@@ -18,16 +18,15 @@ citations:
   - tesla-q1-2026-update
   - figure-8hr-shift-2026
 seeAlso:
-  - "data-hardware/evaluation-crisis"
-  - "manipulation/rl-finetuning"
-  - "rl-sim2real/humanoid-wbc"
-  - "frontier/dexterity"
+  - "data-hardware/industrial-deployment"
+  - "manipulation/generalist-policies"
+  - "adjacent/autonomous-vehicles"
 ---
 
 import { ReliabilityCompounding } from '@/components/interactive/reliability-compounding';
 import { DeploymentDashboard } from '@/components/interactive/deployment-dashboard';
 
-A robot that finishes a task 80% of the time is a demo. A robot that finishes it 99.9% of the time is a product. The distance between those numbers is the reliability gap: the difference between the <Term id="success-rate">success rates</Term> a system demonstrates in controlled settings and the rates that deployment requires. Bessemer's 2026 robotics analysis states the framing directly: getting from 80% task success to 99.9% is not a linear problem, and the last stretch requires fundamentally different approaches than the first <Cite id="bessemer-robotics-2026" />. This module covers why the gap is structural, what is closing it, and what the deployment record shows once claims are separated from verified numbers.
+The reliability gap is the difference between the <Term id="success-rate">success rates</Term> a robot system demonstrates in controlled settings and the rates that deployment requires. A robot that finishes a task 80% of the time is a demo. A robot that finishes it 99.9% of the time is a product. Bessemer's 2026 robotics analysis states the framing directly: getting from 80% task success to 99.9% is not a linear problem, and the last stretch requires fundamentally different approaches than the first <Cite id="bessemer-robotics-2026" />. This module covers why the gap is structural, what is closing it, and what the deployment record shows once claims are separated from verified numbers.
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-3">
   <Stat label="95% per-step" value="21%" note="end-to-end over 30 steps" accent />

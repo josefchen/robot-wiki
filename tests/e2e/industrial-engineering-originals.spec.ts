@@ -170,7 +170,7 @@ for (const [slug, count] of [['bear-case', 3], ['competing-theses', 4], ['genera
     const states = [];
     for (let i = 0; i < count; i++) {
       const chip = chips.nth(i), link = chip.locator('a[target="_blank"]');
-      await expect(link).toHaveText('Levine 2026');
+      await expect(link).toHaveText('Levine et al. 2026');
       await expect(link).toHaveAttribute('href', citation.url);
       await expect(link).toHaveAttribute('rel', 'noopener noreferrer');
       await chip.evaluate(e => scrollBy(0, e.getBoundingClientRect().top - innerHeight / 2));

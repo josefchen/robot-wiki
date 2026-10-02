@@ -17,15 +17,14 @@ citations:
   - robochallenge-2025
   - droid-2024
 seeAlso:
-  - "manipulation/rl-finetuning"
-  - "data-hardware/data-bottleneck"
-  - "rl-sim2real/sim2real-transfer"
+  - "world-models/evaluation"
   - "frontier/reliability-gap"
+  - "manipulation/vla-models"
 ---
 
 import { ReliabilityCompounding } from '@/components/interactive/reliability-compounding';
 
-A robot learning paper announces its headline result as a single number: the <Term id="success-rate">success rate</Term>. That number compresses several choices into one digit: how many times the task was attempted, how long each attempt was allowed to run, how the scene was arranged, and who scored the outcome. An episode success rate alone does not specify the probability of success at each decision; the illustrative horizon model below makes its assumptions explicit. This module covers what the success rate hides, measured in three places: the statistics of small trial counts, the brittleness of clean benchmarks, and the bias of single-lab scoring. Each has a response now being built, and the responses are as much the story as the problem.
+The evaluation crisis is the gap between the success rates robot learning papers report and what those rates can establish. A robot learning paper announces its headline result as a single number: the <Term id="success-rate">success rate</Term>. That number compresses several choices into one digit: how many times the task was attempted, how long each attempt was allowed to run, how the scene was arranged, and who scored the outcome. An episode success rate alone does not specify the probability of success at each decision; the illustrative horizon model below makes its assumptions explicit. This module covers what the success rate hides, measured in three places: the statistics of small trial counts, the brittleness of clean benchmarks, and the bias of single-lab scoring. Each has a response now being built, and the responses are as much the story as the problem.
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="trial-count examples" value="10 or 50" note="small feasible samples, Snyder et al.; not a census" accent />

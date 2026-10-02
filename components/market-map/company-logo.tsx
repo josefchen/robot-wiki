@@ -17,8 +17,11 @@ type CompanyLogoProps = {
 
 /**
  * Company mark, or two-letter initials when the registry has no logo
- * (or the file fails to load). The image is decorative: the company
- * name sits next to it on every surface that uses this mark.
+ * (or the file fails to load). The image carries the alt text
+ * "<Company> logo" from the registry name, so search engines and image
+ * readers can tell whose mark it is. The initials stand in for that image
+ * and stay hidden from assistive technology, because the company name sits
+ * next to the mark on every surface that uses it.
  *
  * Every mark sits on the shared logo tile (components/ui/logo-tile.ts), the
  * same tile the credits page uses. Applied to all of them rather than to
@@ -57,7 +60,7 @@ export function CompanyLogo({
       >
         <img
           src={image.file}
-          alt=""
+          alt={`${company.name} logo`}
           width={image.width}
           height={image.height}
           onError={() => setFailedSrc(image.file)}

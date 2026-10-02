@@ -147,7 +147,7 @@ it.each(restores)('returns the archived $slug article exactly where its prior re
 it('hands the data-hardware motion review the pre-restore article it still gates', () => {
   const review = loadDataHardwareMotionReview(root);
   const entry = review.entries[2];
-  const live = read(entry.current.path);
+  const live = preFigureMigration(entry.current.path);
   const preMotion = read(entry.snapshot.path);
   expect(() => currentDataHardwareMotionArtifact(root, 2, live)).toThrow(/endpoint identity drift/);
   expect(currentDataHardwareMotionArtifact(root, 2, round6ProseRestorePredecessor(root, entry.current, live)))
@@ -406,7 +406,8 @@ it.each(['missing-review', 'missing-predecessor', 'corrupt-predecessor', 'review
       'audit/evidence/motion-round6-remaining-repairs-20260929/audit-local-basis-before.ts.txt',
       'audit/evidence/motion-round6-remaining-repairs-20260929/classical-closure-evidence-before.test.ts.txt',
       'audit/evidence/figure-migration-20261001/checker-transition.json',
-      'audit/evidence/figure-migration-20261001/audit-local-basis-before.ts.txt']);
+      'audit/evidence/figure-migration-20261001/audit-local-basis-before.ts.txt',
+      'audit/evidence/seo-pass-20261002/checker-transition.json']);
     try {
       const live = read('lib/audit-local-basis.ts');
       expect(round6ProseRestoresCheckerPredecessor(destination, live)).toEqual(read(predecessorPath));

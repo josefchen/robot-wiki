@@ -20,15 +20,14 @@ citations:
   - karcini-position-2026
   - bessemer-robotics-2026
 seeAlso:
-  - "manipulation/pi-line"
-  - "data-hardware/data-bottleneck"
-  - "manipulation/cross-embodiment"
-  - "frontier/reliability-gap"
+  - "manipulation/generalist-policies"
+  - "manipulation/foundation-models"
+  - "world-models/generative-video"
 ---
 
 import { EgoScaleScaling } from '@/components/interactive/egoscale-scaling';
 
-A policy that cleans the kitchen it was trained in has demonstrated control. A policy that cleans a kitchen it has never seen has demonstrated something much rarer, and the distance between the two is the subject of this module. The training distribution of robot data is narrow: demonstrations come from a small number of labs, with specific robots, cameras, and lighting. Real homes bring different geometries, object instances, backgrounds, and clutter, and physical interaction punishes small perceptual errors in a way text generation never does: a one-centimeter grasp error drops the object. Closing that <Term id="distribution-shift">distribution shift</Term>, without collecting new data at every site, is the generalization problem. It is the gap between a demo and a product, and it is where the strongest systems of 2026 are now being measured.
+Generalization is a robot policy's ability to work in settings it was not trained in. A policy that cleans the kitchen it was trained in has demonstrated control. A policy that cleans a kitchen it has never seen has demonstrated something much rarer, and the distance between the two is the subject of this module. The training distribution of robot data is narrow: demonstrations come from a small number of labs, with specific robots, cameras, and lighting. Real homes bring different geometries, object instances, backgrounds, and clutter, and physical interaction punishes small perceptual errors in a way text generation never does: a one-centimeter grasp error drops the object. Closing that <Term id="distribution-shift">distribution shift</Term>, without collecting new data at every site, is the generalization problem. It is the gap between a demo and a product, and it is where the strongest systems of 2026 are now being measured.
 
 The strongest quantitative argument that the gap closes with data is a scaling law, and it is the thing to look at first. Drag the extrapolation horizon slider past the measured range and the two series continue as dashed lines inside a band that brackets the law holding against a plateau. Where you land depends entirely on which of those two you believe, which is the argument the rest of this module sets up.
 

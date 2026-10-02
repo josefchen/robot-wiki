@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { expect } from 'vitest';
 import { WITHDRAWAL_REGISTRY_RUNS } from '../../lib/audit-local-basis';
 import { committedSource } from './continuation-integration';
+import { withPreSeoPassLabelCode } from './seo-pass';
 
 // The 2026-10-01 KOL backlog batch appends its citations as one contiguous
 // block just before the closing bracket, each entry's comment starting with
@@ -11,7 +12,7 @@ export const KOL_BACKLOG_ADDITIONS = /  \{\n    \/\/ KOL backlog batch 2026-10-0
 // Keep old transaction assertions on their actual bytes. The two LEI additions
 // and their undated rendering are checked separately by undated-citations.
 export function preservedPreIndustrialCitations(ref: string): void {
-  const source = readFileSync('data/citations.ts', 'utf8');
+  const source = withPreSeoPassLabelCode(readFileSync('data/citations.ts', 'utf8'));
   const oldComment = `    // This is Money coverage of the Kroger closures (Reuters-sourced
     // facts): three of the eight built Ocado sheds close in January
     // 2026, a 20-site agreement, ~$38M annual fee revenue lost,

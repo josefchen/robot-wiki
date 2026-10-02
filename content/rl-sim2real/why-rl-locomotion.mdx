@@ -15,16 +15,15 @@ citations:
   - play2perfect-2026
   - gemini-robotics-2-2026
 seeAlso:
-  - "rl-sim2real/parallel-sim-rl"
-  - "rl-sim2real/sim2real-transfer"
-  - "rl-sim2real/legged-locomotion"
-  - "classical/grasp-planning"
+  - "frontier/dexterity"
+  - "world-models/generative-sim"
+  - "manipulation/rl-finetuning"
 ---
 
 import { ContactGeometry } from '@/components/interactive/contact-geometry';
 import { MdpComparison } from '@/components/mdx/mdp-comparison';
 
-In 2021, Rudin and colleagues trained an ANYmal quadruped to walk on flat ground in under four minutes, and on uneven terrain in twenty minutes, on a single workstation GPU <Cite id="rudin-2021" />. Policies trained this way are now the default production approach for quadruped locomotion and, increasingly, for bipedal humanoids. General manipulation went the other direction: the field's strongest systems are trained by imitation on real, teleoperated demonstrations. In 2026 there is still no manipulation equivalent of the four-minute walking run.
+Locomotion and manipulation are the two robot problems where reinforcement learning in simulation has had opposite results. In 2021, Rudin and colleagues trained an ANYmal quadruped to walk on flat ground in under four minutes, and on uneven terrain in twenty minutes, on a single workstation GPU <Cite id="rudin-2021" />. Policies trained this way are now the default production approach for quadruped locomotion and, increasingly, for bipedal humanoids. General manipulation went the other direction: the field's strongest systems are trained by imitation on real, teleoperated demonstrations. In 2026 there is still no manipulation equivalent of the four-minute walking run.
 
 The reason sits in the contact, and it is measurable. Drag the contact-model error slider below from its default 2 mm: the peg insertion is already jammed at that value while the quadruped notices nothing, and locomotion only fails past 20 mm, forty times the error that kills the insertion.
 

@@ -10,9 +10,13 @@ import { collectArticleTruthManifests } from '../../scripts/brand-v2-baseline';
 import { committedSource, preservedApprovalPacket } from '../helpers/continuation-integration';
 import { READER_RELEASE_BASE, readerTruthAt } from '../helpers/reader-integration';
 import { finalSevenBefore } from '../helpers/residual-integration';
+import { preSeoPassHash, preSeoPassText } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
-const read = (path: string) => readFileSync(resolve(root, path), 'utf8');
+const readLive = (path: string) => readFileSync(resolve(root, path), 'utf8');
+// Articles read as they stood before the 2026-10-02 SEO pass; throughSeoPass
+// binds each one's SEO edge to the live article.
+const read = (path: string) => path.startsWith('content/') ? preSeoPassText(path) : readLive(path);
 const ledger = 'contract/brand-v2-approved-deltas.json';
 const approvals: ApprovedDelta[] = JSON.parse(read(ledger)).entries;
 const integrated = approvals.filter(a => a.id.startsWith('continuation-merge-2026-09-23-1745-'));
@@ -47,6 +51,31 @@ function throughFigureMigration(path: string, id: string, endpoint: string, hash
   expect(edges[0].id).toMatch(/figure-migration-20261001-prose-/);
   expect(edges[0].reconciles).toBeUndefined();
   expect(hashOf(read(path))).toBe(edges[0].newHash);
+}
+
+// The SEO pass then carries an article whose body it changed with exactly
+// one edge: plain from the pre-pass endpoint, or a resolution from the seal
+// that binds that endpoint.
+function throughSeoPass(path: string) {
+  const id = `article:${path.slice('content/'.length, -'.mdx'.length)}`;
+  const hashOf = (text: string) => buildManifest('prose', [{
+    id, value: { path, body: matter(text).content.trim() },
+  }]).members[0].hash;
+  const endpoint = hashOf(read(path));
+  const edges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id &&
+    a.id.startsWith('seo-pass-20261002-'));
+  if (hashOf(readLive(path)) === endpoint) {
+    expect(edges).toEqual([]);
+    return;
+  }
+  expect(edges).toHaveLength(1);
+  if (edges[0].reconciles) {
+    expect(edges[0].oldHash).toBe(sealed.manifests.prose.members.find(m => m.id === id)!.hash);
+    expect(edges[0].reconciles.at(-1)!.newHash).toBe(endpoint);
+  } else {
+    expect(edges[0].oldHash).toBe(endpoint);
+  }
+  expect(hashOf(readLive(path))).toBe(edges[0].newHash);
 }
 
 describe('merged reader corrections preserve production additions and exact approvals', () => {
@@ -159,7 +188,13 @@ describe('merged reader corrections preserve production additions and exact appr
           oldHash: 'b6dec2d3600c39707607ef01d9a9657493939964398d1ab46d6733983451a34d',
           newHash: 'fe9ee3b3cce0506268f5f916dc5c7577bdf11418014d355d30aa5e4b2dd76c3d',
         });
-        expect(truth.relationships.members.find(m => m.id === id)?.hash).toBe(relationship.newHash);
+        // The SEO pass's related links then moved the member on with one
+        // plain edge from this endpoint.
+        expect(preSeoPassHash('relationships', id)).toBe(relationship.newHash);
+        const seoRelationship = approvals.find(a =>
+          a.id === 'seo-pass-20261002-relationships-world-models-generative-sim')!;
+        expect(seoRelationship).toMatchObject({ manifest: 'relationships', memberId: id, oldHash: relationship.newHash });
+        expect(truth.relationships.members.find(m => m.id === id)?.hash).toBe(seoRelationship.newHash);
         const relationshipEdges = approvals.filter(a => a.manifest === 'relationships' && a.memberId === id);
         const sealedHash = sealed.manifests.relationships.members.find(m => m.id === id)!.hash;
         expect(approvedDeltaPath(relationshipEdges, sealedHash, relationship.newHash).status).toBe('approved');
@@ -222,6 +257,7 @@ describe('merged reader corrections preserve production additions and exact appr
       expect(pass.oldHash).toBe(hashOf(committedSource(isClassical ? 'ebf13b4' : '8368034', path)));
       expect(hashOf(read(path))).toBe(pass.newHash);
     } else expect(read(path)).toBe(committedSource('ebf13b4', path));
+    throughSeoPass(path);
   });
 
   it.each(integrated)('rejects missing and mutated merged endpoints for $id', entry => {

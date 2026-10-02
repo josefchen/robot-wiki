@@ -31,15 +31,13 @@ citations:
   - jetson-thor-2026
   - vla-perf-2026
 seeAlso:
-  - "data-hardware/teleop-rigs"
-  - "data-hardware/data-bottleneck"
-  - "data-hardware/industrial-deployment"
-  - "classical/kinematics"
+  - "frontier/dexterity"
+  - "rl-sim2real/humanoid-wbc"
 ---
 
 import { HardwareGuide } from '@/components/interactive/hardware-guide';
 
-The machines you can point a policy at in 2026 split into five families: arms, humanoids, hands, tactile sensors, and the compute that closes the control loop. The price spread is the story. A self-build SO-101 arm costs about \$122 in parts <Cite id="so-arm100-repo-2026" />. A Unitree H2 humanoid ships for \$29,900 <Cite id="unitree-h2-2026" />. Boston Dynamics will not sell you an Atlas at any price, and Tesla has no Optimus 3 price to quote because there is no product to buy <Cite id="robozaps-humanoids-2026" />. Between those poles sits an actual market with dated prices, disclosed <Term id="degrees-of-freedom">degrees of freedom</Term>, and sourcing states you can plan around. This module collects the market into one filterable guide of 40 entries; unsupported values stay visibly empty.
+The machines you can point a policy at in 2026 are split into five families: arms, humanoids, hands, tactile sensors, and the compute that closes the control loop. The price spread is the story. A self-build SO-101 arm costs about \$122 in parts <Cite id="so-arm100-repo-2026" />. A Unitree H2 humanoid ships for \$29,900 <Cite id="unitree-h2-2026" />. Boston Dynamics will not sell you an Atlas at any price, and Tesla has no Optimus 3 price to quote because there is no product to buy <Cite id="robozaps-humanoids-2026" />. Between those poles sits an actual market with dated prices, disclosed <Term id="degrees-of-freedom">degrees of freedom</Term>, and sourcing states you can plan around. This module collects the market into one filterable guide of 40 entries; unsupported values stay visibly empty.
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="entry arm" value="$122" note="US BOM, one SO-101 arm" accent />

@@ -9314,70 +9314,92 @@ export function getCitation(id: string): Citation | undefined {
 }
 
 /**
- * Inline chip label, e.g. "Zhao 2023". Organization authors
- * ("Physical Intelligence") keep their full name instead of a surname.
- * SURNAME_OVERRIDES pins multi-word surnames that naive last-token
- * splitting gets wrong ("Jared Di Carlo" -> "Di Carlo", not "Carlo").
- * A particle heuristic is unsafe here: "Di Huang" keeps surname "Huang".
+ * Organisation bylines, keyed by the name the registry records, and the name
+ * their chips print: the full name, or the short name the organisation
+ * itself uses ("OSHA", "Tesla"). A byline missing here is read as a person,
+ * whose chip prints the surname, so every organisation with a name of more
+ * than one word has to be listed, or its chip would print a trailing
+ * fragment such as "Dynamics 2024". tests/unit/citations.test.ts fails on
+ * an unlisted organisation byline.
  */
-const SURNAME_OVERRIDES = new Map<string, string>([
-  ['Jared Di Carlo', 'Di Carlo'],
-  // Company-name pairs: the second token is a place or holding name,
-  // not a surname, so the chip would read "Grumman 2025" / "Japan 2024".
-  ['Northrop Grumman', 'Northrop Grumman'],
+export const ORGANIZATION_CHIP_NAMES: ReadonlyMap<string, string> = new Map([
+  ['1X Technologies', '1X Technologies'],
+  ['Agility Robotics', 'Agility Robotics'],
+  ['Association for Advancing Automation', 'A3'],
   ['Astroscale Japan', 'Astroscale'],
-  // π0.5's byline begins with the collective "Physical Intelligence"
-  // credit (verified 2026-08-20), followed by the named authors. Only that
-  // entry takes the override; the blog/model-card entries whose sole
-  // author IS the org keep the "Physical Intelligence" chip.
-  [
-    'Physical Intelligence, Kevin Black, Noah Brown, James Darpinian, Karan Dhabalia, Danny Driess, Adnan Esmail, Michael Equi, Chelsea Finn, Niccolo Fusai, Manuel Y. Galliker, Dibya Ghosh, Lachy Groom, Karol Hausman, Brian Ichter, Szymon Jakubczak, Tim Jones, Liyiming Ke, Devin LeBlanc, Sergey Levine, Adrian Li-Bell, Mohith Mothukuri, Suraj Nair, Karl Pertsch, Allen Z. Ren, Lucy Xiaoyang Shi, Laura Smith, Jost Tobias Springenberg, Kyle Stachowicz, James Tanner, Quan Vuong, Homer Walke, Anna Walling, Haohuan Wang, Lili Yu, Ury Zhilinsky',
-    'Black',
-  ],
-]);
-const BYLINE_OVERRIDES = new Set(SURNAME_OVERRIDES.keys());
-const ORG_TOKENS = new Set([
-  'Team',
-  'Labs',
-  'Intelligence',
-  'Research',
-  'Robotics',
-  'Technologies',
-  'Collaboration',
-  'AI',
-  'DeepMind',
-  'Google',
-  'NVIDIA',
-  'Meta',
-  'Toyota',
-  'Figure',
-  'Partners',
-  // Company-name suffix: "Intuitive Surgical", "CMR Surgical", and
-  // "Moon Surgical" are organizations whose surname token is "Surgical";
-  // without this the three chips collide as "Surgical <year>".
-  'Surgical',
-  // Institution-name suffixes: "NASA Jet Propulsion Laboratory" and
-  // "Canadian Space Agency" would otherwise chip as "Laboratory <year>"
-  // and "Agency <year>".
-  'Laboratory',
-  'Agency',
+  ['Boston Dynamics', 'Boston Dynamics'],
+  ['Canadian Space Agency', 'Canadian Space Agency'],
+  ['CMR Surgical', 'CMR Surgical'],
+  ['Creative Commons', 'Creative Commons'],
+  ['EVST Engineering Team', 'EVST Engineering Team'],
+  ['Figure AI', 'Figure AI'],
+  ['Franka Robotics', 'Franka Robotics'],
+  ['Gemini Robotics Team', 'Gemini Robotics Team'],
+  ['Google DeepMind', 'Google DeepMind'],
+  ['Hugging Face', 'Hugging Face'],
+  ['International Federation of Robotics', 'International Federation of Robotics'],
+  ['Intuitive Surgical', 'Intuitive Surgical'],
+  ['Lean Enterprise Institute', 'Lean Enterprise Institute'],
+  ['Meta AI', 'Meta AI'],
+  ['Moon Surgical', 'Moon Surgical'],
+  ['MoveIt Maintainers', 'MoveIt Maintainers'],
+  ['NASA Jet Propulsion Laboratory', 'NASA Jet Propulsion Laboratory'],
+  ['Northrop Grumman', 'Northrop Grumman'],
+  ['Occupational Safety and Health Administration', 'OSHA'],
+  ['Ocado Group', 'Ocado Group'],
+  ['Octo Model Team', 'Octo Model Team'],
+  ['Open X-Embodiment Collaboration', 'Open X-Embodiment Collaboration'],
+  ['Physical Intelligence', 'Physical Intelligence'],
+  ['Robotics and AI Institute', 'RAI Institute'],
+  ['Rocking Robots', 'Rocking Robots'],
+  ['ROS 2 Project', 'ROS 2 Project'],
+  ['Sanctuary AI', 'Sanctuary AI'],
+  ['SCSC Assurance Case Working Group', 'SCSC'],
+  ['Seeed Studio', 'Seeed Studio'],
+  ['Shadow Robot', 'Shadow Robot'],
+  ['Skild AI Team', 'Skild AI Team'],
+  ['Symbotic Inc.', 'Symbotic'],
+  ['Tesla, Inc.', 'Tesla'],
+  ['The Robot Report', 'The Robot Report'],
+  ['TRI LBM Team', 'TRI LBM Team'],
+  ['Trossen Robotics', 'Trossen Robotics'],
+  ['U.S. Food and Drug Administration', 'FDA'],
+  ['UL Standards & Engagement', 'UL Standards & Engagement'],
+  ['Unitree Robotics', 'Unitree Robotics'],
+  ['Universal Robots', 'Universal Robots'],
 ]);
 
-export function citationLabel(citation: Citation): string {
+/**
+ * Person bylines whose surname is more than the last word. A particle
+ * heuristic is unsafe: "Jared Di Carlo" is "Di Carlo", but "Di Huang" is
+ * "Huang".
+ */
+const SURNAME_OVERRIDES: ReadonlyMap<string, string> = new Map([
+  ['Jared Di Carlo', 'Di Carlo'],
+  ['Johnny Nuñez Cano', 'Nuñez Cano'],
+  ['Ruben D. Salas Parra', 'Salas Parra'],
+]);
+
+/** The name a chip prints for the first author: an organisation or a surname. */
+export function citationAuthorName(citation: Pick<Citation, 'authors'>): string {
   const firstAuthor = citation.authors[0];
-  // A byline-keyed override wins only when it names THIS entry's full
-  // byline, so "Physical Intelligence" as a sole org author keeps its
-  // whole-name chip while π0.5's org-plus-named-authors byline chips as
-  // its first named human author.
-  const fullByline = citation.authors.join(', ');
-  const tokens = firstAuthor.split(' ');
-  const surname =
-    (BYLINE_OVERRIDES.has(fullByline) ? SURNAME_OVERRIDES.get(fullByline) : undefined) ??
+  return (
+    ORGANIZATION_CHIP_NAMES.get(firstAuthor) ??
     SURNAME_OVERRIDES.get(firstAuthor) ??
-    tokens.at(-1) ??
-    firstAuthor;
-  const looksLikeOrg = tokens.length > 1 && ORG_TOKENS.has(surname);
-  return `${looksLikeOrg ? firstAuthor : surname} ${citation.year}`;
+    firstAuthor.split(' ').at(-1) ??
+    firstAuthor
+  );
+}
+
+/**
+ * The citation label every chip and source list prints, the one place it is
+ * derived: the first author's surname, with "et al." when the source has
+ * more authors, or the organisation's name, then the year. "Zhao et al.
+ * 2023", "Kalman 1960", "Boston Dynamics 2024".
+ */
+export function citationLabel(citation: Pick<Citation, 'authors' | 'year'>): string {
+  const more = citation.authors.length > 1 ? ' et al.' : '';
+  return `${citationAuthorName(citation)}${more} ${citation.year}`;
 }
 
 /**

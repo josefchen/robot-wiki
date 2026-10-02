@@ -13,6 +13,7 @@ import { headReanchorFor, showAt } from './helpers/continuation-merge-ledger';
 import { currentAuditContext, finalSevenPriorPlans } from '../helpers/residual-integration';
 import { preservedLegacySurvivors } from '../helpers/audit-plan-history';
 import { committedJson, committedText } from '../helpers/editorial-current-context';
+import { preSeoPassHash, preSeoPassText } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
 const base = 'afeeb058097ed5720ca11b03e41d3d2167573f5d';
@@ -60,11 +61,19 @@ describe('VLA21 and comparison1 current identity and scoped introduction', { tim
     expect(passEntry).toBeDefined();
     expect(cueEntry).toBeDefined();
     expect(cueEntry.oldHash).toBe(passEntry.newHash);
+    expect(preSeoPassHash('prose', 'article:manipulation/comparison-matrix')).toBe(cueEntry.newHash);
+    // The 2026-10-02 SEO pass's plain edge starts from the cue endpoint,
+    // reaches the live article and replaces only the related links.
+    const seoEntry = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries
+      .find((a: { id: string }) => a.id === 'seo-pass-20261002-prose-manipulation-comparison-matrix');
+    expect(seoEntry.oldHash).toBe(cueEntry.newHash);
     expect(truthManifests['prose'].members.find(m => m.id === 'article:manipulation/comparison-matrix')?.hash)
-      .toBe(cueEntry.newHash);
+      .toBe(seoEntry.newHash);
     expect(article).toContain(currentIntro);
     expect(article).not.toContain(oldIntro);
-    expect(matter(article).data).toEqual(matter(mainArticle).data);
+    expect({ ...matter(article).data, seeAlso: undefined })
+      .toEqual({ ...matter(preSeoPassText(articlePath)).data, seeAlso: undefined });
+    expect(matter(preSeoPassText(articlePath)).data).toEqual(matter(mainArticle).data);
     // The VLA article is likewise carried forward by the humanizer pass and
     // then the educational cue pass; the cue entry is the head re-anchor
     // for the member.
@@ -93,8 +102,14 @@ describe('VLA21 and comparison1 current identity and scoped introduction', { tim
       id: 'article:manipulation/vla-models', value: { path: vlaPath, body: matter(text).content.trim() },
     }]).members[0].hash;
     expect(vlaHash(committedSource('e4784342', vlaPath))).toBe(vlaFirstScreen.newHash);
+    expect(preSeoPassHash('prose', 'article:manipulation/vla-models')).toBe(vlaCue.newHash);
+    // The SEO pass's plain edge starts from that same endpoint and reaches
+    // the live article.
+    const vlaSeo = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries
+      .find((a: { id: string }) => a.id === 'seo-pass-20261002-prose-manipulation-vla-models');
+    expect(vlaSeo.oldHash).toBe(vlaCue.newHash);
     expect(truthManifests['prose'].members.find(m => m.id === 'article:manipulation/vla-models')?.hash)
-      .toBe(vlaCue.newHash);
+      .toBe(vlaSeo.newHash);
     // The original VLA packet did not alter the registry. NASA was added by
     // the later industrial packet, whose complete record has its own test.
     expect(committedSource('89cda67', 'data/citations.ts')).toBe(before('data/citations.ts'));

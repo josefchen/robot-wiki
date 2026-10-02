@@ -6,6 +6,7 @@ import { buildManifest } from '../../lib/brand-v2-baseline';
 import { CITATIONS } from '../../data/citations';
 import { committedSource } from '../helpers/continuation-integration';
 import { preFigureMigration } from '../helpers/figure-migration';
+import { preSeoPassText } from '../helpers/seo-pass';
 const read = (p: string) => fs.readFileSync(p, 'utf8');
 const endpoints = [
   {
@@ -87,7 +88,12 @@ describe('Optimal sampling and OMPL source-bound endpoints', () => {
       const migrated = entries.filter((entry) => entry.oldHash === restored.newHash);
       expect(migrated).toHaveLength(1);
       expect(migrated[0].id).toMatch(/figure-migration-20261001-prose-motion-planning$/);
-      expect(migrated[0].newHash).toBe(digest(read(e.path)));
+      expect(migrated[0].newHash).toBe(digest(preSeoPassText(e.path)));
+      // The 2026-10-02 SEO pass's plain edge starts from the migration and
+      // reaches the live article.
+      const seo = entries.filter((entry) => entry.oldHash === migrated[0].newHash);
+      expect(seo.map((entry) => entry.id)).toEqual(['seo-pass-20261002-prose-classical-motion-planning']);
+      expect(seo[0].newHash).toBe(digest(read(e.path)));
       if (e.id.startsWith('row9-')) {
         expect(read(e.path)).toContain('Differential constraints fall outside this setup');
         expect(read(e.path)).toContain('The latter\'s conservative condition is');

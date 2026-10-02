@@ -2,7 +2,11 @@ import { describe, expect, it } from 'vitest';
 import sitemap from '@/app/sitemap';
 import robots from '@/app/robots';
 import { modules, publishedModules } from '@/data/modules';
-import { moduleLastReviewed } from '@/lib/module-source';
+import {
+  ROUTE_SOURCES,
+  articleDateModified,
+  routeDateModified,
+} from '@/lib/content-dates';
 import { articleStructuredImagePaths } from '@/lib/og-cards';
 import { SITE_URL } from '@/lib/site';
 
@@ -41,13 +45,31 @@ describe('sitemap', () => {
     }
   });
 
-  it('uses the content-reviewed date as article lastmod', () => {
+  it('uses the git dateModified as article lastmod', () => {
     const entries = new Map(sitemap().map((entry) => [entry.url, entry]));
     for (const m of publishedModules()) {
       const url = `${SITE_URL}/${m.domain}/${m.slug}/`;
       expect(entries.get(url)?.lastModified).toBe(
-        moduleLastReviewed(m.domain, m.slug),
+        articleDateModified(m.domain, m.slug),
       );
+    }
+  });
+
+  it('dates every other route by its sources and gives every url a lastmod', () => {
+    const entries = sitemap();
+    for (const entry of entries) {
+      expect(entry.lastModified, entry.url).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    }
+    const routes = entries
+      .map((entry) => entry.url.slice(SITE_URL.length))
+      .filter((path) => path.split('/').filter(Boolean).length < 2 || path === '/');
+    expect(new Set(routes)).toEqual(
+      new Set([...Object.keys(ROUTE_SOURCES)]),
+    );
+    for (const path of routes) {
+      expect(
+        entries.find((entry) => entry.url === `${SITE_URL}${path}`)?.lastModified,
+      ).toBe(routeDateModified(path));
     }
   });
 

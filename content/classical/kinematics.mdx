@@ -14,16 +14,14 @@ citations:
   - act-aloha-2023
   - isaac-gr00t-repo-2026
 seeAlso:
-  - "classical/motion-planning"
-  - "classical/calibration"
-  - "manipulation/action-spaces"
-  - "rl-sim2real/humanoid-wbc"
+  - "manipulation/cross-embodiment"
+  - "data-hardware/teleop-rigs"
 ---
 
 import { PlanarFkArm } from '@/components/interactive/planar-fk-arm';
 import { DhParameterTable } from '@/components/mdx/dh-parameter-table';
 
-Kinematics describes the geometry of a robot's motion without modelling its forces or torques. Joint angles and link lengths determine where the end of an arm lands. Simulators integrate dynamics on top of a kinematic chain, <Term id="teleoperation">teleoperation</Term> rigs map an operator's hand through one, and learned manipulation policies eventually emit commands in the robot's coordinates.
+Kinematics is the geometry of a robot's motion, studied without modelling its forces or torques. Joint angles and link lengths determine where the end of an arm lands. Simulators integrate dynamics on top of a kinematic chain, <Term id="teleoperation">teleoperation</Term> rigs map an operator's hand through one, and learned manipulation policies eventually emit commands in the robot's coordinates.
 
 Two directions dominate. <Term id="forward-kinematics">Forward kinematics</Term> takes joint angles and computes the <Term id="end-effector">end-effector</Term> pose. <Term id="inverse-kinematics">Inverse kinematics</Term> asks the reverse question: which joint angles place the end effector here? The first direction is a plain composition of transforms, cheap and unique. The second is a nonlinear inverse problem that can have no solution, one solution, or many. Most of the classical machinery, and most of this module, concerns that asymmetry.
 

@@ -45,7 +45,7 @@ test.describe('bc-foundations module', () => {
   test('citation chips link to external primary sources', async ({ page }) => {
     await page.goto(ROUTE);
     const main = page.locator('#main-content');
-    const dagger = main.getByRole('link', { name: /Ross 2011/ }).first();
+    const dagger = main.getByRole('link', { name: /Ross et al\. 2011/ }).first();
     await expect(dagger).toHaveAttribute('href', 'https://arxiv.org/abs/1011.0686');
     // Scoped to the authored prose: the generated References bibliography
     // also renders arxiv links inside main, and with every inline chip

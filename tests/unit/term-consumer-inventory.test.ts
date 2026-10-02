@@ -6,9 +6,11 @@ import pinned from '../fixtures/term-consumer-identities.json';
 function identities(inventory: ReturnType<typeof termConsumerInventory>) {
   return inventory.map(a => ({ route: a.route, rawOpeningTags: a.rawOpeningTags, termIds: a.occurrences.map(o => o.termId) }));
 }
-// The retained pin predates the reviewed kinematics correction, which
-// removed one degrees-of-freedom trigger. Express that single change
-// explicitly; every other route, order and occurrence remains pinned.
+// The retained pin predates two reviewed changes. The kinematics correction
+// removed one degrees-of-freedom trigger, and the 2026-10-02 SEO pass opened
+// the knowledge-insulation lead with its defining Term, moving that one
+// trigger ahead of the other three. Express both explicitly; every other
+// route, order and occurrence remains pinned.
 function currentPinned() {
   const articles = structuredClone(pinned.articles);
   const kinematics = articles.find(a => a.route === '/classical/kinematics/');
@@ -18,6 +20,12 @@ function currentPinned() {
   }
   kinematics.rawOpeningTags--;
   kinematics.termIds.splice(kinematics.termIds.indexOf('degrees-of-freedom'), 1);
+  const insulation = articles.find(a => a.route === '/manipulation/knowledge-insulation/');
+  if (insulation?.termIds.join(',') !==
+    'flow-matching,vision-language-model,knowledge-insulation,action-tokenization') {
+    throw new Error('historical knowledge-insulation Term pin is not the reviewed predecessor');
+  }
+  insulation.termIds = ['knowledge-insulation', 'flow-matching', 'vision-language-model', 'action-tokenization'];
   return articles;
 }
 function assertPopulation(actual: ReturnType<typeof identities>) {

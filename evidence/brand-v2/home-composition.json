@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "fingerprint": "64fd5863fdf523966afa56d3ce9b69c22d48b7c7b2849f3d41bee7340600af13",
+  "fingerprint": "edb4e1084ff92505cb2be518260e263c57850e0bec559a1de71308d30ff552b7",
   "viewport": "1440x900",
   "route": "/",
-  "visibleTextLength": 2959,
+  "visibleTextLength": 2944,
   "documentScrollWidthPx": 1440,
   "documentClientWidthPx": 1440,
   "heroLockups": [
@@ -610,8 +610,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "The Robot Learning Stack",
-      "href": "/data-hardware/robot-learning-stack/",
+      "accessibleName": "Teleoperation Rigs",
+      "href": "/data-hardware/teleop-rigs/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 932.28,
@@ -673,7 +673,7 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Rudin 2021",
+      "accessibleName": "Rudin et al. 2021",
       "href": "https://arxiv.org/abs/2109.11978",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 45, 51)",
@@ -691,7 +691,7 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Zhao 2023",
+      "accessibleName": "Zhao et al. 2023",
       "href": "https://arxiv.org/abs/2304.13705",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 45, 51)",
@@ -718,8 +718,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Dexterity",
-      "href": "/frontier/dexterity/",
+      "accessibleName": "Autonomous Vehicles",
+      "href": "/adjacent/autonomous-vehicles/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2302.48,
@@ -727,8 +727,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Cross-Embodiment Transfer",
-      "href": "/manipulation/cross-embodiment/",
+      "accessibleName": "Drones and Aerial Robotics",
+      "href": "/adjacent/drones/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2333.48,
@@ -736,8 +736,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Foundation Models for Robotics",
-      "href": "/manipulation/foundation-models/",
+      "accessibleName": "Space Robotics",
+      "href": "/adjacent/space/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2364.48,
@@ -745,8 +745,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Autonomous Vehicles",
-      "href": "/adjacent/autonomous-vehicles/",
+      "accessibleName": "Surgical Robotics",
+      "href": "/adjacent/surgical/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2395.48,
@@ -754,8 +754,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "World Model Evaluation for Robotics",
-      "href": "/world-models/evaluation/",
+      "accessibleName": "Robot Calibration",
+      "href": "/classical/calibration/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2426.48,
@@ -988,8 +988,8 @@
     {
       "label": "Featured article",
       "signature": "plain/module-heading/lead-excerpt",
-      "prose": "A robot-learning system is a pipeline from physical events to decisions and back again. The checkpoint is one component.",
-      "text": "Featured article The Robot Learning Stack A robot-learning system is a pipeline from physical events to decisions and back again. The checkpoint is one component."
+      "prose": "Teleoperation rigs are the hardware a person uses to drive a robot, or a stand-in for one, while a demonstration is recorded.",
+      "text": "Featured article Teleoperation Rigs Teleoperation rigs are the hardware a person uses to drive a robot, or a stand-in for one, while a demonstration is recorded."
     },
     {
       "label": "Featured scene",
@@ -1000,14 +1000,14 @@
     {
       "label": "Did you know",
       "signature": "plain/module-heading/cited-facts",
-      "prose": "An ANYmal quadruped on flat ground in under four minutes on one GPU. ACT reached 80 to 90% success on six bimanual tasks, each from about. By 1961, Heinrich Ernst had a stacking blocks at MIT.",
-      "text": "Did you know An ANYmal quadruped learned to walk on flat ground in under four minutes on one GPU Rudin 2021. ACT reached 80 to 90% success on six bimanual tasks, each from about 10 minutes of demonstrations Zhao 2023. By 1961, Heinrich Ernst had a computer-controlled arm and hand stacking blocks at MIT Brooks 2025."
+      "prose": "An ANYmal quadruped on flat ground in under four minutes on one GPU. ACT reached 80-90% success on six bimanual tasks, each from about. By 1961, Heinrich Ernst had a stacking blocks at MIT.",
+      "text": "Did you know An ANYmal quadruped learned to walk on flat ground in under four minutes on one GPU Rudin et al. 2021. ACT reached 80-90% success on six bimanual tasks, each from about 10 minutes of demonstrations Zhao et al. 2023. By 1961, Heinrich Ernst had a computer-controlled arm and hand stacking blocks at MIT Brooks 2025."
     },
     {
       "label": "Recently updated",
       "signature": "plain/module-heading/dated-links",
       "prose": "",
-      "text": "Recently updated 2026-10-02 Dexterity 2026-10-01 Cross-Embodiment Transfer 2026-10-01 Foundation Models for Robotics 2026-10-01 Autonomous Vehicles 2026-10-01 World Model Evaluation for Robotics"
+      "text": "Recently updated 2026-10-02 Autonomous Vehicles 2026-10-02 Drones and Aerial Robotics 2026-10-02 Space Robotics 2026-10-02 Surgical Robotics 2026-10-02 Robot Calibration"
     },
     {
       "label": "Tools",

@@ -5,7 +5,11 @@ import { IntentLink } from '@/components/ui/intent-link';
 import { DOMAIN_META, DOMAINS, modulesByDomain } from '@/data/modules';
 import type { Domain } from '@/data/modules';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
-import { domainCollectionJsonLd, domainSeoTitle } from '@/lib/seo';
+import {
+  domainCollectionJsonLd,
+  domainSeoDescription,
+  domainSeoTitle,
+} from '@/lib/seo';
 
 /**
  * Domain landing view: the entry point every home card and sidebar overview
@@ -38,7 +42,7 @@ export async function generateMetadata({
   const meta = DOMAIN_META[domain];
   return {
     title: domainSeoTitle(domain),
-    description: meta.description,
+    description: domainSeoDescription(domain),
     // Full openGraph and twitter blocks, restated because a route-level
     // object replaces the layout's for the same key (no deep merge).
     // og:title is the plain domain name: the card title must equal the
@@ -133,7 +137,7 @@ export default async function DomainLandingPage({
                 </span>
                 <IntentLink
                   data-brand-control-id="control:link-focus"
-                  href={`/${m.domain}/${m.slug}`}
+                  href={`/${m.domain}/${m.slug}/`}
                   className="font-sans text-base font-medium text-text transition-colors hover:text-accent"
                 >
                   {m.title}

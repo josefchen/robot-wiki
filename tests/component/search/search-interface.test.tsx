@@ -234,7 +234,7 @@ describe('SearchInterface', () => {
     );
     await user.type(screen.getByRole('searchbox', { name: INPUT_NAME }), 'act');
     await waitFor(() =>
-      expect(mockReplace).toHaveBeenCalledWith('/search?q=act', { scroll: false }),
+      expect(mockReplace).toHaveBeenCalledWith('/search/?q=act', { scroll: false }),
     );
   });
 
@@ -358,7 +358,7 @@ describe('SearchInterface', () => {
       screen.queryByRole('button', { name: 'Clear search' }),
     ).not.toBeInTheDocument();
     await waitFor(() =>
-      expect(mockReplace).toHaveBeenCalledWith('/search', { scroll: false }),
+      expect(mockReplace).toHaveBeenCalledWith('/search/', { scroll: false }),
     );
   });
 });

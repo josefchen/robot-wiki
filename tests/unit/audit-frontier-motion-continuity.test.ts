@@ -1,9 +1,12 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { currentFrontierSafetyArticle, reviewedFrontierChecker } from '@/lib/audit-frontier-motion-continuity';
+import { preSeoPass } from '../helpers/seo-pass';
 
 const root = process.cwd();
-const current = readFileSync(`${root}/content/frontier/safety-and-assurance.mdx`);
+const live = readFileSync(`${root}/content/frontier/safety-and-assurance.mdx`);
+// The motion review binds the article as it stood before the SEO pass.
+const current = preSeoPass('content/frontier/safety-and-assurance.mdx');
 const old = readFileSync(`${root}/audit/evidence/motion-frontier-adjacent-home-20260927/safety-article-before.mdx`);
 
 describe('frontier safety prose continuation', () => {
@@ -18,7 +21,7 @@ describe('frontier safety prose continuation', () => {
   });
 
   it('retains the two safety disclosures and their paper-specific limitations', () => {
-    const text = current.toString();
+    const text = live.toString();
     for (const phrase of [
       'an intrusion margin of at least 850 mm',
       '1200 mm for a single-height beam',

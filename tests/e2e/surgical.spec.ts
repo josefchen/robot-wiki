@@ -98,10 +98,10 @@ test.describe('adjacent surgical module', () => {
       'https://www.prnewswire.com/news-releases/moon-surgical-receives-fda-clearance-for-scopilot-on-maestro-industrys-first-ai-enhanced-intraoperative-capability-powered-by--nvidia-holoscan-302404920.html',
     );
     await expect(
-      prose.getByRole('link', { name: 'Yang 2017' }).first(),
+      prose.getByRole('link', { name: 'Yang et al. 2017' }).first(),
     ).toHaveAttribute('href', 'https://doi.org/10.1126/scirobotics.aam8638');
     await expect(
-      prose.getByRole('link', { name: 'Shademan 2016' }).first(),
+      prose.getByRole('link', { name: 'Shademan et al. 2016' }).first(),
     ).toHaveAttribute('href', 'https://doi.org/10.1126/scitranslmed.aad9398');
     const chips = prose.locator('a[href^="https://"]');
     expect(await chips.count()).toBeGreaterThanOrEqual(10);

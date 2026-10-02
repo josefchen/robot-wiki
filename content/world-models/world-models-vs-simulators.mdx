@@ -25,14 +25,13 @@ citations:
   - cosmos-1-diffusion-14b-card-2025
   - 3dgs-2023
 seeAlso:
-  - "world-models/model-based-robot-learning"
-  - "world-models/generative-sim"
-  - "rl-sim2real/sim2real-transfer"
-  - "world-models/evaluation"
+  - "rl-sim2real/parallel-sim-rl"
+  - "world-models/latent-dynamics"
+  - "classical/control"
 ---
 import { SimVsModelTable, WorldModelCostTable } from '@/components/mdx/text-tables';
 
-A physics simulator predicts the next state from explicit geometry, dynamics and contact rules. A learned <Term id="world-model">world model</Term> predicts from data. Both are models of what happens under an action; neither is automatically faithful to the real robot. The practical choice is which errors are measurable, which counterfactuals must be queried, and how far beyond the training distribution the system will operate.
+Learned <Term id="world-model">world models</Term> and physics simulators are both models of what happens under an action. A physics simulator predicts the next state from explicit geometry, dynamics and contact rules. A learned world model predicts from data. Neither is automatically faithful to the real robot. The practical choice is which errors are measurable, which counterfactuals must be queried, and how far beyond the training distribution the system will operate.
 
 Many productive systems combine them. Physics supplies structure and broad counterfactual coverage. Learning supplies appearance, actuator residuals, contacts or task distributions that are expensive to specify.
 

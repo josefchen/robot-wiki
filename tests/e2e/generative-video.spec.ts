@@ -119,25 +119,25 @@ test.describe('world-models generative-video module', () => {
     await page.goto(ROUTE);
     const main = page.locator('#main-content');
     await expect(
-      main.getByRole('link', { name: /Parker-Holder 2025/ }).first(),
+      main.getByRole('link', { name: /Parker-Holder et al\. 2025/ }).first(),
     ).toHaveAttribute(
       'href',
       'https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/',
     );
     await expect(
-      main.getByRole('link', { name: /Wang 2026/ }).first(),
+      main.getByRole('link', { name: /Wang et al\. 2026/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2603.08546');
     await expect(
-      main.getByRole('link', { name: /Jeon 2026/ }).first(),
+      main.getByRole('link', { name: /Jeon et al\. 2026/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2607.01060');
     await expect(
-      main.getByRole('link', { name: /Hou 2026/ }).first(),
+      main.getByRole('link', { name: /Hou et al\. 2026/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2605.00080');
     await expect(
-      main.getByRole('link', { name: /Wu 2023/ }).first(),
+      main.getByRole('link', { name: /Wu et al\. 2023/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2312.13139');
     await expect(
-      main.getByRole('link', { name: /Cheang 2024/ }).first(),
+      main.getByRole('link', { name: /Cheang et al\. 2024/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2410.06158');
     // Scoped to the authored prose: the generated References bibliography
     // also renders external links inside main, and with every inline chip deleted its 10 registry anchors alone still passed this floor.
@@ -160,7 +160,7 @@ test.describe('world-models generative-video module', () => {
     await expect(prose).toContainText('rectified flow matching');
     await expect(prose).toContainText('EDM loss');
     await expect(prose).not.toContainText('Two sizes are public at launch');
-    const source = prose.getByRole('link', { name: 'NVIDIA 2026', exact: true }).first();
+    const source = prose.getByRole('link', { name: 'NVIDIA et al. 2026', exact: true }).first();
     await expect(source).toHaveAttribute(
       'href',
       'https://research.nvidia.com/labs/cosmos-lab/cosmos3/technical-report.pdf',

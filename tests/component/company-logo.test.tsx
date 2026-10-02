@@ -63,7 +63,16 @@ describe('CompanyLogo', () => {
     expect(mark).toHaveAttribute('data-logo-state', 'image');
     const img = mark?.querySelector('img');
     expect(img).toHaveAttribute('src', '/images/logos/nvidia.svg');
-    expect(img).toHaveAttribute('alt', '');
+    expect(img).toHaveAttribute('alt', `${nvidia!.name} logo`);
+  });
+
+  it('names every registry company in its logo alt text', () => {
+    for (const company of COMPANIES) {
+      const { unmount } = render(<CompanyLogo company={company} />);
+      const img = markFor(company.id)?.querySelector('img');
+      expect(img, company.id).toHaveAttribute('alt', `${company.name} logo`);
+      unmount();
+    }
   });
 
   it('retries a later company after onError on a reused instance', () => {

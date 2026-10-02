@@ -36,15 +36,13 @@ citations:
   - robopoint-2024
   - play2perfect-2026
 seeAlso:
-  - "classical/grasp-planning"
-  - "classical/calibration"
-  - "classical/ros2-for-ml-engineers"
-  - "classical/state-estimation"
+  - "manipulation/vla-models"
+  - "data-hardware/hardware-taxonomy"
 ---
 
 import { PerceptionErrorBudget } from '@/components/interactive/perception-error-budget';
 
-[Grasp planning](/classical/grasp-planning) computes force closure against a known object pose. Notice what that assumes: somebody upstream has already said where the object is, in the robot's own frame, to a tolerance the gripper can act on. That upstream somebody is the perception pipeline, and this is the module about it.
+Perception for manipulation is the pipeline that turns camera and depth data into object poses in the robot's own frame. [Grasp planning](/classical/grasp-planning) computes force closure against a known object pose. Notice what that assumes: somebody upstream has already said where the object is, in the robot's own frame, to a tolerance the gripper can act on. That upstream somebody is the perception pipeline, and this is the module about it.
 
 This article groups an explicit perception pipeline into six stages for explanation; that organization is not a universal architecture or a required fixed execution order. Calibrate the camera so a pixel means a direction. Calibrate it against the robot so that direction means something in the robot's frame. Measure depth so the direction becomes a point. Detect and segment so points become an object. Estimate pose so the object becomes a graspable rigid body. The instrument below combines three adjustable error magnitudes by root-sum-of-squares as an illustrative modelling choice. It does not establish that calibration, depth and pose errors are statistically independent, or that its output bounds the positioning error of a real pipeline.
 

@@ -19,14 +19,14 @@ citations:
   - bunny-visionpro-2024
   - apple-visionpro-price-2024
 seeAlso:
-  - "data-hardware/data-bottleneck"
-  - "data-hardware/hardware-taxonomy"
   - "manipulation/action-chunking"
+  - "data-hardware/datasets"
+  - "rl-sim2real/humanoid-wbc"
 ---
 
 import { TeleopRigMatrix } from '@/components/interactive/teleop-rig-matrix';
 
-Nearly every demonstration in a robot learning dataset was produced by a human moving hardware. The human drives the robot itself, moves a scaled twin of it, holds a gripper proxy in hand, or works inside a headset while the robot mirrors them. Four rig families cover most of that collection in 2026: ALOHA-class bimanual workstations, GELLO kinematically matched exoskeletons, UMI handheld grippers, and VR <Term id="teleoperation">teleoperation</Term>. Each family is a different bet on four axes: what the rig costs, how faithfully its demonstrations map onto robot execution, how cheaply its demonstration volume scales, and how large the gap is between the recorded motion and the robot's. Cost figures do not all describe comparable purchases: GELLO's sub-\$300 paper BOM buys the controller; its robot arm costs extra <Cite id="gello-2023" />.
+<Term id="teleoperation">Teleoperation</Term> rigs are the hardware a person uses to drive a robot, or a stand-in for one, while a demonstration is recorded. Nearly every demonstration in a robot learning dataset was produced by a human moving hardware. The human drives the robot itself, moves a scaled twin of it, holds a gripper proxy in hand, or works inside a headset while the robot mirrors them. Four rig families cover most of that collection in 2026: ALOHA-class bimanual workstations, GELLO kinematically matched exoskeletons, UMI handheld grippers, and VR teleoperation. Each family is a different bet on four axes: what the rig costs, how faithfully its demonstrations map onto robot execution, how cheaply its demonstration volume scales, and how large the gap is between the recorded motion and the robot's. Cost figures do not all describe comparable purchases: GELLO's sub-\$300 paper BOM buys the controller; its robot arm costs extra <Cite id="gello-2023" />.
 
 <Cite id="lerobot-pricing-2026" /> A community issue researched in June 2026 estimates the combined “ALOHA / ALOHA 2” category at about \$17k-32k, but does not specify the currency code, configurations, or itemized inclusions and exclusions. That estimate is not a current vendor quote or a verified ALOHA 2 system total.
 

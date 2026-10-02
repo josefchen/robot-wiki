@@ -96,15 +96,15 @@ test.describe('data-hardware hardware-taxonomy module', () => {
     await page.goto(ROUTE);
     const main = page.locator('#main-content');
     await expect(
-      main.getByRole('link', { name: /Shaw 2023/ }).first(),
+      main.getByRole('link', { name: /Shaw et al\. 2023/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2309.06440');
     await expect(
-      main.getByRole('link', { name: /Luo 2025/ }).first(),
+      main.getByRole('link', { name: /Luo et al\. 2025/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2508.11261');
     await expect(
       // The VLA-Perf entry's authors were corrected to the paper's real
-      // author list (Jiang et al.), so the chip now reads "Jiang 2026".
-      main.getByRole('link', { name: /Jiang 2026/ }).first(),
+      // author list (Jiang et al.), so the chip now reads "Jiang et al. 2026".
+      main.getByRole('link', { name: /Jiang et al\. 2026/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2602.18397');
     // Scoped to the authored prose: the generated References bibliography
     // also renders external links inside main, and with every inline chip deleted its 22 registry anchors alone still passed this floor.

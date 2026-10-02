@@ -11,6 +11,7 @@ import { BASELINE_KINDS, buildManifest, compareBaseline, sha256, type ApprovedDe
 import { collectArticleTruthManifests } from '../../scripts/brand-v2-baseline';
 import { headReanchorFor, integratedHash, laneWindow, reanchorFor, sealedHash, showAt } from './helpers/continuation-merge-ledger';
 import { committedSource } from '../helpers/continuation-integration';
+import { preSeoPassHash, preSeoPassText } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
 const base = '9ea4a171131e45deacfbd1b54921940162f3afbf';
@@ -18,7 +19,11 @@ const attributionCommit = 'afeeb058097ed5720ca11b03e41d3d2167573f5d';
 const read = (path: string) => readFileSync(resolve(root, path), 'utf8');
 const before = (path: string) => showAt(base, path);
 const articlePath = 'content/manipulation/generalist-policies.mdx';
-const article = read(articlePath);
+// The article as it stood before the 2026-10-02 SEO pass; the edges that
+// pass appended are checked against the live article.
+const article = preSeoPassText(articlePath);
+const seoPassEdge = (kind: BaselineKind, memberId: string) => approvals.find(a =>
+  a.id.startsWith('seo-pass-20261002-') && a.manifest === kind && a.memberId === memberId);
 const attributionArticle = committedSource(attributionCommit, articlePath);
 const attributionLedger = committedSource(attributionCommit, 'audit/manipulation.md');
 const attributionPlans: CompoundPlan[] = JSON.parse(committedSource(attributionCommit, 'audit/compound-evidence.json'));
@@ -165,13 +170,19 @@ describe('generalist originals 15 and 21, exact attribution and metadata correct
     const hashOf = (text: string) => buildManifest('prose', [{ id: 'article:manipulation/generalist-policies', value: { path: articlePath, body: matter(text).content.trim() } }]).members[0].hash;
     const lastPrePassAnchor = approvals
       .filter(a => a.manifest === 'prose' && a.memberId === 'article:manipulation/generalist-policies'
-        && !a.id.startsWith('humanizer-manipulation-v3-') && !a.id.startsWith('educational-cue-20260926-'))
+        && !a.id.startsWith('humanizer-manipulation-v3-') && !a.id.startsWith('educational-cue-20260926-')
+        && !a.id.startsWith('seo-pass-20261002-'))
       .at(-1)!.newHash;
     expect(hashOf(corrected)).toBe(lastPrePassAnchor);
     // The cue re-anchor is a sealed resolution that binds every prior
     // approval for this member, the humanizer endpoint included.
     expect(cue.reconciles?.some(binding => binding.id === humanizer.id)).toBe(true);
     expect(hashOf(article)).toBe(cue.newHash);
+    // The SEO pass resolution binds the cue endpoint and carries the member
+    // on to the live article.
+    const seo = seoPassEdge('prose', 'article:manipulation/generalist-policies')!;
+    expect(seo.reconciles?.some(binding => binding.id === cue.id)).toBe(true);
+    expect(hashOf(read(articlePath))).toBe(seo.newHash);
     expect(article.split(newSpan.replace('Its inspected v4 methods describe', 'Its inspected methods describe'))).toHaveLength(2);
     expect(matter(article).data).toEqual(matter(before(articlePath)).data);
     expect(article).not.toContain('GO-1 was open-sourced alongside');
@@ -334,21 +345,28 @@ describe('generalist originals 15 and 21, exact attribution and metadata correct
         expect(head).toMatchObject({ oldHash: sealedHash(manifest, memberId), newHash: currentHash(manifest, memberId), disposition: 'permanent' });
         expect(approvals.indexOf(head)).toBeGreaterThanOrEqual(approvals.indexOf(reanchor!));
       } else {
-        expect(a?.newHash).toBe(currentHash(manifest, memberId));
+        // The SEO pass later moved the related links on; the lane endpoint
+        // was HEAD until then.
+        const seo = seoPassEdge(manifest, memberId);
+        const endpoint = seo ? preSeoPassHash(manifest, memberId) : currentHash(manifest, memberId);
+        if (seo) expect(seo.newHash).toBe(currentHash(manifest, memberId));
+        expect(a?.newHash).toBe(endpoint);
         // A lane-only member needs no integration re-anchor; if one exists it must be exact.
-        if (reanchor) expect(reanchor).toMatchObject({ oldHash: sealedHash(manifest, memberId), newHash: currentHash(manifest, memberId) });
+        if (reanchor) expect(reanchor).toMatchObject({ oldHash: sealedHash(manifest, memberId), newHash: endpoint });
       }
     }
   });
   it('rejects missing or mutated exact approvals in native comparison', () => {
-    // Members only the lane changed: lane start -> HEAD through the lane approvals.
+    // Members only the lane changed: lane start -> HEAD before the SEO pass
+    // through the lane approvals.
     const laneMembers = oldHashes.filter(entry => !touched(entry));
+    const laneEnd = bundle(true, laneMembers.map(([k, id]) => [k, id, preSeoPassHash(k, id)] as [BaselineKind, string, string]));
     const laneApprovals = selectedApprovals.filter(a => laneMembers.some(([k, id]) => a.manifest === k && a.memberId === id));
     expect(laneApprovals.length).toBeGreaterThan(0);
-    expect(compareBaseline(bundle(true, laneMembers), bundle(false, laneMembers), laneApprovals).ok).toBe(true);
+    expect(compareBaseline(bundle(true, laneMembers), laneEnd, laneApprovals).ok).toBe(true);
     for (const approval of laneApprovals) {
-      expect(compareBaseline(bundle(true, laneMembers), bundle(false, laneMembers), laneApprovals.filter(a => a.id !== approval.id)).ok).toBe(false);
-      expect(compareBaseline(bundle(true, laneMembers), bundle(false, laneMembers), laneApprovals.map(a => a.id === approval.id ? { ...a, newHash: '0'.repeat(64) } : a)).ok).toBe(false);
+      expect(compareBaseline(bundle(true, laneMembers), laneEnd, laneApprovals.filter(a => a.id !== approval.id)).ok).toBe(false);
+      expect(compareBaseline(bundle(true, laneMembers), laneEnd, laneApprovals.map(a => a.id === approval.id ? { ...a, newHash: '0'.repeat(64) } : a)).ok).toBe(false);
     }
     // Members the production line also changed: seal -> HEAD through the latest integration re-anchors.
     const mergedMembers = oldHashes.filter(touched).map(([k, id]) => [k, id, sealedHash(k, id)] as [BaselineKind, string, string]);

@@ -75,29 +75,29 @@ test.describe('adjacent drones module', () => {
     const prose = page.locator('div.prose[data-pagefind-body]');
     // Autonomous flight area: high-speed flight, Swift, RL-vs-OC.
     await expect(
-      prose.getByRole('link', { name: 'Loquercio 2021' }).first(),
+      prose.getByRole('link', { name: 'Loquercio et al. 2021' }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2110.05113');
     await expect(
-      prose.getByRole('link', { name: 'Kaufmann 2023' }).first(),
+      prose.getByRole('link', { name: 'Kaufmann et al. 2023' }).first(),
     ).toHaveAttribute(
       'href',
       'https://www.nature.com/articles/s41586-023-06419-4',
     );
     await expect(
-      prose.getByRole('link', { name: 'Song 2023' }).first(),
+      prose.getByRole('link', { name: 'Song et al. 2023' }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2310.10943');
     await expect(
-      prose.getByRole('link', { name: 'Falanga 2019' }).first(),
+      prose.getByRole('link', { name: 'Falanga et al. 2019' }).first(),
     ).toHaveAttribute('href', 'https://doi.org/10.1109/LRA.2019.2898117');
     // Swarm area: the Zhou micro-swarm and the Soria NMPC swarm.
     await expect(
-      prose.getByRole('link', { name: 'Zhou 2022' }).first(),
+      prose.getByRole('link', { name: 'Zhou et al. 2022' }).first(),
     ).toHaveAttribute(
       'href',
       'https://www.science.org/doi/10.1126/scirobotics.abm5954',
     );
     await expect(
-      prose.getByRole('link', { name: 'Soria 2021' }).first(),
+      prose.getByRole('link', { name: 'Soria et al. 2021' }).first(),
     ).toHaveAttribute(
       'href',
       'https://www.nature.com/articles/s42256-021-00341-y',

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { citationLabel, getCitation } from '@/data/citations';
 import { glossaryTermsAlphabetical } from '@/data/glossary';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
+import { glossaryJsonLd } from '@/lib/structured-data';
 import {
   STANDALONE_SEO_DESCRIPTIONS,
   STANDALONE_SEO_TITLES,
@@ -32,6 +33,10 @@ export default function GlossaryPage() {
 
   return (
     <div className="mx-auto w-full max-w-[65ch] px-6 py-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: glossaryJsonLd(terms) }}
+      />
       {/* data-pagefind-body: Pagefind excludes every page that declares no
           body region as soon as one page declares one, which left this
           route unreachable by the query "Glossary" that the sidebar itself

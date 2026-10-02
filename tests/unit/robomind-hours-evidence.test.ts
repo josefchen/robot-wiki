@@ -18,6 +18,7 @@ import { readerTruthAt, READER_RELEASE_BASE } from '../helpers/reader-integratio
 import { currentAuditContext, finalSevenBefore } from '../helpers/residual-integration';
 import { preservedLegacySurvivors } from '../helpers/audit-plan-history';
 import { committedText, committedJson } from '../helpers/editorial-current-context';
+import { preSeoPassText } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
 const base = '358f5050333386606f041505613e4a65d90dc703';
@@ -200,9 +201,20 @@ describe('RoboMIND paper-v3 hours correction, zero completion credit', () => {
     expect(migrated).toHaveLength(1);
     expect(migrated[0].id).toMatch(/figure-migration-20261001-prose-data-bottleneck$/);
     expect(migrated[0].reconciles).toBeUndefined();
-    expect(adjacentHash(read(adjacentPath))).toBe(migrated[0].newHash);
+    expect(adjacentHash(preSeoPassText(adjacentPath))).toBe(migrated[0].newHash);
+    // The 2026-10-02 SEO pass's plain edge starts from the migration and
+    // reaches the live article.
+    const seo = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries.filter(
+      (a: { id: string; manifest: string; memberId: string; oldHash: string }) => a.manifest === 'prose'
+        && a.memberId === 'article:data-hardware/data-bottleneck' && a.oldHash === migrated[0].newHash);
+    expect(seo.map((a: { id: string }) => a.id)).toEqual(['seo-pass-20261002-prose-data-hardware-data-bottleneck']);
+    expect(adjacentHash(read(adjacentPath))).toBe(seo[0].newHash);
     expect(read(adjacentPath)).toContain('Real-world robot data is different. Every hour of it');
-    expect(matter(article).data).toEqual(matter(committedSource(READER_RELEASE_BASE, articlePath)).data);
+    // The SEO pass replaced only the related links in the frontmatter.
+    expect({ ...matter(article).data, seeAlso: undefined })
+      .toEqual({ ...matter(preSeoPassText(articlePath)).data, seeAlso: undefined });
+    expect(matter(preSeoPassText(articlePath)).data)
+      .toEqual(matter(committedSource(READER_RELEASE_BASE, articlePath)).data);
     expect(committedSource(checkpoint, 'data/citations.ts')).toBe(before('data/citations.ts'));
     preservedPreIndustrialCitations(READER_RELEASE_BASE);
     expect(atHours(adjacentPath)).toBe(before(adjacentPath).replace(

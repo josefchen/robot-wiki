@@ -49,13 +49,13 @@ test.describe('world-models latent-dynamics module', () => {
     await page.goto(ROUTE);
     const main = page.locator('#main-content');
     await expect(
-      main.getByRole('link', { name: /Hafner 2023/ }).first(),
+      main.getByRole('link', { name: /Hafner et al\. 2023/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2301.04104');
     await expect(
-      main.getByRole('link', { name: /Hansen 2023/ }).first(),
+      main.getByRole('link', { name: /Hansen et al\. 2023/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2310.16828');
     await expect(
-      main.getByRole('link', { name: /Wu 2022/ }).first(),
+      main.getByRole('link', { name: /Wu et al\. 2022/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2206.14176');
     // Scoped to the authored prose: the generated References bibliography
     // also renders external links inside main, and with every inline chip deleted its 9 registry anchors alone still passed this floor.

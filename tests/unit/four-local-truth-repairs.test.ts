@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto';
 import { committedSource, CONTINUATION_CHECKPOINT, preservedApprovalPacket, preservedCompoundPacket } from '../helpers/continuation-integration';
 import { headReanchorFor } from './helpers/continuation-merge-ledger';
 import { preFigureMigration } from '../helpers/figure-migration';
+import { preSeoPassText } from '../helpers/seo-pass';
 import { planPacket, preservedLegacySurvivors } from '../helpers/audit-plan-history';
 import type { LocalPlan } from '../../lib/audit-local-basis';
 import { readFileSync } from 'node:fs';
@@ -316,22 +317,30 @@ describe('four bounded local truth repairs without completion credit', { timeout
         id: delta.memberId,
         value: delta.manifest === 'prose' ? { path, body: matter(text).content.trim() } : { path, source: text },
       }]).members[0].hash;
-      const merged = headReanchorFor(entries, delta.manifest, delta.memberId);
+      const merged = headReanchorFor(entries.filter(({ id }) => !id.startsWith('seo-pass-20261002-')),
+        delta.manifest, delta.memberId);
       const restore = restores.find((entry) => entry.memberId === delta.memberId);
       if (restore) expect(restore.oldHash).toBe(merged!.newHash);
       // The reviewed pre-migration bytes sit at the prior endpoint. A body the
       // 2026-10-01 figure migration changed continues with exactly one plain
-      // edge from there, because the article-truth gate grades bodies. That
-      // gate does not grade interactive sources; for them the figure-migration
-      // review alone binds the live bytes to the endpoint bytes.
+      // edge from there, because the article-truth gate grades bodies, and a
+      // body the 2026-10-02 SEO pass changed continues with exactly one more.
+      // That gate does not grade interactive sources; for them the
+      // figure-migration review alone binds the live bytes to the endpoint bytes.
       const endpoint = restore?.newHash ?? merged?.newHash ?? delta.newHash;
       const reviewedSource = preFigureMigration(path).toString('utf8');
       expect(endpoint).toBe(memberHash(reviewedSource));
       const migrated = entries.filter((entry) => entry.manifest === delta.manifest &&
         entry.memberId === delta.memberId && entry.oldHash === endpoint && /figure-migration-20261001-/.test(entry.id));
       if (delta.manifest === 'prose') {
-        expect(migrated).toHaveLength(reviewedSource === read(path) ? 0 : 1);
-        expect(migrated[0]?.newHash ?? endpoint).toBe(memberHash(read(path)));
+        const preSeo = preSeoPassText(path);
+        expect(migrated).toHaveLength(reviewedSource === preSeo ? 0 : 1);
+        const migratedEndpoint = migrated[0]?.newHash ?? endpoint;
+        expect(migratedEndpoint).toBe(memberHash(preSeo));
+        const seo = entries.filter((entry) => entry.manifest === 'prose' &&
+          entry.memberId === delta.memberId && entry.id.startsWith('seo-pass-20261002-'));
+        expect(seo).toHaveLength(memberHash(preSeo) === memberHash(read(path)) ? 0 : 1);
+        expect(seo[0]?.newHash ?? migratedEndpoint).toBe(memberHash(read(path)));
       } else {
         expect(migrated).toHaveLength(0);
       }
