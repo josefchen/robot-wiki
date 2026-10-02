@@ -34,10 +34,10 @@ test.describe('data-hardware datasets module', () => {
     await page.goto(ROUTE);
     const main = page.locator('#main-content');
     await expect(
-      main.getByRole('link', { name: /Walke 2023/ }).first(),
+      main.getByRole('link', { name: /Walke et al\. 2023/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2308.12952');
     await expect(
-      main.getByRole('link', { name: /Wu 2024/ }).first(),
+      main.getByRole('link', { name: /Wu et al\. 2024/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2412.13877');
     await expect(
       main.getByRole('link', { name: /AgiBot 2026/ }).first(),

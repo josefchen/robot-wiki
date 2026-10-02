@@ -66,6 +66,12 @@ export interface CommitOption {
    */
   cite?: string;
   /**
+   * The chip text for `cite`: the registry's author-year label, which
+   * lib/rehype-reveal-cite-labels.mjs writes in at compile time because this
+   * client module does not load the citation registry. Falls back to the id.
+   */
+  citeLabel?: string;
+  /**
    * Optional in-page anchor rendered at the end of this option's
    * reasoning, for answers whose evidence is the article's own section
    * or interactive rather than an external source. Two flat string
@@ -247,7 +253,7 @@ export function CommitToReveal({
                         data-brand-control-id="control:link-focus"
                         className="px-1 font-mono text-[0.72em] leading-5 text-text-dim no-underline transition-colors hover:text-accent"
                       >
-                        {option.cite}
+                        {option.citeLabel ?? option.cite}
                       </a>
                     </span>
                   ) : null}

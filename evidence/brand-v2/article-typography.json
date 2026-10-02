@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "04fbc132f97c25544a91c909434b876db16c6af71e55ba315b4f5afcefcbc19d",
+  "fingerprint": "51017d3361325a2f3896db57f396e28ea5fe3e81197d0f157cd4295572632d20",
   "viewports": [
     "375x812",
     "1440x900"
@@ -142,7 +142,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3111,
+      "visibleTextLength": 3096,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -1186,7 +1186,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 29721,
+      "visibleTextLength": 29940,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -1943,7 +1943,7 @@
         },
         {
           "kind": "internal",
-          "count": 1,
+          "count": 16,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -1953,7 +1953,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 16,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -2115,7 +2115,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18517,
+      "visibleTextLength": 18760,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -2221,7 +2221,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A quadrotor is among the most agile machines ever built, and"
+          "text": "Drones are aircraft that fly with no pilot on board. A quadr"
         },
         {
           "familyHead": "newsreader",
@@ -2625,7 +2625,7 @@
         },
         {
           "kind": "internal",
-          "count": 1,
+          "count": 7,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -2635,7 +2635,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 7,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -2845,7 +2845,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18047,
+      "visibleTextLength": 18038,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -2957,7 +2957,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Space is the domain where the two assumptions of everyday ro"
+          "text": "Space robotics is the domain where the two assumptions of ev"
         },
         {
           "familyHead": "newsreader",
@@ -3410,7 +3410,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16733,
+      "visibleTextLength": 16978,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -3813,7 +3813,7 @@
         },
         {
           "kind": "internal",
-          "count": 1,
+          "count": 2,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -3823,7 +3823,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 2,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -4189,7 +4189,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 11763,
+      "visibleTextLength": 11867,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -4296,7 +4296,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Calibration makes measurements and commands refer to the sam"
+          "text": "Calibration is the work that makes measurements and commands"
         },
         {
           "familyHead": "newsreader",
@@ -4817,7 +4817,7 @@
         },
         {
           "kind": "internal",
-          "count": 1,
+          "count": 6,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -4827,7 +4827,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 6,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -4957,7 +4957,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23072,
+      "visibleTextLength": 22992,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -5076,7 +5076,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Motion planning decides where the robot should go. Control i"
+          "text": "Control is what makes a robot actually go where motion plann"
         },
         {
           "familyHead": "newsreader",
@@ -5634,7 +5634,7 @@
         },
         {
           "kind": "internal",
-          "count": 10,
+          "count": 14,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -5644,7 +5644,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 9,
+              "count": 13,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -5848,7 +5848,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16696,
+      "visibleTextLength": 16459,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -5956,7 +5956,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Every act of manipulation ends the same way: some part of th"
+          "text": "Grasp planning is the discipline that answers from geometry "
         },
         {
           "familyHead": "newsreader",
@@ -6396,7 +6396,7 @@
         },
         {
           "kind": "internal",
-          "count": 7,
+          "count": 10,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -6406,7 +6406,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 7,
+              "count": 10,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -6568,7 +6568,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14793,
+      "visibleTextLength": 14309,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -6672,7 +6672,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Kinematics describes the geometry of a robot's motion withou"
+          "text": "Kinematics is the geometry of a robot's motion, studied with"
         },
         {
           "familyHead": "newsreader",
@@ -7159,7 +7159,7 @@
         },
         {
           "kind": "internal",
-          "count": 4,
+          "count": 5,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -7169,7 +7169,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 4,
+              "count": 5,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -7374,11 +7374,11 @@
           "Motion Planning"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 19,
+        "readingMinutes": 20,
         "citationCount": 10,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "19 min",
+        "readingTimeText": "20 min",
         "citationCountText": "10",
         "bibliographyIds": [
           "lozano-perez-1983",
@@ -7415,7 +7415,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Motion planning finds a route from the robot's current confi"
+          "text": "Motion planning is finding a route from the robot's current "
         },
         {
           "familyHead": "newsreader",
@@ -8080,7 +8080,7 @@
         },
         {
           "kind": "internal",
-          "count": 5,
+          "count": 9,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -8090,7 +8090,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 5,
+              "count": 9,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -8244,7 +8244,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 41974,
+      "visibleTextLength": 42051,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -8370,7 +8370,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Grasp planning computes force closure against a known object"
+          "text": "Perception for manipulation is the pipeline that turns camer"
         },
         {
           "familyHead": "newsreader",
@@ -9216,7 +9216,7 @@
         },
         {
           "kind": "internal",
-          "count": 5,
+          "count": 9,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -9226,7 +9226,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 5,
+              "count": 9,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -9412,7 +9412,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 11646,
+      "visibleTextLength": 11734,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -9570,7 +9570,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "ROS 2 defines three primary interface patterns Project 2026↓"
+          "text": "ROS 2 defines three primary interface patterns ROS 2 Project"
         },
         {
           "familyHead": "newsreader",
@@ -10064,7 +10064,7 @@
         },
         {
           "kind": "internal",
-          "count": 2,
+          "count": 5,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -10074,7 +10074,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 2,
+              "count": 5,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -10233,7 +10233,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27661,
+      "visibleTextLength": 27805,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -10300,11 +10300,11 @@
           "Scene Representation and Mapping"
         ],
         "lastReviewed": "2026-08-22",
-        "readingMinutes": 16,
+        "readingMinutes": 17,
         "citationCount": 24,
         "reviewDateText": "22 August 2026",
         "reviewDateTime": "2026-08-22",
-        "readingTimeText": "16 min",
+        "readingTimeText": "17 min",
         "citationCountText": "24",
         "bibliographyIds": [
           "moravec-elfes-1985",
@@ -10355,7 +10355,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Perception answers where an object is right now. This module"
+          "text": "Scene representation is what a robot keeps in memory about t"
         },
         {
           "familyHead": "newsreader",
@@ -10967,7 +10967,7 @@
         },
         {
           "kind": "internal",
-          "count": 7,
+          "count": 17,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -10977,7 +10977,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 7,
+              "count": 17,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -11171,7 +11171,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20334,
+      "visibleTextLength": 20004,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -11281,7 +11281,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Control closes the loop under one quiet assumption: that som"
+          "text": "State estimation is the discipline that turns a robot's stre"
         },
         {
           "familyHead": "newsreader",
@@ -11748,7 +11748,7 @@
         },
         {
           "kind": "internal",
-          "count": 8,
+          "count": 15,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -11758,7 +11758,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 8,
+              "count": 15,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -12384,7 +12384,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 13724,
+      "visibleTextLength": 14254,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -12451,11 +12451,11 @@
           "The Data Bottleneck"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 7,
+        "readingMinutes": 8,
         "citationCount": 13,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "7 min",
+        "readingTimeText": "8 min",
         "citationCountText": "13",
         "bibliographyIds": [
           "gpt3-2020",
@@ -12495,7 +12495,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Language model pretraining runs on text scraped at internet "
+          "text": "The data bottleneck is the shortage of robot demonstration d"
         },
         {
           "familyHead": "newsreader",
@@ -12838,7 +12838,7 @@
         },
         {
           "kind": "internal",
-          "count": 3,
+          "count": 5,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -12848,7 +12848,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 3,
+              "count": 5,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -13050,7 +13050,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17058,
+      "visibleTextLength": 17178,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -13117,11 +13117,11 @@
           "Major Datasets"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 10,
+        "readingMinutes": 11,
         "citationCount": 9,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "10 min",
+        "readingTimeText": "11 min",
         "citationCountText": "9",
         "bibliographyIds": [
           "open-x-embodiment-2023",
@@ -13157,7 +13157,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Five open datasets anchor robot learning in 2026, and each o"
+          "text": "The open datasets that anchor robot learning in 2026 are fiv"
         },
         {
           "familyHead": "newsreader",
@@ -13582,7 +13582,7 @@
         },
         {
           "kind": "internal",
-          "count": 4,
+          "count": 5,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -13592,7 +13592,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 4,
+              "count": 5,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -13975,7 +13975,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17052,
+      "visibleTextLength": 18092,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -14082,7 +14082,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A robot learning paper announces its headline result as a si"
+          "text": "The evaluation crisis is the gap between the success rates r"
         },
         {
           "familyHead": "newsreader",
@@ -14477,7 +14477,7 @@
         },
         {
           "kind": "internal",
-          "count": 2,
+          "count": 6,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -14487,7 +14487,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 2,
+              "count": 6,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -14698,7 +14698,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26624,
+      "visibleTextLength": 26540,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -14765,11 +14765,11 @@
           "Hardware Taxonomy"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 17,
+        "readingMinutes": 18,
         "citationCount": 23,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "17 min",
+        "readingTimeText": "18 min",
         "citationCountText": "23",
         "bibliographyIds": [
           "so-arm100-repo-2026",
@@ -14819,7 +14819,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The machines you can point a policy at in 2026 split into fi"
+          "text": "The machines you can point a policy at in 2026 are split int"
         },
         {
           "familyHead": "newsreader",
@@ -15235,7 +15235,7 @@
         },
         {
           "kind": "internal",
-          "count": 1,
+          "count": 2,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -15245,7 +15245,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 2,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -15652,7 +15652,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24592,
+      "visibleTextLength": 25194,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -15719,11 +15719,11 @@
           "Industrial Deployment"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 14,
+        "readingMinutes": 15,
         "citationCount": 22,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "14 min",
+        "readingTimeText": "15 min",
         "citationCountText": "22",
         "bibliographyIds": [
           "ifr-world-robotics-2025",
@@ -15772,7 +15772,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "IFR's World Robotics 2025 reports a global operational stock"
+          "text": "Industrial deployment is the installation of robots in facto"
         },
         {
           "familyHead": "newsreader",
@@ -16185,7 +16185,7 @@
         },
         {
           "kind": "internal",
-          "count": 5,
+          "count": 10,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -16195,7 +16195,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 5,
+              "count": 10,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -16357,7 +16357,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12299,
+      "visibleTextLength": 11813,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -17020,7 +17020,7 @@
         },
         {
           "kind": "internal",
-          "count": 3,
+          "count": 6,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -17030,7 +17030,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 3,
+              "count": 6,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -17200,7 +17200,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14711,
+      "visibleTextLength": 15311,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -17309,7 +17309,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Nearly every demonstration in a robot learning dataset was p"
+          "text": "TeleoperationteleoperationDirect remote control of a robot b"
         },
         {
           "familyHead": "newsreader",
@@ -17652,7 +17652,7 @@
         },
         {
           "kind": "internal",
-          "count": 1,
+          "count": 3,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -17662,7 +17662,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 3,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -18331,7 +18331,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 17634,
+      "visibleTextLength": 17725,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -18451,7 +18451,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Every other module in this domain documents genuine progress"
+          "text": "The bear case is the argument that robotics is repeating the"
         },
         {
           "familyHead": "newsreader",
@@ -18874,7 +18874,7 @@
         },
         {
           "kind": "internal",
-          "count": 6,
+          "count": 7,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -18884,7 +18884,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 6,
+              "count": 7,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -19190,7 +19190,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24836,
+      "visibleTextLength": 25100,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -19311,7 +19311,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Modern robotics has not converged. Underneath the shared voc"
+          "text": "The competing theses are the rival bets on how robot intelli"
         },
         {
           "familyHead": "newsreader",
@@ -19716,7 +19716,7 @@
         },
         {
           "kind": "internal",
-          "count": 8,
+          "count": 15,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -19726,7 +19726,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 8,
+              "count": 15,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -19992,7 +19992,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23180,
+      "visibleTextLength": 23908,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -20059,11 +20059,11 @@
           "Dexterity"
         ],
         "lastReviewed": "2026-08-18",
-        "readingMinutes": 13,
+        "readingMinutes": 14,
         "citationCount": 27,
         "reviewDateText": "18 August 2026",
         "reviewDateTime": "2026-08-18",
-        "readingTimeText": "13 min",
+        "readingTimeText": "14 min",
         "citationCountText": "27",
         "bibliographyIds": [
           "brooks-dexterity-2025",
@@ -20117,7 +20117,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Rodney Brooks opens his dexterity essay with Heinrich Ernst'"
+          "text": "Dexterity is skilled manipulation through contact, such as r"
         },
         {
           "familyHead": "newsreader",
@@ -20559,7 +20559,7 @@
         },
         {
           "kind": "internal",
-          "count": 1,
+          "count": 7,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -20569,7 +20569,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 7,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -20875,7 +20875,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15826,
+      "visibleTextLength": 16008,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -20985,7 +20985,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A policy that cleans the kitchen it was trained in has demon"
+          "text": "Generalization is a robot policy's ability to work in settin"
         },
         {
           "familyHead": "newsreader",
@@ -21389,14 +21389,24 @@
         },
         {
           "kind": "internal",
-          "count": 6,
+          "count": 9,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
           "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-          "familyHead": "ibm plex mono",
+          "familyHead": "newsreader",
           "shape": "inline border:0px/solid radius:0px",
           "variants": [
+            {
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
+              "count": 8,
+              "colour": "rgb(36, 95, 255)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+              "familyHead": "newsreader",
+              "shape": "inline border:0px/solid radius:0px"
+            },
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|inline border:0px/solid radius:0px",
               "count": 1,
@@ -21405,16 +21415,6 @@
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
               "familyHead": "ibm plex mono",
-              "shape": "inline border:0px/solid radius:0px"
-            },
-            {
-              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 5,
-              "colour": "rgb(36, 95, 255)",
-              "decorationLine": "underline",
-              "decorationStyle": "solid",
-              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-              "familyHead": "newsreader",
               "shape": "inline border:0px/solid radius:0px"
             }
           ]
@@ -21603,7 +21603,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14911,
+      "visibleTextLength": 14713,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -21711,7 +21711,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A robot that finishes a task 80% of the time is a demo. A ro"
+          "text": "The reliability gap is the difference between the success ra"
         },
         {
           "familyHead": "newsreader",
@@ -22081,7 +22081,7 @@
         },
         {
           "kind": "internal",
-          "count": 3,
+          "count": 5,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -22101,7 +22101,7 @@
             },
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 2,
+              "count": 4,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -22327,7 +22327,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 25885,
+      "visibleTextLength": 26564,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -22454,7 +22454,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "An industrial robot cell is one of the few places in enginee"
+          "text": "Safety assurance is the procedure for answering whether a ro"
         },
         {
           "familyHead": "newsreader",
@@ -23002,7 +23002,7 @@
         },
         {
           "kind": "internal",
-          "count": 3,
+          "count": 7,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -23012,7 +23012,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 3,
+              "count": 7,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -23198,7 +23198,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 82841,
+      "visibleTextLength": 83867,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -23670,7 +23670,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 22677,
+      "visibleTextLength": 22524,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -23784,7 +23784,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Behavior cloningbehavior cloningTraining a policy by supervi"
+          "text": "Action chunking is a policy design in which each inference p"
         },
         {
           "familyHead": "newsreader",
@@ -24027,7 +24027,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Black 2024↓π0: A Vision-Language-Action Flow Model for Gener"
+          "text": "Black et al. 2024↓π0: A Vision-Language-Action Flow Model fo"
         },
         {
           "familyHead": "newsreader",
@@ -24036,7 +24036,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Brohan 2022↓RT-1: Robotics Transformer for Real-World Contro"
+          "text": "Brohan et al. 2022↓RT-1: Robotics Transformer for Real-World"
         },
         {
           "familyHead": "newsreader",
@@ -24045,7 +24045,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Black 2025↓π0.5: a Vision-Language-Action Model with Open-Wo"
+          "text": "Physical Intelligence et al. 2025↓π0.5: a Vision-Language-Ac"
         },
         {
           "familyHead": "newsreader",
@@ -24063,7 +24063,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Ai 2026↓π0.7: a Steerable Generalist Robotic Foundation Mode"
+          "text": "Ai et al. 2026↓π0.7: a Steerable Generalist Robotic Foundati"
         },
         {
           "familyHead": "newsreader",
@@ -24298,7 +24298,7 @@
         },
         {
           "kind": "internal",
-          "count": 2,
+          "count": 7,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -24308,7 +24308,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 2,
+              "count": 7,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -24583,7 +24583,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12540,
+      "visibleTextLength": 12931,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -24881,7 +24881,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "RT-2 Brohan 2023↓RT-2: Vision-Language-Action Models Transfe"
+          "text": "RT-2 Brohan et al. 2023↓RT-2: Vision-Language-Action Models "
         },
         {
           "familyHead": "newsreader",
@@ -25150,7 +25150,7 @@
         },
         {
           "kind": "internal",
-          "count": 1,
+          "count": 8,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -25160,7 +25160,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 8,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -25314,7 +25314,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12370,
+      "visibleTextLength": 12174,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -25851,14 +25851,24 @@
         },
         {
           "kind": "internal",
-          "count": 3,
+          "count": 5,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
           "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-          "familyHead": "ibm plex mono",
+          "familyHead": "newsreader",
           "shape": "inline border:0px/solid radius:0px",
           "variants": [
+            {
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
+              "count": 4,
+              "colour": "rgb(36, 95, 255)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+              "familyHead": "newsreader",
+              "shape": "inline border:0px/solid radius:0px"
+            },
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|inline border:0px/solid radius:0px",
               "count": 1,
@@ -25867,16 +25877,6 @@
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
               "familyHead": "ibm plex mono",
-              "shape": "inline border:0px/solid radius:0px"
-            },
-            {
-              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 2,
-              "colour": "rgb(36, 95, 255)",
-              "decorationLine": "underline",
-              "decorationStyle": "solid",
-              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-              "familyHead": "newsreader",
               "shape": "inline border:0px/solid radius:0px"
             }
           ]
@@ -26065,7 +26065,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28996,
+      "visibleTextLength": 28821,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -26184,7 +26184,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "RT-2’s reported rates depend on the model and serving setup."
+          "text": "The comparison matrix is a table of the major robot policies"
         },
         {
           "familyHead": "newsreader",
@@ -26229,7 +26229,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Control frequency needs a named measurement setting. Zhao 20"
+          "text": "Control frequency needs a named measurement setting. Zhao et"
         },
         {
           "familyHead": "newsreader",
@@ -26256,7 +26256,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Brohan 2022↓RT-1: Robotics Transformer for Real-World Contro"
+          "text": "Brohan et al. 2022↓RT-1: Robotics Transformer for Real-World"
         },
         {
           "familyHead": "newsreader",
@@ -26265,7 +26265,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Zhao 2023↓Learning Fine-Grained Bimanual Manipulation with L"
+          "text": "Zhao et al. 2023↓Learning Fine-Grained Bimanual Manipulation"
         },
         {
           "familyHead": "newsreader",
@@ -26274,7 +26274,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Chi 2023↓Diffusion Policy: Visuomotor Policy Learning via Ac"
+          "text": "Chi et al. 2023↓Diffusion Policy: Visuomotor Policy Learning"
         },
         {
           "familyHead": "newsreader",
@@ -26283,7 +26283,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Brohan 2023↓RT-2: Vision-Language-Action Models Transfer Web"
+          "text": "Brohan et al. 2023↓RT-2: Vision-Language-Action Models Trans"
         },
         {
           "familyHead": "newsreader",
@@ -26292,7 +26292,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Kim 2024↓OpenVLA: An Open-Source Vision-Language-Action Mode"
+          "text": "Kim et al. 2024↓OpenVLA: An Open-Source Vision-Language-Acti"
         },
         {
           "familyHead": "newsreader",
@@ -26301,7 +26301,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Kim 2025↓Fine-Tuning Vision-Language-Action Models: Optimizi"
+          "text": "Kim et al. 2025↓Fine-Tuning Vision-Language-Action Models: O"
         },
         {
           "familyHead": "newsreader",
@@ -26310,7 +26310,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Gemini Robotics Team 2025↓Gemini Robotics 1.5: Pushing the F"
+          "text": "Gemini Robotics Team et al. 2025↓Gemini Robotics 1.5: Pushin"
         },
         {
           "familyHead": "newsreader",
@@ -26355,7 +26355,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Zhao 2023↓Learning Fine-Grained Bimanual Manipulation with L"
+          "text": "Zhao et al. 2023↓Learning Fine-Grained Bimanual Manipulation"
         },
         {
           "familyHead": "newsreader",
@@ -26364,7 +26364,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Black 2025↓π0.5: a Vision-Language-Action Model with Open-Wo"
+          "text": "Physical Intelligence et al. 2025↓π0.5: a Vision-Language-Ac"
         },
         {
           "familyHead": "newsreader",
@@ -26373,7 +26373,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Ai 2026↓π0.7: a Steerable Generalist Robotic Foundation Mode"
+          "text": "Ai et al. 2026↓π0.7: a Steerable Generalist Robotic Foundati"
         },
         {
           "familyHead": "newsreader",
@@ -26391,7 +26391,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Brohan 2022↓RT-1: Robotics Transformer for Real-World Contro"
+          "text": "Brohan et al. 2022↓RT-1: Robotics Transformer for Real-World"
         },
         {
           "familyHead": "newsreader",
@@ -26608,7 +26608,7 @@
         },
         {
           "kind": "internal",
-          "count": 2,
+          "count": 8,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -26618,7 +26618,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 2,
+              "count": 8,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -26988,7 +26988,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16358,
+      "visibleTextLength": 16805,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -27097,7 +27097,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "An action vector is a control interface; the hardware DoF co"
+          "text": "Cross-embodiment transfer is learning from, or transferring "
         },
         {
           "familyHead": "newsreader",
@@ -27160,7 +27160,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Kareer 2025↓Emergence of Human to Robot Transfer in VLAsSima"
+          "text": "Kareer et al. 2025↓Emergence of Human to Robot Transfer in V"
         },
         {
           "familyHead": "newsreader",
@@ -27494,14 +27494,25 @@
         },
         {
           "kind": "internal",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 2,
+          "colour": "rgb(36, 95, 255)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+          "familyHead": "newsreader",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
+              "count": 2,
+              "colour": "rgb(36, 95, 255)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+              "familyHead": "newsreader",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         }
       ],
       "registrationLabels": [
@@ -27695,7 +27706,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14444,
+      "visibleTextLength": 14461,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -27802,7 +27813,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Human demonstrations are multimodal: faced with an obstacle,"
+          "text": "Diffusion Policydiffusion policyA policy that produces actio"
         },
         {
           "familyHead": "newsreader",
@@ -27919,7 +27930,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The paper ships two denoiser backbones Chi 2023↓Diffusion Po"
+          "text": "The paper ships two denoiser backbones Chi et al. 2023↓Diffu"
         },
         {
           "familyHead": "newsreader",
@@ -28242,14 +28253,25 @@
         },
         {
           "kind": "internal",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 2,
+          "colour": "rgb(36, 95, 255)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+          "familyHead": "newsreader",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
+              "count": 2,
+              "colour": "rgb(36, 95, 255)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+              "familyHead": "newsreader",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         }
       ],
       "registrationLabels": [
@@ -28451,7 +28473,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12314,
+      "visibleTextLength": 12568,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -29007,7 +29029,7 @@
         },
         {
           "kind": "internal",
-          "count": 1,
+          "count": 9,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -29017,7 +29039,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 9,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -29219,7 +29241,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22073,
+      "visibleTextLength": 22577,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -29332,7 +29354,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The last two modules each followed one lineage: the VLA fami"
+          "text": "The other generalist policies are the multi-task robot model"
         },
         {
           "familyHead": "newsreader",
@@ -29810,7 +29832,7 @@
         },
         {
           "kind": "internal",
-          "count": 3,
+          "count": 11,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -29820,7 +29842,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 3,
+              "count": 11,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -30150,7 +30172,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19343,
+      "visibleTextLength": 19555,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -30261,7 +30283,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Every long-horizon robot system has to answer the same organ"
+          "text": "Hierarchical approaches are robot architectures in which one"
         },
         {
           "familyHead": "newsreader",
@@ -30676,7 +30698,7 @@
         },
         {
           "kind": "internal",
-          "count": 1,
+          "count": 6,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -30686,7 +30708,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 6,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -30904,7 +30926,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 11969,
+      "visibleTextLength": 12254,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -31009,7 +31031,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "RT-2 represents robot actions as tokens, using the discretiz"
+          "text": "Knowledge insulationknowledge insulationPhysical Intelligenc"
         },
         {
           "familyHead": "newsreader",
@@ -31018,7 +31040,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Driess 2025↓Knowledge Insulating Vision-Language-Action Mode"
+          "text": "Driess et al. 2025↓Knowledge Insulating Vision-Language-Acti"
         },
         {
           "familyHead": "newsreader",
@@ -31027,7 +31049,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Driess 2025↓VLAs that Train Fast, Run Fast, and Generalize B"
+          "text": "Driess et al. 2025↓VLAs that Train Fast, Run Fast, and Gener"
         },
         {
           "familyHead": "newsreader",
@@ -31090,7 +31112,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Knowledge Insulation separates the learning signals Driess 2"
+          "text": "Knowledge Insulation separates the learning signals Driess e"
         },
         {
           "familyHead": "newsreader",
@@ -31406,7 +31428,7 @@
         },
         {
           "kind": "internal",
-          "count": 1,
+          "count": 2,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -31416,7 +31438,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 2,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -31626,7 +31648,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 25234,
+      "visibleTextLength": 24897,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -31693,11 +31715,11 @@
           "The Pi Line"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 15,
+        "readingMinutes": 16,
         "citationCount": 13,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "15 min",
+        "readingTimeText": "16 min",
         "citationCountText": "13",
         "bibliographyIds": [
           "pi0-2024",
@@ -31737,7 +31759,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The VLA module ended on a bottleneck: discrete action tokens"
+          "text": "The pi line is Physical Intelligence's series of vision-lang"
         },
         {
           "familyHead": "newsreader",
@@ -31818,7 +31840,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Pertsch 2025↓FAST: Efficient Action Tokenization for Vision-"
+          "text": "Pertsch et al. 2025↓FAST: Efficient Action Tokenization for "
         },
         {
           "familyHead": "newsreader",
@@ -31854,7 +31876,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Driess 2025↓Knowledge Insulating Vision-Language-Action Mode"
+          "text": "Driess et al. 2025↓Knowledge Insulating Vision-Language-Acti"
         },
         {
           "familyHead": "newsreader",
@@ -32287,7 +32309,7 @@
         },
         {
           "kind": "internal",
-          "count": 3,
+          "count": 10,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -32297,7 +32319,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 3,
+              "count": 10,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -32619,7 +32641,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17333,
+      "visibleTextLength": 18342,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -32723,7 +32745,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A policy that needs 60 ms per inference cannot finish a new "
+          "text": "Real-time execution is the problem of delivering a policy's "
         },
         {
           "familyHead": "newsreader",
@@ -32822,7 +32844,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Server placement also depends on the modeled network Jiang 2"
+          "text": "Server placement also depends on the modeled network Jiang e"
         },
         {
           "familyHead": "newsreader",
@@ -33136,14 +33158,25 @@
         },
         {
           "kind": "internal",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 2,
+          "colour": "rgb(36, 95, 255)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+          "familyHead": "newsreader",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
+              "count": 2,
+              "colour": "rgb(36, 95, 255)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+              "familyHead": "newsreader",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         }
       ],
       "registrationLabels": [
@@ -33305,7 +33338,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 37707,
+      "visibleTextLength": 38546,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -33420,7 +33453,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Imitation learningimitation learningLearning a policy from e"
+          "text": "RL fine-tuning is the use of reinforcement learning to impro"
         },
         {
           "familyHead": "newsreader",
@@ -33618,7 +33651,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Amin 2025↓π*0.6: a VLA That Learns From ExperienceAli Amin, "
+          "text": "Amin et al. 2025↓π*0.6: a VLA That Learns From ExperienceAli"
         },
         {
           "familyHead": "newsreader",
@@ -34175,7 +34208,7 @@
         },
         {
           "kind": "internal",
-          "count": 4,
+          "count": 15,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -34185,7 +34218,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 4,
+              "count": 15,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -34435,7 +34468,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 10784,
+      "visibleTextLength": 10658,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -34541,7 +34574,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Machine learning gives you optimization, representation lear"
+          "text": "The robot learning curriculum for ML engineers is a staged p"
         },
         {
           "familyHead": "newsreader",
@@ -34990,7 +35023,7 @@
         },
         {
           "kind": "internal",
-          "count": 7,
+          "count": 15,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -35000,7 +35033,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 7,
+              "count": 15,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -35154,7 +35187,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19805,
+      "visibleTextLength": 20083,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -35261,7 +35294,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The modules so far covered policies trained from scratch on "
+          "text": "A vision-language-action (VLA)vision-language-action modelA "
         },
         {
           "familyHead": "newsreader",
@@ -35342,7 +35375,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "RT-2 (2023) attacked the knowledge problem directly Brohan 2"
+          "text": "RT-2 (2023) attacked the knowledge problem directly Brohan e"
         },
         {
           "familyHead": "newsreader",
@@ -35441,7 +35474,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Kim 2025↓Fine-Tuning Vision-Language-Action Models: Optimizi"
+          "text": "Kim et al. 2025↓Fine-Tuning Vision-Language-Action Models: O"
         },
         {
           "familyHead": "newsreader",
@@ -35755,7 +35788,7 @@
         },
         {
           "kind": "internal",
-          "count": 5,
+          "count": 8,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -35765,7 +35798,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 5,
+              "count": 8,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -38060,7 +38093,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 20618,
+      "visibleTextLength": 20707,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -38173,7 +38206,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The previous module covered how learned policies took over l"
+          "text": "Humanoid whole-body control is treating every actuated joint"
         },
         {
           "familyHead": "newsreader",
@@ -38604,7 +38637,7 @@
         },
         {
           "kind": "internal",
-          "count": 1,
+          "count": 10,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -38614,7 +38647,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 10,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -38829,7 +38862,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18315,
+      "visibleTextLength": 18412,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -38940,7 +38973,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The previous modules built the machinery: massively parallel"
+          "text": "Legged locomotionlegged locomotionLocomotion through legs ra"
         },
         {
           "familyHead": "newsreader",
@@ -39346,7 +39379,7 @@
         },
         {
           "kind": "internal",
-          "count": 2,
+          "count": 9,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -39356,7 +39389,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 2,
+              "count": 9,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -39523,7 +39556,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 13562,
+      "visibleTextLength": 13736,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -39629,7 +39662,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Offline reinforcement learning asks a useful but dangerous q"
+          "text": "Offline reinforcement learning is training a robot policy fr"
         },
         {
           "familyHead": "newsreader",
@@ -40438,7 +40471,7 @@
         },
         {
           "kind": "internal",
-          "count": 4,
+          "count": 11,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -40448,7 +40481,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 4,
+              "count": 11,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -40591,7 +40624,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15034,
+      "visibleTextLength": 15648,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -40697,7 +40730,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The four-minute training run from the previous module came f"
+          "text": "Massively parallel simulation is training a robot policy acr"
         },
         {
           "familyHead": "newsreader",
@@ -41110,7 +41143,7 @@
         },
         {
           "kind": "internal",
-          "count": 1,
+          "count": 2,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -41120,7 +41153,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 2,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -41307,7 +41340,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27722,
+      "visibleTextLength": 28010,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -41422,7 +41455,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Every module so far in this domain assumed someone had alrea"
+          "text": "Reward design is writing the objective that a reinforcement "
         },
         {
           "familyHead": "newsreader",
@@ -41961,7 +41994,7 @@
         },
         {
           "kind": "internal",
-          "count": 1,
+          "count": 11,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -41971,7 +42004,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 11,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -42262,7 +42295,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27792,
+      "visibleTextLength": 27834,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -42639,7 +42672,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Andrychowicz 2017↓Hindsight Experience ReplayMarcin Andrycho"
+          "text": "Andrychowicz et al. 2017↓Hindsight Experience ReplayMarcin A"
         },
         {
           "familyHead": "newsreader",
@@ -43008,7 +43041,7 @@
         },
         {
           "kind": "internal",
-          "count": 9,
+          "count": 15,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -43018,7 +43051,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 9,
+              "count": 15,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -43241,7 +43274,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23611,
+      "visibleTextLength": 24054,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -43351,7 +43384,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The previous module ended with a policy that walks after min"
+          "text": "Sim-to-real transfer is getting a policy trained in simulati"
         },
         {
           "familyHead": "newsreader",
@@ -43845,7 +43878,7 @@
         },
         {
           "kind": "internal",
-          "count": 1,
+          "count": 6,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -43855,7 +43888,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 6,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -44057,7 +44090,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12107,
+      "visibleTextLength": 11874,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -44124,11 +44157,11 @@
           "Why RL Won Locomotion but Not Manipulation"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 6,
+        "readingMinutes": 7,
         "citationCount": 7,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "6 min",
+        "readingTimeText": "7 min",
         "citationCountText": "7",
         "bibliographyIds": [
           "rudin-2021",
@@ -44162,7 +44195,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "In 2021, Rudin and colleagues trained an ANYmal quadruped to"
+          "text": "Locomotion and manipulation are the two robot problems where"
         },
         {
           "familyHead": "newsreader",
@@ -44503,7 +44536,7 @@
         },
         {
           "kind": "internal",
-          "count": 3,
+          "count": 6,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -44513,7 +44546,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 3,
+              "count": 6,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -45177,7 +45210,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 12760,
+      "visibleTextLength": 12743,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -45283,7 +45316,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A robotics world modelworld modelA model of how an environme"
+          "text": "Evaluating a robotics world modelworld modelA model of how a"
         },
         {
           "familyHead": "newsreader",
@@ -45981,7 +46014,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16788,
+      "visibleTextLength": 17144,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -46087,7 +46120,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The previous three modules covered learned models that predi"
+          "text": "Generative simulation is the use of generative models to aut"
         },
         {
           "familyHead": "newsreader",
@@ -46545,7 +46578,7 @@
         },
         {
           "kind": "internal",
-          "count": 6,
+          "count": 11,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -46555,7 +46588,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 6,
+              "count": 11,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -46765,7 +46798,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19219,
+      "visibleTextLength": 19679,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -46878,7 +46911,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The third paradigm in the taxonomy is the one with the money"
+          "text": "Generative video world models are the third paradigm in the "
         },
         {
           "familyHead": "newsreader",
@@ -47318,7 +47351,7 @@
         },
         {
           "kind": "internal",
-          "count": 3,
+          "count": 8,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -47328,7 +47361,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 3,
+              "count": 8,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -47586,7 +47619,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15917,
+      "visibleTextLength": 15780,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -47693,7 +47726,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The fourth paradigm in the taxonomy rejects the premise of t"
+          "text": "The Joint-Embedding Predictive Architecture (JEPA) is the fo"
         },
         {
           "familyHead": "newsreader",
@@ -48070,7 +48103,7 @@
         },
         {
           "kind": "internal",
-          "count": 4,
+          "count": 8,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -48080,7 +48113,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 4,
+              "count": 8,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -48274,7 +48307,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15435,
+      "visibleTextLength": 15225,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -48341,11 +48374,11 @@
           "Latent-Dynamics World Models"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 9,
+        "readingMinutes": 10,
         "citationCount": 8,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "9 min",
+        "readingTimeText": "10 min",
         "citationCountText": "8",
         "bibliographyIds": [
           "dreamer-2019",
@@ -48380,7 +48413,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Of the six paradigms the taxonomy module separates, latent d"
+          "text": "Latent dynamicslatent dynamicsA world-model paradigm that pr"
         },
         {
           "familyHead": "newsreader",
@@ -48775,7 +48808,7 @@
         },
         {
           "kind": "internal",
-          "count": 3,
+          "count": 11,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -48785,7 +48818,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 3,
+              "count": 11,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -48947,7 +48980,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 11852,
+      "visibleTextLength": 12122,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -49055,7 +49088,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Model-based robot learning inserts a predictive model betwee"
+          "text": "Model-based robot learning is the family of methods that ins"
         },
         {
           "familyHead": "newsreader",
@@ -49513,7 +49546,7 @@
         },
         {
           "kind": "internal",
-          "count": 2,
+          "count": 7,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -49523,7 +49556,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 2,
+              "count": 7,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -49669,7 +49702,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19034,
+      "visibleTextLength": 18739,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -49736,11 +49769,11 @@
           "What Is a World Model?"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 10,
+        "readingMinutes": 11,
         "citationCount": 12,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "10 min",
+        "readingTimeText": "11 min",
         "citationCountText": "12",
         "bibliographyIds": [
           "world-model-survey-2026",
@@ -50354,7 +50387,7 @@
         },
         {
           "kind": "internal",
-          "count": 5,
+          "count": 9,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -50364,7 +50397,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 5,
+              "count": 9,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -50646,7 +50679,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19564,
+      "visibleTextLength": 19592,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -50760,7 +50793,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A physics simulator predicts the next state from explicit ge"
+          "text": "Learned world modelsworld modelA model of how an environment"
         },
         {
           "familyHead": "newsreader",
@@ -51335,7 +51368,7 @@
         },
         {
           "kind": "internal",
-          "count": 2,
+          "count": 5,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -51345,7 +51378,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 2,
+              "count": 5,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -51515,7 +51548,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 3333,
+      "visibleTextLength": 3318,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -52559,7 +52592,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 30039,
+      "visibleTextLength": 30258,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -53316,7 +53349,7 @@
         },
         {
           "kind": "internal",
-          "count": 1,
+          "count": 16,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -53326,7 +53359,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 16,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -53488,7 +53521,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18835,
+      "visibleTextLength": 19078,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -53594,7 +53627,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A quadrotor is among the most agile machines ever built, and"
+          "text": "Drones are aircraft that fly with no pilot on board. A quadr"
         },
         {
           "familyHead": "newsreader",
@@ -53998,7 +54031,7 @@
         },
         {
           "kind": "internal",
-          "count": 1,
+          "count": 7,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -54008,7 +54041,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 7,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -54218,7 +54251,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18365,
+      "visibleTextLength": 18356,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -54330,7 +54363,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Space is the domain where the two assumptions of everyday ro"
+          "text": "Space robotics is the domain where the two assumptions of ev"
         },
         {
           "familyHead": "newsreader",
@@ -54783,7 +54816,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17051,
+      "visibleTextLength": 17296,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -55186,7 +55219,7 @@
         },
         {
           "kind": "internal",
-          "count": 1,
+          "count": 2,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -55196,7 +55229,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 2,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -55562,7 +55595,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 12184,
+      "visibleTextLength": 12288,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -55669,7 +55702,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Calibration makes measurements and commands refer to the sam"
+          "text": "Calibration is the work that makes measurements and commands"
         },
         {
           "familyHead": "newsreader",
@@ -56190,7 +56223,7 @@
         },
         {
           "kind": "internal",
-          "count": 1,
+          "count": 6,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -56200,7 +56233,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 6,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -56330,7 +56363,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23493,
+      "visibleTextLength": 23413,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -56449,7 +56482,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Motion planning decides where the robot should go. Control i"
+          "text": "Control is what makes a robot actually go where motion plann"
         },
         {
           "familyHead": "newsreader",
@@ -57007,7 +57040,7 @@
         },
         {
           "kind": "internal",
-          "count": 10,
+          "count": 14,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -57017,7 +57050,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 9,
+              "count": 13,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -57221,7 +57254,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17117,
+      "visibleTextLength": 16880,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -57329,7 +57362,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Every act of manipulation ends the same way: some part of th"
+          "text": "Grasp planning is the discipline that answers from geometry "
         },
         {
           "familyHead": "newsreader",
@@ -57769,7 +57802,7 @@
         },
         {
           "kind": "internal",
-          "count": 7,
+          "count": 10,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -57779,7 +57812,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 7,
+              "count": 10,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -57941,7 +57974,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15214,
+      "visibleTextLength": 14730,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -58045,7 +58078,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Kinematics describes the geometry of a robot's motion withou"
+          "text": "Kinematics is the geometry of a robot's motion, studied with"
         },
         {
           "familyHead": "newsreader",
@@ -58532,7 +58565,7 @@
         },
         {
           "kind": "internal",
-          "count": 4,
+          "count": 5,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -58542,7 +58575,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 4,
+              "count": 5,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -58747,11 +58780,11 @@
           "Motion Planning"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 19,
+        "readingMinutes": 20,
         "citationCount": 10,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "19 min",
+        "readingTimeText": "20 min",
         "citationCountText": "10",
         "bibliographyIds": [
           "lozano-perez-1983",
@@ -58788,7 +58821,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Motion planning finds a route from the robot's current confi"
+          "text": "Motion planning is finding a route from the robot's current "
         },
         {
           "familyHead": "newsreader",
@@ -59453,7 +59486,7 @@
         },
         {
           "kind": "internal",
-          "count": 5,
+          "count": 9,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -59463,7 +59496,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 5,
+              "count": 9,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -59617,7 +59650,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 42388,
+      "visibleTextLength": 42465,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -59743,7 +59776,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Grasp planning computes force closure against a known object"
+          "text": "Perception for manipulation is the pipeline that turns camer"
         },
         {
           "familyHead": "newsreader",
@@ -60589,7 +60622,7 @@
         },
         {
           "kind": "internal",
-          "count": 5,
+          "count": 9,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -60599,7 +60632,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 5,
+              "count": 9,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -60785,7 +60818,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12067,
+      "visibleTextLength": 12155,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -60943,7 +60976,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "ROS 2 defines three primary interface patterns Project 2026↓"
+          "text": "ROS 2 defines three primary interface patterns ROS 2 Project"
         },
         {
           "familyHead": "newsreader",
@@ -61437,7 +61470,7 @@
         },
         {
           "kind": "internal",
-          "count": 2,
+          "count": 5,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -61447,7 +61480,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 2,
+              "count": 5,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -61606,7 +61639,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28082,
+      "visibleTextLength": 28226,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -61673,11 +61706,11 @@
           "Scene Representation and Mapping"
         ],
         "lastReviewed": "2026-08-22",
-        "readingMinutes": 16,
+        "readingMinutes": 17,
         "citationCount": 24,
         "reviewDateText": "22 August 2026",
         "reviewDateTime": "2026-08-22",
-        "readingTimeText": "16 min",
+        "readingTimeText": "17 min",
         "citationCountText": "24",
         "bibliographyIds": [
           "moravec-elfes-1985",
@@ -61728,7 +61761,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Perception answers where an object is right now. This module"
+          "text": "Scene representation is what a robot keeps in memory about t"
         },
         {
           "familyHead": "newsreader",
@@ -62340,7 +62373,7 @@
         },
         {
           "kind": "internal",
-          "count": 7,
+          "count": 17,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -62350,7 +62383,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 7,
+              "count": 17,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -62544,7 +62577,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20753,
+      "visibleTextLength": 20423,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -62654,7 +62687,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Control closes the loop under one quiet assumption: that som"
+          "text": "State estimation is the discipline that turns a robot's stre"
         },
         {
           "familyHead": "newsreader",
@@ -63121,7 +63154,7 @@
         },
         {
           "kind": "internal",
-          "count": 8,
+          "count": 15,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -63131,7 +63164,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 8,
+              "count": 15,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -63757,7 +63790,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 14103,
+      "visibleTextLength": 14633,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -63824,11 +63857,11 @@
           "The Data Bottleneck"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 7,
+        "readingMinutes": 8,
         "citationCount": 13,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "7 min",
+        "readingTimeText": "8 min",
         "citationCountText": "13",
         "bibliographyIds": [
           "gpt3-2020",
@@ -63868,7 +63901,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Language model pretraining runs on text scraped at internet "
+          "text": "The data bottleneck is the shortage of robot demonstration d"
         },
         {
           "familyHead": "newsreader",
@@ -64211,7 +64244,7 @@
         },
         {
           "kind": "internal",
-          "count": 3,
+          "count": 5,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -64221,7 +64254,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 3,
+              "count": 5,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -64423,7 +64456,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17437,
+      "visibleTextLength": 17557,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -64490,11 +64523,11 @@
           "Major Datasets"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 10,
+        "readingMinutes": 11,
         "citationCount": 9,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "10 min",
+        "readingTimeText": "11 min",
         "citationCountText": "9",
         "bibliographyIds": [
           "open-x-embodiment-2023",
@@ -64530,7 +64563,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Five open datasets anchor robot learning in 2026, and each o"
+          "text": "The open datasets that anchor robot learning in 2026 are fiv"
         },
         {
           "familyHead": "newsreader",
@@ -64955,7 +64988,7 @@
         },
         {
           "kind": "internal",
-          "count": 4,
+          "count": 5,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -64965,7 +64998,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 4,
+              "count": 5,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -65348,7 +65381,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17431,
+      "visibleTextLength": 18471,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -65455,7 +65488,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A robot learning paper announces its headline result as a si"
+          "text": "The evaluation crisis is the gap between the success rates r"
         },
         {
           "familyHead": "newsreader",
@@ -65850,7 +65883,7 @@
         },
         {
           "kind": "internal",
-          "count": 2,
+          "count": 6,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -65860,7 +65893,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 2,
+              "count": 6,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -66071,7 +66104,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27003,
+      "visibleTextLength": 26919,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -66138,11 +66171,11 @@
           "Hardware Taxonomy"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 17,
+        "readingMinutes": 18,
         "citationCount": 23,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "17 min",
+        "readingTimeText": "18 min",
         "citationCountText": "23",
         "bibliographyIds": [
           "so-arm100-repo-2026",
@@ -66192,7 +66225,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The machines you can point a policy at in 2026 split into fi"
+          "text": "The machines you can point a policy at in 2026 are split int"
         },
         {
           "familyHead": "newsreader",
@@ -66608,7 +66641,7 @@
         },
         {
           "kind": "internal",
-          "count": 1,
+          "count": 2,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -66618,7 +66651,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 2,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -67025,7 +67058,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24971,
+      "visibleTextLength": 25573,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -67092,11 +67125,11 @@
           "Industrial Deployment"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 14,
+        "readingMinutes": 15,
         "citationCount": 22,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "14 min",
+        "readingTimeText": "15 min",
         "citationCountText": "22",
         "bibliographyIds": [
           "ifr-world-robotics-2025",
@@ -67145,7 +67178,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "IFR's World Robotics 2025 reports a global operational stock"
+          "text": "Industrial deployment is the installation of robots in facto"
         },
         {
           "familyHead": "newsreader",
@@ -67558,7 +67591,7 @@
         },
         {
           "kind": "internal",
-          "count": 5,
+          "count": 10,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -67568,7 +67601,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 5,
+              "count": 10,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -67730,7 +67763,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12678,
+      "visibleTextLength": 12192,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -68393,7 +68426,7 @@
         },
         {
           "kind": "internal",
-          "count": 3,
+          "count": 6,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -68403,7 +68436,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 3,
+              "count": 6,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -68573,7 +68606,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15090,
+      "visibleTextLength": 15690,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -68682,7 +68715,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Nearly every demonstration in a robot learning dataset was p"
+          "text": "TeleoperationteleoperationDirect remote control of a robot b"
         },
         {
           "familyHead": "newsreader",
@@ -69025,7 +69058,7 @@
         },
         {
           "kind": "internal",
-          "count": 1,
+          "count": 3,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -69035,7 +69068,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 3,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -69704,7 +69737,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 17969,
+      "visibleTextLength": 18060,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -69824,7 +69857,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Every other module in this domain documents genuine progress"
+          "text": "The bear case is the argument that robotics is repeating the"
         },
         {
           "familyHead": "newsreader",
@@ -70247,7 +70280,7 @@
         },
         {
           "kind": "internal",
-          "count": 6,
+          "count": 7,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -70257,7 +70290,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 6,
+              "count": 7,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -70563,7 +70596,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 25171,
+      "visibleTextLength": 25435,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -70684,7 +70717,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Modern robotics has not converged. Underneath the shared voc"
+          "text": "The competing theses are the rival bets on how robot intelli"
         },
         {
           "familyHead": "newsreader",
@@ -71089,7 +71122,7 @@
         },
         {
           "kind": "internal",
-          "count": 8,
+          "count": 15,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -71099,7 +71132,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 8,
+              "count": 15,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -71365,7 +71398,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23515,
+      "visibleTextLength": 24243,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -71432,11 +71465,11 @@
           "Dexterity"
         ],
         "lastReviewed": "2026-08-18",
-        "readingMinutes": 13,
+        "readingMinutes": 14,
         "citationCount": 27,
         "reviewDateText": "18 August 2026",
         "reviewDateTime": "2026-08-18",
-        "readingTimeText": "13 min",
+        "readingTimeText": "14 min",
         "citationCountText": "27",
         "bibliographyIds": [
           "brooks-dexterity-2025",
@@ -71490,7 +71523,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Rodney Brooks opens his dexterity essay with Heinrich Ernst'"
+          "text": "Dexterity is skilled manipulation through contact, such as r"
         },
         {
           "familyHead": "newsreader",
@@ -71932,7 +71965,7 @@
         },
         {
           "kind": "internal",
-          "count": 1,
+          "count": 7,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -71942,7 +71975,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 7,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -72248,7 +72281,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16161,
+      "visibleTextLength": 16343,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -72358,7 +72391,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A policy that cleans the kitchen it was trained in has demon"
+          "text": "Generalization is a robot policy's ability to work in settin"
         },
         {
           "familyHead": "newsreader",
@@ -72762,14 +72795,24 @@
         },
         {
           "kind": "internal",
-          "count": 6,
+          "count": 9,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
           "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-          "familyHead": "ibm plex mono",
+          "familyHead": "newsreader",
           "shape": "inline border:0px/solid radius:0px",
           "variants": [
+            {
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
+              "count": 8,
+              "colour": "rgb(36, 95, 255)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+              "familyHead": "newsreader",
+              "shape": "inline border:0px/solid radius:0px"
+            },
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|inline border:0px/solid radius:0px",
               "count": 1,
@@ -72778,16 +72821,6 @@
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
               "familyHead": "ibm plex mono",
-              "shape": "inline border:0px/solid radius:0px"
-            },
-            {
-              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 5,
-              "colour": "rgb(36, 95, 255)",
-              "decorationLine": "underline",
-              "decorationStyle": "solid",
-              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-              "familyHead": "newsreader",
               "shape": "inline border:0px/solid radius:0px"
             }
           ]
@@ -72976,7 +73009,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15246,
+      "visibleTextLength": 15048,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -73084,7 +73117,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A robot that finishes a task 80% of the time is a demo. A ro"
+          "text": "The reliability gap is the difference between the success ra"
         },
         {
           "familyHead": "newsreader",
@@ -73454,7 +73487,7 @@
         },
         {
           "kind": "internal",
-          "count": 3,
+          "count": 5,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -73474,7 +73507,7 @@
             },
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 2,
+              "count": 4,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -73700,7 +73733,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26220,
+      "visibleTextLength": 26899,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -73827,7 +73860,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "An industrial robot cell is one of the few places in enginee"
+          "text": "Safety assurance is the procedure for answering whether a ro"
         },
         {
           "familyHead": "newsreader",
@@ -74375,7 +74408,7 @@
         },
         {
           "kind": "internal",
-          "count": 3,
+          "count": 7,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -74385,7 +74418,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 3,
+              "count": 7,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -74571,7 +74604,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 83063,
+      "visibleTextLength": 84089,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -75043,7 +75076,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 23304,
+      "visibleTextLength": 23151,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -75157,7 +75190,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Behavior cloningbehavior cloningTraining a policy by supervi"
+          "text": "Action chunking is a policy design in which each inference p"
         },
         {
           "familyHead": "newsreader",
@@ -75400,7 +75433,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Black 2024↓π0: A Vision-Language-Action Flow Model for Gener"
+          "text": "Black et al. 2024↓π0: A Vision-Language-Action Flow Model fo"
         },
         {
           "familyHead": "newsreader",
@@ -75409,7 +75442,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Brohan 2022↓RT-1: Robotics Transformer for Real-World Contro"
+          "text": "Brohan et al. 2022↓RT-1: Robotics Transformer for Real-World"
         },
         {
           "familyHead": "newsreader",
@@ -75418,7 +75451,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Black 2025↓π0.5: a Vision-Language-Action Model with Open-Wo"
+          "text": "Physical Intelligence et al. 2025↓π0.5: a Vision-Language-Ac"
         },
         {
           "familyHead": "newsreader",
@@ -75436,7 +75469,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Ai 2026↓π0.7: a Steerable Generalist Robotic Foundation Mode"
+          "text": "Ai et al. 2026↓π0.7: a Steerable Generalist Robotic Foundati"
         },
         {
           "familyHead": "newsreader",
@@ -75671,7 +75704,7 @@
         },
         {
           "kind": "internal",
-          "count": 2,
+          "count": 7,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -75681,7 +75714,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 2,
+              "count": 7,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -75956,7 +75989,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 13167,
+      "visibleTextLength": 13558,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -76254,7 +76287,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "RT-2 Brohan 2023↓RT-2: Vision-Language-Action Models Transfe"
+          "text": "RT-2 Brohan et al. 2023↓RT-2: Vision-Language-Action Models "
         },
         {
           "familyHead": "newsreader",
@@ -76523,7 +76556,7 @@
         },
         {
           "kind": "internal",
-          "count": 1,
+          "count": 8,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -76533,7 +76566,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 8,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -76687,7 +76720,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12997,
+      "visibleTextLength": 12801,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -77224,14 +77257,24 @@
         },
         {
           "kind": "internal",
-          "count": 3,
+          "count": 5,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
           "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-          "familyHead": "ibm plex mono",
+          "familyHead": "newsreader",
           "shape": "inline border:0px/solid radius:0px",
           "variants": [
+            {
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
+              "count": 4,
+              "colour": "rgb(36, 95, 255)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+              "familyHead": "newsreader",
+              "shape": "inline border:0px/solid radius:0px"
+            },
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|inline border:0px/solid radius:0px",
               "count": 1,
@@ -77240,16 +77283,6 @@
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
               "familyHead": "ibm plex mono",
-              "shape": "inline border:0px/solid radius:0px"
-            },
-            {
-              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 2,
-              "colour": "rgb(36, 95, 255)",
-              "decorationLine": "underline",
-              "decorationStyle": "solid",
-              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-              "familyHead": "newsreader",
               "shape": "inline border:0px/solid radius:0px"
             }
           ]
@@ -77438,7 +77471,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 29623,
+      "visibleTextLength": 29448,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -77557,7 +77590,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "RT-2’s reported rates depend on the model and serving setup."
+          "text": "The comparison matrix is a table of the major robot policies"
         },
         {
           "familyHead": "newsreader",
@@ -77602,7 +77635,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Control frequency needs a named measurement setting. Zhao 20"
+          "text": "Control frequency needs a named measurement setting. Zhao et"
         },
         {
           "familyHead": "newsreader",
@@ -77629,7 +77662,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Brohan 2022↓RT-1: Robotics Transformer for Real-World Contro"
+          "text": "Brohan et al. 2022↓RT-1: Robotics Transformer for Real-World"
         },
         {
           "familyHead": "newsreader",
@@ -77638,7 +77671,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Zhao 2023↓Learning Fine-Grained Bimanual Manipulation with L"
+          "text": "Zhao et al. 2023↓Learning Fine-Grained Bimanual Manipulation"
         },
         {
           "familyHead": "newsreader",
@@ -77647,7 +77680,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Chi 2023↓Diffusion Policy: Visuomotor Policy Learning via Ac"
+          "text": "Chi et al. 2023↓Diffusion Policy: Visuomotor Policy Learning"
         },
         {
           "familyHead": "newsreader",
@@ -77656,7 +77689,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Brohan 2023↓RT-2: Vision-Language-Action Models Transfer Web"
+          "text": "Brohan et al. 2023↓RT-2: Vision-Language-Action Models Trans"
         },
         {
           "familyHead": "newsreader",
@@ -77665,7 +77698,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Kim 2024↓OpenVLA: An Open-Source Vision-Language-Action Mode"
+          "text": "Kim et al. 2024↓OpenVLA: An Open-Source Vision-Language-Acti"
         },
         {
           "familyHead": "newsreader",
@@ -77674,7 +77707,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Kim 2025↓Fine-Tuning Vision-Language-Action Models: Optimizi"
+          "text": "Kim et al. 2025↓Fine-Tuning Vision-Language-Action Models: O"
         },
         {
           "familyHead": "newsreader",
@@ -77683,7 +77716,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Gemini Robotics Team 2025↓Gemini Robotics 1.5: Pushing the F"
+          "text": "Gemini Robotics Team et al. 2025↓Gemini Robotics 1.5: Pushin"
         },
         {
           "familyHead": "newsreader",
@@ -77728,7 +77761,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Zhao 2023↓Learning Fine-Grained Bimanual Manipulation with L"
+          "text": "Zhao et al. 2023↓Learning Fine-Grained Bimanual Manipulation"
         },
         {
           "familyHead": "newsreader",
@@ -77737,7 +77770,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Black 2025↓π0.5: a Vision-Language-Action Model with Open-Wo"
+          "text": "Physical Intelligence et al. 2025↓π0.5: a Vision-Language-Ac"
         },
         {
           "familyHead": "newsreader",
@@ -77746,7 +77779,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Ai 2026↓π0.7: a Steerable Generalist Robotic Foundation Mode"
+          "text": "Ai et al. 2026↓π0.7: a Steerable Generalist Robotic Foundati"
         },
         {
           "familyHead": "newsreader",
@@ -77764,7 +77797,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Brohan 2022↓RT-1: Robotics Transformer for Real-World Contro"
+          "text": "Brohan et al. 2022↓RT-1: Robotics Transformer for Real-World"
         },
         {
           "familyHead": "newsreader",
@@ -77981,7 +78014,7 @@
         },
         {
           "kind": "internal",
-          "count": 2,
+          "count": 8,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -77991,7 +78024,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 2,
+              "count": 8,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -78361,7 +78394,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16985,
+      "visibleTextLength": 17432,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -78470,7 +78503,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "An action vector is a control interface; the hardware DoF co"
+          "text": "Cross-embodiment transfer is learning from, or transferring "
         },
         {
           "familyHead": "newsreader",
@@ -78533,7 +78566,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Kareer 2025↓Emergence of Human to Robot Transfer in VLAsSima"
+          "text": "Kareer et al. 2025↓Emergence of Human to Robot Transfer in V"
         },
         {
           "familyHead": "newsreader",
@@ -78867,14 +78900,25 @@
         },
         {
           "kind": "internal",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 2,
+          "colour": "rgb(36, 95, 255)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+          "familyHead": "newsreader",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
+              "count": 2,
+              "colour": "rgb(36, 95, 255)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+              "familyHead": "newsreader",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         }
       ],
       "registrationLabels": [
@@ -79068,7 +79112,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15071,
+      "visibleTextLength": 15088,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -79175,7 +79219,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Human demonstrations are multimodal: faced with an obstacle,"
+          "text": "Diffusion Policydiffusion policyA policy that produces actio"
         },
         {
           "familyHead": "newsreader",
@@ -79292,7 +79336,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The paper ships two denoiser backbones Chi 2023↓Diffusion Po"
+          "text": "The paper ships two denoiser backbones Chi et al. 2023↓Diffu"
         },
         {
           "familyHead": "newsreader",
@@ -79615,14 +79659,25 @@
         },
         {
           "kind": "internal",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 2,
+          "colour": "rgb(36, 95, 255)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+          "familyHead": "newsreader",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
+              "count": 2,
+              "colour": "rgb(36, 95, 255)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+              "familyHead": "newsreader",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         }
       ],
       "registrationLabels": [
@@ -79824,7 +79879,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12941,
+      "visibleTextLength": 13195,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -80380,7 +80435,7 @@
         },
         {
           "kind": "internal",
-          "count": 1,
+          "count": 9,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -80390,7 +80445,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 9,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -80592,7 +80647,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22700,
+      "visibleTextLength": 23204,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -80705,7 +80760,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The last two modules each followed one lineage: the VLA fami"
+          "text": "The other generalist policies are the multi-task robot model"
         },
         {
           "familyHead": "newsreader",
@@ -81183,7 +81238,7 @@
         },
         {
           "kind": "internal",
-          "count": 3,
+          "count": 11,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -81193,7 +81248,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 3,
+              "count": 11,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -81523,7 +81578,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19970,
+      "visibleTextLength": 20182,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -81634,7 +81689,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Every long-horizon robot system has to answer the same organ"
+          "text": "Hierarchical approaches are robot architectures in which one"
         },
         {
           "familyHead": "newsreader",
@@ -82049,7 +82104,7 @@
         },
         {
           "kind": "internal",
-          "count": 1,
+          "count": 6,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -82059,7 +82114,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 6,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -82277,7 +82332,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12596,
+      "visibleTextLength": 12881,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -82382,7 +82437,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "RT-2 represents robot actions as tokens, using the discretiz"
+          "text": "Knowledge insulationknowledge insulationPhysical Intelligenc"
         },
         {
           "familyHead": "newsreader",
@@ -82391,7 +82446,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Driess 2025↓Knowledge Insulating Vision-Language-Action Mode"
+          "text": "Driess et al. 2025↓Knowledge Insulating Vision-Language-Acti"
         },
         {
           "familyHead": "newsreader",
@@ -82400,7 +82455,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Driess 2025↓VLAs that Train Fast, Run Fast, and Generalize B"
+          "text": "Driess et al. 2025↓VLAs that Train Fast, Run Fast, and Gener"
         },
         {
           "familyHead": "newsreader",
@@ -82463,7 +82518,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Knowledge Insulation separates the learning signals Driess 2"
+          "text": "Knowledge Insulation separates the learning signals Driess e"
         },
         {
           "familyHead": "newsreader",
@@ -82779,7 +82834,7 @@
         },
         {
           "kind": "internal",
-          "count": 1,
+          "count": 2,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -82789,7 +82844,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 2,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -82999,7 +83054,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 25861,
+      "visibleTextLength": 25524,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -83066,11 +83121,11 @@
           "The Pi Line"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 15,
+        "readingMinutes": 16,
         "citationCount": 13,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "15 min",
+        "readingTimeText": "16 min",
         "citationCountText": "13",
         "bibliographyIds": [
           "pi0-2024",
@@ -83110,7 +83165,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The VLA module ended on a bottleneck: discrete action tokens"
+          "text": "The pi line is Physical Intelligence's series of vision-lang"
         },
         {
           "familyHead": "newsreader",
@@ -83191,7 +83246,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Pertsch 2025↓FAST: Efficient Action Tokenization for Vision-"
+          "text": "Pertsch et al. 2025↓FAST: Efficient Action Tokenization for "
         },
         {
           "familyHead": "newsreader",
@@ -83227,7 +83282,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Driess 2025↓Knowledge Insulating Vision-Language-Action Mode"
+          "text": "Driess et al. 2025↓Knowledge Insulating Vision-Language-Acti"
         },
         {
           "familyHead": "newsreader",
@@ -83660,7 +83715,7 @@
         },
         {
           "kind": "internal",
-          "count": 3,
+          "count": 10,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -83670,7 +83725,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 3,
+              "count": 10,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -83992,7 +84047,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17960,
+      "visibleTextLength": 18969,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -84096,7 +84151,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A policy that needs 60 ms per inference cannot finish a new "
+          "text": "Real-time execution is the problem of delivering a policy's "
         },
         {
           "familyHead": "newsreader",
@@ -84195,7 +84250,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Server placement also depends on the modeled network Jiang 2"
+          "text": "Server placement also depends on the modeled network Jiang e"
         },
         {
           "familyHead": "newsreader",
@@ -84509,14 +84564,25 @@
         },
         {
           "kind": "internal",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 2,
+          "colour": "rgb(36, 95, 255)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+          "familyHead": "newsreader",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
+              "count": 2,
+              "colour": "rgb(36, 95, 255)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+              "familyHead": "newsreader",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         }
       ],
       "registrationLabels": [
@@ -84678,7 +84744,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 38334,
+      "visibleTextLength": 39173,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -84793,7 +84859,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Imitation learningimitation learningLearning a policy from e"
+          "text": "RL fine-tuning is the use of reinforcement learning to impro"
         },
         {
           "familyHead": "newsreader",
@@ -84991,7 +85057,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Amin 2025↓π*0.6: a VLA That Learns From ExperienceAli Amin, "
+          "text": "Amin et al. 2025↓π*0.6: a VLA That Learns From ExperienceAli"
         },
         {
           "familyHead": "newsreader",
@@ -85548,7 +85614,7 @@
         },
         {
           "kind": "internal",
-          "count": 4,
+          "count": 15,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -85558,7 +85624,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 4,
+              "count": 15,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -85808,7 +85874,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 11411,
+      "visibleTextLength": 11285,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -85914,7 +85980,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Machine learning gives you optimization, representation lear"
+          "text": "The robot learning curriculum for ML engineers is a staged p"
         },
         {
           "familyHead": "newsreader",
@@ -86363,7 +86429,7 @@
         },
         {
           "kind": "internal",
-          "count": 7,
+          "count": 15,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -86373,7 +86439,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 7,
+              "count": 15,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -86527,7 +86593,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20432,
+      "visibleTextLength": 20710,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -86634,7 +86700,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The modules so far covered policies trained from scratch on "
+          "text": "A vision-language-action (VLA)vision-language-action modelA "
         },
         {
           "familyHead": "newsreader",
@@ -86715,7 +86781,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "RT-2 (2023) attacked the knowledge problem directly Brohan 2"
+          "text": "RT-2 (2023) attacked the knowledge problem directly Brohan e"
         },
         {
           "familyHead": "newsreader",
@@ -86814,7 +86880,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Kim 2025↓Fine-Tuning Vision-Language-Action Models: Optimizi"
+          "text": "Kim et al. 2025↓Fine-Tuning Vision-Language-Action Models: O"
         },
         {
           "familyHead": "newsreader",
@@ -87128,7 +87194,7 @@
         },
         {
           "kind": "internal",
-          "count": 5,
+          "count": 8,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -87138,7 +87204,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 5,
+              "count": 8,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -89433,7 +89499,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 21093,
+      "visibleTextLength": 21182,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -89546,7 +89612,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The previous module covered how learned policies took over l"
+          "text": "Humanoid whole-body control is treating every actuated joint"
         },
         {
           "familyHead": "newsreader",
@@ -89977,7 +90043,7 @@
         },
         {
           "kind": "internal",
-          "count": 1,
+          "count": 10,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -89987,7 +90053,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 10,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -90202,7 +90268,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18790,
+      "visibleTextLength": 18887,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -90313,7 +90379,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The previous modules built the machinery: massively parallel"
+          "text": "Legged locomotionlegged locomotionLocomotion through legs ra"
         },
         {
           "familyHead": "newsreader",
@@ -90719,7 +90785,7 @@
         },
         {
           "kind": "internal",
-          "count": 2,
+          "count": 9,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -90729,7 +90795,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 2,
+              "count": 9,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -90896,7 +90962,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14037,
+      "visibleTextLength": 14211,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -91002,7 +91068,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Offline reinforcement learning asks a useful but dangerous q"
+          "text": "Offline reinforcement learning is training a robot policy fr"
         },
         {
           "familyHead": "newsreader",
@@ -91811,7 +91877,7 @@
         },
         {
           "kind": "internal",
-          "count": 4,
+          "count": 11,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -91821,7 +91887,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 4,
+              "count": 11,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -91964,7 +92030,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15509,
+      "visibleTextLength": 16123,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -92070,7 +92136,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The four-minute training run from the previous module came f"
+          "text": "Massively parallel simulation is training a robot policy acr"
         },
         {
           "familyHead": "newsreader",
@@ -92483,7 +92549,7 @@
         },
         {
           "kind": "internal",
-          "count": 1,
+          "count": 2,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -92493,7 +92559,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 2,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -92680,7 +92746,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28197,
+      "visibleTextLength": 28485,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -92795,7 +92861,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Every module so far in this domain assumed someone had alrea"
+          "text": "Reward design is writing the objective that a reinforcement "
         },
         {
           "familyHead": "newsreader",
@@ -93334,7 +93400,7 @@
         },
         {
           "kind": "internal",
-          "count": 1,
+          "count": 11,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -93344,7 +93410,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 11,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -93635,7 +93701,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28267,
+      "visibleTextLength": 28309,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -94012,7 +94078,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Andrychowicz 2017↓Hindsight Experience ReplayMarcin Andrycho"
+          "text": "Andrychowicz et al. 2017↓Hindsight Experience ReplayMarcin A"
         },
         {
           "familyHead": "newsreader",
@@ -94381,7 +94447,7 @@
         },
         {
           "kind": "internal",
-          "count": 9,
+          "count": 15,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -94391,7 +94457,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 9,
+              "count": 15,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -94614,7 +94680,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24086,
+      "visibleTextLength": 24529,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -94724,7 +94790,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The previous module ended with a policy that walks after min"
+          "text": "Sim-to-real transfer is getting a policy trained in simulati"
         },
         {
           "familyHead": "newsreader",
@@ -95218,7 +95284,7 @@
         },
         {
           "kind": "internal",
-          "count": 1,
+          "count": 6,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -95228,7 +95294,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 6,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -95430,7 +95496,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12582,
+      "visibleTextLength": 12349,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -95497,11 +95563,11 @@
           "Why RL Won Locomotion but Not Manipulation"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 6,
+        "readingMinutes": 7,
         "citationCount": 7,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "6 min",
+        "readingTimeText": "7 min",
         "citationCountText": "7",
         "bibliographyIds": [
           "rudin-2021",
@@ -95535,7 +95601,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "In 2021, Rudin and colleagues trained an ANYmal quadruped to"
+          "text": "Locomotion and manipulation are the two robot problems where"
         },
         {
           "familyHead": "newsreader",
@@ -95876,7 +95942,7 @@
         },
         {
           "kind": "internal",
-          "count": 3,
+          "count": 6,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -95886,7 +95952,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 3,
+              "count": 6,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -96550,7 +96616,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 13244,
+      "visibleTextLength": 13227,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -96656,7 +96722,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A robotics world modelworld modelA model of how an environme"
+          "text": "Evaluating a robotics world modelworld modelA model of how a"
         },
         {
           "familyHead": "newsreader",
@@ -97354,7 +97420,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17272,
+      "visibleTextLength": 17628,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -97460,7 +97526,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The previous three modules covered learned models that predi"
+          "text": "Generative simulation is the use of generative models to aut"
         },
         {
           "familyHead": "newsreader",
@@ -97918,7 +97984,7 @@
         },
         {
           "kind": "internal",
-          "count": 6,
+          "count": 11,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -97928,7 +97994,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 6,
+              "count": 11,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -98138,7 +98204,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19703,
+      "visibleTextLength": 20163,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -98251,7 +98317,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The third paradigm in the taxonomy is the one with the money"
+          "text": "Generative video world models are the third paradigm in the "
         },
         {
           "familyHead": "newsreader",
@@ -98691,7 +98757,7 @@
         },
         {
           "kind": "internal",
-          "count": 3,
+          "count": 8,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -98701,7 +98767,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 3,
+              "count": 8,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -98959,7 +99025,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16401,
+      "visibleTextLength": 16264,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -99066,7 +99132,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The fourth paradigm in the taxonomy rejects the premise of t"
+          "text": "The Joint-Embedding Predictive Architecture (JEPA) is the fo"
         },
         {
           "familyHead": "newsreader",
@@ -99443,7 +99509,7 @@
         },
         {
           "kind": "internal",
-          "count": 4,
+          "count": 8,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -99453,7 +99519,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 4,
+              "count": 8,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -99647,7 +99713,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15919,
+      "visibleTextLength": 15709,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -99714,11 +99780,11 @@
           "Latent-Dynamics World Models"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 9,
+        "readingMinutes": 10,
         "citationCount": 8,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "9 min",
+        "readingTimeText": "10 min",
         "citationCountText": "8",
         "bibliographyIds": [
           "dreamer-2019",
@@ -99753,7 +99819,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Of the six paradigms the taxonomy module separates, latent d"
+          "text": "Latent dynamicslatent dynamicsA world-model paradigm that pr"
         },
         {
           "familyHead": "newsreader",
@@ -100148,7 +100214,7 @@
         },
         {
           "kind": "internal",
-          "count": 3,
+          "count": 11,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -100158,7 +100224,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 3,
+              "count": 11,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -100320,7 +100386,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12336,
+      "visibleTextLength": 12606,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -100428,7 +100494,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Model-based robot learning inserts a predictive model betwee"
+          "text": "Model-based robot learning is the family of methods that ins"
         },
         {
           "familyHead": "newsreader",
@@ -100886,7 +100952,7 @@
         },
         {
           "kind": "internal",
-          "count": 2,
+          "count": 7,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -100896,7 +100962,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 2,
+              "count": 7,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -101042,7 +101108,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19518,
+      "visibleTextLength": 19223,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -101109,11 +101175,11 @@
           "What Is a World Model?"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 10,
+        "readingMinutes": 11,
         "citationCount": 12,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "10 min",
+        "readingTimeText": "11 min",
         "citationCountText": "12",
         "bibliographyIds": [
           "world-model-survey-2026",
@@ -101727,7 +101793,7 @@
         },
         {
           "kind": "internal",
-          "count": 5,
+          "count": 9,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -101737,7 +101803,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 5,
+              "count": 9,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -102019,7 +102085,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20048,
+      "visibleTextLength": 20076,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -102133,7 +102199,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A physics simulator predicts the next state from explicit ge"
+          "text": "Learned world modelsworld modelA model of how an environment"
         },
         {
           "familyHead": "newsreader",
@@ -102708,7 +102774,7 @@
         },
         {
           "kind": "internal",
-          "count": 2,
+          "count": 5,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -102718,7 +102784,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 2,
+              "count": 5,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",

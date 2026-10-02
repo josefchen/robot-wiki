@@ -49,16 +49,16 @@ test.describe('world-models generative-sim module', () => {
     await page.goto(ROUTE);
     const main = page.locator('#main-content');
     await expect(
-      main.getByRole('link', { name: /Wang 2024/ }).first(),
+      main.getByRole('link', { name: /Wang et al\. 2024/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2311.01455');
     await expect(
-      main.getByRole('link', { name: /Yang 2024/ }).first(),
+      main.getByRole('link', { name: /Yang et al\. 2024/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2312.09067');
     await expect(
-      main.getByRole('link', { name: /Nasiriany 2024/ }).first(),
+      main.getByRole('link', { name: /Nasiriany et al\. 2024/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2406.02523');
     await expect(
-      main.getByRole('link', { name: /Nasiriany 2026/ }).first(),
+      main.getByRole('link', { name: /Nasiriany et al\. 2026/ }).first(),
     ).toHaveAttribute('href', 'https://robocasa.ai/assets/robocasa365_iclr26.pdf');
     // Scoped to the authored prose: the generated References bibliography
     // also renders external links inside main, and with every inline chip deleted its 8 registry anchors alone still passed this floor.
@@ -73,13 +73,13 @@ test.describe('world-models generative-sim module', () => {
     const sentence = page.locator('div.prose[data-pagefind-body] p')
       .filter({ hasText: 'RoboCasa365 reports a separate, larger set' });
     await expect(sentence).toHaveCount(1);
-    await expect(sentence.getByRole('link', { name: /Nasiriany 2024/ }))
+    await expect(sentence.getByRole('link', { name: /Nasiriany et al\. 2024/ }))
       .toHaveAttribute('href', 'https://arxiv.org/abs/2406.02523');
-    await expect(sentence.getByRole('link', { name: /Nasiriany 2026/ }))
+    await expect(sentence.getByRole('link', { name: /Nasiriany et al\. 2026/ }))
       .toHaveAttribute('href', 'https://robocasa.ai/assets/robocasa365_iclr26.pdf');
     const sequence = await sentence.innerText();
-    expect(sequence.indexOf('Nasiriany 2024')).toBeLessThan(sequence.indexOf('RoboCasa365 reports'));
-    expect(sequence.indexOf('Nasiriany 2026')).toBeGreaterThan(sequence.indexOf('RoboCasa365 reports'));
+    expect(sequence.indexOf('Nasiriany et al. 2024')).toBeLessThan(sequence.indexOf('RoboCasa365 reports'));
+    expect(sequence.indexOf('Nasiriany et al. 2026')).toBeGreaterThan(sequence.indexOf('RoboCasa365 reports'));
   });
 
   test('RoboCasa v1 inventory and scaling keep their source scope', async ({
@@ -93,7 +93,7 @@ test.describe('world-models generative-sim module', () => {
     await expect(inventory).toContainText('25 atomic tasks and 75 composite tasks');
     await expect(inventory).toContainText('human filtering, modification, and code implementation');
     await expect(
-      inventory.getByRole('link', { name: /Nasiriany 2024/ }),
+      inventory.getByRole('link', { name: /Nasiriany et al\. 2024/ }),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2406.02523');
     const scaling = prose.getByText(/The scaling study is a specific simulation experiment/);
     for (const required of [
@@ -110,7 +110,7 @@ test.describe('world-models generative-sim module', () => {
       await expect(scaling).toContainText(required);
     }
     await expect(
-      scaling.getByRole('link', { name: /Nasiriany 2024/ }),
+      scaling.getByRole('link', { name: /Nasiriany et al\. 2024/ }),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2406.02523');
   });
 

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { MarketMap } from '@/components/market-map/market-map';
 import { COMPANIES } from '@/data/companies';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
+import { marketMapJsonLd } from '@/lib/structured-data';
 import {
   STANDALONE_SEO_DESCRIPTIONS,
   STANDALONE_SEO_TITLES,
@@ -23,6 +24,10 @@ export const metadata: Metadata = {
 export default function MarketMapPage() {
   return (
     <div className="mx-auto w-full max-w-6xl px-6 py-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: marketMapJsonLd(COMPANIES) }}
+      />
       {/* data-pagefind-body scoped to the heading and the intro, not the
           map: Pagefind excludes every page that declares no body region
           once one page declares one, so this route needed its own to be

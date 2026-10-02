@@ -45,10 +45,10 @@ test.describe('parallel-sim-rl module', () => {
     await page.goto(ROUTE);
     const main = page.locator('#main-content');
     await expect(
-      main.getByRole('link', { name: /Rudin 2021/ }).first(),
+      main.getByRole('link', { name: /Rudin et al\. 2021/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2109.11978');
     await expect(
-      main.getByRole('link', { name: /NVIDIA 2025/ }).first(),
+      main.getByRole('link', { name: /NVIDIA et al\. 2025/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2511.04831');
     // Scoped to the authored prose: the generated References bibliography
     // also renders external links inside main, and with every inline chip deleted its 7 registry anchors alone still passed this floor.

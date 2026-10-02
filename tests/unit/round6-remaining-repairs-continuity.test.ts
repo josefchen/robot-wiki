@@ -243,7 +243,7 @@ it('keeps every phrase the data-hardware review requires on the live industrial 
 
 it('changes only the taxonomy search description and keeps the release disclosure', () => {
   const before = read(sourceOf('taxonomy-search-description').before.path).toString();
-  const after = read('content/world-models/taxonomy.mdx').toString();
+  const after = preFigureMigration('content/world-models/taxonomy.mdx').toString();
   expect(matter(after).content).toBe(matter(before).content);
   expect({ ...matter(after).data, description: oldDescription }).toEqual(matter(before).data);
   expect(matter(after).data.description).toBe(newDescription);
@@ -409,7 +409,8 @@ it.each(['missing-review', 'missing-predecessor', 'corrupt-predecessor', 'missin
   'short-rationale'] as const)('rejects %s in the remaining-repairs checker transition', (mutation) => {
   const destination = copied([checkerReviewPath, checkerArchivePath, suiteArchivePath,
     'audit/evidence/figure-migration-20261001/checker-transition.json',
-    'audit/evidence/figure-migration-20261001/audit-local-basis-before.ts.txt']);
+    'audit/evidence/figure-migration-20261001/audit-local-basis-before.ts.txt',
+    'audit/evidence/seo-pass-20261002/checker-transition.json']);
   try {
     const live = read('lib/audit-local-basis.ts');
     expect(round6RemainingRepairsCheckerPredecessor(destination, live)).toEqual(read(checkerArchivePath));

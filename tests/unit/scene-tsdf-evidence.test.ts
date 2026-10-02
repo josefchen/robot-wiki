@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { committedSource, preservedApprovalPacket, preservedCompoundPacket } from '../helpers/continuation-integration';
 import { headReanchorFor } from './helpers/continuation-merge-ledger';
+import { preSeoPassHash } from '../helpers/seo-pass';
 import matter from 'gray-matter';
 import { beforeAll, describe, expect, it } from 'vitest';
 import { CITATIONS } from '../../data/citations';
@@ -209,14 +210,25 @@ describe('scene original 10: source-scoped TSDF correction', { timeout: 30_000 }
         expect(sourceFlow.newHash).not.toBe(merge.newHash);
         latestHash = merge.newHash;
       }
-      for (const later of entries.slice(entries.indexOf(delta) + 1).filter((entry) =>
+      // The 2026-10-02 SEO pass is checked last, from the endpoint the
+      // earlier ledger reached.
+      const isSeoPass = (entry: ApprovedDelta) => entry.id.startsWith('seo-pass-20261002-');
+      const preSeoPass = entries.filter((entry) => !isSeoPass(entry));
+      for (const later of preSeoPass.slice(preSeoPass.indexOf(delta) + 1).filter((entry) =>
         entry.manifest === delta.manifest && entry.memberId === delta.memberId &&
         !entry.id.startsWith('continuation-merge-') && entry.id !== 'reader-source-flow-20260923-1')) {
         expect(later.oldHash).toBe(latestHash);
         latestHash = later.newHash;
       }
-      const merged = headReanchorFor(entries, delta.manifest, delta.memberId);
-      expect(merged?.newHash ?? latestHash).toBe(buildManifest(delta.manifest, [inputs[index]]).members[0].hash);
+      const merged = headReanchorFor(preSeoPass, delta.manifest, delta.memberId);
+      const endpoint = merged?.newHash ?? latestHash;
+      expect(endpoint).toBe(preSeoPassHash(delta.manifest, delta.memberId));
+      const seo = entries.filter((entry) => isSeoPass(entry) &&
+        entry.manifest === delta.manifest && entry.memberId === delta.memberId);
+      expect(seo.length).toBeLessThanOrEqual(1);
+      if (seo[0]?.reconciles) expect(seo[0].reconciles.at(-1)!.newHash).toBe(endpoint);
+      else if (seo[0]) expect(seo[0].oldHash).toBe(endpoint);
+      expect(seo[0]?.newHash ?? endpoint).toBe(buildManifest(delta.manifest, [inputs[index]]).members[0].hash);
     });
   });
 

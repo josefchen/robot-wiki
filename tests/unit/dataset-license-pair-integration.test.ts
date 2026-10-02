@@ -219,12 +219,20 @@ describe('DROID and BridgeData license pair, exact bounded correction', () => {
         // the same seal by the latest re-anchor, which never precedes it.
         expect(integratedHash(manifest, memberId)).toMatch(/^[0-9a-f]{64}$/);
         expect(reanchor).toMatchObject({ oldHash: sealedHash(manifest, memberId), newHash: integratedHash(manifest, memberId), disposition: 'permanent' });
-        const head = approvals.findLast(candidate => candidate.manifest === manifest &&
+        let head = approvals.findLast(candidate => candidate.manifest === manifest &&
           candidate.memberId === memberId && candidate.newHash === currentHash(manifest, memberId))!;
         expect(head).toMatchObject({ newHash: currentHash(manifest, memberId), disposition: 'permanent' });
+        // The 2026-10-02 SEO pass continues the prose and the related links
+        // with one plain edge each; the endpoint it continued is checked here.
+        const preSeoPass = approvals.filter(candidate => !candidate.id.startsWith('seo-pass-20261002-'));
+        if (head.id.startsWith('seo-pass-20261002-') && head.reconciles === undefined) {
+          const continued = head.oldHash;
+          head = preSeoPass.findLast(candidate => candidate.manifest === manifest &&
+            candidate.memberId === memberId && candidate.newHash === continued)!;
+        }
         if (memberId === 'article:data-hardware/datasets' && manifest === 'prose') {
           expect(head.id).toBe('motion-data-hardware-humanizer-v3-20260927-prose-datasets');
-          expect(head.oldHash).toBe(headReanchorFor(approvals, manifest, memberId)!.newHash);
+          expect(head.oldHash).toBe(headReanchorFor(preSeoPass, manifest, memberId)!.newHash);
         } else expect(head.oldHash).toBe(sealedHash(manifest, memberId));
         expect(approvals.indexOf(head)).toBeGreaterThanOrEqual(approvals.indexOf(reanchor!));
       } else {

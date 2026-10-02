@@ -92,31 +92,31 @@ test.describe('classical state-estimation module', () => {
       main.getByRole('link', { name: 'Kalman 1960' }).first(),
     ).toHaveAttribute('href', 'https://doi.org/10.1115/1.3662552');
     await expect(
-      main.getByRole('link', { name: 'McGee 1985' }).first(),
+      main.getByRole('link', { name: 'McGee et al. 1985' }).first(),
     ).toHaveAttribute(
       'href',
       'https://ntrs.nasa.gov/citations/19860003843',
     );
     await expect(
-      main.getByRole('link', { name: 'Thrun 2005' }).first(),
+      main.getByRole('link', { name: 'Thrun et al. 2005' }).first(),
     ).toHaveAttribute(
       'href',
       'https://mitpress.mit.edu/9780262201629/probabilistic-robotics/',
     );
     await expect(
-      main.getByRole('link', { name: 'Kschischang 2001' }).first(),
+      main.getByRole('link', { name: 'Kschischang et al. 2001' }).first(),
     ).toHaveAttribute('href', 'https://doi.org/10.1109/18.910572');
     await expect(
-      main.getByRole('link', { name: 'Dellaert 2006' }).first(),
+      main.getByRole('link', { name: 'Dellaert et al. 2006' }).first(),
     ).toHaveAttribute('href', 'https://doi.org/10.1177/0278364906072768');
     await expect(
-      main.getByRole('link', { name: 'Kaess 2012' }).first(),
+      main.getByRole('link', { name: 'Kaess et al. 2012' }).first(),
     ).toHaveAttribute('href', 'https://doi.org/10.1177/0278364911430419');
     await expect(
-      main.getByRole('link', { name: 'Cadena 2016' }).first(),
+      main.getByRole('link', { name: 'Cadena et al. 2016' }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/1606.05830');
     await expect(
-      main.getByRole('link', { name: 'Forster 2017' }).first(),
+      main.getByRole('link', { name: 'Forster et al. 2017' }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/1512.02363');
 
     // Every chip is a real external link; no unresolved ids render.

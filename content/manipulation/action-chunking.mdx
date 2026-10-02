@@ -24,16 +24,16 @@ citations:
   - pi06-model-card-2025
   - pi07-2026
 seeAlso:
-  - "manipulation/bc-foundations"
-  - "manipulation/diffusion-policy"
-  - "manipulation/realtime-execution"
+  - "data-hardware/teleop-rigs"
+  - "manipulation/rl-finetuning"
+  - "manipulation/pi-line"
 ---
 
 import { ChunkSizeCurve } from '@/components/interactive/chunk-size-curve';
 import { LatencyComparison } from '@/components/interactive/latency-comparison';
 import { PolicyChunkingTable } from '@/components/mdx/policy-chunking-table';
 
-<Term id="behavior-cloning">Behavior cloning</Term> fails in closed loop for a precise reason: a policy with per-step error ε on the expert's state distribution can accumulate cost that grows quadratically with episode length, because each mistake carries the robot into states the expert never visited <Cite id="dagger-2011" />. Over a T-step episode the worst-case cost scales as
+Action chunking is a policy design in which each inference predicts a sequence of future actions instead of a single action. <Term id="behavior-cloning">Behavior cloning</Term> fails in closed loop for a precise reason: a policy with per-step error ε on the expert's state distribution can accumulate cost that grows quadratically with episode length, because each mistake carries the robot into states the expert never visited <Cite id="dagger-2011" />. Over a T-step episode the worst-case cost scales as
 
 $$
 \underset{\text{behavior cloning}}{O(\varepsilon T^2)} \qquad \underset{\text{DAgger}}{O(\varepsilon T)}

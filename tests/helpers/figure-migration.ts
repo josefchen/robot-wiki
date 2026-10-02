@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { figureMigrationPredecessor } from '../../lib/audit-figure-migration-continuity.ts';
+import { preSeoPass } from './seo-pass.ts';
 
 const root = resolve(import.meta.dirname, '../..');
 type Artifact = { path: string; bytes: number; sha256: string };
@@ -15,13 +16,14 @@ const review = JSON.parse(readFileSync(resolve(root,
 
 /**
  * The bytes the artifact reader hands every check older than the figure
- * migration: the archived predecessor while the live file is the reviewed
- * successor, otherwise the live bytes. A bare path stands for the reference
- * that names its pre-migration bytes.
+ * migration: the archived predecessor while the file, after the SEO-pass
+ * layer has handed back its pre-pass bytes, is the reviewed successor,
+ * otherwise those bytes. A bare path stands for the reference that names its
+ * pre-migration bytes.
  */
 export function preFigureMigration(reference: Artifact | string): Buffer {
   const path = typeof reference === 'string' ? reference : reference.path;
-  const live = readFileSync(resolve(root, path));
+  const live = preSeoPass(path);
   const source = review.sources.find((candidate) => candidate.after.path === path);
   const named = typeof reference === 'string'
     ? source && { path, bytes: source.before.bytes, sha256: source.before.sha256 }

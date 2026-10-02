@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ContentsIndex } from '@/components/home/contents-index';
 import { DidYouKnow, HOME_PROSE_LINK_CLASS } from '@/components/home/did-you-know';
@@ -13,7 +14,29 @@ import {
 } from '@/lib/featured-article';
 import { homeCounts } from '@/lib/home-counts';
 import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '@/lib/identity';
-import { websiteJsonLd } from '@/lib/seo';
+import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
+import { HOME_META_DESCRIPTION, websiteJsonLd } from '@/lib/seo';
+import { SITE_DISPLAY_NAME } from '@/lib/site';
+
+/**
+ * Home keeps the layout's title and cards but carries a description long
+ * enough to state what the site answers. It opens with the locked
+ * descriptor, so every descriptor field still carries it verbatim
+ * (VAL-B2-ID-002). The card blocks are restated because a route-level
+ * object replaces the layout's (no deep merge).
+ */
+export const metadata: Metadata = {
+  description: HOME_META_DESCRIPTION,
+  openGraph: {
+    ...routeOpenGraph(SITE_DISPLAY_NAME),
+    description: HOME_META_DESCRIPTION,
+    locale: 'en_US',
+  },
+  twitter: {
+    ...routeTwitter(SITE_DISPLAY_NAME),
+    description: HOME_META_DESCRIPTION,
+  },
+};
 
 /**
  * Home is an encyclopedia front page: the identity line with live counts

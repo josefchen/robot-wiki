@@ -16,6 +16,7 @@ import { currentAuditContext } from '../helpers/residual-integration';
 import { preservedLegacySurvivors } from '../helpers/audit-plan-history';
 import { committedText, committedJson } from '../helpers/editorial-current-context';
 import { round6RemainingRepairPredecessor } from '@/lib/audit-round6-remaining-repairs-continuity';
+import { preSeoPass } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
 const base = '90c8a0f4c958c42750711082bfb54960cac7d5e8';
@@ -27,13 +28,14 @@ const atReader = (path: string) => committedText(readerCommit, path);
 const paths = ['latent-dynamics', 'taxonomy'].map(slug => `content/world-models/${slug}.mdx`);
 const [latent, taxonomy] = paths.map(read);
 // The round-6 search-snippet repair shortened only the taxonomy description.
-// Its reviewed successor hands back the pre-repair article it still gates.
+// Its reviewed successor hands back the pre-repair article it still gates,
+// starting from the article as it stood before the 2026-10-02 SEO pass.
 const preRepair = (path: string) => {
   const review = JSON.parse(read('audit/evidence/motion-round6-remaining-repairs-20260929/source-transition.json')) as {
     sources: { before: { bytes: number; sha256: string }; after: { path: string } }[];
   };
   const archive = review.sources.find(source => source.after.path === path)?.before;
-  const live = readFileSync(resolve(root, path));
+  const live = preSeoPass(path);
   return (archive ? round6RemainingRepairPredecessor(root,
     { path, bytes: archive.bytes, sha256: archive.sha256 }, live) : live).toString();
 };

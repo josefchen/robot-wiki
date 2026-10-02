@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   CITATIONS,
+  ORGANIZATION_CHIP_NAMES,
   citationLabel,
   citationMeta,
   getCitation,
@@ -136,10 +137,11 @@ describe('citation registry', () => {
     })).toBe(false);
   });
 
-  it('citationLabel is "FirstAuthorSurname Year"', () => {
+  it('citationLabel is "FirstAuthorSurname et al. Year" for a multi-author source', () => {
     const zhao = getCitation('act-aloha-2023');
     expect(zhao).toBeDefined();
-    expect(citationLabel(zhao!)).toBe('Zhao 2023');
+    expect(citationLabel(zhao!)).toBe('Zhao et al. 2023');
+    expect(citationLabel(getCitation('kalman-1960-filter')!)).toBe('Kalman 1960');
   });
 
   it('citationLabel keeps organization names whole', () => {
@@ -152,14 +154,17 @@ describe('citation registry', () => {
       type: 'blog',
     };
     expect(citationLabel(org)).toBe('Physical Intelligence 2025');
+    expect(citationLabel(getCitation('bd-spot-rl-2024')!)).toBe('Boston Dynamics 2024');
+    expect(citationLabel(getCitation('ros2-qos-2026')!)).toBe('ROS 2 Project 2026');
+    expect(citationLabel(getCitation('osha-otm-robots')!)).toBe('OSHA 2026');
     // The real RTC blog has a named byline, not organization authorship.
-    expect(citationLabel(getCitation('pi-real-time-chunking-blog-2025')!)).toBe('Black 2025');
+    expect(citationLabel(getCitation('pi-real-time-chunking-blog-2025')!)).toMatch(/^Black /);
   });
 
   it('citationLabel keeps multi-word surnames via override, without breaking lookalikes', () => {
     const diCarlo = getCitation('di-carlo-2018');
     expect(diCarlo).toBeDefined();
-    expect(citationLabel(diCarlo!)).toBe('Di Carlo 2018');
+    expect(citationLabel(diCarlo!)).toMatch(/^Di Carlo (et al\. )?2018$/);
     // "Di" as a given name must not be swallowed into the surname.
     const lookalike: Citation = {
       id: 'test-lookalike',
@@ -171,6 +176,42 @@ describe('citation registry', () => {
     };
     expect(citationLabel(lookalike)).toBe('Huang 2024');
   });
+
+  // Words that end organisation names. A byline of two or more words that
+  // carries one is an organisation, and must be registered so its chip
+  // prints the whole name instead of the last word.
+  const ORGANIZATION_WORDS = new Set([
+    'AI', 'Administration', 'Agency', 'Association', 'Automation', 'Collaboration',
+    'Commons', 'Company', 'Consortium', 'Contributors', 'Corporation', 'DeepMind',
+    'Dynamics', 'Engagement', 'Face', 'Federation', 'Foundation', 'Group', 'Grumman',
+    'Inc.', 'Institute', 'Intelligence', 'Japan', 'LLC', 'Laboratory', 'Labs', 'Ltd',
+    'Maintainers', 'Project', 'Report', 'Research', 'Robot', 'Robotics', 'Robots',
+    'Society', 'Studio', 'Surgical', 'Team', 'Technologies', 'University',
+  ]);
+
+  it.each(CITATIONS.map((citation) => [citation.id, citation] as const))(
+    '%s labels its author or organisation, then its year',
+    (_, citation) => {
+      const label = citationLabel(citation);
+      const first = citation.authors[0];
+      const words = first.split(' ');
+      const organisation = ORGANIZATION_CHIP_NAMES.get(first);
+      expect(label.endsWith(` ${citation.year}`), label).toBe(true);
+      const name = label.slice(0, -` ${citation.year}`.length).replace(/ et al\.$/, '');
+      expect(label.includes(' et al. '), label).toBe(citation.authors.length > 1);
+      if (organisation) {
+        expect(name).toBe(organisation);
+      } else {
+        expect(
+          words.length === 1 || !words.some((word) => ORGANIZATION_WORDS.has(word)),
+          `"${first}" reads as an organisation: register it in ORGANIZATION_CHIP_NAMES`,
+        ).toBe(true);
+        expect(first.endsWith(name), `"${name}" is the surname of "${first}"`).toBe(true);
+      }
+      // No chip prints a trailing fragment of an organisation name.
+      expect(ORGANIZATION_WORDS.has(name), `${citation.id}: "${label}"`).toBe(false);
+    },
+  );
 
   it('citationMeta lists authors, venue, and year', () => {
     const zhao = getCitation('act-aloha-2023');

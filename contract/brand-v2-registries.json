@@ -594,8 +594,8 @@
       "ownerPath": "app/about/page.tsx",
       "ownerSourceFingerprint": "b12b95e9caadb8915643575868d6502b9e80c45e48196b5b37035e8f2d9957f8",
       "canonical": "https://robot-wiki.com/about/",
-      "title": "Robot Wiki Scope and Reading Guide",
-      "description": "What Robot Wiki covers and excludes, the order to read its articles in, what they assume you know, and how its citations work.",
+      "title": "About Robot Wiki: Scope and Reading Order",
+      "description": "About Robot Wiki: what it covers and excludes, the order to read its articles in, what they assume you know and how its citations work.",
       "openGraph": {
         "type": "website",
         "url": "https://robot-wiki.com/about/",
@@ -612,14 +612,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "f4a764ba9150bc185885e8f31676e0ba952a841601d33b6897fadd079164ceee"
+      "fingerprint": "e736fc3b9f4c6e634561416138fcd0599fe108ab64bdc72db42cb23c3977eaee"
     },
     {
       "id": "metadata:/adjacent/",
       "routeId": "route:/adjacent/",
       "owner": "route:/adjacent/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "420eab724cb5a99ae71d57904f65f4de2217aa7f4b5b50cdf61a154d5ccd3364",
+      "ownerSourceFingerprint": "019c40bce76921fba0978f2e220080a1ffbabd810489dec8fdc6ab11e60cfce6",
       "canonical": "https://robot-wiki.com/adjacent/",
       "title": "Adjacent Domains",
       "description": "Autonomous vehicles, drones and surgical and space robotics, each in brief.",
@@ -641,14 +641,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "c833691ec94f7422a2c8ec95b60467243631604bfe9fa529d41fef7852ae7753"
+      "fingerprint": "318359eab31de18313ae90a0b91958b7bed8e4909142542877048792a0401a1c"
     },
     {
       "id": "metadata:/adjacent/autonomous-vehicles/",
       "routeId": "route:/adjacent/autonomous-vehicles/",
       "owner": "module:adjacent/autonomous-vehicles",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/adjacent/autonomous-vehicles/",
       "title": "Autonomous Vehicles",
       "description": "The AV stack as a robotics problem: perception, prediction, planning, and the long tail.",
@@ -670,14 +670,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "19ad1aee8ce951ac63f8ce8fb66b28531aa0aaf26e0bc79177d88519f18fc6ee"
+      "fingerprint": "62d8899acb182ad2a9ad6f3ae275da81c4b1b6e1ad36918aa1e4cd45cd7c8828"
     },
     {
       "id": "metadata:/adjacent/drones/",
       "routeId": "route:/adjacent/drones/",
       "owner": "module:adjacent/drones",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/adjacent/drones/",
       "title": "Drones and Aerial Robotics",
       "description": "Autonomous flight, aggressive maneuvers, and swarm coordination.",
@@ -699,14 +699,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "30b27162dd5dfcdab904dc7614a7b5fd11c825f1251d7d88dfdff4390a224da6"
+      "fingerprint": "8faff33b0677f7625267dff417fc00a34d62ceef6abdc249af0059f3eed537bd"
     },
     {
       "id": "metadata:/adjacent/space/",
       "routeId": "route:/adjacent/space/",
       "owner": "module:adjacent/space",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/adjacent/space/",
       "title": "Space Robotics",
       "description": "NASA/JPL systems, orbital servicing, and ISRU: robotics where repair is impossible.",
@@ -728,14 +728,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "2e24adc35ee77e3727f000573879b2048acb50638f4bb7520f3dc2c29c636872"
+      "fingerprint": "e78db5dd8567734aa489a7c7335584cf470da30d5977a61984c67d4c655624aa"
     },
     {
       "id": "metadata:/adjacent/surgical/",
       "routeId": "route:/adjacent/surgical/",
       "owner": "module:adjacent/surgical",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/adjacent/surgical/",
       "title": "Surgical Robotics",
       "description": "Intuitive, CMR, and Moon Surgical: the precision and reliability bar for certified robots.",
@@ -757,14 +757,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "805a11353a5e661bf99bde944c01d4d6d6db9f882d567a1b7682b9e8151e35c3"
+      "fingerprint": "4f302a4edfeb05fd0cc26ecc23b440d8fdbf33abf03ffd9762db81840e476b87"
     },
     {
       "id": "metadata:/classical/",
       "routeId": "route:/classical/",
       "owner": "route:/classical/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "420eab724cb5a99ae71d57904f65f4de2217aa7f4b5b50cdf61a154d5ccd3364",
+      "ownerSourceFingerprint": "019c40bce76921fba0978f2e220080a1ffbabd810489dec8fdc6ab11e60cfce6",
       "canonical": "https://robot-wiki.com/classical/",
       "title": "Classical Foundations",
       "description": "The kinematics, planning, control and estimation stack that sits under every learned policy.",
@@ -786,14 +786,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "1b6d8fb2d65172c9d070bd9325bd8369993c9aee8a44fd2c0337b401df52a4d8"
+      "fingerprint": "34395c9b4f9d15b019644c90d84c212227dfcd4205a4fdbf730ac90d598be71a"
     },
     {
       "id": "metadata:/classical/calibration/",
       "routeId": "route:/classical/calibration/",
       "owner": "module:classical/calibration",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/classical/calibration/",
       "title": "Robot Calibration",
       "description": "Camera intrinsics, hand-eye transforms, kinematic zeroes, timing and dynamics: the measurements that make sensor coordinates agree with motion.",
@@ -815,14 +815,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "4e15d5ad71d10355bdf65ac5ef7b4106b25c97f0d54bf24e977b1a218e66d655"
+      "fingerprint": "35252f6f2c693fb4b09cc6c784d2a9d317639b33d3cefc01dd1dfb423a610208"
     },
     {
       "id": "metadata:/classical/control/",
       "routeId": "route:/classical/control/",
       "owner": "module:classical/control",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/classical/control/",
       "title": "Control",
       "description": "PID, LQR, MPC, and whole-body QP: the classical stack under every learned policy.",
@@ -844,14 +844,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "3a575f56bb8f6ccf9c0cf71c48e5770ea2a7a6e45c226796a92656d08dfc044e"
+      "fingerprint": "9bfbc9e4c898c13153beed9f16ade5121f89b5f656987af4721394a9d74c86f1"
     },
     {
       "id": "metadata:/classical/grasp-planning/",
       "routeId": "route:/classical/grasp-planning/",
       "owner": "module:classical/grasp-planning",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/classical/grasp-planning/",
       "title": "Grasp Planning",
       "description": "Contact mechanics, grasp quality metrics, and force closure.",
@@ -873,14 +873,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "0d77a1c48691825bac5b59ed370b8ddc5b32dedf557673439066f98492b7e042"
+      "fingerprint": "cb00b1e5b17e0bdd8a2dccc989f3752ecae0e5f77b2b5d057392bf01b79baaba"
     },
     {
       "id": "metadata:/classical/kinematics/",
       "routeId": "route:/classical/kinematics/",
       "owner": "module:classical/kinematics",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/classical/kinematics/",
       "title": "Kinematics",
       "description": "Forward and inverse kinematics, DH parameters, and the Jacobian; the theory behind the 3D playground.",
@@ -902,14 +902,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "4a150aaef779207ba60070545a2846acd5a5f74880d11d51ccdbb9e948f61a13"
+      "fingerprint": "8c71d07c2c8f6fabbb70acf30a183f7bab266989c1bbae203744dd52bb20420c"
     },
     {
       "id": "metadata:/classical/motion-planning/",
       "routeId": "route:/classical/motion-planning/",
       "owner": "module:classical/motion-planning",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/classical/motion-planning/",
       "title": "Motion Planning",
       "description": "RRT and its optimal variants, trajectory optimization, and CHOMP/TrajOpt.",
@@ -931,14 +931,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "a15f5f457c5bc1c46b91e5a92033d9dfb06da88bbf5f9bd0e6baa303d8cc3544"
+      "fingerprint": "856d3f9870c400ae5a86a7f52c11ad67c23586f07bc3b295a340c0b309fdc3cc"
     },
     {
       "id": "metadata:/classical/perception/",
       "routeId": "route:/classical/perception/",
       "owner": "module:classical/perception",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/classical/perception/",
       "title": "Perception for Manipulation",
       "description": "Calibration through 6-DoF pose: the pipeline that finds the object, and its error budget.",
@@ -960,14 +960,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "940f5348951858848efa1aab781745f3bbc2f9a65a6a3f2710c0ed5bfd9c7cde"
+      "fingerprint": "6e62fa3bbd025d48ef50dd238b6006171ef13d8528e2a8939e94dc14c29574c8"
     },
     {
       "id": "metadata:/classical/ros2-for-ml-engineers/",
       "routeId": "route:/classical/ros2-for-ml-engineers/",
       "owner": "module:classical/ros2-for-ml-engineers",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/classical/ros2-for-ml-engineers/",
       "title": "ROS 2 for Machine Learning Engineers",
       "description": "Topics, services, actions, QoS, tf2, rosbag2 and MoveIt explained as the production boundary around a learned policy.",
@@ -989,14 +989,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "3af1428fc77bc306a129e47ae755cbdc8224a0dc76dbe7d1deeff3e51e1a85ce"
+      "fingerprint": "f8ebc6ea5c0383e67fd411fac38eacead33e22ab479348d9064bf84c18f14ee2"
     },
     {
       "id": "metadata:/classical/scene-representation/",
       "routeId": "route:/classical/scene-representation/",
       "owner": "module:classical/scene-representation",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/classical/scene-representation/",
       "title": "Scene Representation and Mapping",
       "description": "What a robot remembers about the space around it, and why the map that renders best is not the map a planner can use.",
@@ -1018,14 +1018,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "9709b533e57f36b156d43a924d6e40155d4030f2679c8df11d0e8283f51e249f"
+      "fingerprint": "de2ea264bfc690f27c5a22b3a20fffe1f9dd69ad9ae9fed67df876992749edff"
     },
     {
       "id": "metadata:/classical/state-estimation/",
       "routeId": "route:/classical/state-estimation/",
       "owner": "module:classical/state-estimation",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/classical/state-estimation/",
       "title": "State Estimation",
       "description": "Kalman filters, factor graphs, and pose estimation from noisy sensors.",
@@ -1047,14 +1047,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "c6902352d976bcafe6cd5cfaeda0eec7cf9f42581d1a1e3bda3d5c289a5e303c"
+      "fingerprint": "52682d801fdc791b49b6176ef751ba94c67e0a52841e920b1b90780b95811dca"
     },
     {
       "id": "metadata:/credits/",
       "routeId": "route:/credits/",
       "owner": "route:/credits/",
       "ownerPath": "app/credits/page.tsx",
-      "ownerSourceFingerprint": "f00c266a8d3baf25153b045fcf36809e98b305c6f05d6f8818d7caca77cd3f86",
+      "ownerSourceFingerprint": "346fecc95938759691fea45a2a42bd1260badb7504a56b8754eadde81ad9bf72",
       "canonical": "https://robot-wiki.com/credits/",
       "title": "Credits",
       "description": "Every photograph and diagram on Robot Wiki, with its creator, source, and licence.",
@@ -1074,14 +1074,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "156b2ab1ae49bf4bd943ab850093d1a491c2d0db9b600df0d87c4e46bbe8815a"
+      "fingerprint": "a7cb950515f40ea0dcd1b83be82ff4071e223d4d7234563ee5e7779c80234ded"
     },
     {
       "id": "metadata:/data-hardware/",
       "routeId": "route:/data-hardware/",
       "owner": "route:/data-hardware/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "420eab724cb5a99ae71d57904f65f4de2217aa7f4b5b50cdf61a154d5ccd3364",
+      "ownerSourceFingerprint": "019c40bce76921fba0978f2e220080a1ffbabd810489dec8fdc6ab11e60cfce6",
       "canonical": "https://robot-wiki.com/data-hardware/",
       "title": "Data, Hardware & Evaluation",
       "description": "The embodied data bottleneck and the machines themselves, with the measurement crisis behind every benchmark claim.",
@@ -1103,14 +1103,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "5f0b2fef370347ba9a618edc039b03cc3c4d69f11913744c44dfb0fddb8ff5cd"
+      "fingerprint": "cb392c6587018fb2a2517d213d559ac2b594447852b8fc65f857ee3e08a2b3c2"
     },
     {
       "id": "metadata:/data-hardware/data-bottleneck/",
       "routeId": "route:/data-hardware/data-bottleneck/",
       "owner": "module:data-hardware/data-bottleneck",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/data-hardware/data-bottleneck/",
       "title": "The Data Bottleneck",
       "description": "Robot-hours versus LLM tokens: the log-log reality of embodied data and teleop-farm economics.",
@@ -1132,14 +1132,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "69d3c202f0879b0e8f2ea9eebc45247becbc04fde42d745c4512de9638d4c193"
+      "fingerprint": "0f8a26f935ab3fa4a5e0886bc98002d5b0311149ac3772433a2fc7f38b4a8d11"
     },
     {
       "id": "metadata:/data-hardware/datasets/",
       "routeId": "route:/data-hardware/datasets/",
       "owner": "module:data-hardware/datasets",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/data-hardware/datasets/",
       "title": "Major Datasets",
       "description": "Open X-Embodiment, DROID, BridgeData V2, AgiBot World, RoboMIND: five datasets compared.",
@@ -1161,14 +1161,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "06674487e2f65b96ce31614ee5df9d6b295333e23aaaddec1db3960ea7d9e22a"
+      "fingerprint": "beea1f99012e996269c4d9dae2f76cceff7cecc594d8faec881fbd07248f257e"
     },
     {
       "id": "metadata:/data-hardware/evaluation-crisis/",
       "routeId": "route:/data-hardware/evaluation-crisis/",
       "owner": "module:data-hardware/evaluation-crisis",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/data-hardware/evaluation-crisis/",
       "title": "The Evaluation Crisis",
       "description": "Why N-of-10 trials and unreported variance mislead: 95% per-step success is unusable at 30 steps.",
@@ -1190,14 +1190,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "313579139c20d219da40f0dd020233ed90a9e696a3ec8a755fd4cd21c0b94dca"
+      "fingerprint": "21a5b0f7448283ba07cb93001fa22d483e9d91b1ca241c352fd4982e35dbfd87"
     },
     {
       "id": "metadata:/data-hardware/hardware-taxonomy/",
       "routeId": "route:/data-hardware/hardware-taxonomy/",
       "owner": "module:data-hardware/hardware-taxonomy",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/data-hardware/hardware-taxonomy/",
       "title": "Hardware Taxonomy",
       "description": "Arms, humanoids, hands, sensors, and compute: a buyer's guide from SO-101 to Jetson Thor.",
@@ -1219,14 +1219,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "db787d8e4fd630f27ea6770bf1f2b45bcd5e676f97478cd4100b443cee63ced4"
+      "fingerprint": "d8120566802503d8ffe1514f04fdc11b560006d8945a64b9110af0d1abb6ead8"
     },
     {
       "id": "metadata:/data-hardware/industrial-deployment/",
       "routeId": "route:/data-hardware/industrial-deployment/",
       "owner": "module:data-hardware/industrial-deployment",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/data-hardware/industrial-deployment/",
       "title": "Industrial Deployment",
       "description": "The installed base robot learning is trying to enter, and the jam-rate arithmetic that decides whether a 99 percent cell ships.",
@@ -1248,14 +1248,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "b7cbc358634a1773467675ce06e5a152c0f5e391f1d9a908ae0e588f9a260456"
+      "fingerprint": "1862d68ff8254eaea7fa0c4a9d8f0fea84fe391d06767b857f92e12aac4e6b8f"
     },
     {
       "id": "metadata:/data-hardware/robot-learning-stack/",
       "routeId": "route:/data-hardware/robot-learning-stack/",
       "owner": "module:data-hardware/robot-learning-stack",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/data-hardware/robot-learning-stack/",
       "title": "The Robot Learning Stack",
       "description": "Data capture, schemas, training, simulation, evaluation, serving and robot integration as one reproducible system rather than a model checkpoint.",
@@ -1277,14 +1277,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "0869d9321e671ed806574d6ebb61a80e131b87405a929e0b98c9b31b7e098645"
+      "fingerprint": "77d856cb6d5b3d72ed213bdd2af47198ea1158fd509f5ac2dec7d8df650bdf43"
     },
     {
       "id": "metadata:/data-hardware/teleop-rigs/",
       "routeId": "route:/data-hardware/teleop-rigs/",
       "owner": "module:data-hardware/teleop-rigs",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/data-hardware/teleop-rigs/",
       "title": "Teleoperation Rigs",
       "description": "ALOHA, GELLO, UMI, and VR teleop: cost, data quality, throughput, and the embodiment gap.",
@@ -1306,7 +1306,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "3f8ae6cfc7643f1d9bdf8c2549c8af1e505763d7b20619d1c8c094d595f1631b"
+      "fingerprint": "49273c54275953a9fc0fe12060d2f07f7dd39735b94f643e6385cb693e62cf14"
     },
     {
       "id": "metadata:/editorial-policy/",
@@ -1315,8 +1315,8 @@
       "ownerPath": "app/editorial-policy/page.tsx",
       "ownerSourceFingerprint": "223c3427a4787f0d8beb138fb8af2c47c00971e20d21e633e19d43afece93116",
       "canonical": "https://robot-wiki.com/editorial-policy/",
-      "title": "Robot Wiki Editorial and Corrections Policy",
-      "description": "How Robot Wiki researches, cites, reviews, corrects and updates its technical robotics articles.",
+      "title": "Editorial Policy: Sources, Review, Corrections",
+      "description": "Robot Wiki's editorial policy: how its robotics articles are researched, cited, reviewed, corrected and updated, plus how to report an error.",
       "openGraph": {
         "type": "website",
         "url": "https://robot-wiki.com/editorial-policy/",
@@ -1333,14 +1333,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "ee72172064e119147873dc12fbd3ba86bd2a19e921b9cbb5052ad93f8b1a2cda"
+      "fingerprint": "767e1a651072fe0ea8dbae4ffc1d91be7e470c03fe0a9f739c7a7e54ca4f6a77"
     },
     {
       "id": "metadata:/frontier/",
       "routeId": "route:/frontier/",
       "owner": "route:/frontier/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "420eab724cb5a99ae71d57904f65f4de2217aa7f4b5b50cdf61a154d5ccd3364",
+      "ownerSourceFingerprint": "019c40bce76921fba0978f2e220080a1ffbabd810489dec8fdc6ab11e60cfce6",
       "canonical": "https://robot-wiki.com/frontier/",
       "title": "Frontier & Open Problems",
       "description": "The reliability gap that keeps demos out of production, and the competing theses about closing it.",
@@ -1362,14 +1362,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "9d1b65c2627e77f6866a5bba2627c91fc25b6d383344cad285484f3a98389d66"
+      "fingerprint": "a7b8e75ad7e0d75629a1edf324f8f8a8b8c738386d29f374b0dada484381ce9b"
     },
     {
       "id": "metadata:/frontier/bear-case/",
       "routeId": "route:/frontier/bear-case/",
       "owner": "module:frontier/bear-case",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/frontier/bear-case/",
       "title": "The Bear Case",
       "description": "Why this could be another robotics winter, and the milestones that would prove it wrong.",
@@ -1391,14 +1391,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "b11c1a687bd904c8fb01830c927abe4b27ae1a038287241bbe17651dc0b070f3"
+      "fingerprint": "e23be1ca952e64b1aafe5686dc66212d0e93affbab6d89e43de22aa41802477c"
     },
     {
       "id": "metadata:/frontier/competing-theses/",
       "routeId": "route:/frontier/competing-theses/",
       "owner": "module:frontier/competing-theses",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/frontier/competing-theses/",
       "title": "Competing Theses",
       "description": "End-to-end scaling versus hierarchy versus world models versus RL fine-tuning, with falsification criteria.",
@@ -1420,14 +1420,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "ba60acf36afb480920679429be57cade27253f512495e81a698ae513b42d0d71"
+      "fingerprint": "d3a36dd15e958b40c47386189fa73d1ec140bd972629c0a725bd18c27c6ddafd"
     },
     {
       "id": "metadata:/frontier/dexterity/",
       "routeId": "route:/frontier/dexterity/",
       "owner": "module:frontier/dexterity",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/frontier/dexterity/",
       "title": "Dexterity",
       "description": "Contact-rich manipulation, the tactile sensing gap, in-hand reorientation, and deformables.",
@@ -1449,14 +1449,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "3b20af32acc83b216ba901279a70acb83c30b7d396f9c451803939335d3bfe3e"
+      "fingerprint": "b562a136004487b2b767a22afca5aab2d673e15f7a6527463ccfe6df0e286277"
     },
     {
       "id": "metadata:/frontier/generalization/",
       "routeId": "route:/frontier/generalization/",
       "owner": "module:frontier/generalization",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/frontier/generalization/",
       "title": "Generalization",
       "description": "What the pi0.5 and pi0.7 results demonstrate, and what they do not: the open-world gap.",
@@ -1478,14 +1478,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "76441b189f769c3bbd62fbf58e344e0376f5a3ec59df355ce1ca383451d262b2"
+      "fingerprint": "67ccd7bd385521c033732929e9f4f2b1919923b30b05c86e34bce68a61166f13"
     },
     {
       "id": "metadata:/frontier/reliability-gap/",
       "routeId": "route:/frontier/reliability-gap/",
       "owner": "module:frontier/reliability-gap",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/frontier/reliability-gap/",
       "title": "The Reliability Gap",
       "description": "80% is a demo, 99.9% is a product: what deployment numbers actually show.",
@@ -1507,14 +1507,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "c4a29d9f73697c98162d5fdb37c676af37819681d184c0693a6fa765495d2984"
+      "fingerprint": "42ca209ea2c07346c6a0a75c43608948c711bb834f55a8194daf5dc6a9286b68"
     },
     {
       "id": "metadata:/frontier/safety-and-assurance/",
       "routeId": "route:/frontier/safety-and-assurance/",
       "owner": "module:frontier/safety-and-assurance",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/frontier/safety-and-assurance/",
       "title": "Safety and Assurance",
       "description": "Industrial robotics can certify a control system but not a learned policy, so what ships is a verifiable safety layer wrapped around an unverifiable one.",
@@ -1536,14 +1536,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "832491854d32847d0ef4300c772d806ceb672de31e3d59c3a9cc563ef3ffff4d"
+      "fingerprint": "693a33139684895a13b3d6d34440fd3c4c9fb903d7db80d216dff735673154c3"
     },
     {
       "id": "metadata:/glossary/",
       "routeId": "route:/glossary/",
       "owner": "route:/glossary/",
       "ownerPath": "app/glossary/page.tsx",
-      "ownerSourceFingerprint": "73391a00edde12d0eb5df344258beacaef6a5771b855f4158c600bce1d9dd5df",
+      "ownerSourceFingerprint": "fa8d94457954b5d54b87de4b928fc8b0b4da6809105e8e123617af00ac67ee86",
       "canonical": "https://robot-wiki.com/glossary/",
       "title": "Glossary",
       "description": "Cited definitions of the robotics and machine-learning terms used across Robot Wiki.",
@@ -1563,14 +1563,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "6fa6953a0de9706ee54df9db37e48234440fd6c9ba7aa2519de507b19d0633cd"
+      "fingerprint": "64c4659fba426395760fa716692feae328e9d2f82e4859aa9d93d1a55b4f9007"
     },
     {
       "id": "metadata:/manipulation/",
       "routeId": "route:/manipulation/",
       "owner": "route:/manipulation/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "420eab724cb5a99ae71d57904f65f4de2217aa7f4b5b50cdf61a154d5ccd3364",
+      "ownerSourceFingerprint": "019c40bce76921fba0978f2e220080a1ffbabd810489dec8fdc6ab11e60cfce6",
       "canonical": "https://robot-wiki.com/manipulation/",
       "title": "Manipulation & Learned Policies",
       "description": "From behavior cloning to vision-language-action models: how modern robots learn to act.",
@@ -1592,14 +1592,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "c101b42816927e97044d2271b5d17cde253050d8ab2aea845ebbc9604d18a8fc"
+      "fingerprint": "f1c0330eee9c02d543ea36ced0951cfd76497c03915e4c3a33118fcd4ffa332e"
     },
     {
       "id": "metadata:/manipulation/action-chunking/",
       "routeId": "route:/manipulation/action-chunking/",
       "owner": "module:manipulation/action-chunking",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/manipulation/action-chunking/",
       "title": "Action Chunking (ACT and ALOHA)",
       "description": "Predicting action sequences instead of single steps: the CVAE structure, the chunk-size tradeoff, and temporal ensembling.",
@@ -1621,14 +1621,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "edd3a915bac7b80e2d2b69c5418e98f785ce4c5b2f4a254ba5fb6087e196dc24"
+      "fingerprint": "fe6393bb9736592c2c9fe67c2a9a91db1c0f544a33cd18fb3b2c7d5a1986548f"
     },
     {
       "id": "metadata:/manipulation/action-spaces/",
       "routeId": "route:/manipulation/action-spaces/",
       "owner": "module:manipulation/action-spaces",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/manipulation/action-spaces/",
       "title": "Action Spaces for Robot Learning",
       "description": "Joint, Cartesian, torque, impedance, chunked and tokenized actions: what each representation gives the learner and pushes onto the controller.",
@@ -1650,14 +1650,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "24746d3786f24d3e1f56014f5dfbedef67604f031e43519f69efa0876dc97ad3"
+      "fingerprint": "490534ca9cdd72c82e28902c7a9029796f834724f58e8e8239c5fcf3def915b8"
     },
     {
       "id": "metadata:/manipulation/bc-foundations/",
       "routeId": "route:/manipulation/bc-foundations/",
       "owner": "module:manipulation/bc-foundations",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/manipulation/bc-foundations/",
       "title": "Behavior Cloning Foundations",
       "description": "Covariate shift and compounding error: why naive imitation breaks in closed loop, with DAgger as the standard fix.",
@@ -1679,14 +1679,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "e63567839afe5c6550a927e84c0dd5461e21a2164aa6459b4445e2260727f399"
+      "fingerprint": "7c54be2a173c7ce782d37cbcecb1d7e7e39b36a51d86999f11514fd4113f7adb"
     },
     {
       "id": "metadata:/manipulation/comparison-matrix/",
       "routeId": "route:/manipulation/comparison-matrix/",
       "owner": "module:manipulation/comparison-matrix",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/manipulation/comparison-matrix/",
       "title": "Comparison Matrix",
       "description": "Every major policy across eight architectural axes: action representation, horizon, frequency, backbone, conditioning, cross-embodiment, hierarchy, openness.",
@@ -1708,14 +1708,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "55f3cba031e88b42283ea3d731d16fb35318b9869bf3e2c8e84a35aa225d74a0"
+      "fingerprint": "bd3596f421d0ec25ef9702b5acd5b28b0f7aa966b24bd506cd665a9996a721d5"
     },
     {
       "id": "metadata:/manipulation/cross-embodiment/",
       "routeId": "route:/manipulation/cross-embodiment/",
       "owner": "module:manipulation/cross-embodiment",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/manipulation/cross-embodiment/",
       "title": "Cross-Embodiment Transfer",
       "description": "Padded action vectors, motion transfer, and shared relative end-effector frames; the live disagreement.",
@@ -1737,14 +1737,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "a6ce537b514b7c21db1327645a118500f915c04f0008cc3764a6359e0d1b0a67"
+      "fingerprint": "e1ae9ea62641a506ea8ede3b8b8ccd752dcfa8c59fd94838780d9be12d737c1f"
     },
     {
       "id": "metadata:/manipulation/diffusion-policy/",
       "routeId": "route:/manipulation/diffusion-policy/",
       "owner": "module:manipulation/diffusion-policy",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/manipulation/diffusion-policy/",
       "title": "Diffusion Policy",
       "description": "Visuomotor control as conditional denoising over action sequences, with receding-horizon execution.",
@@ -1766,14 +1766,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "e4d681f0d15f033476d52cd3073a405d40039badbc8a9265beffdd306a1bcc71"
+      "fingerprint": "8872a2b48181ca09e817b96b6fb5d3b1c0c999ff0c73621285dbd69768e3b8d5"
     },
     {
       "id": "metadata:/manipulation/foundation-models/",
       "routeId": "route:/manipulation/foundation-models/",
       "owner": "module:manipulation/foundation-models",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/manipulation/foundation-models/",
       "title": "Foundation Models for Robotics",
       "description": "What foundation means in robotics, how VLA, world-model and multimodal pretraining differ, and what adaptation still costs.",
@@ -1795,14 +1795,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "5a2c363e8245b902ae2887469b7dd77c8808e495ea00a6fc888f0e95d8bb77de"
+      "fingerprint": "4b3afffd375398dc907771556d0549486958bc21847048faafde26018ac2ea5d"
     },
     {
       "id": "metadata:/manipulation/generalist-policies/",
       "routeId": "route:/manipulation/generalist-policies/",
       "owner": "module:manipulation/generalist-policies",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/manipulation/generalist-policies/",
       "title": "Other Generalist Policies",
       "description": "Gemini Robotics, GR00T, Helix, Skild, and GO-2: how to read closed-model vendor claims.",
@@ -1824,14 +1824,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "3914aaf9e91dcf0b2ddf5fcaba086304e285278407d89e19b08597b648270899"
+      "fingerprint": "f03fb7b11d0a54523e912bc9bb9d73bde6dfce05c197ed8bb7a3969c5da8404e"
     },
     {
       "id": "metadata:/manipulation/hierarchical/",
       "routeId": "route:/manipulation/hierarchical/",
       "owner": "module:manipulation/hierarchical",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/manipulation/hierarchical/",
       "title": "Hierarchical Approaches",
       "description": "SayCan, code-as-policies, and keypoint affordances; why separate planners gave way to internalized hierarchy.",
@@ -1853,14 +1853,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "7e141d57d59cba317e00b51cc50446f4684aaa70120721c36e6ddbb8ecae7edc"
+      "fingerprint": "9648730f9f69877db6bd8c0a3175c118f10047c2469852de87537d7689bc252f"
     },
     {
       "id": "metadata:/manipulation/knowledge-insulation/",
       "routeId": "route:/manipulation/knowledge-insulation/",
       "owner": "module:manipulation/knowledge-insulation",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/manipulation/knowledge-insulation/",
       "title": "Knowledge Insulation",
       "description": "Training the VLM backbone on discrete tokens while a flow-matching expert learns actions behind a stop-gradient.",
@@ -1882,14 +1882,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "b8edce9a6fde009e376a4ba5c3672c30f95928cc9a1a1c24ebdd0287fed4f519"
+      "fingerprint": "a2a6c300dac516f536c22580395e1ed189123892be06854012cd4f1149a32f3e"
     },
     {
       "id": "metadata:/manipulation/pi-line/",
       "routeId": "route:/manipulation/pi-line/",
       "owner": "module:manipulation/pi-line",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/manipulation/pi-line/",
       "title": "The Pi Line",
       "description": "pi0 to pi0.7: flow-matching action experts, FAST tokenization, open-world generalization, and source-scoped checkpoint availability.",
@@ -1911,14 +1911,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "62535b8c625b11486370e50bc794ade1fd8ed8feed608542592ff8276e8fef0d"
+      "fingerprint": "9e3c9e4baa4cdd2c8b75b973dc5c311695a73ea29a0b82bd03b3965c27278431"
     },
     {
       "id": "metadata:/manipulation/realtime-execution/",
       "routeId": "route:/manipulation/realtime-execution/",
       "owner": "module:manipulation/realtime-execution",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/manipulation/realtime-execution/",
       "title": "Real-Time Execution",
       "description": "Temporal ensembling and real-time chunking: the latency budgets that decide whether the control loop closes.",
@@ -1940,14 +1940,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "35f106025bd3e4e972563e6e85019c43f9e00965c5f035e1ff692ffbdbde601e"
+      "fingerprint": "de11b4c6a949caae335cc3f5ea85295d285d426497dffd208e4c1037b68996a6"
     },
     {
       "id": "metadata:/manipulation/rl-finetuning/",
       "routeId": "route:/manipulation/rl-finetuning/",
       "owner": "module:manipulation/rl-finetuning",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/manipulation/rl-finetuning/",
       "title": "RL Fine-Tuning of Policies",
       "description": "DPPO, ConRFT, Recap, pi_RL, residual RL, and HIL-SERL: closing the reliability gap with on-policy experience.",
@@ -1969,14 +1969,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "061eb9cd7f48cfd05666ead274b9a661351af199e1ad5cdaec6cbb6d714e812f"
+      "fingerprint": "5ca4c2a101826a32ca7adcfd566f21f35a7d60f1498e0ba2d6004ea01110758a"
     },
     {
       "id": "metadata:/manipulation/robot-learning-roadmap/",
       "routeId": "route:/manipulation/robot-learning-roadmap/",
       "owner": "module:manipulation/robot-learning-roadmap",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/manipulation/robot-learning-roadmap/",
       "title": "Robot Learning Curriculum for ML Engineers",
       "description": "A dependency-aware route from supervised learning to real robot policies, with the minimum robotics stack each stage assumes.",
@@ -1998,14 +1998,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "153ccd1e29dec30f36b684b914f5ab3bd8692bc011b16bda785e9a621efbb6f7"
+      "fingerprint": "33efe666f2e3125482d8aad09f3c7326c0e213f3fdade5299417dc3dabaa94a3"
     },
     {
       "id": "metadata:/manipulation/vla-models/",
       "routeId": "route:/manipulation/vla-models/",
       "owner": "module:manipulation/vla-models",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/manipulation/vla-models/",
       "title": "Vision-Language-Action Models",
       "description": "RT-1, RT-2, RT-X, Octo, and OpenVLA: web-scale pretraining meets robot control, and the cost of discrete action tokens.",
@@ -2027,14 +2027,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "5b3370a3c6dbed15b11b1d022f7c4e1f578c145d348caa3f0d79bdc650189a8f"
+      "fingerprint": "5008798f13c810786ca2acc034f5f95c76d3c4f9febd9fb086872658a74f464b"
     },
     {
       "id": "metadata:/market-map/",
       "routeId": "route:/market-map/",
       "owner": "route:/market-map/",
       "ownerPath": "app/market-map/page.tsx",
-      "ownerSourceFingerprint": "7dc8c0e793b9f7554d3443098dea2fadd81075464827989c75ea65d18acba156",
+      "ownerSourceFingerprint": "4a28a5df35edcbd63f9a83cf9cc270d029fadd85edd54b061eece47b478d3396",
       "canonical": "https://robot-wiki.com/market-map/",
       "title": "Market Map",
       "description": "The embodied-AI industry as data: companies across six segments, filterable by approach, geography, stage, and funding.",
@@ -2054,14 +2054,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "1a58a3a6ee48f8097604c1089649a70c9379ce5886db450b4b9cfb36dced70a4"
+      "fingerprint": "b33963dce62ae0eeeb211872a84aa9a9b8da11b2bed849adb36a53639c4f0659"
     },
     {
       "id": "metadata:/playground/",
       "routeId": "route:/playground/",
       "owner": "route:/playground/",
       "ownerPath": "app/playground/page.tsx",
-      "ownerSourceFingerprint": "75522e4ce2b915125393d7a90305b14b3dcbd8ef0948ae38f5f1ff48c5ee8c56",
+      "ownerSourceFingerprint": "9b9b47608c79391f445f850513db063e336fbb87100d416c0770e26d1129f8bb",
       "canonical": "https://robot-wiki.com/playground/",
       "title": "3D Kinematics Playground",
       "description": "A SO-101 robot arm rendered from its URDF in the browser: joint sliders for forward kinematics, click-to-reach inverse kinematics, and trajectory record/replay.",
@@ -2081,17 +2081,17 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "fde1268daeacb0c0c213e2124ded712254c7c0bc20771a431229316852d28281"
+      "fingerprint": "fd7b6a48de82601c0c667e226cb184922c5ec3656fab8071618731b4ff617928"
     },
     {
       "id": "metadata:/privacy/",
       "routeId": "route:/privacy/",
       "owner": "route:/privacy/",
       "ownerPath": "app/privacy/page.tsx",
-      "ownerSourceFingerprint": "a38df4fe9b078757b799a145edd72007628aeaabcd516f059c13e9e166dcecf9",
+      "ownerSourceFingerprint": "8cb77fea3d20a04181ddb8328752437f9be8d345c87397364451a9860d187f23",
       "canonical": "https://robot-wiki.com/privacy/",
-      "title": "Robot Wiki Privacy and Anonymous Analytics",
-      "description": "What anonymous traffic information Robot Wiki measures, why it is collected, and what is deliberately excluded.",
+      "title": "Privacy and Anonymous Analytics",
+      "description": "Privacy on Robot Wiki: what anonymous traffic information it measures, why it is collected and what is deliberately excluded.",
       "openGraph": {
         "type": "website",
         "url": "https://robot-wiki.com/privacy/",
@@ -2108,14 +2108,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "13ebb828f7a7ee191cc7e12b1df019e2e06474cba22e87cee6aab0af7b1168a6"
+      "fingerprint": "2dcf456c3bb2917bd7c685fca4512673c31c7678c979d48cc6bc783f71dc1fb7"
     },
     {
       "id": "metadata:/rl-sim2real/",
       "routeId": "route:/rl-sim2real/",
       "owner": "route:/rl-sim2real/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "420eab724cb5a99ae71d57904f65f4de2217aa7f4b5b50cdf61a154d5ccd3364",
+      "ownerSourceFingerprint": "019c40bce76921fba0978f2e220080a1ffbabd810489dec8fdc6ab11e60cfce6",
       "canonical": "https://robot-wiki.com/rl-sim2real/",
       "title": "RL, Sim-to-Real & Locomotion",
       "description": "Reinforcement learning at scale, from massively parallel simulation to the transfer problem.",
@@ -2137,14 +2137,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "61ad862521198ab00b1619c0521e1011a91a59dc0e18292ac2433f5a4295b868"
+      "fingerprint": "fb8ea998c68aa385e2c6444c59f596630a9831a6edc4a4e99ffc69ebab146192"
     },
     {
       "id": "metadata:/rl-sim2real/humanoid-wbc/",
       "routeId": "route:/rl-sim2real/humanoid-wbc/",
       "owner": "module:rl-sim2real/humanoid-wbc",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/rl-sim2real/humanoid-wbc/",
       "title": "Humanoid Whole-Body Control",
       "description": "Motion tracking from PHC to ASAP and GMT, and the three decompositions of 2026.",
@@ -2166,14 +2166,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "6a4d5414b2c012d10a867e4f35ba0afce970e5fb79d7dec664b9b28a3985637b"
+      "fingerprint": "dae7c8a1a6743415fbb1ac4f2833ab02418d8b5dc53088928e899360c0269116"
     },
     {
       "id": "metadata:/rl-sim2real/legged-locomotion/",
       "routeId": "route:/rl-sim2real/legged-locomotion/",
       "owner": "module:rl-sim2real/legged-locomotion",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/rl-sim2real/legged-locomotion/",
       "title": "Legged Locomotion Lineage",
       "description": "From ANYmal to Unitree and the MIT humanoid line: how learned gaits became the default.",
@@ -2195,14 +2195,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "f0fda100c62b259c5f9eb2b7f36350f06b6761c27a25ac39db5b2d33d7e7de8e"
+      "fingerprint": "a2c25f8edcd4cef01f477aad6dc52eb04351eed9a8e5a3f8dd7146c941b279ca"
     },
     {
       "id": "metadata:/rl-sim2real/offline-rl/",
       "routeId": "route:/rl-sim2real/offline-rl/",
       "owner": "module:rl-sim2real/offline-rl",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/rl-sim2real/offline-rl/",
       "title": "Offline Reinforcement Learning for Robotics",
       "description": "CQL, IQL, TD3+BC and Q-Transformer under the support constraint, with a decision rule for when behavior cloning is the stronger baseline.",
@@ -2224,14 +2224,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "14bf5a897c7d74442d048a1f992fd40b92bf0f72d80aa4f12738488e29f7a88c"
+      "fingerprint": "c72d0d1bfae4973d12123368d54619b1061f2e13bb96dfe56875b611e9064479"
     },
     {
       "id": "metadata:/rl-sim2real/parallel-sim-rl/",
       "routeId": "route:/rl-sim2real/parallel-sim-rl/",
       "owner": "module:rl-sim2real/parallel-sim-rl",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/rl-sim2real/parallel-sim-rl/",
       "title": "Massively Parallel Sim RL",
       "description": "Isaac Lab, Newton, MJX, and Brax: GPU-parallel environments and the wall-clock economics of training.",
@@ -2253,14 +2253,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "7a3d99f97954dcb450f5ca5af000d560f312c707c62aa6f314019dd5ca3955fd"
+      "fingerprint": "6c44b41f119b1b7e5d7b013f90c5cacb6767d47b2ac4167b4852642c493dc5b2"
     },
     {
       "id": "metadata:/rl-sim2real/reward-design-mpc/",
       "routeId": "route:/rl-sim2real/reward-design-mpc/",
       "owner": "module:rl-sim2real/reward-design-mpc",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/rl-sim2real/reward-design-mpc/",
       "title": "Reward Design and the MPC Debate",
       "description": "LLM-written rewards and curricula; where classical trajectory optimization still wins.",
@@ -2282,14 +2282,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "a26bacdd325e5f9ec986dbc8f3481f7553996aa27a669f05cc2bfd9e23795328"
+      "fingerprint": "b1912b4a01e93cb899496c6e51e182c2f411b850653bb07a2ab9674bf7586a13"
     },
     {
       "id": "metadata:/rl-sim2real/rl-for-robotics/",
       "routeId": "route:/rl-sim2real/rl-for-robotics/",
       "owner": "module:rl-sim2real/rl-for-robotics",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/rl-sim2real/rl-for-robotics/",
       "title": "RL for Robotics",
       "description": "Sample efficiency decides which reinforcement learning algorithms a robot can actually be trained with, from PPO in simulation to offline learning on a fixed dataset.",
@@ -2311,14 +2311,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "bacce1eeb9acdd23e4394cd403b10964a7f798ea521bef8a9b24ea6fafb39868"
+      "fingerprint": "c4f0a1322453f850e07c7e586a75ea747ef507341bfcf4feea8dad656643ccd0"
     },
     {
       "id": "metadata:/rl-sim2real/sim2real-transfer/",
       "routeId": "route:/rl-sim2real/sim2real-transfer/",
       "owner": "module:rl-sim2real/sim2real-transfer",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/rl-sim2real/sim2real-transfer/",
       "title": "Sim-to-Real Transfer",
       "description": "Domain randomization, teacher-student distillation, system identification, and real-to-sim correction.",
@@ -2340,14 +2340,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "65eabf21b7dff5484f87df7f37815651a486e7d9f3d2ac14c1ef04d105266b35"
+      "fingerprint": "862459d3ba201fa7e1d746d8c68f9d8c438b81850966c1f138750c840fc08fff"
     },
     {
       "id": "metadata:/rl-sim2real/why-rl-locomotion/",
       "routeId": "route:/rl-sim2real/why-rl-locomotion/",
       "owner": "module:rl-sim2real/why-rl-locomotion",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/rl-sim2real/why-rl-locomotion/",
       "title": "Why RL Won Locomotion but Not Manipulation",
       "description": "The MDP simulability gap: contact-rich manipulation resists the simulation that made walking routine.",
@@ -2369,14 +2369,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "287e2144f5f4ed1d3efdb7d917462c526e13eb9818a7b3e1518f0251b43337ed"
+      "fingerprint": "4cb83b2aa33758c00ee541280b91b71392728aa058a36195493d3b7c7221d921"
     },
     {
       "id": "metadata:/search/",
       "routeId": "route:/search/",
       "owner": "route:/search/",
       "ownerPath": "app/search/page.tsx",
-      "ownerSourceFingerprint": "0371059f960f6105f145bc712a7d9af9a18d46423e335ca31226204353a50d8e",
+      "ownerSourceFingerprint": "d783847d3455f058aec232b2cb3067790227ce91132c4a1925da5c17720b3e9e",
       "canonical": "https://robot-wiki.com/search/",
       "title": "Search",
       "description": "Search Robot Wiki: full-text over article prose plus the structured data layer (methods, companies, datasets).",
@@ -2396,14 +2396,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "5fdadb93204f976da49f41aec8202d6a081ea0f29c40008ca3fddcfb4079098d"
+      "fingerprint": "90e7d80d9ea456b073c42322945060c60f362eb5c5d8d70b59ffab34e82396e1"
     },
     {
       "id": "metadata:/world-models/",
       "routeId": "route:/world-models/",
       "owner": "route:/world-models/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "420eab724cb5a99ae71d57904f65f4de2217aa7f4b5b50cdf61a154d5ccd3364",
+      "ownerSourceFingerprint": "019c40bce76921fba0978f2e220080a1ffbabd810489dec8fdc6ab11e60cfce6",
       "canonical": "https://robot-wiki.com/world-models/",
       "title": "World Models",
       "description": "Learned simulators and action-conditioned video prediction, with the JEPA counterargument.",
@@ -2425,14 +2425,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "3b1a87d6dcd487cd2aa0a1cf05f8266ab10e6c239a0fd4674e61978a54cb86d7"
+      "fingerprint": "34505518024a00b284c7a59d9dc6bb195846f97ed2b466c7aa07339ffddba481"
     },
     {
       "id": "metadata:/world-models/evaluation/",
       "routeId": "route:/world-models/evaluation/",
       "owner": "module:world-models/evaluation",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/world-models/evaluation/",
       "title": "World Model Evaluation for Robotics",
       "description": "Visual fidelity is not enough: evaluate action sensitivity, rollout consistency, task progress, policy ranking and real-world agreement.",
@@ -2454,14 +2454,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "4ff279856f337e5aaa35812d1f49d55a64d8d6852ff889927fdbe23d4d0df36d"
+      "fingerprint": "2c3ba53a71836dbd724eed110d61b16a1f9e2c1a23c08c11342c820fd5300555"
     },
     {
       "id": "metadata:/world-models/generative-sim/",
       "routeId": "route:/world-models/generative-sim/",
       "owner": "module:world-models/generative-sim",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/world-models/generative-sim/",
       "title": "Generative Simulation",
       "description": "Generated content inside real physics engines beats generated dynamics: RoboGen, Holodeck, RoboCasa.",
@@ -2483,14 +2483,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "ff1d218fd98548afcda07824099265315accf87eec6c94bd6bec82c0db416cfa"
+      "fingerprint": "ce30810a1ee43f9c2524bbb8d5e2dc81e9655897a436109c94fb692be36ea7b4"
     },
     {
       "id": "metadata:/world-models/generative-video/",
       "routeId": "route:/world-models/generative-video/",
       "owner": "module:world-models/generative-video",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/world-models/generative-video/",
       "title": "Generative Video World Models",
       "description": "Cosmos, Genie, and GR-2: action-conditioned video prediction and the conditioning-strength problem.",
@@ -2512,14 +2512,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "7f8bde515756eea52e29f10c860c436d520e370c3d987bb10328af1ffb74d64e"
+      "fingerprint": "ec7e11be98c695b6168a85e36be1e7cb3bcb89c6bbb08cd43bb3639e30129328"
     },
     {
       "id": "metadata:/world-models/jepa/",
       "routeId": "route:/world-models/jepa/",
       "owner": "module:world-models/jepa",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/world-models/jepa/",
       "title": "JEPA and the Non-Generative Counterargument",
       "description": "V-JEPA 2 and LeCun's case that prediction in representation space beats pixel generation.",
@@ -2541,14 +2541,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "6247c9df3ffc308b3c0bf79f14e59f633fdb757ed1af04b36248a83041f37224"
+      "fingerprint": "fac27c28e1970906130fcad2263d6aefa63dcfa6dbed6b4cb9888923b740bb9d"
     },
     {
       "id": "metadata:/world-models/latent-dynamics/",
       "routeId": "route:/world-models/latent-dynamics/",
       "owner": "module:world-models/latent-dynamics",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/world-models/latent-dynamics/",
       "title": "Latent-Dynamics World Models",
       "description": "Dreamer, TD-MPC2, and DayDreamer: compact learned dynamics for imagination-based control.",
@@ -2570,14 +2570,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "6c228484ee0357cfbc2572cfd7ef7688830386c8a704da4a197df659f6d93798"
+      "fingerprint": "73a8d9f1c1691e499f6ec01d343612b53b8a5a256044530ddcc0c53c923145ae"
     },
     {
       "id": "metadata:/world-models/model-based-robot-learning/",
       "routeId": "route:/world-models/model-based-robot-learning/",
       "owner": "module:world-models/model-based-robot-learning",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/world-models/model-based-robot-learning/",
       "title": "Model-Based Robot Learning",
       "description": "Learn dynamics, plan through them, and improve from imagined rollouts: the common structure behind Dreamer, TD-MPC2 and robotic world models.",
@@ -2599,14 +2599,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "161037a27570aa2b0acee40d4447f52d6a6875e7bcaefcbac966dd109437d4f4"
+      "fingerprint": "87ccac9b56ef1685f0677339f7e78bb4dcee1ed9245c408d96c37b7767837420"
     },
     {
       "id": "metadata:/world-models/taxonomy/",
       "routeId": "route:/world-models/taxonomy/",
       "owner": "module:world-models/taxonomy",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/world-models/taxonomy/",
       "title": "What Is a World Model?",
       "description": "A world model predicts how an environment evolves in a form useful for a robot's decisions. Six example groups compared, from DreamerV3 to V-JEPA 2.",
@@ -2628,14 +2628,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "5a194100cdad88d4d7233a5dc094c1a6de33b827627bca214a7cea33c605274f"
+      "fingerprint": "ad1e8197d140673b7e2b1d62957b50e008321e7ff88b863fa53ba4680a22bb21"
     },
     {
       "id": "metadata:/world-models/world-models-vs-simulators/",
       "routeId": "route:/world-models/world-models-vs-simulators/",
       "owner": "module:world-models/world-models-vs-simulators",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "18022b7731360fa44515863634ba46a4f8aad2fadeb13013c4acd1b8c43af151",
+      "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/world-models/world-models-vs-simulators/",
       "title": "World Models vs Physics Simulators",
       "description": "Learned dynamics, explicit physics and hybrid simulation compared by controllability, coverage, speed, debugging and downstream policy value.",
@@ -2657,14 +2657,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "d11091b38cfc605cc8d4dfa8af14145db10db2a21d665236b78c3f93166cb03e"
+      "fingerprint": "1a7f9adefe6e6441a90736cf47b57e6d30656d9d1e1545aa2d8d535fcb7b5d4f"
     },
     {
       "id": "metadata:/404/",
       "routeId": "route:/404/",
       "owner": "app/not-found.tsx",
       "ownerPath": "app/not-found.tsx",
-      "ownerSourceFingerprint": "2c5144e51da08d5f9e122e60e35aeb4071a55005b1b5fe37f626be4d7c7d9b98",
+      "ownerSourceFingerprint": "e9eadb1b07ef610dc9a6a69626416941474cde4a8b813c8835d034d0f866c2b5",
       "canonical": "https://robot-wiki.com/404/",
       "title": "Page not found",
       "description": null,
@@ -2687,7 +2687,7 @@
         "publicContent": false,
         "index": false
       },
-      "fingerprint": "73f8bf83902061ff3531cc711365704a8b77ef17f5015b8e91a60009f54fec65"
+      "fingerprint": "3a02aa039a5259e7d34a92574099707324b800c38cabd588df2d304ae79f7e98"
     }
   ],
   "assets": [
@@ -11484,5 +11484,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "1efd25a0f8caf2448cbac6f9c65d013c56aa3c6ee925aaabc7e507b011b9b37d"
+  "rootFingerprint": "e0b0f228cec76b1b3b431cc73dab6fa24299b9f817bbaea4b1dcb4b09231dcd0"
 }

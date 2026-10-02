@@ -16,17 +16,16 @@ citations:
   - vasarhelyi-flocking-2018
   - reynolds-boids-1987
 seeAlso:
-  - "adjacent/autonomous-vehicles"
-  - "rl-sim2real/why-rl-locomotion"
-  - "rl-sim2real/legged-locomotion"
-  - "classical/state-estimation"
+  - "manipulation/realtime-execution"
+  - "rl-sim2real/sim2real-transfer"
+  - "frontier/reliability-gap"
 ---
 
 import { PerceptionLatency } from '@/components/interactive/perception-latency';
 import { SwarmControlTable } from '@/components/mdx/swarm-control-table';
 import { SenseAvoid } from '@/components/motion/scenes/sense-avoid';
 
-A quadrotor is among the most agile machines ever built, and it is the robot that learned to control itself first. Racing quadrotors pull forces several times their own weight, exceed 100 km/h, and accelerate at several times gravity in confined spaces <Cite id="swift-drone-racing-2023" />. The same airframe costs a few hundred dollars, carries its own sensors and compute, and crashes without breaking anything but itself. That combination, extreme dynamics plus cheap iteration, is why autonomous flight went from a controls problem to a learning problem a full decade before manipulation did, and why the results came faster: by 2021 a neural network flew a drone through forests, outperforming classical obstacle-avoidance pipelines <Cite id="high-speed-flight-2021" />, and by 2023 a reinforcement-learning system beat three human world champions at their own sport <Cite id="swift-drone-racing-2023" />.
+Drones are aircraft that fly with no pilot on board. A quadrotor is among the most agile machines ever built, and it is the robot that learned to control itself first. Racing quadrotors pull forces several times their own weight, exceed 100 km/h, and accelerate at several times gravity in confined spaces <Cite id="swift-drone-racing-2023" />. The same airframe costs a few hundred dollars, carries its own sensors and compute, and crashes without breaking anything but itself. That combination, extreme dynamics plus cheap iteration, is why autonomous flight went from a controls problem to a learning problem a full decade before manipulation did, and why the results came faster: by 2021 a neural network flew a drone through forests, outperforming classical obstacle-avoidance pipelines <Cite id="high-speed-flight-2021" />, and by 2023 a reinforcement-learning system beat three human world champions at their own sport <Cite id="swift-drone-racing-2023" />.
 
 This module covers the two halves of aerial robotics that matter to an ML engineer moving into robotics: autonomous flight, where the field's sim-to-real and learning-versus-control arguments were settled first, and <Term id="swarm-robotics">swarm robotics</Term>, where many cheap flying robots coordinate through local interaction. The treatment is honest about scope: these are domains where the core problems are closer to solved than manipulation is, and the reasons trace back to one structural fact about the dynamics.
 

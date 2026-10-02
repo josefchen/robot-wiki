@@ -140,34 +140,34 @@ test.describe('classical grasp-planning module', () => {
       main.getByRole('link', { name: 'Nguyen 1988' }).first(),
     ).toHaveAttribute('href', 'https://doi.org/10.1177/027836498800700301');
     await expect(
-      main.getByRole('link', { name: 'Ferrari 1992' }).first(),
+      main.getByRole('link', { name: 'Ferrari et al. 1992' }).first(),
     ).toHaveAttribute('href', 'https://doi.org/10.1109/ROBOT.1992.219918');
     await expect(
-      main.getByRole('link', { name: 'Murray 1994' }).first(),
+      main.getByRole('link', { name: 'Murray et al. 1994' }).first(),
     ).toHaveAttribute(
       'href',
       'https://www.cds.caltech.edu/~murray/books/MLS/pdf/mls94-complete.pdf',
     );
     await expect(
-      main.getByRole('link', { name: 'Mishra 1987' }).first(),
+      main.getByRole('link', { name: 'Mishra et al. 1987' }).first(),
     ).toHaveAttribute('href', 'https://doi.org/10.1007/BF01840373');
     await expect(
-      main.getByRole('link', { name: 'Markenscoff 1990' }).first(),
+      main.getByRole('link', { name: 'Markenscoff et al. 1990' }).first(),
     ).toHaveAttribute('href', 'https://doi.org/10.1177/027836499000900102');
     await expect(
       main.getByRole('link', { name: 'Cutkosky 1989' }).first(),
     ).toHaveAttribute('href', 'https://doi.org/10.1109/70.34763');
     await expect(
-      main.getByRole('link', { name: 'Bicchi 2000' }).first(),
+      main.getByRole('link', { name: 'Bicchi et al. 2000' }).first(),
     ).toHaveAttribute('href', 'https://doi.org/10.1109/ROBOT.2000.844081');
     await expect(
-      main.getByRole('link', { name: 'Prattichizzo 2016' }).first(),
+      main.getByRole('link', { name: 'Prattichizzo et al. 2016' }).first(),
     ).toHaveAttribute('href', 'https://doi.org/10.1007/978-3-319-32552-1_38');
     await expect(
-      main.getByRole('link', { name: 'Roa 2015' }).first(),
+      main.getByRole('link', { name: 'Roa et al. 2015' }).first(),
     ).toHaveAttribute('href', 'https://doi.org/10.1007/s10514-014-9402-3');
     await expect(
-      main.getByRole('link', { name: 'Mahler 2017' }).first(),
+      main.getByRole('link', { name: 'Mahler et al. 2017' }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/1703.09312');
 
     // Every chip is a real external link; no unresolved ids render.

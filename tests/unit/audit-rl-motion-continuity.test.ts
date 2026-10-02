@@ -9,6 +9,7 @@ import {
   parseRlMotionContinuity,
   rlMotionContinuityDigest,
 } from '../../lib/audit-rl-motion-continuity.ts';
+import { preSeoPass } from '../helpers/seo-pass.ts';
 
 const root = join(import.meta.dirname, '../..');
 const entries = loadRlMotionContinuity(root);
@@ -35,6 +36,9 @@ function fixture() {
     'audit/evidence/motion-round5-first-screen-cd-20260929/legged-locomotion-first-screen-before.mdx',
     figureMigrationReview,
     ...figureMigrationArchives,
+    // The SEO pass rebuilds its predecessors from these reviews.
+    'audit/evidence/seo-pass-20261002/source-transition.json',
+    'audit/evidence/seo-pass-20261002/checker-transition.json',
     ...entries.flatMap((entry) => [entry.snapshot.path, entry.current.path]),
   ]) {
     const to = join(destination, path);
@@ -87,6 +91,8 @@ it('retains all four exact historical articles and independently pins active dis
     'audit/evidence/motion-round6-remaining-repairs-20260929/checker-transition.json'), 'utf8'));
   const figureMigrationChecker = JSON.parse(readFileSync(join(root,
     'audit/evidence/figure-migration-20261001/checker-transition.json'), 'utf8'));
+  const seoPassChecker = JSON.parse(readFileSync(join(root,
+    'audit/evidence/seo-pass-20261002/checker-transition.json'), 'utf8'));
   expect(checker.after.bytes).toBe(worldChecker.before.bytes);
   expect(checker.after.sha256).toBe(worldChecker.before.sha256);
   expect(worldChecker.after.bytes).toBe(dataHardwareChecker.before.bytes);
@@ -115,6 +121,8 @@ it('retains all four exact historical articles and independently pins active dis
   expect(proseRestoresChecker.after.sha256).toBe(remainingRepairsChecker.before.sha256);
   expect(remainingRepairsChecker.after.bytes).toBe(figureMigrationChecker.before.bytes);
   expect(remainingRepairsChecker.after.sha256).toBe(figureMigrationChecker.before.sha256);
+  expect(figureMigrationChecker.after.bytes).toBe(seoPassChecker.before.bytes);
+  expect(figureMigrationChecker.after.sha256).toBe(seoPassChecker.before.sha256);
   expect(domainPairsChecker.before.path)
     .toBe('audit/evidence/motion-domain-pairs-20260928/audit-local-basis-before.ts.txt');
   expect(domainPairsChecker.after.path).toBe('lib/audit-local-basis.ts');
@@ -148,6 +156,10 @@ it('retains all four exact historical articles and independently pins active dis
   expect(figureMigrationChecker.before.path)
     .toBe('audit/evidence/figure-migration-20261001/audit-local-basis-before.ts.txt');
   expect(figureMigrationChecker.after.path).toBe('lib/audit-local-basis.ts');
+  // The SEO pass archives no checker copy: its predecessor, the figure
+  // migration's endpoint, is rebuilt from the live checker.
+  expect(seoPassChecker.before.path).toBe('lib/audit-local-basis.ts');
+  expect(seoPassChecker.after.path).toBe('lib/audit-local-basis.ts');
   for (const artifact of [checker.before, worldChecker.before, dataHardwareChecker.before,
     frontierChecker.before, domainPairsChecker.before, domainPairsChecker.after,
     proofReaderChecker.before, proofReaderChecker.after, articleTruthChecker.before,
@@ -156,7 +168,8 @@ it('retains all four exact historical articles and independently pins active dis
     readerPinsChecker.before, readerPinsChecker.after, kinematicsChecker.before, kinematicsChecker.after,
     proseRestoresChecker.before, proseRestoresChecker.after,
     remainingRepairsChecker.before, remainingRepairsChecker.after,
-    figureMigrationChecker.before, figureMigrationChecker.after]) {
+    figureMigrationChecker.before, figureMigrationChecker.after,
+    seoPassChecker.before, seoPassChecker.after]) {
     const path = artifact === domainPairsChecker.after ? proofReaderChecker.before.path :
       artifact === proofReaderChecker.after ? articleTruthChecker.before.path :
       artifact === articleTruthChecker.after ? sharedUiChecker.before.path :
@@ -167,7 +180,8 @@ it('retains all four exact historical articles and independently pins active dis
       artifact === kinematicsChecker.after ? proseRestoresChecker.before.path :
       artifact === proseRestoresChecker.after ? remainingRepairsChecker.before.path :
       artifact === remainingRepairsChecker.after ? figureMigrationChecker.before.path : artifact.path;
-    const bytes = readFileSync(join(root, path));
+    const bytes = artifact === figureMigrationChecker.after || artifact === seoPassChecker.before
+      ? preSeoPass(path) : readFileSync(join(root, path));
     expect(bytes.length).toBe(artifact.bytes);
     expect(createHash('sha256').update(bytes).digest('hex')).toBe(artifact.sha256);
   }

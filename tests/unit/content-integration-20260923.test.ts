@@ -98,18 +98,21 @@ describe('content integration of 2026-09-23', () => {
           a.id !== next?.id), sealedHash(entry.manifest, entry.memberId), next!.oldHash).status)
           .toBe('approved');
         // The 2026-10-01 KOL backlog batch continues one of these articles
-        // from the humanizer endpoint with exactly one plain edge.
-        const later = approvals.find(a => a.id ===
-          `kol-backlog-20261001-world-models-prose-${entry.memberId.slice('article:world-models/'.length)}`);
+        // from the humanizer endpoint with exactly one plain edge, and the
+        // 2026-10-02 SEO pass continues both with one more.
+        const slug = entry.memberId.slice('article:world-models/'.length);
+        const later = approvals.find(a => a.id === `kol-backlog-20261001-world-models-prose-${slug}`);
         if (later) expect(later.oldHash).toBe(next?.newHash);
-        expect((later ?? next)?.newHash).toBe(currentHash(entry.manifest, entry.memberId));
+        const seo = approvals.find(a => a.id === `seo-pass-20261002-prose-world-models-${slug}`)!;
+        expect(seo.oldHash).toBe((later ?? next)?.newHash);
+        expect(seo.newHash).toBe(currentHash(entry.manifest, entry.memberId));
       } else {
         expect(head.newHash).toBe(currentHash(entry.manifest, entry.memberId));
       }
       expect(entry.ownerApproval).toMatch(/^Owner-delegated approval: Josef Chen delegated release decisions to the delegated release reviewer on 2026-09-22\/23 \('you think and decide all'\); approved after primary-source verification of \S/);
     }
     expect(headReanchorFor(approvals, 'article-metadata', 'citation-rendering:label-and-meta')?.id)
-      .toBe('kol-backlog-20261001-frontier-citation-rendering');
+      .toBe('seo-pass-20261002-citation-rendering');
     expect(approvals.find(a => a.id === 'main-merge-20260924-citation-rendering'))
       .toMatchObject({
         oldHash: sealedHash('article-metadata', 'citation-rendering:label-and-meta'),
@@ -214,7 +217,8 @@ describe('content integration of 2026-09-23', () => {
       url: 'https://doi.org/10.1109/70.88014',
       type: 'paper',
     });
-    expect(citationLabel(CITATIONS.find((c) => c.id === 'shiu-ahmad-1989')!)).toBe('Shiu 1989');
+    // Since the 2026-10-02 SEO pass a label marks a second author with "et al.".
+    expect(citationLabel(CITATIONS.find((c) => c.id === 'shiu-ahmad-1989')!)).toBe('Shiu et al. 1989');
   });
 
   it('states the V-JEPA 2-AC FLOP estimate at the order its paper inputs imply', () => {

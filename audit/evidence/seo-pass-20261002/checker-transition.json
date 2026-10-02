@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "seo-pass-checker-revision-v1",
+  "name": "seo-pass-reader",
+  "before": {
+    "path": "lib/audit-local-basis.ts",
+    "bytes": 114190,
+    "sha256": "df2ad1d487103f41f8b939a67aa15d61ceb63843b9ef3d9b2c39353070e14fe5"
+  },
+  "after": {
+    "path": "lib/audit-local-basis.ts",
+    "bytes": 114290,
+    "sha256": "f115c68135aaac380af0e10ebecc721bcb613d5434f24b007f51879ed6829f3e"
+  },
+  "reviewedBy": "SEO-pass implementer (not independent acceptance)",
+  "rationale": "The checker gains exactly two edits over the figure-migration reader: it imports the SEO-pass continuity module, and its artifact reader passes each live file through the SEO-pass successor review before the figure-migration review. No computation, threshold, ledger rule or negative check changes.",
+  "observedAt": "2026-10-02T01:36:37Z"
+}

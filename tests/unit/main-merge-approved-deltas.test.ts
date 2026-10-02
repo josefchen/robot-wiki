@@ -607,7 +607,44 @@ const kolBacklogAppends = [
     'citation-trace-cables-2026', 'prose-dexterity',
     'relationships-dexterity'].map(suffix => `kol-backlog-20261001-frontier-${suffix}`),
 ];
-const afterOpusFigureMigration = merged.length - kolBacklogAppends.length;
+// The 2026-10-02 SEO pass appends one entry per article-truth member it
+// moved, in manifest order: 49 rewritten leads, the logo and clip-poster alt
+// texts, the related-article lists of all 57 published articles, and one
+// resolution for the citation labels.
+const seoPassArticles = Object.entries({
+  adjacent: ['autonomous-vehicles', 'drones', 'space', 'surgical'],
+  classical: ['calibration', 'control', 'grasp-planning', 'kinematics', 'motion-planning', 'perception',
+    'ros2-for-ml-engineers', 'scene-representation', 'state-estimation'],
+  'data-hardware': ['data-bottleneck', 'datasets', 'evaluation-crisis', 'hardware-taxonomy',
+    'industrial-deployment', 'robot-learning-stack', 'teleop-rigs'],
+  frontier: ['bear-case', 'competing-theses', 'dexterity', 'generalization', 'reliability-gap',
+    'safety-and-assurance'],
+  manipulation: ['action-chunking', 'action-spaces', 'bc-foundations', 'comparison-matrix', 'cross-embodiment',
+    'diffusion-policy', 'foundation-models', 'generalist-policies', 'hierarchical', 'knowledge-insulation',
+    'pi-line', 'realtime-execution', 'rl-finetuning', 'robot-learning-roadmap', 'vla-models'],
+  'rl-sim2real': ['humanoid-wbc', 'legged-locomotion', 'offline-rl', 'parallel-sim-rl', 'reward-design-mpc',
+    'rl-for-robotics', 'sim2real-transfer', 'why-rl-locomotion'],
+  'world-models': ['evaluation', 'generative-sim', 'generative-video', 'jepa', 'latent-dynamics',
+    'model-based-robot-learning', 'taxonomy', 'world-models-vs-simulators'],
+}).flatMap(([domain, slugs]) => slugs.map(slug => `${domain}/${slug}`));
+const seoPassUnchangedLeads = ['adjacent/autonomous-vehicles', 'adjacent/surgical', 'classical/ros2-for-ml-engineers',
+  'data-hardware/robot-learning-stack', 'manipulation/action-spaces', 'manipulation/bc-foundations',
+  'manipulation/foundation-models', 'rl-sim2real/rl-for-robotics'];
+const seoPassAppends = [
+  ...seoPassArticles.filter(id => !seoPassUnchangedLeads.includes(id))
+    .map(id => `seo-pass-20261002-prose-${id.replace('/', '-')}`),
+  'seo-pass-20261002-accessible-names-company-logo-alt',
+  'seo-pass-20261002-accessible-names-clip-poster-alt',
+  ...seoPassArticles.map(id => `seo-pass-20261002-relationships-${id.replace('/', '-')}`),
+  'seo-pass-20261002-citation-rendering',
+];
+// Earlier blocks check each chain as it stood before the SEO pass; the SEO
+// pass block below checks the entries that now close those chains.
+const beforeSeoPass = (entries: ApprovedDelta[]) => entries.filter(x => !seoPassAppends.includes(x.id));
+const seoPassEdges = (manifest: string, memberId: string) => merged
+  .filter(x => seoPassAppends.includes(x.id) && x.manifest === manifest && x.memberId === memberId).map(x => x.id);
+const afterKolBacklog = merged.length - seoPassAppends.length;
+const afterOpusFigureMigration = afterKolBacklog - kolBacklogAppends.length;
 const afterOpusHomepage = afterOpusFigureMigration - opusFigureMigrationAppends.length;
 const afterOpusFigureSystem = afterOpusHomepage - opusHomepageAppends.length;
 const afterRound6 = afterOpusFigureSystem - opusFigureSystemAppends.length;
@@ -631,12 +668,13 @@ describe('two-parent exact approval reconciliation', () => {
     // reconciliation edges, all named below in ledger order, and the round-6
     // prose restores and remaining repairs, the figure-system resolution, the
     // home front page and the figure migration add the edges named above,
-    // and the KOL backlog batch appends its own named block last.
-    expect([main.length, local.length, localOnly.length, merged.length]).toEqual([1558, 1104, 7, 1917]);
+    // the KOL backlog batch appends its own named block, and the SEO pass
+    // appends its block last.
+    expect([main.length, local.length, localOnly.length, merged.length]).toEqual([1558, 1104, 7, 2026]);
     expect(merged.slice(0, main.length)).toEqual(main);
     expect(merged.slice(main.length, main.length + localOnly.length)).toEqual(localOnly);
     expect(merged.slice(main.length + localOnly.length).map(x => x.id))
-      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends, ...opusFigureMigrationAppends, ...kolBacklogAppends]);
+      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends, ...opusFigureMigrationAppends, ...kolBacklogAppends, ...seoPassAppends]);
     expect(merged.slice(beforeRound6.length, afterRound6Prose)).toMatchObject(round6ProseRestoreEndpoints.map(
       ([memberId, , newHash], index) => ({
         id: round6ProseRestoreAppends[index], manifest: 'prose', memberId, newHash,
@@ -661,9 +699,12 @@ describe('two-parent exact approval reconciliation', () => {
         id: opusFigureMigrationAppends[index], manifest, memberId,
         responsibleMilestone: 'opus-pass', disposition: 'permanent',
       })));
-    expect(merged.slice(afterOpusFigureMigration)).toMatchObject(kolBacklogAppends.map(id => ({
+    expect(merged.slice(afterOpusFigureMigration, afterKolBacklog)).toMatchObject(kolBacklogAppends.map(id => ({
       id, responsibleMilestone: 'brand-v2-hygiene', disposition: 'permanent',
       affectedAssertions: ['VAL-KOL-001', 'VAL-B2-BASE-002', 'VAL-B2-BASE-010', 'VAL-B2-BASE-011'],
+    })));
+    expect(merged.slice(afterKolBacklog)).toMatchObject(seoPassAppends.map(id => ({
+      id, responsibleMilestone: 'opus-pass', disposition: 'permanent',
     })));
     expect(beforeRound6.slice(-1)).toMatchObject([{
       id: sharedReaderLayoutAppends[0], manifest: 'article-metadata',
@@ -772,8 +813,8 @@ describe('two-parent exact approval reconciliation', () => {
       resolution.oldHash, resolution.newHash).status).toBe('ambiguous');
       expect(approvedDeltaPath(path, resolution.oldHash, '0'.repeat(64)).status).toBe('ambiguous');
     }
-    const reliabilityAll = merged.filter(x => x.manifest === 'prose'
-      && x.memberId === 'article:frontier/reliability-gap');
+    const reliabilityAll = beforeSeoPass(merged.filter(x => x.manifest === 'prose'
+      && x.memberId === 'article:frontier/reliability-gap'));
     // The figure-migration resolution now closes the chain and binds every
     // edge below; this block checks the chain as the figure-system
     // resolution left it.
@@ -809,8 +850,8 @@ describe('two-parent exact approval reconciliation', () => {
     // The bytes before the reuse caption no longer pass on the full chain.
     expect(approvedDeltaPath(reliabilityEdges, reliabilityResolution.oldHash,
       round5Resolution.newHash).status).toBe('ambiguous');
-    const parallelAll = merged.filter(x => x.manifest === 'prose'
-      && x.memberId === 'article:rl-sim2real/parallel-sim-rl');
+    const parallelAll = beforeSeoPass(merged.filter(x => x.manifest === 'prose'
+      && x.memberId === 'article:rl-sim2real/parallel-sim-rl'));
     // As with reliability-gap, the figure-migration resolution follows the
     // round-5 resolution checked here.
     expect(parallelAll.at(-1)?.id).toBe('opus-figure-migration-20261001-prose-parallel-sim-rl');
@@ -833,13 +874,14 @@ describe('two-parent exact approval reconciliation', () => {
       readFileSync('evidence/brand-v2/baseline/prose.json', 'utf8'));
     for (const [index, [memberId, oldHash, newHash]] of round5FirstScreenCdEndpoints.entries()) {
       const all = merged.filter(x => x.manifest === 'prose' && x.memberId === memberId);
-      // Only a named round-6 restore or figure-migration edge may follow the
-      // move's own edge.
+      // Only a named round-6 restore, figure-migration or SEO pass edge may
+      // follow the move's own edge.
       const edges = all.slice(0, all.findIndex(x => x.id === round5FirstScreenCdAppends[index]) + 1);
       expect(all.slice(edges.length).map(x => x.id)).toEqual([
         ...round6ProseRestoreAppends
           .filter((_, restore) => round6ProseRestoreEndpoints[restore][0] === memberId),
         ...opusFigureMigrationEdges('prose', memberId),
+        ...seoPassEdges('prose', memberId),
       ]);
       const sealed = sealedProse.members.find(x => x.id === memberId)!.hash;
       expect(edges.at(-1)?.newHash).toBe(newHash);
@@ -860,8 +902,8 @@ describe('two-parent exact approval reconciliation', () => {
     expect(approvedDeltaPath(layoutEdges.slice(0, -1), layoutSealed, layoutCurrent).status)
       .toBe('missing');
     expect(approvedDeltaPath(layoutEdges, layoutSealed, '0'.repeat(64)).status).toBe('missing');
-    const industrialProse = merged.filter(x => x.manifest === 'prose'
-      && x.memberId === 'article:data-hardware/industrial-deployment');
+    const industrialProse = beforeSeoPass(merged.filter(x => x.manifest === 'prose'
+      && x.memberId === 'article:data-hardware/industrial-deployment'));
     expect(industrialProse.at(-1)?.id).toBe('round6-prose-restores-20260929-prose-industrial-deployment');
     expect(industrialProse.at(-2)?.id)
       .toBe('motion-data-hardware-source-qualification-20260927-prose-industrial-deployment');
@@ -872,11 +914,11 @@ describe('two-parent exact approval reconciliation', () => {
       && x.memberId === 'citation-rendering:label-and-meta'
       && x.id.startsWith('continuation-merge-')).at(-1)?.id)
       .toBe('continuation-merge-2026-09-24-tech-withdrawal-citation-rendering');
-    expect(merged.filter(x => x.manifest === 'prose'
-      && x.memberId === 'article:classical/calibration').at(-1)?.id)
+    expect(beforeSeoPass(merged.filter(x => x.manifest === 'prose'
+      && x.memberId === 'article:classical/calibration')).at(-1)?.id)
       .toBe('motion-classical-humanizer-v3-20260927-prose-calibration');
-    expect(merged.filter(x => x.manifest === 'prose'
-      && x.memberId === 'article:world-models/world-models-vs-simulators').at(-1)?.id)
+    expect(beforeSeoPass(merged.filter(x => x.manifest === 'prose'
+      && x.memberId === 'article:world-models/world-models-vs-simulators')).at(-1)?.id)
       .toBe('motion-world-models-humanizer-v3-20260927-prose-world-models-vs-simulators');
   });
 
@@ -885,10 +927,11 @@ describe('two-parent exact approval reconciliation', () => {
       readFileSync('evidence/brand-v2/baseline/prose.json', 'utf8'));
     for (const [index, [memberId, previous, current]] of round6ProseRestoreEndpoints.entries()) {
       const all = merged.filter(x => x.manifest === 'prose' && x.memberId === memberId);
-      // Only a named figure-migration edge may follow the restore; the restore
-      // is checked against the chain it closed.
+      // Only a named figure-migration or SEO pass edge may follow the restore;
+      // the restore is checked against the chain it closed.
       const edges = all.slice(0, all.findIndex(x => x.id === round6ProseRestoreAppends[index]) + 1);
-      expect(all.slice(edges.length).map(x => x.id)).toEqual(opusFigureMigrationEdges('prose', memberId));
+      expect(all.slice(edges.length).map(x => x.id))
+        .toEqual([...opusFigureMigrationEdges('prose', memberId), ...seoPassEdges('prose', memberId)]);
       const sealed = sealedProse.members.find(x => x.id === memberId)!.hash;
       const entry = edges.at(-1)!;
       const prior = edges.slice(0, -1);
@@ -917,7 +960,7 @@ describe('two-parent exact approval reconciliation', () => {
     for (const [index, [manifest, memberId, previous, current]] of round6RemainingRepairEndpoints.entries()) {
       const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(
         readFileSync(`evidence/brand-v2/baseline/${manifest}.json`, 'utf8'));
-      const edges = merged.filter(x => x.manifest === manifest && x.memberId === memberId);
+      const edges = beforeSeoPass(merged.filter(x => x.manifest === manifest && x.memberId === memberId));
       const sealed = sealedManifest.members.find(x => x.id === memberId)!.hash;
       const entry = edges.at(-1)!;
       const prior = edges.slice(0, -1);
@@ -967,7 +1010,7 @@ describe('two-parent exact approval reconciliation', () => {
     for (const [index, [, manifest, memberId, previous]] of opusFigureMigrationEndpoints.entries()) {
       const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(
         readFileSync(`evidence/brand-v2/baseline/${manifest}.json`, 'utf8'));
-      const edges = merged.filter(x => x.manifest === manifest && x.memberId === memberId);
+      const edges = beforeSeoPass(merged.filter(x => x.manifest === manifest && x.memberId === memberId));
       // A member the seal does not hold starts from the hash of 'missing'.
       const sealed = sealedManifest.members.find(x => x.id === memberId)?.hash ?? MISSING_MEMBER;
       const entry = edges.at(-1)!;
@@ -1034,5 +1077,57 @@ describe('two-parent exact approval reconciliation', () => {
       .toEqual(['kol-backlog-20261001-world-models-citation-rendering',
         'kol-backlog-20261001-adjacent-citation-rendering', 'kol-backlog-20261001-manipulation-citation-rendering',
         'kol-backlog-20261001-frontier-citation-rendering']);
+  });
+
+  it('binds each SEO pass edge to its previous endpoint and to the sealed hash', () => {
+    for (const id of seoPassAppends) {
+      const entry = merged.find(x => x.id === id)!;
+      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(
+        readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));
+      const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;
+      const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);
+      expect(edges.at(-1)).toBe(entry);
+      const prior = edges.slice(0, -1);
+      const previous = prior.at(-1)?.newHash ?? sealed;
+      expect(entry.newHash).not.toBe(previous);
+      expect(entry.newHash).not.toBe(entry.oldHash);
+      const path = approvedDeltaPath(edges, sealed, entry.newHash);
+      expect(path.status).toBe('approved');
+      expect(path.path.at(-1)).toBe(entry);
+      expect(approvedDeltaPath(prior, sealed, entry.newHash).status).not.toBe('approved');
+      if (prior.some(x => x.reconciles !== undefined)) {
+        expect(entry.oldHash).toBe(sealed);
+        expect(entry.reconciles).toEqual(prior.map(x => ({ id: x.id, oldHash: x.oldHash, newHash: x.newHash })));
+        // The endpoint before the pass no longer passes on the full chain.
+        expect(approvedDeltaPath(edges, sealed, previous).status).toBe('ambiguous');
+      } else {
+        // The edge starts where the pre-pass tree stood. The figure migration
+        // returned pi-line and vla-models to an endpoint their chains already
+        // approved, so that start need not be the newest endpoint.
+        if (entry.oldHash !== sealed) {
+          expect(approvedDeltaPath(prior, sealed, entry.oldHash).status).toBe('approved');
+        }
+        expect(entry.reconciles).toBeUndefined();
+      }
+    }
+    expect(seoPassAppends.filter(id => {
+      const entry = merged.find(x => x.id === id)!;
+      const prior = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId
+        && x !== entry);
+      return entry.reconciles === undefined && entry.oldHash !== (prior.at(-1)?.newHash ?? entry.oldHash);
+    })).toEqual(['seo-pass-20261002-prose-manipulation-pi-line', 'seo-pass-20261002-prose-manipulation-vla-models']);
+    expect(seoPassAppends.filter(id => merged.find(x => x.id === id)?.reconciles)).toEqual([
+      ...['classical-control', 'data-hardware-hardware-taxonomy', 'data-hardware-industrial-deployment',
+        'data-hardware-teleop-rigs', 'frontier-bear-case', 'frontier-competing-theses', 'frontier-reliability-gap',
+        'manipulation-generalist-policies', 'manipulation-hierarchical', 'manipulation-rl-finetuning',
+        'rl-sim2real-humanoid-wbc', 'rl-sim2real-parallel-sim-rl', 'rl-sim2real-reward-design-mpc',
+        'rl-sim2real-sim2real-transfer', 'rl-sim2real-why-rl-locomotion', 'world-models-taxonomy',
+      ].map(id => `seo-pass-20261002-prose-${id}`),
+      ...['classical-control', 'data-hardware-hardware-taxonomy', 'data-hardware-industrial-deployment',
+        'frontier-competing-theses', 'frontier-reliability-gap', 'manipulation-generalist-policies',
+        'manipulation-rl-finetuning', 'rl-sim2real-why-rl-locomotion',
+      ].map(id => `seo-pass-20261002-relationships-${id}`),
+      'seo-pass-20261002-citation-rendering',
+    ]);
   });
 });

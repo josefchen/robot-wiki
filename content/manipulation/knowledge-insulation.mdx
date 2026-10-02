@@ -15,14 +15,14 @@ citations:
   - pi07-2026
   - rt2-2023
 seeAlso:
-  - "manipulation/pi-line"
-  - "manipulation/vla-models"
-  - "manipulation/hierarchical"
+  - "manipulation/action-spaces"
+  - "manipulation/comparison-matrix"
+  - "manipulation/foundation-models"
 ---
 
 import { MotInsulation } from '@/components/interactive/mot-insulation';
 
-RT-2 represents robot actions as tokens, using the discretization introduced for RT-1: each continuous action dimension is divided into 256 uniform bins. Its robot inputs pair a camera image with a task instruction <Cite id="rt2-2023" />. π0 instead adds a continuous <Term id="flow-matching">flow-matching</Term> action expert to a pretrained <Term id="vision-language-model">VLM</Term> <Cite id="pi0-2024" />. <Term id="knowledge-insulation">Knowledge Insulation</Term>, studied by Physical Intelligence in 2025, combines the two: discrete actions train the backbone’s representations while a continuous-action expert trains alongside it without sending gradients back into the backbone.
+<Term id="knowledge-insulation">Knowledge insulation</Term> is a training recipe that keeps action learning from damaging a vision-language-action model's pretrained backbone. RT-2 represents robot actions as tokens, using the discretization introduced for RT-1: each continuous action dimension is divided into 256 uniform bins. Its robot inputs pair a camera image with a task instruction <Cite id="rt2-2023" />. π0 instead adds a continuous <Term id="flow-matching">flow-matching</Term> action expert to a pretrained <Term id="vision-language-model">VLM</Term> <Cite id="pi0-2024" />. Knowledge Insulation, studied by Physical Intelligence in 2025, combines the two: discrete actions train the backbone’s representations while a continuous-action expert trains alongside it without sending gradients back into the backbone.
 
 <Cite id="knowledge-insulation-paper-2025" /> The paper distinguishes the earlier two-stage π0.5 recipe from simultaneous single-stage training.
 

@@ -16,13 +16,21 @@ import { FigureReuse } from '@/components/motion/figure-reuse';
 import { ImageRef } from '@/components/mdx/image-ref';
 import { ProseH2, ProseH3 } from '@/components/mdx/prose-heading';
 import { TermRef } from '@/components/mdx/term-ref';
+import { canonicalInternalHref } from '@/lib/canonical-href';
 
 function ProseLink({ href, rel, ...props }: ComponentPropsWithoutRef<'a'>) {
   const outbound = /^(?:https?:)?\/\//i.test(href ?? '');
   const relationship = outbound
     ? [...new Set([...(rel?.split(/\s+/).filter(token => token && token !== 'opener') ?? []), 'noopener', 'noreferrer'])].join(' ')
     : rel;
-  return <a data-brand-control-id="control:link-focus" {...props} href={href} rel={relationship} />;
+  return (
+    <a
+      data-brand-control-id="control:link-focus"
+      {...props}
+      href={href === undefined ? href : canonicalInternalHref(href)}
+      rel={relationship}
+    />
+  );
 }
 
 /** Keep authored Markdown tables inside the prose column on narrow screens. */

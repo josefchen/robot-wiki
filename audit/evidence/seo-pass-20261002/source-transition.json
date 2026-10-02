@@ -1,0 +1,1395 @@
+{
+  "schemaVersion": "seo-pass-source-continuity-v1",
+  "name": "seo-pass-related-links-and-leads",
+  "archivedFrom": "953a891b42e762aa1e6ddbf77421fc8f727019f4",
+  "reviewedBy": "SEO-pass implementer (not independent acceptance)",
+  "rationale": "The SEO pass gave every published article two or three related articles taken from its domain report's internal links to add, and gave most leads a first sentence that defines the article's subject, either new or moved forward from later in the lead. A few later sentences lost a glossary wrapper that the new first sentence now carries. Each article's change is recorded here as exact edits over its pre-pass bytes. The pre-pass bytes stand in for the live article only while the live article is exactly the reviewed successor, reversing the edits rebuilds bytes that hash to the recorded predecessor, the frontmatter differs only in its seeAlso list of two or three entries, every edit sits in the region it names, and the citation order and every digit-bearing token of the body are unchanged. The pass's approved deltas describe each article's prose and relationship change.",
+  "observedAt": "2026-10-02T01:34:14Z",
+  "sources": [
+    {
+      "name": "adjacent/autonomous-vehicles",
+      "before": {
+        "path": "content/adjacent/autonomous-vehicles.mdx",
+        "bytes": 24586,
+        "sha256": "03833a96022c6df85e511245f5029bf6fdc2c2f3ff841728f8a8ee4d78476ed0"
+      },
+      "after": {
+        "path": "content/adjacent/autonomous-vehicles.mdx",
+        "bytes": 24549,
+        "sha256": "b65a8beeec6d4b3f1164019fc8152e99021b1b3bca6ffdab3f3045e7847adbf7"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"frontier/reliability-gap\"\n  - \"world-models/generative-video\"\n  - \"manipulation/bc-foundations\"\n  - \"rl-sim2real/why-rl-locomotion\"\n",
+          "after": "seeAlso:\n  - \"manipulation/vla-models\"\n  - \"manipulation/hierarchical\"\n  - \"data-hardware/evaluation-crisis\"\n"
+        }
+      ]
+    },
+    {
+      "name": "adjacent/drones",
+      "before": {
+        "path": "content/adjacent/drones.mdx",
+        "bytes": 14393,
+        "sha256": "231a1737c2ca57a6cf5ff96bf810597df6002655931eaf5004b5c5dd7c60bfd8"
+      },
+      "after": {
+        "path": "content/adjacent/drones.mdx",
+        "bytes": 14411,
+        "sha256": "d14fd43757cb6350b4d69626c8a59eba7bdf19f899ee66a1d4ef9aeb0e8e53fd"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"adjacent/autonomous-vehicles\"\n  - \"rl-sim2real/why-rl-locomotion\"\n  - \"rl-sim2real/legged-locomotion\"\n  - \"classical/state-estimation\"\n",
+          "after": "seeAlso:\n  - \"manipulation/realtime-execution\"\n  - \"rl-sim2real/sim2real-transfer\"\n  - \"frontier/reliability-gap\"\n"
+        },
+        {
+          "region": "body",
+          "before": "A quadrotor is among the most agile machines ever built, and it is the robot that learned to control itself first. Racing quadrotors pull forces several times their own weight, exceed 100 km/h, and accelerate at several times gravity in confined spaces <Cite id=\"swift-drone-racing-2023\" />. The same airframe costs a few hundred dollars, carries its own sensors and compute, and crashes without breaking anything but itself. That combination, extreme dynamics plus cheap iteration, is why autonomous flight went from a controls problem to a learning problem a full decade before manipulation did, and why the results came faster: by 2021 a neural network flew a drone through forests, outperforming classical obstacle-avoidance pipelines <Cite id=\"high-speed-flight-2021\" />, and by 2023 a reinforcement-learning system beat three human world champions at their own sport <Cite id=\"swift-drone-racing-2023\" />.",
+          "after": "Drones are aircraft that fly with no pilot on board. A quadrotor is among the most agile machines ever built, and it is the robot that learned to control itself first. Racing quadrotors pull forces several times their own weight, exceed 100 km/h, and accelerate at several times gravity in confined spaces <Cite id=\"swift-drone-racing-2023\" />. The same airframe costs a few hundred dollars, carries its own sensors and compute, and crashes without breaking anything but itself. That combination, extreme dynamics plus cheap iteration, is why autonomous flight went from a controls problem to a learning problem a full decade before manipulation did, and why the results came faster: by 2021 a neural network flew a drone through forests, outperforming classical obstacle-avoidance pipelines <Cite id=\"high-speed-flight-2021\" />, and by 2023 a reinforcement-learning system beat three human world champions at their own sport <Cite id=\"swift-drone-racing-2023\" />."
+        }
+      ]
+    },
+    {
+      "name": "adjacent/space",
+      "before": {
+        "path": "content/adjacent/space.mdx",
+        "bytes": 14329,
+        "sha256": "97bdae003a1bb84f54cd7297ae044420c7f5bd78acd6999d66b2529070e244a4"
+      },
+      "after": {
+        "path": "content/adjacent/space.mdx",
+        "bytes": 14304,
+        "sha256": "05c7a2c277cbac6edef39fe0f76eb95f9dc3d51d2039b5b217273e03294ffb09"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"adjacent/surgical\"\n  - \"frontier/reliability-gap\"\n  - \"classical/motion-planning\"\n  - \"data-hardware/teleop-rigs\"\n",
+          "after": "seeAlso:\n  - \"adjacent/drones\"\n  - \"classical/state-estimation\"\n  - \"manipulation/vla-models\"\n"
+        },
+        {
+          "region": "body",
+          "before": "Space is the domain where the two assumptions of everyday robotics fail at once. There is no repair: a rover on Mars cannot be serviced, and a satellite that fails in geosynchronous orbit is written off or, at best, visited once by a purpose-built spacecraft. And there is no live supervision: a signal between Earth and Mars takes minutes to arrive and minutes to return, so no operator closes a control loop in real time. Everything this wiki's manipulation modules treat as hard, generalization and dexterity, is secondary in space; everything they treat as background, reliability and verification, is the entire engineering problem. The result is a field that runs decades behind terrestrial robotics in raw capability and decades ahead of it in discipline, and both facts trace back to the same constraint.",
+          "after": "Space robotics is the domain where the two assumptions of everyday robotics fail at once. There is no repair: a rover on Mars cannot be serviced, and a satellite that fails in geosynchronous orbit is written off or, at best, visited once by a purpose-built spacecraft. And there is no live supervision: a signal between Earth and Mars takes minutes to arrive and minutes to return, so no operator closes a control loop in real time. Everything this wiki's manipulation modules treat as hard, generalization and dexterity, is secondary in space; everything they treat as background, reliability and verification, is the entire engineering problem. The result is a field that runs decades behind terrestrial robotics in raw capability and decades ahead of it in discipline, and both facts trace back to the same constraint."
+        }
+      ]
+    },
+    {
+      "name": "adjacent/surgical",
+      "before": {
+        "path": "content/adjacent/surgical.mdx",
+        "bytes": 13009,
+        "sha256": "d3489e36d4a9b79f74b158ea9c9c1e64d9eee34873c1ed758e564dd67767dbe5"
+      },
+      "after": {
+        "path": "content/adjacent/surgical.mdx",
+        "bytes": 12986,
+        "sha256": "a7ad242e43324bc5038d55caa117d0b7f023093e10c5912576f8060387d243f3"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"frontier/reliability-gap\"\n  - \"data-hardware/teleop-rigs\"\n  - \"adjacent/autonomous-vehicles\"\n  - \"adjacent/drones\"\n",
+          "after": "seeAlso:\n  - \"manipulation/hierarchical\"\n  - \"data-hardware/datasets\"\n  - \"frontier/safety-and-assurance\"\n"
+        }
+      ]
+    },
+    {
+      "name": "classical/calibration",
+      "before": {
+        "path": "content/classical/calibration.mdx",
+        "bytes": 10019,
+        "sha256": "2ff37b8dd285cebf388e0b689a1a1ee7bd76693a1dfd110182c6f7cd4678a781"
+      },
+      "after": {
+        "path": "content/classical/calibration.mdx",
+        "bytes": 10006,
+        "sha256": "36b1d2c8f894cb30d102f0e7f67cc1af329b141f507c82cfe9e0009bf6761b4a"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"classical/perception\"\n  - \"classical/kinematics\"\n  - \"classical/state-estimation\"\n  - \"data-hardware/robot-learning-stack\"\n",
+          "after": "seeAlso:\n  - \"manipulation/action-spaces\"\n  - \"data-hardware/datasets\"\n  - \"rl-sim2real/sim2real-transfer\"\n"
+        },
+        {
+          "region": "body",
+          "before": "Calibration makes measurements and commands refer to the same physical world. A camera pixel, depth value, joint encoder and motor command each has its own coordinate system, clock and error. A robot policy can learn around a stable bias; it cannot reliably absorb a transform that changes after every camera bump or a label stream shifted by a variable delay.",
+          "after": "Calibration is the work that makes measurements and commands refer to the same physical world. A camera pixel, depth value, joint encoder and motor command each has its own coordinate system, clock and error. A robot policy can learn around a stable bias; it cannot reliably absorb a transform that changes after every camera bump or a label stream shifted by a variable delay."
+        }
+      ]
+    },
+    {
+      "name": "classical/control",
+      "before": {
+        "path": "content/classical/control.mdx",
+        "bytes": 20898,
+        "sha256": "9b41f7f068697599c9040c66eaf3dae0b2d90a18742b15e6b2d369dd0fa74bfc"
+      },
+      "after": {
+        "path": "content/classical/control.mdx",
+        "bytes": 20863,
+        "sha256": "0eabd872c40ba0c72e9f7a5a25f081289ac00ed615613b5dac53d4824a35f9ff"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"classical/motion-planning\"\n  - \"manipulation/action-spaces\"\n  - \"rl-sim2real/humanoid-wbc\"\n  - \"rl-sim2real/reward-design-mpc\"\n",
+          "after": "seeAlso:\n  - \"rl-sim2real/legged-locomotion\"\n  - \"manipulation/realtime-execution\"\n  - \"data-hardware/industrial-deployment\"\n"
+        },
+        {
+          "region": "body",
+          "before": "[Motion planning](/classical/motion-planning) decides where the robot should go. Control is what makes the robot actually go there, in a world where the model is slightly wrong, the payload shifted, and the floor is never quite flat. The tool is feedback: measure where the robot is, compare it to where it should be, and correct. That loop runs at every level of the stack, from the motor current loops deep inside an actuator to the whole-body torque controller of a humanoid, and it keeps running underneath whatever learned policy sits on top.",
+          "after": "Control is what makes a robot actually go where [motion planning](/classical/motion-planning) decides it should, in a world where the model is slightly wrong, the payload shifted, and the floor is never quite flat. The tool is feedback: measure where the robot is, compare it to where it should be, and correct. That loop runs at every level of the stack, from the motor current loops deep inside an actuator to the whole-body torque controller of a humanoid, and it keeps running underneath whatever learned policy sits on top."
+        }
+      ]
+    },
+    {
+      "name": "classical/grasp-planning",
+      "before": {
+        "path": "content/classical/grasp-planning.mdx",
+        "bytes": 14432,
+        "sha256": "e463b87f526a7300f63fafa72908e5f8ae2312d2dcd979caa6b652c8f5bac69b"
+      },
+      "after": {
+        "path": "content/classical/grasp-planning.mdx",
+        "bytes": 14412,
+        "sha256": "f5003ba70d3a387807e22a63164b8028c5a9a00cbbd1e9eed854bb987ac08d83"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"classical/kinematics\"\n  - \"classical/motion-planning\"\n  - \"rl-sim2real/why-rl-locomotion\"\n  - \"manipulation/diffusion-policy\"\n",
+          "after": "seeAlso:\n  - \"data-hardware/datasets\"\n  - \"manipulation/cross-embodiment\"\n  - \"world-models/generative-sim\"\n"
+        },
+        {
+          "region": "body",
+          "before": "Every act of manipulation ends the same way: some part of the robot touches some part of the world, and the physics of that interface decides what happens next. [Kinematics](/classical/kinematics) can place the fingers and [motion planning](/classical/motion-planning) can route the arm, and [perception](/classical/perception) is what hands this module the known object pose in the robot's frame that every wrench computation below starts from. But once the fingers close, the question is mechanical. Will this hold, or will the object slip? Grasp planning is the discipline that answers that question from geometry: where to put the contacts, how hard to squeeze, and how to know before lifting that the grasp will survive the task.",
+          "after": "Grasp planning is the discipline that answers from geometry whether a grasp will hold: where to put the contacts, how hard to squeeze, and how to know before lifting that the grasp will survive the task. Every act of manipulation ends the same way: some part of the robot touches some part of the world, and the physics of that interface decides what happens next. [Kinematics](/classical/kinematics) can place the fingers and [motion planning](/classical/motion-planning) can route the arm, and [perception](/classical/perception) is what hands this module the known object pose in the robot's frame that every wrench computation below starts from. But once the fingers close, the question is mechanical. Will this hold, or will the object slip?"
+        }
+      ]
+    },
+    {
+      "name": "classical/kinematics",
+      "before": {
+        "path": "content/classical/kinematics.mdx",
+        "bytes": 11841,
+        "sha256": "3972d6e123cdee5910beacb08f15f3ba853877c07029a9b7dcf4b0b439fdbbaa"
+      },
+      "after": {
+        "path": "content/classical/kinematics.mdx",
+        "bytes": 11787,
+        "sha256": "74dae5732a39b2bd4b0ebd7c4fa55829bfc09abc99f189617987cea75c8ba9e0"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"classical/motion-planning\"\n  - \"classical/calibration\"\n  - \"manipulation/action-spaces\"\n  - \"rl-sim2real/humanoid-wbc\"\n",
+          "after": "seeAlso:\n  - \"manipulation/cross-embodiment\"\n  - \"data-hardware/teleop-rigs\"\n"
+        },
+        {
+          "region": "body",
+          "before": "Kinematics describes the geometry of a robot's motion without modelling its forces or torques. Joint angles and link lengths determine where the end of an arm lands. Simulators integrate dynamics on top of a kinematic chain, <Term id=\"teleoperation\">teleoperation</Term> rigs map an operator's hand through one, and learned manipulation policies eventually emit commands in the robot's coordinates.",
+          "after": "Kinematics is the geometry of a robot's motion, studied without modelling its forces or torques. Joint angles and link lengths determine where the end of an arm lands. Simulators integrate dynamics on top of a kinematic chain, <Term id=\"teleoperation\">teleoperation</Term> rigs map an operator's hand through one, and learned manipulation policies eventually emit commands in the robot's coordinates."
+        }
+      ]
+    },
+    {
+      "name": "classical/motion-planning",
+      "before": {
+        "path": "content/classical/motion-planning.mdx",
+        "bytes": 24194,
+        "sha256": "b785f6d9a2da5b98d31dc9d384707218ab3dec14d2d9fae9b96e06942b7e58e6"
+      },
+      "after": {
+        "path": "content/classical/motion-planning.mdx",
+        "bytes": 24189,
+        "sha256": "888ca2194017ed41fc39a595f67d4fd40962d501ca06e63007bb7deb78c55bfd"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"classical/kinematics\"\n  - \"classical/control\"\n  - \"classical/ros2-for-ml-engineers\"\n  - \"manipulation/hierarchical\"\n",
+          "after": "seeAlso:\n  - \"manipulation/realtime-execution\"\n  - \"data-hardware/industrial-deployment\"\n  - \"rl-sim2real/humanoid-wbc\"\n"
+        },
+        {
+          "region": "body",
+          "before": "Motion planning finds a route from the robot's current configuration to a goal without collisions. [Kinematics](/classical/kinematics) gives the arm's pose for a set of joint angles; planning finds a sequence of configurations worth executing. A learned policy may propose a route or rely on a planner to check one.",
+          "after": "Motion planning is finding a route from the robot's current configuration to a goal without collisions. [Kinematics](/classical/kinematics) gives the arm's pose for a set of joint angles; planning finds a sequence of configurations worth executing. A learned policy may propose a route or rely on a planner to check one."
+        }
+      ]
+    },
+    {
+      "name": "classical/perception",
+      "before": {
+        "path": "content/classical/perception.mdx",
+        "bytes": 35527,
+        "sha256": "18e39a144d4085232b2e7dbd4bca98798cd99085fc44340dbdcf2330a7cb0f65"
+      },
+      "after": {
+        "path": "content/classical/perception.mdx",
+        "bytes": 35586,
+        "sha256": "7c9cbd63c3b056412b7d0f46e49112bf6df8950a81d79e00ac02ce1ebe502e0b"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"classical/grasp-planning\"\n  - \"classical/calibration\"\n  - \"classical/ros2-for-ml-engineers\"\n  - \"classical/state-estimation\"\n",
+          "after": "seeAlso:\n  - \"manipulation/vla-models\"\n  - \"data-hardware/hardware-taxonomy\"\n"
+        },
+        {
+          "region": "body",
+          "before": "[Grasp planning](/classical/grasp-planning) computes force closure against a known object pose. Notice what that assumes: somebody upstream has already said where the object is, in the robot's own frame, to a tolerance the gripper can act on. That upstream somebody is the perception pipeline, and this is the module about it.",
+          "after": "Perception for manipulation is the pipeline that turns camera and depth data into object poses in the robot's own frame. [Grasp planning](/classical/grasp-planning) computes force closure against a known object pose. Notice what that assumes: somebody upstream has already said where the object is, in the robot's own frame, to a tolerance the gripper can act on. That upstream somebody is the perception pipeline, and this is the module about it."
+        }
+      ]
+    },
+    {
+      "name": "classical/ros2-for-ml-engineers",
+      "before": {
+        "path": "content/classical/ros2-for-ml-engineers.mdx",
+        "bytes": 10612,
+        "sha256": "bbddee6c697595bf4af9d282935ae6eac4c6dd0e389de240c2777517e23ffb1e"
+      },
+      "after": {
+        "path": "content/classical/ros2-for-ml-engineers.mdx",
+        "bytes": 10598,
+        "sha256": "b9a248618d6c537f04b7ae4182eb038e5f0f92d10f745f4586dc08cb19f16584"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"data-hardware/robot-learning-stack\"\n  - \"classical/scene-representation\"\n  - \"classical/control\"\n  - \"classical/calibration\"\n",
+          "after": "seeAlso:\n  - \"manipulation/realtime-execution\"\n  - \"frontier/safety-and-assurance\"\n  - \"data-hardware/industrial-deployment\"\n"
+        }
+      ]
+    },
+    {
+      "name": "classical/scene-representation",
+      "before": {
+        "path": "content/classical/scene-representation.mdx",
+        "bytes": 21664,
+        "sha256": "6f17d3ddac6394ebb8b2f77835486d5b93bb8f55ed2e1f51960a65c5daa18505"
+      },
+      "after": {
+        "path": "content/classical/scene-representation.mdx",
+        "bytes": 21729,
+        "sha256": "d8757237df25e2cf749d2e07a7bef64504fadc69a73b5f54f93056f1677702aa"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"classical/perception\"\n  - \"classical/state-estimation\"\n  - \"classical/ros2-for-ml-engineers\"\n  - \"world-models/world-models-vs-simulators\"\n",
+          "after": "seeAlso:\n  - \"world-models/generative-sim\"\n  - \"rl-sim2real/sim2real-transfer\"\n  - \"adjacent/autonomous-vehicles\"\n"
+        },
+        {
+          "region": "body",
+          "before": "[Perception](/classical/perception) answers where an object is right now. This module answers the other question a robot needs settled before it can move: what does it remember about the space it is standing in, and what can it ask of that memory.",
+          "after": "Scene representation is what a robot keeps in memory about the space around it, in a form it can query. [Perception](/classical/perception) answers where an object is right now. This module answers the other question a robot needs settled before it can move: what does it remember about the space it is standing in, and what can it ask of that memory."
+        }
+      ]
+    },
+    {
+      "name": "classical/state-estimation",
+      "before": {
+        "path": "content/classical/state-estimation.mdx",
+        "bytes": 15960,
+        "sha256": "76dc5009f887af2e106b91a262731f8c2012e7dfcc5ef4779283b1719784deac"
+      },
+      "after": {
+        "path": "content/classical/state-estimation.mdx",
+        "bytes": 15940,
+        "sha256": "0a19c6117f682e939aa4d29dcb1ce061f47657a7b8ed4285b8eed461fde09ba6"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"classical/calibration\"\n  - \"classical/ros2-for-ml-engineers\"\n  - \"classical/perception\"\n  - \"world-models/latent-dynamics\"\n",
+          "after": "seeAlso:\n  - \"rl-sim2real/legged-locomotion\"\n  - \"adjacent/autonomous-vehicles\"\n"
+        },
+        {
+          "region": "body",
+          "before": "[Control](/classical/control) closes the loop under one quiet assumption: that someone knows the state. The pole's angle, the arm's configuration, the quadruped's velocity over ground. Nobody does. What the robot actually has is a stream of sensor readings, each one noisy, some biased, a few missing outright. State estimation is the discipline that turns that stream into a usable estimate, with an honest number attached describing how wrong the estimate might be.",
+          "after": "State estimation is the discipline that turns a robot's stream of sensor readings into a usable estimate of its state, with an honest number attached describing how wrong the estimate might be. [Control](/classical/control) closes the loop under one quiet assumption: that someone knows the state. The pole's angle, the arm's configuration, the quadruped's velocity over ground. Nobody does. What the robot actually has is a stream of sensor readings, each one noisy, some biased, a few missing outright."
+        }
+      ]
+    },
+    {
+      "name": "data-hardware/data-bottleneck",
+      "before": {
+        "path": "content/data-hardware/data-bottleneck.mdx",
+        "bytes": 11865,
+        "sha256": "844681ad63310e95b716d1b348d35132de9b4ccda7c3d51ed11e3730fff34e2a"
+      },
+      "after": {
+        "path": "content/data-hardware/data-bottleneck.mdx",
+        "bytes": 11990,
+        "sha256": "99c2cba2e37c8a843a664472f04132db8c63c332cfac4bb902bdce813040823a"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"data-hardware/datasets\"\n  - \"data-hardware/teleop-rigs\"\n  - \"rl-sim2real/parallel-sim-rl\"\n",
+          "after": "seeAlso:\n  - \"data-hardware/datasets\"\n  - \"manipulation/foundation-models\"\n  - \"manipulation/cross-embodiment\"\n"
+        },
+        {
+          "region": "body",
+          "before": "Language model pretraining runs on text scraped at internet scale. GPT-3 consumed 300 billion tokens in 2020 <Cite id=\"gpt3-2020\" />; Llama 3 consumed over 15 trillion in 2024 <Cite id=\"llama-3-2024\" />, a scale the open FineWeb corpus replicates from 96 Common Crawl snapshots <Cite id=\"fineweb-2024\" />. Robot learning has no equivalent. <Term id=\"open-x-embodiment\">Open X-Embodiment</Term> pools over a million trajectories across 22 robot embodiments <Cite id=\"open-x-embodiment-2023\" />. The chart assigns it no hour estimate: trajectory count alone does not establish duration. The largest single-organization release, AgiBot World, holds 1,001,552 trajectories, and it does publish an hour count: 2,976 hours, which works out to about 11 seconds per trajectory <Cite id=\"agibot-world-2025\" />. A million trajectories, in other words, is under three thousand hours. DROID reports 76,000 successful trajectories totaling 350 interaction hours. Fifty data collectors used 18 robots across 13 institutions over 12 months <Cite id=\"droid-2024\" />. The paper also reports roughly 16,000 unsuccessful trajectories, released separately from the headline count. The 12 months describe elapsed collection time; they do not establish a full working year for each collector or robot. Toyota Research Institute's Large Behavior Model program trained on about 1,700 hours in total, spread across its own bimanual data, simulation, UMI, and Open X-Embodiment <Cite id=\"tri-lbm-2025\" />. That gap, and everything the field is doing about it, is the subject of this module.",
+          "after": "The data bottleneck is the shortage of robot demonstration data compared with the text that language models train on. Language model pretraining runs on text scraped at internet scale. GPT-3 consumed 300 billion tokens in 2020 <Cite id=\"gpt3-2020\" />; Llama 3 consumed over 15 trillion in 2024 <Cite id=\"llama-3-2024\" />, a scale the open FineWeb corpus replicates from 96 Common Crawl snapshots <Cite id=\"fineweb-2024\" />. Robot learning has no equivalent. <Term id=\"open-x-embodiment\">Open X-Embodiment</Term> pools over a million trajectories across 22 robot embodiments <Cite id=\"open-x-embodiment-2023\" />. The chart assigns it no hour estimate: trajectory count alone does not establish duration. The largest single-organization release, AgiBot World, holds 1,001,552 trajectories, and it does publish an hour count: 2,976 hours, which works out to about 11 seconds per trajectory <Cite id=\"agibot-world-2025\" />. A million trajectories, in other words, is under three thousand hours. DROID reports 76,000 successful trajectories totaling 350 interaction hours. Fifty data collectors used 18 robots across 13 institutions over 12 months <Cite id=\"droid-2024\" />. The paper also reports roughly 16,000 unsuccessful trajectories, released separately from the headline count. The 12 months describe elapsed collection time; they do not establish a full working year for each collector or robot. Toyota Research Institute's Large Behavior Model program trained on about 1,700 hours in total, spread across its own bimanual data, simulation, UMI, and Open X-Embodiment <Cite id=\"tri-lbm-2025\" />. That gap, and everything the field is doing about it, is the subject of this module."
+        }
+      ]
+    },
+    {
+      "name": "data-hardware/datasets",
+      "before": {
+        "path": "content/data-hardware/datasets.mdx",
+        "bytes": 13481,
+        "sha256": "01c228d0bd79b9c563365eae99cff30b846182bf9d83ccaf2db6ac351bdc6053"
+      },
+      "after": {
+        "path": "content/data-hardware/datasets.mdx",
+        "bytes": 13428,
+        "sha256": "996c1e8c62926b2ddcd05b13e53006fed55342d844886a3e83bfc05450a84926"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"data-hardware/data-bottleneck\"\n  - \"data-hardware/robot-learning-stack\"\n  - \"manipulation/robot-learning-roadmap\"\n  - \"manipulation/cross-embodiment\"\n",
+          "after": "seeAlso:\n  - \"manipulation/cross-embodiment\"\n  - \"data-hardware/teleop-rigs\"\n  - \"manipulation/generalist-policies\"\n"
+        },
+        {
+          "region": "body",
+          "before": "Five open datasets anchor robot learning in 2026, and each one is a different bet on how to collect at scale. <Term id=\"open-x-embodiment\">Open X-Embodiment</Term> federated existing data across 34 labs <Cite id=\"open-x-embodiment-2023\" />. DROID sent one standardized rig to 13 institutions and collected for a year <Cite id=\"droid-2024\" />. BridgeData V2 ran a multi-site academic effort on a low-cost arm <Cite id=\"bridgedata-v2-2023\" />. AgiBot World pointed a corporate fleet at the problem <Cite id=\"agibot-world-2025\" />. RoboMIND put four different robots through one collection protocol <Cite id=\"robomind-2024\" />. The bet matters as much as the count, because it decides what the data can teach and who is allowed to use it. Set the size filter below to 1M+ episodes and only one row survives; then sort by Hours to compare the published durations and their scope notes.",
+          "after": "The open datasets that anchor robot learning in 2026 are five different bets on how to collect at scale. <Term id=\"open-x-embodiment\">Open X-Embodiment</Term> federated existing data across 34 labs <Cite id=\"open-x-embodiment-2023\" />. DROID sent one standardized rig to 13 institutions and collected for a year <Cite id=\"droid-2024\" />. BridgeData V2 ran a multi-site academic effort on a low-cost arm <Cite id=\"bridgedata-v2-2023\" />. AgiBot World pointed a corporate fleet at the problem <Cite id=\"agibot-world-2025\" />. RoboMIND put four different robots through one collection protocol <Cite id=\"robomind-2024\" />. The bet matters as much as the count, because it decides what the data can teach and who is allowed to use it. Set the size filter below to 1M+ episodes and only one row survives; then sort by Hours to compare the published durations and their scope notes."
+        }
+      ]
+    },
+    {
+      "name": "data-hardware/evaluation-crisis",
+      "before": {
+        "path": "content/data-hardware/evaluation-crisis.mdx",
+        "bytes": 17322,
+        "sha256": "2337aa7c35bf33dbdc468905802b7346f8247ae39486ce3eb2c291b7d41c9492"
+      },
+      "after": {
+        "path": "content/data-hardware/evaluation-crisis.mdx",
+        "bytes": 17401,
+        "sha256": "5d7a2910cff93630fd3a4ac8b87a20f3a640dbd3862da442eabc5bd327d30804"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"manipulation/rl-finetuning\"\n  - \"data-hardware/data-bottleneck\"\n  - \"rl-sim2real/sim2real-transfer\"\n  - \"frontier/reliability-gap\"\n",
+          "after": "seeAlso:\n  - \"world-models/evaluation\"\n  - \"frontier/reliability-gap\"\n  - \"manipulation/vla-models\"\n"
+        },
+        {
+          "region": "body",
+          "before": "A robot learning paper announces its headline result as a single number: the <Term id=\"success-rate\">success rate</Term>. That number compresses several choices into one digit: how many times the task was attempted, how long each attempt was allowed to run, how the scene was arranged, and who scored the outcome. An episode success rate alone does not specify the probability of success at each decision; the illustrative horizon model below makes its assumptions explicit. This module covers what the success rate hides, measured in three places: the statistics of small trial counts, the brittleness of clean benchmarks, and the bias of single-lab scoring. Each has a response now being built, and the responses are as much the story as the problem.",
+          "after": "The evaluation crisis is the gap between the success rates robot learning papers report and what those rates can establish. A robot learning paper announces its headline result as a single number: the <Term id=\"success-rate\">success rate</Term>. That number compresses several choices into one digit: how many times the task was attempted, how long each attempt was allowed to run, how the scene was arranged, and who scored the outcome. An episode success rate alone does not specify the probability of success at each decision; the illustrative horizon model below makes its assumptions explicit. This module covers what the success rate hides, measured in three places: the statistics of small trial counts, the brittleness of clean benchmarks, and the bias of single-lab scoring. Each has a response now being built, and the responses are as much the story as the problem."
+        }
+      ]
+    },
+    {
+      "name": "data-hardware/hardware-taxonomy",
+      "before": {
+        "path": "content/data-hardware/hardware-taxonomy.mdx",
+        "bytes": 14436,
+        "sha256": "36b1d532638b9658eb49308d8435c3187dd7dac3d0957bb373e3a7baf4c97640"
+      },
+      "after": {
+        "path": "content/data-hardware/hardware-taxonomy.mdx",
+        "bytes": 14359,
+        "sha256": "ef44c6e6ef48244b4d38b4dd3863ecda72e0c5977ae803691583fa6841cd5a04"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"data-hardware/teleop-rigs\"\n  - \"data-hardware/data-bottleneck\"\n  - \"data-hardware/industrial-deployment\"\n  - \"classical/kinematics\"\n",
+          "after": "seeAlso:\n  - \"frontier/dexterity\"\n  - \"rl-sim2real/humanoid-wbc\"\n"
+        },
+        {
+          "region": "body",
+          "before": "The machines you can point a policy at in 2026 split into five families: arms, humanoids, hands, tactile sensors, and the compute that closes the control loop. The price spread is the story. A self-build SO-101 arm costs about \\$122 in parts <Cite id=\"so-arm100-repo-2026\" />. A Unitree H2 humanoid ships for \\$29,900 <Cite id=\"unitree-h2-2026\" />. Boston Dynamics will not sell you an Atlas at any price, and Tesla has no Optimus 3 price to quote because there is no product to buy <Cite id=\"robozaps-humanoids-2026\" />. Between those poles sits an actual market with dated prices, disclosed <Term id=\"degrees-of-freedom\">degrees of freedom</Term>, and sourcing states you can plan around. This module collects the market into one filterable guide of 40 entries; unsupported values stay visibly empty.",
+          "after": "The machines you can point a policy at in 2026 are split into five families: arms, humanoids, hands, tactile sensors, and the compute that closes the control loop. The price spread is the story. A self-build SO-101 arm costs about \\$122 in parts <Cite id=\"so-arm100-repo-2026\" />. A Unitree H2 humanoid ships for \\$29,900 <Cite id=\"unitree-h2-2026\" />. Boston Dynamics will not sell you an Atlas at any price, and Tesla has no Optimus 3 price to quote because there is no product to buy <Cite id=\"robozaps-humanoids-2026\" />. Between those poles sits an actual market with dated prices, disclosed <Term id=\"degrees-of-freedom\">degrees of freedom</Term>, and sourcing states you can plan around. This module collects the market into one filterable guide of 40 entries; unsupported values stay visibly empty."
+        }
+      ]
+    },
+    {
+      "name": "data-hardware/industrial-deployment",
+      "before": {
+        "path": "content/data-hardware/industrial-deployment.mdx",
+        "bytes": 19654,
+        "sha256": "5360b9b7ffb541b73f4abf67e0a664a22327eba7fce29d4696c4d795d28c1550"
+      },
+      "after": {
+        "path": "content/data-hardware/industrial-deployment.mdx",
+        "bytes": 19772,
+        "sha256": "3a62958957540bc8e787ef02eaa7ff55968a03804b67bc65713a2aa1e796ba5a"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"data-hardware/hardware-taxonomy\"\n  - \"data-hardware/teleop-rigs\"\n  - \"data-hardware/data-bottleneck\"\n",
+          "after": "seeAlso:\n  - \"data-hardware/evaluation-crisis\"\n  - \"frontier/bear-case\"\n  - \"data-hardware/hardware-taxonomy\"\n"
+        },
+        {
+          "region": "body",
+          "before": "IFR's World Robotics 2025 reports a global operational stock of 4,663,698 industrial robots in 2024; annual installations exceeded 500,000 in each year from 2021 through 2024, with 542,076 installed in 2024 <Cite id=\"ifr-world-robotics-2025\" />. Those machines are the field robot learning is trying to enter, and almost nothing about how they got there resembles the pipeline a paper describes. In 2024, China had 2,027,190 industrial robots in operation and Japan had 450,530. China had about 4.5 times the stock of Japan, the second-ranked country, and received 295,045 new installations that year, reported as 54 percent of the global total. IFR's May 5, 2026 release repeats the rounded stock and installation-share figures from World Robotics 2025 <span className=\"max-sm:[&_[role=tooltip]]:-translate-x-8\"><Cite id=\"ifr-world-robotics-2025\" /></span> <Cite id=\"ifr-china-five-year-plan-2026\" />. By customer industry in 2024, electrical/electronics accounted for 128,899 installations (reported as 24 percent), automotive for 126,088, and metal and machinery for 88,777 (16 percent). The IFR summary gives automotive 23 percent on page 13 but 24 percent on page 16; its chart and automotive discussion both report 126,088 units. These categories describe customer industries; they do not divide installations into application families. IFR says the customer industry was unspecified for 14 percent of installations <span className=\"max-sm:[&_[role=tooltip]]:-translate-x-4\"><Cite id=\"ifr-world-robotics-2025\" /></span>. Humanoid company reports have different scopes: Agility describes 65,000 hours of Digit production experience on an undated, changing homepage, without an allocation by facility or a measurement date <Cite id=\"agility-digit-production\" />. Hours cannot be substituted for units installed in IFR's industrial category. This page is that field.",
+          "after": "Industrial deployment is the installation of robots in factories and warehouses, where each cell has to pay back its cost. IFR's World Robotics 2025 reports a global operational stock of 4,663,698 industrial robots in 2024; annual installations exceeded 500,000 in each year from 2021 through 2024, with 542,076 installed in 2024 <Cite id=\"ifr-world-robotics-2025\" />. Those machines are the field robot learning is trying to enter, and almost nothing about how they got there resembles the pipeline a paper describes. In 2024, China had 2,027,190 industrial robots in operation and Japan had 450,530. China had about 4.5 times the stock of Japan, the second-ranked country, and received 295,045 new installations that year, reported as 54 percent of the global total. IFR's May 5, 2026 release repeats the rounded stock and installation-share figures from World Robotics 2025 <span className=\"max-sm:[&_[role=tooltip]]:-translate-x-8\"><Cite id=\"ifr-world-robotics-2025\" /></span> <Cite id=\"ifr-china-five-year-plan-2026\" />. By customer industry in 2024, electrical/electronics accounted for 128,899 installations (reported as 24 percent), automotive for 126,088, and metal and machinery for 88,777 (16 percent). The IFR summary gives automotive 23 percent on page 13 but 24 percent on page 16; its chart and automotive discussion both report 126,088 units. These categories describe customer industries; they do not divide installations into application families. IFR says the customer industry was unspecified for 14 percent of installations <span className=\"max-sm:[&_[role=tooltip]]:-translate-x-4\"><Cite id=\"ifr-world-robotics-2025\" /></span>. Humanoid company reports have different scopes: Agility describes 65,000 hours of Digit production experience on an undated, changing homepage, without an allocation by facility or a measurement date <Cite id=\"agility-digit-production\" />. Hours cannot be substituted for units installed in IFR's industrial category. This page is that field."
+        }
+      ]
+    },
+    {
+      "name": "data-hardware/robot-learning-stack",
+      "before": {
+        "path": "content/data-hardware/robot-learning-stack.mdx",
+        "bytes": 10389,
+        "sha256": "f068663c4cccbda5eb592f65c19741535de22f10983eadc8050bf09a9a686f59"
+      },
+      "after": {
+        "path": "content/data-hardware/robot-learning-stack.mdx",
+        "bytes": 10346,
+        "sha256": "f75d93cc3313647e4efd1a2d7c634e0d0ae33ae4026ba60e45ed17e07553f392"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"manipulation/robot-learning-roadmap\"\n  - \"classical/ros2-for-ml-engineers\"\n  - \"data-hardware/datasets\"\n  - \"data-hardware/industrial-deployment\"\n",
+          "after": "seeAlso:\n  - \"data-hardware/evaluation-crisis\"\n  - \"data-hardware/teleop-rigs\"\n  - \"manipulation/realtime-execution\"\n"
+        }
+      ]
+    },
+    {
+      "name": "data-hardware/teleop-rigs",
+      "before": {
+        "path": "content/data-hardware/teleop-rigs.mdx",
+        "bytes": 9998,
+        "sha256": "4ef3ac49cc87a1b5a175ef96b694c33c0766d87d9af15ddc172c6ed4bcff67ce"
+      },
+      "after": {
+        "path": "content/data-hardware/teleop-rigs.mdx",
+        "bytes": 10110,
+        "sha256": "ece5012a8cfa3dfae9d1b21a5401ca65e757e2dfcfb4c0e98825fb4136e62090"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"data-hardware/data-bottleneck\"\n  - \"data-hardware/hardware-taxonomy\"\n  - \"manipulation/action-chunking\"\n",
+          "after": "seeAlso:\n  - \"manipulation/action-chunking\"\n  - \"data-hardware/datasets\"\n  - \"rl-sim2real/humanoid-wbc\"\n"
+        },
+        {
+          "region": "body",
+          "before": "Nearly every demonstration in a robot learning dataset was produced by a human moving hardware. The human drives the robot itself, moves a scaled twin of it, holds a gripper proxy in hand, or works inside a headset while the robot mirrors them. Four rig families cover most of that collection in 2026: ALOHA-class bimanual workstations, GELLO kinematically matched exoskeletons, UMI handheld grippers, and VR <Term id=\"teleoperation\">teleoperation</Term>. Each family is a different bet on four axes: what the rig costs, how faithfully its demonstrations map onto robot execution, how cheaply its demonstration volume scales, and how large the gap is between the recorded motion and the robot's. Cost figures do not all describe comparable purchases: GELLO's sub-\\$300 paper BOM buys the controller; its robot arm costs extra <Cite id=\"gello-2023\" />.",
+          "after": "<Term id=\"teleoperation\">Teleoperation</Term> rigs are the hardware a person uses to drive a robot, or a stand-in for one, while a demonstration is recorded. Nearly every demonstration in a robot learning dataset was produced by a human moving hardware. The human drives the robot itself, moves a scaled twin of it, holds a gripper proxy in hand, or works inside a headset while the robot mirrors them. Four rig families cover most of that collection in 2026: ALOHA-class bimanual workstations, GELLO kinematically matched exoskeletons, UMI handheld grippers, and VR teleoperation. Each family is a different bet on four axes: what the rig costs, how faithfully its demonstrations map onto robot execution, how cheaply its demonstration volume scales, and how large the gap is between the recorded motion and the robot's. Cost figures do not all describe comparable purchases: GELLO's sub-\\$300 paper BOM buys the controller; its robot arm costs extra <Cite id=\"gello-2023\" />."
+        }
+      ]
+    },
+    {
+      "name": "frontier/bear-case",
+      "before": {
+        "path": "content/frontier/bear-case.mdx",
+        "bytes": 11082,
+        "sha256": "3dbc5f18046b93326ea52e20e532ed9c40cae75d4f8b08ff35d4bf9ded1c914a"
+      },
+      "after": {
+        "path": "content/frontier/bear-case.mdx",
+        "bytes": 11039,
+        "sha256": "a590b5ebcc8e676fe774689c5b06ab93652697e94367ecdd56d705610bc9a058"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"frontier/competing-theses\"\n  - \"frontier/reliability-gap\"\n  - \"frontier/generalization\"\n  - \"data-hardware/evaluation-crisis\"\n",
+          "after": "seeAlso:\n  - \"data-hardware/data-bottleneck\"\n  - \"rl-sim2real/sim2real-transfer\"\n"
+        },
+        {
+          "region": "body",
+          "before": "Every other module in this domain documents genuine progress, and the progress is real. This module gives the opposite reading the same evidentiary standard. The bear case says robotics is repeating the pattern that produced earlier AI winters: capital arrives on demonstrations, deployment evidence arrives late or never, and the funding window closes before the science closes the reliability gap. What follows is that case stated by its strongest named proponents. Every item is labeled evidence (a published position, a filing, a documented event) or speculation (a scenario about what happens next), and the module ends with the eight milestones whose outcomes would settle the argument either way.",
+          "after": "The bear case is the argument that robotics is repeating the pattern that produced earlier AI winters: capital arrives on demonstrations, deployment evidence arrives late or never, and the funding window closes before the science closes the reliability gap. Every other module in this domain documents genuine progress, and the progress is real. This module gives the opposite reading the same evidentiary standard. What follows is that case stated by its strongest named proponents. Every item is labeled evidence (a published position, a filing, a documented event) or speculation (a scenario about what happens next), and the module ends with the eight milestones whose outcomes would settle the argument either way."
+        }
+      ]
+    },
+    {
+      "name": "frontier/competing-theses",
+      "before": {
+        "path": "content/frontier/competing-theses.mdx",
+        "bytes": 17594,
+        "sha256": "c10d0b0587cae40629ebd213ded432cab03d0926a60cbb09927237344e5c1543"
+      },
+      "after": {
+        "path": "content/frontier/competing-theses.mdx",
+        "bytes": 17653,
+        "sha256": "1c24a5884ebe14c6d018cbc7682459495dd26f98e1e129b29da071a1235ce887"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"frontier/generalization\"\n  - \"frontier/reliability-gap\"\n  - \"manipulation/hierarchical\"\n  - \"world-models/taxonomy\"\n",
+          "after": "seeAlso:\n  - \"manipulation/vla-models\"\n  - \"world-models/generative-video\"\n  - \"data-hardware/data-bottleneck\"\n"
+        },
+        {
+          "region": "body",
+          "before": "Modern robotics has not converged. Underneath the shared vocabulary of foundation models and generalist policies, the field is running at least six different bets about what gets built next, and the bets are expensive enough that labs must choose: NVIDIA pretrained Cosmos 3 on up to 31 trillion tokens, using clusters as large as 2,048 GB200 GPUs <Cite id=\"cosmos-3-2026\" />, and Physical Intelligence has staked its whole program, from π0 to π0.7, on the scaling thesis <Cite id=\"pi07-2026\" />. What keeps these from being taste debates is that each thesis, stated precisely, predicts something the world can check. This module states the six theses, names who is betting on each, gives the strongest published evidence on both sides, and records the observation that would falsify each one.",
+          "after": "The competing theses are the rival bets on how robot intelligence gets built. Modern robotics has not converged. Underneath the shared vocabulary of foundation models and generalist policies, the field is running at least six different bets about what gets built next, and the bets are expensive enough that labs must choose: NVIDIA pretrained Cosmos 3 on up to 31 trillion tokens, using clusters as large as 2,048 GB200 GPUs <Cite id=\"cosmos-3-2026\" />, and Physical Intelligence has staked its whole program, from π0 to π0.7, on the scaling thesis <Cite id=\"pi07-2026\" />. What keeps these from being taste debates is that each thesis, stated precisely, predicts something the world can check. This module states the six theses, names who is betting on each, gives the strongest published evidence on both sides, and records the observation that would falsify each one."
+        }
+      ]
+    },
+    {
+      "name": "frontier/dexterity",
+      "before": {
+        "path": "content/frontier/dexterity.mdx",
+        "bytes": 17691,
+        "sha256": "820e973430f70ca16970918621a54b460c608ffc1050e4b3b71fa9aa665750d1"
+      },
+      "after": {
+        "path": "content/frontier/dexterity.mdx",
+        "bytes": 17775,
+        "sha256": "65cc4dfd30466fcdef740c7a6f5852adf0ec65ed1da3f649ea21860cd5676829"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"frontier/reliability-gap\"\n  - \"manipulation/generalist-policies\"\n  - \"classical/grasp-planning\"\n  - \"frontier/competing-theses\"\n",
+          "after": "seeAlso:\n  - \"data-hardware/hardware-taxonomy\"\n  - \"data-hardware/teleop-rigs\"\n  - \"manipulation/cross-embodiment\"\n"
+        },
+        {
+          "region": "body",
+          "before": "Rodney Brooks opens his dexterity essay with Heinrich Ernst's PhD work: by 1961, he writes, Ernst had connected a computer-controlled arm and hand to MIT's TX-0 and had it picking up and stacking blocks <Cite id=\"brooks-dexterity-2025\" />. The reason is contact. A walking or driving robot moves through free space and senses the world at a distance. A hand has to close the loop through the object: grip force, slip, and contact geometry decide success, and most of that state becomes invisible to cameras the moment the fingers close around it. This module covers <Term id=\"contact-rich-manipulation\">contact-rich manipulation</Term> and the tactile gap it creates, the industry's split over whether touch is needed at all, and the two capability frontiers where that argument gets settled: <Term id=\"in-hand-manipulation\">in-hand manipulation</Term> and deformable objects.",
+          "after": "Dexterity is skilled manipulation through contact, such as reorienting an object in the hand or folding cloth. Rodney Brooks opens his dexterity essay with Heinrich Ernst's PhD work: by 1961, he writes, Ernst had connected a computer-controlled arm and hand to MIT's TX-0 and had it picking up and stacking blocks <Cite id=\"brooks-dexterity-2025\" />. The reason is contact. A walking or driving robot moves through free space and senses the world at a distance. A hand has to close the loop through the object: grip force, slip, and contact geometry decide success, and most of that state becomes invisible to cameras the moment the fingers close around it. This module covers <Term id=\"contact-rich-manipulation\">contact-rich manipulation</Term> and the tactile gap it creates, the industry's split over whether touch is needed at all, and the two capability frontiers where that argument gets settled: <Term id=\"in-hand-manipulation\">in-hand manipulation</Term> and deformable objects."
+        }
+      ]
+    },
+    {
+      "name": "frontier/generalization",
+      "before": {
+        "path": "content/frontier/generalization.mdx",
+        "bytes": 15108,
+        "sha256": "a3b29cc58c065ae5d252228b0f6a659570ce12281fcea8a2b12afc1f788c8baf"
+      },
+      "after": {
+        "path": "content/frontier/generalization.mdx",
+        "bytes": 15176,
+        "sha256": "f226c8d2132dd6762f753241923014b543579208eb27d1b2169b34cbf9661773"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"manipulation/pi-line\"\n  - \"data-hardware/data-bottleneck\"\n  - \"manipulation/cross-embodiment\"\n  - \"frontier/reliability-gap\"\n",
+          "after": "seeAlso:\n  - \"manipulation/generalist-policies\"\n  - \"manipulation/foundation-models\"\n  - \"world-models/generative-video\"\n"
+        },
+        {
+          "region": "body",
+          "before": "A policy that cleans the kitchen it was trained in has demonstrated control. A policy that cleans a kitchen it has never seen has demonstrated something much rarer, and the distance between the two is the subject of this module. The training distribution of robot data is narrow: demonstrations come from a small number of labs, with specific robots, cameras, and lighting. Real homes bring different geometries, object instances, backgrounds, and clutter, and physical interaction punishes small perceptual errors in a way text generation never does: a one-centimeter grasp error drops the object. Closing that <Term id=\"distribution-shift\">distribution shift</Term>, without collecting new data at every site, is the generalization problem. It is the gap between a demo and a product, and it is where the strongest systems of 2026 are now being measured.",
+          "after": "Generalization is a robot policy's ability to work in settings it was not trained in. A policy that cleans the kitchen it was trained in has demonstrated control. A policy that cleans a kitchen it has never seen has demonstrated something much rarer, and the distance between the two is the subject of this module. The training distribution of robot data is narrow: demonstrations come from a small number of labs, with specific robots, cameras, and lighting. Real homes bring different geometries, object instances, backgrounds, and clutter, and physical interaction punishes small perceptual errors in a way text generation never does: a one-centimeter grasp error drops the object. Closing that <Term id=\"distribution-shift\">distribution shift</Term>, without collecting new data at every site, is the generalization problem. It is the gap between a demo and a product, and it is where the strongest systems of 2026 are now being measured."
+        }
+      ]
+    },
+    {
+      "name": "frontier/reliability-gap",
+      "before": {
+        "path": "content/frontier/reliability-gap.mdx",
+        "bytes": 12115,
+        "sha256": "e938395634ce01efc67bfaf3f6e323b6bafbb6da57945d345697b8d1d19cbc50"
+      },
+      "after": {
+        "path": "content/frontier/reliability-gap.mdx",
+        "bytes": 12074,
+        "sha256": "f97901e8717c5786dbdd7da3f175b049df4a82fe47b0e49bc67932e5c7ca7264"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"data-hardware/evaluation-crisis\"\n  - \"manipulation/rl-finetuning\"\n  - \"rl-sim2real/humanoid-wbc\"\n  - \"frontier/dexterity\"\n",
+          "after": "seeAlso:\n  - \"data-hardware/industrial-deployment\"\n  - \"manipulation/generalist-policies\"\n  - \"adjacent/autonomous-vehicles\"\n"
+        },
+        {
+          "region": "body",
+          "before": "A robot that finishes a task 80% of the time is a demo. A robot that finishes it 99.9% of the time is a product. The distance between those numbers is the reliability gap: the difference between the <Term id=\"success-rate\">success rates</Term> a system demonstrates in controlled settings and the rates that deployment requires. Bessemer's 2026 robotics analysis states the framing directly: getting from 80% task success to 99.9% is not a linear problem, and the last stretch requires fundamentally different approaches than the first <Cite id=\"bessemer-robotics-2026\" />. This module covers why the gap is structural, what is closing it, and what the deployment record shows once claims are separated from verified numbers.",
+          "after": "The reliability gap is the difference between the <Term id=\"success-rate\">success rates</Term> a robot system demonstrates in controlled settings and the rates that deployment requires. A robot that finishes a task 80% of the time is a demo. A robot that finishes it 99.9% of the time is a product. Bessemer's 2026 robotics analysis states the framing directly: getting from 80% task success to 99.9% is not a linear problem, and the last stretch requires fundamentally different approaches than the first <Cite id=\"bessemer-robotics-2026\" />. This module covers why the gap is structural, what is closing it, and what the deployment record shows once claims are separated from verified numbers."
+        }
+      ]
+    },
+    {
+      "name": "frontier/safety-and-assurance",
+      "before": {
+        "path": "content/frontier/safety-and-assurance.mdx",
+        "bytes": 19601,
+        "sha256": "54fa9bab160a9d52f0d9ed765c6812c40e2707fa32cc4aeec907dc71350caabd"
+      },
+      "after": {
+        "path": "content/frontier/safety-and-assurance.mdx",
+        "bytes": 19689,
+        "sha256": "37cde285fd730b75d2ddb838c03e4f8d6f22e2e04baebfb8484875e28d566d33"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"data-hardware/teleop-rigs\"\n  - \"rl-sim2real/humanoid-wbc\"\n  - \"data-hardware/hardware-taxonomy\"\n",
+          "after": "seeAlso:\n  - \"data-hardware/industrial-deployment\"\n  - \"rl-sim2real/legged-locomotion\"\n  - \"adjacent/surgical\"\n"
+        },
+        {
+          "region": "body",
+          "before": "An industrial robot cell is one of the few places in engineering where the question \"is this safe\" has a procedural answer. There is a method for finding the hazards, a standard for the robot, a second standard for the cell it sits in, a rating scheme for the control system that enforces the safety functions, and a regulator whose inspectors will ask to see the paperwork. Robot learning arrived into that world with a component none of it can accommodate, and has mostly declined to notice.",
+          "after": "Safety assurance is the procedure for answering whether a robot system is safe to run. An industrial robot cell is one of the few places in engineering where the question \"is this safe\" has a procedural answer. There is a method for finding the hazards, a standard for the robot, a second standard for the cell it sits in, a rating scheme for the control system that enforces the safety functions, and a regulator whose inspectors will ask to see the paperwork. Robot learning arrived into that world with a component none of it can accommodate, and has mostly declined to notice."
+        }
+      ]
+    },
+    {
+      "name": "manipulation/action-chunking",
+      "before": {
+        "path": "content/manipulation/action-chunking.mdx",
+        "bytes": 14371,
+        "sha256": "c258d1b6c20a514f1846866b6f25c16409194307aa0132880001ef13e882ff88"
+      },
+      "after": {
+        "path": "content/manipulation/action-chunking.mdx",
+        "bytes": 14480,
+        "sha256": "eebdedbb6c90a7f74c1d9057edadbecbbc9d83d343e5a1ddf3b58702b1259c73"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"manipulation/bc-foundations\"\n  - \"manipulation/diffusion-policy\"\n  - \"manipulation/realtime-execution\"\n",
+          "after": "seeAlso:\n  - \"data-hardware/teleop-rigs\"\n  - \"manipulation/rl-finetuning\"\n  - \"manipulation/pi-line\"\n"
+        },
+        {
+          "region": "body",
+          "before": "<Term id=\"behavior-cloning\">Behavior cloning</Term> fails in closed loop for a precise reason: a policy with per-step error ε on the expert's state distribution can accumulate cost that grows quadratically with episode length, because each mistake carries the robot into states the expert never visited <Cite id=\"dagger-2011\" />. Over a T-step episode the worst-case cost scales as",
+          "after": "Action chunking is a policy design in which each inference predicts a sequence of future actions instead of a single action. <Term id=\"behavior-cloning\">Behavior cloning</Term> fails in closed loop for a precise reason: a policy with per-step error ε on the expert's state distribution can accumulate cost that grows quadratically with episode length, because each mistake carries the robot into states the expert never visited <Cite id=\"dagger-2011\" />. Over a T-step episode the worst-case cost scales as"
+        }
+      ]
+    },
+    {
+      "name": "manipulation/action-spaces",
+      "before": {
+        "path": "content/manipulation/action-spaces.mdx",
+        "bytes": 9952,
+        "sha256": "9d4da228c0aed148040a22c16088790a7576762c1bd020364bac6f539cf57fd3"
+      },
+      "after": {
+        "path": "content/manipulation/action-spaces.mdx",
+        "bytes": 9933,
+        "sha256": "482008024adee6f22282f1d278908b5e134bb9f50e87845d39283d58241a55e8"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"classical/kinematics\"\n  - \"classical/control\"\n  - \"manipulation/action-chunking\"\n  - \"manipulation/cross-embodiment\"\n",
+          "after": "seeAlso:\n  - \"manipulation/knowledge-insulation\"\n  - \"frontier/dexterity\"\n  - \"manipulation/realtime-execution\"\n"
+        }
+      ]
+    },
+    {
+      "name": "manipulation/bc-foundations",
+      "before": {
+        "path": "content/manipulation/bc-foundations.mdx",
+        "bytes": 12554,
+        "sha256": "9b3c982ca3ba58655d2977f8fdf3f68c4401403f6a73bc3bb6747e38d2fce1c0"
+      },
+      "after": {
+        "path": "content/manipulation/bc-foundations.mdx",
+        "bytes": 12546,
+        "sha256": "31ecb27b9ed23ad2d18dcf4c60dc8ad26f3c47c5f1dc293fd20c3f1243ade373"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"manipulation/action-chunking\"\n  - \"manipulation/diffusion-policy\"\n  - \"manipulation/rl-finetuning\"\n",
+          "after": "seeAlso:\n  - \"data-hardware/teleop-rigs\"\n  - \"frontier/reliability-gap\"\n  - \"manipulation/action-spaces\"\n"
+        }
+      ]
+    },
+    {
+      "name": "manipulation/comparison-matrix",
+      "before": {
+        "path": "content/manipulation/comparison-matrix.mdx",
+        "bytes": 12986,
+        "sha256": "fe13231842de7a8931dc65ad237685f2ba2b67d2defe43f3bc2960a0495397d8"
+      },
+      "after": {
+        "path": "content/manipulation/comparison-matrix.mdx",
+        "bytes": 13107,
+        "sha256": "3065355f15d0cf8f7e6158ddb66d30ece0e6dbbe3a8584ddf59a3de0641ed5ed"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"manipulation/vla-models\"\n  - \"manipulation/pi-line\"\n  - \"manipulation/foundation-models\"\n  - \"manipulation/action-spaces\"\n",
+          "after": "seeAlso:\n  - \"data-hardware/evaluation-crisis\"\n  - \"manipulation/action-spaces\"\n  - \"manipulation/realtime-execution\"\n"
+        },
+        {
+          "region": "body",
+          "before": "RT-2’s reported rates depend on the model and serving setup. Its 55B PaLI-X variant runs at 1 to 3 Hz, while the 5B variant runs at around 5 Hz, using a multi-TPU cloud service queried over the network. <Cite id=\"rt2-2023\" />",
+          "after": "The comparison matrix is a table of the major robot policies compared on eight architectural axes, from action representation to openness. RT-2’s reported rates depend on the model and serving setup. Its 55B PaLI-X variant runs at 1 to 3 Hz, while the 5B variant runs at around 5 Hz, using a multi-TPU cloud service queried over the network. <Cite id=\"rt2-2023\" />"
+        }
+      ]
+    },
+    {
+      "name": "manipulation/cross-embodiment",
+      "before": {
+        "path": "content/manipulation/cross-embodiment.mdx",
+        "bytes": 12328,
+        "sha256": "a1f85829c281068a8b105c9b71507026c256e97c9a19f3719afde0aa03287115"
+      },
+      "after": {
+        "path": "content/manipulation/cross-embodiment.mdx",
+        "bytes": 12460,
+        "sha256": "61abe1d3c70c271f7b20439f4adfdcdaad30305e60ed9cf6abd8d272cd373fff"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"manipulation/vla-models\"\n  - \"manipulation/generalist-policies\"\n  - \"data-hardware/datasets\"\n",
+          "after": "seeAlso:\n  - \"data-hardware/teleop-rigs\"\n  - \"frontier/dexterity\"\n  - \"data-hardware/data-bottleneck\"\n"
+        },
+        {
+          "region": "body",
+          "before": "An action vector is a control interface; the hardware DoF count is a separate quantity. ACT reports a 14-dimensional absolute-joint action vector for ALOHA, while its hardware section specifies two 6-DoF ViperX arms with grippers. The same paper also describes the observation coordinates as “7+7=14 DoF”; that wording should not be read as two 7-DoF arms <Cite id=\"act-aloha-2023\" />. Human video supplies images and no native robot commands: EgoScale estimates hand poses, represents wrist motion relatively, and <Term id=\"retargeting\">retargets</Term> hand articulation into a robot hand action space <Cite id=\"egoscale-2026\" />. The interface and the training recipe both matter when combining these data.",
+          "after": "Cross-embodiment transfer is learning from, or transferring to, robots with different joint counts, action dimensions and sensor suites. An action vector is a control interface; the hardware DoF count is a separate quantity. ACT reports a 14-dimensional absolute-joint action vector for ALOHA, while its hardware section specifies two 6-DoF ViperX arms with grippers. The same paper also describes the observation coordinates as “7+7=14 DoF”; that wording should not be read as two 7-DoF arms <Cite id=\"act-aloha-2023\" />. Human video supplies images and no native robot commands: EgoScale estimates hand poses, represents wrist motion relatively, and <Term id=\"retargeting\">retargets</Term> hand articulation into a robot hand action space <Cite id=\"egoscale-2026\" />. The interface and the training recipe both matter when combining these data."
+        }
+      ]
+    },
+    {
+      "name": "manipulation/diffusion-policy",
+      "before": {
+        "path": "content/manipulation/diffusion-policy.mdx",
+        "bytes": 11029,
+        "sha256": "bfd039c36e5728e57392b447c9063e39daafcc4fea2d47b9b3b9c9f325e69769"
+      },
+      "after": {
+        "path": "content/manipulation/diffusion-policy.mdx",
+        "bytes": 11140,
+        "sha256": "288fb3f98ca83ca87241a15e72f383ad73b48169d48cd0af5b4c9b88acb91be1"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"manipulation/action-chunking\"\n  - \"manipulation/pi-line\"\n  - \"manipulation/vla-models\"\n",
+          "after": "seeAlso:\n  - \"data-hardware/teleop-rigs\"\n  - \"manipulation/realtime-execution\"\n  - \"world-models/generative-video\"\n"
+        },
+        {
+          "region": "body",
+          "before": "Human demonstrations are multimodal: faced with an obstacle, one operator goes left, another goes right, and both are correct. A policy trained with mean-squared error on that data learns the average of the modes, and the average of \"left\" and \"right\" is \"straight into the obstacle.\" <Term id=\"diffusion-policy\">Diffusion Policy</Term>, introduced by Chi et al. in 2023, sidesteps the averaging problem by changing what the policy outputs: a conditional denoising process over a whole action sequence instead of a single action <Cite id=\"diffusion-policy-2023\" />. The extended journal version describes a 15-task evaluation. It reports a 46.9% average relative improvement for its simulation comparisons; the paper's baseline selection takes the strongest baseline and diffusion backbone per reported column and excludes multi-human results <Cite id=\"diffusion-policy-2023\" />.",
+          "after": "<Term id=\"diffusion-policy\">Diffusion Policy</Term> is a visuomotor robot policy that generates its actions with a diffusion model. Human demonstrations are multimodal: faced with an obstacle, one operator goes left, another goes right, and both are correct. A policy trained with mean-squared error on that data learns the average of the modes, and the average of \"left\" and \"right\" is \"straight into the obstacle.\" Diffusion Policy, introduced by Chi et al. in 2023, sidesteps the averaging problem by changing what the policy outputs: a conditional denoising process over a whole action sequence instead of a single action <Cite id=\"diffusion-policy-2023\" />. The extended journal version describes a 15-task evaluation. It reports a 46.9% average relative improvement for its simulation comparisons; the paper's baseline selection takes the strongest baseline and diffusion backbone per reported column and excludes multi-human results <Cite id=\"diffusion-policy-2023\" />."
+        }
+      ]
+    },
+    {
+      "name": "manipulation/foundation-models",
+      "before": {
+        "path": "content/manipulation/foundation-models.mdx",
+        "bytes": 9569,
+        "sha256": "85a8b90f6e2c7224c9203426a2555b909f82de890de17d7c8881f9e8a73451a7"
+      },
+      "after": {
+        "path": "content/manipulation/foundation-models.mdx",
+        "bytes": 9539,
+        "sha256": "ea61a8caadaa5644ae1cc378b24648177d045ab2af840906c2888f2dc05300f4"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"manipulation/vla-models\"\n  - \"manipulation/generalist-policies\"\n  - \"world-models/taxonomy\"\n  - \"manipulation/cross-embodiment\"\n",
+          "after": "seeAlso:\n  - \"world-models/taxonomy\"\n  - \"manipulation/generalist-policies\"\n  - \"data-hardware/data-bottleneck\"\n"
+        }
+      ]
+    },
+    {
+      "name": "manipulation/generalist-policies",
+      "before": {
+        "path": "content/manipulation/generalist-policies.mdx",
+        "bytes": 17562,
+        "sha256": "3261530d017d1f7ace181107fb2004bbf8322ae7e013aa36a1a1430875322d7f"
+      },
+      "after": {
+        "path": "content/manipulation/generalist-policies.mdx",
+        "bytes": 17529,
+        "sha256": "8cd6c8ecd9223ff824161a5a8f3b0706ca4bb184fe7c936afdedd12b7a11317c"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"manipulation/vla-models\"\n  - \"manipulation/pi-line\"\n  - \"manipulation/comparison-matrix\"\n",
+          "after": "seeAlso:\n  - \"data-hardware/data-bottleneck\"\n  - \"manipulation/vla-models\"\n  - \"manipulation/pi-line\"\n"
+        },
+        {
+          "region": "body",
+          "before": "The last two modules each followed one lineage: the VLA family from RT-1 to OpenVLA, then [Physical Intelligence's pi line](/manipulation/pi-line). The rest of the frontier belongs to neither. This module surveys the other generalist policies an ML engineer will actually meet in 2026: Google DeepMind's Gemini Robotics, NVIDIA's GR00T, Figure's Helix, AgiBot's GO series, and Skild. The organizing axis here is access: which ones you can download, and how each one's claims are documented. Architecture takes second place. Keep two questions in mind throughout. Are the weights open? And is the evidence a paper, a repo, a lab blog, or a press release?",
+          "after": "The other generalist policies are the multi-task robot models outside two lineages, the VLA family from RT-1 to OpenVLA and [Physical Intelligence's pi line](/manipulation/pi-line). This module surveys the ones an ML engineer will actually meet in 2026: Google DeepMind's Gemini Robotics, NVIDIA's GR00T, Figure's Helix, AgiBot's GO series, and Skild. The organizing axis here is access: which ones you can download, and how each one's claims are documented. Architecture takes second place. Keep two questions in mind throughout. Are the weights open? And is the evidence a paper, a repo, a lab blog, or a press release?"
+        }
+      ]
+    },
+    {
+      "name": "manipulation/hierarchical",
+      "before": {
+        "path": "content/manipulation/hierarchical.mdx",
+        "bytes": 14620,
+        "sha256": "769f4c96a20a4c5e8d4f419a1e49a5b02dd13063c0aac7819d842821b6d6446b"
+      },
+      "after": {
+        "path": "content/manipulation/hierarchical.mdx",
+        "bytes": 14600,
+        "sha256": "4adceecac3a8ae38e4266418cebb8756aedf73e2a3d87dea0edcf74dcaddfabb"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"manipulation/vla-models\"\n  - \"manipulation/knowledge-insulation\"\n  - \"manipulation/comparison-matrix\"\n",
+          "after": "seeAlso:\n  - \"classical/motion-planning\"\n  - \"frontier/competing-theses\"\n  - \"manipulation/generalist-policies\"\n"
+        },
+        {
+          "region": "body",
+          "before": "Every long-horizon robot system has to answer the same organizational question: what decides *what* to do next, and what decides *how* to move? The modules so far covered the how (chunks, diffusion, flow matching, action tokens). This module is about the what, and about a structural shift that is easy to miss if you only read 2026 model cards. In 2022 the what lived outside the policy, in a separate planner that dispatched to a library of skills. In 2026 the what lives inside the network, as a low-frequency inference pass in the same weights that emit actions. The separate-planner architecture is the lineage that lost.",
+          "after": "Hierarchical approaches are robot architectures in which one level decides *what* to do next and another decides *how* to move. The modules so far covered the how (chunks, diffusion, flow matching, action tokens). This module is about the what, and about a structural shift that is easy to miss if you only read 2026 model cards. In 2022 the what lived outside the policy, in a separate planner that dispatched to a library of skills. In 2026 the what lives inside the network, as a low-frequency inference pass in the same weights that emit actions. The separate-planner architecture is the lineage that lost."
+        }
+      ]
+    },
+    {
+      "name": "manipulation/knowledge-insulation",
+      "before": {
+        "path": "content/manipulation/knowledge-insulation.mdx",
+        "bytes": 9701,
+        "sha256": "1bd8b23f840bdb10edd834dae8521a028265dd2a2e891ce969fe877b96fc891c"
+      },
+      "after": {
+        "path": "content/manipulation/knowledge-insulation.mdx",
+        "bytes": 9856,
+        "sha256": "7881e01aefec1b60f93fc1ee3c6dddbacdd491130f0cd5b5583115bd3755ddd6"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"manipulation/pi-line\"\n  - \"manipulation/vla-models\"\n  - \"manipulation/hierarchical\"\n",
+          "after": "seeAlso:\n  - \"manipulation/action-spaces\"\n  - \"manipulation/comparison-matrix\"\n  - \"manipulation/foundation-models\"\n"
+        },
+        {
+          "region": "body",
+          "before": "RT-2 represents robot actions as tokens, using the discretization introduced for RT-1: each continuous action dimension is divided into 256 uniform bins. Its robot inputs pair a camera image with a task instruction <Cite id=\"rt2-2023\" />. π0 instead adds a continuous <Term id=\"flow-matching\">flow-matching</Term> action expert to a pretrained <Term id=\"vision-language-model\">VLM</Term> <Cite id=\"pi0-2024\" />. <Term id=\"knowledge-insulation\">Knowledge Insulation</Term>, studied by Physical Intelligence in 2025, combines the two: discrete actions train the backbone’s representations while a continuous-action expert trains alongside it without sending gradients back into the backbone.",
+          "after": "<Term id=\"knowledge-insulation\">Knowledge insulation</Term> is a training recipe that keeps action learning from damaging a vision-language-action model's pretrained backbone. RT-2 represents robot actions as tokens, using the discretization introduced for RT-1: each continuous action dimension is divided into 256 uniform bins. Its robot inputs pair a camera image with a task instruction <Cite id=\"rt2-2023\" />. π0 instead adds a continuous <Term id=\"flow-matching\">flow-matching</Term> action expert to a pretrained <Term id=\"vision-language-model\">VLM</Term> <Cite id=\"pi0-2024\" />. Knowledge Insulation, studied by Physical Intelligence in 2025, combines the two: discrete actions train the backbone’s representations while a continuous-action expert trains alongside it without sending gradients back into the backbone."
+        }
+      ]
+    },
+    {
+      "name": "manipulation/pi-line",
+      "before": {
+        "path": "content/manipulation/pi-line.mdx",
+        "bytes": 20310,
+        "sha256": "e6d0dd8b9641c7d76cc7be2bb0c02cc122f76e622cfddf3b6e0d6a3bc95f548a"
+      },
+      "after": {
+        "path": "content/manipulation/pi-line.mdx",
+        "bytes": 20351,
+        "sha256": "e8ca5b04f1ba56e651c7b161385fa3f1912a141cd804a1e51cb893358afa82aa"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"manipulation/vla-models\"\n  - \"manipulation/knowledge-insulation\"\n  - \"manipulation/realtime-execution\"\n  - \"frontier/generalization\"\n",
+          "after": "seeAlso:\n  - \"manipulation/rl-finetuning\"\n  - \"manipulation/cross-embodiment\"\n  - \"frontier/generalization\"\n"
+        },
+        {
+          "region": "body",
+          "before": "The [VLA module](/manipulation/vla-models) ended on a bottleneck: <Term id=\"action-tokenization\">discrete action tokens</Term> let a web-pretrained model emit actions with the machinery it already has, but autoregressive decoding caps the control rate an order of magnitude below what dexterous manipulation needs. Physical Intelligence's pi line answers it with a different split of labor. Keep the pretrained backbone, replace the token head with a <Term id=\"flow-matching\">flow-matching</Term> action expert, and then keep fixing what that first design got wrong. This module walks the line from π0 (October 2024) to π0.7 (April 2026), including what the pinned checkpoint catalogue actually lists.",
+          "after": "The pi line is Physical Intelligence's series of vision-language-action models. The [VLA module](/manipulation/vla-models) ended on a bottleneck: <Term id=\"action-tokenization\">discrete action tokens</Term> let a web-pretrained model emit actions with the machinery it already has, but autoregressive decoding caps the control rate an order of magnitude below what dexterous manipulation needs. Physical Intelligence's pi line answers it with a different split of labor. Keep the pretrained backbone, replace the token head with a <Term id=\"flow-matching\">flow-matching</Term> action expert, and then keep fixing what that first design got wrong. This module walks the line from π0 (October 2024) to π0.7 (April 2026), including what the pinned checkpoint catalogue actually lists."
+        }
+      ]
+    },
+    {
+      "name": "manipulation/realtime-execution",
+      "before": {
+        "path": "content/manipulation/realtime-execution.mdx",
+        "bytes": 12960,
+        "sha256": "56127aad87b29f443a380074764e19944842c5d727cf24e20f4cb7457bfe2461"
+      },
+      "after": {
+        "path": "content/manipulation/realtime-execution.mdx",
+        "bytes": 13094,
+        "sha256": "bb06da7b1e9176191461cc77c8f623384fa95be32e96e0e9cebfbdc4eb31c31b"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"manipulation/action-chunking\"\n  - \"manipulation/diffusion-policy\"\n  - \"manipulation/pi-line\"\n",
+          "after": "seeAlso:\n  - \"data-hardware/hardware-taxonomy\"\n  - \"manipulation/rl-finetuning\"\n  - \"classical/control\"\n"
+        },
+        {
+          "region": "body",
+          "before": "A policy that needs 60 ms per inference cannot finish a new inference within every 20 ms tick of a 50 Hz controller. Chunked execution can still provide commands at 50 Hz. The control period at 50 Hz is 20 ms, and every component in the loop, cameras, network, preprocessing, model, spends from that budget. The earlier modules treated <Term id=\"action-chunking\">action chunking</Term> as an algorithmic choice; this module is about what happens when the algorithm meets the clock. Real-time execution turns out to be a first-class architectural problem. The way a policy hands off from one chunk to the next while inference is still running changes what the robot physically does, and the naive ways to do it fail in documented, measurable ways <Cite id=\"real-time-chunking-2025\" />.",
+          "after": "Real-time execution is the problem of delivering a policy's actions on its controller's clock while the next inference is still running. A policy that needs 60 ms per inference cannot finish a new inference within every 20 ms tick of a 50 Hz controller. Chunked execution can still provide commands at 50 Hz. The control period at 50 Hz is 20 ms, and every component in the loop, cameras, network, preprocessing, model, spends from that budget. The earlier modules treated <Term id=\"action-chunking\">action chunking</Term> as an algorithmic choice; this module is about what happens when the algorithm meets the clock. Real-time execution turns out to be a first-class architectural problem. The way a policy hands off from one chunk to the next while inference is still running changes what the robot physically does, and the naive ways to do it fail in documented, measurable ways <Cite id=\"real-time-chunking-2025\" />."
+        }
+      ]
+    },
+    {
+      "name": "manipulation/rl-finetuning",
+      "before": {
+        "path": "content/manipulation/rl-finetuning.mdx",
+        "bytes": 27946,
+        "sha256": "0b391bcd78597c0945653caa04c26b0d57592d09a87064b94f9c753ced3132c1"
+      },
+      "after": {
+        "path": "content/manipulation/rl-finetuning.mdx",
+        "bytes": 28038,
+        "sha256": "68eef5afb0bafb60625ce07a72d3a10c82188e474e794279b0267687add62c5b"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"manipulation/pi-line\"\n  - \"manipulation/bc-foundations\"\n  - \"data-hardware/evaluation-crisis\"\n  - \"rl-sim2real/rl-for-robotics\"\n",
+          "after": "seeAlso:\n  - \"manipulation/realtime-execution\"\n  - \"rl-sim2real/parallel-sim-rl\"\n  - \"manipulation/pi-line\"\n"
+        },
+        {
+          "region": "body",
+          "before": "<Term id=\"imitation-learning\">Imitation learning</Term> gets a policy that is good on the demonstration distribution and brittle off it, because small per-step errors compound into states the demonstrator never visited <Cite id=\"dagger-2011\" />. Physical Intelligence states the operational version of the same problem: it is relatively easy to get a VLA to succeed at a task some of the time, and quite hard to make it succeed reliably <Cite id=\"pistar06-blog-2025\" />. Reinforcement learning is the only mechanism in the toolbox that learns from failure as well as from success. The obstacle is cost: naive online RL on a multi-billion-parameter VLA, on real hardware, at control rates, is infeasible. Everything in this module is a way around that constraint, and by 2026 the field has converged on a small set of recipes that demonstrably work.",
+          "after": "RL fine-tuning is the use of reinforcement learning to improve a pretrained robot policy from its own successes and failures. <Term id=\"imitation-learning\">Imitation learning</Term> gets a policy that is good on the demonstration distribution and brittle off it, because small per-step errors compound into states the demonstrator never visited <Cite id=\"dagger-2011\" />. Physical Intelligence states the operational version of the same problem: it is relatively easy to get a VLA to succeed at a task some of the time, and quite hard to make it succeed reliably <Cite id=\"pistar06-blog-2025\" />. Reinforcement learning is the only mechanism in the toolbox that learns from failure as well as from success. The obstacle is cost: naive online RL on a multi-billion-parameter VLA, on real hardware, at control rates, is infeasible. Everything in this module is a way around that constraint, and by 2026 the field has converged on a small set of recipes that demonstrably work."
+        }
+      ]
+    },
+    {
+      "name": "manipulation/robot-learning-roadmap",
+      "before": {
+        "path": "content/manipulation/robot-learning-roadmap.mdx",
+        "bytes": 9877,
+        "sha256": "409a212f4c55f3db65a6d1aeea5dd5ce45808786db62a907ce798492c3b35a86"
+      },
+      "after": {
+        "path": "content/manipulation/robot-learning-roadmap.mdx",
+        "bytes": 9987,
+        "sha256": "438f5361b1010e1ac54bfd8c3a6dedd636037a377771f10dbe1629aa5803a7f0"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"data-hardware/robot-learning-stack\"\n  - \"manipulation/action-spaces\"\n  - \"data-hardware/datasets\"\n  - \"data-hardware/evaluation-crisis\"\n",
+          "after": "seeAlso:\n  - \"classical/kinematics\"\n  - \"classical/ros2-for-ml-engineers\"\n  - \"manipulation/bc-foundations\"\n"
+        },
+        {
+          "region": "body",
+          "before": "Machine learning gives you optimization, representation learning, sequence models and experimental discipline. It does not give you coordinate frames, control loops, contact dynamics or a reliable definition of task success. A useful robot-learning roadmap therefore starts at the interfaces where a model meets a machine. The aim is not to learn all of robotics before training a policy. It is to learn each dependency just before an experiment needs it.",
+          "after": "The robot learning curriculum for ML engineers is a staged path through the robotics that policy experiments depend on, from coordinates to evaluation. Machine learning gives you optimization, representation learning, sequence models and experimental discipline. It does not give you coordinate frames, control loops, contact dynamics or a reliable definition of task success. A useful robot-learning roadmap therefore starts at the interfaces where a model meets a machine. The aim is not to learn all of robotics before training a policy. It is to learn each dependency just before an experiment needs it."
+        }
+      ]
+    },
+    {
+      "name": "manipulation/vla-models",
+      "before": {
+        "path": "content/manipulation/vla-models.mdx",
+        "bytes": 15873,
+        "sha256": "0ef87583a9c07d408933fce5b91ad4d6911f427af98b890f8664068a8d1711f5"
+      },
+      "after": {
+        "path": "content/manipulation/vla-models.mdx",
+        "bytes": 15946,
+        "sha256": "2e36c965fb4afa030b46ac39aee630950db3727b92b02db06d3de34da9fc0fb6"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"manipulation/pi-line\"\n  - \"manipulation/foundation-models\"\n  - \"manipulation/action-spaces\"\n  - \"manipulation/comparison-matrix\"\n",
+          "after": "seeAlso:\n  - \"data-hardware/evaluation-crisis\"\n  - \"manipulation/generalist-policies\"\n  - \"manipulation/rl-finetuning\"\n"
+        },
+        {
+          "region": "body",
+          "before": "The modules so far covered policies trained from scratch on robot data alone: [behavior cloning](/manipulation/bc-foundations), [ACT](/manipulation/action-chunking), and [Diffusion Policy](/manipulation/diffusion-policy). The <Term id=\"vision-language-action-model\">vision-language-action (VLA)</Term> line changes the starting point. Instead of training a policy from nothing, take a model that already understands images and language from web-scale pretraining, and teach it to emit robot actions. The design question that defines this lineage is how to get actions out of a model whose output space is text.",
+          "after": "A <Term id=\"vision-language-action-model\">vision-language-action (VLA)</Term> model is a robot policy built by adapting a vision-language model to output robot actions. The modules so far covered policies trained from scratch on robot data alone: [behavior cloning](/manipulation/bc-foundations), [ACT](/manipulation/action-chunking), and [Diffusion Policy](/manipulation/diffusion-policy). The VLA line changes the starting point. Instead of training a policy from nothing, take a model that already understands images and language from web-scale pretraining, and teach it to emit robot actions. The design question that defines this lineage is how to get actions out of a model whose output space is text."
+        }
+      ]
+    },
+    {
+      "name": "rl-sim2real/humanoid-wbc",
+      "before": {
+        "path": "content/rl-sim2real/humanoid-wbc.mdx",
+        "bytes": 15874,
+        "sha256": "bca13090e809c38806d47d93e322a5d5a3bb472af8df32b35973f407124eca7f"
+      },
+      "after": {
+        "path": "content/rl-sim2real/humanoid-wbc.mdx",
+        "bytes": 15997,
+        "sha256": "dd2b7a2e41463217a8170a852c7136f446ba581c4de4e1a20ec9176ff2edf217"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"rl-sim2real/legged-locomotion\"\n  - \"rl-sim2real/reward-design-mpc\"\n  - \"classical/kinematics\"\n",
+          "after": "seeAlso:\n  - \"manipulation/vla-models\"\n  - \"manipulation/hierarchical\"\n  - \"data-hardware/teleop-rigs\"\n"
+        },
+        {
+          "region": "body",
+          "before": "The previous module covered how learned policies took over legged locomotion. This one covers the harder problem those same groups attacked next: making a full humanoid, legs through torso through arms through hands, do useful work without falling. The organizing idea across nearly all of it is motion tracking. Treat <Term id=\"whole-body-control\">whole-body control</Term> as following a reference human motion, <Term id=\"retargeting\">retargeted</Term> onto the robot's kinematics, and use reinforcement learning to learn tracking under the robot's dynamics and hardware constraints. Retargeted human motion can be infeasible for the robot <Cite id=\"h2o-2024\" />. The human demonstration carries the intent; the policy solves balance, contact timing, and actuator limits.",
+          "after": "Humanoid whole-body control is treating every actuated joint of a humanoid, from legs to hands, as one coupled control problem. The previous module covered how learned policies took over legged locomotion. This one covers the harder problem those same groups attacked next: making a full humanoid, legs through torso through arms through hands, do useful work without falling. The organizing idea across nearly all of it is motion tracking. Treat <Term id=\"whole-body-control\">whole-body control</Term> as following a reference human motion, <Term id=\"retargeting\">retargeted</Term> onto the robot's kinematics, and use reinforcement learning to learn tracking under the robot's dynamics and hardware constraints. Retargeted human motion can be infeasible for the robot <Cite id=\"h2o-2024\" />. The human demonstration carries the intent; the policy solves balance, contact timing, and actuator limits."
+        }
+      ]
+    },
+    {
+      "name": "rl-sim2real/legged-locomotion",
+      "before": {
+        "path": "content/rl-sim2real/legged-locomotion.mdx",
+        "bytes": 15138,
+        "sha256": "d646ead47e43757b3bb2174ca7fd666c5a4aa64062bac05c080b88b2434de4af"
+      },
+      "after": {
+        "path": "content/rl-sim2real/legged-locomotion.mdx",
+        "bytes": 15135,
+        "sha256": "3cd90cc4a139468da3c77847bb43a359d251d5bd8a7d6243f012d5aca0bfe7fa"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"rl-sim2real/why-rl-locomotion\"\n  - \"rl-sim2real/humanoid-wbc\"\n  - \"rl-sim2real/sim2real-transfer\"\n",
+          "after": "seeAlso:\n  - \"classical/control\"\n  - \"rl-sim2real/parallel-sim-rl\"\n  - \"data-hardware/industrial-deployment\"\n"
+        },
+        {
+          "region": "body",
+          "before": "The previous modules built the machinery: massively parallel simulation that trains a walking policy in minutes, and the transfer techniques that get it onto hardware. This module follows its deployment. <Term id=\"legged-locomotion\">Legged locomotion</Term> is the domain where sim-to-real reinforcement learning became a shipping default, with an unusually well documented chain of results. Between 2019 and 2022, the ETH Zurich line around ANYmal took a quadruped from fragile lab behavior to blind alpine hiking, and every humanoid program since has tried to rerun the same recipe on two legs.",
+          "after": "<Term id=\"legged-locomotion\">Legged locomotion</Term> is the domain where sim-to-real reinforcement learning became a shipping default, with an unusually well documented chain of results. The previous modules built the machinery: massively parallel simulation that trains a walking policy in minutes, and the transfer techniques that get it onto hardware. This module follows its deployment. Between 2019 and 2022, the ETH Zurich line around ANYmal took a quadruped from fragile lab behavior to blind alpine hiking, and every humanoid program since has tried to rerun the same recipe on two legs."
+        }
+      ]
+    },
+    {
+      "name": "rl-sim2real/offline-rl",
+      "before": {
+        "path": "content/rl-sim2real/offline-rl.mdx",
+        "bytes": 12964,
+        "sha256": "3c589e6c6fc9891435c6887f28318a3d2040a37dc701ad3f65cc38ff7d8a0f21"
+      },
+      "after": {
+        "path": "content/rl-sim2real/offline-rl.mdx",
+        "bytes": 13016,
+        "sha256": "5e1a1940b76f903e4d5da3db53b9a90692430c6b517e45b88b9606acee58235a"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"rl-sim2real/rl-for-robotics\"\n  - \"manipulation/bc-foundations\"\n  - \"data-hardware/datasets\"\n  - \"manipulation/rl-finetuning\"\n",
+          "after": "seeAlso:\n  - \"world-models/model-based-robot-learning\"\n  - \"data-hardware/evaluation-crisis\"\n  - \"manipulation/pi-line\"\n"
+        },
+        {
+          "region": "body",
+          "before": "Offline reinforcement learning asks a useful but dangerous question: can a robot improve beyond the behavior in a fixed log without collecting another transition? The attraction is obvious when every rollout consumes hardware time. The danger is equally basic. A learned value function can assign high value to actions the dataset never tested, and there is no live environment to correct it.",
+          "after": "Offline reinforcement learning is training a robot policy from a fixed dataset of past experience. It asks a useful but dangerous question: can a robot improve beyond the behavior in a fixed log without collecting another transition? The attraction is obvious when every rollout consumes hardware time. The danger is equally basic. A learned value function can assign high value to actions the dataset never tested, and there is no live environment to correct it."
+        }
+      ]
+    },
+    {
+      "name": "rl-sim2real/parallel-sim-rl",
+      "before": {
+        "path": "content/rl-sim2real/parallel-sim-rl.mdx",
+        "bytes": 12933,
+        "sha256": "f311364a94dc11f6b1e98bc7ecf7ff80005d4148c8fc64b5beaab45ddb9984bf"
+      },
+      "after": {
+        "path": "content/rl-sim2real/parallel-sim-rl.mdx",
+        "bytes": 13095,
+        "sha256": "40f1c07065438009011492154dd36ff89629e8a3b22975a41e98ca826956f9d7"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"rl-sim2real/why-rl-locomotion\"\n  - \"rl-sim2real/sim2real-transfer\"\n  - \"rl-sim2real/reward-design-mpc\"\n",
+          "after": "seeAlso:\n  - \"world-models/world-models-vs-simulators\"\n  - \"rl-sim2real/legged-locomotion\"\n  - \"rl-sim2real/humanoid-wbc\"\n"
+        },
+        {
+          "region": "body",
+          "before": "The four-minute training run from the [previous module](/rl-sim2real/why-rl-locomotion) came from a change in infrastructure. <Term id=\"ppo\">PPO</Term> was already four years old when Rudin and colleagues used it to train ANYmal to walk in minutes <Cite id=\"rudin-2021\" />. Between 2021 and 2026, physics moved onto the GPU, environment counts went from dozens to tens of thousands, and the wall-clock cost of a walking policy collapsed by orders of magnitude. This module examines those throughput numbers and the remaining bottleneck.",
+          "after": "Massively parallel simulation is training a robot policy across thousands of simulated copies of its environment at once, with the physics running on a GPU. The four-minute training run from the [previous module](/rl-sim2real/why-rl-locomotion) came from a change in infrastructure. <Term id=\"ppo\">PPO</Term> was already four years old when Rudin and colleagues used it to train ANYmal to walk in minutes <Cite id=\"rudin-2021\" />. Between 2021 and 2026, physics moved onto the GPU, environment counts went from dozens to tens of thousands, and the wall-clock cost of a walking policy collapsed by orders of magnitude. This module examines those throughput numbers and the remaining bottleneck."
+        }
+      ]
+    },
+    {
+      "name": "rl-sim2real/reward-design-mpc",
+      "before": {
+        "path": "content/rl-sim2real/reward-design-mpc.mdx",
+        "bytes": 20037,
+        "sha256": "dbfaee9f08f18608e2853f2c6572bcb42fc13d3cb2e4f62e9add3f4452cafd13"
+      },
+      "after": {
+        "path": "content/rl-sim2real/reward-design-mpc.mdx",
+        "bytes": 20147,
+        "sha256": "1e46fed9f15766b841df09bea7af7b816dc2a11a69ed72c592aed73fc4a8a0ef"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"rl-sim2real/legged-locomotion\"\n  - \"rl-sim2real/humanoid-wbc\"\n  - \"rl-sim2real/parallel-sim-rl\"\n",
+          "after": "seeAlso:\n  - \"rl-sim2real/sim2real-transfer\"\n  - \"world-models/model-based-robot-learning\"\n  - \"manipulation/rl-finetuning\"\n"
+        },
+        {
+          "region": "body",
+          "before": "Every module so far in this domain assumed someone had already written the objective. The parallel-training module showed thousands of robots collecting reward in lockstep; the sim-to-real module showed how to make the resulting policy survive contact with hardware. This module is about where the reward comes from, and it closes with the argument the whole domain has been circling: whether you need a learned policy at all, when classical trajectory optimization keeps taking back ground.",
+          "after": "Reward design is writing the objective that a reinforcement learning policy learns to maximize. Every module so far in this domain assumed someone had already written the objective. The parallel-training module showed thousands of robots collecting reward in lockstep; the sim-to-real module showed how to make the resulting policy survive contact with hardware. This module is about where the reward comes from, and it closes with the argument the whole domain has been circling: whether you need a learned policy at all, when classical trajectory optimization keeps taking back ground."
+        }
+      ]
+    },
+    {
+      "name": "rl-sim2real/rl-for-robotics",
+      "before": {
+        "path": "content/rl-sim2real/rl-for-robotics.mdx",
+        "bytes": 21848,
+        "sha256": "52a506e8c6a43efe35ab5c10ac595296fe3b82f563d4fcf39667a23f21439b55"
+      },
+      "after": {
+        "path": "content/rl-sim2real/rl-for-robotics.mdx",
+        "bytes": 21862,
+        "sha256": "ef636a92877314c0bc21ca8bdf1cb1b97c7db224126f376180e68d7fae0b97cb"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"rl-sim2real/parallel-sim-rl\"\n  - \"manipulation/rl-finetuning\"\n  - \"manipulation/bc-foundations\"\n",
+          "after": "seeAlso:\n  - \"world-models/world-models-vs-simulators\"\n  - \"frontier/reliability-gap\"\n  - \"data-hardware/evaluation-crisis\"\n"
+        }
+      ]
+    },
+    {
+      "name": "rl-sim2real/sim2real-transfer",
+      "before": {
+        "path": "content/rl-sim2real/sim2real-transfer.mdx",
+        "bytes": 20184,
+        "sha256": "47ee34b59c1a6aec096d78cee228d2488ec71c3e871e951821f6be433191a72b"
+      },
+      "after": {
+        "path": "content/rl-sim2real/sim2real-transfer.mdx",
+        "bytes": 20258,
+        "sha256": "9f0ed8a08992d95aa83ba018721a0050beb932c01fd5b8be01282318ea966d9a"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"rl-sim2real/why-rl-locomotion\"\n  - \"rl-sim2real/legged-locomotion\"\n  - \"world-models/generative-sim\"\n",
+          "after": "seeAlso:\n  - \"classical/calibration\"\n  - \"classical/state-estimation\"\n  - \"frontier/dexterity\"\n"
+        },
+        {
+          "region": "body",
+          "before": "The [previous module](/rl-sim2real/parallel-sim-rl) ended with a policy that walks after minutes of GPU training. That policy is useless as trained: it has only ever seen one simulator, with one set of contact parameters, one actuator model, one rendering stack. The real robot differs from all of them in ways nobody can fully enumerate. Closing that difference is sim-to-real transfer, and it is where most of the engineering lives. The RL algorithm is usually the least interesting part of a successful sim-to-real system.",
+          "after": "Sim-to-real transfer is getting a policy trained in simulation to work on the physical robot. The [previous module](/rl-sim2real/parallel-sim-rl) ended with a policy that walks after minutes of GPU training. That policy is useless as trained: it has only ever seen one simulator, with one set of contact parameters, one actuator model, one rendering stack. The real robot differs from all of them in ways nobody can fully enumerate. Closing that difference is sim-to-real transfer, and it is where most of the engineering lives. The RL algorithm is usually the least interesting part of a successful sim-to-real system."
+        }
+      ]
+    },
+    {
+      "name": "rl-sim2real/why-rl-locomotion",
+      "before": {
+        "path": "content/rl-sim2real/why-rl-locomotion.mdx",
+        "bytes": 8243,
+        "sha256": "3c2f1fda2d95871d1030cf7d27e6fc97af016e79bf45ceea292548603f804abd"
+      },
+      "after": {
+        "path": "content/rl-sim2real/why-rl-locomotion.mdx",
+        "bytes": 8322,
+        "sha256": "2f01433c9734e3502e2f41d3ae8ed956cda5fc46c404145a5f4aaf40c51db273"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"rl-sim2real/parallel-sim-rl\"\n  - \"rl-sim2real/sim2real-transfer\"\n  - \"rl-sim2real/legged-locomotion\"\n  - \"classical/grasp-planning\"\n",
+          "after": "seeAlso:\n  - \"frontier/dexterity\"\n  - \"world-models/generative-sim\"\n  - \"manipulation/rl-finetuning\"\n"
+        },
+        {
+          "region": "body",
+          "before": "In 2021, Rudin and colleagues trained an ANYmal quadruped to walk on flat ground in under four minutes, and on uneven terrain in twenty minutes, on a single workstation GPU <Cite id=\"rudin-2021\" />. Policies trained this way are now the default production approach for quadruped locomotion and, increasingly, for bipedal humanoids. General manipulation went the other direction: the field's strongest systems are trained by imitation on real, teleoperated demonstrations. In 2026 there is still no manipulation equivalent of the four-minute walking run.",
+          "after": "Locomotion and manipulation are the two robot problems where reinforcement learning in simulation has had opposite results. In 2021, Rudin and colleagues trained an ANYmal quadruped to walk on flat ground in under four minutes, and on uneven terrain in twenty minutes, on a single workstation GPU <Cite id=\"rudin-2021\" />. Policies trained this way are now the default production approach for quadruped locomotion and, increasingly, for bipedal humanoids. General manipulation went the other direction: the field's strongest systems are trained by imitation on real, teleoperated demonstrations. In 2026 there is still no manipulation equivalent of the four-minute walking run."
+        }
+      ]
+    },
+    {
+      "name": "world-models/evaluation",
+      "before": {
+        "path": "content/world-models/evaluation.mdx",
+        "bytes": 10185,
+        "sha256": "1214cc390f12d4aa2dc6a7695da5c66652ba083fd189ae1f86e99133d63ae8ca"
+      },
+      "after": {
+        "path": "content/world-models/evaluation.mdx",
+        "bytes": 10140,
+        "sha256": "b7c3db7ad877343dc94a6281c33698e3f8ede585c79e31f91285ca3d7efb10a2"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"world-models/taxonomy\"\n  - \"world-models/generative-video\"\n  - \"data-hardware/evaluation-crisis\"\n  - \"world-models/world-models-vs-simulators\"\n",
+          "after": "seeAlso:\n  - \"frontier/safety-and-assurance\"\n  - \"manipulation/generalist-policies\"\n  - \"world-models/generative-sim\"\n"
+        },
+        {
+          "region": "body",
+          "before": "A robotics <Term id=\"world-model\">world model</Term> is not graded by how convincing one rollout looks. It is graded by whether its errors preserve the decisions a robot must make. That requires a ladder of tests, from one-step counterfactuals to agreement with real policy rankings. Image metrics can diagnose rendering quality; they cannot establish control utility.",
+          "after": "Evaluating a robotics <Term id=\"world-model\">world model</Term> is checking whether its errors preserve the decisions a robot must make, however convincing one rollout looks. That requires a ladder of tests, from one-step counterfactuals to agreement with real policy rankings. Image metrics can diagnose rendering quality; they cannot establish control utility."
+        }
+      ]
+    },
+    {
+      "name": "world-models/generative-sim",
+      "before": {
+        "path": "content/world-models/generative-sim.mdx",
+        "bytes": 13933,
+        "sha256": "a8aee25a35f4f5d7768cd9b6e0555a4e89c49d7f50adb730616bc5f5d0120854"
+      },
+      "after": {
+        "path": "content/world-models/generative-sim.mdx",
+        "bytes": 14023,
+        "sha256": "6fa6af6a4f5ba3a913a19d86516eb4e334582ff26a63e09927ddbed143ccdb93"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"world-models/generative-video\"\n  - \"rl-sim2real/sim2real-transfer\"\n  - \"world-models/world-models-vs-simulators\"\n  - \"world-models/evaluation\"\n",
+          "after": "seeAlso:\n  - \"rl-sim2real/parallel-sim-rl\"\n  - \"data-hardware/data-bottleneck\"\n  - \"classical/scene-representation\"\n"
+        },
+        {
+          "region": "body",
+          "before": "The previous three modules covered learned models that predict the future: in a latent space, in pixels, or in an embedding. This module is about a different division of labor. Instead of asking a generative model to *be* the simulator, ask it to *author* the simulator: the tasks, the scenes, the assets, the reward functions. The dynamics are left where they have always been, in a physics engine. Recall the two boundary verdicts from the [taxonomy](/world-models/taxonomy): a physics engine is a <Term id=\"world-model\">world model</Term>, just not a learned one, and a 3D Gaussian Splatting twin is not a world model, because it is a learned renderer bolted onto an engine's dynamics. Generative simulation takes that observation seriously. It keeps the engine and generates everything around it.",
+          "after": "Generative simulation is the use of generative models to author a simulator's content while the dynamics stay in a physics engine. The previous three modules covered learned models that predict the future: in a latent space, in pixels, or in an embedding. This module is about a different division of labor. Instead of asking a generative model to *be* the simulator, ask it to *author* the simulator: the tasks, the scenes, the assets, the reward functions. The dynamics are left where they have always been, in a physics engine. Recall the two boundary verdicts from the [taxonomy](/world-models/taxonomy): a physics engine is a <Term id=\"world-model\">world model</Term>, just not a learned one, and a 3D Gaussian Splatting twin is not a world model, because it is a learned renderer bolted onto an engine's dynamics. Generative simulation takes that observation seriously. It keeps the engine and generates everything around it."
+        }
+      ]
+    },
+    {
+      "name": "world-models/generative-video",
+      "before": {
+        "path": "content/world-models/generative-video.mdx",
+        "bytes": 15773,
+        "sha256": "e7fd0add75b16d57a2e1a09dc1a0c5a073b15c44c1bbb8468fc31a4c149016df"
+      },
+      "after": {
+        "path": "content/world-models/generative-video.mdx",
+        "bytes": 15759,
+        "sha256": "fa571fc833b9744745a7c4ed0555b2f5ad17e239084d496e06ea485d2a34dbcb"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"world-models/taxonomy\"\n  - \"world-models/generative-sim\"\n  - \"world-models/evaluation\"\n  - \"world-models/world-models-vs-simulators\"\n",
+          "after": "seeAlso:\n  - \"world-models/jepa\"\n  - \"manipulation/vla-models\"\n  - \"data-hardware/evaluation-crisis\"\n"
+        },
+        {
+          "region": "body",
+          "before": "The third paradigm in the [taxonomy](/world-models/taxonomy) is the one with the money and the attention: predict future pixels given the current frame and an action or a text prompt, then use the generator as a stand-in for the environment. A model that does this well is a learned simulator you can query with candidate actions, which is why the same systems show up under four different agendas: generating training data, evaluating policies, running RL post-training, and powering interactive worlds.",
+          "after": "Generative video world models are the third paradigm in the [taxonomy](/world-models/taxonomy), the one with the money and the attention: predict future pixels given the current frame and an action or a text prompt, then use the generator as a stand-in for the environment. A model that does this well is a learned simulator you can query with candidate actions, which is why the same systems show up under four different agendas: generating training data, evaluating policies, running RL post-training, and powering interactive worlds."
+        }
+      ]
+    },
+    {
+      "name": "world-models/jepa",
+      "before": {
+        "path": "content/world-models/jepa.mdx",
+        "bytes": 13758,
+        "sha256": "3fbec61b507c1e066e2f1fb92cad1ce6dfb544218c9097d42954836f70424efa"
+      },
+      "after": {
+        "path": "content/world-models/jepa.mdx",
+        "bytes": 13699,
+        "sha256": "d44ac7e5d063017f0de78b266e082c4d6f5d8b061c709cd0955285936b8e553f"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"world-models/taxonomy\"\n  - \"world-models/latent-dynamics\"\n  - \"world-models/model-based-robot-learning\"\n  - \"world-models/evaluation\"\n",
+          "after": "seeAlso:\n  - \"adjacent/drones\"\n  - \"manipulation/vla-models\"\n  - \"classical/perception\"\n"
+        },
+        {
+          "region": "body",
+          "before": "The fourth paradigm in the [taxonomy](/world-models/taxonomy) rejects the premise of the previous one. Instead of predicting future pixels, predict the *representation* of the future: train an encoder and a predictor jointly so that the predictor, given the current embedding and an action, matches the embedding a target encoder produces on the true future. The core representation and action-conditioned predictor objectives do not reconstruct pixels, and control planning compares feature maps. V-JEPA 2 separately trains an interpretability decoder in its appendix <Cite id=\"vjepa2-2025\" />. This is the Joint-Embedding Predictive Architecture, JEPA, and it is the principal architectural alternative to generative <Term id=\"world-model\">world models</Term>. It is also a position with an institution behind it: Yann LeCun's AMI Labs.",
+          "after": "The Joint-Embedding Predictive Architecture (JEPA) is the fourth paradigm in the [taxonomy](/world-models/taxonomy), and it rejects the premise of the previous one. Instead of predicting future pixels, predict the *representation* of the future: train an encoder and a predictor jointly so that the predictor, given the current embedding and an action, matches the embedding a target encoder produces on the true future. The core representation and action-conditioned predictor objectives do not reconstruct pixels, and control planning compares feature maps. V-JEPA 2 separately trains an interpretability decoder in its appendix <Cite id=\"vjepa2-2025\" />. JEPA is the principal architectural alternative to generative <Term id=\"world-model\">world models</Term>. It is also a position with an institution behind it: Yann LeCun's AMI Labs."
+        }
+      ]
+    },
+    {
+      "name": "world-models/latent-dynamics",
+      "before": {
+        "path": "content/world-models/latent-dynamics.mdx",
+        "bytes": 12811,
+        "sha256": "96f48ba95bb2fe390500ecb49633511e2ecbf3df71156ebba69fe94ee5048488"
+      },
+      "after": {
+        "path": "content/world-models/latent-dynamics.mdx",
+        "bytes": 12789,
+        "sha256": "4618f02004dfb7a26c5f818c6aa0bd2295ffd519612f0b81f51b7a1d57971737"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"world-models/taxonomy\"\n  - \"world-models/model-based-robot-learning\"\n  - \"world-models/evaluation\"\n  - \"world-models/jepa\"\n",
+          "after": "seeAlso:\n  - \"rl-sim2real/rl-for-robotics\"\n  - \"rl-sim2real/legged-locomotion\"\n  - \"world-models/generative-video\"\n"
+        },
+        {
+          "region": "body",
+          "before": "Of the six paradigms the [taxonomy module](/world-models/taxonomy) separates, <Term id=\"latent-dynamics\">latent dynamics</Term> is the oldest and the only one with a decade of evidence that it improves sample efficiency on control. The model learns a compact recurrent latent state, predicts how that state and the reward evolve under the agent's actions, and does learning or planning inside that imagination before another real interaction. Whether to decode observations and whether to train an actor or search with a planner are separate design choices.",
+          "after": "<Term id=\"latent-dynamics\">Latent dynamics</Term> is the oldest of the six paradigms the [taxonomy module](/world-models/taxonomy) separates, and the only one with a decade of evidence that it improves sample efficiency on control. The model learns a compact recurrent latent state, predicts how that state and the reward evolve under the agent's actions, and does learning or planning inside that imagination before another real interaction. Whether to decode observations and whether to train an actor or search with a planner are separate design choices."
+        }
+      ]
+    },
+    {
+      "name": "world-models/model-based-robot-learning",
+      "before": {
+        "path": "content/world-models/model-based-robot-learning.mdx",
+        "bytes": 10239,
+        "sha256": "a6d86f8d1eed30671656ce5de4c0f3068de3f2137a934deac5b50a82844aed6f"
+      },
+      "after": {
+        "path": "content/world-models/model-based-robot-learning.mdx",
+        "bytes": 10246,
+        "sha256": "c7ede3855da3723d8904db828a56bf2cb203683f7a49188d0b4f8263355d9580"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"world-models/latent-dynamics\"\n  - \"classical/control\"\n  - \"rl-sim2real/rl-for-robotics\"\n  - \"world-models/evaluation\"\n",
+          "after": "seeAlso:\n  - \"rl-sim2real/reward-design-mpc\"\n  - \"rl-sim2real/offline-rl\"\n  - \"world-models/generative-video\"\n"
+        },
+        {
+          "region": "body",
+          "before": "Model-based robot learning inserts a predictive model between experience and action. The system learns how relevant parts of the world change under candidate actions alongside a policy or value function. It can then plan through that model, train a policy on imagined rollouts, or use prediction as an auxiliary objective.",
+          "after": "Model-based robot learning is the family of methods that insert a predictive model between experience and action. The system learns how relevant parts of the world change under candidate actions alongside a policy or value function. It can then plan through that model, train a policy on imagined rollouts, or use prediction as an auxiliary objective."
+        }
+      ]
+    },
+    {
+      "name": "world-models/taxonomy",
+      "before": {
+        "path": "content/world-models/taxonomy.mdx",
+        "bytes": 14625,
+        "sha256": "5001d094d742e151f4226a370f945a6629633b213b5497ab42dbcf80d7d511c0"
+      },
+      "after": {
+        "path": "content/world-models/taxonomy.mdx",
+        "bytes": 14582,
+        "sha256": "1e7d97223bc4a37a91004149f224102d11caccb1a7bfce472d7f8c02ac312372"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"world-models/model-based-robot-learning\"\n  - \"world-models/evaluation\"\n  - \"world-models/world-models-vs-simulators\"\n  - \"classical/scene-representation\"\n",
+          "after": "seeAlso:\n  - \"world-models/generative-video\"\n  - \"world-models/generative-sim\"\n  - \"manipulation/vla-models\"\n"
+        },
+        {
+          "region": "body",
+          "before": "A <Term id=\"world-model\">world model</Term> predicts how an environment evolves in a form useful for a robot's decisions. Hou and colleagues' 2026 survey uses this functional definition for visual, <Term id=\"latent-dynamics\">latent</Term>, structured, and symbolic predictions across architectures. <span className=\"block\" data-taxonomy-source-placement=\"line-start\"><Cite id=\"world-model-survey-2026\" /></span>",
+          "after": "A <Term id=\"world-model\">world model</Term> is a model that predicts how an environment evolves in a form useful for a robot's decisions. Hou and colleagues' 2026 survey uses this functional definition for visual, <Term id=\"latent-dynamics\">latent</Term>, structured, and symbolic predictions across architectures. <span className=\"block\" data-taxonomy-source-placement=\"line-start\"><Cite id=\"world-model-survey-2026\" /></span>"
+        }
+      ]
+    },
+    {
+      "name": "world-models/world-models-vs-simulators",
+      "before": {
+        "path": "content/world-models/world-models-vs-simulators.mdx",
+        "bytes": 13465,
+        "sha256": "bf91563fcfa0426f5c8905c0eb86542b971a772dfd92ed6f562b6b6a9d733209"
+      },
+      "after": {
+        "path": "content/world-models/world-models-vs-simulators.mdx",
+        "bytes": 13456,
+        "sha256": "b61116cee9c002b5db120f7ef10b03120b9bcc2da5f4f56dc2aa74bf5593fdbb"
+      },
+      "edits": [
+        {
+          "region": "see-also",
+          "before": "seeAlso:\n  - \"world-models/model-based-robot-learning\"\n  - \"world-models/generative-sim\"\n  - \"rl-sim2real/sim2real-transfer\"\n  - \"world-models/evaluation\"\n",
+          "after": "seeAlso:\n  - \"rl-sim2real/parallel-sim-rl\"\n  - \"world-models/latent-dynamics\"\n  - \"classical/control\"\n"
+        },
+        {
+          "region": "body",
+          "before": "A physics simulator predicts the next state from explicit geometry, dynamics and contact rules. A learned <Term id=\"world-model\">world model</Term> predicts from data. Both are models of what happens under an action; neither is automatically faithful to the real robot. The practical choice is which errors are measurable, which counterfactuals must be queried, and how far beyond the training distribution the system will operate.",
+          "after": "Learned <Term id=\"world-model\">world models</Term> and physics simulators are both models of what happens under an action. A physics simulator predicts the next state from explicit geometry, dynamics and contact rules. A learned world model predicts from data. Neither is automatically faithful to the real robot. The practical choice is which errors are measurable, which counterfactuals must be queried, and how far beyond the training distribution the system will operate."
+        }
+      ]
+    }
+  ]
+}

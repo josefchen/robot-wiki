@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "fingerprint": "01a58231830b5e914095f049d5443b9355615d68490993b64b1a6fa6c6054e03",
+  "fingerprint": "c2b5474be1b57546cc37c4d8369a56c535433f4568d7476619ba36b476aec22d",
   "viewport": "1440x900",
   "surfaces": [
     {
       "route": "/",
-      "visibleTextLength": 4006,
+      "visibleTextLength": 4148,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Robot Wiki",
@@ -288,7 +288,7 @@
     },
     {
       "route": "/glossary/",
-      "visibleTextLength": 81847,
+      "visibleTextLength": 179622,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Glossary",
@@ -323,7 +323,7 @@
     },
     {
       "route": "/credits/",
-      "visibleTextLength": 20542,
+      "visibleTextLength": 20914,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Credits",

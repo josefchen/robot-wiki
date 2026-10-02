@@ -51,16 +51,16 @@ test.describe('data-hardware teleop-rigs module', () => {
     await page.goto(ROUTE);
     const main = page.locator('#main-content');
     await expect(
-      main.getByRole('link', { name: 'Zhao 2023' }).first(),
+      main.getByRole('link', { name: 'Zhao et al. 2023' }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2304.13705');
     await expect(
-      main.getByRole('link', { name: 'Wu 2023' }).first(),
+      main.getByRole('link', { name: 'Wu et al. 2023' }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2309.13037');
     await expect(
-      main.getByRole('link', { name: 'Chi 2024' }).first(),
+      main.getByRole('link', { name: 'Chi et al. 2024' }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2402.10329');
     await expect(
-      main.getByRole('link', { name: 'Khazatsky 2024' }).first(),
+      main.getByRole('link', { name: 'Khazatsky et al. 2024' }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2403.12945');
     // Every chip is a real external link, never a dead anchor.
     // Scoped to the authored prose: the generated References bibliography

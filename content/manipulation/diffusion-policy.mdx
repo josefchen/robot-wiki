@@ -17,15 +17,15 @@ citations:
   - pi0-2024
   - real-time-chunking-2025
 seeAlso:
-  - "manipulation/action-chunking"
-  - "manipulation/pi-line"
-  - "manipulation/vla-models"
+  - "data-hardware/teleop-rigs"
+  - "manipulation/realtime-execution"
+  - "world-models/generative-video"
 ---
 
 import { DiffusionDenoising } from '@/components/motion/scenes/diffusion-denoising';
 import { RecedingHorizon } from '@/components/interactive/receding-horizon';
 
-Human demonstrations are multimodal: faced with an obstacle, one operator goes left, another goes right, and both are correct. A policy trained with mean-squared error on that data learns the average of the modes, and the average of "left" and "right" is "straight into the obstacle." <Term id="diffusion-policy">Diffusion Policy</Term>, introduced by Chi et al. in 2023, sidesteps the averaging problem by changing what the policy outputs: a conditional denoising process over a whole action sequence instead of a single action <Cite id="diffusion-policy-2023" />. The extended journal version describes a 15-task evaluation. It reports a 46.9% average relative improvement for its simulation comparisons; the paper's baseline selection takes the strongest baseline and diffusion backbone per reported column and excludes multi-human results <Cite id="diffusion-policy-2023" />.
+<Term id="diffusion-policy">Diffusion Policy</Term> is a visuomotor robot policy that generates its actions with a diffusion model. Human demonstrations are multimodal: faced with an obstacle, one operator goes left, another goes right, and both are correct. A policy trained with mean-squared error on that data learns the average of the modes, and the average of "left" and "right" is "straight into the obstacle." Diffusion Policy, introduced by Chi et al. in 2023, sidesteps the averaging problem by changing what the policy outputs: a conditional denoising process over a whole action sequence instead of a single action <Cite id="diffusion-policy-2023" />. The extended journal version describes a 15-task evaluation. It reports a 46.9% average relative improvement for its simulation comparisons; the paper's baseline selection takes the strongest baseline and diffusion backbone per reported column and excludes multi-human results <Cite id="diffusion-policy-2023" />.
 
 ## Receding-horizon control
 

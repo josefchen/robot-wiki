@@ -62,7 +62,7 @@ test.describe('data-hardware industrial-deployment module', () => {
     }
     // Links to the reliability-gap module's dashboard, and does not
     // restate its rows (no DeploymentDashboard mount here).
-    const link = main.locator('a[href="/frontier/reliability-gap"]').first();
+    const link = main.locator('a[href="/frontier/reliability-gap/"]').first();
     await expect(link).toBeVisible();
     await expect(page.locator('[data-testid="deployment-dashboard"]')).toHaveCount(0);
   });
@@ -252,7 +252,7 @@ test.describe('data-hardware industrial-deployment module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
-    for (const href of ['/frontier/reliability-gap', '/market-map']) {
+    for (const href of ['/frontier/reliability-gap/', '/market-map/']) {
       const link = page.locator(`#main-content a[href="${href}"]`).first();
       await expect(link).toBeVisible();
       const hrefText = await link.getAttribute('href');

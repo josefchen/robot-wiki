@@ -440,17 +440,16 @@ test.describe('classical scene-representation module', () => {
     expect(seeAlsoCount).toBeGreaterThanOrEqual(2);
     expect(seeAlsoCount).toBeLessThanOrEqual(4);
 
-    // The inbound edge added at publish time.
+    // An inbound edge from a sibling's prose link.
     const linkedFrom = page.locator('section[data-section="linked-from"]');
     await expect(linkedFrom).toBeVisible();
     expect(await linkedFrom.getByRole('link').count()).toBeGreaterThanOrEqual(1);
     // Named by its registry title rather than its slug: the backlink renders
-    // the article's title, and world-models/taxonomy is titled for the
-    // question it answers.
+    // the article's title.
     const inbound = publishedModules().find(
-      (m) => m.domain === 'world-models' && m.slug === 'taxonomy',
+      (m) => m.domain === 'classical' && m.slug === 'state-estimation',
     );
-    expect(inbound, 'world-models/taxonomy is published').toBeDefined();
+    expect(inbound, 'classical/state-estimation is published').toBeDefined();
     await expect(
       linkedFrom.getByRole('link', { name: inbound!.title }),
     ).toBeVisible();

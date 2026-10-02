@@ -99,20 +99,20 @@ test.describe('data-hardware evaluation-crisis module', () => {
     const main = page.locator('#main-content');
     // The three headline sources named in the module brief.
     await expect(
-      main.getByRole('link', { name: 'TRI LBM Team 2025' }).first(),
+      main.getByRole('link', { name: 'TRI LBM Team et al. 2025' }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2507.05331');
     await expect(
-      main.getByRole('link', { name: 'Li 2024' }).first(),
+      main.getByRole('link', { name: 'Li et al. 2024' }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2405.05941');
     await expect(
-      main.getByRole('link', { name: 'Atreya 2025' }).first(),
+      main.getByRole('link', { name: 'Atreya et al. 2025' }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2506.18123');
     // Supporting sources: sequential testing, LIBERO-Plus, optimal stopping.
     await expect(
-      main.getByRole('link', { name: 'Snyder 2025' }).first(),
+      main.getByRole('link', { name: 'Snyder et al. 2025' }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2503.10966');
     await expect(
-      main.getByRole('link', { name: 'Fei 2025' }).first(),
+      main.getByRole('link', { name: 'Fei et al. 2025' }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2510.13626');
     // Every chip is a real external link, never a dead anchor.
     // Scoped to the authored prose: the generated References bibliography

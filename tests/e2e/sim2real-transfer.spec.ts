@@ -46,13 +46,13 @@ test.describe('sim2real-transfer module', () => {
     await page.goto(ROUTE);
     const main = page.locator('#main-content');
     await expect(
-      main.getByRole('link', { name: /Lee 2020/ }).first(),
+      main.getByRole('link', { name: /Lee et al\. 2020/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2010.11251');
     await expect(
-      main.getByRole('link', { name: /Kumar 2021/ }).first(),
+      main.getByRole('link', { name: /Kumar et al\. 2021/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2107.04034');
     await expect(
-      main.getByRole('link', { name: /He 2025/ }).first(),
+      main.getByRole('link', { name: /He et al\. 2025/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2502.01143');
     // Scoped to the authored prose: the generated References bibliography
     // also renders external links inside main, and with every inline chip deleted its 12 registry anchors alone still passed this floor.

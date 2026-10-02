@@ -17,13 +17,12 @@ citations:
   - robomimic-2021
   - rlpd-2023
 seeAlso:
-  - "rl-sim2real/rl-for-robotics"
-  - "manipulation/bc-foundations"
-  - "data-hardware/datasets"
-  - "manipulation/rl-finetuning"
+  - "world-models/model-based-robot-learning"
+  - "data-hardware/evaluation-crisis"
+  - "manipulation/pi-line"
 ---
 
-Offline reinforcement learning asks a useful but dangerous question: can a robot improve beyond the behavior in a fixed log without collecting another transition? The attraction is obvious when every rollout consumes hardware time. The danger is equally basic. A learned value function can assign high value to actions the dataset never tested, and there is no live environment to correct it.
+Offline reinforcement learning is training a robot policy from a fixed dataset of past experience. It asks a useful but dangerous question: can a robot improve beyond the behavior in a fixed log without collecting another transition? The attraction is obvious when every rollout consumes hardware time. The danger is equally basic. A learned value function can assign high value to actions the dataset never tested, and there is no live environment to correct it.
 
 The right starting point is therefore not an algorithm. It is an evidence audit: what behavior is covered, which outcomes are labelled, and whether improvement requires choosing actions outside that support.
 

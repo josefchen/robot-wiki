@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { PUBLIC_IDENTITY } from '@/lib/identity';
 import { routeTwitter, siteOgImage } from '@/lib/og-cards';
+import { webPageJsonLd } from '@/lib/structured-data';
 
 const title = 'Page not found';
 
@@ -37,6 +38,12 @@ export default function NotFound() {
       data-pagefind-ignore
       className="mx-auto flex min-h-[70dvh] w-full max-w-3xl flex-col justify-center px-6 py-12"
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: webPageJsonLd({ path: '/404/', name: title }),
+        }}
+      />
       {/* The status numeral is editorial wayfinding rather than a data
           readout, so it takes the display numeral role (design-system
           4.2) instead of the mono data face. */}

@@ -66,19 +66,19 @@ test.describe('data-hardware data-bottleneck module', () => {
     await page.goto(ROUTE);
     const main = page.locator('#main-content');
     await expect(
-      main.getByRole('link', { name: /Brown 2020/ }).first(),
+      main.getByRole('link', { name: /Brown et al\. 2020/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2005.14165');
     await expect(
       main.getByRole('link', { name: /Meta AI 2024/ }).first(),
     ).toHaveAttribute('href', 'https://ai.meta.com/blog/meta-llama-3/');
     await expect(
-      main.getByRole('link', { name: /Lin 2024/ }).first(),
+      main.getByRole('link', { name: /Lin et al\. 2024/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2410.18647');
     await expect(
-      main.getByRole('link', { name: /Shi 2025/ }).first(),
+      main.getByRole('link', { name: /Shi et al\. 2025/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2507.06219');
     await expect(
-      main.getByRole('link', { name: /Zheng 2026/ }).first(),
+      main.getByRole('link', { name: /Zheng et al\. 2026/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2602.16710');
     // Scoped to the authored prose: the generated References bibliography
     // also renders external links inside main, and with every inline chip

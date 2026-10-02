@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "b7aac823019dda813e7917369c14d5c5aeb042213f0debbf935f77e3a907cb0f",
+  "fingerprint": "524ac51eed46d8643e99c72e5618cfc2559e0e4973211430f4ee65ab3b2000b3",
   "viewports": [
     "375x812",
     "1440x900"
@@ -17,7 +17,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 14793,
+      "visibleTextLength": 14309,
       "figures": [
         {
           "imageId": "puma-560-nasa-ames",
@@ -4983,7 +4983,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 26624,
+      "visibleTextLength": 26540,
       "figures": [
         {
           "imageId": "franka-emika-panda-cebit-2017",
@@ -5076,7 +5076,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 22677,
+      "visibleTextLength": 22524,
       "figures": [
         {
           "imageId": "temporal-ensembling",
@@ -5123,7 +5123,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 12370,
+      "visibleTextLength": 12174,
       "figures": [
         {
           "imageId": "covariate-shift",
@@ -5170,7 +5170,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 18315,
+      "visibleTextLength": 18412,
       "figures": [
         {
           "imageId": "anymal-anybotics-2022",
@@ -5221,7 +5221,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 15214,
+      "visibleTextLength": 14730,
       "figures": [
         {
           "imageId": "puma-560-nasa-ames",
@@ -10187,7 +10187,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 27003,
+      "visibleTextLength": 26919,
       "figures": [
         {
           "imageId": "franka-emika-panda-cebit-2017",
@@ -10280,7 +10280,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 23304,
+      "visibleTextLength": 23151,
       "figures": [
         {
           "imageId": "temporal-ensembling",
@@ -10327,7 +10327,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 12997,
+      "visibleTextLength": 12801,
       "figures": [
         {
           "imageId": "covariate-shift",
@@ -10374,7 +10374,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 18790,
+      "visibleTextLength": 18887,
       "figures": [
         {
           "imageId": "anymal-anybotics-2022",

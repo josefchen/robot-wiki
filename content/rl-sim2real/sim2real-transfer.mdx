@@ -20,15 +20,15 @@ citations:
   - reality-gap-survey-2026
   - newton-manipulation-blog-2026
 seeAlso:
-  - "rl-sim2real/why-rl-locomotion"
-  - "rl-sim2real/legged-locomotion"
-  - "world-models/generative-sim"
+  - "classical/calibration"
+  - "classical/state-estimation"
+  - "frontier/dexterity"
 ---
 
 import { FrictionTransfer } from '@/components/interactive/friction-transfer';
 import { TeacherStudent } from '@/components/interactive/teacher-student';
 
-The [previous module](/rl-sim2real/parallel-sim-rl) ended with a policy that walks after minutes of GPU training. That policy is useless as trained: it has only ever seen one simulator, with one set of contact parameters, one actuator model, one rendering stack. The real robot differs from all of them in ways nobody can fully enumerate. Closing that difference is sim-to-real transfer, and it is where most of the engineering lives. The RL algorithm is usually the least interesting part of a successful sim-to-real system.
+Sim-to-real transfer is getting a policy trained in simulation to work on the physical robot. The [previous module](/rl-sim2real/parallel-sim-rl) ended with a policy that walks after minutes of GPU training. That policy is useless as trained: it has only ever seen one simulator, with one set of contact parameters, one actuator model, one rendering stack. The real robot differs from all of them in ways nobody can fully enumerate. Closing that difference is sim-to-real transfer, and it is where most of the engineering lives. The RL algorithm is usually the least interesting part of a successful sim-to-real system.
 
 Four method families do the work. <Term id="domain-randomization">Domain randomization</Term> trains over a distribution of simulators so the real world reads as one more sample. <Term id="teacher-student-distillation">Teacher-student distillation</Term> trains on privileged simulator state, then compresses that knowledge into a policy that sees only what the robot sees. <Term id="system-identification">System identification</Term> measures the dynamics gap and corrects the model directly. Real-to-sim reconstruction rebuilds the deployment scene inside the simulator so the visual gap shrinks to rendering error. The 2026 reality-gap survey organizes the field into nearly these same buckets, adding sim-real co-training and state/action abstraction as cross-cutting levers <Cite id="reality-gap-survey-2026" />.
 

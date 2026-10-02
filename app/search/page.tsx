@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import { SearchInterface } from '@/components/search/search-interface';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
+import { webPageJsonLd } from '@/lib/structured-data';
 import {
   STANDALONE_SEO_DESCRIPTIONS,
 } from '@/lib/seo';
@@ -36,6 +37,17 @@ export const metadata: Metadata = {
 export default function SearchPage() {
   return (
     <div data-pagefind-ignore className="mx-auto w-full max-w-3xl px-6 py-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: webPageJsonLd({
+            path: '/search/',
+            name: title,
+            description: STANDALONE_SEO_DESCRIPTIONS.search,
+            type: 'SearchResultsPage',
+          }),
+        }}
+      />
       {/* No aria-current: the shell reaches /search through a form, not a
           nav link, and a route with no corresponding navigation item exposes
           none rather than moving the state onto a heading to keep a count. */}

@@ -166,7 +166,7 @@ export function SearchInterface({
     const token = seq.begin();
     const timer = setTimeout(() => {
       setLastPushed(trimmed);
-      router.replace(`/search?q=${encodeURIComponent(trimmed)}`, {
+      router.replace(`/search/?q=${encodeURIComponent(trimmed)}`, {
         scroll: false,
       });
       void (async () => {
@@ -210,7 +210,7 @@ export function SearchInterface({
     setQuery('');
     setLastPushed('');
     setFacetType('all');
-    router.replace('/search', { scroll: false });
+    router.replace('/search/', { scroll: false });
   }
 
   function onQueryChange(event: ChangeEvent<HTMLInputElement>) {

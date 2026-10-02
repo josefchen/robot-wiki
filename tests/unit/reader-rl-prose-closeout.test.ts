@@ -10,6 +10,7 @@ import {
 } from '@/lib/brand-v2-baseline';
 import { preservedApprovalPacket, committedSource } from '../helpers/continuation-integration';
 import { readerTruthAt } from '../helpers/reader-integration';
+import { preSeoPassText } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
 const base = '280d8661a49feb16e45ef337e7cb46a794211004';
@@ -179,7 +180,9 @@ describe('bounded RL reader prose closeout, zero original completions', () => {
 
   it('preserves scoped metadata, fallback wrappers and citation coverage', () => {
     for (const path of paths) {
-      const data = matter(read(path)).data;
+      // The 2026-10-02 SEO pass replaced only the related links.
+      const data = matter(preSeoPassText(path)).data;
+      expect({ ...matter(read(path)).data, seeAlso: undefined }).toEqual({ ...data, seeAlso: undefined });
       const beforeData = matter(before(path)).data;
       if (path === paths[0]) {
         // The EXPO-FT intake updated the description and appended five

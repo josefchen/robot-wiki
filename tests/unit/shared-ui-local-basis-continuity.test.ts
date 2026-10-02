@@ -9,6 +9,7 @@ import {
   retainedCommitToRevealSource,
   sharedUiCheckerPredecessor,
 } from '../../lib/audit-shared-ui-local-basis-continuity.ts';
+import { preSeoPass, preSeoPassText } from '../helpers/seo-pass.ts';
 
 const root = resolve(import.meta.dirname, '../..');
 const sourcePath = 'components/article/commit-to-reveal.tsx';
@@ -33,8 +34,8 @@ function copied(paths: readonly string[]) {
   return destination;
 }
 
-it('pins the live commit-to-reveal bytes and still returns the catalog predecessor', () => {
-  const live = read(sourcePath);
+it('pins the pre-SEO-pass commit-to-reveal bytes and still returns the catalog predecessor', () => {
+  const live = preSeoPass(sourcePath);
   expect(live.length).toBe(current.bytes);
   expect(createHash('sha256').update(live).digest('hex')).toBe(current.sha256);
   const retained = createLocalArtifactReader(root)(predecessor);
@@ -42,6 +43,26 @@ it('pins the live commit-to-reveal bytes and still returns the catalog predecess
   expect(createHash('sha256').update(retained).digest('hex')).toBe(predecessor.sha256);
   expect(retained).toEqual(read(`${directory}commit-to-reveal-before.tsx.txt`));
   expect(retainedCommitToRevealSource(root, live)).toEqual(retained);
+});
+
+it('reaches the live primitive from those bytes only through the SEO-pass citation-label edits', () => {
+  const live = read(sourcePath);
+  expect(live.length).toBe(13176);
+  expect(createHash('sha256').update(live).digest('hex'))
+    .toBe('cd996c964173cca0529068624d827b94f9f57f0227a866a3ab413cf8db24da5f');
+  const labelled = preSeoPassText(sourcePath)
+    .replace('  cite?: string;\n', [
+      '  cite?: string;',
+      '  /**',
+      "   * The chip text for `cite`: the registry's author-year label, which",
+      '   * lib/rehype-reveal-cite-labels.mjs writes in at compile time because this',
+      '   * client module does not load the citation registry. Falls back to the id.',
+      '   */',
+      '  citeLabel?: string;',
+      '',
+    ].join('\n'))
+    .replace('{option.cite}\n', '{option.citeLabel ?? option.cite}\n');
+  expect(labelled).toBe(live.toString());
 });
 
 it('keeps the article-truth checker reachable through the named reader branch', () => {
@@ -58,7 +79,7 @@ it('keeps the article-truth checker reachable through the named reader branch', 
 
 it.each(['wrong-leading-edge', 'wrong-trailing-edge'] as const)(
   'rejects a %s commit-to-reveal edit', edge => {
-    const live = read(sourcePath).toString();
+    const live = preSeoPassText(sourcePath);
     const wrong = edge === 'wrong-leading-edge'
       ? live.replace('useLayoutEffect', 'useEffect')
       : live.replace('ref={detailsRef}', 'ref={detailRef}');
@@ -74,7 +95,7 @@ it.each(['missing-review', 'missing-predecessor', 'corrupt-predecessor', 'review
   const predecessorPath = `${directory}commit-to-reveal-before.tsx.txt`;
   const destination = copied([reviewPath, predecessorPath, 'audit/local-basis.json']);
   try {
-    const live = read(sourcePath);
+    const live = preSeoPass(sourcePath);
     expect(retainedCommitToRevealSource(destination, live)).toEqual(read(predecessorPath));
     if (mutation === 'missing-review') rmSync(join(destination, reviewPath));
     if (mutation === 'missing-predecessor') rmSync(join(destination, predecessorPath));
@@ -109,7 +130,8 @@ it.each(['missing-review', 'missing-predecessor', 'corrupt-predecessor'] as cons
       'audit/evidence/motion-round6-remaining-repairs-20260929/audit-local-basis-before.ts.txt',
       'audit/evidence/motion-round6-remaining-repairs-20260929/classical-closure-evidence-before.test.ts.txt',
       'audit/evidence/figure-migration-20261001/checker-transition.json',
-      'audit/evidence/figure-migration-20261001/audit-local-basis-before.ts.txt']);
+      'audit/evidence/figure-migration-20261001/audit-local-basis-before.ts.txt',
+      'audit/evidence/seo-pass-20261002/checker-transition.json']);
     try {
       const live = read('lib/audit-local-basis.ts');
       expect(sharedUiCheckerPredecessor(destination, live)).toEqual(read(predecessorPath));

@@ -26,6 +26,7 @@ import {
   sealedHash,
   showAt,
 } from './helpers/continuation-merge-ledger';
+import { preSeoPassText } from '../helpers/seo-pass';
 
 const ledgerPath = 'audit/data-hardware.md';
 const markdown = readFileSync(ledgerPath, 'utf8');
@@ -164,7 +165,9 @@ describe('industrial deployment original 44: MIT leadership evidence', () => {
 });
 
 const articlePath = 'content/data-hardware/industrial-deployment.mdx';
-const article = readFileSync(articlePath, 'utf8');
+// The article as it stood before the 2026-10-02 SEO pass; that pass's
+// resolution is checked against the live article.
+const article = preSeoPassText(articlePath);
 const oldSpan = 'The MIT Task Force on the Work of the Future, co-chaired by David Autor and David Mindell with Elisabeth Reynolds as executive director, surveyed the same evidence and concluded that a robot-driven jobs apocalypse is not imminent: technology displaces tasks rather than whole occupations, and the outcome depends on policy and the institutions shaping deployment <Cite id="mit-work-future-2020" />.';
 const newSpan = 'The MIT Task Force on the Work of the Future, co-chaired by David Autor and David Mindell with Elisabeth Reynolds as executive director, reported in 2020 that it found no compelling evidence of technological advances driving a jobless future. It describes automation displacing human labour from some tasks while creating new work, with the jobs available and the skills they demand shaped by economic incentives, policy choices and institutional forces <Cite id="mit-work-future-2020" />.';
 const approvalId = 'mit-industrial-43-prose-20260921';
@@ -296,7 +299,8 @@ describe('industrial deployment originals 51 and 43: bounded MIT closeout', () =
     expect(proseHash(laneArticle)).toBe(newProseHash);
     expect(proseHash(laneArticle.replace(newSpan, oldSpan))).toBe(oldProseHash);
     // Integrated line: the merged member is re-anchored from its seal.
-    const preMotion = headReanchorFor(approvals, 'prose', 'article:data-hardware/industrial-deployment')!;
+    const preMotion = headReanchorFor(approvals.filter(delta => !delta.id.startsWith('seo-pass-20261002-')),
+      'prose', 'article:data-hardware/industrial-deployment')!;
     expect(preMotion.oldHash).toBe(sealedHash('prose', 'article:data-hardware/industrial-deployment'));
     const motion = approvals.find(delta =>
       delta.id === 'motion-data-hardware-humanizer-v3-20260927-prose-industrial-deployment')!;
@@ -319,6 +323,14 @@ describe('industrial deployment originals 51 and 43: bounded MIT closeout', () =
       id: qualification.id, oldHash: qualification.oldHash, newHash: qualification.newHash,
     });
     expect(restore.newHash).toBe(proseHash(article));
+    // The SEO pass resolution binds the restore endpoint and reaches the
+    // live article.
+    const seo = approvals.find(delta =>
+      delta.id === 'seo-pass-20261002-prose-data-hardware-industrial-deployment')!;
+    expect(seo.reconciles?.at(-1)).toEqual({
+      id: restore.id, oldHash: restore.oldHash, newHash: restore.newHash,
+    });
+    expect(seo.newHash).toBe(proseHash(readFileSync(articlePath, 'utf8')));
     expect(laneArticle.match(/<Cite\s/g)).toHaveLength(32);
     expect(showAt('ac65cf4', articlePath).match(/<Cite\s/g)).toHaveLength(33);
     expect(showAt('0cbdda1', articlePath).match(/<Cite\s/g)).toHaveLength(34);

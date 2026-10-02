@@ -34,13 +34,13 @@ test.describe('world-models taxonomy module', () => {
     await page.goto(ROUTE);
     const main = page.locator('#main-content');
     await expect(
-      main.getByRole('link', { name: /Hou 2026/ }).first(),
+      main.getByRole('link', { name: /Hou et al\. 2026/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2605.00080');
     await expect(
-      main.getByRole('link', { name: /Hafner 2023/ }).first(),
+      main.getByRole('link', { name: /Hafner et al\. 2023/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2301.04104');
     await expect(
-      main.getByRole('link', { name: /Assran 2025/ }).first(),
+      main.getByRole('link', { name: /Assran et al\. 2025/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2506.09985');
     // Scoped to the authored prose: the generated References bibliography
     // also renders external links inside main, and with every inline chip deleted its 12 registry anchors alone still passed this floor.

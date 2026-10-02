@@ -40,6 +40,24 @@ export function gitModifiedAt(root: string, path: string): string | null {
   return null;
 }
 
+/** The commit time of the commit that added `path`, following renames. */
+export function gitAddedAt(root: string, path: string): string | null {
+  const log = git(root, ['log', '--follow', '--diff-filter=A', '--format=%cI', '--', path]);
+  return log.split('\n').filter(Boolean).at(-1) ?? null;
+}
+
+/** The latest of {@link gitModifiedAt} over several files or directories. */
+export function gitModifiedAtAny(root: string, paths: readonly string[]): string | null {
+  return paths
+    .map((path) => gitModifiedAt(root, path))
+    .filter((timestamp): timestamp is string => timestamp !== null)
+    .reduce<string | null>(
+      (latest, timestamp) =>
+        latest === null || Date.parse(timestamp) > Date.parse(latest) ? timestamp : latest,
+      null,
+    );
+}
+
 /** Whether the working tree holds a non-whitespace change git has not seen. */
 export function hasUncommittedChange(root: string, path: string): boolean {
   return !onlyWhitespace(git(root, ['diff', '-w', '--numstat', 'HEAD', '--', path]));

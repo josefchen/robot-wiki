@@ -17,14 +17,13 @@ citations:
   - roboarena-2025
   - simfoundry-2026
 seeAlso:
-  - "world-models/taxonomy"
-  - "world-models/generative-video"
-  - "data-hardware/evaluation-crisis"
-  - "world-models/world-models-vs-simulators"
+  - "frontier/safety-and-assurance"
+  - "manipulation/generalist-policies"
+  - "world-models/generative-sim"
 ---
 import { EvalShiftTable } from '@/components/mdx/text-tables';
 
-A robotics <Term id="world-model">world model</Term> is not graded by how convincing one rollout looks. It is graded by whether its errors preserve the decisions a robot must make. That requires a ladder of tests, from one-step counterfactuals to agreement with real policy rankings. Image metrics can diagnose rendering quality; they cannot establish control utility.
+Evaluating a robotics <Term id="world-model">world model</Term> is checking whether its errors preserve the decisions a robot must make, however convincing one rollout looks. That requires a ladder of tests, from one-step counterfactuals to agreement with real policy rankings. Image metrics can diagnose rendering quality; they cannot establish control utility.
 
 The central failure is action indifference. A model can produce temporally smooth, photorealistic futures and still ignore whether the robot moved left or right. The current robot-world-model survey treats controllability and action-grounded consistency as more informative than visual plausibility alone <Cite id="world-model-survey-2026" />.
 

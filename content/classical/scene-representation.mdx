@@ -32,15 +32,14 @@ citations:
   - nav2-2020
   - pointnet-2017
 seeAlso:
-  - "classical/perception"
-  - "classical/state-estimation"
-  - "classical/ros2-for-ml-engineers"
-  - "world-models/world-models-vs-simulators"
+  - "world-models/generative-sim"
+  - "rl-sim2real/sim2real-transfer"
+  - "adjacent/autonomous-vehicles"
 ---
 
 import { SceneRepresentationLadder } from '@/components/interactive/scene-representation-ladder';
 
-[Perception](/classical/perception) answers where an object is right now. This module answers the other question a robot needs settled before it can move: what does it remember about the space it is standing in, and what can it ask of that memory.
+Scene representation is what a robot keeps in memory about the space around it, in a form it can query. [Perception](/classical/perception) answers where an object is right now. This module answers the other question a robot needs settled before it can move: what does it remember about the space it is standing in, and what can it ask of that memory.
 
 The answers form a ladder. Each rung stores something different, and the choice is not a matter of fidelity, because a rung that draws the scene beautifully may be unable to answer the one question a planner needs.
 

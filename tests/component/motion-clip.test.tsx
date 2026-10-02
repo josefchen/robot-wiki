@@ -71,6 +71,17 @@ describe('<Clip>', () => {
     expect(alternative?.textContent).toContain(clip.textAlternative);
   });
 
+  it('describes the video itself and gives its poster still an alt text', () => {
+    render(<Clip id="kalman-episode" />);
+    const video = document.querySelector('video');
+    const describedBy = video?.getAttribute('aria-describedby');
+    expect(document.getElementById(describedBy ?? '')?.textContent).toContain(
+      clip.textAlternative,
+    );
+    const poster = document.querySelector('img[data-motion-clip-poster]');
+    expect(poster?.getAttribute('alt')).toBe(`${clip.title}: final frame`);
+  });
+
   it('shows the status vocabulary and the teaching sentence', () => {
     render(<Clip id="kalman-episode" />);
     expect(screen.getByText(clip.teaches)).toBeVisible();

@@ -16,14 +16,14 @@ citations:
   - newton-manipulation-blog-2026
   - state-of-simulation-2026
 seeAlso:
-  - "rl-sim2real/why-rl-locomotion"
-  - "rl-sim2real/sim2real-transfer"
-  - "rl-sim2real/reward-design-mpc"
+  - "world-models/world-models-vs-simulators"
+  - "rl-sim2real/legged-locomotion"
+  - "rl-sim2real/humanoid-wbc"
 ---
 
 import { BatchScale } from '@/components/motion/scenes/batch-scale';
 
-The four-minute training run from the [previous module](/rl-sim2real/why-rl-locomotion) came from a change in infrastructure. <Term id="ppo">PPO</Term> was already four years old when Rudin and colleagues used it to train ANYmal to walk in minutes <Cite id="rudin-2021" />. Between 2021 and 2026, physics moved onto the GPU, environment counts went from dozens to tens of thousands, and the wall-clock cost of a walking policy collapsed by orders of magnitude. This module examines those throughput numbers and the remaining bottleneck.
+Massively parallel simulation is training a robot policy across thousands of simulated copies of its environment at once, with the physics running on a GPU. The four-minute training run from the [previous module](/rl-sim2real/why-rl-locomotion) came from a change in infrastructure. <Term id="ppo">PPO</Term> was already four years old when Rudin and colleagues used it to train ANYmal to walk in minutes <Cite id="rudin-2021" />. Between 2021 and 2026, physics moved onto the GPU, environment counts went from dozens to tens of thousands, and the wall-clock cost of a walking policy collapsed by orders of magnitude. This module examines those throughput numbers and the remaining bottleneck.
 
 The scene below illustrates the cost arithmetic before the history. The paused scene reveals how the fixed-transition calculation changes as the number of parallel environments rises. Press Play, then try Step forward from 64 environments upward: in the default model, fixed CPU-and-transfer work takes a smaller share of each iteration and the chosen experience budget takes less wall-clock time. This is a constructed comparison assembled from chosen costs, with no repeated measurement of one training run.
 

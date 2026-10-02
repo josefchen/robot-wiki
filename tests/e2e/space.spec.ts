@@ -76,10 +76,10 @@ test.describe('adjacent space module', () => {
     const prose = page.locator('div.prose[data-pagefind-body]');
     // NASA/JPL area: AEGIS deployment and Perseverance autonomy records.
     await expect(
-      prose.getByRole('link', { name: 'Francis 2017' }).first(),
+      prose.getByRole('link', { name: 'Francis et al. 2017' }).first(),
     ).toHaveAttribute('href', 'https://doi.org/10.1126/scirobotics.aan4582');
     await expect(
-      prose.getByRole('link', { name: 'Verma 2023' }).first(),
+      prose.getByRole('link', { name: 'Verma et al. 2023' }).first(),
     ).toHaveAttribute('href', 'https://doi.org/10.1126/scirobotics.adi3099');
     // ISRU area: MOXIE completion and the PRIME-1 lunar drill.
     await expect(
@@ -96,7 +96,7 @@ test.describe('adjacent space module', () => {
     );
     // Orbital area: ETS-VII, Orbital Express, MEV-1, ADRAS-J.
     await expect(
-      prose.getByRole('link', { name: 'Kawano 2001' }).first(),
+      prose.getByRole('link', { name: 'Kawano et al. 2001' }).first(),
     ).toHaveAttribute('href', 'https://doi.org/10.2514/2.3661');
     await expect(
       prose.getByRole('link', { name: 'Friend 2008' }).first(),

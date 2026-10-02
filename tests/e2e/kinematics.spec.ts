@@ -61,7 +61,7 @@ test('classical closure mounted observations at desktop and mobile', async ({ pa
     for (const id of ['wampler-1986', 'levenberg-1944', 'marquardt-1963', 'denavit-hartenberg-1955']) {
       await expect(main.locator(`[data-cite-id="${id}"],[data-reference-id="${id}"]`)).toHaveCount(0);
     }
-    await expect(main.getByRole('link', { name: '3D kinematics playground' })).toHaveAttribute('href', '/playground');
+    await expect(main.getByRole('link', { name: '3D kinematics playground' })).toHaveAttribute('href', '/playground/');
     await expect(page.getByTestId('fk-theta-1')).toHaveText('110°');
     await expect(main).toContainText('±0.5mm');
     const glossary = [];
@@ -238,7 +238,7 @@ test.describe('classical kinematics module', () => {
       await expect(main.locator(`[data-cite-id="${id}"]`)).toHaveCount(0);
     }
     await expect(
-      main.getByRole('link', { name: 'Lynch 2017' }).first(),
+      main.getByRole('link', { name: 'Lynch et al. 2017' }).first(),
     ).toHaveAttribute('href', 'https://modernrobotics.northwestern.edu/');
 
     // Every chip is a real external link; no unresolved ids render.

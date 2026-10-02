@@ -13,13 +13,13 @@ import { getCitation } from '@/data/citations';
 import { DOMAIN_META, getModule, modules, publishedModules } from '@/data/modules';
 import type { ModuleFrontmatter } from '@/data/schemas/module';
 import { publishedBacklinkGraph, resolveArticleEntries } from '@/lib/backlinks';
-import { articleDateModified } from '@/lib/content-dates';
+import { articleDateModified, articleDatePublished } from '@/lib/content-dates';
 import { moduleSource } from '@/lib/module-source';
 import { countWordsInMdxSource, readingTimeMinutes } from '@/lib/reading-time';
 import { articleOpenGraph, articleTwitter } from '@/lib/og-cards';
 import { inlineCitationIds, moduleBody, resolveReferences } from '@/lib/references';
 import { validateClientRegistries } from '@/lib/registry-validation';
-import { articleJsonLd, articleSeoTitle } from '@/lib/seo';
+import { articleJsonLd, articleSeoProfile } from '@/lib/seo';
 
 // Fully static: only published modules get routes. Drafts (and everything
 // else) fall through to 404: drafts must never resolve.
@@ -93,11 +93,16 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const entry = getModule(domain, slug);
   if (!entry || entry.status !== 'published') return {};
   const mod = await loadModule(domain, slug);
-  const publishedTime = mod?.frontmatter?.datePublished;
+  const publishedTime = articleDatePublished(
+    entry.domain,
+    entry.slug,
+    mod?.frontmatter?.datePublished,
+  );
   const modifiedTime = articleDateModified(entry.domain, entry.slug);
+  const seo = articleSeoProfile(entry);
   return {
-    title: articleSeoTitle(entry),
-    description: entry.summary,
+    title: seo.title,
+    description: seo.description,
     // Articles are og:type article. A page-level
     // openGraph object replaces the layout's (no deep merge), so the
     // route-relative url and site name are restated here. og:title is
@@ -107,12 +112,11 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     // the page's rendered h1 (VAL-DIST-004). The article's own social
     // card (one distinct PNG per article, VAL-DIST-002/003/005) travels
     // with this object for the same reason. og:description falls back to
-    // this route's description (the module summary), so the og and
-    // twitter pair share one value.
+    // this route's description, so the og and twitter pair share one value.
     openGraph: {
       ...articleOpenGraph(entry.domain, entry.slug, entry.title),
-      ...(publishedTime ? { publishedTime } : {}),
-      ...(modifiedTime ? { modifiedTime } : {}),
+      publishedTime,
+      modifiedTime,
     },
     twitter: articleTwitter(entry.domain, entry.slug, entry.title),
   };
@@ -214,11 +218,19 @@ export default async function ModulePage({ params }: { params: Params }) {
         dangerouslySetInnerHTML={{
           __html: articleJsonLd({
             entry,
-            datePublished: mod.frontmatter?.datePublished,
+            datePublished: articleDatePublished(
+              domain,
+              slug,
+              mod.frontmatter?.datePublished,
+            ),
             dateModified: articleDateModified(domain, slug),
             readingTimeMinutes: readingTime,
             wordCount,
-            citationUrls: references.map(({ citation }) => citation.url),
+            // Only sources the prose cites inline; further reading is listed
+            // but never cited.
+            citations: references
+              .filter(({ furtherReading }) => !furtherReading)
+              .map(({ citation }) => citation),
           }),
         }}
       />

@@ -124,21 +124,25 @@ describe('data-hardware prose truth', () => {
       // with a second plain edge from that endpoint.
       // The round-6 prose restore of the Vulcan coverage scope re-resolved
       // industrial-deployment from its seal, reconciling the qualification.
+      // The 2026-10-02 SEO pass then added one edge of the same kind to each.
       const laterIds = slug === 'evaluation-crisis'
         ? ['round5-pinned-leftovers-20260928-prose-evaluation-crisis',
-          'opus-figure-migration-20261001-prose-evaluation-crisis']
-        : ['round6-prose-restores-20260929-prose-industrial-deployment'];
+          'opus-figure-migration-20261001-prose-evaluation-crisis',
+          'seo-pass-20261002-prose-data-hardware-evaluation-crisis']
+        : ['round6-prose-restores-20260929-prose-industrial-deployment',
+          'seo-pass-20261002-prose-data-hardware-industrial-deployment'];
       const later = edges.filter((entry) => laterIds.includes(entry.id));
       expect(later.map((entry) => entry.id)).toEqual(laterIds);
       expect(edges.slice(edges.indexOf(qualification))).toEqual([qualification, ...later]);
       for (const [index, edge] of later.entries()) {
+        const previous = index === 0 ? qualification : later[index - 1];
         if (slug === 'evaluation-crisis') {
           expect(edge.reconciles).toBeUndefined();
-          expect(edge.oldHash).toBe((index === 0 ? qualification : later[index - 1]).newHash);
+          expect(edge.oldHash).toBe(previous.newHash);
         } else {
           expect(edge.oldHash).toBe(sealed);
           expect(edge.reconciles?.at(-1)).toEqual({
-            id: qualification.id, oldHash: qualification.oldHash, newHash: qualification.newHash,
+            id: previous.id, oldHash: previous.oldHash, newHash: previous.newHash,
           });
         }
       }

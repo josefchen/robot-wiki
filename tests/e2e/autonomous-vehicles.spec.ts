@@ -69,14 +69,14 @@ test.describe('adjacent autonomous-vehicles module', () => {
     const prose = page.locator('div.prose[data-pagefind-body]');
     // Stack area: UniAD and VectorNet abs pages.
     await expect(
-      prose.getByRole('link', { name: 'Hu 2023' }).first(),
+      prose.getByRole('link', { name: 'Hu et al. 2023' }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2212.10156');
     await expect(
-      prose.getByRole('link', { name: 'Gao 2020' }).first(),
+      prose.getByRole('link', { name: 'Gao et al. 2020' }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2005.04259');
     // Why-not-solved area: Waymo crash-rate study, NTSB report, Koopman.
     await expect(
-      prose.getByRole('link', { name: 'Kusano 2025' }).first(),
+      prose.getByRole('link', { name: 'Kusano et al. 2025' }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2505.01515');
     await expect(
       prose.getByRole('link', { name: 'NTSB 2019' }).first(),
@@ -86,7 +86,7 @@ test.describe('adjacent autonomous-vehicles module', () => {
     );
     // Robot-learning relation: EMMA and the Waymo World Model post.
     await expect(
-      prose.getByRole('link', { name: 'Hwang 2024' }).first(),
+      prose.getByRole('link', { name: 'Hwang et al. 2024' }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2410.23262');
     await expect(
       prose.getByRole('link', { name: 'Waymo 2026' }).first(),

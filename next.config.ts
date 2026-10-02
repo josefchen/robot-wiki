@@ -1,6 +1,8 @@
 import path from 'node:path';
 import createMDX from '@next/mdx';
 import type { NextConfig } from 'next';
+import { CITATIONS, citationLabel } from './data/citations';
+import { GLOSSARY } from './data/glossary';
 
 const nextConfig: NextConfig = {
   output: 'export',
@@ -53,6 +55,25 @@ const withMDX = createMDX({
       // orphaned "." or ",". No interaction with katex/pretty-code (chips
       // never occur in math or code); grouped with the other local plugins.
       path.join(process.cwd(), 'lib/rehype-cite-punctuation.mjs'),
+      // Links the first prose mention of each glossary term to its
+      // /glossary/#<id> entry. The registry rides in the options, so the
+      // compiled articles change whenever a term is added or renamed.
+      [
+        path.join(process.cwd(), 'lib/rehype-glossary-links.mjs'),
+        { terms: GLOSSARY.map(({ id, term }) => ({ id, term })) },
+      ],
+      // Writes the registry label of each cited answer option into
+      // <SelfCheck> and <PredictThenReveal>, whose client primitive does not
+      // load the citation registry. The labels ride in the options for the
+      // same reason as the glossary terms above.
+      [
+        path.join(process.cwd(), 'lib/rehype-reveal-cite-labels.mjs'),
+        {
+          labels: Object.fromEntries(
+            CITATIONS.map((citation) => [citation.id, citationLabel(citation)]),
+          ),
+        },
+      ],
       // A light Shiki theme, to match the paper ground. Shiki paints token
       // colours as inline styles that no site token can reach, so the theme
       // name is the only lever and it has to be chosen by measurement: the

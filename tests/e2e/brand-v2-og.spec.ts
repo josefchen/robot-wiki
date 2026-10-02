@@ -4,6 +4,7 @@ import {
   expect,
 } from './brand-v2-static-fixture';
 import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '../../lib/identity';
+import { HOME_META_DESCRIPTION } from '../../lib/seo';
 import { cardTextRuns } from '../../lib/og-card-artwork';
 import { ogCardCorpus, openSealedCardTree } from '../../lib/og-card-corpus';
 
@@ -17,9 +18,11 @@ test.describe('brand-v2 OG authority', () => {
       'content',
       PUBLIC_IDENTITY,
     );
+    // The search-facing description opens with the exact descriptor.
+    expect(HOME_META_DESCRIPTION.startsWith(`${PUBLIC_DESCRIPTOR} `)).toBe(true);
     await expect(
       page.locator('meta[property="og:description"]'),
-    ).toHaveAttribute('content', PUBLIC_DESCRIPTOR);
+    ).toHaveAttribute('content', HOME_META_DESCRIPTION);
   });
 
   test('article metadata uses compact Robot Wiki without the descriptor', async ({
