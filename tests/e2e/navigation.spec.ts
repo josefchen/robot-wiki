@@ -3,6 +3,7 @@ import AxeBuilder from '@axe-core/playwright';
 import { waitForHydration } from './interaction-ready';
 import { firstDraftModule, notFoundProbeRoute } from '../helpers/draft-fixtures';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
+import { openAdjustMore } from './helpers/figure-fold';
 
 /**
  * Shared static-export server for the #418 specs below. Started lazily and
@@ -231,6 +232,7 @@ test.describe('navigation shell', () => {
     await expect(caption).toContainText('21.5%');
     await page.keyboard.press('ArrowRight');
     await expect(caption).toContainText('74.0%');
+    await openAdjustMore(scene);
     await scene.getByRole('button', { name: 'Reset the scene to its poster still' }).click();
     await expect(caption).toContainText('same horizon');
   });

@@ -208,3 +208,46 @@ export function DirectLabel({
     </text>
   );
 }
+
+/**
+ * The plain-words note that points at what the figure shows: the label in
+ * the highlight role, one line per entry of `lines`, with an optional
+ * leader from the label to the point it names and a ring on that point.
+ * A figure carries one, two at most, and shows it at settle.
+ */
+export function StageAnnotation({
+  x,
+  y,
+  lines,
+  anchor = 'start',
+  target,
+  from,
+}: {
+  x: number;
+  y: number;
+  lines: readonly string[];
+  anchor?: 'start' | 'middle' | 'end';
+  /** The point the note names. */
+  target?: ChartPoint;
+  /** Where the leader leaves the label; defaults to the label's anchor point. */
+  from?: ChartPoint;
+}) {
+  const colour = roleColour('highlight');
+  const lineHeight = CHART_TYPE.labelPx * 1.25;
+  const [fx, fy] = from ?? [x, y + lineHeight * (lines.length - 1) + CHART_TYPE.labelPx * 0.35];
+  return (
+    <g data-figure-annotation="">
+      {target ? (
+        <>
+          <line x1={fx} y1={fy} x2={target[0]} y2={target[1]} stroke={colour} strokeWidth={CHART_STROKE.structure * 2} />
+          <circle cx={target[0]} cy={target[1]} r={CHART_STROKE.markerRadius + 1} fill="none" stroke={colour} strokeWidth={CHART_STROKE.structure * 2} />
+        </>
+      ) : null}
+      <text x={x} y={y} textAnchor={anchor} fontSize={CHART_TYPE.labelPx} fontWeight={600} fill={colour}>
+        {lines.map((line, i) => (
+          <tspan key={line} x={x} dy={i === 0 ? 0 : lineHeight}>{line}</tspan>
+        ))}
+      </text>
+    </g>
+  );
+}

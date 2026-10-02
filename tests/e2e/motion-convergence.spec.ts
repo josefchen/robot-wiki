@@ -5,6 +5,7 @@ import { join } from 'node:path';
 import { SCENE_TARGETS } from '@/lib/motion-scene-registry';
 import { expectedSceneRole } from '@/lib/motion-scene-roles';
 import { auditSceneElement } from '@/lib/motion-scene-audit';
+import { openAdjustMore } from './helpers/figure-fold';
 
 type ObservedRole = { mark: string; role: string; hex: string; beats: number[] };
 const observations = new Map<string, ObservedRole[]>();
@@ -111,6 +112,7 @@ for (const target of SCENE_TARGETS) {
         }
       }
       expect(rows.size, `${target.id} visible classified marks`).toBeGreaterThan(0);
+      await openAdjustMore(scene);
       await scene.getByRole('button', { name: /step back one beat/i }).click();
       await expect(scene.getByTestId('motion-beat-count')).toHaveText(`beat ${target.beats - 1} / ${target.beats}`);
       const before = await scene.locator('[data-motion-stage] svg').innerHTML();

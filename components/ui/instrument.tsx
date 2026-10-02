@@ -7,6 +7,7 @@ import type {
   Ref,
   SVGAttributes,
 } from 'react';
+import { useId } from 'react';
 import { CHART_TYPE } from '@/components/motion/chart/chart-tokens';
 import { FigureFrame, type FigureFrameProps } from '@/components/motion/figure-frame';
 import { cx } from '@/lib/utils';
@@ -36,7 +37,7 @@ const INSTRUMENT_SIGNATURE = 'instrument-frame';
  * hover strengthens; a disabled control drops it.
  */
 const INSTRUMENT_CONTROL_BASE =
-  'inline-flex min-h-9 items-center justify-center gap-1.5 rounded-xs border border-transparent py-1.5 font-sans text-sm font-medium transition-colors active:translate-y-[1px]';
+  'inline-flex min-h-11 items-center justify-center gap-1.5 rounded-xs border border-transparent py-1.5 font-sans text-sm font-medium transition-colors active:translate-y-[1px]';
 export const INSTRUMENT_PRIMARY_CONTROL_CLASS = `${INSTRUMENT_CONTROL_BASE} bg-action px-3 text-on-action hover:bg-graphite`;
 export const INSTRUMENT_SECONDARY_CONTROL_CLASS = `${INSTRUMENT_CONTROL_BASE} justify-self-start bg-transparent px-2 text-text underline decoration-border-strong decoration-1 underline-offset-4 hover:decoration-text disabled:cursor-not-allowed disabled:text-text-dim disabled:no-underline disabled:active:translate-y-0`;
 
@@ -51,9 +52,9 @@ export const INSTRUMENT_TOGGLE_CLASS = `${INSTRUMENT_CONTROL_BASE} bg-transparen
 
 /**
  * A labelled slider among the figure controls: the shared scrubber track in
- * the selection lime, at a 24px target height.
+ * the selection lime, at a 44px touch-target height.
  */
-export const INSTRUMENT_SLIDER_CLASS = 'block h-6 w-full min-w-40 cursor-pointer accent-highlight';
+export const INSTRUMENT_SLIDER_CLASS = 'block h-11 w-full min-w-40 cursor-pointer accent-highlight';
 
 type InstrumentFrameProps = HTMLAttributes<HTMLDivElement> & {
   children: ReactNode;
@@ -151,7 +152,7 @@ export function InstrumentHeader({
       {...props}
     >
       {label ? (
-        <span className="font-sans text-[13px] text-text-dim">
+        <span className="font-sans text-sm text-text-dim">
           {label}
         </span>
       ) : null}
@@ -159,7 +160,7 @@ export function InstrumentHeader({
       {meta ? (
         <span
           data-instrument-meta
-          className="ml-auto font-sans text-[13px] tabular-nums text-text-dim"
+          className="ml-auto font-sans text-sm tabular-nums text-text-dim"
         >
           {meta}
         </span>
@@ -188,18 +189,70 @@ export function ControlLabel({
   return (
     <label
       className={cx(
-        'flex items-baseline justify-between gap-2 font-sans text-[13px] text-text-dim',
+        'flex items-baseline justify-between gap-2 font-sans text-sm text-text-dim',
         className,
       )}
       {...props}
     >
       {children}
       {value ? (
-        <span className="whitespace-nowrap font-sans text-[13px] tabular-nums text-text">
+        <span className="whitespace-nowrap font-sans text-sm tabular-nums text-text">
           {value}
         </span>
       ) : null}
     </label>
+  );
+}
+
+export type Preset<T extends string> = { id: T; label: string };
+
+type PresetGroupProps<T extends string> = {
+  /** The visible group label, in plain words: what the presets change. */
+  label: string;
+  presets: readonly Preset<T>[];
+  value: T | null;
+  onChange: (id: T) => void;
+  /** Prefix for each preset button's test id, `<prefix>-<preset id>`. */
+  testId?: string;
+};
+
+/**
+ * A named set of states the reader picks from. The group counts as one
+ * visible control; each preset is a toggle whose pressed state paints the
+ * selection fill. `value` is null when a control in "Adjust more" has
+ * moved the figure off every preset.
+ */
+export function PresetGroup<T extends string>({ label, presets, value, onChange, testId }: PresetGroupProps<T>) {
+  const id = useId();
+  return (
+    <div role="group" aria-labelledby={id} data-preset-group="" className="grid gap-1">
+      <span id={id} className="font-sans text-sm text-text-dim">{label}</span>
+      <div className="flex flex-wrap gap-1.5">
+        {presets.map((preset) => (
+          <button
+            key={preset.id}
+            type="button"
+            data-brand-control-id="control:selection"
+            aria-pressed={value === preset.id}
+            onClick={() => onChange(preset.id)}
+            data-testid={testId ? `${testId}-${preset.id}` : undefined}
+            className={INSTRUMENT_TOGGLE_CLASS}
+          >
+            {preset.label}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/** The two ends of a slider in words, under its track. */
+export function SliderEnds({ low, high }: { low: ReactNode; high: ReactNode }) {
+  return (
+    <div aria-hidden="true" data-slider-ends="" className="flex justify-between gap-3 font-sans text-sm text-text-dim">
+      <span>{low}</span>
+      <span>{high}</span>
+    </div>
   );
 }
 
@@ -221,7 +274,7 @@ export function InstrumentReadout({
     <p
       aria-live="polite"
       data-figure-readout=""
-      className={cx('font-sans text-[13px] leading-snug tabular-nums text-text', className)}
+      className={cx('font-sans text-sm leading-snug tabular-nums text-text', className)}
       {...props}
     >
       {children}
@@ -249,7 +302,7 @@ export function InstrumentLegend({
       data-instrument-legend
       data-figure-legend=""
       className={cx(
-        'flex flex-wrap items-center gap-x-4 gap-y-1 font-sans text-[13px] leading-snug text-text-dim',
+        'flex flex-wrap items-center gap-x-4 gap-y-1 font-sans text-sm leading-snug text-text-dim',
         className,
       )}
       {...props}
@@ -338,8 +391,8 @@ type PlotStageProps = SVGAttributes<SVGSVGElement> & {
  * data it plots.
  *
  * It is a stage svg: stage.css paints its text on the shared type scale
- * (label 14, axis and note 13, tick 12 CSS px at every width), in the
- * brand sans, against the viewBox width passed through
+ * (every role at 14 CSS px at every width), in the brand sans, against
+ * the viewBox width passed through
  * `--motion-stage-view-width`. Mark text with `data-scene-tick`,
  * `data-scene-axis`, `data-scene-note` or `data-scene-readout` to take a
  * role other than the label.

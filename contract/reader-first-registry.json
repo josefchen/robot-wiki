@@ -1,0 +1,723 @@
+{
+  "schemaVersion": "reader-first-registry-v1",
+  "figures": [
+    {
+      "id": "manipulation--bc-foundations--compounding-error",
+      "route": "/manipulation/bc-foundations/",
+      "mount": "mount:/manipulation/bc-foundations/:CompoundingError:1",
+      "figure": "compounding-error",
+      "audit": "A1",
+      "sources": [
+        "components/interactive/compounding-error.tsx",
+        "lib/compounding-error.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "manipulation--action-chunking--temporal-ensembling",
+      "route": "/manipulation/action-chunking/",
+      "mount": "image:temporal-ensembling",
+      "figure": "temporal-ensembling",
+      "audit": "A2",
+      "sources": [
+        "components/ui/original-schematics.tsx"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "manipulation--action-chunking--latency-comparison",
+      "route": "/manipulation/action-chunking/",
+      "mount": "mount:/manipulation/action-chunking/:LatencyComparison:1",
+      "figure": "latency-comparison",
+      "audit": "A3",
+      "sources": [
+        "components/interactive/latency-comparison.tsx",
+        "lib/latency-chunking.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "manipulation--diffusion-policy--scene-diffusion-denoising",
+      "route": "/manipulation/diffusion-policy/",
+      "mount": "scene:diffusion-denoising",
+      "figure": "scene:diffusion-denoising",
+      "audit": "A4",
+      "sources": [
+        "components/motion/scenes/diffusion-denoising.tsx",
+        "lib/denoising.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "manipulation--vla-models--action-tokenization",
+      "route": "/manipulation/vla-models/",
+      "mount": "mount:/manipulation/vla-models/:ActionTokenization:1",
+      "figure": "action-tokenization",
+      "audit": "A5",
+      "sources": [
+        "components/interactive/action-tokenization.tsx",
+        "lib/action-tokenization.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "manipulation--pi-line--flow-matching-trajectory",
+      "route": "/manipulation/pi-line/",
+      "mount": "mount:/manipulation/pi-line/:FlowMatchingTrajectory:1",
+      "figure": "flow-matching-trajectory",
+      "audit": "A6",
+      "sources": [
+        "components/interactive/flow-matching-trajectory.tsx",
+        "lib/flow-matching.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "manipulation--comparison-matrix--comparison-matrix",
+      "route": "/manipulation/comparison-matrix/",
+      "mount": "mount:/manipulation/comparison-matrix/:ComparisonMatrix:1",
+      "figure": "comparison-matrix",
+      "audit": "A7",
+      "sources": [
+        "components/interactive/comparison-matrix.tsx",
+        "data/methods.ts",
+        "lib/entity-cells.ts",
+        "lib/methods.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "manipulation--hierarchical--hierarchy-timescales",
+      "route": "/manipulation/hierarchical/",
+      "mount": "mount:/manipulation/hierarchical/:HierarchyTimescales:1",
+      "figure": "hierarchy-timescales",
+      "audit": "A8",
+      "sources": [
+        "components/interactive/hierarchy-timescales.tsx",
+        "lib/hierarchy-timescales.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "manipulation--realtime-execution--control-loop-budget",
+      "route": "/manipulation/realtime-execution/",
+      "mount": "mount:/manipulation/realtime-execution/:ControlLoopBudget:1",
+      "figure": "control-loop-budget",
+      "audit": "A9",
+      "sources": [
+        "components/interactive/control-loop-budget.tsx",
+        "lib/control-loop.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "manipulation--realtime-execution--execution-modes",
+      "route": "/manipulation/realtime-execution/",
+      "mount": "mount:/manipulation/realtime-execution/:ExecutionModes:1",
+      "figure": "execution-modes",
+      "audit": "A10",
+      "sources": [
+        "components/interactive/execution-modes.tsx",
+        "lib/execution-modes.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "manipulation--cross-embodiment--cross-embodiment-strategies",
+      "route": "/manipulation/cross-embodiment/",
+      "mount": "mount:/manipulation/cross-embodiment/:CrossEmbodimentStrategies:1",
+      "figure": "cross-embodiment-strategies",
+      "audit": "A11",
+      "sources": [
+        "components/interactive/cross-embodiment-strategies.tsx",
+        "lib/cross-embodiment.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "manipulation--knowledge-insulation--mot-insulation",
+      "route": "/manipulation/knowledge-insulation/",
+      "mount": "mount:/manipulation/knowledge-insulation/:MotInsulation:1",
+      "figure": "mot-insulation",
+      "audit": "A12",
+      "sources": [
+        "components/interactive/mot-insulation.tsx",
+        "lib/knowledge-insulation.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "rl-sim2real--why-rl-locomotion--contact-geometry",
+      "route": "/rl-sim2real/why-rl-locomotion/",
+      "mount": "mount:/rl-sim2real/why-rl-locomotion/:ContactGeometry:1",
+      "figure": "contact-geometry",
+      "audit": "A13",
+      "sources": [
+        "components/interactive/contact-geometry.tsx",
+        "lib/contact-geometry.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "rl-sim2real--parallel-sim-rl--scene-batch-scale",
+      "route": "/rl-sim2real/parallel-sim-rl/",
+      "mount": "scene:batch-scale",
+      "figure": "scene:batch-scale",
+      "audit": "A14",
+      "sources": [
+        "components/motion/scenes/batch-scale.tsx",
+        "lib/parallel-sim.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "rl-sim2real--sim2real-transfer--teacher-student",
+      "route": "/rl-sim2real/sim2real-transfer/",
+      "mount": "mount:/rl-sim2real/sim2real-transfer/:TeacherStudent:1",
+      "figure": "teacher-student",
+      "audit": "A15",
+      "sources": [
+        "components/interactive/teacher-student.tsx",
+        "lib/sim2real.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "rl-sim2real--legged-locomotion--scene-gait-support",
+      "route": "/rl-sim2real/legged-locomotion/",
+      "mount": "scene:gait-support",
+      "figure": "scene:gait-support",
+      "audit": "A16",
+      "sources": [
+        "components/motion/scenes/gait-support.tsx",
+        "lib/gait.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "rl-sim2real--humanoid-wbc--wbc-decomposition",
+      "route": "/rl-sim2real/humanoid-wbc/",
+      "mount": "mount:/rl-sim2real/humanoid-wbc/:WbcDecomposition:1",
+      "figure": "wbc-decomposition",
+      "audit": "A17",
+      "sources": [
+        "components/interactive/wbc-decomposition.tsx",
+        "lib/wbc-decomposition.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "rl-sim2real--reward-design-mpc--reward-shaping",
+      "route": "/rl-sim2real/reward-design-mpc/",
+      "mount": "mount:/rl-sim2real/reward-design-mpc/:RewardShaping:1",
+      "figure": "reward-shaping",
+      "audit": "A18",
+      "sources": [
+        "components/interactive/reward-shaping.tsx",
+        "lib/gait.ts",
+        "lib/reward-shaping.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "world-models--taxonomy--wm-disambiguator",
+      "route": "/world-models/taxonomy/",
+      "mount": "mount:/world-models/taxonomy/:WmDisambiguator:1",
+      "figure": "wm-disambiguator",
+      "audit": "A19",
+      "sources": [
+        "components/interactive/wm-disambiguator.tsx",
+        "lib/world-model-taxonomy.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "world-models--latent-dynamics--latent-imagination",
+      "route": "/world-models/latent-dynamics/",
+      "mount": "mount:/world-models/latent-dynamics/:LatentImagination:1",
+      "figure": "latent-imagination",
+      "audit": "A20",
+      "sources": [
+        "components/interactive/latent-imagination.tsx",
+        "lib/latent-imagination.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "world-models--jepa--jepa-planning",
+      "route": "/world-models/jepa/",
+      "mount": "mount:/world-models/jepa/:JepaPlanning:1",
+      "figure": "jepa-planning",
+      "audit": "A21",
+      "sources": [
+        "components/interactive/jepa-planning.tsx",
+        "lib/jepa-planning.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "data-hardware--data-bottleneck--data-scale-chart",
+      "route": "/data-hardware/data-bottleneck/",
+      "mount": "mount:/data-hardware/data-bottleneck/:DataScaleChart:1",
+      "figure": "data-scale-chart",
+      "audit": "A22",
+      "sources": [
+        "components/interactive/data-scale-chart.tsx",
+        "lib/data-scaling.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "classical--state-estimation--scene-kalman-predict-update",
+      "route": "/classical/state-estimation/",
+      "mount": "scene:kalman-predict-update",
+      "figure": "scene:kalman-predict-update",
+      "audit": "A23",
+      "sources": [
+        "components/motion/scenes/kalman-predict-update.tsx",
+        "lib/kalman.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "classical--grasp-planning--grasp-wrench-lab",
+      "route": "/classical/grasp-planning/",
+      "mount": "mount:/classical/grasp-planning/:GraspWrenchLab:1",
+      "figure": "grasp-wrench-lab",
+      "audit": "A24",
+      "sources": [
+        "components/interactive/grasp-wrench-lab.tsx",
+        "lib/grasp.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "credits--temporal-ensembling",
+      "route": "/credits/",
+      "mount": "image:temporal-ensembling",
+      "figure": "temporal-ensembling",
+      "audit": "A25",
+      "sources": [
+        "components/ui/original-schematics.tsx"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "frontier--dexterity--scene-tactile-slip",
+      "route": "/frontier/dexterity/",
+      "mount": "scene:tactile-slip",
+      "figure": "scene:tactile-slip",
+      "audit": "A26",
+      "sources": [
+        "components/motion/scenes/tactile-slip.tsx"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "frontier--competing-theses--thesis-explorer",
+      "route": "/frontier/competing-theses/",
+      "mount": "mount:/frontier/competing-theses/:ThesisExplorer:1",
+      "figure": "thesis-explorer",
+      "audit": "A27",
+      "sources": [
+        "components/interactive/thesis-explorer.tsx",
+        "lib/competing-theses.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "manipulation--action-chunking--chunk-size-curve",
+      "route": "/manipulation/action-chunking/",
+      "mount": "mount:/manipulation/action-chunking/:ChunkSizeCurve:1",
+      "figure": "chunk-size-curve",
+      "audit": "A28",
+      "sources": [
+        "components/interactive/chunk-size-curve.tsx",
+        "lib/chunk-size.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "manipulation--diffusion-policy--receding-horizon",
+      "route": "/manipulation/diffusion-policy/",
+      "mount": "mount:/manipulation/diffusion-policy/:RecedingHorizon:1",
+      "figure": "receding-horizon",
+      "audit": "A29",
+      "sources": [
+        "components/interactive/receding-horizon.tsx",
+        "lib/receding-horizon.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "manipulation--pi-line--pi-generation-timeline",
+      "route": "/manipulation/pi-line/",
+      "mount": "mount:/manipulation/pi-line/:PiGenerationTimeline:1",
+      "figure": "pi-generation-timeline",
+      "audit": "A30",
+      "sources": [
+        "components/interactive/pi-generation-timeline.tsx",
+        "lib/pi-generations.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "manipulation--generalist-policies--generalist-release-timeline",
+      "route": "/manipulation/generalist-policies/",
+      "mount": "mount:/manipulation/generalist-policies/:GeneralistReleaseTimeline:1",
+      "figure": "generalist-release-timeline",
+      "audit": "A31",
+      "sources": [
+        "components/interactive/generalist-release-timeline.tsx",
+        "lib/generalist-policies.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "rl-sim2real--rl-for-robotics--sample-efficiency-ledger",
+      "route": "/rl-sim2real/rl-for-robotics/",
+      "mount": "mount:/rl-sim2real/rl-for-robotics/:SampleEfficiencyLedger:1",
+      "figure": "sample-efficiency-ledger",
+      "audit": "A32",
+      "sources": [
+        "components/interactive/sample-efficiency-ledger.tsx",
+        "lib/sample-efficiency.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "rl-sim2real--sim2real-transfer--friction-transfer",
+      "route": "/rl-sim2real/sim2real-transfer/",
+      "mount": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:1",
+      "figure": "friction-transfer",
+      "audit": "A33",
+      "sources": [
+        "components/interactive/friction-transfer.tsx",
+        "lib/sim2real.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "rl-sim2real--reward-design-mpc--eureka-loop",
+      "route": "/rl-sim2real/reward-design-mpc/",
+      "mount": "mount:/rl-sim2real/reward-design-mpc/:EurekaLoop:1",
+      "figure": "eureka-loop",
+      "audit": "A34",
+      "sources": [
+        "components/interactive/eureka-loop.tsx",
+        "lib/eureka.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "rl-sim2real--reward-design-mpc--mpc-vs-rl",
+      "route": "/rl-sim2real/reward-design-mpc/",
+      "mount": "mount:/rl-sim2real/reward-design-mpc/:MpcVsRl:1",
+      "figure": "mpc-vs-rl",
+      "audit": "A35",
+      "sources": [
+        "components/interactive/mpc-vs-rl.tsx",
+        "lib/mpc-vs-rl.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "world-models--generative-video--action-conditioning",
+      "route": "/world-models/generative-video/",
+      "mount": "mount:/world-models/generative-video/:ActionConditioning:1",
+      "figure": "action-conditioning",
+      "audit": "A36",
+      "sources": [
+        "components/interactive/action-conditioning.tsx",
+        "lib/action-conditioning.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "home--scene-reliability-threshold",
+      "route": "/",
+      "mount": "scene:reliability-threshold",
+      "figure": "scene:reliability-threshold",
+      "audit": "A37",
+      "sources": [
+        "components/motion/scenes/reliability-threshold.tsx",
+        "lib/reliability.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "data-hardware--industrial-deployment--scene-jam-overhead",
+      "route": "/data-hardware/industrial-deployment/",
+      "mount": "scene:jam-overhead",
+      "figure": "scene:jam-overhead",
+      "audit": "A38",
+      "sources": [
+        "components/motion/scenes/jam-overhead.tsx",
+        "lib/deployment-economics.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "data-hardware--industrial-deployment--deployment-economics",
+      "route": "/data-hardware/industrial-deployment/",
+      "mount": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+      "figure": "deployment-economics",
+      "audit": "A39",
+      "sources": [
+        "components/interactive/deployment-economics.tsx",
+        "lib/deployment-economics.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "classical--motion-planning--rrt-explorer",
+      "route": "/classical/motion-planning/",
+      "mount": "mount:/classical/motion-planning/:RrtExplorer:1",
+      "figure": "rrt-explorer",
+      "audit": "A40",
+      "sources": [
+        "components/interactive/rrt-explorer.tsx",
+        "lib/rrt.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "classical--control--pendulum-controller",
+      "route": "/classical/control/",
+      "mount": "mount:/classical/control/:PendulumController:1",
+      "figure": "pendulum-controller",
+      "audit": "A41",
+      "sources": [
+        "components/interactive/pendulum-controller.tsx",
+        "lib/pendulum.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "classical--control--impedance-contact-lab",
+      "route": "/classical/control/",
+      "mount": "mount:/classical/control/:ImpedanceContactLab:1",
+      "figure": "impedance-contact-lab",
+      "audit": "A42",
+      "sources": [
+        "components/interactive/impedance-contact-lab.tsx",
+        "lib/force-limits.ts",
+        "lib/impedance.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "classical--perception--perception-error-budget",
+      "route": "/classical/perception/",
+      "mount": "mount:/classical/perception/:PerceptionErrorBudget:1",
+      "figure": "perception-error-budget",
+      "audit": "A43",
+      "sources": [
+        "components/interactive/perception-error-budget.tsx",
+        "lib/perception-error.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "classical--scene-representation--scene-representation-ladder",
+      "route": "/classical/scene-representation/",
+      "mount": "mount:/classical/scene-representation/:SceneRepresentationLadder:1",
+      "figure": "scene-representation-ladder",
+      "audit": "A44",
+      "sources": [
+        "components/interactive/scene-representation-ladder.tsx",
+        "lib/scene-representation.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "frontier--reliability-gap--deployment-dashboard",
+      "route": "/frontier/reliability-gap/",
+      "mount": "mount:/frontier/reliability-gap/:DeploymentDashboard:1",
+      "figure": "deployment-dashboard",
+      "audit": "A45",
+      "sources": [
+        "components/interactive/deployment-dashboard.tsx",
+        "lib/deployment-reality.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "frontier--dexterity--hand-comparison",
+      "route": "/frontier/dexterity/",
+      "mount": "mount:/frontier/dexterity/:HandComparison:1",
+      "figure": "hand-comparison",
+      "audit": "A46",
+      "sources": [
+        "components/interactive/hand-comparison.tsx",
+        "lib/dexterous-hands.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "frontier--generalization--egoscale-scaling",
+      "route": "/frontier/generalization/",
+      "mount": "mount:/frontier/generalization/:EgoScaleScaling:1",
+      "figure": "egoscale-scaling",
+      "audit": "A47",
+      "sources": [
+        "components/interactive/egoscale-scaling.tsx",
+        "lib/egoscale-law.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "frontier--bear-case--milestones-watchlist",
+      "route": "/frontier/bear-case/",
+      "mount": "mount:/frontier/bear-case/:MilestonesWatchlist:1",
+      "figure": "milestones-watchlist",
+      "audit": "A48",
+      "sources": [
+        "components/interactive/milestones-watchlist.tsx",
+        "lib/bear-case.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "adjacent--drones--perception-latency",
+      "route": "/adjacent/drones/",
+      "mount": "mount:/adjacent/drones/:PerceptionLatency:1",
+      "figure": "perception-latency",
+      "audit": "A49",
+      "sources": [
+        "components/interactive/perception-latency.tsx",
+        "lib/aerial-latency.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "adjacent--drones--scene-sense-avoid",
+      "route": "/adjacent/drones/",
+      "mount": "scene:sense-avoid",
+      "figure": "scene:sense-avoid",
+      "audit": "A50",
+      "sources": [
+        "components/motion/scenes/sense-avoid.tsx",
+        "lib/aerial-latency.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "manipulation--rl-finetuning--advantage-scrubber",
+      "route": "/manipulation/rl-finetuning/",
+      "mount": "mount:/manipulation/rl-finetuning/:AdvantageScrubber:1",
+      "figure": "advantage-scrubber",
+      "audit": "A51",
+      "sources": [
+        "components/interactive/advantage-scrubber.tsx",
+        "lib/advantage-episode.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "world-models--generative-sim--appearance-physics-push",
+      "route": "/world-models/generative-sim/",
+      "mount": "mount:/world-models/generative-sim/:AppearancePhysicsPush:1",
+      "figure": "appearance-physics-push",
+      "audit": "A52",
+      "sources": [
+        "components/interactive/appearance-physics-push.tsx",
+        "lib/appearance-physics-push.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "credits--covariate-shift",
+      "route": "/credits/",
+      "mount": "image:covariate-shift",
+      "figure": "covariate-shift",
+      "audit": "A53",
+      "sources": [
+        "components/ui/original-schematics.tsx"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "frontier--reliability-gap--reliability-compounding",
+      "route": "/frontier/reliability-gap/",
+      "mount": "mount:/frontier/reliability-gap/:ReliabilityCompounding:1",
+      "figure": "reliability-compounding",
+      "audit": "A54",
+      "sources": [
+        "components/interactive/reliability-compounding.tsx",
+        "lib/reliability.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "frontier--safety-and-assurance--collaborative-operation-modes",
+      "route": "/frontier/safety-and-assurance/",
+      "mount": "mount:/frontier/safety-and-assurance/:CollaborativeOperationModes:1",
+      "figure": "collaborative-operation-modes",
+      "audit": "A55",
+      "sources": [
+        "components/interactive/collaborative-operation-modes.tsx",
+        "lib/safety-modes.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "manipulation--bc-foundations--covariate-shift",
+      "route": "/manipulation/bc-foundations/",
+      "mount": "image:covariate-shift",
+      "figure": "covariate-shift",
+      "audit": "A56",
+      "sources": [
+        "components/ui/original-schematics.tsx"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "manipulation--rl-finetuning--expo-ft-results",
+      "route": "/manipulation/rl-finetuning/",
+      "mount": "mount:/manipulation/rl-finetuning/:ExpoFtResults:1",
+      "figure": "expo-ft-results",
+      "audit": "A57",
+      "sources": [
+        "components/interactive/expo-ft-results.tsx"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "data-hardware--evaluation-crisis--reliability-compounding",
+      "route": "/data-hardware/evaluation-crisis/",
+      "mount": "mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:1",
+      "figure": "reliability-compounding",
+      "audit": "A58",
+      "sources": [
+        "components/interactive/reliability-compounding.tsx",
+        "lib/reliability.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "classical--kinematics--planar-fk-arm",
+      "route": "/classical/kinematics/",
+      "mount": "mount:/classical/kinematics/:PlanarFkArm:1",
+      "figure": "planar-fk-arm",
+      "audit": "A59",
+      "sources": [
+        "components/interactive/planar-fk-arm.tsx",
+        "lib/planar-fk.ts"
+      ],
+      "takeaway": ""
+    },
+    {
+      "id": "classical--state-estimation--clip-kalman-episode",
+      "route": "/classical/state-estimation/",
+      "mount": "clip:kalman-episode",
+      "figure": "clip:kalman-episode",
+      "audit": "A60",
+      "sources": [
+        "motion-clips.json",
+        "scripts/motion/clips/kalman_episode.py"
+      ],
+      "takeaway": ""
+    }
+  ]
+}

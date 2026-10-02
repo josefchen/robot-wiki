@@ -22,10 +22,11 @@ import { TableScroll } from './table-scroll';
  * scanned by nothing. Real DOM text outside the SVG is reached by the lint,
  * by Pagefind, by print, and by a screen reader.
  *
- * It mounts in the footer band of a figure stage. The takeaway is the
- * figure's screen-reader description, so it is visually hidden like a
- * scene's text alternative, and the one-line figure caption carries the
- * visible reading; the disclosure stays a visible stage control.
+ * It mounts in the frame's "How this was made" fold with `open`, so the
+ * sample is one click from the main view. The takeaway is the figure's
+ * screen-reader description, so it is visually hidden like a scene's text
+ * alternative, and the one-line figure caption carries the visible
+ * reading.
  *
  * Design constraints this component exists to hold:
  * - The <summary> is sentence case, never an uppercase letterspaced
@@ -37,7 +38,7 @@ import { TableScroll } from './table-scroll';
  *   leaves about 543px, so the table scrolls inside its own overflow
  *   container instead of breaking the page width (VAL-EDU-028). There are
  *   no .prose table styles in globals.css, so the styles are carried here.
- * - Every size sits on the figure type scale (12 px headers, 13 px cells),
+ * - Every size sits on the figure type scale (12 px headers, 14 px cells),
  *   in the brand sans.
  * - Zero em-dashes and en-dashes: the prose lint is zero tolerance.
  */
@@ -82,6 +83,12 @@ type ChartDescriptionProps = {
    * (fine when nothing needs to reference the paragraph).
    */
   id?: string;
+  /**
+   * Serve the data disclosure open. A description placed in the frame's
+   * "How this was made" fold passes it, so the numbers sit one click away
+   * rather than behind a second disclosure.
+   */
+  open?: boolean;
   className?: string;
 };
 
@@ -97,6 +104,7 @@ export function ChartDescription({
   rows,
   states,
   id: explicitId,
+  open = false,
   className,
 }: ChartDescriptionProps) {
   const generatedId = useId();
@@ -125,11 +133,16 @@ export function ChartDescription({
       <p id={id} data-chart-description className="sr-only">
         {description}
       </p>
-      <details data-chart-data data-chart-form={form} data-pagefind-ignore>
+      <details
+        data-chart-data
+        data-chart-form={form}
+        data-pagefind-ignore
+        open={open || undefined}
+      >
         <summary
           id={summaryId}
           data-brand-control-id="control:secondary-action"
-          className="inline-flex min-h-6 cursor-pointer select-none items-center font-sans text-[13px] text-text-dim underline decoration-border-strong decoration-1 underline-offset-4 transition-colors hover:text-text"
+          className="inline-flex min-h-6 cursor-pointer select-none items-center font-sans text-sm text-text-dim underline decoration-border-strong decoration-1 underline-offset-4 transition-colors hover:text-text"
         >
           {summary ?? 'Chart data'}
         </summary>
@@ -162,7 +175,7 @@ export function ChartDescription({
                       <td
                         key={i}
                         className={cx(
-                          'px-3 py-2 font-sans text-[13px] text-text',
+                          'px-3 py-2 font-sans text-sm text-text',
                           columns![i]?.numeric && 'text-right tabular-nums',
                         )}
                       >
@@ -175,13 +188,13 @@ export function ChartDescription({
             </table>
           </TableScroll>
         ) : (
-          <dl className="mt-2 flex flex-col gap-1.5 font-sans text-[13px] sm:flex-row sm:flex-wrap sm:gap-x-6">
+          <dl className="mt-2 flex flex-col gap-1.5 font-sans text-sm sm:flex-row sm:flex-wrap sm:gap-x-6">
             {states!.map((state) => (
               <div key={state.label} className="flex items-baseline gap-2">
                 <dt className="font-sans text-xs text-text-dim">
                   {state.label}
                 </dt>
-                <dd className="font-sans text-[13px] tabular-nums text-text">{state.value}</dd>
+                <dd className="font-sans text-sm tabular-nums text-text">{state.value}</dd>
               </div>
             ))}
           </dl>

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "bb16822bdc51f3bad708d711684e16ae8d7534a1c3867efa2d39b6c2cf68cae9",
+  "fingerprint": "6e0a8d73dbfa7a4aa4fa02caea128530ed396f614598d5cfad0c7180d8ebdc53",
   "viewports": [
     "375x812",
     "1440x900"
@@ -123,7 +123,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18760,
+      "visibleTextLength": 18743,
       "tables": [
         {
           "index": 0,
@@ -3355,7 +3355,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 20004,
+      "visibleTextLength": 19987,
       "tables": [],
       "equations": [
         {
@@ -4125,7 +4125,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 25194,
+      "visibleTextLength": 25177,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -4306,7 +4306,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 23908,
+      "visibleTextLength": 23891,
       "tables": [
         {
           "index": 0,
@@ -4500,10 +4500,10 @@
             "role": "region",
             "accessibleName": "Deployment programs with their reported value, whether the figure is verified or claimed, and the source behind it. Filter the rows by status above the table.",
             "clientWidth": 333,
-            "scrollWidth": 560,
+            "scrollWidth": 566,
             "scrolledBy": 40
           },
-          "tableWidth": 552,
+          "tableWidth": 558,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -4578,7 +4578,7 @@
           "accessibleName": "Deployment programs with their reported value, whether the figure is verified or claimed, and the source behind it. Filter the rows by status above the table.",
           "tabIndex": 0,
           "clientWidth": 333,
-          "scrollWidth": 560,
+          "scrollWidth": 566,
           "scrolledBy": 40
         }
       ],
@@ -5579,7 +5579,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14327,
+      "visibleTextLength": 14310,
       "tables": [],
       "equations": [
         {
@@ -6568,7 +6568,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18412,
+      "visibleTextLength": 18395,
       "tables": [],
       "equations": [
         {
@@ -6629,7 +6629,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15648,
+      "visibleTextLength": 15631,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -7256,7 +7256,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 19078,
+      "visibleTextLength": 19061,
       "tables": [
         {
           "index": 0,
@@ -10488,7 +10488,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 20423,
+      "visibleTextLength": 20406,
       "tables": [],
       "equations": [
         {
@@ -11258,7 +11258,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 25573,
+      "visibleTextLength": 25556,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -11439,7 +11439,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 24243,
+      "visibleTextLength": 24226,
       "tables": [
         {
           "index": 0,
@@ -12712,7 +12712,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14954,
+      "visibleTextLength": 14937,
       "tables": [],
       "equations": [
         {
@@ -13701,7 +13701,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18887,
+      "visibleTextLength": 18870,
       "tables": [],
       "equations": [
         {
@@ -13762,7 +13762,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 16123,
+      "visibleTextLength": 16106,
       "tables": [],
       "equations": [],
       "scrollRegions": [],

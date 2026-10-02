@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { auditSceneElement } from '@/lib/motion-scene-audit';
+import { openAdjustMore } from './helpers/figure-fold';
 
 const scenes = [
   {
@@ -58,8 +59,10 @@ for (const { id, route, captions } of scenes) {
       await scene.getByTestId('motion-poster').click();
       await expect(scene.getByTestId('motion-scrubber')).toBeVisible();
       await expect(scene.getByTestId('motion-caption')).toHaveText(captions[3]);
+      await openAdjustMore(scene);
       await scene.getByRole('button', { name: /step back one beat/i }).click();
       await expect(scene.getByTestId('motion-caption')).toHaveText(captions[2]);
+      await openAdjustMore(scene);
       await scene.getByRole('button', { name: /step forward one beat/i }).click();
       await expect(scene.getByTestId('motion-caption')).toHaveText(captions[3]);
       await scene.getByTestId('motion-scrubber').fill('0');

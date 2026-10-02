@@ -28,8 +28,12 @@ export function ChartFixtureFigure({ id = 'fixture:chart-primitives' }: { id?: s
   return (
     <FigureFrame
       figureId={id}
-      heading="Primitive fixture"
+      kicker="Primitive fixture"
+      heading="Every chart primitive draws from the same tokens"
+      controls={<button type="button">Show the target</button>}
+      adjust={<button type="button">Reset</button>}
       caption="Each chart primitive once, drawn from the motion tokens on the graphite stage."
+      method={<p>Drawn from fixed fixture values, not measured data.</p>}
       source="Robot Wiki test fixture."
       stage={
         <FigureStage
