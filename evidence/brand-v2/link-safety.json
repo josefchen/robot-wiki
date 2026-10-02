@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "aae9c03aef4f8570491319a37206cfb8841468327315521929dc77a4da3cb330",
+  "fingerprint": "1960d2705956555534d5887b100facf25844aa20ac8fbdaf247a2676ea92732c",
   "source": "out/ static export",
   "routes": [
     {
@@ -316,7 +316,7 @@
     },
     {
       "route": "/frontier/bear-case/",
-      "outboundAnchors": 53,
+      "outboundAnchors": 65,
       "distinctHrefs": 25,
       "shapes": [
         "citation-chip",
@@ -328,11 +328,10 @@
     },
     {
       "route": "/frontier/competing-theses/",
-      "outboundAnchors": 79,
+      "outboundAnchors": 71,
       "distinctHrefs": 26,
       "shapes": [
         "citation-chip",
-        "figure-credit",
         "footer",
         "other",
         "reference-entry"
@@ -804,17 +803,17 @@
     }
   ],
   "routesSwept": 75,
-  "outboundAnchors": 3152,
+  "outboundAnchors": 3156,
   "distinctOutboundHrefs": 864,
   "anchorsByShape": {
     "citation-chip": 1378,
     "footer": 150,
     "reference-entry": 760,
     "other": 561,
-    "figure-credit": 303
+    "figure-credit": 307
   },
   "anchorsWithoutNoopener": 0,
-  "anchorsWithNoreferrer": 2614,
+  "anchorsWithNoreferrer": 2618,
   "keyboard": [
     {
       "route": "/",
@@ -870,7 +869,7 @@
       "reachedByTab": 37,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 130
+      "tabStops": 132
     },
     {
       "route": "/adjacent/space/",
@@ -1058,19 +1057,19 @@
     },
     {
       "route": "/frontier/bear-case/",
-      "outboundInDom": 53,
-      "reachedByTab": 53,
+      "outboundInDom": 65,
+      "reachedByTab": 65,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 164
+      "tabStops": 189
     },
     {
       "route": "/frontier/competing-theses/",
-      "outboundInDom": 79,
-      "reachedByTab": 79,
+      "outboundInDom": 71,
+      "reachedByTab": 71,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 222
+      "tabStops": 206
     },
     {
       "route": "/frontier/dexterity/",
@@ -1078,7 +1077,7 @@
       "reachedByTab": 80,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 208
+      "tabStops": 205
     },
     {
       "route": "/frontier/generalization/",
@@ -1102,7 +1101,7 @@
       "reachedByTab": 64,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 179
+      "tabStops": 177
     },
     {
       "route": "/glossary/",

@@ -2,6 +2,7 @@ import { test as base, expect } from '@playwright/test';
 import { test as evidenceTest } from './helpers/state-smoothing-fixture';
 import { writeFileSync } from 'node:fs';
 import AxeBuilder from '@axe-core/playwright';
+import { openAdjustMore } from './helpers/figure-fold';
 
 const test = process.env.ROBOT_WIKI_GATE_INPUTS ? evidenceTest : base;
 const route = '/frontier/competing-theses/';
@@ -18,16 +19,16 @@ test('PI and Helix qualifications survive interactive selection and reset', asyn
   const explorer = page.getByTestId('thesis-explorer');
   const detail = page.getByTestId('thesis-detail');
   for (const [name, qualification] of [
-    ['World-model-based training', 'the images condition the action policy'],
-    ['Hierarchical planner over skills', 'Figure reports a continuous four-minute Helix 02 dishwasher unloading-and-reloading'],
-    ['RL fine-tuning on imitation', 'successful episodes per hour, not inference speed'],
+    ['Let the robot imagine first', 'the images condition the action policy'],
+    ['A planner directs simple skills', 'Figure reports a continuous four-minute Helix 02 dishwasher unloading-and-reloading'],
+    ['Copy first, then practise', 'successful episodes per hour, not inference speed'],
   ]) {
     const button = explorer.getByRole('button', { name, exact: true });
     await button.focus();
     await page.keyboard.press('Enter');
     await expect(button).toHaveAttribute('aria-pressed', 'true');
     await expect(detail).toContainText(qualification);
-    for (const label of ['Evidence for', 'Evidence against', 'Falsification criterion']) {
+    for (const label of ['Evidence for', 'Evidence against', 'We’d know it’s wrong if']) {
       await expect(detail.getByText(label, { exact: true })).toBeVisible();
     }
   }
@@ -36,8 +37,9 @@ test('PI and Helix qualifications survive interactive selection and reset', asyn
   }
   await explorer.scrollIntoViewIfNeeded();
   await page.screenshot({ path: testInfo.outputPath('pi-helix-selected.png') });
+  await openAdjustMore(explorer);
   await explorer.getByRole('button', { name: 'Reset', exact: true }).click();
-  await expect(page.getByTestId('thesis-readout')).toHaveText('6 theses, showing: End-to-end VLA scaling');
+  await expect(page.getByTestId('thesis-readout')).toHaveText('6 bets. Tap one to read the evidence for and against.');
   const axe = await new AxeBuilder({ page }).include('[data-testid="thesis-explorer"]').analyze();
   writeFileSync(testInfo.outputPath('axe-pi-helix.json'), JSON.stringify(axe, null, 2));
   expect(axe.violations).toEqual([]);

@@ -8,10 +8,12 @@ import {
   seoPassCheckerPredecessor, seoPassPredecessor, verifySeoPassSource, verifySeoPassSpec,
   type SeoPassEdit, type SeoPassSource, type SeoPassSpec,
 } from '../../lib/audit-seo-pass-continuity';
+import { preReaderFirst } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
 const dir = 'audit/evidence/seo-pass-20261002/';
-const read = (path: string) => readFileSync(join(root, path));
+// The SEO-pass successors as the reader-first layer hands them back.
+const read = (path: string) => preReaderFirst(path);
 const sha = (bytes: Buffer | string) => createHash('sha256').update(bytes).digest('hex');
 const review = JSON.parse(read(`${dir}source-transition.json`).toString()) as { sources: SeoPassSource[] };
 const source = (path: string) => review.sources.find(({ after }) => after.path === path)!;

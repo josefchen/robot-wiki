@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto';
+import { openAdjustMore } from './helpers/figure-fold';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { expect, test, type Locator, type Page } from '@playwright/test';
 import { setSlider } from './slider';
@@ -106,6 +107,7 @@ test('final seven: actually mounted corrected arithmetic on two viewports', asyn
     await capture(safetyRoute, 'CollaborativeOperationModes', 1, 'discrete-options',
       'distance-r1-h1.6', 'select power-force', 'force-r1-h1.6', safety,
       ['force-readout', 'force-limit-readout'], ['316 N', '255 N'], viewport);
+    await openAdjustMore(safety);
     await safety.getByRole('button', { name: 'Reset' }).click();
     await capture(safetyRoute, 'CollaborativeOperationModes', 1, 'reset', 'force-r1-h1.6',
       'reset', 'distance-r1-h1.6', safety, ['separation-readout'], ['1.42 m'], viewport);

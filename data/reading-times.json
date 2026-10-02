@@ -192,23 +192,23 @@
     "minutes": 9
   },
   "frontier/dexterity": {
-    "words": 2734,
+    "words": 2718,
     "minutes": 14
   },
   "frontier/generalization": {
-    "words": 1983,
+    "words": 2003,
     "minutes": 10
   },
   "frontier/competing-theses": {
-    "words": 3027,
-    "minutes": 15
+    "words": 2698,
+    "minutes": 13
   },
   "frontier/bear-case": {
-    "words": 1865,
-    "minutes": 9
+    "words": 1574,
+    "minutes": 8
   },
   "frontier/safety-and-assurance": {
-    "words": 3083,
+    "words": 3023,
     "minutes": 15
   },
   "adjacent/autonomous-vehicles": {
@@ -216,7 +216,7 @@
     "minutes": 19
   },
   "adjacent/drones": {
-    "words": 2490,
+    "words": 2482,
     "minutes": 12
   },
   "adjacent/surgical": {

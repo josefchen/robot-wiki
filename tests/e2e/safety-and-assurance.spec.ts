@@ -1,5 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import matter from 'gray-matter';
@@ -277,7 +278,9 @@ test.describe('safety-and-assurance module', () => {
     }
     expect(new Set(constraints).size, 'four distinct constraints').toBe(4);
 
-    // The two procedural modes state a constraint instead of a number.
+    // The two procedural modes state a constraint instead of a number, in
+    // the figure's "How this was made" fold.
+    await openHowThisWasMade(page.locator('[data-figure-frame="collaborative-operation-modes"]'));
     for (const id of ['monitored-stop', 'hand-guiding']) {
       await page.getByTestId(`mode-${id}`).click();
       await expect(page.getByTestId('stated-readout')).toBeVisible();
@@ -376,6 +379,8 @@ test.describe('safety-and-assurance module', () => {
     // with a force readout and a visible labelled limit.
     await page.getByTestId('mode-power-force').click();
     await expect(page.getByTestId('separation-readout')).toHaveCount(0);
+    // The exact readouts sit in the figure's "How this was made" fold.
+    await openHowThisWasMade(page.locator('[data-figure-frame="collaborative-operation-modes"]'));
     await expect(page.getByTestId('force-readout')).toBeVisible();
     await expect(page.getByTestId('force-readout')).toHaveText(/\d+\s*N/);
     await expect(page.getByTestId('force-limit-readout')).toHaveText(/\d+\s*N/);
@@ -395,12 +400,15 @@ test.describe('safety-and-assurance module', () => {
       'true',
     );
 
+    const frame = page.locator('[data-figure-frame="collaborative-operation-modes"]');
     await setSlider(page.locator('#safety-robot-speed'), 1.85);
+    // The walking-speed slider and Reset sit in the "Adjust more" fold.
+    await openAdjustMore(frame);
     await setSlider(page.locator('#safety-human-speed'), 0.35);
     await page.getByTestId('mode-power-force').click();
     expect(await readout(page, 'mode-constraint')).not.toBe(opening.constraint);
 
-    await page.getByRole('button', { name: 'Reset' }).click();
+    await frame.getByRole('button', { name: 'Reset' }).click();
 
     await expect(page.getByTestId('mode-speed-separation')).toHaveAttribute(
       'aria-pressed',

@@ -1,6 +1,7 @@
 import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { setSlider } from './slider';
+import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
 import { CITATIONS } from '../../data/citations';
 import {
   SLIDER_MAX,
@@ -11,24 +12,25 @@ import {
 const ROUTE = '/frontier/generalization/';
 
 /**
- * The article's only scaling chart sits inside the prediction step's
- * disclosure, seeded at the 250k h horizon; it is hidden until the step
- * opens.
+ * The article's only scaling chart is the prediction step's figure, seeded
+ * at the 250k h horizon. It renders between the question and the reasoning,
+ * visible at settle without answering; its slider, the loss-panel toggle and
+ * reset sit in "Adjust more", its method and caveats in "How this was made".
  */
 function egs(page: Page) {
   return page.locator('[data-figure-frame="egoscale-scaling"]');
 }
 
 async function openStep(page: Page) {
-  const reveal = page.locator(
-    'details[data-reveal]:has([data-figure-frame="egoscale-scaling"])',
-  );
-  await reveal.locator(':scope > summary').click();
-  await expect(reveal).toHaveAttribute('open');
+  // Nothing to answer first: the figure is outside the closed reasoning.
+  await expect(
+    page.locator('details[data-reveal] [data-figure-frame="egoscale-scaling"]'),
+  ).toHaveCount(0);
+  await expect(egs(page).locator('[data-figure-stage]')).toBeVisible();
+  await openAdjustMore(egs(page));
 }
 
-
-const HORIZON = { name: /extrapolation horizon/i };
+const HORIZON = { name: /hours of video/i };
 
 test.describe('frontier generalization module', () => {
   test('renders with prose, headings, and active sidebar state (VAL-FRONT-001, VAL-FRONT-002)', async ({
@@ -132,9 +134,15 @@ test.describe('frontier generalization module', () => {
       egs(page).getByRole('button', { name: /reset/i }),
     ).toBeVisible();
 
-    // Default 250k horizon: the band and dashed extrapolation are visible
-    // once the step opens, both scenarios are read out, and the fit is
-    // already past 100%.
+    // Default 250k horizon: at settle the "About 12 times more" preset is
+    // pressed and the impossible crossing is annotated on the stage.
+    await expect(egs(page).getByTestId('egoscale-preset-twelve')).toHaveAttribute('aria-pressed', 'true');
+    await expect(egs(page).getByTestId('impossible-note')).toBeVisible();
+    await expect(egs(page).getByTestId('projection-summary')).toContainText('250k hours');
+    // The paper's own law and the scenario bands are one toggle away; the
+    // band and dashed extrapolation are visible once it is on, and both
+    // scenarios are read out.
+    await egs(page).getByRole('button', { name: /show the paper.s error measure/i }).click();
     const band = egs(page).getByTestId('uncertainty-band');
     await expect(band).toBeVisible();
     await expect(egs(page).getByTestId('extrapolated-loss-law')).toBeVisible();
@@ -143,14 +151,14 @@ test.describe('frontier generalization module', () => {
     await expect(egs(page).getByTestId('loss-readout')).toContainText('0.0150');
     await expect(egs(page).getByTestId('impossible-note')).toBeVisible();
 
-    // The validation-loss caveat is the figure's source line; the band's
-    // status is named in the legend.
+    // The validation-loss caveat and the band's status are in "How this
+    // was made".
+    const method = await openHowThisWasMade(egs(page));
     const caveat = egs(page).getByTestId('scaling-caveat');
+    await expect(caveat).toBeVisible();
     await expect(caveat).toContainText(/validation loss/i);
     await expect(caveat).toContainText(/real-world success rate/i);
-    await expect(egs(page).locator('[data-figure-legend]')).toContainText(
-      /not a confidence interval/i,
-    );
+    await expect(method).toContainText(/not a confidence interval/i);
 
     // Pulling back to the measured-range boundary removes the band.
     await setSlider(slider, SLIDER_MIN);
@@ -200,8 +208,13 @@ test.describe('frontier generalization module', () => {
       hoursToSlider(100_000),
     );
     await expect(egs(page).getByTestId('horizon-readout')).toHaveText('100k h');
-    await expect(egs(page).getByTestId('completion-readout')).toContainText(
+    await expect(egs(page).getByTestId('completion-fit-readout')).toContainText(
       /below the solved bar/i,
+    );
+    // The same point by preset, read out on the stage in plain words.
+    await egs(page).getByTestId('egoscale-preset-five').click();
+    await expect(egs(page).getByTestId('completion-readout')).toContainText(
+      '0.89, or 89%, still below the bar for solved',
     );
   });
 

@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { waitForHydration } from './interaction-ready';
+import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
 
 const ROUTE = '/adjacent/drones/';
 
@@ -110,28 +111,42 @@ test.describe('adjacent drones module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
-    const slider = page.getByRole('slider', { name: /perception latency/i });
-    await expect(slider).toBeVisible();
-    await waitForHydration(slider);
-    // Opens at the study's stereo-camera operating point.
+    const frame = page.locator('main [data-figure-frame="perception-latency"]').first();
+    await expect(frame.getByText('A drone that sees faster can safely fly faster')).toBeVisible();
+    const ordinary = frame.getByRole('button', { name: 'Ordinary camera (7 hundredths of a second)', exact: true });
+    await expect(ordinary).toBeVisible();
+    await waitForHydration(ordinary);
+    // Opens at the study's stereo-camera operating point, drawn as a speed.
+    await expect(frame.getByTestId('speedometer-reading')).toHaveText('about 69 km/h');
+    await expect(ordinary).toHaveAttribute('aria-pressed', 'true');
+
+    // The event camera preset raises the top speed.
+    await frame.getByRole('button', { name: 'Faster camera (about 1 hundredth)', exact: true }).click();
+    await expect(frame.getByTestId('speedometer-reading')).toHaveText('about 80 km/h');
+    await ordinary.click();
+
+    // The exact budget sits under "How this was made".
+    await openHowThisWasMade(frame);
     await expect(page.getByTestId('max-speed-readout')).toHaveText('19.21 m/s');
     await expect(page.getByTestId('latency-readout')).toHaveText('70 ms');
 
-    // Dragging the latency slider lowers the maximum speed.
+    // Dragging the latency slider (under "Adjust more") lowers the maximum speed.
+    await openAdjustMore(frame);
+    const slider = frame.getByRole('slider', { name: /perception latency/i });
+    await expect(slider).toBeVisible();
     await slider.focus();
-    await slider.press('ArrowLeft'); // step 5 ms down
+    await slider.press('ArrowLeft'); // 1 ms down
     await expect(page.getByTestId('max-speed-readout')).not.toHaveText('19.21 m/s');
 
-    // Agility selection changes the avoidance maneuver time.
-    await page.getByRole('button', { name: '200 m/s²' }).click();
+    // The swerve selection changes the avoidance maneuver time.
+    await frame.getByRole('button', { name: 'Extreme', exact: true }).click();
     await expect(page.getByTestId('avoid-readout')).toHaveText('122 ms');
 
     // Reset restores the study default.
-    await slider.locator('xpath=ancestor::*[@data-brand-module-signature="instrument-frame"][1]')
-      .getByRole('button', { name: 'Reset', exact: true }).click();
+    await frame.getByRole('button', { name: 'Reset', exact: true }).click();
     await expect(page.getByTestId('max-speed-readout')).toHaveText('19.21 m/s');
     await expect(
-      page.getByRole('button', { name: '25 m/s²', exact: true }),
+      frame.getByRole('button', { name: 'Standard (the study’s)', exact: true }),
     ).toHaveAttribute('aria-pressed', 'true');
   });
 

@@ -1558,7 +1558,7 @@
     {
       "id": "tactile-slip",
       "route": "/frontier/dexterity/",
-      "sourceSha256": "096ab5a557d84c9a931be2107d14c5fc30e36abd8f27ca21859948f7ec328440",
+      "sourceSha256": "8c3b451df94096363373e3afeb7a8a382b24ad98a9e03d04dfc43d06e95d0c67",
       "marks": [
         {
           "mark": "held-object",
@@ -1576,6 +1576,8 @@
           "role": "measurement",
           "hex": "#E8C11C",
           "beats": [
+            1,
+            2,
             3,
             4
           ]
@@ -1585,6 +1587,8 @@
           "role": "measurement",
           "hex": "#E8C11C",
           "beats": [
+            1,
+            2,
             3,
             4
           ]
@@ -1594,15 +1598,13 @@
     {
       "id": "sense-avoid",
       "route": "/adjacent/drones/",
-      "sourceSha256": "7360f24912ed6ada093ff299e42fa52859a4e84c5b88c566c791b5849715e9f4",
+      "sourceSha256": "e18f668521d04e8bd5946508ab9cad990d2d76827fa7873b1e383f3911f001b7",
       "marks": [
         {
           "mark": "avoidance-budget",
           "role": "action",
           "hex": "#B189C6",
           "beats": [
-            1,
-            2,
             3,
             4
           ]
@@ -1612,19 +1614,6 @@
           "role": "constraint",
           "hex": "#FC6255",
           "beats": [
-            1,
-            2,
-            3,
-            4
-          ]
-        },
-        {
-          "mark": "obstacle",
-          "role": "constraint",
-          "hex": "#FC6255",
-          "beats": [
-            1,
-            2,
             3,
             4
           ]

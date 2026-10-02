@@ -6,24 +6,22 @@ import {
   ControlField,
   ControlLabel,
   INSTRUMENT_SLIDER_CLASS,
-  INSTRUMENT_TOGGLE_CLASS,
   InstrumentFigure,
-  InstrumentLegend,
   InstrumentReadout,
   InstrumentReset,
-  LegendItem,
   PlotStage,
+  PresetGroup,
+  SliderEnds,
 } from '@/components/ui/instrument';
-import { FigureStage } from '@/components/motion/figure-frame';
+import { FigureStage, StageStatus } from '@/components/motion/figure-frame';
 import {
   Bar,
   CHART_STROKE,
   CHART_STRUCTURE,
   CHART_VIEW_WIDTH,
-  ChartAxes,
   ConstraintHatch,
   DirectLabel,
-  LegendSwatch,
+  StageAnnotation,
   roleColour,
 } from '@/components/motion/chart';
 import {
@@ -31,6 +29,7 @@ import {
   DEFAULT_AGILITY,
   DEFAULT_LATENCY_MS,
   INTERACTIVE_MAX_LATENCY_MS,
+  OBSTACLE_RADIUS_M,
   SENSORS,
   formatSeconds,
   formatSpeed,
@@ -38,37 +37,138 @@ import {
 } from '@/lib/aerial-latency';
 
 /**
- * PerceptionLatency: how fast is too fast, for the adjacent/drones
- * module. Reproduces the sense-and-avoid analysis of Falanga, Kim, and
- * Scaramuzza (RA-L 2019): a drone flying at the maximum speed its
- * perception pipeline can support, with the latency slider eating the
- * time to contact and the agility selector setting the avoidance
- * maneuver's lateral acceleration.
+ * PerceptionLatency: how fast is too fast, for the adjacent/drones module.
+ * Reproduces the sense-and-avoid analysis of Falanga, Kim, and Scaramuzza
+ * (RA-L 2019), drawn as distance: a drone flying at the wall it can just
+ * see, at the fastest speed that still lets it swerve in time.
  *
- * One lane runs from the obstacle-detection moment to contact: the
- * latency interval (dead time before control acts), then the avoidance
- * maneuver. Latency and the obstacle take the constraint role and the
- * maneuver the action role, as in the paired sense-avoid scene. At the
- * maximum speed the maneuver ends exactly at contact, so the dashed
- * margin after it has zero width by construction (lib/aerial-latency).
+ * The track from the drone to the wall splits into the stretch flown
+ * while the camera is still reporting (constraint role, the latency band)
+ * and the swerve (action role, the avoidance band). At the maximum speed
+ * the swerve ends exactly at the wall, so the dashed margin after it has
+ * zero width by construction (lib/aerial-latency).
  */
 
 const WIDTH = CHART_VIEW_WIDTH;
-const HEIGHT = 111;
-const LABEL_Y = 20;
-const LANE_TOP = 30;
-const LANE_H = 30;
-const PLOT = {
-  left: 24,
-  right: WIDTH - 26,
-  top: LANE_TOP,
-  bottom: LANE_TOP + LANE_H + 6,
-};
-const PLOT_W = PLOT.right - PLOT.left;
-const LANE_BOTTOM = LANE_TOP + LANE_H;
-const TICK_FRACTIONS = [0, 0.25, 0.5, 0.75, 1];
+const HEIGHT = 240;
+const TRACK_LEFT = 66;
+const WALL_X = 298;
+const TRACK_Y = 108;
+const TRACK_H = 12;
+const DIM_Y = 132;
+const DIAL_X = 40;
+const DIAL_Y = 230;
+const DIAL_R = 30;
+/** Full scale in km/h: the model tops out near 236 at zero delay and the hardest swerve. */
+const DIAL_MAX_KMH = 240;
 
 const f = (v: number) => Number(v.toFixed(2));
+const kmh = (ms: number) => Math.round(ms * 3.6);
+const metres = (m: number) => `${m.toFixed(1)} metres`;
+const G = 9.81;
+
+type CameraId = 'stereo' | 'event' | 'custom';
+type AgilityId = `${(typeof AGILITY_STEPS)[number]}`;
+
+const STEREO = SENSORS[0];
+const EVENT = SENSORS[1];
+
+const CAMERA_PRESETS: { id: CameraId; label: string }[] = [
+  { id: 'stereo', label: 'Ordinary camera (7 hundredths of a second)' },
+  { id: 'event', label: 'Faster camera (about 1 hundredth)' },
+];
+
+const AGILITY_NAMES: Record<AgilityId, string> = {
+  '10': 'Gentle',
+  '25': 'Standard (the study’s)',
+  '50': 'Hard',
+  '200': 'Extreme',
+};
+
+const AGILITY_PRESETS = AGILITY_STEPS.map((u) => ({
+  id: String(u) as AgilityId,
+  label: AGILITY_NAMES[String(u) as AgilityId],
+}));
+
+const cameraFor = (latencyMs: number): CameraId =>
+  latencyMs === Math.round(STEREO.latencyS * 1000)
+    ? 'stereo'
+    : latencyMs === Math.round(EVENT.latencyS * 1000)
+      ? 'event'
+      : 'custom';
+
+function Drone({ x, y }: { x: number; y: number }) {
+  const ink = CHART_STRUCTURE.label;
+  return (
+    <g data-testid="drone" fill="none" stroke={ink} strokeWidth={2} strokeLinecap="round">
+      <rect x={x - 8} y={y - 5} width={16} height={10} rx={3} fill={ink} />
+      <line x1={x - 22} y1={y - 8} x2={x + 22} y2={y - 8} />
+      <line x1={x - 16} y1={y - 8} x2={x - 6} y2={y - 3} />
+      <line x1={x + 16} y1={y - 8} x2={x + 6} y2={y - 3} />
+      <line x1={x - 30} y1={y - 12} x2={x - 14} y2={y - 12} />
+      <line x1={x + 14} y1={y - 12} x2={x + 30} y2={y - 12} />
+      <line x1={x - 22} y1={y - 12} x2={x - 22} y2={y - 8} />
+      <line x1={x + 22} y1={y - 12} x2={x + 22} y2={y - 8} />
+      {/* The camera on the nose, looking at the wall. */}
+      <circle cx={x + 11} cy={y} r={3} fill={ink} />
+    </g>
+  );
+}
+
+function Wall({ x }: { x: number }) {
+  const ink = CHART_STRUCTURE.label;
+  const top = TRACK_Y - 44;
+  const bottom = TRACK_Y + 44;
+  const rows = [0, 1, 2, 3, 4, 5, 6, 7];
+  const rowH = (bottom - top) / rows.length;
+  return (
+    <g data-testid="wall" data-chart-role="obstacle" fill="none" stroke={ink} strokeWidth={1.5}>
+      <rect x={x} y={top} width={18} height={bottom - top} />
+      {rows.slice(1).map((i) => (
+        <line key={i} x1={x} y1={f(top + i * rowH)} x2={x + 18} y2={f(top + i * rowH)} />
+      ))}
+      {rows.map((i) => (
+        <line
+          key={`j${i}`}
+          x1={x + (i % 2 ? 6 : 12)}
+          y1={f(top + i * rowH)}
+          x2={x + (i % 2 ? 6 : 12)}
+          y2={f(top + (i + 1) * rowH)}
+        />
+      ))}
+    </g>
+  );
+}
+
+function Speedometer({ speedKmh }: { speedKmh: number }) {
+  const ink = CHART_STRUCTURE.label;
+  const angle = Math.PI * (1 - Math.min(1, speedKmh / DIAL_MAX_KMH));
+  const nx = f(DIAL_X + Math.cos(angle) * (DIAL_R - 6));
+  const ny = f(DIAL_Y - Math.sin(angle) * (DIAL_R - 6));
+  return (
+    <g data-testid="speedometer">
+      <path
+        d={`M ${DIAL_X - DIAL_R} ${DIAL_Y} A ${DIAL_R} ${DIAL_R} 0 0 1 ${DIAL_X + DIAL_R} ${DIAL_Y}`}
+        fill="none"
+        stroke={ink}
+        strokeWidth={2}
+      />
+      <line x1={DIAL_X} y1={DIAL_Y} x2={nx} y2={ny} stroke={ink} strokeWidth={3} strokeLinecap="round" />
+      <circle cx={DIAL_X} cy={DIAL_Y} r={3} fill={ink} />
+      <DirectLabel x={DIAL_X + DIAL_R + 14} y={DIAL_Y - 4}>
+        top safe speed: <tspan data-testid="speedometer-reading">{`about ${speedKmh} km/h`}</tspan>
+      </DirectLabel>
+    </g>
+  );
+}
+
+function Reading({ label, value, testId }: { label: string; value: string; testId: string }) {
+  return (
+    <li>
+      {label}: <span data-testid={testId} className="text-text">{value}</span>
+    </li>
+  );
+}
 
 export function PerceptionLatency({ className }: { className?: string }) {
   const uid = useId();
@@ -77,67 +177,80 @@ export function PerceptionLatency({ className }: { className?: string }) {
   const [latencyMs, setLatencyMs] = useState(DEFAULT_LATENCY_MS);
   const [agility, setAgility] = useState<number>(DEFAULT_AGILITY);
 
+  const rangeM = STEREO.rangeM;
   const latencyS = latencyMs / 1000;
-  const outcome = latencyOutcome(latencyS, agility, SENSORS[0].rangeM);
+  const outcome = latencyOutcome(latencyS, agility, rangeM);
   const ttc = outcome.timeToContactS;
   const tAvoid = outcome.avoidanceTimeS;
+  const speed = outcome.maxSpeedMs;
+  const blindM = speed * latencyS;
+  const swerveM = Math.min(rangeM - blindM, speed * tAvoid);
+  const speedKmh = kmh(speed);
 
-  const xAt = (t: number) => f(PLOT.left + (t / ttc) * PLOT_W);
-  const latencyX1 = xAt(latencyS);
-  const avoidX1 = xAt(latencyS + tAvoid);
-  const contactX = PLOT.right;
-  const obstacle = roleColour('constraint');
+  const xAtM = (m: number) => f(TRACK_LEFT + (m / rangeM) * (WALL_X - TRACK_LEFT));
+  const blindX1 = xAtM(blindM);
+  const swerveX1 = xAtM(blindM + swerveM);
+  const blindMid = f((TRACK_LEFT + blindX1) / 2);
+  const swerveMid = f((blindX1 + swerveX1) / 2);
+  const camera = cameraFor(latencyMs);
+  const agilityName = AGILITY_NAMES[String(agility) as AgilityId] ?? `${agility}`;
 
   const reset = () => {
     setLatencyMs(DEFAULT_LATENCY_MS);
     setAgility(DEFAULT_AGILITY);
   };
 
+  const plainReadout = `At about ${speedKmh} kilometres an hour the drone flies about ${metres(
+    blindM,
+  )} before its camera reports the wall, then swerves for about ${metres(swerveM)}.`;
+
   return (
     <InstrumentFigure
       figureId="perception-latency"
       className={className}
-      heading="Sense-and-avoid budget at the maximum safe speed"
+      kicker="Drone obstacle avoidance"
+      heading="A drone that sees faster can safely fly faster"
       controls={
         <>
-          <div className="flex w-full basis-full">
-            <ControlField className="content-start">
-              <ControlLabel htmlFor="perception-latency" value={formatSeconds(latencyS)}>
-                Perception latency
-              </ControlLabel>
-              <input
-                id="perception-latency"
-                type="range"
-                data-brand-control-id="control:input"
-                min={0}
-                max={INTERACTIVE_MAX_LATENCY_MS}
-                step={5}
-                value={latencyMs}
-                onChange={(e) => setLatencyMs(Number(e.target.value))}
-                aria-label={`Perception latency, currently ${formatSeconds(latencyS)}`}
-                className={INSTRUMENT_SLIDER_CLASS}
-              />
-            </ControlField>
-          </div>
-          <div
-            role="group"
-            aria-label="Maximum lateral acceleration"
-            className="flex flex-wrap items-center gap-1"
-          >
-            <span className="font-sans text-[13px] text-text-dim">Lateral acceleration</span>
-            {AGILITY_STEPS.map((u) => (
-              <button
-                data-brand-control-id="control:selection"
-                key={u}
-                type="button"
-                aria-pressed={agility === u}
-                onClick={() => setAgility(u)}
-                className={INSTRUMENT_TOGGLE_CLASS}
-              >
-                {u} m/s²
-              </button>
-            ))}
-          </div>
+          <PresetGroup<CameraId>
+            label="Camera"
+            presets={CAMERA_PRESETS}
+            value={camera}
+            onChange={(id) => {
+              if (id === 'stereo') setLatencyMs(Math.round(STEREO.latencyS * 1000));
+              if (id === 'event') setLatencyMs(Math.round(EVENT.latencyS * 1000));
+            }}
+            testId="camera"
+          />
+          <PresetGroup<AgilityId>
+            label="How hard it can swerve"
+            presets={AGILITY_PRESETS}
+            value={String(agility) as AgilityId}
+            onChange={(id) => setAgility(Number(id))}
+            testId="agility"
+          />
+        </>
+      }
+      adjust={
+        <>
+          <ControlField className="w-full basis-full content-start sm:max-w-sm">
+            <ControlLabel htmlFor="perception-latency" value={formatSeconds(latencyS)}>
+              Camera delay
+            </ControlLabel>
+            <input
+              id="perception-latency"
+              type="range"
+              data-brand-control-id="control:input"
+              min={0}
+              max={INTERACTIVE_MAX_LATENCY_MS}
+              step={1}
+              value={latencyMs}
+              onChange={(e) => setLatencyMs(Number(e.target.value))}
+              aria-label={`Camera delay (perception latency), currently ${formatSeconds(latencyS)}`}
+              className={INSTRUMENT_SLIDER_CLASS}
+            />
+            <SliderEnds low="instant" high="a fifth of a second" />
+          </ControlField>
           <InstrumentReset onClick={reset} />
         </>
       }
@@ -145,136 +258,137 @@ export function PerceptionLatency({ className }: { className?: string }) {
         <FigureStage
           footer={
             <>
-              <InstrumentLegend>
-                <LegendItem series="perception-latency" swatch={<LegendSwatch role="constraint" mark="hatch" />}>
-                  lost to latency <span data-testid="latency-readout">{formatSeconds(latencyS)}</span>
-                </LegendItem>
-                <LegendItem series="avoidance-maneuver" swatch={<LegendSwatch role="action" mark="bar" />}>
-                  avoidance maneuver <span data-testid="avoid-readout">{formatSeconds(tAvoid)}</span>
-                </LegendItem>
-              </InstrumentLegend>
-              <InstrumentReadout className="grid basis-full grid-cols-2 gap-x-4 gap-y-2 sm:grid-cols-4">
-                <span className="grid content-start gap-0.5">
-                  <span className="text-xs text-text-dim">Maximum speed</span>
-                  <span data-testid="max-speed-readout" className="text-text">
-                    {formatSpeed(outcome.maxSpeedMs)}
-                  </span>
-                </span>
-                <span className="grid content-start gap-0.5">
-                  <span className="text-xs text-text-dim">Time to contact</span>
-                  <span data-testid="ttc-readout" className="text-text">
-                    {formatSeconds(ttc)}
-                  </span>
-                </span>
-              </InstrumentReadout>
-              <ChartDescription
-                id={descriptionId}
-                className="basis-full"
-                form="state"
-                summary="Current sense-and-avoid budget"
-                description={`At ${formatSeconds(latencyS)} of perception latency and ${agility} m/s² lateral agility the sense-and-avoid timeline supports a maximum speed of ${formatSpeed(outcome.maxSpeedMs)}: ${formatSeconds(latencyS)} is lost before control acts, ${formatSeconds(tAvoid)} is the avoidance maneuver, and the remaining dashed margin still reaches the obstacle at ${formatSeconds(ttc)} time to contact.`}
-                states={[
-                  { label: 'latency', value: formatSeconds(latencyS) },
-                  { label: 'agility', value: `${agility} m/s²` },
-                  { label: 'max speed', value: formatSpeed(outcome.maxSpeedMs) },
-                  { label: 'time to contact', value: formatSeconds(ttc) },
-                  { label: 'avoidance', value: formatSeconds(tAvoid) },
-                ]}
-              />
+              <InstrumentReadout data-testid="latency-plain-readout">{plainReadout}</InstrumentReadout>
+              <StageStatus>not measured</StageStatus>
             </>
           }
         >
           <PlotStage
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-            aria-label={`Sense-and-avoid timeline at the maximum speed of ${formatSpeed(
-              outcome.maxSpeedMs,
-            )}. Obstacle detected at the sensing range, ${formatSeconds(
-              latencyS,
-            )} of perception latency before control acts, then an avoidance maneuver of ${formatSeconds(
-              tAvoid,
-            )} at ${agility} meters per second squared of lateral acceleration. Time to contact ${formatSeconds(
-              ttc,
-            )}.`}
+            aria-label={`A drone flying at a wall it can see ${rangeM} metres ahead, at a top safe speed of about ${speedKmh} kilometres an hour. It flies about ${metres(
+              blindM,
+            )} before its camera reports the wall, then swerves for about ${metres(swerveM)}, finishing at the wall.`}
             aria-describedby={descriptionId}
           >
-            <ChartAxes
-              plot={PLOT}
-              x={(t) => xAt(t)}
-              y={() => PLOT.bottom}
-              xTicks={TICK_FRACTIONS.map((frac) => ttc * frac)}
-              formatX={formatSeconds}
-              grid={false}
-              yAxis={false}
-              xLabel="time after detection"
+            <StageAnnotation
+              x={8}
+              y={16}
+              lines={['The drone covers this stretch before', 'its camera has even reported the wall']}
+              target={[blindMid, TRACK_Y - 8]}
+              from={[blindMid, 44]}
             />
+
             <g data-testid="latency-band" data-series="perception-latency">
               <ConstraintHatch
                 id={hatchId}
-                x={PLOT.left}
-                y={LANE_TOP}
-                width={Math.max(0, latencyX1 - PLOT.left)}
-                height={LANE_H}
+                x={TRACK_LEFT}
+                y={TRACK_Y}
+                width={Math.max(0, blindX1 - TRACK_LEFT)}
+                height={TRACK_H}
               />
             </g>
             <g data-testid="avoid-band" data-series="avoidance-maneuver">
               <Bar
-                x={latencyX1}
-                y={LANE_TOP}
-                width={Math.max(0, avoidX1 - latencyX1)}
-                height={LANE_H}
+                x={blindX1}
+                y={TRACK_Y}
+                width={Math.max(0, swerveX1 - blindX1)}
+                height={TRACK_H}
                 role="action"
+              />
+              {/* The swerve itself: the path bends away from the wall. */}
+              <path
+                d={`M ${blindX1} ${TRACK_Y - 4} Q ${f(blindX1 + (swerveX1 - blindX1) * 0.7)} ${TRACK_Y - 6} ${swerveX1} ${TRACK_Y - 52}`}
+                fill="none"
+                stroke={roleColour('action')}
+                strokeWidth={CHART_STROKE.trace}
+                strokeDasharray={CHART_STROKE.dash}
               />
             </g>
             <rect
               data-testid="margin-band"
-              x={avoidX1}
-              y={LANE_TOP}
-              width={Math.max(0, contactX - avoidX1)}
-              height={LANE_H}
+              x={swerveX1}
+              y={TRACK_Y}
+              width={Math.max(0, WALL_X - swerveX1)}
+              height={TRACK_H}
               fill="none"
               stroke={CHART_STRUCTURE.axes}
               strokeDasharray={CHART_STROKE.dash}
             />
-            <line
-              x1={PLOT.left}
-              y1={LANE_TOP - 4}
-              x2={PLOT.left}
-              y2={LANE_BOTTOM + 4}
-              stroke={CHART_STRUCTURE.label}
-              strokeWidth={CHART_STROKE.reference}
-            />
-            {/* Terminator bars make the obstacle the hard end of the lane by
-                shape as well as by colour. */}
-            <path
-              data-chart-role="constraint"
-              d={`M ${contactX} ${LANE_TOP - 4} L ${contactX} ${LANE_BOTTOM + 4} M ${contactX - 4} ${LANE_TOP - 4} L ${contactX + 4} ${LANE_TOP - 4} M ${contactX - 4} ${LANE_BOTTOM + 4} L ${contactX + 4} ${LANE_BOTTOM + 4}`}
-              fill="none"
-              stroke={obstacle}
-              strokeWidth={CHART_STROKE.trace}
-              strokeLinecap="round"
-            />
-            <DirectLabel x={PLOT.left} y={LABEL_Y}>
-              detected
+            <DirectLabel x={swerveMid} y={TRACK_Y + 32} anchor="middle" role="action">
+              swerving
             </DirectLabel>
-            <DirectLabel x={contactX} y={LABEL_Y} anchor="end" role="constraint">
-              obstacle
+
+            <Drone x={TRACK_LEFT - 33} y={TRACK_Y + TRACK_H / 2} />
+            <Wall x={WALL_X} />
+            <DirectLabel x={WALL_X + 9} y={TRACK_Y + 62} anchor="middle">
+              wall
             </DirectLabel>
+
+            <g stroke={CHART_STRUCTURE.axes} strokeWidth={CHART_STROKE.structure}>
+              <line x1={TRACK_LEFT} y1={DIM_Y + 18} x2={WALL_X} y2={DIM_Y + 18} />
+              <line x1={TRACK_LEFT} y1={DIM_Y + 13} x2={TRACK_LEFT} y2={DIM_Y + 23} />
+              <line x1={WALL_X} y1={DIM_Y + 13} x2={WALL_X} y2={DIM_Y + 23} />
+            </g>
+            <DirectLabel x={f((TRACK_LEFT + WALL_X) / 2)} y={DIM_Y + 38} anchor="middle">
+              it can see {rangeM} metres ahead
+            </DirectLabel>
+
+            <Speedometer speedKmh={speedKmh} />
           </PlotStage>
         </FigureStage>
       }
-      caption="At the maximum safe speed, latency and the avoidance maneuver fill the whole time to contact."
-      source={
+      caption="A drone only sees so far ahead; every split-second its vision takes is distance flown blind, which caps how fast it can safely go."
+      method={
         <>
-          Reference latencies from the study (8 m sensing range):{' '}
-          {SENSORS.map((s, i) => (
-            <span key={s.id}>
-              {i > 0 && '; '}
-              {s.name} {formatSeconds(s.latencyS)}
-            </span>
-          ))}
-          . Model: maximum speed = range / (latency + 2 sqrt(r / u)), r = 0.75 m.
+          <p>
+            Model, from Falanga, Kim and Scaramuzza: maximum speed = range / (latency + 2 sqrt(r / u)),
+            where the range is the {rangeM} m the camera can see, r = {OBSTACLE_RADIUS_M} m is how far
+            the drone must move sideways to clear the obstacle, and u is how hard it can accelerate
+            sideways. The fastest safe speed is the one at which the swerve ends exactly at the wall,
+            so the dashed margin after the swerve is always zero.
+          </p>
+          <p>
+            Swerve settings, as sideways acceleration: Gentle 10 m/s² (about {(10 / G).toFixed(1)} g),
+            Standard, the study&rsquo;s value, 25 m/s² (about {(25 / G).toFixed(1)} g), Hard 50 m/s²
+            (about {(50 / G).toFixed(1)} g), Extreme 200 m/s² (about {(200 / G).toFixed(1)} g).
+          </p>
+          <p data-testid="reference-latencies">
+            Reference latencies from the study ({rangeM} m sensing range):{' '}
+            {SENSORS.map((s, i) => (
+              <span key={s.id}>
+                {i > 0 && '; '}
+                {s.name} {formatSeconds(s.latencyS)}
+              </span>
+            ))}
+            . &ldquo;Ordinary camera&rdquo; is the stereo frame camera and &ldquo;Faster camera&rdquo; is the event camera; the camera-delay slider under
+            &ldquo;Adjust more&rdquo; sets any latency from 0 to {INTERACTIVE_MAX_LATENCY_MS} ms.
+          </p>
+          <p>
+            The same budget on a time axis, at the current settings ({agilityName} swerve):
+          </p>
+          <ul className="m-0! grid list-none gap-0.5 p-0!">
+            <Reading label="Lost to latency, before control acts" testId="latency-readout" value={formatSeconds(latencyS)} />
+            <Reading label="Avoidance maneuver" testId="avoid-readout" value={formatSeconds(tAvoid)} />
+            <Reading label="Time to contact" testId="ttc-readout" value={formatSeconds(ttc)} />
+            <Reading label="Maximum speed" testId="max-speed-readout" value={formatSpeed(speed)} />
+          </ul>
+          <ChartDescription
+            id={descriptionId}
+            form="state"
+            open
+            summary="Current sense-and-avoid budget"
+            description={`At ${formatSeconds(latencyS)} of perception latency and ${agility} m/s² lateral agility the sense-and-avoid timeline supports a maximum speed of ${formatSpeed(speed)}: ${formatSeconds(latencyS)} is lost before control acts, ${formatSeconds(tAvoid)} is the avoidance maneuver, and the remaining dashed margin still reaches the obstacle at ${formatSeconds(ttc)} time to contact.`}
+            states={[
+              { label: 'latency', value: formatSeconds(latencyS) },
+              { label: 'agility', value: `${agility} m/s²` },
+              { label: 'max speed', value: formatSpeed(speed) },
+              { label: 'time to contact', value: formatSeconds(ttc) },
+              { label: 'avoidance', value: formatSeconds(tAvoid) },
+            ]}
+          />
         </>
       }
+      source="Model and reference latencies from Falanga, Kim and Scaramuzza (2019)."
     />
   );
 }
