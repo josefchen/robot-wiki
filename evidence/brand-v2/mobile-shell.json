@@ -81,7 +81,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3096,
+      "visibleTextLength": 3110,
       "header": {
         "present": true,
         "display": "flex",
@@ -2355,7 +2355,7 @@
     },
     {
       "route": "/classical/perception/",
-      "visibleTextLength": 42051,
+      "visibleTextLength": 41915,
       "header": {
         "present": true,
         "display": "flex",
@@ -3333,7 +3333,7 @@
     },
     {
       "route": "/data-hardware/data-bottleneck/",
-      "visibleTextLength": 14254,
+      "visibleTextLength": 13986,
       "header": {
         "present": true,
         "display": "flex",
@@ -6911,7 +6911,7 @@
     },
     {
       "route": "/manipulation/diffusion-policy/",
-      "visibleTextLength": 14461,
+      "visibleTextLength": 14327,
       "header": {
         "present": true,
         "display": "flex",

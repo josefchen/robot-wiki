@@ -31,7 +31,7 @@ export type SeoPassSource = { name: string; before: Artifact; after: Artifact; e
 type SourceReview = Review & { archivedFrom: string; sources: SeoPassSource[] };
 
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const sourceReviewPin = { bytes: 120658, sha256: 'ad018c020bd2bce18550927384ce0a2977a72a2b84141eae66a6b3b24531939f' };
+const sourceReviewPin = { bytes: 122339, sha256: '5221a027d56a7f4c8b92fac9f4653bcbc4937ec083d5d92488861e5863062206' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -44,11 +44,11 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/classical/grasp-planning.mdx', [14412, 'f5003ba70d3a387807e22a63164b8028c5a9a00cbbd1e9eed854bb987ac08d83']],
   ['content/classical/kinematics.mdx', [11787, '74dae5732a39b2bd4b0ebd7c4fa55829bfc09abc99f189617987cea75c8ba9e0']],
   ['content/classical/motion-planning.mdx', [24189, '888ca2194017ed41fc39a595f67d4fd40962d501ca06e63007bb7deb78c55bfd']],
-  ['content/classical/perception.mdx', [35586, '7c9cbd63c3b056412b7d0f46e49112bf6df8950a81d79e00ac02ce1ebe502e0b']],
+  ['content/classical/perception.mdx', [35450, '3a894877c233a7d5be63fadbb051c626c716261ce54230217c68ed9577727aae']],
   ['content/classical/ros2-for-ml-engineers.mdx', [10598, 'b9a248618d6c537f04b7ae4182eb038e5f0f92d10f745f4586dc08cb19f16584']],
   ['content/classical/scene-representation.mdx', [21729, 'd8757237df25e2cf749d2e07a7bef64504fadc69a73b5f54f93056f1677702aa']],
   ['content/classical/state-estimation.mdx', [15940, '0a19c6117f682e939aa4d29dcb1ce061f47657a7b8ed4285b8eed461fde09ba6']],
-  ['content/data-hardware/data-bottleneck.mdx', [11990, '99c2cba2e37c8a843a664472f04132db8c63c332cfac4bb902bdce813040823a']],
+  ['content/data-hardware/data-bottleneck.mdx', [11722, '9ef710d2e4307f7465976256e9690fd545f8ee91b5c41221649e873203075c97']],
   ['content/data-hardware/datasets.mdx', [13428, '996c1e8c62926b2ddcd05b13e53006fed55342d844886a3e83bfc05450a84926']],
   ['content/data-hardware/evaluation-crisis.mdx', [17401, '5d7a2910cff93630fd3a4ac8b87a20f3a640dbd3862da442eabc5bd327d30804']],
   ['content/data-hardware/hardware-taxonomy.mdx', [14359, 'ef44c6e6ef48244b4d38b4dd3863ecda72e0c5977ae803691583fa6841cd5a04']],
@@ -66,7 +66,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/manipulation/bc-foundations.mdx', [12546, '31ecb27b9ed23ad2d18dcf4c60dc8ad26f3c47c5f1dc293fd20c3f1243ade373']],
   ['content/manipulation/comparison-matrix.mdx', [13107, '3065355f15d0cf8f7e6158ddb66d30ece0e6dbbe3a8584ddf59a3de0641ed5ed']],
   ['content/manipulation/cross-embodiment.mdx', [12460, '61abe1d3c70c271f7b20439f4adfdcdaad30305e60ed9cf6abd8d272cd373fff']],
-  ['content/manipulation/diffusion-policy.mdx', [11140, '288fb3f98ca83ca87241a15e72f383ad73b48169d48cd0af5b4c9b88acb91be1']],
+  ['content/manipulation/diffusion-policy.mdx', [11026, '0e27e0619aac140a86f5034d37833abb9456dae33f35c30e7475514e389a7131']],
   ['content/manipulation/foundation-models.mdx', [9539, 'ea61a8caadaa5644ae1cc378b24648177d045ab2af840906c2888f2dc05300f4']],
   ['content/manipulation/generalist-policies.mdx', [17529, '8cd6c8ecd9223ff824161a5a8f3b0706ca4bb184fe7c936afdedd12b7a11317c']],
   ['content/manipulation/hierarchical.mdx', [14600, '4adceecac3a8ae38e4266418cebb8756aedf73e2a3d87dea0edcf74dcaddfabb']],
