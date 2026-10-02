@@ -1,9 +1,22 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
 
 const ROUTE = '/frontier/bear-case/';
 
 const MILESTONE_NAMES = [
+  'One robot brain succeeds in 9 of 10 new homes',
+  '10,000 humanoids doing documented work',
+  'Labs agree on one shared public test',
+  'Practice gets robots to 99% on many tasks',
+  'Touch sensing built into the robot’s brain',
+  'Hand skills learned only in simulation work for real',
+  'A humanoid matches a specialist machine’s cost per job',
+  '100 times more data brings matching gains',
+];
+
+/** The original milestone names, kept in the method table. */
+const MILESTONE_TECHNICAL_NAMES = [
   'One policy, >90% in unseen homes',
   'Verified 10,000-unit deployment',
   'Open benchmark, cross-lab agreement',
@@ -133,35 +146,49 @@ test.describe('frontier bear-case module', () => {
     await page.goto(ROUTE);
     const panel = page.getByTestId('milestones-watchlist');
     await expect(panel).toBeVisible();
-    await expect(page.getByTestId(/^milestone-row-/)).toHaveCount(8);
+    await expect(
+      panel.getByText('Eight results would prove skeptics wrong; none has happened yet'),
+    ).toBeVisible();
+    await expect(page.getByTestId(/^milestone-tile-/)).toHaveCount(8);
     for (const name of MILESTONE_NAMES) {
       await expect(
         panel.getByRole('button', { name, exact: true }),
-        `milestone row: ${name}`,
+        `milestone tile: ${name}`,
       ).toBeVisible();
     }
-    await expect(page.getByTestId('watchlist-readout')).toHaveText(
-      '8 milestones: 4 not met, 4 partial, 0 met',
+    await expect(page.getByTestId('watchlist-score')).toHaveText('0 of 8 done');
+    await expect(page.getByTestId('watchlist-tally')).toHaveText(
+      '4 partly there, 4 not yet, 0 done',
     );
+    await expect(page.getByTestId('watchlist-readout')).toHaveText('Showing all 8');
 
-    // Status indicators are visible and differentiated across rows.
-    const badges = await panel.locator('tbody [data-variant]').allTextContents();
-    expect(new Set(badges)).toEqual(new Set(['not met', 'partial']));
+    // Status indicators are visible and differentiated across tiles.
+    const statuses = await panel.locator('[data-milestone-status]').allTextContents();
+    expect(new Set(statuses)).toEqual(new Set(['Not yet', 'Partly there']));
+
+    // The original names and full evidence stay one click away.
+    const method = await openHowThisWasMade(panel);
+    await expect(page.getByTestId(/^milestone-row-/)).toHaveCount(8);
+    for (const name of MILESTONE_TECHNICAL_NAMES) {
+      await expect(method.getByText(name, { exact: true })).toBeVisible();
+    }
   });
 
   test('milestone detail shows all three fields; filter and keyboard work (VAL-FRONT-017)', async ({
     page,
   }) => {
     await page.goto(ROUTE);
+    const panel = page.getByTestId('milestones-watchlist');
     const detail = page.getByTestId('milestone-detail');
     const readout = page.getByTestId('watchlist-readout');
+    await expect(detail).toHaveCount(0);
 
-    // Expand two milestones and verify the three contract fields on each.
+    // Open two milestones and verify the three contract fields on each.
     for (const name of [
-      'Verified 10,000-unit deployment',
-      'Tactile model inside a VLA pipeline',
+      '10,000 humanoids doing documented work',
+      'Touch sensing built into the robot’s brain',
     ]) {
-      await page.getByRole('button', { name, exact: true }).click();
+      await panel.getByRole('button', { name, exact: true }).click();
       await expect(detail.getByText('Why it matters')).toBeVisible();
       await expect(detail.getByText('Current status')).toBeVisible();
       await expect(detail.getByText(/How we’d know/)).toBeVisible();
@@ -174,32 +201,35 @@ test.describe('frontier bear-case module', () => {
     }
 
     // Filter narrows the board and the readout follows.
-    await page.getByRole('button', { name: 'Partial', exact: true }).click();
-    await expect(page.getByTestId(/^milestone-row-/)).toHaveCount(4);
-    await expect(readout).toHaveText('showing 4 of 8 milestones (partial)');
+    await panel.getByRole('button', { name: 'Partly', exact: true }).click();
+    await expect(page.getByTestId(/^milestone-tile-/)).toHaveCount(4);
+    await expect(readout).toHaveText('Showing 4 of 8: partly there');
 
-    // The met filter renders the explicit empty state.
-    await page.getByRole('button', { name: 'Met', exact: true }).click();
-    await expect(page.getByTestId(/^milestone-row-/)).toHaveCount(0);
+    // The Done filter renders the explicit empty state.
+    await panel.getByRole('button', { name: 'Done (0)', exact: true }).click();
+    await expect(page.getByTestId(/^milestone-tile-/)).toHaveCount(0);
     await expect(page.getByTestId('watchlist-empty')).toContainText(
       'None of the eight milestones',
     );
 
-    // Reset restores the full board and the default selection.
-    await page.getByRole('button', { name: 'Reset' }).click();
-    await expect(page.getByTestId(/^milestone-row-/)).toHaveCount(8);
-    await expect(readout).toHaveText('8 milestones: 4 not met, 4 partial, 0 met');
+    // Reset, under "Adjust more", restores the full board and closes the detail.
+    await openAdjustMore(panel);
+    await panel.getByRole('button', { name: 'Reset' }).click();
+    await expect(page.getByTestId(/^milestone-tile-/)).toHaveCount(8);
+    await expect(readout).toHaveText('Showing all 8');
+    await expect(detail).toHaveCount(0);
 
-    // Keyboard: arrows move the selection between rows.
-    await page
+    // Keyboard: Enter opens a tile, arrows move the selection between tiles.
+    await panel
       .getByRole('button', {
-        name: 'One policy, >90% in unseen homes',
+        name: 'One robot brain succeeds in 9 of 10 new homes',
         exact: true,
       })
       .focus();
+    await page.keyboard.press('Enter');
     await page.keyboard.press('ArrowDown');
-    const second = page.getByRole('button', {
-      name: 'Verified 10,000-unit deployment',
+    const second = panel.getByRole('button', {
+      name: '10,000 humanoids doing documented work',
       exact: true,
     });
     await expect(second).toHaveAttribute('aria-pressed', 'true');

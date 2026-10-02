@@ -5090,8 +5090,19 @@
             "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
           },
           {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
             "id": "reset",
             "kind": "reset"
+          },
+          {
+            "id": "pairwise-independent-controls",
+            "kind": "pairwise",
+            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
           },
           {
             "id": "loading-not-applicable",
@@ -5099,9 +5110,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a error state."
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
           },
           {
             "id": "empty-not-applicable",
@@ -5114,8 +5125,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "4143f447211164ecc4f437aa2dc202522b9781cadae1ccea72de07e8366335d4"
+        "expectedCaseCount": 11,
+        "fingerprint": "00eaec4baf76fa5e90d1099ce0b1697da3c867125ffdbc8e16f224255f14db19"
       },
       {
         "id": "interactive:EurekaLoop",
@@ -8298,8 +8309,19 @@
             "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
           },
           {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
             "id": "reset",
             "kind": "reset"
+          },
+          {
+            "id": "pairwise-independent-controls",
+            "kind": "pairwise",
+            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
           },
           {
             "id": "loading-not-applicable",
@@ -8307,9 +8329,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a error state."
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
           },
           {
             "id": "empty-not-applicable",
@@ -8322,8 +8344,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "31d3fa9dff904ca411fa3b8b7f1f5716179eb92399e6ae3cd149d402a1468845"
+        "expectedCaseCount": 11,
+        "fingerprint": "b4e3da3102e9e86da5c83ed21c895d7d0ef1ba8f2f91f87b20e6cbf7d952965d"
       },
       {
         "id": "mount:/frontier/reliability-gap/:DeploymentDashboard:1",
@@ -10604,6 +10626,7 @@
         "components/mdx/text-tables.tsx",
         "components/mdx/trajopt-results-table.tsx",
         "components/mdx/wm-taxonomy-table.tsx",
+        "components/motion/figure-frame.tsx",
         "components/nav/search-box.tsx",
         "components/three/playground-canvas.tsx",
         "components/three/playground-hud.tsx",
@@ -10649,6 +10672,7 @@
         "components/mdx/text-tables.tsx",
         "components/mdx/trajopt-results-table.tsx",
         "components/mdx/wm-taxonomy-table.tsx",
+        "components/motion/figure-frame.tsx",
         "components/nav/search-box.tsx",
         "components/three/playground-canvas.tsx",
         "components/three/playground-hud.tsx",
@@ -10664,7 +10688,7 @@
         "mdx-components.tsx"
       ],
       "mountState": "production",
-      "fingerprint": "7b2272e839d058880c428e3d84649f72c7704ae188cb3b101b617cdc1246ae3f"
+      "fingerprint": "42e2087622201c6cb29772ec0d2652ef17966a8021d1c11ff91b989088b2b754"
     },
     {
       "id": "surface:raised",
@@ -10956,7 +10980,6 @@
         "components/article/commit-to-reveal.tsx",
         "components/article/heading-permalink.tsx",
         "components/interactive/appearance-physics-push.tsx",
-        "components/interactive/collaborative-operation-modes.tsx",
         "components/interactive/comparison-matrix.tsx",
         "components/interactive/dataset-table.tsx",
         "components/interactive/eureka-loop.tsx",
@@ -10995,7 +11018,6 @@
         "components/article/commit-to-reveal.tsx",
         "components/article/heading-permalink.tsx",
         "components/interactive/appearance-physics-push.tsx",
-        "components/interactive/collaborative-operation-modes.tsx",
         "components/interactive/comparison-matrix.tsx",
         "components/interactive/dataset-table.tsx",
         "components/interactive/eureka-loop.tsx",
@@ -11040,7 +11062,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "10dab0bf3b2177bdd953eac69ba474b9bc5454212c3d24fcf60d1c5a5b575c5c"
+      "fingerprint": "799f4edeb1afd60728229f17f20c88abb4452f07e1e462aae89326d5b0d93b60"
     },
     {
       "id": "control:selection",
@@ -11064,7 +11086,6 @@
         "components/interactive/action-tokenization.tsx",
         "components/interactive/advantage-scrubber.tsx",
         "components/interactive/appearance-physics-push.tsx",
-        "components/interactive/collaborative-operation-modes.tsx",
         "components/interactive/comparison-matrix.tsx",
         "components/interactive/compounding-error.tsx",
         "components/interactive/contact-geometry.tsx",
@@ -11072,6 +11093,7 @@
         "components/interactive/data-scale-chart.tsx",
         "components/interactive/dataset-table.tsx",
         "components/interactive/deployment-dashboard.tsx",
+        "components/interactive/egoscale-scaling.tsx",
         "components/interactive/flow-matching-trajectory.tsx",
         "components/interactive/gait-diagram.tsx",
         "components/interactive/generalist-release-timeline.tsx",
@@ -11085,7 +11107,6 @@
         "components/interactive/mot-insulation.tsx",
         "components/interactive/mpc-vs-rl.tsx",
         "components/interactive/perception-error-budget.tsx",
-        "components/interactive/perception-latency.tsx",
         "components/interactive/pi-generation-timeline.tsx",
         "components/interactive/reliability-compounding.tsx",
         "components/interactive/sample-efficiency-ledger.tsx",
@@ -11109,7 +11130,6 @@
         "components/interactive/action-tokenization.tsx",
         "components/interactive/advantage-scrubber.tsx",
         "components/interactive/appearance-physics-push.tsx",
-        "components/interactive/collaborative-operation-modes.tsx",
         "components/interactive/comparison-matrix.tsx",
         "components/interactive/compounding-error.tsx",
         "components/interactive/contact-geometry.tsx",
@@ -11117,6 +11137,7 @@
         "components/interactive/data-scale-chart.tsx",
         "components/interactive/dataset-table.tsx",
         "components/interactive/deployment-dashboard.tsx",
+        "components/interactive/egoscale-scaling.tsx",
         "components/interactive/flow-matching-trajectory.tsx",
         "components/interactive/generalist-release-timeline.tsx",
         "components/interactive/hand-comparison.tsx",
@@ -11129,7 +11150,6 @@
         "components/interactive/mot-insulation.tsx",
         "components/interactive/mpc-vs-rl.tsx",
         "components/interactive/perception-error-budget.tsx",
-        "components/interactive/perception-latency.tsx",
         "components/interactive/pi-generation-timeline.tsx",
         "components/interactive/reliability-compounding.tsx",
         "components/interactive/sample-efficiency-ledger.tsx",
@@ -11158,7 +11178,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "bf3359fed9d3cb78402940284ac3c3d15a7bb604ad3a2d9d6791687d0d847a1a"
+      "fingerprint": "9339df15c38efc51ef76abdf68a539d400520ff682c496a7dec62e7d401e7295"
     },
     {
       "id": "control:link-focus",
@@ -11488,5 +11508,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "5c52f682233cd2e3f68eb153ea1ded5da236beb248955159aa97a0818031beca"
+  "rootFingerprint": "d26309618c7b2a6c9e2fc03c9890625683b5ce49d4a713f57c4fc02858c00fb8"
 }

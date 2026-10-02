@@ -7,16 +7,45 @@ import { StageSvg } from '@/components/motion/stage';
 import { beatSpans, type SceneDefinition } from '@/components/motion/timeline';
 import { LegendItem } from '@/components/ui/instrument';
 
+/**
+ * Tactile slip: a two-finger robot hand holds a glass while a camera looks
+ * on from the side. The fingers hide the contact points from the camera,
+ * so when the glass slips only the fingertip sensors notice; they trigger
+ * a firmer grip. The poster still is the caught slip: the glass sits below
+ * its dashed starting outline, the fingertip sensors are lit and the note
+ * points at the hidden contact. Status: schematic.
+ */
 export const TACTILE_SLIP_SCENE: SceneDefinition = {
   id: 'tactile-slip',
-  title: 'A contact channel can reveal slip',
+  title: 'Touch catches a slipping glass',
+  kicker: 'Tactile sensing',
+  headline: 'Fingertips can feel a slip the camera can’t see',
   beats: [
-    { id: 'grasp', caption: 'A schematic gripper holds one object while its camera sees the outer pose.' },
-    { id: 'slip', duration: 'long', linear: true, caption: 'The toy object slips between the fingers while the camera view remains occluded.' },
-    { id: 'touch', caption: 'A touch signal at the contact points can trigger a correcting grip in this schematic.' },
-    { id: 'recap', caption: 'The same object is stable again in the toy loop; the diagram makes no measured dexterity claim.' },
+    {
+      id: 'grasp',
+      caption: 'A robot hand holds a glass; from where the camera sits, the fingers hide where they touch the object.',
+    },
+    {
+      id: 'slip',
+      duration: 'long',
+      linear: true,
+      caption: 'The glass slips between the fingers, and the camera cannot see it happen.',
+    },
+    {
+      id: 'touch',
+      caption: 'The fingertip sensors feel the glass sliding and tell the hand to squeeze harder.',
+    },
+    {
+      id: 'recap',
+      caption:
+        'When fingers hide an object from the camera, touch sensors can still notice it slipping and trigger a firmer grip.',
+    },
   ],
 };
+
+/** The method note: what the scene is and what it does not claim. */
+export const TACTILE_SLIP_METHOD_NOTE =
+  'A schematic of contact feedback, drawn to show where the information is: not a sensor measurement, not a demonstrated recovery rate and not a dexterity claim for any hand. Source-scoped hardware claims, such as fingertip thresholds, are in the hand cards above and their table under "How this was made".';
 
 const SPANS = beatSpans(TACTILE_SLIP_SCENE.beats);
 const progress = (t: number, index: number) =>
@@ -30,41 +59,187 @@ export function tactileSlipFrame(t: number) {
   };
 }
 
+/** Round rendered geometry so server HTML and hydrated DOM agree. */
+const r = (v: number) => Number(v.toFixed(2));
+
+const GLASS_LEFT = 152;
+const GLASS_WIDTH = 36;
+const GLASS_HEIGHT = 72;
+const GLASS_TOP = 70;
+/** How far the glass slides, and how much of that the firmer grip wins back. */
+const SLIP_PX = 22;
+const RECOVER_PX = 10;
+const CONTACT_Y = 112;
+const FINGER_STROKE = 10;
+const SQUEEZE_PX = 1.5;
+
+const glassTop = (t: number) => {
+  const frame = tactileSlipFrame(t);
+  return r(GLASS_TOP + frame.slip * SLIP_PX - frame.correction * RECOVER_PX);
+};
+
+/** Sensors idle faint, flicker while the glass slides, then light up. */
+const touchOpacity = (t: number) => {
+  const { slip, correction } = tactileSlipFrame(t);
+  if (correction > 0) return r(0.6 + 0.4 * correction);
+  if (slip > 0) return r(0.3 + 0.5 * Math.abs(Math.sin(slip * Math.PI * 3)));
+  return 0.3;
+};
+
+const squeeze = (t: number) => r(tactileSlipFrame(t).correction * SQUEEZE_PX);
+
+function Finger({ side }: { side: 'left' | 'right' }) {
+  const sign = side === 'left' ? 1 : -1;
+  const x = side === 'left' ? GLASS_LEFT - FINGER_STROKE / 2 : GLASS_LEFT + GLASS_WIDTH + FINGER_STROKE / 2;
+  return (
+    <AnimatedElement
+      as="path"
+      data-scene-structure={`${side}-finger`}
+      fill="none"
+      stroke="var(--role-action-stage)"
+      strokeWidth={FINGER_STROKE}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      bindings={{
+        d: (t) => {
+          const fx = r(x + sign * squeeze(t));
+          return `M${r(x - sign * 8)} 50 L${fx} 64 L${fx} 128`;
+        },
+      }}
+    />
+  );
+}
+
 function TactileSlipStage() {
   return (
     <StageSvg viewBox="0 0 340 240">
-      <text x={27} y={25} fontSize={14} fill="var(--motion-stage-label)">
-        contact loop · schematic toy
-      </text>
-      <g data-scene-structure="gripper">
-        <line x1={138} x2={138} y1={67} y2={152}
-          stroke="var(--role-action-stage)" strokeWidth={3} />
-        <line x1={202} x2={202} y1={67} y2={152}
-          stroke="var(--role-action-stage)" strokeWidth={3} />
-        <line x1={138} x2={202} y1={67} y2={67}
-          stroke="var(--role-action-stage)" strokeWidth={3} />
-        <path d="M92 155h156" stroke="var(--motion-stage-axes)"
-          opacity="var(--motion-stage-axes-opacity)" />
+      {/* The wrist and palm the fingers hang from. */}
+      <g data-scene-structure="hand" fill="none" stroke="var(--role-action-stage)" strokeLinejoin="round">
+        <rect x={160} y={0} width={20} height={30} strokeWidth={2} />
+        <rect x={134} y={30} width={72} height={20} rx={4} strokeWidth={2.5} />
       </g>
-      <AnimatedElement as="rect" data-scene-mark="held-object"
-        x={142} width={56} height={32}
-        fill="var(--role-state-stage)"
-        bindings={{
-          y: (t) => 94 + tactileSlipFrame(t).slip * 32 - tactileSlipFrame(t).correction * 32,
-        }} />
-      <AnimatedElement as="circle" data-scene-mark="left-touch"
-        cx={138} cy={111} r={5} fill="var(--role-measurement-stage)"
-        bindings={{ opacity: (t) => tactileSlipFrame(t).correction }} />
-      <AnimatedElement as="circle" data-scene-mark="right-touch"
-        cx={202} cy={111} r={5} fill="var(--role-measurement-stage)"
-        bindings={{ opacity: (t) => tactileSlipFrame(t).correction }} />
-      <text x={43} y={190} fontSize={14} fill="var(--motion-stage-label)">
-        camera: outer pose
-      </text>
-      <AnimatedElement as="text" x={43} y={214} fontSize={14}
+      <Finger side="left" />
+      <Finger side="right" />
+
+      {/* Where the glass started, shown once the slip has happened. */}
+      <AnimatedElement
+        as="rect"
+        data-scene-structure="glass-start"
+        x={GLASS_LEFT}
+        y={GLASS_TOP}
+        width={GLASS_WIDTH}
+        height={GLASS_HEIGHT}
+        rx={3}
+        fill="none"
+        stroke="var(--motion-stage-label-secondary)"
+        strokeDasharray="4 3"
+        bindings={{ opacity: (t) => r(tactileSlipFrame(t).slip * 0.8) }}
+      />
+      <AnimatedElement
+        as="g"
+        data-scene-structure="glass"
+        bindings={{ transform: (t) => `translate(0 ${r(glassTop(t) - GLASS_TOP)})` }}
+      >
+        <rect
+          data-scene-mark="held-object"
+          x={GLASS_LEFT}
+          y={GLASS_TOP}
+          width={GLASS_WIDTH}
+          height={GLASS_HEIGHT}
+          rx={3}
+          fill="var(--role-state-stage)"
+          fillOpacity={0.22}
+          stroke="var(--role-state-stage)"
+          strokeWidth={2}
+        />
+        <line
+          x1={GLASS_LEFT + 3}
+          x2={GLASS_LEFT + GLASS_WIDTH - 3}
+          y1={GLASS_TOP + 26}
+          y2={GLASS_TOP + 26}
+          stroke="var(--role-state-stage)"
+          strokeWidth={1.5}
+        />
+      </AnimatedElement>
+      <AnimatedElement
+        as="g"
+        data-scene-structure="slip-arrow"
+        fill="none"
+        stroke="var(--motion-stage-label-secondary)"
+        strokeWidth={1.5}
+        strokeLinecap="round"
+        bindings={{ opacity: (t) => r(tactileSlipFrame(t).slip) }}
+      >
+        <path d="M214 74 V96 M209 90 L214 96 L219 90" />
+      </AnimatedElement>
+      <AnimatedElement
+        as="text"
+        x={224}
+        y={90}
+        fontSize={14}
         fill="var(--motion-stage-label-secondary)"
-        bindings={{ opacity: (t) => tactileSlipFrame(t).recap }}>
-        touch: contact change
+        bindings={{ opacity: (t) => r(tactileSlipFrame(t).slip) }}
+      >
+        slipped
+      </AnimatedElement>
+
+      {/* The camera, whose line of sight the left finger blocks. */}
+      <g data-scene-structure="camera" fill="none" stroke="var(--motion-stage-label)" strokeWidth={2} strokeLinejoin="round">
+        <rect x={22} y={100} width={34} height={24} rx={3} />
+        <path d="M56 106 L68 101 V123 L56 118" />
+        <rect x={28} y={95} width={10} height={5} />
+      </g>
+      <line
+        data-scene-structure="camera-sight"
+        x1={72}
+        y1={CONTACT_Y}
+        x2={GLASS_LEFT - FINGER_STROKE - 3}
+        y2={CONTACT_Y}
+        stroke="var(--motion-stage-label-secondary)"
+        strokeDasharray="3 4"
+      />
+      <text x={22} y={146} fontSize={14} fill="var(--motion-stage-label)">
+        camera
+      </text>
+
+      <AnimatedElement
+        as="circle"
+        data-scene-mark="left-touch"
+        cx={GLASS_LEFT}
+        cy={CONTACT_Y}
+        r={5}
+        fill="var(--role-measurement-stage)"
+        bindings={{ opacity: touchOpacity }}
+      />
+      <AnimatedElement
+        as="circle"
+        data-scene-mark="right-touch"
+        cx={GLASS_LEFT + GLASS_WIDTH}
+        cy={CONTACT_Y}
+        r={5}
+        fill="var(--role-measurement-stage)"
+        bindings={{ opacity: touchOpacity }}
+      />
+
+      {/* The one highlight note, pointing at the hidden contact. */}
+      <AnimatedElement
+        as="g"
+        data-figure-annotation=""
+        bindings={{ opacity: (t) => r(tactileSlipFrame(t).correction) }}
+      >
+        <line
+          x1={300}
+          y1={170}
+          x2={GLASS_LEFT + GLASS_WIDTH + 6}
+          y2={CONTACT_Y + 4}
+          stroke="var(--role-highlight-stage)"
+          strokeWidth={1.5}
+        />
+        <text x={330} y={188} textAnchor="end" fontSize={14} fontWeight={600} fill="var(--role-highlight-stage)">
+          <tspan x={330} dy={0}>The camera&rsquo;s view is blocked here,</tspan>
+          <tspan x={330} dy={17.5}>but the fingertips feel</tspan>
+          <tspan x={330} dy={17.5}>the glass sliding</tspan>
+        </text>
       </AnimatedElement>
     </StageSvg>
   );
@@ -78,14 +253,21 @@ export function TactileSlip({ className }: { className?: string }) {
       className={className}
       legend={<>
         <LegendItem series="held-object" swatch={<span aria-hidden className="inline-block h-2.5 w-3"
-          style={{ backgroundColor: 'var(--role-state-graphic)' }} />}>held object</LegendItem>
-        <LegendItem series="contact-action" swatch={<span aria-hidden className="inline-block h-3 w-0.5"
-          style={{ backgroundColor: 'var(--role-action-graphic)' }} />}>grip</LegendItem>
+          style={{ backgroundColor: 'var(--role-state-graphic)' }} />}>glass</LegendItem>
+        <LegendItem series="contact-action" swatch={<span aria-hidden className="inline-block h-3 w-1"
+          style={{ backgroundColor: 'var(--role-action-graphic)' }} />}>robot fingers</LegendItem>
         <LegendItem series="contact-signal" swatch={<span aria-hidden className="inline-block size-2 rounded-full"
-          style={{ backgroundColor: 'var(--role-measurement-graphic)' }} />}>touch signal</LegendItem>
+          style={{ backgroundColor: 'var(--role-measurement-graphic)' }} />}>fingertip sensor</LegendItem>
       </>}
-      statusLine="Schematic toy of contact feedback, not a sensor measurement or demonstrated recovery rate. The comparison table below retains source-scoped hardware claims."
-      textAlternative={`${TACTILE_SLIP_SCENE.title}. ${TACTILE_SLIP_SCENE.beats.map((beat, index) => `Beat ${index + 1}: ${beat.caption}`).join(' ')}`}
+      statusLine="schematic"
+      method={<>
+        <p>{TACTILE_SLIP_METHOD_NOTE}</p>
+        <p>The four steps, in order:</p>
+        <ol>
+          {TACTILE_SLIP_SCENE.beats.map((beat) => <li key={beat.id}>{beat.caption}</li>)}
+        </ol>
+      </>}
+      textAlternative={`${TACTILE_SLIP_SCENE.title}. ${TACTILE_SLIP_SCENE.beats.map((beat, index) => `Beat ${index + 1}: ${beat.caption}`).join(' ')} ${TACTILE_SLIP_METHOD_NOTE}`}
     />
   );
 }

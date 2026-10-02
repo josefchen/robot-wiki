@@ -2,6 +2,7 @@ import { test as base, expect } from '@playwright/test';
 import { test as evidenceTest } from './helpers/state-smoothing-fixture';
 import { writeFileSync } from 'node:fs';
 import AxeBuilder from '@axe-core/playwright';
+import { openAdjustMore } from './helpers/figure-fold';
 
 // Normal E2E remains runnable without program-only evidence inputs.
 // Guarded Mission runs retain the strict input-bound offline fixture.
@@ -10,12 +11,12 @@ const test = process.env.ROBOT_WIKI_GATE_INPUTS ? evidenceTest : base;
 const ROUTE = '/frontier/competing-theses/';
 
 const THESIS_NAMES = [
-  'End-to-end VLA scaling',
-  'Hierarchical planner over skills',
-  'World-model-based training',
-  'RL fine-tuning on imitation',
-  'Teleoperation as a bridge',
-  'Humanoid versus task-specific',
+  'Just make it bigger',
+  'A planner directs simple skills',
+  'Let the robot imagine first',
+  'Copy first, then practise',
+  'Humans steer while robots learn',
+  'Human-shaped or built for the job',
 ];
 
 test.describe('frontier competing-theses module', () => {
@@ -97,7 +98,7 @@ test.describe('frontier competing-theses module', () => {
       ).toBeVisible();
     }
     await expect(page.getByTestId('thesis-readout')).toHaveText(
-      '6 theses, showing: End-to-end VLA scaling',
+      '6 bets. Tap one to read the evidence for and against.',
     );
   });
 
@@ -112,10 +113,10 @@ test.describe('frontier competing-theses module', () => {
         .first()
         .click();
       // The four required fields are present for every thesis.
-      await expect(detail.getByText('Proponents')).toBeVisible();
+      await expect(detail.getByText('Who backs it')).toBeVisible();
       await expect(detail.getByText('Evidence for')).toBeVisible();
       await expect(detail.getByText('Evidence against')).toBeVisible();
-      await expect(detail.getByText('Falsification criterion')).toBeVisible();
+      await expect(detail.getByText('We’d know it’s wrong if')).toBeVisible();
       // Each field carries content, and the evidence carries citation chips.
       const detailText = (await detail.textContent()) ?? '';
       expect(detailText.length).toBeGreaterThan(400);
@@ -140,10 +141,10 @@ test.describe('frontier competing-theses module', () => {
 
     // Mouse: select the world-models thesis.
     await explorer
-      .getByRole('button', { name: 'World-model-based training' })
+      .getByRole('button', { name: 'Let the robot imagine first' })
       .click();
     await expect(readout).toHaveText(
-      '6 theses, showing: World-model-based training',
+      '6 bets, showing: Let the robot imagine first',
     );
     await expect(detail).toContainText('V-JEPA 2');
     await expect(detail).toContainText('Cosmos 3');
@@ -154,7 +155,7 @@ test.describe('frontier competing-theses module', () => {
 
     // Mouse: select the teleop bridge thesis.
     await explorer
-      .getByRole('button', { name: 'Teleoperation as a bridge' })
+      .getByRole('button', { name: 'Humans steer while robots learn' })
       .click();
     // b9e318b replaced the Technology.org deployment-hours item with a
     // Nucleus operating-model item; the 65,000-hours record now lives in
@@ -163,17 +164,17 @@ test.describe('frontier competing-theses module', () => {
     await expect(detail).toContainText('teleop alone');
     await expect(detail).not.toContainText('Cosmos 3');
 
-    // Keyboard: focus a row button and move with the arrow keys.
+    // Keyboard: focus a card and move with the arrow keys.
     await explorer
-      .getByRole('button', { name: 'Teleoperation as a bridge' })
+      .getByRole('button', { name: 'Humans steer while robots learn' })
       .focus();
     await page.keyboard.press('ArrowUp');
     await expect(readout).toHaveText(
-      '6 theses, showing: RL fine-tuning on imitation',
+      '6 bets, showing: Copy first, then practise',
     );
     await expect(detail).toContainText('RL-100');
     const rlButton = explorer.getByRole('button', {
-      name: 'RL fine-tuning on imitation',
+      name: 'Copy first, then practise',
     });
     await expect(rlButton).toHaveAttribute('aria-pressed', 'true');
     await expect(rlButton).toBeFocused();
@@ -187,10 +188,11 @@ test.describe('frontier competing-theses module', () => {
       )
       .toBe('rgb(36, 95, 255)');
 
-    // Reset restores the default selection.
+    // Reset, under "Adjust more", closes the open card.
+    await openAdjustMore(explorer);
     await explorer.getByRole('button', { name: 'Reset' }).click();
     await expect(readout).toHaveText(
-      '6 theses, showing: End-to-end VLA scaling',
+      '6 bets. Tap one to read the evidence for and against.',
     );
   });
 

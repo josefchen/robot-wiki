@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "e0f5998bfba4ebf9dac2de93316d91fbd81bfee8644803846fcc16809f7a9a2d",
+  "fingerprint": "82705d99da6854dd4255ac5ee74d00f0ae0b4d32957eebef38ea2fdc5e3dd5fe",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -253,7 +253,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3315,
+      "visibleTextLength": 3286,
       "route": "/",
       "viewport": "1440x900"
     },
@@ -888,7 +888,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 19061,
+      "visibleTextLength": 18971,
       "route": "/adjacent/drones/",
       "viewport": "1440x900"
     },
@@ -3936,7 +3936,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18060,
+      "visibleTextLength": 16105,
       "route": "/frontier/bear-case/",
       "viewport": "1440x900"
     },
@@ -4063,7 +4063,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 25435,
+      "visibleTextLength": 22957,
       "route": "/frontier/competing-theses/",
       "viewport": "1440x900"
     },
@@ -4190,7 +4190,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24226,
+      "visibleTextLength": 24021,
       "route": "/frontier/dexterity/",
       "viewport": "1440x900"
     },
@@ -4317,7 +4317,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 16343,
+      "visibleTextLength": 16460,
       "route": "/frontier/generalization/",
       "viewport": "1440x900"
     },
@@ -4571,7 +4571,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 26899,
+      "visibleTextLength": 26379,
       "route": "/frontier/safety-and-assurance/",
       "viewport": "1440x900"
     },
@@ -9697,7 +9697,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3093,
+      "visibleTextLength": 3064,
       "route": "/",
       "viewport": "375x812"
     },
@@ -10332,7 +10332,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18743,
+      "visibleTextLength": 18653,
       "route": "/adjacent/drones/",
       "viewport": "375x812"
     },
@@ -13380,7 +13380,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17725,
+      "visibleTextLength": 15770,
       "route": "/frontier/bear-case/",
       "viewport": "375x812"
     },
@@ -13507,7 +13507,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 25100,
+      "visibleTextLength": 22622,
       "route": "/frontier/competing-theses/",
       "viewport": "375x812"
     },
@@ -13634,7 +13634,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 23891,
+      "visibleTextLength": 23686,
       "route": "/frontier/dexterity/",
       "viewport": "375x812"
     },
@@ -13761,7 +13761,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 16008,
+      "visibleTextLength": 16125,
       "route": "/frontier/generalization/",
       "viewport": "375x812"
     },
@@ -14015,7 +14015,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 26564,
+      "visibleTextLength": 26044,
       "route": "/frontier/safety-and-assurance/",
       "viewport": "375x812"
     },

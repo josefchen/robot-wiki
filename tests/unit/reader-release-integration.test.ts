@@ -10,13 +10,15 @@ import { collectArticleTruthManifests } from '../../scripts/brand-v2-baseline';
 import { committedSource, preservedApprovalPacket } from '../helpers/continuation-integration';
 import { READER_RELEASE_BASE, readerTruthAt } from '../helpers/reader-integration';
 import { finalSevenBefore } from '../helpers/residual-integration';
-import { preSeoPassHash, preSeoPassText } from '../helpers/seo-pass';
+import { preReaderFirst, preSeoPassHash, preSeoPassText } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
 const readLive = (path: string) => readFileSync(resolve(root, path), 'utf8');
 // Articles read as they stood before the 2026-10-02 SEO pass; throughSeoPass
-// binds each one's SEO edge to the live article.
+// binds each one's SEO edge to the article the SEO pass left, and its
+// reader-first edge, when the reader-first figure pass changed it, to the live article.
 const read = (path: string) => path.startsWith('content/') ? preSeoPassText(path) : readLive(path);
+const readSeoSuccessor = (path: string) => preReaderFirst(path).toString('utf8');
 const ledger = 'contract/brand-v2-approved-deltas.json';
 const approvals: ApprovedDelta[] = JSON.parse(read(ledger)).entries;
 const integrated = approvals.filter(a => a.id.startsWith('continuation-merge-2026-09-23-1745-'));
@@ -61,21 +63,29 @@ function throughSeoPass(path: string) {
   const hashOf = (text: string) => buildManifest('prose', [{
     id, value: { path, body: matter(text).content.trim() },
   }]).members[0].hash;
-  const endpoint = hashOf(read(path));
-  const edges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id &&
-    a.id.startsWith('seo-pass-20261002-'));
-  if (hashOf(readLive(path)) === endpoint) {
-    expect(edges).toEqual([]);
-    return;
-  }
-  expect(edges).toHaveLength(1);
-  if (edges[0].reconciles) {
-    expect(edges[0].oldHash).toBe(sealed.manifests.prose.members.find(m => m.id === id)!.hash);
-    expect(edges[0].reconciles.at(-1)!.newHash).toBe(endpoint);
-  } else {
-    expect(edges[0].oldHash).toBe(endpoint);
-  }
-  expect(hashOf(readLive(path))).toBe(edges[0].newHash);
+  const sealedHash = sealed.manifests.prose.members.find(m => m.id === id)!.hash;
+  // The reader-first pass may revise an article in more than one batch; its
+  // last edge then reconciles the SEO endpoint and every earlier batch.
+  const edge = (prefix: string, from: string, to: string, batches = false) => {
+    const edges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id && a.id.startsWith(prefix));
+    if (to === from) {
+      expect(edges).toEqual([]);
+      return from;
+    }
+    if (!batches) expect(edges).toHaveLength(1);
+    const last = edges.at(-1)!;
+    if (last.reconciles) {
+      expect(last.oldHash).toBe(sealedHash);
+      expect(batches ? last.reconciles.some(r => r.newHash === from) : last.reconciles.at(-1)!.newHash === from)
+        .toBe(true);
+    } else {
+      expect(last.oldHash).toBe(from);
+    }
+    expect(to).toBe(last.newHash);
+    return to;
+  };
+  const seo = edge('seo-pass-20261002-', hashOf(read(path)), hashOf(readSeoSuccessor(path)));
+  edge('reader-first-20261002-', seo, hashOf(readLive(path)), true);
 }
 
 describe('merged reader corrections preserve production additions and exact approvals', () => {

@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { auditSceneElement } from '@/lib/motion-scene-audit';
-import { openAdjustMore } from './helpers/figure-fold';
+import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
 
 const scenes = [
   {
@@ -11,12 +11,12 @@ const scenes = [
   {
     id: 'tactile-slip',
     route: '/frontier/dexterity/',
-    captions: [/object/i, /slips/i, /touch/i, /same object/i],
+    captions: [/holds a glass/i, /slips between the fingers/i, /fingertip sensors feel/i, /touch sensors can still notice/i],
   },
   {
     id: 'sense-avoid',
     route: '/adjacent/drones/',
-    captions: [/obstacle/i, /camera/i, /delay/i, /same obstacle/i],
+    captions: [/spots a wall/i, /quick camera/i, /slower camera/i, /same swerving skill/i],
   },
 ] as const;
 
@@ -98,8 +98,11 @@ test('home features the reliability scene as its only figure, with no calculator
   await expect(scene.getByTestId('motion-caption')).toContainText('99.9%');
 });
 
-test('sense-and-avoid keeps a fixed maneuver against 70, 135 and 200 ms delay', async ({ browser }) => {
+test('sense-and-avoid keeps a fixed swerve against 70, 135 and 200 ms delay', async ({ browser }) => {
   test.setTimeout(150_000);
+  // Distance drawn per metre of the 8 m sensing range; the swerve lasts 2 sqrt(0.75 / 25) s.
+  const PX_PER_M = (300 - 64) / 8;
+  const avoidS = 2 * Math.sqrt(0.75 / 25);
   for (const colorScheme of ['light', 'dark'] as const) {
     for (const width of [375, 1440]) {
       const context = await browser.newContext({ colorScheme, viewport: { width, height: 900 } });
@@ -115,20 +118,23 @@ test('sense-and-avoid keeps a fixed maneuver against 70, 135 and 200 ms delay', 
           .evaluate((node) => Number(node.getAttribute('width')));
         const readout = scene.getByTestId('motion-readout');
         const speeds: number[] = [];
-        for (const [time, delay] of [[3000, 70], [4000, 135], [5000, 200]] as const) {
+        for (const [time, delay, kmh] of [[2000, 70, 69], [3000, 135, 60], [4000, 200, 53]] as const) {
           await scrub.fill(String(time));
-          await expect(readout).toContainText(`${delay} ms`);
-          await expect(readout).toContainText('346 ms');
-          expect(await widthOf('latency-budget')).toBeCloseTo(delay * 0.43, 1);
-          expect(await widthOf('avoidance-budget')).toBeCloseTo(2 * Math.sqrt(0.75 / 25) * 430, 1);
+          await expect(readout).toContainText(`about ${kmh} km/h`);
+          // The delay itself moved into the method note; the stage names no milliseconds.
+          await expect(readout).not.toContainText(/\d\s?ms\b/);
+          const speed = 8 / (delay / 1000 + avoidS);
+          expect(await widthOf('latency-budget')).toBeCloseTo(speed * (delay / 1000) * PX_PER_M, 1);
+          expect(await widthOf('avoidance-budget')).toBeCloseTo(speed * avoidS * PX_PER_M, 1);
           const label = await readout.innerText();
-          speeds.push(Number(label.match(/maximum speed ([\d.]+) m\/s/)?.[1]));
+          speeds.push(Number(label.match(/top safe speed about (\d+) km\/h/)?.[1]));
           const audit = await scene.evaluate(auditSceneElement);
           expect([...audit.intersections, ...audit.overflow, ...audit.lowContrast], `${colorScheme} ${width} ${delay} ms`).toEqual([]);
         }
         expect(speeds[0]).toBeGreaterThan(speeds[1]);
         expect(speeds[1]).toBeGreaterThan(speeds[2]);
-        await expect(scene).toContainText('≈346 ms');
+        await openHowThisWasMade(scene);
+        await expect(scene.getByTestId('sense-avoid-method')).toContainText('about 346 ms');
       } finally {
         await context.close();
       }

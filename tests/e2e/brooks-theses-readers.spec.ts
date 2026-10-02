@@ -1,9 +1,20 @@
 import { writeFileSync } from 'node:fs';
 import AxeBuilder from '@axe-core/playwright';
+import { openAdjustMore } from './helpers/figure-fold';
 import { test as base, expect } from '@playwright/test';
 import { test as evidenceTest } from './helpers/state-smoothing-fixture';
 import { getCitation, citationMeta } from '../../data/citations';
 import { THESES } from '../../lib/competing-theses';
+
+/** The plain card names the explorer shows for each thesis. */
+const PLAIN_NAME: Record<string, string> = {
+  'end-to-end-vla': 'Just make it bigger',
+  'hierarchical-planner': 'A planner directs simple skills',
+  'world-model-training': 'Let the robot imagine first',
+  'rl-finetuning': 'Copy first, then practise',
+  'teleop-bridge': 'Humans steer while robots learn',
+  'form-factor': 'Human-shaped or built for the job',
+};
 
 // Normal E2E remains runnable without program-only evidence inputs.
 // Guarded Mission runs retain the strict input-bound offline fixture.
@@ -54,26 +65,27 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     const panel = page.getByTestId('thesis-explorer');
     const detail = page.getByTestId('thesis-detail');
     for (const thesis of THESES) {
-      await panel.getByRole('button', { name: thesis.name, exact: true }).click();
-      await expect(panel.getByRole('button', { name: thesis.name, exact: true })).toHaveAttribute('aria-pressed', 'true');
+      await panel.getByRole('button', { name: PLAIN_NAME[thesis.id], exact: true }).click();
+      await expect(panel.getByRole('button', { name: PLAIN_NAME[thesis.id], exact: true })).toHaveAttribute('aria-pressed', 'true');
       await expect(detail.locator(`[aria-labelledby="${thesis.id}-for"] li`)).toHaveCount(thesis.evidenceFor.length);
       await expect(detail.locator(`[aria-labelledby="${thesis.id}-against"] li`)).toHaveCount(thesis.evidenceAgainst.length);
-      await expect(detail.getByText('Falsification criterion', { exact: true })).toBeVisible();
+      await expect(detail.getByText('We’d know it’s wrong if', { exact: true })).toBeVisible();
     }
     await expect(detail).toContainText('plug-compatible');
     await expect(detail).toContainText('lower prices');
     await expect(detail).toContainText('equal competence');
     await expect(detail).toContainText('his assessments rather than an industry census');
-    const last = panel.getByRole('button', { name: THESES[5].name, exact: true });
+    const last = panel.getByRole('button', { name: PLAIN_NAME[THESES[5].id], exact: true });
     await last.focus();
     await page.keyboard.press('Home');
-    await expect(panel.getByRole('button', { name: THESES[0].name, exact: true })).toBeFocused();
+    await expect(panel.getByRole('button', { name: PLAIN_NAME[THESES[0].id], exact: true })).toBeFocused();
     await expect(detail).toContainText('lists FFTs and Mel filter banks among implementation-dependent');
     await expect(detail).toContainText('leaving as much as possible to learning was critical');
     await page.keyboard.press('End');
     await expect(last).toBeFocused();
+    await openAdjustMore(panel);
     await panel.getByRole('button', { name: 'Reset', exact: true }).click();
-    await expect(page.getByTestId('thesis-readout')).toHaveText('6 theses, showing: End-to-end VLA scaling');
+    await expect(page.getByTestId('thesis-readout')).toHaveText('6 bets. Tap one to read the evidence for and against.');
 
     const citations = [];
     for (const id of ['brooks-better-lesson-2019', 'brooks-dexterity-2025', 'enpire-2026']) {

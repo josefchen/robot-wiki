@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "6e0a8d73dbfa7a4aa4fa02caea128530ed396f614598d5cfad0c7180d8ebdc53",
+  "fingerprint": "5b24ca4d41bfe7a5c66a40d3247b96fa37de9ac47de8792084fe97b4e1f55a3c",
   "viewports": [
     "375x812",
     "1440x900"
@@ -123,7 +123,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18743,
+      "visibleTextLength": 18653,
       "tables": [
         {
           "index": 0,
@@ -4204,13 +4204,13 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17725,
+      "visibleTextLength": 15770,
       "tables": [
         {
           "index": 0,
-          "accessibleName": "Eight milestones that would settle the bear case. Select a row to read the evidence behind its status and the observation that would flip it.",
-          "captionText": "Eight milestones that would settle the bear case. Select a row to read the evidence behind its status and the observation that would flip it.",
-          "columnHeaders": 3,
+          "accessibleName": "Eight milestones that would settle the bear case, with the status call, the evidence behind it and the observation that would flip it to met.",
+          "captionText": "Eight milestones that would settle the bear case, with the status call, the evidence behind it and the observation that would flip it to met.",
+          "columnHeaders": 5,
           "rowHeaders": 8,
           "unscopedHeaders": 0,
           "sortButtons": 0,
@@ -4221,12 +4221,12 @@
             "overflowX": "auto",
             "tabIndex": 0,
             "role": "region",
-            "accessibleName": "Eight milestones that would settle the bear case. Select a row to read the evidence behind its status and the observation that would flip it.",
-            "clientWidth": 333,
-            "scrollWidth": 488,
+            "accessibleName": "Eight milestones that would settle the bear case, with the status call, the evidence behind it and the observation that would flip it to met.",
+            "clientWidth": 335,
+            "scrollWidth": 809,
             "scrolledBy": 40
           },
-          "tableWidth": 480,
+          "tableWidth": 809,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -4236,12 +4236,12 @@
         {
           "index": 0,
           "kind": "table",
-          "outline": "<div class=\"overflow-x-auto px-1 pt-1.5 pb-1\">",
+          "outline": "<div class=\"overflow-x-auto pt-1\">",
           "role": "region",
-          "accessibleName": "Eight milestones that would settle the bear case. Select a row to read the evidence behind its status and the observation that would flip it.",
+          "accessibleName": "Eight milestones that would settle the bear case, with the status call, the evidence behind it and the observation that would flip it to met.",
           "tabIndex": 0,
-          "clientWidth": 333,
-          "scrollWidth": 488,
+          "clientWidth": 335,
+          "scrollWidth": 809,
           "scrolledBy": 40
         }
       ],
@@ -4255,13 +4255,13 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 25100,
+      "visibleTextLength": 22622,
       "tables": [
         {
           "index": 0,
-          "accessibleName": "Six competing theses for robot intelligence. Select a row to read its proponents, the evidence on both sides, and its falsification criterion.",
-          "captionText": "Six competing theses for robot intelligence. Select a row to read its proponents, the evidence on both sides, and its falsification criterion.",
-          "columnHeaders": 3,
+          "accessibleName": "The six theses by their technical names, with the core claim, the named proponents, the short falsification signal and the full criterion.",
+          "captionText": "The six theses by their technical names, with the core claim, the named proponents, the short falsification signal and the full criterion.",
+          "columnHeaders": 4,
           "rowHeaders": 6,
           "unscopedHeaders": 0,
           "sortButtons": 0,
@@ -4272,12 +4272,12 @@
             "overflowX": "auto",
             "tabIndex": 0,
             "role": "region",
-            "accessibleName": "Six competing theses for robot intelligence. Select a row to read its proponents, the evidence on both sides, and its falsification criterion.",
-            "clientWidth": 333,
-            "scrollWidth": 488,
+            "accessibleName": "The six theses by their technical names, with the core claim, the named proponents, the short falsification signal and the full criterion.",
+            "clientWidth": 335,
+            "scrollWidth": 591,
             "scrolledBy": 40
           },
-          "tableWidth": 480,
+          "tableWidth": 591,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -4287,12 +4287,12 @@
         {
           "index": 0,
           "kind": "table",
-          "outline": "<div class=\"overflow-x-auto px-1 pt-1.5 pb-1\">",
+          "outline": "<div class=\"overflow-x-auto pt-1\">",
           "role": "region",
-          "accessibleName": "Six competing theses for robot intelligence. Select a row to read its proponents, the evidence on both sides, and its falsification criterion.",
+          "accessibleName": "The six theses by their technical names, with the core claim, the named proponents, the short falsification signal and the full criterion.",
           "tabIndex": 0,
-          "clientWidth": 333,
-          "scrollWidth": 488,
+          "clientWidth": 335,
+          "scrollWidth": 591,
           "scrolledBy": 40
         }
       ],
@@ -4306,16 +4306,16 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 23891,
+      "visibleTextLength": 23686,
       "tables": [
         {
           "index": 0,
-          "accessibleName": "Five dexterous hands with their degrees of freedom, tactile threshold, cost and training bet. Sort by any spec column, and select a row to compare it against the others.",
-          "captionText": "Five dexterous hands with their degrees of freedom, tactile threshold, cost and training bet. Sort by any spec column, and select a row to compare it against the others.",
+          "accessibleName": "Five dexterous hands with their degrees of freedom, tactile threshold, cost, actuation, training bet and sources, in the order the cards show.",
+          "captionText": "Five dexterous hands with their degrees of freedom, tactile threshold, cost, actuation, training bet and sources, in the order the cards show.",
           "columnHeaders": 6,
           "rowHeaders": 5,
           "unscopedHeaders": 0,
-          "sortButtons": 3,
+          "sortButtons": 0,
           "sortedColumns": 1,
           "notDisclosedCells": 8,
           "notApplicableCells": 0,
@@ -4323,12 +4323,12 @@
             "overflowX": "auto",
             "tabIndex": 0,
             "role": "region",
-            "accessibleName": "Five dexterous hands with their degrees of freedom, tactile threshold, cost and training bet. Sort by any spec column, and select a row to compare it against the others.",
-            "clientWidth": 333,
-            "scrollWidth": 631,
+            "accessibleName": "Five dexterous hands with their degrees of freedom, tactile threshold, cost, actuation, training bet and sources, in the order the cards show.",
+            "clientWidth": 335,
+            "scrollWidth": 649,
             "scrolledBy": 40
           },
-          "tableWidth": 622.5,
+          "tableWidth": 649,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -4338,12 +4338,12 @@
         {
           "index": 0,
           "kind": "table",
-          "outline": "<div class=\"overflow-x-auto px-1 pt-1.5 pb-1\">",
+          "outline": "<div class=\"overflow-x-auto pt-1\">",
           "role": "region",
-          "accessibleName": "Five dexterous hands with their degrees of freedom, tactile threshold, cost and training bet. Sort by any spec column, and select a row to compare it against the others.",
+          "accessibleName": "Five dexterous hands with their degrees of freedom, tactile threshold, cost, actuation, training bet and sources, in the order the cards show.",
           "tabIndex": 0,
-          "clientWidth": 333,
-          "scrollWidth": 631,
+          "clientWidth": 335,
+          "scrollWidth": 649,
           "scrolledBy": 40
         }
       ],
@@ -4357,7 +4357,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 16008,
+      "visibleTextLength": 16125,
       "tables": [
         {
           "index": 0,
@@ -4375,7 +4375,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled loss and completion by pretraining hours",
-            "clientWidth": 275,
+            "clientWidth": 301,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -4442,7 +4442,7 @@
           "role": "region",
           "accessibleName": "Sampled loss and completion by pretraining hours",
           "tabIndex": 0,
-          "clientWidth": 275,
+          "clientWidth": 301,
           "scrollWidth": 480,
           "scrolledBy": 40
         }
@@ -4592,7 +4592,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 26564,
+      "visibleTextLength": 26044,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -7256,7 +7256,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 19061,
+      "visibleTextLength": 18971,
       "tables": [
         {
           "index": 0,
@@ -11337,13 +11337,13 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18060,
+      "visibleTextLength": 16105,
       "tables": [
         {
           "index": 0,
-          "accessibleName": "Eight milestones that would settle the bear case. Select a row to read the evidence behind its status and the observation that would flip it.",
-          "captionText": "Eight milestones that would settle the bear case. Select a row to read the evidence behind its status and the observation that would flip it.",
-          "columnHeaders": 3,
+          "accessibleName": "Eight milestones that would settle the bear case, with the status call, the evidence behind it and the observation that would flip it to met.",
+          "captionText": "Eight milestones that would settle the bear case, with the status call, the evidence behind it and the observation that would flip it to met.",
+          "columnHeaders": 5,
           "rowHeaders": 8,
           "unscopedHeaders": 0,
           "sortButtons": 0,
@@ -11354,12 +11354,12 @@
             "overflowX": "auto",
             "tabIndex": 0,
             "role": "region",
-            "accessibleName": "Eight milestones that would settle the bear case. Select a row to read the evidence behind its status and the observation that would flip it.",
-            "clientWidth": 1102,
-            "scrollWidth": 1102,
+            "accessibleName": "Eight milestones that would settle the bear case, with the status call, the evidence behind it and the observation that would flip it to met.",
+            "clientWidth": 1104,
+            "scrollWidth": 1104,
             "scrolledBy": 0
           },
-          "tableWidth": 1094,
+          "tableWidth": 1104,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -11369,12 +11369,12 @@
         {
           "index": 0,
           "kind": "table",
-          "outline": "<div class=\"overflow-x-auto px-1 pt-1.5 pb-1\">",
+          "outline": "<div class=\"overflow-x-auto pt-1\">",
           "role": "region",
-          "accessibleName": "Eight milestones that would settle the bear case. Select a row to read the evidence behind its status and the observation that would flip it.",
+          "accessibleName": "Eight milestones that would settle the bear case, with the status call, the evidence behind it and the observation that would flip it to met.",
           "tabIndex": 0,
-          "clientWidth": 1102,
-          "scrollWidth": 1102,
+          "clientWidth": 1104,
+          "scrollWidth": 1104,
           "scrolledBy": 0
         }
       ],
@@ -11388,13 +11388,13 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 25435,
+      "visibleTextLength": 22957,
       "tables": [
         {
           "index": 0,
-          "accessibleName": "Six competing theses for robot intelligence. Select a row to read its proponents, the evidence on both sides, and its falsification criterion.",
-          "captionText": "Six competing theses for robot intelligence. Select a row to read its proponents, the evidence on both sides, and its falsification criterion.",
-          "columnHeaders": 3,
+          "accessibleName": "The six theses by their technical names, with the core claim, the named proponents, the short falsification signal and the full criterion.",
+          "captionText": "The six theses by their technical names, with the core claim, the named proponents, the short falsification signal and the full criterion.",
+          "columnHeaders": 4,
           "rowHeaders": 6,
           "unscopedHeaders": 0,
           "sortButtons": 0,
@@ -11405,12 +11405,12 @@
             "overflowX": "auto",
             "tabIndex": 0,
             "role": "region",
-            "accessibleName": "Six competing theses for robot intelligence. Select a row to read its proponents, the evidence on both sides, and its falsification criterion.",
-            "clientWidth": 1102,
-            "scrollWidth": 1102,
+            "accessibleName": "The six theses by their technical names, with the core claim, the named proponents, the short falsification signal and the full criterion.",
+            "clientWidth": 1104,
+            "scrollWidth": 1104,
             "scrolledBy": 0
           },
-          "tableWidth": 1094,
+          "tableWidth": 1104,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -11420,12 +11420,12 @@
         {
           "index": 0,
           "kind": "table",
-          "outline": "<div class=\"overflow-x-auto px-1 pt-1.5 pb-1\">",
+          "outline": "<div class=\"overflow-x-auto pt-1\">",
           "role": "region",
-          "accessibleName": "Six competing theses for robot intelligence. Select a row to read its proponents, the evidence on both sides, and its falsification criterion.",
+          "accessibleName": "The six theses by their technical names, with the core claim, the named proponents, the short falsification signal and the full criterion.",
           "tabIndex": 0,
-          "clientWidth": 1102,
-          "scrollWidth": 1102,
+          "clientWidth": 1104,
+          "scrollWidth": 1104,
           "scrolledBy": 0
         }
       ],
@@ -11439,16 +11439,16 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 24226,
+      "visibleTextLength": 24021,
       "tables": [
         {
           "index": 0,
-          "accessibleName": "Five dexterous hands with their degrees of freedom, tactile threshold, cost and training bet. Sort by any spec column, and select a row to compare it against the others.",
-          "captionText": "Five dexterous hands with their degrees of freedom, tactile threshold, cost and training bet. Sort by any spec column, and select a row to compare it against the others.",
+          "accessibleName": "Five dexterous hands with their degrees of freedom, tactile threshold, cost, actuation, training bet and sources, in the order the cards show.",
+          "captionText": "Five dexterous hands with their degrees of freedom, tactile threshold, cost, actuation, training bet and sources, in the order the cards show.",
           "columnHeaders": 6,
           "rowHeaders": 5,
           "unscopedHeaders": 0,
-          "sortButtons": 3,
+          "sortButtons": 0,
           "sortedColumns": 1,
           "notDisclosedCells": 8,
           "notApplicableCells": 0,
@@ -11456,12 +11456,12 @@
             "overflowX": "auto",
             "tabIndex": 0,
             "role": "region",
-            "accessibleName": "Five dexterous hands with their degrees of freedom, tactile threshold, cost and training bet. Sort by any spec column, and select a row to compare it against the others.",
-            "clientWidth": 713,
-            "scrollWidth": 713,
+            "accessibleName": "Five dexterous hands with their degrees of freedom, tactile threshold, cost, actuation, training bet and sources, in the order the cards show.",
+            "clientWidth": 715,
+            "scrollWidth": 715,
             "scrolledBy": 0
           },
-          "tableWidth": 705,
+          "tableWidth": 715,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -11471,12 +11471,12 @@
         {
           "index": 0,
           "kind": "table",
-          "outline": "<div class=\"overflow-x-auto px-1 pt-1.5 pb-1\">",
+          "outline": "<div class=\"overflow-x-auto pt-1\">",
           "role": "region",
-          "accessibleName": "Five dexterous hands with their degrees of freedom, tactile threshold, cost and training bet. Sort by any spec column, and select a row to compare it against the others.",
+          "accessibleName": "Five dexterous hands with their degrees of freedom, tactile threshold, cost, actuation, training bet and sources, in the order the cards show.",
           "tabIndex": 0,
-          "clientWidth": 713,
-          "scrollWidth": 713,
+          "clientWidth": 715,
+          "scrollWidth": 715,
           "scrolledBy": 0
         }
       ],
@@ -11490,7 +11490,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 16343,
+      "visibleTextLength": 16460,
       "tables": [
         {
           "index": 0,
@@ -11508,11 +11508,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled loss and completion by pretraining hours",
-            "clientWidth": 623,
-            "scrollWidth": 623,
+            "clientWidth": 649,
+            "scrollWidth": 649,
             "scrolledBy": 0
           },
-          "tableWidth": 623,
+          "tableWidth": 649,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -11575,8 +11575,8 @@
           "role": "region",
           "accessibleName": "Sampled loss and completion by pretraining hours",
           "tabIndex": 0,
-          "clientWidth": 623,
-          "scrollWidth": 623,
+          "clientWidth": 649,
+          "scrollWidth": 649,
           "scrolledBy": 0
         }
       ],
@@ -11725,7 +11725,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 26899,
+      "visibleTextLength": 26379,
       "tables": [],
       "equations": [],
       "scrollRegions": [],

@@ -4,8 +4,8 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { beatSpans, posterTime } from '@/components/motion/timeline';
 import { RELIABILITY_THRESHOLD_SCENE, reliabilityThresholdFrame } from '@/components/motion/scenes/reliability-threshold';
-import { TACTILE_SLIP_SCENE, tactileSlipFrame } from '@/components/motion/scenes/tactile-slip';
-import { SENSE_AVOID_SCENE, senseAvoidFrame } from '@/components/motion/scenes/sense-avoid';
+import { TACTILE_SLIP_METHOD_NOTE, TACTILE_SLIP_SCENE, tactileSlipFrame } from '@/components/motion/scenes/tactile-slip';
+import { SENSE_AVOID_METHOD_NOTE, SENSE_AVOID_SCENE, senseAvoidDistances, senseAvoidFrame } from '@/components/motion/scenes/sense-avoid';
 import { compoundedSuccessRate } from '@/lib/reliability';
 import { DEFAULT_AGILITY, SENSORS, latencyOutcome } from '@/lib/aerial-latency';
 import { NO_SLOP_EXCEPTIONS } from '@/data/no-slop-exceptions';
@@ -111,7 +111,14 @@ describe('frontier and adjacent scene truth', () => {
     expect(tactileSlipFrame(spans[1].end).slip).toBeGreaterThan(0);
     expect(tactileSlipFrame(spans[2].end).correction).toBeGreaterThan(0);
     expect(spans[1].linear).toBe(true);
-    expect(TACTILE_SLIP_SCENE.beats.map((beat) => beat.caption).join(' ')).toMatch(/toy|schematic/i);
+    // The no-claim statement moved from the captions to the method note.
+    expect(TACTILE_SLIP_METHOD_NOTE).toMatch(/schematic/i);
+    expect(TACTILE_SLIP_METHOD_NOTE).toMatch(/not a demonstrated recovery rate/i);
+    expect(TACTILE_SLIP_SCENE.beats.map((beat) => beat.caption).join(' ')).not.toMatch(/\d+\s*%|rate/i);
+    // The poster still is the caught slip: lower than the start, sensors lit.
+    const end = tactileSlipFrame(spans[3].end);
+    expect(end.slip).toBe(1);
+    expect(end.correction).toBe(1);
   });
 
   it('uses the paper-model latency and agility without changing its constants', () => {
@@ -129,6 +136,16 @@ describe('frontier and adjacent scene truth', () => {
     expect(middle.outcome.maxSpeedMs).toBeLessThan(first.outcome.maxSpeedMs);
     expect(middle.outcome.maxSpeedMs).toBeGreaterThan(delayed.outcome.maxSpeedMs);
     expect(spans[2].linear).toBe(true);
+    // The stage draws distance: about 1.3 m flown blind at 70 ms, about 2.9 m at 200 ms,
+    // and top speeds of about 69 and 53 km/h.
+    const quick = senseAvoidDistances(first.latency);
+    const slow = senseAvoidDistances(delayed.latency);
+    expect(quick.blindM).toBeCloseTo(1.34, 1);
+    expect(slow.blindM).toBeCloseTo(2.93, 1);
+    expect(quick.blindM + quick.swerveM).toBeCloseTo(SENSORS[0].rangeM);
+    expect([quick.speedKmh, slow.speedKmh]).toEqual([69, 53]);
+    expect(SENSE_AVOID_METHOD_NOTE).toMatch(/authored setting, not a published camera measurement/);
+    expect(SENSE_AVOID_METHOD_NOTE).toMatch(/about 346 ms/);
   });
 
   it('ends every scene on a still recap with a standalone caption per beat', () => {
