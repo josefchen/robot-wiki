@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "fingerprint": "e2a99476b420a8eae495733b374c2ba4c6204a66eff8417af373f8f749832bad",
+  "fingerprint": "c3b65f30eea3b2443799123fb8518909697cf829f0e3758d7b2e3d9cab33cdc0",
   "viewport": "1440x900",
   "surfaces": [
     {
       "route": "/",
-      "visibleTextLength": 4184,
+      "visibleTextLength": 4206,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Robot Wiki",
@@ -323,13 +323,13 @@
     },
     {
       "route": "/credits/",
-      "visibleTextLength": 20914,
+      "visibleTextLength": 22196,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Credits",
       "h1FontFamilyHead": "tektur",
       "h1SizePx": 30,
-      "monoMetadataCount": 0,
+      "monoMetadataCount": 3,
       "rowLists": [
         {
           "key": "credits-entry",

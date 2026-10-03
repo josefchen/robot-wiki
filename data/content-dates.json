@@ -106,7 +106,7 @@
     },
     "manipulation/action-chunking": {
       "published": "2026-08-07T17:34:21+01:00",
-      "modified": "2026-10-02T05:08:36+02:00"
+      "modified": "2026-10-03T05:36:40+02:00"
     },
     "manipulation/action-spaces": {
       "published": "2026-09-16T07:39:57+02:00",
@@ -114,7 +114,7 @@
     },
     "manipulation/bc-foundations": {
       "published": "2026-08-08T02:18:37+01:00",
-      "modified": "2026-10-02T05:08:36+02:00"
+      "modified": "2026-10-03T05:36:40+02:00"
     },
     "manipulation/comparison-matrix": {
       "published": "2026-08-08T06:52:08+01:00",
@@ -126,7 +126,7 @@
     },
     "manipulation/diffusion-policy": {
       "published": "2026-08-08T03:05:28+01:00",
-      "modified": "2026-10-02T09:10:22+02:00"
+      "modified": "2026-10-03T05:36:40+02:00"
     },
     "manipulation/foundation-models": {
       "published": "2026-09-16T07:39:57+02:00",
@@ -162,7 +162,7 @@
     },
     "manipulation/vla-models": {
       "published": "2026-08-08T04:53:11+01:00",
-      "modified": "2026-10-02T05:08:36+02:00"
+      "modified": "2026-10-03T05:36:40+02:00"
     },
     "rl-sim2real/humanoid-wbc": {
       "published": "2026-08-08T19:09:26+01:00",
@@ -231,7 +231,7 @@
   },
   "routes": {
     "/": {
-      "modified": "2026-10-02T23:53:20+02:00"
+      "modified": "2026-10-03T05:36:40+02:00"
     },
     "/manipulation/": {
       "modified": "2026-10-02T05:08:36+02:00"

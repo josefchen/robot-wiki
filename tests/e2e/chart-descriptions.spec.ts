@@ -67,7 +67,8 @@ const CHARTS: Array<{
   // state-estimation.spec.ts and motion-scenes.spec.ts.
   { route: '/manipulation/bc-foundations', name: 'compounding', control: 'range', moves: ['10', '1'], def: '5', match: 'dashed curves' },
   { route: '/manipulation/action-chunking', name: 'chunksize', control: 'range', moves: ['1', '400'], def: '100', match: 'chunk size' },
-  { route: '/manipulation/action-chunking', name: 'latency-throughput', control: 'range', moves: ['140', '200'], def: '0', match: 'normalized toy scores' },
+  // The delay figure opens on the larger tested setting, +200 ms.
+  { route: '/manipulation/action-chunking', name: 'latency-throughput', control: 'range', moves: ['140', '0'], def: '200', match: 'normalized toy scores' },
   { route: '/manipulation/realtime-execution', name: 'execution', control: 'range', moves: ['80', '200'], def: '0', match: 'synchronous velocity' },
   { route: '/manipulation/vla-models', name: 'tokenization', control: 'range', moves: ['0', '15'], def: '7' },
   { route: '/manipulation/rl-finetuning', name: 'advantage', control: 'range', moves: ['12', '32'], def: '0' },

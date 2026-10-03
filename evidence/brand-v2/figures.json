@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "21e291a8e16775be1b999a697b265fcf8deee20f6767fa7c24e892ae42eee496",
+  "fingerprint": "b499bb20329df17b0e54eaa33496cea1f4040787c2f1d82765ed7afa2361fb7d",
   "viewports": [
     "375x812",
     "1440x900"
@@ -68,7 +68,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 21295,
+      "visibleTextLength": 21305,
       "figures": [
         {
           "imageId": "atlas-darpa-frontview-2013",
@@ -251,9 +251,9 @@
           "naturalHeight": 0,
           "complete": false,
           "renderedWidth": 327,
-          "renderedHeight": 167.34,
+          "renderedHeight": 184.66,
           "overflowPx": 0,
-          "caption": "Each small error moves the policy into states the expert never visited, where its next error is larger.",
+          "caption": "Robots trained by copying only learn the situations they were shown; one slip lands them somewhere new, where slips grow.",
           "captionFontFamily": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
           "captionContrast": 18.18,
           "credit": "Diagram: Robot Wiki contributors / Robot Wiki (original diagram). Licence: CC BY 4.0.",
@@ -289,9 +289,9 @@
           "naturalHeight": 0,
           "complete": false,
           "renderedWidth": 327,
-          "renderedHeight": 278.91,
+          "renderedHeight": 205.81,
           "overflowPx": 0,
-          "caption": "Three overlapping chunks each predict the current action; the oldest gets the largest weight.",
+          "caption": "Blending several overlapping plans smooths the robot’s motion, so one odd prediction jerks the arm less.",
           "captionFontFamily": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
           "captionContrast": 18.18,
           "credit": "Diagram: Robot Wiki contributors / Robot Wiki (original diagram). Licence: CC BY 4.0.",
@@ -5076,7 +5076,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 22524,
+      "visibleTextLength": 21344,
       "figures": [
         {
           "imageId": "temporal-ensembling",
@@ -5091,9 +5091,9 @@
           "naturalHeight": 0,
           "complete": false,
           "renderedWidth": 335,
-          "renderedHeight": 285.73,
+          "renderedHeight": 210.84,
           "overflowPx": 0,
-          "caption": "Three overlapping chunks each predict the current action; the oldest gets the largest weight.",
+          "caption": "Blending several overlapping plans smooths the robot’s motion, so one odd prediction jerks the arm less.",
           "captionFontFamily": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
           "captionContrast": 18.18,
           "credit": "Diagram: Robot Wiki contributors / Robot Wiki (original diagram). Licence: CC BY 4.0.",
@@ -5123,7 +5123,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 12174,
+      "visibleTextLength": 12307,
       "figures": [
         {
           "imageId": "covariate-shift",
@@ -5138,9 +5138,9 @@
           "naturalHeight": 0,
           "complete": false,
           "renderedWidth": 335,
-          "renderedHeight": 171.44,
+          "renderedHeight": 189.17,
           "overflowPx": 0,
-          "caption": "Each small error moves the policy into states the expert never visited, where its next error is larger.",
+          "caption": "Robots trained by copying only learn the situations they were shown; one slip lands them somewhere new, where slips grow.",
           "captionFontFamily": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
           "captionContrast": 18.18,
           "credit": "Diagram: Robot Wiki contributors / Robot Wiki (original diagram). Licence: CC BY 4.0.",
@@ -5272,7 +5272,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 21533,
+      "visibleTextLength": 21543,
       "figures": [
         {
           "imageId": "atlas-darpa-frontview-2013",
@@ -5455,9 +5455,9 @@
           "naturalHeight": 0,
           "complete": false,
           "renderedWidth": 602,
-          "renderedHeight": 308.08,
+          "renderedHeight": 339.94,
           "overflowPx": 0,
-          "caption": "Each small error moves the policy into states the expert never visited, where its next error is larger.",
+          "caption": "Robots trained by copying only learn the situations they were shown; one slip lands them somewhere new, where slips grow.",
           "captionFontFamily": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
           "captionContrast": 18.18,
           "credit": "Diagram: Robot Wiki contributors / Robot Wiki (original diagram). Licence: CC BY 4.0.",
@@ -5493,9 +5493,9 @@
           "naturalHeight": 0,
           "complete": false,
           "renderedWidth": 602,
-          "renderedHeight": 513.47,
+          "renderedHeight": 378.89,
           "overflowPx": 0,
-          "caption": "Three overlapping chunks each predict the current action; the oldest gets the largest weight.",
+          "caption": "Blending several overlapping plans smooths the robot’s motion, so one odd prediction jerks the arm less.",
           "captionFontFamily": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
           "captionContrast": 18.18,
           "credit": "Diagram: Robot Wiki contributors / Robot Wiki (original diagram). Licence: CC BY 4.0.",
@@ -10280,7 +10280,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 23167,
+      "visibleTextLength": 21987,
       "figures": [
         {
           "imageId": "temporal-ensembling",
@@ -10295,9 +10295,9 @@
           "naturalHeight": 0,
           "complete": false,
           "renderedWidth": 715,
-          "renderedHeight": 609.84,
+          "renderedHeight": 450.02,
           "overflowPx": 0,
-          "caption": "Three overlapping chunks each predict the current action; the oldest gets the largest weight.",
+          "caption": "Blending several overlapping plans smooths the robot’s motion, so one odd prediction jerks the arm less.",
           "captionFontFamily": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
           "captionContrast": 18.18,
           "credit": "Diagram: Robot Wiki contributors / Robot Wiki (original diagram). Licence: CC BY 4.0.",
@@ -10327,7 +10327,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 12817,
+      "visibleTextLength": 12950,
       "figures": [
         {
           "imageId": "covariate-shift",
@@ -10342,9 +10342,9 @@
           "naturalHeight": 0,
           "complete": false,
           "renderedWidth": 715,
-          "renderedHeight": 365.91,
+          "renderedHeight": 403.75,
           "overflowPx": 0,
-          "caption": "Each small error moves the policy into states the expert never visited, where its next error is larger.",
+          "caption": "Robots trained by copying only learn the situations they were shown; one slip lands them somewhere new, where slips grow.",
           "captionFontFamily": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
           "captionContrast": 18.18,
           "credit": "Diagram: Robot Wiki contributors / Robot Wiki (original diagram). Licence: CC BY 4.0.",

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "3a33e4aac7525b424deb065078f56a6b4ebafc633c895661d8ebe5542cd36d57",
+  "fingerprint": "0cc8cf542dc6053adc6e099cba25d4c7e2e76e94e01eaa4fe23fe3254915e1d9",
   "viewports": [
     "375x812",
     "1440x900"
@@ -143,7 +143,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3104,
+      "visibleTextLength": 3126,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -12049,7 +12049,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21295,
+      "visibleTextLength": 21305,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -12273,6 +12273,22 @@
         {
           "tag": "button",
           "text": "Adjacent Domains",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": false,
@@ -24888,7 +24904,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 22524,
+      "visibleTextLength": 21344,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -24955,11 +24971,11 @@
           "Action Chunking (ACT and ALOHA)"
         ],
         "lastReviewed": "2026-08-18",
-        "readingMinutes": 14,
+        "readingMinutes": 13,
         "citationCount": 16,
         "reviewDateText": "18 August 2026",
         "reviewDateTime": "2026-08-18",
-        "readingTimeText": "14 min",
+        "readingTimeText": "13 min",
         "citationCountText": "16",
         "bibliographyIds": [
           "dagger-2011",
@@ -25020,7 +25036,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Drag the chunk size slider to k=1 and then back to 100. That"
+          "text": "Try “One move at a time” and then “100 moves per plan”. That"
         },
         {
           "familyHead": "ibm plex sans",
@@ -25029,11 +25045,38 @@
           "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "k = 100: 44% success, 4 decisions per 400-step episode"
+          "text": "100 moves per plan: 44% success, 4 decisions per 400-move ta"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Only the two dots are measured; the line between and the pal"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Chunk size k is how many moves the robot commits to per deci"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The ticks count decisions in a 400-step episode, 8 s of moti"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
@@ -25102,6 +25145,24 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "The pinned ACT reference implementation uses temporal ensemb"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "A schematic, not data. In ACT the robot asks its policy for "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Counting from the oldest (i = 0), prediction i gets the raw "
         },
         {
           "familyHead": "newsreader",
@@ -25182,7 +25243,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The dial below is a deterministic toy of a cross-mode hand-o"
+          "text": "The figure below is a deterministic toy of a cross-mode hand"
         },
         {
           "familyHead": "ibm plex sans",
@@ -25191,25 +25252,61 @@
           "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "d = 0 ms: temporal ensembling 100% nominal, real-time chunki"
+          "text": "Toy score with +0.2 second of delay: averaging the plans 0% "
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative: a toy scene, not measured robot data."
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Deterministic toy, not measured throughput. This qualitative"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The presets are the three settings the π0.5 real-time chunki"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The drawing replays a 24-tick hand-off sampled once per cont"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Deterministic toy, not measured throughput: at 0 ms of added"
+          "text": "Deterministic toy, not measured throughput: at 200 ms of add"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Across the 24-tick hand-off at 0 ms of delay the real-time c"
+          "text": "Across the 24-tick hand-off at 200 ms of delay the real-time"
         },
         {
           "familyHead": "newsreader",
@@ -25664,7 +25761,39 @@
         },
         {
           "tag": "button",
+          "text": "One move at a time",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "100 moves per plan",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -25679,8 +25808,56 @@
           "controlId": "control:secondary-action"
         },
         {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "None",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "+0.1 second",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "+0.2 second",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
           "tag": "button",
           "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -26532,7 +26709,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12174,
+      "visibleTextLength": 12307,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -26672,11 +26849,38 @@
           "widthPx": 301,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "accumulated deviation = 1505 units over 240 steps, final dev"
+          "text": "Total drift over 240 moves: 1505 units; over the first 120: "
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative: a toy model, not a measured robot."
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Original deterministic toy, not a measured robot. Each move "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "“25 moves per plan” makes one decision every 25 moves (actio"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
@@ -26685,7 +26889,16 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 301,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The chart below compares the summed drift with two illustrat"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
@@ -26745,6 +26958,24 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "The first uses error ε\\varepsilonε on the expert distributio"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "A schematic, not data. A robot trained by behavior cloning l"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The mismatch between the training states and the states the "
         },
         {
           "familyHead": "newsreader",
@@ -27202,7 +27433,7 @@
         },
         {
           "tag": "button",
-          "text": "Per-timestep prediction",
+          "text": "Short task (120 moves)",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -27210,7 +27441,7 @@
         },
         {
           "tag": "button",
-          "text": "Chunk of 25 actions",
+          "text": "Twice as long (240 moves)",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -27218,15 +27449,47 @@
         },
         {
           "tag": "button",
-          "text": "DAgger relabeling",
+          "text": "One move at a time",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "25 moves per plan",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "A teacher corrects it",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "button",
           "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -27243,6 +27506,14 @@
         {
           "tag": "summary",
           "text": "Sampled toy deviation and refere",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -28924,7 +29195,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14310,
+      "visibleTextLength": 14461,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -29058,11 +29329,29 @@
           "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "T_p = 16, T_a = 8: 1.25 Hz replan rate, 0.8 s committed per "
+          "text": "Plans 1.6 seconds ahead and acts on the first 0.8 seconds: i"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "A schematic of the replanning cycle, not a recorded run."
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "This is receding-horizon control. Each plan predicts T_p act"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
@@ -29076,16 +29365,16 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Play the scene below and step through its beats. Sixty actio"
+          "text": "The scene below opens on its finished frame: two clusters la"
         },
         {
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 271.73,
+          "widthPx": 267,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "beat 4 / 4 samples 60 steps 10 dispersion 1.79 → 0.27"
+          "text": "beat 4 / 4 60 random guesses, cleaned up in 10 steps"
         },
         {
           "familyHead": "ibm plex sans",
@@ -29094,7 +29383,34 @@
           "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Illustrative action-space model (status: illustrative): the "
+          "text": "Illustrative: a drawn model of the idea, not a trained robot"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "In symbols, the policy samples a∼p(a∣o)a \\sim p(a \\mid o)a∼p"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The sample positions come from an illustrative two-move mode"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The four steps, in order:"
         },
         {
           "familyHead": "newsreader",
@@ -29586,15 +29902,23 @@
         },
         {
           "tag": "button",
-          "text": "Diffusion Policy (16/8)",
+          "text": "Diffusion Policy: rethink every ",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Open-loop (32/32)",
+          "text": "Never rethink",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -29603,6 +29927,14 @@
         {
           "tag": "button",
           "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -29651,6 +29983,14 @@
         {
           "tag": "button",
           "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -36413,7 +36753,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20083,
+      "visibleTextLength": 19783,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -36538,20 +36878,56 @@
           "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Δx = -0.056 → bin 120 of 255 → <a120> reconstructs to -0.058"
+          "text": "At moment 8, the forward/back nudge -0.056 lands in slot 120"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative: a made-up movement, not recorded robot data."
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "In the symbols robotics papers use, the seven motions are Δx"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "7 sequential decodes per control step: token n+1 cannot star"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "A toy chunk with fixed [-1, 1] bounds and synthetic token la"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Along the Δx action lane of the 16-step chunk, the continuou"
+          "text": "Along the forward/back (Δx) motion of the 16-step action chu"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
@@ -37128,8 +37504,16 @@
           "controlId": "control:secondary-action"
         },
         {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
           "tag": "button",
-          "text": "Δx",
+          "text": "forward/back",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -37137,7 +37521,7 @@
         },
         {
           "tag": "button",
-          "text": "Δy",
+          "text": "left/right",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -37145,7 +37529,7 @@
         },
         {
           "tag": "button",
-          "text": "Δz",
+          "text": "up/down",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -37153,7 +37537,7 @@
         },
         {
           "tag": "button",
-          "text": "Δroll",
+          "text": "roll",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -37161,7 +37545,7 @@
         },
         {
           "tag": "button",
-          "text": "Δpitch",
+          "text": "tilt",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -37169,7 +37553,7 @@
         },
         {
           "tag": "button",
-          "text": "Δyaw",
+          "text": "turn",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -37177,7 +37561,7 @@
         },
         {
           "tag": "button",
-          "text": "grip",
+          "text": "open/close",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -37186,6 +37570,14 @@
         {
           "tag": "button",
           "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -53090,7 +53482,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 3342,
+      "visibleTextLength": 3364,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -64996,7 +65388,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21533,
+      "visibleTextLength": 21543,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -65220,6 +65612,22 @@
         {
           "tag": "button",
           "text": "Adjacent Domains",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": false,
@@ -77835,7 +78243,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 23167,
+      "visibleTextLength": 21987,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -77902,11 +78310,11 @@
           "Action Chunking (ACT and ALOHA)"
         ],
         "lastReviewed": "2026-08-18",
-        "readingMinutes": 14,
+        "readingMinutes": 13,
         "citationCount": 16,
         "reviewDateText": "18 August 2026",
         "reviewDateTime": "2026-08-18",
-        "readingTimeText": "14 min",
+        "readingTimeText": "13 min",
         "citationCountText": "16",
         "bibliographyIds": [
           "dagger-2011",
@@ -77967,20 +78375,47 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Drag the chunk size slider to k=1 and then back to 100. That"
+          "text": "Try “One move at a time” and then “100 moves per plan”. That"
         },
         {
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 348,
+          "widthPx": 407,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "k = 100: 44% success, 4 decisions per 400-step episode"
+          "text": "100 moves per plan: 44% success, 4 decisions per 400-move ta"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Only the two dots are measured; the line between and the pal"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Chunk size k is how many moves the robot commits to per deci"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The ticks count decisions in a 400-step episode, 8 s of moti"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
@@ -78049,6 +78484,24 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "The pinned ACT reference implementation uses temporal ensemb"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "A schematic, not data. In ACT the robot asks its policy for "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Counting from the oldest (i = 0), prediction i gets the raw "
         },
         {
           "familyHead": "newsreader",
@@ -78129,34 +78582,70 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The dial below is a deterministic toy of a cross-mode hand-o"
+          "text": "The figure below is a deterministic toy of a cross-mode hand"
         },
         {
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 493,
+          "widthPx": 585,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "d = 0 ms: temporal ensembling 100% nominal, real-time chunki"
+          "text": "Toy score with +0.2 second of delay: averaging the plans 0% "
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative: a toy scene, not measured robot data."
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Deterministic toy, not measured throughput. This qualitative"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The presets are the three settings the π0.5 real-time chunki"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The drawing replays a 24-tick hand-off sampled once per cont"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Deterministic toy, not measured throughput: at 0 ms of added"
+          "text": "Deterministic toy, not measured throughput: at 200 ms of add"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Across the 24-tick hand-off at 0 ms of delay the real-time c"
+          "text": "Across the 24-tick hand-off at 200 ms of delay the real-time"
         },
         {
           "familyHead": "newsreader",
@@ -78611,7 +79100,39 @@
         },
         {
           "tag": "button",
+          "text": "One move at a time",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "100 moves per plan",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -78626,8 +79147,56 @@
           "controlId": "control:secondary-action"
         },
         {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "None",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "+0.1 second",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "+0.2 second",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
           "tag": "button",
           "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -79479,7 +80048,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12817,
+      "visibleTextLength": 12950,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -79616,14 +80185,41 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 486,
+          "widthPx": 382,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "accumulated deviation = 1505 units over 240 steps, final dev"
+          "text": "Total drift over 240 moves: 1505 units; over the first 120: "
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 649,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative: a toy model, not a measured robot."
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 649,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Original deterministic toy, not a measured robot. Each move "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 649,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "“25 moves per plan” makes one decision every 25 moves (actio"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
@@ -79632,7 +80228,16 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 649,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The chart below compares the summed drift with two illustrat"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
@@ -79692,6 +80297,24 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "The first uses error ε\\varepsilonε on the expert distributio"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "A schematic, not data. A robot trained by behavior cloning l"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The mismatch between the training states and the states the "
         },
         {
           "familyHead": "newsreader",
@@ -80149,7 +80772,7 @@
         },
         {
           "tag": "button",
-          "text": "Per-timestep prediction",
+          "text": "Short task (120 moves)",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -80157,7 +80780,7 @@
         },
         {
           "tag": "button",
-          "text": "Chunk of 25 actions",
+          "text": "Twice as long (240 moves)",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -80165,15 +80788,47 @@
         },
         {
           "tag": "button",
-          "text": "DAgger relabeling",
+          "text": "One move at a time",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "25 moves per plan",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "A teacher corrects it",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "button",
           "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -80190,6 +80845,14 @@
         {
           "tag": "summary",
           "text": "Sampled toy deviation and refere",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -81871,7 +82534,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14953,
+      "visibleTextLength": 15104,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -82002,14 +82665,32 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 395,
+          "widthPx": 715,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "T_p = 16, T_a = 8: 1.25 Hz replan rate, 0.8 s committed per "
+          "text": "Plans 1.6 seconds ahead and acts on the first 0.8 seconds: i"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "A schematic of the replanning cycle, not a recorded run."
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "This is receding-horizon control. Each plan predicts T_p act"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
@@ -82023,16 +82704,16 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Play the scene below and step through its beats. Sixty actio"
+          "text": "The scene below opens on its finished frame: two clusters la"
         },
         {
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 271.73,
+          "widthPx": 267,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "beat 4 / 4 samples 60 steps 10 dispersion 1.79 → 0.27"
+          "text": "beat 4 / 4 60 random guesses, cleaned up in 10 steps"
         },
         {
           "familyHead": "ibm plex sans",
@@ -82041,7 +82722,34 @@
           "widthPx": 715,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Illustrative action-space model (status: illustrative): the "
+          "text": "Illustrative: a drawn model of the idea, not a trained robot"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "In symbols, the policy samples a∼p(a∣o)a \\sim p(a \\mid o)a∼p"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The sample positions come from an illustrative two-move mode"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The four steps, in order:"
         },
         {
           "familyHead": "newsreader",
@@ -82533,15 +83241,23 @@
         },
         {
           "tag": "button",
-          "text": "Diffusion Policy (16/8)",
+          "text": "Diffusion Policy: rethink every ",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Open-loop (32/32)",
+          "text": "Never rethink",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -82550,6 +83266,14 @@
         {
           "tag": "button",
           "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -82598,6 +83322,14 @@
         {
           "tag": "button",
           "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -89360,7 +90092,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20726,
+      "visibleTextLength": 20426,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -89482,23 +90214,59 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 495.47,
+          "widthPx": 599,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Δx = -0.056 → bin 120 of 255 → <a120> reconstructs to -0.058"
+          "text": "At moment 8, the forward/back nudge -0.056 lands in slot 120"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative: a made-up movement, not recorded robot data."
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "In the symbols robotics papers use, the seven motions are Δx"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "7 sequential decodes per control step: token n+1 cannot star"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "A toy chunk with fixed [-1, 1] bounds and synthetic token la"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Along the Δx action lane of the 16-step chunk, the continuou"
+          "text": "Along the forward/back (Δx) motion of the 16-step action chu"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
@@ -90075,8 +90843,16 @@
           "controlId": "control:secondary-action"
         },
         {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
           "tag": "button",
-          "text": "Δx",
+          "text": "forward/back",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -90084,7 +90860,7 @@
         },
         {
           "tag": "button",
-          "text": "Δy",
+          "text": "left/right",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -90092,7 +90868,7 @@
         },
         {
           "tag": "button",
-          "text": "Δz",
+          "text": "up/down",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -90100,7 +90876,7 @@
         },
         {
           "tag": "button",
-          "text": "Δroll",
+          "text": "roll",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -90108,7 +90884,7 @@
         },
         {
           "tag": "button",
-          "text": "Δpitch",
+          "text": "tilt",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -90116,7 +90892,7 @@
         },
         {
           "tag": "button",
-          "text": "Δyaw",
+          "text": "turn",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -90124,7 +90900,7 @@
         },
         {
           "tag": "button",
-          "text": "grip",
+          "text": "open/close",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -90133,6 +90909,14 @@
         {
           "tag": "button",
           "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,

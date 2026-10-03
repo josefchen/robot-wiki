@@ -115,8 +115,8 @@ function CreditLine({ credit, className }: { credit: FigureCredit; className: st
 /**
  * An original schematic is drawn inline in the shared figure frame, so its
  * labels sit on the stage type scale. The frame takes the drawing's own
- * one-line caption: the registry caption is the longer record and runs past
- * the frame's caption limit.
+ * kicker, takeaway headline, one-line caption and method: the registry
+ * caption is the longer record and runs past the frame's caption limit.
  */
 function SchematicFigure({
   imageId,
@@ -143,7 +143,8 @@ function SchematicFigure({
       data-figure-kind="original-schematic"
       data-image-id={imageId}
       className={className}
-      heading={schematic.title}
+      kicker={schematic.kicker}
+      heading={schematic.heading}
       stage={
         <FigureStage>
           <span
@@ -157,6 +158,7 @@ function SchematicFigure({
       }
       caption={schematic.caption}
       captionProps={{ id: captionId }}
+      method={schematic.method}
       source={
         credit ? <CreditLine credit={credit} className={FIGURE_TEXT_CLASS.source} /> : undefined
       }

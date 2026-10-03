@@ -55,6 +55,24 @@ describe('ChunkSizeCurve', () => {
   it('marks the interpolated region as not measured', () => {
     render(<ChunkSizeCurve />);
     expect(screen.getAllByText(/interpolat/i).length).toBeGreaterThan(0);
+    expect(screen.getByText('estimate')).toBeInTheDocument();
+    expect(screen.getByText('44%, measured')).toBeInTheDocument();
+    expect(screen.getByText('1%, measured')).toBeInTheDocument();
+  });
+
+  it('the presets jump between the two measured settings and redraw the decision ticks', async () => {
+    const user = userEvent.setup();
+    render(<ChunkSizeCurve />);
+    expect(screen.getByTestId('chunk-preset-hundred')).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByTestId('decision-ticks-current')).toHaveAttribute('data-count', '4');
+    expect(screen.getByTestId('decision-ticks-single')).toHaveAttribute('data-count', '400');
+    expect(screen.getByText('4 decisions per task instead of 400:')).toBeInTheDocument();
+    expect(screen.getByText('44 successes in 100 tries')).toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: 'One move at a time' }));
+    expect(screen.getByRole('slider', { name: /chunk size/i })).toHaveValue('1');
+    expect(screen.getByTestId('chunk-success-readout')).toHaveTextContent('1%');
+    expect(screen.getByTestId('decision-ticks-current')).toHaveAttribute('data-count', '400');
+    expect(screen.getByText('1 success in 100 tries')).toBeInTheDocument();
   });
 
   it('reset restores the default state', async () => {
@@ -85,7 +103,7 @@ describe('ChunkSizeCurve', () => {
   it('renders a table-form chart description that names the dashed region', () => {
     const { container } = render(<ChunkSizeCurve />);
     const desc = container.querySelector('[data-chart-description]');
-    expect(desc?.textContent).toMatch(/dashed region past k = 100/i);
+    expect(desc?.textContent).toMatch(/pale estimate band past k = 100/i);
     const details = container.querySelector('details[data-chart-data]');
     expect(details).toHaveAttribute('data-chart-form', 'table');
     expect(details?.querySelectorAll('tbody tr').length).toBeGreaterThanOrEqual(5);
