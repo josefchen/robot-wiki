@@ -175,7 +175,7 @@ const CHARTS: Array<{
     control: 'range',
     moves: ['8', '1'],
     def: '4',
-    match: 'physics proxy is off',
+    match: 'With only the picture',
   },
   {
     route: '/manipulation/pi-line',
@@ -199,7 +199,7 @@ const CHARTS: Array<{
     control: 'range',
     moves: ['30', '50'],
     def: '15',
-    match: 'Current imagined throw',
+    match: 'the ball the robot imagines',
   },
   {
     route: '/world-models/jepa',

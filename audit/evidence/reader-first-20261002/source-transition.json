@@ -3,7 +3,7 @@
   "name": "reader-first-figures",
   "reviewedBy": "release steward re-anchoring the reader-first figure pass (not independent acceptance)",
   "rationale": "The reader-first figure pass of 2026-10-02 rewrote each article figure so a reader with no engineering background gets its point in five seconds: a takeaway headline, at most two visible controls with plain labels, every further control in an Adjust more fold, and the method, sources and caveats in a How this was made fold. The articles that point at those controls name them in plain words, the end-to-end specs open a fold before they use a control it now holds, and the figure sources changed with them. Each change is recorded here as exact edits over the bytes the file had before the pass. The earlier bytes stand in for the live file only while the live file is exactly the reviewed successor, so older reviews, runs and receipts that pinned them still check the bytes they recorded.",
-  "observedAt": "2026-10-03T00:00:08Z",
+  "observedAt": "2026-10-03T00:37:07Z",
   "sources": [
     {
       "archivedFrom": "6fffffaf345d1ea5e258645567df3312e8f5c71b",
@@ -4711,8 +4711,8 @@
       },
       "after": {
         "path": "tests/e2e/chart-state-descriptions.spec.ts",
-        "bytes": 24246,
-        "sha256": "ff52d65746478926bd59e68eef737ee297db71a76ebb3f64854c20ac310954ed"
+        "bytes": 24252,
+        "sha256": "4734b6a910bef93f68bacd584f5434cf1c291c660167a74dfb437db8b6b94c8a"
       },
       "edits": [
         {
@@ -4724,8 +4724,12 @@
           "after": "    document.querySelectorAll('details[data-reveal], details[data-figure-fold]').forEach((d) => {\n"
         },
         {
+          "before": "    match: 'physics proxy is off',\n",
+          "after": "    match: 'With only the picture',\n"
+        },
+        {
           "before": "    match: 'latent rollout view',\n",
-          "after": "    match: 'Current imagined throw',\n"
+          "after": "    match: 'the ball the robot imagines',\n"
         },
         {
           "before": "    match: 'search budget of',\n",
