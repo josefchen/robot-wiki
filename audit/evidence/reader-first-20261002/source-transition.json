@@ -3,7 +3,7 @@
   "name": "reader-first-figures",
   "reviewedBy": "release steward re-anchoring the reader-first figure pass (not independent acceptance)",
   "rationale": "The reader-first figure pass of 2026-10-02 rewrote each article figure so a reader with no engineering background gets its point in five seconds: a takeaway headline, at most two visible controls with plain labels, every further control in an Adjust more fold, and the method, sources and caveats in a How this was made fold. The articles that point at those controls name them in plain words, the end-to-end specs open a fold before they use a control it now holds, and the figure sources changed with them. Each change is recorded here as exact edits over the bytes the file had before the pass. The earlier bytes stand in for the live file only while the live file is exactly the reviewed successor, so older reviews, runs and receipts that pinned them still check the bytes they recorded.",
-  "observedAt": "2026-10-03T00:37:07Z",
+  "observedAt": "2026-10-03T02:34:55Z",
   "sources": [
     {
       "archivedFrom": "6fffffaf345d1ea5e258645567df3312e8f5c71b",
@@ -2125,17 +2125,25 @@
       },
       "after": {
         "path": "components/ui/figure.tsx",
-        "bytes": 7436,
-        "sha256": "5c5fa58098e666671464ee6943d2044f08bf77aa483d0431a1241252bd5fccb6"
+        "bytes": 7540,
+        "sha256": "a9cb99c0b4cf118556c05c658d7f921dd3538e9a732c50376f77f8edb598f89d"
       },
       "edits": [
         {
-          "before": " * the frame's 20-word limit.\n",
-          "after": " * the frame's caption limit.\n"
+          "before": " * one-line caption: the registry caption is the longer record and runs past\n * the frame's 20-word limit.\n",
+          "after": " * kicker, takeaway headline, one-line caption and method: the registry\n * caption is the longer record and runs past the frame's caption limit.\n"
+        },
+        {
+          "before": "      heading={schematic.title}\n",
+          "after": "      kicker={schematic.kicker}\n      heading={schematic.heading}\n"
         },
         {
           "before": "            className=\"block px-3 pt-2.5 font-sans text-xs font-semibold leading-none text-instrument-muted\"\n",
           "after": "            className=\"block pb-1 font-sans text-sm font-medium leading-snug text-text-dim\"\n"
+        },
+        {
+          "before": "      captionProps={{ id: captionId }}\n",
+          "after": "      captionProps={{ id: captionId }}\n      method={schematic.method}\n"
         }
       ]
     },
@@ -2487,6 +2495,94 @@
       ]
     },
     {
+      "archivedFrom": "f76f3fd16dd95fb00868f32c91e7e8b180e7da00",
+      "before": {
+        "path": "content/manipulation/action-chunking.mdx",
+        "bytes": 14480,
+        "sha256": "eebdedbb6c90a7f74c1d9057edadbecbbc9d83d343e5a1ddf3b58702b1259c73"
+      },
+      "after": {
+        "path": "content/manipulation/action-chunking.mdx",
+        "bytes": 14604,
+        "sha256": "2f18be8b3212449889cdf7686ce1cdd421485eb61e505eda2c7ad009aedb5fd4"
+      },
+      "edits": [
+        {
+          "before": "Drag the chunk size slider to k=1 and then back to 100. That curve is ACT's own ablation: 1% success one action at a time, 44% at a hundred. Everything else in this module explains why those two numbers are so far apart.\n",
+          "after": "Try “One move at a time” and then “100 moves per plan”. That curve is ACT's own ablation: 1% success one action at a time, 44% at a hundred. Everything else in this module explains why those two numbers are so far apart.\n"
+        },
+        {
+          "before": "The dial below is a deterministic toy of a cross-mode hand-off; it does not reproduce the RTC benchmark. Its percentages are a normalized toy score: the collapse curve, the fixed RTC line, and the interpolation between measured delay settings are assumptions. The paper reports average task throughput, and these percentages are the toy's own; the slider also extends beyond the experiment’s +200 ms endpoint <Cite id=\"real-time-chunking-2025\" />.\n",
+          "after": "The figure below is a deterministic toy of a cross-mode hand-off; it does not reproduce the RTC benchmark. It opens at +0.2 second of thinking delay; press “None” to watch the two plans agree. Its percentages are a normalized toy score: the collapse curve, the fixed RTC line, and the interpolation between measured delay settings are assumptions. The paper reports average task throughput, and these percentages are the toy's own; the slider under “Adjust more” also extends beyond the experiment’s +200 ms endpoint <Cite id=\"real-time-chunking-2025\" />.\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "f76f3fd16dd95fb00868f32c91e7e8b180e7da00",
+      "before": {
+        "path": "content/manipulation/bc-foundations.mdx",
+        "bytes": 12546,
+        "sha256": "31ecb27b9ed23ad2d18dcf4c60dc8ad26f3c47c5f1dc293fd20c3f1243ade373"
+      },
+      "after": {
+        "path": "content/manipulation/bc-foundations.mdx",
+        "bytes": 12544,
+        "sha256": "f5caa6805465d87144112db590d285a0e76c4fd5c180f834fed5a2d7576162e9"
+      },
+      "edits": [
+        {
+          "before": "This deterministic toy illustrates persistent drift; it is neither a source benchmark nor a task-cost theorem. Each prediction adds an error that grows with the drift. Toggle DAgger relabeling to cut the summed deviation.\n",
+          "after": "This deterministic toy illustrates persistent drift; it is neither a source benchmark nor a task-cost theorem. Each prediction adds an error that grows with the drift. Try “A teacher corrects it” to watch DAgger-style relabeling cut the summed deviation.\n"
+        },
+        {
+          "before": "  revealHint=\"The figure is mounted at 5.0% per-step error over 240 steps with per-timestep prediction on: the accumulated-deviation readout shows 1505 units. Drag the horizon back to 120 steps and watch it quarter.\"\n",
+          "after": "  revealHint=\"The figure opens on the twice-as-long task, 240 moves made one at a time: the total drift reads 1505 units. Press Short task and watch it fall to about a quarter.\"\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "f76f3fd16dd95fb00868f32c91e7e8b180e7da00",
+      "before": {
+        "path": "content/manipulation/diffusion-policy.mdx",
+        "bytes": 11026,
+        "sha256": "0e27e0619aac140a86f5034d37833abb9456dae33f35c30e7475514e389a7131"
+      },
+      "after": {
+        "path": "content/manipulation/diffusion-policy.mdx",
+        "bytes": 11244,
+        "sha256": "3f77042935712a0e73a36ad361e840f17468fc70066482b412f382682173c2de"
+      },
+      "edits": [
+        {
+          "before": "$T_a$ is the same dial as ACT's chunk size: a large value gives smooth, committed motion but reacts slowly to anything changing mid-chunk; a small one reacts quickly but re-samples often, and each new sample can pick a different mode mid-motion <Cite id=\"act-aloha-2023\" />. The policy issues commands at 10 Hz, so $T_a = 8$ means the robot commits to each plan for 0.8 seconds. Drag the executed horizon slider below 8 and watch the replan rate climb.\n",
+          "after": "$T_a$ is the same dial as ACT's chunk size: a large value gives smooth, committed motion but reacts slowly to anything changing mid-chunk; a small one reacts quickly but re-samples often, and each new sample can pick a different mode mid-motion <Cite id=\"act-aloha-2023\" />. The policy issues commands at 10 Hz, so $T_a = 8$ means the robot commits to each plan for 0.8 seconds. Try “Never rethink”: the dashed tails vanish. In “Adjust more”, drag “Steps acted on” below 8 and the rethink rate climbs.\n"
+        },
+        {
+          "before": "Play the scene below and step through its beats. Sixty action samples start clustered on two demonstrated strategies, jitter into one shared Gaussian cloud, and are transported back onto the two modes over the paper's 10-step DDIM inference schedule, conditioned on the observed state. Each sample lands on one strategy or the other instead of the average of them, which is the property MSE regression destroys and this whole architecture exists to keep.\n",
+          "after": "The scene below opens on its finished frame: two clusters labelled “move one” and “move two”, with faint trails back to the random guesses they started from. Press Play to watch it from the start. Sixty action samples start clustered on two demonstrated strategies, jitter into one shared Gaussian cloud, and are transported back onto the two modes over the paper's 10-step DDIM inference schedule, conditioned on what the robot sees. Each sample lands on one strategy or the other instead of the average of them, which is the property MSE regression destroys and this whole architecture exists to keep.\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "f76f3fd16dd95fb00868f32c91e7e8b180e7da00",
+      "before": {
+        "path": "content/manipulation/vla-models.mdx",
+        "bytes": 15946,
+        "sha256": "2e36c965fb4afa030b46ac39aee630950db3727b92b02db06d3de34da9fc0fb6"
+      },
+      "after": {
+        "path": "content/manipulation/vla-models.mdx",
+        "bytes": 16111,
+        "sha256": "59bae36b6b712eb97992b3a1f129b024480e8c2a8e77bfc330487476deb6c6f8"
+      },
+      "edits": [
+        {
+          "before": "The interactive below is an illustrative seven-coordinate action sequence; it is neither a recorded rollout nor a literal tokenizer vocabulary. It places values in 256 uniform bins on a fixed normalized interval and uses synthetic token labels. Scrub the control step to inspect the assigned bin and reconstruction error. Quantization discards within-bin detail, but error can be zero when a value equals its reconstructed bin center. OpenVLA’s actual bin bounds use training-data quantiles; the toy does not estimate those statistics. <Cite id=\"openvla-2024\" /> Move the control step and the assigned bin and reconstruction error both track the new step.\n",
+          "after": "The interactive below is an illustrative seven-coordinate action sequence; it is neither a recorded rollout nor a literal tokenizer vocabulary. It places values in 256 uniform bins on a fixed normalized interval and uses synthetic token labels. Drag “Moment in the movement” to see each motion’s nudge land in one of the 256 slots and become a word; the motion buttons and the full 256-slot strip are under “Adjust more”, and the reconstruction error is under “How this was made”. Quantization discards within-bin detail, but error can be zero when a value equals its reconstructed bin center. OpenVLA’s actual bin bounds use training-data quantiles; the toy does not estimate those statistics. <Cite id=\"openvla-2024\" /> Move to another moment and the assigned slot and reconstruction error both track it.\n"
+        }
+      ]
+    },
+    {
       "archivedFrom": "6fffffaf345d1ea5e258645567df3312e8f5c71b",
       "before": {
         "path": "content/world-models/generative-sim.mdx",
@@ -2779,10 +2875,26 @@
       },
       "after": {
         "path": "lib/chart-descriptions.ts",
-        "bytes": 25052,
-        "sha256": "648f2f4e3c649fe4b3f2135cebb1030620b0d974cef884707e330fe66bd63e42"
+        "bytes": 25207,
+        "sha256": "60069d12c8e0690bd969bdfab02199048e4c0344f3ac656e2701a67e74a7994b"
       },
       "edits": [
+        {
+          "before": "    text: 'Task success rises from 1% at chunk size k = 1 to the measured 44% peak at k = 100, and at the current k = 100 the curve reads 44% success against 4 closed-loop decisions per 400-step episode; the dashed region past k = 100 is interpolated beyond the measured ACT ablation, which reports a slight decline at k = 200 and k = 400 without exact numbers.',\n",
+          "after": "    text: 'Task success rises from 1% at chunk size k = 1 to the measured 44% peak at k = 100, and at the current k = 100 the curve reads 44% success against 4 closed-loop decisions per 400-step episode; the pale estimate band past k = 100 is interpolated beyond the measured ACT ablation, which reports a slight decline at k = 200 and k = 400 without exact numbers.',\n"
+        },
+        {
+          "before": "    text: 'Along the Δx action lane of the 16-step chunk, the continuous command runs from 0.183 at t = 0 to 0.183 at t = 15, and at the current step 7 the value -0.056 falls in bin 120 of 255; the 7 dashed rules are each dimension\\'s zero line, and the chunk is a fixed synthetic example rather than measured robot data.',\n",
+          "after": "    text: 'Along the forward/back (Δx) motion of the 16-step action chunk, the continuous command runs from 0.183 at t = 0 to 0.183 at t = 15, and at the current step 7 the value -0.056 falls in bin 120 of 255; the dashed rule under the trace is the motion\\'s zero line, the arrow on the drawn gripper shows that nudge, and the chunk is a fixed synthetic example rather than measured robot data.',\n"
+        },
+        {
+          "before": "    text: 'Deterministic toy, not measured throughput: at 0 ms of added delay, the normalized toy scores are 100% for temporal ensembling, marked nominal, and 100% for RTC. The shaded 100 to 200 ms failure window marks the experiment\\'s two failed TE settings, not a universal latency threshold. The curve between settings and its continuation beyond +200 ms are illustrative assumptions.',\n",
+          "after": "    text: 'Deterministic toy, not measured throughput: at 200 ms of added delay, the normalized toy scores are 0% for temporal ensembling, marked failed, and 100% for RTC. The experiment\\'s temporal-ensembling variants triggered protective stops at its +100 and +200 ms settings; where this toy collapses between them is an assumption, not a universal latency threshold. The curve between settings and its continuation beyond +200 ms are illustrative assumptions.',\n"
+        },
+        {
+          "before": "    text: 'Across the 24-tick hand-off at 0 ms of delay the real-time chunking action stays flat on the committed mode at 0.80 while the ensembled action holds within tolerance and ends at 0.80; the shaded band between the two dashed mode lines is the invalid middle no demonstration ever commanded, and those lines are the modelled modes rather than measured actions.',\n",
+          "after": "    text: 'Across the 24-tick hand-off at 200 ms of delay the real-time chunking action stays on the committed go-left mode at 0.80 while the ensembled action leaves both valid modes, ends at 0.16 and runs into the obstacle; the obstacle between the two dashed plan routes is drawn for illustration, and those routes are the modelled modes rather than measured actions.',\n"
+        },
         {
           "before": "    quantityNames: ['appearance', 'displacement'],\n    text: 'Appearance is on and simulation is on, physics proxy is off, so a 4.0 N push leaves the mug at 0.0 cm of displacement; the pixels have no mass until the physics proxy supplies a collision hull.',\n",
           "after": "    quantityNames: ['picture', 'push'],\n    text: 'With only the picture, a push of 4 newtons leaves the mug at 0 centimetres: a picture has no shape, weight or friction for a solver to push against.',\n"
@@ -4457,6 +4569,53 @@
       ]
     },
     {
+      "archivedFrom": "f76f3fd16dd95fb00868f32c91e7e8b180e7da00",
+      "before": {
+        "path": "tests/e2e/bc-foundations.spec.ts",
+        "bytes": 4171,
+        "sha256": "b5314be7b3afea8df9af142435c404e1c91ead538ca71a93889866dd2c3bb707"
+      },
+      "after": {
+        "path": "tests/e2e/bc-foundations.spec.ts",
+        "bytes": 4392,
+        "sha256": "b351f5f97799f14331cd6b26112546193dcb53f10f453f74aef161f56b720661"
+      },
+      "edits": [
+        {
+          "before": "import { waitForHydration } from './interaction-ready';\n",
+          "after": "import { waitForHydration } from './interaction-ready';\nimport { openAdjustMore } from './helpers/figure-fold';\n"
+        },
+        {
+          "before": "  test('interactive responds to sliders, mode toggle, DAgger, and reset', async ({\n",
+          "after": "  test('interactive responds to the presets, the error slider, and reset', async ({\n"
+        },
+        {
+          "before": "    const initial = Number.parseFloat((await readout.textContent()) ?? '');\n",
+          "after": "    const value = async () => Number.parseFloat((await readout.textContent()) ?? '');\n    const initial = await value();\n"
+        },
+        {
+          "before": "    // Raising the per-step error grows the accumulated deviation.\n",
+          "after": "    // The error slider sits in \"Adjust more\"; raising it grows the drift.\n    await openAdjustMore(ce(page));\n"
+        },
+        {
+          "before": "    await expect.poll(async () => Number.parseFloat((await readout.textContent()) ?? '')).toBeGreaterThan(initial);\n    const raised = Number.parseFloat((await readout.textContent()) ?? '');\n    expect(raised).toBeGreaterThan(initial);\n",
+          "after": "    await expect.poll(value).toBeGreaterThan(initial);\n    const raised = await value();\n"
+        },
+        {
+          "before": "    // Chunked prediction at identical settings is strictly lower.\n    await ce(page).getByRole('button', { name: /chunk of 25 actions/i }).click();\n    const chunked = Number.parseFloat((await readout.textContent()) ?? '');\n",
+          "after": "    // Planning 25 moves at once at identical settings is strictly lower.\n    await ce(page).getByRole('button', { name: '25 moves per plan', exact: true }).click();\n    const chunked = await value();\n"
+        },
+        {
+          "before": "    // DAgger relabeling lowers it further.\n    await ce(page).getByRole('button', { name: /dagger/i }).click();\n    const corrected = Number.parseFloat((await readout.textContent()) ?? '');\n    expect(corrected).toBeLessThan(chunked);\n",
+          "after": "    // A teacher correcting one-move-at-a-time driving is lower than none.\n    await ce(page).getByRole('button', { name: 'A teacher corrects it', exact: true }).click();\n    const corrected = await value();\n    expect(corrected).toBeLessThan(raised);\n\n    // The short task drifts less than the doubled one.\n    await ce(page).getByRole('button', { name: 'One move at a time', exact: true }).click();\n    await ce(page).getByRole('button', { name: /^Short task/ }).click();\n    expect(await value()).toBeLessThan(raised);\n"
+        },
+        {
+          "before": "    const restored = Number.parseFloat((await readout.textContent()) ?? '');\n",
+          "after": "    const restored = await value();\n"
+        }
+      ]
+    },
+    {
       "archivedFrom": "f9e1a826d63b409da4cd2438c9d120b02b500131",
       "before": {
         "path": "tests/e2e/bear-case.spec.ts",
@@ -4688,10 +4847,14 @@
       },
       "after": {
         "path": "tests/e2e/chart-descriptions.spec.ts",
-        "bytes": 15564,
-        "sha256": "0088efe8fc2fb4838b9c352e5f9c86dbe5349521ef57dd77a881d2714dbe3348"
+        "bytes": 15631,
+        "sha256": "cf7bef55840efb26cd020e5334e6c0a1f563be93ecdc3d69090bda428811933f"
       },
       "edits": [
+        {
+          "before": "  { route: '/manipulation/action-chunking', name: 'latency-throughput', control: 'range', moves: ['140', '200'], def: '0', match: 'normalized toy scores' },\n",
+          "after": "  // The delay figure opens on the larger tested setting, +200 ms.\n  { route: '/manipulation/action-chunking', name: 'latency-throughput', control: 'range', moves: ['140', '0'], def: '200', match: 'normalized toy scores' },\n"
+        },
         {
           "before": " * Open every prediction-step reveal. Where a page's one chart sits inside\n * its prediction step, the closed reveal gives the chart no rendered\n * innerText, so the text checks read it after the reveal opens.\n",
           "after": " * Open every prediction-step reveal and every figure fold. Where a page's\n * one chart sits inside its prediction step, or a figure keeps its\n * description in its \"How this was made\" fold, the closed disclosure gives\n * the text no rendered innerText, so the text checks read it after it opens.\n"
@@ -5825,13 +5988,29 @@
       },
       "after": {
         "path": "tests/e2e/motion-manipulation.spec.ts",
-        "bytes": 4278,
-        "sha256": "7eef14cda2a77fc1133840f654ea410febefbd12f5f8a93584e4c420ce560529"
+        "bytes": 5139,
+        "sha256": "4aa1db8d761a377055346ce0d44821bcff78c9ae58da1e2d9a4c6d9853d5f9a0"
       },
       "edits": [
         {
+          "before": "import { binIndex, generateActionChunk } from '@/lib/action-tokenization';\n",
+          "after": "import { binIndex, generateActionChunk } from '@/lib/action-tokenization';\nimport { openAdjustMore } from './helpers/figure-fold';\n"
+        },
+        {
           "before": "        // Figures paint on the graphite stage, which remaps every role to its\n        // stage colour, so a stage mark is compared with a probe inside it.\n",
           "after": "        // Figures paint on the page stage, which maps every role to its stage\n        // colour, so a stage mark is compared with a probe inside it.\n"
+        },
+        {
+          "before": "        const highlight = await stageRole('highlight-graphic', tokenStage);\n        expect(await chunk.locator('polyline').first().evaluate((node) => getComputedStyle(node).stroke)).toBe(await stageRole('action-graphic', tokenStage));\n",
+          "after": "        // On the light page stage the selection paints in the stage variant\n        // of the highlight role, the dark lime that holds contrast on paper.\n        const highlight = await stageRole('highlight-stage', tokenStage);\n        expect(await chunk.locator('polyline').first().evaluate((node) => getComputedStyle(node).stroke)).toBe(await stageRole('action-graphic', tokenStage));\n        // The main view zooms into the assigned slot; the full 256-slot\n        // strip, where the nth rect is slot n, waits in \"Adjust more\".\n        expect(await bin.locator('rect[data-selection=\"assigned bin\"]').evaluate((node) => getComputedStyle(node).fill)).toBe(highlight);\n        const frame = page.locator('[data-figure-frame=\"action-tokenization\"]');\n        await openAdjustMore(frame);\n        const strip = frame.getByTestId('tok-bin-strip');\n"
+        },
+        {
+          "before": "        expect(await bin.locator('rect').nth(selected).evaluate((node) => getComputedStyle(node).fill)).toBe(highlight);\n        expect(await bin.locator('rect').nth((selected + 1) % 256).evaluate((node) => getComputedStyle(node).fill)).not.toBe(highlight);\n        await page.getByRole('button', { name: 'Δy', exact: true }).click();\n",
+          "after": "        expect(await strip.locator('rect').nth(selected).evaluate((node) => getComputedStyle(node).fill)).toBe(highlight);\n        expect(await strip.locator('rect').nth((selected + 1) % 256).evaluate((node) => getComputedStyle(node).fill)).not.toBe(highlight);\n        await frame.getByRole('button', { name: 'left/right', exact: true }).click();\n"
+        },
+        {
+          "before": "        expect(await bin.locator('rect').nth(next).evaluate((node) => getComputedStyle(node).fill)).toBe(highlight);\n        expect(await chunk.locator('polyline').nth(1).evaluate((node) => getComputedStyle(node).stroke)).toBe(await stageRole('action-graphic', tokenStage));\n",
+          "after": "        expect(await strip.locator('rect').nth(next).evaluate((node) => getComputedStyle(node).fill)).toBe(highlight);\n        // The one trace under the gripper now follows the left/right motion.\n        await expect(chunk.locator('[data-selection=\"selected motion\"]')).toHaveText('left/right');\n        expect(await chunk.locator('polyline').first().evaluate((node) => getComputedStyle(node).stroke)).toBe(await stageRole('action-graphic', tokenStage));\n"
         }
       ]
     },
@@ -5990,8 +6169,8 @@
       },
       "after": {
         "path": "tests/e2e/predict-then-reveal.spec.ts",
-        "bytes": 40177,
-        "sha256": "77c4576f32a7f4f1bc51176fc124c8c027185f5731ff93efe500999061335f77"
+        "bytes": 40327,
+        "sha256": "9651d91a585c1f9bd2bda8d29456340dde0feae523fd7e463c80693227520e81"
       },
       "edits": [
         {
@@ -6013,6 +6192,14 @@
         {
           "before": "    mountedReadout: /143 yr/,\n",
           "after": "    mountedReadout: /143 years/,\n"
+        },
+        {
+          "before": "    // the control the keyboard probe drives.\n",
+          "after": "    // the control the keyboard probe drives. The main view offers the\n    // task-length and how-it's-run presets; both sliders moved into\n    // \"Adjust more\".\n"
+        },
+        {
+          "before": "    mountedReadout: /1505/,\n",
+          "after": "    mountedReadout: /1505/,\n    primaryControlInAdjust: true,\n"
         },
         {
           "before": "      // VAL-EDU-011a: closed on load; no blur/visibility/opacity gate on\n      // the reveal or any ancestor up to body.\n",

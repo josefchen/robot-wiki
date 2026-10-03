@@ -88,10 +88,25 @@ test.describe('keyboard-only global navigation (VAL-CROSS-022)', () => {
     await page.waitForURL(focusedHref ?? /\/manipulation\//);
 
     // On the module page, an interactive control responds to arrow keys.
-    // The compounding/action interactives live on specific modules; the
-    // first manipulation module hosts a real slider. Find any slider and
-    // drive it with the keyboard.
-    const slider = page.getByRole('slider').first();
+    // A figure keeps its sliders in its "Adjust more" fold, and on the
+    // first manipulation module that figure is also inside the prediction
+    // step. A keyboard reader answers the prediction (Space on a choice
+    // opens the reveal), opens the fold from its summary with Enter, and
+    // drives the slider it uncovers.
+    const predict = page.locator('[data-predict]');
+    if ((await predict.count()) > 0) {
+      const choice = predict.getByRole('radio').first();
+      await choice.focus();
+      await page.keyboard.press('Space');
+      await expect(predict.locator('details[data-reveal]').first()).toHaveAttribute('open', '');
+    }
+    const summary = page
+      .locator('[data-figure-fold="adjust"] > summary')
+      .filter({ visible: true })
+      .first();
+    await summary.focus();
+    await page.keyboard.press('Enter');
+    const slider = page.locator('[data-figure-fold="adjust"][open]').getByRole('slider').first();
     await expect(slider).toBeVisible();
     await slider.focus();
     const before = await slider.evaluate((el) => (el as HTMLInputElement).value);

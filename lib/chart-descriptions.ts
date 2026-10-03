@@ -85,7 +85,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/chunk-size-curve.tsx',
     route: '/manipulation/action-chunking/',
     quantityNames: ['success', 'chunk'],
-    text: 'Task success rises from 1% at chunk size k = 1 to the measured 44% peak at k = 100, and at the current k = 100 the curve reads 44% success against 4 closed-loop decisions per 400-step episode; the dashed region past k = 100 is interpolated beyond the measured ACT ablation, which reports a slight decline at k = 200 and k = 400 without exact numbers.',
+    text: 'Task success rises from 1% at chunk size k = 1 to the measured 44% peak at k = 100, and at the current k = 100 the curve reads 44% success against 4 closed-loop decisions per 400-step episode; the pale estimate band past k = 100 is interpolated beyond the measured ACT ablation, which reports a slight decline at k = 200 and k = 400 without exact numbers.',
   },
   {
     component: 'CompoundingError',
@@ -106,21 +106,21 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/action-tokenization.tsx',
     route: '/manipulation/vla-models/',
     quantityNames: ['action', 'step'],
-    text: 'Along the Δx action lane of the 16-step chunk, the continuous command runs from 0.183 at t = 0 to 0.183 at t = 15, and at the current step 7 the value -0.056 falls in bin 120 of 255; the 7 dashed rules are each dimension\'s zero line, and the chunk is a fixed synthetic example rather than measured robot data.',
+    text: 'Along the forward/back (Δx) motion of the 16-step action chunk, the continuous command runs from 0.183 at t = 0 to 0.183 at t = 15, and at the current step 7 the value -0.056 falls in bin 120 of 255; the dashed rule under the trace is the motion\'s zero line, the arrow on the drawn gripper shows that nudge, and the chunk is a fixed synthetic example rather than measured robot data.',
   },
   {
     component: 'LatencyComparisonThroughput',
     file: 'components/interactive/latency-comparison.tsx',
     route: '/manipulation/action-chunking/',
     quantityNames: ['throughput', 'delay'],
-    text: 'Deterministic toy, not measured throughput: at 0 ms of added delay, the normalized toy scores are 100% for temporal ensembling, marked nominal, and 100% for RTC. The shaded 100 to 200 ms failure window marks the experiment\'s two failed TE settings, not a universal latency threshold. The curve between settings and its continuation beyond +200 ms are illustrative assumptions.',
+    text: 'Deterministic toy, not measured throughput: at 200 ms of added delay, the normalized toy scores are 0% for temporal ensembling, marked failed, and 100% for RTC. The experiment\'s temporal-ensembling variants triggered protective stops at its +100 and +200 ms settings; where this toy collapses between them is an assumption, not a universal latency threshold. The curve between settings and its continuation beyond +200 ms are illustrative assumptions.',
   },
   {
     component: 'LatencyComparisonTraces',
     file: 'components/interactive/latency-comparison.tsx',
     route: '/manipulation/action-chunking/',
     quantityNames: ['action', 'mode'],
-    text: 'Across the 24-tick hand-off at 0 ms of delay the real-time chunking action stays flat on the committed mode at 0.80 while the ensembled action holds within tolerance and ends at 0.80; the shaded band between the two dashed mode lines is the invalid middle no demonstration ever commanded, and those lines are the modelled modes rather than measured actions.',
+    text: 'Across the 24-tick hand-off at 200 ms of delay the real-time chunking action stays on the committed go-left mode at 0.80 while the ensembled action leaves both valid modes, ends at 0.16 and runs into the obstacle; the obstacle between the two dashed plan routes is drawn for illustration, and those routes are the modelled modes rather than measured actions.',
   },
   {
     component: 'AdvantageScrubber',

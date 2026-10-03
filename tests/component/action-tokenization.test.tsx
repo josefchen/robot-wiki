@@ -1,7 +1,7 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
-import { ActionTokenization } from '@/components/interactive/action-tokenization';
+import { ActionTokenization, motionGloss } from '@/components/interactive/action-tokenization';
 import {
   ACTION_DIMS,
   binIndex,
@@ -29,14 +29,17 @@ const chunk = generateActionChunk();
 
 describe('ActionTokenization', () => {
   it('renders the slider, dimension buttons, readouts, token stream, and reset', () => {
-    render(<ActionTokenization />);
+    const { container } = render(<ActionTokenization />);
     expect(slider()).toBeInTheDocument();
     expect(slider()).toHaveAttribute('aria-label');
-    for (const dim of ACTION_DIMS) {
+    // One scrubber in the main view; the motion buttons wait in "Adjust more".
+    const adjust = container.querySelector('[data-figure-fold="adjust"]') as HTMLElement;
+    for (const [i] of ACTION_DIMS.entries()) {
       expect(
-        screen.getByRole('button', { name: dim.label }),
+        within(adjust).getByRole('button', { name: motionGloss(i) }),
       ).toBeInTheDocument();
     }
+    expect(within(adjust).getByTestId('tok-bin-strip').querySelectorAll('rect')).toHaveLength(256);
     expect(screen.getByRole('button', { name: /reset/i })).toBeInTheDocument();
     expect(screen.getByTestId('token-stream')).toBeInTheDocument();
     expect(valueReadout()).toBeInTheDocument();
@@ -62,8 +65,9 @@ describe('ActionTokenization', () => {
     const value = chunk[1][4];
     const bin = binIndex(value);
     expect(valueReadout()).toHaveTextContent(value.toFixed(3));
-    expect(binReadout()).toHaveTextContent(`bin ${bin} of 255`);
-    expect(tokenReadout()).toHaveTextContent(tokenForBin(bin));
+    expect(binReadout()).toHaveTextContent(`slot ${bin} of 256`);
+    expect(tokenReadout()).toHaveTextContent(`word ${bin}`);
+    expect(screen.getByText(new RegExp(`token ${tokenForBin(bin)}`))).toBeInTheDocument();
   });
 
   it('updates the bin and token when the control step changes', () => {
@@ -72,17 +76,19 @@ describe('ActionTokenization', () => {
     fireEvent.change(slider(), { target: { value: '9' } });
     const value = chunk[0][9];
     const bin = binIndex(value);
-    expect(binReadout()).toHaveTextContent(`bin ${bin} of 255`);
-    expect(tokenReadout()).toHaveTextContent(tokenForBin(bin));
+    expect(binReadout()).toHaveTextContent(`slot ${bin} of 256`);
+    expect(tokenReadout()).toHaveTextContent(`word ${bin}`);
     expect(tokenReadout().textContent).not.toBe(before);
   });
 
   it('serializes the whole action vector as a stream of vocabulary tokens', () => {
     render(<ActionTokenization defaultStep={3} />);
     const stream = screen.getByTestId('token-stream');
-    for (const dim of ACTION_DIMS) {
-      const bin = binIndex(chunk[ACTION_DIMS.indexOf(dim)][3]);
-      expect(stream).toHaveTextContent(tokenForBin(bin));
+    const words = within(stream).getAllByRole('listitem');
+    expect(words).toHaveLength(ACTION_DIMS.length);
+    for (const [i] of ACTION_DIMS.entries()) {
+      const bin = binIndex(chunk[i][3]);
+      expect(words[i]).toHaveTextContent(`${motionGloss(i)}word ${bin}`);
     }
   });
 
@@ -97,7 +103,7 @@ describe('ActionTokenization', () => {
     const user = userEvent.setup();
     render(<ActionTokenization defaultStep={4} defaultDim={0} />);
     const before = valueReadout().textContent;
-    await user.click(screen.getByRole('button', { name: 'Δy' }));
+    await user.click(screen.getByRole('button', { name: 'left/right' }));
     expect(valueReadout()).toHaveTextContent(chunk[1][4].toFixed(3));
     expect(valueReadout().textContent).not.toBe(before);
   });
@@ -106,7 +112,7 @@ describe('ActionTokenization', () => {
     const user = userEvent.setup();
     render(<ActionTokenization />);
     fireEvent.change(slider(), { target: { value: '12' } });
-    await user.click(screen.getByRole('button', { name: 'Δz' }));
+    await user.click(screen.getByRole('button', { name: 'up/down' }));
     await user.click(screen.getByRole('button', { name: /reset/i }));
     expect(slider()).toHaveValue('7');
     expect(valueReadout()).toHaveTextContent(chunk[0][7].toFixed(3));
@@ -117,10 +123,24 @@ describe('ActionTokenization', () => {
     expect(screen.getByText(/illustrative/i)).toBeInTheDocument();
   });
 
+  it('glosses the seven motions on the gripper stage and names the slot in the note', () => {
+    render(<ActionTokenization />);
+    const hand = screen.getByRole('img', { name: /continuous action chunk/i });
+    for (const [i] of ACTION_DIMS.entries()) {
+      expect(within(hand).getByText(motionGloss(i))).toBeInTheDocument();
+    }
+    const bin = binIndex(chunk[0][7]);
+    expect(hand.querySelector('[data-selection="selected motion"]')).toHaveTextContent('forward/back');
+    const ruler = screen.getByRole('img', { name: /binning detail/i });
+    expect(ruler).toHaveTextContent(`in slot ${bin} of 256,`);
+    expect(ruler).toHaveTextContent(`written as word ${bin}`);
+    expect(ruler.querySelectorAll('rect').length).toBe(15);
+  });
+
   it('describes the traces root with a sampled table and the bin chart with a state list', () => {
     const { container } = render(<ActionTokenization />);
     const desc = container.querySelector('[data-chart-description]');
-    expect(desc?.textContent).toMatch(/dashed rules/i);
+    expect(desc?.textContent).toMatch(/dashed rule under the trace/i);
     expect(desc?.textContent).toMatch(/action/i);
     const details = container.querySelector('details[data-chart-data]');
     expect(details).toHaveAttribute('data-chart-form', 'table');

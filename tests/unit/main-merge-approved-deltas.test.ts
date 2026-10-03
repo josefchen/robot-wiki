@@ -642,9 +642,13 @@ const seoPassAppends = [
 // shared preset group's accessible name, which borrows the label it prints
 // above its buttons, then one edge per article and accessible name each
 // rewritten figure moved, batch by batch. The how-robots-work page, merged
-// after those batches, appends its block last.
+// after those batches, appends its block, and the 2026-10-03 manipulation
+// batch of the same pass appends its own block after that.
 const readerFirstAppends = merged.filter(x => x.id.startsWith('reader-first-20261002-')).map(x => x.id);
-const beforeReaderFirst = (entries: ApprovedDelta[]) => entries.filter(x => !readerFirstAppends.includes(x.id));
+const readerFirstManipulationAppends = merged
+  .filter(x => x.id.startsWith('reader-first-20261003-')).map(x => x.id);
+const allReaderFirstAppends = [...readerFirstAppends, ...readerFirstManipulationAppends];
+const beforeReaderFirst = (entries: ApprovedDelta[]) => entries.filter(x => !allReaderFirstAppends.includes(x.id));
 const howRobotsWorkAppends = [
   'how-robots-work-20261002-accessible-names-explainers-rail',
   'how-robots-work-20261002-accessible-names-explainer-pager',
@@ -660,8 +664,9 @@ const beforeSeoPass = (entries: ApprovedDelta[]) => beforeReaderFirst(entries).f
 const seoPassEdges = (manifest: string, memberId: string) => merged
   .filter(x => seoPassAppends.includes(x.id) && x.manifest === manifest && x.memberId === memberId).map(x => x.id);
 const readerFirstEdges = (manifest: string, memberId: string) => merged
-  .filter(x => readerFirstAppends.includes(x.id) && x.manifest === manifest && x.memberId === memberId).map(x => x.id);
-const afterReaderFirst = merged.length - howRobotsWorkAppends.length;
+  .filter(x => allReaderFirstAppends.includes(x.id) && x.manifest === manifest && x.memberId === memberId).map(x => x.id);
+const afterHowRobotsWork = merged.length - readerFirstManipulationAppends.length;
+const afterReaderFirst = afterHowRobotsWork - howRobotsWorkAppends.length;
 const afterSeoPass = afterReaderFirst - readerFirstAppends.length;
 const afterKolBacklog = afterSeoPass - seoPassAppends.length;
 const afterOpusFigureMigration = afterKolBacklog - kolBacklogAppends.length;
@@ -690,13 +695,15 @@ describe('two-parent exact approval reconciliation', () => {
     // home front page and the figure migration add the edges named above,
     // the KOL backlog batch appends its own named block, the SEO pass
     // appends its block, the reader-first figure pass appends its block, and
-    // the how-robots-work page appends its block last.
+    // the how-robots-work page appends its block, and the reader-first
+    // manipulation batch appends its block last.
     expect([main.length, local.length, localOnly.length, merged.length])
-      .toEqual([1558, 1104, 7, 2026 + readerFirstAppends.length + howRobotsWorkAppends.length]);
+      .toEqual([1558, 1104, 7, 2026 + readerFirstAppends.length + howRobotsWorkAppends.length
+        + readerFirstManipulationAppends.length]);
     expect(merged.slice(0, main.length)).toEqual(main);
     expect(merged.slice(main.length, main.length + localOnly.length)).toEqual(localOnly);
     expect(merged.slice(main.length + localOnly.length).map(x => x.id))
-      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends, ...opusFigureMigrationAppends, ...kolBacklogAppends, ...seoPassAppends, ...readerFirstAppends, ...howRobotsWorkAppends]);
+      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends, ...opusFigureMigrationAppends, ...kolBacklogAppends, ...seoPassAppends, ...readerFirstAppends, ...howRobotsWorkAppends, ...readerFirstManipulationAppends]);
     expect(merged.slice(beforeRound6.length, afterRound6Prose)).toMatchObject(round6ProseRestoreEndpoints.map(
       ([memberId, , newHash], index) => ({
         id: round6ProseRestoreAppends[index], manifest: 'prose', memberId, newHash,
@@ -738,9 +745,26 @@ describe('two-parent exact approval reconciliation', () => {
     expect(merged.slice(afterSeoPass, afterReaderFirst)).toMatchObject(readerFirstAppends.map(id => ({
       id, responsibleMilestone: 'opus-pass', disposition: 'permanent',
     })));
-    expect(merged.slice(afterReaderFirst)).toMatchObject(howRobotsWorkAppends.map(id => ({
+    expect(merged.slice(afterReaderFirst, afterHowRobotsWork)).toMatchObject(howRobotsWorkAppends.map(id => ({
       id, manifest: id.includes('-navigation-') ? 'navigation' : 'accessible-names',
       responsibleMilestone: 'opus-pass', disposition: 'permanent',
+    })));
+    expect(merged.slice(afterHowRobotsWork).map(x => [x.manifest, x.memberId])).toEqual([
+      ...['action-chunking', 'bc-foundations', 'diffusion-policy', 'vla-models']
+        .map(slug => ['prose', `article:manipulation/${slug}`]),
+      ...[
+        'expression:components/interactive/action-tokenization.tsx:aria-label:2',
+        'expression:components/interactive/chunk-size-curve.tsx:aria-label:2',
+        'expression:components/interactive/compounding-error.tsx:aria-label:1',
+        'expression:components/interactive/compounding-error.tsx:aria-label:2',
+        'expression:components/interactive/compounding-error.tsx:aria-label:3',
+        'expression:components/interactive/compounding-error.tsx:aria-label:4',
+        'literal:components/interactive/compounding-error.tsx:aria-label:1',
+        'expression:components/interactive/latency-comparison.tsx:aria-label:3',
+      ].map(memberId => ['accessible-names', memberId]),
+    ]);
+    expect(merged.slice(afterHowRobotsWork)).toMatchObject(readerFirstManipulationAppends.map(id => ({
+      id, responsibleMilestone: 'opus-pass', disposition: 'permanent',
     })));
     expect(beforeRound6.slice(-1)).toMatchObject([{
       id: sharedReaderLayoutAppends[0], manifest: 'article-metadata',
@@ -1171,7 +1195,8 @@ describe('two-parent exact approval reconciliation', () => {
 
   it('binds each reader-first edge to its previous endpoint and to the sealed hash', () => {
     expect(readerFirstAppends.length).toBeGreaterThan(1);
-    for (const id of readerFirstAppends) {
+    expect(readerFirstManipulationAppends.length).toBeGreaterThan(1);
+    for (const id of allReaderFirstAppends) {
       const entry = merged.find(x => x.id === id)!;
       const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(
         readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));
@@ -1180,7 +1205,7 @@ describe('two-parent exact approval reconciliation', () => {
       // A later reader-first batch may close the chain again; this edge is
       // checked against the chain as it stood when it was appended.
       const edges = all.slice(0, all.indexOf(entry) + 1);
-      expect(all.slice(edges.length).every(x => readerFirstAppends.includes(x.id))).toBe(true);
+      expect(all.slice(edges.length).every(x => allReaderFirstAppends.includes(x.id))).toBe(true);
       const prior = edges.slice(0, -1);
       const previous = prior.at(-1)?.newHash ?? sealed;
       expect(entry.newHash).not.toBe(previous);

@@ -41,7 +41,7 @@ $$
 
 where the second bound is what <Term id="dagger">DAgger</Term> buys by repeatedly relabeling the states the policy actually visits <Cite id="dagger-2011" />. <Term id="action-chunking">Action chunking</Term> attacks the same bound from a different side: it shrinks the effective horizon. Instead of predicting one action per inference, the policy predicts a sequence of k actions at once, so the number of sequential decisions in an episode drops by a factor of k.
 
-Drag the chunk size slider to k=1 and then back to 100. That curve is ACT's own ablation: 1% success one action at a time, 44% at a hundred. Everything else in this module explains why those two numbers are so far apart.
+Try “One move at a time” and then “100 moves per plan”. That curve is ACT's own ablation: 1% success one action at a time, 44% at a hundred. Everything else in this module explains why those two numbers are so far apart.
 
 <ChunkSizeCurve className="my-6" />
 
@@ -113,7 +113,7 @@ For an illustrative scalar example **after selection**, oldest-to-newest predict
 
 <Term id="real-time-chunking">Real-Time Chunking</Term> (RTC) reframes the hand-off between chunks as an inpainting problem on the flow or diffusion trajectory: actions that will already have executed are frozen, the overlapping middle is partially attended to, and the remainder is generated fresh <Cite id="real-time-chunking-2025" />. In the reported π0.5 experiment, RTC showed no degradation in average task throughput through +200 ms of injected delay, without retraining <Cite id="real-time-chunking-2025" />. This evaluates RTC on a <Term id="flow-matching">flow-matching</Term> policy; it does not establish adoption by later generations of [the pi line](/manipulation/pi-line).
 
-The dial below is a deterministic toy of a cross-mode hand-off; it does not reproduce the RTC benchmark. Its percentages are a normalized toy score: the collapse curve, the fixed RTC line, and the interpolation between measured delay settings are assumptions. The paper reports average task throughput, and these percentages are the toy's own; the slider also extends beyond the experiment’s +200 ms endpoint <Cite id="real-time-chunking-2025" />.
+The figure below is a deterministic toy of a cross-mode hand-off; it does not reproduce the RTC benchmark. It opens at +0.2 second of thinking delay; press “None” to watch the two plans agree. Its percentages are a normalized toy score: the collapse curve, the fixed RTC line, and the interpolation between measured delay settings are assumptions. The paper reports average task throughput, and these percentages are the toy's own; the slider under “Adjust more” also extends beyond the experiment’s +200 ms endpoint <Cite id="real-time-chunking-2025" />.
 
 <LatencyComparison className="my-6" />
 

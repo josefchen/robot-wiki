@@ -1,6 +1,7 @@
 import { expect, test, type Locator, type Page } from '@playwright/test';
 import { DEVIATION_AXIS_TICKS, deviationAxisFraction } from '../../lib/compounding-error';
 import { setSlider } from './slider';
+import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
 
 /**
  * VAL-MAN-067: the accumulated-deviation plot makes the chunking drop
@@ -13,7 +14,7 @@ import { setSlider } from './slider';
  * labelled as a log scale, which cannot show a zero, so the baseline is
  * the x axis itself rather than a tick labelled 0. The page mounts one
  * CompoundingError, seeded inside the prediction step, and that mount is
- * graded.
+ * graded. The chart sits in the figure's "How this was made" fold.
  *
  * Why the bounds cut both ways: an axis fitted to whatever is currently
  * plotted satisfies (a) and (b) trivially and destroys (c) and (d),
@@ -103,7 +104,12 @@ async function seededMount(page: Page): Promise<Locator> {
   // Open the prediction step so its seeded figure is measurable.
   await predict.locator('details[data-reveal] > summary').click();
   await expect(page.locator(DEVIATION_CHART)).toHaveCount(1);
-  return predict.locator('[data-figure-frame="compounding-error"]');
+  const mount = predict.locator('[data-figure-frame="compounding-error"]');
+  // The log-axis chart is the method's comparison with the reference
+  // curves, inside "How this was made"; the sliders sit in "Adjust more".
+  await openHowThisWasMade(mount);
+  await openAdjustMore(mount);
+  return mount;
 }
 
 async function setEpsilon(mount: Locator, percent: number): Promise<void> {
@@ -130,7 +136,7 @@ test.describe('accumulated-deviation axis (VAL-MAN-067)', () => {
       `(a) marker at the mounted defaults: ${atDefaults.markerPercent.toFixed(1)}% of plot height, readout ${atDefaults.readout}`,
     ).toBeGreaterThanOrEqual(20);
 
-    await mount.getByRole('button', { name: /chunk of 25 actions/i }).click();
+    await mount.getByRole('button', { name: '25 moves per plan', exact: true }).click();
     const chunked = await readGeometry(mount);
     const drop = atDefaults.markerPercent - chunked.markerPercent;
     expect(
@@ -235,8 +241,12 @@ test.describe('accumulated-deviation axis (VAL-MAN-067)', () => {
         await setHorizon(mount, 240);
       },
       async () => {
-        await mount.getByRole('button', { name: /chunk of 25 actions/i }).click();
-        await mount.getByRole('button', { name: /dagger relabeling/i }).click();
+        await mount.getByRole('button', { name: '25 moves per plan', exact: true }).click();
+      },
+      async () => {
+        // The run presets are exclusive: the teacher corrects a run made one
+        // move at a time, which is DAgger-style relabeling.
+        await mount.getByRole('button', { name: 'A teacher corrects it', exact: true }).click();
       },
     ];
     for (const [i, apply] of states.entries()) {

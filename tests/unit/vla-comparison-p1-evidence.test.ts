@@ -103,13 +103,19 @@ describe('VLA21 and comparison1 current identity and scoped introduction', { tim
     }]).members[0].hash;
     expect(vlaHash(committedSource('e4784342', vlaPath))).toBe(vlaFirstScreen.newHash);
     expect(preSeoPassHash('prose', 'article:manipulation/vla-models')).toBe(vlaCue.newHash);
-    // The SEO pass's plain edge starts from that same endpoint and reaches
+    // The SEO pass's plain edge starts from that same endpoint, and the
+    // reader-first figure pass's plain edge continues from the SEO endpoint to
     // the live article.
     const vlaSeo = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries
       .find((a: { id: string }) => a.id === 'seo-pass-20261002-prose-manipulation-vla-models');
     expect(vlaSeo.oldHash).toBe(vlaCue.newHash);
+    expect(vlaHash(committedSource('c9d731b6', vlaPath))).toBe(vlaSeo.newHash);
+    const vlaReaderFirst = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries
+      .find((a: { id: string }) => a.id === 'reader-first-20261003-prose-manipulation-vla-models');
+    expect(vlaReaderFirst.oldHash).toBe(vlaSeo.newHash);
+    expect(vlaReaderFirst.reconciles).toBeUndefined();
     expect(truthManifests['prose'].members.find(m => m.id === 'article:manipulation/vla-models')?.hash)
-      .toBe(vlaSeo.newHash);
+      .toBe(vlaReaderFirst.newHash);
     // The original VLA packet did not alter the registry. NASA was added by
     // the later industrial packet, whose complete record has its own test.
     expect(committedSource('89cda67', 'data/citations.ts')).toBe(before('data/citations.ts'));

@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "fingerprint": "52ac920ae7965e01e8c19674256bb2a3fd70895a81d2ae5aaefa45c409ae9e00",
+  "fingerprint": "4e62fdb7e671fdad55953d023e1a584fd679066d652dce785062ec3fe7561e03",
   "viewport": "1440x900",
   "route": "/",
-  "visibleTextLength": 2952,
+  "visibleTextLength": 2974,
   "documentScrollWidthPx": 1440,
   "documentClientWidthPx": 1440,
   "heroLockups": [
@@ -718,8 +718,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "The Data Bottleneck",
-      "href": "/data-hardware/data-bottleneck/",
+      "accessibleName": "Action Chunking (ACT and ALOHA)",
+      "href": "/manipulation/action-chunking/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2392.34,
@@ -727,8 +727,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "The Evaluation Crisis",
-      "href": "/data-hardware/evaluation-crisis/",
+      "accessibleName": "Behavior Cloning Foundations",
+      "href": "/manipulation/bc-foundations/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2423.34,
@@ -736,8 +736,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Industrial Deployment",
-      "href": "/data-hardware/industrial-deployment/",
+      "accessibleName": "Diffusion Policy",
+      "href": "/manipulation/diffusion-policy/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2454.34,
@@ -745,8 +745,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "The Reliability Gap",
-      "href": "/frontier/reliability-gap/",
+      "accessibleName": "Vision-Language-Action Models",
+      "href": "/manipulation/vla-models/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2485.34,
@@ -754,8 +754,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Generative Simulation",
-      "href": "/world-models/generative-sim/",
+      "accessibleName": "The Data Bottleneck",
+      "href": "/data-hardware/data-bottleneck/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2516.34,
@@ -1004,7 +1004,7 @@
       "label": "Recently updated",
       "signature": "plain/module-heading/dated-links",
       "prose": "",
-      "text": "Recently updated 2026-10-02 The Data Bottleneck 2026-10-02 The Evaluation Crisis 2026-10-02 Industrial Deployment 2026-10-02 The Reliability Gap 2026-10-02 Generative Simulation"
+      "text": "Recently updated 2026-10-03 Action Chunking (ACT and ALOHA) 2026-10-03 Behavior Cloning Foundations 2026-10-03 Diffusion Policy 2026-10-03 Vision-Language-Action Models 2026-10-02 The Data Bottleneck"
     },
     {
       "label": "Tools",

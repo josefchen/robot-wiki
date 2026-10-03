@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "ab9b3d7d004a450fdb82db6b420a2a194185c0ae5ed90b3b2c20b61426cf502f",
+  "fingerprint": "ad4cab492fad3e5b7fd33f5bcc34fb82ea76303f4496ec4fd1103f6b1ecd9aa1",
   "viewports": [
     "375x812",
     "1440x900"
@@ -4643,7 +4643,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 22524,
+      "visibleTextLength": 21344,
       "tables": [
         {
           "index": 0,
@@ -4969,7 +4969,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 12174,
+      "visibleTextLength": 12307,
       "tables": [
         {
           "index": 0,
@@ -5616,7 +5616,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14310,
+      "visibleTextLength": 14461,
       "tables": [],
       "equations": [
         {
@@ -5692,8 +5692,8 @@
           "renderError": false,
           "renderedText": "a∼p(a∣o)",
           "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 78,
-          "clientWidth": 78,
+          "scrollWidth": 0,
+          "clientWidth": 0,
           "tabIndex": -1,
           "role": null,
           "accessibleName": "",
@@ -6503,7 +6503,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 20083,
+      "visibleTextLength": 19783,
       "tables": [
         {
           "index": 0,
@@ -11813,7 +11813,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 23167,
+      "visibleTextLength": 21987,
       "tables": [
         {
           "index": 0,
@@ -12139,7 +12139,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 12817,
+      "visibleTextLength": 12950,
       "tables": [
         {
           "index": 0,
@@ -12786,7 +12786,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14953,
+      "visibleTextLength": 15104,
       "tables": [],
       "equations": [
         {
@@ -12862,8 +12862,8 @@
           "renderError": false,
           "renderedText": "a∼p(a∣o)",
           "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 78,
-          "clientWidth": 78,
+          "scrollWidth": 0,
+          "clientWidth": 0,
           "tabIndex": -1,
           "role": null,
           "accessibleName": "",
@@ -13673,7 +13673,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 20726,
+      "visibleTextLength": 20426,
       "tables": [
         {
           "index": 0,

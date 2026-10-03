@@ -127,7 +127,7 @@
     {
       "id": "diffusion-denoising",
       "route": "/manipulation/diffusion-policy/",
-      "sourceSha256": "df184ef148942416678811a5c896a2d02aa619060e23f486fef1dc0956a3279c",
+      "sourceSha256": "6153d79ca52263f20bd2d0d42e207d9b2c3ce1197c444b16f00575a18a148e87",
       "marks": [
         {
           "mark": "action-0",

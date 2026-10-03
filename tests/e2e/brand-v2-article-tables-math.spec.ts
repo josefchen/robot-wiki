@@ -17,6 +17,18 @@ import { setSlider } from './slider';
 
 const ROOT = process.cwd();
 
+// The sweep's closure only records modules it can scan, so the fold opener
+// lives here rather than in the shared e2e helper. A reader opens the closed
+// "Adjust more" fold through its summary.
+async function openAdjustMore(frame: Locator): Promise<void> {
+  const fold = frame.locator('[data-figure-fold="adjust"]').first();
+  await expect(fold.locator(':scope > summary')).toHaveText('Adjust more');
+  if (!(await fold.evaluate((element) => (element as HTMLDetailsElement).open))) {
+    await fold.locator(':scope > summary').click();
+  }
+  await expect(fold).toHaveJSProperty('open', true);
+}
+
 /**
  * Runs inside the page.
  *
@@ -540,7 +552,10 @@ test.describe('brand-v2 dense surfaces on the sample module', () => {
     // is a separate fact: the decision count is a ceiling over the chunk
     // size, so a one-step nudge can legitimately leave it unchanged. Asking
     // one assertion to carry both would report a working slider as broken.
+    // The free chunk-size slider sits in the chunk figure's "Adjust more"
+    // fold; a reader opens it before reaching the slider by keyboard.
     const slider = page.locator('#csc-chunk-size');
+    await openAdjustMore(slider.locator('xpath=ancestor::*[@data-figure-frame][1]'));
     const initialChunk = await slider.inputValue();
     await slider.focus();
     await page.keyboard.press('ArrowRight');
@@ -552,8 +567,9 @@ test.describe('brand-v2 dense surfaces on the sample module', () => {
     // The slider, the readout and the reset all have to be taken from the
     // latency figure's own frame: driving a control found elsewhere on the
     // page and reading this readout would pass whatever either does. The
-    // controls sit in the frame, outside its stage, and the figure opens at
-    // zero delay, where the readout still has room to move.
+    // slider and Reset sit in the frame's "Adjust more" fold, and the figure
+    // opens at +0.2 second of delay, so moving the slider to zero gives the
+    // readout room to move.
     const latencyMount = page
       .getByTestId('te-throughput-readout')
       .first()
@@ -561,7 +577,8 @@ test.describe('brand-v2 dense surfaces on the sample module', () => {
     const throughput = latencyMount.getByTestId('te-throughput-readout');
     const initialThroughput = await text(throughput);
     expect(initialThroughput.length).toBeGreaterThan(0);
-    await setSlider(latencyMount.locator('input[type="range"]').first(), 200);
+    await openAdjustMore(latencyMount);
+    await setSlider(latencyMount.locator('input[type="range"]').first(), 0);
     await expect.poll(() => text(throughput)).not.toBe(initialThroughput);
 
     await latencyMount.getByRole('button', { name: 'Reset' }).click();

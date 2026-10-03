@@ -115,14 +115,17 @@ describe('manipulation merged figures', () => {
     const markup = renderToStaticMarkup(createElement(ActionTokenization));
     expect(markup).toContain(`${ACTION_DIMS[0].label} = ${value.toFixed(3)}`);
     expect(markup).toContain(`bin ${binIndex(value)} of ${BIN_COUNT - 1}`);
+    expect(markup).toContain(`token ${escapeMarkup(tokens[0])}`);
+    // The main view writes each token as its word number, in decode order.
     const stream = markup.slice(
       markup.indexOf('data-testid="token-stream"'),
-      markup.indexOf('data-testid="decode-order"'),
+      markup.indexOf('</ol>', markup.indexOf('data-testid="token-stream"')),
     );
     let cursor = 0;
-    for (const token of tokens) {
-      const at = stream.indexOf(escapeMarkup(token), cursor);
-      expect(at, token).toBeGreaterThan(-1);
+    for (const [i] of tokens.entries()) {
+      const word = `word ${binIndex(chunk[i][7])}`;
+      const at = stream.indexOf(word, cursor);
+      expect(at, word).toBeGreaterThan(-1);
       cursor = at + 1;
     }
     expect(markup).toContain(`${ACTION_DIMS.length} sequential decodes per control step`);

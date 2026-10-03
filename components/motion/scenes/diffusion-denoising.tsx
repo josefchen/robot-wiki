@@ -1,25 +1,26 @@
 'use client';
 
 /**
- * Diffusion-policy denoising — the manipulation reference scene. The
- * illustrative action-space model from lib/denoising.ts (60 samples, the
- * paper's 10-step DDIM schedule, two demonstration modes) drawn as motion:
- * the clean demonstration arrows, the forward noising that jitters every
- * action into one Gaussian cloud, the ten reverse steps that transport the
- * cloud back onto the modes while conditioned on the observed state, and
- * the recap still. The sample positions are the model's own; the picture
- * is schematic. Status: illustrative.
+ * Diffusion-policy denoising, the manipulation reference scene. Sixty
+ * possible moves from an illustrative action-space model (two demonstrated
+ * ways to make the same move, the Diffusion Policy paper's 10-step DDIM
+ * schedule) drawn as motion: the two demonstrated moves, the training noise
+ * that blurs every move into one random cloud, the ten clean-up steps that
+ * carry the cloud back onto the two moves, guided by what the robot sees,
+ * and the finished frame. The poster is that finished frame, with faint
+ * trails back to each guess's random start, so the two separate moves show
+ * before Play. The sample positions are the model's own; the picture is
+ * schematic, with no axes, and the relation a ~ p(a | o) sits in "How this
+ * was made".
  */
 import { SceneMount } from '@/components/motion/scene-mount';
-import { StageGrid, StageSvg, type PlotArea } from '@/components/motion/stage';
+import { StageSvg, type PlotArea } from '@/components/motion/stage';
 import {
   AnimatedCircle,
   AnimatedElement,
   AnimatedGroup,
-  AnimatedLine,
 } from '@/components/motion/animated';
 import { Create, laggedProgress } from '@/components/motion/primitives';
-import { SceneEquation } from '@/components/motion/scene-equation';
 import { beatSpans, type SceneDefinition } from '@/components/motion/timeline';
 import { clamp01, smooth } from '@/components/motion/easing';
 import {
@@ -29,17 +30,22 @@ import {
   generateDenoisingTrajectory,
   meanDistanceToMode,
 } from '@/lib/denoising';
+import { SCENE_EQUATIONS } from '@/lib/motion-equations';
 import { MOTION_LAG } from '@/lib/motion-tokens';
 import { LegendItem } from '@/components/ui/instrument';
 
 const WIDTH = 340;
 const HEIGHT = 240;
-const PLOT: PlotArea = { left: 58, right: 288, top: 57, bottom: 184 };
-const X_DOMAIN = { min: -3.5, max: 3.5 };
-const Y_DOMAIN = { min: -3.2, max: 3.2 };
+/**
+ * The band the samples move in. Every random start and every finished move
+ * stays inside it, so the labels above, below and beside it never meet a
+ * sample at any moment of the scene.
+ */
+const PLOT: PlotArea = { left: 96, right: 244, top: 56, bottom: 208 };
+const X_DOMAIN = { min: -3.1, max: 2.7 };
+const Y_DOMAIN = { min: -2.75, max: 2.85 };
 const FONT = 14;
-const READOUT_FONT = 13;
-const TICK_FONT = 12;
+const DOT_R = 2.8;
 
 const TRAJECTORY = generateDenoisingTrajectory();
 /**
@@ -68,30 +74,32 @@ const FINAL_DISPERSION = meanDistanceToMode(SAMPLES.map((sample) => sample.targe
 const SCENE: SceneDefinition = {
   id: 'diffusion-denoising',
   title: 'Diffusion policy: denoising actions',
+  kicker: 'Diffusion policy',
+  headline: 'From random noise to two good ways to move',
   beats: [
     {
       id: 'demos',
       caption:
-        'Demonstrations: from the observed state o, two clean action trajectories, one per strategy.',
+        'Demonstrations: people showed the robot two different good ways to make the same move.',
     },
     {
       id: 'forward-noise',
       duration: 'long',
       caption:
-        'Forward noising: each demonstrated action is jittered into one shared Gaussian cloud.',
+        'In training, random noise is added to every demonstrated move until they all blur into one random cloud.',
     },
     {
       id: 'reverse-steps',
       duration: 'long',
       linear: true,
       caption:
-        'Reverse: conditioned on the observed state o, ten denoising steps transport the cloud back onto the two modes.',
+        'To act, the robot starts from random guesses and cleans them up in ten small steps, guided by what it sees.',
     },
     {
       id: 'recap',
       duration: 'long',
       caption:
-        'Recap: ten steps of denoising conditioned on o recover both action modes; the samples stay in two clusters.',
+        'Starting from random guesses and cleaning them up step by step lets the robot keep two different good moves instead of blurring them together.',
     },
   ],
 };
@@ -185,6 +193,37 @@ export function diffusionStepAt(t: number): number {
   return Math.min(DENOISING_STEPS, Math.round(beatProgress(2)(t) * DENOISING_STEPS));
 }
 
+/** Round rendered geometry so server HTML and hydrated DOM agree. */
+const r2 = (v: number) => Number(v.toFixed(2));
+
+const [MODE_ONE, MODE_TWO] = MODE_POINTS;
+/** The top edge of each finished cluster, where the note's leaders land. */
+const clusterTop = (mode: number) =>
+  Math.min(...SAMPLES.filter((sample) => sample.target.mode === mode).map((sample) => yScale(sample.target.y))) -
+  DOT_R;
+const clusterEdge = (mode: number, side: 'left' | 'right') => {
+  const xs = SAMPLES.filter((sample) => sample.target.mode === mode).map((sample) => xScale(sample.target.x));
+  return side === 'left' ? Math.min(...xs) - DOT_R - 3 : Math.max(...xs) + DOT_R + 3;
+};
+
+const STATUS_Y = 21;
+const NOTE_LINE = 18;
+const LABEL_Y = 229;
+
+/** Which of the status lines above the samples is showing at time t. */
+function statusShare(variant: 'demo' | 'noise' | number, t: number): number {
+  if (variant === 'demo') return t <= SPANS[0].end ? 1 : 0;
+  if (variant === 'noise') return t > SPANS[0].end && t <= SPANS[1].end ? 1 : 0;
+  if (t > SPANS[1].end && t <= SPANS[2].end) return diffusionStepAt(t) === variant ? 1 : 0;
+  // The last count gives way to the note early in the final beat.
+  if (t > SPANS[2].end && variant === DENOISING_STEPS) {
+    return r2(1 - clamp01(beatProgress(3)(t) / 0.4));
+  }
+  return 0;
+}
+
+const noteShare = (t: number) => r2(smooth(clamp01((beatProgress(3)(t) - 0.4) / 0.6)));
+
 function DiffusionStage() {
   const dotsIn = (t: number) => smooth(clamp01((beatProgress(0)(t) - 0.7) / 0.3));
   const actionShare = (t: number) => {
@@ -192,92 +231,95 @@ function DiffusionStage() {
     if (t < SPANS[1].end) return 1 - smooth(beatProgress(1)(t));
     return convergence(beatProgress(2)(t));
   };
+  const leaderShare = (t: number) => r2(0.7 * actionShare(t) * dotsIn(t));
 
   return (
     <StageSvg viewBox={`0 0 ${WIDTH} ${HEIGHT}`}>
-      <StageGrid
-        plot={PLOT}
-        xTicks={[-2, 0, 2]}
-        yTicks={[-2, 0, 2]}
-        xScale={xScale}
-        yScale={yScale}
-      />
-      {[-2, 0, 2].map((tick) => (
-        <text
-          key={`tx-${tick}`}
-          x={xScale(tick)}
-          y={PLOT.bottom + 13}
-          textAnchor="middle"
-          fontSize={TICK_FONT}
-          data-scene-tick
-          fill="var(--motion-stage-label-secondary)"
-        >
-          {tick}
-        </text>
-      ))}
-      {[-2, 0, 2].map((tick) => (
-        <text
-          key={`ty-${tick}`}
-          x={PLOT.left - 6}
-          y={yScale(tick) + 4}
-          textAnchor="end"
-          fontSize={TICK_FONT}
-          data-scene-tick
-          fill="var(--motion-stage-label-secondary)"
-        >
-          {tick}
-        </text>
-      ))}
+      {/* Always painted, so it is the stage's first text: the observed state
+          every move is chosen given. Its leader and dot are drawn below. */}
       <text
-        x={22}
-        y={(PLOT.top + PLOT.bottom) / 2}
-        fontSize={13}
-        data-scene-axis
-        fill="var(--motion-stage-label-secondary)"
-        transform={`rotate(-90 22 ${(PLOT.top + PLOT.bottom) / 2})`}
+        x={r2(ORIGIN[0])}
+        y={LABEL_Y}
         textAnchor="middle"
-      >
-        a2
-      </text>
-      <text
-        x={PLOT.right}
-        y={HEIGHT - 12}
-        fontSize={13}
-        data-scene-axis
-        fill="var(--motion-stage-label-secondary)"
-        textAnchor="end"
-      >
-        a1
-      </text>
-
-      {/* The observed state every action is conditioned on. */}
-      <AnimatedCircle
-        data-scene-mark="observed-state"
-        cx={ORIGIN[0]}
-        cy={ORIGIN[1]}
-        r={4.5}
-        fill="var(--role-state-stage)"
-        bindings={{ opacity: (t) => Number(smooth(beatProgress(0)(t)).toFixed(3)) }}
-      />
-      <AnimatedElement
-        as="text"
-        x={63}
-        y={49}
         fontSize={FONT}
         fill="var(--role-state-stage)"
-        bindings={{ opacity: (t) => Number(smooth(beatProgress(0)(t)).toFixed(3)) }}
       >
-        observed state
+        what the robot sees
+      </text>
+      {/* Status line above the samples: one sentence per beat. */}
+      <AnimatedElement
+        as="text"
+        x={WIDTH / 2}
+        y={STATUS_Y}
+        textAnchor="middle"
+        fontSize={FONT}
+        fill="var(--motion-stage-label)"
+        bindings={{ opacity: (t) => statusShare('demo', t) }}
+      >
+        Two demonstrated moves
       </AnimatedElement>
-      <AnimatedLine
+      <AnimatedElement
+        as="text"
+        x={WIDTH / 2}
+        y={STATUS_Y}
+        textAnchor="middle"
+        fontSize={FONT}
+        fill="var(--motion-stage-label)"
+        bindings={{ opacity: (t) => statusShare('noise', t) }}
+      >
+        Random guesses
+      </AnimatedElement>
+      {Array.from({ length: DENOISING_STEPS + 1 }, (_, k) => (
+        <AnimatedElement
+          as="text"
+          key={`step-${k}`}
+          x={WIDTH / 2}
+          y={STATUS_Y}
+          textAnchor="middle"
+          fontSize={FONT}
+          fill="var(--motion-stage-label)"
+          bindings={{ opacity: (t) => statusShare(k, t) }}
+        >
+          {`Clean-up step ${k} of ${DENOISING_STEPS}`}
+        </AnimatedElement>
+      ))}
+
+      {/* Faint trails from each random start to where it finished. */}
+      <AnimatedGroup
+        data-scene-structure="denoising-trails"
+        bindings={{ opacity: (t) => r2(0.5 * smooth(beatProgress(3)(t))) }}
+      >
+        {SAMPLES.map((sample, index) => (
+          <line
+            key={`trail-${index}`}
+            x1={r2(xScale(sample.noise.x))}
+            y1={r2(yScale(sample.noise.y))}
+            x2={r2(xScale(sample.target.x))}
+            y2={r2(yScale(sample.target.y))}
+            stroke="var(--role-reference-stage)"
+            strokeWidth={0.8}
+          />
+        ))}
+      </AnimatedGroup>
+
+      {/* What the robot sees: every move is chosen given this. */}
+      <line
         data-scene-structure="observed-state-leader"
-        x1={72}
-        y1={52}
-        x2={ORIGIN[0] - 7}
-        y2={ORIGIN[1] - 7}
+        x1={r2(ORIGIN[0])}
+        y1={LABEL_Y - 16}
+        x2={r2(ORIGIN[0])}
+        y2={r2(ORIGIN[1] + 7)}
         stroke="var(--role-state-stage)"
         strokeWidth={1}
-        bindings={{ opacity: (t) => Number((0.6 * smooth(beatProgress(0)(t))).toFixed(3)) }}
+        opacity={0.6}
+      />
+      <AnimatedCircle
+        data-scene-mark="observed-state"
+        cx={r2(ORIGIN[0])}
+        cy={r2(ORIGIN[1])}
+        r={4.5}
+        fill="var(--role-state-stage)"
+        bindings={{ opacity: (t) => Number(smooth(clamp01(beatProgress(0)(t) * 3)).toFixed(3)) }}
       />
 
       {/* Demonstration arrows: action-coloured while clean, dashed
@@ -326,7 +368,7 @@ function DiffusionStage() {
           <g key={`sample-${index}`}>
             <AnimatedCircle
               data-scene-mark={`noise-${index}`}
-              r={2.6}
+              r={DOT_R}
               fill="var(--role-reference-stage)"
               bindings={{
                 cx,
@@ -336,7 +378,7 @@ function DiffusionStage() {
             />
             <AnimatedCircle
               data-scene-mark={`action-${index}`}
-              r={2.6}
+              r={DOT_R}
               fill="var(--role-action-stage)"
               bindings={{
                 cx,
@@ -348,30 +390,75 @@ function DiffusionStage() {
         );
       })}
 
-      {/* Reverse-process step counter: only the current step's label. */}
-      {Array.from({ length: DENOISING_STEPS + 1 }, (_, k) => (
-        <AnimatedElement
-          as="text"
-          key={`step-${k}`}
-          x={216}
-          y={49}
-          fontSize={READOUT_FONT}
-          data-scene-readout
-          fill="var(--motion-stage-label)"
-          bindings={{
-            opacity: (t) => (t >= SPANS[2].start && diffusionStepAt(t) === k ? 1 : 0),
-          }}
-        >
-          {`step ${k} / ${DENOISING_STEPS}`}
-        </AnimatedElement>
-      ))}
+      {/* The two moves, named beside the clusters they finish in. */}
+      <AnimatedElement
+        as="line"
+        data-scene-structure="move-one-leader"
+        x1={PLOT.left - 6}
+        y1={r2(MODE_ONE[1])}
+        x2={r2(clusterEdge(0, 'left'))}
+        y2={r2(MODE_ONE[1])}
+        stroke="var(--motion-stage-label-secondary)"
+        strokeWidth={1}
+        bindings={{ opacity: leaderShare }}
+      />
+      <text
+        x={PLOT.left - 8}
+        y={r2(MODE_ONE[1] + 5)}
+        textAnchor="end"
+        fontSize={FONT}
+        fill="var(--motion-stage-label)"
+      >
+        move one
+      </text>
+      <AnimatedElement
+        as="line"
+        data-scene-structure="move-two-leader"
+        x1={r2(clusterEdge(1, 'right'))}
+        y1={r2(MODE_TWO[1])}
+        x2={PLOT.right + 6}
+        y2={r2(MODE_TWO[1])}
+        stroke="var(--motion-stage-label-secondary)"
+        strokeWidth={1}
+        bindings={{ opacity: leaderShare }}
+      />
+      <text
+        x={PLOT.right + 8}
+        y={r2(MODE_TWO[1] + 5)}
+        textAnchor="start"
+        fontSize={FONT}
+        fill="var(--motion-stage-label)"
+      >
+        move two
+      </text>
 
-      <SceneEquation equation="diffusion" x={92} width={156} progress={(t) => Number(smooth(beatProgress(3)(t)).toFixed(3))} />
+      {/* The one highlight note, pointing at both finished clusters. */}
+      <AnimatedElement as="g" data-figure-annotation="" bindings={{ opacity: noteShare }}>
+        <g data-scene-structure="note-leaders" stroke="var(--role-highlight-stage)" strokeWidth={1.5}>
+          <line x1={r2(MODE_ONE[0])} y1={STATUS_Y + NOTE_LINE + 8} x2={r2(MODE_ONE[0])} y2={r2(clusterTop(0) - 3)} />
+          <line x1={r2(MODE_TWO[0])} y1={STATUS_Y + NOTE_LINE + 8} x2={r2(MODE_TWO[0])} y2={r2(clusterTop(1) - 3)} />
+        </g>
+        <text
+          x={WIDTH / 2}
+          y={STATUS_Y}
+          textAnchor="middle"
+          fontSize={FONT}
+          fontWeight={600}
+          fill="var(--role-highlight-stage)"
+        >
+          <tspan x={WIDTH / 2} dy={0}>Two valid moves, kept apart</tspan>
+          <tspan x={WIDTH / 2} dy={NOTE_LINE}>instead of averaged into one</tspan>
+        </text>
+      </AnimatedElement>
     </StageSvg>
   );
 }
 
+/** What the scene is and is not: the method note under "How this was made". */
+export const DIFFUSION_METHOD_NOTE = `The sample positions come from an illustrative two-move model with a fixed random seed: ${SAMPLE_COUNT} samples run through the ${DENOISING_STEPS}-step DDIM inference schedule used in the Diffusion Policy paper (Chi et al., 2023, arXiv 2303.04137). The cloud, the arrows and the trails are a schematic, not a trained network\u2019s outputs.`;
+
 export function DiffusionDenoising({ className }: { className?: string }) {
+  const { html } = SCENE_EQUATIONS.diffusion;
   return (
     <SceneMount
       scene={SCENE}
@@ -382,78 +469,58 @@ export function DiffusionDenoising({ className }: { className?: string }) {
           <LegendItem
             series="diffusion-action"
             swatch={
-              <svg width={18} height={10} aria-hidden className="shrink-0">
-                <line
-                  x1={0}
-                  y1={5}
-                  x2={12}
-                  y2={5}
-                  stroke="var(--role-action-graphic)"
-                  strokeWidth={2}
-                />
-                <polygon points="18,5 11,1.8 11,8.2" fill="var(--role-action-graphic)" />
-              </svg>
-            }
-          >
-            action sample
-          </LegendItem>
-          <LegendItem
-            series="diffusion-state"
-            swatch={
               <span
+                aria-hidden
                 className="inline-block h-2.5 w-2.5 rounded-full"
-                style={{ backgroundColor: 'var(--role-state-graphic)' }}
+                style={{ backgroundColor: 'var(--role-action-graphic)' }}
               />
             }
           >
-            observed state o
+            possible move
           </LegendItem>
           <LegendItem
             series="diffusion-noise"
             swatch={
               <span
+                aria-hidden
                 className="inline-block h-2.5 w-2.5 rounded-full"
                 style={{ backgroundColor: 'var(--role-reference-graphic)' }}
               />
             }
           >
-            noised points
-          </LegendItem>
-          <LegendItem
-            series="diffusion-recap"
-            swatch={
-              <span
-                className="inline-block h-2.5 w-2.5 rounded-full"
-                style={{ backgroundColor: 'var(--role-highlight-graphic)' }}
-              />
-            }
-          >
-            recap (Indicate)
+            random guess
           </LegendItem>
         </>
       }
       readout={() => (
         <>
-          <span className="text-text-dim">samples</span>{' '}
-          <span className="text-text">{SAMPLE_COUNT}</span>{' '}
-          <span className="text-text-dim">steps</span>{' '}
-          <span className="text-text">{DENOISING_STEPS}</span>{' '}
-          <span className="text-text-dim">dispersion</span>{' '}
-          <span data-testid="diffusion-dispersion" className="text-text">
-            {NOISE_DISPERSION.toFixed(2)} {'\u2192'} {FINAL_DISPERSION.toFixed(2)}
-          </span>
+          {SAMPLE_COUNT} random guesses, cleaned up in {DENOISING_STEPS} steps
         </>
       )}
-      statusLine={
+      statusLine="Illustrative: a drawn model of the idea, not a trained robot’s output."
+      method={
         <>
-          Illustrative action-space model (status: illustrative): the sample
-          positions and the 10-step schedule come from the denoising model
-          in lib/denoising.ts, after the DDIM inference configuration of the
-          Diffusion Policy paper (arXiv:2303.04137); the cloud and arrows
-          are a schematic, not a trained network{'\u2019'}s outputs.
+          <p>
+            In symbols, the policy samples{' '}
+            <span data-scene-equation="diffusion" dangerouslySetInnerHTML={{ __html: html }} />
+            : an action a is drawn from a distribution of actions conditioned on what the robot
+            observes, o. Over the {DENOISING_STEPS} clean-up steps the average distance from a
+            sample to its move falls from{' '}
+            <span data-testid="diffusion-dispersion">
+              {NOISE_DISPERSION.toFixed(2)} {'\u2192'} {FINAL_DISPERSION.toFixed(2)}
+            </span>
+            .
+          </p>
+          <p>{DIFFUSION_METHOD_NOTE}</p>
+          <p>The four steps, in order:</p>
+          <ol>
+            {SCENE.beats.map((beat) => (
+              <li key={beat.id}>{beat.caption}</li>
+            ))}
+          </ol>
         </>
       }
-      textAlternative={`${SCENE.title}. A four-beat scene in a two-dimensional action space. ${SCENE.beats.map(
+      textAlternative={`${SCENE.title}. A four-beat scene among possible robot moves. ${SCENE.beats.map(
         (beat, index) => `Beat ${index + 1}: ${beat.caption}`,
       ).join(
         ' ',

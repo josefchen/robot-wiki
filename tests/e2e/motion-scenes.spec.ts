@@ -19,6 +19,7 @@ const SCENES = [
     route: '/classical/state-estimation/',
     title: /kalman filter/i,
     axes: ['position x', 'velocity v'],
+    equation: 'stage',
     beats: [
       /prior belief/i,
       /predict/i,
@@ -31,10 +32,20 @@ const SCENES = [
     id: 'diffusion-denoising',
     route: '/manipulation/diffusion-policy/',
     title: /diffusion policy/i,
-    axes: ['a1', 'a2'],
-    beats: [/demonstrations/i, /noising/i, /ten denoising steps/i, /recap/i],
+    // A schematic of possible moves with no axes; the relation sits in
+    // "How this was made" instead of on the stage.
+    axes: [],
+    equation: 'method',
+    beats: [/demonstrations/i, /random noise is added/i, /ten small steps/i, /keep two different good moves/i],
   },
-] as const;
+] as const satisfies readonly {
+  id: string;
+  route: string;
+  title: RegExp;
+  axes: readonly string[];
+  equation: 'stage' | 'method';
+  beats: readonly RegExp[];
+}[];
 
 /**
  * Click the poster into the player. The click only lands once hydration
@@ -136,6 +147,7 @@ for (const scene of SCENES) {
             const role = (el: Element) => (['tick', 'axis', 'note', 'readout']
               .find((name) => el.hasAttribute(`data-scene-${name}`)) ?? 'label');
             return {
+              onStage: equation !== null,
               math: equation?.querySelector('.katex .mord') !== null,
               mathml: equation?.querySelector('math annotation[encoding="application/x-tex"]') !== null,
               mathColor: equation ? getComputedStyle(equation.querySelector('.katex')!).color : '',
@@ -151,13 +163,28 @@ for (const scene of SCENES) {
               }),
             };
           });
-          expect(roles.math).toBe(true);
-          expect(roles.mathml).toBe(true);
-          expect(roles.mathColor).toBe('rgb(255, 255, 255)');
+          if (scene.equation === 'stage') {
+            expect(roles.onStage).toBe(true);
+            expect(roles.math).toBe(true);
+            expect(roles.mathml).toBe(true);
+            // Ink on the light page stage every figure now sits on.
+            expect(roles.mathColor).toBe('rgb(11, 11, 12)');
+          } else {
+            // The relation is typeset in "How this was made", not painted
+            // on the stage a first-time reader looks at.
+            expect(roles.onStage).toBe(false);
+            const folded = scope.locator('[data-figure-fold="method"] [data-scene-equation]');
+            await expect(folded.locator('.katex .mord').first()).toBeAttached();
+            await expect(folded.locator('math annotation[encoding="application/x-tex"]')).toHaveCount(1);
+          }
           const of = (name: string) => roles.text.filter((item) => item.role === name);
           expect(of('label').length, `${width} object labels`).toBeGreaterThan(0);
-          expect(of('axis').map((item) => item.text).sort(), `${width} axis names`).toEqual(scene.axes);
-          expect(of('tick').length, `${width} ticks`).toBeGreaterThan(0);
+          expect(of('axis').map((item) => item.text).sort(), `${width} axis names`).toEqual([...scene.axes].sort());
+          if (scene.axes.length > 0) {
+            expect(of('tick').length, `${width} ticks`).toBeGreaterThan(0);
+          } else {
+            expect(of('tick'), `${width} a schematic without axes has no ticks`).toEqual([]);
+          }
           expect(of('tick').length, `${width} ticks stay sparse`).toBeLessThanOrEqual(6);
           const sizes = {
             label: MOTION_STAGE_TYPE.labelPx,

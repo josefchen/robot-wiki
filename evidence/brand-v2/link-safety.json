@@ -981,7 +981,7 @@
       "reachedByTab": 236,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 376
+      "tabStops": 378
     },
     {
       "route": "/data-hardware/",
@@ -1141,7 +1141,7 @@
       "reachedByTab": 44,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 159
+      "tabStops": 162
     },
     {
       "route": "/manipulation/action-spaces/",
@@ -1181,7 +1181,7 @@
       "reachedByTab": 31,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 130
+      "tabStops": 129
     },
     {
       "route": "/manipulation/foundation-models/",
@@ -1253,7 +1253,7 @@
       "reachedByTab": 40,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 167
+      "tabStops": 159
     },
     {
       "route": "/market-map/",

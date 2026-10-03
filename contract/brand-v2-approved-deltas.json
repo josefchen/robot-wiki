@@ -46991,6 +46991,206 @@
         "VAL-B2-BASE-011"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261003-prose-manipulation-action-chunking",
+      "manifest": "prose",
+      "memberId": "article:manipulation/action-chunking",
+      "oldHash": "bb3c977893c26e0a0453b14fc77cdb048a130d63efe62256f1bdde3180a2f537",
+      "newHash": "34cdf11134e081eb2325edbc7d95b47283f9f1ff97d82236f62c95649f5f7b22",
+      "reason": "Reader-first figure pass of 2026-10-03 on manipulation/action-chunking: the prose that sends the reader to a figure now names the plain-words controls and folds the figure prints. For example it reads \"Try “One move at a time” and then “100 moves per plan”.\" where it read \"Drag the chunk size slider to k=1 and then back to 100.\". Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/reader-first-20261002/source-transition.json.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: every figure is rewritten for a reader with no engineering background, and the article prose names the plain-words controls the figure now prints (VAL-OPUS-137, VAL-OPUS-138). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-137",
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261003-prose-manipulation-bc-foundations",
+      "manifest": "prose",
+      "memberId": "article:manipulation/bc-foundations",
+      "oldHash": "224f324e65c67dad8a188b11e79f8e0e0bb01bd7177fb7c4943ff3801fb9a9f0",
+      "newHash": "3070554322646a84dbd08abf428688cda75dc8e3727c7de5615dda9a0b8b197e",
+      "reason": "Reader-first figure pass of 2026-10-03 on manipulation/bc-foundations: the prose that sends the reader to a figure now names the plain-words controls and folds the figure prints. For example it reads \"Try “A teacher corrects it” to watch DAgger-style relabeling cut the summed deviation.\" where it read \"Toggle DAgger relabeling to cut the summed deviation.\". Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/reader-first-20261002/source-transition.json.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: every figure is rewritten for a reader with no engineering background, and the article prose names the plain-words controls the figure now prints (VAL-OPUS-137, VAL-OPUS-138). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-137",
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261003-prose-manipulation-diffusion-policy",
+      "manifest": "prose",
+      "memberId": "article:manipulation/diffusion-policy",
+      "oldHash": "a908f7a1fc3ff0e4a5a8d418d1c0ce003cb7405901f62068049c3b4b244a8a81",
+      "newHash": "216cd6316d5af42197f9d0ddc7d5239983484f7823cc45ed10d1b20b23af1730",
+      "reason": "Reader-first figure pass of 2026-10-03 on manipulation/diffusion-policy: the prose that sends the reader to a figure now names the plain-words controls and folds the figure prints. For example it reads \"Try “Never rethink”: the dashed tails vanish. In “Adjust more”, drag “Steps acted on” below 8 and the rethink rate climbs.\" where it read \"Drag the executed horizon slider below 8 and watch the replan rate climb.\". Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/reader-first-20261002/source-transition.json.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: every figure is rewritten for a reader with no engineering background, and the article prose names the plain-words controls the figure now prints (VAL-OPUS-137, VAL-OPUS-138). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-137",
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261003-prose-manipulation-vla-models",
+      "manifest": "prose",
+      "memberId": "article:manipulation/vla-models",
+      "oldHash": "18a901bb7be63b4ae70bd8afbb1f51938dbf6e1c87718c413f3b2b867df752df",
+      "newHash": "9922173ec5b26d69a00b300799cdc3a26d6beaf198602e6b720dd38c9efa489c",
+      "reason": "Reader-first figure pass of 2026-10-03 on manipulation/vla-models: the prose that sends the reader to a figure now names the plain-words controls and folds the figure prints. For example it reads \"Drag “Moment in the movement” to see each motion’s nudge land in one of the 256 slots and become a word\" where it read \"Scrub the control step to inspect the assigned bin and reconstruction error.\". Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/reader-first-20261002/source-transition.json.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: every figure is rewritten for a reader with no engineering background, and the article prose names the plain-words controls the figure now prints (VAL-OPUS-137, VAL-OPUS-138). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-137",
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261003-name-action-tokenization-expression-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/action-tokenization.tsx:aria-label:2",
+      "oldHash": "be91ca1500d96e4cfefc643f7f7955b613a9614d9f559b945c164f976ecece2b",
+      "newHash": "ca5d5e40c5a3eab672a0802264356ca0460d9c6f7007561ca8f013f84387dab1",
+      "reason": "Reader-first rewrite of the action tokenization figure (VAL-OPUS-138): the name of the action-chunk drawing now also says it is drawn as a gripper with its seven motions. It reads \"{`Continuous action chunk: ${ACTION_DIMS.length} dimensions over ${CHUNK_STEPS} control steps, drawn as a gripper with its ${ACTION_DIMS.length} motions. The marker at step ${step} selects the action vector being tokenized.`}\" where it read the same sentence without \", drawn as a gripper with its ${ACTION_DIMS.length} motions\". No figure, unit, fact or attribution changes.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261003-name-chunk-size-curve-expression-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/chunk-size-curve.tsx:aria-label:2",
+      "oldHash": "35b6344f9457b937171cc4a3c13637a434e0cc7695ba6580f9b8245ab29783c9",
+      "newHash": "dd0f9eebb43e4e110cc76cc078288ada4b7e531b15a809f99927c20bcbd94fb6",
+      "reason": "Reader-first rewrite of the chunk size curve figure (VAL-OPUS-138): the chart's name now also says how many decisions the task takes, which the figure draws as ticks. It ends \"success ${formatPercent(success)}, with ${decisions} decisions per ${episodeSteps}-step task drawn as ticks.`}\" where it ended \"success ${formatPercent(success)}.`}\". No figure, unit, fact or attribution changes.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261003-name-compounding-error-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/compounding-error.tsx:aria-label:1",
+      "oldHash": "94694606375f7b7e40897dd7309215dcff87e4dd2546e4f3364d7a69eba252e2",
+      "newHash": "7d406c2caf1a4e710b7682fb2309c03d43e91fa9c56ba04a86e2118745a55d20",
+      "reason": "Reader-first rewrite of the compounding error figure (VAL-OPUS-138): the per-step error slider now prints a plain label, and its name restates it. It reads \"{`How big each slip is (per-step error epsilon in percent), currently ${epsilonPercent.toFixed(1)}`}\" where it read \"{`Per-step error epsilon in percent, currently ${epsilonPercent.toFixed(1)}`}\". No figure, unit, fact or attribution changes.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261003-name-compounding-error-expression-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/compounding-error.tsx:aria-label:2",
+      "oldHash": "4139e204875dd6e1411b89d50adfb2f94d71286dc25281e7b9b585cdeca9c7e7",
+      "newHash": "42640d174dc3b209691ed65b26f09d7c640f10e56d11d8b52f57d8cae648915a",
+      "reason": "Reader-first rewrite of the compounding error figure (VAL-OPUS-138): the horizon slider now prints a plain label, and its name restates it. It reads \"{`How many moves the task has (episode horizon in steps), currently ${steps}`}\" where it read \"{`Episode horizon in steps, currently ${steps}`}\". No figure, unit, fact or attribution changes.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261003-name-compounding-error-expression-aria-label-3",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/compounding-error.tsx:aria-label:3",
+      "oldHash": "0dc6cce12f2210785ef1b77bd4ef616e3bcb6fa1b3064b1bda53945d17ceaed4",
+      "newHash": "64dfdcb70bb61454a5fff2baa8bd6296092662c19883adadea26c2a712b8c5b9",
+      "reason": "Reader-first rewrite of the compounding error figure (VAL-OPUS-138): the rollout drawing now shades the gap between the drifting path and the demonstration, and its name adds the summed deviation it shows, \"; the shaded gap is the summed deviation, ${formatUnits(rollout.cost)} units, against ${formatUnits(rollout.halfCost)} over the first ${half} steps.\", after \"drifting away from the demonstrated path\". No figure, unit, fact or attribution changes.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261003-name-compounding-error-expression-aria-label-4",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/compounding-error.tsx:aria-label:4",
+      "oldHash": "b5c297d499c203cda98c1852b93a61f9a95d12d0e47156bc51d46a4a8ad24d90",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Reader-first rewrite of the compounding error figure (VAL-OPUS-138): the name of the accumulated-deviation chart, \"Accumulated toy deviation and illustrative reference curves over the episode horizon on a logarithmic deviation axis; neither dashed curve is a bound on the solid trace.\", no longer needs a template expression; the same sentence is now the file's first fixed aria-label text, so this expression is gone. No figure, unit, fact or attribution changes.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261003-name-compounding-error-literal-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/compounding-error.tsx:aria-label:1",
+      "oldHash": "b2ecd5a16b472a402b5c5ec048c477d2b037ff66ddd757821a44bb9d86969aa0",
+      "newHash": "1d9099ce8bccc7fa11d01f72892215ea81fbee08c9e3f41970ce34ed8c4bfacd",
+      "reason": "Reader-first rewrite of the compounding error figure (VAL-OPUS-138): the prediction-mode toggle group is now the shared preset group, which takes its name from the label it prints, so the file's first fixed aria-label text is the accumulated-deviation chart's name, \"Accumulated toy deviation and illustrative reference curves over the episode horizon on a logarithmic deviation axis; neither dashed curve is a bound on the solid trace.\", where it read \"Prediction mode\". No figure, unit, fact or attribution changes.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261003-name-latency-comparison-expression-aria-label-3",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/latency-comparison.tsx:aria-label:3",
+      "oldHash": "2540454fe1728f272ee08e2cea16bda88998893f2c6683e390c2d9f89bac0154",
+      "newHash": "b88779c557c48bf8891b4ebf003a57962085f38ffeb6b40625c4d143b2d0f4f1",
+      "reason": "Reader-first rewrite of the latency comparison figure (VAL-OPUS-138): the hand-off trace is now drawn as a top-down view of the arm passing an obstacle, and its name describes that drawing. It reads \"{`Top-down drawing of the arm's move with ${delayWords(delayMs)}: two good plans pass an obstacle on the left or on the right. Averaging them ${offMode ? 'sends the arm straight into the obstacle' : 'keeps the arm on the go-left route'}; real-time chunking keeps to the go-left plan.`}\" where it read \"{`Trace of the executed action across a chunk hand-off at ${formatMs(delayMs)} delay. The temporal ensembling trace ${offMode ? 'leaves both valid modes' : 'stays on the committed mode'}; the real-time chunking trace stays flat on the committed mode.`}\". No figure, unit, fact or attribution changes.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

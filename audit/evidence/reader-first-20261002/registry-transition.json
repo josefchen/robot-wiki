@@ -3,8 +3,70 @@
   "name": "reader-first-registry",
   "reviewedBy": "release steward re-anchoring the reader-first figure pass (not independent acceptance)",
   "rationale": "The interactive registry derives each figure's state cases from its source: a preset row adds discrete options, and a state word such as \"empty\" anywhere in the file adds or drops a witness. The reader-first figure pass changed those sources, so registry records that earlier local-basis plans bind changed with them while the calculations, defaults and readouts those plans observed stayed the same. Each changed record is held here with the record it had before the pass and the reason for the change; the older record stands in only while the live record is exactly the reviewed successor.",
-  "observedAt": "2026-10-02T21:37:32Z",
+  "observedAt": "2026-10-03T01:44:17Z",
   "records": [
+    {
+      "id": "interactive:ChunkSizeCurve",
+      "archivedFrom": "f76f3fd16dd95fb00868f32c91e7e8b180e7da00",
+      "before": {
+        "id": "interactive:ChunkSizeCurve",
+        "component": "ChunkSizeCurve",
+        "sourcePath": "components/interactive/chunk-size-curve.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "39192363c04253eda7d55adf9031748e0ec72b903a30ef4d7410591f9ae88225"
+      },
+      "beforeHash": "dbab4eeac22e53b49098b8dca493cdce3763ee7a33760e09959e30df3c0113a4",
+      "after": "71347fe2937866e38f6e2fbd6c924c395286c9b27828d9abf0ea7c7bbac9863b",
+      "reason": "The reader-first rewrite of the chunk-size curve gives it two named presets, one move at a time and 100 moves per plan, buttons with aria-pressed, beside the chunk-size slider it moved into Adjust more, so the registry adds the discrete-options case and, with two independent control kinds, the pairwise case. The ACT ablation points, the slider range and the readouts are unchanged."
+    },
     {
       "id": "interactive:DataScaleChart",
       "archivedFrom": "6fffffaf345d1ea5e258645567df3312e8f5c71b",
@@ -139,6 +201,130 @@
       "beforeHash": "855c80987ad7968d63739d5e949a477a9b0827cbea2702b5f2dcdd4639113217",
       "after": "6a41c78ea6f61aea7b1a909e16c9e0a01392cc89c3822905936139c1cbc031e3",
       "reason": "The reader-first rewrite gives the deployment calculator two named success presets, buttons with aria-pressed, beside its jam-clearing slider, so the registry adds the discrete-options case and, with two independent control kinds, the pairwise case. The economics model in lib/deployment-economics.ts, its defaults and the readouts the industrial plans observed are unchanged."
+    },
+    {
+      "id": "interactive:LatencyComparison",
+      "archivedFrom": "f76f3fd16dd95fb00868f32c91e7e8b180e7da00",
+      "before": {
+        "id": "interactive:LatencyComparison",
+        "component": "LatencyComparison",
+        "sourcePath": "components/interactive/latency-comparison.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "db4caedfe10af13f9cda4661eed1cd82cc6dc3e80f6e9dfecfcdb44a96514c40"
+      },
+      "beforeHash": "4c2592def1455ce4f7d0dc8d7f0d22a0133edf8d7097459f0bf07d85143b63bd",
+      "after": "31aa7e0fdd1efeca0228f6355f01fd6f6f787676e8d26b7b3d161b07d2fe82bd",
+      "reason": "The reader-first rewrite of the delay figure gives it three named thinking-delay presets, buttons with aria-pressed, beside the delay slider it moved into Adjust more, so the registry adds the discrete-options case and, with two independent control kinds, the pairwise case. The toy model, the delay range and the readouts the experiment notes cite are unchanged; only the default delay the mount opens on moved to the tested +200 ms setting."
+    },
+    {
+      "id": "interactive:RecedingHorizon",
+      "archivedFrom": "f76f3fd16dd95fb00868f32c91e7e8b180e7da00",
+      "before": {
+        "id": "interactive:RecedingHorizon",
+        "component": "RecedingHorizon",
+        "sourcePath": "components/interactive/receding-horizon.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "94e4d80a523a42f9f1420078bdfd11134c07b728ad24bfa40ba2c2d0e65ada9b"
+      },
+      "beforeHash": "c258db16f5647aeae97430718b9977390b509a06ebae7ecc538fd7e4a3cd8721",
+      "after": "c6ccfc703846e26531416a618780dd2c9a6acc7addda33e4a1bc3de469781c87",
+      "reason": "The reader-first rewrite of the receding-horizon figure turns its two preset buttons into one named preset group, buttons with aria-pressed, and moves the two horizon sliders into Adjust more, so the registry adds the discrete-options case and, with two independent control kinds, the pairwise case. The Diffusion Policy horizons, the plan lanes and the replan readouts are unchanged."
     },
     {
       "id": "mount:/data-hardware/data-bottleneck/:DataScaleChart:1",
@@ -290,6 +476,204 @@
       "beforeHash": "600c43eda3b2bc7ba3a8cf3fa33cbe7f5f128b4c59da8427672a2c0fe9c864b1",
       "after": "f6f104905bb07934c24f8f6ee17141391517f965bd22dcce0e798812097c1692",
       "reason": "The mount record repeats its source case list, so it gains the same discrete-options and pairwise cases as the source. Route, owner file, ordinal and props are unchanged."
+    },
+    {
+      "id": "mount:/manipulation/action-chunking/:ChunkSizeCurve:1",
+      "archivedFrom": "f76f3fd16dd95fb00868f32c91e7e8b180e7da00",
+      "before": {
+        "id": "mount:/manipulation/action-chunking/:ChunkSizeCurve:1",
+        "sourceId": "interactive:ChunkSizeCurve",
+        "route": "/manipulation/action-chunking/",
+        "ownerPath": "content/manipulation/action-chunking.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "121b6f2bd7866a28c2665c8b49c5533f51c547f097b32d831557eb3d745cfe9c"
+      },
+      "beforeHash": "d9e6285264500fa3d83cfd3c530a36e27642e242226cb17095397c7e1890982f",
+      "after": "4fff31e690e5b6e17a0133c42ebe4cf784bf1f91069d0a548fd1b70abd38ed7d",
+      "reason": "The mount record repeats its source case list, so it changes with the source: the named chunk presets add the discrete-options and pairwise cases. Route, owner file, ordinal and props are unchanged."
+    },
+    {
+      "id": "mount:/manipulation/action-chunking/:LatencyComparison:1",
+      "archivedFrom": "f76f3fd16dd95fb00868f32c91e7e8b180e7da00",
+      "before": {
+        "id": "mount:/manipulation/action-chunking/:LatencyComparison:1",
+        "sourceId": "interactive:LatencyComparison",
+        "route": "/manipulation/action-chunking/",
+        "ownerPath": "content/manipulation/action-chunking.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "cc6e4d1f1501a1eb11bd78b36bec46be97b9b4e3f3b2177b12bd2aa2b0638cd1"
+      },
+      "beforeHash": "0ebc26efd7d87ed9f365916c5642a8b34349fb2dabfd9e2e42159c043665332a",
+      "after": "b516df036228355a1f91e09a5728dd78a9250645aaa4a46e9c1c86b5ab359d89",
+      "reason": "The mount record repeats its source case list, so it changes with the source: the named delay presets add the discrete-options and pairwise cases. Route, owner file, ordinal and props are unchanged."
+    },
+    {
+      "id": "mount:/manipulation/diffusion-policy/:RecedingHorizon:1",
+      "archivedFrom": "f76f3fd16dd95fb00868f32c91e7e8b180e7da00",
+      "before": {
+        "id": "mount:/manipulation/diffusion-policy/:RecedingHorizon:1",
+        "sourceId": "interactive:RecedingHorizon",
+        "route": "/manipulation/diffusion-policy/",
+        "ownerPath": "content/manipulation/diffusion-policy.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "56b592eb9a4ad247235feac00e40669dc988b876309fb2ba3dd690f5a7354409"
+      },
+      "beforeHash": "5f1ec1b835283b2dee6aeb43e3893ed4739b41417f2cd49da5c7c33651931d7e",
+      "after": "bc5871c592c69d95a57e670b46d52b75f357842fa07fdb57871939fb5fe5c878",
+      "reason": "The mount record repeats its source case list, so it changes with the source: the named rethink presets add the discrete-options and pairwise cases. Route, owner file, ordinal and props are unchanged."
     }
   ]
 }

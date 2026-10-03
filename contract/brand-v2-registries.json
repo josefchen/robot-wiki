@@ -4475,8 +4475,19 @@
             "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
           },
           {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
             "id": "reset",
             "kind": "reset"
+          },
+          {
+            "id": "pairwise-independent-controls",
+            "kind": "pairwise",
+            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
           },
           {
             "id": "loading-not-applicable",
@@ -4499,8 +4510,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "39192363c04253eda7d55adf9031748e0ec72b903a30ef4d7410591f9ae88225"
+        "expectedCaseCount": 11,
+        "fingerprint": "72cef91338f0d2d19a8012e07c0973a2aaebcdb731d2f6045a07711c4599277a"
       },
       {
         "id": "interactive:CollaborativeOperationModes",
@@ -5954,8 +5965,19 @@
             "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
           },
           {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
             "id": "reset",
             "kind": "reset"
+          },
+          {
+            "id": "pairwise-independent-controls",
+            "kind": "pairwise",
+            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
           },
           {
             "id": "loading-not-applicable",
@@ -5978,8 +6000,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "db4caedfe10af13f9cda4661eed1cd82cc6dc3e80f6e9dfecfcdb44a96514c40"
+        "expectedCaseCount": 11,
+        "fingerprint": "61984a0ed9ebec690f0eb26b6491fa36cde29573f2dde60779f6bda4015ceed7"
       },
       {
         "id": "interactive:LatentImagination",
@@ -6548,8 +6570,19 @@
             "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
           },
           {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
             "id": "reset",
             "kind": "reset"
+          },
+          {
+            "id": "pairwise-independent-controls",
+            "kind": "pairwise",
+            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
           },
           {
             "id": "loading-not-applicable",
@@ -6572,8 +6605,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "94e4d80a523a42f9f1420078bdfd11134c07b728ad24bfa40ba2c2d0e65ada9b"
+        "expectedCaseCount": 11,
+        "fingerprint": "e9ffb5d86314d776a598144214323c400e819ab938dd635ccb1b2b83d1539f2c"
       },
       {
         "id": "interactive:ReliabilityCompounding",
@@ -8634,8 +8667,19 @@
             "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
           },
           {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
             "id": "reset",
             "kind": "reset"
+          },
+          {
+            "id": "pairwise-independent-controls",
+            "kind": "pairwise",
+            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
           },
           {
             "id": "loading-not-applicable",
@@ -8658,8 +8702,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "121b6f2bd7866a28c2665c8b49c5533f51c547f097b32d831557eb3d745cfe9c"
+        "expectedCaseCount": 11,
+        "fingerprint": "2e63473b28ba4968d26a21979cafcef28c66cc8317889b6226fd5bc3bb395a19"
       },
       {
         "id": "mount:/manipulation/action-chunking/:LatencyComparison:1",
@@ -8693,8 +8737,19 @@
             "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
           },
           {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
             "id": "reset",
             "kind": "reset"
+          },
+          {
+            "id": "pairwise-independent-controls",
+            "kind": "pairwise",
+            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
           },
           {
             "id": "loading-not-applicable",
@@ -8717,8 +8772,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "cc6e4d1f1501a1eb11bd78b36bec46be97b9b4e3f3b2177b12bd2aa2b0638cd1"
+        "expectedCaseCount": 11,
+        "fingerprint": "9226b32631a9532ac633dd10c58ea1a77ae3083c0f1c0e4b7535c075ec9b4db9"
       },
       {
         "id": "mount:/manipulation/bc-foundations/:CompoundingError:1",
@@ -8948,8 +9003,19 @@
             "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
           },
           {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
             "id": "reset",
             "kind": "reset"
+          },
+          {
+            "id": "pairwise-independent-controls",
+            "kind": "pairwise",
+            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
           },
           {
             "id": "loading-not-applicable",
@@ -8972,8 +9038,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "56b592eb9a4ad247235feac00e40669dc988b876309fb2ba3dd690f5a7354409"
+        "expectedCaseCount": 11,
+        "fingerprint": "1e9e6ca7ff07ec85c023b721c4223f14f6e322269fd2da42518cb0c01d502026"
       },
       {
         "id": "mount:/manipulation/generalist-policies/:GeneralistReleaseTimeline:1",
@@ -11017,7 +11083,6 @@
         "components/interactive/hardware-guide.tsx",
         "components/interactive/jepa-planning.tsx",
         "components/interactive/pendulum-controller.tsx",
-        "components/interactive/receding-horizon.tsx",
         "components/interactive/reward-shaping.tsx",
         "components/interactive/rrt-explorer.tsx",
         "components/interactive/sample-efficiency-ledger.tsx",
@@ -11055,7 +11120,6 @@
         "components/interactive/hardware-guide.tsx",
         "components/interactive/jepa-planning.tsx",
         "components/interactive/pendulum-controller.tsx",
-        "components/interactive/receding-horizon.tsx",
         "components/interactive/reward-shaping.tsx",
         "components/interactive/rrt-explorer.tsx",
         "components/interactive/sample-efficiency-ledger.tsx",
@@ -11091,7 +11155,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "51892a2c75ad5194994242d583c292a3f1313b5bc44459d992f3ee723c8a4ba8"
+      "fingerprint": "671ecc5db25ea7355b31980cd6010381e90630c2f419100267a53547ce64e3be"
     },
     {
       "id": "control:selection",
@@ -11116,7 +11180,6 @@
         "components/interactive/advantage-scrubber.tsx",
         "components/interactive/appearance-physics-push.tsx",
         "components/interactive/comparison-matrix.tsx",
-        "components/interactive/compounding-error.tsx",
         "components/interactive/contact-geometry.tsx",
         "components/interactive/cross-embodiment-strategies.tsx",
         "components/interactive/dataset-table.tsx",
@@ -11154,7 +11217,6 @@
         "components/interactive/advantage-scrubber.tsx",
         "components/interactive/appearance-physics-push.tsx",
         "components/interactive/comparison-matrix.tsx",
-        "components/interactive/compounding-error.tsx",
         "components/interactive/contact-geometry.tsx",
         "components/interactive/cross-embodiment-strategies.tsx",
         "components/interactive/dataset-table.tsx",
@@ -11196,7 +11258,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "16853d02d4246fb059f7c449409d3f65a2d77580f70d4e0bd9fbee7ae9de09fa"
+      "fingerprint": "16536f85fb5287e2e0856c895e2c11eb9e7cd9bd6f7e00caf3c3748b9e64735c"
     },
     {
       "id": "control:link-focus",
@@ -11534,5 +11596,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "8aa7b54400d3317bc2476090bf974e1570266c0e50d5f6ffa875d73a7fa13959"
+  "rootFingerprint": "67f3b25bb530147345f72c54a43e7c0c3a432df68f07124a7ea45abb8a378f1d"
 }

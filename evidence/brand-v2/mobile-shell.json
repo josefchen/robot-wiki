@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3104,
+      "visibleTextLength": 3126,
       "header": {
         "present": true,
         "display": "flex",
@@ -3008,7 +3008,7 @@
     },
     {
       "route": "/credits/",
-      "visibleTextLength": 21295,
+      "visibleTextLength": 21305,
       "header": {
         "present": true,
         "display": "flex",
@@ -6260,7 +6260,7 @@
     },
     {
       "route": "/manipulation/action-chunking/",
-      "visibleTextLength": 22524,
+      "visibleTextLength": 21344,
       "header": {
         "present": true,
         "display": "flex",
@@ -6586,7 +6586,7 @@
     },
     {
       "route": "/manipulation/bc-foundations/",
-      "visibleTextLength": 12174,
+      "visibleTextLength": 12307,
       "header": {
         "present": true,
         "display": "flex",
@@ -7075,7 +7075,7 @@
     },
     {
       "route": "/manipulation/diffusion-policy/",
-      "visibleTextLength": 14310,
+      "visibleTextLength": 14461,
       "header": {
         "present": true,
         "display": "flex",
@@ -8542,7 +8542,7 @@
     },
     {
       "route": "/manipulation/vla-models/",
-      "visibleTextLength": 20083,
+      "visibleTextLength": 19783,
       "header": {
         "present": true,
         "display": "flex",

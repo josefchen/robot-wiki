@@ -1,6 +1,7 @@
 import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { waitForHydration } from './interaction-ready';
+import { openAdjustMore } from './helpers/figure-fold';
 
 const ROUTE = '/manipulation/bc-foundations/';
 
@@ -56,37 +57,43 @@ test.describe('bc-foundations module', () => {
     expect(await chips.count()).toBeGreaterThanOrEqual(3);
   });
 
-  test('interactive responds to sliders, mode toggle, DAgger, and reset', async ({
+  test('interactive responds to the presets, the error slider, and reset', async ({
     page,
   }) => {
     await page.goto(ROUTE);
     await openPrediction(page);
     const readout = ce(page).getByTestId('accumulated-deviation-readout');
-    const initial = Number.parseFloat((await readout.textContent()) ?? '');
+    const value = async () => Number.parseFloat((await readout.textContent()) ?? '');
+    const initial = await value();
     expect(Number.isFinite(initial)).toBe(true);
 
-    // Raising the per-step error grows the accumulated deviation.
+    // The error slider sits in "Adjust more"; raising it grows the drift.
+    await openAdjustMore(ce(page));
     const errorSlider = ce(page).getByRole('slider', { name: /per-step error/i });
     await waitForHydration(errorSlider);
     await errorSlider.focus();
     for (let i = 0; i < 10; i += 1) await page.keyboard.press('ArrowUp');
-    await expect.poll(async () => Number.parseFloat((await readout.textContent()) ?? '')).toBeGreaterThan(initial);
-    const raised = Number.parseFloat((await readout.textContent()) ?? '');
-    expect(raised).toBeGreaterThan(initial);
+    await expect.poll(value).toBeGreaterThan(initial);
+    const raised = await value();
 
-    // Chunked prediction at identical settings is strictly lower.
-    await ce(page).getByRole('button', { name: /chunk of 25 actions/i }).click();
-    const chunked = Number.parseFloat((await readout.textContent()) ?? '');
+    // Planning 25 moves at once at identical settings is strictly lower.
+    await ce(page).getByRole('button', { name: '25 moves per plan', exact: true }).click();
+    const chunked = await value();
     expect(chunked).toBeLessThan(raised);
 
-    // DAgger relabeling lowers it further.
-    await ce(page).getByRole('button', { name: /dagger/i }).click();
-    const corrected = Number.parseFloat((await readout.textContent()) ?? '');
-    expect(corrected).toBeLessThan(chunked);
+    // A teacher correcting one-move-at-a-time driving is lower than none.
+    await ce(page).getByRole('button', { name: 'A teacher corrects it', exact: true }).click();
+    const corrected = await value();
+    expect(corrected).toBeLessThan(raised);
+
+    // The short task drifts less than the doubled one.
+    await ce(page).getByRole('button', { name: 'One move at a time', exact: true }).click();
+    await ce(page).getByRole('button', { name: /^Short task/ }).click();
+    expect(await value()).toBeLessThan(raised);
 
     // Reset returns to the initial state.
     await ce(page).getByRole('button', { name: /reset/i }).click();
-    const restored = Number.parseFloat((await readout.textContent()) ?? '');
+    const restored = await value();
     expect(restored).toBeCloseTo(initial, 5);
   });
 
