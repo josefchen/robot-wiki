@@ -47191,6 +47191,360 @@
         "VAL-B2-BASE-011"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261003-predict-prose-classical-control",
+      "manifest": "prose",
+      "memberId": "article:classical/control",
+      "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+      "newHash": "b63fd6c36aeab864ceec5692ba7ccab6eef8b86b97da08bad768bcadd64e946d",
+      "reason": "Reader-first figure pass of 2026-10-03 on classical/control: the prediction step becomes an optional “Guess first” question above a figure that is shown at settle, so its question, hint and cue are shortened to bring the figure into the first screen and to name what the visible figure prints. For example it reads \"Guess first if you like, then press Run and drag the proportional gain to test it.\" where it read \"Make the prediction, then press Run and drag the proportional gain to test it.\" Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/reader-first-20261002/source-transition.json.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: prediction steps are optional and never hide the figure (VAL-OPUS-140), the first figure sits in the first screen (VAL-OPUS-147), and the article prose names the plain-words controls the figure now prints (VAL-OPUS-137, VAL-OPUS-138). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-OPUS-140",
+        "VAL-OPUS-147",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "control-r5-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r6-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r7-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r8-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r9-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r12-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r14-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r15-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r17-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r18-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r19-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r1-20260916-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r2-20260916-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r3-20260916-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r11-20260916-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r13-20260916-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r16-20260916-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "seo-20260824-prose-cb9819bd8941",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "cb9819bd89410c690abfd9d28151e3a776c02f2682be21a19bc26c6adbab3781"
+        },
+        {
+          "id": "paywall0917a-control-prose",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "01b71ccc454f6d269a643986f989cbd0106f43ccda566f29ad0603ca16bae820"
+        },
+        {
+          "id": "continuation-merge-20260922-prose-classical-control",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "5cd1041d01e82fc7fdb80072da6bb9b4b518a354f34c452088e0b25a846ff7da"
+        },
+        {
+          "id": "control-citation-20260924-prose",
+          "oldHash": "01b71ccc454f6d269a643986f989cbd0106f43ccda566f29ad0603ca16bae820",
+          "newHash": "2f6d4267bd07f34ca2c5acc683f5c4a3b29ae09d79e944b12e41983df5cccda0"
+        },
+        {
+          "id": "main-merge-20260924-control-prose",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "3c11df73fbabb49f9a6d8fe7626f9392f09b4558e107c9a2d51a4e683644d28c"
+        },
+        {
+          "id": "motion-classical-humanizer-v3-20260927-prose-control",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "7ae2310f358c571397744a43cde65fe2ea18e6b924053b66b33deb0136f747e8"
+        },
+        {
+          "id": "opus-figure-migration-20261001-prose-control",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "bdbe9512448bd44b43ff9111af8664b48dd08b8e94f5de045a3f364c798fc7be"
+        },
+        {
+          "id": "seo-pass-20261002-prose-classical-control",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "ee337ad9ed5a5c137d2513b634b6b1c41bd31fcd5164b34e623fd61ba4d6a1bc"
+        }
+      ]
+    },
+    {
+      "id": "reader-first-20261003-predict-prose-data-hardware-data-bottleneck",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/data-bottleneck",
+      "oldHash": "b9e2206bebe92e03ec705a38999f913f9ae7f5e1e2168caddfb77469f10704be",
+      "newHash": "9627eed7ce519be8d6637a67aa825aaf7dcd582b5c2839ec2f99c88c15f939fb",
+      "reason": "Reader-first figure pass of 2026-10-03 on data-hardware/data-bottleneck: the prediction step becomes an optional “Guess first” question above a figure that is shown at settle, so its question, hint and cue are shortened to bring the figure into the first screen and to name what the visible figure prints. For example its question reads \"In an authored hypothetical, each collection rig yields 7 productive hours a year. With 10 rigs, roughly how long until they reach a target of 10,000 hours?\" where it read \"An authored hypothetical collection scenario uses 7 productive hours per rig-year. With 10 rigs, roughly how long would it take to collect the hypothetical target of 10,000 hours?\" Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/reader-first-20261002/source-transition.json.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: prediction steps are optional and never hide the figure (VAL-OPUS-140), the first figure sits in the first screen (VAL-OPUS-147), and the article prose names the plain-words controls the figure now prints (VAL-OPUS-137, VAL-OPUS-138). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-OPUS-140",
+        "VAL-OPUS-147",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261003-predict-prose-data-hardware-evaluation-crisis",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/evaluation-crisis",
+      "oldHash": "e8f923e7fa698d16d3e95c35801ae482196c72aa64013f016d7d32f317f992b1",
+      "newHash": "13f61bd96ff6189aa1a42173889d3977eaf83a196756019a22f91796dbbc90b9",
+      "reason": "Reader-first figure pass of 2026-10-03 on data-hardware/evaluation-crisis: the prediction step becomes an optional “Guess first” question above a figure that is shown at settle, so its question, hint and cue are shortened to bring the figure into the first screen and to name what the visible figure prints. For example its question reads \"Each decision goes right 95% of the time, given every earlier one went right. Roughly how many decisions in a row bring the whole job below one half?\" where it read \"In this illustrative model, each decision succeeds with probability 95% conditional on all earlier decisions succeeding. Roughly how many consecutive decisions bring episode success below one half?\" Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/reader-first-20261002/source-transition.json.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: prediction steps are optional and never hide the figure (VAL-OPUS-140), the first figure sits in the first screen (VAL-OPUS-147), and the article prose names the plain-words controls the figure now prints (VAL-OPUS-137, VAL-OPUS-138). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-OPUS-140",
+        "VAL-OPUS-147",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261003-predict-prose-manipulation-bc-foundations",
+      "manifest": "prose",
+      "memberId": "article:manipulation/bc-foundations",
+      "oldHash": "3070554322646a84dbd08abf428688cda75dc8e3727c7de5615dda9a0b8b197e",
+      "newHash": "03e10fa145ea87106c8a010930966a681ac3a936d695c4895bb201fac2f712ea",
+      "reason": "Reader-first figure pass of 2026-10-03 on manipulation/bc-foundations: the prediction step becomes an optional “Guess first” question above a figure that is shown at settle, so its question, hint and cue are shortened to bring the figure into the first screen and to name what the visible figure prints. For example its question reads \"Make the task twice as long, 240 moves instead of 120, with the same 5% slip per move and nothing else changed. Roughly what happens to the total drift?\" where it read \"Double the episode horizon from 120 to 240 steps at 5% per-step error, with prediction mode and corrections left alone. Roughly what happens to the accumulated deviation the readout reports?\" Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/reader-first-20261002/source-transition.json.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: prediction steps are optional and never hide the figure (VAL-OPUS-140), the first figure sits in the first screen (VAL-OPUS-147), and the article prose names the plain-words controls the figure now prints (VAL-OPUS-137, VAL-OPUS-138). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-OPUS-140",
+        "VAL-OPUS-147",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261003-predict-prose-frontier-generalization",
+      "manifest": "prose",
+      "memberId": "article:frontier/generalization",
+      "oldHash": "1fee314336a48372c330af41a4f53293ca8b8c209ea8cd149ce90fff26f0e433",
+      "newHash": "0103a61d7a055f09b3fb42d3f75cc538433a75b70705d40ead0dc341d9c1f4ad",
+      "reason": "Reader-first figure pass of 2026-10-03 on frontier/generalization: the prediction step becomes an optional “Guess first” question above a figure that is shown at settle, and the cue that sends the reader to the figure now opens with a plain instruction. It reads \"Try a larger amount under \"How much video?\" and the line continues\" where it read \"Pick a larger amount under \"How much video?\" and the line continues\". Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/reader-first-20261002/source-transition.json.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: prediction steps are optional and never hide the figure (VAL-OPUS-140), the first figure sits in the first screen (VAL-OPUS-147), and the article prose names the plain-words controls the figure now prints (VAL-OPUS-137, VAL-OPUS-138). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-OPUS-140",
+        "VAL-OPUS-147",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "go-helix-cross-transfer-20260908-1",
+          "oldHash": "1fee314336a48372c330af41a4f53293ca8b8c209ea8cd149ce90fff26f0e433",
+          "newHash": "982d197681c2163b045018da286781d70b71b07737fd2bf482dd4f5e2906e0c1"
+        },
+        {
+          "id": "generalization-g1-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g2-20260915-1",
+          "oldHash": "1fee314336a48372c330af41a4f53293ca8b8c209ea8cd149ce90fff26f0e433",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g3-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g4-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g5-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g6-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g7-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g8-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g9-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g10-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g11-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g12-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g13-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g14-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g15-20260915-1",
+          "oldHash": "1fee314336a48372c330af41a4f53293ca8b8c209ea8cd149ce90fff26f0e433",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g16-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g18-20260915-1",
+          "oldHash": "1fee314336a48372c330af41a4f53293ca8b8c209ea8cd149ce90fff26f0e433",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g19-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g20-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g21-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "single-leftovers-g17-20260917-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-generalization",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "eea78a462a9118f10e46b7f310674ef7a25fb91190f456056c9918582531dc6e"
+        },
+        {
+          "id": "opus-figure-migration-20261001-prose-generalization",
+          "oldHash": "eea78a462a9118f10e46b7f310674ef7a25fb91190f456056c9918582531dc6e",
+          "newHash": "8c9b0831f170cb82a636067f1c6fb98812e197341f4c98208c6c315798b0fc68"
+        },
+        {
+          "id": "seo-pass-20261002-prose-frontier-generalization",
+          "oldHash": "8c9b0831f170cb82a636067f1c6fb98812e197341f4c98208c6c315798b0fc68",
+          "newHash": "07e05611c771d6612130ffad5af3eadcba99864d1a74e7dc2aaa719c69285beb"
+        },
+        {
+          "id": "reader-first-20261002-prose-frontier-generalization",
+          "oldHash": "1fee314336a48372c330af41a4f53293ca8b8c209ea8cd149ce90fff26f0e433",
+          "newHash": "22e843bf9fa7e9202c43b12fe5511d9df10ab74e7cf5179d4edc98ad97cfae06"
+        }
+      ]
     }
   ]
 }

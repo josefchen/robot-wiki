@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3126,
+      "visibleTextLength": 3092,
       "header": {
         "present": true,
         "display": "flex",
@@ -1704,7 +1704,7 @@
     },
     {
       "route": "/classical/control/",
-      "visibleTextLength": 22992,
+      "visibleTextLength": 23841,
       "header": {
         "present": true,
         "display": "flex",
@@ -3334,7 +3334,7 @@
     },
     {
       "route": "/data-hardware/data-bottleneck/",
-      "visibleTextLength": 13938,
+      "visibleTextLength": 15184,
       "header": {
         "present": true,
         "display": "flex",
@@ -3660,7 +3660,7 @@
     },
     {
       "route": "/data-hardware/evaluation-crisis/",
-      "visibleTextLength": 18108,
+      "visibleTextLength": 18753,
       "header": {
         "present": true,
         "display": "flex",
@@ -5282,7 +5282,7 @@
     },
     {
       "route": "/frontier/generalization/",
-      "visibleTextLength": 16125,
+      "visibleTextLength": 17059,
       "header": {
         "present": true,
         "display": "flex",
@@ -6586,7 +6586,7 @@
     },
     {
       "route": "/manipulation/bc-foundations/",
-      "visibleTextLength": 12307,
+      "visibleTextLength": 13050,
       "header": {
         "present": true,
         "display": "flex",

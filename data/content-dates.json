@@ -22,7 +22,7 @@
     },
     "classical/control": {
       "published": "2026-08-11T18:04:40+01:00",
-      "modified": "2026-10-02T05:08:36+02:00"
+      "modified": "2026-10-03T07:37:15+02:00"
     },
     "classical/grasp-planning": {
       "published": "2026-08-11T20:47:06+01:00",
@@ -54,7 +54,7 @@
     },
     "data-hardware/data-bottleneck": {
       "published": "2026-08-08T23:06:19+01:00",
-      "modified": "2026-10-02T23:53:20+02:00"
+      "modified": "2026-10-03T07:37:15+02:00"
     },
     "data-hardware/datasets": {
       "published": "2026-08-09T16:59:07+01:00",
@@ -62,7 +62,7 @@
     },
     "data-hardware/evaluation-crisis": {
       "published": "2026-08-09T20:01:27+01:00",
-      "modified": "2026-10-02T23:53:20+02:00"
+      "modified": "2026-10-03T07:37:15+02:00"
     },
     "data-hardware/hardware-taxonomy": {
       "published": "2026-08-09T18:27:43+01:00",
@@ -94,7 +94,7 @@
     },
     "frontier/generalization": {
       "published": "2026-08-12T15:08:41+01:00",
-      "modified": "2026-10-02T21:22:33+02:00"
+      "modified": "2026-10-03T07:37:15+02:00"
     },
     "frontier/reliability-gap": {
       "published": "2026-08-12T04:02:00+01:00",
@@ -114,7 +114,7 @@
     },
     "manipulation/bc-foundations": {
       "published": "2026-08-08T02:18:37+01:00",
-      "modified": "2026-10-03T05:36:40+02:00"
+      "modified": "2026-10-03T07:37:15+02:00"
     },
     "manipulation/comparison-matrix": {
       "published": "2026-08-08T06:52:08+01:00",
@@ -231,7 +231,7 @@
   },
   "routes": {
     "/": {
-      "modified": "2026-10-03T05:36:40+02:00"
+      "modified": "2026-10-03T07:37:15+02:00"
     },
     "/manipulation/": {
       "modified": "2026-10-02T05:08:36+02:00"

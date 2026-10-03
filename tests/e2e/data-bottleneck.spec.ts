@@ -5,8 +5,8 @@ import { openAdjustMore } from './helpers/figure-fold';
 const ROUTE = '/data-hardware/data-bottleneck/';
 
 /**
- * The article's only data-scale chart is the reveal of its prediction
- * step, so the disclosure opens before the chart is read.
+ * The article's only data-scale chart is the figure of its prediction step,
+ * shown below the optional guess with the reasoning disclosure closed.
  */
 async function openChart(page: Page) {
   const step = page.locator('[data-predict]:has([data-figure-frame="data-scale-chart"])');

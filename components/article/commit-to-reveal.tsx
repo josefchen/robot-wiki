@@ -5,10 +5,10 @@ import { cx } from '@/lib/utils';
 
 /**
  * CommitToReveal is the shared internal primitive behind every
- * commit-before-reveal affordance in article prose (the self-check today,
- * the prediction step next). It is NOT registered in mdx-components.tsx:
- * MDX authors use its named exports (SelfCheck now, PredictThenReveal
- * later), never the primitive itself.
+ * commit-before-reveal affordance in article prose (the self-check and
+ * the prediction step). It is NOT registered in mdx-components.tsx: MDX
+ * authors use its named exports (SelfCheck, PredictThenReveal), never the
+ * primitive itself.
  *
  * Mechanics, and why each one is the only acceptable choice:
  *
@@ -39,6 +39,7 @@ import { cx } from '@/lib/utils';
  *
  * Stable data hooks are part of this component's API: data-self-check on
  * the self-check region, data-predict on the prediction-step region,
+ * data-predict-figure on a prediction step's always-shown figure block,
  * data-reveal on the disclosure, data-reveal-hint on the hint,
  * data-takeaway on the takeaway, data-reason (value = the option it
  * explains) on each reasoning element.
@@ -147,14 +148,20 @@ export function CommitToReveal({
     if (chosen !== null && detailsRef.current) detailsRef.current.open = true;
   }, [chosen]);
 
+  const predict = region === 'predict';
+
   return (
     <section
-      data-self-check={region === 'self-check' ? '' : undefined}
-      data-predict={region === 'predict' ? '' : undefined}
+      data-self-check={predict ? undefined : ''}
+      data-predict={predict ? '' : undefined}
       aria-labelledby={`${uid}-prompt`}
       data-brand-surface-id="surface:flat"
       className={cx(
-        'rounded-md border border-border bg-surface p-4 sm:p-5',
+        // A prediction step carries a figure, and a figure draws on the page
+        // ground, so the step paints no panel of its own.
+        predict
+          ? 'my-6'
+          : 'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
       )}
     >
@@ -184,6 +191,19 @@ export function CommitToReveal({
           ))}
         </div>
       </fieldset>
+      {predict ? (
+        // The figure sits between the question and the closed reasoning,
+        // outside the disclosure: the reader sees the chart and its
+        // annotation at settle whether or not they guess.
+        <div data-predict-figure="" className="mt-4">
+          {revealHint ? (
+            <div data-reveal-hint="" className="text-sm text-text-dim">
+              {revealHint}
+            </div>
+          ) : null}
+          {children}
+        </div>
+      ) : null}
       <details
         ref={detailsRef}
         data-reveal=""
@@ -199,8 +219,12 @@ export function CommitToReveal({
           {chosen === null ? 'Read the reasoning' : 'Reasoning'}
         </summary>
         <div aria-live="polite">
-          {revealHint ? <div data-reveal-hint="">{revealHint}</div> : null}
-          {children}
+          {predict ? null : (
+            <>
+              {revealHint ? <div data-reveal-hint="">{revealHint}</div> : null}
+              {children}
+            </>
+          )}
           <ul className="mt-2 grid gap-2">
             {options.map((option) => (
               <li
@@ -270,7 +294,11 @@ export function CommitToReveal({
               </li>
             ))}
           </ul>
-          <p data-takeaway="" className="mt-3 border-t border-border pt-3">
+          <p
+            data-takeaway=""
+            // Off a panel, a top border would read as a stray full-width rule.
+            className={predict ? 'mt-3 font-medium' : 'mt-3 border-t border-border pt-3'}
+          >
             {takeaway}
           </p>
         </div>
@@ -289,17 +317,19 @@ export function SelfCheck(props: Omit<CommitToRevealProps, 'kicker'>) {
 }
 
 /**
- * The prediction step: commit to a guess about a figure before the
- * figure answers. The interactive itself is passed as children, mounted
- * at the configuration that answers the prompt, with a required
- * revealHint naming that configuration and a required takeaway the
- * figure settles; a component with no thesis is unconstructible.
+ * The prediction step: an optional "Guess first" question above a figure.
+ * The interactive itself is passed as children, mounted at the
+ * configuration that answers the prompt, with a required revealHint
+ * naming that configuration and a required takeaway the figure settles;
+ * a component with no thesis is unconstructible.
  *
- * The reveal's own summary is the mandatory escape path: a reader who
- * declines to guess opens the answer without committing. It is natively
- * focusable and Enter- or Space-activatable, and it sits after the
- * fieldset in DOM order so a keyboard reader meets the question first.
- * Activating it marks no option as chosen.
+ * The figure and its hint render outside the disclosure, between the
+ * question and the reasoning, so the chart and its annotation are on the
+ * page at settle without an answer. Only the reasoning and the takeaway
+ * wait in the disclosure. Its summary is the escape path for a reader who
+ * declines to guess: natively focusable, Enter- or Space-activatable, and
+ * after the fieldset and the figure in DOM order, so a keyboard reader
+ * meets the question first. Activating it marks no option as chosen.
  */
 export function PredictThenReveal(
   props: Omit<
@@ -312,5 +342,5 @@ export function PredictThenReveal(
     revealHint: ReactNode;
   },
 ) {
-  return <CommitToReveal kicker="Prediction" region="predict" {...props} />;
+  return <CommitToReveal kicker="Guess first" region="predict" {...props} />;
 }

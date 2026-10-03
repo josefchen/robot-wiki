@@ -139,8 +139,11 @@ for (const width of [375, 1440]) {
         await capture(page, `peer-${route.replaceAll('/', '-')}-${width}`);
         observations.push({ route, box, fonts });
         if (route === bottleneck) {
-          // The page's one data-scale chart is the reveal of its prediction step.
-          await page.locator('[data-predict]:has([data-figure-frame="data-scale-chart"]) details[data-reveal] > summary').click();
+          // The page's one data-scale chart is its prediction step's figure,
+          // operable at settle with the reasoning still closed.
+          const dataStep = page.locator('[data-predict]:has([data-figure-frame="data-scale-chart"])');
+          await expect(dataStep.locator('details[data-reveal]')).not.toHaveAttribute('open');
+          await expect(dataStep.locator(':scope > [data-predict-figure] [data-figure-frame="data-scale-chart"]')).toBeVisible();
           const slider = page.getByRole('slider', { name: /teleoperation rigs/ }).first();
           const summary = page.getByTestId('projection-summary').first();
           const before = await summary.innerText();
@@ -173,8 +176,9 @@ for (const width of [375, 1440]) {
       // The page's one calculator is its prediction step's figure, shown at
       // settle; the per-step slider and Reset sit in its "Adjust more" fold.
       const step = page.locator('[data-predict]:has(svg[aria-label^="Line chart of episode success"])');
-      await step.locator('details[data-reveal] > summary').click();
-      const mount = step.locator('[data-brand-module-signature="instrument-frame"]');
+      await expect(step.locator('details[data-reveal]')).not.toHaveAttribute('open');
+      const mount = step.locator(':scope > [data-predict-figure] [data-brand-module-signature="instrument-frame"]');
+      await expect(mount).toBeVisible();
       await openAdjustMore(mount);
       await setSlider(mount.getByRole('slider', { name: /per-step success/i }), 95);
       await setSlider(mount.getByRole('slider', { name: /episode length/i }), 30);

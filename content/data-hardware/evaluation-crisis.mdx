@@ -38,7 +38,7 @@ The evaluation crisis is the gap between the success rates robot learning papers
 This illustrative probability model makes no claim about a measured robot policy. Assume every decision has the same probability p of success conditional on all earlier decisions succeeding. The probability of completing n decisions without failure is then p^n. Choosing p = 0.95 and n = 30 gives 21.5% after rounding to one decimal place; choosing n = 100 gives 0.6%. Drag the “How many steps the job has” slider to compare those derived examples. Real tasks need not satisfy the constant conditional-probability assumption.
 
 <PredictThenReveal
-  prompt="In this illustrative model, each decision succeeds with probability 95% conditional on all earlier decisions succeeding. Roughly how many consecutive decisions bring episode success below one half?"
+  prompt="Each decision goes right 95% of the time, given every earlier one went right. Roughly how many decisions in a row bring the whole job below one half?"
   options={[
     {
       value: 'two-hundred',
@@ -59,7 +59,7 @@ This illustrative probability model makes no claim about a measured robot policy
     }
   ]}
   answer="fourteen"
-  revealHint="The curve is mounted at 95.0% per-step success over 14 steps, reading 48.8% episode success: just past the coin flip. Drag the “How many steps the job has” slider and watch the readout fall."
+  revealHint="At 95.0% per step over 14 steps, 48.8% of jobs go right. Drag “How many steps the job has” and watch it fall."
   takeaway="At 95% per step, the task is a coin flip after 14 decisions and down to 21.5% after 30: the per-step number cannot be read off the task-level number."
 >
   <ReliabilityCompounding defaultPerStep={0.95} defaultSteps={14} minPerStepPercent={0} maxPerStepPercent={100} descriptionVariant="evaluation" className="mt-3" />
