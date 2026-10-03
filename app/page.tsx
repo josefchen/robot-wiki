@@ -327,6 +327,16 @@ export default function Home() {
               {' '}
               <Link
                 data-brand-control-id="control:link-focus"
+                href="/how-robots-work/"
+                className={HOME_PROSE_LINK_CLASS}
+              >
+                How robots work
+              </Link>
+            </li>
+            <li>
+              {' '}
+              <Link
+                data-brand-control-id="control:link-focus"
                 href="/market-map/"
                 className={HOME_PROSE_LINK_CLASS}
               >

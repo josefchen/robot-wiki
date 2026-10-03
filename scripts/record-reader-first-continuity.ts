@@ -4,6 +4,7 @@
  * and the review's own pin in lib/audit-reader-first-continuity.ts.
  *
  *   node scripts/record-reader-first-continuity.ts <path>...
+ *   node scripts/record-reader-first-continuity.ts --registry <id>[=<reason>]...
  *
  * A path recorded before keeps its predecessor and is re-recorded against
  * it; a new path takes HEAD as its predecessor. A path whose live bytes equal
@@ -13,7 +14,9 @@ import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import type { ReaderFirstEdit, ReaderFirstReview, ReaderFirstSource } from '../lib/audit-reader-first-continuity.ts';
+import type {
+  ReaderFirstEdit, ReaderFirstRegistryRecord, ReaderFirstRegistryReview, ReaderFirstReview, ReaderFirstSource,
+} from '../lib/audit-reader-first-continuity.ts';
 
 const root = join(import.meta.dirname, '..');
 const reviewPath = join(root, 'audit/evidence/reader-first-20261002/source-transition.json');
@@ -202,7 +205,101 @@ async function verify(): Promise<boolean> {
   return ok;
 }
 
+const registryReviewPath = join(root, 'audit/evidence/reader-first-20261002/registry-transition.json');
+type RegistryRecord = { id: string };
+type InteractiveRegistry = { sources: RegistryRecord[]; mounts: RegistryRecord[] };
+const recordHash = (record: RegistryRecord) => digest(JSON.stringify(record));
+const interactiveAt = (ref: string): InteractiveRegistry =>
+  JSON.parse(git('show', `${ref}:contract/brand-v2-registries.json`).toString()).interactive;
+const recordsOf = (registry: InteractiveRegistry, id: string) =>
+  [...registry.sources, ...registry.mounts].filter((record) => record.id === id);
+
+/**
+ * Records the registry review for the named interactive ids, each given as
+ * `id=reason` the first time; a recorded id keeps its predecessor and reason
+ * and is re-recorded against the live registry.
+ */
+function recordRegistry(args: string[]): void {
+  const review: ReaderFirstRegistryReview = existsSync(registryReviewPath)
+    ? JSON.parse(readFileSync(registryReviewPath, 'utf8'))
+    : {
+      schemaVersion: 'reader-first-registry-continuity-v1',
+      name: 'reader-first-registry',
+      reviewedBy: 'release steward re-anchoring the reader-first figure pass (not independent acceptance)',
+      rationale: 'The interactive registry derives each figure\'s state cases from its source: a preset row adds discrete options, and a state word such as "empty" anywhere in the file adds or drops a witness. The reader-first figure pass changed those sources, so registry records that earlier local-basis plans bind changed with them while the calculations, defaults and readouts those plans observed stayed the same. Each changed record is held here with the record it had before the pass and the reason for the change; the older record stands in only while the live record is exactly the reviewed successor.',
+      observedAt: '',
+      records: [],
+    };
+  const reasons = new Map(review.records.map(({ id, reason }) => [id, reason]));
+  for (const arg of args) {
+    const at = arg.indexOf('=');
+    if (at > 0) reasons.set(arg.slice(0, at), arg.slice(at + 1));
+    else if (!reasons.has(arg)) throw new Error(`${arg}: a new registry record needs id=reason`);
+  }
+  const head = git('rev-parse', 'HEAD').toString().trim();
+  const live = JSON.parse(readFileSync(join(root, 'contract/brand-v2-registries.json'), 'utf8')).interactive as InteractiveRegistry;
+  const records: ReaderFirstRegistryRecord[] = [];
+  for (const [id, reason] of reasons) {
+    const recorded = review.records.find((record) => record.id === id);
+    const archivedFrom = recorded?.archivedFrom ?? head;
+    const before = recordsOf(interactiveAt(archivedFrom), id);
+    const after = recordsOf(live, id);
+    if (before.length !== 1 || after.length !== 1) throw new Error(`${id}: needs one record before and one live`);
+    if (recorded && recordHash(before[0]) !== recorded.beforeHash) {
+      throw new Error(`${id}: ${archivedFrom} no longer holds the recorded predecessor`);
+    }
+    if (recordHash(before[0]) === recordHash(after[0])) {
+      console.log(`${id}: unchanged from ${archivedFrom.slice(0, 8)}, not recorded`);
+      continue;
+    }
+    records.push({ id, archivedFrom, before: before[0], beforeHash: recordHash(before[0]), after: recordHash(after[0]), reason });
+    console.log(`${id}: recorded over ${archivedFrom.slice(0, 8)}`);
+  }
+  review.records = records.sort((x, y) => x.id.localeCompare(y.id));
+  review.observedAt = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
+  const bytes = Buffer.from(`${JSON.stringify(review, null, 2)}\n`);
+  writeFileSync(registryReviewPath, bytes);
+  const pins = [
+    '// BEGIN reader-first registry pins (written by scripts/record-reader-first-continuity.ts --registry)',
+    '/** The reviewed registry evidence file; a changed review needs a reviewed code change too. */',
+    `const registryReviewPin = { bytes: ${bytes.length}, sha256: '${digest(bytes)}' };`,
+    '',
+    '/** Reviewed successor record hash per interactive registry id. */',
+    'const registrySuccessors: ReadonlyMap<string, string> = new Map([',
+    ...records.map(({ id, after }) => `  ['${id}', '${after}'],`),
+    ']);',
+    '// END reader-first registry pins',
+  ].join('\n');
+  const lib = readFileSync(libPath, 'utf8');
+  const block = /\/\/ BEGIN reader-first registry pins[\s\S]*?\/\/ END reader-first registry pins/;
+  if (!block.test(lib)) throw new Error('lib/audit-reader-first-continuity.ts lost its registry pins block');
+  writeFileSync(libPath, lib.replace(block, () => pins));
+  console.log(`recorded ${records.length} registry record(s); review ${bytes.length} bytes`);
+}
+
+/** Reads the live registry back through the written layer. */
+async function verifyRegistry(): Promise<boolean> {
+  const layer = await import('../lib/audit-reader-first-continuity.ts');
+  const live = JSON.parse(readFileSync(join(root, 'contract/brand-v2-registries.json'), 'utf8')).interactive as InteractiveRegistry;
+  const seen = layer.readerFirstRegistry(root, live);
+  let ok = true;
+  for (const record of layer.loadReaderFirstRegistryReview(root).records) {
+    const [restored] = recordsOf(seen, record.id);
+    if (!restored || recordHash(restored) !== record.beforeHash) {
+      ok = false;
+      console.error(`${record.id}: the live record is not the reviewed successor`);
+    }
+  }
+  return ok;
+}
+
 if (import.meta.url === `file://${process.argv[1]}`) {
-  main(process.argv.slice(2));
-  if (!(await verify())) process.exit(1);
+  const args = process.argv.slice(2);
+  if (args[0] === '--registry') {
+    recordRegistry(args.slice(1));
+    if (!(await verifyRegistry())) process.exit(1);
+  } else {
+    main(args);
+    if (!(await verify())) process.exit(1);
+  }
 }

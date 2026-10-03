@@ -56,6 +56,7 @@ const PUBLIC_FIXED_ROUTES = [
   '/a-z/',
   '/market-map/',
   '/playground/',
+  '/how-robots-work/',
   '/glossary/',
   '/credits/',
   '/search/',
@@ -230,6 +231,10 @@ function titleAndDescription(path: string): {
       STANDALONE_SEO_TITLES.editorialPolicy,
       STANDALONE_SEO_DESCRIPTIONS.editorialPolicy,
     ],
+    '/how-robots-work/': [
+      STANDALONE_SEO_TITLES.howRobotsWork,
+      STANDALONE_SEO_DESCRIPTIONS.howRobotsWork,
+    ],
     '/about/': [
       STANDALONE_SEO_TITLES.about,
       STANDALONE_SEO_DESCRIPTIONS.about,
@@ -250,6 +255,7 @@ function metadataLedger() {
     '/a-z/': 'app/a-z/page.tsx',
     '/market-map/': 'app/market-map/page.tsx',
     '/playground/': 'app/playground/page.tsx',
+    '/how-robots-work/': 'app/how-robots-work/page.tsx',
     '/glossary/': 'app/glossary/page.tsx',
     '/credits/': 'app/credits/page.tsx',
     '/search/': 'app/search/page.tsx',
@@ -972,7 +978,7 @@ function staticRegistries() {
       allowedRadiusPx: [0, 2, 4, 8],
       border: { allowedWidthsPx: [0, 1], styles: ['solid', 'dashed'] },
       shadow: { neutralOnly: true, maxBlurPx: 0, maxAlpha: 0 },
-      allowedOwners: ['article', 'card', 'callout', 'table', 'input', 'code'],
+      allowedOwners: ['article', 'card', 'callout', 'table', 'input', 'code', 'chart', 'diagram', 'simulation', 'media'],
     },
     {
       id: 'surface:raised',
@@ -991,15 +997,6 @@ function staticRegistries() {
       border: { allowedWidthsPx: [0, 1], styles: ['solid'] },
       shadow: { neutralOnly: true, maxBlurPx: 20, maxAlpha: 0.18 },
       allowedOwners: ['tooltip', 'menu', 'drawer', 'modal', 'dragged-object'],
-    },
-    {
-      id: 'surface:bounded-dark-instrument',
-      level: 'bounded-dark',
-      stackingPurpose: 'technical-instrument',
-      allowedRadiusPx: [0, 2, 4, 8],
-      border: { allowedWidthsPx: [1], styles: ['solid'] },
-      shadow: { neutralOnly: true, maxBlurPx: 0, maxAlpha: 0 },
-      allowedOwners: ['chart', 'diagram', 'simulation', 'code', 'media', 'playground'],
     },
   ].map((entry) => stableRecord({ ...entry, ...annotationMountRecord(entry.id) }));
   const pageFrames = [

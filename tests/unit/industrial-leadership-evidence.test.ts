@@ -26,7 +26,7 @@ import {
   sealedHash,
   showAt,
 } from './helpers/continuation-merge-ledger';
-import { preSeoPassText } from '../helpers/seo-pass';
+import { preReaderFirst, preSeoPassText } from '../helpers/seo-pass';
 
 const ledgerPath = 'audit/data-hardware.md';
 const markdown = readFileSync(ledgerPath, 'utf8');
@@ -299,7 +299,8 @@ describe('industrial deployment originals 51 and 43: bounded MIT closeout', () =
     expect(proseHash(laneArticle)).toBe(newProseHash);
     expect(proseHash(laneArticle.replace(newSpan, oldSpan))).toBe(oldProseHash);
     // Integrated line: the merged member is re-anchored from its seal.
-    const preMotion = headReanchorFor(approvals.filter(delta => !delta.id.startsWith('seo-pass-20261002-')),
+    const preMotion = headReanchorFor(approvals.filter(delta => !delta.id.startsWith('seo-pass-20261002-')
+      && !delta.id.startsWith('reader-first-20261002-')),
       'prose', 'article:data-hardware/industrial-deployment')!;
     expect(preMotion.oldHash).toBe(sealedHash('prose', 'article:data-hardware/industrial-deployment'));
     const motion = approvals.find(delta =>
@@ -324,13 +325,22 @@ describe('industrial deployment originals 51 and 43: bounded MIT closeout', () =
     });
     expect(restore.newHash).toBe(proseHash(article));
     // The SEO pass resolution binds the restore endpoint and reaches the
-    // live article.
+    // article the reader-first figure pass started from.
     const seo = approvals.find(delta =>
       delta.id === 'seo-pass-20261002-prose-data-hardware-industrial-deployment')!;
     expect(seo.reconciles?.at(-1)).toEqual({
       id: restore.id, oldHash: restore.oldHash, newHash: restore.newHash,
     });
-    expect(seo.newHash).toBe(proseHash(readFileSync(articlePath, 'utf8')));
+    expect(seo.newHash).toBe(proseHash(preReaderFirst(articlePath).toString('utf8')));
+    // The reader-first resolution binds the SEO endpoint and reaches the live
+    // article, which moves the calculator ahead of the jam scene.
+    const readerFirst = approvals.find(delta =>
+      delta.id === 'reader-first-20261002-prose-data-hardware-industrial-deployment')!;
+    expect(readerFirst.oldHash).toBe(preMotion.oldHash);
+    expect(readerFirst.reconciles?.at(-1)).toEqual({
+      id: seo.id, oldHash: seo.oldHash, newHash: seo.newHash,
+    });
+    expect(readerFirst.newHash).toBe(proseHash(readFileSync(articlePath, 'utf8')));
     expect(laneArticle.match(/<Cite\s/g)).toHaveLength(32);
     expect(showAt('ac65cf4', articlePath).match(/<Cite\s/g)).toHaveLength(33);
     expect(showAt('0cbdda1', articlePath).match(/<Cite\s/g)).toHaveLength(34);

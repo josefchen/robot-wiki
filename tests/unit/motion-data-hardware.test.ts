@@ -80,12 +80,15 @@ describe('data-hardware motion inventory', () => {
 describe('data-hardware scene truth', () => {
   it('compares jam cost from the same authored calculator inputs', () => {
     const spans = beatSpans(JAM_OVERHEAD_SCENE.beats);
-    const quick = jamOverheadFrame(spans[1].end);
-    const slow = jamOverheadFrame(spans[2].end);
-    expect(quick.outputs).toEqual(computeEconomics({ ...DEFAULT_INPUTS, successRatePercent: 99, jamClearSeconds: 15 }));
+    // The quick cell is drawn from the first beat on; the slow cell's
+    // clearing time sweeps from 15 to 300 seconds over the second beat.
+    const quick = jamOverheadFrame(spans[0].end);
+    const slow = jamOverheadFrame(spans[1].end);
+    expect(quick.quick).toEqual(computeEconomics({ ...DEFAULT_INPUTS, successRatePercent: 99, jamClearSeconds: 15 }));
+    expect(jamOverheadFrame(spans[1].start).outputs).toEqual(quick.quick);
     expect(slow.outputs).toEqual(computeEconomics({ ...DEFAULT_INPUTS, successRatePercent: 99, jamClearSeconds: 300 }));
-    expect(slow.outputs.netPicksPerHour).toBeLessThan(quick.outputs.netPicksPerHour);
-    expect(spans[2].linear).toBe(true);
+    expect(slow.outputs.netPicksPerHour).toBeLessThan(quick.quick.netPicksPerHour);
+    expect(spans[1].linear).toBe(true);
   });
 
   it('holds a final poster and has four standalone captions per scene', () => {
@@ -124,13 +127,16 @@ describe('data-hardware prose truth', () => {
       // with a second plain edge from that endpoint.
       // The round-6 prose restore of the Vulcan coverage scope re-resolved
       // industrial-deployment from its seal, reconciling the qualification.
-      // The 2026-10-02 SEO pass then added one edge of the same kind to each.
+      // The 2026-10-02 SEO pass and then the reader-first figure pass each
+      // added one edge of the same kind to each.
       const laterIds = slug === 'evaluation-crisis'
         ? ['round5-pinned-leftovers-20260928-prose-evaluation-crisis',
           'opus-figure-migration-20261001-prose-evaluation-crisis',
-          'seo-pass-20261002-prose-data-hardware-evaluation-crisis']
+          'seo-pass-20261002-prose-data-hardware-evaluation-crisis',
+          'reader-first-20261002-prose-data-hardware-evaluation-crisis']
         : ['round6-prose-restores-20260929-prose-industrial-deployment',
-          'seo-pass-20261002-prose-data-hardware-industrial-deployment'];
+          'seo-pass-20261002-prose-data-hardware-industrial-deployment',
+          'reader-first-20261002-prose-data-hardware-industrial-deployment'];
       const later = edges.filter((entry) => laterIds.includes(entry.id));
       expect(later.map((entry) => entry.id)).toEqual(laterIds);
       expect(edges.slice(edges.indexOf(qualification))).toEqual([qualification, ...later]);

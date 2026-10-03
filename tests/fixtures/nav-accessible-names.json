@@ -5,7 +5,7 @@
     1440,
     900
   ],
-  "linkCount": 70,
+  "linkCount": 71,
   "links": [
     {
       "href": "/",
@@ -278,6 +278,10 @@
     {
       "href": "/playground/",
       "name": "Playground"
+    },
+    {
+      "href": "/how-robots-work/",
+      "name": "How robots work"
     },
     {
       "href": "/glossary/",

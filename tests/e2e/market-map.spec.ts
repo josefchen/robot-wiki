@@ -326,12 +326,11 @@ test.describe('market map visualization', () => {
     // literally lowercase. innerText is the instrument that can see this:
     // it reflects text-transform, textContent does not.
     const cases: ReadonlyArray<{ route: string; labels: readonly string[] }> = [
-      // The generative-video rollout panels became one graphite-stage
-      // diagram: its group headings are now accessible names, and the
-      // visible text of its controls is the conditioning toggles.
+      // The generative-video figure is one stage whose visible controls
+      // are the two video-model presets.
       {
         route: '/world-models/generative-video/',
-        labels: ['Strong conditioning', 'Weak conditioning'],
+        labels: ['Listens to the action', 'Ignores the action'],
       },
       {
         route: '/rl-sim2real/reward-design-mpc/',
@@ -357,7 +356,9 @@ test.describe('market map visualization', () => {
         route: '/rl-sim2real/humanoid-wbc/',
         labels: ['Representative:', 'Layers:', 'Fastest loop:', 'Motion data'],
       },
-      { route: '/world-models/taxonomy/', labels: ['Used for', 'Selected:'] },
+      // The taxonomy figure's one visible control names the form a model
+      // imagines; its use tags moved into "Adjust more".
+      { route: '/world-models/taxonomy/', labels: ['What it imagines', 'Summary'] },
       { route: '/classical/kinematics/', labels: ['Joint i'] },
       {
         route: '/manipulation/generalist-policies/',

@@ -1,6 +1,7 @@
 import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { waitForHydration } from './interaction-ready';
+import { openAdjustMore } from './helpers/figure-fold';
 
 const ROUTE = '/world-models/generative-video/';
 
@@ -180,41 +181,45 @@ test.describe('world-models generative-video module', () => {
     await expect(reference.getByRole('button', { name: 'Show all 295 authors', exact: true })).toBeFocused();
   });
 
-  test('interactive: two rollouts from one frame with a sensitivity score', async ({
+  test('interactive: one start frame forks into two imagined futures', async ({
     page,
   }) => {
     await page.goto(ROUTE);
-    await expect(page.getByTestId('initial-frame')).toBeVisible();
-    await expect(page.getByTestId('rollout-panel-a')).toBeVisible();
-    await expect(page.getByTestId('rollout-panel-b')).toBeVisible();
-    // Default strong conditioning: the two futures visibly diverge and the
-    // score clears the stated 0.30 threshold.
+    const figure = page.locator('[data-figure-frame="action-conditioning"]');
+    await expect(figure.getByTestId('initial-frame')).toBeVisible();
+    await expect(figure.getByTestId('rollout-panel-a')).toBeVisible();
+    await expect(figure.getByTestId('rollout-panel-b')).toBeVisible();
+    // The default model listens: the two futures visibly differ and the
+    // score, one click away, clears the stated 0.30 threshold.
     await expect(
-      page.getByRole('button', { name: 'Strong conditioning' }),
+      figure.getByRole('button', { name: 'Listens to the action', exact: true }),
     ).toHaveAttribute('aria-pressed', 'true');
+    await expect(figure.getByTestId('action-note')).toContainText('the model is listening');
     expect(await sensitivity(page)).toBeGreaterThan(0.3);
     expect(await finalBlockX(page, 'a')).not.toBe(await finalBlockX(page, 'b'));
     expect(await realism(page)).toBeGreaterThanOrEqual(0.85);
   });
 
-  test('interactive: weak conditioning collapses the futures while realism stays fixed', async ({
+  test('interactive: a model that ignores the action collapses the futures while realism stays fixed', async ({
     page,
   }) => {
     await page.goto(ROUTE);
-    const realismStrong = await realism(page);
-    const weak = page.getByRole('button', { name: 'Weak conditioning' });
-    await waitForHydration(weak);
-    await weak.click();
+    const figure = page.locator('[data-figure-frame="action-conditioning"]');
+    const realismListening = await realism(page);
+    const ignores = figure.getByRole('button', { name: 'Ignores the action', exact: true });
+    await waitForHydration(ignores);
+    await ignores.click();
     expect(await sensitivity(page)).toBeLessThan(0.05);
     const [xa, xb] = await Promise.all([
       finalBlockX(page, 'a'),
       finalBlockX(page, 'b'),
     ]);
     expect(Math.abs(xa - xb)).toBeLessThan(2);
-    // The realism indicator does not discriminate the two states.
-    expect(await realism(page)).toBe(realismStrong);
-    // Back to strong reproduces the original divergent score exactly.
-    await page.getByRole('button', { name: 'Strong conditioning' }).click();
+    await expect(figure.getByTestId('action-note')).toContainText('the model ignored the robot');
+    // The realism score does not tell the two models apart.
+    expect(await realism(page)).toBe(realismListening);
+    // Back to the listening model reproduces the original score exactly.
+    await figure.getByRole('button', { name: 'Listens to the action', exact: true }).click();
     expect(await sensitivity(page)).toBeCloseTo(0.419, 2);
   });
 
@@ -222,47 +227,41 @@ test.describe('world-models generative-video module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
+    const figure = page.locator('[data-figure-frame="action-conditioning"]');
+    await waitForHydration(figure.locator('[data-brand-control-id]').first());
     const initial = await sensitivity(page);
-    // Change rollout B to a different action, then re-select the default.
-    const pushRightB = page.getByRole('button', { name: /push right/i }).nth(1);
-    await waitForHydration(pushRightB);
-    await pushRightB.click();
+    const fold = await openAdjustMore(figure);
+    const second = fold.getByRole('group', { name: 'Second command' });
+    // Change the second command, then re-select the default.
+    await second.getByRole('button', { name: 'Push right', exact: true }).click();
     expect(await sensitivity(page)).not.toBe(initial);
-    await page
-      .getByRole('button', { name: /lift gripper/i })
-      .nth(1)
-      .click();
+    await second.getByRole('button', { name: 'Lift gripper', exact: true }).click();
     expect(await sensitivity(page)).toBe(initial);
-    // Same action in both panels: sensitivity is exactly zero.
-    await page
-      .getByRole('button', { name: /push left/i })
-      .nth(1)
-      .click();
+    // The same command twice: sensitivity is exactly zero.
+    await second.getByRole('button', { name: 'Push left', exact: true }).click();
     expect(await sensitivity(page)).toBe(0);
-    // Reset restores the initial frame, default actions, strong conditioning.
-    await page.getByRole('button', { name: 'Weak conditioning' }).click();
-    await page.getByRole('button', { name: 'Reset', exact: true }).click();
+    // Reset restores the default commands and the listening model.
+    await figure.getByRole('button', { name: 'Ignores the action', exact: true }).click();
+    await fold.getByRole('button', { name: 'Reset', exact: true }).click();
     expect(await sensitivity(page)).toBe(initial);
-    await expect(page.getByTestId('initial-frame')).toBeVisible();
+    await expect(figure.getByTestId('initial-frame')).toBeVisible();
     await expect(
-      page.getByRole('button', { name: 'Strong conditioning' }),
+      figure.getByRole('button', { name: 'Listens to the action', exact: true }),
     ).toHaveAttribute('aria-pressed', 'true');
-    await expect(page.getByTestId('rollout-panel-a')).toContainText(
-      /push left/i,
-    );
-    await expect(page.getByTestId('rollout-panel-b')).toContainText(
-      /lift gripper/i,
-    );
+    await expect(figure.getByTestId('rollout-panel-a')).toContainText(/push left/i);
+    await expect(figure.getByTestId('rollout-panel-b')).toContainText(/lift gripper/i);
   });
 
-  test('interactive: keyboard path toggles conditioning', async ({ page }) => {
+  test('interactive: keyboard path switches the video model', async ({ page }) => {
     await page.goto(ROUTE, { waitUntil: 'networkidle' });
-    const strong = await sensitivity(page);
-    const weakButton = page.getByRole('button', { name: 'Weak conditioning' });
-    await weakButton.focus();
+    const listening = await sensitivity(page);
+    const ignores = page
+      .locator('[data-figure-frame="action-conditioning"]')
+      .getByRole('button', { name: 'Ignores the action', exact: true });
+    await ignores.focus();
     await page.keyboard.press('Enter');
-    await expect(weakButton).toHaveAttribute('aria-pressed', 'true');
-    expect(await sensitivity(page)).toBeLessThan(strong);
+    await expect(ignores).toHaveAttribute('aria-pressed', 'true');
+    expect(await sensitivity(page)).toBeLessThan(listening);
   });
 
   test('no horizontal page scroll at 375px', async ({ browser }) => {

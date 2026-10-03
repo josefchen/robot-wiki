@@ -54,22 +54,15 @@ export const FIGURE_DESKTOP_VIEWPORT_ID = '1440x900';
 export const FIGURE_CONTRAST_FLOOR = 4.5;
 
 /**
- * The relative luminance a background must stay under to count as the dark
- * instrument the row calls for. `#242D33` reads 0.023 and paper `#F5F6F7`
- * reads 0.925, so the threshold separates them by two orders of magnitude
- * and cannot be met by a merely tinted plate.
+ * The relative luminance the ground behind a schematic must reach. Figures
+ * sit on the page (owner decision 2026-10-02, "figures belong to the page"):
+ * paper `#F5F6F7` reads 0.925 and white 1, while the retired graphite plate
+ * read 0.023, so a dark or heavily tinted plate cannot pass.
  */
-export const DARK_INSTRUMENT_LUMINANCE_CEILING = 0.1;
+export const PAGE_GROUND_LUMINANCE_FLOOR = 0.8;
 
-/**
- * WCAG 1.4.11 for a graphical boundary. The plate's edge is a non-text
- * object, so 3:1 is the floor that separates a boundary a reader can see
- * from one only a stylesheet knows about.
- */
-export const BOUNDARY_CONTRAST_FLOOR = 3;
-
-/** The surface a dark diagram is required to be mounted on. */
-export const BOUNDED_DARK_SURFACE_ID = 'surface:bounded-dark-instrument';
+/** The stage surface every figure frame draws on: the flat content plane. */
+export const FIGURE_STAGE_SURFACE_ID = 'surface:flat';
 
 /** The visible classification an original schematic opens with. */
 export const SCHEMATIC_LABEL_TEXT = 'Original schematic';
@@ -201,8 +194,8 @@ export function figureEvidenceFingerprint(input: { root: string }): string {
   const graph = expectedFigureGraph(input.root);
   const facts = [
     `contrast-floor:${FIGURE_CONTRAST_FLOOR}`,
-    `dark-ceiling:${DARK_INSTRUMENT_LUMINANCE_CEILING}`,
-    `surface:${BOUNDED_DARK_SURFACE_ID}`,
+    `ground-floor:${PAGE_GROUND_LUMINANCE_FLOOR}`,
+    `surface:${FIGURE_STAGE_SURFACE_ID}`,
     `label:${SCHEMATIC_LABEL_TEXT}`,
     ...FIGURE_VIEWPORTS.map(({ id }) => `viewport:${id}`),
     ...[...graph.entries()]
@@ -250,22 +243,21 @@ const figureObservationSchema = z.object({
   creditFontFamily: z.string(),
   creditContrast: z.number(),
   creditLinks: z.array(linkSchema),
-  /** The bounded-dark plate, when the figure is mounted on one. */
+  /** The figure stage (`[data-figure-stage]`), when the figure draws on one. */
   surfaceId: z.string().nullable(),
   surfaceBackground: z.string().nullable(),
   surfaceLuminance: z.number().nullable(),
   surfaceBorderWidth: z.number(),
   surfaceBorderStyle: z.string().nullable(),
-  /** The luminance of the ground the instrument sits on. */
+  /** The luminance of the ground the stage sits on. */
   surroundLuminance: z.number().nullable(),
   /**
-   * The strongest luminance step the plate's edge makes: against the ground
-   * behind it, or between its border and its own fill. A dark plate on paper
-   * is bounded by the step itself, so a border painted in the plate's own
-   * colour is not a missing boundary.
+   * The strongest luminance step the stage's edge makes: against the ground
+   * behind it, or between its border and its own fill. A stage that belongs
+   * to the page makes no step, which is the point.
    */
   boundaryContrast: z.number(),
-  /** The self-identifying micro-label and how legible it is on that plate. */
+  /** The self-identifying label and how legible it is on the stage. */
   label: z.string().nullable(),
   labelFontFamily: z.string().nullable(),
   labelContrast: z.number().nullable(),
@@ -428,13 +420,13 @@ export function readFigureRuntimeEvidence(input: {
           `${key} renders ${figure.imageId} as a ${figure.figureKind} where the registry declares ${declared}`,
         );
       }
-      // The two descriptions the contract uses, "dark article diagram" and
-      // "schematic", have to pick out the same set or the populations below
-      // are quantifying over different things while claiming not to.
-      const mounted = figure.surfaceId === BOUNDED_DARK_SURFACE_ID;
+      // A drawn diagram and a "schematic" have to pick out the same set or
+      // the populations below are quantifying over different things while
+      // claiming not to: only an original schematic draws on a figure stage.
+      const mounted = figure.surfaceId === FIGURE_STAGE_SURFACE_ID;
       if (mounted !== (declared === 'original-schematic')) {
         throw new Error(
-          `${key} ${mounted ? 'mounts' : 'does not mount'} ${figure.imageId} on the bounded dark instrument while the registry calls it a ${declared}: the dark-diagram and schematic populations have diverged`,
+          `${key} ${mounted ? 'draws' : 'does not draw'} ${figure.imageId} on the figure stage while the registry calls it a ${declared}: the diagram and schematic populations have diverged`,
         );
       }
     }
@@ -486,15 +478,20 @@ function nonEmpty<T>(verdicts: Map<string, T>, what: string): Map<string, T> {
 }
 
 /**
- * `VAL-B2-ART-004`: a dark article diagram is a bounded instrument with an
- * accessible inverse label, a visible boundary, and an equivalent textual
- * description.
+ * `VAL-B2-ART-004` for the article diagrams. The row was written for dark
+ * diagram plates; the owner decision of 2026-10-02 ("figures belong to the
+ * page") retired the plate, so every diagram now draws on the page ground
+ * inside its figure frame. What the row protects still holds and
+ * is graded here: the diagram draws on the registered figure stage, on the
+ * page ground and not on a dark or tinted plate, carries an accessible label
+ * above the text floor, stays inside its figure, and has an equivalent
+ * textual description. The 3:1 plate-edge floor has no object once there is
+ * no plate, so it is not graded.
  *
- * Graded per occurrence and per viewport. A plate that keeps its border at
- * 1440px and loses it at 375px is not a bounded instrument, and grading by
- * route would hide exactly that.
+ * Graded per occurrence and per viewport, so a drawing that fits at 1440px
+ * and spills at 375px fails on the narrow reading.
  */
-export function darkInstrumentVerdicts(
+export function schematicFigureVerdicts(
   evidence: FigureRuntimeEvidence,
 ): Map<string, Verdict<FigureObservation>> {
   const verdicts = new Map<string, Verdict<FigureObservation>>();
@@ -502,37 +499,27 @@ export function darkInstrumentVerdicts(
     if (figure.figureKind !== 'original-schematic') continue;
     const id = figureMemberId(observation, figure);
     const failures: string[] = [];
-    if (figure.surfaceId !== BOUNDED_DARK_SURFACE_ID) {
+    if (figure.surfaceId !== FIGURE_STAGE_SURFACE_ID) {
       failures.push(
-        `${id} sits on ${figure.surfaceId ?? 'the page ground'} rather than the registered ${BOUNDED_DARK_SURFACE_ID}`,
+        `${id} draws on ${figure.surfaceId ?? 'no stage'} rather than the registered ${FIGURE_STAGE_SURFACE_ID} figure stage`,
       );
     }
     if (
       figure.surfaceLuminance === null ||
-      figure.surfaceLuminance > DARK_INSTRUMENT_LUMINANCE_CEILING
+      figure.surfaceLuminance < PAGE_GROUND_LUMINANCE_FLOOR
     ) {
       failures.push(
-        `${id} paints its instrument at luminance ${figure.surfaceLuminance ?? 'none'}, above the ${DARK_INSTRUMENT_LUMINANCE_CEILING} ceiling that makes it dark`,
-      );
-    }
-    if (figure.surfaceBorderWidth <= 0 || figure.surfaceBorderStyle !== 'solid') {
-      failures.push(
-        `${id} draws no border (${figure.surfaceBorderWidth}px ${figure.surfaceBorderStyle ?? 'none'})`,
-      );
-    }
-    if (figure.boundaryContrast < BOUNDARY_CONTRAST_FLOOR) {
-      failures.push(
-        `${id} edges its instrument at ${figure.boundaryContrast}:1 against everything around it, below the ${BOUNDARY_CONTRAST_FLOOR}:1 floor that makes a boundary visible`,
+        `${id} draws on a ground of luminance ${figure.surfaceLuminance ?? 'none'}, below the ${PAGE_GROUND_LUMINANCE_FLOOR} floor of the page it belongs to`,
       );
     }
     if (figure.label === null || figure.label.trim().length === 0) {
-      failures.push(`${id} carries no label on the instrument`);
+      failures.push(`${id} carries no label on the stage`);
     } else if (
       figure.labelContrast === null ||
       figure.labelContrast < FIGURE_CONTRAST_FLOOR
     ) {
       failures.push(
-        `${id} sets its inverse label at ${figure.labelContrast ?? 0}:1 on the instrument, below the ${FIGURE_CONTRAST_FLOOR}:1 floor`,
+        `${id} sets its label at ${figure.labelContrast ?? 0}:1 on the stage, below the ${FIGURE_CONTRAST_FLOOR}:1 floor`,
       );
     }
     // "An equivalent textual description": the alt carries the drawing for a
@@ -548,12 +535,12 @@ export function darkInstrumentVerdicts(
     }
     if (figure.overflowPx > 0.5) {
       failures.push(
-        `${id} spills ${figure.overflowPx.toFixed(1)}px past the instrument that is supposed to bound it`,
+        `${id} spills ${figure.overflowPx.toFixed(1)}px past the stage that is supposed to hold it`,
       );
     }
     verdicts.set(id, { id, observed: figure, failures });
   }
-  return nonEmpty(verdicts, 'dark-diagram occurrence');
+  return nonEmpty(verdicts, 'diagram occurrence');
 }
 
 /**

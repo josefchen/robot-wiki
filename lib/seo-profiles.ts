@@ -43,6 +43,13 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
       '3D kinematics playground for the SO-101 robot arm: joint sliders for forward kinematics, click-to-reach inverse kinematics and trajectory replay.',
     queries: [],
   },
+  '/how-robots-work/': {
+    title: 'How Robots Work: Interactive 3D Explainers',
+    headTerm: 'how robots work',
+    description:
+      'How robots work, in interactive 3D explainers: guess first, then drag, push or tilt a robot model to see why, with a source for every number.',
+    queries: [],
+  },
   '/glossary/': {
     title: 'Glossary of Robotics and Robot Learning Terms',
     headTerm: 'glossary',

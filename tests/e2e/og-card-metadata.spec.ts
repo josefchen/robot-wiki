@@ -15,7 +15,7 @@ import { startStaticExportServer } from './static-export-server';
  * DOMAINS, and the standalone routes are named once. The article total
  * moves with every publish (42 -> 43 -> 47 -> 57 as of 2026-08-24), so no
  * literal sum is stated here; the completeness relation inside the spec
- * is ALL_ROUTES = ARTICLE_ROUTES + 7 domains + 10 standalone routes.
+ * is ALL_ROUTES = ARTICLE_ROUTES + 7 domains + 11 standalone routes.
  *
  * Crawler view: the exported .html read directly (the contract allows
  * this form), plus one no-JavaScript browser pass pinning that nothing
@@ -33,6 +33,7 @@ const NON_ARTICLE_ROUTES = [
   '/a-z/',
   '/market-map/',
   '/playground/',
+  '/how-robots-work/',
   '/glossary/',
   '/credits/',
   '/editorial-policy/',
@@ -104,7 +105,7 @@ test.describe('social card metadata (VAL-DIST-001, VAL-DIST-004)', () => {
     // publishes. Non-zero cardinality, then the completeness relations.
     expect(ARTICLE_ROUTES.length).toBeGreaterThan(0);
     expect(DOMAINS.length).toBe(7);
-    expect(ALL_ROUTES.length).toBe(ARTICLE_ROUTES.length + 7 + 10);
+    expect(ALL_ROUTES.length).toBe(ARTICLE_ROUTES.length + 7 + 11);
     expect(new Set(ALL_ROUTES).size).toBe(ALL_ROUTES.length);
   });
 

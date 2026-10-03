@@ -33,10 +33,14 @@ test.afterAll(async () => {
  */
 const SHELL = '[data-figure-frame], div.rounded-md.border, div.rounded-none.border';
 
-/** Opens every prediction-step reveal so a figure inside one renders text. */
+/**
+ * Opens every prediction-step reveal and every figure fold, so a figure
+ * inside a reveal, and a description inside a closed "How this was made"
+ * fold, render text.
+ */
 async function openReveals(page: Page) {
   await page.evaluate(() => {
-    document.querySelectorAll('details[data-reveal]').forEach((d) => {
+    document.querySelectorAll('details[data-reveal], details[data-figure-fold]').forEach((d) => {
       (d as HTMLDetailsElement).open = true;
     });
   });
@@ -195,7 +199,7 @@ const CHARTS: Array<{
     control: 'range',
     moves: ['30', '50'],
     def: '15',
-    match: 'latent rollout view',
+    match: 'Current imagined throw',
   },
   {
     route: '/world-models/jepa',
@@ -203,14 +207,14 @@ const CHARTS: Array<{
     control: 'range',
     moves: ['8', '48'],
     def: '24',
-    match: 'search budget of',
+    match: 'options tried each step',
   },
   {
     route: '/world-models/generative-video',
     name: 'action-conditioning',
     control: 'button',
-    moves: ['Weak conditioning', 'Strong conditioning'],
-    def: 'Strong conditioning',
+    moves: ['Ignores the action', 'Listens to the action'],
+    def: 'Listens to the action',
     match: 'action sensitivity',
   },
   {
@@ -225,10 +229,8 @@ const CHARTS: Array<{
     route: '/world-models/taxonomy',
     name: 'wm-disambiguator',
     control: 'button',
-    moves: [
-      'JEPA: predicts an embedding vector and a goal-distance meter, with an explicit no-decoder marker',
-    ],
-    def: 'Latent dynamics: predicts a latent vector, a reward scalar, and a fuzzy decoded reconstruction',
+    moves: ['Pictures'],
+    def: 'Summary',
     match: 'Dreamer-style',
   },
 ];
@@ -310,7 +312,7 @@ for (const chart of CHARTS) {
   test.describe(`${chart.name} state description (${chart.route})`, () => {
     test('SVG resolves a state-form dl that is richer than the name', async ({ page }) => {
       await page.goto(`${BASE}${chart.route}`);
-      if (chart.reveal) await openReveals(page);
+      await openReveals(page);
       const desc = chart.match
         ? page.locator('[data-chart-description]', { hasText: chart.match }).first()
         : page.locator('[data-chart-description]').first();
@@ -365,7 +367,7 @@ for (const chart of CHARTS) {
 
     test('state list and takeaway track the primary control', async ({ page }) => {
       await page.goto(`${BASE}${chart.route}`);
-      if (chart.reveal) await openReveals(page);
+      await openReveals(page);
       const desc = chart.match
         ? page.locator('[data-chart-description]', { hasText: chart.match }).first()
         : page.locator('[data-chart-description]').first();

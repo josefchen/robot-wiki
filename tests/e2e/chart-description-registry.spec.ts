@@ -91,10 +91,12 @@ async function collectRenderedDescriptions(
   for (const route of ROUTES) {
     const response = await page.goto(`${BASE}${route}`, { waitUntil: 'load' });
     expect(response?.status(), `${route} serves 200`).toBe(200);
-    // A figure wrapped by a prediction step sits in a closed reveal, whose
-    // content has no innerText until it opens. Opening it moves no control.
+    // A figure wrapped by a prediction step sits in a closed reveal, and a
+    // figure keeps its description in its closed "How this was made" fold;
+    // closed content has no innerText until it opens. Opening either moves
+    // no control.
     const texts = await page.evaluate(() => {
-      document.querySelectorAll('details[data-reveal]').forEach((d) => {
+      document.querySelectorAll('details[data-reveal], details[data-figure-fold]').forEach((d) => {
         (d as HTMLDetailsElement).open = true;
       });
       return Array.from(document.querySelectorAll('[data-chart-description]')).map((el) =>

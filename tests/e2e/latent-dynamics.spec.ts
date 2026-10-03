@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { setSlider } from './slider';
+import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
 
 const ROUTE = '/world-models/latent-dynamics/';
 
@@ -69,24 +70,24 @@ test.describe('world-models latent-dynamics module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
+    const figure = page.locator('[data-figure-frame="latent-imagination"]');
 
-    // Both chart and visible copy identify an illustrative toy, not a paper result.
-    await expect(page.getByText(/Illustrative toy, not measured model performance/)).toBeVisible();
-    await expect(page.getByRole('img', { name: /latent deviation versus/i }))
+    // The stage says it is an illustrative toy; the method fold's chart
+    // says its band is not a paper result.
+    await expect(figure.getByText(/Illustrative: a toy model, not measured on a real robot/)).toBeVisible();
+    await openHowThisWasMade(figure);
+    await expect(figure.getByRole('img', { name: /latent deviation versus/i }))
       .toHaveAttribute('aria-label', /illustrative, not a published reliability bound/);
-    // Default: Dreamer mode with decoded frames and a finite deviation.
-    await expect(
-      page.getByRole('button', { name: /with decoder/ }),
-    ).toHaveAttribute('aria-pressed', 'true');
-    await expect(page.getByTestId('decoded-frames')).toBeVisible();
+    // Default: the Dreamer view with its imagined pictures, and the
+    // insight on the first frame.
+    await expect(figure.getByTestId('decoded-frames')).toBeVisible();
+    await expect(figure.getByTestId('drift-note')).toContainText('already this far off');
     const initial = await deviationReadout(page);
 
     // Extending the horizon increases the deviation readout monotonically.
     // Relational reads poll: the readout is derived state, so the test
     // waits for it to reflect each slider value (quirk 9).
-    const horizon = page.getByRole('slider', {
-      name: /imagination horizon/i,
-    });
+    const horizon = figure.getByRole('slider', { name: /how far ahead to imagine/i });
     await setSlider(horizon, 30);
     await expect.poll(() => deviationReadout(page)).toBeGreaterThan(initial);
     const at30 = await deviationReadout(page);
@@ -96,39 +97,38 @@ test.describe('world-models latent-dynamics module', () => {
     expect(at30).toBeGreaterThan(initial);
     expect(at50).toBeGreaterThan(at30);
 
-    // Decoder-free mode: no image reconstruction, reward readout appears.
-    await page.getByRole('button', { name: /decoder-free/ }).click();
-    await expect(page.getByTestId('decoder-free-note')).toContainText(
-      /no image reconstruction/i,
-    );
-    await expect(page.getByTestId('decoded-frames')).toHaveCount(0);
+    // TD-MPC2: no pictures, and the reward error is reported instead.
+    const fold = await openAdjustMore(figure);
+    const decoderFree = fold.getByRole('button', { name: 'TD-MPC2 (no pictures)', exact: true });
+    await decoderFree.click();
+    await expect(decoderFree).toHaveAttribute('aria-pressed', 'true');
+    await expect(figure.getByTestId('decoder-free-note')).toContainText(/draws no pictures/i);
+    await expect(figure.getByTestId('decoded-frames')).toHaveCount(0);
     const reward = Number.parseFloat(
-      (await page.getByTestId('reward-error-readout').textContent()) ?? '',
+      (await figure.getByTestId('reward-error-readout').textContent()) ?? '',
     );
     expect(reward).toBeGreaterThan(0);
 
     // Reset restores the default state.
-    await page.getByRole('button', { name: 'Reset', exact: true }).click();
+    await fold.getByRole('button', { name: 'Reset', exact: true }).click();
     expect(await deviationReadout(page)).toBeCloseTo(initial, 3);
     await expect(
-      page.getByRole('button', { name: /with decoder/ }),
+      fold.getByRole('button', { name: 'Dreamer (draws pictures)', exact: true }),
     ).toHaveAttribute('aria-pressed', 'true');
-    await expect(
-      page.getByRole('slider', { name: /imagination horizon/i }),
-    ).toHaveValue('15');
+    await expect(horizon).toHaveValue('15');
   });
 
   test('interactive: keyboard path and error slider', async ({ page }) => {
     await page.goto(ROUTE, { waitUntil: 'networkidle' });
-    const horizon = page.getByRole('slider', {
-      name: /imagination horizon/i,
-    });
+    const figure = page.locator('[data-figure-frame="latent-imagination"]');
+    const horizon = figure.getByRole('slider', { name: /how far ahead to imagine/i });
     await horizon.focus();
     const before = await deviationReadout(page);
     await page.keyboard.press('ArrowRight');
     expect(await deviationReadout(page)).toBeGreaterThan(before);
+    await expect(figure.getByTestId('drift-note')).toContainText('16 steps ahead:');
 
-    const errorSlider = page.getByRole('slider', { name: /model error/i });
+    const errorSlider = figure.getByRole('slider', { name: /how accurate each step is/i });
     await setSlider(errorSlider, 6);
     const sloppy = await deviationReadout(page);
     await setSlider(errorSlider, 0.5);

@@ -10,6 +10,7 @@ import {
   TRACK_MAX_M,
   applyPush,
   displacementForForce,
+  formatCentimetres,
   formatCm,
   pushTestNote,
   setLayer,
@@ -48,6 +49,15 @@ describe('applyPush', () => {
     );
     expect(result.state.position).toBeCloseTo(result.displacement, 12);
     expect(result.state.effectivePushes).toBe(1);
+  });
+
+  it('produces no motion when the solver is off, even with the proxy on', () => {
+    const layers = setLayer(setLayer(INITIAL_LAYERS, 'physics', true), 'simulation', false);
+    const result = applyPush(INITIAL_MUG, layers, DEFAULT_FORCE_N);
+    expect(result.moved).toBe(false);
+    expect(result.state.position).toBe(0);
+    expect(result.state.attempts).toBe(1);
+    expect(result.state.effectivePushes).toBe(0);
   });
 
   it('accumulates displacement across effective pushes', () => {
@@ -110,11 +120,25 @@ describe('pushTestNote', () => {
     expect(`${note.title} ${note.body}`).toMatch(/collision/i);
     expect(note.body).toMatch(/friction/i);
   });
+
+  it('names the missing solver when the proxy is on and the solver off', () => {
+    const note = pushTestNote(setLayer(setLayer(INITIAL_LAYERS, 'physics', true), 'simulation', false));
+    expect(note.title).toBe('No solver');
+    expect(note.body).toMatch(/no integrator/i);
+  });
 });
 
 describe('formatCm', () => {
   it('formats meters as centimeters with one decimal', () => {
     expect(formatCm(0.1812)).toBe('18.1 cm');
     expect(formatCm(0)).toBe('0.0 cm');
+  });
+});
+
+describe('formatCentimetres', () => {
+  it('spells the unit and drops a whole number’s decimal', () => {
+    expect(formatCentimetres(displacementForForce(DEFAULT_FORCE_N))).toBe('18.1 centimetres');
+    expect(formatCentimetres(0)).toBe('0 centimetres');
+    expect(formatCentimetres(TRACK_MAX_M)).toBe('50 centimetres');
   });
 });

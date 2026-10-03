@@ -6,17 +6,16 @@ import {
   ControlField,
   ControlLabel,
   INSTRUMENT_SLIDER_CLASS,
-  INSTRUMENT_TOGGLE_CLASS,
   InstrumentFigure,
   InstrumentLegend,
-  InstrumentReadout,
   InstrumentReset,
   LegendItem,
   PlotStage,
+  PresetGroup,
+  SliderEnds,
 } from '@/components/ui/instrument';
-import { FigureStage } from '@/components/motion/figure-frame';
+import { FigureStage, StageStatus } from '@/components/motion/figure-frame';
 import {
-  Bar,
   ChartAxes,
   LegendSwatch,
   CHART_STROKE,
@@ -24,8 +23,10 @@ import {
   CHART_TYPE,
   CHART_UNCERTAINTY,
   CHART_VIEW_WIDTH,
+  StageAnnotation,
   linearScale,
   roleColour,
+  type ChartPoint,
 } from '@/components/motion/chart';
 import {
   MAX_HORIZON,
@@ -34,22 +35,16 @@ import {
   deviationAt,
   imagineDeviation,
   rewardPredictionError,
-  trueLatent,
 } from '@/lib/latent-imagination';
 
 /**
- * LatentImagination: an illustrative compounding-error toy.
- *
- * The recurrence deliberately amplifies off-state error. The rollout view,
- * the decoded frames, the deviation curve and the shaded 3-15 step band are
- * generated teaching examples, not measured model predictions, published
- * horizon bounds, or reliability estimates. The model-name toggles
- * illustrate reconstruction versus no reconstruction; the reward-error
- * readout is a chosen multiple of the toy latent deviation.
- *
- * Interactive contract: typed props, deterministic render, reset control,
- * native keyboard-accessible inputs, fixed chart geometry (no layout
- * shift). Scrub-driven only, no auto-playing or JS-driven motion, so it is
+ * LatentImagination: an illustrative compounding-error toy, drawn as a
+ * thrown ball. The dashed arc is the real flight; the solid arc is the
+ * flight the robot imagines one step at a time, which falls away from the
+ * real one by the toy deviation. The recurrence, the throw, the decoded
+ * pictures and the shaded 3-15 step band in the method chart are teaching
+ * choices, not measured model predictions, published horizon bounds or
+ * reliability estimates. Scrub-driven only, with no playback, so it is
  * reduced-motion safe by construction.
  */
 type ImaginationMode = 'decoder' | 'decoder-free';
@@ -66,44 +61,49 @@ const MIN_EPSILON_PERCENT = 0.5;
 const MAX_EPSILON_PERCENT = 6;
 
 const WIDTH = CHART_VIEW_WIDTH;
-const HEIGHT = 222;
-const PLOT_LEFT = 40;
-const PLOT_RIGHT = WIDTH - 18;
-const STEP_TICKS = [0, 10, 20, 30, 40, 50];
-const stepX = linearScale([0, MAX_HORIZON], [PLOT_LEFT, PLOT_RIGHT]);
+const HEIGHT = 200;
+const GROUND = 190;
+const BALL_R = 7;
+/** Release point and the real ball's position at the last step. */
+const X0 = 48;
+const X1 = 324;
+/** The real flight: ball-centre height above resting on the floor. */
+const RELEASE_H = 44;
+const PEAK_H = 116;
+const PEAK_AT = 0.6;
+const GRAVITY = (PEAK_H - RELEASE_H) / (PEAK_AT * PEAK_AT);
+const LAUNCH = 2 * GRAVITY * PEAK_AT;
+/** Stage drop below the real arc per unit of toy deviation. */
+const DROP_PER_UNIT = 80;
+const FLOOR_Y = GROUND - BALL_R;
+const NOTE = { left: 8, right: WIDTH - 8, y: 20 };
+/** Below this gap the imagined and real balls still overlap. */
+const VISIBLE_GAP = 6;
 
-/** Rollout view: the latent paths, the step axis, then the frame row. */
-const ROLLOUT = { top: 32, bottom: 100, axis: 112 };
-const FRAMES = { label: 150, top: 158, height: 38, width: 82, caption: 211 };
-const FRAME_GAP = (PLOT_RIGHT - PLOT_LEFT - 3 * FRAMES.width) / 2;
-const frameX = (index: number) => PLOT_LEFT + index * (FRAMES.width + FRAME_GAP);
-const FRAME_BLOCK = { width: 16, height: 13, inset: 12 };
-/** Decoded-object offset per unit of toy deviation, capped inside the frame. */
-const FRAME_SHIFT_PER_UNIT = 40;
-const FRAME_SHIFT_MAX = FRAMES.width - 2 * FRAME_BLOCK.inset - FRAME_BLOCK.width;
+const ballX = (t: number) => X0 + (t / MAX_HORIZON) * (X1 - X0);
+const realY = (t: number) => {
+  const s = t / MAX_HORIZON;
+  return FLOOR_Y - (RELEASE_H + LAUNCH * s - GRAVITY * s * s);
+};
+const imaginedY = (t: number, deviation: number) => Math.min(FLOOR_Y, realY(t) + DROP_PER_UNIT * deviation);
 
-const DEVIATION = { left: PLOT_LEFT, right: PLOT_RIGHT, top: 32, bottom: 168 };
+/** Method chart: deviation against steps imagined ahead. */
+const CHART_HEIGHT = 170;
+const PLOT = { left: 40, right: WIDTH - 18, top: 16, bottom: 116 };
+const STEP_TICKS = [0, 25, 50];
 const DEVIATION_TICKS = [0, 1, 2, 3];
-// Anchored to the worst case (max error, full horizon) so a longer horizon
-// grows the curve instead of rescaling it away.
-const DEVIATION_MAX =
-  deviationAt({ epsilon: MAX_EPSILON_PERCENT / 100, horizon: MAX_HORIZON }) * 1.05;
-const deviationY = linearScale([0, DEVIATION_MAX], [DEVIATION.bottom, DEVIATION.top]);
-/** Baseline of the axis-name row, matching the ChartAxes x label. */
-const AXIS_NAME_Y =
-  DEVIATION.bottom +
-  CHART_STROKE.tickLength +
-  CHART_TYPE.tickPx * (1 + CHART_TYPE.descent) +
-  CHART_TYPE.axisPx * CHART_TYPE.ascent +
-  CHART_STROKE.tickLength / 4;
+const stepX = linearScale([0, MAX_HORIZON], [PLOT.left, PLOT.right]);
+// Anchored to the worst case (largest error, full horizon) so a longer
+// horizon grows the curve instead of rescaling it away.
+const DEVIATION_MAX = deviationAt({ epsilon: MAX_EPSILON_PERCENT / 100, horizon: MAX_HORIZON }) * 1.05;
+const deviationY = linearScale([0, DEVIATION_MAX], [PLOT.bottom, PLOT.top]);
+const BAND_NOTE_Y =
+  PLOT.bottom + CHART_STROKE.tickLength + CHART_TYPE.tickPx * (1 + CHART_TYPE.descent) +
+  CHART_TYPE.axisPx * CHART_TYPE.ascent + CHART_STROKE.tickLength / 4 + CHART_TYPE.axisPx * 1.4;
 
-const TRUE_SERIES = Array.from({ length: MAX_HORIZON + 1 }, (_, t) => trueLatent(t));
-const TRUE_HIGH = Math.max(...TRUE_SERIES);
-
-const STRUCTURE = {
-  stroke: CHART_STRUCTURE.axes,
-  strokeWidth: CHART_STROKE.structure,
-  opacity: CHART_STRUCTURE.axesOpacity,
+const MODEL_LABEL: Record<ImaginationMode, string> = {
+  decoder: 'Dreamer (draws pictures)',
+  'decoder-free': 'TD-MPC2 (no pictures)',
 };
 
 function formatUnits(value: number): string {
@@ -112,108 +112,38 @@ function formatUnits(value: number): string {
   return value.toFixed(3);
 }
 
-function stepPath(values: readonly number[], y: (value: number) => number, first = 0): string {
-  return values
-    .map((value, i) => `${i === 0 ? 'M' : 'L'}${stepX(first + i).toFixed(2)} ${y(value).toFixed(2)}`)
-    .join(' ');
+const stepsWord = (steps: number) => (steps === 1 ? '1 step' : `${steps} steps`);
+
+function path(points: readonly ChartPoint[]): string {
+  return points.map(([x, y], i) => `${i === 0 ? 'M' : 'L'}${x.toFixed(2)} ${y.toFixed(2)}`).join(' ');
 }
 
-/**
- * The rollout view spans the true trajectory plus however far the imagined
- * path has fallen below it, so the peel reads at every horizon; the
- * deviation chart keeps the fixed scale for comparing magnitudes.
- */
-function rolloutGeometry(deviation: readonly number[], horizon: number) {
-  const imagined = deviation.map((d, t) => TRUE_SERIES[t] - d);
-  const low = Math.min(...TRUE_SERIES, ...imagined);
-  const y = linearScale([low, TRUE_HIGH], [ROLLOUT.bottom, ROLLOUT.top]);
-  return {
-    truePath: stepPath(TRUE_SERIES, y),
-    imaginedPath: stepPath(imagined, y),
-    tip: { x: stepX(horizon), y: y(imagined[horizon]) },
-  };
-}
-
-/** One decoded frame: the true block (dashed) and the decoded block, offset by the toy deviation. */
-function DecodedFrame({ index, step, deviation }: { index: number; step: number; deviation: number }) {
-  const x = frameX(index);
-  const table = FRAMES.top + FRAMES.height - 8;
-  const blockX = x + FRAME_BLOCK.inset;
-  const blockY = table - FRAME_BLOCK.height;
-  const shift = Math.min(FRAME_SHIFT_MAX, deviation * FRAME_SHIFT_PER_UNIT);
+/** The thrower: a base on the floor and a two-segment arm ending at the ball. */
+function RobotArm() {
+  const shoulder: ChartPoint = [22, GROUND - 7];
+  const elbow: ChartPoint = [17, GROUND - 30];
+  const hand: ChartPoint = [X0 - BALL_R - 2, realY(0) + 3];
   return (
-    <g>
-      <g data-scene-structure="frame">
-        <rect x={x} y={FRAMES.top} width={FRAMES.width} height={FRAMES.height} fill="none" {...STRUCTURE} />
-        <line x1={x + 6} x2={x + FRAMES.width - 6} y1={table} y2={table} {...STRUCTURE} />
-      </g>
-      <rect
-        data-series="true"
-        data-chart-role="reference"
-        x={blockX}
-        y={blockY}
-        width={FRAME_BLOCK.width}
-        height={FRAME_BLOCK.height}
-        fill="none"
-        stroke={roleColour('reference')}
-        strokeWidth={CHART_STROKE.reference}
-        strokeDasharray={CHART_STROKE.dash}
-      />
-      <rect
-        data-series="imagined"
-        data-chart-role="state"
-        x={blockX + shift}
-        y={blockY}
-        width={FRAME_BLOCK.width}
-        height={FRAME_BLOCK.height}
-        fill={roleColour('state')}
-        fillOpacity={CHART_UNCERTAINTY.fillAlpha}
-        stroke={roleColour('state')}
-        strokeWidth={CHART_STROKE.structure}
-      />
-      <text
-        data-scene-tick=""
-        x={x + FRAMES.width / 2}
-        y={FRAMES.caption}
-        textAnchor="middle"
-        fontSize={CHART_TYPE.tickPx}
-        fill={CHART_STRUCTURE.labelSecondary}
-      >
-        t = {step}
-      </text>
+    <g
+      data-scene-structure="robot-arm"
+      stroke={CHART_STRUCTURE.label}
+      strokeWidth={5}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+    >
+      <rect x={8} y={GROUND - 7} width={28} height={7} rx={2} fill={CHART_STRUCTURE.label} stroke="none" />
+      <path d={path([shoulder, elbow, hand])} />
+      <circle cx={elbow[0]} cy={elbow[1]} r={4} fill={CHART_STRUCTURE.label} stroke="none" />
     </g>
   );
 }
 
-/** Decoder-free row: the toy reward error at the same three steps, scaled to the largest. */
-function RewardErrorBars({ steps, values }: { steps: readonly number[]; values: readonly number[] }) {
-  const base = FRAMES.top + FRAMES.height;
-  const peak = Math.max(...values);
-  const height = linearScale([0, peak > 0 ? peak : 1], [0, FRAMES.height - 6]);
-  return (
-    <g data-testid="reward-error-bars">
-      <line data-scene-structure="baseline" x1={PLOT_LEFT} x2={PLOT_RIGHT} y1={base} y2={base} {...STRUCTURE} />
-      {steps.map((step, index) => {
-        const center = frameX(index) + FRAMES.width / 2;
-        const barHeight = height(values[index]);
-        return (
-          <g key={index} data-series="reward-error">
-            <Bar x={center - 12} y={base - barHeight} width={24} height={barHeight} role="value" />
-            <text
-              data-scene-tick=""
-              x={center}
-              y={FRAMES.caption}
-              textAnchor="middle"
-              fontSize={CHART_TYPE.tickPx}
-              fill={CHART_STRUCTURE.labelSecondary}
-            >
-              t = {step}: {formatUnits(values[index])}
-            </text>
-          </g>
-        );
-      })}
-    </g>
-  );
+/** The stage note: how far the imagined ball is from the real one. */
+function noteLines(horizon: number, gap: number, landed: boolean): readonly [string, string] {
+  if (gap < VISIBLE_GAP) return [`${stepsWord(horizon)} ahead:`, 'still close to the real flight'];
+  if (landed) return [`${stepsWord(horizon)} ahead: so far off,`, 'it has already hit the floor'];
+  return [`${stepsWord(horizon)} ahead:`, 'already this far off'];
 }
 
 export function LatentImagination({
@@ -221,28 +151,23 @@ export function LatentImagination({
   defaultEpsilon = 0.02,
   className,
 }: LatentImaginationProps) {
-  const descriptionId = `${useId()}-li-description`;
-  const rolloutDescriptionId = `${useId()}-li-rollout`;
+  const id = useId();
+  const descriptionId = `${id}-li-description`;
+  const rolloutDescriptionId = `${id}-li-rollout`;
+  const horizonId = `${id}-li-horizon`;
+  const epsilonId = `${id}-li-epsilon`;
   const [horizon, setHorizon] = useState(defaultHorizon);
   const [epsilonPercent, setEpsilonPercent] = useState(defaultEpsilon * 100);
   const [mode, setMode] = useState<ImaginationMode>('decoder');
 
   const epsilon = epsilonPercent / 100;
-  const fullDeviation = useMemo(
-    () => imagineDeviation({ epsilon, horizon: MAX_HORIZON }),
-    [epsilon],
-  );
-  const rollout = useMemo(
-    () => rolloutGeometry(fullDeviation.slice(0, horizon + 1), horizon),
-    [fullDeviation, horizon],
-  );
+  const fullDeviation = useMemo(() => imagineDeviation({ epsilon, horizon: MAX_HORIZON }), [epsilon]);
   const deviationNow = deviationAt({ epsilon, horizon });
   const rewardError = rewardPredictionError({ epsilon, horizon });
+  const errorWords = `${epsilonPercent.toFixed(1)}% off per step`;
 
   const sampleRows = useMemo(() => {
-    const steps = [...new Set([0, 10, 20, 30, 40, MAX_HORIZON, horizon])].sort(
-      (a, b) => a - b,
-    );
+    const steps = [...new Set([0, 10, 20, 30, 40, MAX_HORIZON, horizon])].sort((a, b) => a - b);
     return steps.map((t) => ({
       label: `${t}`,
       values: [
@@ -259,12 +184,11 @@ export function LatentImagination({
 
   const descriptionText = `In this deterministic toy, latent deviation grows from 0 at step 0 to ${formatUnits(deviationNow)} units at the current ${horizon}-step horizon under the ${epsilonPercent.toFixed(1)}% one-step-error input. The shaded band is illustrative, from ${TYPICAL_HORIZON[0]} to ${TYPICAL_HORIZON[1]} steps; it is not a published range, confidence interval, or reliability bound.`;
 
-  // Decoded frames (or reward errors) at quarter, half, and full horizon.
-  const frameSteps = [
-    Math.max(1, Math.round(horizon / 4)),
-    Math.max(1, Math.round(horizon / 2)),
-    horizon,
-  ];
+  // Pictures the decoder draws (or reward errors) at a quarter, half and the full horizon.
+  const sampleSteps = [...new Set([Math.max(1, Math.round(horizon / 4)), Math.max(1, Math.round(horizon / 2)), horizon])];
+  const ghostSteps = [Math.round(horizon / 4), Math.round(horizon / 2), Math.round((3 * horizon) / 4)]
+    .filter((t, i, all) => t >= 1 && t < horizon && all.indexOf(t) === i);
+  const rewardErrors = sampleSteps.map((t) => ({ t, value: REWARD_ERROR_GAIN * fullDeviation[t] }));
 
   function reset() {
     setHorizon(defaultHorizon);
@@ -273,177 +197,87 @@ export function LatentImagination({
   }
 
   const state = roleColour('state');
+  const reference = roleColour('reference');
   const highlight = roleColour('highlight');
-  const bandX = stepX(TYPICAL_HORIZON[0]);
-  const bandWidth = stepX(TYPICAL_HORIZON[1]) - bandX;
-  const playhead = { x: stepX(horizon), y: deviationY(deviationNow) };
+  const tipX = ballX(horizon);
+  const real: ChartPoint = [tipX, realY(horizon)];
+  const imagined: ChartPoint = [tipX, imaginedY(horizon, deviationNow)];
+  const gap = imagined[1] - real[1];
+  const landed = realY(horizon) + DROP_PER_UNIT * deviationNow > FLOOR_Y;
+  const rightSide = horizon > MAX_HORIZON / 2;
+  const bracketX = rightSide ? tipX - BALL_R - 6 : tipX + BALL_R + 6;
+  // The bracket's end ticks point back toward the two balls.
+  const tick = rightSide ? 3 : -3;
+  const bracketMid: ChartPoint = [bracketX, (real[1] + imagined[1]) / 2];
+  const lines = noteLines(horizon, gap, landed);
+  const noteX = rightSide ? NOTE.right : NOTE.left;
+  const realPath = path(Array.from({ length: MAX_HORIZON + 1 }, (_, t) => [ballX(t), realY(t)] as ChartPoint));
+  const imaginedPath = path(
+    fullDeviation.slice(0, horizon + 1).map((d, t) => [ballX(t), imaginedY(t, d)] as ChartPoint),
+  );
 
   const rolloutStage = (
     <PlotStage
       viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-      aria-label={`Imagined rollout in latent space over ${horizon} steps, peeling away from the true latent trajectory as one-step errors compound.`}
+      aria-label={`A robot arm throws a ball. The dashed arc is the real flight; the solid arc is the flight the robot imagines ${stepsWord(horizon)} ahead, at ${errorWords}.`}
       aria-describedby={rolloutDescriptionId}
     >
-      <text
-        data-scene-note=""
-        x={PLOT_LEFT}
-        y={19}
-        fontSize={CHART_TYPE.axisPx}
-        fill={CHART_STRUCTURE.labelSecondary}
-      >
-        latent rollout
-      </text>
-      <ChartAxes
-        plot={{ left: PLOT_LEFT, right: PLOT_RIGHT, top: ROLLOUT.top, bottom: ROLLOUT.axis }}
-        x={stepX}
-        y={(value) => value}
-        xTicks={STEP_TICKS}
-        grid={false}
-        yAxis={false}
-      />
-      <path
-        data-series="true"
-        data-chart-role="reference"
-        d={rollout.truePath}
-        fill="none"
-        stroke={roleColour('reference')}
-        strokeWidth={CHART_STROKE.reference}
-        strokeDasharray={CHART_STROKE.dash}
-      />
-      <path
-        data-series="imagined"
-        data-chart-role="state"
-        d={rollout.imaginedPath}
-        fill="none"
-        stroke={state}
-        strokeWidth={CHART_STROKE.trace}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <circle
-        data-series="imagined"
-        data-chart-role="state"
-        cx={rollout.tip.x}
-        cy={rollout.tip.y}
-        r={CHART_STROKE.markerRadius}
-        fill={state}
-      />
-      <circle
-        data-chart-mark="playhead"
-        data-chart-role="highlight"
-        cx={rollout.tip.x}
-        cy={rollout.tip.y}
-        r={CHART_STROKE.markerRadius + 2}
-        fill="none"
-        stroke={highlight}
-        strokeWidth={CHART_STROKE.trace}
-      />
-      <text
-        data-scene-note=""
-        x={PLOT_LEFT}
-        y={FRAMES.label}
-        fontSize={CHART_TYPE.axisPx}
-        fill={CHART_STRUCTURE.labelSecondary}
-      >
-        {mode === 'decoder' ? 'decoded frames' : 'reward prediction error'}
-      </text>
+      <line data-scene-structure="floor" x1={6} x2={WIDTH - 6} y1={GROUND} y2={GROUND} stroke={CHART_STRUCTURE.axes} strokeOpacity={CHART_STRUCTURE.axesOpacity} strokeWidth={CHART_STROKE.structure * 2} />
+      <RobotArm />
+      <path data-series="true" data-chart-role="reference" d={realPath} fill="none" stroke={reference} strokeWidth={CHART_STROKE.reference} strokeDasharray={CHART_STROKE.dash} />
+      <path data-testid="imagined-path" data-series="imagined" data-chart-role="state" d={imaginedPath} fill="none" stroke={state} strokeWidth={CHART_STROKE.trace} strokeLinecap="round" strokeLinejoin="round" />
       {mode === 'decoder' ? (
         <g data-testid="decoded-frames">
-          {frameSteps.map((step, index) => (
-            <DecodedFrame key={index} index={index} step={step} deviation={fullDeviation[step]} />
+          {ghostSteps.map((t) => (
+            <circle key={t} data-series="imagined-picture" data-chart-role="state" cx={ballX(t)} cy={imaginedY(t, fullDeviation[t])} r={BALL_R} fill={state} fillOpacity={CHART_UNCERTAINTY.fillAlpha} />
           ))}
         </g>
-      ) : (
-        <RewardErrorBars
-          steps={frameSteps}
-          values={frameSteps.map((step) => REWARD_ERROR_GAIN * fullDeviation[step])}
+      ) : null}
+      <circle data-testid="real-ball" data-series="true" data-chart-role="reference" cx={real[0]} cy={real[1]} r={BALL_R} fill="none" stroke={reference} strokeWidth={CHART_STROKE.reference} strokeDasharray="3 2" />
+      <circle data-testid="imagined-ball" data-series="imagined" data-chart-role="state" cx={imagined[0]} cy={imagined[1]} r={BALL_R} fill={state} />
+      {gap >= VISIBLE_GAP ? (
+        <path
+          data-testid="drift-bracket"
+          data-chart-mark="playhead"
+          data-chart-role="highlight"
+          d={`M${bracketX + tick} ${real[1]}H${bracketX}V${imagined[1]}H${bracketX + tick}`}
+          fill="none"
+          stroke={highlight}
+          strokeWidth={CHART_STROKE.trace}
+          strokeLinejoin="round"
         />
-      )}
+      ) : null}
+      <g data-testid="drift-note">
+        <StageAnnotation
+          x={noteX}
+          y={NOTE.y}
+          anchor={rightSide ? 'end' : 'start'}
+          lines={lines}
+          from={[noteX + (rightSide ? -2 : 2), NOTE.y + CHART_TYPE.labelPx * 1.25 + 6]}
+          target={gap >= VISIBLE_GAP ? bracketMid : undefined}
+        />
+      </g>
     </PlotStage>
   );
 
+  const bandX = stepX(TYPICAL_HORIZON[0]);
+  const bandWidth = stepX(TYPICAL_HORIZON[1]) - bandX;
   const deviationStage = (
     <PlotStage
-      viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
+      viewBox={`0 0 ${WIDTH} ${CHART_HEIGHT}`}
       aria-label={`Latent deviation versus imagination step in a deterministic toy. Deviation reaches ${formatUnits(deviationNow)} units at step ${horizon}. The shaded 3 to 15 step band is illustrative, not a published reliability bound.`}
       aria-describedby={descriptionId}
     >
-      <rect
-        data-testid="typical-range-band"
-        data-series="typical-range"
-        data-chart-role="reference"
-        x={bandX}
-        y={DEVIATION.top}
-        width={bandWidth}
-        height={DEVIATION.bottom - DEVIATION.top}
-        fill={roleColour('reference')}
-        fillOpacity={CHART_UNCERTAINTY.fillAlpha}
-        stroke="none"
-      />
-      {TYPICAL_HORIZON.map((step) => (
-        <line
-          key={step}
-          data-series="typical-range"
-          data-chart-role="reference"
-          x1={stepX(step)}
-          x2={stepX(step)}
-          y1={DEVIATION.top}
-          y2={DEVIATION.bottom}
-          stroke={roleColour('reference')}
-          strokeWidth={CHART_STROKE.reference}
-          strokeDasharray={CHART_STROKE.dash}
-        />
-      ))}
-      <ChartAxes
-        plot={DEVIATION}
-        x={stepX}
-        y={deviationY}
-        xTicks={STEP_TICKS}
-        yTicks={DEVIATION_TICKS}
-        xLabel="imagination step"
-        yLabel="latent deviation"
-      />
-      <text
-        data-scene-axis=""
-        x={bandX}
-        y={AXIS_NAME_Y}
-        fontSize={CHART_TYPE.axisPx}
-        fill={CHART_STRUCTURE.labelSecondary}
-      >
-        illustrative {TYPICAL_HORIZON[0]}–{TYPICAL_HORIZON[1]} steps
+      <rect data-testid="typical-range-band" data-series="typical-range" data-chart-role="reference" x={bandX} y={PLOT.top} width={bandWidth} height={PLOT.bottom - PLOT.top} fill={reference} fillOpacity={CHART_UNCERTAINTY.fillAlpha} stroke="none" />
+      <ChartAxes plot={PLOT} x={stepX} y={deviationY} xTicks={STEP_TICKS} yTicks={DEVIATION_TICKS} xLabel="steps imagined ahead" yLabel="how far off" />
+      <text data-scene-axis="" x={bandX} y={BAND_NOTE_Y} fontSize={CHART_TYPE.axisPx} fill={CHART_STRUCTURE.labelSecondary}>
+        shaded: an illustrative {TYPICAL_HORIZON[0]} to {TYPICAL_HORIZON[1]} steps
       </text>
-      <path
-        data-testid="deviation-curve"
-        data-series="deviation"
-        data-chart-role="state"
-        d={stepPath(fullDeviation.slice(0, horizon + 1), deviationY)}
-        fill="none"
-        stroke={state}
-        strokeWidth={CHART_STROKE.trace}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+      <path data-testid="deviation-curve" data-series="deviation" data-chart-role="state" d={path(fullDeviation.slice(0, horizon + 1).map((d, t) => [stepX(t), deviationY(d)] as ChartPoint))} fill="none" stroke={state} strokeWidth={CHART_STROKE.trace} strokeLinecap="round" strokeLinejoin="round" />
       {horizon < MAX_HORIZON ? (
-        <path
-          data-series="deviation"
-          data-chart-role="state"
-          d={stepPath(fullDeviation.slice(horizon), deviationY, horizon)}
-          fill="none"
-          stroke={state}
-          strokeWidth={CHART_STROKE.reference}
-          strokeDasharray={CHART_STROKE.dash}
-        />
+        <path data-series="deviation" data-chart-role="state" d={path(fullDeviation.slice(horizon).map((d, i) => [stepX(horizon + i), deviationY(d)] as ChartPoint))} fill="none" stroke={state} strokeWidth={CHART_STROKE.reference} strokeDasharray={CHART_STROKE.dash} />
       ) : null}
-      <circle
-        data-chart-mark="playhead"
-        data-chart-role="highlight"
-        cx={playhead.x}
-        cy={playhead.y}
-        r={CHART_STROKE.markerRadius + 2}
-        fill="none"
-        stroke={highlight}
-        strokeWidth={CHART_STROKE.trace}
-      />
+      <circle data-chart-mark="playhead" data-chart-role="highlight" cx={stepX(horizon)} cy={deviationY(deviationNow)} r={CHART_STROKE.markerRadius + 2} fill="none" stroke={highlight} strokeWidth={CHART_STROKE.trace} />
     </PlotStage>
   );
 
@@ -451,15 +285,16 @@ export function LatentImagination({
     <InstrumentFigure
       figureId="latent-imagination"
       className={className}
-      heading="Compounding error in imagination"
+      kicker="Planning in imagination"
+      heading="Imagine further ahead and small mistakes snowball"
       controls={
         <>
           <ControlField>
-            <ControlLabel htmlFor="li-horizon" value={`${horizon} steps`}>
-              Horizon
+            <ControlLabel htmlFor={horizonId} value={stepsWord(horizon)}>
+              How far ahead to imagine
             </ControlLabel>
             <input
-              id="li-horizon"
+              id={horizonId}
               type="range"
               data-brand-control-id="control:input"
               min={1}
@@ -467,16 +302,18 @@ export function LatentImagination({
               step={1}
               value={horizon}
               onChange={(e) => setHorizon(Number(e.target.value))}
-              aria-label={`Imagination horizon in steps, currently ${horizon}`}
+              aria-label={`How far ahead to imagine, currently ${stepsWord(horizon)}`}
+              aria-valuetext={stepsWord(horizon)}
               className={INSTRUMENT_SLIDER_CLASS}
             />
+            <SliderEnds low="a few steps" high="many steps" />
           </ControlField>
           <ControlField>
-            <ControlLabel htmlFor="li-epsilon" value={`${epsilonPercent.toFixed(1)}%`}>
-              One-step error
+            <ControlLabel htmlFor={epsilonId} value={errorWords}>
+              How accurate each step is
             </ControlLabel>
             <input
-              id="li-epsilon"
+              id={epsilonId}
               type="range"
               data-brand-control-id="control:input"
               min={MIN_EPSILON_PERCENT}
@@ -484,30 +321,46 @@ export function LatentImagination({
               step={0.5}
               value={epsilonPercent}
               onChange={(e) => setEpsilonPercent(Number(e.target.value))}
-              aria-label={`One-step model error in percent, currently ${epsilonPercent.toFixed(1)}`}
+              aria-label={`How accurate each step is, currently ${errorWords}`}
+              aria-valuetext={errorWords}
               className={INSTRUMENT_SLIDER_CLASS}
             />
+            <SliderEnds low="sharp" high="sloppy" />
           </ControlField>
-          <div role="group" aria-label="Model type" className="flex flex-wrap gap-2">
-            <button
-              data-brand-control-id="control:selection"
-              type="button"
-              aria-pressed={mode === 'decoder'}
-              onClick={() => setMode('decoder')}
-              className={INSTRUMENT_TOGGLE_CLASS}
-            >
-              Dreamer: with decoder
-            </button>
-            <button
-              data-brand-control-id="control:selection"
-              type="button"
-              aria-pressed={mode === 'decoder-free'}
-              onClick={() => setMode('decoder-free')}
-              className={INSTRUMENT_TOGGLE_CLASS}
-            >
-              TD-MPC2: decoder-free
-            </button>
-          </div>
+        </>
+      }
+      adjust={
+        <>
+          <PresetGroup<ImaginationMode>
+            label="Which model?"
+            presets={[
+              { id: 'decoder', label: MODEL_LABEL.decoder },
+              { id: 'decoder-free', label: MODEL_LABEL['decoder-free'] },
+            ]}
+            value={mode}
+            onChange={setMode}
+            testId="model"
+          />
+          {mode === 'decoder-free' ? (
+            <p data-testid="decoder-free-note" className="font-sans text-sm leading-snug text-text-dim">
+              TD-MPC2 draws no pictures, so the faint balls are gone. Its drift shows up instead as error
+              in the reward it predicts, a fixed multiple of the toy deviation:{' '}
+              <span data-testid="reward-error-bars">
+                {rewardErrors.map(({ t, value }, i) => (
+                  <span key={t}>
+                    {i === 0 ? '' : i === rewardErrors.length - 1 ? ' and ' : ', '}
+                    {t === horizon ? (
+                      <span data-testid="reward-error-readout">{formatUnits(rewardError)}</span>
+                    ) : (
+                      formatUnits(value)
+                    )}{' '}
+                    at step {t}
+                  </span>
+                ))}
+              </span>
+              .
+            </p>
+          ) : null}
           <InstrumentReset onClick={reset} />
         </>
       }
@@ -516,76 +369,79 @@ export function LatentImagination({
           footer={
             <>
               <InstrumentLegend>
-                <LegendItem series="imagined" swatch={<LegendSwatch role="state" mark="line" />}>
-                  imagined
-                </LegendItem>
                 <LegendItem series="true" swatch={<LegendSwatch role="reference" mark="dash" />}>
-                  true
+                  real flight
                 </LegendItem>
-                <LegendItem swatch={<LegendSwatch role="highlight" mark="dot" />}>
-                  current horizon
+                <LegendItem series="imagined" swatch={<LegendSwatch role="state" mark="line" />}>
+                  what the robot imagines
                 </LegendItem>
               </InstrumentLegend>
-              <InstrumentReadout>
-                latent deviation Δ({horizon}) ={' '}
-                <span data-testid="deviation-readout" style={{ color: state }}>
-                  {formatUnits(deviationNow)}
-                </span>{' '}
-                units at one-step error {epsilonPercent.toFixed(1)}%
-                {mode === 'decoder-free' ? (
-                  <>
-                    , reward prediction error ={' '}
-                    <span data-testid="reward-error-readout" style={{ color: roleColour('value') }}>
-                      {formatUnits(rewardError)}
-                    </span>
-                  </>
-                ) : null}
-              </InstrumentReadout>
-              {mode === 'decoder-free' ? (
-                <div
-                  data-testid="decoder-free-note"
-                  className="basis-full font-sans text-[13px] leading-snug text-text-dim"
-                >
-                  No image reconstruction in this mode. The reward-error readout is a fixed
-                  multiple of the toy latent deviation.
-                </div>
-              ) : null}
-              <ChartDescription
-                id={rolloutDescriptionId}
-                form="state"
-                summary="Current imagined rollout"
-                description={`In this deterministic toy latent rollout view the solid imagined path leaves the dashed true trajectory after the first few steps and has accumulated ${formatUnits(deviationNow)} units of toy deviation at t = ${horizon} of ${MAX_HORIZON}; that peel illustrates the assumed error recurrence, not measured model drift or a second plot of the same deviation series.`}
-                states={[
-                  { label: 'horizon', value: `${horizon} steps` },
-                  { label: 'one-step error', value: `${epsilonPercent.toFixed(1)}%` },
-                  { label: 'endpoint deviation', value: formatUnits(deviationNow) },
-                  { label: 'mode', value: mode === 'decoder' ? 'with decoder' : 'decoder-free' },
-                ]}
-              />
-              <ChartDescription
-                id={descriptionId}
-                form="table"
-                summary="Sampled latent deviation by imagination step"
-                rowHeader="step"
-                columns={[
-                  { header: 'deviation', numeric: true },
-                  { header: 'range', numeric: false },
-                  { header: 'playhead', numeric: false },
-                ]}
-                rows={sampleRows}
-                description={descriptionText}
-              />
+              <StageStatus>Illustrative: a toy model, not measured on a real robot.</StageStatus>
             </>
           }
         >
-          <div className="grid @min-[640px]:grid-cols-2">
-            <div className="@container">{rolloutStage}</div>
-            <div className="@container">{deviationStage}</div>
-          </div>
+          {rolloutStage}
         </FigureStage>
       }
-      caption="Each imagined step adds error, so the rollout drifts further from the true latent as the horizon grows."
-      source="Illustrative toy, not measured model performance. The 3 to 15 step band, error inputs and frames are teaching choices."
+      caption="Robots plan by imagining the future; each imagined step builds on the last, so short look-aheads stay close and long ones drift."
+      method={
+        <>
+          <p>
+            The robot plans a throw by imagining the ball&rsquo;s flight one step at a time, and each
+            imagined step starts from the last imagined one, not from the real ball. A small error in
+            one step is carried into every later step and grows. The dashed arc is the real flight; the
+            solid arc is the imagined one, drawn as far ahead as the first slider says.
+          </p>
+          <p>
+            The drift is a toy recurrence, not a measured model: each step adds the one-step error,
+            scaled up by how far the imagined state has already drifted, d(t) = d(t &minus; 1) + e
+            &times; (1 + 0.02 &times; d(t &minus; 1)). At {epsilonPercent.toFixed(1)}% error per step
+            and {stepsWord(horizon)} it reaches{' '}
+            <span data-testid="deviation-readout">{formatUnits(deviationNow)}</span> units of toy
+            latent deviation. The picture draws each unit as the same drop below the real arc and stops
+            the imagined ball at the floor; the number keeps growing.
+          </p>
+          <p>
+            Dreamer learns with a decoder that turns imagined states back into pictures, drawn here as
+            the faint balls. TD-MPC2 has no decoder: it never draws a picture, and its drift shows up as
+            error in the reward it predicts (&ldquo;Adjust more&rdquo; switches between the two). TD-MPC
+            and TD-MPC2 are also trained to keep imagined and encoded states consistent, so a single
+            toy number is not a complete account of either training loss.
+          </p>
+          <p>
+            In the chart below, the shaded band from {TYPICAL_HORIZON[0]} to {TYPICAL_HORIZON[1]} steps
+            is a teaching choice, not a published range, a confidence interval or a reliability bound;
+            the article discusses the horizons the papers use.
+          </p>
+          {deviationStage}
+          <ChartDescription
+            id={descriptionId}
+            form="table"
+            summary="Sampled latent deviation by imagination step"
+            rowHeader="step"
+            columns={[
+              { header: 'deviation', numeric: true },
+              { header: 'range', numeric: false },
+              { header: 'playhead', numeric: false },
+            ]}
+            rows={sampleRows}
+            description={descriptionText}
+          />
+          <ChartDescription
+            id={rolloutDescriptionId}
+            form="state"
+            open
+            summary="Current imagined throw"
+            description={`In this toy, the ball the robot imagines ${stepsWord(horizon)} ahead, at ${errorWords}, is ${formatUnits(deviationNow)} units of toy deviation off the real flight; each imagined step starts from the last imagined one, so the gap grows with every step of the ${MAX_HORIZON}-step range.`}
+            states={[
+              { label: 'how far ahead', value: stepsWord(horizon) },
+              { label: 'error per step', value: `${epsilonPercent.toFixed(1)}%` },
+              { label: 'how far off', value: formatUnits(deviationNow) },
+              { label: 'model', value: MODEL_LABEL[mode] },
+            ]}
+          />
+        </>
+      }
     />
   );
 }

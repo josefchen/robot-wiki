@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "8b54d8eb42a8582bba264c804d99fd723bbf026625754c6849c40770e643157d",
+  "fingerprint": "288b47acfbbce1bfc3bed8d63f786bfba88fdbaafcb0af472551a4e6de835ba4",
   "route": "/",
   "viewport": "1440x900",
   "featured": {
@@ -11,8 +11,8 @@
     "frameAriaLabel": "Motion scene: The last stretch of episode reliability",
     "describedByText": "The last stretch of episode reliability. Beat 1: At 95% success per decision, this thirty-decision toy episode succeeds about 21.5% of the time. Beat 2: Raising conditional success from 95% to 99% changes the thirty-step outcome from 21.5% to 74.0%. Beat 3: At 99.9% per decision, the same model gives 97.0% for thirty steps. Beat 4: The same horizon exposes the last stretch.",
     "graphicTag": "svg",
-    "graphicTopPx": 1177,
-    "graphicHeightPx": 688,
+    "graphicTopPx": 1196,
+    "graphicHeightPx": 689,
     "posterMarkCount": 3,
     "playerMountedAtFirstPaint": false,
     "posterControls": [
@@ -25,7 +25,7 @@
     "posterReadout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
     "posterCaption": "The same horizon exposes the last stretch.",
     "idleFrameRequests": 0,
-    "playingFrameRequests": 51,
+    "playingFrameRequests": 49,
     "focusOutlineWidthPx": 2,
     "focusOutlineStyle": "solid",
     "focusOutlineColour": "rgb(36, 95, 255)",
@@ -78,8 +78,8 @@
     "frameAriaLabel": "Motion scene: The last stretch of episode reliability",
     "describedByText": "The last stretch of episode reliability. Beat 1: At 95% success per decision, this thirty-decision toy episode succeeds about 21.5% of the time. Beat 2: Raising conditional success from 95% to 99% changes the thirty-step outcome from 21.5% to 74.0%. Beat 3: At 99.9% per decision, the same model gives 97.0% for thirty steps. Beat 4: The same horizon exposes the last stretch.",
     "graphicTag": "svg",
-    "graphicTopPx": 1177,
-    "graphicHeightPx": 688,
+    "graphicTopPx": 1196,
+    "graphicHeightPx": 689,
     "posterMarkCount": 3,
     "playerMountedAtFirstPaint": false,
     "posterControls": [
@@ -92,7 +92,7 @@
     "posterReadout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
     "posterCaption": "The same horizon exposes the last stretch.",
     "idleFrameRequests": 0,
-    "playingFrameRequests": 50,
+    "playingFrameRequests": 49,
     "focusOutlineWidthPx": 2,
     "focusOutlineStyle": "solid",
     "focusOutlineColour": "rgb(36, 95, 255)",
@@ -141,18 +141,23 @@
       {
         "text": "Playground",
         "path": "/playground/",
-        "topPx": 2566
+        "topPx": 2595
+      },
+      {
+        "text": "How robots work",
+        "path": "/how-robots-work/",
+        "topPx": 2595
       },
       {
         "text": "Market Map",
         "path": "/market-map/",
-        "topPx": 2566
+        "topPx": 2595
       }
     ],
     "graphics": [],
     "renderedNumbers": [],
     "boxedDescendants": 0,
-    "text": "ToolsPlayground Market Map"
+    "text": "ToolsPlayground How robots work Market Map"
   },
   "responsive": [
     {
@@ -1445,6 +1450,42 @@
     {
       "routeId": "route:/glossary/",
       "route": "/glossary/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/how-robots-work/",
+      "route": "/how-robots-work/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/how-robots-work/",
+      "route": "/how-robots-work/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/how-robots-work/",
+      "route": "/how-robots-work/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/how-robots-work/",
+      "route": "/how-robots-work/",
       "viewportId": "1440px",
       "width": 1440,
       "documentScrollWidthPx": 1440,
@@ -2830,7 +2871,7 @@
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "failures": [],
-      "measuredMembers": 82
+      "measuredMembers": 83
     },
     {
       "id": "profile:home-forced-colours",
@@ -2841,7 +2882,7 @@
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "failures": [],
-      "measuredMembers": 90
+      "measuredMembers": 91
     },
     {
       "id": "profile:home-reflow-320x800",
@@ -2852,7 +2893,7 @@
       "documentScrollWidthPx": 320,
       "documentClientWidthPx": 320,
       "failures": [],
-      "measuredMembers": 283
+      "measuredMembers": 285
     },
     {
       "id": "profile:home-zoom-200-equivalent",
@@ -2863,7 +2904,7 @@
       "documentScrollWidthPx": 720,
       "documentClientWidthPx": 720,
       "failures": [],
-      "measuredMembers": 283
+      "measuredMembers": 285
     },
     {
       "id": "profile:home-text-200",
@@ -2874,7 +2915,7 @@
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "failures": [],
-      "measuredMembers": 153
+      "measuredMembers": 155
     }
   ],
   "progressCounters": [
@@ -3050,7 +3091,7 @@
         "family": "IBM Plex Sans"
       }
     ],
-    "borderedBoxCount": 2,
+    "borderedBoxCount": 1,
     "chartDisclosureSummaries": [
       {
         "text": "Adjust more",

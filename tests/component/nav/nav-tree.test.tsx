@@ -59,6 +59,9 @@ describe('NavTree', () => {
     expect(
       within(nav).getByRole('link', { name: 'Playground' }),
     ).toHaveAttribute('href', '/playground');
+    expect(
+      within(nav).getByRole('link', { name: 'How robots work' }),
+    ).toHaveAttribute('href', '/how-robots-work');
   });
 
   it('starts with every group collapsed on the home page', () => {

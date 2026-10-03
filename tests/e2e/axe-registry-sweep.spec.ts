@@ -43,6 +43,7 @@ const ROUTES: string[] = [
   ...DOMAINS.map((d) => `/${d}/`),
   '/market-map/',
   '/playground/',
+  '/how-robots-work/',
   '/search/',
   '/glossary/',
   '/credits/',

@@ -28,28 +28,31 @@ the language fixes three things once:
 
 ## Surfaces
 
-Animated scenes render on the bounded dark instrument surface, inside the
-existing instrument frame: header, stage, caption, legend, readout. The
-graphite stage is the chalkboard. Static charts and tables stay on the light
-explanatory frame. Both surfaces use the same colour roles through their
-stage and light variants.
+Scenes, charts and tools draw on the page itself, inside the shared figure
+frame: header, stage, caption, legend, readout. The stage is the paper
+ground between one hairline rule above the frame and one below, with no
+fill, shadow or plate (owner decision of 2026-10-02, "figures belong to the
+page"). The retired graphite stage is not used anywhere, including the home
+featured scene. The motion keeps the chalkboard feel: smooth easing, staged
+reveals and morphs.
 
 ## Colour roles
 
-Every role names a meaning, not a decoration. Contrast is measured against
-the graphite stage and against white; the closest pair under colour-blindness
-simulation stays separable, and every role also has a non-colour encoding so
-the mapping survives desaturation and forced colours.
+Every role names a meaning, not a decoration. Each stage colour keeps its
+hue and is darkened to at least 4.5:1 against paper; the closest pair under
+colour-blindness simulation stays separable, and every role also has a
+non-colour encoding so the mapping survives desaturation and forced colours.
+A figure uses one focus colour plus greys.
 
-| Role | Means | Stage | Light text | Light graphic | Encoding |
-| --- | --- | --- | --- | --- | --- |
-| state | estimate, belief, position, the main object | `#58C4DD` (6.9:1) | `#00829A` | `#2EA1B9` | solid 2 px stroke |
-| measurement | observation, sensor reading, data point | `#E8C11C` (8.1:1) | `#956F00` | `#B69000` | cross or dot markers |
-| action | policy output, control input, command | `#B189C6` (4.9:1) | `#8D67A1` | `#AE86C3` | arrows, arrowheads |
-| value | reward, return, value, cost, score | `#A6CF8C` (8.0:1) | `#5B8141` | `#789F5F` | filled bars or areas |
-| constraint | obstacle, collision, error, limit, failure | `#FC6255` (4.7:1) | `#D63E35` | `#FA6053` | 45° hatch fill |
-| reference | ground truth, target, baseline | `#D9DADB` (10.0:1) | `#767778` | `#949595` | dashed 1.5 px |
-| highlight | Indicate, selection, the thing to look at now | `#C6FF19` (11.8:1) | `#548200` | lime underlay behind ink | underlay or halo |
+| Role | Means | Stage on paper | Encoding |
+| --- | --- | --- | --- |
+| state | estimate, belief, position, the main object | `#007A91` (4.6:1) | solid 2 px stroke |
+| measurement | observation, sensor reading, data point | `#8E6A00` (4.6:1) | cross or dot markers |
+| action | policy output, control input, command | `#866299` (4.6:1) | arrows, arrowheads |
+| value | reward, return, value, cost, score | `#56793D` (4.6:1) | filled bars or areas |
+| constraint | obstacle, collision, error, limit, failure | `#CB3B32` (4.6:1) | 45° hatch fill |
+| reference | ground truth, target, baseline | `#6E6F70` (4.6:1) | dashed 1.5 px |
+| highlight | Indicate, selection, the thing to look at now | `#507C00` (4.6:1) | dark-green note and leader line; a lime halo marks at most one point, never a control fill |
 
 Three structural rules complete the picture:
 

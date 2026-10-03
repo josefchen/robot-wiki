@@ -1,6 +1,7 @@
 import { expect, test } from './servo-apollo-fixture';
 import AxeBuilder from '@axe-core/playwright';
 import { setSlider } from './slider';
+import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { CITATIONS } from '../../data/citations';
 import { GLOSSARY } from '../../data/glossary';
@@ -27,6 +28,8 @@ test('industrial closure paired cases and complete reader surfaces', async ({ pa
   expect((await page.goto(ROUTE))?.status()).toBe(200);
   await page.evaluate(() => document.fonts.ready);
   const mount = calculator(page);
+  await openAdjustMore(mount);
+  await openHowThisWasMade(mount);
   const success = mount.getByRole('slider', { name: /per-pick success/i });
   const jam = mount.getByRole('slider', { name: /jam-clearing time/i });
   const observations: unknown[] = [];

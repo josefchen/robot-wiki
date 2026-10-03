@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
 
 const ROUTE = '/world-models/generative-sim/';
 
@@ -127,38 +128,35 @@ test.describe('world-models generative-sim module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
+    const figure = page.locator('[data-figure-frame="appearance-physics-push"]');
+    const pictureOnly = figure.getByRole('button', { name: 'Picture only', exact: true });
+    const withPhysics = figure.getByRole('button', { name: 'Picture plus physics', exact: true });
 
-    // Default stack: appearance and simulation on, physics proxy off.
-    await expect(
-      page.getByRole('button', { name: /^appearance$/i }),
-    ).toHaveAttribute('aria-pressed', 'true');
-    await expect(
-      page.getByRole('button', { name: /^physics proxy$/i }),
-    ).toHaveAttribute('aria-pressed', 'false');
-    await expect(
-      page.getByRole('button', { name: /^simulation$/i }),
-    ).toHaveAttribute('aria-pressed', 'true');
-    await expect(page.getByTestId('no-dynamics-marker')).toBeVisible();
+    // The figure opens on the picture alone, already saying why it stays put.
+    await expect(pictureOnly).toHaveAttribute('aria-pressed', 'true');
+    await expect(withPhysics).toHaveAttribute('aria-pressed', 'false');
+    await expect(figure.getByTestId('push-note')).toContainText('only a picture');
+    await expect(figure.getByTestId('displacement-readout')).toHaveText('0 centimetres');
 
-    // Push with only the appearance layer: nothing moves.
-    const push = page.getByRole('button', { name: /push the mug/i });
+    // Push the picture: nothing moves.
+    const push = figure.getByRole('button', { name: /push the mug/i });
+    await expect(push).toBeVisible();
     await push.click();
     expect(await displacementCm(page)).toBe(0);
     await expect(page.getByTestId('mug')).toHaveAttribute(
       'transform',
       'translate(80 0)',
     );
+    await openHowThisWasMade(figure);
     await expect(page.getByTestId('push-test-note')).toContainText(
       /renderer is not a simulator/i,
     );
-    await expect(page.getByTestId('push-count-readout')).toHaveText('0');
 
-    // Enable the physics proxy: the same push produces motion.
-    await page.getByRole('button', { name: /^physics proxy$/i }).click();
-    await push.click();
+    // Add the physics: the same push now slides the mug.
+    await withPhysics.click();
     const afterOne = await displacementCm(page);
     expect(afterOne).toBeGreaterThan(10);
-    await expect(page.getByTestId('push-count-readout')).toHaveText('1');
+    await expect(withPhysics).toHaveAttribute('aria-pressed', 'true');
     await expect(page.getByTestId('collision-hull')).toBeVisible();
     await expect(page.getByTestId('motion-ghost').first()).toBeVisible();
     await expect(page.getByTestId('push-test-note')).toContainText(
@@ -169,11 +167,13 @@ test.describe('world-models generative-sim module', () => {
     await push.click();
     expect(await displacementCm(page)).toBeGreaterThan(afterOne);
 
-    // Reset restores the initial state.
-    await page.getByRole('button', { name: 'Reset', exact: true }).click();
+    // Reset, under "Adjust more", restores the initial state.
+    await openAdjustMore(figure);
+    await figure.getByRole('button', { name: 'Reset', exact: true }).click();
     expect(await displacementCm(page)).toBe(0);
+    await expect(pictureOnly).toHaveAttribute('aria-pressed', 'true');
     await expect(
-      page.getByRole('button', { name: /^physics proxy$/i }),
+      figure.getByRole('button', { name: 'Shape, weight and friction', exact: true }),
     ).toHaveAttribute('aria-pressed', 'false');
   });
 
@@ -189,26 +189,27 @@ test.describe('world-models generative-sim module', () => {
     await expect(page.locator('div.prose[data-pagefind-body]')).not.toContainText('kitchens look like kitchen magazines');
   });
 
-  test('interactive keyboard path: toggle, push, force slider', async ({
+  test('interactive keyboard path: scene preset, push, strength slider', async ({
     page,
   }) => {
     await page.goto(ROUTE, { waitUntil: 'networkidle' });
+    const figure = page.locator('[data-figure-frame="appearance-physics-push"]');
 
-    await page.getByRole('button', { name: /^physics proxy$/i }).focus();
+    const withPhysics = figure.getByRole('button', { name: 'Picture plus physics', exact: true });
+    await withPhysics.focus();
     await page.keyboard.press('Enter');
-    await expect(
-      page.getByRole('button', { name: /^physics proxy$/i }),
-    ).toHaveAttribute('aria-pressed', 'true');
+    await expect(withPhysics).toHaveAttribute('aria-pressed', 'true');
 
-    await page.getByRole('button', { name: /push the mug/i }).focus();
+    await figure.getByRole('button', { name: /push the mug/i }).focus();
     await page.keyboard.press('Enter');
     expect(await displacementCm(page)).toBeGreaterThan(0);
 
-    const slider = page.getByRole('slider', { name: /push force/i });
+    await openAdjustMore(figure);
+    const slider = figure.getByRole('slider', { name: /push strength/i });
     await slider.focus();
     await page.keyboard.press('ArrowRight');
     await expect(slider).toHaveValue('5');
-    await expect(page.getByText('5.0 N').first()).toBeVisible();
+    await expect(figure.getByText('5 newtons').first()).toBeVisible();
   });
 
   test('no horizontal page scroll at 375px', async ({ browser }) => {

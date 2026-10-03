@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "5d379065b9723ebe59689c39b079224481ef4cb532e7088247018b5c0ef13acc",
+  "fingerprint": "b7feb526cc59c51739a1bea730ff640e5948abef4853f2d7f6975f8873f49140",
   "viewport": "375x812",
   "routes": [
     "/",
@@ -39,6 +39,7 @@
     "/frontier/reliability-gap/",
     "/frontier/safety-and-assurance/",
     "/glossary/",
+    "/how-robots-work/",
     "/manipulation/",
     "/manipulation/action-chunking/",
     "/manipulation/action-spaces/",
@@ -81,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3064,
+      "visibleTextLength": 3104,
       "header": {
         "present": true,
         "display": "flex",
@@ -121,7 +122,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 16,
+        "tabStopCount": 17,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -284,7 +285,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 16,
+        "tabStopCount": 17,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -447,7 +448,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 16,
+        "tabStopCount": 17,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -602,7 +603,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 21,
+        "tabStopCount": 22,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -765,7 +766,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 21,
+        "tabStopCount": 22,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -928,7 +929,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 21,
+        "tabStopCount": 22,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -1091,7 +1092,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 21,
+        "tabStopCount": 22,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -1254,7 +1255,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 21,
+        "tabStopCount": 22,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -1417,7 +1418,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 26,
+        "tabStopCount": 27,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -1580,7 +1581,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 26,
+        "tabStopCount": 27,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -1743,7 +1744,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 26,
+        "tabStopCount": 27,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -1906,7 +1907,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 26,
+        "tabStopCount": 27,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -2069,7 +2070,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 26,
+        "tabStopCount": 27,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -2232,7 +2233,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 26,
+        "tabStopCount": 27,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -2395,7 +2396,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 26,
+        "tabStopCount": 27,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -2558,7 +2559,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 26,
+        "tabStopCount": 27,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -2721,7 +2722,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 26,
+        "tabStopCount": 27,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -2884,7 +2885,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 26,
+        "tabStopCount": 27,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -3047,7 +3048,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 16,
+        "tabStopCount": 17,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -3210,7 +3211,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 24,
+        "tabStopCount": 25,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -3333,7 +3334,7 @@
     },
     {
       "route": "/data-hardware/data-bottleneck/",
-      "visibleTextLength": 13986,
+      "visibleTextLength": 13938,
       "header": {
         "present": true,
         "display": "flex",
@@ -3373,7 +3374,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 24,
+        "tabStopCount": 25,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -3536,7 +3537,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 24,
+        "tabStopCount": 25,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -3659,7 +3660,7 @@
     },
     {
       "route": "/data-hardware/evaluation-crisis/",
-      "visibleTextLength": 18092,
+      "visibleTextLength": 18108,
       "header": {
         "present": true,
         "display": "flex",
@@ -3699,7 +3700,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 24,
+        "tabStopCount": 25,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -3862,7 +3863,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 24,
+        "tabStopCount": 25,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -3985,7 +3986,7 @@
     },
     {
       "route": "/data-hardware/industrial-deployment/",
-      "visibleTextLength": 25177,
+      "visibleTextLength": 24472,
       "header": {
         "present": true,
         "display": "flex",
@@ -4025,7 +4026,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 24,
+        "tabStopCount": 25,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -4188,7 +4189,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 24,
+        "tabStopCount": 25,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -4351,7 +4352,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 24,
+        "tabStopCount": 25,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -4514,7 +4515,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 16,
+        "tabStopCount": 17,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -4669,7 +4670,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 23,
+        "tabStopCount": 24,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -4832,7 +4833,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 23,
+        "tabStopCount": 24,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -4995,7 +4996,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 23,
+        "tabStopCount": 24,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -5158,7 +5159,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 23,
+        "tabStopCount": 24,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -5321,7 +5322,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 23,
+        "tabStopCount": 24,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -5444,7 +5445,7 @@
     },
     {
       "route": "/frontier/reliability-gap/",
-      "visibleTextLength": 14713,
+      "visibleTextLength": 13922,
       "header": {
         "present": true,
         "display": "flex",
@@ -5484,7 +5485,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 23,
+        "tabStopCount": 24,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -5647,7 +5648,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 23,
+        "tabStopCount": 24,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -5810,7 +5811,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 16,
+        "tabStopCount": 17,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -5932,6 +5933,169 @@
       }
     },
     {
+      "route": "/how-robots-work/",
+      "visibleTextLength": 774,
+      "header": {
+        "present": true,
+        "display": "flex",
+        "heightPx": 53,
+        "contentWidthPx": 343,
+        "leafTexts": [
+          "Robot Wiki"
+        ],
+        "pseudoTexts": [],
+        "lockups": [
+          {
+            "tag": "a",
+            "text": "Robot Wiki",
+            "href": "/",
+            "tekturRole": "shell-wordmark",
+            "fontFamilyHead": "tektur",
+            "fontSizePx": 15,
+            "fontWeight": 600,
+            "lineBoxes": 1,
+            "widthPx": 74.02,
+            "ariaCurrent": null
+          }
+        ],
+        "descriptorMatches": [],
+        "trigger": {
+          "accessibleName": "Open navigation menu",
+          "ariaExpanded": "false",
+          "ariaControls": "mobile-nav-drawer"
+        }
+      },
+      "closedDrawerTabStops": 0,
+      "triggerExpandedWhenOpen": "true",
+      "triggerControlsResolvesWhenOpen": true,
+      "focus": {
+        "focusOnOpen": {
+          "tag": "button",
+          "label": "Close navigation menu"
+        },
+        "focusOnOpenInsideDrawer": true,
+        "tabStopCount": 17,
+        "first": {
+          "tag": "a",
+          "label": "Robot Wiki"
+        },
+        "last": {
+          "tag": "a",
+          "label": "Credits"
+        },
+        "forwardWrap": {
+          "focused": {
+            "tag": "a",
+            "label": "Robot Wiki"
+          },
+          "insideDrawer": true,
+          "landedOnFirstStop": true
+        },
+        "backwardWrap": {
+          "focused": {
+            "tag": "a",
+            "label": "Credits"
+          },
+          "insideDrawer": true,
+          "landedOnLastStop": true
+        }
+      },
+      "inert": {
+        "regions": [
+          {
+            "id": "header",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "the desktop sidebar",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "main",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "the site footer",
+            "present": true,
+            "inert": true
+          },
+          {
+            "id": "the skip link",
+            "present": true,
+            "inert": true
+          }
+        ],
+        "reachableOutsideDrawer": []
+      },
+      "dismissals": [
+        {
+          "via": "escape",
+          "closed": true,
+          "focused": {
+            "tag": "button",
+            "label": "Open navigation menu"
+          },
+          "focusedTrigger": true
+        },
+        {
+          "via": "close-control",
+          "closed": true,
+          "focused": {
+            "tag": "button",
+            "label": "Open navigation menu"
+          },
+          "focusedTrigger": true
+        },
+        {
+          "via": "scrim",
+          "closed": true,
+          "focused": {
+            "tag": "button",
+            "label": "Open navigation menu"
+          },
+          "focusedTrigger": true
+        }
+      ],
+      "separation": {
+        "scrimBackground": "oklab(0.150034 0.000596076 -0.00203293 / 0.6)",
+        "pageBackground": "rgb(245, 246, 247)",
+        "panelBackground": "rgb(245, 246, 247)",
+        "scrimCompositedRgb": [
+          105,
+          105,
+          106
+        ],
+        "panelRgb": [
+          245,
+          246,
+          247
+        ],
+        "contrastRatio": 5.07,
+        "coverage": 1,
+        "panelBorderLeftPx": 0,
+        "panelBorderRightPx": 0,
+        "panelBoxShadow": "none"
+      },
+      "currentRoute": {
+        "hasNavigationItem": true,
+        "exposedAriaCurrent": [
+          {
+            "tag": "a",
+            "href": "/how-robots-work/",
+            "value": "page",
+            "insideDrawer": true,
+            "accessibleName": "How robots work"
+          }
+        ],
+        "markerDeviceId": "device:active-interval-rail",
+        "markerColour": "rgb(198, 255, 25)",
+        "markerAlignmentErrorPx": 0
+      }
+    },
+    {
       "route": "/manipulation/",
       "visibleTextLength": 2737,
       "header": {
@@ -5973,7 +6137,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 32,
+        "tabStopCount": 33,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -6136,7 +6300,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 32,
+        "tabStopCount": 33,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -6299,7 +6463,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 32,
+        "tabStopCount": 33,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -6462,7 +6626,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 32,
+        "tabStopCount": 33,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -6625,7 +6789,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 32,
+        "tabStopCount": 33,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -6788,7 +6952,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 32,
+        "tabStopCount": 33,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -6951,7 +7115,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 32,
+        "tabStopCount": 33,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -7114,7 +7278,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 32,
+        "tabStopCount": 33,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -7277,7 +7441,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 32,
+        "tabStopCount": 33,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -7440,7 +7604,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 32,
+        "tabStopCount": 33,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -7603,7 +7767,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 32,
+        "tabStopCount": 33,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -7766,7 +7930,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 32,
+        "tabStopCount": 33,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -7929,7 +8093,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 32,
+        "tabStopCount": 33,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -8092,7 +8256,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 32,
+        "tabStopCount": 33,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -8255,7 +8419,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 32,
+        "tabStopCount": 33,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -8418,7 +8582,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 32,
+        "tabStopCount": 33,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -8581,7 +8745,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 16,
+        "tabStopCount": 17,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -8744,7 +8908,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 16,
+        "tabStopCount": 17,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -8907,7 +9071,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 16,
+        "tabStopCount": 17,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -9062,7 +9226,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 25,
+        "tabStopCount": 26,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -9225,7 +9389,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 25,
+        "tabStopCount": 26,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -9388,7 +9552,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 25,
+        "tabStopCount": 26,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -9551,7 +9715,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 25,
+        "tabStopCount": 26,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -9714,7 +9878,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 25,
+        "tabStopCount": 26,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -9877,7 +10041,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 25,
+        "tabStopCount": 26,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -10040,7 +10204,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 25,
+        "tabStopCount": 26,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -10203,7 +10367,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 25,
+        "tabStopCount": 26,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -10366,7 +10530,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 25,
+        "tabStopCount": 26,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -10529,7 +10693,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 16,
+        "tabStopCount": 17,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -10684,7 +10848,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 25,
+        "tabStopCount": 26,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -10847,7 +11011,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 25,
+        "tabStopCount": 26,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -10970,7 +11134,7 @@
     },
     {
       "route": "/world-models/generative-sim/",
-      "visibleTextLength": 17144,
+      "visibleTextLength": 16724,
       "header": {
         "present": true,
         "display": "flex",
@@ -11010,7 +11174,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 25,
+        "tabStopCount": 26,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -11133,7 +11297,7 @@
     },
     {
       "route": "/world-models/generative-video/",
-      "visibleTextLength": 19679,
+      "visibleTextLength": 19273,
       "header": {
         "present": true,
         "display": "flex",
@@ -11173,7 +11337,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 25,
+        "tabStopCount": 26,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -11296,7 +11460,7 @@
     },
     {
       "route": "/world-models/jepa/",
-      "visibleTextLength": 15780,
+      "visibleTextLength": 15561,
       "header": {
         "present": true,
         "display": "flex",
@@ -11336,7 +11500,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 25,
+        "tabStopCount": 26,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -11459,7 +11623,7 @@
     },
     {
       "route": "/world-models/latent-dynamics/",
-      "visibleTextLength": 15225,
+      "visibleTextLength": 14551,
       "header": {
         "present": true,
         "display": "flex",
@@ -11499,7 +11663,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 25,
+        "tabStopCount": 26,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -11662,7 +11826,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 25,
+        "tabStopCount": 26,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -11785,7 +11949,7 @@
     },
     {
       "route": "/world-models/taxonomy/",
-      "visibleTextLength": 18739,
+      "visibleTextLength": 18460,
       "header": {
         "present": true,
         "display": "flex",
@@ -11825,7 +11989,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 25,
+        "tabStopCount": 26,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"
@@ -11988,7 +12152,7 @@
           "label": "Close navigation menu"
         },
         "focusOnOpenInsideDrawer": true,
-        "tabStopCount": 25,
+        "tabStopCount": 26,
         "first": {
           "tag": "a",
           "label": "Robot Wiki"

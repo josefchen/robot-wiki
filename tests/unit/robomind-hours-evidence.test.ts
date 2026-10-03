@@ -18,7 +18,7 @@ import { readerTruthAt, READER_RELEASE_BASE } from '../helpers/reader-integratio
 import { currentAuditContext, finalSevenBefore } from '../helpers/residual-integration';
 import { preservedLegacySurvivors } from '../helpers/audit-plan-history';
 import { committedText, committedJson } from '../helpers/editorial-current-context';
-import { preSeoPassText } from '../helpers/seo-pass';
+import { preReaderFirst, preSeoPassText } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
 const base = '358f5050333386606f041505613e4a65d90dc703';
@@ -208,7 +208,16 @@ describe('RoboMIND paper-v3 hours correction, zero completion credit', () => {
       (a: { id: string; manifest: string; memberId: string; oldHash: string }) => a.manifest === 'prose'
         && a.memberId === 'article:data-hardware/data-bottleneck' && a.oldHash === migrated[0].newHash);
     expect(seo.map((a: { id: string }) => a.id)).toEqual(['seo-pass-20261002-prose-data-hardware-data-bottleneck']);
-    expect(adjacentHash(read(adjacentPath))).toBe(seo[0].newHash);
+    expect(adjacentHash(preReaderFirst(adjacentPath).toString('utf8'))).toBe(seo[0].newHash);
+    // The reader-first figure pass then renamed the figure cues with one
+    // plain edge from the SEO endpoint to the live article.
+    const readerFirst = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries.filter(
+      (a: { id: string; manifest: string; memberId: string; oldHash: string }) => a.manifest === 'prose'
+        && a.memberId === 'article:data-hardware/data-bottleneck' && a.oldHash === seo[0].newHash);
+    expect(readerFirst.map((a: { id: string }) => a.id))
+      .toEqual(['reader-first-20261002-prose-data-hardware-data-bottleneck']);
+    expect(readerFirst[0].reconciles).toBeUndefined();
+    expect(adjacentHash(read(adjacentPath))).toBe(readerFirst[0].newHash);
     expect(read(adjacentPath)).toContain('Real-world robot data is different. Every hour of it');
     // The SEO pass replaced only the related links in the frontmatter.
     expect({ ...matter(article).data, seeAlso: undefined })

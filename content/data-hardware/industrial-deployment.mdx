@@ -40,19 +40,13 @@ import { JamOverhead } from '@/components/motion/scenes/jam-overhead';
 
 Industrial deployment is the installation of robots in factories and warehouses, where each cell has to pay back its cost. IFR's World Robotics 2025 reports a global operational stock of 4,663,698 industrial robots in 2024; annual installations exceeded 500,000 in each year from 2021 through 2024, with 542,076 installed in 2024 <Cite id="ifr-world-robotics-2025" />. Those machines are the field robot learning is trying to enter, and almost nothing about how they got there resembles the pipeline a paper describes. In 2024, China had 2,027,190 industrial robots in operation and Japan had 450,530. China had about 4.5 times the stock of Japan, the second-ranked country, and received 295,045 new installations that year, reported as 54 percent of the global total. IFR's May 5, 2026 release repeats the rounded stock and installation-share figures from World Robotics 2025 <span className="max-sm:[&_[role=tooltip]]:-translate-x-8"><Cite id="ifr-world-robotics-2025" /></span> <Cite id="ifr-china-five-year-plan-2026" />. By customer industry in 2024, electrical/electronics accounted for 128,899 installations (reported as 24 percent), automotive for 126,088, and metal and machinery for 88,777 (16 percent). The IFR summary gives automotive 23 percent on page 13 but 24 percent on page 16; its chart and automotive discussion both report 126,088 units. These categories describe customer industries; they do not divide installations into application families. IFR says the customer industry was unspecified for 14 percent of installations <span className="max-sm:[&_[role=tooltip]]:-translate-x-4"><Cite id="ifr-world-robotics-2025" /></span>. Humanoid company reports have different scopes: Agility describes 65,000 hours of Digit production experience on an undated, changing homepage, without an allocation by facility or a measurement date <Cite id="agility-digit-production" />. Hours cannot be substituted for units installed in IFR's industrial category. This page is that field.
 
-<div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-3">
-  <Stat label="operational stock" value="4,663,698" note="industrial robots worldwide, 2024" accent />
-  <Stat label="2024 installations" value="542,076" note="2021-2024 each above 500k" />
-  <Stat label="China share" value="54%" note="of global installations in 2024" />
-</div>
-
 ## The economics you can drag
 
-Drag a slider such as jam-clearing time or per-pick success and the payback readout updates.
-
-<JamOverhead className="my-6" />
+Drag the time to fix each jam and watch the payback change.
 
 <DeploymentEconomics className="my-6" />
+
+<JamOverhead className="my-6" />
 
 Use the sliders to compare two cases in this authored model. Keep robot cost at 80,000 USD, integration at 2.5 times, cycle time at 6 seconds, uptime at 95 percent and hourly wage at 25 USD. With 15-second jam clearing, lowering per-pick success from 99.9 to 99 percent changes calculated payback from 11.56 to 11.82 months: an increase of 0.26 months, or 2.2 percent. Repeat the comparison with jam clearing set to 300 seconds: calculated payback rises from 12.11 to 17.30 months, and modeled output falls from 542.9 to 380.0 picks per elapsed hour, a 30 percent decrease. Both paybacks remain within the model's chosen 24-month horizon. These calculated results depend on assumed inputs; no deployment was measured for the comparison. The payback readout rounds to one decimal place.
 
@@ -61,6 +55,12 @@ This calculator is an authored worked example with no measured deployment or fin
 EVST supplies vendor context; the calculator's exact inputs are authored. Its guide describes complete-cell budgets, explicitly does not publish fixed list prices, and places the robot at a third to half of total cost <Cite id="evst-cell-cost-2026" />. Its payback guidance is 12 to 24 months for multi-shift cells, extending toward 24 to 36 months for single-shift or lower-throughput operations <Cite id="evst-cell-cost-2026" />. The calculator's 2.5 multiple and 24-month threshold are selections within that context, without quoted measurements behind them.
 
 ## What is actually automated at scale
+
+<div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-3">
+  <Stat label="operational stock" value="4,663,698" note="industrial robots worldwide, 2024" accent />
+  <Stat label="2024 installations" value="542,076" note="2021-2024 each above 500k" />
+  <Stat label="China share" value="54%" note="of global installations in 2024" />
+</div>
 
 Strip the installed base down by task and one honest sentence covers most of it: repetitive motion in a fixed cell, with little or no perception worth the name. OSHA’s Technical Manual lists uses of industrial robot systems including arc and resistance welding, painting and spraying, machine-tool loading and unloading, assembly, materials handling and packaging <span className="max-sm:[&_[role=tooltip]]:-translate-x-8"><Cite id="osha-otm-robots" /></span>. A spot-welding cell in a body shop repeats one trajectory against one fixture thousands of times a shift; the "perception" is the fixture guaranteeing the part is exactly where the program expects it. In A3's North American order data for 2025, collaborative robots accounted for 7,212 units valued at \$241 million: 19.6 percent of the 36,766 robots ordered and 10.7 percent of the \$2.25 billion in order value. A3 began reporting collaborative robots as a distinct category in Q1 2025 <Cite id="a3-orders-2025" />.
 

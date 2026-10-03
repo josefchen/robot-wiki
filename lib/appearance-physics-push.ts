@@ -8,10 +8,11 @@
  * interactive stacks three layers on one scene: an appearance layer (the
  * rendered mug, standing in for a neural reconstruction or generated
  * assets), a physics-proxy layer (collision geometry, mass, friction), and a
- * simulation layer (the integrated result). The push test makes the point
- * mechanically: with only the appearance layer enabled, a push produces no
- * motion, because a renderer has no dynamics; with the physics proxy
- * enabled, the same push produces deterministic motion.
+ * simulation layer (the solver that integrates the result). The push test
+ * makes the point mechanically: with only the appearance layer enabled, a
+ * push produces no motion, because a renderer has no dynamics; with the
+ * physics proxy and the solver enabled, the same push produces
+ * deterministic motion.
  *
  * The motion model is a one-line impulse slide: the push applies a force F
  * for a fixed contact time, giving the mug v0 = F·dt/m, and Coulomb friction
@@ -25,7 +26,7 @@ export interface LayerState {
   appearance: boolean;
   /** Collision geometry, mass, and friction: what a push acts on. */
   physics: boolean;
-  /** The integrated result: motion trace and displacement. */
+  /** The solver: integrates a push on the proxy into motion. */
   simulation: boolean;
 }
 
@@ -34,7 +35,7 @@ export interface MugState {
   position: number;
   /** Every push activation, effective or not. */
   attempts: number;
-  /** Pushes that actually produced motion (physics layer on). */
+  /** Pushes that actually produced motion (physics proxy and solver on). */
   effectivePushes: number;
   /** Position after each effective push, starting from 0. */
   history: number[];
@@ -94,10 +95,11 @@ export function displacementForForce(forceN: number): number {
 
 /**
  * One push activation. With the physics-proxy layer off, the appearance
- * layer has no dynamics and nothing moves; the attempt is still counted so
- * the UI can say honestly that the push happened and did nothing. With the
- * layer on, the mug slides by displacementForForce, clamped at the track
- * end.
+ * layer has no dynamics and nothing moves; with the simulation layer off,
+ * no solver integrates the push and nothing moves either. The attempt is
+ * still counted so the UI can say honestly that the push happened and did
+ * nothing. With both on, the mug slides by displacementForForce, clamped at
+ * the track end.
  */
 export function applyPush(
   mug: MugState,
@@ -105,7 +107,7 @@ export function applyPush(
   forceN: number,
 ): PushResult {
   const attempts = mug.attempts + 1;
-  if (!layers.physics) {
+  if (!layers.physics || !layers.simulation) {
     return {
       state: { ...mug, attempts },
       moved: false,
@@ -141,14 +143,20 @@ export interface PushTestNote {
 }
 
 /**
- * The annotation that makes the push-test point explicitly, keyed only on
- * whether the physics proxy is present.
+ * The note that makes the push-test point explicitly, keyed on whether the
+ * physics proxy is present and a solver is running.
  */
 export function pushTestNote(layers: LayerState): PushTestNote {
-  if (layers.physics) {
+  if (layers.physics && layers.simulation) {
     return {
       title: 'The proxy does the work',
       body: 'Collision geometry, friction and an integrator turn the same push into motion, and the mug stops after d = v²/(2μg).',
+    };
+  }
+  if (layers.physics) {
+    return {
+      title: 'No solver',
+      body: 'The collision hull, mass and friction are in place, but with the simulation layer off no integrator turns the push into motion.',
     };
   }
   return {
@@ -160,4 +168,10 @@ export function pushTestNote(layers: LayerState): PushTestNote {
 /** Format a distance in meters as centimeters, one decimal. */
 export function formatCm(meters: number): string {
   return `${(meters * 100).toFixed(1)} cm`;
+}
+
+/** A distance in meters as centimetres in words: one decimal, none when whole. */
+export function formatCentimetres(meters: number): string {
+  const cm = (meters * 100).toFixed(1);
+  return `${cm.endsWith('.0') ? cm.slice(0, -2) : cm} centimetres`;
 }

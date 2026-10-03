@@ -31,7 +31,9 @@ const PLACEMENTS: Placement[] = [
   {
     route: '/data-hardware/evaluation-crisis/',
     figure: 'ReliabilityCompounding',
-    primaryControl: /per-step success probability/i,
+    // The per-step slider moved into "Adjust more"; the job-length slider
+    // is the visible control the hint names.
+    primaryControl: /episode length in steps/i,
     mountedReadout: /48\.8%/,
   },
   {
@@ -53,7 +55,7 @@ const PLACEMENTS: Placement[] = [
     route: '/data-hardware/data-bottleneck/',
     figure: 'DataScaleChart',
     primaryControl: /teleoperation rigs/i,
-    mountedReadout: /143 yr/,
+    mountedReadout: /143 years/,
   },
   {
     route: '/manipulation/bc-foundations/',
@@ -211,6 +213,7 @@ test.describe('prediction step (PredictThenReveal)', () => {
       expect(revealSlice).not.toContain('data-figure-frame');
       const openingTag = html.slice(Math.max(0, revealAt - 100), html.indexOf('>', revealAt));
       expect(openingTag).not.toMatch(/\bopen\b/);
+      await expect(reveal.locator('[data-figure-frame]')).toHaveCount(0);
 
       // The figure is mounted at the configuration the hint names: the
       // interactive root (a figure frame) is the element directly after the
@@ -461,6 +464,8 @@ test.describe('prediction step (PredictThenReveal)', () => {
         has: page.locator('svg[aria-label^="Line chart of episode success"]'),
       })
       .first();
+    // The full per-step slider sits in the frame's "Adjust more" fold.
+    await openAdjustMore(reliabilityFigure);
     await expect(
       reliabilityFigure.getByRole('slider', { name: /per-step success probability/i }),
     ).toHaveValue('95');

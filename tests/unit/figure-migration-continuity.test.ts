@@ -30,7 +30,9 @@ function scratch(): string {
   const tmp = mkdtempSync(join(tmpdir(), 'figure-migration-test-'));
   scratchRoots.push(tmp);
   cpSync(join(root, dir), join(tmp, dir), { recursive: true });
-  for (const path of ['content/rl-sim2real/legged-locomotion.mdx', 'content/rl-sim2real/parallel-sim-rl.mdx']) {
+  // The reader-first registry layer above this one reads its own review first.
+  for (const path of ['content/rl-sim2real/legged-locomotion.mdx', 'content/rl-sim2real/parallel-sim-rl.mdx',
+    'audit/evidence/reader-first-20261002/registry-transition.json']) {
     mkdirSync(dirname(join(tmp, path)), { recursive: true });
     writeFileSync(join(tmp, path), read(path));
   }

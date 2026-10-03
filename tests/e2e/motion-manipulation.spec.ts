@@ -7,8 +7,8 @@ test('paired manipulation labs use action/reference roles and only highlight the
       const context = await browser.newContext({ colorScheme, viewport: { width, height: 900 } });
       try {
         const page = await context.newPage();
-        // Figures paint on the graphite stage, which remaps every role to its
-        // stage colour, so a stage mark is compared with a probe inside it.
+        // Figures paint on the page stage, which maps every role to its stage
+        // colour, so a stage mark is compared with a probe inside it.
         const stageRole = (name: string, anchor: string) => page.evaluate(([value, selector]) => {
           const probe = document.createElement('span');
           probe.style.color = `var(--role-${value})`;

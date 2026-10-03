@@ -116,10 +116,11 @@ describe('Home page', () => {
     }
   });
 
-  it('links the playground and the market map from one plain tools line', () => {
+  it('links the playground, the explainers and the market map from one plain tools line', () => {
     render(<Home />);
     const tools = region(/^tools$/i);
     expect(path(within(tools).getByRole('link', { name: 'Playground' }).getAttribute('href'))).toBe('/playground');
+    expect(path(within(tools).getByRole('link', { name: 'How robots work' }).getAttribute('href'))).toBe('/how-robots-work');
     expect(path(within(tools).getByRole('link', { name: 'Market Map' }).getAttribute('href'))).toBe('/market-map');
     expect(tools.querySelector('img, svg, article, figure')).toBeNull();
   });

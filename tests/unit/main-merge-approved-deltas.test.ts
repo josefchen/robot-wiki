@@ -638,12 +638,21 @@ const seoPassAppends = [
   ...seoPassArticles.map(id => `seo-pass-20261002-relationships-${id.replace('/', '-')}`),
   'seo-pass-20261002-citation-rendering',
 ];
-// The 2026-10-02 reader-first figure pass appends its block last: first the
+// The 2026-10-02 reader-first figure pass appends its block: first the
 // shared preset group's accessible name, which borrows the label it prints
 // above its buttons, then one edge per article and accessible name each
-// rewritten figure moved, batch by batch.
+// rewritten figure moved, batch by batch. The how-robots-work page, merged
+// after those batches, appends its block last.
 const readerFirstAppends = merged.filter(x => x.id.startsWith('reader-first-20261002-')).map(x => x.id);
 const beforeReaderFirst = (entries: ApprovedDelta[]) => entries.filter(x => !readerFirstAppends.includes(x.id));
+const howRobotsWorkAppends = [
+  'how-robots-work-20261002-accessible-names-explainers-rail',
+  'how-robots-work-20261002-accessible-names-explainer-pager',
+  'how-robots-work-20261002-navigation-add-how-robots-work',
+  'how-robots-work-20261002-navigation-position-glossary',
+  'how-robots-work-20261002-navigation-position-credits',
+  'how-robots-work-20261002-accessible-names-sidebar-entry',
+];
 // Earlier blocks check each chain as it stood before the SEO pass; the SEO
 // pass block below checks the entries that closed those chains, and the
 // reader-first block the entries that now close them.
@@ -652,7 +661,8 @@ const seoPassEdges = (manifest: string, memberId: string) => merged
   .filter(x => seoPassAppends.includes(x.id) && x.manifest === manifest && x.memberId === memberId).map(x => x.id);
 const readerFirstEdges = (manifest: string, memberId: string) => merged
   .filter(x => readerFirstAppends.includes(x.id) && x.manifest === manifest && x.memberId === memberId).map(x => x.id);
-const afterSeoPass = merged.length - readerFirstAppends.length;
+const afterReaderFirst = merged.length - howRobotsWorkAppends.length;
+const afterSeoPass = afterReaderFirst - readerFirstAppends.length;
 const afterKolBacklog = afterSeoPass - seoPassAppends.length;
 const afterOpusFigureMigration = afterKolBacklog - kolBacklogAppends.length;
 const afterOpusHomepage = afterOpusFigureMigration - opusFigureMigrationAppends.length;
@@ -679,13 +689,14 @@ describe('two-parent exact approval reconciliation', () => {
     // prose restores and remaining repairs, the figure-system resolution, the
     // home front page and the figure migration add the edges named above,
     // the KOL backlog batch appends its own named block, the SEO pass
-    // appends its block, and the reader-first figure pass appends its block last.
+    // appends its block, the reader-first figure pass appends its block, and
+    // the how-robots-work page appends its block last.
     expect([main.length, local.length, localOnly.length, merged.length])
-      .toEqual([1558, 1104, 7, 2026 + readerFirstAppends.length]);
+      .toEqual([1558, 1104, 7, 2026 + readerFirstAppends.length + howRobotsWorkAppends.length]);
     expect(merged.slice(0, main.length)).toEqual(main);
     expect(merged.slice(main.length, main.length + localOnly.length)).toEqual(localOnly);
     expect(merged.slice(main.length + localOnly.length).map(x => x.id))
-      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends, ...opusFigureMigrationAppends, ...kolBacklogAppends, ...seoPassAppends, ...readerFirstAppends]);
+      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends, ...opusFigureMigrationAppends, ...kolBacklogAppends, ...seoPassAppends, ...readerFirstAppends, ...howRobotsWorkAppends]);
     expect(merged.slice(beforeRound6.length, afterRound6Prose)).toMatchObject(round6ProseRestoreEndpoints.map(
       ([memberId, , newHash], index) => ({
         id: round6ProseRestoreAppends[index], manifest: 'prose', memberId, newHash,
@@ -724,8 +735,12 @@ describe('two-parent exact approval reconciliation', () => {
       newHash: '5365423d7ce3ace32c008459465c944c95d5df4afd331ad26413b336316be72b',
       responsibleMilestone: 'opus-pass', disposition: 'permanent',
     }]);
-    expect(merged.slice(afterSeoPass)).toMatchObject(readerFirstAppends.map(id => ({
+    expect(merged.slice(afterSeoPass, afterReaderFirst)).toMatchObject(readerFirstAppends.map(id => ({
       id, responsibleMilestone: 'opus-pass', disposition: 'permanent',
+    })));
+    expect(merged.slice(afterReaderFirst)).toMatchObject(howRobotsWorkAppends.map(id => ({
+      id, manifest: id.includes('-navigation-') ? 'navigation' : 'accessible-names',
+      responsibleMilestone: 'opus-pass', disposition: 'permanent',
     })));
     expect(beforeRound6.slice(-1)).toMatchObject([{
       id: sharedReaderLayoutAppends[0], manifest: 'article-metadata',
@@ -895,14 +910,15 @@ describe('two-parent exact approval reconciliation', () => {
       readFileSync('evidence/brand-v2/baseline/prose.json', 'utf8'));
     for (const [index, [memberId, oldHash, newHash]] of round5FirstScreenCdEndpoints.entries()) {
       const all = merged.filter(x => x.manifest === 'prose' && x.memberId === memberId);
-      // Only a named round-6 restore, figure-migration or SEO pass edge may
-      // follow the move's own edge.
+      // Only a named round-6 restore, figure-migration, SEO pass or
+      // reader-first edge may follow the move's own edge.
       const edges = all.slice(0, all.findIndex(x => x.id === round5FirstScreenCdAppends[index]) + 1);
       expect(all.slice(edges.length).map(x => x.id)).toEqual([
         ...round6ProseRestoreAppends
           .filter((_, restore) => round6ProseRestoreEndpoints[restore][0] === memberId),
         ...opusFigureMigrationEdges('prose', memberId),
         ...seoPassEdges('prose', memberId),
+        ...readerFirstEdges('prose', memberId),
       ]);
       const sealed = sealedProse.members.find(x => x.id === memberId)!.hash;
       expect(edges.at(-1)?.newHash).toBe(newHash);
@@ -1169,6 +1185,15 @@ describe('two-parent exact approval reconciliation', () => {
       const previous = prior.at(-1)?.newHash ?? sealed;
       expect(entry.newHash).not.toBe(previous);
       expect(entry.newHash).not.toBe(entry.oldHash);
+      // A member the seal never held has no path from an absent seal back to
+      // absent, so removing it is one plain edge that leaves the endpoint its
+      // chain last approved and closes the member at absent.
+      if (sealed === MISSING_MEMBER && entry.newHash === MISSING_MEMBER) {
+        expect(entry.reconciles).toBeUndefined();
+        expect(entry.oldHash).toBe(previous);
+        expect(approvedDeltaPath(prior, sealed, previous).status).toBe('approved');
+        continue;
+      }
       const path = approvedDeltaPath(edges, sealed, entry.newHash);
       expect(path.status).toBe('approved');
       expect(path.path.at(-1)).toBe(entry);
