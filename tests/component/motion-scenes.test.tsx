@@ -292,20 +292,20 @@ describe('motion scene player', () => {
     const forward = screen.getByRole('button', { name: /step forward one beat/i });
     const back = screen.getByRole('button', { name: /step back one beat/i });
     const caption = screen.getByTestId('motion-caption');
-    expect(caption).toHaveTextContent(/recap/i);
+    expect(caption).toHaveTextContent(/keep two different good moves/i);
     fireEvent.click(back);
-    expect(caption).toHaveTextContent(/ten denoising steps/i);
+    expect(caption).toHaveTextContent(/ten small steps/i);
     fireEvent.click(back);
-    expect(caption).toHaveTextContent(/noising/i);
-    fireEvent.click(back);
-    expect(caption).toHaveTextContent(/demonstrations/i);
+    expect(caption).toHaveTextContent(/random noise is added/i);
     fireEvent.click(back);
     expect(caption).toHaveTextContent(/demonstrations/i);
+    fireEvent.click(back);
+    expect(caption).toHaveTextContent(/demonstrations/i);
     fireEvent.click(forward);
     fireEvent.click(forward);
     fireEvent.click(forward);
     fireEvent.click(forward);
-    expect(caption).toHaveTextContent(/recap/i);
+    expect(caption).toHaveTextContent(/keep two different good moves/i);
     expect(screen.getByTestId('motion-beat-count')).toHaveTextContent('beat 4 / 4');
   });
 

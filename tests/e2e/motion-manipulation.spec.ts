@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { binIndex, generateActionChunk } from '@/lib/action-tokenization';
+import { openAdjustMore } from './helpers/figure-fold';
 
 test('paired manipulation labs use action/reference roles and only highlight the current selection', async ({ browser }) => {
   for (const colorScheme of ['light', 'dark'] as const) {
@@ -45,16 +46,26 @@ test('paired manipulation labs use action/reference roles and only highlight the
         const chunk = page.getByRole('img', { name: /continuous action chunk/i });
         await expect(bin).toBeVisible();
         const tokenStage = '[data-testid="tok-token-readout"]';
-        const highlight = await stageRole('highlight-graphic', tokenStage);
+        // On the light page stage the selection paints in the stage variant
+        // of the highlight role, the dark lime that holds contrast on paper.
+        const highlight = await stageRole('highlight-stage', tokenStage);
         expect(await chunk.locator('polyline').first().evaluate((node) => getComputedStyle(node).stroke)).toBe(await stageRole('action-graphic', tokenStage));
+        // The main view zooms into the assigned slot; the full 256-slot
+        // strip, where the nth rect is slot n, waits in "Adjust more".
+        expect(await bin.locator('rect[data-selection="assigned bin"]').evaluate((node) => getComputedStyle(node).fill)).toBe(highlight);
+        const frame = page.locator('[data-figure-frame="action-tokenization"]');
+        await openAdjustMore(frame);
+        const strip = frame.getByTestId('tok-bin-strip');
         const selected = binIndex(generateActionChunk()[0][7]);
-        expect(await bin.locator('rect').nth(selected).evaluate((node) => getComputedStyle(node).fill)).toBe(highlight);
-        expect(await bin.locator('rect').nth((selected + 1) % 256).evaluate((node) => getComputedStyle(node).fill)).not.toBe(highlight);
-        await page.getByRole('button', { name: 'Δy', exact: true }).click();
+        expect(await strip.locator('rect').nth(selected).evaluate((node) => getComputedStyle(node).fill)).toBe(highlight);
+        expect(await strip.locator('rect').nth((selected + 1) % 256).evaluate((node) => getComputedStyle(node).fill)).not.toBe(highlight);
+        await frame.getByRole('button', { name: 'left/right', exact: true }).click();
         await page.getByRole('slider', { name: /control step/i }).fill('9');
         const next = binIndex(generateActionChunk()[1][9]);
-        expect(await bin.locator('rect').nth(next).evaluate((node) => getComputedStyle(node).fill)).toBe(highlight);
-        expect(await chunk.locator('polyline').nth(1).evaluate((node) => getComputedStyle(node).stroke)).toBe(await stageRole('action-graphic', tokenStage));
+        expect(await strip.locator('rect').nth(next).evaluate((node) => getComputedStyle(node).fill)).toBe(highlight);
+        // The one trace under the gripper now follows the left/right motion.
+        await expect(chunk.locator('[data-selection="selected motion"]')).toHaveText('left/right');
+        expect(await chunk.locator('polyline').first().evaluate((node) => getComputedStyle(node).stroke)).toBe(await stageRole('action-graphic', tokenStage));
         expect(await paint(tokenStage, 'color')).toBe(await stageRole('action-text', tokenStage));
       } finally {
         await context.close();

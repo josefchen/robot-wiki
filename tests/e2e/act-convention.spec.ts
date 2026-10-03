@@ -3,6 +3,7 @@ import AxeBuilder from '@axe-core/playwright';
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { createHash } from 'node:crypto';
+import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
 
 for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 }]) {
   test(`ACT reference convention renders consistently at ${viewport.width}`, async ({ page }, testInfo) => {
@@ -30,14 +31,21 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     const heading = page.getByRole('heading', { name: 'Temporal ensembling and its limits', exact: true });
     await heading.scrollIntoViewIfNeeded();
     // The schematic is drawn inline on the figure stage and named by the
-    // registry alt text; its labels carry the illustrative and reference m.
+    // registry alt text. The stage shows each plan's share of the vote in
+    // plain words; the weight rule with its illustrative and reference m
+    // sits in "How this was made".
     const figure = page.locator('figure[data-image-id="temporal-ensembling"]');
     const drawing = figure.locator('[data-figure-stage] svg[role="img"]');
     await expect(drawing).toHaveAttribute('aria-label', /oldest-to-newest unnormalized weights are 1.00, 0.61, and 0.37/);
     await expect(figure.locator('[data-figure-label]')).toHaveText('Original schematic');
-    await expect(figure).toContainText('oldest gets the largest weight');
-    await expect(drawing).toContainText('oldest first; divide by sum');
-    await expect(drawing).toContainText('illustration m=0.5; reference m=0.01');
+    await expect(figure.locator('[data-figure-title]')).toHaveText('Three overlapping plans vote; the oldest gets the loudest voice');
+    await expect(drawing).toContainText('oldest plan, 51%');
+    await expect(drawing).toContainText('newest plan, 19%');
+    const method = await openHowThisWasMade(figure);
+    await expect(method).toContainText('oldest gets the largest weight');
+    await expect(method).toContainText('divided by their sum');
+    await expect(method).toContainText('m = 0.5');
+    await expect(method).toContainText('m = 0.01');
     await expect(figure.getByRole('link', { name: /CC BY 4.0/ })).toHaveAttribute('href', 'https://creativecommons.org/licenses/by/4.0');
     // The registered asset file stays served unchanged beside the drawing.
     const response = await page.request.get('/images/temporal-ensembling.svg');
@@ -76,6 +84,13 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     await expect(latency).toContainText('six tasks, ten episodes per task');
     await latency.scrollIntoViewIfNeeded();
     await page.screenshot({ caret: 'initial', path: join(dir, `act-${viewport.width}-latency.png`) });
+    // The delay figure opens on the larger tested setting, +0.2 second;
+    // the free delay slider and Reset sit in its "Adjust more" fold.
+    const latencyFrame = page.locator('[data-figure-frame="latency-comparison"]');
+    await expect(latencyFrame.getByTestId('delay-preset-fifth')).toHaveAttribute('aria-pressed', 'true');
+    await latencyFrame.getByTestId('delay-preset-none').click();
+    await expect(latencyFrame.getByTestId('te-throughput-readout')).toHaveText('100%');
+    await openAdjustMore(latencyFrame);
     const delays = page.getByRole('slider', { name: /Injected inference delay/ });
     await expect(delays).toHaveCount(1);
     await expect(delays.first()).toHaveValue('0');
@@ -83,14 +98,17 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     await page.keyboard.press('End');
     await expect(delays.first()).toHaveValue('240');
     await expect(page.getByTestId('rtc-throughput-readout').first()).toHaveText('100%');
-    await page.getByRole('button', { name: 'Reset', exact: true }).last().click();
-    await expect(delays.first()).toHaveValue('0');
+    const latencyReset = latencyFrame.getByRole('button', { name: 'Reset', exact: true });
+    await latencyReset.click();
+    await expect(delays.first()).toHaveValue('200');
     // The page mounts the delay figure once: no prediction step re-renders it.
     await expect(page.locator('[data-figure-frame="latency-comparison"]')).toHaveCount(1);
     await expect(page.getByTestId('te-throughput-readout')).toHaveCount(1);
+    await delays.first().fill('0');
+    await expect(page.getByTestId('te-throughput-readout')).toHaveText('100%');
     await delays.first().fill('100');
     await expect(page.getByTestId('te-throughput-readout')).toHaveText('0%');
-    await page.getByRole('button', { name: 'Reset', exact: true }).last().click();
+    await latencyReset.click();
     await page.locator('[data-figure-frame="latency-comparison"]').screenshot({ caret: 'initial', path: join(dir, `act-${viewport.width}-latency-figure.png`) });
     const blog = page.locator('#ref-pi-real-time-chunking-blog-2025');
     await expect(blog).toContainText('Real-Time Action Chunking with Large Models');

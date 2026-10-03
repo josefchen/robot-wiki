@@ -61,9 +61,12 @@ const PLACEMENTS: Placement[] = [
     route: '/manipulation/bc-foundations/',
     figure: 'CompoundingError',
     // The horizon slider mounts at its max (240), so the error slider is
-    // the control the keyboard probe drives.
+    // the control the keyboard probe drives. The main view offers the
+    // task-length and how-it's-run presets; both sliders moved into
+    // "Adjust more".
     primaryControl: /per-step error/i,
     mountedReadout: /1505/,
+    primaryControlInAdjust: true,
   },
 ];
 

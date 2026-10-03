@@ -1,18 +1,18 @@
 {
   "manipulation/bc-foundations": {
-    "words": 1566,
+    "words": 1597,
     "minutes": 8
   },
   "manipulation/action-chunking": {
-    "words": 2850,
-    "minutes": 14
+    "words": 2656,
+    "minutes": 13
   },
   "manipulation/diffusion-policy": {
-    "words": 1819,
+    "words": 1847,
     "minutes": 9
   },
   "manipulation/vla-models": {
-    "words": 2408,
+    "words": 2338,
     "minutes": 12
   },
   "manipulation/pi-line": {

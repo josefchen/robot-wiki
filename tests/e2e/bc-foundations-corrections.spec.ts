@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { setSlider } from './slider';
+import { openAdjustMore } from './helpers/figure-fold';
 
 for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 }]) {
   test(`BC corrections retain truthful math and toy behavior at ${viewport.width}`, async ({ page }, testInfo) => {
@@ -36,19 +37,27 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     await toy.scrollIntoViewIfNeeded();
     await expect(toy).toContainText('Original deterministic toy');
     await expect(toy.getByTestId('accumulated-deviation-readout')).toHaveText('1505');
+    await expect(toy.getByTestId('half-deviation-readout')).toHaveText('370');
+    await expect(toy.locator('[data-figure-stage] [data-figure-annotation]')).toHaveText(
+      'Twice as long:about four times as far off course',
+    );
     await capture('toy-default');
-    const horizon = toy.getByRole('slider', { name: /episode horizon/i });
-    await setSlider(horizon, 120);
-    await expect(horizon).toHaveValue('120');
+    await toy.getByRole('button', { name: 'Short task (120 moves)', exact: true }).click();
     await expect(toy.getByTestId('accumulated-deviation-readout')).toHaveText('370');
+    await openAdjustMore(toy);
+    const horizon = toy.getByRole('slider', { name: /episode horizon/i });
+    await expect(horizon).toHaveValue('120');
+    await setSlider(horizon, 180);
+    await expect(horizon).toHaveValue('180');
     await horizon.focus();
     await page.keyboard.press('End');
     await expect(horizon).toHaveValue('240');
     await expect(toy.getByTestId('accumulated-deviation-readout')).toHaveText('1505');
-    await toy.getByRole('button', { name: /chunk of 25/i }).click();
+    await toy.getByRole('button', { name: '25 moves per plan', exact: true }).click();
     const chunk = Number(await toy.getByTestId('accumulated-deviation-readout').textContent());
-    await toy.getByRole('button', { name: /dagger/i }).click();
-    expect(Number(await toy.getByTestId('accumulated-deviation-readout').textContent())).toBeLessThan(chunk);
+    expect(chunk).toBeLessThan(1505);
+    await toy.getByRole('button', { name: 'A teacher corrects it', exact: true }).click();
+    expect(Number(await toy.getByTestId('accumulated-deviation-readout').textContent())).toBeLessThan(1505);
     await capture('toy-changed');
     await toy.getByRole('button', { name: 'Reset', exact: true }).click();
     await expect(toy.getByTestId('accumulated-deviation-readout')).toHaveText('1505');

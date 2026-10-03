@@ -31,13 +31,13 @@ import { RecedingHorizon } from '@/components/interactive/receding-horizon';
 
 Diffusion Policy executes $T_a$ actions from a $T_p$-action prediction before observing again and replanning. The CNN configuration uses eight of sixteen actions for many of the reported tasks; the formulation also permits warm-starting the next inference from a previous prediction <Cite id="diffusion-policy-2023" />. The unexecuted tail keeps the committed part coherent.
 
-$T_a$ is the same dial as ACT's chunk size: a large value gives smooth, committed motion but reacts slowly to anything changing mid-chunk; a small one reacts quickly but re-samples often, and each new sample can pick a different mode mid-motion <Cite id="act-aloha-2023" />. The policy issues commands at 10 Hz, so $T_a = 8$ means the robot commits to each plan for 0.8 seconds. Drag the executed horizon slider below 8 and watch the replan rate climb.
+$T_a$ is the same dial as ACT's chunk size: a large value gives smooth, committed motion but reacts slowly to anything changing mid-chunk; a small one reacts quickly but re-samples often, and each new sample can pick a different mode mid-motion <Cite id="act-aloha-2023" />. The policy issues commands at 10 Hz, so $T_a = 8$ means the robot commits to each plan for 0.8 seconds. Try “Never rethink”: the dashed tails vanish. In “Adjust more”, drag “Steps acted on” below 8 and the rethink rate climbs.
 
 <RecedingHorizon className="my-6" />
 
 ## Denoising in action space
 
-Play the scene below and step through its beats. Sixty action samples start clustered on two demonstrated strategies, jitter into one shared Gaussian cloud, and are transported back onto the two modes over the paper's 10-step DDIM inference schedule, conditioned on the observed state. Each sample lands on one strategy or the other instead of the average of them, which is the property MSE regression destroys and this whole architecture exists to keep.
+The scene below opens on its finished frame: two clusters labelled “move one” and “move two”, with faint trails back to the random guesses they started from. Press Play to watch it from the start. Sixty action samples start clustered on two demonstrated strategies, jitter into one shared Gaussian cloud, and are transported back onto the two modes over the paper's 10-step DDIM inference schedule, conditioned on what the robot sees. Each sample lands on one strategy or the other instead of the average of them, which is the property MSE regression destroys and this whole architecture exists to keep.
 
 <DiffusionDenoising className="my-6" />
 
