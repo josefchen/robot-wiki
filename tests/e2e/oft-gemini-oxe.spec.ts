@@ -9,6 +9,7 @@ import { METHODS } from '../../data/methods';
 import { HIERARCHY_SYSTEMS } from '../../lib/hierarchy-timescales';
 import { expectedApparatusGraph } from '../../lib/brand-v2-apparatus-evidence';
 import { missingOccurrences } from './source-reader-requirements';
+import { openAdjustMore } from './helpers/figure-fold';
 
 // Current dev-render correction check, not static-export or release acceptance.
 const transferProof = process.env.GO_HELIX_TRANSFER_PROOF === '1';
@@ -127,6 +128,8 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
         await page.screenshot({ caret: 'initial', path: info.outputPath(`${id}-reference.png`) });
       }
       if (target.slug === 'comparison-matrix') {
+        // The full matrix, its filters and Reset sit in the figure's "Adjust more" fold.
+        await openAdjustMore(page.locator('main [data-figure-frame="comparison-matrix"]'));
         const table = page.getByRole('table');
         await expect(table.locator('tbody tr')).toHaveCount(18);
         const region = page.getByRole('region', { name: /policies across/ });
@@ -150,6 +153,8 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
         await expect(table.locator('tbody tr')).toHaveCount(18);
       }
       if (target.slug === 'generalist-policies') {
+        // The availability filter, release buttons and Reset sit in "Adjust more".
+        await openAdjustMore(page.locator('main [data-figure-frame="generalist-release-timeline"]'));
         await page.getByRole('button', { name: 'Not disclosed', exact: true }).click();
         for (const name of [/Gemini Robotics 1\.5/, /Gemini Robotics 2/, /Skild Brain/, ...(transferProof ? [/^Helix$/, /^Helix 02$/, /^AgiBot GO-2$/] : [])]) {
           const button = page.getByRole('button', { name });
@@ -166,7 +171,9 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
         await expect(page.getByRole('button', { name: 'Helix', exact: true })).toHaveAttribute('aria-pressed', 'true');
       }
       if (target.slug === 'cross-embodiment') {
-        const button = page.getByRole('button', { name: 'Motion transfer', exact: true });
+        // The full strips, readouts, source detail and Reset sit in "Adjust more".
+        await openAdjustMore(page.locator('main [data-figure-frame="cross-embodiment-strategies"]'));
+        const button = page.getByRole('button', { name: 'Translate between bodies', exact: true });
         await button.focus();
         await page.keyboard.press('Enter');
         await expect(button).toBeFocused();
@@ -174,12 +181,12 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
         await button.scrollIntoViewIfNeeded();
         await page.screenshot({ caret: 'initial', path: info.outputPath('motion-transfer.png') });
         await page.getByRole('button', { name: 'Reset', exact: true }).click();
-        await expect(page.getByRole('button', { name: 'Shared relative EEF space', exact: true })).toHaveAttribute('aria-pressed', 'true');
+        await expect(page.getByRole('button', { name: 'Describe where the hand goes', exact: true })).toHaveAttribute('aria-pressed', 'true');
         if (closeoutProof) {
-          const group = page.getByRole('group', { name: 'Select a cross-embodiment strategy' });
-          const panel = group.locator('xpath=ancestor::*[@data-figure-frame][1]');
+          const group = page.getByRole('group', { name: 'Way to share one action list' });
+          const panel = page.locator('main [data-figure-frame="cross-embodiment-strategies"]');
           for (const mode of ['padded', 'relative']) {
-            const control = group.getByRole('button', { name: mode === 'relative' ? /relative/i : 'Padded shared vector', exact: mode === 'padded' });
+            const control = group.getByRole('button', { name: mode === 'relative' ? 'Describe where the hand goes' : "Pad each robot's own list", exact: true });
             await control.focus();
             await page.keyboard.press('Enter');
             await expect(control).toBeFocused();
@@ -205,15 +212,16 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
             }
             await captureWholeElement(page, panel, info.outputPath(`full-${mode}-panel.png`));
           }
-          await group.getByRole('button', { name: 'Padded shared vector', exact: true }).click();
-          const reset = group.getByRole('button', { name: 'Reset', exact: true });
+          await group.getByRole('button', { name: "Pad each robot's own list", exact: true }).click();
+          const reset = panel.getByRole('button', { name: 'Reset', exact: true });
           await reset.focus();
           await page.keyboard.press('Enter');
           await expect(reset).toBeFocused();
-          await expect(group.getByRole('button', { name: 'Shared relative EEF space', exact: true })).toHaveAttribute('aria-pressed', 'true');
+          await expect(group.getByRole('button', { name: 'Describe where the hand goes', exact: true })).toHaveAttribute('aria-pressed', 'true');
         }
       }
       if ((transferProof || closeoutProof) && target.slug === 'hierarchical') {
+        await openAdjustMore(page.locator('main [data-figure-frame="hierarchy-timescales"]'));
         for (const system of HIERARCHY_SYSTEMS) {
           const button = page.getByRole('button', { name: system.name, exact: true });
           await button.focus();
@@ -222,14 +230,19 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
           await expect(page.getByTestId('lane-row-instruction')).toContainText('Schematic');
           const slider = page.getByRole('slider', { name: /playhead/i });
           await slider.focus();
+          await page.keyboard.press('Home');
+          await expect(slider).toHaveValue('0');
+          await expect(page.getByTestId('lane-row-instruction')).toContainText('last update: 0 ms');
           await page.keyboard.press('End');
           await expect(slider).toHaveValue('2000');
           await expect(page.getByTestId('lane-row-instruction')).toContainText('last update: 0 ms');
           await button.scrollIntoViewIfNeeded();
           await page.screenshot({ caret: 'initial', path: info.outputPath(`timescales-${system.id}.png`) });
         }
+        await page.getByRole('slider', { name: /playhead/i }).focus();
+        await page.keyboard.press('Home');
         await page.getByRole('button', { name: 'Reset', exact: true }).click();
-        await expect(page.getByTestId('playhead-readout')).toHaveText('t = 0 ms');
+        await expect(page.getByTestId('playhead-readout')).toHaveText('t = 2000 ms');
         await expect(page.getByTestId('lane-row-chunk')).toContainText('Schematic');
       }
       expect.soft(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBe(0);

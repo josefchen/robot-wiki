@@ -766,6 +766,18 @@ describe('two-parent exact approval reconciliation', () => {
       // cue of the five articles that carry one.
       ...['classical/control', 'data-hardware/data-bottleneck', 'data-hardware/evaluation-crisis',
         'manipulation/bc-foundations', 'frontier/generalization'].map(slug => ['prose', `article:${slug}`]),
+      // The second manipulation batch then moved the accessible names its
+      // rewritten figures print and the three cues that name their controls.
+      ...[
+        'literal:components/interactive/flow-matching-trajectory.tsx:aria-label:1',
+        'expression:components/interactive/flow-matching-trajectory.tsx:aria-label:2',
+        'literal:components/interactive/hierarchy-timescales.tsx:aria-label:1',
+        'literal:components/interactive/cross-embodiment-strategies.tsx:aria-label:1',
+        'expression:components/interactive/cross-embodiment-strategies.tsx:aria-label:2',
+        'expression:components/interactive/generalist-release-timeline.tsx:aria-label:2',
+      ].map(memberId => ['accessible-names', memberId]),
+      ...['generalist-policies', 'knowledge-insulation', 'rl-finetuning']
+        .map(slug => ['prose', `article:manipulation/${slug}`]),
     ]);
     expect(merged.slice(afterHowRobotsWork)).toMatchObject(readerFirstManipulationAppends.map(id => ({
       id, responsibleMilestone: 'opus-pass', disposition: 'permanent',

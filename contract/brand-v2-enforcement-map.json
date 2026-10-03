@@ -6831,6 +6831,26 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-008:/manipulation/generalist-policies/|1440x900|table#0",
+          "mechanism": "VAL-B2-ART-008 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#tables"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-008:/manipulation/generalist-policies/|375x812|table#0",
+          "mechanism": "VAL-B2-ART-008 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#tables"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-008:/manipulation/pi-line/|1440x900|table#0",
+          "mechanism": "VAL-B2-ART-008 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#tables"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-008:/manipulation/pi-line/|375x812|table#0",
+          "mechanism": "VAL-B2-ART-008 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#tables"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-008:/manipulation/realtime-execution/|1440x900|table#0",
           "mechanism": "VAL-B2-ART-008 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#tables"
         },
@@ -7017,7 +7037,7 @@
         "statement": "Tables remain inside the viewport through internal horizontal scrolling without reducing the prose measure below readable bounds.",
         "expected": "Tables remain inside the viewport through internal horizontal scrolling without reducing the prose measure below readable bounds.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 90,
+        "populationSize": 94,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -7082,6 +7102,10 @@
           "result:VAL-B2-ART-008:/manipulation/comparison-matrix/|375x812|table#0",
           "result:VAL-B2-ART-008:/manipulation/foundation-models/|1440x900|table#0",
           "result:VAL-B2-ART-008:/manipulation/foundation-models/|375x812|table#0",
+          "result:VAL-B2-ART-008:/manipulation/generalist-policies/|1440x900|table#0",
+          "result:VAL-B2-ART-008:/manipulation/generalist-policies/|375x812|table#0",
+          "result:VAL-B2-ART-008:/manipulation/pi-line/|1440x900|table#0",
+          "result:VAL-B2-ART-008:/manipulation/pi-line/|375x812|table#0",
           "result:VAL-B2-ART-008:/manipulation/realtime-execution/|1440x900|table#0",
           "result:VAL-B2-ART-008:/manipulation/realtime-execution/|1440x900|table#1",
           "result:VAL-B2-ART-008:/manipulation/realtime-execution/|375x812|table#0",
@@ -8056,6 +8080,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/cross-embodiment-strategies.tsx:aria-label:2",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/data-scale-chart.tsx:aria-label:1",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -8856,11 +8885,6 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/cross-embodiment-strategies.tsx:aria-label:1",
-          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
-        },
-        {
-          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/eureka-loop.tsx:aria-label:1",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -8872,11 +8896,6 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/expo-ft-results.tsx:aria-label:1",
-          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/flow-matching-trajectory.tsx:aria-label:1",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -8922,11 +8941,6 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/hand-comparison.tsx:aria-label:1",
-          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/hierarchy-timescales.tsx:aria-label:1",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -13171,7 +13185,7 @@
         "statement": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 1050,
+        "populationSize": 1048,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -13209,6 +13223,7 @@
           "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/control-loop-budget.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/control-loop-budget.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/cross-embodiment-strategies.tsx:aria-label:1",
+          "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/cross-embodiment-strategies.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/data-scale-chart.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/data-scale-chart.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/dataset-table.tsx:aria-label:1",
@@ -13369,11 +13384,9 @@
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/comparison-matrix.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/compounding-error.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/contact-geometry.tsx:aria-labelledby:1",
-          "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/cross-embodiment-strategies.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/eureka-loop.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/execution-modes.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/expo-ft-results.tsx:aria-label:1",
-          "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/flow-matching-trajectory.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/gait-diagram.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/gait-diagram.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/gait-diagram.tsx:aria-label:3",
@@ -13383,7 +13396,6 @@
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/grasp-wrench-lab.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/grasp-wrench-lab.tsx:aria-label:3",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/hand-comparison.tsx:aria-label:1",
-          "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/hierarchy-timescales.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/impedance-contact-lab.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/milestones-watchlist.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/mot-insulation.tsx:aria-label:1",

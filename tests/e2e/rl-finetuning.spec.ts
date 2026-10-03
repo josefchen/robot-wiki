@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { waitForHydration } from './interaction-ready';
+import { openAdjustMore } from './helpers/figure-fold';
 
 const ROUTE = '/manipulation/rl-finetuning/';
 
@@ -78,35 +79,37 @@ test.describe('rl-finetuning module', () => {
 
   test('advantage scrubber: scrub, views, and reset', async ({ page }) => {
     await page.goto(ROUTE);
+    const frame = page.locator('main [data-figure-frame="advantage-scrubber"]');
 
+    // At settle the whole episode is drawn and the note names the grip.
+    await expect(page.getByTestId('credit-annotation')).toContainText(/crooked grip/i);
+
+    // The time slider, readouts, execution view and Reset sit in "Adjust more".
+    await openAdjustMore(frame);
     const timeReadout = page.getByTestId('time-readout');
-    await expect(timeReadout).toHaveText(/t = 0\.0 s/);
+    await expect(timeReadout).toHaveText(/t = 40\.0 s/);
 
     // Scrub with the keyboard into the grasp segment: value falls, low advantage.
     const slider = page.getByRole('slider', { name: /episode time/i });
     await waitForHydration(slider);
     await slider.focus();
+    await page.keyboard.press('Home');
     for (let i = 0; i < 24; i += 1) await page.keyboard.press('ArrowRight');
     await expect(timeReadout).toHaveText(/t = 12\.0 s/);
     await expect(page.getByTestId('segment-readout')).toContainText(
       /low advantage/i,
     );
 
-    // Credit-assignment annotation links the insertion failure to the grasp.
-    await expect(page.getByTestId('credit-annotation')).toContainText(
-      /20 s earlier/i,
-    );
-
-    // Training view retains every transition with binary tags.
-    await page.getByRole('button', { name: /training data/i }).click();
+    // "What it learns" keeps every step with a helped or hurt tag.
+    await page.getByRole('button', { name: /what it learns/i }).click();
     await expect(page.getByTestId('training-view')).toContainText(
-      '5 transitions kept',
+      'All 5 steps stay in the training data',
     );
     await expect(page.getByTestId('training-row-grasp')).toContainText(
-      /low advantage/i,
+      /hurt/i,
     );
     await expect(page.getByTestId('training-row-reach')).toContainText(
-      /high advantage/i,
+      /helped/i,
     );
 
     // Execution view conditions on high advantage.
@@ -115,9 +118,9 @@ test.describe('rl-finetuning module', () => {
       /advantage:\s*high/i,
     );
 
-    // Reset restores the initial state.
+    // Reset restores the settled state.
     await page.getByRole('button', { name: /reset/i }).click();
-    await expect(timeReadout).toHaveText(/t = 0\.0 s/);
+    await expect(timeReadout).toHaveText(/t = 40\.0 s/);
     await expect(page.getByTestId('segment-readout')).toBeVisible();
   });
 
@@ -220,8 +223,14 @@ test.describe('rl-finetuning module', () => {
         await expect(page.getByTestId(`expo-ft-bar-${method}-${gi}`)).toContainText(values[gi]);
       }
     }
-    // The HIL-SERL footnote keeps the protocol caveat next to the chart.
-    await expect(page.getByText('randomizes a substantially larger initial-state space').first()).toBeVisible();
+    // The HIL-SERL paragraph keeps the protocol caveat next to the chart;
+    // the chart's own description repeats it inside "How this was made".
+    await expect(
+      page
+        .locator('#main-content p', { hasText: 'randomizes a substantially larger initial-state space' })
+        .filter({ visible: true })
+        .first(),
+    ).toBeVisible();
   });
 
   test('zero axe violations', async ({ page }) => {

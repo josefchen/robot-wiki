@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { openAdjustMore } from './helpers/figure-fold';
 for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 }]) {
   test(`Octo/pi0 conditional settings render at ${viewport.width}`, async ({ page }, info) => {
     await page.setViewportSize(viewport);
@@ -41,6 +42,8 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     await page.goto('/manipulation/comparison-matrix/');
     await page.evaluate(() => document.fonts.ready);
     await page.waitForLoadState('networkidle');
+    // The full matrix sits in the figure's "Adjust more" fold.
+    await openAdjustMore(page.locator('main [data-figure-frame="comparison-matrix"]'));
     const modelOcto = page.getByRole('row', { name: /^Octo / });
     await expect(modelOcto).toContainText('64 / 12');
     await expect(modelOcto).toContainText('ALOHA finetuning');

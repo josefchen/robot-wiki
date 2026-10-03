@@ -2,31 +2,26 @@
 
 import { useId } from 'react';
 import { ChartDescription } from '@/components/ui/chart-description';
-import {
-  InstrumentFigure,
-  InstrumentLegend,
-  LegendItem,
-  PlotStage,
-} from '@/components/ui/instrument';
+import { InstrumentFigure, PlotStage } from '@/components/ui/instrument';
 import { FigureStage } from '@/components/motion/figure-frame';
 import {
   CHART_STROKE,
   CHART_STRUCTURE,
   CHART_TYPE,
   CHART_VIEW_WIDTH,
-  LegendSwatch,
+  StageAnnotation,
   roleColour,
 } from '@/components/motion/chart';
 
 /**
  * ExpoFtResults: the EXPO-FT paper's four-task comparison (verified against
- * arXiv:2605.25477v2, cited as expo-ft-2026) as small multiples. Each task
- * is one panel of horizontal bars; the methods are rows that share one
- * labelled column, so a method is told apart by its row and its direct
- * label, never by a second colour. Every plotted number is a
- * successful-trials count out of 30 from that paper's own comparison table;
- * no value is derived or interpolated. The chart is fully static: no
- * controls, no state, no motion.
+ * arXiv:2605.25477v2, cited as expo-ft-2026). Each method is one row: its
+ * name and a plain description of how it learns on one line, and under it
+ * one bar per task, with the task names once across the top. EXPO-FT, the
+ * lead series, is drawn at full strength on a shaded row; the others are
+ * paler. Every plotted number is a successful-trials count out of 30 from
+ * that paper's own comparison table; no value is derived or interpolated.
+ * The chart is fully static: no controls, no state, no motion.
  *
  * The HIL-SERL caveat (the suite randomizes a substantially larger
  * initial-state space, and the standard budget was too small for learning to
@@ -36,27 +31,31 @@ import {
  */
 
 export const WIDTH = CHART_VIEW_WIDTH;
-export const HEIGHT = 182;
 export const GROUPS = ['Egg Flip', 'Cube Pick', 'Pool Shot', 'Flower Insertion'] as const;
 export const MAX_TRIALS = 30;
 
 /** Verified successes out of 30 per method and task (arXiv:2605.25477v2). */
 export const METHODS = [
-  { id: 'sft', label: 'SFT on π0.5', values: [16, 22, 23, 14] },
-  { id: 'hg-dagger', label: 'HG-DAgger', values: [18, 26, 14, 24] },
-  { id: 'dsrl', label: 'DSRL', values: [15, 24, 25, 12] },
-  { id: 'hil-serl', label: 'HIL-SERL', values: [13, 0, 1, 8] },
-  { id: 'expo-ft', label: 'EXPO-FT', values: [30, 30, 30, 30] },
+  { id: 'sft', label: 'SFT on π0.5', plain: 'copying demos only', values: [16, 22, 23, 14] },
+  { id: 'hg-dagger', label: 'HG-DAgger', plain: 'human steps in to correct', values: [18, 26, 14, 24] },
+  { id: 'dsrl', label: 'DSRL', plain: 'practice by trial and error', values: [15, 24, 25, 12] },
+  { id: 'hil-serl', label: 'HIL-SERL', plain: 'practice by trial and error', values: [13, 0, 1, 8] },
+  { id: 'expo-ft', label: 'EXPO-FT', plain: 'practice by trial and error', values: [30, 30, 30, 30] },
 ] as const;
 
-/** The panels' outer bounds; the method labels sit left of PLOT.left. */
-export const PLOT = { left: 84, right: 336, top: 46, bottom: 156 } as const;
-const LABEL_RIGHT = 78;
+const LEAD_ID = 'expo-ft';
+
+/** The bars' outer bounds; each method's name sits on the line above its bars. */
+export const PLOT = { left: 2, right: 338, top: 58, bottom: 278 } as const;
 const PANEL_GAP = 8;
 /** Room right of a full-length bar for its count label. */
-const COUNT_ROOM = 18;
-export const ROW_PITCH = 22;
+const COUNT_ROOM = 20;
+export const ROW_PITCH = 44;
 export const BAR_THICKNESS = 12;
+/** A row's name line, then its bars below it. */
+const NAME_BASELINE = 14;
+const BAR_OFFSET = 21;
+export const HEIGHT = PLOT.bottom + 40;
 
 /** SSR-stable to 2 decimals. */
 const f = (v: number) => Number(v.toFixed(2));
@@ -67,14 +66,18 @@ export const PANEL_WIDTH = f(
 /** The bar length of a 30/30 result. */
 export const BAR_MAX = f(PANEL_WIDTH - COUNT_ROOM);
 
-/** The left edge of one task panel, where every bar in it starts. */
+/** The left edge of one task column, where every bar in it starts. */
 export function panelLeft(groupIndex: number): number {
   return f(PLOT.left + groupIndex * (PANEL_WIDTH + PANEL_GAP));
 }
 
-/** The top edge of one method's bar; the same row in every panel. */
+function rowTop(methodIndex: number): number {
+  return PLOT.top + methodIndex * ROW_PITCH;
+}
+
+/** The top edge of one method's bars; the same row in every task column. */
 export function barTop(methodIndex: number): number {
-  return f(PLOT.top + methodIndex * ROW_PITCH + (ROW_PITCH - BAR_THICKNESS) / 2);
+  return f(rowTop(methodIndex) + BAR_OFFSET);
 }
 
 /** A bar's length for a trials count, on the shared 0 to 30 scale. */
@@ -82,145 +85,112 @@ export function barLength(trials: number): number {
   return f((trials / MAX_TRIALS) * BAR_MAX);
 }
 
-/**
- * Panel titles, bottom-aligned on one baseline. The long task name breaks
- * onto two lines; the break is set in em, so its leading follows the painted
- * type size, which stage.css holds constant while the drawing scales.
- */
+/** Column titles, bottom-aligned on one baseline; the long name breaks in two. */
 const GROUP_LINES: Record<(typeof GROUPS)[number], readonly string[]> = {
   'Egg Flip': ['Egg Flip'],
   'Cube Pick': ['Cube Pick'],
   'Pool Shot': ['Pool Shot'],
   'Flower Insertion': ['Flower', 'Insertion'],
 };
-const TITLE_BASELINE = 37;
-const TITLE_LEADING_EM = 1.3;
-const TICK_Y = f(PLOT.bottom + CHART_STROKE.tickLength + CHART_TYPE.tickPx);
+const SCALE_BASELINE = 14;
+const TITLE_BASELINE = 50;
+const TITLE_LEADING_EM = 1.2;
+
+const NOTE_LINES = ['Perfect score: 30 of 30 on every task'] as const;
 
 export function ExpoFtResults({ className }: { className?: string }) {
   const descriptionId = `${useId()}-description`;
   const value = roleColour('value');
-  const structure = {
-    stroke: CHART_STRUCTURE.axes,
-    strokeWidth: CHART_STROKE.structure,
-    opacity: CHART_STRUCTURE.axesOpacity,
-  };
+  const leadIndex = METHODS.findIndex((m) => m.id === LEAD_ID);
+  const leadBand = rowTop(leadIndex);
+  const noteY = PLOT.bottom + 30;
 
   return (
     <InstrumentFigure
       figureId="expo-ft-results"
       className={className}
-      heading="EXPO-FT four-task comparison"
+      kicker="EXPO-FT vs four other methods"
+      heading="One method succeeded every time on all four tasks"
       stage={
-        <FigureStage
-          footer={
-            <>
-              <InstrumentLegend>
-                <LegendItem swatch={<LegendSwatch role="value" mark="bar" />}>
-                  successful trials out of 30
-                </LegendItem>
-              </InstrumentLegend>
-              <ChartDescription
-                id={descriptionId}
-                form="table"
-                summary="Per-task successes out of 30"
-                rowHeader="task"
-                columns={[
-                  { header: 'SFT on π0.5', numeric: true },
-                  { header: 'HG-DAgger', numeric: true },
-                  { header: 'DSRL', numeric: true },
-                  { header: 'HIL-SERL', numeric: true },
-                  { header: 'EXPO-FT', numeric: true },
-                ]}
-                rows={GROUPS.map((task, gi) => ({
-                  label: task,
-                  values: METHODS.map((method) => `${method.values[gi]}/30`),
-                }))}
-                description="On the four shared comparison tasks EXPO-FT completes 30 of 30 trials on every task, against average successes of 18.8 for supervised finetuning, 20.5 for HG-DAgger, 19 for DSRL and 5.5 for HIL-SERL; the same paper notes HIL-SERL is highly reliable in its original evaluations and that this suite randomizes a substantially larger initial-state space, and with extra training samples HIL-SERL reaches 27 of 30 on Cube Pick and 13 of 30 on Pool Shot."
-              />
-            </>
-          }
-        >
+        <FigureStage>
           <PlotStage
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
             aria-label="Successful trials out of 30 for five methods across four manipulation tasks"
             aria-describedby={descriptionId}
           >
-            {/* One method label per row, shared by the four panels. */}
-            {METHODS.map((method, mi) => (
-              <text
-                key={method.id}
-                data-scene-tick=""
-                x={LABEL_RIGHT}
-                y={f(barTop(mi) + BAR_THICKNESS / 2)}
-                textAnchor="end"
-                dominantBaseline="middle"
-                fontSize={CHART_TYPE.tickPx}
-                fill={CHART_STRUCTURE.label}
-              >
-                {method.label}
-              </text>
-            ))}
-
+            <text
+              x={PLOT.left}
+              y={SCALE_BASELINE}
+              fontSize={CHART_TYPE.tickPx}
+              fill={CHART_STRUCTURE.labelSecondary}
+            >
+              Successes out of 30 tries, per task
+            </text>
             {GROUPS.map((task, gi) => {
               const left = panelLeft(gi);
               const lines = GROUP_LINES[task];
               return (
-                <g key={task} data-chart-panel={gi}>
+                <text
+                  key={task}
+                  data-scene-axis=""
+                  x={left}
+                  y={TITLE_BASELINE}
+                  fontSize={CHART_TYPE.axisPx}
+                  fill={CHART_STRUCTURE.label}
+                >
+                  {lines.map((line, li) => (
+                    <tspan
+                      key={line}
+                      x={left}
+                      dy={
+                        li === 0
+                          ? `${-(lines.length - 1) * TITLE_LEADING_EM}em`
+                          : `${TITLE_LEADING_EM}em`
+                      }
+                    >
+                      {line}
+                    </tspan>
+                  ))}
+                </text>
+              );
+            })}
+
+            {/* The lead row's shading sits behind its name and bars. */}
+            <rect
+              data-expo-lead-row=""
+              x={0}
+              y={f(leadBand + 1)}
+              width={WIDTH}
+              height={ROW_PITCH - 4}
+              fill={CHART_STRUCTURE.grid}
+              opacity={0.45}
+            />
+
+            {METHODS.map((method, mi) => {
+              const lead = method.id === LEAD_ID;
+              return (
+                <g key={method.id} data-expo-row={method.id}>
                   <text
-                    data-scene-axis=""
-                    x={left}
-                    y={TITLE_BASELINE}
-                    fontSize={CHART_TYPE.axisPx}
+                    data-scene-tick=""
+                    x={PLOT.left}
+                    y={rowTop(mi) + NAME_BASELINE}
+                    fontSize={CHART_TYPE.tickPx}
                     fill={CHART_STRUCTURE.label}
                   >
-                    {lines.map((line, li) => (
-                      <tspan
-                        key={line}
-                        x={left}
-                        dy={
-                          li === 0
-                            ? `${-(lines.length - 1) * TITLE_LEADING_EM}em`
-                            : `${TITLE_LEADING_EM}em`
-                        }
-                      >
-                        {line}
-                      </tspan>
-                    ))}
+                    <tspan fontWeight={lead ? 700 : 600}>{method.label}</tspan>
+                    <tspan dx={8} fill={CHART_STRUCTURE.labelSecondary}>
+                      {method.plain}
+                    </tspan>
                   </text>
-                  <g data-chart-axes="">
-                    <line x1={left} x2={left} y1={PLOT.top} y2={PLOT.bottom} {...structure} />
-                    <line x1={left} x2={f(left + BAR_MAX)} y1={PLOT.bottom} y2={PLOT.bottom} {...structure} />
-                    {[0, MAX_TRIALS].map((t) => (
-                      <g key={t}>
-                        <line
-                          x1={f(left + barLength(t))}
-                          x2={f(left + barLength(t))}
-                          y1={PLOT.bottom}
-                          y2={f(PLOT.bottom + CHART_STROKE.tickLength)}
-                          {...structure}
-                        />
-                        <text
-                          data-scene-tick=""
-                          x={f(left + barLength(t))}
-                          y={TICK_Y}
-                          textAnchor="middle"
-                          fontSize={CHART_TYPE.tickPx}
-                          fill={CHART_STRUCTURE.labelSecondary}
-                        >
-                          {t}
-                        </text>
-                      </g>
-                    ))}
-                  </g>
                   {/* One testid per method and task for the e2e spec. */}
-                  {METHODS.map((method, mi) => {
+                  {GROUPS.map((task, gi) => {
                     const trials = method.values[gi];
+                    const left = panelLeft(gi);
                     const length = barLength(trials);
                     const top = barTop(mi);
                     return (
                       <g
-                        key={method.id}
+                        key={task}
                         data-series={method.id}
                         data-testid={`expo-ft-bar-${method.id}-${gi}`}
                       >
@@ -232,6 +202,7 @@ export function ExpoFtResults({ className }: { className?: string }) {
                           width={length}
                           height={BAR_THICKNESS}
                           fill={value}
+                          fillOpacity={lead ? 1 : 0.4}
                         />
                         <text
                           data-scene-tick=""
@@ -239,6 +210,7 @@ export function ExpoFtResults({ className }: { className?: string }) {
                           y={f(top + BAR_THICKNESS / 2)}
                           dominantBaseline="middle"
                           fontSize={CHART_TYPE.tickPx}
+                          fontWeight={lead ? 700 : undefined}
                           fill={CHART_STRUCTURE.label}
                         >
                           {trials}
@@ -249,10 +221,83 @@ export function ExpoFtResults({ className }: { className?: string }) {
                 </g>
               );
             })}
+
+            {/* Each task column's zero line, so a 0 reads as a bar with no length. */}
+            {METHODS.flatMap((method, mi) =>
+              GROUPS.map((task, gi) => (
+                <line
+                  key={`${method.id}-${task}`}
+                  x1={panelLeft(gi)}
+                  x2={panelLeft(gi)}
+                  y1={barTop(mi) - 2}
+                  y2={barTop(mi) + BAR_THICKNESS + 2}
+                  stroke={CHART_STRUCTURE.axes}
+                  strokeOpacity={CHART_STRUCTURE.axesOpacity}
+                  strokeWidth={CHART_STROKE.structure}
+                />
+              )),
+            )}
+
+            <StageAnnotation
+              x={PLOT.left}
+              y={noteY}
+              lines={NOTE_LINES}
+              target={[f(panelLeft(0) + BAR_MAX / 2), f(barTop(leadIndex) + BAR_THICKNESS + 7)]}
+              from={[f(panelLeft(0) + BAR_MAX / 2), noteY - CHART_TYPE.labelPx + 1]}
+            />
           </PlotStage>
         </FigureStage>
       }
-      caption="EXPO-FT finishes 30 of 30 trials on all four tasks; the four other methods range from 0 to 26."
+      caption="After practising with EXPO-FT, the robot succeeded on every try across four tasks; copying demonstrations alone managed 14 to 23 of 30."
+      method={
+        <>
+          <div>
+            Each bar counts successful trials out of 30 on one task, from the comparison table in
+            the EXPO-FT paper (Dong et al., 2026). No value is derived or interpolated.
+          </div>
+          <ul className="m-0! grid list-none gap-1.5 p-0!" data-testid="expo-ft-methods">
+            <li className="my-0!">
+              <span className="font-medium text-text">SFT on π0.5</span>: supervised finetuning,
+              which copies demonstrations; it is the starting checkpoint EXPO-FT itself begins from.
+            </li>
+            <li className="my-0!">
+              <span className="font-medium text-text">HG-DAgger</span>: a person takes over when the
+              robot goes wrong, and the robot learns to copy those corrections.
+            </li>
+            <li className="my-0!">
+              <span className="font-medium text-text">DSRL</span>: keeps the base policy frozen and
+              runs reinforcement learning over the noise it starts from.
+            </li>
+            <li className="my-0!">
+              <span className="font-medium text-text">HIL-SERL</span>: reinforcement learning on the
+              robot from demonstrations, its own tries and human corrections.
+            </li>
+            <li className="my-0!">
+              <span className="font-medium text-text">EXPO-FT</span>: reinforcement learning on
+              π0.5 action chunks, where a small edit policy nudges sampled actions toward higher
+              value, with human teleoperation corrections during online training.
+            </li>
+          </ul>
+          <ChartDescription
+            id={descriptionId}
+            form="table"
+            summary="Per-task successes out of 30"
+            rowHeader="task"
+            columns={[
+              { header: 'SFT on π0.5', numeric: true },
+              { header: 'HG-DAgger', numeric: true },
+              { header: 'DSRL', numeric: true },
+              { header: 'HIL-SERL', numeric: true },
+              { header: 'EXPO-FT', numeric: true },
+            ]}
+            rows={GROUPS.map((task, gi) => ({
+              label: task,
+              values: METHODS.map((method) => `${method.values[gi]}/30`),
+            }))}
+            description="On the four shared comparison tasks EXPO-FT completes 30 of 30 trials on every task, against average successes of 18.8 for supervised finetuning, 20.5 for HG-DAgger, 19 for DSRL and 5.5 for HIL-SERL; the same paper notes HIL-SERL is highly reliable in its original evaluations and that this suite randomizes a substantially larger initial-state space, and with extra training samples HIL-SERL reaches 27 of 30 on Cube Pick and 13 of 30 on Pool Shot."
+          />
+        </>
+      }
       source="Counts from the EXPO-FT paper's four-task comparison (Dong 2026)."
     />
   );

@@ -231,7 +231,7 @@ describe('state-form chart descriptions', () => {
     const { text } = assertDescribed(imgs[0], container);
     expect(container.querySelectorAll('[data-chart-description]')).toHaveLength(1);
     expect(text).toMatch(/relative end-effector|human video/i);
-    fireEvent.click(screen.getByRole('button', { name: /padded shared vector/i }));
+    fireEvent.click(screen.getByRole('button', { name: "Pad each robot's own list" }));
     const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
     expect(moved).not.toBe(text);
   });
@@ -239,7 +239,7 @@ describe('state-form chart descriptions', () => {
   it('HierarchyTimescales describes the Gantt and lives the playhead', () => {
     const { container } = render(<HierarchyTimescales />);
     const { text } = assertDescribed(screen.getByRole('img'), container);
-    expect(text).toMatch(/playhead 0 ms/);
+    expect(text).toMatch(/playhead 2000 ms/);
     expect(screen.getByTestId('playhead-readout')).toHaveAttribute(
       'aria-live',
       'polite',

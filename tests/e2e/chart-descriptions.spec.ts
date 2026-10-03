@@ -69,9 +69,11 @@ const CHARTS: Array<{
   { route: '/manipulation/action-chunking', name: 'chunksize', control: 'range', moves: ['1', '400'], def: '100', match: 'chunk size' },
   // The delay figure opens on the larger tested setting, +200 ms.
   { route: '/manipulation/action-chunking', name: 'latency-throughput', control: 'range', moves: ['140', '0'], def: '200', match: 'normalized toy scores' },
-  { route: '/manipulation/realtime-execution', name: 'execution', control: 'range', moves: ['80', '200'], def: '0', match: 'synchronous velocity' },
+  // The hand-off figure opens on the 0.2 second delay preset.
+  { route: '/manipulation/realtime-execution', name: 'execution', control: 'range', moves: ['80', '0'], def: '200', match: 'synchronous velocity' },
   { route: '/manipulation/vla-models', name: 'tokenization', control: 'range', moves: ['0', '15'], def: '7' },
-  { route: '/manipulation/rl-finetuning', name: 'advantage', control: 'range', moves: ['12', '32'], def: '0' },
+  // The advantage figure settles at the end of its 40-second episode.
+  { route: '/manipulation/rl-finetuning', name: 'advantage', control: 'range', moves: ['12', '32'], def: '40' },
   { route: '/rl-sim2real/sim2real-transfer', name: 'friction', control: 'range', moves: ['50', '120'], def: '80', match: 'selected friction' },
   { route: '/world-models/latent-dynamics', name: 'latent', control: 'range', moves: ['30', '50'], def: '15', match: 'shaded band' },
   {

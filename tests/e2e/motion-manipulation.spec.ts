@@ -37,7 +37,9 @@ test('paired manipulation labs use action/reference roles and only highlight the
           expect(await target.locator('path').evaluate((node) => getComputedStyle(node).stroke)).toBe(reference);
           expect(await target.locator('text').evaluate((node) => getComputedStyle(node).fill)).toBe(await stageRole('reference-text', flowStage));
         }
-        await page.getByRole('slider', { name: /integration steps/i }).fill('5');
+        // The step presets are the main view; five steps is π0.6's and π0.7's setting.
+        await page.getByRole('button', { name: /^5 steps/ }).click();
+        await expect(page.getByTestId('fm-step-readout')).toHaveText('5 steps');
         expect(await flow.locator('polyline').first().evaluate((node) => getComputedStyle(node).stroke)).toBe(action);
 
         await page.goto('/manipulation/vla-models/', { waitUntil: 'networkidle' });

@@ -16,35 +16,35 @@
     "minutes": 12
   },
   "manipulation/pi-line": {
-    "words": 3168,
-    "minutes": 16
+    "words": 3038,
+    "minutes": 15
   },
   "manipulation/generalist-policies": {
-    "words": 2607,
+    "words": 2546,
     "minutes": 13
   },
   "manipulation/comparison-matrix": {
-    "words": 3425,
-    "minutes": 17
+    "words": 2133,
+    "minutes": 11
   },
   "manipulation/hierarchical": {
-    "words": 2264,
+    "words": 2119,
     "minutes": 11
   },
   "manipulation/rl-finetuning": {
-    "words": 5061,
-    "minutes": 25
+    "words": 4833,
+    "minutes": 24
   },
   "manipulation/realtime-execution": {
-    "words": 2487,
-    "minutes": 12
+    "words": 2162,
+    "minutes": 11
   },
   "manipulation/cross-embodiment": {
-    "words": 1857,
+    "words": 1724,
     "minutes": 9
   },
   "manipulation/knowledge-insulation": {
-    "words": 1414,
+    "words": 1350,
     "minutes": 7
   },
   "manipulation/robot-learning-roadmap": {

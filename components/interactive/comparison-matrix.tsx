@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState, type ReactNode } from 'react';
+import { useEffect, useMemo, useState, type CSSProperties, type ReactNode } from 'react';
 import { useCitationLookup } from '@/components/article/citation-records';
 import { Table, type Column } from '@/components/ui';
 import {
@@ -14,6 +14,7 @@ import {
 } from '@/components/ui/instrument';
 import { StageStatusChip } from '@/components/ui/stage-status-chip';
 import { FigureStage } from '@/components/motion/figure-frame';
+import { CHART_STRUCTURE, CHART_TYPE, roleColour } from '@/components/motion/chart';
 import { METHODS, type Method } from '@/data/methods';
 import {
   methodConditioningText,
@@ -32,10 +33,14 @@ import {
   type RepresentationFilter,
   type WeightsFilter,
 } from '@/lib/methods';
+import { MOTION_STAGE } from '@/lib/motion-tokens';
+import { cx } from '@/lib/utils';
 
 /**
- * ComparisonMatrix: every major manipulation policy across the eight
- * architectural axes, as a filterable, sortable table.
+ * ComparisonMatrix: every major manipulation policy, first as a year strip
+ * (one dot per method, by year and by how it outputs motion) and one card
+ * per method with four plain facts, then the full filterable, sortable
+ * matrix across the eight architectural axes in "Adjust more".
  *
  * Honesty rules: cells the vendor has not
  * published render as "not disclosed", and null values always sort to the
@@ -45,7 +50,8 @@ import {
  * Interactive contract: deterministic render, keyboard-operable filter
  * buttons and sort headers (aria-pressed / aria-sort), a visible row-count
  * readout, a reset control, an explicit empty state with a clear-filter
- * affordance, and horizontal scroll inside its own container at 375px.
+ * affordance, and horizontal scroll inside its own container at 375px. A
+ * search result's #method-<id> anchor lands on that method's card.
  */
 
 const STAGE_LINK = 'underline-offset-2';
@@ -222,6 +228,206 @@ const REPRESENTATION_OPTIONS: Array<{
   { value: 'undisclosed', label: 'Not disclosed' },
 ];
 
+/**
+ * How a method turns what it sees into motion, in plain words. Diffusion
+ * and flow matching both start from random noise and refine it into a
+ * move, so the main view groups them; the full matrix keeps them apart.
+ */
+type OutputStyle = 'codes' | 'numbers' | 'noise' | 'undisclosed';
+
+const OUTPUT_STYLES: Array<{ id: OutputStyle; label: string }> = [
+  { id: 'codes', label: 'word-like codes' },
+  { id: 'numbers', label: 'plain numbers' },
+  { id: 'noise', label: 'refined from noise' },
+  { id: 'undisclosed', label: NOT_DISCLOSED_TEXT },
+];
+
+function outputStyle(method: Method): OutputStyle {
+  switch (method.actionRepresentation) {
+    case 'discrete':
+      return 'codes';
+    case 'continuous':
+      return 'numbers';
+    case 'diffusion':
+    case 'flow':
+      return 'noise';
+    default:
+      return 'undisclosed';
+  }
+}
+
+const STYLE_LABEL = Object.fromEntries(
+  OUTPUT_STYLES.map(({ id, label }) => [id, label]),
+) as Record<OutputStyle, string>;
+
+/** Year order; ties keep the data order. Undated rows go last. */
+const BY_YEAR: Method[] = [...METHODS].sort(
+  (a, b) => (a.year ?? Infinity) - (b.year ?? Infinity),
+);
+
+const YEARS: number[] = (() => {
+  const years = METHODS.flatMap((m) => (m.year === null ? [] : [m.year]));
+  const out: number[] = [];
+  for (let y = Math.min(...years); y <= Math.max(...years); y += 1) out.push(y);
+  return out;
+})();
+
+/** The year every undisclosed output style falls in, when there is one. */
+const UNDISCLOSED_YEAR: number | null = (() => {
+  const years = new Set(
+    METHODS.filter((m) => outputStyle(m) === 'undisclosed').map((m) => m.year),
+  );
+  return years.size === 1 ? ([...years][0] ?? null) : null;
+})();
+
+function plansAhead(method: Method): string {
+  const planned = method.actionHorizon.planned;
+  if (planned === null) return NOT_DISCLOSED_TEXT;
+  return planned === 1 ? '1 move' : `${planned} moves`;
+}
+
+function speed(method: Method): string {
+  const hz = method.controlFrequencyHz;
+  return hz === null ? NOT_DISCLOSED_TEXT : `${hz} commands a second`;
+}
+
+function download(method: Method): string {
+  return method.openWeights === null ? NOT_DISCLOSED_TEXT : method.openWeights ? 'yes' : 'no';
+}
+
+const STRIP = {
+  width: 340,
+  labelX: 0,
+  colX0: 132,
+  headerY: 14,
+  rowY0: 36,
+  rowStep: 22,
+  dotR: 4,
+  dotStep: 10,
+} as const;
+const STRIP_COL_W = (STRIP.width - STRIP.colX0) / YEARS.length;
+const STRIP_HEIGHT = STRIP.rowY0 + STRIP.rowStep * (OUTPUT_STYLES.length - 1) + 10;
+const fx = (v: number) => Number(v.toFixed(2));
+
+/**
+ * Every method as one dot, by year across and by output style down. The
+ * cards below carry the same facts as text, so the drawing is hidden from
+ * assistive technology rather than named twice.
+ */
+function YearStrip({ shown }: { shown: ReadonlySet<string> }) {
+  const measurement = roleColour('measurement');
+  const colCenter = (year: number) =>
+    fx(STRIP.colX0 + (YEARS.indexOf(year) + 0.5) * STRIP_COL_W);
+  return (
+    <svg
+      viewBox={`0 0 ${STRIP.width} ${STRIP_HEIGHT}`}
+      aria-hidden="true"
+      focusable="false"
+      data-chart=""
+      data-testid="method-year-strip"
+      className="motion-stage-svg block h-auto w-full"
+      fontFamily={CHART_TYPE.font}
+      style={{ '--motion-stage-view-width': `${STRIP.width}px` } as CSSProperties}
+    >
+      {YEARS.map((year) => (
+        <text
+          key={year}
+          data-scene-tick=""
+          x={colCenter(year)}
+          y={STRIP.headerY}
+          textAnchor="middle"
+          fontSize={CHART_TYPE.tickPx}
+          fill={CHART_STRUCTURE.labelSecondary}
+        >
+          {year}
+        </text>
+      ))}
+      {OUTPUT_STYLES.map((style, row) => {
+        const y = STRIP.rowY0 + row * STRIP.rowStep;
+        const undisclosed = style.id === 'undisclosed';
+        return (
+          <g key={style.id} data-output-style={style.id}>
+            <text
+              x={STRIP.labelX}
+              y={y + CHART_TYPE.labelPx * 0.35}
+              fontSize={CHART_TYPE.labelPx}
+              fill={CHART_STRUCTURE.label}
+            >
+              {style.label}
+            </text>
+            {YEARS.map((year) => {
+              const members = BY_YEAR.filter(
+                (m) => m.year === year && outputStyle(m) === style.id,
+              );
+              return members.map((m, j) => (
+                <circle
+                  key={m.id}
+                  data-method-dot={m.id}
+                  cx={fx(colCenter(year) + (j - (members.length - 1) / 2) * STRIP.dotStep)}
+                  cy={y}
+                  r={STRIP.dotR}
+                  fill={undisclosed ? MOTION_STAGE.background : measurement}
+                  stroke={undisclosed ? CHART_STRUCTURE.labelSecondary : measurement}
+                  strokeWidth={1.5}
+                  opacity={shown.has(m.id) ? 1 : 0.2}
+                />
+              ));
+            })}
+            {undisclosed && UNDISCLOSED_YEAR !== null ? (
+              <text
+                data-scene-note=""
+                data-testid="method-strip-note"
+                x={fx(colCenter(UNDISCLOSED_YEAR) - STRIP_COL_W / 2 - 4)}
+                y={y + CHART_TYPE.labelPx * 0.35}
+                textAnchor="end"
+                fontSize={CHART_TYPE.axisPx}
+                fill={CHART_STRUCTURE.labelSecondary}
+              >
+                none before {UNDISCLOSED_YEAR}
+              </text>
+            ) : null}
+          </g>
+        );
+      })}
+    </svg>
+  );
+}
+
+function MethodCard({ method, highlighted }: { method: Method; highlighted: boolean }) {
+  const anchor = entityAnchorId('method', method.id);
+  const facts: Array<[string, string]> = [
+    ['Output', STYLE_LABEL[outputStyle(method)]],
+    ['Plans ahead', plansAhead(method)],
+    ['Speed', speed(method)],
+    ['Download', download(method)],
+  ];
+  return (
+    <li
+      id={anchor}
+      data-entity-id={anchor}
+      data-method-card={method.id}
+      data-highlighted={highlighted || undefined}
+      className={cx(
+        'm-0! scroll-mt-24 border-l-2 pl-3',
+        highlighted ? 'border-highlight' : 'border-transparent',
+      )}
+    >
+      <div className="flex items-baseline gap-2">
+        <span className="font-semibold text-text">{method.name}</span>
+        <span className="text-text-dim">{method.year ?? NOT_DISCLOSED_TEXT}</span>
+      </div>
+      <dl className="m-0 mt-0.5 grid grid-cols-[auto_1fr] gap-x-2">
+        {facts.map(([term, value]) => (
+          <div key={term} className="contents">
+            <dt className="text-text-dim">{term}</dt>
+            <dd className="m-0 text-text">{value}</dd>
+          </div>
+        ))}
+      </dl>
+    </li>
+  );
+}
+
 type ComparisonMatrixProps = {
   className?: string;
 };
@@ -236,6 +442,17 @@ export function ComparisonMatrix({ className }: ComparisonMatrixProps) {
     : null;
 
   const rows = useMemo(() => filterMethods(METHODS, filters), [filters]);
+  const shown = useMemo(() => new Set(rows.map((m) => m.id)), [rows]);
+  const cards = BY_YEAR.filter((m) => shown.has(m.id));
+
+  // A search result links to a method's card; bring it into view once the
+  // hash is read after mount.
+  useEffect(() => {
+    if (!highlightedAnchor) return;
+    const target = document.getElementById(highlightedAnchor);
+    if (!target || typeof target.scrollIntoView !== 'function') return;
+    target.scrollIntoView({ block: 'center', inline: 'nearest' });
+  }, [highlightedAnchor]);
 
   function patchFilters(patch: Partial<MethodFilters>) {
     setFilters((current) => ({ ...current, ...patch }));
@@ -250,12 +467,27 @@ export function ComparisonMatrix({ className }: ComparisonMatrixProps) {
     setResetCount((count) => count + 1);
   }
 
+  const downloadableOnly = filters.weights === 'open';
+
   return (
     <InstrumentFigure
       figureId="comparison-matrix"
       className={className}
-      heading="Policy comparison matrix"
+      kicker="Policy comparison"
+      heading="Most 2026 robot brains don't disclose how they move"
       controls={
+        <button
+          data-brand-control-id="control:selection"
+          data-testid="matrix-downloadable-only"
+          type="button"
+          aria-pressed={downloadableOnly}
+          onClick={() => patchFilters({ weights: downloadableOnly ? 'all' : 'open' })}
+          className={INSTRUMENT_TOGGLE_CLASS}
+        >
+          Downloadable only
+        </button>
+      }
+      adjust={
         <>
           <ControlField>
             <ControlLabel htmlFor="matrix-filter">Filter methods</ControlLabel>
@@ -266,7 +498,7 @@ export function ComparisonMatrix({ className }: ComparisonMatrixProps) {
               value={filters.query}
               onChange={(event) => patchFilters({ query: event.target.value })}
               placeholder="name, backbone, conditioning"
-              className="h-9 w-full rounded-sm border border-border bg-surface-2 px-2.5 font-sans text-[13px] text-text placeholder:text-text-dim"
+              className="h-9 w-full rounded-sm border border-border bg-surface-2 px-2.5 font-sans text-sm text-text placeholder:text-text-dim"
             />
           </ControlField>
           <InstrumentReset onClick={reset} className="self-end" />
@@ -275,7 +507,7 @@ export function ComparisonMatrix({ className }: ComparisonMatrixProps) {
             aria-label="Filter by weights"
             className="grid basis-full gap-1"
           >
-            <span className="font-sans text-[13px] text-text-dim">Weights</span>
+            <span className="font-sans text-sm text-text-dim">Weights</span>
             <div className="flex flex-wrap gap-1">
               {WEIGHT_OPTIONS.map((option) => (
                 <button
@@ -296,7 +528,7 @@ export function ComparisonMatrix({ className }: ComparisonMatrixProps) {
             aria-label="Filter by action representation"
             className="grid basis-full gap-1"
           >
-            <span className="font-sans text-[13px] text-text-dim">
+            <span className="font-sans text-sm text-text-dim">
               Action representation
             </span>
             <div className="flex flex-wrap gap-1">
@@ -314,6 +546,20 @@ export function ComparisonMatrix({ className }: ComparisonMatrixProps) {
               ))}
             </div>
           </div>
+          {rows.length > 0 ? (
+            <div className="min-w-0 basis-full">
+              <Table
+                key={resetCount}
+                // The shared table sets numeric columns in mono; in a figure
+                // mono is reserved for readouts, so every cell stays in the sans.
+                className="mt-1 [&_td]:font-sans"
+                caption={`${METHODS.length} policies across the eight architectural axes. Horizon shows planned / executed steps (n.d. = not disclosed). Weights describe download availability, not license openness. Unknown availability is separate from not released. Cells the vendor has not published are marked not disclosed and always sort last, in both directions. Unset scalar rates do not prove that a source reports no setup-specific rate. Read the setting notes and linked sources before comparing cells.`}
+                columns={COLUMNS}
+                rows={rows}
+                initialSort={{ key: 'year', direction: 'asc' }}
+              />
+            </div>
+          ) : null}
         </>
       }
       stage={
@@ -324,47 +570,71 @@ export function ComparisonMatrix({ className }: ComparisonMatrixProps) {
             </InstrumentReadout>
           }
         >
-          {rows.length === 0 ? (
-            <div
-              role="status"
-              className="mx-3 mt-3 mb-2 rounded-sm border border-dashed border-border px-4 py-6 text-center"
-            >
-              <p className="font-sans text-sm text-text">
-                No methods match these filters.
-              </p>
-              <p className="mt-1 font-sans text-[13px] text-text-dim">
-                Undisclosed rows only match the Not disclosed representation
-                filter; try widening the weights or representation selection.
-              </p>
-              <button
-                data-brand-control-id="control:secondary-action"
-                data-pagefind-ignore
-                type="button"
-                onClick={clearFilters}
-                className={`mt-3 ${INSTRUMENT_SECONDARY_CONTROL_CLASS}`}
-              >
-                Clear filters
-              </button>
+          <div className="font-sans text-sm leading-snug">
+            <div className="text-text-dim">
+              Each dot is one robot brain, placed by year and by how it outputs motion.
             </div>
-          ) : (
-            <Table
-              key={resetCount}
-              // The shared table marks an anchored row in signal blue and sets
-              // numeric columns in mono; on the stage signal is reserved for
-              // links and mono for readouts, so the anchored row takes the
-              // selection lime and every cell stays in the sans face.
-              className="mx-3 mt-3 mb-2 [&_tbody_tr]:border-l-highlight [&_td]:font-sans"
-              caption={`${METHODS.length} policies across the eight architectural axes. Horizon shows planned / executed steps (n.d. = not disclosed). Weights describe download availability, not license openness. Unknown availability is separate from not released. Cells the vendor has not published are marked not disclosed and always sort last, in both directions. Unset scalar rates do not prove that a source reports no setup-specific rate. Read the setting notes and linked sources before comparing cells.`}
-              columns={COLUMNS}
-              rows={rows}
-              initialSort={{ key: 'year', direction: 'asc' }}
-              rowAnchor={(row) => entityAnchorId('method', row.id)}
-              highlightedAnchor={highlightedAnchor}
-            />
-          )}
+            <div className="@container mt-2 max-w-[520px]">
+              <YearStrip shown={shown} />
+            </div>
+            {rows.length === 0 ? (
+              <div role="status" className="mt-4">
+                <div className="text-text">No methods match these filters.</div>
+                <div className="mt-1 text-text-dim">
+                  Undisclosed rows only match the Not disclosed representation
+                  filter; try widening the weights or representation selection.
+                </div>
+                <button
+                  data-brand-control-id="control:secondary-action"
+                  data-pagefind-ignore
+                  type="button"
+                  onClick={clearFilters}
+                  className={`mt-3 ${INSTRUMENT_SECONDARY_CONTROL_CLASS}`}
+                >
+                  Clear filters
+                </button>
+              </div>
+            ) : (
+              <>
+                <div className="mt-4 text-text-dim">
+                  Figures as each source reports them, often for one test setup.
+                </div>
+                <ul
+                  data-testid="method-cards"
+                  className="m-0! mt-2 grid list-none grid-cols-1 gap-x-6 gap-y-3 p-0! sm:grid-cols-2"
+                >
+                  {cards.map((method) => (
+                    <MethodCard
+                      key={method.id}
+                      method={method}
+                      highlighted={entityAnchorId('method', method.id) === highlightedAnchor}
+                    />
+                  ))}
+                </ul>
+              </>
+            )}
+          </div>
         </FigureStage>
       }
-      caption={`${METHODS.length} manipulation policies on eight architectural axes; unpublished cells read not disclosed and sort last.`}
+      caption="Through 2025 every system here published how it outputs motion; four of the six 2026 entries are company announcements that leave it out."
+      method={
+        <>
+          <div>
+            Compiled from the primary sources linked in each row of the full matrix under
+            &ldquo;Adjust more&rdquo;. The cards and dots group the action representations into
+            plain words: discrete tokens are &ldquo;word-like codes&rdquo;, continuous outputs are
+            &ldquo;plain numbers&rdquo;, and diffusion and flow matching, which both refine random
+            noise into a move, are &ldquo;refined from noise&rdquo;.
+          </div>
+          <div>
+            &ldquo;Plans ahead&rdquo; is the planned action horizon and &ldquo;speed&rdquo; the
+            reported control frequency, each for the setting the source names; the matrix keeps
+            the executed steps and the setting notes. &ldquo;Download&rdquo; describes download
+            availability, not licence openness. Cells the vendor has not published read{' '}
+            {NOT_DISCLOSED_TEXT} and sort last in both directions.
+          </div>
+        </>
+      }
       source="Compiled from the primary sources linked in each row's Sources column."
     />
   );

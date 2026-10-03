@@ -317,7 +317,8 @@ describe('four bounded local truth repairs without completion credit', { timeout
         id: delta.memberId,
         value: delta.manifest === 'prose' ? { path, body: matter(text).content.trim() } : { path, source: text },
       }]).members[0].hash;
-      const merged = headReanchorFor(entries.filter(({ id }) => !id.startsWith('seo-pass-20261002-')),
+      const merged = headReanchorFor(entries.filter(({ id }) => !id.startsWith('seo-pass-20261002-')
+        && !id.startsWith('reader-first-20261003-')),
         delta.manifest, delta.memberId);
       const restore = restores.find((entry) => entry.memberId === delta.memberId);
       if (restore) expect(restore.oldHash).toBe(merged!.newHash);
@@ -340,7 +341,16 @@ describe('four bounded local truth repairs without completion credit', { timeout
         const seo = entries.filter((entry) => entry.manifest === 'prose' &&
           entry.memberId === delta.memberId && entry.id.startsWith('seo-pass-20261002-'));
         expect(seo).toHaveLength(memberHash(preSeo) === memberHash(read(path)) ? 0 : 1);
-        expect(seo[0]?.newHash ?? migratedEndpoint).toBe(memberHash(read(path)));
+        const seoEndpoint = seo[0]?.newHash ?? migratedEndpoint;
+        // The reader-first figure pass may carry the body on once more; its
+        // edge either starts at the SEO endpoint or reconciles it.
+        const readerFirst = entries.filter((entry) => entry.manifest === 'prose' &&
+          entry.memberId === delta.memberId && /^reader-first-2026100\d-prose-/.test(entry.id)).at(-1);
+        if (readerFirst) {
+          expect(readerFirst.oldHash === seoEndpoint
+            || (readerFirst.reconciles ?? []).some((binding) => binding.newHash === seoEndpoint)).toBe(true);
+        }
+        expect(readerFirst?.newHash ?? seoEndpoint).toBe(memberHash(read(path)));
       } else {
         expect(migrated).toHaveLength(0);
       }

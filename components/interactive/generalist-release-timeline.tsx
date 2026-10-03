@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useId, useRef, useState } from 'react';
 import { useCitationLookup } from '@/components/article/citation-records';
+import { TableScroll } from '@/components/ui';
 import { ChartDescription } from '@/components/ui/chart-description';
 import {
   INSTRUMENT_TOGGLE_CLASS,
@@ -14,12 +15,11 @@ import {
 } from '@/components/ui/instrument';
 import { FigureStage } from '@/components/motion/figure-frame';
 import {
-  ChartAxes,
   CHART_STROKE,
   CHART_STRUCTURE,
   CHART_TYPE,
   CHART_VIEW_WIDTH,
-  LegendSwatch,
+  StageAnnotation,
   roleColour,
 } from '@/components/motion/chart';
 import {
@@ -34,20 +34,20 @@ import {
   type OpenFilter,
   type ProvenanceTier,
 } from '@/lib/generalist-policies';
+import { cx } from '@/lib/utils';
 
 /**
- * GeneralistReleaseTimeline: every current generalist policy on one time
- * axis, Feb 2025 to Jul 2026, one row per release so no label collides.
- * A filled node marks a reported download; each row's text label separates
- * unavailable and not-disclosed weights. Shape records provenance (circle
- * paper, square repo notes, triangle lab blog, diamond press release). A
- * segmented filter hides the non-matching side. Selecting a release (click
- * or arrow keys) shows its capability annotation, provenance tier, and
- * primary source below.
+ * GeneralistReleaseTimeline: every selected generalist policy on one
+ * calendar, Feb 2025 to Jul 2026, one row per release with its name in a
+ * left column. One shape and one colour: a filled circle has a reported
+ * download, a hollow one is either not offered or not stated. Tapping a row
+ * opens its card below. One toggle keeps only the downloadable releases;
+ * "Adjust more" holds the full availability filter, the source-type shapes
+ * and a button per release for keyboard selection.
  *
  * Interactive contract: deterministic render, keyboard-accessible selection
- * with arrow keys, visible detail readout, filter + reset controls, no
- * auto-playing motion.
+ * with arrow keys between the release buttons, a polite live card, filter
+ * and reset controls, no auto-playing motion.
  */
 type GeneralistReleaseTimelineProps = {
   /** Initially selected release id. Default 'helix' (first chronologically). */
@@ -56,24 +56,22 @@ type GeneralistReleaseTimelineProps = {
 };
 
 const WIDTH = CHART_VIEW_WIDTH;
-const AXIS_LEFT = 32;
-const AXIS_RIGHT = WIDTH - 14;
-const ROWS_TOP = 6;
-const ROW_H = 20;
+/** The names column; the calendar track starts to its right. */
+const NAME_X = 2;
+const AXIS_LEFT = 146;
+const AXIS_RIGHT = WIDTH - 10;
+/** Room above the first row for the two-line note. */
+const NOTE_BAND = 46;
+const ROWS_TOP = NOTE_BAND;
+const ROW_H = 22;
 /** Room below the last row for the tick marks and month labels. */
 const AXIS_BAND = 30;
 const NODE_SIZE = 4.5;
-const LABEL_GAP = 12;
-/** Conservative advance width of a 12 px label character, for side choice. */
-const CHAR_W = 7.4;
-/** Clear space a label keeps from the plot edge. */
-const EDGE = 6;
 
 /** Time axis bounds (month precision), slightly padded past the data. */
 const AXIS_MIN = '2025-01';
-const AXIS_MAX = '2026-09';
-const AXIS_TICKS = ['2025-01', '2025-07', '2026-01', '2026-07'];
-const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const AXIS_MAX = '2026-08';
+const AXIS_TICKS = ['2025-01', '2026-01'];
 
 function monthIndex(ym: string): number {
   const [year, month] = ym.split('-').map(Number);
@@ -88,18 +86,6 @@ function monthToX(index: number): number {
   return f(AXIS_LEFT + ((index - monthIndex(AXIS_MIN)) / span) * (AXIS_RIGHT - AXIS_LEFT));
 }
 
-const monthLabel = (index: number) => `${MONTH_NAMES[index % 12]} ${2025 + Math.floor(index / 12)}`;
-
-/** Short row labels; the detail readout and buttons carry the full names. */
-const SHORT_NAME: Record<string, string> = {
-  'Gemini Robotics 1.0': 'GR 1.0',
-  'Gemini Robotics 1.5': 'GR 1.5',
-  'Gemini Robotics 2': 'GR 2',
-  'AgiBot GO-1': 'GO-1',
-  'AgiBot GO-2': 'GO-2',
-  'Skild Brain': 'Skild',
-};
-
 const FILTERS: readonly { id: OpenFilter; label: string }[] = [
   { id: 'all', label: 'All' },
   { id: 'open', label: 'Downloadable' },
@@ -107,7 +93,18 @@ const FILTERS: readonly { id: OpenFilter; label: string }[] = [
   { id: 'undisclosed', label: 'Not disclosed' },
 ];
 
+/** The card's plain availability line, one per weight state. */
+const AVAILABILITY: Record<ReturnType<typeof releaseWeightState>, string> = {
+  open: 'Downloadable: yes',
+  closed: 'Downloadable: no, not offered',
+  undisclosed: 'Downloadable: not stated',
+};
+
+const NOTE_LINES = ['Filled: you can download it.', 'Hollow: not offered, or not stated'] as const;
+
 const STAGE_LINK = 'underline-offset-2';
+const TABLE_HEADER_CELL = 'px-3 py-2 text-left font-sans text-sm font-medium text-text-dim';
+const TABLE_CELL = 'px-3 py-2 align-top';
 
 /** Node glyph per provenance tier: circle, square, triangle, diamond. */
 function TierGlyph({
@@ -163,22 +160,15 @@ function TierSwatch({ tier }: { tier: ProvenanceTier }) {
   );
 }
 
-/** The selection ring drawn around the selected node. */
-function RingSwatch() {
-  const h = CHART_TYPE.tickPx;
-  return (
-    <svg aria-hidden="true" focusable="false" width={h * 2} height={h} viewBox={`0 0 ${h * 2} ${h}`} className="shrink-0">
-      <circle cx={h} cy={h / 2} r={5} fill="none" stroke={roleColour('highlight')} strokeWidth={CHART_STROKE.trace} />
-    </svg>
-  );
-}
-
 export function GeneralistReleaseTimeline({
   defaultSelected = 'helix',
   className,
 }: GeneralistReleaseTimelineProps) {
-  const descriptionId = `${useId()}-description`;
+  const uid = useId();
+  const descriptionId = `${uid}-description`;
+  const tableCaptionId = `${uid}-table`;
   const [filter, setFilter] = useState<OpenFilter>('all');
+  const [showSourceType, setShowSourceType] = useState(false);
   const [selectedId, setSelectedId] = useState(defaultSelected);
   const buttonRefs = useRef<Array<HTMLButtonElement | null>>([]);
 
@@ -187,10 +177,15 @@ export function GeneralistReleaseTimeline({
     visible.find((r) => r.id === selectedId) ?? visible[0];
   const citationFor = useCitationLookup();
   const citation = citationFor(selected.citationId);
+  const downloadableOnly = filter === 'open';
 
   const rowsBottom = ROWS_TOP + visible.length * ROW_H;
   const height = rowsBottom + AXIS_BAND;
-  const highlight = roleColour('highlight');
+  const rowY = (i: number) => f(ROWS_TOP + i * ROW_H + ROW_H / 2);
+
+  // The note names the fill rule and points at the first row's mark.
+  const firstX = monthToX(monthIndex(visible[0].released));
+  const noteX = Math.min(Math.max(firstX, 118), WIDTH - 118);
 
   function applyFilter(next: OpenFilter) {
     setFilter(next);
@@ -208,6 +203,7 @@ export function GeneralistReleaseTimeline({
 
   function reset() {
     setFilter('all');
+    setShowSourceType(false);
     setSelectedId(defaultSelected);
   }
 
@@ -215,8 +211,21 @@ export function GeneralistReleaseTimeline({
     <InstrumentFigure
       figureId="generalist-release-timeline"
       className={className}
-      heading="Generalist policy releases by month"
+      kicker="Generalist policies"
+      heading="Thirteen robot brains since 2025; four you can download"
       controls={
+        <button
+          data-brand-control-id="control:selection"
+          data-testid="generalist-downloadable-only"
+          type="button"
+          aria-pressed={downloadableOnly}
+          onClick={() => applyFilter(downloadableOnly ? 'all' : 'open')}
+          className={INSTRUMENT_TOGGLE_CLASS}
+        >
+          Downloadable only
+        </button>
+      }
+      adjust={
         <>
           <div
             role="group"
@@ -235,13 +244,33 @@ export function GeneralistReleaseTimeline({
                 {label}
               </button>
             ))}
-            <InstrumentReset onClick={reset} />
+          </div>
+          <div className="flex flex-wrap items-center gap-1">
+            <button
+              data-brand-control-id="control:selection"
+              data-testid="generalist-source-type"
+              type="button"
+              aria-pressed={showSourceType}
+              onClick={() => setShowSourceType((v) => !v)}
+              className={INSTRUMENT_TOGGLE_CLASS}
+            >
+              Show source type
+            </button>
+            {showSourceType ? (
+              <InstrumentLegend data-testid="provenance-legend">
+                {PROVENANCE_TIERS.map((tier) => (
+                  <LegendItem key={tier} swatch={<TierSwatch tier={tier} />}>
+                    {provenanceLabel(tier)}
+                  </LegendItem>
+                ))}
+              </InstrumentLegend>
+            ) : null}
           </div>
           <div
             data-testid="release-track"
             role="group"
             aria-label="Select a release"
-            className="flex basis-full flex-wrap items-center gap-1"
+            className="flex flex-wrap items-center gap-1"
           >
             {visible.map((r, i) => (
               <button
@@ -274,117 +303,117 @@ export function GeneralistReleaseTimeline({
               {`${visible.length} of ${GENERALIST_RELEASES.length} shown`}
             </span>
           </div>
+          <div>
+            <InstrumentReset onClick={reset} />
+          </div>
         </>
       }
       stage={
         <FigureStage
           footer={
-            <>
-              <InstrumentLegend data-testid="provenance-legend">
-                {PROVENANCE_TIERS.map((tier) => (
-                  <LegendItem key={tier} swatch={<TierSwatch tier={tier} />}>
-                    {provenanceLabel(tier)}
-                  </LegendItem>
-                ))}
-                <LegendItem swatch={<LegendSwatch role="measurement" mark="dot" />}>filled: downloadable</LegendItem>
-                <LegendItem swatch={<RingSwatch />}>selected</LegendItem>
-              </InstrumentLegend>
-              <div
-                data-testid="release-detail"
-                aria-live="polite"
-                className="basis-full border-t border-border-strong pt-3 font-sans text-[13px]"
-              >
-                <div className="flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
-                  <span className="text-sm font-medium text-text">{selected.name}</span>
-                  <span className="text-text-dim">{selected.org}</span>
-                  <span className="text-text-dim">{selected.dateLabel}</span>
-                  <span className="whitespace-nowrap text-text-dim">
-                    weights: {releaseWeightLabel(selected)}
-                  </span>
-                </div>
-                <div className="mt-1 text-text-dim">
-                  Provenance: {provenanceLabel(selected.provenance)}
-                </div>
-                <p className="mt-1.5 max-w-[65ch] leading-relaxed text-text">
-                  {selected.capability}
-                </p>
-                {selected.weightsNote && (
-                  <p className="mt-1.5 max-w-[65ch] leading-relaxed text-text">
-                    {selected.weightsNote}
-                  </p>
-                )}
-                {selected.context && (
-                  <p className="mt-1.5 text-text-dim">
-                    Cross-reference: full treatment in{' '}
-                    <Link
-                      data-brand-control-id="control:link-focus"
-                      href="/manipulation/pi-line"
-                      className={STAGE_LINK}
-                    >
-                      The Pi Line
-                    </Link>
-                    .
-                  </p>
-                )}
-                {citation && (
-                  <div className="mt-1.5">
-                    <a
-                      data-brand-control-id="control:link-focus"
-                      href={citation.url}
-                      target="_blank"
-                      rel="noopener"
-                      className={STAGE_LINK}
-                    >
-                      Source: {citation.label}
-                    </a>
-                    {isVendorReported(selected) && (
-                      <span className="text-text-dim"> (vendor-reported)</span>
-                    )}
-                  </div>
-                )}
+            <div
+              data-testid="release-detail"
+              aria-live="polite"
+              className="basis-full font-sans text-[13px]"
+            >
+              <div className="flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
+                <span className="text-sm font-medium text-text">{selected.name}</span>
+                <span className="text-text-dim">{selected.org}</span>
+                <span className="text-text-dim">{selected.dateLabel}</span>
               </div>
-              <ChartDescription
-                id={descriptionId}
-                form="state"
-                summary="Current generalist release"
-                description={`${visible.length} of ${GENERALIST_RELEASES.length} selected generalist policy records are shown; selected is ${selected.name} from ${selected.org} (${releaseWeightLabel(selected)}, ${provenanceLabel(selected.provenance)}) and weight availability is stated by each node label; dim nodes do not establish closed licensing.`}
-                states={[
-                  { label: 'selected', value: selected.name },
-                  { label: 'org', value: selected.org },
-                  { label: 'released', value: selected.dateLabel },
-                  { label: 'weights', value: releaseWeightLabel(selected) },
-                  { label: 'shown', value: `${visible.length} of ${GENERALIST_RELEASES.length}` },
-                ]}
-              />
-            </>
+              <div data-testid="release-availability" className="mt-1 text-text">
+                {AVAILABILITY[releaseWeightState(selected)]}
+              </div>
+              {selected.weightsNote && (
+                <p className="mt-1 max-w-[65ch] leading-relaxed text-text-dim">
+                  {selected.weightsNote}
+                </p>
+              )}
+              <p className="mt-1.5 max-w-[65ch] leading-relaxed text-text">
+                {selected.capability}
+              </p>
+              {selected.context && (
+                <p className="mt-1.5 text-text-dim">
+                  Full treatment in{' '}
+                  <Link
+                    data-brand-control-id="control:link-focus"
+                    href="/manipulation/pi-line"
+                    className={STAGE_LINK}
+                  >
+                    The Pi Line
+                  </Link>
+                  .
+                </p>
+              )}
+              {citation && (
+                <div className="mt-1.5">
+                  <a
+                    data-brand-control-id="control:link-focus"
+                    href={citation.url}
+                    target="_blank"
+                    rel="noopener"
+                    className={STAGE_LINK}
+                  >
+                    Source: {citation.label}
+                  </a>
+                  {isVendorReported(selected) && (
+                    <span className="text-text-dim"> (the maker&apos;s own report)</span>
+                  )}
+                </div>
+              )}
+            </div>
           }
         >
           <PlotStage
             viewBox={`0 0 ${WIDTH} ${height}`}
-            aria-label={`Selected generalist robot policy records. Highlighted nodes have a reported weight download; dim nodes include unavailable and not-disclosed records, distinguished by their text labels. Node shape encodes provenance: circle for papers, square for repo release notes, triangle for lab blogs, diamond for press releases. Currently showing ${visible.length} of ${GENERALIST_RELEASES.length} releases.`}
+            aria-label={`Selected generalist robot policy records. One row per release at its release month. Filled circles have a reported download of the trained model; hollow circles are either not offered or not disclosed. Currently showing ${visible.length} of ${GENERALIST_RELEASES.length} releases.`}
             aria-describedby={descriptionId}
           >
-            <ChartAxes
-              plot={{ left: AXIS_LEFT, right: AXIS_RIGHT, top: ROWS_TOP, bottom: rowsBottom }}
-              x={monthToX}
-              y={(v) => v}
-              xTicks={AXIS_TICKS.map(monthIndex)}
-              formatX={monthLabel}
-              grid={false}
-              yAxis={false}
-            />
-            {/* One row per release; a label sits on whichever side of its
-                node has room, so same-month releases never collide. */}
+            {AXIS_TICKS.map((tick) => {
+              const x = monthToX(monthIndex(tick));
+              return (
+                <g key={tick}>
+                  <line
+                    x1={x}
+                    x2={x}
+                    y1={ROWS_TOP}
+                    y2={rowsBottom + 4}
+                    stroke={CHART_STRUCTURE.grid}
+                    strokeWidth={CHART_STROKE.structure}
+                  />
+                  <text
+                    data-scene-tick=""
+                    x={x}
+                    y={rowsBottom + 20}
+                    textAnchor="start"
+                    fontSize={CHART_TYPE.tickPx}
+                    fill={CHART_STRUCTURE.labelSecondary}
+                  >
+                    {tick.slice(0, 4)}
+                  </text>
+                </g>
+              );
+            })}
             {visible.map((r, i) => {
-              const cy = f(ROWS_TOP + i * ROW_H + ROW_H / 2);
+              const cy = rowY(i);
               const x = monthToX(monthIndex(r.released));
-              const name = SHORT_NAME[r.name] ?? r.name;
-              const weight = releaseWeightLabel(r);
-              const labelWidth = (name.length + weight.length + 1) * CHAR_W;
-              const right = x + LABEL_GAP + labelWidth <= WIDTH - EDGE;
               const isSelected = r.id === selected.id;
               return (
-                <g key={r.id} data-release={r.id}>
+                <g
+                  key={r.id}
+                  data-release={r.id}
+                  data-filled={r.openWeights ? '' : undefined}
+                  className="cursor-pointer"
+                  onClick={() => setSelectedId(r.id)}
+                >
+                  <rect
+                    x={0}
+                    y={f(cy - ROW_H / 2)}
+                    width={WIDTH}
+                    height={ROW_H}
+                    fill={isSelected ? CHART_STRUCTURE.grid : 'transparent'}
+                    opacity={isSelected ? 0.35 : undefined}
+                  />
                   <line
                     x1={AXIS_LEFT}
                     x2={AXIS_RIGHT}
@@ -394,38 +423,100 @@ export function GeneralistReleaseTimeline({
                     strokeWidth={CHART_STROKE.structure}
                     opacity={CHART_STRUCTURE.gridOpacity}
                   />
-                  <TierGlyph tier={r.provenance} x={x} y={cy} size={NODE_SIZE} open={r.openWeights} />
-                  {isSelected ? (
-                    <circle
-                      cx={x}
-                      cy={cy}
-                      r={NODE_SIZE + 3.5}
-                      fill="none"
-                      stroke={highlight}
-                      strokeWidth={CHART_STROKE.trace}
-                    />
-                  ) : null}
+                  <TierGlyph
+                    tier={showSourceType ? r.provenance : 'paper'}
+                    x={x}
+                    y={cy}
+                    size={NODE_SIZE}
+                    open={r.openWeights}
+                  />
                   <text
-                    x={right ? f(x + LABEL_GAP) : f(x - LABEL_GAP)}
+                    x={NAME_X}
                     y={cy}
                     dominantBaseline="middle"
-                    textAnchor={right ? 'start' : 'end'}
                     fontSize={CHART_TYPE.tickPx}
-                    fill={CHART_STRUCTURE.label}
+                    fontWeight={isSelected ? 600 : undefined}
+                    fill={isSelected ? CHART_STRUCTURE.label : CHART_STRUCTURE.labelSecondary}
                   >
-                    <tspan fill={isSelected ? highlight : CHART_STRUCTURE.label}>{name}</tspan>
-                    <tspan dx={6} fill={CHART_STRUCTURE.labelSecondary}>
-                      {weight}
-                    </tspan>
+                    {r.name}
                   </text>
                 </g>
               );
             })}
+            <StageAnnotation
+              x={noteX}
+              y={16}
+              anchor="middle"
+              lines={NOTE_LINES}
+              target={[firstX, f(rowY(0) - NODE_SIZE - 1.5)]}
+              from={[firstX, 38]}
+            />
           </PlotStage>
         </FigureStage>
       }
-      caption="Release months of selected generalist policies; filled marks have a reported weight download, and shape gives the source type."
-      source={`Authored selection of ${GENERALIST_RELEASES.length} records; dates and weight availability follow each record's primary source.`}
+      caption="General-purpose robot brains arrived quickly from early 2025, but most makers don't offer the trained model or haven't said."
+      method={
+        <>
+          <div>
+            A robot brain&apos;s trained model, often called its weights, is the file you would need
+            to run it yourself. A filled circle means the maker reports a download of that trained
+            model. A hollow circle is either not offered or not disclosed, and the two are kept
+            apart in each card and in the table below; hollow does not mean closed licensing.
+          </div>
+          <div>
+            This is an authored selection of {GENERALIST_RELEASES.length} records, not every
+            generalist policy. Each sits at the month of its primary source; no days are invented.
+            Source types: a paper (arXiv), repository release notes, a lab blog, or a press
+            release. Blog and press entries are vendor-reported: the maker&apos;s own claims, with
+            no outside check. Show source type in &ldquo;Adjust more&rdquo; draws each as its own
+            shape.
+          </div>
+          <TableScroll labelledBy={tableCaptionId} className="pt-1">
+            <table className="w-full min-w-[560px] border-collapse text-left font-sans text-sm text-text">
+              <caption id={tableCaptionId} className="text-left text-text-dim">
+                The {GENERALIST_RELEASES.length} records with maker, month, download status and
+                source type.
+              </caption>
+              <thead>
+                <tr className="border-b border-border-strong">
+                  <th scope="col" className={TABLE_HEADER_CELL}>Model</th>
+                  <th scope="col" className={TABLE_HEADER_CELL}>Maker</th>
+                  <th scope="col" className={TABLE_HEADER_CELL}>Month</th>
+                  <th scope="col" className={TABLE_HEADER_CELL}>Weights</th>
+                  <th scope="col" className={TABLE_HEADER_CELL}>Source type</th>
+                </tr>
+              </thead>
+              <tbody>
+                {GENERALIST_RELEASES.map((r) => (
+                  <tr key={r.id} data-testid={`release-row-${r.id}`}>
+                    <th scope="row" className={cx(TABLE_CELL, 'font-medium whitespace-nowrap')}>
+                      {r.name}
+                    </th>
+                    <td className={TABLE_CELL}>{r.org}</td>
+                    <td className={cx(TABLE_CELL, 'whitespace-nowrap')}>{r.dateLabel}</td>
+                    <td className={TABLE_CELL}>{releaseWeightLabel(r)}</td>
+                    <td className={cx(TABLE_CELL, 'text-text-dim')}>{provenanceLabel(r.provenance)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </TableScroll>
+          <ChartDescription
+            id={descriptionId}
+            form="state"
+            summary="Current generalist release"
+            description={`${visible.length} of ${GENERALIST_RELEASES.length} selected generalist policy records are shown; selected is ${selected.name} from ${selected.org} (${releaseWeightLabel(selected)}, ${provenanceLabel(selected.provenance)}). Filled nodes have a reported download; hollow, dim nodes include unavailable and not-disclosed records, and dim nodes do not establish closed licensing.`}
+            states={[
+              { label: 'selected', value: selected.name },
+              { label: 'org', value: selected.org },
+              { label: 'released', value: selected.dateLabel },
+              { label: 'weights', value: releaseWeightLabel(selected) },
+              { label: 'shown', value: `${visible.length} of ${GENERALIST_RELEASES.length}` },
+            ]}
+          />
+        </>
+      }
+      source={`Authored selection of ${GENERALIST_RELEASES.length} records; dates and download status follow each record's primary source.`}
     />
   );
 }
