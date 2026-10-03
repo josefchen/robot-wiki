@@ -4794,8 +4794,19 @@
             "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
           },
           {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
             "id": "reset",
             "kind": "reset"
+          },
+          {
+            "id": "pairwise-independent-controls",
+            "kind": "pairwise",
+            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
           },
           {
             "id": "loading-not-applicable",
@@ -4818,8 +4829,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "595e78de919d48fd0189bc5488e01f3bc512cdee3287393f1aecdcfd53465f64"
+        "expectedCaseCount": 11,
+        "fingerprint": "284b87a65ef691783bc648bb3decdc61759e770e24d19675aadb611254040575"
       },
       {
         "id": "interactive:CrossEmbodimentStrategies",
@@ -5261,8 +5272,19 @@
             "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
           },
           {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
             "id": "reset",
             "kind": "reset"
+          },
+          {
+            "id": "pairwise-independent-controls",
+            "kind": "pairwise",
+            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
           },
           {
             "id": "loading-not-applicable",
@@ -5285,8 +5307,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "411e43ec8f84ddbc2bb3b1d93a9468045e5159eb44986209cfaf667fed1d926a"
+        "expectedCaseCount": 11,
+        "fingerprint": "927deaa8b919b368ae634bcfd31704a10e37d758c01da0b5f7b53b58697cb9d7"
       },
       {
         "id": "interactive:ExpoFtResults",
@@ -5314,9 +5336,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a error state."
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
           },
           {
             "id": "empty-not-applicable",
@@ -5330,7 +5352,7 @@
           }
         ],
         "expectedCaseCount": 7,
-        "fingerprint": "933c0e566232935c9a284466d40dd2d8cfab3594e1126c769a5895427bfdedf9"
+        "fingerprint": "c2e100d9984bbd67c793705bdab069846000d3d6f834849dfc168aa421f7bf50"
       },
       {
         "id": "interactive:FlowMatchingTrajectory",
@@ -9401,8 +9423,19 @@
             "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
           },
           {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
             "id": "reset",
             "kind": "reset"
+          },
+          {
+            "id": "pairwise-independent-controls",
+            "kind": "pairwise",
+            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
           },
           {
             "id": "loading-not-applicable",
@@ -9425,8 +9458,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "89111bb22d956b9a79bff626ea403dde45b0f165631bfca9b46428911d3f02a7"
+        "expectedCaseCount": 11,
+        "fingerprint": "87a563908009b35606e24f4f7b1f760f9ee8c829e71c796fa326894f398bcf26"
       },
       {
         "id": "mount:/manipulation/realtime-execution/:ExecutionModes:1",
@@ -9460,8 +9493,19 @@
             "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
           },
           {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
             "id": "reset",
             "kind": "reset"
+          },
+          {
+            "id": "pairwise-independent-controls",
+            "kind": "pairwise",
+            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
           },
           {
             "id": "loading-not-applicable",
@@ -9484,8 +9528,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "ee779fe48da239f714c89b337febf2f20483a6873f8cf3e2e62cc8b0702a5cf4"
+        "expectedCaseCount": 11,
+        "fingerprint": "2a6003540383c7fa9e66bb69ce9570011127a7549dd51e54f9847bee0c7dc143"
       },
       {
         "id": "mount:/manipulation/rl-finetuning/:AdvantageScrubber:1",
@@ -9587,9 +9631,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a error state."
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
           },
           {
             "id": "empty-not-applicable",
@@ -9603,7 +9647,7 @@
           }
         ],
         "expectedCaseCount": 7,
-        "fingerprint": "b792f78f05d7f9f5c28403eecfc1fc6f5f51615979d8499bce1964d16d7c6e98"
+        "fingerprint": "7ad43f5d77c77f659a5ee77ee12e2a700eaf8fa0e395230573f8f028de8dc898"
       },
       {
         "id": "mount:/manipulation/vla-models/:ActionTokenization:1",
@@ -11081,6 +11125,7 @@
         "components/interactive/grasp-wrench-lab.tsx",
         "components/interactive/hand-comparison.tsx",
         "components/interactive/hardware-guide.tsx",
+        "components/interactive/hierarchy-timescales.tsx",
         "components/interactive/jepa-planning.tsx",
         "components/interactive/pendulum-controller.tsx",
         "components/interactive/reward-shaping.tsx",
@@ -11118,6 +11163,7 @@
         "components/interactive/grasp-wrench-lab.tsx",
         "components/interactive/hand-comparison.tsx",
         "components/interactive/hardware-guide.tsx",
+        "components/interactive/hierarchy-timescales.tsx",
         "components/interactive/jepa-planning.tsx",
         "components/interactive/pendulum-controller.tsx",
         "components/interactive/reward-shaping.tsx",
@@ -11155,7 +11201,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "671ecc5db25ea7355b31980cd6010381e90630c2f419100267a53547ce64e3be"
+      "fingerprint": "56821805c5ecd9ca613b10c2e5a6c4462cb7f4c7cd82b075a3c27eb98aab8a33"
     },
     {
       "id": "control:selection",
@@ -11181,7 +11227,6 @@
         "components/interactive/appearance-physics-push.tsx",
         "components/interactive/comparison-matrix.tsx",
         "components/interactive/contact-geometry.tsx",
-        "components/interactive/cross-embodiment-strategies.tsx",
         "components/interactive/dataset-table.tsx",
         "components/interactive/egoscale-scaling.tsx",
         "components/interactive/flow-matching-trajectory.tsx",
@@ -11189,7 +11234,6 @@
         "components/interactive/generalist-release-timeline.tsx",
         "components/interactive/hand-comparison.tsx",
         "components/interactive/hardware-guide.tsx",
-        "components/interactive/hierarchy-timescales.tsx",
         "components/interactive/impedance-contact-lab.tsx",
         "components/interactive/milestones-watchlist.tsx",
         "components/interactive/mot-insulation.tsx",
@@ -11218,14 +11262,12 @@
         "components/interactive/appearance-physics-push.tsx",
         "components/interactive/comparison-matrix.tsx",
         "components/interactive/contact-geometry.tsx",
-        "components/interactive/cross-embodiment-strategies.tsx",
         "components/interactive/dataset-table.tsx",
         "components/interactive/egoscale-scaling.tsx",
         "components/interactive/flow-matching-trajectory.tsx",
         "components/interactive/generalist-release-timeline.tsx",
         "components/interactive/hand-comparison.tsx",
         "components/interactive/hardware-guide.tsx",
-        "components/interactive/hierarchy-timescales.tsx",
         "components/interactive/impedance-contact-lab.tsx",
         "components/interactive/milestones-watchlist.tsx",
         "components/interactive/mot-insulation.tsx",
@@ -11258,7 +11300,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "16536f85fb5287e2e0856c895e2c11eb9e7cd9bd6f7e00caf3c3748b9e64735c"
+      "fingerprint": "af8616d227f65eb9f3b69b12dfc9ff756647cc036631546f5a5e24e574a37933"
     },
     {
       "id": "control:link-focus",
@@ -11596,5 +11638,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "67f3b25bb530147345f72c54a43e7c0c3a432df68f07124a7ea45abb8a378f1d"
+  "rootFingerprint": "66cf0b29bbead41413ab33141ca29da1e39f080993e66dbcc5d9315112eb0800"
 }

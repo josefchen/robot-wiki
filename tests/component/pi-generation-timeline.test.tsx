@@ -1,4 +1,4 @@
-import { fireEvent, screen } from '@testing-library/react';
+import { fireEvent, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { PiGenerationTimeline } from '@/components/interactive/pi-generation-timeline';
@@ -38,6 +38,58 @@ describe('PiGenerationTimeline', () => {
     expect(list.querySelectorAll('[data-status="closed"]').length).toBe(0);
   });
 
+  it('opens on its takeaway with no symbols in the headline', () => {
+    const { container } = render(<PiGenerationTimeline />);
+    expect(
+      container.querySelector('[data-figure-title]'),
+    ).toHaveTextContent('A new robot model every few months; first three downloadable');
+    expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent(
+      "Physical Intelligence's models",
+    );
+    expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
+      'only the first three are confirmed downloadable',
+    );
+  });
+
+  it('draws year bands that change at January, so November 2025 sits in 2025', () => {
+    const { container } = render(<PiGenerationTimeline />);
+    const band = (year: string) => {
+      const label = container.querySelector(`[data-year-band="${year}"] text`);
+      return Number(label?.getAttribute('x'));
+    };
+    const dotX = (month: string) =>
+      Number(container.querySelector(`[data-generation-dot="${month}"] circle`)?.getAttribute('cx'));
+    const jan2026 = Number(container.querySelector('[data-year-band="2025"] rect')?.getAttribute('x'))
+      + Number(container.querySelector('[data-year-band="2025"] rect')?.getAttribute('width'));
+    expect(dotX('2025-11')).toBeLessThan(jan2026);
+    expect(dotX('2026-04')).toBeGreaterThan(jan2026);
+    expect(band('2025')).toBeLessThan(jan2026);
+    expect(band('2026')).toBeGreaterThan(jan2026);
+    // One mark per dated month and no unlabelled axis ticks.
+    expect(container.querySelectorAll('[data-generation-dot]')).toHaveLength(5);
+    expect(container.querySelectorAll('svg line')).toHaveLength(1);
+  });
+
+  it('brackets the downloadable models and shows a plain sentence for the selection', async () => {
+    const user = userEvent.setup();
+    const { container } = render(<PiGenerationTimeline />);
+    expect(container.querySelector('[data-series="downloadable"]')).toHaveTextContent('downloadable');
+    const detail = screen.getByTestId('generation-detail');
+    expect(detail).toHaveTextContent(PI_GENERATIONS[0].plain);
+    expect(detail).not.toHaveTextContent('PaliGemma');
+    await user.click(screen.getByRole('button', { name: 'π*0.6' }));
+    expect(detail).toHaveTextContent(/espressos/);
+    expect(screen.getByTestId('generation-row-pi0')).toHaveTextContent('PaliGemma 3B + 300M action expert');
+  });
+
+  it('keeps Reset in Adjust more', () => {
+    const { container } = render(<PiGenerationTimeline />);
+    const adjust = container.querySelector('details[data-figure-fold="adjust"]');
+    expect(adjust).not.toBeNull();
+    expect(within(adjust as HTMLElement).getByRole('button', { name: /reset/i })).toBeInTheDocument();
+    expect(within(screen.getByTestId('generation-track')).queryByRole('button', { name: /reset/i })).toBeNull();
+  });
+
   it('selecting a generation shows its detail readout with the lab PDF source', async () => {
     const user = userEvent.setup();
     render(<PiGenerationTimeline />);
@@ -46,7 +98,9 @@ describe('PiGenerationTimeline', () => {
     expect(detail).toHaveTextContent('π0.7');
     expect(detail).toHaveTextContent('Apr 2026');
     expect(detail).toHaveTextContent(/weights unverified/i);
-    const source = screen.getByRole('link', { name: /source/i });
+    const sourceLine = screen.getByTestId('generation-source');
+    expect(sourceLine).toHaveTextContent(/^Source for π0\.7:/);
+    const source = within(sourceLine).getByRole('link');
     expect(source).toHaveAttribute(
       'href',
       'https://www.pi.website/download/pi07.pdf',

@@ -1,4 +1,5 @@
 import { writeFile } from 'node:fs/promises';
+import { openAdjustMore } from './helpers/figure-fold';
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
@@ -92,6 +93,7 @@ for (const width of [375, 1440]) {
       const controls: { name: string; initial: string; changed: string }[] = [];
       await page.mouse.move(0, 0);
       if (route.slug === 'realtime-execution') {
+        await openAdjustMore(page.locator('main [data-figure-frame="control-loop-budget"]'));
         const sliders = page.getByRole('slider', { name: /Model size in billions/ });
         await expect(sliders).toHaveCount(1);
         for (let i = 0; i < 1; i++) {
@@ -109,11 +111,13 @@ for (const width of [375, 1440]) {
           await expect(slider).toHaveValue(initial);
           controls.push({ name: `budget-${i}`, initial, changed });
         }
+        await openAdjustMore(page.locator('main [data-figure-frame="execution-modes"]'));
         const delay = page.getByRole('slider', { name: /Inference delay in milliseconds/ });
         await delay.focus();
         const initial = await delay.inputValue();
         await page.screenshot({ caret: 'initial', path: info.outputPath('execution-default.png') });
-        await delay.press('ArrowRight');
+        // The figure opens at the top of the delay range.
+        await delay.press('ArrowLeft');
         const changed = await delay.inputValue();
         expect(changed).not.toBe(initial);
         await page.screenshot({ caret: 'initial', path: info.outputPath('execution-keyboard.png') });

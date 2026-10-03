@@ -3525,11 +3525,11 @@
                   "Comparison Matrix"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 17,
+                "readingMinutes": 11,
                 "citationCount": 21,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "17 min",
+                "readingTimeText": "11 min",
                 "citationCountText": "21",
                 "bibliographyIds": [
                   "rt1-2022",
@@ -4009,11 +4009,11 @@
                   "The Pi Line"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 16,
+                "readingMinutes": 15,
                 "citationCount": 13,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "16 min",
+                "readingTimeText": "15 min",
                 "citationCountText": "13",
                 "bibliographyIds": [
                   "pi0-2024",
@@ -4079,11 +4079,11 @@
                   "Real-Time Execution"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 12,
+                "readingMinutes": 11,
                 "citationCount": 6,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "12 min",
+                "readingTimeText": "11 min",
                 "citationCountText": "6",
                 "bibliographyIds": [
                   "act-aloha-2023",
@@ -4142,11 +4142,11 @@
                   "RL Fine-Tuning of Policies"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 25,
+                "readingMinutes": 24,
                 "citationCount": 17,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "25 min",
+                "readingTimeText": "24 min",
                 "citationCountText": "17",
                 "bibliographyIds": [
                   "dagger-2011",
@@ -12685,7 +12685,7 @@
                 },
                 {
                   "kind": "external",
-                  "count": 1,
+                  "count": 8,
                   "colour": "rgb(36, 95, 255)",
                   "decorationLine": "underline",
                   "decorationStyle": "solid",
@@ -12695,7 +12695,7 @@
                   "variants": [
                     {
                       "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-                      "count": 1,
+                      "count": 8,
                       "colour": "rgb(36, 95, 255)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -61776,7 +61776,7 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "18 policies across the eight architectural axes. Horizon shows planned / executed steps (n.d. = not disclosed). Weights describe download availability, not license openness. Unknown availability is separate from not released. Cells the vendor has not published are marked not disclosed and always sort last, in both directions. Unset scalar rates do not prove that a source reports no setup-specific rate. Read the setting notes and linked sources before comparing cells.",
-                  "clientWidth": 1078,
+                  "clientWidth": 90,
                   "scrollWidth": 1183,
                   "scrolledBy": 40
                 },
@@ -61832,7 +61832,7 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "18 policies across the eight architectural axes. Horizon shows planned / executed steps (n.d. = not disclosed). Weights describe download availability, not license openness. Unknown availability is separate from not released. Cells the vendor has not published are marked not disclosed and always sort last, in both directions. Unset scalar rates do not prove that a source reports no setup-specific rate. Read the setting notes and linked sources before comparing cells.",
-                  "clientWidth": 309,
+                  "clientWidth": 90,
                   "scrollWidth": 1183,
                   "scrolledBy": 40
                 },
@@ -61949,6 +61949,230 @@
                   "scrolledBy": 40
                 },
                 "tableWidth": 563,
+                "containerOverflowPx": 0,
+                "viewportOverflowPx": 0,
+                "measureCh": 33.5
+              }
+            }
+          ],
+          "viewports": [
+            "375x812"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-tables-math.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-008:/manipulation/generalist-policies/|1440x900|table#0",
+      "assertionId": "VAL-B2-ART-008",
+      "populationMemberId": "/manipulation/generalist-policies/|1440x900|table#0",
+      "coveredPopulationMemberIds": [
+        "/manipulation/generalist-policies/|1440x900|table#0"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Tables remain inside the viewport through internal horizontal scrolling without reducing the prose measure below readable bounds.",
+      "actual": "/manipulation/generalist-policies/|1440x900|table#0 is a named table with scoped headers that stays inside the viewport by scrolling in its own keyboard-reachable container, on a page with no horizontal document overflow and no clipped root or body, beside a reading column still inside the sealed measure, measured at 1440x900",
+      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#tables",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "/manipulation/generalist-policies/|1440x900|table#0",
+          "measured": [
+            {
+              "id": "/manipulation/generalist-policies/|1440x900|table#0",
+              "observed": {
+                "index": 0,
+                "accessibleName": "The 13 records with maker, month, download status and source type.",
+                "captionText": "The 13 records with maker, month, download status and source type.",
+                "columnHeaders": 5,
+                "rowHeaders": 13,
+                "unscopedHeaders": 0,
+                "sortButtons": 0,
+                "sortedColumns": 0,
+                "notDisclosedCells": 6,
+                "notApplicableCells": 0,
+                "scrollContainer": {
+                  "overflowX": "auto",
+                  "tabIndex": 0,
+                  "role": "region",
+                  "accessibleName": "The 13 records with maker, month, download status and source type.",
+                  "clientWidth": 715,
+                  "scrollWidth": 715,
+                  "scrolledBy": 0
+                },
+                "tableWidth": 715,
+                "containerOverflowPx": 0,
+                "viewportOverflowPx": 0,
+                "measureCh": 71.5
+              }
+            }
+          ],
+          "viewports": [
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-tables-math.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-008:/manipulation/generalist-policies/|375x812|table#0",
+      "assertionId": "VAL-B2-ART-008",
+      "populationMemberId": "/manipulation/generalist-policies/|375x812|table#0",
+      "coveredPopulationMemberIds": [
+        "/manipulation/generalist-policies/|375x812|table#0"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Tables remain inside the viewport through internal horizontal scrolling without reducing the prose measure below readable bounds.",
+      "actual": "/manipulation/generalist-policies/|375x812|table#0 is a named table with scoped headers that stays inside the viewport by scrolling in its own keyboard-reachable container, on a page with no horizontal document overflow and no clipped root or body, beside a reading column still inside the sealed measure, measured at 375x812",
+      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#tables",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "/manipulation/generalist-policies/|375x812|table#0",
+          "measured": [
+            {
+              "id": "/manipulation/generalist-policies/|375x812|table#0",
+              "observed": {
+                "index": 0,
+                "accessibleName": "The 13 records with maker, month, download status and source type.",
+                "captionText": "The 13 records with maker, month, download status and source type.",
+                "columnHeaders": 5,
+                "rowHeaders": 13,
+                "unscopedHeaders": 0,
+                "sortButtons": 0,
+                "sortedColumns": 0,
+                "notDisclosedCells": 6,
+                "notApplicableCells": 0,
+                "scrollContainer": {
+                  "overflowX": "auto",
+                  "tabIndex": 0,
+                  "role": "region",
+                  "accessibleName": "The 13 records with maker, month, download status and source type.",
+                  "clientWidth": 335,
+                  "scrollWidth": 624,
+                  "scrolledBy": 40
+                },
+                "tableWidth": 624,
+                "containerOverflowPx": 0,
+                "viewportOverflowPx": 0,
+                "measureCh": 33.5
+              }
+            }
+          ],
+          "viewports": [
+            "375x812"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-tables-math.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-008:/manipulation/pi-line/|1440x900|table#0",
+      "assertionId": "VAL-B2-ART-008",
+      "populationMemberId": "/manipulation/pi-line/|1440x900|table#0",
+      "coveredPopulationMemberIds": [
+        "/manipulation/pi-line/|1440x900|table#0"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Tables remain inside the viewport through internal horizontal scrolling without reducing the prose measure below readable bounds.",
+      "actual": "/manipulation/pi-line/|1440x900|table#0 is a named table with scoped headers that stays inside the viewport by scrolling in its own keyboard-reachable container, on a page with no horizontal document overflow and no clipped root or body, beside a reading column still inside the sealed measure, measured at 1440x900",
+      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#tables",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "/manipulation/pi-line/|1440x900|table#0",
+          "measured": [
+            {
+              "id": "/manipulation/pi-line/|1440x900|table#0",
+              "observed": {
+                "index": 0,
+                "accessibleName": "The 7 Physical Intelligence model entries, 6 with a source month, with architecture, contribution and source.",
+                "captionText": "The 7 Physical Intelligence model entries, 6 with a source month, with architecture, contribution and source.",
+                "columnHeaders": 6,
+                "rowHeaders": 7,
+                "unscopedHeaders": 0,
+                "sortButtons": 0,
+                "sortedColumns": 0,
+                "notDisclosedCells": 0,
+                "notApplicableCells": 0,
+                "scrollContainer": {
+                  "overflowX": "auto",
+                  "tabIndex": 0,
+                  "role": "region",
+                  "accessibleName": "The 7 Physical Intelligence model entries, 6 with a source month, with architecture, contribution and source.",
+                  "clientWidth": 715,
+                  "scrollWidth": 843,
+                  "scrolledBy": 40
+                },
+                "tableWidth": 843,
+                "containerOverflowPx": 0,
+                "viewportOverflowPx": 0,
+                "measureCh": 71.5
+              }
+            }
+          ],
+          "viewports": [
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-tables-math.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-008:/manipulation/pi-line/|375x812|table#0",
+      "assertionId": "VAL-B2-ART-008",
+      "populationMemberId": "/manipulation/pi-line/|375x812|table#0",
+      "coveredPopulationMemberIds": [
+        "/manipulation/pi-line/|375x812|table#0"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Tables remain inside the viewport through internal horizontal scrolling without reducing the prose measure below readable bounds.",
+      "actual": "/manipulation/pi-line/|375x812|table#0 is a named table with scoped headers that stays inside the viewport by scrolling in its own keyboard-reachable container, on a page with no horizontal document overflow and no clipped root or body, beside a reading column still inside the sealed measure, measured at 375x812",
+      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#tables",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "/manipulation/pi-line/|375x812|table#0",
+          "measured": [
+            {
+              "id": "/manipulation/pi-line/|375x812|table#0",
+              "observed": {
+                "index": 0,
+                "accessibleName": "The 7 Physical Intelligence model entries, 6 with a source month, with architecture, contribution and source.",
+                "captionText": "The 7 Physical Intelligence model entries, 6 with a source month, with architecture, contribution and source.",
+                "columnHeaders": 6,
+                "rowHeaders": 7,
+                "unscopedHeaders": 0,
+                "sortButtons": 0,
+                "sortedColumns": 0,
+                "notDisclosedCells": 0,
+                "notApplicableCells": 0,
+                "scrollContainer": {
+                  "overflowX": "auto",
+                  "tabIndex": 0,
+                  "role": "region",
+                  "accessibleName": "The 7 Physical Intelligence model entries, 6 with a source month, with architecture, contribution and source.",
+                  "clientWidth": 335,
+                  "scrollWidth": 843,
+                  "scrolledBy": 40
+                },
+                "tableWidth": 843,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 33.5
@@ -65982,11 +66206,11 @@
                   "Comparison Matrix"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 17,
+                "readingMinutes": 11,
                 "citationCount": 21,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "17 min",
+                "readingTimeText": "11 min",
                 "citationCountText": "21",
                 "bibliographyIds": [
                   "rt1-2022",
@@ -66466,11 +66690,11 @@
                   "The Pi Line"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 16,
+                "readingMinutes": 15,
                 "citationCount": 13,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "16 min",
+                "readingTimeText": "15 min",
                 "citationCountText": "13",
                 "bibliographyIds": [
                   "pi0-2024",
@@ -66536,11 +66760,11 @@
                   "Real-Time Execution"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 12,
+                "readingMinutes": 11,
                 "citationCount": 6,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "12 min",
+                "readingTimeText": "11 min",
                 "citationCountText": "6",
                 "bibliographyIds": [
                   "act-aloha-2023",
@@ -66599,11 +66823,11 @@
                   "RL Fine-Tuning of Policies"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 25,
+                "readingMinutes": 24,
                 "citationCount": 17,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "25 min",
+                "readingTimeText": "24 min",
                 "citationCountText": "17",
                 "bibliographyIds": [
                   "dagger-2011",
@@ -73754,6 +73978,34 @@
       }
     },
     {
+      "resultId": "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/cross-embodiment-strategies.tsx:aria-label:2",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "accessible-names:expression:components/interactive/cross-embodiment-strategies.tsx:aria-label:2",
+      "coveredPopulationMemberIds": [
+        "accessible-names:expression:components/interactive/cross-embodiment-strategies.tsx:aria-label:2"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "accessible-names member expression:components/interactive/cross-embodiment-strategies.tsx:aria-label:2 moved from null to 9bf3b1d7631ea522054593b8309716d13893c061e83b1983d4eb22733358d8b0 exactly as approved delta reader-first-20261003-name-cross-embodiment-strategies-expression-aria-label-2 permits: Reader-first rewrite of the cross-embodiment figure (VAL-OPUS-138): the new overview drawing at settle, four bodies by three ways of sharing one action list, gets its own name, \"{`Four bodies under three ways of sharing one action list; ${STRATEGIES[selected].label} is selected. Only the shared relative end-effector space fills the human-hand row.`}\". The member did not exist before; the per-body strip names at position 1 are unchanged, and no fact, slot count or attribution changes.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "accessible-names",
+          "member": "expression:components/interactive/cross-embodiment-strategies.tsx:aria-label:2",
+          "baselineHash": null,
+          "currentHash": "9bf3b1d7631ea522054593b8309716d13893c061e83b1983d4eb22733358d8b0",
+          "status": "approved-addition",
+          "approvedDelta": "reader-first-20261003-name-cross-embodiment-strategies-expression-aria-label-2"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
       "resultId": "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/data-scale-chart.tsx:aria-label:1",
       "assertionId": "VAL-B2-BASE-002",
       "populationMemberId": "accessible-names:expression:components/interactive/data-scale-chart.tsx:aria-label:1",
@@ -74070,7 +74322,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member expression:components/interactive/flow-matching-trajectory.tsx:aria-label:2 hashes to 785965cefb0e4a3c45abcc363d759743bc31a56915b623958200990f2095d931 in the current tree, the value the immutable migration baseline sealed",
+      "actual": "accessible-names member expression:components/interactive/flow-matching-trajectory.tsx:aria-label:2 moved from 785965cefb0e4a3c45abcc363d759743bc31a56915b623958200990f2095d931 to 425a41333ea8718fa689bf07b7eb5862cff602461fc8b56392a8c2f741b6b578 exactly as approved delta reader-first-20261003-name-flow-matching-trajectory-expression-aria-label-2 permits: Reader-first rewrite of the flow-matching figure (VAL-OPUS-138): the drawing's name now uses the plain words the figure prints. It reads \"{`2D action-space view: ${drawn.length} of ${field.samples.length} samples start as random noise and are carried toward two good moves along near-straight paths. With ${stepWords(steps)} the mean endpoint error is ${dispersion.toFixed(2)}${steps === 1 ? '' : `; one big jump would leave it at ${oneJump.toFixed(2)}`}. The learned vector field at mid-transport is ${showField ? 'shown' : 'hidden'}.`}\" where it read \"{`2D action-space view with the learned vector field at mid-transport. ${field.samples.length} samples start as Gaussian noise and are transported toward two action modes along near-straight paths. With ${steps} integration steps the mean endpoint error is ${dispersion.toFixed(2)}.`}\". The endpoint error is the same computed value; no fact, unit or attribution changes.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -74082,9 +74334,9 @@
           "manifest": "accessible-names",
           "member": "expression:components/interactive/flow-matching-trajectory.tsx:aria-label:2",
           "baselineHash": "785965cefb0e4a3c45abcc363d759743bc31a56915b623958200990f2095d931",
-          "currentHash": "785965cefb0e4a3c45abcc363d759743bc31a56915b623958200990f2095d931",
-          "status": "identical",
-          "approvedDelta": null
+          "currentHash": "425a41333ea8718fa689bf07b7eb5862cff602461fc8b56392a8c2f741b6b578",
+          "status": "approved-delta",
+          "approvedDelta": "reader-first-20261003-name-flow-matching-trajectory-expression-aria-label-2"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -74294,7 +74546,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member expression:components/interactive/generalist-release-timeline.tsx:aria-label:2 moved from 86256fe5ef275859890a57fbc0ce09c0714c67ee4224af7975cd4598d7a2f418 to b51dd847011dc6c17e8c9f69746fc75d063910d2db37aec6cead04f75b4b0357 exactly as approved delta opus-figure-migration-20261001-accessible-names-generalist-release-timeline-expression-aria-label-2 permits: In GeneralistReleaseTimeline, expression position 2 now holds the chart description (\"Selected generalist robot policy records. Highlighted nodes have a reported weight download; …\") that was position 1, unchanged. The timeline moved onto the graphite stage of the shared instrument figure frame, off the light surface panels that the e4784342 figure-system allowlist held for outside-frame, reserved-colour and sub-scale-text, and its release selector now precedes the chart in the source, so the release button name moved from position 2 to position 1. No name text, fact, number or citation changed. The edge starts from the sealed bytes 86256fe5.",
+      "actual": "accessible-names member expression:components/interactive/generalist-release-timeline.tsx:aria-label:2 moved from 86256fe5ef275859890a57fbc0ce09c0714c67ee4224af7975cd4598d7a2f418 to 7c37206a062a619f0203b4bb7b55bff412e638e05b589b22878323d616cf25ab exactly as approved delta reader-first-20261003-name-generalist-release-timeline-expression-aria-label-2 permits: Reader-first rewrite of the generalist release timeline (VAL-OPUS-138): the main view draws one shape, filled or hollow, so the chart's name now says so. It reads \"{`Selected generalist robot policy records. One row per release at its release month. Filled circles have a reported download of the trained model; hollow circles are either not offered or not disclosed. Currently showing ${visible.length} of ${GENERALIST_RELEASES.length} releases.`}\" where it read \"{`Selected generalist robot policy records. Highlighted nodes have a reported weight download; dim nodes include unavailable and not-disclosed records, distinguished by their text labels. Node shape encodes provenance: circle for papers, square for repo release notes, triangle for lab blogs, diamond for press releases. Currently showing ${visible.length} of ${GENERALIST_RELEASES.length} releases.`}\". Source-type shapes stay one toggle away in \"Adjust more\"; every record, date, availability state and source is unchanged.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -74306,9 +74558,9 @@
           "manifest": "accessible-names",
           "member": "expression:components/interactive/generalist-release-timeline.tsx:aria-label:2",
           "baselineHash": "86256fe5ef275859890a57fbc0ce09c0714c67ee4224af7975cd4598d7a2f418",
-          "currentHash": "b51dd847011dc6c17e8c9f69746fc75d063910d2db37aec6cead04f75b4b0357",
+          "currentHash": "7c37206a062a619f0203b4bb7b55bff412e638e05b589b22878323d616cf25ab",
           "status": "approved-delta",
-          "approvedDelta": "opus-figure-migration-20261001-accessible-names-generalist-release-timeline-expression-aria-label-2"
+          "approvedDelta": "reader-first-20261003-name-generalist-release-timeline-expression-aria-label-2"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -78234,34 +78486,6 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/cross-embodiment-strategies.tsx:aria-label:1",
-      "assertionId": "VAL-B2-BASE-002",
-      "populationMemberId": "accessible-names:literal:components/interactive/cross-embodiment-strategies.tsx:aria-label:1",
-      "coveredPopulationMemberIds": [
-        "accessible-names:literal:components/interactive/cross-embodiment-strategies.tsx:aria-label:1"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member literal:components/interactive/cross-embodiment-strategies.tsx:aria-label:1 hashes to 416127d1fd18758c8f5411561a32cc05f92f460c5e2d5b7a9552d58f395079af in the current tree, the value the immutable migration baseline sealed",
-      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "source-build",
-        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
-        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-        "observed": {
-          "manifest": "accessible-names",
-          "member": "literal:components/interactive/cross-embodiment-strategies.tsx:aria-label:1",
-          "baselineHash": "416127d1fd18758c8f5411561a32cc05f92f460c5e2d5b7a9552d58f395079af",
-          "currentHash": "416127d1fd18758c8f5411561a32cc05f92f460c5e2d5b7a9552d58f395079af",
-          "status": "identical",
-          "approvedDelta": null
-        },
-        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
-      }
-    },
-    {
       "resultId": "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/eureka-loop.tsx:aria-label:1",
       "assertionId": "VAL-B2-BASE-002",
       "populationMemberId": "accessible-names:literal:components/interactive/eureka-loop.tsx:aria-label:1",
@@ -78341,34 +78565,6 @@
           "currentHash": "75c984cdd408806f90e253a917536e383f09183e60a3d40cf9a557c0d4ea7c32",
           "status": "approved-addition",
           "approvedDelta": "expo-ft-intake-20260925-chart-aria-label"
-        },
-        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/flow-matching-trajectory.tsx:aria-label:1",
-      "assertionId": "VAL-B2-BASE-002",
-      "populationMemberId": "accessible-names:literal:components/interactive/flow-matching-trajectory.tsx:aria-label:1",
-      "coveredPopulationMemberIds": [
-        "accessible-names:literal:components/interactive/flow-matching-trajectory.tsx:aria-label:1"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member literal:components/interactive/flow-matching-trajectory.tsx:aria-label:1 hashes to 4283844591ad8d50af323a780db2b3e4cbd37172c20c5d98f8946aa550956aeb in the current tree, the value the immutable migration baseline sealed",
-      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "source-build",
-        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
-        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-        "observed": {
-          "manifest": "accessible-names",
-          "member": "literal:components/interactive/flow-matching-trajectory.tsx:aria-label:1",
-          "baselineHash": "4283844591ad8d50af323a780db2b3e4cbd37172c20c5d98f8946aa550956aeb",
-          "currentHash": "4283844591ad8d50af323a780db2b3e4cbd37172c20c5d98f8946aa550956aeb",
-          "status": "identical",
-          "approvedDelta": null
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -78621,34 +78817,6 @@
           "currentHash": "eeee968fa8e723d3787b0e8646fcb9e046303cf0b1ac7cc4f43978ab7f857cb3",
           "status": "approved-addition",
           "approvedDelta": "reader-first-20261002-name-hand-comparison-literal-aria-label-1"
-        },
-        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/hierarchy-timescales.tsx:aria-label:1",
-      "assertionId": "VAL-B2-BASE-002",
-      "populationMemberId": "accessible-names:literal:components/interactive/hierarchy-timescales.tsx:aria-label:1",
-      "coveredPopulationMemberIds": [
-        "accessible-names:literal:components/interactive/hierarchy-timescales.tsx:aria-label:1"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member literal:components/interactive/hierarchy-timescales.tsx:aria-label:1 hashes to 4b41be4f81d59ec8cb2e92f6652b308d244359baa5a2602284f3dc8a0c8122b3 in the current tree, the value the immutable migration baseline sealed",
-      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "source-build",
-        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
-        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-        "observed": {
-          "manifest": "accessible-names",
-          "member": "literal:components/interactive/hierarchy-timescales.tsx:aria-label:1",
-          "baselineHash": "4b41be4f81d59ec8cb2e92f6652b308d244359baa5a2602284f3dc8a0c8122b3",
-          "currentHash": "4b41be4f81d59ec8cb2e92f6652b308d244359baa5a2602284f3dc8a0c8122b3",
-          "status": "identical",
-          "approvedDelta": null
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100082,7 +100250,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:manipulation/generalist-policies moved from 2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6 to 2e80b0706d877102f600ddd127b860ee052bf6eb4b1b1942a544b882cf499bc1 exactly as approved delta seo-pass-20261002-prose-manipulation-generalist-policies permits: SEO pass of 2026-10-02 on manipulation/generalist-policies: the lead now opens with the definitional sentence \"The other generalist policies are the multi-task robot models outside two lineages, the VLA family from RT-1 to OpenVLA and Physical Intelligence's pi line\", where it opened with \"The last two modules each followed one lineage: the VLA family from RT-1 to OpenVLA, then Physical Intelligence's pi line\". Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/seo-pass-20261002/source-transition.json.",
+      "actual": "prose member article:manipulation/generalist-policies moved from 2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6 to a52436bd5e9e4bc660b8bdfe0081cf753d2cfe2da56329415fcdf3614c28b5bc exactly as approved delta reader-first-20261003-prose-manipulation-generalist-policies permits: Reader-first figure pass of 2026-10-03 on manipulation/generalist-policies: the cue under the timeline names the controls the rewritten figure prints. It reads \"Filled marks are downloadable; hollow marks are either not offered or not disclosed, and each record's card and the filters under \\\"Adjust more\\\" keep those two apart. Show source type draws the source format as the marker shape. For Gemini 1.5, Gemini 2, and Skild, read the source-scoped availability note in the selected card. Turn on Downloadable only and the timeline keeps only the records whose weights you can fetch.\" where it read \"Node labels and filters distinguish the states; marker shape identifies the source format. For Gemini 1.5, Gemini 2, and Skild, read the source-scoped availability note in the selected detail. Try the Downloadable filter and the timeline keeps only the records whose weights you can fetch.\" Every cited fact, number and citation in the article is unchanged. The edge starts from the sealed bytes and reconciles the member's 13 earlier approved edges exactly.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100094,9 +100262,9 @@
           "manifest": "prose",
           "member": "article:manipulation/generalist-policies",
           "baselineHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
-          "currentHash": "2e80b0706d877102f600ddd127b860ee052bf6eb4b1b1942a544b882cf499bc1",
+          "currentHash": "a52436bd5e9e4bc660b8bdfe0081cf753d2cfe2da56329415fcdf3614c28b5bc",
           "status": "approved-delta",
-          "approvedDelta": "seo-pass-20261002-prose-manipulation-generalist-policies"
+          "approvedDelta": "reader-first-20261003-prose-manipulation-generalist-policies"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100138,7 +100306,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:manipulation/knowledge-insulation moved from 39f6a1b5787df41b1c085b5e04bd2682a607817c7623eaf75f08a4bb19727732 to 89b8236866c68fdb315d9f541d0d27a4c5975051b84d055f46030cc20d638bed exactly as approved delta seo-pass-20261002-prose-manipulation-knowledge-insulation permits: SEO pass of 2026-10-02 on manipulation/knowledge-insulation: the lead now opens with the definitional sentence \"Knowledge insulation is a training recipe that keeps action learning from damaging a vision-language-action model's pretrained backbone\", where it opened with \"RT-2 represents robot actions as tokens, using the discretization introduced for RT-1: each continuous action dimension is divided into 256 uniform bins\". Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/seo-pass-20261002/source-transition.json.",
+      "actual": "prose member article:manipulation/knowledge-insulation moved from 39f6a1b5787df41b1c085b5e04bd2682a607817c7623eaf75f08a4bb19727732 to 1f683d7b3f3e72587d178b0792bf7a82e27e1727e218ff0509a5672b3cdeb27b exactly as approved delta reader-first-20261003-prose-manipulation-knowledge-insulation permits: Reader-first figure pass of 2026-10-03 on manipulation/knowledge-insulation: the cue names the one toggle the rewritten figure prints. It reads \"The barrier is below, on the backward pass. Turn off \\\"Protect language skills\\\", which removes the stop-gradient: the damage the recipe exists to prevent runs straight back into the pretrained backbone.\" where it read \"The barrier is below. Switch the pass direction to backward and then turn the stop-gradient off: the damage the recipe exists to prevent runs straight back into the pretrained backbone.\" Every cited fact, number and citation in the article is unchanged.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100150,9 +100318,9 @@
           "manifest": "prose",
           "member": "article:manipulation/knowledge-insulation",
           "baselineHash": "39f6a1b5787df41b1c085b5e04bd2682a607817c7623eaf75f08a4bb19727732",
-          "currentHash": "89b8236866c68fdb315d9f541d0d27a4c5975051b84d055f46030cc20d638bed",
+          "currentHash": "1f683d7b3f3e72587d178b0792bf7a82e27e1727e218ff0509a5672b3cdeb27b",
           "status": "approved-delta",
-          "approvedDelta": "seo-pass-20261002-prose-manipulation-knowledge-insulation"
+          "approvedDelta": "reader-first-20261003-prose-manipulation-knowledge-insulation"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100222,7 +100390,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:manipulation/rl-finetuning moved from 78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79 to e2bec4dd9ffd492bca2b22ede6dcc3208e1c3cb27775b6a16c01fed2202e9993 exactly as approved delta seo-pass-20261002-prose-manipulation-rl-finetuning permits: SEO pass of 2026-10-02 on manipulation/rl-finetuning: the lead now opens with the definitional sentence \"RL fine-tuning is the use of reinforcement learning to improve a pretrained robot policy from its own successes and failures\", where it opened with \"Imitation learning gets a policy that is good on the demonstration distribution and brittle off it, because small per-step errors compound into states the demonstrator never visited \". Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/seo-pass-20261002/source-transition.json.",
+      "actual": "prose member article:manipulation/rl-finetuning moved from 78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79 to bb06d2ef09091fa8d5dbbe61153bbbe05b81920b2802ed62af543b648bcd171c exactly as approved delta reader-first-20261003-prose-manipulation-rl-finetuning permits: Reader-first figure pass of 2026-10-03 on manipulation/rl-finetuning: the cue names the controls the rewritten advantage figure prints. It reads \"Press Play to run the attempt, then switch to \\\"What it learns\\\" to see every step kept with a high or low tag; \\\"At execution\\\", under \\\"Adjust more\\\", shows the robot asked for the high-conditioned policy.\" where it read \"Drag the slider to compare keeping high- and low-tag examples during training with asking for the high-conditioned policy at execution.\" Every cited fact, number and citation in the article is unchanged. The edge starts from the sealed bytes and reconciles the member's 12 earlier approved edges exactly.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -100234,9 +100402,9 @@
           "manifest": "prose",
           "member": "article:manipulation/rl-finetuning",
           "baselineHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
-          "currentHash": "e2bec4dd9ffd492bca2b22ede6dcc3208e1c3cb27775b6a16c01fed2202e9993",
+          "currentHash": "bb06d2ef09091fa8d5dbbe61153bbbe05b81920b2802ed62af543b648bcd171c",
           "status": "approved-delta",
-          "approvedDelta": "seo-pass-20261002-prose-manipulation-rl-finetuning"
+          "approvedDelta": "reader-first-20261003-prose-manipulation-rl-finetuning"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -104005,7 +104173,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/manipulation/comparison-matrix/ ships 79 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 79 outbound anchor occurrences on it with a visible focus ring in 208 stops",
+      "actual": "/manipulation/comparison-matrix/ ships 79 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 79 outbound anchor occurrences on it with a visible focus ring in 210 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -104025,7 +104193,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 76,
           "reachedByTab": 79,
-          "tabStops": 208,
+          "tabStops": 210,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -104043,7 +104211,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/manipulation/cross-embodiment/ ships 38 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 38 outbound anchor occurrences on it with a visible focus ring in 137 stops",
+      "actual": "/manipulation/cross-embodiment/ ships 38 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 38 outbound anchor occurrences on it with a visible focus ring in 138 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -104063,7 +104231,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 33,
           "reachedByTab": 38,
-          "tabStops": 137,
+          "tabStops": 138,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -104155,7 +104323,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/manipulation/generalist-policies/ ships 47 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 47 outbound anchor occurrences on it with a visible focus ring in 177 stops",
+      "actual": "/manipulation/generalist-policies/ ships 47 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 47 outbound anchor occurrences on it with a visible focus ring in 161 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -104175,7 +104343,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 43,
           "reachedByTab": 47,
-          "tabStops": 177,
+          "tabStops": 161,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -104231,7 +104399,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/manipulation/knowledge-insulation/ ships 37 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 37 outbound anchor occurrences on it with a visible focus ring in 137 stops",
+      "actual": "/manipulation/knowledge-insulation/ ships 37 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 37 outbound anchor occurrences on it with a visible focus ring in 135 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -104251,7 +104419,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 33,
           "reachedByTab": 37,
-          "tabStops": 137,
+          "tabStops": 135,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -104269,7 +104437,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/manipulation/pi-line/ ships 54 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 54 outbound anchor occurrences on it with a visible focus ring in 194 stops",
+      "actual": "/manipulation/pi-line/ ships 61 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 61 outbound anchor occurrences on it with a visible focus ring in 201 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -104277,7 +104445,7 @@
         "kind": "browser-state",
         "computed": {
           "route": "/manipulation/pi-line/",
-          "outboundAnchors": 54,
+          "outboundAnchors": 61,
           "distinctHrefs": 16,
           "shapes": [
             "citation-chip",
@@ -104288,8 +104456,8 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 50,
-          "reachedByTab": 54,
-          "tabStops": 194,
+          "reachedByTab": 61,
+          "tabStops": 201,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -104307,7 +104475,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/manipulation/realtime-execution/ ships 36 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 36 outbound anchor occurrences on it with a visible focus ring in 140 stops",
+      "actual": "/manipulation/realtime-execution/ ships 36 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 36 outbound anchor occurrences on it with a visible focus ring in 143 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -104326,7 +104494,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 33,
           "reachedByTab": 36,
-          "tabStops": 140,
+          "tabStops": 143,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -104344,7 +104512,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/manipulation/rl-finetuning/ ships 81 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 81 outbound anchor occurrences on it with a visible focus ring in 248 stops",
+      "actual": "/manipulation/rl-finetuning/ ships 81 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 81 outbound anchor occurrences on it with a visible focus ring in 246 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -104363,7 +104531,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 78,
           "reachedByTab": 81,
-          "tabStops": 248,
+          "tabStops": 246,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -118279,6 +118447,7 @@
             "components/interactive/grasp-wrench-lab.tsx",
             "components/interactive/hand-comparison.tsx",
             "components/interactive/hardware-guide.tsx",
+            "components/interactive/hierarchy-timescales.tsx",
             "components/interactive/jepa-planning.tsx",
             "components/interactive/pendulum-controller.tsx",
             "components/interactive/reward-shaping.tsx",
@@ -118408,7 +118577,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A control/state registry assigns stable IDs, owner route/mount, action, persistent ARIA, disabled exceptions, target-size requirement, pointer alternative, and supported states; DOM-discovered controls and registered controls/actions reconcile exactly.",
-      "actual": "rendered on 49 of 77 swept route states and reconciled exactly against the registry row",
+      "actual": "rendered on 50 of 77 swept route states and reconciled exactly against the registry row",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -118435,14 +118604,12 @@
             "components/interactive/appearance-physics-push.tsx",
             "components/interactive/comparison-matrix.tsx",
             "components/interactive/contact-geometry.tsx",
-            "components/interactive/cross-embodiment-strategies.tsx",
             "components/interactive/dataset-table.tsx",
             "components/interactive/egoscale-scaling.tsx",
             "components/interactive/flow-matching-trajectory.tsx",
             "components/interactive/generalist-release-timeline.tsx",
             "components/interactive/hand-comparison.tsx",
             "components/interactive/hardware-guide.tsx",
-            "components/interactive/hierarchy-timescales.tsx",
             "components/interactive/impedance-contact-lab.tsx",
             "components/interactive/milestones-watchlist.tsx",
             "components/interactive/mot-insulation.tsx",
@@ -118506,6 +118673,7 @@
             "/manipulation/hierarchical/",
             "/manipulation/knowledge-insulation/",
             "/manipulation/pi-line/",
+            "/manipulation/realtime-execution/",
             "/manipulation/rl-finetuning/",
             "/manipulation/robot-learning-roadmap/",
             "/market-map/",
@@ -118714,7 +118882,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A control/state registry assigns stable IDs, owner route/mount, action, persistent ARIA, disabled exceptions, target-size requirement, pointer alternative, and supported states; DOM-discovered controls and registered controls/actions reconcile exactly.",
-      "actual": "rendered on 15 of 77 swept route states and reconciled exactly against the registry row",
+      "actual": "rendered on 20 of 77 swept route states and reconciled exactly against the registry row",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -118755,7 +118923,12 @@
             "/frontier/safety-and-assurance/",
             "/manipulation/action-chunking/",
             "/manipulation/bc-foundations/",
+            "/manipulation/cross-embodiment/",
             "/manipulation/diffusion-policy/",
+            "/manipulation/hierarchical/",
+            "/manipulation/pi-line/",
+            "/manipulation/realtime-execution/",
+            "/manipulation/rl-finetuning/",
             "/world-models/generative-sim/",
             "/world-models/generative-video/",
             "/world-models/taxonomy/"
@@ -127550,7 +127723,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 6422 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 6438 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -129480,7 +129653,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/comparison-matrix/ rendered no v1 identity spelling and no v1 descriptor in 58285 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/comparison-matrix/ rendered no v1 identity spelling and no v1 descriptor in 39611 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -129527,7 +129700,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/cross-embodiment/ rendered no v1 identity spelling and no v1 descriptor in 34253 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/cross-embodiment/ rendered no v1 identity spelling and no v1 descriptor in 32219 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -129668,7 +129841,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/generalist-policies/ rendered no v1 identity spelling and no v1 descriptor in 45797 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/generalist-policies/ rendered no v1 identity spelling and no v1 descriptor in 44835 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -129715,7 +129888,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/hierarchical/ rendered no v1 identity spelling and no v1 descriptor in 39753 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/hierarchical/ rendered no v1 identity spelling and no v1 descriptor in 37615 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -129762,7 +129935,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/knowledge-insulation/ rendered no v1 identity spelling and no v1 descriptor in 25151 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/knowledge-insulation/ rendered no v1 identity spelling and no v1 descriptor in 24231 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -129809,7 +129982,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/pi-line/ rendered no v1 identity spelling and no v1 descriptor in 50437 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/pi-line/ rendered no v1 identity spelling and no v1 descriptor in 49065 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -129856,7 +130029,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/realtime-execution/ rendered no v1 identity spelling and no v1 descriptor in 37327 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/realtime-execution/ rendered no v1 identity spelling and no v1 descriptor in 33117 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -129903,7 +130076,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/rl-finetuning/ rendered no v1 identity spelling and no v1 descriptor in 77735 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/rl-finetuning/ rendered no v1 identity spelling and no v1 descriptor in 74971 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -198203,8 +198376,8 @@
               "id": "/manipulation/comparison-matrix/",
               "observed": {
                 "monoRequiredCount": 0,
-                "interfaceControlCount": 39,
-                "controlsInProse": 21,
+                "interfaceControlCount": 42,
+                "controlsInProse": 24,
                 "registrationLabelCount": 4
               }
             }
@@ -198241,8 +198414,8 @@
               "id": "/manipulation/cross-embodiment/",
               "observed": {
                 "monoRequiredCount": 0,
-                "interfaceControlCount": 18,
-                "controlsInProse": 5,
+                "interfaceControlCount": 20,
+                "controlsInProse": 7,
                 "registrationLabelCount": 4
               }
             }
@@ -198355,8 +198528,8 @@
               "id": "/manipulation/generalist-policies/",
               "observed": {
                 "monoRequiredCount": 0,
-                "interfaceControlCount": 34,
-                "controlsInProse": 19,
+                "interfaceControlCount": 38,
+                "controlsInProse": 23,
                 "registrationLabelCount": 4
               }
             }
@@ -198393,8 +198566,8 @@
               "id": "/manipulation/hierarchical/",
               "observed": {
                 "monoRequiredCount": 0,
-                "interfaceControlCount": 20,
-                "controlsInProse": 6,
+                "interfaceControlCount": 23,
+                "controlsInProse": 9,
                 "registrationLabelCount": 4
               }
             }
@@ -198431,8 +198604,8 @@
               "id": "/manipulation/knowledge-insulation/",
               "observed": {
                 "monoRequiredCount": 0,
-                "interfaceControlCount": 19,
-                "controlsInProse": 5,
+                "interfaceControlCount": 21,
+                "controlsInProse": 7,
                 "registrationLabelCount": 4
               }
             }
@@ -198469,8 +198642,8 @@
               "id": "/manipulation/pi-line/",
               "observed": {
                 "monoRequiredCount": 0,
-                "interfaceControlCount": 33,
-                "controlsInProse": 15,
+                "interfaceControlCount": 38,
+                "controlsInProse": 20,
                 "registrationLabelCount": 4
               }
             }
@@ -198507,8 +198680,8 @@
               "id": "/manipulation/realtime-execution/",
               "observed": {
                 "monoRequiredCount": 0,
-                "interfaceControlCount": 14,
-                "controlsInProse": 4,
+                "interfaceControlCount": 23,
+                "controlsInProse": 13,
                 "registrationLabelCount": 4
               }
             }
@@ -198545,8 +198718,8 @@
               "id": "/manipulation/rl-finetuning/",
               "observed": {
                 "monoRequiredCount": 0,
-                "interfaceControlCount": 24,
-                "controlsInProse": 10,
+                "interfaceControlCount": 28,
+                "controlsInProse": 14,
                 "registrationLabelCount": 4
               }
             }
@@ -202809,7 +202982,7 @@
               "id": "/manipulation/cross-embodiment/",
               "observed": {
                 "paragraphCount": 36,
-                "registeredFrameParagraphCount": 12,
+                "registeredFrameParagraphCount": 16,
                 "offendingFamilies": []
               }
             }
@@ -202957,7 +203130,7 @@
               "id": "/manipulation/hierarchical/",
               "observed": {
                 "paragraphCount": 32,
-                "registeredFrameParagraphCount": 16,
+                "registeredFrameParagraphCount": 22,
                 "offendingFamilies": []
               }
             }
@@ -202994,7 +203167,7 @@
               "id": "/manipulation/knowledge-insulation/",
               "observed": {
                 "paragraphCount": 32,
-                "registeredFrameParagraphCount": 8,
+                "registeredFrameParagraphCount": 12,
                 "offendingFamilies": []
               }
             }
@@ -203031,7 +203204,7 @@
               "id": "/manipulation/pi-line/",
               "observed": {
                 "paragraphCount": 54,
-                "registeredFrameParagraphCount": 16,
+                "registeredFrameParagraphCount": 20,
                 "offendingFamilies": []
               }
             }
@@ -203068,7 +203241,7 @@
               "id": "/manipulation/realtime-execution/",
               "observed": {
                 "paragraphCount": 36,
-                "registeredFrameParagraphCount": 14,
+                "registeredFrameParagraphCount": 32,
                 "offendingFamilies": []
               }
             }
@@ -203105,7 +203278,7 @@
               "id": "/manipulation/rl-finetuning/",
               "observed": {
                 "paragraphCount": 98,
-                "registeredFrameParagraphCount": 20,
+                "registeredFrameParagraphCount": 10,
                 "offendingFamilies": []
               }
             }

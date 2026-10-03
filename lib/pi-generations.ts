@@ -24,6 +24,8 @@ export interface PiGeneration {
   backbone: string;
   /** The generation's one-line contribution. */
   contribution: string;
+  /** The contribution restated in plain words for the figure's main view. */
+  plain: string;
   /** Citation registry id (data/citations.ts) backing this entry. */
   citationId: string;
 }
@@ -38,6 +40,8 @@ export const PI_GENERATIONS: readonly PiGeneration[] = [
     backbone: 'PaliGemma 3B + 300M action expert',
     contribution:
       'Flow-matching action expert grafted onto a pretrained VLM; 50-step action chunks at 50 Hz.',
+    plain:
+      'The first model in the family: it adds a part that turns what a picture-and-language model understands into smooth arm motion.',
     citationId: 'pi0-2024',
   },
   {
@@ -49,6 +53,8 @@ export const PI_GENERATIONS: readonly PiGeneration[] = [
     backbone: 'PaliGemma 3B, autoregressive',
     contribution:
       'DCT + BPE action tokenization (FAST); autoregressive VLAs become viable at 50 Hz.',
+    plain:
+      'Packs motion into compact word-like codes, so a model that writes one code at a time can keep up with the arm.',
     citationId: 'pi0-fast-2025',
   },
   {
@@ -60,6 +66,8 @@ export const PI_GENERATIONS: readonly PiGeneration[] = [
     backbone: 'PaliGemma-class 3B + 300M expert',
     contribution:
       'Heterogeneous co-training buys open-world generalization in never-before-seen homes.',
+    plain:
+      'Trained on a broad mix of data, it can work in homes it has never seen before.',
     citationId: 'pi05-2025',
   },
   {
@@ -71,6 +79,8 @@ export const PI_GENERATIONS: readonly PiGeneration[] = [
     backbone: 'Gemma3 4B + SigLIP 400M + 860M expert',
     contribution:
       'Knowledge Insulation at scale; laundry folding and box assembly without task-specific fine-tuning.',
+    plain:
+      'Protects what the model knows about language while it learns to move; it folds laundry and assembles boxes without extra training for each task.',
     citationId: 'pi06-model-card-2025',
   },
   {
@@ -82,6 +92,8 @@ export const PI_GENERATIONS: readonly PiGeneration[] = [
     backbone: 'π0.6 + advantage-conditioned Recap',
     contribution:
       'RL from demonstrations, coaching, and practice; espresso throughput more than doubled.',
+    plain:
+      'Learns from demonstrations, coaching and its own practice; it more than doubled how many espressos it makes in a given time.',
     citationId: 'pistar06-2025',
   },
   {
@@ -93,6 +105,8 @@ export const PI_GENERATIONS: readonly PiGeneration[] = [
     backbone: 'π0.6 + two-scale memory',
     contribution:
       'Short-term video history plus long-term model-authored notes; 15-minute tasks.',
+    plain:
+      'Adds memory: recent video plus notes the model writes for itself, enough for tasks that take 15 minutes.',
     citationId: 'mem-2026',
   },
   {
@@ -104,6 +118,8 @@ export const PI_GENERATIONS: readonly PiGeneration[] = [
     backbone: 'Gemma3 4B + 860M expert',
     contribution:
       'Diverse multimodal prompting (metadata, control mode, generated subgoals); compositional generalization.',
+    plain:
+      'Takes richer instructions, such as task details, how to control the arm and generated in-between goals, and combines skills in new ways.',
     citationId: 'pi07-2026',
   },
 ];

@@ -362,7 +362,7 @@ test.describe('market map visualization', () => {
       { route: '/classical/kinematics/', labels: ['Joint i'] },
       {
         route: '/manipulation/generalist-policies/',
-        labels: ['Provenance:'],
+        labels: ['Downloadable:'],
       },
     ];
     for (const { route, labels } of cases) {

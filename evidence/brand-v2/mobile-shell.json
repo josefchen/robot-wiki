@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3092,
+      "visibleTextLength": 3100,
       "header": {
         "present": true,
         "display": "flex",
@@ -6749,7 +6749,7 @@
     },
     {
       "route": "/manipulation/comparison-matrix/",
-      "visibleTextLength": 28821,
+      "visibleTextLength": 19484,
       "header": {
         "present": true,
         "display": "flex",
@@ -6912,7 +6912,7 @@
     },
     {
       "route": "/manipulation/cross-embodiment/",
-      "visibleTextLength": 16805,
+      "visibleTextLength": 15788,
       "header": {
         "present": true,
         "display": "flex",
@@ -7401,7 +7401,7 @@
     },
     {
       "route": "/manipulation/generalist-policies/",
-      "visibleTextLength": 22577,
+      "visibleTextLength": 22096,
       "header": {
         "present": true,
         "display": "flex",
@@ -7564,7 +7564,7 @@
     },
     {
       "route": "/manipulation/hierarchical/",
-      "visibleTextLength": 19555,
+      "visibleTextLength": 18486,
       "header": {
         "present": true,
         "display": "flex",
@@ -7727,7 +7727,7 @@
     },
     {
       "route": "/manipulation/knowledge-insulation/",
-      "visibleTextLength": 12254,
+      "visibleTextLength": 11794,
       "header": {
         "present": true,
         "display": "flex",
@@ -7890,7 +7890,7 @@
     },
     {
       "route": "/manipulation/pi-line/",
-      "visibleTextLength": 24897,
+      "visibleTextLength": 24211,
       "header": {
         "present": true,
         "display": "flex",
@@ -8053,7 +8053,7 @@
     },
     {
       "route": "/manipulation/realtime-execution/",
-      "visibleTextLength": 18342,
+      "visibleTextLength": 16237,
       "header": {
         "present": true,
         "display": "flex",
@@ -8216,7 +8216,7 @@
     },
     {
       "route": "/manipulation/rl-finetuning/",
-      "visibleTextLength": 38546,
+      "visibleTextLength": 37164,
       "header": {
         "present": true,
         "display": "flex",

@@ -36,7 +36,7 @@ import { RlMethodsTable } from '@/components/mdx/rl-methods-table';
 
 RL fine-tuning is the use of reinforcement learning to improve a pretrained robot policy from its own successes and failures. <Term id="imitation-learning">Imitation learning</Term> gets a policy that is good on the demonstration distribution and brittle off it, because small per-step errors compound into states the demonstrator never visited <Cite id="dagger-2011" />. Physical Intelligence states the operational version of the same problem: it is relatively easy to get a VLA to succeed at a task some of the time, and quite hard to make it succeed reliably <Cite id="pistar06-blog-2025" />. Reinforcement learning is the only mechanism in the toolbox that learns from failure as well as from success. The obstacle is cost: naive online RL on a multi-billion-parameter VLA, on real hardware, at control rates, is infeasible. Everything in this module is a way around that constraint, and by 2026 the field has converged on a small set of recipes that demonstrably work.
 
-The scrubber below uses a fictional espresso episode to illustrate conditioning. Its timings, values and stage tags are toy choices; no Recap measurement sits behind them. Drag the slider to compare keeping high- and low-tag examples during training with asking for the high-conditioned policy at execution.
+The scrubber below uses a fictional espresso episode to illustrate conditioning. Its timings, values and stage tags are toy choices; no Recap measurement sits behind them. Press Play to run the attempt, then switch to "What it learns" to see every step kept with a high or low tag; "At execution", under "Adjust more", shows the robot asked for the high-conditioned policy.
 
 <AdvantageScrubber className="my-6" />
 

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "8e7bc601063d238e7863953cca001a10dc76142b71a2d93c622a578a6099de5f",
+  "fingerprint": "4c2ea3967871029cc597bf4ca6f9b0be99a810739f2903bdddb360133d2dae7f",
   "viewports": [
     "375x812",
     "1440x900"
@@ -5518,7 +5518,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 28821,
+      "visibleTextLength": 19484,
       "tables": [
         {
           "index": 0,
@@ -5536,7 +5536,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "18 policies across the eight architectural axes. Horizon shows planned / executed steps (n.d. = not disclosed). Weights describe download availability, not license openness. Unknown availability is separate from not released. Cells the vendor has not published are marked not disclosed and always sort last, in both directions. Unset scalar rates do not prove that a source reports no setup-specific rate. Read the setting notes and linked sources before comparing cells.",
-            "clientWidth": 309,
+            "clientWidth": 90,
             "scrollWidth": 1183,
             "scrolledBy": 40
           },
@@ -5587,7 +5587,7 @@
           "role": "region",
           "accessibleName": "18 policies across the eight architectural axes. Horizon shows planned / executed steps (n.d. = not disclosed). Weights describe download availability, not license openness. Unknown availability is separate from not released. Cells the vendor has not published are marked not disclosed and always sort last, in both directions. Unset scalar rates do not prove that a source reports no setup-specific rate. Read the setting notes and linked sources before comparing cells.",
           "tabIndex": 0,
-          "clientWidth": 309,
+          "clientWidth": 90,
           "scrollWidth": 1183,
           "scrolledBy": 40
         }
@@ -5602,7 +5602,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 16805,
+      "visibleTextLength": 15788,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -5977,10 +5977,47 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 22577,
-      "tables": [],
+      "visibleTextLength": 22096,
+      "tables": [
+        {
+          "index": 0,
+          "accessibleName": "The 13 records with maker, month, download status and source type.",
+          "captionText": "The 13 records with maker, month, download status and source type.",
+          "columnHeaders": 5,
+          "rowHeaders": 13,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 6,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "The 13 records with maker, month, download status and source type.",
+            "clientWidth": 335,
+            "scrollWidth": 624,
+            "scrolledBy": 40
+          },
+          "tableWidth": 624,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        }
+      ],
       "equations": [],
-      "scrollRegions": [],
+      "scrollRegions": [
+        {
+          "index": 0,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto pt-1\">",
+          "role": "region",
+          "accessibleName": "The 13 records with maker, month, download status and source type.",
+          "tabIndex": 0,
+          "clientWidth": 335,
+          "scrollWidth": 624,
+          "scrolledBy": 40
+        }
+      ],
       "route": "/manipulation/generalist-policies/",
       "viewport": "375x812"
     },
@@ -5991,7 +6028,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 19555,
+      "visibleTextLength": 18486,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -6005,7 +6042,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 12254,
+      "visibleTextLength": 11794,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -6019,8 +6056,33 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 24897,
-      "tables": [],
+      "visibleTextLength": 24211,
+      "tables": [
+        {
+          "index": 0,
+          "accessibleName": "The 7 Physical Intelligence model entries, 6 with a source month, with architecture, contribution and source.",
+          "captionText": "The 7 Physical Intelligence model entries, 6 with a source month, with architecture, contribution and source.",
+          "columnHeaders": 6,
+          "rowHeaders": 7,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "The 7 Physical Intelligence model entries, 6 with a source month, with architecture, contribution and source.",
+            "clientWidth": 335,
+            "scrollWidth": 843,
+            "scrolledBy": 40
+          },
+          "tableWidth": 843,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        }
+      ],
       "equations": [
         {
           "index": 0,
@@ -6135,7 +6197,19 @@
           "viewportOverflowPx": 0
         }
       ],
-      "scrollRegions": [],
+      "scrollRegions": [
+        {
+          "index": 0,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto pt-1\">",
+          "role": "region",
+          "accessibleName": "The 7 Physical Intelligence model entries, 6 with a source month, with architecture, contribution and source.",
+          "tabIndex": 0,
+          "clientWidth": 335,
+          "scrollWidth": 843,
+          "scrolledBy": 40
+        }
+      ],
       "route": "/manipulation/pi-line/",
       "viewport": "375x812"
     },
@@ -6146,7 +6220,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18342,
+      "visibleTextLength": 16237,
       "tables": [
         {
           "index": 0,
@@ -6297,7 +6371,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 38546,
+      "visibleTextLength": 37164,
       "tables": [
         {
           "index": 0,
@@ -12688,7 +12762,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 29464,
+      "visibleTextLength": 20127,
       "tables": [
         {
           "index": 0,
@@ -12706,7 +12780,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "18 policies across the eight architectural axes. Horizon shows planned / executed steps (n.d. = not disclosed). Weights describe download availability, not license openness. Unknown availability is separate from not released. Cells the vendor has not published are marked not disclosed and always sort last, in both directions. Unset scalar rates do not prove that a source reports no setup-specific rate. Read the setting notes and linked sources before comparing cells.",
-            "clientWidth": 1078,
+            "clientWidth": 90,
             "scrollWidth": 1183,
             "scrolledBy": 40
           },
@@ -12757,7 +12831,7 @@
           "role": "region",
           "accessibleName": "18 policies across the eight architectural axes. Horizon shows planned / executed steps (n.d. = not disclosed). Weights describe download availability, not license openness. Unknown availability is separate from not released. Cells the vendor has not published are marked not disclosed and always sort last, in both directions. Unset scalar rates do not prove that a source reports no setup-specific rate. Read the setting notes and linked sources before comparing cells.",
           "tabIndex": 0,
-          "clientWidth": 1078,
+          "clientWidth": 90,
           "scrollWidth": 1183,
           "scrolledBy": 40
         }
@@ -12772,7 +12846,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17448,
+      "visibleTextLength": 16431,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -13147,10 +13221,47 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 23220,
-      "tables": [],
+      "visibleTextLength": 22739,
+      "tables": [
+        {
+          "index": 0,
+          "accessibleName": "The 13 records with maker, month, download status and source type.",
+          "captionText": "The 13 records with maker, month, download status and source type.",
+          "columnHeaders": 5,
+          "rowHeaders": 13,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 6,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "The 13 records with maker, month, download status and source type.",
+            "clientWidth": 715,
+            "scrollWidth": 715,
+            "scrolledBy": 0
+          },
+          "tableWidth": 715,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        }
+      ],
       "equations": [],
-      "scrollRegions": [],
+      "scrollRegions": [
+        {
+          "index": 0,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto pt-1\">",
+          "role": "region",
+          "accessibleName": "The 13 records with maker, month, download status and source type.",
+          "tabIndex": 0,
+          "clientWidth": 715,
+          "scrollWidth": 715,
+          "scrolledBy": 0
+        }
+      ],
       "route": "/manipulation/generalist-policies/",
       "viewport": "1440x900"
     },
@@ -13161,7 +13272,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 20198,
+      "visibleTextLength": 19129,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -13175,7 +13286,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 12897,
+      "visibleTextLength": 12437,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -13189,8 +13300,33 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 25540,
-      "tables": [],
+      "visibleTextLength": 24854,
+      "tables": [
+        {
+          "index": 0,
+          "accessibleName": "The 7 Physical Intelligence model entries, 6 with a source month, with architecture, contribution and source.",
+          "captionText": "The 7 Physical Intelligence model entries, 6 with a source month, with architecture, contribution and source.",
+          "columnHeaders": 6,
+          "rowHeaders": 7,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "The 7 Physical Intelligence model entries, 6 with a source month, with architecture, contribution and source.",
+            "clientWidth": 715,
+            "scrollWidth": 843,
+            "scrolledBy": 40
+          },
+          "tableWidth": 843,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        }
+      ],
       "equations": [
         {
           "index": 0,
@@ -13305,7 +13441,19 @@
           "viewportOverflowPx": 0
         }
       ],
-      "scrollRegions": [],
+      "scrollRegions": [
+        {
+          "index": 0,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto pt-1\">",
+          "role": "region",
+          "accessibleName": "The 7 Physical Intelligence model entries, 6 with a source month, with architecture, contribution and source.",
+          "tabIndex": 0,
+          "clientWidth": 715,
+          "scrollWidth": 843,
+          "scrolledBy": 40
+        }
+      ],
       "route": "/manipulation/pi-line/",
       "viewport": "1440x900"
     },
@@ -13316,7 +13464,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18985,
+      "visibleTextLength": 16880,
       "tables": [
         {
           "index": 0,
@@ -13467,7 +13615,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 39189,
+      "visibleTextLength": 37807,
       "tables": [
         {
           "index": 0,

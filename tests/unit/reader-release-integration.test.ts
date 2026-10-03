@@ -66,8 +66,9 @@ function throughSeoPass(path: string) {
   const sealedHash = sealed.manifests.prose.members.find(m => m.id === id)!.hash;
   // The reader-first pass may revise an article in more than one batch; its
   // last edge then reconciles the SEO endpoint and every earlier batch.
-  const edge = (prefix: string, from: string, to: string, batches = false) => {
-    const edges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id && a.id.startsWith(prefix));
+  const edge = (prefixes: string[], from: string, to: string, batches = false) => {
+    const edges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id
+      && prefixes.some(prefix => a.id.startsWith(prefix)));
     if (to === from) {
       expect(edges).toEqual([]);
       return from;
@@ -84,13 +85,15 @@ function throughSeoPass(path: string) {
     expect(to).toBe(last.newHash);
     return to;
   };
-  const seo = edge('seo-pass-20261002-', hashOf(read(path)), hashOf(readSeoSuccessor(path)));
+  const seo = edge(['seo-pass-20261002-'], hashOf(read(path)), hashOf(readSeoSuccessor(path)));
   // The optional prediction step later moved some of these articles on with
   // one plain edge from the reader-first endpoint to the live article.
   const predict = approvals.filter(a => a.manifest === 'prose' && a.memberId === id
     && a.id.startsWith('reader-first-20261003-predict-'));
-  const readerFirst = edge('reader-first-20261002-', seo, predict.length ? predict[0].oldHash : hashOf(readLive(path)), true);
-  edge('reader-first-20261003-predict-', readerFirst, hashOf(readLive(path)));
+  // The 2026-10-03 figure batches belong to the same reader-first pass.
+  const readerFirst = edge(['reader-first-20261002-', 'reader-first-20261003-prose-'], seo,
+    predict.length ? predict[0].oldHash : hashOf(readLive(path)), true);
+  edge(['reader-first-20261003-predict-'], readerFirst, hashOf(readLive(path)));
 }
 
 describe('merged reader corrections preserve production additions and exact approvals', () => {

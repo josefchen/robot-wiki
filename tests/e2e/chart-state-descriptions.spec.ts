@@ -127,15 +127,15 @@ const CHARTS: Array<{
     route: '/manipulation/cross-embodiment',
     name: 'cross-embodiment',
     control: 'button',
-    moves: ['Padded shared vector', 'Motion transfer'],
-    def: 'Shared relative EEF space',
+    moves: ["Pad each robot's own list", 'Translate between bodies'],
+    def: 'Describe where the hand goes',
   },
   {
     route: '/manipulation/hierarchical',
     name: 'hierarchy',
     control: 'range',
     moves: ['400', '1000'],
-    def: '0',
+    def: '2000',
   },
   {
     route: '/rl-sim2real/why-rl-locomotion',

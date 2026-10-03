@@ -47545,6 +47545,284 @@
           "newHash": "22e843bf9fa7e9202c43b12fe5511d9df10ab74e7cf5179d4edc98ad97cfae06"
         }
       ]
+    },
+    {
+      "id": "reader-first-20261003-name-flow-matching-trajectory-literal-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/flow-matching-trajectory.tsx:aria-label:1",
+      "oldHash": "4283844591ad8d50af323a780db2b3e4cbd37172c20c5d98f8946aa550956aeb",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Reader-first rewrite of the flow-matching figure (VAL-OPUS-138): the step-preset group named \"Step presets from the shipped models\" becomes the shared preset group, whose accessible name borrows the label it prints above its buttons, so the literal name leaves the file. The presets, their step counts and their sources are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "responsibleMilestone": "opus-pass"
+    },
+    {
+      "id": "reader-first-20261003-name-flow-matching-trajectory-expression-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/flow-matching-trajectory.tsx:aria-label:2",
+      "oldHash": "785965cefb0e4a3c45abcc363d759743bc31a56915b623958200990f2095d931",
+      "newHash": "425a41333ea8718fa689bf07b7eb5862cff602461fc8b56392a8c2f741b6b578",
+      "reason": "Reader-first rewrite of the flow-matching figure (VAL-OPUS-138): the drawing's name now uses the plain words the figure prints. It reads \"{`2D action-space view: ${drawn.length} of ${field.samples.length} samples start as random noise and are carried toward two good moves along near-straight paths. With ${stepWords(steps)} the mean endpoint error is ${dispersion.toFixed(2)}${steps === 1 ? '' : `; one big jump would leave it at ${oneJump.toFixed(2)}`}. The learned vector field at mid-transport is ${showField ? 'shown' : 'hidden'}.`}\" where it read \"{`2D action-space view with the learned vector field at mid-transport. ${field.samples.length} samples start as Gaussian noise and are transported toward two action modes along near-straight paths. With ${steps} integration steps the mean endpoint error is ${dispersion.toFixed(2)}.`}\". The endpoint error is the same computed value; no fact, unit or attribution changes.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "responsibleMilestone": "opus-pass"
+    },
+    {
+      "id": "reader-first-20261003-name-hierarchy-timescales-literal-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/hierarchy-timescales.tsx:aria-label:1",
+      "oldHash": "4b41be4f81d59ec8cb2e92f6652b308d244359baa5a2602284f3dc8a0c8122b3",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Reader-first rewrite of the hierarchy timescales figure (VAL-OPUS-138): the system group named \"Select a system overlay\" becomes the shared preset group labelled \"Robot system\", whose accessible name borrows that printed label, so the literal name leaves the file. The systems, their lanes and their rates are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "responsibleMilestone": "opus-pass"
+    },
+    {
+      "id": "reader-first-20261003-name-cross-embodiment-strategies-literal-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/cross-embodiment-strategies.tsx:aria-label:1",
+      "oldHash": "416127d1fd18758c8f5411561a32cc05f92f460c5e2d5b7a9552d58f395079af",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Reader-first rewrite of the cross-embodiment figure (VAL-OPUS-138): the strategy group named \"Select a cross-embodiment strategy\" becomes the shared preset group labelled \"Way to share one action list\", whose accessible name borrows that printed label, so the literal name leaves the file. The three strategies and every slot they fill are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "responsibleMilestone": "opus-pass"
+    },
+    {
+      "id": "reader-first-20261003-name-cross-embodiment-strategies-expression-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/cross-embodiment-strategies.tsx:aria-label:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "9bf3b1d7631ea522054593b8309716d13893c061e83b1983d4eb22733358d8b0",
+      "reason": "Reader-first rewrite of the cross-embodiment figure (VAL-OPUS-138): the new overview drawing at settle, four bodies by three ways of sharing one action list, gets its own name, \"{`Four bodies under three ways of sharing one action list; ${STRATEGIES[selected].label} is selected. Only the shared relative end-effector space fills the human-hand row.`}\". The member did not exist before; the per-body strip names at position 1 are unchanged, and no fact, slot count or attribution changes.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "responsibleMilestone": "opus-pass"
+    },
+    {
+      "id": "reader-first-20261003-name-generalist-release-timeline-expression-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/generalist-release-timeline.tsx:aria-label:2",
+      "oldHash": "b51dd847011dc6c17e8c9f69746fc75d063910d2db37aec6cead04f75b4b0357",
+      "newHash": "7c37206a062a619f0203b4bb7b55bff412e638e05b589b22878323d616cf25ab",
+      "reason": "Reader-first rewrite of the generalist release timeline (VAL-OPUS-138): the main view draws one shape, filled or hollow, so the chart's name now says so. It reads \"{`Selected generalist robot policy records. One row per release at its release month. Filled circles have a reported download of the trained model; hollow circles are either not offered or not disclosed. Currently showing ${visible.length} of ${GENERALIST_RELEASES.length} releases.`}\" where it read \"{`Selected generalist robot policy records. Highlighted nodes have a reported weight download; dim nodes include unavailable and not-disclosed records, distinguished by their text labels. Node shape encodes provenance: circle for papers, square for repo release notes, triangle for lab blogs, diamond for press releases. Currently showing ${visible.length} of ${GENERALIST_RELEASES.length} releases.`}\". Source-type shapes stay one toggle away in \"Adjust more\"; every record, date, availability state and source is unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "responsibleMilestone": "opus-pass"
+    },
+    {
+      "id": "reader-first-20261003-prose-manipulation-generalist-policies",
+      "manifest": "prose",
+      "memberId": "article:manipulation/generalist-policies",
+      "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+      "newHash": "a52436bd5e9e4bc660b8bdfe0081cf753d2cfe2da56329415fcdf3614c28b5bc",
+      "reason": "Reader-first figure pass of 2026-10-03 on manipulation/generalist-policies: the cue under the timeline names the controls the rewritten figure prints. It reads \"Filled marks are downloadable; hollow marks are either not offered or not disclosed, and each record's card and the filters under \\\"Adjust more\\\" keep those two apart. Show source type draws the source format as the marker shape. For Gemini 1.5, Gemini 2, and Skild, read the source-scoped availability note in the selected card. Turn on Downloadable only and the timeline keeps only the records whose weights you can fetch.\" where it read \"Node labels and filters distinguish the states; marker shape identifies the source format. For Gemini 1.5, Gemini 2, and Skild, read the source-scoped availability note in the selected detail. Try the Downloadable filter and the timeline keeps only the records whose weights you can fetch.\" Every cited fact, number and citation in the article is unchanged. The edge starts from the sealed bytes and reconciles the member's 13 earlier approved edges exactly.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and the article prose names the plain-words controls the figure now prints (VAL-OPUS-137, VAL-OPUS-138). Not release approval.",
+      "affectedAssertions": [
+        "VAL-OPUS-137",
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "responsibleMilestone": "opus-pass",
+      "reconciles": [
+        {
+          "id": "oft-gemini-oxe-20260908-3",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "b0d9127ac3bef7bed9b28c8f87905c443ff2f58a2daf92f1892b8895b59d0e3b"
+        },
+        {
+          "id": "go-helix-cross-transfer-20260908-5",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "68840092b1fedab94737f684e08a280476ed11a1f7103453aa0766cc7bfb761f"
+        },
+        {
+          "id": "vla-generalist-closeouts-20260908-2",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "94cc9a639c8e66f97c327f9ff916f40f6bfc558a2177a6f8a9f42cdeed08bf8e"
+        },
+        {
+          "id": "generalist-attribution-p1-20260922-1",
+          "oldHash": "94cc9a639c8e66f97c327f9ff916f40f6bfc558a2177a6f8a9f42cdeed08bf8e",
+          "newHash": "a38e7023403782407cace0c918dc1f149234149748e62e9c57fe9d03d3166951"
+        },
+        {
+          "id": "continuation-merge-20260922-prose-manipulation-generalist-policies",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "a38e7023403782407cace0c918dc1f149234149748e62e9c57fe9d03d3166951"
+        },
+        {
+          "id": "four-local-truth-repairs-20260922-1",
+          "oldHash": "a38e7023403782407cace0c918dc1f149234149748e62e9c57fe9d03d3166951",
+          "newHash": "bd4a5abdc213e0ef0102c1a3427a1eb6ad49db0f784dfdbe582d70ee0f1a1df4"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-prose-article-manipulation-generalist-policies",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "bd4a5abdc213e0ef0102c1a3427a1eb6ad49db0f784dfdbe582d70ee0f1a1df4"
+        },
+        {
+          "id": "crossdomain-closure-20260923-1",
+          "oldHash": "bd4a5abdc213e0ef0102c1a3427a1eb6ad49db0f784dfdbe582d70ee0f1a1df4",
+          "newHash": "6309e206061df1481bc9e606d5a83a26b866859b4889a2cb7f08d8772b0f0646"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0140-prose-article-manipulation-generalist-policies",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "6309e206061df1481bc9e606d5a83a26b866859b4889a2cb7f08d8772b0f0646"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-manipulation-generalist-policies",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "6309e206061df1481bc9e606d5a83a26b866859b4889a2cb7f08d8772b0f0646"
+        },
+        {
+          "id": "humanizer-manipulation-v3-20260925-prose-generalist-policies",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "7c0fd3cef651f4e97cf6b32181db26d53bec8eeda1433d63db6d1d0060aebcbe"
+        },
+        {
+          "id": "educational-cue-20260926-prose-generalist-policies",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "e8ad571aa51f67edebeef1383eb79df06f749ca8199c51693e2f3a567e6d41df"
+        },
+        {
+          "id": "seo-pass-20261002-prose-manipulation-generalist-policies",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "2e80b0706d877102f600ddd127b860ee052bf6eb4b1b1942a544b882cf499bc1"
+        }
+      ]
+    },
+    {
+      "id": "reader-first-20261003-prose-manipulation-knowledge-insulation",
+      "manifest": "prose",
+      "memberId": "article:manipulation/knowledge-insulation",
+      "oldHash": "89b8236866c68fdb315d9f541d0d27a4c5975051b84d055f46030cc20d638bed",
+      "newHash": "1f683d7b3f3e72587d178b0792bf7a82e27e1727e218ff0509a5672b3cdeb27b",
+      "reason": "Reader-first figure pass of 2026-10-03 on manipulation/knowledge-insulation: the cue names the one toggle the rewritten figure prints. It reads \"The barrier is below, on the backward pass. Turn off \\\"Protect language skills\\\", which removes the stop-gradient: the damage the recipe exists to prevent runs straight back into the pretrained backbone.\" where it read \"The barrier is below. Switch the pass direction to backward and then turn the stop-gradient off: the damage the recipe exists to prevent runs straight back into the pretrained backbone.\" Every cited fact, number and citation in the article is unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and the article prose names the plain-words controls the figure now prints (VAL-OPUS-137, VAL-OPUS-138). Not release approval.",
+      "affectedAssertions": [
+        "VAL-OPUS-137",
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "responsibleMilestone": "opus-pass"
+    },
+    {
+      "id": "reader-first-20261003-prose-manipulation-rl-finetuning",
+      "manifest": "prose",
+      "memberId": "article:manipulation/rl-finetuning",
+      "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+      "newHash": "bb06d2ef09091fa8d5dbbe61153bbbe05b81920b2802ed62af543b648bcd171c",
+      "reason": "Reader-first figure pass of 2026-10-03 on manipulation/rl-finetuning: the cue names the controls the rewritten advantage figure prints. It reads \"Press Play to run the attempt, then switch to \\\"What it learns\\\" to see every step kept with a high or low tag; \\\"At execution\\\", under \\\"Adjust more\\\", shows the robot asked for the high-conditioned policy.\" where it read \"Drag the slider to compare keeping high- and low-tag examples during training with asking for the high-conditioned policy at execution.\" Every cited fact, number and citation in the article is unchanged. The edge starts from the sealed bytes and reconciles the member's 12 earlier approved edges exactly.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and the article prose names the plain-words controls the figure now prints (VAL-OPUS-137, VAL-OPUS-138). Not release approval.",
+      "affectedAssertions": [
+        "VAL-OPUS-137",
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "responsibleMilestone": "opus-pass",
+      "reconciles": [
+        {
+          "id": "brand-v2-rl-finetuning-display-math-delimiters",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "8a0f433c78e6aedaa4b5e0c2729fd6f36cf4141af498cb19042a663b41ebdb87"
+        },
+        {
+          "id": "cross-article-closeouts-20260907-4",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "4483c83f0ab4302e38386b794c017a09a8ecdcf63fecb006c13bef8966e01b1b"
+        },
+        {
+          "id": "rl-finetuning-closeout-20260908-1",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "5424024e10a7e82ad997df5eb7988b12b0b04e127dfcc3f53bdbb9e0b4fe67c0"
+        },
+        {
+          "id": "brand-v2-rl-reader-citation-placement-20260908",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "120deb06728a78d1969b84b131812bb5d8c78e152a1df1589ec6b7b0b3dbe834"
+        },
+        {
+          "id": "rl-correct-originals-20260908-prose",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "f3eeff488db5b1d89c05e6ac2348ed84d323d983546ebcd45966ea815032e03c"
+        },
+        {
+          "id": "pirl-pld-four-originals-20260908-1",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "58266d3f46c78229772028ac412853551ca8252b6137772d21b40b27cbc809cf"
+        },
+        {
+          "id": "rl-method-table-original-11-20260908-1",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "9698d653d74ac61fb0fb4973114c938fba4178245fcf140fb753728d6e22749f"
+        },
+        {
+          "id": "reader-rl-prose-20260923-1",
+          "oldHash": "9698d653d74ac61fb0fb4973114c938fba4178245fcf140fb753728d6e22749f",
+          "newHash": "985f5f0f8e17bfc229d604ab4b42c2bb99676da58943e2ba20d99558d09f16a6"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1745-prose-article-manipulation-rl-finetuning",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "985f5f0f8e17bfc229d604ab4b42c2bb99676da58943e2ba20d99558d09f16a6"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-manipulation-rl-finetuning",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "985f5f0f8e17bfc229d604ab4b42c2bb99676da58943e2ba20d99558d09f16a6"
+        },
+        {
+          "id": "humanizer-manipulation-v3-20260925-prose-rl-finetuning",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "9cd86548ec63a88ef26aa27fb724b7a74cb6b6a895112e9278c6c1b968786363"
+        },
+        {
+          "id": "seo-pass-20261002-prose-manipulation-rl-finetuning",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "e2bec4dd9ffd492bca2b22ede6dcc3208e1c3cb27775b6a16c01fed2202e9993"
+        }
+      ]
     }
   ]
 }

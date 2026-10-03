@@ -65,7 +65,9 @@ export function pauseTicks(delayMs: number): number {
  * - synchronous: the old chunk runs out, the robot decelerates to rest,
  *   waits out the inference delay, then accelerates into the new chunk.
  *   The new chunk was computed from the stopped state, so it carries no
- *   staleness shift; the cost is dead time, not jerk.
+ *   staleness shift; the cost is dead time, not jerk. With no delay the
+ *   new chunk is ready the tick the old one ends, so there is nothing to
+ *   stop for and the trace is the uninterrupted plan.
  * - naive: execution switches to the new chunk the instant it arrives,
  *   mid-motion, so the full staleness disagreement lands in one tick.
  * - rtc: the first d ticks of the new chunk are frozen to the in-flight
@@ -104,6 +106,12 @@ export function executedTrace(
 
   // synchronous
   const pause = pauseTicks(d);
+  if (pause === 0) {
+    for (let tick = 0; tick < TRACE_TICKS; tick += 1) {
+      points.push({ tick, v: oldPlanVelocity(tick) });
+    }
+    return points;
+  }
   const vStart = oldPlanVelocity(HANDOFF_TICK);
   for (let tick = 0; tick < TRACE_TICKS; tick += 1) {
     const k = tick - HANDOFF_TICK;

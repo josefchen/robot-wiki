@@ -24,6 +24,8 @@ export interface TimescaleLane {
   id: string;
   /** Display label. */
   label: string;
+  /** The lane in plain words for the figure's main view, 22 characters or fewer. */
+  plain: string;
   /** Short rate label, e.g. "50 Hz", "~1 Hz", "once". */
   rate: string;
   /** Milliseconds between updates; null for a lane that fires once at t=0. */
@@ -40,6 +42,8 @@ export interface TimescaleSystem {
   org: string;
   /** One-line description of how this system splits its hierarchy. */
   pattern: string;
+  /** The same split in plain words, for the figure's main view. */
+  plainPattern: string;
   /** Citation registry id (data/citations.ts) backing the lane structure. */
   citationId: string;
   /** Lanes ordered slowest to fastest. */
@@ -53,11 +57,14 @@ export const HIERARCHY_SYSTEMS: readonly TimescaleSystem[] = [
     org: 'Physical Intelligence',
     pattern:
       'The same model performs high-level subtask inference and low-level action inference. High-level inference runs less frequently; the numerical inference periods shown here are schematic.',
+    plainPattern:
+      'One model first writes the next step in words, then turns that step into arm and base moves.',
     citationId: 'pi05-2025',
     lanes: [
       {
         id: 'instruction',
         label: 'Task instruction',
+        plain: 'The task, given once',
         rate: 'once',
         periodMs: null,
         note: 'One task instruction at t=0 is the schematic starting condition, not a measured instruction-arrival rate.',
@@ -66,6 +73,7 @@ export const HIERARCHY_SYSTEMS: readonly TimescaleSystem[] = [
       {
         id: 'subtask',
         label: 'Subtask prediction',
+        plain: 'Next step, in words',
         rate: '~1 Hz',
         periodMs: 1000,
         note: 'High-level inference inside the same network emits the next language subtask. The paper states low frequency; the exact rate is not disclosed, 1 Hz shown schematically.',
@@ -74,6 +82,7 @@ export const HIERARCHY_SYSTEMS: readonly TimescaleSystem[] = [
       {
         id: 'chunk',
         label: 'Chunk inference',
+        plain: 'Short plan of moves',
         rate: '1 chunk/s',
         periodMs: 1000,
         note: 'The paper predicts 50 actions and reports 50 Hz target commands for its mobile-manipulator setup. It does not establish one chunk inference per second or how many predicted actions are executed. The 1 chunk/s cadence is schematic.',
@@ -82,6 +91,7 @@ export const HIERARCHY_SYSTEMS: readonly TimescaleSystem[] = [
       {
         id: 'control',
         label: 'Motor commands',
+        plain: 'Motor commands',
         rate: '50 Hz',
         periodMs: 20,
         note: 'Paper-reported mobile-manipulator target poses and base velocities at 50 Hz, tracked by PD controllers; not an inference-throughput measurement.',
@@ -95,11 +105,14 @@ export const HIERARCHY_SYSTEMS: readonly TimescaleSystem[] = [
     org: 'Google DeepMind',
     pattern:
       'Both patterns at once: the VLA interleaves language thinking traces with actions (internalized), while ER 1.5 remains a separate high-level orchestrator with a tunable thinking budget.',
+    plainPattern:
+      'A separate planning model hands out steps; the model that moves the robot thinks briefly before it acts.',
     citationId: 'gemini-robotics-15-2025',
     lanes: [
       {
         id: 'instruction',
         label: 'Task instruction',
+        plain: 'The task, given once',
         rate: 'once',
         periodMs: null,
         note: 'One task instruction at t=0 is the schematic starting condition, not a measured instruction-arrival rate.',
@@ -108,6 +121,7 @@ export const HIERARCHY_SYSTEMS: readonly TimescaleSystem[] = [
       {
         id: 'er',
         label: 'ER 1.5 orchestration',
+        plain: 'Separate planner',
         rate: 'on demand',
         periodMs: 2000,
         note: 'A separate high-level agent with a tunable thinking budget. Update rate not disclosed, shown schematically.',
@@ -116,6 +130,7 @@ export const HIERARCHY_SYSTEMS: readonly TimescaleSystem[] = [
       {
         id: 'thinking',
         label: 'Thinking traces + actions',
+        plain: 'Thinking, then moves',
         rate: '~3 Hz',
         periodMs: 333,
         note: 'The VLA interleaves natural-language thinking with action output. Rate not disclosed, shown schematically.',
@@ -124,6 +139,7 @@ export const HIERARCHY_SYSTEMS: readonly TimescaleSystem[] = [
       {
         id: 'control',
         label: 'Motor commands',
+        plain: 'Motor commands',
         rate: '50 Hz',
         periodMs: 20,
         note: 'Control frequency not disclosed; 50 Hz shown schematically for comparability.',
@@ -137,11 +153,14 @@ export const HIERARCHY_SYSTEMS: readonly TimescaleSystem[] = [
     org: 'Figure',
     pattern:
       'A three-layer learned hierarchy: S2 sequences behaviors, S1 maps all sensors to all joints at 200 Hz, and S0, a 10M-parameter whole-body controller, runs at 1 kHz. Vendor-reported in the January 27, 2026 announcement; S2 frequency is not numerically specified.',
+    plainPattern:
+      'Three stacked networks: one picks the next behaviour, one turns vision into joint moves, one steers the whole body.',
     citationId: 'helix-02-2026',
     lanes: [
       {
         id: 'instruction',
         label: 'Task instruction',
+        plain: 'The task, given once',
         rate: 'once',
         periodMs: null,
         note: 'One task instruction at t=0 is the schematic starting condition, not a measured instruction-arrival rate.',
@@ -150,6 +169,7 @@ export const HIERARCHY_SYSTEMS: readonly TimescaleSystem[] = [
       {
         id: 's2',
         label: 'S2 behavior sequencing',
+        plain: 'Next behaviour',
         rate: '~1 Hz',
         periodMs: 1000,
         note: 'The VLM reasons over scene and instruction and emits latent goals. Update rate not disclosed, shown schematically.',
@@ -158,6 +178,7 @@ export const HIERARCHY_SYSTEMS: readonly TimescaleSystem[] = [
       {
         id: 's1',
         label: 'S1 visuomotor policy',
+        plain: 'Vision to every joint',
         rate: '200 Hz',
         periodMs: 5,
         note: 'All sensors in (head and palm cameras, fingertip tactile, full-body proprioception), all joints out. Vendor-reported 200 Hz.',
@@ -166,6 +187,7 @@ export const HIERARCHY_SYSTEMS: readonly TimescaleSystem[] = [
       {
         id: 's0',
         label: 'S0 whole-body controller',
+        plain: 'Whole-body commands',
         rate: '1 kHz',
         periodMs: 1,
         note: 'A 10M-parameter network using over 1,000 hours of retargeted human motion and simulation training. Vendor-reported 1 kHz.',
@@ -179,11 +201,14 @@ export const HIERARCHY_SYSTEMS: readonly TimescaleSystem[] = [
     org: 'AgiBot',
     pattern:
       'An asynchronous dual system: the lower-frequency Semantic Planning Module / System 2 ("General Commander") emits action intents as a macro plan, and the higher-frequency Action Following Module / System 1 ("Agile Executor") refines them against live observations.',
+    plainPattern:
+      'A planner and a follower run on separate clocks: the planner sets the plan, the follower adapts it to what the cameras see.',
     citationId: 'agibot-go2-2026',
     lanes: [
       {
         id: 'instruction',
         label: 'Task instruction',
+        plain: 'The task, given once',
         rate: 'once',
         periodMs: null,
         note: 'One task instruction at t=0 is the schematic starting condition, not a measured instruction-arrival rate.',
@@ -192,6 +217,7 @@ export const HIERARCHY_SYSTEMS: readonly TimescaleSystem[] = [
       {
         id: 'planner',
         label: 'S2 semantic planner',
+        plain: 'Overall plan',
         rate: 'low freq',
         periodMs: 2000,
         note: 'The planner generates a macro plan of high-level action intents, executed stage by stage. Asynchronous; rate not disclosed, shown schematically.',
@@ -200,6 +226,7 @@ export const HIERARCHY_SYSTEMS: readonly TimescaleSystem[] = [
       {
         id: 'follower',
         label: 'S1 action follower',
+        plain: 'Plan follower',
         rate: 'high freq',
         periodMs: 100,
         note: 'The follower refines intents against real-time observations, trained with teacher forcing so it tolerates imperfect reasoning. Rate not disclosed, shown schematically.',
@@ -208,6 +235,7 @@ export const HIERARCHY_SYSTEMS: readonly TimescaleSystem[] = [
       {
         id: 'control',
         label: 'Motor commands',
+        plain: 'Motor commands',
         rate: '50 Hz',
         periodMs: 20,
         note: 'This additional motor-tick lane is schematic, not a separately disclosed third module. S1 emits control signals; 50 Hz is a local drawing assumption.',
@@ -314,4 +342,19 @@ export function displayTicks(
   if (events.length <= maxTicks) return events;
   const step = Math.ceil(events.length / maxTicks);
   return events.filter((_, i) => i % step === 0);
+}
+
+/**
+ * A lane's rate in plain words for the main view: "50 times a second" for
+ * a stated rate, "about once a second" for a drawn one. The vague source
+ * phrases stay vague.
+ */
+export function plainRate(lane: TimescaleLane): string {
+  if (lane.periodMs === null) return 'once, at the start';
+  if (lane.rate === 'on demand') return 'when needed';
+  if (lane.rate === 'low freq') return 'less often';
+  if (lane.rate === 'high freq') return 'more often';
+  const perSecond = Math.round(1000 / lane.periodMs);
+  const count = perSecond === 1 ? 'once' : `${perSecond.toLocaleString('en-US')} times`;
+  return `${lane.disclosed ? '' : 'about '}${count} a second`;
 }
