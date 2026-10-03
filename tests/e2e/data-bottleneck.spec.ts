@@ -1,5 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { openAdjustMore } from './helpers/figure-fold';
 
 const ROUTE = '/data-hardware/data-bottleneck/';
 
@@ -9,8 +10,12 @@ const ROUTE = '/data-hardware/data-bottleneck/';
  */
 async function openChart(page: Page) {
   const step = page.locator('[data-predict]:has([data-figure-frame="data-scale-chart"])');
-  await step.locator('details[data-reveal] > summary').click();
-  return step.locator('[data-figure-frame="data-scale-chart"]');
+  // The chart renders between the question and the closed reasoning, so a
+  // reader sees it at settle without answering (VAL-OPUS-140).
+  const chart = step.locator(':scope > [data-predict-figure] [data-figure-frame="data-scale-chart"]');
+  await expect(step.locator(':scope > details[data-reveal]')).not.toHaveAttribute('open');
+  await expect(chart).toBeVisible();
+  return chart;
 }
 
 
@@ -89,25 +94,26 @@ test.describe('data-hardware data-bottleneck module', () => {
     expect(await chips.count()).toBeGreaterThanOrEqual(13);
   });
 
-  test('log-log chart renders with power-of-ten tick labels on both axes', async ({
+  test('separate token and hour rulers render with plain-number tick labels', async ({
     page,
   }) => {
     await page.goto(ROUTE, { waitUntil: 'networkidle' });
     const chart = await openChart(page);
-    const xTicks = chart.locator('[data-testid^="x-tick-"]');
-    await expect(xTicks).toHaveCount(7);
-    await expect(xTicks.first()).toHaveText('10⁰');
-    await expect(xTicks.last()).toHaveText('10⁶');
-    const yTicks = chart.locator('[data-testid^="y-tick-"]');
-    await expect(yTicks).toHaveCount(6);
-    await expect(yTicks.first()).toHaveText('10⁹');
-    await expect(yTicks.last()).toHaveText('10¹⁴');
+    // Tokens and hours never share a plane: each family has its own ruler.
+    const hourTicks = chart.locator('[data-testid^="hours-tick-"]');
+    await expect(hourTicks).toHaveCount(3);
+    await expect(hourTicks.first()).toHaveText('100');
+    await expect(hourTicks.last()).toHaveText('10,000');
+    const tokenTicks = chart.locator('[data-testid^="token-tick-"]');
+    await expect(tokenTicks).toHaveCount(2);
+    await expect(tokenTicks.first()).toHaveText('100 billion');
+    await expect(tokenTicks.last()).toHaveText('10 trillion');
     await expect(chart.getByTestId('robot-marker-oxe')).toHaveCount(0);
     await expect(chart.getByTestId('oxe-duration-note')).toContainText('no hour estimate and does not plot OXE');
     await expect(chart.getByTestId('robot-marker-droid')).toBeVisible();
     await expect(chart.getByTestId('robot-marker-agibot')).toBeVisible();
     await expect(chart.getByTestId('llm-marker-llama3')).toBeVisible();
-    await expect(chart.getByTestId('gap-line')).toBeVisible();
+    await expect(chart.getByTestId('hours-ruler')).not.toContainText('tokens');
   });
 
   test('teleop-farm slider is keyboard-operable with a consistent readout', async ({
@@ -118,35 +124,36 @@ test.describe('data-hardware data-bottleneck module', () => {
     const hours = chart.getByTestId('hours-readout');
     const oxe = chart.getByTestId('oxe-years-readout');
     // The step mounts the chart at the configuration its hint names.
-    await expect(hours).toHaveText('70 h/yr');
-    await expect(oxe).toHaveText('143 yr');
+    await expect(hours).toHaveText('70 hours a year');
+    await expect(oxe).toHaveText('143 years');
 
     const slider = chart.getByRole('slider', { name: /teleoperation rigs/i });
     await slider.focus();
     // Arrow up: more rigs, more throughput, fewer years.
     await page.keyboard.press('ArrowRight');
-    await expect(hours).toHaveText('77 h/yr');
+    await expect(hours).toHaveText('77 hours a year');
     // Arrow down below the default: the readout moves the other way.
     await page.keyboard.press('ArrowLeft');
     await page.keyboard.press('ArrowLeft');
-    await expect(hours).toHaveText('63 h/yr');
+    await expect(hours).toHaveText('63 hours a year');
     // Extremes stay finite and direction-consistent.
     await page.keyboard.press('End');
-    await expect(hours).toHaveText('3,500 h/yr');
-    await expect(oxe).toHaveText('2.9 yr');
+    await expect(hours).toHaveText('3,500 hours a year');
+    await expect(oxe).toHaveText('2.9 years');
     await page.keyboard.press('Home');
-    await expect(hours).toHaveText('7 h/yr');
-    await expect(oxe).toHaveText('1,429 yr');
+    await expect(hours).toHaveText('7 hours a year');
+    await expect(oxe).toHaveText('1,429 years');
 
-    // Rate toggle switches to the authored dedicated-farm hypothetical.
-    await chart.getByRole('button', { name: /dedicated farm/i }).click();
-    await expect(hours).toHaveText('1,000 h/yr');
+    // Rate toggle switches to the authored full-time farm hypothetical.
+    await chart.getByRole('button', { name: /full-time farm/i }).click();
+    await expect(hours).toHaveText('1,000 hours a year');
 
-    // Reset restores the step's fleet and rate.
+    // Reset, in the frame's "Adjust more" fold, restores the step's fleet and rate.
+    await openAdjustMore(chart);
     await chart.getByRole('button', { name: 'Reset' }).click();
-    await expect(hours).toHaveText('70 h/yr');
+    await expect(hours).toHaveText('70 hours a year');
     await expect(
-      chart.getByRole('button', { name: /low-rate hypothetical/i }),
+      chart.getByRole('button', { name: /part-time/i }),
     ).toHaveAttribute('aria-pressed', 'true');
   });
 

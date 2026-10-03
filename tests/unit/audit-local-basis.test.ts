@@ -87,7 +87,8 @@ function fixture(mixed = false, model: 'reward' | 'parallel' = 'reward') {
   put('audit/fixtures/original.md', markdown);
   put('contract/brand-v2-registries.json', JSON.stringify(registry));
   for (const path of ['audit/evidence/figure-migration-20261001/registry-transition.json',
-    'audit/evidence/figure-migration-20261001/registry-before.json']) put(path, readFileSync(join(project, path)));
+    'audit/evidence/figure-migration-20261001/registry-before.json',
+    'audit/evidence/reader-first-20261002/registry-transition.json']) put(path, readFileSync(join(project, path)));
   const plan: LocalPlan = {
     id: 'synthetic-local', kind: 'explicit-parts-v2', originalId: `audit/rl-sim2real.md:${slug}:${ordinal}`,
     ledgerPath: 'audit/rl-sim2real.md', articleSlug: slug, rowOrdinal: ordinal,

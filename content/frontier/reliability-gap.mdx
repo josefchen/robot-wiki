@@ -36,7 +36,7 @@ The reliability gap is the difference between the <Term id="success-rate">succes
 
 ## The arithmetic of compounding
 
-A manipulation task is a chain of decisions, and the chain succeeds only when every link does. If each step succeeds independently with probability $p$, an $N$-step task completes with probability $p^N$. The exponent is the whole story. A policy with 95% per-step success completes a 30-step task 21% of the time. At 99% per-step the same task completes 74% of the time. Even at 99.9% per-step, a figure almost no system publishes, a 30-step task completes 97% of the time and still fails once in thirty runs. The per-step number and the task number are different metrics, and a result reported without its horizon cannot be compared against either. Drag the per-step success slider from 95% up toward 100 and watch how late the episode number recovers, then press the presets to compare the three per-step bars over the same horizon.
+A manipulation task is a chain of decisions, and the chain succeeds only when every link does. If each step succeeds independently with probability $p$, an $N$-step task completes with probability $p^N$. The exponent is the whole story. A policy with 95% per-step success completes a 30-step task 21% of the time. At 99% per-step the same task completes 74% of the time. Even at 99.9% per-step, a figure almost no system publishes, a 30-step task completes 97% of the time and still fails once in thirty runs. The per-step number and the task number are different metrics, and a result reported without its horizon cannot be compared against either. Press the “How often each step goes right” presets to compare the three per-step bars over the same horizon, then open “Adjust more” and drag the per-step slider from 95% up toward 100 to watch how late the episode number recovers.
 
 <ReliabilityCompounding minPerStepPercent={0} maxPerStepPercent={100} presets="per-step-thresholds" descriptionVariant="reliability" className="my-6" />
 
@@ -68,7 +68,7 @@ The gap is easiest to see in source-scoped deployment records instead of unsuppo
 
 <DeploymentDashboard className="my-6" />
 
-The dashboard separates source-backed vendor reports from vendor demonstrations; “verified” means the figure is traceable to a cited company document; independent auditing is not claimed. Neither the inspected primary sources nor their dates support a common July 2026 unit-count snapshot. Figure's eight-hour autonomous shift of May 2026 sits in the claimed rows deliberately: the livestream was real, but a single task at a single site with no published success rate is a demonstration without a published deployment metric <Cite id="figure-8hr-shift-2026" />.
+The chart separates source-backed vendor reports from vendor demonstrations; “Backed by a company document” means the figure is traceable to a cited company document; independent auditing is not claimed. Neither the inspected primary sources nor their dates support a common July 2026 unit-count snapshot. Figure's eight-hour autonomous shift of May 2026 sits under “Demo only” deliberately: the livestream was real, but a single task at a single site with no published success rate is a demonstration without a published deployment metric <Cite id="figure-8hr-shift-2026" />.
 
 ## What solved would look like
 

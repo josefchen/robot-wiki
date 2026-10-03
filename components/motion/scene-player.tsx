@@ -12,7 +12,7 @@
  *   on the final frame with a hint that hands the timeline to the reader.
  * - Keys: Space or K play/pause, arrows step a beat, Home and End.
  * - The scene renders in the shared figure frame: title and controls, the
- *   graphite stage with its legend, readout and timeline, then the caption.
+ *   stage with its legend, readout and timeline, then the caption.
  * - The caption sits visibly under the stage and is announced politely
  *   once per beat; the captions together are the text alternative.
  * - Reduced motion jumps between beat end-states; the scrubber still works.

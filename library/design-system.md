@@ -269,7 +269,8 @@ The website is light-led, not light-only.
 
 - Paper is the default page ground.
 - White is the default reading and component surface.
-- Ink or graphite dark surfaces are allowed as bounded instruments: technical diagrams, code, featured simulations, selected visualizations, media frames, and the 3D playground.
+- Ink or graphite dark surfaces are allowed as bounded instruments: code, media frames, and the 3D playground.
+- Figures, diagrams, scenes, charts and tool previews are not dark instruments. They belong to the page and draw on the paper ground inside the figure frame (13.4), including the home featured scene (owner decision of 2026-10-02, "figures belong to the page"). The graphite stage tokens are retired.
 - Dark fills on actions and compact controls are governed by the action/control hierarchy and are excluded from the bounded-dark-instrument classification. A black primary button or compact ink active segment does not need to qualify as an instrument.
 - A dark instrument surface MUST have a clear boundary and MUST NOT turn the entire shell or article into a generic control-room theme.
 - Dark surfaces use paper/white text, concrete secondary marks, and restrained lime/blue signals.
@@ -534,8 +535,8 @@ The approved article reference is the baseline for long-form composition.
 ### 13.2 Figures and diagrams
 
 - Wide figures may extend beyond the prose measure while remaining inside the page frame.
-- A dark bounded diagram is an approved article pattern.
-- Dark diagrams use clear labels, truthful geometry, accessible descriptions, and a visible boundary against paper.
+- A diagram draws on the page stage of the figure frame, on paper, with no plate, card or dark panel of its own.
+- Diagrams use clear labels, truthful geometry and accessible descriptions.
 - Captions state the takeaway before provenance.
 - Credit lines name creator, source, and license, with a working license link.
 - A schematic identifies itself and does not imply published measurements.
@@ -554,7 +555,7 @@ The approved article reference is the baseline for long-form composition.
 Every explanatory figure, scene and tool preview uses one frame (`components/motion/figure-frame.tsx`), in this order:
 
 1. A header: an optional kicker of 6 words or fewer that names the technique, then a headline of 10 words or fewer that states what the figure shows (a claim, not a topic). The headline may wrap at 375px. Beside it sit at most two visible controls in plain words or named presets, and a fold labelled exactly "Adjust more" that holds every other control and the reset.
-2. The bounded graphite stage (`--color-instrument`). Legends, readouts, the status label and the scene timeline sit on it. At settle it already shows the point the headline names, with one plain-words annotation in the highlight role (two at most).
+2. The page stage: the paper ground itself (`surface:flat`), set off from the prose by space, with no rule, fill, card shadow or border. The frame draws no rule of its own, because a rule above and below every figure would outnumber the two full-width rules an article may carry. Legends, readouts, the status label and the scene timeline sit on it. At settle it already shows the point the headline names, with one plain-words annotation in the highlight role (two at most).
 3. One caption sentence of 25 words or fewer that tells a non-expert why the point matters. For a scene this is the current beat caption.
 4. A fold labelled exactly "How this was made" with the method, sources, parameters, formulas, caveats and the chart data.
 5. At most one source line, which keeps an external credit visible.
@@ -562,7 +563,9 @@ Every explanatory figure, scene and tool preview uses one frame (`components/mot
 Both folds are closed at settle and keep their content in the served HTML. Nothing else sits between the stage and the next prose block.
 
 - The main view (header, stage, controls and caption at settle) carries no symbol and no bare unit: no Greek letter or one- or two-letter variable used as a quantity, no sub- or superscript, power or formula, no Hz, ms, rad or "/step". The same line may gloss one in plain words ("10 times a second (10 Hz)"). %, currency, dates, and kg, km, km/h, m, cm and mm after a number are everyday forms. Maths and units live in the article text or "How this was made". `lib/figure-main-view.ts` holds the pattern list.
-- Data marks use the stage role palette (`--role-*-stage`). Signal blue marks links and focus only. Status colours mark status only. The constraint red appears only as a hatch. The mark group the annotation points at is the only one at full emphasis; lime marks only the annotation, its pointer and the current selection.
+- Data marks use the stage role palette (`--role-*-stage`): the role hues darkened to at least 4.5:1 on paper. A figure uses one focus colour plus greys. Signal blue marks links and focus only. Status colours mark status only. The constraint red appears only as a hatch. The mark group the annotation points at is the only one at full emphasis; the annotation and its leader take the dark-green highlight role, and lime at most haloes the one highlighted point.
+- Figure controls are the site's quiet controls: one hairline segmented row for named presets, hairline buttons with sans labels and no underline, and thin graphite sliders with plain labels. The selected option reads in weight, an ink hairline and a tinted tile. Lime never fills a control. Reset lives in "Adjust more" unless the figure truly needs it in view.
+- No furniture that needs explaining sits on the stage: no "catalogue ends here" lines, "availability unverified" legends, inline source chips or "current generation" links. Sources go on the source line or in "How this was made", and details sit below the figure as page text, not as a card.
 - Stage text is IBM Plex Sans at 14px displayed, in at most three sizes across the frame (16px headline, 14px stage, caption and controls, 12px kicker and source). IBM Plex Mono is for numeric readouts only. Each axis has at most five labelled ticks.
 - Robots, arms, hands, legs, drones and handled objects are drawn so a lay reader recognises them; no box on sticks stands in for one.
 - At 375px every visible control is a 44px touch target, and the headline, the visible controls and the annotated point fit one viewport.
@@ -572,7 +575,7 @@ Both folds are closed at settle and keep their content in the served HTML. Nothi
 - Company marks sit on one tile: the mid-grey logo plate, drawn in thresholded monochrome so white and dark marks both clear 3:1. That threshold is the only registered filter (`VAL-B2-MAP-007`).
 - Photographs use one 3:2 cover crop, one width per viewport, the figure caption style and the figure source line for credit.
 - A concept has one canonical visual. Another page links to it, or reuses it with a caption that names a different purpose.
-- `npm run check:figure-system` reads the static export and fails on reserved or hard-coded colours, text off the scale, figures outside the frame, a headline over 10 words, a kicker over 6, a caption over 25, a fold with another label and a symbol in the main view. It runs in `postbuild` and `vercel-build`. Figures not yet migrated sit on `contract/figure-system-allowlist.json`, one entry per figure with the pass that owns it. An entry that no longer matches a violation fails the check, so the list only shrinks. `npm run check:figure-system:plant` plants one violation of each rule into a copy of the export and fails unless the check names every one.
+- `npm run check:figure-system` reads the static export and fails on reserved or hard-coded colours, text off the scale, figures outside the frame, a stage that is not the flat page surface or a dark, raised or floating plate inside a frame, a headline over 10 words, a kicker over 6, a caption over 25, a fold with another label and a symbol in the main view. It runs in `postbuild` and `vercel-build`. Figures not yet migrated sit on `contract/figure-system-allowlist.json`, one entry per figure with the pass that owns it. An entry that no longer matches a violation fails the check, so the list only shrinks. `npm run check:figure-system:plant` plants one violation of each rule into a copy of the export and fails unless the check names every one.
 - `npm run capture:visuals` screenshots every visual on every Sitemap URL of the export and writes the manifest and contact sheets.
 
 ## 14. Discovery: search, A–Z, glossary, and indexes
@@ -601,7 +604,7 @@ An interactive is an explanatory instrument.
 - First render is deterministic.
 - Keyboard controls, visible focus, a working reset, and a current-state description are mandatory.
 - No autoplay teaching sequence, fake telemetry, decorative waveform, or fabricated progress.
-- Dark instrument surfaces are allowed and SHOULD echo the article reference when they improve signal clarity.
+- Figures and interactives draw on the light page stage (13.4). Dark surfaces stay for code, media frames and the 3D playground (5.4).
 
 ## 16. Market map
 
@@ -900,7 +903,7 @@ Current baseline expectations are 52 interactive source files and 62 production 
 
 Visual assets reconcile physical files, imports/CSS URLs, inline-SVG dependencies, registries, rendered use, and credits. The owner-approved legal-basis enum is closed; automation checks enum membership, official source URL, retrieval date, hashes, attribution fields, and byte/style preservation rather than issuing a legal opinion. Company marks use `official-identification-use`, contain fit, neutral plates, and no recolour/filter/mask/distortion/crop other than the logo tile's one registered monochrome threshold (§13.4). `unlicensed` is never an approved reusable-content licence. Favicon, manifest/touch icons, masks, inline symbols, and unused first-party symbol assets are swept.
 
-Route/metadata release truth is set equality among module registry, fixed-route registry, app inventory, export files, and metadata ledger: currently 57 articles plus 17 non-article public destinations = 74; 404 is separate. The sitemap is the exact 72-route indexable subset after the registered `/privacy/` and `/search/` noindex exceptions are removed. The ledger covers canonicals, JSON-LD, manifest, favicons/touch icons, theme-colour, indexing policy, and all OG/X fields.
+Route/metadata release truth is set equality among module registry, fixed-route registry, app inventory, export files, and metadata ledger: currently 57 articles plus 18 non-article public destinations = 75; 404 is separate. The sitemap is the exact 73-route indexable subset after the registered `/privacy/` and `/search/` noindex exceptions are removed. The ledger covers canonicals, JSON-LD, manifest, favicons/touch icons, theme-colour, indexing policy, and all OG/X fields.
 
 Evidence uses one common result/failure envelope plus source/build, browser-state, generated-image, and autonomous-comparison payloads. Non-applicable fields are omitted with typed `notApplicableReason`; multi-phase rows use ordered `steps[]` and `captures[]`; composite assertions map through `enforcementTargets[]`. Countable anti-bento, nested-frame, device-density/alignment, and reference-feature rubrics replace unstructured taste claims. Required fields are payload-specific and mutation-proven.
 

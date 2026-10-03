@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { openAdjustMore } from './helpers/figure-fold';
 import { setHydratedSlider as setSlider, waitForHydration } from './interaction-ready';
 
 const ROUTE = '/data-hardware/evaluation-crisis/';
@@ -8,16 +9,19 @@ const PER_STEP = { name: /per-step success/i };
 const HORIZON = { name: /episode length/i };
 
 /**
- * The article's one calculator is the reveal of its prediction step,
- * mounted at 95%/14 steps inside a closed disclosure. Opening the
- * disclosure is the reader's own path to it, so every test opens it first.
+ * The article's one calculator is the figure of its prediction step,
+ * mounted at 95%/14 steps and shown at settle between the question and the
+ * closed reasoning. The full per-step slider and Reset sit in the frame's
+ * "Adjust more" fold, so every test opens that fold first, as a reader would.
  */
 async function calculator(page: import('@playwright/test').Page) {
   const step = page.locator('[data-predict]:has(svg[aria-label^="Line chart of episode success"])');
-  const summary = step.locator('details[data-reveal] > summary');
-  await waitForHydration(summary);
-  await summary.click();
-  return step.locator('[data-brand-module-signature="instrument-frame"]');
+  await expect(step.locator(':scope > details[data-reveal]')).not.toHaveAttribute('open');
+  const mount = step.locator(':scope > [data-predict-figure] [data-brand-module-signature="instrument-frame"]');
+  await expect(mount).toBeVisible();
+  await waitForHydration(mount.getByRole('slider', HORIZON));
+  await openAdjustMore(mount);
+  return mount;
 }
 
 /** Parse the compounded-success readout, e.g. "21.5%" -> 21.5. */

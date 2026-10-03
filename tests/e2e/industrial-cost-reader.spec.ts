@@ -3,6 +3,7 @@ import AxeBuilder from '@axe-core/playwright';
 import { createHash } from 'node:crypto';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { CITATIONS } from '../../data/citations';
+import { openAdjustMore } from './helpers/figure-fold';
 
 const sha256 = (value: string | Buffer) => createHash('sha256').update(value).digest('hex');
 const route = '/data-hardware/industrial-deployment/';
@@ -141,8 +142,10 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
       await reference.scrollIntoViewIfNeeded();
       await capture(`${id}-reference`, { text: await reference.innerText(), byline, url: citation.url });
     }
-    const slider = prose.getByRole('slider', { name: /per-pick success/i });
-    const economics = slider.locator('xpath=ancestor::*[@data-brand-module-signature="instrument-frame"][1]');
+    const economics = prose.locator('[data-brand-module-signature="instrument-frame"]:has([data-testid="payback-months"])');
+    await openAdjustMore(economics);
+    const slider = economics.getByRole('slider', { name: /per-pick success/i });
+    await expect(slider.locator('xpath=ancestor::*[@data-brand-module-signature="instrument-frame"][1]')).toHaveCount(1);
     await slider.focus();
     const initial = await slider.inputValue();
     await page.keyboard.press('ArrowLeft');

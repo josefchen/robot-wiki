@@ -100,6 +100,23 @@ export function playgroundJsonLd(description: string): string {
   });
 }
 
+/** The interactive 3D explainers: a learning resource, not an article. */
+export function howRobotsWorkJsonLd(description: string): string {
+  return serializeJsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'LearningResource',
+    '@id': `${SITE_URL}/how-robots-work/#explainers`,
+    url: `${SITE_URL}/how-robots-work/`,
+    name: 'How robots work',
+    description,
+    learningResourceType: 'Interactive explainer',
+    interactivityType: 'active',
+    inLanguage: 'en',
+    isAccessibleForFree: true,
+    isPartOf: WEBSITE_REF,
+  });
+}
+
 /** A plain WebPage node for a fixed route that is neither list nor app. */
 export function webPageJsonLd({
   path,

@@ -1,6 +1,7 @@
 import { expect, test } from './servo-apollo-fixture';
 import AxeBuilder from '@axe-core/playwright';
 import { setHydratedSlider as setSlider } from './interaction-ready';
+import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { CITATIONS } from '../../data/citations';
 import { GLOSSARY } from '../../data/glossary';
@@ -152,6 +153,8 @@ test.describe('data-hardware industrial-deployment module', () => {
   }) => {
     await page.goto(ROUTE);
     const mount = calculator(page);
+    // Controls past the first two live in the frame's "Adjust more" fold.
+    await openAdjustMore(mount);
     const success = mount.getByRole('slider', { name: /per-pick success/i });
     const jam = mount.getByRole('slider', { name: /jam-clearing time/i });
 
@@ -199,6 +202,8 @@ test.describe('data-hardware industrial-deployment module', () => {
   }) => {
     await page.goto(ROUTE);
     const mount = calculator(page);
+    // Controls past the first two live in the frame's "Adjust more" fold.
+    await openAdjustMore(mount);
     // Derived population: every slider the mount actually renders. A
     // hardcoded name list proves those seven are labelled but stays green
     // when an eighth slider ships with no provenance note, which is the
@@ -227,6 +232,8 @@ test.describe('data-hardware industrial-deployment module', () => {
   test('reset restores all inputs', async ({ page }) => {
     await page.goto(ROUTE);
     const mount = calculator(page);
+    // Controls past the first two live in the frame's "Adjust more" fold.
+    await openAdjustMore(mount);
     const jam = mount.getByRole('slider', { name: /jam-clearing time/i });
     const wage = mount.getByRole('slider', { name: /displaced wage/i });
     await setSlider(jam, 300);
@@ -240,6 +247,8 @@ test.describe('data-hardware industrial-deployment module', () => {
   test('keyboard operation moves a slider with arrow keys', async ({ page }) => {
     await page.goto(ROUTE);
     const mount = calculator(page);
+    // Controls past the first two live in the frame's "Adjust more" fold.
+    await openAdjustMore(mount);
     const success = mount.getByRole('slider', { name: /per-pick success/i });
     await success.focus();
     const before = await success.inputValue();
@@ -319,6 +328,8 @@ test('industrial closure paired cases and complete reader surfaces', async ({ pa
   expect((await page.goto(ROUTE))?.status()).toBe(200);
   await page.evaluate(() => document.fonts.ready);
   const mount = calculator(page);
+  await openAdjustMore(mount);
+  await openHowThisWasMade(mount);
   const success = mount.getByRole('slider', { name: /per-pick success/i });
   const jam = mount.getByRole('slider', { name: /jam-clearing time/i });
   const observations: unknown[] = [];

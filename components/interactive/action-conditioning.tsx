@@ -1,24 +1,21 @@
 'use client';
 
-import { useId, useState, type ReactNode } from 'react';
+import { useId, useState } from 'react';
 import { ChartDescription } from '@/components/ui/chart-description';
 import {
-  INSTRUMENT_TOGGLE_CLASS,
   InstrumentFigure,
-  InstrumentLegend,
-  InstrumentReadout,
   InstrumentReset,
-  LegendItem,
   PlotStage,
+  PresetGroup,
 } from '@/components/ui/instrument';
-import { FigureStage } from '@/components/motion/figure-frame';
+import { FigureStage, StageStatus } from '@/components/motion/figure-frame';
 import {
-  LegendSwatch,
   CHART_STROKE,
   CHART_STRUCTURE,
   CHART_TYPE,
   CHART_UNCERTAINTY,
   CHART_VIEW_WIDTH,
+  StageAnnotation,
   roleColour,
 } from '@/components/motion/chart';
 import {
@@ -35,78 +32,97 @@ import {
 } from '@/lib/action-conditioning';
 
 /**
- * Two rollouts from one initial frame under two actions. Strong
- * conditioning makes the futures diverge; weak conditioning collapses both
- * onto the same intention-consistent outcome. Visual realism stays fixed
- * in both modes on purpose: a weakly conditioned model still renders
- * plausible video, so only the action-sensitivity score separates them.
- * Every lane shares the start frame's scale so block positions compare
- * vertically.
+ * One start frame splits into two imagined futures, one per command. A
+ * video model that listens to the action imagines different futures; one
+ * that ignores it imagines the same future for both. Visual realism is
+ * the same for both models on purpose: only the difference between the
+ * two futures tells them apart. All three frames share one scale.
  */
 type ActionConditioningProps = {
-  /** Action for rollout A. Default 'push-left'. */
+  /** First command. Default 'push-left'. */
   defaultActionA?: ActionId;
-  /** Action for rollout B. Default 'lift'. */
+  /** Second command. Default 'lift'. */
   defaultActionB?: ActionId;
-  /** Initial conditioning state. Default 'strong'. */
+  /** Initial video model. Default 'strong' (listens to the action). */
   defaultConditioning?: Conditioning;
   className?: string;
 };
 
 const WIDTH = CHART_VIEW_WIDTH;
-const LANE_HEIGHT = 64;
-const LABEL_X = 16;
-const LABEL_Y = 45;
-const TABLE = { left: 134, right: WIDTH - 18, y: 56 };
-const BLOCK_SIZE = 14;
-// Units per normalized table position. The weak-conditioning futures end
-// 0.012 apart, which must stay within a unit or two on screen.
-const BLOCK_SPAN = 150;
-const BLOCK_ORIGIN = 140;
-const GRIPPER_RISE = 32;
-const GOAL = { from: 0.04, to: 0.34, height: 18 };
+const HEIGHT = 262;
+const FRAME = { w: 150, h: 80, rx: 6 };
+const OUTCOME_X = WIDTH - 6 - FRAME.w;
+const OUTCOME_Y = { a: 22, b: 130 } as const;
+const START = { x: 6, y: (OUTCOME_Y.a + OUTCOME_Y.b + FRAME.h) / 2 - FRAME.h / 2 };
+const LABEL_RISE = 7;
+const NOTE = { x: 6, y: 234 };
 
-const blockLeft = (blockX: number) => BLOCK_ORIGIN + blockX * BLOCK_SPAN;
-const gripperBottom = (gripperY: number) => TABLE.y - BLOCK_SIZE - gripperY * GRIPPER_RISE;
-const GRIPPER_X = blockLeft(INITIAL_STATE.blockX) + BLOCK_SIZE / 2;
+/** Frame-local geometry: the table top, the block and the gripper's reach. */
+const SLAB_Y = 58;
+const SLAB = 4;
+const BLOCK = 22;
+const MARGIN = 6;
+const SPAN = FRAME.w - 2 * MARGIN - BLOCK;
+const RISE = 26;
+const FINGER = 11;
+const PALM = 4;
+const GOAL = { from: 0.04, to: 0.26 };
+
+const blockLeft = (blockX: number) => MARGIN + blockX * SPAN;
+const GRIPPER_X = blockLeft(INITIAL_STATE.blockX) + BLOCK / 2;
+const tipY = (gripperY: number) => SLAB_Y - BLOCK - 2 - gripperY * RISE;
+
+const MODEL_LABEL: Record<Conditioning, string> = {
+  strong: 'Listens to the action',
+  weak: 'Ignores the action',
+};
 
 function actionLabel(id: ActionId): string {
   return ACTIONS.find((a) => a.id === id)?.label ?? id;
 }
 
-/** The table, the dashed goal zone and, on the shared start, the goal label. */
-function Tabletop({ labelGoal = false }: { labelGoal?: boolean }) {
-  const left = blockLeft(GOAL.from);
-  const width = blockLeft(GOAL.to) - left;
+/** The frame outline and the table inside it: scenery, not data. */
+function FrameScenery({ goalLabel = false }: { goalLabel?: boolean }) {
+  const goalX = blockLeft(GOAL.from);
+  const goalW = blockLeft(GOAL.to) + BLOCK - goalX;
+  const goalH = BLOCK + 6;
   return (
     <>
-      <line
-        data-scene-structure="table"
-        x1={TABLE.left}
-        x2={TABLE.right}
-        y1={TABLE.y}
-        y2={TABLE.y}
-        stroke={CHART_STRUCTURE.axes}
-        strokeWidth={CHART_STROKE.structure}
-        opacity={CHART_STRUCTURE.axesOpacity}
-      />
+      <g data-scene-structure="frame">
+        <rect
+          x={0}
+          y={0}
+          width={FRAME.w}
+          height={FRAME.h}
+          rx={FRAME.rx}
+          fill="none"
+          stroke={CHART_STRUCTURE.axes}
+          strokeOpacity={CHART_STRUCTURE.axesOpacity}
+          strokeWidth={CHART_STROKE.structure * 2}
+        />
+        <g fill={CHART_STRUCTURE.grid}>
+          <rect x={MARGIN} y={SLAB_Y} width={FRAME.w - 2 * MARGIN} height={SLAB} rx={1.5} />
+          <rect x={MARGIN + 12} y={SLAB_Y + SLAB} width={4} height={FRAME.h - SLAB_Y - SLAB - 4} />
+          <rect x={FRAME.w - MARGIN - 16} y={SLAB_Y + SLAB} width={4} height={FRAME.h - SLAB_Y - SLAB - 4} />
+        </g>
+      </g>
       <rect
         data-series="goal"
         data-chart-role="reference"
-        x={left}
-        y={TABLE.y - GOAL.height}
-        width={width}
-        height={GOAL.height}
+        x={goalX}
+        y={SLAB_Y - goalH}
+        width={goalW}
+        height={goalH}
         fill="none"
         stroke={roleColour('reference')}
         strokeWidth={CHART_STROKE.reference}
         strokeDasharray={CHART_STROKE.dash}
       />
-      {labelGoal ? (
+      {goalLabel ? (
         <text
           data-scene-note=""
-          x={left + width / 2}
-          y={TABLE.y - GOAL.height - 6}
+          x={goalX + goalW / 2}
+          y={SLAB_Y - goalH / 2 + CHART_TYPE.axisPx * 0.3}
           textAnchor="middle"
           fontSize={CHART_TYPE.axisPx}
           fill={CHART_STRUCTURE.labelSecondary}
@@ -118,32 +134,27 @@ function Tabletop({ labelGoal = false }: { labelGoal?: boolean }) {
   );
 }
 
-/** The gripper: a stem and two fingers, bottom edge at the given height. */
-function Gripper({ gripperY }: { gripperY: number }) {
-  const y = gripperBottom(gripperY);
-  const action = roleColour('action');
+/** A two-finger gripper on a stem that reaches down from the frame top. */
+function Gripper({ gripperY, ghost = false }: { gripperY: number; ghost?: boolean }) {
+  const tip = tipY(gripperY);
+  const palmY = tip - FINGER - PALM;
+  const reach = BLOCK / 2 + 4;
   return (
-    <g data-series="gripper" data-chart-role="action">
-      <line
-        x1={GRIPPER_X}
-        x2={GRIPPER_X}
-        y1={y - 13}
-        y2={y - 4}
-        stroke={action}
-        strokeWidth={CHART_STROKE.trace + 0.5}
-      />
-      <path
-        d={`M${GRIPPER_X - 6} ${y + 3}V${y - 4}H${GRIPPER_X + 6}V${y + 3}`}
-        fill="none"
-        stroke={action}
-        strokeWidth={CHART_STROKE.trace - 0.5}
-        strokeLinejoin="round"
-      />
+    <g
+      data-series={ghost ? 'gripper-earlier' : 'gripper'}
+      data-chart-role="action"
+      fill={roleColour('action')}
+      opacity={ghost ? CHART_UNCERTAINTY.fillAlpha : 1}
+    >
+      {ghost ? null : <rect x={GRIPPER_X - 2} y={0} width={4} height={palmY} />}
+      <rect x={GRIPPER_X - reach} y={palmY} width={2 * reach} height={PALM} rx={1} />
+      <rect x={GRIPPER_X - reach} y={palmY + PALM} width={4} height={FINGER} rx={1} />
+      <rect x={GRIPPER_X + reach - 4} y={palmY + PALM} width={4} height={FINGER} rx={1} />
     </g>
   );
 }
 
-/** A predicted block: the last frame solid, earlier frames faint. */
+/** A block on the table: the last imagined frame solid, earlier frames faint. */
 function Block({ state, final, testId }: { state: SceneState; final: boolean; testId?: string }) {
   return (
     <rect
@@ -151,21 +162,56 @@ function Block({ state, final, testId }: { state: SceneState; final: boolean; te
       data-series={final ? 'block' : 'block-earlier'}
       data-chart-role="state"
       x={blockLeft(state.blockX)}
-      y={TABLE.y - BLOCK_SIZE}
-      width={BLOCK_SIZE}
-      height={BLOCK_SIZE}
+      y={SLAB_Y - BLOCK}
+      width={BLOCK}
+      height={BLOCK}
+      rx={2}
       fill={roleColour('state')}
       fillOpacity={final ? 1 : CHART_UNCERTAINTY.fillAlpha}
     />
   );
 }
 
-function LaneLabel({ children }: { children: ReactNode }) {
+/** One frame's label, set just above the frame's top edge. */
+function FrameLabel({ x, y, children }: { x: number; y: number; children: string }) {
   return (
-    <text x={LABEL_X} y={LABEL_Y} fontSize={CHART_TYPE.labelPx} fill={CHART_STRUCTURE.label}>
+    <text x={x} y={y - LABEL_RISE} fontSize={CHART_TYPE.labelPx} fontWeight={600} fill={CHART_STRUCTURE.label}>
       {children}
     </text>
   );
+}
+
+/** The fork: one stem out of the start frame, one arrowed branch per future. */
+function Fork() {
+  const fromX = START.x + FRAME.w;
+  const fromY = START.y + FRAME.h / 2;
+  const splitX = fromX + 8;
+  const toX = OUTCOME_X - 3;
+  const head = 5;
+  return (
+    <g data-scene-structure="fork" stroke={CHART_STRUCTURE.axes} strokeOpacity={CHART_STRUCTURE.axesOpacity} fill="none">
+      {[OUTCOME_Y.a, OUTCOME_Y.b].map((top) => {
+        const toY = top + FRAME.h / 2;
+        const angle = Math.atan2(toY - fromY, toX - splitX);
+        const left = [toX - head * Math.cos(angle - 0.5), toY - head * Math.sin(angle - 0.5)];
+        const right = [toX - head * Math.cos(angle + 0.5), toY - head * Math.sin(angle + 0.5)];
+        return (
+          <g key={top} strokeWidth={CHART_STROKE.structure * 2}>
+            <path d={`M${fromX} ${fromY}H${splitX}L${toX} ${toY}`} />
+            <path d={`M${left[0]} ${left[1]}L${toX} ${toY}L${right[0]} ${right[1]}`} strokeLinejoin="round" />
+          </g>
+        );
+      })}
+    </g>
+  );
+}
+
+/** The note on the stage: what the reader should take from the two futures. */
+function noteLines(sameAction: boolean, diverged: boolean): readonly [string, string] {
+  if (sameAction) return ['Same command twice:', 'the same future, by definition'];
+  return diverged
+    ? ['Two commands, two different futures:', 'the model is listening']
+    : ['Same future for both commands:', 'the model ignored the robot'];
 }
 
 export function ActionConditioning({
@@ -177,21 +223,23 @@ export function ActionConditioning({
   const descriptionId = `${useId()}-description`;
   const [actionA, setActionA] = useState<ActionId>(defaultActionA);
   const [actionB, setActionB] = useState<ActionId>(defaultActionB);
-  const [conditioning, setConditioning] =
-    useState<Conditioning>(defaultConditioning);
+  const [conditioning, setConditioning] = useState<Conditioning>(defaultConditioning);
 
   const framesA = rollout({ action: actionA, conditioning });
   const framesB = rollout({ action: actionB, conditioning });
   const sensitivity = actionSensitivity({ actionA, actionB, conditioning });
-  const realism = REALISM_SCORE;
-
   const sameAction = actionA === actionB;
   const diverged = sensitivity > SENSITIVITY_THRESHOLD;
-  const verdict = sameAction
-    ? 'Same action in both rollouts: identical futures by definition.'
-    : diverged
-      ? 'The futures diverge: the model responds to the action.'
-      : 'The futures stay near-identical: the model follows task intent and ignores the action.';
+  const nameA = actionLabel(actionA);
+  const nameB = actionLabel(actionB);
+  const model = MODEL_LABEL[conditioning].toLowerCase();
+  const score = sensitivity.toFixed(3);
+  const threshold = SENSITIVITY_THRESHOLD.toFixed(2);
+  const realism = REALISM_SCORE.toFixed(2);
+
+  const description = sameAction
+    ? `Both commands are ${nameA.toLowerCase()}, so the two imagined futures are the same by definition: action sensitivity is ${score} against the ${threshold} threshold, and visual realism stays ${realism} for both models.`
+    : `With a model that ${model}, ${nameA.toLowerCase()} and ${nameB.toLowerCase()} lead to ${diverged ? 'different futures' : 'nearly the same future'} across ${ROLLOUT_STEPS} imagined frames: action sensitivity is ${score}, ${diverged ? 'above' : 'below'} the ${threshold} threshold, while visual realism stays ${realism} for both models.`;
 
   function reset() {
     setActionA(defaultActionA);
@@ -199,172 +247,133 @@ export function ActionConditioning({
     setConditioning(defaultConditioning);
   }
 
-  function actionGroup(
-    panel: 'a' | 'b',
-    current: ActionId,
-    set: (a: ActionId) => void,
-  ) {
-    const name = panel.toUpperCase();
+  function outcome(panel: 'a' | 'b', frames: SceneState[], name: string) {
+    const top = OUTCOME_Y[panel];
     return (
-      <div
-        role="group"
-        aria-label={`Rollout ${name} action`}
-        className="flex flex-wrap items-center gap-2"
-      >
-        <span aria-hidden="true" className="font-sans text-[13px] text-text-dim">
-          {name}
-        </span>
-        {ACTIONS.map((a) => (
-          <button
-            data-brand-control-id="control:selection"
-            key={a.id}
-            type="button"
-            aria-pressed={current === a.id}
-            aria-label={`${a.label} for rollout ${name}`}
-            title={a.description}
-            onClick={() => set(a.id)}
-            className={INSTRUMENT_TOGGLE_CLASS}
-          >
-            {a.label}
-          </button>
-        ))}
-      </div>
-    );
-  }
-
-  function lane(panel: 'a' | 'b', action: ActionId, frames: SceneState[]) {
-    const name = panel.toUpperCase();
-    return (
-      <div data-testid={`rollout-panel-${panel}`} className="@container">
-        <PlotStage
-          viewBox={`0 0 ${WIDTH} ${LANE_HEIGHT}`}
-          aria-label={`Rollout ${name}: predicted frames under the action ${actionLabel(action)}, ${conditioning} conditioning.`}
-          aria-describedby={descriptionId}
-        >
-          <LaneLabel>
-            {name}: {actionLabel(action).toLowerCase()}
-          </LaneLabel>
-          <Tabletop />
-          {frames.slice(1).map((state, i) => (
+      <g data-testid={`rollout-panel-${panel}`}>
+        <FrameLabel x={OUTCOME_X} y={top}>{name}</FrameLabel>
+        <g transform={`translate(${OUTCOME_X} ${top})`}>
+          <FrameScenery />
+          {frames.slice(0, -1).map((state, k) => (
+            <Gripper key={`g${k}`} gripperY={state.gripperY} ghost />
+          ))}
+          {frames.map((state, k) => (
             <Block
-              key={i + 1}
+              key={k}
               state={state}
-              final={i + 1 === ROLLOUT_STEPS}
-              testId={`block-${panel}-${i + 1}`}
+              final={k === ROLLOUT_STEPS}
+              testId={k === 0 ? undefined : `block-${panel}-${k}`}
             />
           ))}
           <Gripper gripperY={frames[frames.length - 1].gripperY} />
-        </PlotStage>
-      </div>
+        </g>
+      </g>
     );
   }
 
-  const initialFrame = (
-    <div
-      data-testid="initial-frame"
-      className="@container @min-[640px]:row-span-2 @min-[640px]:self-center"
+  const stage = (
+    <PlotStage
+      viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
+      aria-label={`One start frame splits into two imagined futures, ${nameA.toLowerCase()} and ${nameB.toLowerCase()}, from a video model that ${model}. ${noteLines(sameAction, diverged).join(' ')}.`}
+      aria-describedby={descriptionId}
     >
-      <PlotStage
-        viewBox={`0 0 ${WIDTH} ${LANE_HEIGHT}`}
-        aria-label="Shared initial frame: a block centered on a table with a gripper above it and a goal zone marked on the left."
-        aria-describedby={descriptionId}
-      >
-        <LaneLabel>start</LaneLabel>
-        <Tabletop labelGoal />
-        <Block state={INITIAL_STATE} final />
-        <Gripper gripperY={INITIAL_STATE.gripperY} />
-      </PlotStage>
-    </div>
+      <Fork />
+      <g data-testid="initial-frame">
+        <FrameLabel x={START.x} y={START.y}>Now</FrameLabel>
+        <g transform={`translate(${START.x} ${START.y})`}>
+          <FrameScenery goalLabel />
+          <Block state={INITIAL_STATE} final />
+          <Gripper gripperY={INITIAL_STATE.gripperY} />
+        </g>
+      </g>
+      {outcome('a', framesA, nameA)}
+      {outcome('b', framesB, nameB)}
+      <g data-testid="action-note">
+        <StageAnnotation x={NOTE.x} y={NOTE.y} lines={noteLines(sameAction, diverged)} />
+      </g>
+    </PlotStage>
   );
 
   return (
     <InstrumentFigure
       figureId="action-conditioning"
       className={className}
-      heading="Two actions fork one predicted future"
+      kicker="The action test"
+      heading="A good video model shows different futures for different actions"
       controls={
+        <PresetGroup<Conditioning>
+          label="Video model"
+          presets={[
+            { id: 'strong', label: MODEL_LABEL.strong },
+            { id: 'weak', label: MODEL_LABEL.weak },
+          ]}
+          value={conditioning}
+          onChange={setConditioning}
+          testId="video-model"
+        />
+      }
+      adjust={
         <>
-          <div role="group" aria-label="Conditioning strength" className="flex flex-wrap gap-2">
-            <button
-              data-brand-control-id="control:selection"
-              type="button"
-              aria-pressed={conditioning === 'strong'}
-              onClick={() => setConditioning('strong')}
-              className={INSTRUMENT_TOGGLE_CLASS}
-            >
-              Strong conditioning
-            </button>
-            <button
-              data-brand-control-id="control:selection"
-              type="button"
-              aria-pressed={conditioning === 'weak'}
-              onClick={() => setConditioning('weak')}
-              className={INSTRUMENT_TOGGLE_CLASS}
-            >
-              Weak conditioning
-            </button>
-          </div>
-          {actionGroup('a', actionA, setActionA)}
-          {actionGroup('b', actionB, setActionB)}
+          <PresetGroup<ActionId>
+            label="First command"
+            presets={ACTIONS.map((a) => ({ id: a.id, label: a.label }))}
+            value={actionA}
+            onChange={setActionA}
+            testId="command-a"
+          />
+          <PresetGroup<ActionId>
+            label="Second command"
+            presets={ACTIONS.map((a) => ({ id: a.id, label: a.label }))}
+            value={actionB}
+            onChange={setActionB}
+            testId="command-b"
+          />
           <InstrumentReset onClick={reset} />
         </>
       }
       stage={
-        <FigureStage
-          footer={
-            <>
-              <InstrumentLegend>
-                <LegendItem series="block" swatch={<LegendSwatch role="state" mark="bar" />}>
-                  predicted block
-                </LegendItem>
-                <LegendItem series="block-earlier" swatch={<LegendSwatch role="state" mark="band" />}>
-                  earlier frames
-                </LegendItem>
-                <LegendItem series="gripper" swatch={<LegendSwatch role="action" mark="line" />}>
-                  commanded gripper
-                </LegendItem>
-                <LegendItem series="goal" swatch={<LegendSwatch role="reference" mark="dash" />}>
-                  goal zone
-                </LegendItem>
-              </InstrumentLegend>
-              <InstrumentReadout>
-                action sensitivity S ={' '}
-                <span data-testid="sensitivity-readout" style={{ color: roleColour('measurement') }}>
-                  {sensitivity.toFixed(3)}
-                </span>{' '}
-                (threshold {SENSITIVITY_THRESHOLD.toFixed(2)}), visual realism R ={' '}
-                <span data-testid="realism-readout">{realism.toFixed(2)}</span> in both modes.{' '}
-                {verdict}
-              </InstrumentReadout>
-              <ChartDescription
-                id={descriptionId}
-                form="state"
-                summary="Current action-conditioning pair"
-                description={
-                  diverged
-                    ? `Under ${conditioning} conditioning, ${actionLabel(actionA).toLowerCase()} and ${actionLabel(actionB).toLowerCase()} diverge across ${ROLLOUT_STEPS} predicted frames from the shared initial pose; action sensitivity is ${sensitivity.toFixed(3)} against the ${SENSITIVITY_THRESHOLD.toFixed(2)} threshold while visual realism stays ${realism.toFixed(2)} in both modes.`
-                    : `Under ${conditioning} conditioning, ${actionLabel(actionA).toLowerCase()} and ${actionLabel(actionB).toLowerCase()} stay near-identical across ${ROLLOUT_STEPS} predicted frames from the shared initial pose; action sensitivity is ${sensitivity.toFixed(3)} against the ${SENSITIVITY_THRESHOLD.toFixed(2)} threshold while visual realism stays ${realism.toFixed(2)} in both modes.`
-                }
-                states={[
-                  { label: 'conditioning', value: conditioning },
-                  { label: 'rollout A', value: actionLabel(actionA).toLowerCase() },
-                  { label: 'rollout B', value: actionLabel(actionB).toLowerCase() },
-                  { label: 'sensitivity', value: sensitivity.toFixed(3) },
-                  { label: 'realism', value: realism.toFixed(2) },
-                ]}
-              />
-            </>
-          }
-        >
-          <div className="grid @min-[640px]:grid-cols-2">
-            {initialFrame}
-            {lane('a', actionA, framesA)}
-            {lane('b', actionB, framesB)}
-          </div>
+        <FigureStage footer={<StageStatus>Illustrative: a toy model, not a trained video model.</StageStatus>}>
+          {stage}
         </FigureStage>
       }
-      caption="Strong conditioning makes the two actions predict different futures; weak conditioning predicts the same future for both."
-      source="Illustrative toy with hand-set futures. S is the mean per-frame distance between the two rollouts; realism R is fixed."
+      caption="AI video can look realistic yet ignore what the robot does; for planning, the imagined future must change when the action changes."
+      method={
+        <>
+          <p>
+            The frame on the left is the shared start: a block on a table, a gripper above it and a
+            goal zone on the left. The two frames on the right are what a video model imagines after
+            each command, with the {ROLLOUT_STEPS} imagined frames drawn on top of each other, earlier
+            ones faint. A model that listens slides the block for a push and raises the gripper for a
+            lift. A model that ignores the action imagines the block drifting toward the goal for every
+            command, because that is what most successful task videos show.
+          </p>
+          <p>
+            What tells the two models apart is action sensitivity: the average distance between the
+            two imagined futures, frame by frame, with block position and gripper height each measured
+            from 0 to 1. Above {threshold} the futures genuinely differ. For the current pair it is{' '}
+            <span data-testid="sensitivity-readout">{score}</span>. Visual realism is held at{' '}
+            <span data-testid="realism-readout">{realism}</span> for both models on purpose: both draw
+            equally sharp video, so realism alone cannot show whether a model follows the action.
+          </p>
+          <p>
+            The futures are hand-set for this toy, not produced by a trained video model.
+          </p>
+          <ChartDescription
+            id={descriptionId}
+            form="state"
+            open
+            summary="Current pair of imagined futures"
+            description={description}
+            states={[
+              { label: 'video model', value: model },
+              { label: 'first command', value: nameA.toLowerCase() },
+              { label: 'second command', value: nameB.toLowerCase() },
+              { label: 'action sensitivity', value: score },
+              { label: 'visual realism', value: realism },
+            ]}
+          />
+        </>
+      }
     />
   );
 }

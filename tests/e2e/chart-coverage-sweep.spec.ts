@@ -2,6 +2,7 @@ import { expect, test, type Page } from '@playwright/test';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { DOMAINS, publishedModules } from '../../data/modules';
+import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
 import { forEachInOwnContext } from './helpers/per-route-context';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
 
@@ -40,6 +41,7 @@ const CLEAN_ROUTES_040 = [
   ...DOMAIN_ROUTES,
   '/market-map/',
   '/playground/',
+  '/how-robots-work/',
   '/search/',
   '/editorial-policy/',
   '/about/',
@@ -289,6 +291,11 @@ test.describe('VAL-EDU-036 descriptions are specific and unique site-wide', () =
 test.describe('VAL-EDU-037 WmDisambiguator predictions are available as text', () => {
   test('each selectable paradigm exposes what it predicts', async ({ page }) => {
     await page.goto(`${BASE}/world-models/taxonomy/`, { waitUntil: 'load' });
+    // The six groups sit in the figure's "Adjust more" fold and the
+    // takeaway in "How this was made"; a reader opens both.
+    const figure = page.locator('[data-figure-frame="wm-disambiguator"]');
+    await openAdjustMore(figure);
+    await openHowThisWasMade(figure);
     const group = page.getByRole('group', { name: 'World-model paradigms' });
     const buttons = group.getByRole('button');
     const count = await buttons.count();

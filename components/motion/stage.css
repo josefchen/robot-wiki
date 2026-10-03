@@ -13,37 +13,6 @@
   container-type: inline-size;
 }
 
-/*
- * The figure stage is always graphite, so the variants written for the
- * page ground resolve to their stage values inside it. A legend swatch or a
- * readout span authored with a light-ground role or text colour then paints
- * the same colour as the stage mark it names.
- */
-[data-figure-stage] {
-  --color-text: var(--color-on-instrument);
-  --color-text-dim: var(--color-instrument-muted);
-  /* Page-ground panels and knockouts take the stage ground, so nothing
-     written for paper paints a light patch on the graphite. */
-  --color-bg: var(--color-instrument);
-  --color-surface: var(--color-instrument);
-  --color-surface-2: var(--color-instrument);
-  --color-border-strong: var(--color-instrument-muted);
-  --role-state-graphic: var(--role-state-stage);
-  --role-state-text: var(--role-state-stage);
-  --role-measurement-graphic: var(--role-measurement-stage);
-  --role-measurement-text: var(--role-measurement-stage);
-  --role-action-graphic: var(--role-action-stage);
-  --role-action-text: var(--role-action-stage);
-  --role-value-graphic: var(--role-value-stage);
-  --role-value-text: var(--role-value-stage);
-  --role-constraint-graphic: var(--role-constraint-stage);
-  --role-constraint-text: var(--role-constraint-stage);
-  --role-reference-graphic: var(--role-reference-stage);
-  --role-reference-text: var(--role-reference-stage);
-  --role-highlight-graphic: var(--role-highlight-stage);
-  --role-highlight-text: var(--role-highlight-stage);
-}
-
 /* Hinted glyph advances snap to whole pixels at the stretched size and
    leave uneven gaps inside words. */
 .motion-stage-svg text {
@@ -58,6 +27,7 @@
 
 .motion-stage-svg text[data-scene-readout] {
   font-family: var(--motion-stage-readout-font);
+  font-variant-numeric: tabular-nums;
 }
 
 @supports (width: 1cqw) and (width: calc(1px * tan(atan2(1px, 1px)))) {
@@ -108,26 +78,4 @@
 [data-figure-frame] [data-cite-id] > span {
   font-family: var(--font-sans);
   font-size: 12px;
-}
-
-/*
- * Signal blue falls below text contrast on graphite, so a link on the stage
- * keeps the signal blue and underline of every source link and sits on the
- * paper ground it is measured against elsewhere. A citation chip carries
- * that ground on its own frame.
- */
-[data-figure-stage] a[href] {
-  color: var(--color-accent);
-  background-color: var(--color-paper);
-  text-decoration-line: underline;
-  text-decoration-color: var(--color-accent);
-}
-
-[data-figure-stage] a[href]:not([data-cite-id] a) {
-  border-radius: 2px;
-  padding-inline: 4px;
-}
-
-[data-figure-stage] [data-cite-id] > span {
-  background-color: var(--color-paper);
 }

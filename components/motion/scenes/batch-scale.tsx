@@ -90,7 +90,7 @@ function BatchScaleStage() {
         fill="none" stroke="var(--role-constraint-stage)" strokeWidth={2}
         strokeDasharray="6 4" bindings={{ opacity: (t) => batchScaleFrame(t).cpuVisible }} />
       <AnimatedCircle data-scene-mark="selected-environment-count" r={5}
-        fill="var(--role-highlight-stage)" stroke="var(--color-instrument)" strokeWidth={1.5}
+        fill="var(--role-highlight-stage)" stroke="var(--motion-stage)" strokeWidth={1.5}
         bindings={{
           cx: (t) => x(batchScaleFrame(t).environments),
           cy: (t) => y(batchScaleFrame(t).wallSeconds),

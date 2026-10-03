@@ -32,7 +32,7 @@ import { ActionConditioning } from '@/components/interactive/action-conditioning
 
 Generative video world models are the third paradigm in the [taxonomy](/world-models/taxonomy), the one with the money and the attention: predict future pixels given the current frame and an action or a text prompt, then use the generator as a stand-in for the environment. A model that does this well is a learned simulator you can query with candidate actions, which is why the same systems show up under four different agendas: generating training data, evaluating policies, running RL post-training, and powering interactive worlds.
 
-A simulator needs to respond to the action, a measurable property that a movie generator can lack. Toggle the conditioning strength below from strong to weak: two rollouts from one shared frame under different actions collapse onto the same future, the action-sensitivity score falls to near zero, and the visual-realism score does not move at all.
+A simulator needs to respond to the action, a measurable property that a movie generator can lack. Switch "Video model" below from "Listens to the action" to "Ignores the action": the two futures that grow from one shared start frame collapse onto the same picture, the action-sensitivity score under "How this was made" falls to near zero, and the visual-realism score does not move at all.
 
 <ActionConditioning className="my-6" />
 

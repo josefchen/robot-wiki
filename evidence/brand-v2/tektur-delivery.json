@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "4371b7989a03dfb0a267b62b2024745732f83e54357edb586c9cbbe680179835",
+  "fingerprint": "8baa4b7703cc87a2ae91edd3e7c831a5cdcffa7917c23dcfe511a9f2620be383",
   "viewports": [
     {
       "id": "375px",
@@ -60,6 +60,7 @@
     "/frontier/reliability-gap/",
     "/frontier/safety-and-assurance/",
     "/glossary/",
+    "/how-robots-work/",
     "/manipulation/",
     "/manipulation/action-chunking/",
     "/manipulation/action-spaces/",
@@ -1243,6 +1244,38 @@
     },
     {
       "route": "/glossary/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 3,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/how-robots-work/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 3,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/how-robots-work/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 3,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/how-robots-work/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 3,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/how-robots-work/",
       "viewportId": "1440px",
       "roles": {
         "shell-wordmark": 3,
@@ -2529,7 +2562,7 @@
       "weight": "600",
       "stretch": "100%",
       "variationSettings": "\"wdth\" 100, \"wght\" 600",
-      "elements": 56
+      "elements": 60
     },
     {
       "role": "section-display",
@@ -2545,7 +2578,7 @@
       "weight": "600",
       "stretch": "100%",
       "variationSettings": "\"wdth\" 100, \"wght\" 600",
-      "elements": 900
+      "elements": 912
     }
   ],
   "unannotatedDisplayClassUses": [],
@@ -4996,6 +5029,70 @@
     },
     {
       "route": "/glossary/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/how-robots-work/",
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/how-robots-work/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/how-robots-work/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/how-robots-work/",
       "viewportId": "1440px",
       "heads": [
         "IBM Plex Mono",
@@ -7907,7 +8004,7 @@
       "/_next/static/media/effe91970fc4db64-s.0oace-s_gkfks.woff2"
     ],
     "foreignOrigin": [],
-    "observationsWithFontRequest": 300,
+    "observationsWithFontRequest": 304,
     "observationsMixingForeignOrigin": 0,
     "fontRequests": [
       {

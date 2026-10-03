@@ -344,6 +344,7 @@ describe('home tools evidence', () => {
     const evidence = accept(committed());
     expect(evidence.toolsLine.links.map(({ path }) => path)).toEqual([
       '/playground/',
+      '/how-robots-work/',
       '/market-map/',
     ]);
     expect(planted((e) => e.toolsLine.graphics.push('svg'))).toEqual([
@@ -369,6 +370,9 @@ describe('home tools evidence', () => {
     expect(
       planted((e) => (e.toolsLine.links = e.toolsLine.links.filter(({ path }) => path !== '/market-map/'))),
     ).toEqual(['anchor:tools-line-market-map-link']);
+    expect(
+      planted((e) => (e.toolsLine.links = e.toolsLine.links.filter(({ path }) => path !== '/how-robots-work/'))),
+    ).toEqual(['anchor:tools-line-how-robots-work-link']);
   });
   it('fails a design bound and only the bound that moved', () => {
     const planted = (change: (evidence: HomeToolsEvidence) => void) =>

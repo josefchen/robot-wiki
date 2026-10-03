@@ -19,8 +19,8 @@ import { cx } from '@/lib/utils';
  *
  * An instrument is an explanatory device, not a card: the frame is a
  * squared technical surface (radius 0 with a hairline boundary), its
- * controls carry the mono registration style, its state is announced as
- * text, and its reset is a compact secondary action. The primitives keep
+ * controls look like the rest of the site's quiet controls, its state is
+ * announced as text, and its reset is a compact secondary action. The primitives keep
  * the control elements themselves caller-owned, so a component that mounts
  * them keeps its own inputs, buttons, and ARIA exactly as authored.
  */
@@ -28,33 +28,39 @@ import { cx } from '@/lib/utils';
 const INSTRUMENT_SIGNATURE = 'instrument-frame';
 
 /*
- * Instrument controls sit inside the frame's own hairline, so neither
- * treatment draws a four-sided box: a control framed inside the frame is
- * the redundant nested boxing the design contract counts as a defect. The
- * border stays in the box model but transparent, which keeps both
- * treatments the same height and still paints a boundary under forced
- * colours. The secondary control's ink hairline is its underline, which
- * hover strengthens; a disabled control drops it.
+ * Figure controls are the site's quiet controls: a hairline button on the
+ * white surface, sans labels with no underline, and no colour fill. The
+ * selected option of a choice reads in weight and a tinted tile, which
+ * survives forced colours as the bolder label; lime stays a data mark and
+ * never fills a control.
  */
 const INSTRUMENT_CONTROL_BASE =
-  'inline-flex min-h-11 items-center justify-center gap-1.5 rounded-xs border border-transparent py-1.5 font-sans text-sm font-medium transition-colors active:translate-y-[1px]';
-export const INSTRUMENT_PRIMARY_CONTROL_CLASS = `${INSTRUMENT_CONTROL_BASE} bg-action px-3 text-on-action hover:bg-graphite`;
-export const INSTRUMENT_SECONDARY_CONTROL_CLASS = `${INSTRUMENT_CONTROL_BASE} justify-self-start bg-transparent px-2 text-text underline decoration-border-strong decoration-1 underline-offset-4 hover:decoration-text disabled:cursor-not-allowed disabled:text-text-dim disabled:no-underline disabled:active:translate-y-0`;
+  'inline-flex min-h-11 items-center justify-center gap-1.5 rounded-xs border py-1.5 font-sans text-sm font-medium transition-colors active:translate-y-[1px]';
+const QUIET_DISABLED =
+  'disabled:cursor-not-allowed disabled:text-text-dim disabled:active:translate-y-0';
+export const INSTRUMENT_PRIMARY_CONTROL_CLASS = `${INSTRUMENT_CONTROL_BASE} border-transparent bg-action px-3 text-on-action hover:bg-graphite`;
+export const INSTRUMENT_SECONDARY_CONTROL_CLASS = `${INSTRUMENT_CONTROL_BASE} justify-self-start border-border-strong bg-surface px-3 text-text hover:bg-surface-2 ${QUIET_DISABLED}`;
 
 /**
- * A toggle or one option of a segmented choice. It reads as the secondary
- * control at rest; the selected option takes the lime selection fill with
- * ink text and drops its underline, so the state shows in fill and line as
- * well as colour. Pair it with `aria-pressed` (or `aria-checked` on a
- * radio) so the selected paint and the announced state never disagree.
+ * A toggle. At rest it is the quiet secondary button with a dim label; when
+ * pressed the label turns ink and semibold on a tinted tile with an ink
+ * hairline, so the state shows in weight and line as well as colour. Pair
+ * it with `aria-pressed` (or `aria-checked` on a radio) so the paint and
+ * the announced state never disagree.
  */
-export const INSTRUMENT_TOGGLE_CLASS = `${INSTRUMENT_CONTROL_BASE} bg-transparent px-2.5 text-text underline decoration-border-strong decoration-1 underline-offset-4 hover:decoration-text aria-pressed:bg-highlight aria-pressed:text-ink aria-pressed:no-underline aria-checked:bg-highlight aria-checked:text-ink aria-checked:no-underline disabled:cursor-not-allowed disabled:text-text-dim disabled:no-underline disabled:active:translate-y-0`;
+export const INSTRUMENT_TOGGLE_CLASS = `${INSTRUMENT_CONTROL_BASE} border-border-strong bg-surface px-3 text-text-dim hover:text-text aria-pressed:border-text aria-pressed:bg-surface-2 aria-pressed:font-semibold aria-pressed:text-ink aria-checked:border-text aria-checked:bg-surface-2 aria-checked:font-semibold aria-checked:text-ink ${QUIET_DISABLED}`;
 
 /**
- * A labelled slider among the figure controls: the shared scrubber track in
- * the selection lime, at a 44px touch-target height.
+ * One option inside a segmented row: the row draws the single outer
+ * hairline, so an option has no box of its own until it is selected.
  */
-export const INSTRUMENT_SLIDER_CLASS = 'block h-11 w-full min-w-40 cursor-pointer accent-highlight';
+const SEGMENT_CLASS = `${INSTRUMENT_CONTROL_BASE} -my-px border-transparent px-3 text-text-dim hover:text-text aria-pressed:border-border-strong aria-pressed:bg-surface-2 aria-pressed:font-semibold aria-pressed:text-ink ${QUIET_DISABLED}`;
+
+/**
+ * A labelled slider among the figure controls: a thin native track in the
+ * page's graphite, at a 44px touch-target height.
+ */
+export const INSTRUMENT_SLIDER_CLASS = 'block h-11 w-full min-w-40 cursor-pointer accent-graphite';
 
 type InstrumentFrameProps = HTMLAttributes<HTMLDivElement> & {
   children: ReactNode;
@@ -104,7 +110,8 @@ export function InstrumentFigure(props: FigureFrameProps) {
 
 /**
  * One labelled control among the figure controls: a ControlLabel over its
- * slider or select, sized so a slider keeps a usable track at 375px.
+ * slider or select, sized so a slider keeps a usable track at 375px and two
+ * fields stack there rather than squeeze their labels and values side by side.
  */
 export function ControlField({
   className,
@@ -114,7 +121,7 @@ export function ControlField({
   return (
     <div
       data-figure-control-field=""
-      className={cx('grid min-w-40 flex-1 gap-1 sm:max-w-72', className)}
+      className={cx('grid min-w-44 flex-1 gap-1 sm:max-w-72', className)}
       {...props}
     >
       {children}
@@ -217,17 +224,21 @@ type PresetGroupProps<T extends string> = {
 };
 
 /**
- * A named set of states the reader picks from. The group counts as one
- * visible control; each preset is a toggle whose pressed state paints the
- * selection fill. `value` is null when a control in "Adjust more" has
+ * A named set of states the reader picks from, drawn as one quiet
+ * segmented row like the site's own tab rows. The group counts as one
+ * visible control. `value` is null when a control in "Adjust more" has
  * moved the figure off every preset.
  */
 export function PresetGroup<T extends string>({ label, presets, value, onChange, testId }: PresetGroupProps<T>) {
   const id = useId();
   return (
-    <div role="group" aria-labelledby={id} data-preset-group="" className="grid gap-1">
+    <div role="group" aria-labelledby={id} data-preset-group="" className="grid justify-items-start gap-1">
       <span id={id} className="font-sans text-sm text-text-dim">{label}</span>
-      <div className="flex flex-wrap gap-1.5">
+      <div
+        data-brand-control-id="control:segmented"
+        data-brand-surface-id="surface:flat"
+        className="inline-flex max-w-full flex-wrap rounded-xs border border-border-strong bg-surface"
+      >
         {presets.map((preset) => (
           <button
             key={preset.id}
@@ -236,7 +247,7 @@ export function PresetGroup<T extends string>({ label, presets, value, onChange,
             aria-pressed={value === preset.id}
             onClick={() => onChange(preset.id)}
             data-testid={testId ? `${testId}-${preset.id}` : undefined}
-            className={INSTRUMENT_TOGGLE_CLASS}
+            className={SEGMENT_CLASS}
           >
             {preset.label}
           </button>

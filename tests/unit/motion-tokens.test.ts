@@ -32,45 +32,28 @@ describe('motion tokens', () => {
   });
 
   it('pins the stage and light variants byte-for-byte to the spec table', () => {
+    // The stage is the page ground (owner addendum, 2026-10-02 13:15), so a
+    // role paints one colour on the stage and in page text, darkened to at
+    // least 4.6:1 on the paper. Only highlight keeps the lime, as a halo.
     const tokens = loadTokens();
-    expect(tokens.roles.state).toMatchObject({
-      stage: '#58C4DD',
-      lightText: '#00829A',
-      lightGraphic: '#2EA1B9',
-    });
-    expect(tokens.roles.measurement).toMatchObject({
-      stage: '#E8C11C',
-      lightText: '#956F00',
-      lightGraphic: '#B69000',
-    });
-    expect(tokens.roles.action).toMatchObject({
-      stage: '#B189C6',
-      lightText: '#8D67A1',
-      lightGraphic: '#AE86C3',
-    });
-    expect(tokens.roles.value).toMatchObject({
-      stage: '#A6CF8C',
-      lightText: '#5B8141',
-      lightGraphic: '#789F5F',
-    });
-    expect(tokens.roles.constraint).toMatchObject({
-      stage: '#FC6255',
-      lightText: '#D63E35',
-      lightGraphic: '#FA6053',
-    });
-    expect(tokens.roles.reference).toMatchObject({
-      stage: '#D9DADB',
-      lightText: '#767778',
-      lightGraphic: '#949595',
-    });
+    const one = (hex: string) => ({ stage: hex, lightText: hex, lightGraphic: hex });
+    expect(tokens.roles.state).toMatchObject(one('#007A91'));
+    expect(tokens.roles.measurement).toMatchObject(one('#8E6A00'));
+    expect(tokens.roles.action).toMatchObject(one('#866299'));
+    expect(tokens.roles.value).toMatchObject(one('#56793D'));
+    expect(tokens.roles.constraint).toMatchObject(one('#CB3B32'));
+    expect(tokens.roles.reference).toMatchObject(one('#6E6F70'));
     expect(tokens.roles.highlight).toMatchObject({
-      stage: '#C6FF19',
-      lightText: '#548200',
+      stage: '#507C00',
+      lightText: '#507C00',
+      lightGraphic: '#C6FF19',
     });
   });
 
-  it('keeps the brand lime as the highlight stage colour', () => {
-    expect(loadTokens().roles.highlight.stage).toBe('#C6FF19');
+  it('keeps the brand lime as the highlight halo, never as stage text', () => {
+    const { highlight } = loadTokens().roles;
+    expect(highlight.lightGraphic).toBe('#C6FF19');
+    expect(highlight.stage).not.toBe('#C6FF19');
   });
 
   it('pins the timing ladder and lag ratios', () => {

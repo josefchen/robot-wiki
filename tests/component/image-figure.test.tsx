@@ -98,22 +98,19 @@ describe('ImageRef (registry resolver)', () => {
 
 /**
  * The brand-v2 figure treatment (VAL-B2-ART-004, VAL-B2-ART-005,
- * VAL-B2-ART-006, VAL-B2-IMG-003). A dark diagram is a bounded instrument
- * that says what it is; a photograph is not, and neither loses its caption
- * or its credit to the change.
+ * VAL-B2-ART-006, VAL-B2-IMG-003). A schematic draws on the light page
+ * stage and says what it is; a photograph is not a schematic, and neither
+ * loses its caption or its credit to the change.
  */
 describe('figure treatment by kind', () => {
-  it('mounts a schematic on a bounded dark instrument that identifies itself', () => {
+  it('draws a schematic on the light page stage that identifies itself', () => {
     render(<ImageRef id="covariate-shift" />);
     const figure = document.querySelector('figure')!;
     expect(figure).toHaveAttribute('data-figure-kind', 'original-schematic');
 
     const surface = figure.querySelector('[data-brand-surface-id]')!;
     expect(surface).not.toBeNull();
-    expect(surface).toHaveAttribute(
-      'data-brand-surface-id',
-      'surface:bounded-dark-instrument',
-    );
+    expect(surface).toHaveAttribute('data-brand-surface-id', 'surface:flat');
     // The drawing is on the stage itself, named by the registry alt text.
     const drawing = surface.querySelector('svg[role="img"]')!;
     expect(drawing).not.toBeNull();
@@ -125,12 +122,12 @@ describe('figure treatment by kind', () => {
 
     const label = figure.querySelector('[data-figure-label]')!;
     expect(label.textContent).toBe('Original schematic');
-    // A word label, so the brand sans on the figure type scale; mono is
+    // A word label, so the brand sans at the 14 px stage size; mono is
     // kept for numeric readouts.
     expect(label.className).toContain('font-sans');
-    expect(label.className).toContain('text-xs');
-    // The label is inside the instrument, so it reads as the plate's own
-    // caption rather than as another line of body prose.
+    expect(label.className).toContain('text-sm');
+    // The label is on the stage, so it reads as the drawing's own label
+    // rather than as another line of body prose.
     expect(surface.contains(label)).toBe(true);
   });
 

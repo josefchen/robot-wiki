@@ -19,7 +19,11 @@ const parse = (catalog = plans, includeLocal = false) => parseLedger('audit/data
   new Set(CITATIONS.map(c => c.id)), { compoundPlans: catalog, ...(includeLocal ? { localBasis } : {}) })
   .find(s => s.slug === 'industrial-deployment')!;
 const opening = article.split('\n## The economics')[0];
-const uses = article.split('## What is actually automated at scale')[1].split('\n\n')[1];
+// The reader-first figure pass moved the Stat row from the opening to the
+// head of the installed-base section, after the first figure.
+const stats = article.match(/<div className="my-6 grid[^"]*">\n(?:\s*<Stat [^\n]*\n)+<\/div>/)![0];
+const uses = article.split('## What is actually automated at scale')[1].split('\n\n')
+  .find(paragraph => paragraph.startsWith('Strip the installed base'))!;
 
 describe('five IFR and OSHA industrial originals', () => {
   it('binds exactly the five original identities and all sixteen parts / nineteen pairs', () => {
@@ -87,9 +91,9 @@ describe('five IFR and OSHA industrial originals', () => {
     expect(opening).toContain('global operational stock of 4,663,698 industrial robots in 2024');
     expect(opening).toContain('each year from 2021 through 2024');
     expect(opening).toContain('with 542,076 installed in 2024');
-    expect(opening).toContain('value="4,663,698"');
-    expect(opening).toContain('note="2021-2024 each above 500k"');
-    expect(opening).not.toContain('value="4.66M"');
+    expect(stats).toContain('value="4,663,698"');
+    expect(stats).toContain('note="2021-2024 each above 500k"');
+    expect(article).not.toContain('value="4.66M"');
     expect(opening).not.toMatch(/2021[^.\n]*517,385/);
   });
 
@@ -113,7 +117,7 @@ describe('five IFR and OSHA industrial originals', () => {
     expect(opening).toContain('about 4.5 times the stock of Japan');
     expect(opening).toContain('295,045 new installations that year');
     expect(opening).toContain("IFR's May 5, 2026 release repeats");
-    expect(opening).toContain('note="of global installations in 2024"');
+    expect(stats).toContain('note="of global installations in 2024"');
     expect(opening).not.toContain('4.5 times more');
   });
 

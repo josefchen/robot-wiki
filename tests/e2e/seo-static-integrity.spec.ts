@@ -29,6 +29,7 @@ const SITE_ORIGIN = 'https://robot-wiki.com';
 const TOP_LEVEL_ROUTES = [
   '/market-map/',
   '/playground/',
+  '/how-robots-work/',
   '/search/',
   '/glossary/',
   '/credits/',

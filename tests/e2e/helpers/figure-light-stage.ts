@@ -1,23 +1,24 @@
-export type LightPaint = { share: number; colour: string; at: string };
+export type StagePaint = { share: number; colour: string; at: string };
 export type StageRow = {
   figure: string;
   /** The stage's composited background, 'raster' for a canvas, video or image stage, or null when not laid out. */
   stage: string | null;
   stageArea: number;
-  /** The largest light paint that is not a data mark in its role colour, by share of the stage. */
-  light: LightPaint | null;
-  /** The largest light data mark in its role colour; allowed, recorded for review. */
-  mark: LightPaint | null;
+  /** The largest dark paint that is not a data mark in its role colour, by share of the stage. */
+  dark: StagePaint | null;
+  /** The largest dark data mark in its role colour; allowed, recorded for review. */
+  mark: StagePaint | null;
   signal: string[];
-  rasters: { id: string; area: number; light?: number | null }[];
+  rasters: { id: string; area: number; dark?: number | null }[];
 };
 
 /**
  * Runs in the page. The figures are the ones lib/figure-system-check.ts finds
  * (frames, and visuals outside any frame other than photographs); each one's
- * stage is its [data-figure-stage], or the figure itself. A paint is light when
+ * stage is its [data-figure-stage], or the figure itself. A paint is dark when
  * its colour, composited over the stage with its own and its ancestors'
- * opacity, equals a light token or has a WCAG relative luminance above 0.4.
+ * opacity, has a WCAG relative luminance at or below 0.1: graphite reads
+ * 0.023 and ink 0.004, while every role colour on paper reads about 0.15.
  */
 export function readStages({ limit, roles }: { limit: number; roles: string[] }): StageRow[] {
   const main = document.querySelector('main') ?? document.body;
@@ -49,6 +50,7 @@ export function readStages({ limit, roles }: { limit: number; roles: string[] })
   };
   const LIGHT = new Set(['--color-paper', '--color-white', '--color-bg', '--color-surface', '--color-surface-2', '--color-concrete'].map(token).filter(Boolean));
   const SIGNAL = token('--color-signal') ?? '#245FFF';
+  const DARK = 0.1;
   const backdrop = (el: Element) => {
     const chain: number[][] = [];
     for (let node: Element | null = el; node; node = node.parentElement) {
@@ -107,14 +109,14 @@ export function readStages({ limit, roles }: { limit: number; roles: string[] })
     const name = figure.getAttribute('data-figure-frame') ?? figure.getAttribute('data-motion-scene') ?? describe(figure);
     // A canvas, video or image that is its own stage paints pixels no computed style sees.
     const raster = /^(img|canvas|video)$/i.test(stage.tagName);
-    const row: StageRow = { figure: name, stage: area > 0 ? (raster ? 'raster' : hex(ground)) : null, stageArea: Math.round(area), light: null, mark: null, signal: [], rasters: [] };
+    const row: StageRow = { figure: name, stage: area > 0 ? (raster ? 'raster' : hex(ground)) : null, stageArea: Math.round(area), dark: null, mark: null, signal: [], rasters: [] };
     if (!area) return row;
     if (raster) {
       stage.setAttribute('data-light-probe', `${index}-stage`);
       row.rasters.push({ id: `${index}-stage`, area: 1 });
     }
     const frameBox = figure.getBoundingClientRect();
-    const keep = (slot: 'light' | 'mark', share: number, colour: number[], at: string) => {
+    const keep = (slot: 'dark' | 'mark', share: number, colour: number[], at: string) => {
       if (share > (row[slot]?.share ?? 0)) row[slot] = { share: Math.round(share * 1000) / 1000, colour: hex(colour), at };
     };
     for (const el of figure.querySelectorAll('*')) {
@@ -153,10 +155,10 @@ export function readStages({ limit, roles }: { limit: number; roles: string[] })
         const colour = rgba(paint);
         if (!colour) continue;
         const shown = over(colour, colour[3] * alpha * opacity(el, figure), ground);
-        if (!LIGHT.has(hex(shown)) && luminance(shown) <= 0.4) continue;
+        if (LIGHT.has(hex(shown)) || luminance(shown) > DARK) continue;
         const covered = geometry ? share * filled(el as SVGGeometryElement, visible) : share;
         if (mark && roles.includes(hex(colour))) keep('mark', covered, colour, describe(el));
-        else keep('light', covered, colour, describe(el));
+        else keep('dark', covered, colour, describe(el));
       }
     }
     return row;

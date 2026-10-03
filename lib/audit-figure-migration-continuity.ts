@@ -16,6 +16,7 @@
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { readerFirstRegistry } from './audit-reader-first-continuity.ts';
 import { seoPassCheckerPredecessor } from './audit-seo-pass-continuity.ts';
 
 const directory = 'audit/evidence/figure-migration-20261001/';
@@ -200,8 +201,10 @@ function survives(root: string, survivor: Survivor, live: RegistryShape): boolea
  * the live record is exactly the reviewed successor or, for a retired id,
  * while the id stays absent and its named survivor is present. Any other
  * record, including a reviewed one that drifted again, comes back unchanged.
+ * The reader-first registry layer above this one is unwound first.
  */
-export function figureMigrationRegistry<T extends RegistryShape>(root: string, live: T): T {
+export function figureMigrationRegistry<T extends RegistryShape>(root: string, registry: T): T {
+  const live = readerFirstRegistry(root, registry);
   const review = JSON.parse(readPinned(root,
     { path: `${directory}registry-transition.json`, ...registryReviewPin }, registryDrift).toString()) as RegistryReview;
   reviewed(review, 'figure-migration-registry-continuity-v1', registryDrift);

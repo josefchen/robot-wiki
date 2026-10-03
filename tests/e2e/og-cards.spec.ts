@@ -34,6 +34,7 @@ const NON_ARTICLE_ROUTES = [
   '/a-z/',
   '/market-map/',
   '/playground/',
+  '/how-robots-work/',
   '/glossary/',
   '/credits/',
   '/editorial-policy/',
@@ -87,8 +88,8 @@ test.describe('OG card images', () => {
       ...publishedModules().map((m) => `/${m.domain}/${m.slug}/`),
       ...NON_ARTICLE_ROUTES,
     ];
-    // 10 standalone destinations + 7 domain landings = 17.
-    expect(routes.length).toBe(publishedModules().length + 17);
+    // 11 standalone destinations + 7 domain landings = 18.
+    expect(routes.length).toBe(publishedModules().length + 18);
 
     const server = await startStaticExportServer('out');
     try {

@@ -209,6 +209,8 @@ export function DirectLabel({
   );
 }
 
+const LINE_STEP_EM = 1.25;
+
 /**
  * The plain-words note that points at what the figure shows: the label in
  * the highlight role, one line per entry of `lines`, with an optional
@@ -233,8 +235,15 @@ export function StageAnnotation({
   from?: ChartPoint;
 }) {
   const colour = roleColour('highlight');
-  const lineHeight = CHART_TYPE.labelPx * 1.25;
-  const [fx, fy] = from ?? [x, y + lineHeight * (lines.length - 1) + CHART_TYPE.labelPx * 0.35];
+  const block = CHART_TYPE.labelPx * LINE_STEP_EM * (lines.length - 1);
+  const [fx, fy] = from ?? [x, y + block + CHART_TYPE.labelPx * 0.35];
+  // The stage holds its type at one CSS pixel size while the viewBox
+  // stretches, so lines step in ems and a wide stage packs them tighter
+  // than the stage units the layout was planned in. A leader that leaves
+  // from under the note keeps the last line where it was planned and the
+  // earlier lines stack up from it, so the note never drifts off its leader.
+  const fromBelow = target !== undefined && lines.length > 1 && fy > y + block / 2;
+  const firstDy = fromBelow ? `${-LINE_STEP_EM * (lines.length - 1)}em` : 0;
   return (
     <g data-figure-annotation="">
       {target ? (
@@ -243,9 +252,9 @@ export function StageAnnotation({
           <circle cx={target[0]} cy={target[1]} r={CHART_STROKE.markerRadius + 1} fill="none" stroke={colour} strokeWidth={CHART_STROKE.structure * 2} />
         </>
       ) : null}
-      <text x={x} y={y} textAnchor={anchor} fontSize={CHART_TYPE.labelPx} fontWeight={600} fill={colour}>
+      <text x={x} y={fromBelow ? y + block : y} textAnchor={anchor} fontSize={CHART_TYPE.labelPx} fontWeight={600} fill={colour}>
         {lines.map((line, i) => (
-          <tspan key={line} x={x} dy={i === 0 ? 0 : lineHeight}>{line}</tspan>
+          <tspan key={line} x={x} dy={i === 0 ? firstDy : `${LINE_STEP_EM}em`}>{line}</tspan>
         ))}
       </text>
     </g>

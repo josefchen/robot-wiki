@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "fingerprint": "6159cf14deb9916b63a900771b5f595b4d4cd15699f50670ae44ec9c89c15251",
+  "fingerprint": "52ac920ae7965e01e8c19674256bb2a3fd70895a81d2ae5aaefa45c409ae9e00",
   "viewport": "1440x900",
   "route": "/",
-  "visibleTextLength": 2912,
+  "visibleTextLength": 2952,
   "documentScrollWidthPx": 1440,
   "documentClientWidthPx": 1440,
   "heroLockups": [
@@ -610,8 +610,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Teleoperation Rigs",
-      "href": "/data-hardware/teleop-rigs/",
+      "accessibleName": "The Evaluation Crisis",
+      "href": "/data-hardware/evaluation-crisis/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 932.28,
@@ -623,35 +623,35 @@
       "href": null,
       "backgroundColour": "rgb(11, 11, 12)",
       "colour": "rgb(255, 255, 255)",
-      "topPx": 1123.53,
-      "bottomPx": 1167.53
+      "topPx": 1139.53,
+      "bottomPx": 1183.53
     },
     {
       "controlId": "control:secondary-action",
       "accessibleName": "",
       "href": null,
-      "backgroundColour": "rgba(0, 0, 0, 0)",
+      "backgroundColour": "rgb(255, 255, 255)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 1171.53,
-      "bottomPx": 1215.53
+      "topPx": 1187.53,
+      "bottomPx": 1231.53
     },
     {
       "controlId": "control:secondary-action",
       "accessibleName": "",
       "href": null,
-      "backgroundColour": "rgba(0, 0, 0, 0)",
+      "backgroundColour": "rgb(255, 255, 255)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 1223.53,
-      "bottomPx": 1277.53
+      "topPx": 1239.53,
+      "bottomPx": 1293.53
     },
     {
       "controlId": "control:secondary-action",
       "accessibleName": "",
       "href": null,
-      "backgroundColour": "rgba(0, 0, 0, 0)",
+      "backgroundColour": "rgb(255, 255, 255)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 1285.53,
-      "bottomPx": 1329.53
+      "topPx": 1301.53,
+      "bottomPx": 1345.53
     },
     {
       "controlId": "control:link-focus",
@@ -659,8 +659,8 @@
       "href": "/frontier/reliability-gap/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
-      "topPx": 2005.42,
-      "bottomPx": 2020.42
+      "topPx": 2018.84,
+      "bottomPx": 2033.84
     },
     {
       "controlId": "control:link-focus",
@@ -668,8 +668,8 @@
       "href": "/rl-sim2real/why-rl-locomotion/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
-      "topPx": 2104.92,
-      "bottomPx": 2124.92
+      "topPx": 2134.34,
+      "bottomPx": 2154.34
     },
     {
       "controlId": "control:link-focus",
@@ -677,8 +677,8 @@
       "href": "https://arxiv.org/abs/2109.11978",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 45, 51)",
-      "topPx": 2128.92,
-      "bottomPx": 2148.92
+      "topPx": 2158.34,
+      "bottomPx": 2178.34
     },
     {
       "controlId": "control:link-focus",
@@ -686,8 +686,8 @@
       "href": "/data-hardware/teleop-rigs/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
-      "topPx": 2167.92,
-      "bottomPx": 2216.92
+      "topPx": 2197.34,
+      "bottomPx": 2246.34
     },
     {
       "controlId": "control:link-focus",
@@ -695,8 +695,8 @@
       "href": "https://arxiv.org/abs/2304.13705",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 45, 51)",
-      "topPx": 2191.92,
-      "bottomPx": 2211.92
+      "topPx": 2221.34,
+      "bottomPx": 2241.34
     },
     {
       "controlId": "control:link-focus",
@@ -704,8 +704,8 @@
       "href": "/frontier/dexterity/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
-      "topPx": 2230.92,
-      "bottomPx": 2250.92
+      "topPx": 2260.34,
+      "bottomPx": 2280.34
     },
     {
       "controlId": "control:link-focus",
@@ -713,53 +713,53 @@
       "href": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 45, 51)",
-      "topPx": 2254.92,
-      "bottomPx": 2274.92
+      "topPx": 2284.34,
+      "bottomPx": 2304.34
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Drones and Aerial Robotics",
-      "href": "/adjacent/drones/",
+      "accessibleName": "The Data Bottleneck",
+      "href": "/data-hardware/data-bottleneck/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
-      "topPx": 2362.92,
-      "bottomPx": 2386.92
+      "topPx": 2392.34,
+      "bottomPx": 2416.34
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "The Bear Case",
-      "href": "/frontier/bear-case/",
+      "accessibleName": "The Evaluation Crisis",
+      "href": "/data-hardware/evaluation-crisis/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
-      "topPx": 2393.92,
-      "bottomPx": 2417.92
+      "topPx": 2423.34,
+      "bottomPx": 2447.34
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Competing Theses",
-      "href": "/frontier/competing-theses/",
+      "accessibleName": "Industrial Deployment",
+      "href": "/data-hardware/industrial-deployment/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
-      "topPx": 2424.92,
-      "bottomPx": 2448.92
+      "topPx": 2454.34,
+      "bottomPx": 2478.34
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Dexterity",
-      "href": "/frontier/dexterity/",
+      "accessibleName": "The Reliability Gap",
+      "href": "/frontier/reliability-gap/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
-      "topPx": 2455.92,
-      "bottomPx": 2479.92
+      "topPx": 2485.34,
+      "bottomPx": 2509.34
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Generalization",
-      "href": "/frontier/generalization/",
+      "accessibleName": "Generative Simulation",
+      "href": "/world-models/generative-sim/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
-      "topPx": 2486.92,
-      "bottomPx": 2510.92
+      "topPx": 2516.34,
+      "bottomPx": 2540.34
     },
     {
       "controlId": "control:link-focus",
@@ -767,8 +767,17 @@
       "href": "/playground/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
-      "topPx": 2565.92,
-      "bottomPx": 2584.92
+      "topPx": 2595.34,
+      "bottomPx": 2614.34
+    },
+    {
+      "controlId": "control:link-focus",
+      "accessibleName": "How robots work",
+      "href": "/how-robots-work/",
+      "backgroundColour": "rgba(0, 0, 0, 0)",
+      "colour": "rgb(36, 95, 255)",
+      "topPx": 2595.34,
+      "bottomPx": 2614.34
     },
     {
       "controlId": "control:link-focus",
@@ -776,8 +785,8 @@
       "href": "/market-map/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
-      "topPx": 2565.92,
-      "bottomPx": 2584.92
+      "topPx": 2595.34,
+      "bottomPx": 2614.34
     }
   ],
   "highlights": [
@@ -792,18 +801,6 @@
       "annotation": "home-source-count",
       "topPx": 222.28,
       "bottomPx": 241.78
-    },
-    {
-      "tag": "span",
-      "carriers": [
-        "background"
-      ],
-      "text": "",
-      "nonColourCue": null,
-      "rejectedStateCues": [],
-      "annotation": null,
-      "topPx": 1937.17,
-      "bottomPx": 1941.17
     }
   ],
   "domainEntries": [
@@ -903,8 +900,8 @@
       "index": 3,
       "label": "Featured scene",
       "signature": "plain/module-heading/motion-scene",
-      "derivedSignature": "transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0],button[rgb(11, 11, 12)/rgb(255, 255, 255)/1],button[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/1] || p=2,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=2,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0",
-      "derivedSurfaceHeadingAction": "transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0],button[rgb(11, 11, 12)/rgb(255, 255, 255)/1],button[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/1]",
+      "derivedSignature": "transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0],button[rgb(11, 11, 12)/rgb(255, 255, 255)/1],button[rgb(255, 255, 255)/rgb(11, 11, 12)/1] || p=2,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=2,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0",
+      "derivedSurfaceHeadingAction": "transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0],button[rgb(11, 11, 12)/rgb(255, 255, 255)/1],button[rgb(255, 255, 255)/rgb(11, 11, 12)/1]",
       "headingTag": "h2",
       "headingSizePx": 20
     },
@@ -930,13 +927,13 @@
       "index": 6,
       "label": "Tools",
       "signature": "ruled-plain/inline-label/link-line",
-      "derivedSignature": "transparent|0,0,0,0|0|no-shadow + transparent|1solidrgb(217, 218, 219),0,0,0|0|no-shadow || no-heading || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0] || p=0,ul=1,ol=0,li=2,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0",
+      "derivedSignature": "transparent|0,0,0,0|0|no-shadow + transparent|1solidrgb(217, 218, 219),0,0,0|0|no-shadow || no-heading || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0] || p=0,ul=1,ol=0,li=3,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0",
       "derivedSurfaceHeadingAction": "transparent|0,0,0,0|0|no-shadow + transparent|1solidrgb(217, 218, 219),0,0,0|0|no-shadow || no-heading || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0]",
       "headingTag": null,
       "headingSizePx": null
     }
   ],
-  "chromeText": "Robot Wiki Citation-first encyclopedia of modern robot learning. 57 articles 443 sources 119 glossary terms Search | Robot Wiki | Search |  | Search | Contents | Behavior Cloning Foundations Action Chunking (ACT and ALOHA) Diffusion Policy Vision-Language-Action Models The Pi Line Other Generalist Policies Comparison Matrix Hierarchical Approaches RL Fine-Tuning of Policies Real-Time Execution Cross-Embodiment Transfer Knowledge Insulation Robot Learning Curriculum for ML Engineers Action Spaces for Robot Learning Foundation Models for Robotics | RL for Robotics Why RL Won Locomotion but Not Manipulation Massively Parallel Sim RL Sim-to-Real Transfer Legged Locomotion Lineage Humanoid Whole-Body Control Reward Design and the MPC Debate Offline Reinforcement Learning for Robotics | What Is a World Model? Latent-Dynamics World Models Generative Video World Models JEPA and the Non-Generative Counterargument Generative Simulation Model-Based Robot Learning World Model Evaluation for Robotics World Models vs Physics Simulators | The Data Bottleneck Major Datasets Hardware Taxonomy Teleoperation Rigs The Evaluation Crisis Industrial Deployment The Robot Learning Stack | Kinematics Motion Planning Control State Estimation Grasp Planning Perception for Manipulation Scene Representation and Mapping Robot Calibration ROS 2 for Machine Learning Engineers | The Reliability Gap Dexterity Generalization Competing Theses The Bear Case Safety and Assurance | Autonomous Vehicles Drones and Aerial Robotics Surgical Robotics Space Robotics | Featured article | Featured scene | The last stretch of episode reliability Play Adjust more toy model · 30 decisions 95% 21.5% 99% 74.0% 99.9% 97.0% compare the last bar episode success beat 4 / 4 conditional rate 99.9% episode 97.0% Illustrative model: all 30 decisions succeed independently at the same rate. The same horizon exposes the last stretch. From The Reliability Gap | Play |  |  |  | Did you know | Recently updated | Tools Playground Market Map | Introduction | Search the wiki | Search articles, sources and glossary terms | Manipulation & Learned Policies articles | RL, Sim-to-Real & Locomotion articles | World Models articles | Data, Hardware & Evaluation articles | Classical Foundations articles | Frontier & Open Problems articles | Adjacent Domains articles | Motion scene: The last stretch of episode reliability | Play the motion scene: The last stretch of episode reliability | Step back one beat | Step forward one beat | Reset the scene to its poster still | Tools",
+  "chromeText": "Robot Wiki Citation-first encyclopedia of modern robot learning. 57 articles 443 sources 119 glossary terms Search | Robot Wiki | Search |  | Search | Contents | Behavior Cloning Foundations Action Chunking (ACT and ALOHA) Diffusion Policy Vision-Language-Action Models The Pi Line Other Generalist Policies Comparison Matrix Hierarchical Approaches RL Fine-Tuning of Policies Real-Time Execution Cross-Embodiment Transfer Knowledge Insulation Robot Learning Curriculum for ML Engineers Action Spaces for Robot Learning Foundation Models for Robotics | RL for Robotics Why RL Won Locomotion but Not Manipulation Massively Parallel Sim RL Sim-to-Real Transfer Legged Locomotion Lineage Humanoid Whole-Body Control Reward Design and the MPC Debate Offline Reinforcement Learning for Robotics | What Is a World Model? Latent-Dynamics World Models Generative Video World Models JEPA and the Non-Generative Counterargument Generative Simulation Model-Based Robot Learning World Model Evaluation for Robotics World Models vs Physics Simulators | The Data Bottleneck Major Datasets Hardware Taxonomy Teleoperation Rigs The Evaluation Crisis Industrial Deployment The Robot Learning Stack | Kinematics Motion Planning Control State Estimation Grasp Planning Perception for Manipulation Scene Representation and Mapping Robot Calibration ROS 2 for Machine Learning Engineers | The Reliability Gap Dexterity Generalization Competing Theses The Bear Case Safety and Assurance | Autonomous Vehicles Drones and Aerial Robotics Surgical Robotics Space Robotics | Featured article | Featured scene | The last stretch of episode reliability Play Adjust more toy model · 30 decisions 95% 21.5% 99% 74.0% 99.9% 97.0% compare the last bar episode success beat 4 / 4 conditional rate 99.9% episode 97.0% Illustrative model: all 30 decisions succeed independently at the same rate. The same horizon exposes the last stretch. From The Reliability Gap | Play |  |  |  | Did you know | Recently updated | Tools Playground How robots work Market Map | Introduction | Search the wiki | Search articles, sources and glossary terms | Manipulation & Learned Policies articles | RL, Sim-to-Real & Locomotion articles | World Models articles | Data, Hardware & Evaluation articles | Classical Foundations articles | Frontier & Open Problems articles | Adjacent Domains articles | Motion scene: The last stretch of episode reliability | Play the motion scene: The last stretch of episode reliability | Step back one beat | Step forward one beat | Reset the scene to its poster still | Tools",
   "domainAnchorCounts": {
     "Manipulation & Learned Policies": 1,
     "RL, Sim-to-Real & Locomotion": 1,
@@ -988,8 +985,8 @@
     {
       "label": "Featured article",
       "signature": "plain/module-heading/lead-excerpt",
-      "prose": "Teleoperation rigs are the hardware a person uses to drive a robot, or a stand-in for one, while a demonstration is recorded.",
-      "text": "Featured article Teleoperation Rigs Teleoperation rigs are the hardware a person uses to drive a robot, or a stand-in for one, while a demonstration is recorded."
+      "prose": "The evaluation crisis is the gap between the success rates robot learning papers report and what those rates can establish.",
+      "text": "Featured article The Evaluation Crisis The evaluation crisis is the gap between the success rates robot learning papers report and what those rates can establish."
     },
     {
       "label": "Featured scene",
@@ -1007,17 +1004,17 @@
       "label": "Recently updated",
       "signature": "plain/module-heading/dated-links",
       "prose": "",
-      "text": "Recently updated 2026-10-02 Drones and Aerial Robotics 2026-10-02 The Bear Case 2026-10-02 Competing Theses 2026-10-02 Dexterity 2026-10-02 Generalization"
+      "text": "Recently updated 2026-10-02 The Data Bottleneck 2026-10-02 The Evaluation Crisis 2026-10-02 Industrial Deployment 2026-10-02 The Reliability Gap 2026-10-02 Generative Simulation"
     },
     {
       "label": "Tools",
       "signature": "ruled-plain/inline-label/link-line",
       "prose": "Tools",
-      "text": "Tools Playground Market Map"
+      "text": "Tools Playground How robots work Market Map"
     }
   ],
   "progressMetadataMatches": [],
-  "borderedCardCount": 2,
+  "borderedCardCount": 1,
   "structureTable": [
     {
       "index": 0,
@@ -1055,7 +1052,7 @@
       "declaredSignature": "plain/module-heading/motion-scene",
       "registeredOwner": "opus-pass-homepage",
       "registeredPurpose": "The featured scene: one registered motion scene on its poster frame that plays only when the reader starts it.",
-      "derivedStructuralForm": "transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0],button[rgb(11, 11, 12)/rgb(255, 255, 255)/1],button[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/1] || p=2,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=2,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0",
+      "derivedStructuralForm": "transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0],button[rgb(11, 11, 12)/rgb(255, 255, 255)/1],button[rgb(255, 255, 255)/rgb(11, 11, 12)/1] || p=2,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=2,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0",
       "derivedForm": "form:4",
       "derivedSurfaceHeadingActionForm": "form:4"
     },
@@ -1085,7 +1082,7 @@
       "declaredSignature": "ruled-plain/inline-label/link-line",
       "registeredOwner": "opus-pass-homepage",
       "registeredPurpose": "The tools line: one row of plain links to the playground and the market map.",
-      "derivedStructuralForm": "transparent|0,0,0,0|0|no-shadow + transparent|1solidrgb(217, 218, 219),0,0,0|0|no-shadow || no-heading || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0] || p=0,ul=1,ol=0,li=2,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0",
+      "derivedStructuralForm": "transparent|0,0,0,0|0|no-shadow + transparent|1solidrgb(217, 218, 219),0,0,0|0|no-shadow || no-heading || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0] || p=0,ul=1,ol=0,li=3,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0",
       "derivedForm": "form:7",
       "derivedSurfaceHeadingActionForm": "form:6"
     }

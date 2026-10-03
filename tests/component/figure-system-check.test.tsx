@@ -92,6 +92,16 @@ describe('figure-system check', () => {
     expect(rulesFor(extra)).toContainEqual([FIGURE, 'fold-label']);
   });
 
+  it('fails a raised plate in the frame, and passes a closed glossary or citation popover', () => {
+    const inStage = (markup: string) => plant(clean, /(<[a-z]+[^>]*data-figure-stage=""[^>]*>)/, `$1${markup}`);
+    expect(rulesFor(inStage('<div data-brand-surface-id="surface:raised">plate</div>')))
+      .toContainEqual([FIGURE, 'dark-stage']);
+    expect(rulesFor(inStage('<span role="tooltip" data-brand-surface-id="surface:floating">cited</span>')))
+      .not.toContainEqual([FIGURE, 'dark-stage']);
+    expect(rulesFor(inStage('<span class="hidden group-hover:block" data-brand-surface-id="surface:floating">term</span>')))
+      .not.toContainEqual([FIGURE, 'dark-stage']);
+  });
+
   it('finds "k = 8" planted in a stage label, and passes plain words and glossed symbols', () => {
     const hitsIn = (html: string) => {
       const frame = new DOMParser().parseFromString(page(html), 'text/html')

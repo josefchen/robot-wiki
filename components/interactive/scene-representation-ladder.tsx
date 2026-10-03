@@ -92,7 +92,7 @@ const VIEW_BOX = `${-MARGIN} ${-TITLE_BAND} ${CHART_VIEW_WIDTH} ${SCENE_DEPTH_CM
 const STATE = roleColour('state');
 const MEASUREMENT = roleColour('measurement');
 const REFERENCE = roleColour('reference');
-const STAGE_GROUND = 'var(--color-instrument)';
+const STAGE_GROUND = 'var(--motion-stage)';
 
 const UNMEASURED_DASH = '2.5 2';
 const SHADOW_OPACITY = 0.16;

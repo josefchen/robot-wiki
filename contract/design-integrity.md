@@ -490,25 +490,26 @@ The current published registry contains 57 articles. The release OG/X corpus is 
 | 57 | `/world-models/taxonomy/` | `/og/world-models/taxonomy.png` |
 | 58 | `/world-models/world-models-vs-simulators/` | `/og/world-models/world-models-vs-simulators.png` |
 
-The site card at row 1 MUST be used by exactly these 17 non-article destinations:
+The site card at row 1 MUST be used by exactly these 18 non-article destinations:
 
 1. `/`
 2. `/a-z/`
 3. `/market-map/`
 4. `/playground/`
-5. `/glossary/`
-6. `/credits/`
-7. `/editorial-policy/`
-8. `/about/`
-9. `/privacy/`
-10. `/search/`
-11. `/adjacent/`
-12. `/classical/`
-13. `/data-hardware/`
-14. `/frontier/`
-15. `/manipulation/`
-16. `/rl-sim2real/`
-17. `/world-models/`
+5. `/how-robots-work/`
+6. `/glossary/`
+7. `/credits/`
+8. `/editorial-policy/`
+9. `/about/`
+10. `/privacy/`
+11. `/search/`
+12. `/adjacent/`
+13. `/classical/`
+14. `/data-hardware/`
+15. `/frontier/`
+16. `/manipulation/`
+17. `/rl-sim2real/`
+18. `/world-models/`
 
 The search structured-image corpus is separate from OG/X: it contains exactly 114 article assets, one 1200×900 4:3 image and one 1200×1200 square image for each of the same 57 article owners, under `/structured-images/<domain>/<slug>-4x3.png` and `/structured-images/<domain>/<slug>-square.png`. Those assets are referenced by article structured data and image sitemap entries; no site-card variants exist in that directory.
 
@@ -672,7 +673,7 @@ These assertions close the first-pass review gaps. They are additive, collision-
 | `VAL-B2-A11Y-013` | Tables expose captions/names and complete header associations; every meaningful SVG/canvas has a bound textual alternative and every interactive graphic exposes keyboard-operable equivalent controls where applicable. |
 | `VAL-B2-A11Y-014` | Contrast is measured for every foreground/background pair in every declared state, including bounded dark surfaces. Because `#245FFF` is insufficient for small text on graphite, such contexts use an approved measured alternate or dual treatment while retaining signal semantics. |
 | `VAL-B2-A11Y-015` | Route × declared-state coverage for Axe, keyboard, forced colours, and the three §1.14 profiles is registry-derived and non-empty, using the exact bounded §1.15 case counts rather than a full Cartesian product; hand-picked samples, missing cases, or count disagreement cannot pass. |
-| `VAL-B2-CONT-007` | Set equality holds among module registry, fixed-route registry, app route inventory, export files, and metadata ledger: 57 article routes plus 17 non-article public destinations = 74 public destinations. The sitemap equals the 72 indexable destinations after the registered `/privacy/` and `/search/` noindex exceptions are removed; 404 is separately registered and never counted as public content. |
+| `VAL-B2-CONT-007` | Set equality holds among module registry, fixed-route registry, app route inventory, export files, and metadata ledger: 57 article routes plus 18 non-article public destinations = 75 public destinations. The sitemap equals the 73 indexable destinations after the registered `/privacy/` and `/search/` noindex exceptions are removed; 404 is separately registered and never counted as public content. |
 | `VAL-B2-CONT-008` | The metadata ledger covers canonicals, titles/descriptions, all OG/X fields, JSON-LD, manifest, favicon/touch icons, theme-colour, and 404 policy for every owning route; owner and rendered/exported values agree. |
 | `VAL-B2-CONT-009` | Residue sweeps normalize CSS/SVG/WebGL colours, inspect source literals, raw attributes, computed states, generated pixels with declared tolerance, resource/font requests, provenance, and an explicit v1→v2 migration map; active runtime documentation is in scope while exact-path historical archives are allowlisted. |
 | `VAL-B2-EVID-013` | The named suites `brand-v2-route-flows`, `brand-v2-article-interactions`, `brand-v2-market-map-states`, and `brand-v2-playground-states` preserve latest-request-wins, partial errors, URL sync, focus retention, deep-link/history restoration, tooltip parity, table keyboard behavior, and FK/IK/import/error/fallback states through ordered `steps[]`/`captures[]` and exact bounded §1.15 case counts. |

@@ -35,7 +35,7 @@ The evaluation crisis is the gap between the success rates robot learning papers
 
 ## What the success rate hides: the horizon
 
-This illustrative probability model makes no claim about a measured robot policy. Assume every decision has the same probability p of success conditional on all earlier decisions succeeding. The probability of completing n decisions without failure is then p^n. Choosing p = 0.95 and n = 30 gives 21.5% after rounding to one decimal place; choosing n = 100 gives 0.6%. Drag the episode-length slider to compare those derived examples. Real tasks need not satisfy the constant conditional-probability assumption.
+This illustrative probability model makes no claim about a measured robot policy. Assume every decision has the same probability p of success conditional on all earlier decisions succeeding. The probability of completing n decisions without failure is then p^n. Choosing p = 0.95 and n = 30 gives 21.5% after rounding to one decimal place; choosing n = 100 gives 0.6%. Drag the “How many steps the job has” slider to compare those derived examples. Real tasks need not satisfy the constant conditional-probability assumption.
 
 <PredictThenReveal
   prompt="In this illustrative model, each decision succeeds with probability 95% conditional on all earlier decisions succeeding. Roughly how many consecutive decisions bring episode success below one half?"
@@ -59,13 +59,13 @@ This illustrative probability model makes no claim about a measured robot policy
     }
   ]}
   answer="fourteen"
-  revealHint="The curve is mounted at 95.0% per-step success over 14 steps, reading 48.8% episode success: just past the coin flip. Drag the episode-length slider and watch the readout fall."
+  revealHint="The curve is mounted at 95.0% per-step success over 14 steps, reading 48.8% episode success: just past the coin flip. Drag the “How many steps the job has” slider and watch the readout fall."
   takeaway="At 95% per step, the task is a coin flip after 14 decisions and down to 21.5% after 30: the per-step number cannot be read off the task-level number."
 >
   <ReliabilityCompounding defaultPerStep={0.95} defaultSteps={14} minPerStepPercent={0} maxPerStepPercent={100} descriptionVariant="evaluation" className="mt-3" />
 </PredictThenReveal>
 
-The calculator in the reasoning panel above computes p^n at any setting. The per-step slider spans the full range on purpose, so the boundary cases are honest: at 0% per-step the task never completes once the horizon is at least one step, at 100% it always completes, and at a horizon of exactly one step the readout equals the per-step value. No setting produces a meaningless number, and the decay curve is the point. Within the same illustrative model, solving p^n = q gives p = q^(1/n). For the chosen episode target q = 0.8, n = 5 gives 95.6% and n = 30 gives 99.3%, rounded to one decimal place. These model-dependent derivations do not infer per-step reliability from real benchmark results.
+The calculator just above computes p^n at any setting. The per-step slider under “Adjust more” spans the full range on purpose, so the boundary cases are honest: at 0% per-step the task never completes once the horizon is at least one step, at 100% it always completes, and at a horizon of exactly one step the readout equals the per-step value. No setting produces a meaningless number, and the decay curve is the point. Within the same illustrative model, solving p^n = q gives p = q^(1/n). For the chosen episode target q = 0.8, n = 5 gives 95.6% and n = 30 gives 99.3%, rounded to one decimal place. These model-dependent derivations do not infer per-step reliability from real benchmark results.
 
 ## Small samples limit comparison
 

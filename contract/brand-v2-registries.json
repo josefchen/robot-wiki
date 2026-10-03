@@ -256,6 +256,13 @@
         "fingerprint": "543529864c40569adcd1e8a98dd2676b5d7969f560688b8c50f8e21458ffdf2c"
       },
       {
+        "id": "route:/how-robots-work/",
+        "path": "/how-robots-work/",
+        "publicContent": true,
+        "routeKind": "destination",
+        "fingerprint": "d75aa387a9309f5620fce315f212374de9d746c7629eddfae7959fcb5fb9c090"
+      },
+      {
         "id": "route:/manipulation/",
         "path": "/manipulation/",
         "publicContent": true,
@@ -1564,6 +1571,33 @@
       "themeColour": null,
       "notFoundPolicy": null,
       "fingerprint": "64c4659fba426395760fa716692feae328e9d2f82e4859aa9d93d1a55b4f9007"
+    },
+    {
+      "id": "metadata:/how-robots-work/",
+      "routeId": "route:/how-robots-work/",
+      "owner": "route:/how-robots-work/",
+      "ownerPath": "app/how-robots-work/page.tsx",
+      "ownerSourceFingerprint": "ec63dbd6ff75a17d8c202c58c627f9d3d0c8e885f7f5839a3576d86b5c43f1f6",
+      "canonical": "https://robot-wiki.com/how-robots-work/",
+      "title": "How Robots Work: Interactive 3D Explainers",
+      "description": "How robots work, in interactive 3D explainers: guess first, then drag, push or tilt a robot model to see why, with a source for every number.",
+      "openGraph": {
+        "type": "website",
+        "url": "https://robot-wiki.com/how-robots-work/",
+        "image": "https://robot-wiki.com/og/robot-wiki.png",
+        "width": 1200,
+        "height": 630
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "image": "https://robot-wiki.com/og/robot-wiki.png"
+      },
+      "jsonLd": [],
+      "manifest": null,
+      "icons": [],
+      "themeColour": null,
+      "notFoundPolicy": null,
+      "fingerprint": "ae885c88309dae240e3b170d2f9a932be9288ab96cea028f7c1b66c9cbb668e9"
     },
     {
       "id": "metadata:/manipulation/",
@@ -4884,9 +4918,9 @@
             "notApplicableReason": "Source does not implement a error state."
           },
           {
-            "id": "empty-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented empty witness"
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
           },
           {
             "id": "unavailable-not-applicable",
@@ -4895,7 +4929,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "7961c827dfcbb24340b417d809f23875917bf882be41f85a6460e38782f30403"
+        "fingerprint": "55e0b975522b2e178448295db8363f2dc790fb2358351613dbcefa3211c44562"
       },
       {
         "id": "interactive:DatasetTable",
@@ -5035,8 +5069,19 @@
             "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
           },
           {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
             "id": "reset",
             "kind": "reset"
+          },
+          {
+            "id": "pairwise-independent-controls",
+            "kind": "pairwise",
+            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
           },
           {
             "id": "loading-not-applicable",
@@ -5059,8 +5104,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "4001d6d4285fea068d1388b443a6bed4989a81a6ee775725553ab80fe175d637"
+        "expectedCaseCount": 11,
+        "fingerprint": "cce5e8e31db06e0ce3088b825b411d65bca4d18000ddbf9ea23b826227d76f3e"
       },
       {
         "id": "interactive:EgoScaleScaling",
@@ -5868,9 +5913,9 @@
             "notApplicableReason": "Source does not implement a error state."
           },
           {
-            "id": "empty-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented empty witness"
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
           },
           {
             "id": "unavailable-not-applicable",
@@ -5879,7 +5924,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "28fb775fda558162bc60a3eba90247348dfb9ebe3c42efe23e0bc7c0eaf5df5e"
+        "fingerprint": "2d44b1958597533aa868d0e2958ac66e400e74dadd10bd3a9a4e2e1a50970ba4"
       },
       {
         "id": "interactive:LatencyComparison",
@@ -7765,9 +7810,9 @@
             "notApplicableReason": "Source does not implement a error state."
           },
           {
-            "id": "empty-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented empty witness"
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
           },
           {
             "id": "unavailable-not-applicable",
@@ -7776,7 +7821,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "02eb2e81110e65635916aa7e2690d5d5389b341910fec96870201db91f457721"
+        "fingerprint": "0b973d059a931c76cbb6fd5c2823f19c14857c468d529f6e7dd2e502b1fc4eab"
       },
       {
         "id": "mount:/data-hardware/datasets/:DatasetTable:1",
@@ -8006,8 +8051,19 @@
             "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
           },
           {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
             "id": "reset",
             "kind": "reset"
+          },
+          {
+            "id": "pairwise-independent-controls",
+            "kind": "pairwise",
+            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
           },
           {
             "id": "loading-not-applicable",
@@ -8030,8 +8086,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "5571a2c3d8330674509c9e069e530f047ea085baefa1e597eb44d0e2e169611a"
+        "expectedCaseCount": 11,
+        "fingerprint": "59d3be95cd264618521ac1b618080c5009dd75323696b45c32c0de52feb26c34"
       },
       {
         "id": "mount:/data-hardware/teleop-rigs/:TeleopRigMatrix:1",
@@ -10222,9 +10278,9 @@
             "notApplicableReason": "Source does not implement a error state."
           },
           {
-            "id": "empty-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented empty witness"
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
           },
           {
             "id": "unavailable-not-applicable",
@@ -10233,7 +10289,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "5dc2d25f15d7361d1858b1d65d5e7085c36540267b2bb53ed36ac2995bcfa390"
+        "fingerprint": "7ab9a37682def38a7e7900988d5beb478edcb06467fc3eb41ed494ab13ef29a8"
       },
       {
         "id": "mount:/world-models/latent-dynamics/:LatentImagination:1",
@@ -10597,11 +10653,17 @@
         "callout",
         "table",
         "input",
-        "code"
+        "code",
+        "chart",
+        "diagram",
+        "simulation",
+        "media"
       ],
       "definedIn": [
         "app/page.tsx",
         "components/article/commit-to-reveal.tsx",
+        "components/explainers/brand.ts",
+        "components/explainers/how-robots-work.tsx",
         "components/home/home-search.tsx",
         "components/interactive/action-tokenization.tsx",
         "components/interactive/eureka-loop.tsx",
@@ -10649,6 +10711,7 @@
       "ownerRouteOrMount": [
         "app/page.tsx",
         "components/article/commit-to-reveal.tsx",
+        "components/explainers/how-robots-work.tsx",
         "components/home/home-search.tsx",
         "components/interactive/action-tokenization.tsx",
         "components/interactive/eureka-loop.tsx",
@@ -10688,7 +10751,7 @@
         "mdx-components.tsx"
       ],
       "mountState": "production",
-      "fingerprint": "42e2087622201c6cb29772ec0d2652ef17966a8021d1c11ff91b989088b2b754"
+      "fingerprint": "b281a867bea86067f10346622c1cac4fa31f6aab76d5dceb11d2b1fc9a295b0f"
     },
     {
       "id": "surface:raised",
@@ -10768,46 +10831,6 @@
       ],
       "mountState": "production",
       "fingerprint": "d446287f3f9cdc1edfdfe7ffac227c0230c4dc0ccb0a7f3c5bd27b1a028b1e02"
-    },
-    {
-      "id": "surface:bounded-dark-instrument",
-      "level": "bounded-dark",
-      "stackingPurpose": "technical-instrument",
-      "allowedRadiusPx": [
-        0,
-        2,
-        4,
-        8
-      ],
-      "border": {
-        "allowedWidthsPx": [
-          1
-        ],
-        "styles": [
-          "solid"
-        ]
-      },
-      "shadow": {
-        "neutralOnly": true,
-        "maxBlurPx": 0,
-        "maxAlpha": 0
-      },
-      "allowedOwners": [
-        "chart",
-        "diagram",
-        "simulation",
-        "code",
-        "media",
-        "playground"
-      ],
-      "definedIn": [
-        "components/ui/surface.tsx"
-      ],
-      "ownerRouteOrMount": [
-        "components/ui/surface.tsx"
-      ],
-      "mountState": "production",
-      "fingerprint": "05dfda21b01d36f07a567ee7c22e67ad29f8e49cb4af620cf3ed2247be87032e"
     }
   ],
   "pageFrames": [
@@ -10874,6 +10897,7 @@
             "app/a-z/page.tsx",
             "app/credits/page.tsx",
             "app/glossary/page.tsx",
+            "app/how-robots-work/page.tsx",
             "app/market-map/page.tsx",
             "app/not-found.tsx",
             "app/playground/page.tsx",
@@ -10910,7 +10934,7 @@
       ],
       "ogRoleId": "home-wordmark",
       "assignedStringCount": 67,
-      "fingerprint": "acb34750f3af2246e4d000da91d9964a81281c0e3e96ddb0a767ea0776999197"
+      "fingerprint": "c45568533033a9bfa150ca65e4dc73b3a9a1a5119b590079b7f3705a2a34ae5e"
     },
     {
       "id": "type:interface",
@@ -10943,11 +10967,13 @@
         "disabled"
       ],
       "definedIn": [
+        "components/explainers/how-robots-work.tsx",
         "components/motion/scene-mount.tsx",
         "components/motion/scene-player.tsx",
         "components/ui/action.tsx"
       ],
       "ownerRouteOrMount": [
+        "components/explainers/how-robots-work.tsx",
         "components/motion/scene-mount.tsx",
         "components/motion/scene-player.tsx",
         "components/ui/action.tsx"
@@ -10960,7 +10986,7 @@
         "exceptions": []
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "82dd34ae5f8d197271bba64a11d46bc2a8b3c03bb11ddc189f23c8e89a468470"
+      "fingerprint": "2dbe3654a750213b958605ff60b131aa256ce56b5ac0a0ad504f2ad7860b743e"
     },
     {
       "id": "control:secondary-action",
@@ -10979,6 +11005,8 @@
         "components/article/author-list.tsx",
         "components/article/commit-to-reveal.tsx",
         "components/article/heading-permalink.tsx",
+        "components/explainers/brand.ts",
+        "components/explainers/how-robots-work.tsx",
         "components/interactive/appearance-physics-push.tsx",
         "components/interactive/comparison-matrix.tsx",
         "components/interactive/dataset-table.tsx",
@@ -11017,6 +11045,7 @@
         "components/article/author-list.tsx",
         "components/article/commit-to-reveal.tsx",
         "components/article/heading-permalink.tsx",
+        "components/explainers/how-robots-work.tsx",
         "components/interactive/appearance-physics-push.tsx",
         "components/interactive/comparison-matrix.tsx",
         "components/interactive/dataset-table.tsx",
@@ -11062,7 +11091,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "799f4edeb1afd60728229f17f20c88abb4452f07e1e462aae89326d5b0d93b60"
+      "fingerprint": "51892a2c75ad5194994242d583c292a3f1313b5bc44459d992f3ee723c8a4ba8"
     },
     {
       "id": "control:selection",
@@ -11082,7 +11111,7 @@
       ],
       "definedIn": [
         "components/article/commit-to-reveal.tsx",
-        "components/interactive/action-conditioning.tsx",
+        "components/explainers/brand.ts",
         "components/interactive/action-tokenization.tsx",
         "components/interactive/advantage-scrubber.tsx",
         "components/interactive/appearance-physics-push.tsx",
@@ -11090,9 +11119,7 @@
         "components/interactive/compounding-error.tsx",
         "components/interactive/contact-geometry.tsx",
         "components/interactive/cross-embodiment-strategies.tsx",
-        "components/interactive/data-scale-chart.tsx",
         "components/interactive/dataset-table.tsx",
-        "components/interactive/deployment-dashboard.tsx",
         "components/interactive/egoscale-scaling.tsx",
         "components/interactive/flow-matching-trajectory.tsx",
         "components/interactive/gait-diagram.tsx",
@@ -11101,14 +11128,11 @@
         "components/interactive/hardware-guide.tsx",
         "components/interactive/hierarchy-timescales.tsx",
         "components/interactive/impedance-contact-lab.tsx",
-        "components/interactive/jepa-planning.tsx",
-        "components/interactive/latent-imagination.tsx",
         "components/interactive/milestones-watchlist.tsx",
         "components/interactive/mot-insulation.tsx",
         "components/interactive/mpc-vs-rl.tsx",
         "components/interactive/perception-error-budget.tsx",
         "components/interactive/pi-generation-timeline.tsx",
-        "components/interactive/reliability-compounding.tsx",
         "components/interactive/sample-efficiency-ledger.tsx",
         "components/interactive/scene-representation-ladder.tsx",
         "components/interactive/teleop-rig-matrix.tsx",
@@ -11126,7 +11150,6 @@
       ],
       "ownerRouteOrMount": [
         "components/article/commit-to-reveal.tsx",
-        "components/interactive/action-conditioning.tsx",
         "components/interactive/action-tokenization.tsx",
         "components/interactive/advantage-scrubber.tsx",
         "components/interactive/appearance-physics-push.tsx",
@@ -11134,9 +11157,7 @@
         "components/interactive/compounding-error.tsx",
         "components/interactive/contact-geometry.tsx",
         "components/interactive/cross-embodiment-strategies.tsx",
-        "components/interactive/data-scale-chart.tsx",
         "components/interactive/dataset-table.tsx",
-        "components/interactive/deployment-dashboard.tsx",
         "components/interactive/egoscale-scaling.tsx",
         "components/interactive/flow-matching-trajectory.tsx",
         "components/interactive/generalist-release-timeline.tsx",
@@ -11144,14 +11165,11 @@
         "components/interactive/hardware-guide.tsx",
         "components/interactive/hierarchy-timescales.tsx",
         "components/interactive/impedance-contact-lab.tsx",
-        "components/interactive/jepa-planning.tsx",
-        "components/interactive/latent-imagination.tsx",
         "components/interactive/milestones-watchlist.tsx",
         "components/interactive/mot-insulation.tsx",
         "components/interactive/mpc-vs-rl.tsx",
         "components/interactive/perception-error-budget.tsx",
         "components/interactive/pi-generation-timeline.tsx",
-        "components/interactive/reliability-compounding.tsx",
         "components/interactive/sample-efficiency-ledger.tsx",
         "components/interactive/scene-representation-ladder.tsx",
         "components/interactive/teleop-rig-matrix.tsx",
@@ -11178,7 +11196,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "9339df15c38efc51ef76abdf68a539d400520ff682c496a7dec62e7d401e7295"
+      "fingerprint": "16853d02d4246fb059f7c449409d3f65a2d77580f70d4e0bd9fbee7ae9de09fa"
     },
     {
       "id": "control:link-focus",
@@ -11210,6 +11228,8 @@
         "components/article/commit-to-reveal.tsx",
         "components/article/correction-link.tsx",
         "components/article/references.tsx",
+        "components/explainers/brand.ts",
+        "components/explainers/how-robots-work.tsx",
         "components/home/contents-index.tsx",
         "components/home/did-you-know.tsx",
         "components/interactive/comparison-matrix.tsx",
@@ -11256,6 +11276,7 @@
         "components/article/commit-to-reveal.tsx",
         "components/article/correction-link.tsx",
         "components/article/references.tsx",
+        "components/explainers/how-robots-work.tsx",
         "components/home/contents-index.tsx",
         "components/home/did-you-know.tsx",
         "components/interactive/comparison-matrix.tsx",
@@ -11304,7 +11325,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "8aa4163fac7a093e0218da07a92c4a9746f353e90351ffd849c5c26c63e3332a"
+      "fingerprint": "8de6b8f8b1784c4d35b884ae8e87b962c3994d6f3fd7f1fc9920d24aa436108c"
     },
     {
       "id": "control:segmented",
@@ -11322,10 +11343,14 @@
         "disabled"
       ],
       "definedIn": [
+        "components/explainers/brand.ts",
+        "components/ui/instrument.tsx",
         "components/ui/tabs.tsx"
       ],
-      "ownerRouteOrMount": [],
-      "mountState": "library-only",
+      "ownerRouteOrMount": [
+        "components/ui/instrument.tsx"
+      ],
+      "mountState": "production",
       "disabledException": null,
       "targetSize": {
         "minimumPx": 24,
@@ -11333,7 +11358,7 @@
         "exceptions": []
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "d71f07d6b907585e083ba04f95c674a9c7fa9b0a2be7cdfb137927bdc96322f9"
+      "fingerprint": "f9ff0614279cf5b8083d21220ea3d76254a20af6830875dcc640fabc31f70e51"
     },
     {
       "id": "control:input",
@@ -11352,6 +11377,7 @@
         "disabled"
       ],
       "definedIn": [
+        "components/explainers/brand.ts",
         "components/home/home-search.tsx",
         "components/interactive/action-tokenization.tsx",
         "components/interactive/advantage-scrubber.tsx",
@@ -11454,7 +11480,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "26a0e4c38b4fe94a6e825931508b9a64636850dbd73aed4f19b0ac6815136fe5"
+      "fingerprint": "bb4ffc5de6e54634dd9c58463ad24a93f330ef8bef6772c4be94e7a65017f0f4"
     },
     {
       "id": "control:disabled",
@@ -11508,5 +11534,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "d26309618c7b2a6c9e2fc03c9890625683b5ce49d4a713f57c4fc02858c00fb8"
+  "rootFingerprint": "8aa7b54400d3317bc2476090bf974e1570266c0e50d5f6ffa875d73a7fa13959"
 }

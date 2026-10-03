@@ -116,7 +116,7 @@ function CreditLine({ credit, className }: { credit: FigureCredit; className: st
  * An original schematic is drawn inline in the shared figure frame, so its
  * labels sit on the stage type scale. The frame takes the drawing's own
  * one-line caption: the registry caption is the longer record and runs past
- * the frame's 20-word limit.
+ * the frame's caption limit.
  */
 function SchematicFigure({
   imageId,
@@ -148,7 +148,7 @@ function SchematicFigure({
         <FigureStage>
           <span
             data-figure-label
-            className="block px-3 pt-2.5 font-sans text-xs font-semibold leading-none text-instrument-muted"
+            className="block pb-1 font-sans text-sm font-medium leading-snug text-text-dim"
           >
             {SCHEMATIC_LABEL}
           </span>

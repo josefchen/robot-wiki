@@ -39,7 +39,7 @@
   --color-registration: var(--color-signal);
   --color-active-path: var(--color-signal);
 
-  /* Light-led surface roles plus the bounded-dark instrument exception. */
+  /* Light-led surface roles. */
   --color-bg: var(--color-paper);
   --color-surface: var(--color-white);
   --color-surface-2: color-mix(
@@ -55,9 +55,6 @@
   );
   --color-text: var(--color-ink);
   --color-text-dim: var(--color-graphite);
-  --color-instrument: var(--color-graphite);
-  --color-on-instrument: var(--color-white);
-  --color-instrument-muted: var(--color-concrete);
 
   /*
    * Compatibility aliases keep existing consumers stable while later
@@ -674,28 +671,28 @@ article > hr {
 }
 
 /*
- * The bounded-dark instrument under forced colours.
+ * The figure stage under forced colours.
  *
- * A forced palette replaces the instrument's graphite ground with the
- * reader's canvas but leaves the authored mark colours where they are, so
- * the instrument would print its near-white marks on a near-white ground and
- * disappear. These rules hand the figure/ground relationship back to the
- * system colours the reader chose. They are unlayered on purpose: the
- * surface primitive paints through Tailwind utilities, and a rule in
+ * A forced palette replaces the page ground with the reader's canvas but
+ * leaves the authored SVG mark colours where they are, so a dark-on-paper
+ * drawing would print its dark marks on a dark canvas and disappear. These
+ * rules hand the figure/ground relationship back to the system colours the
+ * reader chose; direct labels keep the series apart. They are unlayered on
+ * purpose: the stage paints through Tailwind utilities, and a rule in
  * @layer base would lose to them.
  */
 @media (forced-colors: active) {
-  [data-brand-surface-id='surface:bounded-dark-instrument'],
-  [data-brand-surface-id='surface:bounded-dark-instrument'] * {
+  [data-figure-stage],
+  [data-figure-stage] * {
     background-color: Canvas;
     color: CanvasText;
   }
 
-  [data-brand-surface-id='surface:bounded-dark-instrument'] svg [stroke] {
+  [data-figure-stage] svg [stroke] {
     stroke: CanvasText;
   }
 
-  [data-brand-surface-id='surface:bounded-dark-instrument'] svg text {
+  [data-figure-stage] svg text {
     fill: CanvasText;
   }
 }

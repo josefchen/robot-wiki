@@ -5,7 +5,7 @@ import {
   FIGURE_RUNTIME_EVIDENCE_PATH,
   altTextAndDeliveryVerdicts,
   captionAndCreditVerdicts,
-  darkInstrumentVerdicts,
+  schematicFigureVerdicts,
   expectedFigureGraph,
   figureEvidenceFingerprint,
   figureOccurrenceMembers,
@@ -135,7 +135,7 @@ describe('the committed figure sweep', () => {
   it('is the sweep this tree needs, and every rendered row passes on it', () => {
     const read = evidence();
     expect(read.routes).toEqual([...expectedFigureGraph(ROOT).keys()].sort());
-    expect(failuresOf(darkInstrumentVerdicts(read))).toEqual([]);
+    expect(failuresOf(schematicFigureVerdicts(read))).toEqual([]);
     expect(failuresOf(schematicSelfIdentificationVerdicts(read))).toEqual([]);
     expect(failuresOf(captionAndCreditVerdicts(read))).toEqual([]);
     expect(failuresOf(altTextAndDeliveryVerdicts(read))).toEqual([]);
@@ -207,11 +207,11 @@ describe('the figure evidence reader', () => {
     ).toThrow(/where the registry declares original-schematic/);
   });
 
-  it('refuses a dark plate under something that is not a schematic', () => {
+  it('refuses a figure stage under something that is not a schematic', () => {
     expect(() =>
       readFigureRuntimeEvidence({
         artifact: withFigure(photograph, {
-          surfaceId: 'surface:bounded-dark-instrument',
+          surfaceId: 'surface:flat',
         }),
         fingerprint,
         root: ROOT,
@@ -220,8 +220,8 @@ describe('the figure evidence reader', () => {
   });
 });
 
-describe('VAL-B2-ART-004 bounded dark instruments', () => {
-  it('reports a diagram that lost its instrument', () => {
+describe('VAL-B2-ART-004 diagrams on the page ground', () => {
+  it('reports a diagram that lost its stage', () => {
     const read = mutated(schematic, {
         surfaceId: null,
         surfaceLuminance: null,
@@ -231,21 +231,21 @@ describe('VAL-B2-ART-004 bounded dark instruments', () => {
       });
     // The reader accepts it only because the mutation also drops the kind
     // agreement check's subject; the verdict is what has to catch it.
-    const failures = failuresOf(darkInstrumentVerdicts(read));
+    const failures = failuresOf(schematicFigureVerdicts(read));
     expect(failures.some((f) => /rather than the registered/.test(f))).toBe(true);
   });
 
-  it('reports an instrument whose edge disappears into the page', () => {
+  it('reports a diagram drawn back onto a dark plate', () => {
     const failures = failuresOf(
-      darkInstrumentVerdicts(mutated(schematic, { boundaryContrast: 1.2 })),
+      schematicFigureVerdicts(mutated(schematic, { surfaceLuminance: 0.023 })),
     );
-    expect(failuresOf(darkInstrumentVerdicts(evidence()))).toEqual([]);
-    expect(failures.some((f) => /below the 3:1 floor/.test(f))).toBe(true);
+    expect(failuresOf(schematicFigureVerdicts(evidence()))).toEqual([]);
+    expect(failures.some((f) => /below the 0.8 floor/.test(f))).toBe(true);
   });
 
-  it('reports an inverse label a reader cannot read on the plate', () => {
+  it('reports a label a reader cannot read on the stage', () => {
     const failures = failuresOf(
-      darkInstrumentVerdicts(
+      schematicFigureVerdicts(
         mutated(schematic, { labelContrast: 2.1 }),
       ),
     );
@@ -254,7 +254,7 @@ describe('VAL-B2-ART-004 bounded dark instruments', () => {
 
   it('reports a diagram whose textual description is a label', () => {
     const failures = failuresOf(
-      darkInstrumentVerdicts(
+      schematicFigureVerdicts(
         mutated(schematic, { alt: 'A diagram of things' }),
       ),
     );

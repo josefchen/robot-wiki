@@ -5,21 +5,21 @@ smooth() is a different sigmoid, so smooth() here overrides it with the
 motion language's curve. Keep this file generated.
 """
 
-STAGE_BACKGROUND = "#242D33"
-STAGE_AXES = "#D9DADB"
-STAGE_AXES_OPACITY = 0.45
-STAGE_GRID_OPACITY = 0.08
-STAGE_LABEL = "#FFFFFF"
-STAGE_LABEL_SECONDARY = "#D9DADB"
+STAGE_BACKGROUND = "#F5F6F7"
+STAGE_AXES = "#242D33"
+STAGE_AXES_OPACITY = 0.6
+STAGE_GRID_OPACITY = 0.7
+STAGE_LABEL = "#0B0B0C"
+STAGE_LABEL_SECONDARY = "#242D33"
 
 ROLE_COLORS = {
-    'state': '#58C4DD',
-    'measurement': '#E8C11C',
-    'action': '#B189C6',
-    'value': '#A6CF8C',
-    'constraint': '#FC6255',
-    'reference': '#D9DADB',
-    'highlight': '#C6FF19',
+    'state': '#007A91',
+    'measurement': '#8E6A00',
+    'action': '#866299',
+    'value': '#56793D',
+    'constraint': '#CB3B32',
+    'reference': '#6E6F70',
+    'highlight': '#507C00',
 }
 
 ROLE_ENCODINGS = {
@@ -29,7 +29,7 @@ ROLE_ENCODINGS = {
     'value': "filled bars or areas",
     'constraint': "45 degree hatch fill",
     'reference': "dashed 1.5 px",
-    'highlight': "underlay or halo, never a stroke on light",
+    'highlight': "dark-green note and leader line; a lime halo marks at most one point, never a control fill",
 }
 
 UNCERTAINTY_FILL_ALPHA = 0.22

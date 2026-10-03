@@ -4,6 +4,7 @@ import { expect, test, type Locator, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { CITATIONS, citationLabel, citationMeta } from '../../data/citations';
 import { GLOSSARY } from '../../data/glossary';
+import { openAdjustMore } from './helpers/figure-fold';
 import { setSlider } from './slider';
 
 const evaluation = '/data-hardware/evaluation-crisis/';
@@ -140,13 +141,13 @@ for (const width of [375, 1440]) {
         if (route === bottleneck) {
           // The page's one data-scale chart is the reveal of its prediction step.
           await page.locator('[data-predict]:has([data-figure-frame="data-scale-chart"]) details[data-reveal] > summary').click();
-          const slider = page.getByRole('slider', { name: /Teleoperation rigs/ }).first();
+          const slider = page.getByRole('slider', { name: /teleoperation rigs/ }).first();
           const summary = page.getByTestId('projection-summary').first();
           const before = await summary.innerText();
           await slider.focus();
           await page.keyboard.press('ArrowRight');
           await expect(summary).not.toHaveText(before);
-          await expect(page.locator('svg[aria-label^="Demonstration hours"]').first()).toContainText('TRI LBM');
+          await expect(page.locator('svg[aria-label^="Chatbot training text"]').first()).toContainText('TRI LBM');
         }
       }
       if (process.env.DR_READER_OUT) fs.writeFileSync(
@@ -169,10 +170,12 @@ for (const width of [375, 1440]) {
       await expect(prose).not.toContainText('Only the 50-trial number');
       await page.getByRole('heading', { name: 'Small samples limit comparison' }).scrollIntoViewIfNeeded();
       await capture(page, `science-${width}`);
-      // The page's one calculator is the reveal of its prediction step.
+      // The page's one calculator is its prediction step's figure, shown at
+      // settle; the per-step slider and Reset sit in its "Adjust more" fold.
       const step = page.locator('[data-predict]:has(svg[aria-label^="Line chart of episode success"])');
       await step.locator('details[data-reveal] > summary').click();
       const mount = step.locator('[data-brand-module-signature="instrument-frame"]');
+      await openAdjustMore(mount);
       await setSlider(mount.getByRole('slider', { name: /per-step success/i }), 95);
       await setSlider(mount.getByRole('slider', { name: /episode length/i }), 30);
       await expect(mount.getByTestId('episode-success-readout')).toHaveText('21.5%');

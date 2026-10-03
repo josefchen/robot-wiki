@@ -1,150 +1,119 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { ActionConditioning } from '@/components/interactive/action-conditioning';
 
 function sensitivity(): number {
-  const el = screen.getByTestId('sensitivity-readout');
-  const value = Number.parseFloat(el.textContent ?? '');
-  expect(Number.isFinite(value)).toBe(true);
-  return value;
-}
-
-function realism(): number {
-  const el = screen.getByTestId('realism-readout');
-  const value = Number.parseFloat(el.textContent ?? '');
+  const value = Number.parseFloat(screen.getByTestId('sensitivity-readout').textContent ?? '');
   expect(Number.isFinite(value)).toBe(true);
   return value;
 }
 
 function finalBlockX(panel: 'a' | 'b'): number {
-  const el = screen.getByTestId(`block-${panel}-4`);
-  return Number(el.getAttribute('x'));
+  return Number(screen.getByTestId(`block-${panel}-4`).getAttribute('x'));
+}
+
+const model = (name: RegExp) => screen.getByRole('button', { name });
+const listens = () => model(/^listens to the action$/i);
+const ignores = () => model(/^ignores the action$/i);
+
+function adjustFold(container: HTMLElement): HTMLElement {
+  return container.querySelector<HTMLElement>('[data-figure-fold="adjust"]')!;
+}
+
+function command(container: HTMLElement, group: 'First command' | 'Second command', name: RegExp) {
+  const fold = adjustFold(container);
+  return within(within(fold).getByRole('group', { name: group })).getByRole('button', { name });
 }
 
 describe('ActionConditioning', () => {
-  it('renders the shared initial frame, two rollout panels, action controls, readouts, and reset', () => {
-    render(<ActionConditioning />);
-    expect(screen.getByTestId('initial-frame')).toBeInTheDocument();
-    expect(screen.getByTestId('rollout-panel-a')).toBeInTheDocument();
-    expect(screen.getByTestId('rollout-panel-b')).toBeInTheDocument();
-    // A control offering at least two distinct actions per rollout.
-    expect(
-      screen.getAllByRole('button', { name: /push left/i }),
-    ).toHaveLength(2);
-    expect(
-      screen.getAllByRole('button', { name: /lift gripper/i }),
-    ).toHaveLength(2);
-    expect(screen.getByTestId('sensitivity-readout')).toBeInTheDocument();
-    expect(screen.getByTestId('realism-readout')).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /reset/i })).toBeInTheDocument();
+  it('shows the video-model choice, with both command pickers and reset under "Adjust more"', () => {
+    const { container } = render(<ActionConditioning />);
+    expect(listens()).toHaveAttribute('aria-pressed', 'true');
+    expect(ignores()).toHaveAttribute('aria-pressed', 'false');
+    const fold = adjustFold(container);
+    expect(within(fold).getByRole('group', { name: 'First command' })).toBeInTheDocument();
+    expect(within(fold).getByRole('group', { name: 'Second command' })).toBeInTheDocument();
+    expect(command(container, 'First command', /^push left$/i)).toHaveAttribute('aria-pressed', 'true');
+    expect(command(container, 'Second command', /^lift gripper$/i)).toHaveAttribute('aria-pressed', 'true');
+    expect(within(fold).getByRole('button', { name: /^reset$/i })).toBeInTheDocument();
   });
 
-  it('defaults to strong conditioning with diverging rollouts above the threshold', () => {
+  it('draws one start frame and two labelled futures, and the first frame states the insight', () => {
     render(<ActionConditioning />);
-    expect(
-      screen.getByRole('button', { name: /strong conditioning/i }),
-    ).toHaveAttribute('aria-pressed', 'true');
-    expect(sensitivity()).toBeGreaterThan(0.3);
+    expect(screen.getByTestId('initial-frame')).toHaveTextContent(/now/i);
+    expect(screen.getByTestId('rollout-panel-a')).toHaveTextContent(/push left/i);
+    expect(screen.getByTestId('rollout-panel-b')).toHaveTextContent(/lift gripper/i);
+    expect(screen.getByTestId('action-note')).toHaveTextContent(/two different futures/i);
+    expect(screen.getByTestId('action-note')).toHaveTextContent(/the model is listening/i);
+    expect(sensitivity()).toBeCloseTo(0.419, 3);
     expect(finalBlockX('a')).not.toBe(finalBlockX('b'));
   });
 
-  it('collapses both rollouts to near-identical futures under weak conditioning while realism stays high', async () => {
+  it('collapses both futures when the model ignores the action, while realism stays the same', async () => {
     const user = userEvent.setup();
     render(<ActionConditioning />);
-    const realismStrong = realism();
-    expect(realismStrong).toBeGreaterThanOrEqual(0.85);
-    await user.click(
-      screen.getByRole('button', { name: /weak conditioning/i }),
-    );
-    expect(sensitivity()).toBeLessThan(0.05);
-    // The final frames of both rollouts now match to within a pixel or two
-    // (the weak model keeps a 4% whisper of the action, so they are
-    // near-identical rather than bit-identical).
-    expect(Math.abs(finalBlockX('a') - finalBlockX('b'))).toBeLessThan(2);
-    // Realism does not move with sensitivity: the decoupling is the point.
-    expect(realism()).toBe(realismStrong);
+    expect(screen.getByTestId('realism-readout')).toHaveTextContent('0.91');
+    await user.click(ignores());
+    expect(ignores()).toHaveAttribute('aria-pressed', 'true');
+    expect(sensitivity()).toBeLessThan(0.3);
+    expect(Math.abs(finalBlockX('a') - finalBlockX('b'))).toBeLessThan(5);
+    expect(screen.getByTestId('action-note')).toHaveTextContent(/same future for both commands/i);
+    expect(screen.getByTestId('action-note')).toHaveTextContent(/ignored the robot/i);
+    expect(screen.getByTestId('realism-readout')).toHaveTextContent('0.91');
   });
 
-  it('reproduces the same score when the same action and conditioning are re-selected', async () => {
-    const user = userEvent.setup();
-    render(<ActionConditioning />);
-    const before = sensitivity();
-    // Swap rollout B from lift to push right: a different action pair gives
-    // a different distance between the two futures.
-    await user.click(screen.getAllByRole('button', { name: /push right/i })[1]);
-    expect(sensitivity()).not.toBe(before);
-    await user.click(screen.getAllByRole('button', { name: /lift gripper/i })[1]);
-    expect(sensitivity()).toBe(before);
-  });
-
-  it('reports identical futures when both rollouts use the same action', async () => {
-    const user = userEvent.setup();
-    render(<ActionConditioning />);
-    await user.click(
-      screen.getAllByRole('button', { name: /push left/i })[1],
-    );
-    expect(sensitivity()).toBe(0);
-  });
-
-  it('reset restores the default actions and strong conditioning', async () => {
-    const user = userEvent.setup();
-    render(<ActionConditioning />);
-    const initial = sensitivity();
-    await user.click(
-      screen.getByRole('button', { name: /weak conditioning/i }),
-    );
-    await user.click(
-      screen.getAllByRole('button', { name: /push right/i })[0],
-    );
-    await user.click(screen.getByRole('button', { name: /reset/i }));
-    expect(sensitivity()).toBe(initial);
-    expect(
-      screen.getByRole('button', { name: /strong conditioning/i }),
-    ).toHaveAttribute('aria-pressed', 'true');
-    expect(screen.getByTestId('initial-frame')).toBeInTheDocument();
-    // Default pair: A = push left, B = lift gripper.
-    const panelA = screen.getByTestId('rollout-panel-a');
-    const panelB = screen.getByTestId('rollout-panel-b');
-    expect(panelA).toHaveTextContent(/push left/i);
-    expect(panelB).toHaveTextContent(/lift gripper/i);
-  });
-
-  it('exposes accessible chart labels describing both rollouts', () => {
-    render(<ActionConditioning />);
-    expect(
-      screen.getByRole('img', { name: /shared initial frame/i }),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole('img', { name: /rollout a/i }),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole('img', { name: /rollout b/i }),
-    ).toBeInTheDocument();
-  });
-
-  it('shares one state description across the three roots and tracks conditioning', async () => {
+  it('reproduces the same score when the same commands are chosen again', async () => {
     const user = userEvent.setup();
     const { container } = render(<ActionConditioning />);
-    const initial = screen.getByRole('img', { name: /shared initial frame/i });
-    const rolloutA = screen.getByRole('img', { name: /rollout a/i });
-    const rolloutB = screen.getByRole('img', { name: /rollout b/i });
-    expect(initial.getAttribute('aria-describedby')).toBe(
-      rolloutA.getAttribute('aria-describedby'),
-    );
-    expect(rolloutA.getAttribute('aria-describedby')).toBe(
-      rolloutB.getAttribute('aria-describedby'),
-    );
-    const id = initial.getAttribute('aria-describedby');
-    const desc = container.querySelector(`[id="${CSS.escape(id!)}"]`);
-    expect(desc?.textContent).toMatch(/action sensitivity is 0\.419/);
-    expect(desc?.textContent).toMatch(/diverge across 4 predicted frames/);
-    await user.click(screen.getByRole('button', { name: /weak conditioning/i }));
-    expect(
-      container.querySelector('[data-chart-description]')?.textContent,
-    ).toMatch(/stay near-identical across 4 predicted frames/);
-    expect(
-      container.querySelector('[data-chart-description]')?.textContent,
-    ).toMatch(/action sensitivity is 0\.017/);
+    const first = sensitivity();
+    await user.click(command(container, 'Second command', /^push right$/i));
+    expect(sensitivity()).not.toBe(first);
+    await user.click(command(container, 'Second command', /^lift gripper$/i));
+    expect(sensitivity()).toBe(first);
+  });
+
+  it('says the futures match by definition when both commands are the same', async () => {
+    const user = userEvent.setup();
+    const { container } = render(<ActionConditioning />);
+    await user.click(command(container, 'Second command', /^push left$/i));
+    expect(sensitivity()).toBe(0);
+    expect(screen.getByTestId('action-note')).toHaveTextContent(/same command twice/i);
+    expect(container.querySelector('[data-chart-description]')?.textContent).toMatch(/same by definition/);
+  });
+
+  it('reset restores the default commands and the listening model', async () => {
+    const user = userEvent.setup();
+    const { container } = render(<ActionConditioning />);
+    await user.click(ignores());
+    await user.click(command(container, 'First command', /^push right$/i));
+    await user.click(within(adjustFold(container)).getByRole('button', { name: /^reset$/i }));
+    expect(listens()).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByTestId('rollout-panel-a')).toHaveTextContent(/push left/i);
+    expect(screen.getByTestId('rollout-panel-b')).toHaveTextContent(/lift gripper/i);
+    expect(sensitivity()).toBeCloseTo(0.419, 3);
+  });
+
+  it('keeps the method, the scores and the open state description in "How this was made"', () => {
+    const { container } = render(<ActionConditioning />);
+    const method = container.querySelector<HTMLElement>('[data-figure-fold="method"]')!;
+    expect(method).toHaveTextContent(/average distance between the two imagined futures/i);
+    expect(within(method).getByTestId('sensitivity-readout')).toHaveTextContent('0.419');
+    expect(within(method).getByTestId('realism-readout')).toHaveTextContent('0.91');
+    expect(method).toHaveTextContent(/hand-set/i);
+    const details = method.querySelector<HTMLDetailsElement>('details[data-chart-form="state"]');
+    expect(details?.open).toBe(true);
+  });
+
+  it('describes the current pair through one stage and tracks the model choice', async () => {
+    const user = userEvent.setup();
+    const { container } = render(<ActionConditioning />);
+    const stage = screen.getByRole('img', { name: /one start frame splits into two imagined futures/i });
+    const desc = container.querySelector(`[id="${stage.getAttribute('aria-describedby')}"]`);
+    expect(desc?.textContent).toMatch(/lead to different futures across 4 imagined frames/);
+    expect(desc?.textContent).toMatch(/action sensitivity is 0\.419, above the 0\.30 threshold/);
+    await user.click(ignores());
+    expect(container.querySelector(`[id="${stage.getAttribute('aria-describedby')}"]`)?.textContent)
+      .toMatch(/lead to nearly the same future across 4 imagined frames: action sensitivity is 0\.017/);
   });
 });

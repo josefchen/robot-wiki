@@ -251,17 +251,19 @@ describe('state-form chart descriptions', () => {
     expect(moved).not.toBe(text);
   });
 
-  it('WmDisambiguator describes the selected paradigm and tracks the panels', () => {
+  it('WmDisambiguator describes the selected group and tracks the form it imagines', () => {
     const { container } = render(<WmDisambiguator />);
     const { text } = assertDescribed(
-      screen.getByRole('img', { name: /latent-dynamics panel art/i }),
+      screen.getByRole('img', { name: /robot arm above a cup/i }),
       container,
     );
     expect(text).toMatch(/Dreamer-style/);
-    fireEvent.click(screen.getByRole('button', { name: /^JEPA/i }));
+    fireEvent.click(screen.getByRole('button', { name: 'Pictures' }));
     const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
     expect(moved).not.toBe(text);
-    expect(moved).toMatch(/dist 0\.31/);
+    expect(moved).toMatch(/one of 2 groups out of 6 that imagine the next picture/);
+    fireEvent.click(screen.getByRole('button', { name: /^JEPA/i }));
+    expect(container.querySelector('[data-chart-description]')?.textContent).toMatch(/never pixels/);
   });
 
   it('RewardShaping names the attractor and tracks a dominant weight', () => {
@@ -276,20 +278,12 @@ describe('state-form chart descriptions', () => {
     expect(moved).toMatch(/freeze attractor/);
   });
 
-  it('ActionConditioning shares one description across the three frames', () => {
+  it('ActionConditioning describes its one stage and tracks the video model', () => {
     const { container } = render(<ActionConditioning />);
-    const initial = screen.getByRole('img', { name: /shared initial frame/i });
-    const rolloutA = screen.getByRole('img', { name: /rollout a/i });
-    const rolloutB = screen.getByRole('img', { name: /rollout b/i });
-    expect(initial.getAttribute('aria-describedby')).toBe(
-      rolloutA.getAttribute('aria-describedby'),
-    );
-    expect(rolloutA.getAttribute('aria-describedby')).toBe(
-      rolloutB.getAttribute('aria-describedby'),
-    );
-    const { text } = assertDescribed(initial, container);
+    const stage = screen.getByRole('img', { name: /one start frame splits into two imagined futures/i });
+    const { text } = assertDescribed(stage, container);
     expect(text).toMatch(/action sensitivity is 0\.419/);
-    fireEvent.click(screen.getByRole('button', { name: /weak conditioning/i }));
+    fireEvent.click(screen.getByRole('button', { name: /^ignores the action$/i }));
     const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
     expect(moved).not.toBe(text);
     expect(moved).toMatch(/0\.017/);
@@ -297,36 +291,36 @@ describe('state-form chart descriptions', () => {
 
   it('JepaPlanning shares one description across plane and trace', () => {
     const { container } = render(<JepaPlanning />);
-    const plane = screen.getByRole('img', { name: /latent space/i });
-    const trace = screen.getByRole('img', { name: /goal-embedding distance/i });
+    const plane = screen.getByRole('img', { name: /compact summaries/i });
+    const trace = screen.getByRole('img', { name: /distance left to the goal/i });
     expect(plane.getAttribute('aria-describedby')).toBe(
       trace.getAttribute('aria-describedby'),
     );
     const { text } = assertDescribed(plane, container);
-    expect(text).toMatch(/search budget of 24 sequences/);
-    fireEvent.change(screen.getByRole('slider', { name: /search budget/i }), {
+    expect(text).toMatch(/With 24 options tried each step/);
+    fireEvent.change(screen.getByRole('slider', { name: /options tried each step/i }), {
       target: { value: '8' },
     });
     const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
     expect(moved).not.toBe(text);
-    expect(moved).toMatch(/8 sequences/);
+    expect(moved).toMatch(/fan of 8 tried moves/);
   });
 
-  it('LatentImagination rollout describes the peel and tracks horizon', () => {
+  it('LatentImagination throw describes the drift and tracks the look-ahead', () => {
     const { container } = render(<LatentImagination />);
     const { text } = assertDescribed(
-      screen.getByRole('img', { name: /imagined rollout/i }),
+      screen.getByRole('img', { name: /a robot arm throws a ball/i }),
       container,
     );
-    expect(text).toMatch(/latent rollout view/);
-    fireEvent.change(screen.getByRole('slider', { name: /imagination horizon/i }), {
+    expect(text).toMatch(/imagines 15 steps ahead/);
+    fireEvent.change(screen.getByRole('slider', { name: /how far ahead to imagine/i }), {
       target: { value: '30' },
     });
     const moved = [...container.querySelectorAll('[data-chart-description]')].find(
-      (el) => /latent rollout view/.test(el.textContent ?? ''),
+      (el) => /imagines \d+ steps ahead/.test(el.textContent ?? ''),
     )?.textContent ?? '';
     expect(moved).not.toBe(text);
-    expect(moved).toMatch(/t = 30 of 50/);
+    expect(moved).toMatch(/imagines 30 steps ahead/);
   });
 
   it('GeneralistReleaseTimeline describes the policy axis and tracks selection', () => {
@@ -352,16 +346,16 @@ describe('state-form chart descriptions', () => {
   it('AppearancePhysicsPush describes the idle mug and tracks force', () => {
     const { container } = render(<AppearancePhysicsPush />);
     const { text } = assertDescribed(
-      screen.getByRole('img', { name: /three-layer scene/i }),
+      screen.getByRole('img', { name: /mug on a table/i }),
       container,
     );
-    expect(text).toMatch(/4\.0 N push/);
-    fireEvent.change(screen.getByRole('slider', { name: /push force/i }), {
+    expect(text).toMatch(/a push of 4 newtons/);
+    fireEvent.change(screen.getByRole('slider', { name: /push strength/i }), {
       target: { value: '8' },
     });
     const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
     expect(moved).not.toBe(text);
-    expect(moved).toMatch(/8\.0 N/);
+    expect(moved).toMatch(/8 newtons/);
   });
 
   it('PerceptionLatency describes the sense-and-avoid budget', () => {

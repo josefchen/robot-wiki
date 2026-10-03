@@ -32,12 +32,6 @@ describe('brand-v2 shared primitives', () => {
       'data-brand-surface-id',
       'surface:floating',
     );
-
-    rerender(<Surface level="bounded-dark">Instrument</Surface>);
-    expect(screen.getByText('Instrument')).toHaveAttribute(
-      'data-brand-surface-id',
-      'surface:bounded-dark-instrument',
-    );
   });
 
   it('keeps primary action, persistent selection, and link focus semantics distinct', () => {

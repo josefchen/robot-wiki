@@ -6,7 +6,7 @@ import {
   FIGURE_VIEWPORTS,
   altTextAndDeliveryVerdicts,
   captionAndCreditVerdicts,
-  darkInstrumentVerdicts,
+  schematicFigureVerdicts,
   figureEvidenceFingerprint,
   figureRoutes,
   readFigureRuntimeEvidence,
@@ -22,10 +22,10 @@ const ROOT = process.cwd();
  * of ids that agrees with itself.
  *
  * Contrast is measured against the first ancestor background that is not
- * fully transparent, which for the schematic label is the dark instrument
- * it sits on. That is the whole point of the reading: an inverse label is
- * accessible or not depending on the plate under it, and a token audit
- * cannot see the pairing.
+ * fully transparent, which for the schematic label is the page ground the
+ * stage lets through. That is the whole point of the reading: a label is
+ * accessible or not depending on what is actually under it, and a token
+ * audit cannot see the pairing.
  */
 function collectFigures(): Omit<RouteObservation, 'route' | 'viewport'> {
   const round = (value: number) => Math.round(value * 100) / 100;
@@ -86,7 +86,7 @@ function collectFigures(): Omit<RouteObservation, 'route' | 'viewport'> {
     const caption = figure.querySelector('figcaption');
     const credit = figure.querySelector('[data-image-credit]');
     const label = figure.querySelector('[data-figure-label]');
-    const surface = figure.querySelector('[data-brand-surface-id]');
+    const surface = figure.querySelector('[data-figure-stage][data-brand-surface-id]');
     const surfaceStyle = surface ? getComputedStyle(surface) : null;
     const surfaceRgb = surface ? backdrop(surface) : null;
     const surroundRgb =
@@ -97,8 +97,8 @@ function collectFigures(): Omit<RouteObservation, 'route' | 'viewport'> {
       return round((hi + 0.05) / (lo + 0.05));
     };
     const box = drawing?.getBoundingClientRect();
-    // The container the figure is supposed to stay inside: the instrument
-    // when there is one, otherwise the figure's own box.
+    // The container the figure is supposed to stay inside: the stage when
+    // there is one, otherwise the figure's own box.
     const container = (surface ?? figure).getBoundingClientRect();
 
     return {
@@ -141,9 +141,7 @@ function collectFigures(): Omit<RouteObservation, 'route' | 'viewport'> {
       surfaceBorderStyle: surfaceStyle?.borderTopStyle ?? null,
       surroundLuminance: surroundRgb ? round(luminance(surroundRgb) * 1000) / 1000 : null,
       // The edge a reader sees, whichever way it is drawn: the step from the
-      // ground into the plate, or the step from the plate into its border.
-      // The plate is bordered in its own graphite, so measuring the border
-      // alone would report a bounded instrument as unbounded.
+      // ground into the stage, or the step from the stage into its border.
       boundaryContrast: Math.max(
         surfaceRgb && surroundRgb
           ? ratio(luminance(surfaceRgb), luminance(surroundRgb))
@@ -245,7 +243,7 @@ test.describe('brand-v2 figures, diagrams and licensed imagery', () => {
     });
 
     for (const [label, verdicts] of [
-      ['VAL-B2-ART-004 dark instruments', darkInstrumentVerdicts(evidence)],
+      ['VAL-B2-ART-004 diagrams on the page ground', schematicFigureVerdicts(evidence)],
       [
         'VAL-B2-ART-006 / VAL-B2-IMG-003 schematic self-identification',
         schematicSelfIdentificationVerdicts(evidence),

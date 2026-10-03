@@ -1,7 +1,7 @@
 import type { ElementType, HTMLAttributes, ReactNode } from 'react';
 import { cx } from '@/lib/utils';
 
-export type SurfaceLevel = 'flat' | 'raised' | 'floating' | 'bounded-dark';
+export type SurfaceLevel = 'flat' | 'raised' | 'floating';
 
 type SurfaceProps = HTMLAttributes<HTMLElement> & {
   as?: Extract<ElementType, 'div' | 'section' | 'aside' | 'figure'>;
@@ -13,7 +13,6 @@ const surfaceIds: Record<SurfaceLevel, string> = {
   flat: 'surface:flat',
   raised: 'surface:raised',
   floating: 'surface:floating',
-  'bounded-dark': 'surface:bounded-dark-instrument',
 };
 
 const surfaceClasses: Record<SurfaceLevel, string> = {
@@ -22,8 +21,6 @@ const surfaceClasses: Record<SurfaceLevel, string> = {
     'rounded-md border border-border bg-surface text-text shadow-raised',
   floating:
     'rounded-md border border-border bg-surface text-text shadow-floating',
-  'bounded-dark':
-    'rounded-sm border border-graphite bg-instrument text-on-instrument',
 };
 
 export function Surface({

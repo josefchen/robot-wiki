@@ -1,160 +1,115 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { LatentImagination } from '@/components/interactive/latent-imagination';
 
 function deviationReadout(): number {
-  const el = screen.getByTestId('deviation-readout');
-  const value = Number.parseFloat(el.textContent ?? '');
+  const value = Number.parseFloat(screen.getByTestId('deviation-readout').textContent ?? '');
   expect(Number.isFinite(value)).toBe(true);
   return value;
 }
 
+const horizon = () => screen.getByRole('slider', { name: /how far ahead to imagine/i });
+const accuracy = () => screen.getByRole('slider', { name: /how accurate each step is/i });
+const adjustFold = (container: HTMLElement) =>
+  container.querySelector<HTMLElement>('[data-figure-fold="adjust"]')!;
+const methodFold = (container: HTMLElement) =>
+  container.querySelector<HTMLElement>('[data-figure-fold="method"]')!;
+
 describe('LatentImagination', () => {
-  it('renders the horizon and error sliders, mode toggles, readout, and reset', () => {
-    render(<LatentImagination />);
-    expect(
-      screen.getByRole('slider', { name: /imagination horizon/i }),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole('slider', { name: /one-step model error/i }),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole('button', { name: /with decoder/i }),
-    ).toHaveAttribute('aria-pressed', 'true');
-    expect(
-      screen.getByRole('button', { name: /decoder-free/i }),
-    ).toHaveAttribute('aria-pressed', 'false');
-    expect(screen.getByTestId('deviation-readout')).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /reset/i })).toBeInTheDocument();
+  it('shows two plain sliders, with the model choice and reset under "Adjust more"', () => {
+    const { container } = render(<LatentImagination />);
+    expect(horizon()).toHaveValue('15');
+    expect(horizon()).toHaveAttribute('aria-valuetext', '15 steps');
+    expect(accuracy()).toHaveValue('2');
+    expect(accuracy()).toHaveAttribute('aria-valuetext', '2.0% off per step');
+    const fold = adjustFold(container);
+    expect(within(fold).getByRole('button', { name: /^dreamer \(draws pictures\)$/i })).toHaveAttribute('aria-pressed', 'true');
+    expect(within(fold).getByRole('button', { name: /^td-mpc2 \(no pictures\)$/i })).toHaveAttribute('aria-pressed', 'false');
+    expect(within(fold).getByRole('button', { name: /^reset$/i })).toBeInTheDocument();
   });
 
-  it('increases the deviation readout monotonically as the horizon extends', () => {
+  it('opens on the insight: the imagined ball is already off the real flight 15 steps ahead', () => {
     render(<LatentImagination />);
-    const horizon = screen.getByRole('slider', {
-      name: /imagination horizon/i,
-    });
+    expect(screen.getByTestId('drift-note')).toHaveTextContent('15 steps ahead:');
+    expect(screen.getByTestId('drift-note')).toHaveTextContent('already this far off');
+    expect(screen.getByTestId('drift-bracket')).toBeInTheDocument();
+    const real = Number(screen.getByTestId('real-ball').getAttribute('cy'));
+    const imagined = Number(screen.getByTestId('imagined-ball').getAttribute('cy'));
+    expect(imagined - real).toBeCloseTo(0.301 * 80, 0);
+    expect(screen.getByTestId('decoded-frames').querySelectorAll('circle')).toHaveLength(3);
+  });
+
+  it('grows the drift monotonically as the robot imagines further ahead', () => {
+    render(<LatentImagination />);
     const at15 = deviationReadout();
-    fireEvent.change(horizon, { target: { value: '30' } });
+    fireEvent.change(horizon(), { target: { value: '30' } });
     const at30 = deviationReadout();
-    fireEvent.change(horizon, { target: { value: '50' } });
+    fireEvent.change(horizon(), { target: { value: '50' } });
     const at50 = deviationReadout();
+    expect(at15).toBeCloseTo(0.301, 3);
     expect(at30).toBeGreaterThan(at15);
     expect(at50).toBeGreaterThan(at30);
   });
 
-  it('increases the deviation readout as the model error grows', () => {
+  it('stays close for a short look-ahead and says so', () => {
     render(<LatentImagination />);
-    const before = deviationReadout();
-    fireEvent.change(screen.getByRole('slider', { name: /model error/i }), {
-      target: { value: '6' },
-    });
-    expect(deviationReadout()).toBeGreaterThan(before);
+    fireEvent.change(horizon(), { target: { value: '1' } });
+    expect(screen.getByTestId('drift-note')).toHaveTextContent('1 step ahead:');
+    expect(screen.getByTestId('drift-note')).toHaveTextContent('still close to the real flight');
+    expect(screen.queryByTestId('drift-bracket')).toBeNull();
   });
 
-  it('decoder mode shows decoded imagined frames', () => {
+  it('a sloppier step drifts faster, and far enough the imagined ball hits the floor', () => {
     render(<LatentImagination />);
-    expect(screen.getByTestId('decoded-frames')).toBeInTheDocument();
-    expect(screen.queryByTestId('decoder-free-note')).not.toBeInTheDocument();
-    expect(screen.queryByTestId('reward-error-readout')).not.toBeInTheDocument();
+    const sharp = deviationReadout();
+    fireEvent.change(accuracy(), { target: { value: '6' } });
+    expect(deviationReadout()).toBeGreaterThan(sharp);
+    fireEvent.change(horizon(), { target: { value: '50' } });
+    expect(screen.getByTestId('drift-note')).toHaveTextContent('it has already hit the floor');
+    expect(screen.getByTestId('deviation-readout')).toHaveTextContent('3.09');
   });
 
-  it('decoder-free mode replaces frames with a no-image annotation and a reward readout', async () => {
+  it('TD-MPC2 draws no pictures and reports the reward error instead', async () => {
     const user = userEvent.setup();
-    render(<LatentImagination />);
-    await user.click(screen.getByRole('button', { name: /decoder-free/i }));
-    expect(
-      screen.getByRole('button', { name: /decoder-free/i }),
-    ).toHaveAttribute('aria-pressed', 'true');
-    expect(screen.getByTestId('decoder-free-note')).toHaveTextContent(
-      /no image reconstruction/i,
-    );
-    expect(screen.queryByTestId('decoded-frames')).not.toBeInTheDocument();
-    expect(screen.getByTestId('decoder-free-note')).toHaveTextContent(/fixed multiple of the toy latent deviation/);
-    expect(screen.getByTestId('decoder-free-note')).not.toHaveTextContent(/only for reward and value/);
-    const reward = screen.getByTestId('reward-error-readout');
-    expect(Number.parseFloat(reward.textContent ?? '')).toBeGreaterThan(0);
-  });
-
-  it('reward readout also grows as the horizon extends in decoder-free mode', async () => {
-    const user = userEvent.setup();
-    render(<LatentImagination />);
-    await user.click(screen.getByRole('button', { name: /decoder-free/i }));
-    const read = () =>
-      Number.parseFloat(
-        screen.getByTestId('reward-error-readout').textContent ?? '',
-      );
-    const short = read();
-    fireEvent.change(screen.getByRole('slider', { name: /imagination horizon/i }), {
-      target: { value: '50' },
-    });
-    expect(read()).toBeGreaterThan(short);
-  });
-
-  it('reset restores the default state', async () => {
-    const user = userEvent.setup();
-    render(<LatentImagination />);
-    const initial = screen.getByTestId('deviation-readout').textContent;
-    fireEvent.change(screen.getByRole('slider', { name: /imagination horizon/i }), {
-      target: { value: '50' },
-    });
-    await user.click(screen.getByRole('button', { name: /decoder-free/i }));
-    await user.click(screen.getByRole('button', { name: /reset/i }));
-    expect(screen.getByTestId('deviation-readout')).toHaveTextContent(
-      initial ?? '',
-    );
-    expect(
-      screen.getByRole('slider', { name: /imagination horizon/i }),
-    ).toHaveValue('15');
-    expect(
-      screen.getByRole('button', { name: /with decoder/i }),
-    ).toHaveAttribute('aria-pressed', 'true');
-    expect(screen.getByTestId('decoded-frames')).toBeInTheDocument();
-  });
-
-  it('renders the rollout and deviation charts with accessible labels', () => {
-    render(<LatentImagination />);
-    expect(
-      screen.getByRole('img', { name: /imagined rollout/i }),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole('img', { name: /latent deviation/i }),
-    ).toBeInTheDocument();
-    // The illustrative 3-15 step band remains annotated on the chart.
-    expect(screen.getByTestId('typical-range-band')).toBeInTheDocument();
-  });
-
-  it('describes the deviation chart with a sampled table and the rollout as state', () => {
     const { container } = render(<LatentImagination />);
-    const tableDesc = [...container.querySelectorAll('[data-chart-description]')].find(
-      (el) => /shaded band/i.test(el.textContent ?? ''),
-    );
-    expect(tableDesc?.textContent).toMatch(/band is illustrative, from 3 to 15/i);
-    expect(tableDesc?.textContent).toMatch(/not a published range, confidence interval, or reliability bound/i);
-    expect(container.textContent).toMatch(/Illustrative toy, not measured model performance/);
-    expect(container.textContent).not.toMatch(/inside published range|before published range|past published range/);
-    const table = container.querySelector(
-      'details[data-chart-data][data-chart-form="table"]',
-    );
-    expect(table).toBeTruthy();
-    const rows = table?.querySelectorAll('tbody tr').length ?? 0;
-    expect(rows).toBeGreaterThanOrEqual(5);
-    expect(rows).toBeLessThanOrEqual(10);
-    expect(
-      screen.getByRole('img', { name: /latent deviation/i }),
-    ).toHaveAttribute('aria-describedby');
-    const rollout = screen.getByRole('img', { name: /imagined rollout/i });
-    const rolloutId = rollout.getAttribute('aria-describedby');
-    expect(rolloutId).toBeTruthy();
-    const rolloutDesc = container.querySelector(`[id="${CSS.escape(rolloutId!)}"]`);
-    expect(rolloutDesc?.textContent).toMatch(/latent rollout view/);
-    expect(rolloutDesc?.textContent).toMatch(/dashed true trajectory/);
-    fireEvent.change(
-      screen.getByRole('slider', { name: /imagination horizon/i }),
-      { target: { value: '30' } },
-    );
-    const moved = container.querySelector(`#${CSS.escape(rolloutId!)}`)
-      ?.textContent ?? '';
-    expect(moved).toMatch(/t = 30 of 50/);
+    await user.click(within(adjustFold(container)).getByRole('button', { name: /td-mpc2/i }));
+    expect(screen.queryByTestId('decoded-frames')).toBeNull();
+    expect(screen.getByTestId('decoder-free-note')).toHaveTextContent(/draws no pictures/i);
+    expect(screen.getByTestId('reward-error-bars')).toHaveTextContent(/at step 4/);
+    expect(screen.getByTestId('reward-error-readout')).toHaveTextContent('0.105');
+    expect(screen.getByTestId('imagined-path')).toBeInTheDocument();
+  });
+
+  it('reset restores the look-ahead, the step accuracy and the Dreamer view', async () => {
+    const user = userEvent.setup();
+    const { container } = render(<LatentImagination />);
+    fireEvent.change(horizon(), { target: { value: '40' } });
+    fireEvent.change(accuracy(), { target: { value: '5' } });
+    await user.click(within(adjustFold(container)).getByRole('button', { name: /td-mpc2/i }));
+    await user.click(within(adjustFold(container)).getByRole('button', { name: /^reset$/i }));
+    expect(horizon()).toHaveValue('15');
+    expect(accuracy()).toHaveValue('2');
+    expect(screen.getByTestId('decoded-frames')).toBeInTheDocument();
+    expect(deviationReadout()).toBeCloseTo(0.301, 3);
+  });
+
+  it('keeps the recurrence, the deviation chart and its illustrative band in "How this was made"', () => {
+    const { container } = render(<LatentImagination />);
+    const method = methodFold(container);
+    expect(method).toHaveTextContent(/toy recurrence, not a measured model/);
+    expect(within(method).getByRole('img', { name: /latent deviation versus imagination step/i })).toBeInTheDocument();
+    expect(within(method).getByTestId('typical-range-band')).toBeInTheDocument();
+    expect(within(method).getByTestId('deviation-curve')).toBeInTheDocument();
+    expect(method).toHaveTextContent(/teaching choice, not a published range/);
+    const details = method.querySelector<HTMLDetailsElement>('details[data-chart-form="state"]');
+    expect(details?.open).toBe(true);
+  });
+
+  it('describes the throw and the sampled deviation table for the current state', () => {
+    const { container } = render(<LatentImagination />);
+    const texts = [...container.querySelectorAll('[data-chart-description]')].map((el) => el.textContent ?? '');
+    expect(texts.some((t) => /latent deviation grows from 0 at step 0 to 0\.301 units at the current 15-step horizon/.test(t))).toBe(true);
+    expect(texts.some((t) => /imagines 15 steps ahead, at 2\.0% off per step, is 0\.301 units/.test(t))).toBe(true);
   });
 });

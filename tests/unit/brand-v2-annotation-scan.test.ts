@@ -87,7 +87,6 @@ describe('brand primitive annotation assignments', () => {
       (write) => write.module === 'components/ui/surface.tsx',
     );
     expect([...(surfaceWrite?.ids ?? [])].sort()).toEqual([
-      'surface:bounded-dark-instrument',
       'surface:flat',
       'surface:floating',
       'surface:raised',
@@ -103,9 +102,9 @@ describe('brand primitive annotation assignments', () => {
       ).not.toContain('lib/brand-v2-reference-rubric.ts');
       expect(owners).not.toContain('lib/brand-v2-primitive-discovery.ts');
     }
-    expect(scan.ownersById['surface:bounded-dark-instrument']).toEqual([
-      'components/ui/surface.tsx',
-    ]);
+    // The retired graphite plate is still compared against by the rubric,
+    // and no module writes it, so the comparison alone makes no owner.
+    expect(scan.ownersById['surface:bounded-dark-instrument'] ?? []).toEqual([]);
   });
 
   it('separates a variant a reachable call site never supplies', () => {

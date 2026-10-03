@@ -112,7 +112,7 @@ describe('meta descriptions', () => {
       ...publishedModules().map((m) => `/${m.domain}/${m.slug}/`),
     ];
     for (const route of expected) expect(ROUTE_SEO_PROFILES, route).toHaveProperty([route]);
-    expect(Object.keys(STANDALONE_SEO_DESCRIPTIONS)).toHaveLength(9);
+    expect(Object.keys(STANDALONE_SEO_DESCRIPTIONS)).toHaveLength(10);
   });
 
   it('runs 70 to 155 characters, states the head term and never teases', () => {

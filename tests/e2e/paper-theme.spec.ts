@@ -38,6 +38,7 @@ const STANDALONE = [
   '/search/',
   '/market-map/',
   '/playground/',
+  '/how-robots-work/',
   '/glossary/',
   '/a-z/',
   '/credits/',

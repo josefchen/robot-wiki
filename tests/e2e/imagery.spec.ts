@@ -162,7 +162,7 @@ test.describe('licensed imagery', () => {
     for (const image of IMAGES) {
       const entry = page.locator(`[data-credits-entry="${image.id}"]`);
       if (figureKind(image) === 'original-schematic') {
-        // An original schematic is drawn inline on the graphite stage, so
+        // An original schematic is drawn inline on the page stage, so
         // its credits entry holds the drawing, named by the alt text, and
         // the "Original schematic" label instead of a raster file.
         await expect(entry.locator('img')).toHaveCount(0);

@@ -80,6 +80,16 @@ const PLANTS: { rule: FigureRule; plant: string; apply: (frame: Element, documen
       caption(f).after(fold);
     },
   },
+  {
+    rule: 'dark-stage',
+    plant: 'the stage put back on the graphite plate',
+    apply: (f) => f.querySelector(':scope > [data-figure-stage]')?.setAttribute('data-brand-surface-id', 'surface:bounded-dark-instrument'),
+  },
+  {
+    rule: 'dark-stage',
+    plant: 'a raised card inside the stage',
+    apply: (f, d) => stageSvg(f).before(htmlEl(d, 'div', { 'data-brand-surface-id': 'surface:raised' }, 'A boxed note.')),
+  },
 ];
 
 const copy = mkdtempSync(join(tmpdir(), 'figure-system-plant-'));

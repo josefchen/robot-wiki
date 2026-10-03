@@ -6,7 +6,7 @@ const scenes = [
   {
     id: 'jam-overhead',
     route: '/data-hardware/industrial-deployment/',
-    captions: [/authored cell/i, /short jam/i, /long clearing/i, /same success rate/i],
+    captions: [/quick 15-second fixes/i, /each fix now takes 5 minutes/i, /months to pay back/i, /rarely fails/i],
   },
 ] as const;
 
@@ -80,8 +80,8 @@ test('paired data/hardware labs retain semantic roles under both schemes and cha
       const context = await browser.newContext({ colorScheme, viewport: { width, height: 900 } });
       try {
         const page = await context.newPage();
-        // Figures paint on the graphite stage, which remaps every role to its
-        // stage colour, so a stage mark is compared with a probe inside it.
+        // Figures paint on the page stage, which maps every role to its stage
+        // colour, so a stage mark is compared with a probe inside it.
         const stageRole = (name: string, anchor: string) => page.evaluate(([value, selector]) => {
           const probe = document.createElement('span');
           probe.style.color = `var(--role-${value})`;
@@ -99,8 +99,9 @@ test('paired data/hardware labs retain semantic roles under both schemes and cha
         const jam = `${bar} [data-breakdown-segment="Jam clearing"] pattern line`;
         expect(await style(`${bar} [data-breakdown-segment="Productive cycles"] rect`, 'fill')).toBe(await stageRole('value-graphic', bar));
         expect(await style(jam, 'stroke')).toBe(await stageRole('constraint-graphic', bar));
-        expect(await style('[data-testid="breakdown-productive"]', 'color')).toBe(await stageRole('value-text', bar));
-        expect(await style('[data-testid="breakdown-jams"]', 'color')).not.toBe(await stageRole('value-text', bar));
+        // The hour legend names the bar's parts; only robot picking takes the value colour.
+        expect(await style('[data-testid="hour-legend-productive"]', 'color')).toBe(await stageRole('value-text', bar));
+        expect(await style('[data-testid="hour-legend-jams"]', 'color')).not.toBe(await stageRole('value-text', bar));
         await page.getByRole('slider', { name: /jam-clearing time/i }).fill('45');
         expect(await style(jam, 'stroke')).toBe(await stageRole('constraint-graphic', bar));
         await expect(page.getByTestId('breakdown-jams')).toContainText('jam clearing');
@@ -114,7 +115,10 @@ test('paired data/hardware labs retain semantic roles under both schemes and cha
         expect(await style('[data-figure-frame="data-scale-chart"] [data-legend-series="farm-projection"] svg circle', 'fill'))
           .toBe(await stageRole('value-graphic', marker));
         expect(await style('[data-testid="hours-readout"]', 'color')).toBe(await stageRole('value-text', marker));
-        expect(await style('[data-testid="rigs-readout"]', 'color')).toBe(await stageRole('highlight-text', marker));
+        // Lime is kept for the stage note; the robot count reads as plain readout text.
+        expect(await style('[data-testid="rigs-readout"]', 'color')).toBe(await style('[data-testid="projection-summary"]', 'color'));
+        expect(await style('[data-figure-frame="data-scale-chart"] [data-figure-annotation] text', 'fill'))
+          .toBe(await stageRole('highlight-graphic', marker));
         await page.getByRole('slider', { name: /teleoperation rigs/i }).fill('11');
         expect(await style(marker, 'fill')).toBe(await stageRole('value-graphic', marker));
         await expect(page.getByTestId('rigs-readout').first()).toHaveText('11');

@@ -22,6 +22,12 @@ const eslintConfig = defineConfig([
     // Vendored third-party runtime assets (Draco decoder for GLTFLoader).
     'public/draco/**',
   ]),
+  {
+    // Each explainer scene is a module whose default export is the scene
+    // object itself; the viewer reads it by convention, not by name.
+    files: ['components/explainers/scenes/**/*.js'],
+    rules: { 'import/no-anonymous-default-export': 'off' },
+  },
 ]);
 
 export default eslintConfig;

@@ -942,9 +942,10 @@ export function crossMountVerdicts(evidence: HomeToolsEvidence): Verdict[] {
     },
   ];
 }
-/** The two tools the owner's front page links, with the words that name them. */
+/** The tools the owner's front page links, with the words that name them. */
 export const HOME_TOOL_LINKS = [
   { id: 'anchor:tools-line-playground-link', path: '/playground/', names: /playground/i },
+  { id: 'anchor:tools-line-how-robots-work-link', path: '/how-robots-work/', names: /how robots work/i },
   { id: 'anchor:tools-line-market-map-link', path: '/market-map/', names: /market map/i },
 ] as const;
 
