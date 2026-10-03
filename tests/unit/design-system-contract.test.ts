@@ -442,11 +442,11 @@ describe('identity geometry and typography stay aligned', () => {
     expect(frictionTransfer).not.toMatch(/--color-accent/);
     expect(frictionTransfer).not.toMatch(/green/i);
     expect(jepa).toContain('Its synthetic coordinates and distance trace come from the toy model; they cannot measure learned robot embeddings or planning performance');
-    // The JEPA chart paints the current latent z_t, and the legend swatch
-    // that names it, through the state role on the graphite stage, keeps
-    // signal blue off its marks, and nothing calls it green.
-    expect(jepaChart).toContain('<PointMarker x={px(state.x)} y={py(state.y)} role="state" />');
-    expect(jepaChart).toMatch(/role="state" mark="dot"[\s\S]*?>\s*current latent z_t\s*</);
+    // The JEPA chart paints the current latent, and the walked path whose
+    // legend swatch names it, through the state role, keeps signal blue off
+    // its marks, and nothing calls it green.
+    expect(jepaChart).toContain('<PointMarker x={current[0]} y={current[1]} role="state" />');
+    expect(jepaChart).toMatch(/<LegendSwatch role="state" mark="line" \/>\}>\s*path so far\s*</);
     expect(jepaChart).not.toMatch(/ACCENT|--color-accent/);
     expect(jepaChart).not.toMatch(/green/i);
     expect(sim2real).toContain('Widening the half-width lowers the plateau by construction; the cited papers establish no universal tradeoff of that shape');

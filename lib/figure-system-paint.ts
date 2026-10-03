@@ -15,6 +15,7 @@ export const FIGURE_RULES = {
   'headline-words': 'the headline runs over 10 words',
   'kicker-words': 'the kicker runs over 6 words',
   'fold-label': 'a fold in the frame is not labelled "Adjust more" or "How this was made"',
+  'dark-stage': 'the figure draws on a dark or boxed plate instead of the light page stage',
 } as const;
 
 export type FigureRule = keyof typeof FIGURE_RULES;
@@ -31,7 +32,10 @@ export const HEADLINE_MAX_WORDS = 10;
 export const KICKER_MAX_WORDS = 6;
 export const FOLD_LABELS = { adjust: 'Adjust more', method: 'How this was made' } as const;
 export const MIN_TEXT_PX = 12;
-export const STAGE_SURFACE = 'surface:bounded-dark-instrument';
+/** Figures belong to the page: the stage is the flat content plane. */
+export const STAGE_SURFACE = 'surface:flat';
+/** Surfaces a figure may not draw on: the retired graphite plate and raised cards. */
+export const PLATE_SURFACE = /dark|instrument|raised|floating/;
 
 const SIGNAL_TOKENS = new Set(['signal', 'accent', 'link', 'focus', 'registration', 'active-path']);
 const STATUS_TOKENS = new Set(['ok', 'warn', 'error', 'err', 'destructive']);

@@ -1,14 +1,20 @@
 import type { HTMLAttributes, ReactNode, Ref } from 'react';
-import { Surface } from '@/components/ui/surface';
 import { cx } from '@/lib/utils';
 
 /**
  * The one frame every explanatory figure renders in, in this order: a
  * header (an optional kicker, the takeaway headline, at most two visible
- * controls and the "Adjust more" fold), the bounded graphite stage, one
- * caption sentence, the "How this was made" fold, and at most one source
- * line. Legends, readouts and the scene timeline live on the stage, so
- * nothing else sits between the stage and the prose that follows it.
+ * controls and the "Adjust more" fold), the stage, one caption sentence,
+ * the "How this was made" fold, and at most one source line. Legends,
+ * readouts and the scene timeline live on the stage, so nothing else sits
+ * between the stage and the prose that follows it.
+ *
+ * A figure belongs to the page: it sits on the paper ground in the page's
+ * own faces, set off from the prose by space, with no panel, shadow or
+ * border around it. Colour is for data only. The frame draws no rule
+ * either: a rule above and below every figure would outnumber the two
+ * full-width rules an article may carry (VAL-EDU-031), and the article
+ * sheet requires every rule it does carry to have a registered owner.
  *
  * The data-figure-* hooks are what scripts/check-figure-system.ts reads in
  * the static export, so a figure that drops out of this frame fails the
@@ -25,7 +31,7 @@ export const FIGURE_TEXT_CLASS = {
   title: 'font-sans text-base font-semibold leading-snug text-text',
   caption: 'font-sans text-sm leading-snug text-text',
   source: 'font-sans text-xs leading-snug text-text-dim',
-  stage: 'font-sans text-sm leading-snug text-on-instrument',
+  stage: 'font-sans text-sm leading-snug text-text',
   fold: 'font-sans text-sm leading-snug text-text',
 } as const;
 
@@ -36,7 +42,7 @@ export const FIGURE_FOLD_LABEL = {
 } as const;
 
 const FOLD_SUMMARY_CLASS =
-  'inline-flex min-h-11 cursor-pointer select-none list-none items-center gap-1.5 font-sans text-sm text-text-dim underline decoration-border-strong decoration-1 underline-offset-4 transition-colors hover:text-text [&::-webkit-details-marker]:hidden';
+  'inline-flex min-h-11 cursor-pointer select-none list-none items-center gap-1.5 font-sans text-sm font-medium text-text-dim transition-colors hover:text-text [&::-webkit-details-marker]:hidden';
 
 /** A border-drawn chevron: no glyph, so the summary's text is its label alone. */
 function FoldMarker() {
@@ -56,7 +62,9 @@ function FoldMarker() {
  * The body is a flat surface on the page ground. Its notes, lists and
  * tables are figure text, and Chromium lays out a closed disclosure's
  * content, so without the surface the article sheet would grade them as
- * running prose and unregistered rules.
+ * running prose and unregistered rules. For the same reason a closed body
+ * clips: the sliders of a closed "Adjust more" fold are laid out from the
+ * summary's left edge and would otherwise reach past a narrow viewport.
  */
 function FigureFold({
   kind,
@@ -89,6 +97,7 @@ function FigureFold({
         data-brand-surface-level="flat"
         className={cx(
           FIGURE_TEXT_CLASS.fold,
+          'group-not-open/fold:overflow-hidden',
           kind === 'adjust'
             ? 'flex flex-wrap items-end gap-x-3 gap-y-2 pb-1 pt-1'
             : 'space-y-2 pb-1 pt-1',
@@ -160,7 +169,7 @@ export function FigureFrame({
   const captionClass = cx(FIGURE_TEXT_CLASS.caption, 'mt-2', captionProps?.className);
   const rootProps = {
     'data-figure-frame': figureId,
-    className: cx('my-6 text-left', className),
+    className: cx('my-8 py-4 text-left', className),
     ...props,
   };
   // No frame text is a <p>: the article sheet measures every paragraph in
@@ -247,12 +256,12 @@ type FigureStageProps = HTMLAttributes<HTMLDivElement> & {
 };
 
 /**
- * The bounded graphite stage. stage.css maps the light-ground role and text
- * variants to their stage values inside it, so a legend swatch or readout
- * written for the page ground still paints the stage colour here.
+ * The stage: the drawing on the page ground. It is the flat content plane
+ * with no fill of its own, so the paper shows through, and the role colours
+ * are the ones every page uses.
  */
 export function FigureStage({
-  as = 'div',
+  as: Component = 'div',
   children,
   footer,
   timeline,
@@ -260,28 +269,28 @@ export function FigureStage({
   ...props
 }: FigureStageProps) {
   return (
-    <Surface
-      as={as}
-      level="bounded-dark"
+    <Component
+      data-brand-surface-id="surface:flat"
+      data-brand-surface-level="flat"
       data-figure-stage=""
-      className={cx('mt-2 overflow-hidden', className)}
+      className={cx('mt-3 overflow-hidden text-text', className)}
       {...props}
     >
       {children}
       {footer ? (
         <div
           data-figure-stage-band="footer"
-          className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 px-3 pb-2.5"
+          className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 pt-2"
         >
           {footer}
         </div>
       ) : null}
       {timeline ? (
-        <div data-figure-stage-band="timeline" className="px-3 pb-3">
+        <div data-figure-stage-band="timeline" className="pt-2">
           {timeline}
         </div>
       ) : null}
-    </Surface>
+    </Component>
   );
 }
 
@@ -308,8 +317,8 @@ export function StageLegend({
 }
 
 /**
- * The current-state readout on the stage. Labels stay in the brand sans;
- * StageNumber marks the digits that may take the mono face.
+ * The current-state readout on the stage, in the brand sans with tabular
+ * figures; StageNumber marks the digits.
  */
 export function StageReadout({
   className,
@@ -359,7 +368,7 @@ export function StageNumber({
   return (
     <span
       data-figure-number=""
-      className={cx('font-mono tabular-nums', className)}
+      className={cx('font-medium tabular-nums', className)}
       {...props}
     >
       {children}
@@ -381,7 +390,7 @@ export function StageCallout({
     <p
       data-figure-annotation=""
       className={cx('font-sans text-sm font-semibold leading-snug', className)}
-      style={{ color: 'var(--role-highlight-stage)' }}
+      style={{ color: 'var(--role-highlight-text)' }}
       {...props}
     >
       {children}

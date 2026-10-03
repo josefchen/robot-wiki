@@ -16,6 +16,7 @@ import {
   HEADLINE_MAX_WORDS,
   KICKER_MAX_WORDS,
   MIN_TEXT_PX,
+  PLATE_SURFACE,
   STAGE_SURFACE,
   declaredPaints,
   isSignal,
@@ -188,7 +189,7 @@ function foldViolations(frame: Element): [FigureRule, string][] {
   return found;
 }
 
-/** The frame's shape: header, one graphite stage, one caption, the method fold, at most one source line. */
+/** The frame's shape: header, one light page stage, one caption, the method fold, at most one source line. */
 function frameViolations(frame: Element): [FigureRule, string][] {
   const found: [FigureRule, string][] = [];
   const parts = [...frame.children].filter((child) => !isHidden(child));
@@ -213,7 +214,14 @@ function frameViolations(frame: Element): [FigureRule, string][] {
   found.push(...foldViolations(frame));
   const stage = frame.querySelector(':scope > [data-figure-stage]');
   if (stage && stage.getAttribute('data-brand-surface-id') !== STAGE_SURFACE) {
-    found.push(['frame-structure', `stage surface is ${stage.getAttribute('data-brand-surface-id')}`]);
+    found.push(['dark-stage', `stage surface is ${stage.getAttribute('data-brand-surface-id')}, not ${STAGE_SURFACE}`]);
+  }
+  for (const plate of frame.querySelectorAll('[data-brand-surface-id]')) {
+    // A glossary or citation popover floats above the page only while it is
+    // open; it is not a plate the figure draws on.
+    if (plate.matches('[role="tooltip"]') || isHidden(plate)) continue;
+    const surface = plate.getAttribute('data-brand-surface-id') ?? '';
+    if (PLATE_SURFACE.test(surface)) found.push(['dark-stage', `<${plate.tagName.toLowerCase()}> draws on ${surface}`]);
   }
   const caption = frame.querySelector(':scope > [data-figure-caption]');
   const count = words(caption?.textContent ?? '');

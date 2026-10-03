@@ -3,8 +3,8 @@
   "name": "seo-pass-end-to-end-pins",
   "archivedFrom": "953a891b42e762aa1e6ddbf77421fc8f727019f4",
   "reviewedBy": "release steward re-anchoring the SEO pass (not independent acceptance)",
-  "rationale": "The SEO pass updated the end-to-end specs it made stale: citation chips are found by their new author labels, internal link checks expect the trailing-slash form, the apparatus and related-list tests name edges that still exist, the Article structured-data and sitemap tests expect the page profile and change dates, the OG test expects the search-facing home description, and the dexterity wrapper test counts the punctuated cluster-ends from the article. Each spec change is recorded here as exact edits over its pre-pass bytes. The pre-pass bytes stand in for the live spec only while the live spec is exactly the reviewed successor, reversing the edits rebuilds bytes that hash to the recorded predecessor, and the successor keeps at least as many expect and test calls as its predecessor, so older reviews, runs and receipts that pinned the pre-pass spec still check the bytes they recorded. The reader-first figure pass then moved scene stepping and reset into each figure's Adjust more fold, so the scene specs that step or reset a scene open that fold first; those edits are appended to the same specs as further exact edits over the SEO-pass bytes.",
-  "observedAt": "2026-10-02T09:47:55Z",
+  "rationale": "The SEO pass updated the end-to-end specs it made stale: citation chips are found by their new author labels, internal link checks expect the trailing-slash form, the apparatus and related-list tests name edges that still exist, the Article structured-data and sitemap tests expect the page profile and change dates, the OG test expects the search-facing home description, and the dexterity wrapper test counts the punctuated cluster-ends from the article. Each spec change is recorded here as exact edits over its pre-pass bytes. The pre-pass bytes stand in for the live spec only while the live spec is exactly the reviewed successor, reversing the edits rebuilds bytes that hash to the recorded predecessor, and the successor keeps at least as many expect and test calls as its predecessor, so older reviews, runs and receipts that pinned the pre-pass spec still check the bytes they recorded. The reader-first figure pass then moved scene stepping and reset into each figure's Adjust more fold, so the scene specs that step or reset a scene open that fold first; those edits are appended to the same specs as further exact edits over the SEO-pass bytes. The how-robots-work page then joined the fixed top-level routes after /playground/, so the static-export route list names it; that edit is appended to the seo-static-integrity spec in the same way.",
+  "observedAt": "2026-10-02T18:01:40Z",
   "sources": [
     {
       "name": "autonomous-vehicles",
@@ -892,8 +892,8 @@
       },
       "after": {
         "path": "tests/e2e/seo-static-integrity.spec.ts",
-        "bytes": 19190,
-        "sha256": "a7f23fa65c7a57d253c086157a0fb959532ff3c9edc9d896602483bc4daff73b"
+        "bytes": 19213,
+        "sha256": "4cdcba2df668a7293713236b5d557c9ced9dbf8d78a4c71721344b61196cfcbf"
       },
       "edits": [
         {
@@ -919,6 +919,10 @@
         {
           "before": "        description: entry.summary,\n",
           "after": "        description: profile.description,\n        about: { '@type': 'Thing', name: profile.headTerm },\n"
+        },
+        {
+          "before": "const TOP_LEVEL_ROUTES = [\n  '/market-map/',\n  '/playground/',\n",
+          "after": "const TOP_LEVEL_ROUTES = [\n  '/market-map/',\n  '/playground/',\n  '/how-robots-work/',\n"
         }
       ]
     },

@@ -121,11 +121,11 @@ export function SceneTimelineAtEnd() {
       data-scene-timeline="poster"
       className="flex h-11 items-center"
     >
-      <span className="block h-1 w-full rounded-xs bg-highlight" />
+      <span className="block h-1 w-full rounded-xs bg-graphite" />
     </div>
   );
 }
 
-/** The live scrubber: a 44px touch target over the same track. */
+/** The live scrubber: a thin graphite track inside a 44px touch target. */
 export const SCENE_SCRUBBER_CLASS =
-  'block h-11 w-full cursor-pointer accent-highlight';
+  'block h-11 w-full cursor-pointer accent-graphite';

@@ -308,8 +308,8 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     component: 'AppearancePhysicsPush',
     file: 'components/interactive/appearance-physics-push.tsx',
     route: '/world-models/generative-sim/',
-    quantityNames: ['appearance', 'displacement'],
-    text: 'Appearance is on and simulation is on, physics proxy is off, so a 4.0 N push leaves the mug at 0.0 cm of displacement; the pixels have no mass until the physics proxy supplies a collision hull.',
+    quantityNames: ['picture', 'push'],
+    text: 'With only the picture, a push of 4 newtons leaves the mug at 0 centimetres: a picture has no shape, weight or friction for a solver to push against.',
   },
   {
     component: 'PiGenerationTimeline',
@@ -330,14 +330,14 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/jepa-planning.tsx',
     route: '/world-models/jepa/',
     quantityNames: ['latent', 'distance'],
-    text: 'At a search budget of 24 sequences the current latent sits 0.813 away from the pick goal after 0 planning steps; the embedding-space plane shows the start and goal as two points, and the distance strip is a single sample at step 0.',
+    text: 'With 24 options tried each step, the current latent sits 0.443 from the pick goal after 2 planning steps, 55% of the starting distance of 0.813; the plane shows the walked path and the fan of 24 tried moves, and the distance strip falls from 100% to 55%.',
   },
   {
     component: 'ActionConditioning',
     file: 'components/interactive/action-conditioning.tsx',
     route: '/world-models/generative-video/',
     quantityNames: ['sensitivity', 'realism'],
-    text: 'Under strong conditioning, push left and lift gripper diverge across 4 predicted frames from the shared initial pose; action sensitivity is 0.419 against the 0.30 threshold while visual realism stays 0.91 in both modes.',
+    text: 'With a model that listens to the action, push left and lift gripper lead to different futures across 4 imagined frames: action sensitivity is 0.419, above the 0.30 threshold, while visual realism stays 0.91 for both models.',
   },
   {
     component: 'RewardShaping',
@@ -351,6 +351,13 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/wm-disambiguator.tsx',
     route: '/world-models/taxonomy/',
     quantityNames: ['latent', 'reward'],
-    text: 'Latent-dynamics (Dreamer-style) predicts the next latent, a reward of 0.83 and a continue flag of 1, plus a fuzzy decoded frame used at training only; of the 4 uses, only policy learning is lit.',
+    text: 'Latent dynamics (Dreamer-style), one of 3 groups out of 6 that imagine a compressed summary, predicts the next latent, a reward and a continue signal, and draws pictures only during training; of the 4 uses, it serves policy learning.',
+  },
+  {
+    component: 'DeploymentEconomics',
+    file: 'components/interactive/deployment-economics.tsx',
+    route: '/data-hardware/industrial-deployment/',
+    quantityNames: ['months', 'jam-clearing'],
+    text: 'Months to pay back rise with jam-clearing time. At 99% per-pick success they go from 11.8 months with 15-second clearing to 17.3 months with 300-second clearing; at 99.9% they reach 12.1 months at 300 seconds. The current case pays back in 11.6 months.',
   },
 ];

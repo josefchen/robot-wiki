@@ -142,7 +142,7 @@ export function ChartDescription({
         <summary
           id={summaryId}
           data-brand-control-id="control:secondary-action"
-          className="inline-flex min-h-6 cursor-pointer select-none items-center font-sans text-sm text-text-dim underline decoration-border-strong decoration-1 underline-offset-4 transition-colors hover:text-text"
+          className="inline-flex min-h-6 cursor-pointer select-none items-center font-sans text-sm font-medium text-text-dim transition-colors hover:text-text"
         >
           {summary ?? 'Chart data'}
         </summary>

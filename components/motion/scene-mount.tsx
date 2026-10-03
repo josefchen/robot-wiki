@@ -5,7 +5,7 @@
  *
  * Code-splitting: each scene loads through the article's lazy mount. The
  * placeholder is the poster frame, which prerenders the scene's final frame
- * server-side inside the same figure frame (header, graphite stage with its
+ * server-side inside the same figure frame (header, stage with its
  * legend, readout and timeline, caption). The poster draws the timeline at
  * its end and the player swaps in the live scrubber at the same height, so
  * activation moves nothing the reader is looking at.

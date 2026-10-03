@@ -236,6 +236,7 @@ describe('brand-v2 canonical census', () => {
       '/a-z/',
       '/market-map/',
       '/playground/',
+      '/how-robots-work/',
       '/glossary/',
       '/credits/',
       '/editorial-policy/',

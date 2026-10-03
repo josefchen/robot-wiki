@@ -298,8 +298,10 @@ test.describe('home page', () => {
     const linkBoxes = await tools.getByRole('link').evaluateAll((links) =>
       links.map((link) => link.getBoundingClientRect().top),
     );
-    expect(linkBoxes).toHaveLength(2);
-    expect(Math.abs(linkBoxes[0] - linkBoxes[1])).toBeLessThanOrEqual(4);
+    expect(linkBoxes).toHaveLength(3);
+    for (const top of linkBoxes.slice(1)) {
+      expect(Math.abs(linkBoxes[0] - top)).toBeLessThanOrEqual(4);
+    }
   });
 
   test('market map and playground entries navigate to their routes', async ({

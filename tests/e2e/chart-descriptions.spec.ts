@@ -122,13 +122,14 @@ function disclosureFor(desc: Locator) {
 }
 
 /**
- * Open every prediction-step reveal. Where a page's one chart sits inside
- * its prediction step, the closed reveal gives the chart no rendered
- * innerText, so the text checks read it after the reveal opens.
+ * Open every prediction-step reveal and every figure fold. Where a page's
+ * one chart sits inside its prediction step, or a figure keeps its
+ * description in its "How this was made" fold, the closed disclosure gives
+ * the text no rendered innerText, so the text checks read it after it opens.
  */
 async function openReveals(page: Page) {
   await page.evaluate(() => {
-    document.querySelectorAll('details[data-reveal]').forEach((d) => {
+    document.querySelectorAll('details[data-reveal], details[data-figure-fold]').forEach((d) => {
       (d as HTMLDetailsElement).open = true;
     });
   });

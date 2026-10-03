@@ -25,7 +25,7 @@ import { LatentImagination } from '@/components/interactive/latent-imagination';
 
 <Term id="latent-dynamics">Latent dynamics</Term> is the oldest of the six paradigms the [taxonomy module](/world-models/taxonomy) separates, and the only one with a decade of evidence that it improves sample efficiency on control. The model learns a compact recurrent latent state, predicts how that state and the reward evolve under the agent's actions, and does learning or planning inside that imagination before another real interaction. Whether to decode observations and whether to train an actor or search with a planner are separate design choices.
 
-The interactive is a deterministic toy of compounding error. Drag the horizon slider to explore its assumed recurrence. Its 3 to 15-step shaded band illustrates the interface; no paper measures that as a reliable-horizon range. Table W.1 of the 2023 DreamerV3 preprint lists imagination horizon H = 15, while the same document's actor-critic section uses prediction horizon T = 16. The 2024 revision and 2025 Nature article also use T = 16. The two horizon labels have different values even within the 2023 preprint <Cite id="dreamerv3-2023" />.
+The figure below is a deterministic toy of compounding error, drawn as a thrown ball. Drag "How far ahead to imagine" and the imagined flight peels further from the real one. The 3 to 15-step shaded band in its "How this was made" chart illustrates the interface; no paper measures that as a reliable-horizon range. Table W.1 of the 2023 DreamerV3 preprint lists imagination horizon H = 15, while the same document's actor-critic section uses prediction horizon T = 16. The 2024 revision and 2025 Nature article also use T = 16. The two horizon labels have different values even within the 2023 preprint <Cite id="dreamerv3-2023" />.
 
 <LatentImagination className="my-6" />
 
@@ -62,7 +62,7 @@ DayDreamer builds on the DreamerV2 implementation and learns online on four phys
 
 Table W.1 of the 2023 DreamerV3 preprint lists imagination horizon H = 15, while the same document's actor-critic section uses prediction horizon T = 16. The 2024 revision and 2025 Nature article also use T = 16. The two horizon labels have different values even within the 2023 preprint <Cite id="dreamerv3-2023" />. The second TD-MPC2 manuscript lists planning horizon H = 3; the planner bootstraps beyond the rollout with a learned terminal value <Cite id="tdmpc2-2023" />. DayDreamer's first manuscript likewise gives two labels: its actor-critic methods state a planning horizon H = 16, while its appendix lists imagination horizon H = 15. Its methods and appendix thus report different horizon values <Cite id="daydreamer-2022" />. These source settings count steps. They give neither control frequencies nor universal bounds on reliable prediction.
 
-Both display modes in the figure are schematic. The Dreamer-labelled mode draws illustrative frames; the TD-MPC2-labelled mode omits reconstruction and shows a toy reward-error readout equal to 0.35 times the toy latent deviation. The curves, frames, and shaded band carry no measured model predictions, published losses, or reliability estimates.
+Both model views under "Adjust more" in the figure are schematic. The Dreamer view draws the imagined ball as faint pictures; the TD-MPC2 view leaves them out and shows a toy reward-error readout equal to 0.35 times the toy latent deviation. The curves, pictures, and shaded band carry no measured model predictions, published losses, or reliability estimates.
 
 ## Successors and open limits
 

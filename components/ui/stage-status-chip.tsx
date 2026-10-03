@@ -13,11 +13,11 @@ type StageStatusChipProps = {
 };
 
 /**
- * A status chip for a table on the graphite figure stage. The page-ground
- * Badge paints status in the status hues, which are reserved inside figures
- * and fall below contrast on graphite; here the word carries the status in
- * the stage text colour and the border style (or weight) repeats it. The
- * border stays 1px, the widest a flat surface registers.
+ * A status chip for a table on the figure stage. The page-ground Badge
+ * paints status in the status hues, which are reserved inside figures for
+ * data; here the word carries the status in the stage text colour and the
+ * border style (or weight) repeats it. The border stays 1px, the widest a
+ * flat surface registers.
  */
 export function StageStatusChip({ variant, line, children }: StageStatusChipProps) {
   return (

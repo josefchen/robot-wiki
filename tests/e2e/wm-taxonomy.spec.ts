@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { openAdjustMore } from './helpers/figure-fold';
 
 const ROUTE = '/world-models/taxonomy/';
 
@@ -76,14 +77,28 @@ test.describe('world-models taxonomy module', () => {
     );
   });
 
-  test('disambiguator: panels, use highlighting, keyboard, reset', async ({
+  test('disambiguator: form toggle, groups under "Adjust more", use highlighting, keyboard, reset', async ({
     page,
   }) => {
     await page.goto(ROUTE);
+    const figure = page.locator('[data-figure-frame="wm-disambiguator"]');
+    await expect(figure.locator('[data-figure-title]')).toHaveText(
+      'Robot imaginations: some predict pictures, others compact summaries',
+    );
 
-    // Default: latent dynamics selected, policy learning highlighted.
+    // Default: latent dynamics, whose compressed summary is the marked form.
+    await expect(figure.getByTestId('imagines-summary')).toHaveAttribute('aria-pressed', 'true');
+    const opening = figure.getByTestId('panel-art-latent-dynamics');
+    await expect(opening).toHaveAttribute('role', 'img');
+    await expect(opening).toHaveAttribute('data-form', 'summary');
+    await expect(opening.locator('[data-figure-annotation]')).toContainText(
+      'it draws pictures only during training',
+    );
+
+    // The six groups and their uses are one click away, in "Adjust more".
+    const adjust = await openAdjustMore(figure);
     await expect(
-      page.getByRole('button', { name: /^Latent dynamics/ }),
+      adjust.getByRole('button', { name: /^Latent dynamics/ }),
     ).toHaveAttribute('aria-pressed', 'true');
     await expect(page.getByTestId('use-policy-learning')).toHaveAttribute(
       'data-active',
@@ -94,8 +109,8 @@ test.describe('world-models taxonomy module', () => {
       'false',
     );
 
-    // Selecting generative video highlights evaluation + data generation.
-    await page.getByRole('button', { name: /^Generative video/ }).click();
+    // Pictures picks generative video, which serves evaluation and data generation.
+    await figure.getByTestId('imagines-pictures').click();
     await expect(page.getByTestId('use-evaluation')).toHaveAttribute(
       'data-active',
       'true',
@@ -111,9 +126,10 @@ test.describe('world-models taxonomy module', () => {
     await expect(page.getByTestId('selected-readout')).toHaveText(
       'Generative video',
     );
+    await expect(figure.getByTestId('panel-art-generative-video')).toHaveAttribute('data-form', 'pictures');
 
-    // Keyboard path: tab to the JEPA panel and activate with Enter.
-    await page.getByRole('button', { name: /^JEPA/ }).focus();
+    // Keyboard path: focus the JEPA group and activate it with Enter.
+    await adjust.getByRole('button', { name: /^JEPA/ }).focus();
     await page.keyboard.press('Enter');
     await expect(page.getByTestId('use-planning')).toHaveAttribute(
       'data-active',
@@ -123,9 +139,10 @@ test.describe('world-models taxonomy module', () => {
       'data-active',
       'false',
     );
+    await expect(figure.getByTestId('imagines-summary')).toHaveAttribute('aria-pressed', 'true');
 
     // Reset restores the default.
-    await page.getByRole('button', { name: 'Reset' }).click();
+    await adjust.getByRole('button', { name: 'Reset' }).click();
     await expect(page.getByTestId('selected-readout')).toHaveText(
       'Latent dynamics',
     );

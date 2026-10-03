@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
 
 const ROUTE = '/world-models/jepa/';
 
@@ -66,64 +67,81 @@ test.describe('world-models jepa module', () => {
     expect(await chips.count()).toBeGreaterThanOrEqual(10);
   });
 
-  test('interactive: planning steps reduce the goal-latent distance, reset restores', async ({
+  test('interactive: planning steps reduce the distance to the goal, reset restores', async ({
     page,
   }) => {
     await page.goto(ROUTE);
+    const figure = page.locator('[data-figure-frame="jepa-planning"]');
 
-    // Default state: goal-embedding distance readout, no-decoder marker.
+    // The plan opens two steps in: the walked path, the fan of tried moves
+    // and the note pointing at the kept one are on the stage at settle.
+    await expect(figure.getByTestId('walked-path')).toBeVisible();
+    await expect(figure.getByTestId('candidate-fan')).toBeVisible();
+    await expect(figure.locator('[data-figure-annotation]')).toContainText(
+      'Each step: try 24 possible moves,',
+    );
+    await expect(figure.getByTestId('gap-label')).toHaveText('55% left');
+
+    // The no-decoder marker and the readouts live in "How this was made".
+    await openHowThisWasMade(figure);
     await expect(page.getByTestId('no-decoder-note')).toContainText(
       /no pixel decoder/i,
     );
     await expect(page.getByTestId('no-decoder-note')).toContainText(/synthetic two-dimensional points/);
     const initial = await distanceReadout(page);
-    expect(initial).toBeGreaterThan(0.5);
+    expect(initial).toBeGreaterThan(0.4);
+    await expect(page.getByTestId('step-readout')).toHaveText('2');
 
     // Each planning step decreases the distance readout.
     const values: number[] = [];
     for (let i = 0; i < 3; i += 1) {
-      await page.getByRole('button', { name: /plan step/i }).click();
+      await page.getByRole('button', { name: 'Plan next move' }).click();
       values.push(await distanceReadout(page));
     }
     expect(values[0]).toBeLessThan(initial);
     expect(values[1]).toBeLessThan(values[0]);
     expect(values[2]).toBeLessThan(values[1]);
-    await expect(page.getByTestId('step-readout')).toHaveText('3');
+    await expect(page.getByTestId('step-readout')).toHaveText('5');
 
-    // The candidate fan renders one sequence per budget unit.
+    // The fan renders one tried move per option.
     expect(await page.getByTestId('candidate-sequence').count()).toBe(24);
 
-    // Reset restores the initial distance and step count.
-    await page.getByRole('button', { name: 'Reset' }).click();
+    // Reset, in "Adjust more", restores the opening distance and step count.
+    await openAdjustMore(figure);
+    await figure.getByRole('button', { name: 'Reset' }).click();
     expect(await distanceReadout(page)).toBeCloseTo(initial, 3);
-    await expect(page.getByTestId('step-readout')).toHaveText('0');
+    await expect(page.getByTestId('step-readout')).toHaveText('2');
   });
 
   test('interactive: goal switch restarts planning; keyboard path works', async ({
     page,
   }) => {
     await page.goto(ROUTE);
+    const figure = page.locator('[data-figure-frame="jepa-planning"]');
+    await openHowThisWasMade(figure);
     const pickInitial = await distanceReadout(page);
 
-    await page.getByRole('button', { name: /goal: place/i }).click();
-    await expect(
-      page.getByRole('button', { name: /goal: place/i }),
-    ).toHaveAttribute('aria-pressed', 'true');
-    await expect(page.getByTestId('step-readout')).toHaveText('0');
+    await openAdjustMore(figure);
+    await figure.getByTestId('goal-place').click();
+    await expect(figure.getByTestId('goal-place')).toHaveAttribute('aria-pressed', 'true');
+    await expect(figure.getByTestId('picture-place')).toBeVisible();
+    await expect(page.getByTestId('step-readout')).toHaveText('2');
     const placeInitial = await distanceReadout(page);
     expect(placeInitial).toBeGreaterThan(0);
     expect(placeInitial).not.toBeCloseTo(pickInitial, 3);
 
     // Keyboard: focus the plan button and activate it with Enter.
-    await page.getByRole('button', { name: /plan step/i }).focus();
+    await page.getByRole('button', { name: 'Plan next move' }).focus();
     await page.keyboard.press('Enter');
     expect(await distanceReadout(page)).toBeLessThan(placeInitial);
 
-    // The search-budget slider is keyboard adjustable.
-    const slider = page.getByRole('slider', { name: /search budget/i });
+    // The options slider is keyboard adjustable, and the fan follows it.
+    const slider = page.getByRole('slider', { name: /options tried each step/i });
     await slider.focus();
     await page.keyboard.press('ArrowLeft');
     await expect(slider).toHaveValue('20');
+    await expect(slider).toHaveAttribute('aria-valuetext', '20 options');
+    expect(await page.getByTestId('candidate-sequence').count()).toBe(20);
   });
 
   test('no horizontal page scroll at 375px', async ({ browser }) => {

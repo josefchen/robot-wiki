@@ -1,9 +1,10 @@
 import { expect, test, type Locator, type Page } from '@playwright/test';
 import { waitForHydration } from './interaction-ready';
+import { openAdjustMore } from './helpers/figure-fold';
 
 /**
  * Each world-models page used to pair a motion scene with a lab that showed
- * the same toy. The two are now one graphite figure, so the scene's beats
+ * the same toy. The two are now one figure, so the scene's beats
  * are states the figure's own controls reach from the keyboard. Every state
  * is audited on the stage at both widths, and the figure's text alternative
  * follows the state.
@@ -130,38 +131,48 @@ const figures: Array<{ id: string; route: string; lab: string; beats: Beat[]; af
     route: '/world-models/latent-dynamics/',
     lab: 'LatentImagination',
     afterReset: async (figure) => {
-      await expect(figure.getByRole('slider', { name: /imagination horizon/i })).toHaveValue('15');
+      await expect(figure.getByRole('slider', { name: /how far ahead to imagine/i })).toHaveValue('15');
       await expect(figure.getByTestId('decoder-free-note')).toHaveCount(0);
     },
     beats: [
       {
         name: 'real encoded state',
-        reach: (figure) => press(figure.getByRole('slider', { name: /imagination horizon/i }), 'Home'),
-        expectState: async (figure) => expect(figure.getByRole('slider', { name: /imagination horizon/i })).toHaveValue('1'),
-        describes: /t = 1 of 50/,
+        reach: (figure) => press(figure.getByRole('slider', { name: /how far ahead to imagine/i }), 'Home'),
+        expectState: async (figure) => {
+          await expect(figure.getByRole('slider', { name: /how far ahead to imagine/i })).toHaveValue('1');
+          await expect(figure.getByTestId('drift-note')).toContainText('still close to the real flight');
+        },
+        describes: /imagines 1 step ahead/,
       },
       {
         name: 'one-step error',
-        reach: (figure) => press(figure.getByRole('slider', { name: /imagination horizon/i }), 'ArrowRight'),
-        expectState: async (figure) => expect(figure.getByRole('slider', { name: /imagination horizon/i })).toHaveValue('2'),
-        describes: /t = 2 of 50/,
+        reach: (figure) => press(figure.getByRole('slider', { name: /how far ahead to imagine/i }), 'ArrowRight'),
+        expectState: async (figure) => expect(figure.getByRole('slider', { name: /how far ahead to imagine/i })).toHaveValue('2'),
+        describes: /imagines 2 steps ahead/,
       },
       {
         name: 'imagined rollout at the band edge',
-        reach: (figure) => press(figure.getByRole('slider', { name: /imagination horizon/i }), 'ArrowRight', 13),
-        expectState: async (figure) => expect(figure.getByRole('slider', { name: /imagination horizon/i })).toHaveValue('15'),
-        describes: /t = 15 of 50/,
+        reach: (figure) => press(figure.getByRole('slider', { name: /how far ahead to imagine/i }), 'ArrowRight', 13),
+        expectState: async (figure) => {
+          await expect(figure.getByRole('slider', { name: /how far ahead to imagine/i })).toHaveValue('15');
+          await expect(figure.getByTestId('drift-note')).toContainText('already this far off');
+        },
+        describes: /imagines 15 steps ahead/,
       },
       {
         name: 'decoder-free deviation',
-        reach: (figure) => press(figure.getByRole('button', { name: /decoder-free/i }), 'Enter'),
+        reach: async (figure) => {
+          const fold = await openAdjustMore(figure);
+          await press(fold.getByRole('button', { name: 'TD-MPC2 (no pictures)', exact: true }), 'Enter');
+        },
         expectState: async (figure) => {
           await expect(figure.getByTestId('decoder-free-note')).toBeVisible();
           await expect(figure.getByTestId('reward-error-bars')).toBeVisible();
-          await expect(figure.locator('details[data-chart-form="state"] dd').filter({ hasText: /^decoder-free$/ }))
+          await expect(figure.getByTestId('decoded-frames')).toHaveCount(0);
+          await expect(figure.locator('details[data-chart-form="state"] dd').filter({ hasText: /^TD-MPC2 \(no pictures\)$/ }))
             .toHaveCount(1);
         },
-        describes: /t = 15 of 50/,
+        describes: /imagines 15 steps ahead/,
       },
     ],
   },
@@ -171,31 +182,32 @@ const figures: Array<{ id: string; route: string; lab: string; beats: Beat[]; af
     lab: 'ActionConditioning',
     afterReset: async (figure) => {
       await expect(figure.getByTestId('sensitivity-readout')).toHaveText('0.419');
-      await expect(figure.getByRole('button', { name: 'Strong conditioning' })).toHaveAttribute('aria-pressed', 'true');
+      await expect(figure.getByRole('button', { name: 'Listens to the action', exact: true }))
+        .toHaveAttribute('aria-pressed', 'true');
     },
     beats: [
       {
-        name: 'strong fork',
+        name: 'listening fork',
         reach: async () => {},
         expectState: async (figure) => {
           expect(await number(figure.getByTestId('sensitivity-readout'))).toBeGreaterThan(0.3);
           expect(await figure.getByTestId('block-a-4').getAttribute('x'))
             .not.toBe(await figure.getByTestId('block-b-4').getAttribute('x'));
         },
-        describes: /diverge across 4 predicted frames/,
+        describes: /lead to different futures across 4 imagined frames/,
       },
       {
-        name: 'weak collapse',
-        reach: (figure) => press(figure.getByRole('button', { name: 'Weak conditioning' }), 'Enter'),
+        name: 'ignored action',
+        reach: (figure) => press(figure.getByRole('button', { name: 'Ignores the action', exact: true }), 'Enter'),
         expectState: async (figure) => {
           expect(await number(figure.getByTestId('sensitivity-readout'))).toBeLessThan(0.05);
           await expect(figure.getByTestId('realism-readout')).toHaveText('0.91');
         },
-        describes: /stay near-identical across 4 predicted frames/,
+        describes: /lead to nearly the same future across 4 imagined frames/,
       },
       {
-        name: 'strong again with the same realism',
-        reach: (figure) => press(figure.getByRole('button', { name: 'Strong conditioning' }), 'Enter'),
+        name: 'listening again with the same realism',
+        reach: (figure) => press(figure.getByRole('button', { name: 'Listens to the action', exact: true }), 'Enter'),
         expectState: async (figure) => {
           await expect(figure.getByTestId('sensitivity-readout')).toHaveText('0.419');
           await expect(figure.getByTestId('realism-readout')).toHaveText('0.91');
@@ -209,42 +221,39 @@ const figures: Array<{ id: string; route: string; lab: string; beats: Beat[]; af
     route: '/world-models/generative-sim/',
     lab: 'AppearancePhysicsPush',
     afterReset: async (figure) => {
-      await expect(figure.getByTestId('displacement-readout')).toHaveText('0.0 cm');
-      await expect(figure.getByRole('button', { name: /^physics proxy$/i })).toHaveAttribute('aria-pressed', 'false');
+      await expect(figure.getByTestId('displacement-readout')).toHaveText('0 centimetres');
+      await expect(figure.getByRole('button', { name: 'Picture only', exact: true })).toHaveAttribute('aria-pressed', 'true');
     },
     beats: [
       {
-        name: 'appearance only',
+        name: 'picture only',
         reach: async () => {},
-        expectState: async (figure) => expect(figure.getByTestId('no-dynamics-marker')).toBeVisible(),
-        describes: /physics proxy is off/,
+        expectState: async (figure) => expect(figure.getByTestId('push-note')).toContainText('only a picture'),
+        describes: /With only the picture, a push of 4 newtons/,
       },
       {
         name: 'unanswered push',
         reach: (figure) => press(figure.getByRole('button', { name: /push the mug/i }), 'Enter'),
         expectState: async (figure) => {
-          await expect(figure.getByTestId('displacement-readout')).toHaveText('0.0 cm');
+          await expect(figure.getByTestId('displacement-readout')).toHaveText('0 centimetres');
           await expect(figure.getByTestId('mug')).toHaveAttribute('transform', 'translate(80 0)');
         },
-        describes: /leaves the mug at 0\.0 cm/,
+        describes: /leaves the mug at 0 centimetres/,
       },
       {
         name: 'integrated push',
-        reach: async (figure) => {
-          await press(figure.getByRole('button', { name: /^physics proxy$/i }), 'Enter');
-          await press(figure.getByRole('button', { name: /push the mug/i }), 'Enter');
-        },
+        reach: (figure) => press(figure.getByRole('button', { name: 'Picture plus physics', exact: true }), 'Enter'),
         expectState: async (figure) => {
-          await expect(figure.getByTestId('displacement-readout')).toHaveText('18.1 cm');
+          await expect(figure.getByTestId('displacement-readout')).toHaveText('18.1 centimetres');
           await expect(figure.getByTestId('collision-hull')).toBeVisible();
         },
-        describes: /current displacement 18\.1 cm after 1 effective pushes/,
+        describes: /the mug has moved 18\.1 centimetres after 1 push\b/,
       },
       {
         name: 'second push',
         reach: (figure) => press(figure.getByRole('button', { name: /push the mug/i }), 'Enter'),
-        expectState: async (figure) => expect(figure.getByTestId('displacement-readout')).toHaveText('36.2 cm'),
-        describes: /current displacement 36\.2 cm/,
+        expectState: async (figure) => expect(figure.getByTestId('displacement-readout')).toHaveText('36.2 centimetres'),
+        describes: /moved 36\.2 centimetres after 2 pushes/,
       },
     ],
   },
@@ -299,6 +308,7 @@ for (const { id, route, lab, beats, afterReset } of figures) {
         await beat.reach(figure, page);
         await beat.expectState(figure, page);
       }
+      await openAdjustMore(figure);
       await figure.getByRole('button', { name: 'Reset', exact: true }).click();
       await afterReset(figure, page);
     } finally {

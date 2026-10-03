@@ -89,8 +89,10 @@ export function loadTokens(): MotionTokens {
 
 /** Brand foundations resolve to the brand custom properties, not copies. */
 const BRAND_VAR_BY_HEX: Record<string, string> = {
+  '#0B0B0C': 'var(--color-ink)',
   '#242D33': 'var(--color-graphite)',
   '#D9DADB': 'var(--color-concrete)',
+  '#F5F6F7': 'var(--color-paper)',
   '#FFFFFF': 'var(--color-white)',
 };
 
@@ -223,7 +225,7 @@ export function motionRoleVar(
   return \`var(--role-\${role}-\${variant})\`;
 }
 
-/** The graphite stage and its structure, resolved from the brand tokens. */
+/** The figure stage (the page ground) and its structure, resolved from the brand tokens. */
 export const MOTION_STAGE = {
   background: '${tokens.stage.backgroundToken}',
   axes: '${BRAND_VAR_BY_HEX[tokens.stage.axes] ?? tokens.stage.axes}',

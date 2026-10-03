@@ -73,13 +73,14 @@ test('final seven: actually mounted corrected arithmetic on two viewports', asyn
     await expect(revealedChart.getByTestId('oxe-duration-note')).toContainText('no hour estimate');
     await expect(revealedChart.getByTestId('robot-marker-oxe')).toHaveCount(0);
     await capture(dataRoute, 'DataScaleChart', 1, 'default', 'unmounted', 'reveal prediction',
-      '10-low-rate', revealedChart, ['hours-readout', 'oxe-years-readout'], ['70 h/yr', '143 yr'], viewport);
-    await revealedChart.getByRole('button', { name: /Dedicated farm hypothetical/ }).click();
+      '10-low-rate', revealedChart, ['hours-readout', 'oxe-years-readout'], ['70 hours a year', '143 years'], viewport);
+    await revealedChart.getByRole('button', { name: /Full-time farm/ }).click();
     await capture(dataRoute, 'DataScaleChart', 1, 'discrete-options', '10-low-rate', 'select dedicated',
-      '10-dedicated', revealedChart, ['hours-readout', 'oxe-years-readout'], ['10,000 h/yr', '1.0 yr'], viewport);
+      '10-dedicated', revealedChart, ['hours-readout', 'oxe-years-readout'], ['10,000 hours a year', '1.0 year'], viewport);
+    await openAdjustMore(revealedChart);
     await revealedChart.getByRole('button', { name: 'Reset' }).click();
     await capture(dataRoute, 'DataScaleChart', 1, 'reset', '10-dedicated', 'reset', '10-low-rate',
-      revealedChart, ['hours-readout', 'oxe-years-readout'], ['70 h/yr', '143 yr'], viewport);
+      revealedChart, ['hours-readout', 'oxe-years-readout'], ['70 hours a year', '143 years'], viewport);
 
     const evaluationRoute = '/data-hardware/evaluation-crisis/';
     await visit(evaluationRoute);

@@ -196,7 +196,7 @@ export type SeoPassSpec = { name: string; before: Artifact; after: Artifact; edi
 type SpecReview = Review & { archivedFrom: string; sources: SeoPassSpec[] };
 
 /** The reviewed spec evidence file; a changed review needs a reviewed code change too. */
-const specReviewPin = { bytes: 50996, sha256: 'b421b8d70c463f8f8f58fa181f2e58234a28bbe852daec507b461e93e06a4369' };
+const specReviewPin = { bytes: 51417, sha256: '24cfc7e4f6327476f1cb199b5cc30e85194625a866a0796e87bfd2bf68d14cd8' };
 
 /** Reviewed successor bytes per end-to-end spec the pass edited. */
 const specSuccessors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -231,7 +231,7 @@ const specSuccessors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/e2e/rma-kl-reader.spec.ts', [13532, 'ccb91ae7ee0129b4480d5e95515253ef484501856e4230dc500338288e9d5883']],
   ['tests/e2e/scene-representation.spec.ts', [25254, '4ebf6119e96116f6ef3029e68a5533e4f59d7d5dc618962ec2f12ceab3268288']],
   ['tests/e2e/see-also.spec.ts', [15115, '34dabe21a183a04dd6ccca3f02f6b9faa2263aef8e57af6faa9f499eb330ff09']],
-  ['tests/e2e/seo-static-integrity.spec.ts', [19190, 'a7f23fa65c7a57d253c086157a0fb959532ff3c9edc9d896602483bc4daff73b']],
+  ['tests/e2e/seo-static-integrity.spec.ts', [19213, '4cdcba2df668a7293713236b5d557c9ced9dbf8d78a4c71721344b61196cfcbf']],
   ['tests/e2e/sim2real-transfer.spec.ts', [10225, '62dad0f8e651f98d0ae52256023715d65bdf21cd52189073fdba573aed7819e3']],
   ['tests/e2e/space.spec.ts', [10140, '51fa6706329ea15cfbffbcd24da1722a10797ea7d50946a11db34521dfc128b0']],
   ['tests/e2e/state-estimation.spec.ts', [13500, '03cf55b5f93b2f885762ebccbc61ed38b7ad06c77a669c6b88cef8ef697606e0']],

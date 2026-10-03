@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import { expect, test } from '@playwright/test';
+import { openAdjustMore } from './helpers/figure-fold';
 import { setSlider } from './slider';
 
 const route = '/data-hardware/evaluation-crisis/';
@@ -152,8 +153,10 @@ for (const width of [375, 1440]) {
       }
       expect(new Set(names).size).toBe(groups.length);
       await expect(page.getByRole('radio')).toHaveCount(groups.reduce((n, group) => n + group.values.length, 0));
-      // The page's one calculator is the prediction step's reveal, opened by the choices above.
+      // The page's one calculator is the prediction step's figure; its per-step
+      // slider and Reset sit in the frame's "Adjust more" fold.
       const calculator = page.locator('[data-predict] [data-brand-module-signature="instrument-frame"]:has(svg[aria-label^="Line chart of episode success"])');
+      await openAdjustMore(calculator);
       await setSlider(calculator.getByRole('slider', { name: /per-step success/i }), 0);
       await expect(calculator.getByTestId('episode-success-readout')).toHaveText('0.0%');
       await calculator.getByRole('button', { name: /reset/i }).click();

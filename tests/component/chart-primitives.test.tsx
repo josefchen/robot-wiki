@@ -23,7 +23,7 @@ function marks(container: HTMLElement, kind: string) {
   return [...container.querySelectorAll(`[data-chart-mark="${kind}"]`)];
 }
 
-describe('chart primitives on the graphite stage', () => {
+describe('chart primitives on the light page stage', () => {
   it('reads every size from the motion tokens', () => {
     expect(CHART_STROKE.trace).toBe(2);
     expect(CHART_STROKE.reference).toBe(1.5);
@@ -34,18 +34,23 @@ describe('chart primitives on the graphite stage', () => {
     expect(tokens.roles.reference.encoding).toContain(`${CHART_STROKE.reference} px`);
   });
 
-  it('draws inside the shared frame on the bounded graphite stage', () => {
+  it('draws inside the shared frame on the light page stage', () => {
     const container = fixture();
     const stage = container.querySelector('[data-figure-frame] [data-figure-stage]');
-    expect(stage?.getAttribute('data-brand-surface-id')).toBe('surface:bounded-dark-instrument');
+    expect(stage?.getAttribute('data-brand-surface-id')).toBe('surface:flat');
     expect(stage?.querySelectorAll('svg[data-chart]').length).toBe(2);
   });
 
-  it('axes: concrete structure lines with tick and axis labels at 12 px or more', () => {
+  it('axes: graphite structure lines with tick and axis labels at 12 px or more', () => {
     const axes = fixture().querySelector('[data-chart-axes]')!;
     const lines = [...axes.querySelectorAll('line')];
     expect(lines.length).toBeGreaterThan(0);
-    for (const line of lines) expect(line.getAttribute('stroke')).toBe('var(--color-concrete)');
+    // Axis and tick lines are graphite; grid lines are the lighter concrete.
+    for (const line of lines) {
+      expect(line.getAttribute('stroke')).toBe(
+        line.hasAttribute('data-chart-grid') ? 'var(--color-concrete)' : 'var(--color-graphite)',
+      );
+    }
     const ticks = [...axes.querySelectorAll('text[data-scene-tick]')];
     const names = [...axes.querySelectorAll('text[data-scene-axis]')];
     expect(ticks.map((t) => t.textContent)).toEqual(['0', '5', '10', '0', '0.5', '1']);

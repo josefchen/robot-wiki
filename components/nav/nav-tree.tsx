@@ -34,6 +34,7 @@ const TOP_LEVEL_ENTRIES = [
   { href: '/a-z', label: 'A-Z Index' },
   { href: '/market-map', label: 'Market Map' },
   { href: '/playground', label: 'Playground' },
+  { href: '/how-robots-work', label: 'How robots work' },
   { href: '/glossary', label: 'Glossary' },
   { href: '/credits', label: 'Credits' },
 ] as const;

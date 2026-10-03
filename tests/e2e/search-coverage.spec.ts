@@ -30,6 +30,7 @@ const NON_ARTICLE_ROUTES = [
   '/a-z/',
   '/market-map/',
   '/playground/',
+  '/how-robots-work/',
   '/glossary/',
   '/credits/',
   '/editorial-policy/',

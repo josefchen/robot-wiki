@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "3942dfc4f93e6be1e75e3761d679d5ea0dbd1ac748d972bfc0cf8eca19d0b77c",
+  "fingerprint": "c7579053f5854f065ea9be372c717c7a2d8b0665431c3deb3772b3b8c685740c",
   "viewport": "1440x900",
   "routes": [
     "/",
@@ -39,6 +39,7 @@
     "/frontier/reliability-gap/",
     "/frontier/safety-and-assurance/",
     "/glossary/",
+    "/how-robots-work/",
     "/manipulation/",
     "/manipulation/action-chunking/",
     "/manipulation/action-spaces/",
@@ -80,7 +81,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3286,
+      "visibleTextLength": 3342,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -141,6 +142,18 @@
         },
         {
           "index": 4,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 5,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -152,7 +165,7 @@
           "marker": null
         },
         {
-          "index": 5,
+          "index": 6,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -192,7 +205,7 @@
       }
     },
     {
-      "visibleTextLength": 6766,
+      "visibleTextLength": 6782,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -265,6 +278,18 @@
         },
         {
           "index": 4,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 5,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -276,7 +301,7 @@
           "marker": null
         },
         {
-          "index": 5,
+          "index": 6,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -316,7 +341,7 @@
       }
     },
     {
-      "visibleTextLength": 2745,
+      "visibleTextLength": 2761,
       "ariaCurrentNodes": [],
       "navEntries": [
         {
@@ -369,6 +394,18 @@
         },
         {
           "index": 4,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 5,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -380,7 +417,7 @@
           "marker": null
         },
         {
-          "index": 5,
+          "index": 6,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -420,7 +457,7 @@
       }
     },
     {
-      "visibleTextLength": 1205,
+      "visibleTextLength": 1221,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -553,6 +590,18 @@
         },
         {
           "index": 9,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 10,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -564,7 +613,7 @@
           "marker": null
         },
         {
-          "index": 10,
+          "index": 11,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -604,7 +653,7 @@
       }
     },
     {
-      "visibleTextLength": 30258,
+      "visibleTextLength": 30274,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -737,6 +786,18 @@
         },
         {
           "index": 9,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 10,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -748,7 +809,7 @@
           "marker": null
         },
         {
-          "index": 10,
+          "index": 11,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -788,7 +849,7 @@
       }
     },
     {
-      "visibleTextLength": 18971,
+      "visibleTextLength": 18987,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -921,6 +982,18 @@
         },
         {
           "index": 9,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 10,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -932,7 +1005,7 @@
           "marker": null
         },
         {
-          "index": 10,
+          "index": 11,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -972,7 +1045,7 @@
       }
     },
     {
-      "visibleTextLength": 18356,
+      "visibleTextLength": 18372,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -1105,6 +1178,18 @@
         },
         {
           "index": 9,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 10,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -1116,7 +1201,7 @@
           "marker": null
         },
         {
-          "index": 10,
+          "index": 11,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -1156,7 +1241,7 @@
       }
     },
     {
-      "visibleTextLength": 17296,
+      "visibleTextLength": 17312,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -1289,6 +1374,18 @@
         },
         {
           "index": 9,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 10,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -1300,7 +1397,7 @@
           "marker": null
         },
         {
-          "index": 10,
+          "index": 11,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -1340,7 +1437,7 @@
       }
     },
     {
-      "visibleTextLength": 2020,
+      "visibleTextLength": 2036,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -1533,6 +1630,18 @@
         },
         {
           "index": 14,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 15,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -1544,7 +1653,7 @@
           "marker": null
         },
         {
-          "index": 15,
+          "index": 16,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -1584,7 +1693,7 @@
       }
     },
     {
-      "visibleTextLength": 12288,
+      "visibleTextLength": 12304,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -1777,6 +1886,18 @@
         },
         {
           "index": 14,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 15,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -1788,7 +1909,7 @@
           "marker": null
         },
         {
-          "index": 15,
+          "index": 16,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -1828,7 +1949,7 @@
       }
     },
     {
-      "visibleTextLength": 23413,
+      "visibleTextLength": 23429,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -2021,6 +2142,18 @@
         },
         {
           "index": 14,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 15,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -2032,7 +2165,7 @@
           "marker": null
         },
         {
-          "index": 15,
+          "index": 16,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -2072,7 +2205,7 @@
       }
     },
     {
-      "visibleTextLength": 16880,
+      "visibleTextLength": 16896,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -2265,6 +2398,18 @@
         },
         {
           "index": 14,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 15,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -2276,7 +2421,7 @@
           "marker": null
         },
         {
-          "index": 15,
+          "index": 16,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -2316,7 +2461,7 @@
       }
     },
     {
-      "visibleTextLength": 14730,
+      "visibleTextLength": 14746,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -2509,6 +2654,18 @@
         },
         {
           "index": 14,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 15,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -2520,7 +2677,7 @@
           "marker": null
         },
         {
-          "index": 15,
+          "index": 16,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -2560,7 +2717,7 @@
       }
     },
     {
-      "visibleTextLength": 27674,
+      "visibleTextLength": 27690,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -2753,6 +2910,18 @@
         },
         {
           "index": 14,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 15,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -2764,7 +2933,7 @@
           "marker": null
         },
         {
-          "index": 15,
+          "index": 16,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -2804,7 +2973,7 @@
       }
     },
     {
-      "visibleTextLength": 42329,
+      "visibleTextLength": 42345,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -2997,6 +3166,18 @@
         },
         {
           "index": 14,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 15,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -3008,7 +3189,7 @@
           "marker": null
         },
         {
-          "index": 15,
+          "index": 16,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -3048,7 +3229,7 @@
       }
     },
     {
-      "visibleTextLength": 12155,
+      "visibleTextLength": 12171,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -3241,6 +3422,18 @@
         },
         {
           "index": 14,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 15,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -3252,7 +3445,7 @@
           "marker": null
         },
         {
-          "index": 15,
+          "index": 16,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -3292,7 +3485,7 @@
       }
     },
     {
-      "visibleTextLength": 28226,
+      "visibleTextLength": 28242,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -3485,6 +3678,18 @@
         },
         {
           "index": 14,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 15,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -3496,7 +3701,7 @@
           "marker": null
         },
         {
-          "index": 15,
+          "index": 16,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -3536,7 +3741,7 @@
       }
     },
     {
-      "visibleTextLength": 20406,
+      "visibleTextLength": 20422,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -3729,6 +3934,18 @@
         },
         {
           "index": 14,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 15,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -3740,7 +3957,7 @@
           "marker": null
         },
         {
-          "index": 15,
+          "index": 16,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -3780,7 +3997,7 @@
       }
     },
     {
-      "visibleTextLength": 21517,
+      "visibleTextLength": 21533,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -3841,6 +4058,18 @@
         },
         {
           "index": 4,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 5,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -3852,7 +4081,7 @@
           "marker": null
         },
         {
-          "index": 5,
+          "index": 6,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -3904,7 +4133,7 @@
       }
     },
     {
-      "visibleTextLength": 1798,
+      "visibleTextLength": 1814,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -4073,6 +4302,18 @@
         },
         {
           "index": 12,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 13,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -4084,7 +4325,7 @@
           "marker": null
         },
         {
-          "index": 13,
+          "index": 14,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -4124,7 +4365,7 @@
       }
     },
     {
-      "visibleTextLength": 14365,
+      "visibleTextLength": 14333,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -4293,6 +4534,18 @@
         },
         {
           "index": 12,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 13,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -4304,7 +4557,7 @@
           "marker": null
         },
         {
-          "index": 13,
+          "index": 14,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -4344,7 +4597,7 @@
       }
     },
     {
-      "visibleTextLength": 17557,
+      "visibleTextLength": 17573,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -4513,6 +4766,18 @@
         },
         {
           "index": 12,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 13,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -4524,7 +4789,7 @@
           "marker": null
         },
         {
-          "index": 13,
+          "index": 14,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -4564,7 +4829,7 @@
       }
     },
     {
-      "visibleTextLength": 18471,
+      "visibleTextLength": 18503,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -4733,6 +4998,18 @@
         },
         {
           "index": 12,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 13,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -4744,7 +5021,7 @@
           "marker": null
         },
         {
-          "index": 13,
+          "index": 14,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -4784,7 +5061,7 @@
       }
     },
     {
-      "visibleTextLength": 26919,
+      "visibleTextLength": 26935,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -4953,6 +5230,18 @@
         },
         {
           "index": 12,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 13,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -4964,7 +5253,7 @@
           "marker": null
         },
         {
-          "index": 13,
+          "index": 14,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -5004,7 +5293,7 @@
       }
     },
     {
-      "visibleTextLength": 25556,
+      "visibleTextLength": 24867,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -5173,6 +5462,18 @@
         },
         {
           "index": 12,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 13,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -5184,7 +5485,7 @@
           "marker": null
         },
         {
-          "index": 13,
+          "index": 14,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -5224,7 +5525,7 @@
       }
     },
     {
-      "visibleTextLength": 12192,
+      "visibleTextLength": 12208,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -5393,6 +5694,18 @@
         },
         {
           "index": 12,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 13,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -5404,7 +5717,7 @@
           "marker": null
         },
         {
-          "index": 13,
+          "index": 14,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -5444,7 +5757,7 @@
       }
     },
     {
-      "visibleTextLength": 15690,
+      "visibleTextLength": 15706,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -5613,6 +5926,18 @@
         },
         {
           "index": 12,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 13,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -5624,7 +5949,7 @@
           "marker": null
         },
         {
-          "index": 13,
+          "index": 14,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -5664,7 +5989,7 @@
       }
     },
     {
-      "visibleTextLength": 2182,
+      "visibleTextLength": 2198,
       "ariaCurrentNodes": [],
       "navEntries": [
         {
@@ -5717,6 +6042,18 @@
         },
         {
           "index": 4,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 5,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -5728,7 +6065,7 @@
           "marker": null
         },
         {
-          "index": 5,
+          "index": 6,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -5768,7 +6105,7 @@
       }
     },
     {
-      "visibleTextLength": 1513,
+      "visibleTextLength": 1529,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -5925,6 +6262,18 @@
         },
         {
           "index": 11,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 12,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -5936,7 +6285,7 @@
           "marker": null
         },
         {
-          "index": 12,
+          "index": 13,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -5976,7 +6325,7 @@
       }
     },
     {
-      "visibleTextLength": 16105,
+      "visibleTextLength": 16121,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -6133,6 +6482,18 @@
         },
         {
           "index": 11,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 12,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -6144,7 +6505,7 @@
           "marker": null
         },
         {
-          "index": 12,
+          "index": 13,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -6184,7 +6545,7 @@
       }
     },
     {
-      "visibleTextLength": 22957,
+      "visibleTextLength": 22973,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -6341,6 +6702,18 @@
         },
         {
           "index": 11,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 12,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -6352,7 +6725,7 @@
           "marker": null
         },
         {
-          "index": 12,
+          "index": 13,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -6392,7 +6765,7 @@
       }
     },
     {
-      "visibleTextLength": 24021,
+      "visibleTextLength": 24037,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -6549,6 +6922,18 @@
         },
         {
           "index": 11,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 12,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -6560,7 +6945,7 @@
           "marker": null
         },
         {
-          "index": 12,
+          "index": 13,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -6600,7 +6985,7 @@
       }
     },
     {
-      "visibleTextLength": 16460,
+      "visibleTextLength": 16476,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -6757,6 +7142,18 @@
         },
         {
           "index": 11,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 12,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -6768,7 +7165,7 @@
           "marker": null
         },
         {
-          "index": 12,
+          "index": 13,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -6808,7 +7205,7 @@
       }
     },
     {
-      "visibleTextLength": 15048,
+      "visibleTextLength": 14273,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -6965,6 +7362,18 @@
         },
         {
           "index": 11,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 12,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -6976,7 +7385,7 @@
           "marker": null
         },
         {
-          "index": 12,
+          "index": 13,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -7016,7 +7425,7 @@
       }
     },
     {
-      "visibleTextLength": 26379,
+      "visibleTextLength": 26395,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -7173,6 +7582,18 @@
         },
         {
           "index": 11,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 12,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -7184,7 +7605,7 @@
           "marker": null
         },
         {
-          "index": 12,
+          "index": 13,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -7224,7 +7645,7 @@
       }
     },
     {
-      "visibleTextLength": 84089,
+      "visibleTextLength": 84105,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -7285,6 +7706,18 @@
         },
         {
           "index": 4,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 5,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -7308,7 +7741,7 @@
           }
         },
         {
-          "index": 5,
+          "index": 6,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -7348,7 +7781,143 @@
       }
     },
     {
-      "visibleTextLength": 3364,
+      "visibleTextLength": 1012,
+      "ariaCurrentNodes": [
+        {
+          "tag": "a",
+          "href": "/how-robots-work/",
+          "navigationLink": true,
+          "accessibleName": "How robots work",
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm px-2 py-1.5 font-sans text-sm transition-colors font-semibold"
+        }
+      ],
+      "navEntries": [
+        {
+          "index": 0,
+          "href": "/",
+          "name": "Robot Wiki",
+          "category": "lockup",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 600,
+          "fontFamilyHead": "tektur",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 1,
+          "href": "/a-z/",
+          "name": "A-Z Index",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 2,
+          "href": "/market-map/",
+          "name": "Market Map",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 3,
+          "href": "/playground/",
+          "name": "Playground",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 4,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 600,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": "page",
+          "marker": {
+            "deviceId": "device:active-interval-rail",
+            "anchorSelector": "#sidebar-taxonomy",
+            "ariaHidden": "true",
+            "pointerEvents": "none",
+            "borderLeftColour": "rgb(198, 255, 25)",
+            "borderLeftWidthPx": 3,
+            "leftPx": 12,
+            "heightPx": 32,
+            "alignmentErrorPx": 0,
+            "ownerHeightPx": 32,
+            "contributedText": ""
+          }
+        },
+        {
+          "index": 5,
+          "href": "/glossary/",
+          "name": "Glossary",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 6,
+          "href": "/credits/",
+          "name": "Credits",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        }
+      ],
+      "railGeometry": {
+        "asideRightPx": 288,
+        "navLeftPx": 12,
+        "mainLeftPx": 288,
+        "documentScrollWidthPx": 1440,
+        "documentClientWidthPx": 1440
+      },
+      "registrationLabels": [
+        {
+          "text": "Search",
+          "fontSizePx": 11,
+          "trackingEm": 0.14
+        }
+      ],
+      "route": "/how-robots-work/",
+      "skipLink": {
+        "firstTabStopTag": "a",
+        "firstTabStopHref": "#main-content",
+        "firstTabStopText": "Skip to content",
+        "restTopPx": -96,
+        "focusedTopPx": 12,
+        "visibleWhenFocused": true,
+        "colour": "rgb(36, 95, 255)",
+        "borderColour": "rgb(36, 95, 255)",
+        "activatedFocusId": "main-content"
+      }
+    },
+    {
+      "visibleTextLength": 3380,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -7613,6 +8182,18 @@
         },
         {
           "index": 20,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 21,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -7624,7 +8205,7 @@
           "marker": null
         },
         {
-          "index": 21,
+          "index": 22,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -7664,7 +8245,7 @@
       }
     },
     {
-      "visibleTextLength": 23151,
+      "visibleTextLength": 23167,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -7929,6 +8510,18 @@
         },
         {
           "index": 20,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 21,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -7940,7 +8533,7 @@
           "marker": null
         },
         {
-          "index": 21,
+          "index": 22,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -7980,7 +8573,7 @@
       }
     },
     {
-      "visibleTextLength": 13558,
+      "visibleTextLength": 13574,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -8245,6 +8838,18 @@
         },
         {
           "index": 20,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 21,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -8256,7 +8861,7 @@
           "marker": null
         },
         {
-          "index": 21,
+          "index": 22,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -8296,7 +8901,7 @@
       }
     },
     {
-      "visibleTextLength": 12801,
+      "visibleTextLength": 12817,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -8561,6 +9166,18 @@
         },
         {
           "index": 20,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 21,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -8572,7 +9189,7 @@
           "marker": null
         },
         {
-          "index": 21,
+          "index": 22,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -8612,7 +9229,7 @@
       }
     },
     {
-      "visibleTextLength": 29448,
+      "visibleTextLength": 29464,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -8877,6 +9494,18 @@
         },
         {
           "index": 20,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 21,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -8888,7 +9517,7 @@
           "marker": null
         },
         {
-          "index": 21,
+          "index": 22,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -8928,7 +9557,7 @@
       }
     },
     {
-      "visibleTextLength": 17432,
+      "visibleTextLength": 17448,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -9193,6 +9822,18 @@
         },
         {
           "index": 20,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 21,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -9204,7 +9845,7 @@
           "marker": null
         },
         {
-          "index": 21,
+          "index": 22,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -9244,7 +9885,7 @@
       }
     },
     {
-      "visibleTextLength": 14937,
+      "visibleTextLength": 14953,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -9509,6 +10150,18 @@
         },
         {
           "index": 20,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 21,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -9520,7 +10173,7 @@
           "marker": null
         },
         {
-          "index": 21,
+          "index": 22,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -9560,7 +10213,7 @@
       }
     },
     {
-      "visibleTextLength": 13195,
+      "visibleTextLength": 13211,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -9825,6 +10478,18 @@
         },
         {
           "index": 20,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 21,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -9836,7 +10501,7 @@
           "marker": null
         },
         {
-          "index": 21,
+          "index": 22,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -9876,7 +10541,7 @@
       }
     },
     {
-      "visibleTextLength": 23204,
+      "visibleTextLength": 23220,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -10141,6 +10806,18 @@
         },
         {
           "index": 20,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 21,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -10152,7 +10829,7 @@
           "marker": null
         },
         {
-          "index": 21,
+          "index": 22,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -10192,7 +10869,7 @@
       }
     },
     {
-      "visibleTextLength": 20182,
+      "visibleTextLength": 20198,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -10457,6 +11134,18 @@
         },
         {
           "index": 20,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 21,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -10468,7 +11157,7 @@
           "marker": null
         },
         {
-          "index": 21,
+          "index": 22,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -10508,7 +11197,7 @@
       }
     },
     {
-      "visibleTextLength": 12881,
+      "visibleTextLength": 12897,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -10773,6 +11462,18 @@
         },
         {
           "index": 20,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 21,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -10784,7 +11485,7 @@
           "marker": null
         },
         {
-          "index": 21,
+          "index": 22,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -10824,7 +11525,7 @@
       }
     },
     {
-      "visibleTextLength": 25524,
+      "visibleTextLength": 25540,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -11089,6 +11790,18 @@
         },
         {
           "index": 20,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 21,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -11100,7 +11813,7 @@
           "marker": null
         },
         {
-          "index": 21,
+          "index": 22,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -11140,7 +11853,7 @@
       }
     },
     {
-      "visibleTextLength": 18969,
+      "visibleTextLength": 18985,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -11405,6 +12118,18 @@
         },
         {
           "index": 20,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 21,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -11416,7 +12141,7 @@
           "marker": null
         },
         {
-          "index": 21,
+          "index": 22,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -11456,7 +12181,7 @@
       }
     },
     {
-      "visibleTextLength": 39173,
+      "visibleTextLength": 39189,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -11721,6 +12446,18 @@
         },
         {
           "index": 20,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 21,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -11732,7 +12469,7 @@
           "marker": null
         },
         {
-          "index": 21,
+          "index": 22,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -11772,7 +12509,7 @@
       }
     },
     {
-      "visibleTextLength": 11285,
+      "visibleTextLength": 11301,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -12037,6 +12774,18 @@
         },
         {
           "index": 20,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 21,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -12048,7 +12797,7 @@
           "marker": null
         },
         {
-          "index": 21,
+          "index": 22,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -12088,7 +12837,7 @@
       }
     },
     {
-      "visibleTextLength": 20710,
+      "visibleTextLength": 20726,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -12353,6 +13102,18 @@
         },
         {
           "index": 20,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 21,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -12364,7 +13125,7 @@
           "marker": null
         },
         {
-          "index": 21,
+          "index": 22,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -12404,7 +13165,7 @@
       }
     },
     {
-      "visibleTextLength": 54606,
+      "visibleTextLength": 54622,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -12477,6 +13238,18 @@
         },
         {
           "index": 4,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 5,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -12488,7 +13261,7 @@
           "marker": null
         },
         {
-          "index": 5,
+          "index": 6,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -12528,7 +13301,7 @@
       }
     },
     {
-      "visibleTextLength": 1886,
+      "visibleTextLength": 1902,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -12601,6 +13374,18 @@
         },
         {
           "index": 4,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 5,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -12612,7 +13397,7 @@
           "marker": null
         },
         {
-          "index": 5,
+          "index": 6,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -12652,7 +13437,7 @@
       }
     },
     {
-      "visibleTextLength": 1658,
+      "visibleTextLength": 1674,
       "ariaCurrentNodes": [],
       "navEntries": [
         {
@@ -12705,6 +13490,18 @@
         },
         {
           "index": 4,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 5,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -12716,7 +13513,7 @@
           "marker": null
         },
         {
-          "index": 5,
+          "index": 6,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -12756,7 +13553,7 @@
       }
     },
     {
-      "visibleTextLength": 2117,
+      "visibleTextLength": 2133,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -12937,6 +13734,18 @@
         },
         {
           "index": 13,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 14,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -12948,7 +13757,7 @@
           "marker": null
         },
         {
-          "index": 14,
+          "index": 15,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -12988,7 +13797,7 @@
       }
     },
     {
-      "visibleTextLength": 21182,
+      "visibleTextLength": 21198,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -13169,6 +13978,18 @@
         },
         {
           "index": 13,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 14,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -13180,7 +14001,7 @@
           "marker": null
         },
         {
-          "index": 14,
+          "index": 15,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -13220,7 +14041,7 @@
       }
     },
     {
-      "visibleTextLength": 18870,
+      "visibleTextLength": 18886,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -13401,6 +14222,18 @@
         },
         {
           "index": 13,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 14,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -13412,7 +14245,7 @@
           "marker": null
         },
         {
-          "index": 14,
+          "index": 15,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -13452,7 +14285,7 @@
       }
     },
     {
-      "visibleTextLength": 14211,
+      "visibleTextLength": 14227,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -13633,6 +14466,18 @@
         },
         {
           "index": 13,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 14,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -13644,7 +14489,7 @@
           "marker": null
         },
         {
-          "index": 14,
+          "index": 15,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -13684,7 +14529,7 @@
       }
     },
     {
-      "visibleTextLength": 16106,
+      "visibleTextLength": 16122,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -13865,6 +14710,18 @@
         },
         {
           "index": 13,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 14,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -13876,7 +14733,7 @@
           "marker": null
         },
         {
-          "index": 14,
+          "index": 15,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -13916,7 +14773,7 @@
       }
     },
     {
-      "visibleTextLength": 28485,
+      "visibleTextLength": 28501,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -14097,6 +14954,18 @@
         },
         {
           "index": 13,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 14,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -14108,7 +14977,7 @@
           "marker": null
         },
         {
-          "index": 14,
+          "index": 15,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -14148,7 +15017,7 @@
       }
     },
     {
-      "visibleTextLength": 28309,
+      "visibleTextLength": 28325,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -14329,6 +15198,18 @@
         },
         {
           "index": 13,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 14,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -14340,7 +15221,7 @@
           "marker": null
         },
         {
-          "index": 14,
+          "index": 15,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -14380,7 +15261,7 @@
       }
     },
     {
-      "visibleTextLength": 24529,
+      "visibleTextLength": 24545,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -14561,6 +15442,18 @@
         },
         {
           "index": 13,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 14,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -14572,7 +15465,7 @@
           "marker": null
         },
         {
-          "index": 14,
+          "index": 15,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -14612,7 +15505,7 @@
       }
     },
     {
-      "visibleTextLength": 12349,
+      "visibleTextLength": 12365,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -14793,6 +15686,18 @@
         },
         {
           "index": 13,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 14,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -14804,7 +15709,7 @@
           "marker": null
         },
         {
-          "index": 14,
+          "index": 15,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -14844,7 +15749,7 @@
       }
     },
     {
-      "visibleTextLength": 801,
+      "visibleTextLength": 817,
       "ariaCurrentNodes": [],
       "navEntries": [
         {
@@ -14897,6 +15802,18 @@
         },
         {
           "index": 4,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 5,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -14908,7 +15825,7 @@
           "marker": null
         },
         {
-          "index": 5,
+          "index": 6,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -14948,7 +15865,7 @@
       }
     },
     {
-      "visibleTextLength": 2191,
+      "visibleTextLength": 2207,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -15129,6 +16046,18 @@
         },
         {
           "index": 13,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 14,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -15140,7 +16069,7 @@
           "marker": null
         },
         {
-          "index": 14,
+          "index": 15,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -15180,7 +16109,7 @@
       }
     },
     {
-      "visibleTextLength": 13227,
+      "visibleTextLength": 13243,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -15361,6 +16290,18 @@
         },
         {
           "index": 13,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 14,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -15372,7 +16313,7 @@
           "marker": null
         },
         {
-          "index": 14,
+          "index": 15,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -15412,7 +16353,7 @@
       }
     },
     {
-      "visibleTextLength": 17628,
+      "visibleTextLength": 17224,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -15593,6 +16534,18 @@
         },
         {
           "index": 13,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 14,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -15604,7 +16557,7 @@
           "marker": null
         },
         {
-          "index": 14,
+          "index": 15,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -15644,7 +16597,7 @@
       }
     },
     {
-      "visibleTextLength": 20163,
+      "visibleTextLength": 19773,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -15825,6 +16778,18 @@
         },
         {
           "index": 13,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 14,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -15836,7 +16801,7 @@
           "marker": null
         },
         {
-          "index": 14,
+          "index": 15,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -15876,7 +16841,7 @@
       }
     },
     {
-      "visibleTextLength": 16264,
+      "visibleTextLength": 16061,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -16057,6 +17022,18 @@
         },
         {
           "index": 13,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 14,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -16068,7 +17045,7 @@
           "marker": null
         },
         {
-          "index": 14,
+          "index": 15,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -16108,7 +17085,7 @@
       }
     },
     {
-      "visibleTextLength": 15709,
+      "visibleTextLength": 15051,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -16289,6 +17266,18 @@
         },
         {
           "index": 13,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 14,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -16300,7 +17289,7 @@
           "marker": null
         },
         {
-          "index": 14,
+          "index": 15,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -16340,7 +17329,7 @@
       }
     },
     {
-      "visibleTextLength": 12606,
+      "visibleTextLength": 12622,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -16521,6 +17510,18 @@
         },
         {
           "index": 13,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 14,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -16532,7 +17533,7 @@
           "marker": null
         },
         {
-          "index": 14,
+          "index": 15,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -16572,7 +17573,7 @@
       }
     },
     {
-      "visibleTextLength": 19223,
+      "visibleTextLength": 18960,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -16753,6 +17754,18 @@
         },
         {
           "index": 13,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 14,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -16764,7 +17777,7 @@
           "marker": null
         },
         {
-          "index": 14,
+          "index": 15,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -16804,7 +17817,7 @@
       }
     },
     {
-      "visibleTextLength": 20076,
+      "visibleTextLength": 20092,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -16985,6 +17998,18 @@
         },
         {
           "index": 13,
+          "href": "/how-robots-work/",
+          "name": "How robots work",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 14,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -16996,7 +18021,7 @@
           "marker": null
         },
         {
-          "index": 14,
+          "index": 15,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -17855,6 +18880,18 @@
     },
     {
       "index": 68,
+      "href": "/how-robots-work/",
+      "name": "How robots work",
+      "category": "standalone",
+      "leftPx": 12,
+      "colour": "rgb(11, 11, 12)",
+      "fontWeight": 500,
+      "fontFamilyHead": "\"IBM Plex Sans\"",
+      "ariaCurrent": null,
+      "marker": null
+    },
+    {
+      "index": 69,
       "href": "/glossary/",
       "name": "Glossary",
       "category": "standalone",
@@ -17866,7 +18903,7 @@
       "marker": null
     },
     {
-      "index": 69,
+      "index": 70,
       "href": "/credits/",
       "name": "Credits",
       "category": "standalone",

@@ -189,7 +189,7 @@ import {
   FIGURE_VIEWPORTS,
   altTextAndDeliveryVerdicts,
   captionAndCreditVerdicts,
-  darkInstrumentVerdicts,
+  schematicFigureVerdicts,
   figureEvidenceFingerprint,
   figureOccurrenceMembers,
   readFigureRuntimeEvidence,
@@ -1275,7 +1275,7 @@ const SEALED_SVG_MEMBERS = (
  * that could drift apart while both reporting green.
  */
 const FIGURE_VERDICTS = {
-  'VAL-B2-ART-004': darkInstrumentVerdicts(FIGURE_EVIDENCE),
+  'VAL-B2-ART-004': schematicFigureVerdicts(FIGURE_EVIDENCE),
   'VAL-B2-ART-005': captionAndCreditVerdicts(FIGURE_EVIDENCE),
   'VAL-B2-ART-006': schematicSelfIdentificationVerdicts(FIGURE_EVIDENCE),
   'VAL-B2-IMG-003': schematicSelfIdentificationVerdicts(FIGURE_EVIDENCE),
@@ -3051,7 +3051,7 @@ function figureAssertionEvidence(
 /** What each row means when its member passes, in the row's own terms. */
 const FIGURE_ASSERTION_ACTUALS: Readonly<Record<string, string>> = {
   'VAL-B2-ART-004':
-    'renders inside the registered bounded dark instrument, with a painted boundary, an inverse label above the 4.5:1 floor, and alt text and a caption that describe the drawing',
+    'draws on the registered figure stage on the page ground, with a label above the 4.5:1 floor, inside its figure, and with alt text and a caption that describe the drawing',
   'VAL-B2-ART-005':
     'states a takeaway caption that is not its own alt text again, and renders the attribution the registry records, naming creator, source and licence and linking both',
   'VAL-B2-ART-006':
