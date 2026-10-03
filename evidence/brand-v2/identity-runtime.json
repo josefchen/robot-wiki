@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "e83c6b05ddd6108b3ad9e08b33b2e458e6816693176d9d34bb59f5a2c7d1a062",
+  "fingerprint": "6d2cb964db7350d9837e8c10d49c8d52c53eb804ae25f2cac69b5b7b7b4f4801",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -254,7 +254,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3364,
+      "visibleTextLength": 3330,
       "route": "/",
       "viewport": "1440x900"
     },
@@ -1524,7 +1524,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 23429,
+      "visibleTextLength": 24278,
       "route": "/classical/control/",
       "viewport": "1440x900"
     },
@@ -2794,7 +2794,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 14333,
+      "visibleTextLength": 15579,
       "route": "/data-hardware/data-bottleneck/",
       "viewport": "1440x900"
     },
@@ -3048,7 +3048,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18503,
+      "visibleTextLength": 19148,
       "route": "/data-hardware/evaluation-crisis/",
       "viewport": "1440x900"
     },
@@ -4318,7 +4318,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 16476,
+      "visibleTextLength": 17410,
       "route": "/frontier/generalization/",
       "viewport": "1440x900"
     },
@@ -5334,7 +5334,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 12950,
+      "visibleTextLength": 13693,
       "route": "/manipulation/bc-foundations/",
       "viewport": "1440x900"
     },
@@ -9825,7 +9825,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3126,
+      "visibleTextLength": 3092,
       "route": "/",
       "viewport": "375x812"
     },
@@ -11095,7 +11095,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 22992,
+      "visibleTextLength": 23841,
       "route": "/classical/control/",
       "viewport": "375x812"
     },
@@ -12365,7 +12365,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 13938,
+      "visibleTextLength": 15184,
       "route": "/data-hardware/data-bottleneck/",
       "viewport": "375x812"
     },
@@ -12619,7 +12619,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18108,
+      "visibleTextLength": 18753,
       "route": "/data-hardware/evaluation-crisis/",
       "viewport": "375x812"
     },
@@ -13889,7 +13889,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 16125,
+      "visibleTextLength": 17059,
       "route": "/frontier/generalization/",
       "viewport": "375x812"
     },
@@ -14905,7 +14905,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 12307,
+      "visibleTextLength": 13050,
       "route": "/manipulation/bc-foundations/",
       "viewport": "375x812"
     },

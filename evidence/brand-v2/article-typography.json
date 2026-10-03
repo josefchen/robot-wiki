@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "0cc8cf542dc6053adc6e099cba25d4c7e2e76e94e01eaa4fe23fe3254915e1d9",
+  "fingerprint": "9ae101fe44c73072d36025b6a6f711899aa622b431e7fd7500ab6230e5a0d32d",
   "viewports": [
     "375x812",
     "1440x900"
@@ -143,7 +143,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3126,
+      "visibleTextLength": 3092,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -5086,7 +5086,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22992,
+      "visibleTextLength": 23841,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -5153,11 +5153,11 @@
           "Control"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 15,
+        "readingMinutes": 16,
         "citationCount": 21,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "15 min",
+        "readingTimeText": "16 min",
         "citationCountText": "21",
         "bibliographyIds": [
           "ziegler-nichols-1942",
@@ -5229,16 +5229,16 @@
           "familyHead": "ibm plex mono",
           "sizePx": 12,
           "lineHeightRatio": 1.33,
-          "widthPx": 301,
+          "widthPx": 335,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
-          "text": "Prediction"
+          "text": "Guess first"
         },
         {
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 301,
+          "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "angle +12.0°rate +0.0°/sintegral 0.00torque -2.0 N·mstatus h"
@@ -5256,7 +5256,7 @@
           "familyHead": "newsreader",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 301,
+          "widthPx": 311,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "The restoring torque must outweigh gravity before anything e"
@@ -5887,14 +5887,6 @@
           "controlId": "control:secondary-action"
         },
         {
-          "tag": "summary",
-          "text": "Read the reasoning",
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
           "tag": "button",
           "text": "Run",
           "familyHead": "ibm plex sans",
@@ -5921,6 +5913,14 @@
         {
           "tag": "summary",
           "text": "Current pendulum gains and regim",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Read the reasoning",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -12537,7 +12537,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 13938,
+      "visibleTextLength": 15184,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -12604,11 +12604,11 @@
           "The Data Bottleneck"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 7,
+        "readingMinutes": 8,
         "citationCount": 13,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "7 min",
+        "readingTimeText": "8 min",
         "citationCountText": "13",
         "bibliographyIds": [
           "gpt3-2020",
@@ -12663,16 +12663,16 @@
           "familyHead": "ibm plex mono",
           "sizePx": 12,
           "lineHeightRatio": 1.33,
-          "widthPx": 301,
+          "widthPx": 335,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
-          "text": "Prediction"
+          "text": "Guess first"
         },
         {
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 301,
+          "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "10 part-time robots collect 70 hours a year: 10,000 hours ta"
@@ -12681,7 +12681,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 301,
+          "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Illustrative: chosen collection rates, not a measured farm."
@@ -12690,7 +12690,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 301,
+          "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "The two panels use separate rulers because there is no hones"
@@ -12699,7 +12699,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 301,
+          "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Authored hypothetical: 7 productive hours per rig-year, not "
@@ -12708,7 +12708,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 301,
+          "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Current projection: 10 rigs at 70 h/yr, 10,000 h in 143 yr a"
@@ -12717,7 +12717,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 301,
+          "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Sources for each count: DROID, EgoDex, TRI LBM, AgiBot World"
@@ -12735,7 +12735,7 @@
           "familyHead": "newsreader",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 301,
+          "widthPx": 311,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "For the same 10,000-hour hypothetical target, 10 rigs take a"
@@ -13160,14 +13160,6 @@
           "controlId": "control:secondary-action"
         },
         {
-          "tag": "summary",
-          "text": "Read the reasoning",
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
           "tag": "button",
           "text": "Part-time: 7 hours a year each",
           "familyHead": "ibm plex sans",
@@ -13250,6 +13242,14 @@
         {
           "tag": "summary",
           "text": "Datasets and corpora by scale, w",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Read the reasoning",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -14239,7 +14239,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18108,
+      "visibleTextLength": 18753,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -14306,11 +14306,11 @@
           "The Evaluation Crisis"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 10,
+        "readingMinutes": 11,
         "citationCount": 9,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "10 min",
+        "readingTimeText": "11 min",
         "citationCountText": "9",
         "bibliographyIds": [
           "tri-lbm-2025",
@@ -14361,16 +14361,16 @@
           "familyHead": "ibm plex mono",
           "sizePx": 12,
           "lineHeightRatio": 1.33,
-          "widthPx": 301,
+          "widthPx": 335,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
-          "text": "Prediction"
+          "text": "Guess first"
         },
         {
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 301,
+          "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "At 95.0% per step, a 14-step job goes right 48.8% of the tim"
@@ -14379,7 +14379,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 301,
+          "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Illustrative: a simple model, not a measured robot."
@@ -14388,7 +14388,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 301,
+          "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "This is an illustrative probability model, computed rather t"
@@ -14397,7 +14397,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 301,
+          "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "The tiles round the same number to whole jobs out of 100. Wo"
@@ -14415,7 +14415,7 @@
           "familyHead": "newsreader",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 301,
+          "widthPx": 311,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "At 95% per step, the task is a coin flip after 14 decisions "
@@ -14891,14 +14891,6 @@
           "controlId": "control:secondary-action"
         },
         {
-          "tag": "summary",
-          "text": "Read the reasoning",
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
           "tag": "button",
           "text": "95 in 100",
           "familyHead": "ibm plex sans",
@@ -14949,6 +14941,14 @@
         {
           "tag": "summary",
           "text": "Sampled episode success by episo",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Read the reasoning",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -21586,7 +21586,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16125,
+      "visibleTextLength": 17059,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -21653,11 +21653,11 @@
           "Generalization"
         ],
         "lastReviewed": "2026-08-18",
-        "readingMinutes": 10,
+        "readingMinutes": 11,
         "citationCount": 12,
         "reviewDateText": "18 August 2026",
         "reviewDateTime": "2026-08-18",
-        "readingTimeText": "10 min",
+        "readingTimeText": "11 min",
         "citationCountText": "12",
         "bibliographyIds": [
           "pi05-2025",
@@ -21711,16 +21711,16 @@
           "familyHead": "ibm plex mono",
           "sizePx": 12,
           "lineHeightRatio": 1.33,
-          "widthPx": 301,
+          "widthPx": 335,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
-          "text": "Prediction"
+          "text": "Guess first"
         },
         {
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 301,
+          "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "At 250k hours a straight line would pass 100% (a score of 1."
@@ -21729,7 +21729,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 301,
+          "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "EgoScale (Zheng et al. 2026) pretrained one robot model on 1"
@@ -21738,7 +21738,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 301,
+          "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "The line is this wiki’s own least-squares log-linear fit thr"
@@ -21747,7 +21747,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 301,
+          "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "The paper’s published law is about validation loss (MSE on h"
@@ -21756,7 +21756,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 301,
+          "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "At the current setting (250k h): loss 0.0074 holds / 0.0150 "
@@ -21765,7 +21765,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 301,
+          "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "EgoScale (2026) fits the law to held-out human-video validat"
@@ -21783,7 +21783,7 @@
           "familyHead": "newsreader",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 301,
+          "widthPx": 311,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "A straight line in log data crosses 100% near 250k hours, wh"
@@ -22269,14 +22269,6 @@
           "controlId": "control:secondary-action"
         },
         {
-          "tag": "summary",
-          "text": "Read the reasoning",
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
           "tag": "button",
           "text": "Measured (20,000 hours)",
           "familyHead": "ibm plex sans",
@@ -22335,6 +22327,14 @@
         {
           "tag": "summary",
           "text": "Sampled loss and completion by p",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Read the reasoning",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -26709,7 +26709,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12307,
+      "visibleTextLength": 13050,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -26776,11 +26776,11 @@
           "Behavior Cloning Foundations"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 8,
+        "readingMinutes": 9,
         "citationCount": 6,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "8 min",
+        "readingTimeText": "9 min",
         "citationCountText": "6",
         "bibliographyIds": [
           "alvinn-1988",
@@ -26837,16 +26837,16 @@
           "familyHead": "ibm plex mono",
           "sizePx": 12,
           "lineHeightRatio": 1.33,
-          "widthPx": 301,
+          "widthPx": 335,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
-          "text": "Prediction"
+          "text": "Guess first"
         },
         {
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 301,
+          "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Total drift over 240 moves: 1505 units; over the first 120: "
@@ -26855,7 +26855,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 301,
+          "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Illustrative: a toy model, not a measured robot."
@@ -26864,7 +26864,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 301,
+          "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Original deterministic toy, not a measured robot. Each move "
@@ -26873,7 +26873,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 301,
+          "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "“25 moves per plan” makes one decision every 25 moves (actio"
@@ -26891,7 +26891,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 301,
+          "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "The chart below compares the summed drift with two illustrat"
@@ -26909,7 +26909,7 @@
           "familyHead": "newsreader",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 301,
+          "widthPx": 311,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "In this toy, doubling the horizon roughly quadruples summed "
@@ -27424,14 +27424,6 @@
           "controlId": "control:secondary-action"
         },
         {
-          "tag": "summary",
-          "text": "Read the reasoning",
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
           "tag": "button",
           "text": "Short task (120 moves)",
           "familyHead": "ibm plex sans",
@@ -27506,6 +27498,14 @@
         {
           "tag": "summary",
           "text": "Sampled toy deviation and refere",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Read the reasoning",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -53482,7 +53482,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 3364,
+      "visibleTextLength": 3330,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -58425,7 +58425,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23429,
+      "visibleTextLength": 24278,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -58492,11 +58492,11 @@
           "Control"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 15,
+        "readingMinutes": 16,
         "citationCount": 21,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "15 min",
+        "readingTimeText": "16 min",
         "citationCountText": "21",
         "bibliographyIds": [
           "ziegler-nichols-1942",
@@ -58568,10 +58568,10 @@
           "familyHead": "ibm plex mono",
           "sizePx": 12,
           "lineHeightRatio": 1.33,
-          "widthPx": 673,
+          "widthPx": 715,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
-          "text": "Prediction"
+          "text": "Guess first"
         },
         {
           "familyHead": "ibm plex sans",
@@ -58595,7 +58595,7 @@
           "familyHead": "newsreader",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 649,
+          "widthPx": 691,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "The restoring torque must outweigh gravity before anything e"
@@ -59226,14 +59226,6 @@
           "controlId": "control:secondary-action"
         },
         {
-          "tag": "summary",
-          "text": "Read the reasoning",
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
           "tag": "button",
           "text": "Run",
           "familyHead": "ibm plex sans",
@@ -59260,6 +59252,14 @@
         {
           "tag": "summary",
           "text": "Current pendulum gains and regim",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Read the reasoning",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -65876,7 +65876,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 14333,
+      "visibleTextLength": 15579,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -65943,11 +65943,11 @@
           "The Data Bottleneck"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 7,
+        "readingMinutes": 8,
         "citationCount": 13,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "7 min",
+        "readingTimeText": "8 min",
         "citationCountText": "13",
         "bibliographyIds": [
           "gpt3-2020",
@@ -66002,16 +66002,16 @@
           "familyHead": "ibm plex mono",
           "sizePx": 12,
           "lineHeightRatio": 1.33,
-          "widthPx": 673,
+          "widthPx": 715,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
-          "text": "Prediction"
+          "text": "Guess first"
         },
         {
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 649,
+          "widthPx": 692,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "10 part-time robots collect 70 hours a year: 10,000 hours ta"
@@ -66020,7 +66020,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 649,
+          "widthPx": 715,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Illustrative: chosen collection rates, not a measured farm."
@@ -66029,7 +66029,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 649,
+          "widthPx": 715,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "The two panels use separate rulers because there is no hones"
@@ -66038,7 +66038,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 649,
+          "widthPx": 715,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Authored hypothetical: 7 productive hours per rig-year, not "
@@ -66047,7 +66047,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 649,
+          "widthPx": 715,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Current projection: 10 rigs at 70 h/yr, 10,000 h in 143 yr a"
@@ -66056,7 +66056,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 649,
+          "widthPx": 715,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Sources for each count: DROID, EgoDex, TRI LBM, AgiBot World"
@@ -66074,7 +66074,7 @@
           "familyHead": "newsreader",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 649,
+          "widthPx": 691,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "For the same 10,000-hour hypothetical target, 10 rigs take a"
@@ -66499,14 +66499,6 @@
           "controlId": "control:secondary-action"
         },
         {
-          "tag": "summary",
-          "text": "Read the reasoning",
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
           "tag": "button",
           "text": "Part-time: 7 hours a year each",
           "familyHead": "ibm plex sans",
@@ -66589,6 +66581,14 @@
         {
           "tag": "summary",
           "text": "Datasets and corpora by scale, w",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Read the reasoning",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -67578,7 +67578,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18503,
+      "visibleTextLength": 19148,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -67645,11 +67645,11 @@
           "The Evaluation Crisis"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 10,
+        "readingMinutes": 11,
         "citationCount": 9,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "10 min",
+        "readingTimeText": "11 min",
         "citationCountText": "9",
         "bibliographyIds": [
           "tri-lbm-2025",
@@ -67700,10 +67700,10 @@
           "familyHead": "ibm plex mono",
           "sizePx": 12,
           "lineHeightRatio": 1.33,
-          "widthPx": 673,
+          "widthPx": 715,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
-          "text": "Prediction"
+          "text": "Guess first"
         },
         {
           "familyHead": "ibm plex sans",
@@ -67718,7 +67718,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 649,
+          "widthPx": 715,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Illustrative: a simple model, not a measured robot."
@@ -67727,7 +67727,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 649,
+          "widthPx": 715,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "This is an illustrative probability model, computed rather t"
@@ -67736,7 +67736,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 649,
+          "widthPx": 715,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "The tiles round the same number to whole jobs out of 100. Wo"
@@ -67754,7 +67754,7 @@
           "familyHead": "newsreader",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 649,
+          "widthPx": 691,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "At 95% per step, the task is a coin flip after 14 decisions "
@@ -68230,14 +68230,6 @@
           "controlId": "control:secondary-action"
         },
         {
-          "tag": "summary",
-          "text": "Read the reasoning",
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
           "tag": "button",
           "text": "95 in 100",
           "familyHead": "ibm plex sans",
@@ -68288,6 +68280,14 @@
         {
           "tag": "summary",
           "text": "Sampled episode success by episo",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Read the reasoning",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -74925,7 +74925,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16476,
+      "visibleTextLength": 17410,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -74992,11 +74992,11 @@
           "Generalization"
         ],
         "lastReviewed": "2026-08-18",
-        "readingMinutes": 10,
+        "readingMinutes": 11,
         "citationCount": 12,
         "reviewDateText": "18 August 2026",
         "reviewDateTime": "2026-08-18",
-        "readingTimeText": "10 min",
+        "readingTimeText": "11 min",
         "citationCountText": "12",
         "bibliographyIds": [
           "pi05-2025",
@@ -75050,10 +75050,10 @@
           "familyHead": "ibm plex mono",
           "sizePx": 12,
           "lineHeightRatio": 1.33,
-          "widthPx": 673,
+          "widthPx": 715,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
-          "text": "Prediction"
+          "text": "Guess first"
         },
         {
           "familyHead": "ibm plex sans",
@@ -75068,7 +75068,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 649,
+          "widthPx": 715,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "EgoScale (Zheng et al. 2026) pretrained one robot model on 1"
@@ -75077,7 +75077,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 649,
+          "widthPx": 715,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "The line is this wiki’s own least-squares log-linear fit thr"
@@ -75086,7 +75086,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 649,
+          "widthPx": 715,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "The paper’s published law is about validation loss (MSE on h"
@@ -75095,7 +75095,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 649,
+          "widthPx": 715,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "At the current setting (250k h): loss 0.0074 holds / 0.0150 "
@@ -75104,7 +75104,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 649,
+          "widthPx": 715,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "EgoScale (2026) fits the law to held-out human-video validat"
@@ -75122,7 +75122,7 @@
           "familyHead": "newsreader",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 649,
+          "widthPx": 691,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "A straight line in log data crosses 100% near 250k hours, wh"
@@ -75608,14 +75608,6 @@
           "controlId": "control:secondary-action"
         },
         {
-          "tag": "summary",
-          "text": "Read the reasoning",
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
           "tag": "button",
           "text": "Measured (20,000 hours)",
           "familyHead": "ibm plex sans",
@@ -75674,6 +75666,14 @@
         {
           "tag": "summary",
           "text": "Sampled loss and completion by p",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Read the reasoning",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -80048,7 +80048,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12950,
+      "visibleTextLength": 13693,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -80115,11 +80115,11 @@
           "Behavior Cloning Foundations"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 8,
+        "readingMinutes": 9,
         "citationCount": 6,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "8 min",
+        "readingTimeText": "9 min",
         "citationCountText": "6",
         "bibliographyIds": [
           "alvinn-1988",
@@ -80176,10 +80176,10 @@
           "familyHead": "ibm plex mono",
           "sizePx": 12,
           "lineHeightRatio": 1.33,
-          "widthPx": 673,
+          "widthPx": 715,
           "zeroAdvancePx": 7,
           "insideRegisteredFrame": true,
-          "text": "Prediction"
+          "text": "Guess first"
         },
         {
           "familyHead": "ibm plex sans",
@@ -80194,7 +80194,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 649,
+          "widthPx": 715,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Illustrative: a toy model, not a measured robot."
@@ -80203,7 +80203,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 649,
+          "widthPx": 715,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Original deterministic toy, not a measured robot. Each move "
@@ -80212,7 +80212,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 649,
+          "widthPx": 715,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "“25 moves per plan” makes one decision every 25 moves (actio"
@@ -80230,7 +80230,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 649,
+          "widthPx": 715,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "The chart below compares the summed drift with two illustrat"
@@ -80248,7 +80248,7 @@
           "familyHead": "newsreader",
           "sizePx": 14,
           "lineHeightRatio": 1.43,
-          "widthPx": 649,
+          "widthPx": 691,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "In this toy, doubling the horizon roughly quadruples summed "
@@ -80763,14 +80763,6 @@
           "controlId": "control:secondary-action"
         },
         {
-          "tag": "summary",
-          "text": "Read the reasoning",
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "inProse": true,
-          "controlId": "control:secondary-action"
-        },
-        {
           "tag": "button",
           "text": "Short task (120 moves)",
           "familyHead": "ibm plex sans",
@@ -80845,6 +80837,14 @@
         {
           "tag": "summary",
           "text": "Sampled toy deviation and refere",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Read the reasoning",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,

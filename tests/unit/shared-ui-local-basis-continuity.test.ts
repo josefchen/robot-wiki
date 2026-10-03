@@ -9,7 +9,7 @@ import {
   retainedCommitToRevealSource,
   sharedUiCheckerPredecessor,
 } from '../../lib/audit-shared-ui-local-basis-continuity.ts';
-import { preSeoPass, preSeoPassText } from '../helpers/seo-pass.ts';
+import { preReaderFirst, preSeoPass, preSeoPassText } from '../helpers/seo-pass.ts';
 
 const root = resolve(import.meta.dirname, '../..');
 const sourcePath = 'components/article/commit-to-reveal.tsx';
@@ -46,7 +46,9 @@ it('pins the pre-SEO-pass commit-to-reveal bytes and still returns the catalog p
 });
 
 it('reaches the live primitive from those bytes only through the SEO-pass citation-label edits', () => {
-  const live = read(sourcePath);
+  // The reader-first pass moved the prediction step's figure out of the
+  // disclosure; its reviewed successor hands back these pre-pass bytes.
+  const live = preReaderFirst(sourcePath);
   expect(live.length).toBe(13176);
   expect(createHash('sha256').update(live).digest('hex'))
     .toBe('cd996c964173cca0529068624d827b94f9f57f0227a866a3ab413cf8db24da5f');

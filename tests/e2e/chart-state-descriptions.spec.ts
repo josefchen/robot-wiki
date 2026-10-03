@@ -34,9 +34,9 @@ test.afterAll(async () => {
 const SHELL = '[data-figure-frame], div.rounded-md.border, div.rounded-none.border';
 
 /**
- * Opens every prediction-step reveal and every figure fold, so a figure
- * inside a reveal, and a description inside a closed "How this was made"
- * fold, render text.
+ * Opens every prediction-step reveal and every figure fold, so the
+ * reasoning, and a description inside a closed "How this was made" fold,
+ * render text.
  */
 async function openReveals(page: Page) {
   await page.evaluate(() => {
@@ -53,7 +53,7 @@ const CHARTS: Array<{
   moves: string[];
   def: string;
   match?: string;
-  /** The figure is mounted inside a closed prediction-step reveal. */
+  /** The figure belongs to a prediction step, shown outside its closed reasoning. */
   reveal?: boolean;
 }> = [
   // The page's one pendulum lab is the prediction step's, mounted at Kp 9.5.

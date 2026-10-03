@@ -64,13 +64,16 @@ test('final seven: actually mounted corrected arithmetic on two viewports', asyn
     const dataRoute = '/data-hardware/data-bottleneck/';
     await visit(dataRoute);
     await expect(page.locator('#main-content')).toContainText('The chart assigns it no hour estimate');
-    // The page's one data-scale chart is the reveal of its prediction step.
+    // The page's one data-scale chart is its prediction step's figure,
+    // shown at settle with the reasoning still closed.
     const predictData = page.locator('[data-predict]');
-    await predictData.locator('details[data-reveal] > summary').click();
+    await expect(predictData.locator('details[data-reveal]')).not.toHaveAttribute('open');
     const revealedChart = chart(page, 'hours-readout', 0);
+    await expect(revealedChart).toBeVisible();
+    await expect(predictData.locator(':scope > [data-predict-figure] [data-testid="hours-readout"]')).toHaveCount(1);
     await expect(revealedChart.getByTestId('oxe-duration-note')).toContainText('no hour estimate');
     await expect(revealedChart.getByTestId('robot-marker-oxe')).toHaveCount(0);
-    await capture(dataRoute, 'DataScaleChart', 1, 'default', 'unmounted', 'reveal prediction',
+    await capture(dataRoute, 'DataScaleChart', 1, 'default', 'page load', 'settle',
       '10-low-rate', revealedChart, ['hours-readout', 'oxe-years-readout'], ['70 hours a year', '143 years'], viewport);
     await revealedChart.getByRole('button', { name: /Full-time farm/ }).click();
     await capture(dataRoute, 'DataScaleChart', 1, 'discrete-options', '10-low-rate', 'select dedicated',
@@ -83,12 +86,15 @@ test('final seven: actually mounted corrected arithmetic on two viewports', asyn
     const evaluationRoute = '/data-hardware/evaluation-crisis/';
     await visit(evaluationRoute);
     await expect(page.locator('#main-content')).toContainText('conditional on all earlier decisions succeeding');
-    // The page's one calculator is the reveal of its prediction step.
+    // The page's one calculator is its prediction step's figure, shown at
+    // settle with the reasoning still closed.
     const predictEvaluation = page.locator('[data-predict]');
-    await predictEvaluation.locator('details[data-reveal] > summary').click();
+    await expect(predictEvaluation.locator('details[data-reveal]')).not.toHaveAttribute('open');
     const evaluation = chart(page, 'episode-success-readout', 0);
-    await capture(evaluationRoute, 'ReliabilityCompounding', 1, 'default', 'unmounted',
-      'reveal prediction', 'p.95-n14', evaluation, ['episode-success-readout'], ['48.8%'], viewport);
+    await expect(evaluation).toBeVisible();
+    await expect(predictEvaluation.locator(':scope > [data-predict-figure] [data-testid="episode-success-readout"]')).toHaveCount(1);
+    await capture(evaluationRoute, 'ReliabilityCompounding', 1, 'default', 'page load',
+      'settle', 'p.95-n14', evaluation, ['episode-success-readout'], ['48.8%'], viewport);
     await setSlider(evaluation.getByRole('slider', { name: /Episode length/ }), 100);
     await capture(evaluationRoute, 'ReliabilityCompounding', 1, 'slider-boundaries-and-anchors',
       'p.95-n14', 'set horizon 100', 'p.95-n100', evaluation,

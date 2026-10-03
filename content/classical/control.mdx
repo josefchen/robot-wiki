@@ -41,7 +41,7 @@ Control is what makes a robot actually go where [motion planning](/classical/mot
 
 Start with the simplest feedback law: correct the measured error, accumulate a persistent offset, and respond to how quickly the error changes. Those are the three actions in PID control. State feedback and constrained optimization ask what to do when that single-error loop is not enough.
 
-The loop is below, on the smallest problem that still shows everything: an inverted pendulum with a payload bolted off-center. Make the prediction, then press Run and drag the proportional gain to test it.
+The loop is below, on the smallest problem that still shows everything: an inverted pendulum with a payload bolted off-center. Guess first if you like, then press Run and drag the proportional gain to test it.
 
 <PredictThenReveal
   prompt="The lab below is released 12 degrees off vertical with the payload bias in place. Below what proportional gain does the loop lose the pole entirely, however the other two gains are set?"

@@ -30,7 +30,7 @@ The appeal is obvious: no reward function to design, no exploration to manage, j
 This deterministic toy illustrates persistent drift; it is neither a source benchmark nor a task-cost theorem. Each prediction adds an error that grows with the drift. Try “A teacher corrects it” to watch DAgger-style relabeling cut the summed deviation.
 
 <PredictThenReveal
-  prompt="Double the episode horizon from 120 to 240 steps at 5% per-step error, with prediction mode and corrections left alone. Roughly what happens to the accumulated deviation the readout reports?"
+  prompt="Make the task twice as long, 240 moves instead of 120, with the same 5% slip per move and nothing else changed. Roughly what happens to the total drift?"
   options={[
     {
       value: 'quadruples',
@@ -45,12 +45,12 @@ This deterministic toy illustrates persistent drift; it is neither a source benc
     },
     {
       value: 'e-folds',
-      label: 'It grows explosively, on the order of a hundred times or more, because each error amplifies the next one multiplicatively',
+      label: 'It grows explosively, a hundred times or more, because each error amplifies the next one',
       why: 'The recurrence does include multiplicative amplification, but its gain is small at these settings: the observed ratio is about four, far from one hundred. This finite-range illustration does not assert an asymptotic rate or rely on averaging effects.'
     }
   ]}
   answer="quadruples"
-  revealHint="The figure opens on the twice-as-long task, 240 moves made one at a time: the total drift reads 1505 units. Press Short task and watch it fall to about a quarter."
+  revealHint="On the twice-as-long task the total drift reads 1505 units. Press Short task (120 moves) and it falls to about a quarter."
   takeaway="In this toy, doubling the horizon roughly quadruples summed deviation. The paper’s cost guarantees concern different quantities and require the assumptions below."
 >
   <CompoundingError defaultEpsilon={0.05} defaultSteps={240} className="mt-3" />

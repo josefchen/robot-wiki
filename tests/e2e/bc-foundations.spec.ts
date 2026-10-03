@@ -6,18 +6,23 @@ import { openAdjustMore } from './helpers/figure-fold';
 const ROUTE = '/manipulation/bc-foundations/';
 
 /**
- * The article's only compounding-error figure, mounted inside the
- * prediction step's disclosure.
+ * The article's only compounding-error figure, shown by the prediction step
+ * below its optional guess and outside the reasoning disclosure.
  */
 function ce(page: Page) {
   return page.locator('[data-predict] [data-figure-frame="compounding-error"]');
 }
 
-/** Opens the prediction step so the figure inside it can be driven. */
-async function openPrediction(page: Page) {
-  await page.locator('[data-predict] details[data-reveal] > summary').click();
+/** The figure is visible and drivable at settle, without answering or opening anything. */
+async function figureAtSettle(page: Page) {
+  const reveal = page.locator('[data-predict] details[data-reveal]');
+  await expect(reveal).not.toHaveAttribute('open');
   await expect(ce(page)).toHaveCount(1);
   await expect(ce(page)).toBeVisible();
+  await expect(
+    page.locator('[data-predict] > [data-predict-figure] [data-figure-frame="compounding-error"]'),
+  ).toHaveCount(1);
+  await expect(reveal.locator('[data-figure-frame]')).toHaveCount(0);
 }
 
 
@@ -61,7 +66,7 @@ test.describe('bc-foundations module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
-    await openPrediction(page);
+    await figureAtSettle(page);
     const readout = ce(page).getByTestId('accumulated-deviation-readout');
     const value = async () => Number.parseFloat((await readout.textContent()) ?? '');
     const initial = await value();

@@ -217,7 +217,15 @@ describe('RoboMIND paper-v3 hours correction, zero completion credit', () => {
     expect(readerFirst.map((a: { id: string }) => a.id))
       .toEqual(['reader-first-20261002-prose-data-hardware-data-bottleneck']);
     expect(readerFirst[0].reconciles).toBeUndefined();
-    expect(adjacentHash(read(adjacentPath))).toBe(readerFirst[0].newHash);
+    // The optional prediction step then shortened the step's question and
+    // hint with one more plain edge, from that endpoint to the live article.
+    const predict = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries.filter(
+      (a: { id: string; manifest: string; memberId: string; oldHash: string }) => a.manifest === 'prose'
+        && a.memberId === 'article:data-hardware/data-bottleneck' && a.oldHash === readerFirst[0].newHash);
+    expect(predict.map((a: { id: string }) => a.id))
+      .toEqual(['reader-first-20261003-predict-prose-data-hardware-data-bottleneck']);
+    expect(predict[0].reconciles).toBeUndefined();
+    expect(adjacentHash(read(adjacentPath))).toBe(predict[0].newHash);
     expect(read(adjacentPath)).toContain('Real-world robot data is different. Every hour of it');
     // The SEO pass replaced only the related links in the frontmatter.
     expect({ ...matter(article).data, seeAlso: undefined })

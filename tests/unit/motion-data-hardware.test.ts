@@ -128,12 +128,14 @@ describe('data-hardware prose truth', () => {
       // The round-6 prose restore of the Vulcan coverage scope re-resolved
       // industrial-deployment from its seal, reconciling the qualification.
       // The 2026-10-02 SEO pass and then the reader-first figure pass each
-      // added one edge of the same kind to each.
+      // added one edge of the same kind to each, and the reader-first pass's
+      // optional prediction step added one more to evaluation-crisis.
       const laterIds = slug === 'evaluation-crisis'
         ? ['round5-pinned-leftovers-20260928-prose-evaluation-crisis',
           'opus-figure-migration-20261001-prose-evaluation-crisis',
           'seo-pass-20261002-prose-data-hardware-evaluation-crisis',
-          'reader-first-20261002-prose-data-hardware-evaluation-crisis']
+          'reader-first-20261002-prose-data-hardware-evaluation-crisis',
+          'reader-first-20261003-predict-prose-data-hardware-evaluation-crisis']
         : ['round6-prose-restores-20260929-prose-industrial-deployment',
           'seo-pass-20261002-prose-data-hardware-industrial-deployment',
           'reader-first-20261002-prose-data-hardware-industrial-deployment'];

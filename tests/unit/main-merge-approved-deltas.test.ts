@@ -762,6 +762,10 @@ describe('two-parent exact approval reconciliation', () => {
         'literal:components/interactive/compounding-error.tsx:aria-label:1',
         'expression:components/interactive/latency-comparison.tsx:aria-label:3',
       ].map(memberId => ['accessible-names', memberId]),
+      // The optional prediction step then shortened the question, hint and
+      // cue of the five articles that carry one.
+      ...['classical/control', 'data-hardware/data-bottleneck', 'data-hardware/evaluation-crisis',
+        'manipulation/bc-foundations', 'frontier/generalization'].map(slug => ['prose', `article:${slug}`]),
     ]);
     expect(merged.slice(afterHowRobotsWork)).toMatchObject(readerFirstManipulationAppends.map(id => ({
       id, responsibleMilestone: 'opus-pass', disposition: 'permanent',

@@ -917,7 +917,7 @@
       "reachedByTab": 51,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 179
+      "tabStops": 186
     },
     {
       "route": "/classical/grasp-planning/",
@@ -997,7 +997,7 @@
       "reachedByTab": 31,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 121
+      "tabStops": 120
     },
     {
       "route": "/data-hardware/datasets/",
@@ -1013,7 +1013,7 @@
       "reachedByTab": 39,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 144
+      "tabStops": 150
     },
     {
       "route": "/data-hardware/hardware-taxonomy/",
@@ -1093,7 +1093,7 @@
       "reachedByTab": 36,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 126
+      "tabStops": 131
     },
     {
       "route": "/frontier/reliability-gap/",
@@ -1157,7 +1157,7 @@
       "reachedByTab": 21,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 111
+      "tabStops": 118
     },
     {
       "route": "/manipulation/comparison-matrix/",

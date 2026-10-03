@@ -97,14 +97,16 @@ async function readGeometry(mount: Locator): Promise<Geometry> {
   };
 }
 
-/** The page's only CompoundingError, seeded inside the prediction step. */
+/** The page's only CompoundingError, seeded in the prediction step. */
 async function seededMount(page: Page): Promise<Locator> {
   const predict = page.locator('[data-predict]');
   await expect(predict).toHaveCount(1);
-  // Open the prediction step so its seeded figure is measurable.
-  await predict.locator('details[data-reveal] > summary').click();
+  // The seeded figure is measurable at settle: it sits outside the closed
+  // reasoning, so nothing is answered or opened first.
+  await expect(predict.locator('details[data-reveal]')).not.toHaveAttribute('open');
   await expect(page.locator(DEVIATION_CHART)).toHaveCount(1);
-  const mount = predict.locator('[data-figure-frame="compounding-error"]');
+  const mount = predict.locator(':scope > [data-predict-figure] [data-figure-frame="compounding-error"]');
+  await expect(mount).toBeVisible();
   // The log-axis chart is the method's comparison with the reference
   // curves, inside "How this was made"; the sliders sit in "Adjust more".
   await openHowThisWasMade(mount);
