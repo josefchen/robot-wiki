@@ -3,6 +3,7 @@ import { createHash } from 'node:crypto';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { CITATIONS } from '../../data/citations';
+import { openAdjustMore } from './helpers/figure-fold';
 
 const evidenceRoot = process.env.ROBOT_WIKI_EVIDENCE_ROOT;
 const observations = new WeakMap<Page, { consoleErrors: string[]; pageErrors: string[]; blockedRequests: string[] }>();
@@ -135,8 +136,9 @@ for (const id of ['ecot-2024', 'hi-robot-2025']) {
 }
 
 test('hierarchy selector, keyboard playhead, detail and reset remain functional', async ({ page }, info) => {
-  const group = page.getByRole('group', { name: 'Select a system overlay' });
+  const group = page.getByRole('group', { name: 'Robot system' });
   await group.scrollIntoViewIfNeeded();
+  await openAdjustMore(page.locator('main [data-figure-frame="hierarchy-timescales"]'));
   const buttons = group.locator('button[aria-pressed]');
   expect(await buttons.count()).toBe(4);
   const states = [];
@@ -147,13 +149,16 @@ test('hierarchy selector, keyboard playhead, detail and reset remain functional'
     await expect(page.getByTestId('system-detail')).toBeVisible();
     const slider = page.getByRole('slider');
     await slider.focus();
+    await slider.press('Home');
+    await expect(slider).toHaveValue('0');
     await slider.press('End');
     await expect(slider).toHaveValue('2000');
     await expect(page.getByTestId('playhead-readout')).toContainText('2000');
     states.push({ system: await button.innerText(), detail: await page.getByTestId('system-detail').innerText() });
   }
+  await page.getByRole('slider').press('Home');
   await page.getByRole('button', { name: /reset/i }).click();
-  await expect(page.getByRole('slider')).toHaveValue('0');
+  await expect(page.getByRole('slider')).toHaveValue('2000');
   await capture(page, group.locator('..'), 'hierarchy-controls', info);
   await info.attach('all-four-systems', { body: Buffer.from(JSON.stringify(states, null, 2)), contentType: 'application/json' });
 });

@@ -1,34 +1,37 @@
 'use client';
 
-import { useId, useState } from 'react';
+import { useEffect, useId, useRef, useState, type ReactNode } from 'react';
 import { useCitationLookup } from '@/components/article/citation-records';
 import { ChartDescription } from '@/components/ui/chart-description';
 import {
   ControlField,
   ControlLabel,
+  INSTRUMENT_SECONDARY_CONTROL_CLASS,
   INSTRUMENT_SLIDER_CLASS,
-  INSTRUMENT_TOGGLE_CLASS,
   InstrumentFigure,
-  InstrumentLegend,
   InstrumentReset,
-  LegendItem,
   PlotStage,
+  PresetGroup,
 } from '@/components/ui/instrument';
 import { FigureStage } from '@/components/motion/figure-frame';
+import { usePrefersReducedMotion } from '@/components/motion/use-reduced-motion';
 import {
   CHART_STROKE,
   CHART_STRUCTURE,
   CHART_TYPE,
   CHART_VIEW_WIDTH,
+  StageAnnotation,
   roleColour,
 } from '@/components/motion/chart';
 import {
   HIERARCHY_SYSTEMS,
   HORIZON_MS,
+  MAX_DISPLAY_TICKS,
   displayTicks,
   fastestLane,
   laneTickRatio,
   lastUpdateAt,
+  plainRate,
   slowestPeriodicLane,
   updateRatePhrase,
   updateCountAt,
@@ -36,23 +39,23 @@ import {
 } from '@/lib/hierarchy-timescales';
 
 /**
- * HierarchyTimescales: one horizontal wall-clock timeline per system, with
- * one lane per level of its control hierarchy. A scrub slider moves a
- * playhead across 2 seconds; each lane lights the updates that have fired
- * by then, so the reader sees how many times the selected system's own
- * fastest lane ticks per update of its slowest periodic lane. System
- * overlays (pi0.5, Gemini Robotics 1.5, Helix 02, GO-2) swap the lane
- * structure so the same pattern can be compared across four 2025-2026
- * stacks.
+ * HierarchyTimescales: one wall-clock timeline per system, one lane per
+ * level of its control hierarchy, slowest on top. The figure settles on
+ * the end of the 2 seconds, so every lane has fired and the contrast is
+ * the picture: a dense band of motor commands under a plan that changed
+ * once or twice. "Play the 2 seconds" replays the clock on request; the
+ * playhead slider and per-lane counters sit in "Adjust more". System
+ * presets (π0.5, Gemini Robotics 1.5, Helix 02, GO-2) swap the lanes.
  *
  * The event schedule is schematic. Some output rates are source-reported;
  * other cadences, the instruction pulse, and additional drawing lanes are
  * local assumptions, not separately disclosed control modules.
  *
  * Interactive contract: deterministic render, native range slider (keyboard
- * arrows step the playhead), visible numeric readouts, system selector +
- * reset controls, no auto-playing motion. Every system has four lanes, so a
- * system switch never changes the stage height.
+ * arrows step the playhead), system selector + reset controls, a replay
+ * that only runs when the reader asks and jumps to the end under reduced
+ * motion. Every system has four lanes, so a system switch never changes the
+ * stage height.
  */
 type HierarchyTimescalesProps = {
   /** Initially selected system id. Default 'pi05'. */
@@ -61,17 +64,20 @@ type HierarchyTimescalesProps = {
 };
 
 const WIDTH = CHART_VIEW_WIDTH;
-const PLOT = { left: 8, right: 330 };
+const PLOT = { left: 8, right: 332 };
 const TOP = 4;
 const LANE_PITCH = 40;
 /** Lane label baseline and lane line, measured from the top of each lane block. */
 const LABEL_DY = 14;
 const LINE_DY = 29;
+const ICON = 14;
+const LABEL_X = PLOT.left + ICON + 6;
 const FIRED_HALF = 6;
 const PLAYHEAD_HALF = 9;
 /** A pending update is a short broken tick, so it differs from a fired one without its hue. */
 const PENDING_HALF = 4;
 const PENDING_DASH = '1.5 1';
+const PLAY_MS = 2400;
 
 /** Round to 2 decimals so SSR HTML and client hydration serialize identically. */
 const f = (v: number) => Number(v.toFixed(2));
@@ -82,41 +88,27 @@ function x(tMs: number): number {
 
 const laneTop = (index: number) => TOP + index * LANE_PITCH;
 
-const AXIS_TICKS = [0, 500, 1000, 1500, HORIZON_MS];
+const AXIS_TICKS: Array<[number, string]> = [
+  [0, '0'],
+  [1000, '1 second'],
+  [HORIZON_MS, '2 seconds'],
+];
 
-/** A legend swatch drawn as the stage's own vertical tick. */
-function TickSwatch({
-  stroke,
-  width,
-  half,
-  opacity,
-  dash,
-}: {
-  stroke: string;
-  width: number;
-  half: number;
-  opacity?: number;
-  dash?: string;
-}) {
-  const h = CHART_TYPE.tickPx;
-  return (
-    <svg aria-hidden="true" focusable="false" width={h} height={h} viewBox={`0 0 ${h} ${h}`} className="shrink-0">
-      <line
-        x1={h / 2}
-        x2={h / 2}
-        y1={h / 2 - half}
-        y2={h / 2 + half}
-        fill="none"
-        stroke={stroke}
-        strokeWidth={width}
-        strokeOpacity={opacity}
-        strokeDasharray={dash}
-      />
-    </svg>
-  );
-}
+/**
+ * One small line icon per level, slowest first: the spoken task, the next
+ * step as a checklist, a short plan of moves, and the motors as a gear.
+ */
+const LANE_ICONS: ReactNode[] = [
+  <path key="task" d="M1.5 2.5h11v7h-6l-3 3v-3h-2z" />,
+  <path key="step" d="M1.5 3l1.5 1.5 2.5-2.5M7.5 3.5h5M1.5 8l1.5 1.5 2.5-2.5M7.5 8.5h5" />,
+  <path key="plan" d="M1.5 11c2-6 5-8 9-8M8 1.5l2.5 1.5-1.5 2.5" />,
+  <g key="gear">
+    <circle cx={7} cy={7} r={2.5} />
+    <path d="M7 1v2M7 11v2M1 7h2M11 7h2M2.8 2.8l1.4 1.4M9.8 9.8l1.4 1.4M2.8 11.2l1.4-1.4M9.8 4.2l1.4-1.4" />
+  </g>,
+];
 
-const STAGE_LINK = 'underline-offset-2';
+const timesWord = (n: number) => (n === 1 ? 'once' : n === 2 ? 'twice' : `${n} times`);
 
 export function HierarchyTimescales({
   defaultSystem = 'pi05',
@@ -124,7 +116,10 @@ export function HierarchyTimescales({
 }: HierarchyTimescalesProps) {
   const descriptionId = `${useId()}-description`;
   const [systemId, setSystemId] = useState(defaultSystem);
-  const [playhead, setPlayhead] = useState(0);
+  const [playhead, setPlayhead] = useState(HORIZON_MS);
+  const [playing, setPlaying] = useState(false);
+  const reducedMotion = usePrefersReducedMotion();
+  const frame = useRef<number | null>(null);
 
   const system: TimescaleSystem =
     HIERARCHY_SYSTEMS.find((s) => s.id === systemId) ?? HIERARCHY_SYSTEMS[0];
@@ -132,7 +127,8 @@ export function HierarchyTimescales({
   const citation = citationFor(system.citationId);
   const axisY = TOP + system.lanes.length * LANE_PITCH + 6;
   const tickBaseline = axisY + CHART_STROKE.tickLength + CHART_TYPE.tickPx + 3;
-  const height = tickBaseline + 9;
+  const noteY = tickBaseline + 20;
+  const height = noteY + CHART_TYPE.labelPx * 1.3 + 8;
   const updatesFired = system.lanes.reduce(
     (n, lane) => n + updateCountAt(lane, playhead),
     0,
@@ -145,40 +141,84 @@ export function HierarchyTimescales({
   const slowest = slowestPeriodicLane(system);
   const ratio = laneTickRatio(system);
   const ratioText = Number.isInteger(ratio) ? String(ratio) : ratio.toFixed(1);
+  const fastCount = updateCountAt(fastest, HORIZON_MS);
+  const slowCount = updateCountAt(slowest, HORIZON_MS);
   const fired = roleColour('action');
   const highlight = roleColour('highlight');
 
-  function reset() {
-    setSystemId(defaultSystem);
-    setPlayhead(0);
+  useEffect(() => () => {
+    if (frame.current !== null) cancelAnimationFrame(frame.current);
+  }, []);
+
+  function stop() {
+    if (frame.current !== null) cancelAnimationFrame(frame.current);
+    frame.current = null;
+    setPlaying(false);
   }
+
+  function play() {
+    stop();
+    if (reducedMotion) {
+      setPlayhead(HORIZON_MS);
+      return;
+    }
+    setPlaying(true);
+    const start = performance.now();
+    const step = (now: number) => {
+      const progress = Math.min(1, (now - start) / PLAY_MS);
+      setPlayhead(Math.round((progress * HORIZON_MS) / 20) * 20);
+      if (progress < 1) {
+        frame.current = requestAnimationFrame(step);
+      } else {
+        frame.current = null;
+        setPlaying(false);
+      }
+    };
+    frame.current = requestAnimationFrame(step);
+  }
+
+  function reset() {
+    stop();
+    setSystemId(defaultSystem);
+    setPlayhead(HORIZON_MS);
+  }
+
+  const note = [
+    `About ${fastCount.toLocaleString('en-US')} ${fastest.plain.toLowerCase()} while`,
+    `the plan above changes ${timesWord(slowCount)}`,
+  ];
 
   return (
     <InstrumentFigure
       figureId="hierarchy-timescales"
       className={className}
-      heading="Control loops on one clock"
+      kicker="Hierarchical control"
+      heading="Slow decisions on top, fast motor commands underneath"
       controls={
         <>
-          <div
-            role="group"
-            aria-label="Select a system overlay"
-            className="flex flex-wrap items-center gap-1"
+          <PresetGroup<string>
+            label="Robot system"
+            presets={HIERARCHY_SYSTEMS.map((s) => ({ id: s.id, label: s.name }))}
+            value={system.id}
+            onChange={(id) => {
+              stop();
+              setSystemId(id);
+              setPlayhead(HORIZON_MS);
+            }}
+          />
+          <button
+            type="button"
+            data-brand-control-id="control:secondary-action"
+            data-testid="hierarchy-play"
+            onClick={() => (playing ? stop() : play())}
+            className={`${INSTRUMENT_SECONDARY_CONTROL_CLASS} self-end`}
           >
-            {HIERARCHY_SYSTEMS.map((s) => (
-              <button
-                data-brand-control-id="control:selection"
-                key={s.id}
-                type="button"
-                aria-pressed={s.id === system.id}
-                onClick={() => setSystemId(s.id)}
-                className={INSTRUMENT_TOGGLE_CLASS}
-              >
-                {s.name}
-              </button>
-            ))}
-            <InstrumentReset onClick={reset} />
-          </div>
+            {playing ? 'Pause' : 'Play the 2 seconds'}
+          </button>
+        </>
+      }
+      adjust={
+        <>
           <ControlField>
             <ControlLabel
               htmlFor="hierarchy-playhead"
@@ -188,7 +228,7 @@ export function HierarchyTimescales({
                 </span>
               }
             >
-              Playhead
+              Point in the 2 seconds
             </ControlLabel>
             <input
               id="hierarchy-playhead"
@@ -200,137 +240,102 @@ export function HierarchyTimescales({
               value={playhead}
               aria-label={`Playhead position in milliseconds, currently ${playhead}`}
               aria-valuetext={`${playhead} milliseconds`}
-              onChange={(e) => setPlayhead(Number(e.target.value))}
+              onChange={(e) => {
+                stop();
+                setPlayhead(Number(e.target.value));
+              }}
               className={INSTRUMENT_SLIDER_CLASS}
             />
           </ControlField>
+          <p data-hierarchy-key="" className="m-0! font-sans text-[13px] text-text-dim">
+            A full tick is an update fired; a short broken tick is an update pending, still
+            ahead of the playhead.
+          </p>
+          {/* Important margins and padding, because the unlayered `.prose`
+              list rules otherwise indent the rows. */}
+          <ul className="m-0! grid list-none gap-3 p-0! font-sans text-[13px]">
+            {system.lanes.map((lane) => {
+              const last = lastUpdateAt(lane, playhead);
+              const count = updateCountAt(lane, playhead);
+              return (
+                <li key={lane.id} data-testid={`lane-row-${lane.id}`} className="my-0! p-0!">
+                  <div className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5">
+                    <span className="font-medium text-text">{lane.label}</span>
+                    <span className="text-text-dim">{lane.rate}</span>
+                    {!lane.disclosed && <span className="text-text-dim">Schematic</span>}
+                    <span className="ml-auto text-text-dim">
+                      {last === null ? (
+                        'waiting for first update'
+                      ) : (
+                        <>
+                          <span className="text-text">{count}</span>
+                          {count === 1 ? ' update' : ' updates'}, last update:{' '}
+                          <span className="text-text">{last} ms</span>
+                        </>
+                      )}
+                    </span>
+                  </div>
+                  <p className="mt-0.5 max-w-[65ch] leading-relaxed text-text-dim">{lane.note}</p>
+                </li>
+              );
+            })}
+          </ul>
+          <InstrumentReset onClick={reset} />
         </>
       }
       stage={
         <FigureStage
           footer={
             <>
-              <InstrumentLegend>
-                <LegendItem
-                  series="fired"
-                  swatch={<TickSwatch stroke={fired} width={CHART_STROKE.trace} half={FIRED_HALF} />}
-                >
-                  update fired
-                </LegendItem>
-                <LegendItem
-                  series="pending"
-                  swatch={
-                    <TickSwatch
-                      stroke={CHART_STRUCTURE.axes}
-                      width={CHART_STROKE.structure}
-                      half={PENDING_HALF}
-                      opacity={CHART_STRUCTURE.axesOpacity}
-                      dash={PENDING_DASH}
-                    />
-                  }
-                >
-                  update pending
-                </LegendItem>
-                <LegendItem swatch={<TickSwatch stroke={highlight} width={CHART_STROKE.trace} half={FIRED_HALF} />}>
-                  playhead, current time
-                </LegendItem>
-              </InstrumentLegend>
-              {/* Important margins and padding, because the unlayered `.prose`
-                  list rules otherwise indent the rows inside the stage. Each
-                  row draws its own top rule: a bordered list between the rows
-                  and the stage would make them page dividers (VAL-DESIGN-018). */}
-              <ul className="m-0! basis-full list-none p-0! font-sans text-[13px] *:border-t *:border-t-border-strong">
-                {system.lanes.map((lane) => {
-                  const last = lastUpdateAt(lane, playhead);
-                  const count = updateCountAt(lane, playhead);
-                  return (
-                    <li key={lane.id} data-testid={`lane-row-${lane.id}`} className="my-0! py-2">
-                      <div className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5">
-                        <span className="font-medium text-text">{lane.label}</span>
-                        <span className="text-text-dim">{lane.rate}</span>
-                        {!lane.disclosed && <span className="text-text-dim">Schematic</span>}
-                        <span className="ml-auto text-text-dim">
-                          {last === null ? (
-                            'waiting for first update'
-                          ) : (
-                            <>
-                              <span className="text-text">{count}</span>
-                              {count === 1 ? ' update' : ' updates'}, last update:{' '}
-                              <span className="text-text">{last} ms</span>
-                            </>
-                          )}
-                        </span>
-                      </div>
-                      <p className="mt-0.5 max-w-[65ch] leading-relaxed text-text-dim">{lane.note}</p>
-                    </li>
-                  );
-                })}
-              </ul>
-              <div
-                data-testid="system-detail"
-                className="basis-full border-t border-border-strong pt-3 font-sans text-[13px]"
-              >
-                <div className="flex flex-wrap items-baseline gap-x-2.5">
-                  <span className="text-sm font-medium text-text">{system.name}</span>
-                  <span className="text-text-dim">{system.org}</span>
-                </div>
-                <p className="mt-1.5 max-w-[65ch] leading-relaxed text-text">{system.pattern}</p>
+              <div data-testid="system-detail" className="basis-full font-sans text-sm leading-snug">
+                <p className="m-0! max-w-[65ch] text-text">
+                  <span className="font-medium">{system.name}</span>{' '}
+                  <span className="text-text-dim">({system.org})</span>: {system.plainPattern}
+                </p>
                 {citation && (
-                  <div className="mt-1.5">
-                    <a
-                      data-brand-control-id="control:link-focus"
-                      href={citation.url}
-                      target="_blank"
-                      rel="noopener"
-                      className={STAGE_LINK}
-                    >
-                      Source: {citation.label}
-                    </a>
-                  </div>
+                  <a
+                    data-brand-control-id="control:link-focus"
+                    href={citation.url}
+                    target="_blank"
+                    rel="noopener"
+                    className="underline-offset-2"
+                  >
+                    Source: {citation.label}
+                  </a>
                 )}
               </div>
-              <ChartDescription
-                id={descriptionId}
-                form="state"
-                summary="Current timescale playhead"
-                description={`${system.name} by ${system.org} at playhead ${playhead} ms of ${HORIZON_MS} ms has ${system.lanes.length} timescale lanes with ${updatesFired} ${updatesFired === 1 ? 'update' : 'updates'} fired; the ${fastest.rate}${fastest.disclosed ? '' : ' (schematic)'} ${fastest.label} lane ticks ${ratioText} times${fastest.disclosed && slowest.disclosed ? '' : ' (schematic)'} during one ${slowest.label} update ${updateRatePhrase(slowest)}${slowest.disclosed ? '' : ' (schematic)'}.`}
-                states={[
-                  { label: 'system', value: system.name },
-                  { label: 'playhead', value: `${playhead} ms` },
-                  { label: 'lanes', value: String(system.lanes.length) },
-                  { label: 'updates fired', value: String(updatesFired) },
-                ]}
-              />
             </>
           }
         >
           <PlotStage
-            viewBox={`0 0 ${WIDTH} ${height}`}
+            viewBox={`0 0 ${WIDTH} ${f(height)}`}
             aria-label={`Schematic timescale lanes for ${system.name} by ${system.org}. Four drawn lanes combine reported output rates with illustrative cadences and a task-instruction initial condition. The playhead is at ${playhead} of ${HORIZON_MS} milliseconds; lanes light up only when their own update rate has elapsed.`}
             aria-describedby={descriptionId}
           >
-            {/* The playhead breaks at each lane-label row so it never runs
-                through a label, and sits under the ticks so an update
-                firing at the playhead stays visible on top of it. */}
-            <g data-chart-mark="playhead" data-chart-role="highlight">
-              {system.lanes.map((lane, i) => {
-                const cy = laneTop(i) + LINE_DY;
-                const last = i === system.lanes.length - 1;
-                return (
-                  <line
-                    key={lane.id}
-                    x1={x(playhead)}
-                    x2={x(playhead)}
-                    y1={cy - PLAYHEAD_HALF}
-                    y2={last ? axisY + CHART_STROKE.tickLength : cy + PLAYHEAD_HALF}
-                    stroke={highlight}
-                    strokeWidth={CHART_STROKE.trace}
-                  />
-                );
-              })}
-            </g>
+            {/* At settle the clock has run out and every lane has fired, so
+                the playhead only appears while the 2 seconds replay or the
+                reader scrubs. It breaks at each lane-label row and sits under
+                the ticks so an update firing at the playhead stays on top. */}
+            {playhead < HORIZON_MS ? (
+              <g data-chart-mark="playhead" data-chart-role="highlight">
+                {system.lanes.map((lane, i) => {
+                  const cy = laneTop(i) + LINE_DY;
+                  const last = i === system.lanes.length - 1;
+                  return (
+                    <line
+                      key={lane.id}
+                      x1={x(playhead)}
+                      x2={x(playhead)}
+                      y1={cy - PLAYHEAD_HALF}
+                      y2={last ? axisY + CHART_STROKE.tickLength : cy + PLAYHEAD_HALF}
+                      stroke={highlight}
+                      strokeWidth={CHART_STROKE.trace}
+                    />
+                  );
+                })}
+              </g>
+            ) : null}
 
-            {/* Lane baselines and update ticks. */}
             {system.lanes.map((lane, i) => {
               const cy = laneTop(i) + LINE_DY;
               const ticks = displayTicks(lane);
@@ -391,7 +396,7 @@ export function HierarchyTimescales({
               strokeOpacity={CHART_STRUCTURE.axesOpacity}
               strokeWidth={CHART_STROKE.structure}
             />
-            {AXIS_TICKS.map((t) => (
+            {AXIS_TICKS.map(([t, label]) => (
               <g key={t}>
                 <line
                   x1={x(t)}
@@ -410,24 +415,35 @@ export function HierarchyTimescales({
                   fontSize={CHART_TYPE.tickPx}
                   fill={CHART_STRUCTURE.labelSecondary}
                 >
-                  {t === HORIZON_MS ? `${t} ms` : String(t)}
+                  {label}
                 </text>
               </g>
             ))}
 
-            {/* Lane labels sit above their lines, in the playhead's gaps. */}
+            {/* Lane names sit above their lines, in the playhead's gaps. */}
             {system.lanes.map((lane, i) => {
               const baseline = laneTop(i) + LABEL_DY;
               return (
                 <g key={lane.id}>
+                  <g
+                    aria-hidden="true"
+                    transform={`translate(${PLOT.left} ${baseline - ICON + 2})`}
+                    fill="none"
+                    stroke={CHART_STRUCTURE.label}
+                    strokeWidth={1.2}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    {LANE_ICONS[i] ?? LANE_ICONS[LANE_ICONS.length - 1]}
+                  </g>
                   <text
                     data-scene-axis=""
-                    x={PLOT.left}
+                    x={LABEL_X}
                     y={baseline}
                     fontSize={CHART_TYPE.axisPx}
                     fill={CHART_STRUCTURE.label}
                   >
-                    {lane.label}
+                    {lane.plain}
                   </text>
                   <text
                     data-scene-tick=""
@@ -437,16 +453,48 @@ export function HierarchyTimescales({
                     fontSize={CHART_TYPE.tickPx}
                     fill={CHART_STRUCTURE.labelSecondary}
                   >
-                    {lane.disclosed ? lane.rate : `${lane.rate}, schematic`}
+                    {plainRate(lane)}
                   </text>
                 </g>
               );
             })}
+
+            {playhead === HORIZON_MS ? <StageAnnotation x={PLOT.left} y={noteY} lines={note} /> : null}
           </PlotStage>
         </FigureStage>
       }
-      caption="Fast control lanes fire many updates while slower planning lanes hold a single decision."
-      source="Illustrative schedule: rates as reported where disclosed, assumed cadences elsewhere, one task instruction at t = 0."
+      caption="Like a person, the robot keeps one goal in mind, updates its next step now and then, and adjusts its motors constantly."
+      method={
+        <>
+          <p>
+            Each row is one level of the robot&apos;s control hierarchy, slowest at the top, drawn on
+            one 2-second clock. A tick marks an update: a new instruction, a new subtask, a new
+            chunk of actions, a new motor command. {system.name} ({system.org}): {system.pattern}
+          </p>
+          <p>
+            Some rates are stated by the source; the rest are drawn. A rate marked
+            &ldquo;Schematic&rdquo; in &ldquo;Adjust more&rdquo; is a local drawing assumption, and
+            so is the single task instruction at t = 0. The fastest lane, {fastest.label} at{' '}
+            {fastest.rate}, ticks {ratioText} times during one {slowest.label} update{' '}
+            {updateRatePhrase(slowest)}. A lane with more than {MAX_DISPLAY_TICKS} updates in the 2
+            seconds is drawn with evenly spaced ticks so the marks stay apart; its counts in
+            &ldquo;Adjust more&rdquo; are the full ones.
+          </p>
+          <ChartDescription
+            id={descriptionId}
+            form="state"
+            summary="Current timescale playhead"
+            description={`${system.name} by ${system.org} at playhead ${playhead} ms of ${HORIZON_MS} ms has ${system.lanes.length} timescale lanes with ${updatesFired} ${updatesFired === 1 ? 'update' : 'updates'} fired; the ${fastest.rate}${fastest.disclosed ? '' : ' (schematic)'} ${fastest.label} lane ticks ${ratioText} times${fastest.disclosed && slowest.disclosed ? '' : ' (schematic)'} during one ${slowest.label} update ${updateRatePhrase(slowest)}${slowest.disclosed ? '' : ' (schematic)'}.`}
+            states={[
+              { label: 'system', value: system.name },
+              { label: 'playhead', value: `${playhead} ms` },
+              { label: 'lanes', value: String(system.lanes.length) },
+              { label: 'updates fired', value: String(updatesFired) },
+            ]}
+          />
+        </>
+      }
+      source="Illustrative schedule: rates as the sources report them where stated, drawn elsewhere; one task instruction at the start."
     />
   );
 }

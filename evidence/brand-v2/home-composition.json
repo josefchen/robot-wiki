@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "fingerprint": "8ee91acb05d752ba22db4a039ac31032200782693f2fba95e32b0607c9975e08",
+  "fingerprint": "f17c0e55fa5727a435d40d8e02bdafd7d70c40fed121b15853bf48acff9baab1",
   "viewport": "1440x900",
   "route": "/",
-  "visibleTextLength": 2940,
+  "visibleTextLength": 2948,
   "documentScrollWidthPx": 1440,
   "documentClientWidthPx": 1440,
   "heroLockups": [
@@ -718,8 +718,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Control",
-      "href": "/classical/control/",
+      "accessibleName": "Other Generalist Policies",
+      "href": "/manipulation/generalist-policies/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2392.34,
@@ -727,8 +727,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "The Data Bottleneck",
-      "href": "/data-hardware/data-bottleneck/",
+      "accessibleName": "Knowledge Insulation",
+      "href": "/manipulation/knowledge-insulation/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2423.34,
@@ -736,8 +736,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "The Evaluation Crisis",
-      "href": "/data-hardware/evaluation-crisis/",
+      "accessibleName": "RL Fine-Tuning of Policies",
+      "href": "/manipulation/rl-finetuning/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2454.34,
@@ -745,8 +745,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Generalization",
-      "href": "/frontier/generalization/",
+      "accessibleName": "Control",
+      "href": "/classical/control/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2485.34,
@@ -754,8 +754,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Behavior Cloning Foundations",
-      "href": "/manipulation/bc-foundations/",
+      "accessibleName": "The Data Bottleneck",
+      "href": "/data-hardware/data-bottleneck/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2516.34,
@@ -1004,7 +1004,7 @@
       "label": "Recently updated",
       "signature": "plain/module-heading/dated-links",
       "prose": "",
-      "text": "Recently updated 2026-10-03 Control 2026-10-03 The Data Bottleneck 2026-10-03 The Evaluation Crisis 2026-10-03 Generalization 2026-10-03 Behavior Cloning Foundations"
+      "text": "Recently updated 2026-10-03 Other Generalist Policies 2026-10-03 Knowledge Insulation 2026-10-03 RL Fine-Tuning of Policies 2026-10-03 Control 2026-10-03 The Data Bottleneck"
     },
     {
       "label": "Tools",

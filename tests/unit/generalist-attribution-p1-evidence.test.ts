@@ -171,7 +171,7 @@ describe('generalist originals 15 and 21, exact attribution and metadata correct
     const lastPrePassAnchor = approvals
       .filter(a => a.manifest === 'prose' && a.memberId === 'article:manipulation/generalist-policies'
         && !a.id.startsWith('humanizer-manipulation-v3-') && !a.id.startsWith('educational-cue-20260926-')
-        && !a.id.startsWith('seo-pass-20261002-'))
+        && !a.id.startsWith('seo-pass-20261002-') && !a.id.startsWith('reader-first-20261003-'))
       .at(-1)!.newHash;
     expect(hashOf(corrected)).toBe(lastPrePassAnchor);
     // The cue re-anchor is a sealed resolution that binds every prior
@@ -182,7 +182,11 @@ describe('generalist originals 15 and 21, exact attribution and metadata correct
     // on to the live article.
     const seo = seoPassEdge('prose', 'article:manipulation/generalist-policies')!;
     expect(seo.reconciles?.some(binding => binding.id === cue.id)).toBe(true);
-    expect(hashOf(read(articlePath))).toBe(seo.newHash);
+    // The reader-first figure pass reconciles the SEO endpoint and carries
+    // the member on to the live article with its new figure cue.
+    const readerFirst = approvals.find(a => a.id === 'reader-first-20261003-prose-manipulation-generalist-policies')!;
+    expect(readerFirst.reconciles?.some(binding => binding.id === seo.id && binding.newHash === seo.newHash)).toBe(true);
+    expect(hashOf(read(articlePath))).toBe(readerFirst.newHash);
     expect(article.split(newSpan.replace('Its inspected v4 methods describe', 'Its inspected methods describe'))).toHaveLength(2);
     expect(matter(article).data).toEqual(matter(before(articlePath)).data);
     expect(article).not.toContain('GO-1 was open-sourced alongside');

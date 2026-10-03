@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { openAdjustMore } from './helpers/figure-fold';
 
 for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 }]) {
   test(`ACT final model paper settings and comparison at ${viewport.width}`, async ({ page }, info) => {
@@ -49,6 +50,8 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     await page.goto('/manipulation/comparison-matrix/');
     await page.evaluate(() => document.fonts.ready);
     await page.waitForLoadState('networkidle');
+    // The full matrix and its filters sit in the figure's "Adjust more" fold.
+    await openAdjustMore(page.locator('main [data-figure-frame="comparison-matrix"]'));
     await expect(page.getByRole('row', { name: /^π0.7 / })).toContainText('50 / {15, 25}');
     await page.getByLabel('Filter methods').fill('π0.');
     await page.getByRole('group', { name: 'Filter by weights' }).getByRole('button', { name: 'Not disclosed' }).click();

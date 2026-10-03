@@ -95,8 +95,33 @@ describe('FlowMatchingTrajectory', () => {
     expect(slider()).toHaveValue('10');
   });
 
-  it('labels the visualization as an illustrative model', () => {
-    render(<FlowMatchingTrajectory />);
-    expect(screen.getByText(/illustrative/i)).toBeInTheDocument();
+  it('labels the visualization as an illustrative model on the stage', () => {
+    const { container } = render(<FlowMatchingTrajectory />);
+    expect(container.querySelector('[data-figure-stage] [data-figure-status]')).toHaveTextContent(
+      /illustrative/i,
+    );
+  });
+
+  it('opens on ten steps with the one-jump ghost and the note on the landing point', () => {
+    const { container } = render(<FlowMatchingTrajectory />);
+    expect(screen.getByRole('button', { name: /10 steps \(π0\)/ })).toHaveAttribute('aria-pressed', 'true');
+    expect(container.querySelector('[data-flow-ghost]')).toHaveTextContent('one big jump misses');
+    expect(container.querySelector('[data-figure-annotation]')).toHaveTextContent(/10 small steps land/);
+    expect(container.querySelector('[data-flow-field]')).toBeNull();
+  });
+
+  it('keeps the slider, the 50-step setting, the field and Reset in "Adjust more"', async () => {
+    const user = userEvent.setup();
+    const { container } = render(<FlowMatchingTrajectory />);
+    const fold = container.querySelector('[data-figure-fold="adjust"]')!;
+    expect(fold).not.toHaveAttribute('open');
+    for (const control of [slider(), screen.getByRole('button', { name: /reset/i }), screen.getByRole('button', { name: /50 steps/i })]) {
+      expect(fold.contains(control)).toBe(true);
+    }
+    await user.click(screen.getByRole('button', { name: /show the learned field/i }));
+    expect(container.querySelectorAll('[data-flow-field]').length).toBeGreaterThan(0);
+    await user.click(screen.getByRole('button', { name: /1 step/i }));
+    expect(container.querySelector('[data-flow-ghost]')).toBeNull();
+    expect(container.querySelector('[data-figure-annotation]')).toHaveTextContent(/One big jump/);
   });
 });

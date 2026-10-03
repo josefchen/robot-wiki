@@ -41,6 +41,15 @@ describe('executedTrace', () => {
     expect(pauseTicks(100) * TICK_MS).toBe(100);
   });
 
+  it('at zero delay every mode follows the uninterrupted plan, with no synchronous dip', () => {
+    for (const mode of ['synchronous', 'naive', 'rtc'] as const) {
+      const trace = executedTrace(mode, 0);
+      for (const point of trace) {
+        expect(point.v).toBeCloseTo(oldPlanVelocity(point.tick), 9);
+      }
+    }
+  });
+
   it('naive mode jumps instantly by the mode shift at the hand-off', () => {
     const trace = executedTrace('naive', 200);
     const jump = trace[HANDOFF_TICK].v - trace[HANDOFF_TICK - 1].v;

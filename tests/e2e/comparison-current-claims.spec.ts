@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { openAdjustMore } from './helpers/figure-fold';
 
 for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 }]) {
   test(`comparison current claims at ${viewport.width}`, async ({ page }, info) => {
@@ -11,6 +12,8 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     await page.evaluate(() => document.fonts.ready);
     await page.waitForLoadState('networkidle');
     await page.screenshot({ path: info.outputPath('article-top.png') });
+    // The full matrix, its filters and Reset sit in the figure's "Adjust more" fold.
+    await openAdjustMore(page.locator('main [data-figure-frame="comparison-matrix"]'));
     const table = page.getByRole('table');
     const region = page.getByRole('region', { name: /policies across/ });
     await expect(table.locator('tbody tr')).toHaveCount(18);

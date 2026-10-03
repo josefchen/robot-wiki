@@ -13,9 +13,9 @@ function strategyButton(name: RegExp | string) {
 describe('CrossEmbodimentStrategies', () => {
   it('renders the three strategy toggles, four embodiment rows, and a reset', () => {
     render(<CrossEmbodimentStrategies />);
-    expect(strategyButton(/padded shared vector/i)).toBeInTheDocument();
-    expect(strategyButton(/motion transfer/i)).toBeInTheDocument();
-    expect(strategyButton(/shared relative EEF/i)).toBeInTheDocument();
+    expect(strategyButton("Pad each robot's own list")).toBeInTheDocument();
+    expect(strategyButton('Translate between bodies')).toBeInTheDocument();
+    expect(strategyButton('Describe where the hand goes')).toBeInTheDocument();
     for (const id of ['arm', 'bimanual', 'humanoid', 'human-hand']) {
       expect(screen.getByTestId(`row-${id}`)).toBeInTheDocument();
     }
@@ -23,13 +23,51 @@ describe('CrossEmbodimentStrategies', () => {
     expect(screen.getByTestId('strategy-detail')).toBeInTheDocument();
   });
 
+  it('leads with the takeaway and a grid where only the hand-motion way fills the person row', () => {
+    const { container } = render(<CrossEmbodimentStrategies />);
+    expect(container.querySelector('[data-figure-title]')).toHaveTextContent(
+      'Describe hand motion, not joints, and human videos become usable',
+    );
+    expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Cross-embodiment');
+    expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
+      'from many robots and from people on video',
+    );
+    const filled = (strategy: string) =>
+      container
+        .querySelector(`[data-overview-cell="${strategy}:human-hand"]`)
+        ?.getAttribute('data-filled');
+    expect(filled('padded')).toBe('false');
+    expect(filled('motion-transfer')).toBe('false');
+    expect(filled('relative-eef')).toBe('true');
+    expect(container.querySelectorAll('[data-overview-body]')).toHaveLength(4);
+    const notes = container.querySelectorAll('[data-figure-annotation]');
+    expect(notes).toHaveLength(1);
+    expect(notes[0].textContent).toBe("Only this way can a person'svideo fill the robot's slots");
+    // The full strips, their readouts, the detail and Reset sit in Adjust more.
+    const adjust = container.querySelector('details[data-figure-fold="adjust"]')!;
+    expect(adjust).toContainElement(screen.getByTestId('row-arm'));
+    expect(adjust).toContainElement(screen.getByTestId('strategy-detail'));
+    expect(adjust).toContainElement(screen.getByRole('button', { name: /reset/i }));
+  });
+
+  it('a preset brings its column forward in the grid', () => {
+    const { container } = render(<CrossEmbodimentStrategies />);
+    fireEvent.click(strategyButton("Pad each robot's own list"));
+    expect(
+      container.querySelector('[data-overview-column="padded"]')?.getAttribute('data-selected'),
+    ).toBe('true');
+    expect(
+      container.querySelector('[data-overview-column="relative-eef"]')?.getAttribute('data-selected'),
+    ).toBe('false');
+  });
+
   it('starts in the shared relative EEF space with the human-hand row populated', () => {
     render(<CrossEmbodimentStrategies />);
-    expect(strategyButton(/shared relative EEF/i)).toHaveAttribute(
+    expect(strategyButton('Describe where the hand goes')).toHaveAttribute(
       'aria-pressed',
       'true',
     );
-    expect(strategyButton(/padded shared vector/i)).toHaveAttribute(
+    expect(strategyButton("Pad each robot's own list")).toHaveAttribute(
       'aria-pressed',
       'false',
     );
@@ -41,8 +79,8 @@ describe('CrossEmbodimentStrategies', () => {
 
   it('padded mode shows the toggle pressed and zero-padding visible', () => {
     render(<CrossEmbodimentStrategies />);
-    fireEvent.click(strategyButton(/padded shared vector/i));
-    expect(strategyButton(/padded shared vector/i)).toHaveAttribute(
+    fireEvent.click(strategyButton("Pad each robot's own list"));
+    expect(strategyButton("Pad each robot's own list")).toHaveAttribute(
       'aria-pressed',
       'true',
     );
@@ -56,7 +94,7 @@ describe('CrossEmbodimentStrategies', () => {
 
   it('shows the unmodelled human adapter in the padded toy', () => {
     render(<CrossEmbodimentStrategies />);
-    fireEvent.click(strategyButton(/padded shared vector/i));
+    fireEvent.click(strategyButton("Pad each robot's own list"));
     const hand = screen.getByTestId('row-human-hand');
     expect(hand).toHaveTextContent(/no adapter modelled/i);
     expect(screen.getByTestId('human-video-readout')).toHaveTextContent(
@@ -66,12 +104,12 @@ describe('CrossEmbodimentStrategies', () => {
 
   it('relative-EEF mode puts the human hand in the shared space with zero padding removed', () => {
     render(<CrossEmbodimentStrategies />);
-    fireEvent.click(strategyButton(/shared relative EEF/i));
-    expect(strategyButton(/shared relative EEF/i)).toHaveAttribute(
+    fireEvent.click(strategyButton('Describe where the hand goes'));
+    expect(strategyButton('Describe where the hand goes')).toHaveAttribute(
       'aria-pressed',
       'true',
     );
-    expect(strategyButton(/padded shared vector/i)).toHaveAttribute(
+    expect(strategyButton("Pad each robot's own list")).toHaveAttribute(
       'aria-pressed',
       'false',
     );
@@ -87,7 +125,7 @@ describe('CrossEmbodimentStrategies', () => {
 
   it('motion-transfer mode distinguishes partial disclosure from its illustration', () => {
     render(<CrossEmbodimentStrategies />);
-    fireEvent.click(strategyButton(/motion transfer/i));
+    fireEvent.click(strategyButton('Translate between bodies'));
     expect(screen.getByTestId('underspecified-flag')).toBeInTheDocument();
     for (const id of ['arm', 'bimanual', 'humanoid']) {
       expect(screen.getByTestId(`row-${id}`)).toHaveTextContent(/not model dimensions/);
@@ -105,17 +143,17 @@ describe('CrossEmbodimentStrategies', () => {
   it('hides the under-specified flag outside motion-transfer mode', () => {
     render(<CrossEmbodimentStrategies />);
     expect(screen.queryByTestId('underspecified-flag')).not.toBeInTheDocument();
-    fireEvent.click(strategyButton(/shared relative EEF/i));
+    fireEvent.click(strategyButton('Describe where the hand goes'));
     expect(screen.queryByTestId('underspecified-flag')).not.toBeInTheDocument();
   });
 
   it('reset restores the default relative EEF view', async () => {
     const user = userEvent.setup();
     render(<CrossEmbodimentStrategies />);
-    fireEvent.click(strategyButton(/padded shared vector/i));
+    fireEvent.click(strategyButton("Pad each robot's own list"));
     expect(screen.getByTestId('row-arm')).toHaveTextContent(/24 zero-padded/);
     await user.click(screen.getByRole('button', { name: /reset/i }));
-    expect(strategyButton(/shared relative EEF/i)).toHaveAttribute(
+    expect(strategyButton('Describe where the hand goes')).toHaveAttribute(
       'aria-pressed',
       'true',
     );

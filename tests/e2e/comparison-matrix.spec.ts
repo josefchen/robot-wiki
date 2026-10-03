@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { waitForHydration } from './interaction-ready';
+import { openAdjustMore } from './helpers/figure-fold';
 
 /**
  * The manipulation comparison matrix is one of the five dense comparison
@@ -12,10 +13,15 @@ import { waitForHydration } from './interaction-ready';
  */
 
 const ROUTE = '/manipulation/comparison-matrix/';
+const FRAME = 'main [data-figure-frame="comparison-matrix"]';
 
 test.describe('manipulation comparison matrix', () => {
   test('renders the matrix with headers and method rows', async ({ page }) => {
     await page.goto(ROUTE);
+    // The main view is a year strip and one card per method; the full
+    // matrix sits in the figure's "Adjust more" fold.
+    await expect(page.locator(`${FRAME} [data-method-card]`)).toHaveCount(18);
+    await openAdjustMore(page.locator(FRAME));
     const table = page.locator('table').first();
     await expect(table).toBeVisible();
     const headers = await table.locator('thead th').allInnerTexts();
@@ -28,11 +34,13 @@ test.describe('manipulation comparison matrix', () => {
 
   test('the query filter narrows the matrix and reset restores it', async ({ page }) => {
     await page.goto(ROUTE);
+    const frame = page.locator(FRAME);
+    const filter = page.locator('#matrix-filter');
+    await waitForHydration(filter);
+    await openAdjustMore(frame);
     const table = page.locator('table').first();
     const before = await table.locator('tbody tr').count();
     // The count readout is aria-live, so the narrowed state is announced.
-    const filter = page.locator('#matrix-filter');
-    await waitForHydration(filter);
     await filter.fill('diffusion');
     await expect.poll(() => table.locator('tbody tr').count()).toBeLessThan(before);
     const after = await table.locator('tbody tr').count();
@@ -53,6 +61,8 @@ test.describe('manipulation comparison matrix', () => {
     });
     const page = await context.newPage();
     await page.goto(ROUTE);
+    // The matrix sits in the figure's "Adjust more" fold.
+    await openAdjustMore(page.locator(FRAME));
 
     // Zero page-level horizontal scroll.
     const pageOverflow = await page.evaluate(

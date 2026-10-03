@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { writeFileSync } from 'node:fs';
+import { openAdjustMore } from './helpers/figure-fold';
 
 const surfaces = [
   { slug: 'knowledge-insulation', domain: 'manipulation', text: '7.5x figure compares training steps', sources: ['knowledge-insulation-paper-2025', 'knowledge-insulation-2025'] },
@@ -23,6 +24,11 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
       await page.evaluate(() => document.fonts.ready);
       await expect(page.locator('.katex-error')).toHaveCount(0);
       await expect(page.locator('body')).toContainText(surface.text);
+      if (surface.slug === 'comparison-matrix') {
+        // The corrected text is a matrix cell; the full matrix sits in the
+        // figure's "Adjust more" fold.
+        await openAdjustMore(page.locator('main [data-figure-frame="comparison-matrix"]'));
+      }
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
       const observations: unknown[] = [];
       const context = page.getByText(surface.text, { exact: false }).last();

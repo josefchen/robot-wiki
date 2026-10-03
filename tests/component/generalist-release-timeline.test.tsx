@@ -18,12 +18,66 @@ describe('GeneralistReleaseTimeline', () => {
     }
   });
 
-  it('exposes a provenance legend distinguishing papers from vendor material', () => {
-    render(<GeneralistReleaseTimeline />);
+  it('leads with the plain headline, one toggle and one note, with everything else in Adjust more', () => {
+    const { container } = render(<GeneralistReleaseTimeline />);
+    expect(container.querySelector('[data-figure-title]')).toHaveTextContent(
+      'Thirteen robot brains since 2025; four you can download',
+    );
+    expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Generalist policies');
+    expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
+      "most makers don't offer the trained model or haven't said",
+    );
+    const notes = container.querySelectorAll('[data-figure-annotation]');
+    expect(notes).toHaveLength(1);
+    expect(notes[0].textContent).toBe('Filled: you can download it.Hollow: not offered, or not stated');
+    const adjust = container.querySelector('details[data-figure-fold="adjust"]')!;
+    expect(adjust).not.toContainElement(screen.getByTestId('generalist-downloadable-only'));
+    expect(adjust).toContainElement(screen.getByTestId('release-track'));
+    expect(adjust).toContainElement(screen.getByRole('button', { name: /^not disclosed$/i }));
+    expect(adjust).toContainElement(screen.getByRole('button', { name: /reset/i }));
+    // One shape: every node is a circle until the source types are asked for.
+    expect(container.querySelectorAll('[data-release] polygon, [data-release] rect + rect')).toHaveLength(0);
+    expect(container.querySelectorAll('[data-release][data-filled]')).toHaveLength(
+      GENERALIST_RELEASES.filter((r) => r.openWeights).length,
+    );
+    // The main view drops the per-row status words.
+    expect(screen.getByTestId('release-detail').closest('figure')?.querySelector('svg[role="img"]')).not.toHaveTextContent(
+      /not disclosed|not downloadable/,
+    );
+  });
+
+  it('the Downloadable only toggle keeps the four downloadable releases', async () => {
+    const user = userEvent.setup();
+    const { container } = render(<GeneralistReleaseTimeline />);
+    const toggle = screen.getByTestId('generalist-downloadable-only');
+    await user.click(toggle);
+    expect(toggle).toHaveAttribute('aria-pressed', 'true');
+    expect(container.querySelectorAll('[data-release]')).toHaveLength(4);
+    expect(screen.getByTestId('release-availability')).toHaveTextContent('Downloadable: yes');
+    await user.click(toggle);
+    expect(container.querySelectorAll('[data-release]')).toHaveLength(GENERALIST_RELEASES.length);
+  });
+
+  it('tapping a row opens its card', () => {
+    const { container } = render(<GeneralistReleaseTimeline />);
+    fireEvent.click(container.querySelector('[data-release="skild-brain"]')!);
+    expect(screen.getByTestId('release-detail')).toHaveTextContent('Skild Brain');
+    expect(screen.getByTestId('release-availability')).toHaveTextContent('Downloadable: not stated');
+  });
+
+  it('source types sit behind a toggle in Adjust more, with a legend separating papers from vendor material', async () => {
+    const user = userEvent.setup();
+    const { container } = render(<GeneralistReleaseTimeline />);
+    expect(screen.queryByTestId('provenance-legend')).not.toBeInTheDocument();
+    await user.click(screen.getByTestId('generalist-source-type'));
     const legend = screen.getByTestId('provenance-legend');
     expect(legend).toHaveTextContent(/paper/i);
     expect(legend).toHaveTextContent(/lab blog/i);
     expect(legend).toHaveTextContent(/press release/i);
+    expect(container.querySelectorAll('[data-release] polygon').length).toBeGreaterThan(0);
+    const method = container.querySelector('details[data-figure-fold="method"]')!;
+    expect(method).toHaveTextContent('vendor-reported');
+    expect(method.querySelectorAll('tbody tr')).toHaveLength(GENERALIST_RELEASES.length);
   });
 
   it('download and undisclosed filters preserve distinct availability states', async () => {
@@ -51,21 +105,18 @@ describe('GeneralistReleaseTimeline', () => {
     ).toBeInTheDocument();
   });
 
-  it('vendor-reported entries say so in the detail readout, paper entries do not', async () => {
+  it("vendor-reported entries say they are the maker's own report in the card, paper entries do not", async () => {
     const user = userEvent.setup();
     render(<GeneralistReleaseTimeline />);
     await user.click(screen.getByRole('button', { name: /^Helix 02$/i }));
-    expect(screen.getByTestId('release-detail')).toHaveTextContent(
-      /vendor-reported/i,
-    );
+    expect(screen.getByTestId('release-detail')).toHaveTextContent(/the maker's own report/i);
     await user.click(screen.getByRole('button', { name: /^Skild Brain$/i }));
-    expect(screen.getByTestId('release-detail')).toHaveTextContent(
-      /press release/i,
-    );
+    expect(screen.getByTestId('release-detail')).toHaveTextContent(/the maker's own report/i);
+    expect(screen.getByTestId('release-row-skild-brain')).toHaveTextContent(/press release/i);
     await user.click(screen.getByRole('button', { name: /^GR00T N1$/i }));
     const detail = screen.getByTestId('release-detail');
-    expect(detail).toHaveTextContent(/paper/i);
-    expect(detail).not.toHaveTextContent(/vendor-reported/i);
+    expect(detail).not.toHaveTextContent(/own report/i);
+    expect(screen.getByTestId('release-row-gr00t-n1')).toHaveTextContent(/paper/i);
   });
 
   it('selecting a release shows its capability annotation and source link', async () => {
@@ -122,16 +173,17 @@ describe('GeneralistReleaseTimeline', () => {
     render(<GeneralistReleaseTimeline />);
     expect(screen.getByRole('img')).toHaveAttribute(
       'aria-label',
-      expect.stringContaining('dim nodes include unavailable and not-disclosed records'),
+      expect.stringContaining('hollow circles are either not offered or not disclosed'),
     );
     expect(screen.getByRole('button', { name: /^Helix$/i })).toHaveAttribute('data-status', 'undisclosed');
     await user.click(screen.getByRole('button', { name: /^not disclosed$/i }));
     const skild = screen.getByRole('button', { name: /^Skild Brain$/i });
     expect(skild).toHaveAttribute('data-status', 'undisclosed');
     await user.click(skild);
-    expect(screen.getByTestId('release-detail')).toHaveTextContent('weights: not disclosed');
+    expect(screen.getByTestId('release-detail')).toHaveTextContent('Downloadable: not stated');
     expect(screen.getByTestId('release-detail')).toHaveTextContent(/January 14, 2026/);
     expect(screen.getByTestId('release-detail')).not.toHaveTextContent('closed weights');
+    expect(screen.getByTestId('release-row-skild-brain')).toHaveTextContent('not disclosed');
   });
 
   it('reset restores the default filter and selection', async () => {

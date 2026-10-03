@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { openAdjustMore } from './helpers/figure-fold';
 
 for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 }]) {
   test(`retained manipulation and RL corrections at ${viewport.width}`, async ({ page }, info) => {
@@ -18,6 +19,11 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
       await page.goto(route);
       await expect(page.locator('h1')).toBeVisible();
       await expect(page.locator('body')).toContainText(text);
+      if (route.endsWith('comparison-matrix')) {
+        // The text is a matrix cell; the full matrix sits in the figure's
+        // "Adjust more" fold.
+        await openAdjustMore(page.locator('main [data-figure-frame="comparison-matrix"]'));
+      }
       await page.evaluate(() => document.fonts.ready);
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
       await expect(page.locator('.katex-error')).toHaveCount(0);
@@ -27,6 +33,8 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
       if (route.endsWith('realtime-execution')) {
         await expect(page.locator('body')).toContainText('108.76');
         await expect(page.locator('body')).toContainText('training');
+        // The model-size slider sits in the budget figure's "Adjust more" fold.
+        await openAdjustMore(page.locator('main [data-figure-frame="control-loop-budget"]'));
         const slider = page.getByRole('slider').first();
         await slider.focus();
         const before = await slider.inputValue();

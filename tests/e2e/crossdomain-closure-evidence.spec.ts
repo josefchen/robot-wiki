@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { openAdjustMore } from './helpers/figure-fold';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 
@@ -28,12 +29,14 @@ test('crossdomain selected counts and removal at desktop and mobile', async ({ p
         }
         await expect(page.getByTestId('release-track')).toContainText('13 of 13 shown');
         await expect(main.getByRole('img', { name: /^Selected generalist robot policy records\./ })).toBeVisible();
+        // The availability filter, release buttons and Reset sit in "Adjust more".
+        await openAdjustMore(page.locator('main [data-figure-frame="generalist-release-timeline"]'));
         await page.getByRole('button', { name: 'Downloadable', exact: true }).click();
         await expect(page.getByTestId('release-track')).toContainText('4 of 13 shown');
         await page.getByRole('button', { name: 'Not disclosed', exact: true }).click();
         await expect(page.getByTestId('release-track')).toContainText('6 of 13 shown');
         await page.getByRole('button', { name: 'Skild Brain', exact: true }).click();
-        await expect(page.getByTestId('release-detail')).toContainText('weights: not disclosed');
+        await expect(page.getByTestId('release-detail')).toContainText('Downloadable: not stated');
         await page.getByRole('button', { name: 'Reset', exact: true }).click();
         await expect(page.getByTestId('release-track')).toContainText('13 of 13 shown');
         await page.getByTestId('release-track').scrollIntoViewIfNeeded();

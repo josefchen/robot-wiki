@@ -1,6 +1,7 @@
 import { writeFile } from 'node:fs/promises';
 import { expect, test, type Locator } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { openAdjustMore } from './helpers/figure-fold';
 
 const routes = [
   { slug: 'knowledge-insulation', domain: 'manipulation', text: 'eight drawn layers', source: 'https://www.pi.website/research/knowledge_insulation' },
@@ -64,6 +65,8 @@ for (const width of [375, 1440]) {
       await page.mouse.move(0, 0);
 
       if (route.slug === 'knowledge-insulation') {
+        // The depth slider and Reset sit in the figure's "Adjust more" fold.
+        await openAdjustMore(page.locator('main [data-figure-frame="mot-insulation"]'));
         const slider = page.getByRole('slider');
         await slider.focus();
         const initial = await slider.inputValue();
@@ -85,10 +88,15 @@ for (const width of [375, 1440]) {
         await mem.focus();
         await mem.press('ArrowRight');
         await expect(page.getByRole('button', { name: 'π0.7', exact: true })).toBeFocused();
-        await page.getByTestId('generation-track').getByRole('button', { name: 'Reset' }).click();
+        // Reset sits in the timeline's "Adjust more" fold.
+        const timeline = page.locator('main [data-figure-frame="pi-generation-timeline"]');
+        const adjust = await openAdjustMore(timeline);
+        await adjust.getByRole('button', { name: 'Reset' }).click();
         await expect(page.getByRole('button', { name: 'π0', exact: true })).toHaveAttribute('aria-pressed', 'true');
       }
       if (route.slug === 'comparison-matrix') {
+        // The full matrix, its filters and Reset sit in the figure's "Adjust more" fold.
+        await openAdjustMore(page.locator('main [data-figure-frame="comparison-matrix"]'));
         const weights = page.getByRole('group', { name: 'Filter by weights' });
         await weights.getByRole('button', { name: 'Not disclosed', exact: true }).click();
         await expect(page.getByRole('row', { name: /^ACT / })).toBeVisible();
@@ -107,10 +115,13 @@ for (const width of [375, 1440]) {
         }
       }
       if (route.slug === 'rl-finetuning') {
+        // The time slider and Reset sit in the figure's "Adjust more" fold;
+        // the slider settles at the episode's end, so it steps back.
+        await openAdjustMore(page.locator('main [data-figure-frame="advantage-scrubber"]'));
         const slider = page.getByRole('slider').first();
         await slider.focus();
         const before = await slider.inputValue();
-        await slider.press('ArrowRight');
+        await slider.press('ArrowLeft');
         await expect(slider).not.toHaveValue(before);
         await page.getByRole('button', { name: 'Reset', exact: true }).click();
         await expect(slider).toHaveValue(before);
@@ -122,7 +133,7 @@ for (const width of [375, 1440]) {
           .locator('[data-chart-description]', { hasText: 'stage' })
           .first();
         await expect(description).toContainText('tinted stage blocks');
-        await page.getByRole('button', { name: /training data/i }).click();
+        await page.getByRole('button', { name: /what it learns/i }).click();
         await expect(description).toContainText('transitions between fictional stage endpoints');
         await page.screenshot({ path: info.outputPath('scrubber-training.png') });
         await page.getByRole('button', { name: /at execution/i }).click();

@@ -316,7 +316,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/pi-generation-timeline.tsx',
     route: '/manipulation/pi-line/',
     quantityNames: ['generations', 'weights'],
-    text: 'The π line contains 7 generations, with established source months from Oct 2024 to Apr 2026. MEM has no established month and is not plotted. The divider after π0.5 marks the pinned checkpoint catalogue, not licensing; selected now is π0 (PaliGemma 3B + 300M action expert, weights downloadable) and 4 other entries have unverified availability.',
+    text: 'The π line contains 7 generations, with established source months from Oct 2024 to Apr 2026. MEM has no established month and is not plotted. The downloadable bracket ends at π0.5 and marks the pinned checkpoint catalogue, not licensing; selected now is π0 (PaliGemma 3B + 300M action expert, weights downloadable) and 4 other entries have unverified availability.',
   },
   {
     component: 'GeneralistReleaseTimeline',

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "1799f8a2bfba77e1ca7445984d332ade6fd751998a40619a719f0099466a173d",
+  "fingerprint": "ce644edc68875948831574f8dc8032034417e033921c4c60c41d17f3100148b9",
   "source": "out/ static export",
   "routes": [
     {
@@ -527,7 +527,7 @@
     },
     {
       "route": "/manipulation/pi-line/",
-      "outboundAnchors": 54,
+      "outboundAnchors": 61,
       "distinctHrefs": 16,
       "shapes": [
         "citation-chip",
@@ -811,14 +811,14 @@
     }
   ],
   "routesSwept": 76,
-  "outboundAnchors": 3158,
+  "outboundAnchors": 3165,
   "distinctOutboundHrefs": 864,
   "anchorsByShape": {
     "citation-chip": 1378,
     "footer": 152,
     "reference-entry": 760,
     "other": 561,
-    "figure-credit": 307
+    "figure-credit": 314
   },
   "anchorsWithoutNoopener": 0,
   "anchorsWithNoreferrer": 2618,
@@ -1165,7 +1165,7 @@
       "reachedByTab": 79,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 208
+      "tabStops": 210
     },
     {
       "route": "/manipulation/cross-embodiment/",
@@ -1173,7 +1173,7 @@
       "reachedByTab": 38,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 137
+      "tabStops": 138
     },
     {
       "route": "/manipulation/diffusion-policy/",
@@ -1197,7 +1197,7 @@
       "reachedByTab": 47,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 177
+      "tabStops": 161
     },
     {
       "route": "/manipulation/hierarchical/",
@@ -1213,15 +1213,15 @@
       "reachedByTab": 37,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 137
+      "tabStops": 135
     },
     {
       "route": "/manipulation/pi-line/",
-      "outboundInDom": 54,
-      "reachedByTab": 54,
+      "outboundInDom": 61,
+      "reachedByTab": 61,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 194
+      "tabStops": 201
     },
     {
       "route": "/manipulation/realtime-execution/",
@@ -1229,7 +1229,7 @@
       "reachedByTab": 36,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 140
+      "tabStops": 143
     },
     {
       "route": "/manipulation/rl-finetuning/",
@@ -1237,7 +1237,7 @@
       "reachedByTab": 81,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 248
+      "tabStops": 246
     },
     {
       "route": "/manipulation/robot-learning-roadmap/",

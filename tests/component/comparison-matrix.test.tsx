@@ -227,4 +227,71 @@ describe('ComparisonMatrix', () => {
       screen.getByRole('columnheader', { name: /year/i }),
     ).toHaveAttribute('aria-sort', 'ascending');
   });
+
+  it('opens on its takeaway: a card per method and a year strip by output style', () => {
+    const { container } = render(<ComparisonMatrix />);
+    expect(container.querySelector('[data-figure-title]')).toHaveTextContent(
+      "Most 2026 robot brains don't disclose how they move",
+    );
+    expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Policy comparison');
+    // The headline and caption claims, checked against the data.
+    const latest = Math.max(...METHODS.map((m) => m.year ?? 0));
+    const latestRows = METHODS.filter((m) => m.year === latest);
+    const undisclosed = METHODS.filter((m) => m.actionRepresentation === null);
+    expect(latest).toBe(2026);
+    expect(latestRows).toHaveLength(6);
+    expect(undisclosed).toHaveLength(4);
+    expect(undisclosed.every((m) => m.year === latest)).toBe(true);
+    expect(screen.getByTestId('method-strip-note')).toHaveTextContent('none before 2026');
+    const cards = screen.getByTestId('method-cards').querySelectorAll('[data-method-card]');
+    expect(cards).toHaveLength(METHODS.length);
+    expect(container.querySelectorAll('[data-method-dot]')).toHaveLength(METHODS.length);
+    const rt1 = container.querySelector('[data-method-card="rt-1"]');
+    expect(rt1).toHaveTextContent('word-like codes');
+    expect(rt1).toHaveTextContent('3 commands a second');
+    expect(rt1).toHaveAttribute('id', 'method-rt-1');
+    const pi0 = container.querySelector('[data-method-card="pi0"]');
+    expect(pi0).toHaveTextContent('refined from noise');
+    expect(pi0).toHaveTextContent('50 moves');
+    expect(pi0).toHaveTextContent(/Download\s*yes/);
+    expect(container.querySelector('[data-method-card="skild"]')).toHaveTextContent(/Output\s*not disclosed/);
+  });
+
+  it('keeps the full matrix, its filters and Reset in Adjust more', () => {
+    const { container } = render(<ComparisonMatrix />);
+    const adjust = container.querySelector('details[data-figure-fold="adjust"]') as HTMLElement;
+    expect(adjust).not.toBeNull();
+    expect(within(adjust).getByRole('table')).toBeInTheDocument();
+    expect(within(adjust).getByRole('group', { name: 'Filter by weights' })).toBeInTheDocument();
+    expect(within(adjust).getByLabelText('Filter methods')).toBeInTheDocument();
+    expect(within(adjust).getByRole('button', { name: 'Reset' })).toBeInTheDocument();
+    const controls = container.querySelector('[data-figure-controls]') as HTMLElement;
+    const visible = [...controls.querySelectorAll('button')].filter((b) => !adjust.contains(b));
+    expect(visible.map((b) => b.textContent)).toEqual(['Downloadable only']);
+  });
+
+  it('"Downloadable only" narrows the cards, fades the other dots and the matrix follows', async () => {
+    const user = userEvent.setup();
+    const { container } = render(<ComparisonMatrix />);
+    const toggle = screen.getByRole('button', { name: 'Downloadable only' });
+    await user.click(toggle);
+    expect(toggle).toHaveAttribute('aria-pressed', 'true');
+    const open = METHODS.filter((m) => m.openWeights === true);
+    expect(screen.getByTestId('method-cards').querySelectorAll('[data-method-card]')).toHaveLength(open.length);
+    expect(bodyRows()).toHaveLength(open.length);
+    expect(screen.getByText(`${open.length} of ${METHODS.length} methods`)).toBeInTheDocument();
+    expect(container.querySelector('[data-method-dot="skild"]')).toHaveAttribute('opacity', '0.2');
+    expect(container.querySelector('[data-method-dot="pi0"]')).toHaveAttribute('opacity', '1');
+    await user.click(toggle);
+    expect(bodyRows()).toHaveLength(METHODS.length);
+  });
+
+  it('marks the card a search result links to', () => {
+    window.location.hash = '#method-diffusion-policy';
+    const { container } = render(<ComparisonMatrix />);
+    expect(container.querySelector('[data-method-card="diffusion-policy"]')).toHaveAttribute('data-highlighted', 'true');
+    expect(container.querySelectorAll('[data-highlighted]')).toHaveLength(1);
+    expect(container.querySelectorAll('#method-diffusion-policy')).toHaveLength(1);
+    window.location.hash = '';
+  });
 });

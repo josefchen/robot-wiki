@@ -140,7 +140,7 @@ describe('manipulation merged figures', () => {
     const preset = renderToStaticMarkup(createElement(FlowMatchingTrajectory));
     expect(preset).toContain(`k = ${PI0_STEPS} Euler steps`);
     expect(preset).toContain(`>${tenSteps.toFixed(2)}<`);
-    for (const label of ['1 step', `${PI0_STEPS} steps`]) expect(preset).toContain(`>${label}</button>`);
+    for (const label of ['1 step', `${PI0_STEPS} steps (π0)`]) expect(preset).toContain(`>${label}</button>`);
     const single = renderToStaticMarkup(createElement(FlowMatchingTrajectory, { defaultSteps: 1 }));
     expect(single).toContain('k = 1 Euler step');
     expect(single).toContain(`>${oneStep.toFixed(2)}<`);

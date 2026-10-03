@@ -44,8 +44,47 @@ describe('ExecutionModes', () => {
     expect(slider()).toHaveAttribute('max', '200');
   });
 
+  it('opens on 0.2 second with the lurch note, in plain words', () => {
+    const { container } = render(<ExecutionModes />);
+    expect(slider()).toHaveValue('200');
+    expect(container.querySelector('[data-figure-title]')).toHaveTextContent(
+      'Three ways to swap plans: pause, lurch, or blend',
+    );
+    expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Chunk hand-off');
+    expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
+      'blending keeps it moving smoothly',
+    );
+    expect(screen.getByRole('button', { name: '0.2 second' })).toHaveAttribute('aria-pressed', 'true');
+    const notes = container.querySelectorAll('[data-figure-annotation]');
+    expect(notes).toHaveLength(1);
+    expect(notes[0].textContent).toBe('Sudden jump: the arm lurcheswhen the new plan takes over');
+    expect(container.querySelector('[data-em-stopped]')).not.toBeNull();
+    const adjust = container.querySelector('details[data-figure-fold="adjust"]')!;
+    expect(adjust).toContainElement(slider());
+    expect(adjust).toContainElement(screen.getByTestId('dv-naive'));
+    expect(adjust).toContainElement(screen.getByRole('button', { name: /reset/i }));
+  });
+
+  it('the None preset draws three matching lanes with no stop and no dip', async () => {
+    const user = userEvent.setup();
+    const { container } = render(<ExecutionModes />);
+    await user.click(screen.getByRole('button', { name: 'None' }));
+    expect(slider()).toHaveValue('0');
+    // The sampled table holds the same numbers the lanes draw: each row's
+    // three velocities agree.
+    const rows = container.querySelectorAll('details[data-chart-data] tbody tr');
+    expect(rows.length).toBe(6);
+    for (const row of rows) {
+      const cells = [...row.querySelectorAll('td')].map((td) => td.textContent);
+      expect(new Set(cells).size).toBe(1);
+    }
+    expect(container.querySelector('[data-em-stopped]')).toBeNull();
+    expect(container.querySelector('[data-figure-annotation]')?.textContent).toContain('all three match');
+  });
+
   it('at zero delay all three toy modes stay within the proxy limit', () => {
     render(<ExecutionModes />);
+    fireEvent.change(slider(), { target: { value: '0' } });
     expect(slider()).toHaveValue('0');
     expect(screen.getByTestId('verdict-synchronous')).toHaveTextContent(
       /within/i,
@@ -83,13 +122,13 @@ describe('ExecutionModes', () => {
     expect(screen.getByTestId('pause-readout')).toHaveTextContent('200 ms');
   });
 
-  it('reset restores the zero-delay state', async () => {
+  it('reset restores the 0.2 second opening state', async () => {
     const user = userEvent.setup();
     render(<ExecutionModes />);
-    fireEvent.change(slider(), { target: { value: '200' } });
+    fireEvent.change(slider(), { target: { value: '0' } });
     await user.click(screen.getByRole('button', { name: /reset/i }));
-    expect(slider()).toHaveValue('0');
-    expect(screen.getByTestId('verdict-naive')).toHaveTextContent(/within/i);
+    expect(slider()).toHaveValue('200');
+    expect(screen.getByTestId('verdict-naive')).toHaveTextContent(/exceeds/i);
   });
 
   it('renders a table-form chart description that names the dashed guide', () => {
@@ -101,7 +140,7 @@ describe('ExecutionModes', () => {
     expect(details).toHaveAttribute('data-chart-form', 'table');
     expect(details?.querySelectorAll('tbody tr').length).toBe(6);
     const before = desc?.textContent ?? '';
-    fireEvent.change(slider(), { target: { value: '200' } });
+    fireEvent.change(slider(), { target: { value: '0' } });
     expect(container.querySelector('[data-chart-description]')?.textContent).not.toBe(
       before,
     );

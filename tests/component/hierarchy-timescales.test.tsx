@@ -49,7 +49,67 @@ describe('HierarchyTimescales', () => {
     expect(slider).toHaveAttribute('aria-label');
     expect(slider).toHaveAttribute('min', '0');
     expect(slider).toHaveAttribute('max', '2000');
-    expect(screen.getByTestId('playhead-readout')).toHaveTextContent('0 ms');
+    // The figure settles at the end of the 2 seconds, with every lane fired.
+    expect(screen.getByTestId('playhead-readout')).toHaveTextContent('t = 2000 ms');
+  });
+
+  it('leads with the takeaway, plain lane names and one note at settle', () => {
+    const { container } = render(<HierarchyTimescales />);
+    expect(container.querySelector('[data-figure-title]')).toHaveTextContent(
+      'Slow decisions on top, fast motor commands underneath',
+    );
+    expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Hierarchical control');
+    expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
+      'keeps one goal in mind, updates its next step now and then',
+    );
+    const svg = container.querySelector('svg[aria-describedby]')!;
+    expect(svg.textContent).toContain('Next step, in words');
+    expect(svg.textContent).toContain('50 times a second');
+    expect(svg.textContent).toContain('about once a second');
+    expect(svg.textContent).not.toMatch(/Hz|ms\b/);
+    const notes = container.querySelectorAll('[data-figure-annotation]');
+    expect(notes).toHaveLength(1);
+    expect(notes[0].textContent).toBe(
+      'About 100 motor commands whilethe plan above changes twice',
+    );
+    expect(container.querySelector('[data-chart-mark="playhead"]')).toBeNull();
+    expect(screen.getByTestId('system-detail')).toHaveTextContent(
+      'One model first writes the next step in words',
+    );
+  });
+
+  it('keeps the playhead, lane counters and Reset in Adjust more, and Play in view', () => {
+    const { container } = render(<HierarchyTimescales />);
+    const adjust = container.querySelector('details[data-figure-fold="adjust"]')!;
+    expect(adjust).toContainElement(screen.getByRole('slider', { name: /playhead/i }));
+    expect(adjust).toContainElement(screen.getByTestId('lane-row-control'));
+    expect(adjust).toContainElement(screen.getByRole('button', { name: 'Reset' }));
+    const play = screen.getByRole('button', { name: 'Play the 2 seconds' });
+    expect(adjust).not.toContainElement(play);
+  });
+
+  it('replays the 2 seconds only when the reader asks, and Pause holds the clock', async () => {
+    const user = userEvent.setup();
+    render(<HierarchyTimescales />);
+    expect(screen.getByTestId('playhead-readout')).toHaveTextContent('t = 2000 ms');
+    await user.click(screen.getByRole('button', { name: 'Play the 2 seconds' }));
+    await user.click(screen.getByRole('button', { name: 'Pause' }));
+    expect(screen.getByRole('button', { name: 'Play the 2 seconds' })).toBeInTheDocument();
+    const held = screen.getByTestId('playhead-readout').textContent ?? '';
+    expect(Number(held.match(/\d+/)?.[0])).toBeLessThan(2000);
+  });
+
+  it('the note follows the selected system', async () => {
+    const user = userEvent.setup();
+    const { container } = render(<HierarchyTimescales />);
+    await user.click(screen.getByRole('button', { name: /Helix 02/i }));
+    expect(container.querySelector('[data-figure-annotation]')?.textContent).toBe(
+      'About 2,000 whole-body commands whilethe plan above changes twice',
+    );
+    await user.click(screen.getByRole('button', { name: /GO-2/i }));
+    expect(container.querySelector('[data-figure-annotation]')?.textContent).toBe(
+      'About 100 motor commands whilethe plan above changes once',
+    );
   });
 
   it('switching to Helix 02 changes the lane structure to S2/S1/S0', async () => {
@@ -63,11 +123,14 @@ describe('HierarchyTimescales', () => {
 
   it('switching to GO-2 shows the planner/follower split', async () => {
     const user = userEvent.setup();
-    render(<HierarchyTimescales />);
+    const { container } = render(<HierarchyTimescales />);
     await user.click(screen.getByRole('button', { name: /GO-2/i }));
     expect(screen.getByTestId('lane-row-planner')).toBeInTheDocument();
     expect(screen.getByTestId('lane-row-follower')).toBeInTheDocument();
     expect(screen.getByTestId('system-detail')).toHaveTextContent(
+      /separate clocks/i,
+    );
+    expect(container.querySelector('[data-figure-fold="method"]')).toHaveTextContent(
       /asynchronous/i,
     );
   });
@@ -178,6 +241,7 @@ describe('HierarchyTimescales', () => {
 
   it('the instruction lane fires exactly once at t=0', () => {
     render(<HierarchyTimescales />);
+    scrubTo(0);
     expect(screen.getByTestId('lane-row-instruction')).toHaveTextContent(
       'last update: 0 ms',
     );
@@ -193,7 +257,7 @@ describe('HierarchyTimescales', () => {
     await user.click(screen.getByRole('button', { name: /Helix 02/i }));
     scrubTo(200);
     await user.click(screen.getByRole('button', { name: /reset/i }));
-    expect(screen.getByTestId('playhead-readout')).toHaveTextContent('0 ms');
+    expect(screen.getByTestId('playhead-readout')).toHaveTextContent('t = 2000 ms');
     expect(screen.getByTestId('lane-row-subtask')).toBeInTheDocument();
     expect(screen.queryByTestId('lane-row-s0')).not.toBeInTheDocument();
   });

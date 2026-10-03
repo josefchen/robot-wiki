@@ -16,32 +16,57 @@ function scrubTo(value: number) {
 }
 
 describe('AdvantageScrubber', () => {
-  it('renders the view switcher, the scrub slider, readouts, and reset', () => {
-    render(<AdvantageScrubber />);
-    expect(
-      screen.getByRole('button', { name: /^episode$/i }),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole('button', { name: /training data/i }),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole('button', { name: /at execution/i }),
-    ).toBeInTheDocument();
+  it('leads with Play and a two-way toggle; the execution view, slider, readouts and reset sit in Adjust more', () => {
+    const { container } = render(<AdvantageScrubber />);
+    expect(container.querySelector('[data-figure-title]')).toHaveTextContent(
+      'The robot learns its real mistake came 20 seconds earlier',
+    );
+    expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Advantage tags');
+    expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
+      'Tagging each step as helping or hurting lets the robot learn from its own failures',
+    );
+    expect(screen.getByRole('button', { name: /^play$/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /^the attempt$/i })).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button', { name: /^what it learns$/i })).toBeInTheDocument();
+    const adjust = container.querySelector('details[data-figure-fold="adjust"]')!;
+    expect(adjust).toContainElement(screen.getByRole('button', { name: /at execution/i }));
     const slider = screen.getByRole('slider', { name: /episode time/i });
-    expect(slider).toHaveAttribute('aria-label');
+    expect(adjust).toContainElement(slider);
     expect(slider).toHaveAttribute('min', '0');
     expect(slider).toHaveAttribute('max', String(EPISODE_LENGTH_S));
-    expect(screen.getByTestId('time-readout')).toHaveTextContent('0.0 s');
+    // It settles at the end of the episode, with the whole line drawn.
+    expect(screen.getByTestId('time-readout')).toHaveTextContent(`${EPISODE_LENGTH_S.toFixed(1)} s`);
     expect(screen.getByTestId('value-readout')).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /reset/i })).toBeInTheDocument();
+    expect(adjust).toContainElement(screen.getByRole('button', { name: /reset/i }));
   });
 
-  it('lists one timeline row per episode segment', () => {
-    render(<AdvantageScrubber />);
+  it('draws one pictogram per step, worded ends on the value line and one note', () => {
+    const { container } = render(<AdvantageScrubber />);
+    const steps = container.querySelectorAll('[data-step]');
+    expect(steps).toHaveLength(EPISODE_SEGMENTS.length);
+    const stage = screen.getByRole('img');
+    expect(stage).toHaveTextContent('Chance this ends well');
+    expect(stage).toHaveTextContent('likely');
+    expect(stage).toHaveTextContent('unlikely');
+    expect(stage).toHaveTextContent('Crooked');
+    expect(stage).not.toHaveTextContent(/V = /);
+    const notes = container.querySelectorAll('[data-figure-annotation]');
+    expect(notes).toHaveLength(1);
+    expect(notes[0].textContent).toBe(
+      'The failure shows up here, butthe cause was this crooked grip',
+    );
+  });
+
+  it('lists one row per episode segment, with its score change, in How this was made', () => {
+    const { container } = render(<AdvantageScrubber />);
+    const method = container.querySelector('details[data-figure-fold="method"]')!;
+    expect(method).toHaveTextContent('V = 30');
+    expect(method).toHaveTextContent('-12.0');
     for (const segment of EPISODE_SEGMENTS) {
       expect(
         screen.getByTestId(`segment-row-${segment.id}`),
       ).toBeInTheDocument();
+      expect(method).toContainElement(screen.getByTestId(`segment-row-${segment.id}`));
     }
   });
 
@@ -67,34 +92,30 @@ describe('AdvantageScrubber', () => {
     expect(screen.getByTestId('segment-readout')).toHaveTextContent(/grasp/i);
   });
 
-  it('shows the credit-assignment link from the insertion failure to the grasp', () => {
+  it('shows the credit-assignment note once the failure has shown, and hides it before', () => {
     render(<AdvantageScrubber />);
     const credit = screen.getByTestId('credit-annotation');
-    expect(credit).toHaveTextContent(/20 s earlier/i);
-    expect(credit).toHaveTextContent(/grasp/i);
+    expect(credit).toHaveTextContent(/crooked grip/i);
+    expect(credit).toHaveTextContent(/failure shows up here/i);
+    scrubTo(20);
+    expect(screen.queryByTestId('credit-annotation')).not.toBeInTheDocument();
   });
 
   it('the training-data view retains every transition with a binary tag', async () => {
     const user = userEvent.setup();
     render(<AdvantageScrubber />);
-    await user.click(screen.getByRole('button', { name: /training data/i }));
+    await user.click(screen.getByRole('button', { name: /what it learns/i }));
     const view = screen.getByTestId('training-view');
     expect(view).toBeInTheDocument();
     const tagged = taggedSegments();
     for (const segment of tagged) {
-      expect(
-        screen.getByTestId(`training-row-${segment.id}`),
-      ).toHaveTextContent(
-        segment.tag === 'high' ? /high advantage/i : /low advantage/i,
+      const row = screen.getByTestId(`training-row-${segment.id}`);
+      expect(row).toHaveAttribute('data-tag', segment.tag);
+      expect(row).toHaveTextContent(
+        segment.tag === 'high' ? /helped: do more of this/i : /hurt: do less of this/i,
       );
     }
-    const high = tagged.filter((s) => s.tag === 'high').length;
-    const low = tagged.filter((s) => s.tag === 'low').length;
-    expect(view).toHaveTextContent(
-      `${tagged.length} transitions kept`,
-    );
-    expect(view).toHaveTextContent(`${high} high`);
-    expect(view).toHaveTextContent(`${low} low`);
+    expect(view).toHaveTextContent(`All ${tagged.length} steps stay in the training data`);
   });
 
   it('the execution view depicts conditioning on high advantage', async () => {
@@ -114,17 +135,17 @@ describe('AdvantageScrubber', () => {
     );
   });
 
-  it('reset restores the episode view and the initial playhead', async () => {
+  it('reset restores the attempt view at the settled end of the episode', async () => {
     const user = userEvent.setup();
     render(<AdvantageScrubber />);
     scrubTo(20);
-    await user.click(screen.getByRole('button', { name: /training data/i }));
+    await user.click(screen.getByRole('button', { name: /what it learns/i }));
     expect(screen.queryByTestId('training-view')).toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: /reset/i }));
-    expect(screen.getByTestId('time-readout')).toHaveTextContent('0.0 s');
+    expect(screen.getByTestId('time-readout')).toHaveTextContent(`${EPISODE_LENGTH_S.toFixed(1)} s`);
     expect(screen.queryByTestId('training-view')).not.toBeInTheDocument();
     expect(
-      screen.getByRole('button', { name: /^episode$/i }),
+      screen.getByRole('button', { name: /^the attempt$/i }),
     ).toHaveAttribute('aria-pressed', 'true');
   });
 
@@ -158,7 +179,7 @@ describe('AdvantageScrubber', () => {
     const high = tagged.filter((s) => s.tag === 'high').length;
     const low = tagged.length - high;
     // Training view: no arc, no stage blocks, no playhead leading clause.
-    await user.click(screen.getByRole('button', { name: /training data/i }));
+    await user.click(screen.getByRole('button', { name: /what it learns/i }));
     expect(read()).not.toMatch(/dashed arc/);
     expect(read()).not.toMatch(/tinted stage blocks/);
     expect(read()).not.toMatch(/^At t = /);
@@ -170,6 +191,6 @@ describe('AdvantageScrubber', () => {
     expect(read()).toMatch(new RegExp(`\\b${high} high-tag examples\\b`));
     expect(read()).toMatch(new RegExp(`\\b${low} low-tag examples\\b`));
     // Back to the episode view: the episode text returns.
-    await user.click(screen.getByRole('button', { name: /^episode$/i }));
+    await user.click(screen.getByRole('button', { name: /^the attempt$/i }));
     expect(read()).toMatch(/dashed arc/);
   });
