@@ -1789,11 +1789,11 @@
                   "Control"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 15,
+                "readingMinutes": 16,
                 "citationCount": 21,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "15 min",
+                "readingTimeText": "16 min",
                 "citationCountText": "21",
                 "bibliographyIds": [
                   "ziegler-nichols-1942",
@@ -2362,11 +2362,11 @@
                   "The Data Bottleneck"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 7,
+                "readingMinutes": 8,
                 "citationCount": 13,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "7 min",
+                "readingTimeText": "8 min",
                 "citationCountText": "13",
                 "bibliographyIds": [
                   "gpt3-2020",
@@ -2498,11 +2498,11 @@
                   "The Evaluation Crisis"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 10,
+                "readingMinutes": 11,
                 "citationCount": 9,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "10 min",
+                "readingTimeText": "11 min",
                 "citationCountText": "9",
                 "bibliographyIds": [
                   "tri-lbm-2025",
@@ -3099,11 +3099,11 @@
                   "Generalization"
                 ],
                 "lastReviewed": "2026-08-18",
-                "readingMinutes": 10,
+                "readingMinutes": 11,
                 "citationCount": 12,
                 "reviewDateText": "18 August 2026",
                 "reviewDateTime": "2026-08-18",
-                "readingTimeText": "10 min",
+                "readingTimeText": "11 min",
                 "citationCountText": "12",
                 "bibliographyIds": [
                   "pi05-2025",
@@ -3462,11 +3462,11 @@
                   "Behavior Cloning Foundations"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 8,
+                "readingMinutes": 9,
                 "citationCount": 6,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "8 min",
+                "readingTimeText": "9 min",
                 "citationCountText": "6",
                 "bibliographyIds": [
                   "alvinn-1988",
@@ -59648,11 +59648,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Datasets and corpora by scale, with the farm projection",
-                  "clientWidth": 649,
-                  "scrollWidth": 649,
+                  "clientWidth": 715,
+                  "scrollWidth": 715,
                   "scrolledBy": 0
                 },
-                "tableWidth": 649,
+                "tableWidth": 715,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 71.5
@@ -59760,7 +59760,7 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Datasets and corpora by scale, with the farm projection",
-                  "clientWidth": 301,
+                  "clientWidth": 335,
                   "scrollWidth": 480,
                   "scrolledBy": 40
                 },
@@ -59984,11 +59984,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Sampled episode success by episode length",
-                  "clientWidth": 649,
-                  "scrollWidth": 649,
+                  "clientWidth": 715,
+                  "scrollWidth": 715,
                   "scrolledBy": 0
                 },
-                "tableWidth": 649,
+                "tableWidth": 715,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 71.5
@@ -60040,7 +60040,7 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Sampled episode success by episode length",
-                  "clientWidth": 301,
+                  "clientWidth": 335,
                   "scrollWidth": 480,
                   "scrolledBy": 40
                 },
@@ -60768,11 +60768,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Sampled loss and completion by pretraining hours",
-                  "clientWidth": 649,
-                  "scrollWidth": 649,
+                  "clientWidth": 715,
+                  "scrollWidth": 715,
                   "scrolledBy": 0
                 },
-                "tableWidth": 649,
+                "tableWidth": 715,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 71.5
@@ -60824,7 +60824,7 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Sampled loss and completion by pretraining hours",
-                  "clientWidth": 301,
+                  "clientWidth": 335,
                   "scrollWidth": 480,
                   "scrolledBy": 40
                 },
@@ -61664,11 +61664,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Sampled toy deviation and reference scalings by horizon",
-                  "clientWidth": 649,
-                  "scrollWidth": 649,
+                  "clientWidth": 715,
+                  "scrollWidth": 715,
                   "scrolledBy": 0
                 },
-                "tableWidth": 649,
+                "tableWidth": 715,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 71.5
@@ -61720,7 +61720,7 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Sampled toy deviation and reference scalings by horizon",
-                  "clientWidth": 301,
+                  "clientWidth": 335,
                   "scrollWidth": 480,
                   "scrolledBy": 40
                 },
@@ -64246,11 +64246,11 @@
                   "Control"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 15,
+                "readingMinutes": 16,
                 "citationCount": 21,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "15 min",
+                "readingTimeText": "16 min",
                 "citationCountText": "21",
                 "bibliographyIds": [
                   "ziegler-nichols-1942",
@@ -64819,11 +64819,11 @@
                   "The Data Bottleneck"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 7,
+                "readingMinutes": 8,
                 "citationCount": 13,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "7 min",
+                "readingTimeText": "8 min",
                 "citationCountText": "13",
                 "bibliographyIds": [
                   "gpt3-2020",
@@ -64955,11 +64955,11 @@
                   "The Evaluation Crisis"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 10,
+                "readingMinutes": 11,
                 "citationCount": 9,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "10 min",
+                "readingTimeText": "11 min",
                 "citationCountText": "9",
                 "bibliographyIds": [
                   "tri-lbm-2025",
@@ -65556,11 +65556,11 @@
                   "Generalization"
                 ],
                 "lastReviewed": "2026-08-18",
-                "readingMinutes": 10,
+                "readingMinutes": 11,
                 "citationCount": 12,
                 "reviewDateText": "18 August 2026",
                 "reviewDateTime": "2026-08-18",
-                "readingTimeText": "10 min",
+                "readingTimeText": "11 min",
                 "citationCountText": "12",
                 "bibliographyIds": [
                   "pi05-2025",
@@ -65919,11 +65919,11 @@
                   "Behavior Cloning Foundations"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 8,
+                "readingMinutes": 9,
                 "citationCount": 6,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "8 min",
+                "readingTimeText": "9 min",
                 "citationCountText": "6",
                 "bibliographyIds": [
                   "alvinn-1988",
@@ -99298,7 +99298,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:classical/control moved from 0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b to ee337ad9ed5a5c137d2513b634b6b1c41bd31fcd5164b34e623fd61ba4d6a1bc exactly as approved delta seo-pass-20261002-prose-classical-control permits: SEO pass of 2026-10-02 on classical/control: the lead now opens with the definitional sentence \"Control is what makes a robot actually go where motion planning decides it should, in a world where the model is slightly wrong, the payload shifted, and the floor is never quite flat\", where it opened with \"Motion planning decides where the robot should go\". Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/seo-pass-20261002/source-transition.json.",
+      "actual": "prose member article:classical/control moved from 0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b to b63fd6c36aeab864ceec5692ba7ccab6eef8b86b97da08bad768bcadd64e946d exactly as approved delta reader-first-20261003-predict-prose-classical-control permits: Reader-first figure pass of 2026-10-03 on classical/control: the prediction step becomes an optional “Guess first” question above a figure that is shown at settle, so its question, hint and cue are shortened to bring the figure into the first screen and to name what the visible figure prints. For example it reads \"Guess first if you like, then press Run and drag the proportional gain to test it.\" where it read \"Make the prediction, then press Run and drag the proportional gain to test it.\" Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/reader-first-20261002/source-transition.json.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -99310,9 +99310,9 @@
           "manifest": "prose",
           "member": "article:classical/control",
           "baselineHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
-          "currentHash": "ee337ad9ed5a5c137d2513b634b6b1c41bd31fcd5164b34e623fd61ba4d6a1bc",
+          "currentHash": "b63fd6c36aeab864ceec5692ba7ccab6eef8b86b97da08bad768bcadd64e946d",
           "status": "approved-delta",
-          "approvedDelta": "seo-pass-20261002-prose-classical-control"
+          "approvedDelta": "reader-first-20261003-predict-prose-classical-control"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -99522,7 +99522,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:data-hardware/data-bottleneck moved from 91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2 to b9e2206bebe92e03ec705a38999f913f9ae7f5e1e2168caddfb77469f10704be exactly as approved delta reader-first-20261002-prose-data-hardware-data-bottleneck permits: Reader-first figure pass of 2026-10-02 on data-hardware/data-bottleneck: the prose that sends the reader to a figure now names the plain-words controls and folds the figure prints, in 4 passages. For example it reads \"Drag the “Robots collecting” slider to see how fleet size changes collection time under two authored hypothetical rates.\" where it read \"Drag the teleoperation rigs slider to see how fleet size changes collection time under two authored hypothetical rates.\". Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/reader-first-20261002/source-transition.json.",
+      "actual": "prose member article:data-hardware/data-bottleneck moved from 91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2 to 9627eed7ce519be8d6637a67aa825aaf7dcd582b5c2839ec2f99c88c15f939fb exactly as approved delta reader-first-20261003-predict-prose-data-hardware-data-bottleneck permits: Reader-first figure pass of 2026-10-03 on data-hardware/data-bottleneck: the prediction step becomes an optional “Guess first” question above a figure that is shown at settle, so its question, hint and cue are shortened to bring the figure into the first screen and to name what the visible figure prints. For example its question reads \"In an authored hypothetical, each collection rig yields 7 productive hours a year. With 10 rigs, roughly how long until they reach a target of 10,000 hours?\" where it read \"An authored hypothetical collection scenario uses 7 productive hours per rig-year. With 10 rigs, roughly how long would it take to collect the hypothetical target of 10,000 hours?\" Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/reader-first-20261002/source-transition.json.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -99534,9 +99534,9 @@
           "manifest": "prose",
           "member": "article:data-hardware/data-bottleneck",
           "baselineHash": "91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2",
-          "currentHash": "b9e2206bebe92e03ec705a38999f913f9ae7f5e1e2168caddfb77469f10704be",
+          "currentHash": "9627eed7ce519be8d6637a67aa825aaf7dcd582b5c2839ec2f99c88c15f939fb",
           "status": "approved-delta",
-          "approvedDelta": "reader-first-20261002-prose-data-hardware-data-bottleneck"
+          "approvedDelta": "reader-first-20261003-predict-prose-data-hardware-data-bottleneck"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -99578,7 +99578,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:data-hardware/evaluation-crisis moved from a82d68cc5fad165e3cb345da4717268cd27b0531c327e347f599310b5073d92e to e8f923e7fa698d16d3e95c35801ae482196c72aa64013f016d7d32f317f992b1 exactly as approved delta reader-first-20261002-prose-data-hardware-evaluation-crisis permits: Reader-first figure pass of 2026-10-02 on data-hardware/evaluation-crisis: the prose that sends the reader to a figure now names the plain-words controls and folds the figure prints, in 3 passages. For example it reads \"Drag the “How many steps the job has” slider to compare those derived examples.\" where it read \"Drag the episode-length slider to compare those derived examples.\". Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/reader-first-20261002/source-transition.json.",
+      "actual": "prose member article:data-hardware/evaluation-crisis moved from a82d68cc5fad165e3cb345da4717268cd27b0531c327e347f599310b5073d92e to 13f61bd96ff6189aa1a42173889d3977eaf83a196756019a22f91796dbbc90b9 exactly as approved delta reader-first-20261003-predict-prose-data-hardware-evaluation-crisis permits: Reader-first figure pass of 2026-10-03 on data-hardware/evaluation-crisis: the prediction step becomes an optional “Guess first” question above a figure that is shown at settle, so its question, hint and cue are shortened to bring the figure into the first screen and to name what the visible figure prints. For example its question reads \"Each decision goes right 95% of the time, given every earlier one went right. Roughly how many decisions in a row bring the whole job below one half?\" where it read \"In this illustrative model, each decision succeeds with probability 95% conditional on all earlier decisions succeeding. Roughly how many consecutive decisions bring episode success below one half?\" Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/reader-first-20261002/source-transition.json.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -99590,9 +99590,9 @@
           "manifest": "prose",
           "member": "article:data-hardware/evaluation-crisis",
           "baselineHash": "a82d68cc5fad165e3cb345da4717268cd27b0531c327e347f599310b5073d92e",
-          "currentHash": "e8f923e7fa698d16d3e95c35801ae482196c72aa64013f016d7d32f317f992b1",
+          "currentHash": "13f61bd96ff6189aa1a42173889d3977eaf83a196756019a22f91796dbbc90b9",
           "status": "approved-delta",
-          "approvedDelta": "reader-first-20261002-prose-data-hardware-evaluation-crisis"
+          "approvedDelta": "reader-first-20261003-predict-prose-data-hardware-evaluation-crisis"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -99802,7 +99802,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:frontier/generalization moved from 1fee314336a48372c330af41a4f53293ca8b8c209ea8cd149ce90fff26f0e433 to 22e843bf9fa7e9202c43b12fe5511d9df10ab74e7cf5179d4edc98ad97cfae06 exactly as approved delta reader-first-20261002-prose-frontier-generalization permits: Reader-first figure pass of 2026-10-02 on frontier/generalization: the prose that sends the reader to a figure now names the plain-words controls and folds the figure prints, in 3 passages. For example it reads \"Pick a larger amount under \"How much video?\" and the line continues, dashed, past the end of the measurements; \"Adjust more\" holds the horizon slider and the paper's own error measure, drawn with a band that brackets the law holding against a plateau.\" where it read \"Drag the extrapolation horizon slider past the measured range and the two series continue as dashed lines inside a band that brackets the law holding against a plateau.\". Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/reader-first-20261002/source-transition.json.",
+      "actual": "prose member article:frontier/generalization moved from 1fee314336a48372c330af41a4f53293ca8b8c209ea8cd149ce90fff26f0e433 to 0103a61d7a055f09b3fb42d3f75cc538433a75b70705d40ead0dc341d9c1f4ad exactly as approved delta reader-first-20261003-predict-prose-frontier-generalization permits: Reader-first figure pass of 2026-10-03 on frontier/generalization: the prediction step becomes an optional “Guess first” question above a figure that is shown at settle, and the cue that sends the reader to the figure now opens with a plain instruction. It reads \"Try a larger amount under \"How much video?\" and the line continues\" where it read \"Pick a larger amount under \"How much video?\" and the line continues\". Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/reader-first-20261002/source-transition.json.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -99814,9 +99814,9 @@
           "manifest": "prose",
           "member": "article:frontier/generalization",
           "baselineHash": "1fee314336a48372c330af41a4f53293ca8b8c209ea8cd149ce90fff26f0e433",
-          "currentHash": "22e843bf9fa7e9202c43b12fe5511d9df10ab74e7cf5179d4edc98ad97cfae06",
+          "currentHash": "0103a61d7a055f09b3fb42d3f75cc538433a75b70705d40ead0dc341d9c1f4ad",
           "status": "approved-delta",
-          "approvedDelta": "reader-first-20261002-prose-frontier-generalization"
+          "approvedDelta": "reader-first-20261003-predict-prose-frontier-generalization"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -99942,7 +99942,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:manipulation/bc-foundations moved from 30edbd706c59eb1a521d39a5d6e8f6118ff2eb108b2d0fb364933d4797475a20 to 3070554322646a84dbd08abf428688cda75dc8e3727c7de5615dda9a0b8b197e exactly as approved delta reader-first-20261003-prose-manipulation-bc-foundations permits: Reader-first figure pass of 2026-10-03 on manipulation/bc-foundations: the prose that sends the reader to a figure now names the plain-words controls and folds the figure prints. For example it reads \"Try “A teacher corrects it” to watch DAgger-style relabeling cut the summed deviation.\" where it read \"Toggle DAgger relabeling to cut the summed deviation.\". Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/reader-first-20261002/source-transition.json.",
+      "actual": "prose member article:manipulation/bc-foundations moved from 30edbd706c59eb1a521d39a5d6e8f6118ff2eb108b2d0fb364933d4797475a20 to 03e10fa145ea87106c8a010930966a681ac3a936d695c4895bb201fac2f712ea exactly as approved delta reader-first-20261003-predict-prose-manipulation-bc-foundations permits: Reader-first figure pass of 2026-10-03 on manipulation/bc-foundations: the prediction step becomes an optional “Guess first” question above a figure that is shown at settle, so its question, hint and cue are shortened to bring the figure into the first screen and to name what the visible figure prints. For example its question reads \"Make the task twice as long, 240 moves instead of 120, with the same 5% slip per move and nothing else changed. Roughly what happens to the total drift?\" where it read \"Double the episode horizon from 120 to 240 steps at 5% per-step error, with prediction mode and corrections left alone. Roughly what happens to the accumulated deviation the readout reports?\" Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/reader-first-20261002/source-transition.json.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -99954,9 +99954,9 @@
           "manifest": "prose",
           "member": "article:manipulation/bc-foundations",
           "baselineHash": "30edbd706c59eb1a521d39a5d6e8f6118ff2eb108b2d0fb364933d4797475a20",
-          "currentHash": "3070554322646a84dbd08abf428688cda75dc8e3727c7de5615dda9a0b8b197e",
+          "currentHash": "03e10fa145ea87106c8a010930966a681ac3a936d695c4895bb201fac2f712ea",
           "status": "approved-delta",
-          "approvedDelta": "reader-first-20261003-prose-manipulation-bc-foundations"
+          "approvedDelta": "reader-first-20261003-predict-prose-manipulation-bc-foundations"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -102864,7 +102864,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/classical/control/ ships 51 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 51 outbound anchor occurrences on it with a visible focus ring in 179 stops",
+      "actual": "/classical/control/ ships 51 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 51 outbound anchor occurrences on it with a visible focus ring in 186 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -102884,7 +102884,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 48,
           "reachedByTab": 51,
-          "tabStops": 179,
+          "tabStops": 186,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -103234,7 +103234,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/data-hardware/data-bottleneck/ ships 31 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 31 outbound anchor occurrences on it with a visible focus ring in 121 stops",
+      "actual": "/data-hardware/data-bottleneck/ ships 31 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 31 outbound anchor occurrences on it with a visible focus ring in 120 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -103254,7 +103254,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 28,
           "reachedByTab": 31,
-          "tabStops": 121,
+          "tabStops": 120,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -103309,7 +103309,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/data-hardware/evaluation-crisis/ ships 39 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 39 outbound anchor occurrences on it with a visible focus ring in 144 stops",
+      "actual": "/data-hardware/evaluation-crisis/ ships 39 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 39 outbound anchor occurrences on it with a visible focus ring in 150 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -103328,7 +103328,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 36,
           "reachedByTab": 39,
-          "tabStops": 144,
+          "tabStops": 150,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -103677,7 +103677,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/frontier/generalization/ ships 36 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 36 outbound anchor occurrences on it with a visible focus ring in 126 stops",
+      "actual": "/frontier/generalization/ ships 36 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 36 outbound anchor occurrences on it with a visible focus ring in 131 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -103696,7 +103696,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 33,
           "reachedByTab": 36,
-          "tabStops": 126,
+          "tabStops": 131,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -103967,7 +103967,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/manipulation/bc-foundations/ ships 21 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 21 outbound anchor occurrences on it with a visible focus ring in 111 stops",
+      "actual": "/manipulation/bc-foundations/ ships 21 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 21 outbound anchor occurrences on it with a visible focus ring in 118 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -103987,7 +103987,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 18,
           "reachedByTab": 21,
-          "tabStops": 111,
+          "tabStops": 118,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -117250,7 +117250,7 @@
           "authored": "#1A6F45",
           "marks": [
             {
-              "id": "components/article/commit-to-reveal.tsx#228:span:ok",
+              "id": "components/article/commit-to-reveal.tsx#252:span:ok",
               "element": "span",
               "binding": "inline",
               "via": null,
@@ -118714,7 +118714,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A control/state registry assigns stable IDs, owner route/mount, action, persistent ARIA, disabled exceptions, target-size requirement, pointer alternative, and supported states; DOM-discovered controls and registered controls/actions reconcile exactly.",
-      "actual": "rendered on 11 of 77 swept route states and reconciled exactly against the registry row",
+      "actual": "rendered on 15 of 77 swept route states and reconciled exactly against the registry row",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -118745,12 +118745,16 @@
           "mountState": "production",
           "renderedOn": [
             "/adjacent/drones/",
+            "/data-hardware/data-bottleneck/",
+            "/data-hardware/evaluation-crisis/",
             "/data-hardware/industrial-deployment/",
             "/frontier/bear-case/",
             "/frontier/dexterity/",
+            "/frontier/generalization/",
             "/frontier/reliability-gap/",
             "/frontier/safety-and-assurance/",
             "/manipulation/action-chunking/",
+            "/manipulation/bc-foundations/",
             "/manipulation/diffusion-policy/",
             "/world-models/generative-sim/",
             "/world-models/generative-video/",
@@ -127546,7 +127550,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 6490 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 6422 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -128019,7 +128023,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/classical/control/ rendered no v1 identity spelling and no v1 descriptor in 46421 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/classical/control/ rendered no v1 identity spelling and no v1 descriptor in 48119 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -128489,7 +128493,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/data-bottleneck/ rendered no v1 identity spelling and no v1 descriptor in 28271 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/data-bottleneck/ rendered no v1 identity spelling and no v1 descriptor in 30763 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -128583,7 +128587,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/evaluation-crisis/ rendered no v1 identity spelling and no v1 descriptor in 36611 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/evaluation-crisis/ rendered no v1 identity spelling and no v1 descriptor in 37901 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -129053,7 +129057,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/frontier/generalization/ rendered no v1 identity spelling and no v1 descriptor in 32601 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/frontier/generalization/ rendered no v1 identity spelling and no v1 descriptor in 34469 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -129429,7 +129433,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/bc-foundations/ rendered no v1 identity spelling and no v1 descriptor in 25257 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/bc-foundations/ rendered no v1 identity spelling and no v1 descriptor in 26743 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",

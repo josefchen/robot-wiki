@@ -85,7 +85,12 @@ function throughSeoPass(path: string) {
     return to;
   };
   const seo = edge('seo-pass-20261002-', hashOf(read(path)), hashOf(readSeoSuccessor(path)));
-  edge('reader-first-20261002-', seo, hashOf(readLive(path)), true);
+  // The optional prediction step later moved some of these articles on with
+  // one plain edge from the reader-first endpoint to the live article.
+  const predict = approvals.filter(a => a.manifest === 'prose' && a.memberId === id
+    && a.id.startsWith('reader-first-20261003-predict-'));
+  const readerFirst = edge('reader-first-20261002-', seo, predict.length ? predict[0].oldHash : hashOf(readLive(path)), true);
+  edge('reader-first-20261003-predict-', readerFirst, hashOf(readLive(path)));
 }
 
 describe('merged reader corrections preserve production additions and exact approvals', () => {

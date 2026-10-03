@@ -88,17 +88,18 @@ test.describe('keyboard-only global navigation (VAL-CROSS-022)', () => {
     await page.waitForURL(focusedHref ?? /\/manipulation\//);
 
     // On the module page, an interactive control responds to arrow keys.
-    // A figure keeps its sliders in its "Adjust more" fold, and on the
-    // first manipulation module that figure is also inside the prediction
-    // step. A keyboard reader answers the prediction (Space on a choice
-    // opens the reveal), opens the fold from its summary with Enter, and
-    // drives the slider it uncovers.
+    // A figure keeps its sliders in its "Adjust more" fold. On the first
+    // manipulation module that figure belongs to the prediction step, and
+    // the guess is optional: the fold's summary is reachable with the
+    // reasoning still closed, so a keyboard reader opens it with Enter and
+    // drives the slider it uncovers without answering.
     const predict = page.locator('[data-predict]');
-    if ((await predict.count()) > 0) {
-      const choice = predict.getByRole('radio').first();
-      await choice.focus();
-      await page.keyboard.press('Space');
-      await expect(predict.locator('details[data-reveal]').first()).toHaveAttribute('open', '');
+    const hasPredict = (await predict.count()) > 0;
+    if (hasPredict) {
+      await expect(predict.locator('details[data-reveal]').first()).not.toHaveAttribute('open');
+      await expect(
+        predict.locator(':scope > [data-predict-figure] [data-figure-fold="adjust"] > summary').first(),
+      ).toBeVisible();
     }
     const summary = page
       .locator('[data-figure-fold="adjust"] > summary')
@@ -120,5 +121,15 @@ test.describe('keyboard-only global navigation (VAL-CROSS-022)', () => {
       return parseFloat(getComputedStyle(active).outlineWidth);
     });
     expect(sliderOutline).toBe(2);
+
+    // A keyboard reader who does guess answers with Space on a choice,
+    // which opens the reasoning and leaves the figure where it was.
+    if (hasPredict) {
+      const choice = predict.getByRole('radio').first();
+      await choice.focus();
+      await page.keyboard.press('Space');
+      await expect(predict.locator('details[data-reveal]').first()).toHaveAttribute('open', '');
+      await expect(slider).toBeVisible();
+    }
   });
 });

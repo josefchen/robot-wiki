@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "ad4cab492fad3e5b7fd33f5bcc34fb82ea76303f4496ec4fd1103f6b1ecd9aa1",
+  "fingerprint": "8e7bc601063d238e7863953cca001a10dc76142b71a2d93c622a578a6099de5f",
   "viewports": [
     "375x812",
     "1440x900"
@@ -339,7 +339,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 22992,
+      "visibleTextLength": 23841,
       "tables": [],
       "equations": [
         {
@@ -3886,7 +3886,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 13938,
+      "visibleTextLength": 15184,
       "tables": [
         {
           "index": 0,
@@ -3904,7 +3904,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Datasets and corpora by scale, with the farm projection",
-            "clientWidth": 301,
+            "clientWidth": 335,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -3946,7 +3946,7 @@
           "role": "region",
           "accessibleName": "Datasets and corpora by scale, with the farm projection",
           "tabIndex": 0,
-          "clientWidth": 301,
+          "clientWidth": 335,
           "scrollWidth": 480,
           "scrolledBy": 40
         },
@@ -4023,7 +4023,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18108,
+      "visibleTextLength": 18753,
       "tables": [
         {
           "index": 0,
@@ -4041,7 +4041,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled episode success by episode length",
-            "clientWidth": 301,
+            "clientWidth": 335,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -4059,7 +4059,7 @@
           "role": "region",
           "accessibleName": "Sampled episode success by episode length",
           "tabIndex": 0,
-          "clientWidth": 301,
+          "clientWidth": 335,
           "scrollWidth": 480,
           "scrolledBy": 40
         }
@@ -4394,7 +4394,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 16125,
+      "visibleTextLength": 17059,
       "tables": [
         {
           "index": 0,
@@ -4412,7 +4412,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled loss and completion by pretraining hours",
-            "clientWidth": 301,
+            "clientWidth": 335,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -4479,7 +4479,7 @@
           "role": "region",
           "accessibleName": "Sampled loss and completion by pretraining hours",
           "tabIndex": 0,
-          "clientWidth": 301,
+          "clientWidth": 335,
           "scrollWidth": 480,
           "scrolledBy": 40
         }
@@ -4969,7 +4969,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 12307,
+      "visibleTextLength": 13050,
       "tables": [
         {
           "index": 0,
@@ -4987,7 +4987,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled toy deviation and reference scalings by horizon",
-            "clientWidth": 301,
+            "clientWidth": 335,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -5470,7 +5470,7 @@
           "role": "region",
           "accessibleName": "Sampled toy deviation and reference scalings by horizon",
           "tabIndex": 0,
-          "clientWidth": 301,
+          "clientWidth": 335,
           "scrollWidth": 480,
           "scrolledBy": 40
         },
@@ -7509,7 +7509,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 23429,
+      "visibleTextLength": 24278,
       "tables": [],
       "equations": [
         {
@@ -11056,7 +11056,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14333,
+      "visibleTextLength": 15579,
       "tables": [
         {
           "index": 0,
@@ -11074,11 +11074,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Datasets and corpora by scale, with the farm projection",
-            "clientWidth": 649,
-            "scrollWidth": 649,
+            "clientWidth": 715,
+            "scrollWidth": 715,
             "scrolledBy": 0
           },
-          "tableWidth": 649,
+          "tableWidth": 715,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         },
@@ -11116,8 +11116,8 @@
           "role": "region",
           "accessibleName": "Datasets and corpora by scale, with the farm projection",
           "tabIndex": 0,
-          "clientWidth": 649,
-          "scrollWidth": 649,
+          "clientWidth": 715,
+          "scrollWidth": 715,
           "scrolledBy": 0
         },
         {
@@ -11193,7 +11193,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18503,
+      "visibleTextLength": 19148,
       "tables": [
         {
           "index": 0,
@@ -11211,11 +11211,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled episode success by episode length",
-            "clientWidth": 649,
-            "scrollWidth": 649,
+            "clientWidth": 715,
+            "scrollWidth": 715,
             "scrolledBy": 0
           },
-          "tableWidth": 649,
+          "tableWidth": 715,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -11229,8 +11229,8 @@
           "role": "region",
           "accessibleName": "Sampled episode success by episode length",
           "tabIndex": 0,
-          "clientWidth": 649,
-          "scrollWidth": 649,
+          "clientWidth": 715,
+          "scrollWidth": 715,
           "scrolledBy": 0
         }
       ],
@@ -11564,7 +11564,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 16476,
+      "visibleTextLength": 17410,
       "tables": [
         {
           "index": 0,
@@ -11582,11 +11582,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled loss and completion by pretraining hours",
-            "clientWidth": 649,
-            "scrollWidth": 649,
+            "clientWidth": 715,
+            "scrollWidth": 715,
             "scrolledBy": 0
           },
-          "tableWidth": 649,
+          "tableWidth": 715,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -11649,8 +11649,8 @@
           "role": "region",
           "accessibleName": "Sampled loss and completion by pretraining hours",
           "tabIndex": 0,
-          "clientWidth": 649,
-          "scrollWidth": 649,
+          "clientWidth": 715,
+          "scrollWidth": 715,
           "scrolledBy": 0
         }
       ],
@@ -12139,7 +12139,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 12950,
+      "visibleTextLength": 13693,
       "tables": [
         {
           "index": 0,
@@ -12157,11 +12157,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled toy deviation and reference scalings by horizon",
-            "clientWidth": 649,
-            "scrollWidth": 649,
+            "clientWidth": 715,
+            "scrollWidth": 715,
             "scrolledBy": 0
           },
-          "tableWidth": 649,
+          "tableWidth": 715,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -12640,8 +12640,8 @@
           "role": "region",
           "accessibleName": "Sampled toy deviation and reference scalings by horizon",
           "tabIndex": 0,
-          "clientWidth": 649,
-          "scrollWidth": 649,
+          "clientWidth": 715,
+          "scrollWidth": 715,
           "scrolledBy": 0
         },
         {

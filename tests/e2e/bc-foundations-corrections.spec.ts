@@ -28,13 +28,17 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     };
     await capture('top');
     await page.screenshot({ path: testInfo.outputPath(`${viewport.width}-full.png`), fullPage: true });
-    // The toy is stated once, in the prose, and the figure lives inside
-    // the prediction step at its seeded 240-step horizon.
+    // The toy is stated once, in the prose, and the figure lives in the
+    // prediction step at its seeded 240-step horizon, shown with the
+    // reasoning still closed.
     await expect(prose).toContainText('neither a source benchmark nor a task-cost theorem');
-    await page.locator('[data-predict] details[data-reveal] > summary').click();
-    const toy = page.locator('[data-predict] [data-figure-frame="compounding-error"]');
+    const reveal = page.locator('[data-predict] details[data-reveal]');
+    await expect(reveal).not.toHaveAttribute('open');
+    const toy = page.locator('[data-predict] > [data-predict-figure] [data-figure-frame="compounding-error"]');
     await expect(toy).toHaveCount(1);
     await toy.scrollIntoViewIfNeeded();
+    await expect(toy).toBeVisible();
+    await expect(reveal).not.toHaveAttribute('open');
     await expect(toy).toContainText('Original deterministic toy');
     await expect(toy.getByTestId('accumulated-deviation-readout')).toHaveText('1505');
     await expect(toy.getByTestId('half-deviation-readout')).toHaveText('370');

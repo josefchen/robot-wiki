@@ -107,8 +107,11 @@ test('paired data/hardware labs retain semantic roles under both schemes and cha
         await expect(page.getByTestId('breakdown-jams')).toContainText('jam clearing');
 
         await page.goto('/data-hardware/data-bottleneck/', { waitUntil: 'networkidle' });
-        // The page's one data-scale chart is the reveal of its prediction step.
-        await page.locator('[data-predict]:has([data-testid="projection-marker"]) details[data-reveal] > summary').click();
+        // The page's one data-scale chart is its prediction step's figure,
+        // painted at settle with the reasoning still closed.
+        const dataStep = page.locator('[data-predict]:has([data-testid="projection-marker"])');
+        await expect(dataStep.locator('details[data-reveal]')).not.toHaveAttribute('open');
+        await expect(dataStep.locator(':scope > [data-predict-figure] [data-testid="projection-marker"]')).toBeVisible();
         const marker = '[data-testid="projection-marker"]';
         expect(await style(marker, 'fill')).toBe(await stageRole('value-graphic', marker));
         expect(await style(`${marker} + text`, 'fill')).toBe(await stageRole('value-text', marker));
@@ -124,8 +127,11 @@ test('paired data/hardware labs retain semantic roles under both schemes and cha
         await expect(page.getByTestId('rigs-readout').first()).toHaveText('11');
 
         await page.goto('/data-hardware/evaluation-crisis/', { waitUntil: 'networkidle' });
-        // The page's one calculator is the reveal of its prediction step.
-        await page.locator('[data-predict]:has([data-testid="episode-success-readout"]) details[data-reveal] > summary').click();
+        // The page's one calculator is its prediction step's figure, painted
+        // at settle with the reasoning still closed.
+        const evaluationStep = page.locator('[data-predict]:has([data-testid="episode-success-readout"])');
+        await expect(evaluationStep.locator('details[data-reveal]')).not.toHaveAttribute('open');
+        await expect(evaluationStep.locator(':scope > [data-predict-figure] [data-testid="episode-success-readout"]')).toBeVisible();
         const lab = page.locator('[data-brand-module-signature="instrument-frame"]:has([data-testid="episode-success-readout"])').first();
         const trace = 'path[data-series="episode-success"]';
         expect(await lab.locator(trace).evaluate((node) => getComputedStyle(node).stroke))

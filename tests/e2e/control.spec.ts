@@ -6,8 +6,8 @@ import { writeFileSync } from 'node:fs';
 const ROUTE = '/classical/control/';
 
 /**
- * The article's only pendulum lab. The prediction step wraps it inside its
- * closed disclosure, mounted at Kp 9.5, so a test opens the step first.
+ * The article's only pendulum lab. The prediction step shows it below the
+ * optional guess, mounted at Kp 9.5, with the reasoning still closed.
  */
 function pendulum(page: Page) {
   return page.locator(
@@ -15,11 +15,16 @@ function pendulum(page: Page) {
   );
 }
 
-async function openPendulum(page: Page): Promise<void> {
+/** The lab is visible and operable at settle: no answer, no opened disclosure. */
+async function pendulumAtSettle(page: Page): Promise<void> {
   const reveal = page.locator('[data-predict] > details[data-reveal]');
-  await reveal.locator(':scope > summary').click();
-  await expect(reveal).toHaveAttribute('open');
+  await expect(reveal).not.toHaveAttribute('open');
+  await expect(
+    page.locator('[data-predict] > [data-predict-figure] [data-testid="pendulum-scene"]'),
+  ).toBeVisible();
+  await expect(reveal.locator('[data-testid="pendulum-scene"]')).toHaveCount(0);
   await waitForHydration(pendulum(page).getByRole('button', { name: /run the simulation/i }));
+  await expect(reveal).not.toHaveAttribute('open');
 }
 
 /** The stock gain the loop settles at; the step mounts the lab below the threshold. */
@@ -79,7 +84,7 @@ test.describe('classical control module', () => {
       expect(await page.locator('.katex-display').count()).toBeGreaterThanOrEqual(6);
       await expect(page.getByTestId('pendulum-scene')).toHaveCount(1);
       await expect(page.getByTestId('impedance-lab')).toBeVisible();
-      await openPendulum(page);
+      await pendulumAtSettle(page);
       const run = pendulum(page).getByRole('button', { name: /run the simulation/i });
       await run.click();
       await expect(pendulum(page).getByRole('button', { name: /pause the simulation/i })).toBeVisible();
@@ -220,7 +225,7 @@ test.describe('classical control module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
-    await openPendulum(page);
+    await pendulumAtSettle(page);
     const scene = pendulum(page).getByTestId('pendulum-scene');
     await expect(scene).toBeVisible();
     await expect(pendulum(page).getByTestId('pendulum-rod')).toBeVisible();
@@ -264,7 +269,7 @@ test.describe('classical control module', () => {
   }) => {
     test.setTimeout(90_000);
     await page.goto(ROUTE);
-    await openPendulum(page);
+    await pendulumAtSettle(page);
 
     // Stock gains: the loop settles into its small steady lean.
     await setStockKp(page);
@@ -311,7 +316,7 @@ test.describe('classical control module', () => {
   }) => {
     test.setTimeout(60_000);
     await page.goto(ROUTE);
-    await openPendulum(page);
+    await pendulumAtSettle(page);
     await setStockKp(page);
     await pendulum(page).getByRole('button', { name: /run the simulation/i }).click();
     await expect(pendulum(page).getByTestId('pendulum-status-readout')).toHaveText(
@@ -334,7 +339,7 @@ test.describe('classical control module', () => {
 
   test('the interactive is keyboard-operable', async ({ page }) => {
     await page.goto(ROUTE);
-    await openPendulum(page);
+    await pendulumAtSettle(page);
     const kd = pendulum(page).getByRole('slider', { name: /derivative gain kd/i });
     await kd.focus();
     await expect(kd).toBeFocused();
@@ -359,7 +364,7 @@ test.describe('classical control module', () => {
     await page.goto(ROUTE);
     const runButton = pendulum(page).getByRole('button', { name: /run the simulation/i });
     const pauseButton = pendulum(page).getByRole('button', { name: 'Pause the simulation' });
-    await openPendulum(page);
+    await pendulumAtSettle(page);
     // At the mount's Kp 9.5 the pole falls away; the stock gain pulls it in.
     await setStockKp(page);
     await runButton.click();
