@@ -34,7 +34,7 @@ export type ReaderFirstReview = {
 
 // BEGIN reader-first pins (written by scripts/record-reader-first-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 959420, sha256: '50dfe29b1463d7ca13be92aeddb8a8d15de37edbe883e617191585aeba3db519' };
+const reviewPin = { bytes: 959565, sha256: '8ddab2c68ba4fb9c5242e9b33b2e7410c83df0ab975adcce465b5624cbae460d' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -121,7 +121,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/e2e/chart-coverage-sweep.spec.ts', [12272, '0b05cc763dbc74fb1e31ad53c7bcfce17b3d4001b540129e6d7e85fa5e6b1c35']],
   ['tests/e2e/chart-description-registry.spec.ts', [6569, '458e4b53e02328a4f47069cf4057a3f98c1855acf5b88b3ebe3ae9a450e19781']],
   ['tests/e2e/chart-descriptions.spec.ts', [15564, '0088efe8fc2fb4838b9c352e5f9c86dbe5349521ef57dd77a881d2714dbe3348']],
-  ['tests/e2e/chart-state-descriptions.spec.ts', [24246, 'ff52d65746478926bd59e68eef737ee297db71a76ebb3f64854c20ac310954ed']],
+  ['tests/e2e/chart-state-descriptions.spec.ts', [24252, '4734b6a910bef93f68bacd584f5434cf1c291c660167a74dfb437db8b6b94c8a']],
   ['tests/e2e/competing-theses.spec.ts', [9790, '42020e2d5dfb33bab2959e059998b9d79592453d522f6b9482e562b588682ed9']],
   ['tests/e2e/data-bottleneck.spec.ts', [7808, '460ee543aab6bc7e6064425f80fc98db2068a9ba8ee08b076fb120335f5934df']],
   ['tests/e2e/dexterity.spec.ts', [13239, '67696d58645a36946d2ca3b71f5aacac3dc58394696688333760060aa8f111c4']],
