@@ -3,21 +3,22 @@
 import { useId, useState } from 'react';
 import { ChartDescription } from '@/components/ui/chart-description';
 import {
-  INSTRUMENT_TOGGLE_CLASS,
   InstrumentFigure,
   InstrumentLegend,
   InstrumentReadout,
   InstrumentReset,
   LegendItem,
   PlotStage,
+  PresetGroup,
 } from '@/components/ui/instrument';
-import { FigureStage } from '@/components/motion/figure-frame';
+import { FigureStage, StageStatus } from '@/components/motion/figure-frame';
 import {
   CHART_STROKE,
   CHART_STRUCTURE,
   CHART_TYPE,
   CHART_VIEW_WIDTH,
   LegendSwatch,
+  StageAnnotation,
   roleColour,
 } from '@/components/motion/chart';
 import {
@@ -27,7 +28,6 @@ import {
   fastestRateLabel,
   type WbcApproach,
   type WbcApproachId,
-  type WbcLayer,
 } from '@/lib/wbc-decomposition';
 
 /**
@@ -50,22 +50,46 @@ import {
  */
 
 const WIDTH = CHART_VIEW_WIDTH;
-const HEIGHT = 250;
-const BOX_LEFT = 4;
-const BOX_W = WIDTH - 2 * BOX_LEFT;
-const BOX_H = 46;
-const TOP = 2;
-const ROBOT_H = 28;
-/** The robot stays put across approaches; the stack above it is spread to fill the stage. */
-const ROBOT_TOP = HEIGHT - 2 - ROBOT_H;
-const TEXT_X = BOX_LEFT + 16;
-const ARROW_X = BOX_LEFT + 22;
+const HEIGHT = 224;
+const BAND_LEFT = 4;
+const BAND_RIGHT = 228;
+const BAND_H = 44;
+const STACK_TOP = 54;
+const STACK_BOTTOM = 216;
+const TEXT_X = BAND_LEFT + 14;
+const ARROW_X = BAND_LEFT + 30;
 const ARROW_HEAD = 6;
+const LINE_STEP_EM = 1.25;
 
-/** Baseline that centres one line of the given type size between two edges. */
-function centredBaseline(top: number, bottom: number, px: number): number {
-  return Number(((top + bottom) / 2 + ((CHART_TYPE.ascent - CHART_TYPE.descent) / 2) * px).toFixed(2));
-}
+/** Each layer in plain words, two short lines, keyed by approach and layer order. */
+const PLAIN_LAYERS: Record<WbcApproachId, readonly (readonly [string, string])[]> = {
+  'tracking-rl': [
+    ['Decides the task,', 'when asked'],
+    ['Turns what it sees into body', 'poses, 200 times a second'],
+    ['Keeps balance and moves every', 'joint, 1,000 times a second'],
+  ],
+  'latent-action': [
+    ['Sees, reads the instruction and', 'writes compact movement codes'],
+    ['Turns the codes into joint', 'commands; speed not disclosed'],
+  ],
+  'end-to-end-vla': [
+    ['Plans the task and calls', 'tools, when asked'],
+    ['One network moves the whole', 'body; speed not disclosed'],
+  ],
+};
+
+/** The plain names on the design buttons. */
+const DESIGN_LABELS: Record<WbcApproachId, string> = {
+  'tracking-rl': 'Copies human motion',
+  'latent-action': 'Learned movement codes',
+  'end-to-end-vla': 'One big network',
+};
+
+const ANNOTATIONS: Record<WbcApproachId, readonly [string, string]> = {
+  'tracking-rl': ['Fastest layer: adjusts every joint', '1,000 times a second'],
+  'latent-action': ['Only compact movement codes pass', 'between the two networks'],
+  'end-to-end-vla': ['No separate balance layer: one', 'network drives every joint'],
+};
 
 function wbcTakeaway(approach: WbcApproach, fastest: string): string {
   if (approach.id === 'tracking-rl') {
@@ -87,79 +111,112 @@ function ActuatorBarSwatch() {
   );
 }
 
-/**
- * One layer box, its loop rate, and the labelled arrow carrying its output
- * down to the next layer or to the actuators.
- */
+/** A humanoid seen from the front, its joint motors marked as dots. */
+const BODY_X = 286;
+const MOTORS: readonly (readonly [number, number])[] = [
+  [BODY_X - 16, 92],
+  [BODY_X + 16, 92],
+  [BODY_X - 27, 120],
+  [BODY_X + 27, 120],
+  [BODY_X - 8, 142],
+  [BODY_X + 8, 142],
+  [BODY_X - 9, 178],
+  [BODY_X + 9, 178],
+];
+
+function Humanoid() {
+  const ink = CHART_STRUCTURE.label;
+  return (
+    <g data-testid="robot-boundary">
+      <g data-testid="humanoid" fill="none" stroke={ink} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+        <rect x={BODY_X - 10} y={56} width={20} height={22} rx={6} />
+        <line x1={BODY_X} y1={78} x2={BODY_X} y2={84} />
+        <rect x={BODY_X - 16} y={84} width={32} height={58} rx={6} />
+        <polyline points={`${BODY_X - 16},92 ${BODY_X - 27},120 ${BODY_X - 30},146`} />
+        <polyline points={`${BODY_X + 16},92 ${BODY_X + 27},120 ${BODY_X + 30},146`} />
+        <polyline points={`${BODY_X - 8},142 ${BODY_X - 9},178 ${BODY_X - 10},212 ${BODY_X - 20},212`} />
+        <polyline points={`${BODY_X + 8},142 ${BODY_X + 9},178 ${BODY_X + 10},212 ${BODY_X + 20},212`} />
+      </g>
+      <g data-series="motors" data-chart-role="action">
+        {MOTORS.map(([x, y]) => (
+          <circle key={`${x}-${y}`} cx={x} cy={y} r={3.5} fill={roleColour('action')} />
+        ))}
+      </g>
+    </g>
+  );
+}
+
+/** One layer as a short wide band with its plain label, and the arrow down to the next. */
 function StackLayer({
-  layer,
+  lines,
   index,
   top,
   nextTop,
   actuatorFacing,
 }: {
-  layer: WbcLayer;
+  lines: readonly [string, string];
   index: number;
   top: number;
-  nextTop: number;
+  nextTop: number | null;
   actuatorFacing: boolean;
 }) {
   const action = roleColour('action');
-  const gapTop = top + BOX_H;
-  const numericRate = layer.rateHz !== null;
+  const gapTop = top + BAND_H;
+  const midY = Number((top + BAND_H / 2).toFixed(2));
   return (
     <g data-testid={`layer-${index}`}>
-      <g data-scene-structure="" opacity={CHART_STRUCTURE.axesOpacity}>
-        <rect
-          x={BOX_LEFT}
-          y={top}
-          width={BOX_W}
-          height={BOX_H}
-          fill="none"
-          stroke={CHART_STRUCTURE.axes}
-          strokeWidth={CHART_STROKE.structure}
-        />
-      </g>
+      <rect
+        x={BAND_LEFT}
+        y={top}
+        width={BAND_RIGHT - BAND_LEFT}
+        height={BAND_H}
+        rx={4}
+        fill="none"
+        stroke={CHART_STRUCTURE.axes}
+        strokeWidth={CHART_STROKE.reference}
+      />
       {actuatorFacing && (
         <rect
           data-series="actuator-layer"
           data-chart-role="highlight"
-          x={BOX_LEFT + 6}
-          y={top + 8}
+          x={BAND_LEFT + 5}
+          y={top + 7}
           width={4}
-          height={BOX_H - 16}
+          height={BAND_H - 14}
           fill={roleColour('highlight')}
         />
       )}
-      <text x={TEXT_X} y={top + 19} fill={CHART_STRUCTURE.label}>
-        {layer.name}
+      <text x={TEXT_X} y={midY} fill={CHART_STRUCTURE.label}>
+        <tspan x={TEXT_X} dy={`${-LINE_STEP_EM / 2 + 0.35}em`}>
+          {lines[0]}
+        </tspan>
+        <tspan x={TEXT_X} dy={`${LINE_STEP_EM}em`}>
+          {lines[1]}
+        </tspan>
       </text>
-      {numericRate ? (
-        <text data-scene-readout="" x={TEXT_X} y={top + 38} fill={CHART_STRUCTURE.label}>
-          {layer.rate}
-        </text>
+      {nextTop !== null ? (
+        <g data-series="flow" data-chart-role="action">
+          <line x1={ARROW_X} y1={gapTop + 2} x2={ARROW_X} y2={nextTop - ARROW_HEAD - 1} stroke={action} strokeWidth={CHART_STROKE.reference} />
+          <polygon
+            points={`${ARROW_X - 4},${nextTop - ARROW_HEAD - 2} ${ARROW_X + 4},${nextTop - ARROW_HEAD - 2} ${ARROW_X},${nextTop - 2}`}
+            fill={action}
+          />
+        </g>
       ) : (
-        <text data-scene-note="" x={TEXT_X} y={top + 38} fill={CHART_STRUCTURE.labelSecondary}>
-          {layer.rate}
-        </text>
+        <g data-series="flow" data-chart-role="action">
+          {/* The bottom band drives the motors on the body. */}
+          <polyline
+            points={`${BAND_RIGHT},${midY} ${BODY_X - 34},${midY} ${BODY_X - 34},${MOTORS[4][1]} ${MOTORS[4][0] - 6},${MOTORS[4][1]}`}
+            fill="none"
+            stroke={action}
+            strokeWidth={CHART_STROKE.reference}
+          />
+          <polygon
+            points={`${MOTORS[4][0] - 12},${MOTORS[4][1] - 4} ${MOTORS[4][0] - 12},${MOTORS[4][1] + 4} ${MOTORS[4][0] - 5},${MOTORS[4][1]}`}
+            fill={action}
+          />
+        </g>
       )}
-      <g data-series="flow" data-chart-role="action">
-        <line
-          x1={ARROW_X}
-          y1={gapTop + 3}
-          x2={ARROW_X}
-          y2={nextTop - ARROW_HEAD - 1}
-          stroke={action}
-          strokeWidth={CHART_STROKE.reference}
-        />
-        <polygon
-          points={`${ARROW_X - 4},${nextTop - ARROW_HEAD - 2} ${ARROW_X + 4},${nextTop - ARROW_HEAD - 2} ${ARROW_X},${nextTop - 2}`}
-          fill={action}
-        />
-        <text data-scene-note="" x={ARROW_X + 12} y={centredBaseline(gapTop, nextTop, CHART_TYPE.axisPx)} fill={action}>
-          {layer.output}
-        </text>
-      </g>
     </g>
   );
 }
@@ -176,88 +233,39 @@ export function WbcDecomposition({
   const approach = approachById(approachId);
   const fastest = fastestRateLabel(approach);
   const layerCount = approach.layers.length;
-  const slot = (ROBOT_TOP - TOP) / layerCount;
-  const layerTop = (i: number) => Number((TOP + i * slot).toFixed(2));
+  const slot = (STACK_BOTTOM - BAND_H - STACK_TOP) / Math.max(1, layerCount - 1);
+  const layerTop = (i: number) => Number((STACK_TOP + i * slot).toFixed(2));
+  const plain = PLAIN_LAYERS[approach.id];
 
   return (
     <InstrumentFigure
       figureId="wbc-decomposition"
       className={className}
-      heading="Whole-body control stacks, top layer to actuators"
+      kicker="Humanoid whole-body control"
+      heading="Robot brains are layered: slow thinking above, fast reflexes below"
       controls={
-        <>
-          <div
-            role="group"
-            aria-label="Whole-body control decomposition"
-            className="flex flex-wrap items-center gap-1"
-          >
-            {APPROACH_ORDER.map((id) => (
-              <button
-                data-brand-control-id="control:selection"
-                key={id}
-                type="button"
-                aria-pressed={approachId === id}
-                onClick={() => setApproachId(id)}
-                className={INSTRUMENT_TOGGLE_CLASS}
-              >
-                {approachById(id).name}
-              </button>
-            ))}
-          </div>
-          <InstrumentReset onClick={() => setApproachId(DEFAULT_APPROACH)} />
-        </>
+        <PresetGroup<WbcApproachId>
+          label="Design"
+          presets={APPROACH_ORDER.map((id) => ({ id, label: DESIGN_LABELS[id] }))}
+          value={approachId}
+          onChange={setApproachId}
+          testId="wbc-design"
+        />
       }
+      adjust={<InstrumentReset onClick={() => setApproachId(DEFAULT_APPROACH)} />}
       stage={
         <FigureStage
           footer={
             <>
               <InstrumentLegend>
-                <LegendItem series="flow" swatch={<LegendSwatch role="action" mark="line" />}>
-                  what each layer passes down
-                </LegendItem>
                 <LegendItem series="actuator-layer" swatch={<ActuatorBarSwatch />}>
-                  layer that talks to the actuators
+                  layer that drives the motors
+                </LegendItem>
+                <LegendItem series="motors" swatch={<LegendSwatch role="action" mark="dot" />}>
+                  joint motors
                 </LegendItem>
               </InstrumentLegend>
-              <InstrumentReadout className="flex flex-wrap gap-x-4 gap-y-1">
-                <span>
-                  Representative:{' '}
-                  <span data-testid="representative-readout">{approach.representative}</span>
-                </span>
-                <span>
-                  Layers: <span data-testid="layers-readout">{layerCount}</span>
-                </span>
-                <span>
-                  Fastest loop: <span data-testid="fastest-loop-readout">{fastest}</span>
-                </span>
-              </InstrumentReadout>
-              <dl
-                data-testid="wbc-stats"
-                className="grid basis-full grid-cols-2 gap-x-4 gap-y-2 border-t border-border-strong pt-2 font-sans text-[13px] leading-snug sm:grid-cols-4"
-              >
-                {approach.stats.map((stat) => (
-                  <div key={stat.label}>
-                    <dt className="text-text-dim">{stat.label}</dt>
-                    <dd className="mt-0.5 tabular-nums text-text">{stat.value}</dd>
-                  </div>
-                ))}
-              </dl>
-              <p className="basis-full pt-1 font-sans text-[13px] leading-snug text-text">
-                In this stack, {approach.interfaceNote}. Openness: {approach.openness}.
-              </p>
-              <ChartDescription
-                id={descriptionId}
-                form="state"
-                summary="Current whole-body stack"
-                description={wbcTakeaway(approach, fastest)}
-                states={[
-                  { label: 'approach', value: approach.name },
-                  { label: 'representative', value: approach.representative },
-                  { label: 'layers', value: String(layerCount) },
-                  { label: 'fastest loop', value: fastest },
-                  { label: 'top layer', value: approach.layers[0].name },
-                ]}
-              />
+              <StageStatus>Original schematic; speeds are published values</StageStatus>
             </>
           }
         >
@@ -267,42 +275,75 @@ export function WbcDecomposition({
             aria-describedby={descriptionId}
             data-testid="wbc-diagram"
           >
+            <StageAnnotation x={8} y={16} lines={ANNOTATIONS[approach.id]} />
             {approach.layers.map((layer, i) => (
               <StackLayer
                 key={layer.name}
-                layer={layer}
+                lines={plain[i]}
                 index={i}
                 top={layerTop(i)}
-                nextTop={i === layerCount - 1 ? ROBOT_TOP : layerTop(i + 1)}
+                nextTop={i === layerCount - 1 ? null : layerTop(i + 1)}
                 actuatorFacing={i === layerCount - 1}
               />
             ))}
-            <g data-testid="robot-boundary">
-              <g data-scene-structure="" opacity={CHART_STRUCTURE.axesOpacity}>
-                <rect
-                  x={BOX_LEFT}
-                  y={ROBOT_TOP}
-                  width={BOX_W}
-                  height={ROBOT_H}
-                  fill="none"
-                  stroke={CHART_STRUCTURE.axes}
-                  strokeWidth={CHART_STROKE.reference}
-                />
-              </g>
-              <text
-                data-scene-note=""
-                x={WIDTH / 2}
-                y={centredBaseline(ROBOT_TOP, ROBOT_TOP + ROBOT_H, CHART_TYPE.axisPx)}
-                textAnchor="middle"
-                fill={CHART_STRUCTURE.label}
-              >
-                full-body actuators: legs, torso, arms, hands
-              </text>
-            </g>
+            <Humanoid />
           </PlotStage>
         </FigureStage>
       }
-      caption="Every stack drives the same actuators; the stacks differ in where the learning boundary sits and what crosses it."
+      caption="Humanoids split control into layers, slow deciding on top and fast balancing below; designs differ in where they draw those lines."
+      method={
+        <>
+          <p>
+            The three designs are the three whole-body control decompositions shipping in 2026: copying human motion
+            is motion-tracking RL, learned movement codes is a latent-action hierarchy, and one big network is an
+            end-to-end VLA. {approach.idea}
+          </p>
+          <ul data-testid="wbc-layers" className="m-0! grid list-none gap-0.5 p-0!">
+            {approach.layers.map((layer) => (
+              <li key={layer.name}>
+                {layer.name}, {layer.rate}: passes down {layer.output}.
+              </li>
+            ))}
+          </ul>
+          <InstrumentReadout className="flex flex-wrap gap-x-4 gap-y-1">
+            <span>
+              Representative: <span data-testid="representative-readout">{approach.representative}</span>
+            </span>
+            <span>
+              Layers: <span data-testid="layers-readout">{layerCount}</span>
+            </span>
+            <span>
+              Fastest loop: <span data-testid="fastest-loop-readout">{fastest}</span>
+            </span>
+          </InstrumentReadout>
+          <dl data-testid="wbc-stats" className="m-0! grid grid-cols-2 gap-x-4 gap-y-2 sm:grid-cols-4">
+            {approach.stats.map((stat) => (
+              <div key={stat.label}>
+                <dt className="text-text-dim">{stat.label}</dt>
+                <dd className="m-0! mt-0.5 tabular-nums text-text">{stat.value}</dd>
+              </div>
+            ))}
+          </dl>
+          <p>
+            In this stack, {approach.interfaceNote}. Openness: {approach.openness}.
+            {approach.lineage.length > 0 ? ` Academic lineage: ${approach.lineage.join(', ')}.` : ''}
+          </p>
+          <ChartDescription
+            id={descriptionId}
+            form="state"
+            open
+            summary="Current whole-body stack"
+            description={wbcTakeaway(approach, fastest)}
+            states={[
+              { label: 'approach', value: approach.name },
+              { label: 'representative', value: approach.representative },
+              { label: 'layers', value: String(layerCount) },
+              { label: 'fastest loop', value: fastest },
+              { label: 'top layer', value: approach.layers[0].name },
+            ]}
+          />
+        </>
+      }
       source="Schematic control stacks; the loop rates under each layer name are published values."
     />
   );

@@ -86,12 +86,12 @@ test.describe('parallel-sim-rl module', () => {
     await page.keyboard.press('k');
     await page.keyboard.press('Home');
     await page.keyboard.press('ArrowRight');
-    await expect(scene.getByTestId('motion-caption')).toHaveText(/64 parallel environments/i);
+    await expect(scene.getByTestId('motion-caption')).toHaveText(/64 virtual robots/i);
     await openAdjustMore(scene);
     const forward = scene.getByRole('button', { name: 'Step forward one beat' });
     await expect(forward).toHaveText('Step forward');
     await forward.click();
-    await expect(scene.getByTestId('motion-caption')).toHaveText(/4,096 environments/i);
+    await expect(scene.getByTestId('motion-caption')).toHaveText(/4,096 robots/i);
   });
 
   test('zero axe violations', async ({ page }) => {

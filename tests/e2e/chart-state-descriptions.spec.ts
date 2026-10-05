@@ -157,8 +157,10 @@ const CHARTS: Array<{
     route: '/rl-sim2real/humanoid-wbc',
     name: 'wbc',
     control: 'button',
-    moves: ['Latent-action hierarchy', 'End-to-end VLA'],
-    def: 'Motion-tracking RL',
+    // The design presets name each approach in plain words; the takeaway
+    // still names the technical approach.
+    moves: ['Learned movement codes', 'One big network'],
+    def: 'Copies human motion',
     match: 'Motion-tracking RL',
   },
   {

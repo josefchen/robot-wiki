@@ -1,411 +1,316 @@
 'use client';
 
-import { useId, useState, type ReactNode } from 'react';
+import { useId, useState } from 'react';
 import { ChartDescription } from '@/components/ui/chart-description';
 import {
   ControlField,
   ControlLabel,
   INSTRUMENT_SLIDER_CLASS,
-  INSTRUMENT_TOGGLE_CLASS,
   InstrumentFigure,
   InstrumentLegend,
   InstrumentReadout,
   InstrumentReset,
   LegendItem,
   PlotStage,
+  PresetGroup,
+  SliderEnds,
 } from '@/components/ui/instrument';
-import { FigureStage } from '@/components/motion/figure-frame';
+import { FigureStage, StageStatus } from '@/components/motion/figure-frame';
 import {
   CHART_STROKE,
   CHART_STRUCTURE,
-  CHART_TYPE,
   CHART_VIEW_WIDTH,
   ConstraintHatch,
+  DirectLabel,
   LegendSwatch,
   PointMarker,
+  StageAnnotation,
   roleColour,
 } from '@/components/motion/chart';
+import { RobotDog, type DogFeet } from '@/components/motion/robot-dog';
+import { MOTION_STAGE } from '@/lib/motion-tokens';
 import {
   DEFAULT_ERROR_MM,
-  FOOT_XS,
-  GROUND_Y,
-  HOLE,
   MAX_ERROR_MM,
   MIN_ERROR_MM,
-  PEG,
   SCENARIOS,
-  SCENARIO_ORDER,
   contactCount,
   formatMm,
   outcomeFor,
-  renderedOffsetPx,
-  toleranceBandPx,
-  type ScenarioId,
 } from '@/lib/contact-geometry';
 
 /**
- * ContactGeometry: inject a contact-model error epsilon into two MDPs and
- * watch what each one does with it.
+ * ContactGeometry: one floor error, two tasks, side by side.
  *
- * Locomotion (quadruped stance): four near-point foot-ground contacts and a
- * stable gait attractor. The simulator's ground being off by a few
- * millimeters, or even a centimeter, is absorbed by high-bandwidth feedback;
- * the feet stay inside the tolerance band.
+ * Left, a four-legged robot stands where the simulator thinks the floor
+ * is (dashed), above where the floor really is (solid). Feedback on every
+ * step absorbs the gap until it passes the gait's 20 mm tolerance.
  *
- * Manipulation (peg insertion): fourteen simultaneous distributed contacts
- * and a 0.5 mm clearance. The same few-millimeter contact-model error jams
- * the peg against the wall. That asymmetry, not any property of PPO, is why
- * sim-trained RL is the default for walking and not for assembly.
+ * Right, a gripper lowers a peg into the hole where the simulator thinks
+ * the hole is (dashed walls). The real hole (solid walls) has 0.5 mm of
+ * clearance, so the same couple of millimetres lands the peg on the edge.
  *
- * Interactive contract: deterministic initial render, native slider and
- * aria-pressed scenario buttons (keyboard-accessible), visible readouts,
- * reset control, one fixed stage viewport across scenarios (no layout
- * shift), no JS-driven motion (scrub-only, so reduced-motion safe by
- * construction).
+ * Gaps are drawn larger than real so a 2 mm error is visible at all: the
+ * floor gap grows with the square root of the error and the peg's offset
+ * stops growing at four clearances, past which it carries no information.
+ * Every lib contact keeps a marker; only the ones that go wrong (all four
+ * feet past the gait's tolerance, the rim and leading corner where a peg
+ * binds) are crosses.
+ * No JS-driven motion, so reduced-motion safe by construction.
  */
 
 const WIDTH = CHART_VIEW_WIDTH;
-const HEIGHT = 152;
+const HEIGHT = 208;
 
-/** The lib authors both scenes in a 640-wide viewport. */
-const LIB_WIDTH = 640;
-const SX = WIDTH / LIB_WIDTH;
+/** Where the real floor and the hole's base sit. */
+const FLOOR_Y = 176;
+const OUTCOME_Y = 200;
+const DOG_PANEL_RIGHT = 168;
 
-/*
- * Locomotion keeps the lib's vertical pixels per millimeter one to one, so
- * the rendered offset and the tolerance band read in the model's own units.
- */
-const LOCO_GROUND = 142;
-const LOCO_BODY = { top: 30, height: 20 } as const;
+/** The dog's hips and the feet that carry the lib's four foot contacts, in order. */
+const DOG_REAR = 44;
+const DOG_FRONT = 112;
+const DOG_LEG = 22;
+const DOG_FEET_X = [50, 40, 120, 110] as const;
 
-/** The peg scene scales uniformly about the peg's centre line. */
-const MANIP_SCALE = 0.6;
-const MANIP_TOP = 10;
+/** Peg scene geometry, in stage units. */
+const PEG_X = 262;
+const PEG_W = 30;
+const PEG_H = 54;
+/** One drawn clearance on each side of the peg, the real 0.5 mm. */
+const CLEARANCE = 4;
+const WALL_W = 16;
+const MOUTH_Y = FLOOR_Y - 48;
+const INSERTED = 30;
+const HOLE_LEFT = PEG_X - PEG_W / 2 - CLEARANCE;
+const HOLE_RIGHT = PEG_X + PEG_W / 2 + CLEARANCE;
 
-const NOTE_X = 8;
-const NOTE_Y = 19;
-const TICK = 6;
-
-/** Round to 2 decimals so SSR HTML and client hydration serialize identically. */
 const f = (v: number) => Number(v.toFixed(2));
 
-const mx = (x: number) => f(WIDTH / 2 + (x - PEG.centerX) * MANIP_SCALE);
-const my = (y: number) => f(MANIP_TOP + (y - PEG.topY) * MANIP_SCALE);
+/** Drawn floor gap: grows with the square root so 2 mm still shows. */
+const floorGap = (errorMm: number) => f(5 * Math.sqrt(Math.max(0, errorMm)));
 
-const TERRAIN_POINTS = [
-  [0, 250],
-  [90, 244],
-  [200, 249],
-  [320, 243],
-  [430, 248],
-  [540, 244],
-  [640, 249],
-] as const;
+/** Drawn peg offset: one clearance per 0.5 mm, stopping at four clearances. */
+const pegShift = (errorMm: number) => {
+  const spec = SCENARIOS.manipulation;
+  return f((Math.min(errorMm, 4 * spec.toleranceMm) * CLEARANCE) / spec.toleranceMm);
+};
 
-const STRUCTURE = {
-  fill: 'none',
-  stroke: CHART_STRUCTURE.axes,
-  strokeWidth: CHART_STROKE.trace,
-} as const;
+/** Where each of the lib's fourteen insertion contacts sits on the seated peg. */
+const PEG_CONTACT_AT: Record<string, readonly [number, number]> = {
+  'wall-l-1': [-PEG_W / 2, INSERTED - 24],
+  'wall-l-2': [-PEG_W / 2, INSERTED - 15],
+  'wall-l-3': [-PEG_W / 2, INSERTED - 6],
+  'wall-r-1': [PEG_W / 2, INSERTED - 24],
+  'wall-r-2': [PEG_W / 2, INSERTED - 15],
+  'wall-r-3': [PEG_W / 2, INSERTED - 6],
+  'chamfer-l': [-8, INSERTED],
+  'chamfer-r': [8, INSERTED],
+  'finger-l-1': [-PEG_W / 2, INSERTED - PEG_H + 6],
+  'finger-l-2': [-PEG_W / 2, INSERTED - PEG_H + 16],
+  'finger-r-1': [PEG_W / 2, INSERTED - PEG_H + 6],
+  'finger-r-2': [PEG_W / 2, INSERTED - PEG_H + 16],
+};
 
-function ContactMarker({
-  id,
-  x,
-  y,
-  normalDeg,
-  failed,
-}: {
-  id: string;
-  x: number;
-  y: number;
-  normalDeg: number;
-  failed: boolean;
-}) {
-  const rad = (normalDeg * Math.PI) / 180;
-  const role = failed ? 'constraint' : 'state';
-  // A contact that no longer holds is a cross rather than a dot, so the
-  // failure is a shape and not only a hue.
+/** Where a peg that misses binds: the right-hand rim and the peg's leading corner. */
+const JAM_CONTACTS = new Set(['rim-r', 'chamfer-r']);
+
+const ink = CHART_STRUCTURE.label;
+const LINE = { fill: 'none', stroke: ink, strokeWidth: 2, strokeLinecap: 'round', strokeLinejoin: 'round' } as const;
+const DASHED = { ...LINE, strokeWidth: 1.5, strokeDasharray: CHART_STROKE.dash } as const;
+
+type PresetId = 'thin' | 'coin' | 'thumb';
+
+const PRESETS: { id: PresetId; label: string; errorMm: number }[] = [
+  { id: 'thin', label: 'Thinner than a card (0.5 mm)', errorMm: 0.5 },
+  { id: 'coin', label: 'A coin’s thickness (2 mm)', errorMm: 2 },
+  { id: 'thumb', label: 'A thumb’s width (25 mm)', errorMm: 25 },
+];
+
+const presetFor = (errorMm: number): PresetId | null =>
+  PRESETS.find((p) => Math.abs(p.errorMm - errorMm) < 1e-9)?.id ?? null;
+
+/** "2 mm", "0.5 mm", "2.3 mm" for the stage; the fold keeps one decimal. */
+const plainMm = (mm: number) => formatMm(Number(mm.toFixed(1)));
+
+function ContactMarker({ id, x, y, lost }: { id: string; x: number; y: number; lost: boolean }) {
+  // A contact that goes wrong is a red cross; every other contact is a
+  // small grey dot, so the failure is a shape and not only a hue, and it is
+  // the one mark group at full emphasis.
   return (
-    <g data-testid={`contact-marker-${id}`}>
-      <line
-        data-chart-mark="normal"
-        data-chart-role={role}
-        x1={f(x)}
-        y1={f(y)}
-        x2={f(x + Math.sin(rad) * TICK)}
-        y2={f(y - Math.cos(rad) * TICK)}
-        stroke={roleColour(role)}
-        strokeWidth={CHART_STROKE.reference}
-        strokeDasharray={failed ? '2 2' : undefined}
-      />
-      <PointMarker x={f(x)} y={f(y)} role={role} shape={failed ? 'cross' : 'dot'} />
+    <g data-testid={`contact-marker-${id}`} data-contact={lost ? 'lost' : 'held'}>
+      {lost ? (
+        <PointMarker x={f(x)} y={f(y)} role="constraint" shape="cross" />
+      ) : (
+        <circle cx={f(x)} cy={f(y)} r={1.5} fill={CHART_STRUCTURE.labelSecondary} opacity={0.7} />
+      )}
     </g>
   );
 }
 
-/*
- * Stacked note lines step in em, not in stage units: the stage holds its
- * text at one CSS size while the drawing scales, so an em step keeps the
- * lines together at every width.
- */
-const LINE_EM = CHART_TYPE.ascent + CHART_TYPE.descent;
-
-function SceneNote({
-  x = NOTE_X,
-  y,
-  anchor = 'start',
-  failed = false,
-  lines,
-  upward = false,
-  children,
-}: {
-  x?: number;
-  y: number;
-  anchor?: 'start' | 'end';
-  failed?: boolean;
-  /** Several lines; `upward` puts the last line on `y` and stacks above it. */
-  lines?: readonly ReactNode[];
-  upward?: boolean;
-  children?: ReactNode;
-}) {
+/** A legend swatch in the drawing's own ink, solid or dashed. */
+function InkSwatch({ dashed = false }: { dashed?: boolean }) {
   return (
-    <text
-      data-scene-note=""
-      x={x}
-      y={f(y)}
-      textAnchor={anchor}
-      fontSize={CHART_TYPE.axisPx}
-      fill={failed ? roleColour('constraint') : CHART_STRUCTURE.labelSecondary}
-    >
-      {lines
-        ? lines.map((line, i) => (
-            <tspan
-              key={i}
-              x={x}
-              dy={i > 0 ? `${LINE_EM}em` : upward && lines.length > 1 ? `${-LINE_EM * (lines.length - 1)}em` : undefined}
-            >
-              {line}
-            </tspan>
-          ))
-        : children}
-    </text>
+    <svg aria-hidden="true" focusable="false" width={28} height={14} viewBox="0 0 28 14" className="shrink-0">
+      <path d="M1 7 H27" {...(dashed ? DASHED : LINE)} />
+    </svg>
   );
 }
 
-function LocomotionScene({ errorMm }: { errorMm: number }) {
+function DogScene({ errorMm }: { errorMm: number }) {
   const spec = SCENARIOS.locomotion;
-  const offset = renderedOffsetPx(spec, errorMm);
-  const band = toleranceBandPx(spec);
   const failed = outcomeFor(spec, errorMm) === 'fail';
-  const footY = f(LOCO_GROUND - offset);
-  const bandY = f(LOCO_GROUND - band);
-  const bodyBottom = LOCO_BODY.top + LOCO_BODY.height;
-
+  const simFloor = f(FLOOR_Y - floorGap(errorMm));
+  const hipY = simFloor - 38;
+  const feet = DOG_FEET_X.map((x) => [x, simFloor] as const) as unknown as DogFeet;
   return (
-    <g>
-      {/* Terrain (where the ground really is), body and legs. */}
-      <g data-scene-structure="" opacity={CHART_STRUCTURE.axesOpacity}>
-        <polyline
-          points={TERRAIN_POINTS.map(([x, y]) => `${f(x * SX)},${f(LOCO_GROUND + y - GROUND_Y)}`).join(' ')}
-          {...STRUCTURE}
-        />
-        <rect
-          x={f(110 * SX)}
-          y={LOCO_BODY.top}
-          width={f(420 * SX)}
-          height={LOCO_BODY.height}
-          {...STRUCTURE}
-        />
-        {FOOT_XS.map((x) => (
-          <line key={x} x1={f(x * SX)} x2={f(x * SX)} y1={bodyBottom} y2={footY} {...STRUCTURE} />
+    <g data-testid="dog-scene">
+      <line data-testid="real-floor" x1={4} x2={DOG_PANEL_RIGHT} y1={FLOOR_Y} y2={FLOOR_Y} {...LINE} />
+      <line data-testid="sim-floor" x1={4} x2={DOG_PANEL_RIGHT} y1={simFloor} y2={simFloor} {...DASHED} />
+      {/* Past its tolerance the robot tips onto its nose. */}
+      <g transform={failed ? `rotate(14 ${DOG_FEET_X[1]} ${simFloor})` : undefined}>
+        <RobotDog rear={DOG_REAR} front={DOG_FRONT} hipY={hipY} feet={feet} segment={DOG_LEG} />
+        {spec.contacts.map((c, i) => (
+          <ContactMarker key={c.id} id={c.id} x={DOG_FEET_X[i]} y={simFloor - 2} lost={failed} />
         ))}
       </g>
-      {/* Tolerance band: where feedback can still recover the foot. */}
-      <line
-        data-chart-mark="limit"
-        data-chart-role="constraint"
-        x1={0}
-        x2={WIDTH}
-        y1={bandY}
-        y2={bandY}
-        stroke={roleColour('constraint')}
-        strokeWidth={CHART_STROKE.reference}
-        strokeDasharray={CHART_STROKE.dash}
-      />
-      <SceneNote
-        x={WIDTH - 6}
-        y={bandY - 6}
-        anchor="end"
-        upward
-        lines={['tolerance', `±${formatMm(spec.toleranceMm)}`]}
-      />
-      {/* Feet sit where the model thinks the ground is. */}
-      {spec.contacts.map((c) => (
-        <ContactMarker
-          key={c.id}
-          id={c.id}
-          x={c.x * SX}
-          y={footY}
-          normalDeg={c.normalDeg}
-          failed={failed}
-        />
-      ))}
-      {offset > 0 && (
-        <SceneNote y={NOTE_Y} failed={failed}>
-          ground modeled {errorMm.toFixed(1)} mm too high
-        </SceneNote>
-      )}
+      <DirectLabel x={84} y={OUTCOME_Y} anchor="middle" role={failed ? 'constraint' : undefined}>
+        {failed ? 'loses its footing' : 'keeps walking'}
+      </DirectLabel>
     </g>
   );
 }
 
-function ManipulationScene({ errorMm, hatchId }: { errorMm: number; hatchId: string }) {
-  const spec = SCENARIOS.manipulation;
-  const offset = renderedOffsetPx(spec, errorMm);
-  const clearance = toleranceBandPx(spec);
-  const failed = outcomeFor(spec, errorMm) === 'fail';
-  const shift = offset * MANIP_SCALE;
-  const pegLeft = f(mx(PEG.centerX - PEG.width / 2) + shift);
-  const pegRight = f(mx(PEG.centerX + PEG.width / 2) + shift);
-  const pegWidth = f(PEG.width * MANIP_SCALE);
-  const finger = { width: f(12 * MANIP_SCALE), top: my(PEG.topY + 2), height: f(34 * MANIP_SCALE) };
-  const wall = { width: f(24 * MANIP_SCALE), height: f((HOLE.floorY - HOLE.mouthY) * MANIP_SCALE) };
-  const overlap = f(pegRight - mx(HOLE.rightX));
-  const clearanceY = my(212);
-
+/** A two-finger gripper holding the peg: wrist, palm, and a finger with a pad on each side. */
+function Gripper({ pegLeft, pegTop }: { pegLeft: number; pegTop: number }) {
+  const pegRight = f(pegLeft + PEG_W);
+  const palmY = f(pegTop - 8);
+  const centre = f(pegLeft + PEG_W / 2);
   return (
-    <g>
-      {/* Hole walls and floor, peg and grip fingers. */}
-      <g data-scene-structure="" opacity={CHART_STRUCTURE.axesOpacity}>
-        <rect x={mx(HOLE.leftX - 24)} y={my(HOLE.mouthY)} width={wall.width} height={wall.height} {...STRUCTURE} />
-        <rect x={mx(HOLE.rightX)} y={my(HOLE.mouthY)} width={wall.width} height={wall.height} {...STRUCTURE} />
-        <rect
-          x={mx(HOLE.leftX - 24)}
-          y={my(HOLE.floorY)}
-          width={f((HOLE.rightX - HOLE.leftX + 48) * MANIP_SCALE)}
-          height={f(10 * MANIP_SCALE)}
-          {...STRUCTURE}
-        />
-        <rect x={pegLeft} y={my(PEG.topY)} width={pegWidth} height={f((PEG.bottomY - PEG.topY) * MANIP_SCALE)} {...STRUCTURE} />
-        <rect x={f(pegLeft - finger.width)} y={finger.top} width={finger.width} height={finger.height} {...STRUCTURE} />
-        <rect x={pegRight} y={finger.top} width={finger.width} height={finger.height} {...STRUCTURE} />
-      </g>
-      {/* The part of the peg the model pushes into the wall. */}
-      {failed && overlap > 0 ? (
-        <ConstraintHatch
-          id={hatchId}
-          x={mx(HOLE.rightX)}
-          y={my(HOLE.mouthY)}
-          width={overlap}
-          height={f(my(PEG.bottomY) - my(HOLE.mouthY))}
-        />
-      ) : null}
-      {/* Clearance annotation, right of the hole where the stage is empty. */}
-      <line
-        data-chart-mark="limit"
-        data-chart-role="constraint"
-        x1={mx(HOLE.rightX - 3)}
-        x2={mx(HOLE.rightX + 30)}
-        y1={clearanceY}
-        y2={clearanceY}
-        stroke={roleColour('constraint')}
-        strokeWidth={CHART_STROKE.reference}
-        strokeDasharray={CHART_STROKE.dash}
-      />
-      <SceneNote x={mx(HOLE.rightX + 34)} y={clearanceY + 4.5}>
-        clearance {formatMm(spec.toleranceMm)}
-      </SceneNote>
-      {spec.contacts.map((c) => {
-        // Rim contacts belong to the hole; the rest ride with the peg.
-        const ridesWithPeg = !c.id.startsWith('rim-');
-        return (
-          <ContactMarker
-            key={c.id}
-            id={c.id}
-            x={mx(c.x) + (ridesWithPeg ? shift : 0)}
-            y={my(c.y)}
-            normalDeg={c.normalDeg}
-            failed={failed}
-          />
-        );
-      })}
-      {offset > clearance && (
-        <SceneNote
-          y={60}
-          failed
-          lines={['contact model off', `by ${errorMm.toFixed(1)} mm: peg`, 'overlaps the wall']}
-        />
-      )}
+    <g data-testid="gripper">
+      <line x1={centre} x2={centre} y1={f(palmY - 18)} y2={palmY} stroke={ink} strokeWidth={6} strokeLinecap="round" />
+      <rect x={f(pegLeft - 10)} y={f(palmY - 2)} width={PEG_W + 20} height={7} rx={2.5} fill={ink} />
+      {[f(pegLeft - 9), pegRight].map((x) => (
+        <g key={x}>
+          <rect x={x} y={f(palmY + 4)} width={9} height={30} rx={2} fill={MOTION_STAGE.background} stroke={ink} strokeWidth={2} />
+          <rect x={x === pegRight ? x : f(x + 6)} y={f(pegTop + 6)} width={3} height={16} fill={ink} />
+        </g>
+      ))}
     </g>
   );
+}
+
+function PegScene({ errorMm, hatchId }: { errorMm: number; hatchId: string }) {
+  const spec = SCENARIOS.manipulation;
+  const failed = outcomeFor(spec, errorMm) === 'fail';
+  const shift = pegShift(errorMm);
+  // A peg that misses rests on the wall top instead of entering the hole.
+  const bottom = failed ? MOUTH_Y : MOUTH_Y + INSERTED;
+  const lift = bottom - (MOUTH_Y + INSERTED);
+  const pegLeft = f(PEG_X - PEG_W / 2 + shift);
+  const pegRight = f(pegLeft + PEG_W);
+  const pegTop = bottom - PEG_H;
+  const overlap = f(pegRight - HOLE_RIGHT);
+  const wallH = FLOOR_Y - 4 - MOUTH_Y;
+  return (
+    <g data-testid="peg-scene">
+      <g data-testid="real-hole" {...LINE}>
+        <rect x={HOLE_LEFT - WALL_W} y={MOUTH_Y} width={WALL_W} height={wallH} />
+        <rect x={HOLE_RIGHT} y={MOUTH_Y} width={WALL_W} height={wallH} />
+        <rect x={HOLE_LEFT - WALL_W} y={FLOOR_Y - 4} width={HOLE_RIGHT - HOLE_LEFT + 2 * WALL_W} height={4} />
+      </g>
+      {/* Where the simulator believes the hole is. */}
+      <g data-testid="sim-hole" {...DASHED}>
+        <line x1={f(HOLE_LEFT + shift)} x2={f(HOLE_LEFT + shift)} y1={MOUTH_Y - 8} y2={FLOOR_Y - 4} />
+        <line x1={f(HOLE_RIGHT + shift)} x2={f(HOLE_RIGHT + shift)} y1={MOUTH_Y - 8} y2={FLOOR_Y - 4} />
+      </g>
+      {failed && overlap > 0 ? (
+        <ConstraintHatch id={hatchId} x={HOLE_RIGHT} y={MOUTH_Y - 5} width={overlap} height={5} />
+      ) : null}
+      <g data-testid="peg">
+        <path
+          d={`M ${pegLeft} ${pegTop} H ${pegRight} V ${f(bottom - 4)} L ${f(pegRight - 4)} ${bottom} H ${f(pegLeft + 4)} L ${pegLeft} ${f(bottom - 4)} Z`}
+          {...LINE}
+          fill={MOTION_STAGE.background}
+        />
+      </g>
+      <Gripper pegLeft={pegLeft} pegTop={pegTop} />
+      {spec.contacts.map((c) => {
+        const lost = failed && JAM_CONTACTS.has(c.id);
+        // Rim contacts belong to the real hole; the rest ride with the peg.
+        if (c.id === 'rim-l' || c.id === 'rim-r') {
+          return <ContactMarker key={c.id} id={c.id} x={c.id === 'rim-l' ? HOLE_LEFT : HOLE_RIGHT} y={MOUTH_Y} lost={lost} />;
+        }
+        const [dx, dy] = PEG_CONTACT_AT[c.id] ?? [0, 0];
+        return <ContactMarker key={c.id} id={c.id} x={PEG_X + shift + dx} y={MOUTH_Y + dy + lift} lost={lost} />;
+      })}
+      <DirectLabel x={PEG_X} y={OUTCOME_Y} anchor="middle" role={failed ? 'constraint' : undefined}>
+        {failed ? 'jams on the edge' : 'slides into the hole'}
+      </DirectLabel>
+    </g>
+  );
+}
+
+function annotationLines(errorMm: number, dogOk: boolean, pegOk: boolean): string[] {
+  const mm = plainMm(errorMm);
+  if (dogOk && pegOk) return [`At ${mm} both cope: the dog keeps`, 'walking and the peg still slides in'];
+  if (dogOk) return [`Same ${mm} error: the dog keeps walking,`, 'the peg misses the hole'];
+  return [`At ${mm} even the dog loses its footing;`, 'the peg missed long before'];
 }
 
 export function ContactGeometry({
-  defaultScenario = 'locomotion',
   defaultErrorMm = DEFAULT_ERROR_MM,
   className,
 }: {
-  defaultScenario?: ScenarioId;
   defaultErrorMm?: number;
   className?: string;
 }) {
   const uid = useId();
   const descriptionId = `${uid}-description`;
   const hatchId = `${uid.replace(/[^a-zA-Z0-9_-]/g, '')}-cg-overlap`;
-  const [scenarioId, setScenarioId] = useState<ScenarioId>(defaultScenario);
   const [errorMm, setErrorMm] = useState(defaultErrorMm);
 
-  const spec = SCENARIOS[scenarioId];
-  const outcome = outcomeFor(spec, errorMm);
-  const outcomeText =
-    outcome === 'ok' ? spec.outcomeOk : spec.outcomeFail;
-  const nContacts = contactCount(spec);
-  const takeaway =
-    scenarioId === 'locomotion'
-      ? outcome === 'ok'
-        ? `Locomotion at ${errorMm.toFixed(1)} mm of injected contact-model error stays stable with all ${nContacts} feet loaded inside the ${formatMm(spec.toleranceMm)} dashed tolerance band; the near-point contacts remain recoverable with ${(spec.toleranceMm - errorMm).toFixed(1)} mm of margin left inside that gait-scale band.`
-        : `Locomotion at ${errorMm.toFixed(1)} mm of injected contact-model error loses support: foot float exceeds the ${formatMm(spec.toleranceMm)} dashed tolerance band, so the ${nContacts} near-point contacts have already left the recoverable region.`
-      : outcome === 'ok'
-        ? `Manipulation at ${errorMm.toFixed(1)} mm of injected contact-model error still seats: the peg clears both walls inside the ${formatMm(spec.toleranceMm)} dashed clearance; the ${nContacts} distributed contacts have not yet used up that insertion tolerance.`
-        : `Manipulation at ${errorMm.toFixed(1)} mm of injected contact-model error jams: the peg binds against the wall, well past the ${formatMm(spec.toleranceMm)} dashed clearance, so the ${nContacts} distributed contacts cannot absorb millimeters the way a gait can.`;
+  const loco = SCENARIOS.locomotion;
+  const manip = SCENARIOS.manipulation;
+  const locoOk = outcomeFor(loco, errorMm) === 'ok';
+  const manipOk = outcomeFor(manip, errorMm) === 'ok';
+  const locoOutcome = locoOk ? loco.outcomeOk : loco.outcomeFail;
+  const manipOutcome = manipOk ? manip.outcomeOk : manip.outcomeFail;
+  const nLoco = contactCount(loco);
+  const nManip = contactCount(manip);
+  const error = `${errorMm.toFixed(1)} mm`;
+
+  const locoClause = locoOk
+    ? `Locomotion at ${error} of contact-model error stays stable: all ${nLoco} paws stand on the dashed simulated floor, inside the ${formatMm(loco.toleranceMm)} a gait absorbs, with ${(loco.toleranceMm - errorMm).toFixed(1)} mm of margin left.`
+    : `Locomotion at ${error} of contact-model error loses support: the gap to the real floor exceeds the ${formatMm(loco.toleranceMm)} a gait absorbs, so its ${nLoco} near-point contacts have left the recoverable region.`;
+  const manipClause = manipOk
+    ? `The peg at the same error still seats inside the ${formatMm(manip.toleranceMm)} clearance of the real hole, with all ${nManip} distributed contacts holding.`
+    : `The peg at the same error jams on the edge of the real hole, past its ${formatMm(manip.toleranceMm)} clearance, so its ${nManip} distributed contacts cannot absorb millimetres the way a gait can.`;
+  const takeaway = `${locoClause} ${manipClause}`;
 
   function reset() {
-    setScenarioId(defaultScenario);
     setErrorMm(defaultErrorMm);
   }
-
-  const limitName = scenarioId === 'locomotion' ? 'tolerance band' : 'clearance';
 
   return (
     <InstrumentFigure
       figureId="contact-geometry"
       className={className}
-      heading="Contact geometry and model error"
+      kicker="Contact in simulation"
+      heading="Legs forgive tiny surface errors; precise hand work does not"
       controls={
+        <PresetGroup<PresetId>
+          label="How wrong the simulator’s surface is"
+          presets={PRESETS}
+          value={presetFor(errorMm)}
+          onChange={(id) => setErrorMm(PRESETS.find((p) => p.id === id)!.errorMm)}
+          testId="cg-error"
+        />
+      }
+      adjust={
         <>
-          <div
-            role="group"
-            aria-labelledby="cg-scenario-label"
-            className="flex flex-wrap items-center gap-1.5"
-          >
-            <span id="cg-scenario-label" className="font-sans text-[13px] text-text-dim">
-              Scenario
-            </span>
-            {SCENARIO_ORDER.map((id) => (
-              <button
-                data-brand-control-id="control:selection"
-                key={id}
-                type="button"
-                aria-pressed={id === scenarioId}
-                onClick={() => setScenarioId(id)}
-                className={INSTRUMENT_TOGGLE_CLASS}
-              >
-                {SCENARIOS[id].label}
-              </button>
-            ))}
-          </div>
-          <ControlField>
-            <ControlLabel htmlFor="cg-error" value={`ε = ${errorMm.toFixed(1)} mm`}>
+          <ControlField className="w-full basis-full content-start sm:max-w-sm">
+            <ControlLabel htmlFor="cg-error" value={error}>
               Contact-model error
             </ControlLabel>
             <input
@@ -420,6 +325,7 @@ export function ContactGeometry({
               aria-label={`Contact-model error epsilon, currently ${errorMm.toFixed(1)} millimeters`}
               className={INSTRUMENT_SLIDER_CLASS}
             />
+            <SliderEnds low="exact" high={`${MAX_ERROR_MM} mm off`} />
           </ControlField>
           <InstrumentReset onClick={reset} />
         </>
@@ -429,69 +335,77 @@ export function ContactGeometry({
           footer={
             <>
               <InstrumentLegend>
-                <LegendItem swatch={<LegendSwatch role="state" mark="dot" />}>
-                  modeled contact
+                <LegendItem swatch={<InkSwatch />}>real surface</LegendItem>
+                <LegendItem swatch={<InkSwatch dashed />}>
+                  where the simulator thinks it is
                 </LegendItem>
-                <LegendItem swatch={<LegendSwatch role="constraint" mark="cross" />}>
-                  lost contact
-                </LegendItem>
-                <LegendItem swatch={<LegendSwatch role="constraint" mark="dash" />}>
-                  {limitName}
-                </LegendItem>
-                {scenarioId === 'manipulation' ? (
-                  <LegendItem swatch={<LegendSwatch role="constraint" mark="hatch" />}>
-                    peg inside the wall
-                  </LegendItem>
-                ) : null}
+                <LegendItem swatch={<LegendSwatch role="constraint" mark="cross" />}>where it goes wrong</LegendItem>
               </InstrumentLegend>
-              <InstrumentReadout>
-                {spec.label} at{' '}
-                <span data-testid="error-readout" style={{ color: roleColour('highlight') }}>
-                  ε = {errorMm.toFixed(1)} mm
-                </span>{' '}
-                →{' '}
-                <span
-                  data-testid="outcome-readout"
-                  style={{ color: roleColour(outcome === 'ok' ? 'value' : 'constraint') }}
-                >
-                  {outcomeText}
-                </span>
-              </InstrumentReadout>
-              <InstrumentReadout>
-                <span data-testid="contact-count-readout">{nContacts}</span> contacts, patch{' '}
-                <span data-testid="patch-readout">{spec.patchSummary}</span>, tolerance{' '}
-                <span data-testid="tolerance-readout">±{formatMm(spec.toleranceMm)}</span>
-              </InstrumentReadout>
-              <ChartDescription
-                id={descriptionId}
-                form="state"
-                summary="Current contact-model error"
-                description={takeaway}
-                states={[
-                  { label: 'scenario', value: spec.label },
-                  { label: 'error', value: `${errorMm.toFixed(1)} mm` },
-                  { label: 'tolerance', value: formatMm(spec.toleranceMm) },
-                  { label: 'contacts', value: String(nContacts) },
-                  { label: 'outcome', value: outcomeText },
-                ]}
-              />
+              <StageStatus>Illustrative, not measured; gaps drawn larger than real</StageStatus>
             </>
           }
         >
           <PlotStage
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-            aria-label={`${spec.label} contact geometry. ${spec.sceneCaption} Injected contact-model error ${errorMm.toFixed(1)} millimeters. Outcome: ${outcomeText}.`}
+            aria-label={`Contact-model error of ${errorMm.toFixed(1)} millimetres, side by side. Left, a four-legged robot stands on the simulated floor: ${locoOutcome}. Right, a gripper lowers a peg toward the real hole: ${manipOutcome}.`}
             aria-describedby={descriptionId}
           >
-            {scenarioId === 'locomotion' ? (
-              <LocomotionScene errorMm={errorMm} />
-            ) : (
-              <ManipulationScene errorMm={errorMm} hatchId={hatchId} />
-            )}
+            <StageAnnotation x={8} y={16} lines={annotationLines(errorMm, locoOk, manipOk)} />
+            <DogScene errorMm={errorMm} />
+            <PegScene errorMm={errorMm} hatchId={hatchId} />
           </PlotStage>
         </FigureStage>
       }
-      caption="A gait absorbs centimeter-scale contact error through feedback, while a 0.5 mm insertion clearance makes the same error fatal."
+      caption="Simulators never get surfaces exactly right; legs adjust step by step, but a tight-fitting part leaves almost no room for error."
+      method={
+        <>
+          <p>
+            Both scenes take the same contact-model error, epsilon: how far the simulator&rsquo;s idea of a
+            surface is from the real one. The walking robot stands where the simulator puts the floor; the
+            peg is lowered where the simulator puts the hole. Gaps are drawn larger than real so a couple of
+            millimetres shows at all: the floor gap grows with the square root of the error, and the peg&rsquo;s
+            offset stops growing at four clearances. The slider under &ldquo;Adjust more&rdquo; sets any error
+            from {MIN_ERROR_MM} to {MAX_ERROR_MM} mm.
+          </p>
+          <InstrumentReadout>
+            Exact error: <span data-testid="error-readout">{error}</span>
+          </InstrumentReadout>
+          <ul className="m-0! grid list-none gap-0.5 p-0!">
+            {[
+              { spec: loco, ok: locoOk, outcome: locoOutcome },
+              { spec: manip, ok: manipOk, outcome: manipOutcome },
+            ].map(({ spec, ok, outcome }) => (
+              <li key={spec.id}>
+                {spec.label}:{' '}
+                <span data-testid={`outcome-readout-${spec.id}`} style={{ color: roleColour(ok ? 'value' : 'constraint') }}>
+                  {outcome}
+                </span>
+                ; <span data-testid={`contact-count-readout-${spec.id}`}>{contactCount(spec)}</span> contacts, patch{' '}
+                <span data-testid={`patch-readout-${spec.id}`}>{spec.patchSummary}</span>, tolerance{' '}
+                <span data-testid={`tolerance-readout-${spec.id}`}>±{formatMm(spec.toleranceMm)}</span>. {spec.sceneCaption}
+              </li>
+            ))}
+          </ul>
+          <p>
+            The contact counts and patch radii are illustrative, not one simulator&rsquo;s solver output; the 20 mm
+            walking tolerance and the 0.5 mm insertion clearance are representative physical scales.
+          </p>
+          <ChartDescription
+            id={descriptionId}
+            form="state"
+            open
+            summary="Current contact-model error"
+            description={takeaway}
+            states={[
+              { label: 'error', value: error },
+              { label: 'walking', value: locoOutcome },
+              { label: 'walking tolerance', value: formatMm(loco.toleranceMm) },
+              { label: 'peg insertion', value: manipOutcome },
+              { label: 'insertion clearance', value: formatMm(manip.toleranceMm) },
+            ]}
+          />
+        </>
+      }
       source="Illustrative contact counts and patch radii, not one simulator's solver output; tolerances are representative physical scales."
     />
   );

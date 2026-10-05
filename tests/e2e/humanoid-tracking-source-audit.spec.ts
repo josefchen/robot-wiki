@@ -2,6 +2,7 @@ import { expect, test, type Locator, type Page } from '@playwright/test';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { CITATIONS } from '../../data/citations';
+import { openAdjustMore } from './helpers/figure-fold';
 
 const ids = ['phc-2023', 'omnih2o-2024', 'humanplus-2024'] as const;
 const out = process.env.DR_READER_OUT;
@@ -130,7 +131,9 @@ test('preserved H2O and ASAP chips retain hover/focus containment', async ({ pag
 });
 
 test('existing WBC selection, readouts and reset remain functional', async ({ page }) => {
-  const group = page.getByRole('group', { name: 'Whole-body control decomposition' });
+  // The three designs are the frame's visible choice; Reset waits in Adjust more.
+  const frame = page.locator('main [data-figure-frame="wbc-decomposition"]');
+  const group = frame.getByRole('group', { name: 'Design' });
   const buttons = group.getByRole('button');
   await expect(buttons).toHaveCount(3);
   const initial = await group.locator('[aria-pressed="true"]').innerText();
@@ -142,7 +145,8 @@ test('existing WBC selection, readouts and reset remain functional', async ({ pa
     await expect(page.getByTestId('layers-readout')).toHaveText(/^[1-9]\d*$/);
     await expect(page.getByTestId('wbc-diagram')).toBeVisible();
   }
-  await group.locator('..').getByRole('button', { name: /reset/i }).click();
+  await openAdjustMore(frame);
+  await frame.getByRole('button', { name: /reset/i }).click();
   await expect(group.locator('[aria-pressed="true"]')).toHaveText(initial);
   await center(group); await capture(page, 'wbc-reset');
 });

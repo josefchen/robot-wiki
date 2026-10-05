@@ -7,6 +7,7 @@ import { getCitation } from '../../data/citations';
 import { ANCHORS, BUDGET_SPEC, FLEET_SPEC } from '../../lib/sample-efficiency';
 import { missingOccurrences } from './source-reader-requirements';
 import { setSlider } from './slider';
+import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
 import { forEachInOwnContext } from './helpers/per-route-context';
 
 const graph = expectedApparatusGraph(process.cwd());
@@ -126,6 +127,8 @@ for (const width of [1440, 375]) {
           await expect(page.getByTestId(`sample-anchor-${anchor.id}`)).toHaveText(anchor.label);
         }
         const opening = await page.getByTestId('sample-wallclock-readout').textContent();
+        // The source choice, the exact readouts and Reset sit in "Adjust more".
+        await openAdjustMore(widget);
         for (const value of [BUDGET_SPEC.min, BUDGET_SPEC.max]) {
           await setSlider(page.getByTestId('sample-budget-slider'), value);
           await setSlider(page.getByTestId('sample-fleet-slider'), value === BUDGET_SPEC.min ? FLEET_SPEC.min : FLEET_SPEC.max);
@@ -146,6 +149,8 @@ for (const width of [1440, 375]) {
         await expect(page.getByTestId('sample-source-sim')).toBeChecked();
         await expect(page.getByTestId('sample-wallclock-readout')).toHaveText(opening!);
         await expect(page.getByTestId('sample-simplification-label')).toContainText('bands do not rule algorithms in or out');
+        // The chart's data table sits in "How this was made".
+        await openHowThisWasMade(widget);
         const details = widget.locator('details[data-chart-data]');
         if (await details.count() && await details.getAttribute('open') === null) {
           await details.locator('summary').click();
@@ -202,10 +207,10 @@ for (const width of [1440, 375]) {
     try {
       expect((await page.goto('http://localhost:3200/rl-sim2real/rl-for-robotics/'))?.ok()).toBe(true);
       await expect(page.getByRole('heading', { level: 1, name: 'RL for Robotics', exact: true })).toBeVisible();
-      // The ledger keeps its paper-source chips in a collapsed note under its
-      // source line; open it so the first chip of each source is the one a
-      // reader reaches there.
-      await page.getByTestId('sample-efficiency').locator('details:not([data-chart-data]) > summary').click();
+      // The ledger keeps its paper-source chips in its "How this was made"
+      // fold; open it so the first chip of each source is the one a reader
+      // reaches there.
+      await openHowThisWasMade(page.getByTestId('sample-efficiency'));
       for (const id of [...changed, 'offline-rl-tutorial-2020']) {
         const chip = page.locator(`.prose [data-cite-id="${id}"]`).first();
         await chip.evaluate((element) => element.scrollIntoView({ block: 'center', behavior: 'instant' }));
@@ -230,6 +235,7 @@ for (const width of [1440, 375]) {
       const widget = page.getByTestId('sample-efficiency');
       await setSlider(page.getByTestId('sample-budget-slider'), BUDGET_SPEC.min);
       await setSlider(page.getByTestId('sample-fleet-slider'), FLEET_SPEC.min);
+      await openAdjustMore(widget);
       await page.getByTestId('sample-source-fleet').check();
       await captureSlices(page, widget, `${width}-widget-minimum`, directory);
       await widget.getByRole('button', { name: /reset the budget/i }).click();

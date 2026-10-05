@@ -283,11 +283,21 @@ describe('RL reader route, viewport and assertion preservation', () => {
     // the citation chips. Titles, viewports, loops, graph bindings and the
     // capture function are unchanged, and the other 296 calls are
     // byte-identical.
-    expect(inventory.calls).toHaveLength(301);
+    // Re-frozen 2026-10-05 at the reader-first ledger rewrite. Reviewed delta
+    // against the prior freeze (301 calls, 9b5a46fc.../210fa451...): the
+    // ledger's source choice, exact readouts and Reset sit in "Adjust more"
+    // and its chart data and source chips in "How this was made", so the
+    // reader opens "Adjust more" twice before it uses them, opens "How this
+    // was made" before the chart table, and the RL reader's source-note
+    // opener (locator plus click, two calls) becomes one openHowThisWasMade
+    // call on the same widget. Titles, viewports, loops, graph bindings and
+    // the capture function are unchanged, and the other 299 calls are
+    // byte-identical.
+    expect(inventory.calls).toHaveLength(303);
     // The three navigation URLs now use the Playwright localhost host; all
     // routes, assertions, viewport loops and capture calls remain in place.
-    expect(digest(inventory)).toBe('9b5a46fc641376db6bd916e07a12654f9e4be7850c4012363be6aef3f433c3c3');
-    expect(digest(routeBody)).toBe('210fa451bbbfb39a876378ae8ff5ba0bc27dbd510d7eabbd069561ecc1241d29');
+    expect(digest(inventory)).toBe('ac99c0498ee28c9f86e9af1d405a0310d2267193228cdd113841dfff9d8783ab');
+    expect(digest(routeBody)).toBe('19f7d39cc9d6a621d4cd7097fcebf9b94032d7e8ac727f848bd60fb5cb5e16bf');
     expect(helpers).toHaveLength(1);
     expect(helpers[0].arguments[0].getText(source)).toBe('browser');
     expect(helpers[0].arguments[1].getText(source)).toBe('affected');

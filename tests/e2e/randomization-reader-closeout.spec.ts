@@ -4,6 +4,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { join } from 'node:path';
 import { CITATIONS } from '../../data/citations';
+import { figureFold, openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
 
 const norm = (text: string) => text.replace(/\s+/g, ' ').trim();
 const hash = (path: string) => createHash('sha256').update(readFileSync(path)).digest('hex');
@@ -142,13 +143,17 @@ async function modelState(panel: Locator, row: Evidence, mu: number, range: numb
   await expect(panel.getByTestId('dr-readout')).toHaveText(pct(value.dr));
   await expect(panel.getByTestId('real-mu-readout')).toHaveText(mu.toFixed(2));
   await expect(panel.getByTestId('ft-explanation')).toContainText(value.point > value.dr ? 'point curve is higher' : 'DR curve is higher');
-  const markers = await panel.locator('[data-testid$="-marker"]').evaluateAll(nodes => nodes.map(node => ({
-    id: node.getAttribute('data-testid'), x: Number(node.getAttribute('cx')), y: Number(node.getAttribute('cy')),
-  })));
+  // Each marker group draws one dot; its centre is read from that circle.
+  // The plot spans x 72 to 326 and y 210 (0%) to 86 (100%) in the 340-wide view.
+  const markers = await panel.locator('[data-testid$="-marker"]').evaluateAll(nodes => nodes.map(node => {
+    const dot = node.querySelector('circle');
+    return { id: node.getAttribute('data-testid'), x: Number(dot?.getAttribute('cx')), y: Number(dot?.getAttribute('cy')) };
+  }));
+  expect(markers.map(marker => marker.id).sort()).toEqual(['dr-marker', 'point-marker']);
   for (const marker of markers) {
     const success = marker.id === 'point-marker' ? value.point : value.dr;
-    expect(marker.x).toBeCloseTo(56 + (mu - 0.2) / 1.3 * 568, 1);
-    expect(marker.y).toBeCloseTo(296 - success * 276, 1);
+    expect(marker.x).toBeCloseTo(72 + (mu - 0.2) / 1.3 * 254, 1);
+    expect(marker.y).toBeCloseTo(210 - success * 124, 1);
   }
   // Every sampled polyline coordinate is compared with the independent formula.
   for (const kind of ['point', 'dr'] as const) {
@@ -156,14 +161,16 @@ async function modelState(panel: Locator, row: Evidence, mu: number, range: numb
     expect(coordinates).toHaveLength(65);
     coordinates.forEach(([x, y], index) => {
       const sampleMu = 0.2 + index / 64 * 1.3;
-      expect(x).toBeCloseTo(56 + index / 64 * 568, 1);
-      expect(Math.abs(y - (296 - expected(sampleMu, range)[kind] * 276))).toBeLessThan(0.04);
+      expect(x).toBeCloseTo(72 + index / 64 * 254, 1);
+      expect(Math.abs(y - (210 - expected(sampleMu, range)[kind] * 124))).toBeLessThan(0.04);
     });
   }
   row.steps.push({ model: { mu, range, ...value, markers, sampleCoordinatesChecked: 130 } });
 }
 
-async function exercisePanel(page: Page, panel: Locator, info: TestInfo, row: Evidence, defaultRange: number) {
+async function exercisePanel(page: Page, panel: Locator, info: TestInfo, row: Evidence, defaultRange: number, defaultMu: number) {
+  // The readouts and the explanation sit in "How this was made"; a reader opens it to read them.
+  await openHowThisWasMade(panel);
   const mu = panel.getByRole('slider').nth(0);
   const range = panel.getByRole('slider').nth(1);
   await expect(mu).toHaveAttribute('min', '20');
@@ -172,7 +179,7 @@ async function exercisePanel(page: Page, panel: Locator, info: TestInfo, row: Ev
   await expect(range).toHaveAttribute('min', '10');
   await expect(range).toHaveAttribute('max', '65');
   await expect(range).toHaveAttribute('step', '5');
-  await modelState(panel, row, 0.8, defaultRange);
+  await modelState(panel, row, defaultMu, defaultRange);
   await centered(panel.getByTestId('point-readout'));
   await capture(page, info, row, 'default-chart');
   for (const width of [10, defaultRange * 100, 65]) {
@@ -190,20 +197,22 @@ async function exercisePanel(page: Page, panel: Locator, info: TestInfo, row: Ev
   await modelState(panel, row, 1.1, 0.35);
   await centered(panel.getByTestId('point-readout'));
   await capture(page, info, row, 'changed-chart');
+  await openAdjustMore(panel);
   const reset = panel.getByRole('button', { name: 'Reset', exact: true });
   await reset.focus();
   await reset.press('Enter');
   await expect(reset).toBeFocused();
   await expect(range).toHaveValue(String(defaultRange * 100));
-  await modelState(panel, row, 0.8, defaultRange);
+  await expect(mu).toHaveValue(String(Math.round(defaultMu * 100)));
+  await modelState(panel, row, defaultMu, defaultRange);
   await expect(panel).toContainText('All values and the falling DR peak are local assumptions');
   await expect(panel).toContainText('not measured robot performance');
   await centered(reset);
   await capture(page, info, row, 'reset-focus');
-  // Open the accessible chart description, and retain any independent scoped red.
-  const summary = panel.locator('summary');
-  if (await summary.count()) { await summary.focus(); await summary.press('Enter'); }
-  await axe(page, row, `[aria-describedby="${await panel.locator('svg').getAttribute('aria-describedby')}"]`, 'chart');
+  // The accessible chart description sits open in the method fold; retain any independent scoped red.
+  await expect(figureFold(panel, 'method')).toHaveJSProperty('open', true);
+  await expect(panel.locator(`[id="${await panel.locator('svg[aria-describedby]').getAttribute('aria-describedby')}"]`)).toContainText('Authored toy, not measured robot data');
+  await axe(page, row, `[aria-describedby="${await panel.locator('svg[aria-describedby]').getAttribute('aria-describedby')}"]`, 'chart');
 }
 
 for (const width of [375, 1440]) {
@@ -287,9 +296,10 @@ for (const width of [375, 1440]) {
       const row = evidence(info);
       try {
         await open(page, row, 'sim2real-transfer');
-        const panel = page.locator('div.prose > div:has(> [data-testid="ft-explanation"])');
+        // One friction figure on the page; it opens on a floor more slippery than the practice floor.
+        const panel = page.locator('main [data-figure-frame="friction-transfer"]');
         await expect(panel).toHaveCount(1);
-        await exercisePanel(page, panel, info, row, 0.35);
+        await exercisePanel(page, panel, info, row, 0.35, 0.5);
         const quiz = page.locator('[data-self-check]');
         const choice = quiz.getByRole('radio', { name: 'A separately trained adaptation module', exact: true });
         await choice.focus(); await choice.press('Space');
@@ -304,43 +314,49 @@ for (const width of [375, 1440]) {
       } finally { await save(page, info, row); }
     });
 
-    test(`prediction friction reader at ${width}`, async ({ page }, info) => {
+    // The separate prediction mount was retired; its claims now live on the one figure: the
+    // reader widens the practice floors, opens and closes both folds natively, and reads the caveats.
+    test(`wide-range friction reader at ${width}`, async ({ page }, info) => {
       test.setTimeout(180_000);
       const row = evidence(info);
       try {
         await open(page, row, 'sim2real-transfer');
-        const prediction = page.locator('[data-predict]');
-        const details = prediction.locator('[data-reveal]');
-        const summary = details.locator('summary').first();
-        const radios = prediction.getByRole('radio');
-        await expect(details).not.toHaveAttribute('open', '');
-        await expect(radios).toHaveCount(3);
-        await summary.focus(); await summary.press('Enter');
-        await expect(details).toHaveAttribute('open', '');
-        await expect(prediction.locator('input:checked')).toHaveCount(0);
-        await summary.press('Enter');
-        for (let index = 0; index < 3; index++) {
-          const radio = radios.nth(index);
-          await radio.focus(); await radio.press('Space');
-          await expect(radio).toBeChecked();
-          await expect(radio).toBeFocused();
-          await expect(details).toHaveAttribute('open', '');
-          await expect(prediction.locator('[data-reason][data-selected="true"]')).toHaveCount(1);
-          await centered(radio);
-          await capture(page, info, row, `choice-${index}`);
+        await expect(page.locator('[data-predict]')).toHaveCount(0);
+        const panel = page.locator('main [data-figure-frame="friction-transfer"]');
+        await expect(panel).toHaveCount(1);
+        const folds = [figureFold(panel, 'adjust'), figureFold(panel, 'method')];
+        for (const fold of folds) {
+          const summary = fold.locator(':scope > summary');
+          await expect(fold).not.toHaveAttribute('open', '');
+          await summary.focus(); await summary.press('Enter');
+          await expect(fold).toHaveAttribute('open', '');
+          await summary.press('Enter');
+          await expect(fold).not.toHaveAttribute('open', '');
+          await summary.press('Enter');
+          await expect(fold).toHaveAttribute('open', '');
         }
-        await expect(prediction).toContainText('do not come from Peng paper results');
-        await expect(prediction).toContainText('no measured universal law of this shape');
-        const panel = prediction.locator('div:has(> [data-testid="ft-explanation"])');
-        await exercisePanel(page, panel, info, row, 0.65);
-        await expect(page.locator('div.prose > div:has(> [data-testid="ft-explanation"])').getByRole('slider').nth(1)).toHaveValue('35');
-        await summary.focus(); await summary.press('Enter');
-        await expect(details).not.toHaveAttribute('open', '');
-        await summary.press('Enter');
-        await expect(details).toHaveAttribute('open', '');
+        await expect(panel).toContainText('do not come from Peng paper results');
+        await expect(panel).toContainText('no measured universal law of this shape');
+        await expect(panel.getByTestId('ft-explanation')).toContainText('74% at half-width 0.35 and 57% at 0.65');
+        await modelState(panel, row, 0.5, 0.35);
+        await expect(panel.locator('[data-figure-annotation]')).toContainText('the one-floor robot fails');
+        const mu = panel.getByRole('slider').nth(0);
+        const range = panel.getByRole('slider').nth(1);
+        await setRange(mu, 80, 1);
+        await setRange(range, 65, 5);
+        await focusProof(range, row);
         await modelState(panel, row, 0.8, 0.65);
-        row.steps.push({ chooseRevealChangeResetAndNativeDisclosure: true, independentMountDefaults: true });
-        await axe(page, row, '[data-predict]', 'prediction-revealed');
+        await expect(panel.getByTestId('dr-readout')).toHaveText('57%');
+        await expect(panel.getByTestId('dr-peak-label')).toHaveText('DR 57%');
+        await expect(panel.locator('[data-figure-annotation]')).toContainText('one-floor robot wins, 97% against 57%');
+        await centered(range);
+        await capture(page, info, row, 'wide-range');
+        const reset = panel.getByRole('button', { name: 'Reset', exact: true });
+        await reset.focus(); await reset.press('Enter');
+        await expect(range).toHaveValue('35');
+        await modelState(panel, row, 0.5, 0.35);
+        row.steps.push({ wideRangeNativeDisclosureCaveatsAndReset: true, retiredPredictionMount: true });
+        await axe(page, row, 'main [data-figure-frame="friction-transfer"]', 'friction-folds-open');
         await finish(page, info, row);
       } finally { await save(page, info, row); }
     });
