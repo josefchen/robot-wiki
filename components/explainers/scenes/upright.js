@@ -160,7 +160,8 @@ export default {
     { const [T, P] = place(...WIDE()); stage.controls.target.copy(T); stage.camera.position.copy(P); }
 
     // ---- Push ----
-    const arrows = [shapes.arrow(stage, 'act', 0.016), shapes.arrow(stage, 'act', 0.016)];
+    // Ink, so the patches keep the step's one colour while the push plays.
+    const arrows = [shapes.arrow(stage, 'ink', 0.016), shapes.arrow(stage, 'ink', 0.016)];
     arrows.forEach((a) => { a.visible = false; stage.world.add(a); });
     const ARROW = 0.32, fwd = new THREE.Vector3(1, 0, 0);
     const outLabel = stage.label('Outside its patch: it must step', () => humGear.com3.clone().add(new THREE.Vector3(0, 0.62, 0)), { tone: 'fail' }).show(false);

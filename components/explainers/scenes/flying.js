@@ -130,10 +130,10 @@ export default {
       weight: stage.label('Weight', () => weight.visible ? weight.position.clone().add(new THREE.Vector3(0.12, -0.36, 0)) : null, { tone: 'act' }).show(false),
       front: stage.label('Front pair', () => quad.root.localToWorld(v3().set(QUAD.a, 0.08 + Math.max(arrowLen(0), arrowLen(2)), 0))).show(false),
       back: stage.label('Back pair', () => quad.root.localToWorld(v3().set(-QUAD.a, 0.08 + Math.max(arrowLen(1), arrowLen(3)), 0))).show(false),
-      pair: stage.label('Clockwise pair speeds up', at(quad.props[2], [0, 0.02, 0]), { tone: 'focus' }).show(false),
+      pair: stage.label('Clockwise pair speeds up', at(quad.props[2], [0, 0.02, 0]), { tone: 'act' }).show(false),
       turn: stage.label('Drone turns counter-clockwise', () => yawArc.localToWorld(yawArc.tip.clone()), { tone: 'act' }).show(false),
       gust: stage.label('Gust of wind', () => gust.position.clone(), { tone: 'act' }).show(false),
-      fc: stage.label('Flight computer', at(quad.computer, [0, 0.01, 0]), { tone: 'focus' }).show(false),
+      fc: stage.label('Flight computer', at(quad.computer, [0, 0.01, 0])).show(false),
     };
     const hideLabels = () => Object.values(L).forEach((l) => l.show(false));
 
@@ -343,7 +343,8 @@ export default {
         { text: STEP_TEXT[3],
           enter: async () => {
             const my = reset(HOME); spinning(true); showThrust(true); stage.focus(quad.root, yawArc);
-            spinArcs.forEach((a, i) => { a.visible = true; a.setRole(ROTORS[i].dir > 0 ? 'focus' : 'ref'); });
+            // The faster pair, its thrust and the turn it makes share the force colour, the step's one colour.
+            spinArcs.forEach((a, i) => { a.visible = true; a.setRole(ROTORS[i].dir > 0 ? 'act' : 'ref'); });
             yawArc.visible = true; L.pair.show(true); L.turn.show(true);
             narrate = describe;
             await frame([0, 0.5, 0], [0.4, 1.25, 0.95], 0.56, 0.5, 1.1); if (my !== epoch) return;
@@ -353,8 +354,9 @@ export default {
 
         { text: STEP_TEXT[4],
           enter: async () => {
+            // The four thrust arrows are what the computer adjusts, so they keep the step's one colour.
             reset(HOME); spinning(true); showThrust(true); stage.focus(quad.root, gust);
-            model.highlight([P.computer], 'focus'); L.fc.show(true);
+            L.fc.show(true);
             suffix = `<br>Flight software used on many drones makes this correction <b>${RATE_HZ} times a second</b> by default.`;
             narrate = describe;
             showOpts(['climb', 'forward', 'turn']);

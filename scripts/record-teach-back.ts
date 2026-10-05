@@ -30,10 +30,13 @@ const id = option('--id');
 const words = await explainerWords('.', id);
 if (!words) throw new Error(`record-teach-back: unknown explainer ${id}`);
 
-type AuditStep = { explainer: string; width: number; step: string; words: number; labels: string[]; controls: string[]; colours: Record<string, number> };
+type AuditStep = {
+  explainer: string; width: number; step: string; words: number; labels: string[]; tones?: string[]; controls: string[]; colours: Record<string, number>;
+};
 const audit = JSON.parse(readFileSync(option('--audit'), 'utf8')) as { steps: AuditStep[] };
 const noiseAudit: NoiseRow[] = audit.steps.filter((s) => s.explainer === id).map((s) => ({
-  width: s.width, step: s.step, words: s.words, labels: s.labels.length, controls: s.controls.length, colours: Object.keys(s.colours ?? {}),
+  width: s.width, step: s.step, words: s.words, labels: s.labels.length, controls: s.controls.length,
+  colours: [...new Set([...Object.keys(s.colours ?? {}), ...(s.tones ?? []).filter((tone) => tone !== 'plain')])],
 }));
 for (const width of TEACH_BACK_WIDTHS) {
   if (!noiseAudit.some((row) => row.width === width)) throw new Error(`record-teach-back: the sweep has no ${width} px steps for #${id}`);

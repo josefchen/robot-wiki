@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "e89735d68259d35c5689186c87bd1918e7ebbc47d7b7499663c3b0b56d0f461a",
+  "fingerprint": "79a6aebe89137004daf3f85b12ed60f7ad1b3284692036443bac67a0f8402392",
   "route": "/",
   "viewport": "1440x900",
   "featured": {
@@ -25,7 +25,7 @@
     "posterReadout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
     "posterCaption": "The same horizon exposes the last stretch.",
     "idleFrameRequests": 0,
-    "playingFrameRequests": 50,
+    "playingFrameRequests": 52,
     "focusOutlineWidthPx": 2,
     "focusOutlineStyle": "solid",
     "focusOutlineColour": "rgb(36, 95, 255)",
@@ -92,7 +92,7 @@
     "posterReadout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
     "posterCaption": "The same horizon exposes the last stretch.",
     "idleFrameRequests": 0,
-    "playingFrameRequests": 50,
+    "playingFrameRequests": 51,
     "focusOutlineWidthPx": 2,
     "focusOutlineStyle": "solid",
     "focusOutlineColour": "rgb(36, 95, 255)",

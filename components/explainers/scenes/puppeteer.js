@@ -286,7 +286,7 @@ export default {
         // Under reduced motion a run plays once and stops; otherwise it loops, or hands over to the next part of the story.
         if (solo.t > duration(LEARNED) + 1.4) { const f = soloEnd; if (reduceMotion) solo = null; else if (f) f(); else startSolo(); }
       }
-      if (dotRole === 'sense' && dotPos.length) { for (let i = 0; i < dotAge.length; i++) dotAge[i] += dt; paintDots(); }
+      if (dotPos.length && (dotRole === 'sense' || recording)) { for (let i = 0; i < dotAge.length; i++) dotAge[i] += dt; paintDots(); }
     };
     // Under reduced motion anything that plays by itself (a demonstration, a run alone, the recorded dots
     // fading) plays out within one frame, so it jumps to its end state.
@@ -343,7 +343,8 @@ export default {
           } },
         { text: STEP_TEXT[1],
           enter: async () => {
-            reset(); stage.focus(leader.root, follower.root); cone.visible = true; camLabel.show(true); leaderLabel.show(true); followerLabel.show(true);
+            // The camera, its view and the saved examples carry the step's one colour, so the hand goes plain.
+            reset(); stage.focus(leader.root, follower.root); paintLeader('plain'); cone.visible = true; camLabel.show(true); leaderLabel.show(true); followerLabel.show(true);
             recBtn.show(true); recBtn.set('Stop'); drag.enable(true);
             driver = 'demo'; tDemo = -0.3; recording = true; recT = 0; examples = 0;
             onDemoEnd = () => { recording = false; recBtn.set('Record again'); writeReadout(); ui.hint('Drag the hand, or record again'); };
@@ -370,7 +371,8 @@ export default {
           enter: async () => {
             reset(); stage.focus(leader.root, follower.root);
             const teleop = () => {
-              paintLeader('hand'); resetBlock(); clearDots(); dotRole = 'sense'; solo = null;
+              // Grey examples: the hand and its label carry this step's one colour.
+              paintLeader('hand'); resetBlock(); clearDots(); dotRole = 'ref'; solo = null;
               leader.setPose(HOME); follower.setPose(HOME); local(LEADER, 0.205, 0.14, target);
               history.length = 0; history.push({ t: clock, pose: leader.getPose() });
               leaderLabel.set('Teleoperation').tone('focus').show(true); followerLabel.show(false);

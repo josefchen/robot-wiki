@@ -84,6 +84,8 @@ function readStage(): { width: number; height: number; labels: StageLabel[] } {
 type Hook = { ready: boolean; live?: boolean; busy: boolean; moving?: boolean; steps: number };
 
 async function settle(page: Page) {
+  // A stage scrolled out of view pauses its scene, and a paused step never settles.
+  await page.evaluate(() => document.querySelector('[data-x="stage"]')?.scrollIntoView({ block: 'center' }));
   await page.waitForFunction(() => {
     const h = (window as unknown as { __explainer?: Hook }).__explainer;
     const predict = document.querySelector<HTMLElement>('[data-predict]');

@@ -73,11 +73,13 @@ export default {
     const turned = (rad) => `${Math.abs(Math.round(rad * DEG))}°`;
     const angles = () => `Joints turned: ${['shoulder_pan', 'shoulder_lift', 'elbow_flex', 'wrist_flex'].map((k) => `${{ shoulder_pan: 'base', shoulder_lift: 'shoulder', elbow_flex: 'elbow', wrist_flex: 'wrist' }[k]} <b>${turned(J[k].value)}</b>`).join(', ')}.`;
     let state = 'idle';
+    // Next to the green reach zone, a reached cup turns green too, so the step keeps one colour.
+    let reachedRole = 'focus';
     const solve = () => {
       const r = arm.solveIK(grab());
       const ok = r.error < 0.01;
-      cupMat.color.copy(ok ? stage.colors.focus : stage.colors.fail);
-      cupLabel.set(ok ? 'Reached' : 'Out of reach').tone(ok ? 'focus' : 'fail');
+      cupMat.color.copy(ok ? stage.colors[reachedRole] : stage.colors.fail);
+      cupLabel.set(ok ? 'Reached' : 'Out of reach').tone(ok ? reachedRole : 'fail');
       ui.readout(ok ? angles() : `No joint angles put the hand there; it gets no closer than <b>${Math.round(r.error * 100)} centimetres</b>.`);
       return ok;
     };
@@ -101,7 +103,7 @@ export default {
       ui.readout(angles());
     };
 
-    const reset = () => { state = 'idle'; drag.enable(false); cloud.visible = false; zoneLabel.show(false); ghost.root.visible = false; shoulder.show(false); sol.show(false); trace.visible = false; handLabel.show(false); cupLabel.show(false); ui.hint(''); cup.visible = true; cupMat.color.copy(stage.colors.focus); };
+    const reset = () => { state = 'idle'; reachedRole = 'focus'; drag.enable(false); cloud.visible = false; zoneLabel.show(false); ghost.root.visible = false; shoulder.show(false); sol.show(false); trace.visible = false; handLabel.show(false); cupLabel.show(false); ui.hint(''); cup.visible = true; cupMat.color.copy(stage.colors.focus); };
 
     return {
       steps: [
@@ -121,7 +123,7 @@ export default {
               options: [{ id: 'yes', label: 'Yes' }, { id: 'no', label: 'No' }],
               explain: 'It is too far. No set of joint angles puts the hand there. The green ring shows where cups can be reached: not too far, and not too close to the base.' });
             await reachToward(near, far, 1.2);
-            state = 'drag'; solve(); cupLabel.show(true);
+            state = 'drag'; reachedRole = 'ok'; solve(); cupLabel.show(true);
             cloud.visible = true; zoneLabel.show(true);
             await stage.fit([arm.root, cup, cloud], [0.12, 0.95, 1.0], { margin: 0.86, duration: 1.0 });
             drag.enable(true); ui.hint('Drag it back into the green ring'); } },

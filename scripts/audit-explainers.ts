@@ -11,10 +11,10 @@
  * stage changes over the 2 s after settle. --shots writes the teach-back frames: the explainer column
  * at each step, with the takeaway sentence hidden and the self-check answer closed. --landing writes
  * the stage at each step with the subject box and the central half drawn. Exits non-zero when a step
- * runs over the budget (more than 25 words, 3 anchored labels, 2 controls, or one non-failure colour;
- * fewer than 3 or more than 5 steps) or lands badly (no subject, a subject box that leaves the stage,
- * or a subject centre outside the central half). Stage motion after settle is reported for a reader
- * to judge against the step text.
+ * runs over the budget (more than 25 words, 3 anchored labels, 2 controls, or one non-failure colour
+ * across the stage pixels and the label tones; fewer than 3 or more than 5 steps) or lands badly (no
+ * subject, a subject box that leaves the stage, or a subject centre outside the central half). Stage
+ * motion after settle is reported for a reader to judge against the step text.
  */
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
@@ -72,10 +72,12 @@ async function colourCensus(png: Buffer) {
     if (channels === 4 && data[i + 3] < 128) continue;
     total += 1;
     const { h, s, l } = hsl([data[i], data[i + 1], data[i + 2]]);
-    if (s < 0.35 || l < 0.12 || l > 0.92) continue;
+    if (s < 0.12 || l < 0.12 || l > 0.92) continue;
     let best = 0, gap = 360;
     ROLE_HUES.forEach((r, k) => { const dh = Math.min(Math.abs(h - r.h), 360 - Math.abs(h - r.h)); if (dh < gap) { gap = dh; best = k; } });
-    if (gap <= 14) roleOf[p] = best;
+    // The act purple and the ok green are muted (saturation 0.22 and 0.33), so each role is held to
+    // about half its own saturation rather than to one floor that would never see them.
+    if (gap <= 14 && s >= Math.min(0.35, 0.55 * ROLE_HUES[best].s)) roleOf[p] = best;
   }
   const counts: Record<string, number> = {};
   for (let y = 1; y < height - 1; y += 1) {
@@ -88,6 +90,8 @@ async function colourCensus(png: Buffer) {
   return Object.fromEntries(Object.entries(counts).map(([k, n]) => [k, Number((n / Math.max(1, total)).toFixed(4))]).filter(([, f]) => (f as number) >= 0.002));
 }
 async function settle(page: Page) {
+  // A stage scrolled out of view pauses its scene, and a paused step never settles.
+  await page.evaluate(() => document.querySelector('[data-x="stage"]')?.scrollIntoView({ block: 'center' }));
   await page.waitForFunction(() => {
     const h = (window as unknown as { __explainer?: Hook }).__explainer;
     const predict = document.querySelector<HTMLElement>('[data-predict]');
@@ -157,8 +161,9 @@ async function visit(page: Page, explainer: string, width: number, step: string)
   if (entry.words > 25) problems.push(`${at}: the step text has ${entry.words} words (25 at most)`);
   if (entry.labels.length > 3) problems.push(`${at}: ${entry.labels.length} anchored labels (3 at most): ${entry.labels.join(', ')}`);
   if (entry.controls.length > 2) problems.push(`${at}: ${entry.controls.length} controls (2 at most): ${entry.controls.join(' / ')}`);
-  const hues = Object.keys(entry.colours).filter((role) => role !== 'fail');
-  if (hues.length > 1) problems.push(`${at}: ${hues.length} non-failure colours on the stage (1 at most): ${hues.join(', ')}`);
+  // A label's tone is a colour on the stage too, and a thin arrow can be too small for the census.
+  const hues = [...new Set([...Object.keys(entry.colours), ...entry.tones.filter((tone) => tone !== 'plain')])].filter((role) => role !== 'fail');
+  if (hues.length > 1) problems.push(`${at}: ${hues.length} non-failure colours on the stage and its labels (1 at most): ${hues.join(', ')}`);
   const b = entry.subject, { w, h } = entry.stage;
   if (!b) problems.push(`${at}: the step names no subject for the camera`);
   else {
@@ -166,7 +171,7 @@ async function visit(page: Page, explainer: string, width: number, step: string)
     if (b.x < -1 || b.y < -1 || b.x + b.w > w + 1 || b.y + b.h > h + 1) problems.push(`${at}: the subject box ${fmt(b)} leaves the ${w} x ${h} stage`);
     if (cx < w / 4 || cx > (3 * w) / 4 || cy < h / 4 || cy > (3 * h) / 4) problems.push(`${at}: the subject centre (${Math.round(cx)}, ${Math.round(cy)}) is outside the central half`);
   }
-  console.log(`audit: ${at}: ${entry.words} words, ${entry.labels.length} labels, ${entry.controls.length} controls, colours ${Object.keys(entry.colours).join('+') || 'none'}, subject ${b ? fmt(b) : 'none'}${entry.moves ? ', stage moves after settle' : ''}`);
+  console.log(`audit: ${at}: ${entry.words} words, ${entry.labels.length} labels, ${entry.controls.length} controls, colours ${Object.keys(entry.colours).join('+') || 'none'}, label tones ${entry.tones.join('+') || 'none'}, subject ${b ? fmt(b) : 'none'}${entry.moves ? ', stage moves after settle' : ''}`);
 }
 const fmt = (b: Box) => `${Math.round(b.x)},${Math.round(b.y)} ${Math.round(b.w)}x${Math.round(b.h)}`;
 
