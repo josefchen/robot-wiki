@@ -20,7 +20,8 @@ function applyOrigin(obj, el) {
 }
 
 export const SO101_CHAIN = ['shoulder_pan', 'shoulder_lift', 'elbow_flex', 'wrist_flex', 'wrist_roll', 'gripper'];
-export const SO101_NAMES = { shoulder_pan: 'Shoulder pan', shoulder_lift: 'Shoulder lift', elbow_flex: 'Elbow', wrist_flex: 'Wrist flex', wrist_roll: 'Wrist roll', gripper: 'Gripper' };
+// Readers see these names, so they avoid the URDF's pan, flex and roll.
+export const SO101_NAMES = { shoulder_pan: 'Base', shoulder_lift: 'Shoulder lift', elbow_flex: 'Elbow', wrist_flex: 'Wrist bend', wrist_roll: 'Wrist turn', gripper: 'Gripper' };
 
 export async function loadSO101(stage, { pose = {} } = {}) {
   urdfText ??= fetch('/models/so101/so101.urdf').then((r) => r.text());

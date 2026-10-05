@@ -2,6 +2,7 @@
 // cone set by friction; tilt the grip so the line between the fingers leaves the cones and the object slides out.
 import { THREE, shapes, lerp, clamp, ease, reduceMotion } from '../kit.js';
 import { makeGripper } from '../models/gripper.js';
+import { EXPLAINER_WORDS } from '../words.ts';
 
 const DEG = Math.PI / 180;
 const W = 0.05, H = 0.08, D = 0.045;          // the block, in metres
@@ -48,13 +49,10 @@ function animator(stage) {
 }
 
 
+const STEP_TEXT = EXPLAINER_WORDS.grip.steps;
+
 export default {
   id: 'grip',
-  kicker: 'Grasping · holding without slipping',
-  question: 'Why do robots drop things?',
-  takeaway: 'A pinch holds only if each finger pushes within a narrow cone set by friction. Tilt the grip so the line between the fingers leaves the cones, and the object slides out.',
-  concept: { name: 'The cone of pushes a fingertip can make without sliding is called the friction cone', article: 'Grasp planning', href: 'https://robot-wiki.com/classical/grasp-planning/' },
-  selfCheck: { q: 'Why do grippers have rubber pads?', a: 'Rubber grips harder, which widens each fingertip\'s cone. A wider cone lets the fingers squeeze at a steeper angle, so the grip survives a tilt, a bump or a slippery object.' },
   how: `<ul>
     <li>The rule: two fingertips can hold an object against any push or pull only if the line between the two contacts lies inside both friction cones (V.-D. Nguyen, <a href="https://doi.org/10.1177/027836498800700301" target="_blank" rel="noopener">"Constructing force-closure grasps"</a>, International Journal of Robotics Research, 1988). The scene checks exactly that condition as you tilt.</li>
     <li>Cone widths: each cone opens to the angle whose tangent is the friction coefficient. Rubber (1.0) and ice (0.1) are the static coefficients for rubber on dry concrete and ice on ice in <a href="https://openstax.org/books/college-physics-2e/pages/5-1-friction" target="_blank" rel="noopener">OpenStax College Physics 2e, Table 5.1</a>. Plastic (0.3) is the measured sliding friction of 3D-printed PLA on steel (Ramadan et al., <a href="https://www.tribology.rs/journals/2023/2023-1/13-1410.pdf" target="_blank" rel="noopener">Tribology in Industry, 2023</a>). Real values depend on both surfaces, so treat them as typical values.</li>
@@ -208,9 +206,9 @@ export default {
 
     return {
       steps: [
-        { text: 'Two fingers pinch a block squarely and lift it. It holds.',
+        { text: STEP_TEXT[0],
           enter: async () => {
-            const my = A.next(); reset();
+            const my = A.next(); reset(); stage.focus(...grip.fingers, block);
             blockPos.set(0, REST_Y, 0); blockState = 'down';
             grip.root.position.set(0, REST_Y + 0.1, 0); grip.setGap(0.096);
             A.frame([0, 0.15, 0], [0.22, 0.14, 1], 0.075, 0.15);
@@ -219,16 +217,16 @@ export default {
             await run(0.8, (k) => { const y = lerp(REST_Y, HOLD.y, k); grip.root.position.y = y; blockPos.y = y; }); if (!alive(my)) return;
             blockState = 'held'; statusOn = true; status.show(true);
           } },
-        { text: 'Each fingertip can push only within a cone. Push outside it, and the finger slides along the surface.',
+        { text: STEP_TEXT[1],
           enter: async () => {
-            const my = A.next(); reset(); setSee(true);
+            const my = A.next(); reset(); stage.focus(block, ...cones.map((c) => c.g)); setSee(true);
             A.frame([0, HOLD.y + 0.012, 0], [0.1, 0.1, 1], 0.07, 0.068);
             await growCones(0.9); if (!alive(my)) return;
             coneLabel.show(true);
           } },
-        { text: 'Now it grabs the block with a tilted grip and lifts. The fingers still squeeze along the line between them.',
+        { text: STEP_TEXT[2],
           enter: async () => {
-            const my = A.next(); reset(); setSee(true);
+            const my = A.next(); reset(); stage.focus(...grip.fingers, block, ...cones.map((c) => c.g)); setSee(true);
             blockPos.set(0, REST_Y, 0); blockState = 'down';
             grip.root.position.set(0, REST_Y + 0.1, 0); grip.setGap(0.11);
             A.frame([0, 0.1, 0], [0.12, 0.12, 1], 0.075, 0.112);
@@ -245,9 +243,9 @@ export default {
             await run(0.8, (k) => { grip.root.position.y = lerp(REST_Y, HOLD.y, k); blockPos.y = REST_Y + 0.006 * Math.sin(Math.PI * Math.min(1, k * 2.5)); }); if (!alive(my)) return;
             blockPos.y = REST_Y; forceBad = false; goLive();
           } },
-        { text: 'Slippery surfaces narrow the cones. Rubber holds at tilts where plastic and ice slip.',
+        { text: STEP_TEXT[3],
           enter: async () => {
-            const my = A.next(); reset(); setSee(true); showCones = true; showLine = true; coneGrow = 1;
+            const my = A.next(); reset(); stage.focus(...grip.fingers, block, ...cones.map((c) => c.g)); setSee(true); showCones = true; showLine = true; coneGrow = 1;
             setTilt(TRY_TILT); surfTween++; surface = 'ice'; alpha = Math.atan(SURF.ice.mu); surf.set('ice');
             blockPos.set(0, REST_Y, 0); blockState = 'down';
             goLive(); surf.show(true); statusOn = true; status.show(true);
@@ -256,12 +254,12 @@ export default {
             await wait(0.4); if (!alive(my) || surface !== 'ice') return; // the reader may have picked already
             await setSurface('rubber', 0.8);
           } },
-        { text: 'This is the friction cone. Grasp planners hunt for finger spots whose cones face each other, with room to spare.',
+        { text: STEP_TEXT[4],
           enter: async () => {
-            const my = A.next(); reset(); setSee(true); showCones = true; showLine = true; coneGrow = 1;
+            const my = A.next(); reset(); stage.focus(block, ...cones.map((c) => c.g)); setSee(true); showCones = true; showLine = true; coneGrow = 1;
             goLive(); surf.show(true); statusOn = true; status.show(true);
             await A.frame([0, HOLD.y + 0.016, 0], [0.12, 0.12, 1], 0.07, 0.09); if (!alive(my)) return;
-            readoutTail = '<br>In a 2026 study of 1,599 robot-hand grasps, <b>53%</b> of those rated secure would lose their hold if friction were lower than assumed.';
+            readoutTail = '<br>In a 2026 study of 1,599 robot-hand grasps, <b>53%</b> of those that held at the assumed friction would lose their hold if friction were at the low end of what is plausible.';
           } },
       ],
       dispose() { drag.remove(); },

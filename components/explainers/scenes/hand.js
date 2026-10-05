@@ -1,8 +1,9 @@
 // Body 3: The hand. Takeaway: human hands pack about 20 ways to move and dense touch into a small space;
 // most robots use a two-finger clamp and lose most of that.
-import { THREE, shapes, lerp, ease, reduceMotion } from '../kit.js';
+import { THREE, shapes, lerp, ease, reduceMotion, slicer } from '../kit.js';
 import { makeGripper } from '../models/gripper.js';
 import { makeHand } from '../models/hand.js';
+import { EXPLAINER_WORDS } from '../words.ts';
 
 const DEG = Math.PI / 180;
 const HAND_AT = new THREE.Vector3(0, 0.047, 0);   // the wrist sits on its mount (steps 2 to 4)
@@ -65,13 +66,10 @@ function animator(stage) {
   return A;
 }
 
+const STEP_TEXT = EXPLAINER_WORDS.hand.steps;
+
 export default {
   id: 'hand',
-  kicker: 'Robot anatomy · the hand',
-  question: 'Why are robot hands so hard?',
-  takeaway: 'A human hand packs about 20 ways to move and dense touch into a small space. Many robots use a simple two-finger clamp instead, and lose most of that.',
-  concept: { name: 'Using the fingers to move an object within the hand is called dexterous manipulation', article: 'Dexterity', href: 'https://robot-wiki.com/frontier/dexterity/' },
-  selfCheck: { q: 'Why do so many robots still use two-finger grippers?', a: 'One motor is cheap, strong and reliable, and most jobs only need to pick something up and put it down. A hand needs many motors, many sensors and much harder control, so it pays off only where the fingers must do the work.' },
   how: `<ul>
     <li>Bones: the wrist and hand contain 27 bones: 8 carpals, 5 metacarpals and 14 phalanges (StatPearls, <a href="https://www.ncbi.nlm.nih.gov/books/NBK507841/" target="_blank" rel="noopener">Anatomy, Shoulder and Upper Limb, Arm Structure and Function</a>).</li>
     <li>Ways to move: each finger has four (its knuckle bends and swings sideways, and two more joints bend) and the thumb has five, 21 in all, the count used by Cao et al. (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11940047/" target="_blank" rel="noopener">2025, Biomimetics</a>). Anatomy models differ by a few, so the text says "about 20".</li>
@@ -84,6 +82,7 @@ export default {
     stage.setScale(0.42);
     const M = stage.mats;
     const A = animator(stage);
+    const breathe = slicer();
 
     // ---------- The clamp ----------
     const grip = makeGripper(stage, { pad: 'flat', fingerLength: 0.08 });
@@ -91,15 +90,18 @@ export default {
     const gripKey = makeKey(M.clay); grip.root.add(gripKey); keyTurn(gripKey, 0);
     const gripGhost = makeKey(M.ref); grip.root.add(gripGhost); keyTurn(gripGhost, GOAL); gripGhost.position.y = KEY_DROP;
     gripGhost.traverse((o) => { o.castShadow = false; });
+    await breathe();
 
     // ---------- The hand ----------
     const hand = makeHand(stage);
+    await breathe();
     const mount = shapes.mesh(shapes.cylinder(0.04, 0.008, 40), M.dark); mount.position.y = -0.043; hand.root.add(mount);
     stage.world.add(hand.root);
     const handKey = makeKey(M.clay); hand.hand.add(handKey); handKey.position.copy(Q); keyTurn(handKey, 0);
     const handGhost = makeKey(M.ref); hand.hand.add(handGhost); handGhost.position.copy(Q); keyTurn(handGhost, GOAL);
     handGhost.traverse((o) => { o.castShadow = false; });
     const keyMats = { plain: M.focus, ok: stage.material('ok'), fail: stage.material('fail') };
+    await breathe();
 
     // Pinch pose, found once by inverse kinematics: thumb and index pads on either face of the key's bow.
     const H2W = (p) => { hand.root.updateMatrixWorld(true); return hand.hand.localToWorld(p.clone()); };
@@ -190,9 +192,9 @@ export default {
 
     return {
       steps: [
-        { text: 'Many robots hold things with a simple clamp: two fingers and one motor that opens and closes them.',
+        { text: STEP_TEXT[0],
           enter: async () => {
-            const my = A.next(); reset();
+            const my = A.next(); reset(); stage.focus(grip.root);
             grip.root.visible = true; grip.motor.material = M.focus;
             place(L1, 'One motor', () => grip.motor.getWorldPosition(new THREE.Vector3()).add(new THREE.Vector3(0, 0.02, 0)), 'focus');
             place(L2, 'Two fingers', () => grip.fingers[1].localToWorld(new THREE.Vector3(0.012, 0.03, 0)), 'plain');
@@ -201,11 +203,11 @@ export default {
             await A.run(0.6, (k) => grip.setGap(lerp(0.085, 0.012, k))); if (!A.alive(my)) return;
             await A.run(0.5, (k) => grip.setGap(lerp(0.012, 0.05, k)));
           } },
-        { text: 'A human hand has 27 bones and about 20 ways to move. Each finger bends at three joints and swings sideways.',
+        { text: STEP_TEXT[1],
           enter: async () => {
-            const my = A.next(); reset();
+            const my = A.next(); reset(); stage.focus(hand.root);
             showHand('human', 'on', 0); hand.setPose(RELAX);
-            A.frame([-0.008, 0.128, 0], [0.12, 0.12, 1], 0.092, 0.122);
+            stage.fit([hand.root], [0.12, 0.12, 1], { margin: 0.86, duration: 1.0 });
             const say = (n) => ui.readout(`Ways to move counted: <b>${n}</b> · Bones in the wrist and hand: <b>27</b>`);
             say(0);
             let n = 0;
@@ -216,13 +218,13 @@ export default {
               if (i === 2) place(L2, 'Bends', knuckleAt(2), 'plain');
             }
           } },
-        { text: 'Robot hands copy this. LEAP Hand keeps three fingers and a thumb: 16 joints, each turned by its own motor.',
+        { text: STEP_TEXT[2],
           enter: async () => {
-            const my = A.next(); reset();
+            const my = A.next(); reset(); stage.focus(hand.root);
             showHand('robot', 'ghost', 0); hand.setPose(RELAX);
             hand.motors.forEach((m) => m.mesh.scale.setScalar(0.001));
             place(L3, 'Little finger left off', () => hand.digits.little.tip.getWorldPosition(new THREE.Vector3()).add(new THREE.Vector3(0, 0.012, 0)), 'plain');
-            A.frame([-0.008, 0.128, 0], [0.12, 0.12, 1], 0.092, 0.122);
+            stage.fit([hand.root], [0.12, 0.12, 1], { margin: 0.86, duration: 1.0 });
             ui.readout('Joints, each with its own motor: <b>0</b>');
             for (let i = 0; i < hand.motors.length; i++) {
               await A.wait(0.12); if (!A.alive(my)) return;
@@ -231,13 +233,14 @@ export default {
               ui.readout(`Joints, each with its own motor: <b>${i + 1}</b>`);
             }
           } },
-        { text: 'Touch matters too. A slip starts as a tiny vibration; fingertip sensors feel it, and the hand squeezes before the object falls.',
+        { text: STEP_TEXT[3],
           enter: async () => {
-            const my = A.next(); reset();
-            showHand('robot', 'off'); handKey.visible = true;
+            const my = A.next(); reset(); stage.focus(handKey, () => ['index', 'middle', 'thumb'].map((d) => hand.tipWorld(d)));
+            // The sensors are this step's one colour, so the key stays plain clay.
+            showHand('robot', 'off'); handKey.visible = true; handKey.setMat(M.clay);
             hand.showSensors(true); hand.setSensorLevel(0.15);
             place(L1, 'Touch sensors', () => hand.tipWorld('middle').add(new THREE.Vector3(0, 0.016, 0)), 'sense');
-            ui.readout("Meta's Digit 360 research fingertip: about <b>8.3 million</b> sensing points, feeling vibrations up to <b>10,000</b> times a second.");
+            ui.readout("One research fingertip, Meta's Digit 360, has about <b>8.3 million</b> sensing points and feels vibrations up to <b>10,000</b> times a second.");
             const r0 = hand.root.rotation.y;
             hand.root.rotation.y = TURN; const pw = H2W(Q); hand.root.rotation.y = r0;
             A.frame([pw.x - 0.008, pw.y + 0.012, pw.z], [-0.12, 0.22, 1], 0.08, 0.085);
@@ -245,19 +248,18 @@ export default {
             hand.setPose(PINCH); replay.show(true);
             await slipDemo(my);
           } },
-        { text: 'Last test: turn the key to point sideways, using only the fingers. Doing that is called dexterous manipulation.',
+        { text: STEP_TEXT[4],
           enter: async () => {
             const my = A.next(); reset();
             const wide = stage.camera.aspect >= 1;
             const gx = wide ? 0.11 : 0.085, hx = wide ? -0.09 : -0.05;
-            const left = hx - 0.125, right = gx + 0.07; // the hand's turned key reaches out to the left
             grip.root.visible = true; grip.root.position.set(gx, 0.078, 0); grip.root.rotation.y = TURN; grip.setGap(0.0032);
             gripKey.visible = true; gripGhost.visible = true;
             showHand('robot', 'off', TURN); hand.root.position.set(hx, HAND_AT.y, 0); hand.setPose(PINCH); handKey.visible = true; handGhost.visible = true;
             place(L1, 'Clamp', () => grip.root.localToWorld(new THREE.Vector3(0, 0.25, 0)), 'plain');
             place(L2, 'Hand', () => H2W(new THREE.Vector3(0, 0.2, 0)), 'plain');
             place(L3, 'Goal', () => grip.root.localToWorld(bladeDir(GOAL).multiplyScalar(0.045).add(new THREE.Vector3(0, KEY_DROP + 0.008, 0))), 'plain');
-            await A.frame([(left + right) / 2, 0.148, 0], [-0.04, 0.2, 1], (right - left) / 2, 0.16); if (!A.alive(my)) return;
+            await stage.fit([grip.root, hand.root], [-0.04, 0.2, 1], { margin: 0.78, duration: 1.0 }); if (!A.alive(my)) return;
             await ui.predict({ question: 'Keeping the wrist still, which one can turn its key to the goal?', answer: 'hand',
               options: [{ id: 'clamp', label: 'The clamp' }, { id: 'hand', label: 'The hand' }, { id: 'both', label: 'Both' }],
               explain: 'Only the hand. The clamp can only open and close, so its key stays the way it was picked up. The hand walks the key round, one finger push at a time.' });

@@ -1,8 +1,11 @@
+import type { ExplainerId } from './words.ts';
+
 /**
  * The explainer curriculum, in reading order: Body, Move, Touch, Sense,
  * Learn. Only scenes that ship are listed; each loader is an explicit
  * dynamic import so the bundler splits every scene into its own chunk and
- * three.js never reaches the server render.
+ * three.js never reaches the server render. Each explainer's words live in
+ * `words.ts`.
  */
 export type ExplainerStep = {
   text: string;
@@ -17,18 +20,12 @@ export type ExplainerInstance = {
 
 export type ExplainerModule = {
   id: string;
-  kicker: string;
-  question: string;
-  takeaway: string;
-  concept: { name: string; article: string; href: string };
-  selfCheck: { q: string; a: string };
   how: string;
-  fallbackSteps?: ExplainerStep[];
   mount: (stage: unknown, ui: unknown) => Promise<ExplainerInstance>;
 };
 
 export type ExplainerEntry = {
-  id: string;
+  id: ExplainerId;
   label: string;
   load: () => Promise<{ default: ExplainerModule }>;
 };
@@ -112,3 +109,10 @@ export const EXPLAINER_CURRICULUM: readonly ExplainerGroup[] = [
 
 export const EXPLAINER_ORDER: readonly ExplainerEntry[] =
   EXPLAINER_CURRICULUM.flatMap(({ items }) => items);
+
+/**
+ * Each explainer's poster, `public/explainers/posters/<id>.webp`, is its
+ * first step on the 16:10 desktop stage
+ * (`scripts/capture-explainer-posters.ts`).
+ */
+export const POSTER_SIZE = { width: 1440, height: 900 } as const;

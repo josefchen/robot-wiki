@@ -73406,6 +73406,34 @@
       }
     },
     {
+      "resultId": "result:VAL-B2-BASE-002:accessible-names:expression:components/explainers/how-robots-work.tsx:alt:1",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "accessible-names:expression:components/explainers/how-robots-work.tsx:alt:1",
+      "coveredPopulationMemberIds": [
+        "accessible-names:expression:components/explainers/how-robots-work.tsx:alt:1"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "accessible-names member expression:components/explainers/how-robots-work.tsx:alt:1 moved from null to 0c214dec7b6ecaf60aeb4908ac41461d5876b9254af07a82332bcbfacb576ca3 exactly as approved delta how-robots-work-20261005-accessible-names-poster-alt permits: New alt on the poster image that stands in for the open explainer's 3D scene on /how-robots-work/ until it runs, without WebGL, in print and under reduced motion. The alt is the first step of the explainer the poster shows, read from the explainers' words file, and the page script sets the poster and its alt together when the reader opens another explainer.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "accessible-names",
+          "member": "expression:components/explainers/how-robots-work.tsx:alt:1",
+          "baselineHash": null,
+          "currentHash": "0c214dec7b6ecaf60aeb4908ac41461d5876b9254af07a82332bcbfacb576ca3",
+          "status": "approved-addition",
+          "approvedDelta": "how-robots-work-20261005-accessible-names-poster-alt"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
       "resultId": "result:VAL-B2-BASE-002:accessible-names:expression:components/home/contents-index.tsx:aria-label:1",
       "assertionId": "VAL-B2-BASE-002",
       "populationMemberId": "accessible-names:expression:components/home/contents-index.tsx:aria-label:1",
@@ -78301,6 +78329,34 @@
           "currentHash": "f670ab2e20a23aeb3e8776cfc9235e8b2c32989117bf228c508d4ec2ff31bbf8",
           "status": "approved-addition",
           "approvedDelta": "how-robots-work-20261002-accessible-names-explainer-pager"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-BASE-002:accessible-names:literal:components/explainers/how-robots-work.tsx:aria-labelledby:3",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "accessible-names:literal:components/explainers/how-robots-work.tsx:aria-labelledby:3",
+      "coveredPopulationMemberIds": [
+        "accessible-names:literal:components/explainers/how-robots-work.tsx:aria-labelledby:3"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "accessible-names member literal:components/explainers/how-robots-work.tsx:aria-labelledby:3 moved from null to a30c8602fd40a06f1caebab0b1e7fde1562f82133cd4ec0ac800708c9c5fec26 exactly as approved delta how-robots-work-20261005-accessible-names-explainers-as-text permits: New aria-labelledby on the \"All twelve as text\" section of /how-robots-work/, which serves every explainer's question, steps and takeaway as text, for site search and for readers without 3D. It points at the section's own heading, so the section is named by the words it shows.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "accessible-names",
+          "member": "literal:components/explainers/how-robots-work.tsx:aria-labelledby:3",
+          "baselineHash": null,
+          "currentHash": "a30c8602fd40a06f1caebab0b1e7fde1562f82133cd4ec0ac800708c9c5fec26",
+          "status": "approved-addition",
+          "approvedDelta": "how-robots-work-20261005-accessible-names-explainers-as-text"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -104512,7 +104568,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/how-robots-work/ ships 2 outbound anchor(s) across footer, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 6 outbound anchor occurrences on it with a visible focus ring in 48 stops",
+      "actual": "/how-robots-work/ ships 2 outbound anchor(s) across footer, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 6 outbound anchor occurrences on it with a visible focus ring in 49 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -104528,7 +104584,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 0,
           "reachedByTab": 6,
-          "tabStops": 48,
+          "tabStops": 49,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -129938,7 +129994,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/how-robots-work/ rendered no v1 identity spelling and no v1 descriptor in 1450 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/how-robots-work/ rendered no v1 identity spelling and no v1 descriptor in 1488 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -131807,7 +131863,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Technical uses of `robot-wiki`, `robot-wiki.com`, and `robot-atlas-trajectory` remain technical and are not altered merely to satisfy public-display sweeps.",
-      "actual": "`robot-wiki` still resolves 25 comment-free use(s) across 12 first-party runtime file(s) and 11005 use(s) across 322 shipped .html/.js/.txt/.xml file(s) of the built export, including 133 measured destination(s), and renders nowhere as visible product identity across 75 routes at 1440x900 and 375x812",
+      "actual": "`robot-wiki` still resolves 37 comment-free use(s) across 13 first-party runtime file(s) and 11005 use(s) across 311 shipped .html/.js/.txt/.xml file(s) of the built export, including 133 measured destination(s), and renders nowhere as visible product identity across 75 routes at 1440x900 and 375x812",
       "selectorOrRegistryId": "contract/design-integrity.md#VAL-B2-ID-004:technical-identifiers",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -131815,10 +131871,11 @@
         "kind": "browser-state",
         "computed": {
           "literal": "robot-wiki",
-          "occurrences": 25,
+          "occurrences": 37,
           "files": [
             "components/analytics/anonymous-analytics.tsx",
             "components/explainers/viewer.ts",
+            "components/explainers/words.ts",
             "lib/brand-v2-figure-evidence.ts",
             "lib/brand-v2-identity-evidence.ts",
             "lib/brand-v2-link-safety.ts",
@@ -131965,7 +132022,7 @@
             "https://robot-wiki.com/world-models/taxonomy/",
             "https://robot-wiki.com/world-models/world-models-vs-simulators/"
           ],
-          "exportFileCount": 322,
+          "exportFileCount": 311,
           "exportFileKinds": [
             ".html",
             ".js",
@@ -131989,7 +132046,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Technical uses of `robot-wiki`, `robot-wiki.com`, and `robot-atlas-trajectory` remain technical and are not altered merely to satisfy public-display sweeps.",
-      "actual": "`robot-wiki.com` still resolves 5 comment-free use(s) across 5 first-party runtime file(s) and 10443 use(s) across 320 shipped .html/.js/.txt/.xml file(s) of the built export, including 133 measured destination(s), and renders nowhere as visible product identity across 75 routes at 1440x900 and 375x812",
+      "actual": "`robot-wiki.com` still resolves 17 comment-free use(s) across 6 first-party runtime file(s) and 10443 use(s) across 309 shipped .html/.js/.txt/.xml file(s) of the built export, including 133 measured destination(s), and renders nowhere as visible product identity across 75 routes at 1440x900 and 375x812",
       "selectorOrRegistryId": "contract/design-integrity.md#VAL-B2-ID-004:technical-identifiers",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -131997,9 +132054,10 @@
         "kind": "browser-state",
         "computed": {
           "literal": "robot-wiki.com",
-          "occurrences": 5,
+          "occurrences": 17,
           "files": [
             "components/analytics/anonymous-analytics.tsx",
+            "components/explainers/words.ts",
             "lib/brand-v2-link-safety.ts",
             "lib/crossref-client.ts",
             "lib/og-cards.ts",
@@ -132140,7 +132198,7 @@
             "https://robot-wiki.com/world-models/taxonomy/",
             "https://robot-wiki.com/world-models/world-models-vs-simulators/"
           ],
-          "exportFileCount": 320,
+          "exportFileCount": 309,
           "exportFileKinds": [
             ".html",
             ".js",
@@ -132363,7 +132421,7 @@
           "sealedPurpose": "First-party schematic final-frame poster for the owner-authorized Kalman pilot clip; the seeded truth, sensor readings, estimate and uncertainty band sit on the graphite stage under an IBM Plex Sans legend band.",
           "sealedSha256": "2f1b410520c36d5a0f1a14fb413736ffcfe9c97148efe7d0cf96f886a02a3504",
           "shippedSha256": "2f1b410520c36d5a0f1a14fb413736ffcfe9c97148efe7d0cf96f886a02a3504",
-          "sealedAssetCount": 21,
+          "sealedAssetCount": 33,
           "approvalSource": "contract/brand-v2-asset-seal.json",
           "byteCount": 317003,
           "byteHash": "2f1b410520c36d5a0f1a14fb413736ffcfe9c97148efe7d0cf96f886a02a3504",
@@ -132398,6 +132456,678 @@
       }
     },
     {
+      "resultId": "result:VAL-B2-ID-006:asset:explainers/posters/arm.webp",
+      "assertionId": "VAL-B2-ID-006",
+      "populationMemberId": "asset:explainers/posters/arm.webp",
+      "coveredPopulationMemberIds": [
+        "asset:explainers/posters/arm.webp"
+      ],
+      "coverageKind": "per-member",
+      "expected": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
+      "actual": "explainers/posters/arm.webp ships exactly the 42140 bytes sealed at 1882e1c98959 in contract/brand-v2-asset-seal.json, approved by robot-wiki-editorial for: First-party poster for the \"The arm\" 3D explainer on /how-robots-work/: its first step captured on the 16:10 desktop stage, shown until the explainer loads. It decodes as webp matching its .webp name and its registered hash 1882e1c98959; decoded a 1440x900 webp frame for catalog explainer arm, rendered from components/explainers/scenes/arm.js by scripts/capture-explainer-posters.ts; no icon, manifest or lockup declaration in the 19 sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on 75 routes at 1440x900 and 375x812. Not established: JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header, not the depicted subject; The explainer catalog, scene source and capture script identify a locally rendered poster, not what its pixels depict; exact-byte editorial approval is checked separately by the asset seal",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#assets:first-party-visual",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "assetPath": "explainers/posters/arm.webp",
+          "category": "static-asset",
+          "sealedBy": "robot-wiki-editorial",
+          "sealedPurpose": "First-party poster for the \"The arm\" 3D explainer on /how-robots-work/: its first step captured on the 16:10 desktop stage, shown until the explainer loads.",
+          "sealedSha256": "1882e1c989590b8966bab13dad35b7fd54fb3214dbc0a813816c4333fe511ad7",
+          "shippedSha256": "1882e1c989590b8966bab13dad35b7fd54fb3214dbc0a813816c4333fe511ad7",
+          "sealedAssetCount": 33,
+          "approvalSource": "contract/brand-v2-asset-seal.json",
+          "byteCount": 42140,
+          "byteHash": "1882e1c989590b8966bab13dad35b7fd54fb3214dbc0a813816c4333fe511ad7",
+          "declaredExtension": ".webp",
+          "decodedFormat": "webp",
+          "formatMatchesExtension": true,
+          "basis": "registered-explainer",
+          "decoded": {
+            "kind": "raster",
+            "widthPx": 1440,
+            "heightPx": 900,
+            "colourComponents": null,
+            "pixelsDecoded": false
+          },
+          "established": [
+            "decoded a 1440x900 webp frame for catalog explainer arm, rendered from components/explainers/scenes/arm.js by scripts/capture-explainer-posters.ts"
+          ],
+          "limitations": [
+            "JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header, not the depicted subject",
+            "The explainer catalog, scene source and capture script identify a locally rendered poster, not what its pixels depict; exact-byte editorial approval is checked separately by the asset seal"
+          ],
+          "identitySourcesChecked": 19,
+          "iconDeclarationsAcrossSweep": 0,
+          "symbolNodesInLockupsAcrossSweep": 0,
+          "routesSwept": 75,
+          "evidence": [
+            "explainers/posters/arm.webp",
+            "contract/brand-v2-asset-seal.json",
+            "evidence/brand-v2/identity-runtime.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ID-006:asset:explainers/posters/flying.webp",
+      "assertionId": "VAL-B2-ID-006",
+      "populationMemberId": "asset:explainers/posters/flying.webp",
+      "coveredPopulationMemberIds": [
+        "asset:explainers/posters/flying.webp"
+      ],
+      "coverageKind": "per-member",
+      "expected": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
+      "actual": "explainers/posters/flying.webp ships exactly the 52850 bytes sealed at b191432ca3c6 in contract/brand-v2-asset-seal.json, approved by robot-wiki-editorial for: First-party poster for the \"Flying\" 3D explainer on /how-robots-work/: its first step captured on the 16:10 desktop stage, shown until the explainer loads. It decodes as webp matching its .webp name and its registered hash b191432ca3c6; decoded a 1440x900 webp frame for catalog explainer flying, rendered from components/explainers/scenes/flying.js by scripts/capture-explainer-posters.ts; no icon, manifest or lockup declaration in the 19 sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on 75 routes at 1440x900 and 375x812. Not established: JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header, not the depicted subject; The explainer catalog, scene source and capture script identify a locally rendered poster, not what its pixels depict; exact-byte editorial approval is checked separately by the asset seal",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#assets:first-party-visual",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "assetPath": "explainers/posters/flying.webp",
+          "category": "static-asset",
+          "sealedBy": "robot-wiki-editorial",
+          "sealedPurpose": "First-party poster for the \"Flying\" 3D explainer on /how-robots-work/: its first step captured on the 16:10 desktop stage, shown until the explainer loads.",
+          "sealedSha256": "b191432ca3c62c77526a77b718f81994a8d4eb6c8132505b6f99e39c9edeb018",
+          "shippedSha256": "b191432ca3c62c77526a77b718f81994a8d4eb6c8132505b6f99e39c9edeb018",
+          "sealedAssetCount": 33,
+          "approvalSource": "contract/brand-v2-asset-seal.json",
+          "byteCount": 52850,
+          "byteHash": "b191432ca3c62c77526a77b718f81994a8d4eb6c8132505b6f99e39c9edeb018",
+          "declaredExtension": ".webp",
+          "decodedFormat": "webp",
+          "formatMatchesExtension": true,
+          "basis": "registered-explainer",
+          "decoded": {
+            "kind": "raster",
+            "widthPx": 1440,
+            "heightPx": 900,
+            "colourComponents": null,
+            "pixelsDecoded": false
+          },
+          "established": [
+            "decoded a 1440x900 webp frame for catalog explainer flying, rendered from components/explainers/scenes/flying.js by scripts/capture-explainer-posters.ts"
+          ],
+          "limitations": [
+            "JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header, not the depicted subject",
+            "The explainer catalog, scene source and capture script identify a locally rendered poster, not what its pixels depict; exact-byte editorial approval is checked separately by the asset seal"
+          ],
+          "identitySourcesChecked": 19,
+          "iconDeclarationsAcrossSweep": 0,
+          "symbolNodesInLockupsAcrossSweep": 0,
+          "routesSwept": 75,
+          "evidence": [
+            "explainers/posters/flying.webp",
+            "contract/brand-v2-asset-seal.json",
+            "evidence/brand-v2/identity-runtime.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ID-006:asset:explainers/posters/grip.webp",
+      "assertionId": "VAL-B2-ID-006",
+      "populationMemberId": "asset:explainers/posters/grip.webp",
+      "coveredPopulationMemberIds": [
+        "asset:explainers/posters/grip.webp"
+      ],
+      "coverageKind": "per-member",
+      "expected": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
+      "actual": "explainers/posters/grip.webp ships exactly the 13474 bytes sealed at 7cdea4cff650 in contract/brand-v2-asset-seal.json, approved by robot-wiki-editorial for: First-party poster for the \"Holding without slipping\" 3D explainer on /how-robots-work/: its first step captured on the 16:10 desktop stage, shown until the explainer loads. It decodes as webp matching its .webp name and its registered hash 7cdea4cff650; decoded a 1440x900 webp frame for catalog explainer grip, rendered from components/explainers/scenes/grip.js by scripts/capture-explainer-posters.ts; no icon, manifest or lockup declaration in the 19 sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on 75 routes at 1440x900 and 375x812. Not established: JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header, not the depicted subject; The explainer catalog, scene source and capture script identify a locally rendered poster, not what its pixels depict; exact-byte editorial approval is checked separately by the asset seal",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#assets:first-party-visual",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "assetPath": "explainers/posters/grip.webp",
+          "category": "static-asset",
+          "sealedBy": "robot-wiki-editorial",
+          "sealedPurpose": "First-party poster for the \"Holding without slipping\" 3D explainer on /how-robots-work/: its first step captured on the 16:10 desktop stage, shown until the explainer loads.",
+          "sealedSha256": "7cdea4cff65082650646b0d733472bbbaa4a0098552370ab0ba540270528f905",
+          "shippedSha256": "7cdea4cff65082650646b0d733472bbbaa4a0098552370ab0ba540270528f905",
+          "sealedAssetCount": 33,
+          "approvalSource": "contract/brand-v2-asset-seal.json",
+          "byteCount": 13474,
+          "byteHash": "7cdea4cff65082650646b0d733472bbbaa4a0098552370ab0ba540270528f905",
+          "declaredExtension": ".webp",
+          "decodedFormat": "webp",
+          "formatMatchesExtension": true,
+          "basis": "registered-explainer",
+          "decoded": {
+            "kind": "raster",
+            "widthPx": 1440,
+            "heightPx": 900,
+            "colourComponents": null,
+            "pixelsDecoded": false
+          },
+          "established": [
+            "decoded a 1440x900 webp frame for catalog explainer grip, rendered from components/explainers/scenes/grip.js by scripts/capture-explainer-posters.ts"
+          ],
+          "limitations": [
+            "JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header, not the depicted subject",
+            "The explainer catalog, scene source and capture script identify a locally rendered poster, not what its pixels depict; exact-byte editorial approval is checked separately by the asset seal"
+          ],
+          "identitySourcesChecked": 19,
+          "iconDeclarationsAcrossSweep": 0,
+          "symbolNodesInLockupsAcrossSweep": 0,
+          "routesSwept": 75,
+          "evidence": [
+            "explainers/posters/grip.webp",
+            "contract/brand-v2-asset-seal.json",
+            "evidence/brand-v2/identity-runtime.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ID-006:asset:explainers/posters/hand.webp",
+      "assertionId": "VAL-B2-ID-006",
+      "populationMemberId": "asset:explainers/posters/hand.webp",
+      "coveredPopulationMemberIds": [
+        "asset:explainers/posters/hand.webp"
+      ],
+      "coverageKind": "per-member",
+      "expected": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
+      "actual": "explainers/posters/hand.webp ships exactly the 19974 bytes sealed at 4e24ddf9d123 in contract/brand-v2-asset-seal.json, approved by robot-wiki-editorial for: First-party poster for the \"The hand\" 3D explainer on /how-robots-work/: its first step captured on the 16:10 desktop stage, shown until the explainer loads. It decodes as webp matching its .webp name and its registered hash 4e24ddf9d123; decoded a 1440x900 webp frame for catalog explainer hand, rendered from components/explainers/scenes/hand.js by scripts/capture-explainer-posters.ts; no icon, manifest or lockup declaration in the 19 sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on 75 routes at 1440x900 and 375x812. Not established: JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header, not the depicted subject; The explainer catalog, scene source and capture script identify a locally rendered poster, not what its pixels depict; exact-byte editorial approval is checked separately by the asset seal",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#assets:first-party-visual",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "assetPath": "explainers/posters/hand.webp",
+          "category": "static-asset",
+          "sealedBy": "robot-wiki-editorial",
+          "sealedPurpose": "First-party poster for the \"The hand\" 3D explainer on /how-robots-work/: its first step captured on the 16:10 desktop stage, shown until the explainer loads.",
+          "sealedSha256": "4e24ddf9d123d8a93d65e7981e05611c562d6f7b0a03ecabd682c5981c166b9c",
+          "shippedSha256": "4e24ddf9d123d8a93d65e7981e05611c562d6f7b0a03ecabd682c5981c166b9c",
+          "sealedAssetCount": 33,
+          "approvalSource": "contract/brand-v2-asset-seal.json",
+          "byteCount": 19974,
+          "byteHash": "4e24ddf9d123d8a93d65e7981e05611c562d6f7b0a03ecabd682c5981c166b9c",
+          "declaredExtension": ".webp",
+          "decodedFormat": "webp",
+          "formatMatchesExtension": true,
+          "basis": "registered-explainer",
+          "decoded": {
+            "kind": "raster",
+            "widthPx": 1440,
+            "heightPx": 900,
+            "colourComponents": null,
+            "pixelsDecoded": false
+          },
+          "established": [
+            "decoded a 1440x900 webp frame for catalog explainer hand, rendered from components/explainers/scenes/hand.js by scripts/capture-explainer-posters.ts"
+          ],
+          "limitations": [
+            "JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header, not the depicted subject",
+            "The explainer catalog, scene source and capture script identify a locally rendered poster, not what its pixels depict; exact-byte editorial approval is checked separately by the asset seal"
+          ],
+          "identitySourcesChecked": 19,
+          "iconDeclarationsAcrossSweep": 0,
+          "symbolNodesInLockupsAcrossSweep": 0,
+          "routesSwept": 75,
+          "evidence": [
+            "explainers/posters/hand.webp",
+            "contract/brand-v2-asset-seal.json",
+            "evidence/brand-v2/identity-runtime.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ID-006:asset:explainers/posters/humanoid.webp",
+      "assertionId": "VAL-B2-ID-006",
+      "populationMemberId": "asset:explainers/posters/humanoid.webp",
+      "coveredPopulationMemberIds": [
+        "asset:explainers/posters/humanoid.webp"
+      ],
+      "coverageKind": "per-member",
+      "expected": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
+      "actual": "explainers/posters/humanoid.webp ships exactly the 26986 bytes sealed at 170fee9e5f6d in contract/brand-v2-asset-seal.json, approved by robot-wiki-editorial for: First-party poster for the \"Inside a humanoid\" 3D explainer on /how-robots-work/: its first step captured on the 16:10 desktop stage, shown until the explainer loads. It decodes as webp matching its .webp name and its registered hash 170fee9e5f6d; decoded a 1440x900 webp frame for catalog explainer humanoid, rendered from components/explainers/scenes/humanoid.js by scripts/capture-explainer-posters.ts; no icon, manifest or lockup declaration in the 19 sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on 75 routes at 1440x900 and 375x812. Not established: JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header, not the depicted subject; The explainer catalog, scene source and capture script identify a locally rendered poster, not what its pixels depict; exact-byte editorial approval is checked separately by the asset seal",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#assets:first-party-visual",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "assetPath": "explainers/posters/humanoid.webp",
+          "category": "static-asset",
+          "sealedBy": "robot-wiki-editorial",
+          "sealedPurpose": "First-party poster for the \"Inside a humanoid\" 3D explainer on /how-robots-work/: its first step captured on the 16:10 desktop stage, shown until the explainer loads.",
+          "sealedSha256": "170fee9e5f6d6d69a4bfaaf0a6400a889e56ba83d6e51d588ab2dffeb1ab91e7",
+          "shippedSha256": "170fee9e5f6d6d69a4bfaaf0a6400a889e56ba83d6e51d588ab2dffeb1ab91e7",
+          "sealedAssetCount": 33,
+          "approvalSource": "contract/brand-v2-asset-seal.json",
+          "byteCount": 26986,
+          "byteHash": "170fee9e5f6d6d69a4bfaaf0a6400a889e56ba83d6e51d588ab2dffeb1ab91e7",
+          "declaredExtension": ".webp",
+          "decodedFormat": "webp",
+          "formatMatchesExtension": true,
+          "basis": "registered-explainer",
+          "decoded": {
+            "kind": "raster",
+            "widthPx": 1440,
+            "heightPx": 900,
+            "colourComponents": null,
+            "pixelsDecoded": false
+          },
+          "established": [
+            "decoded a 1440x900 webp frame for catalog explainer humanoid, rendered from components/explainers/scenes/humanoid.js by scripts/capture-explainer-posters.ts"
+          ],
+          "limitations": [
+            "JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header, not the depicted subject",
+            "The explainer catalog, scene source and capture script identify a locally rendered poster, not what its pixels depict; exact-byte editorial approval is checked separately by the asset seal"
+          ],
+          "identitySourcesChecked": 19,
+          "iconDeclarationsAcrossSweep": 0,
+          "symbolNodesInLockupsAcrossSweep": 0,
+          "routesSwept": 75,
+          "evidence": [
+            "explainers/posters/humanoid.webp",
+            "contract/brand-v2-asset-seal.json",
+            "evidence/brand-v2/identity-runtime.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ID-006:asset:explainers/posters/mug.webp",
+      "assertionId": "VAL-B2-ID-006",
+      "populationMemberId": "asset:explainers/posters/mug.webp",
+      "coveredPopulationMemberIds": [
+        "asset:explainers/posters/mug.webp"
+      ],
+      "coverageKind": "per-member",
+      "expected": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
+      "actual": "explainers/posters/mug.webp ships exactly the 55386 bytes sealed at b69116ddfdc8 in contract/brand-v2-asset-seal.json, approved by robot-wiki-editorial for: First-party poster for the \"Four ways to see a mug\" 3D explainer on /how-robots-work/: its first step captured on the 16:10 desktop stage, shown until the explainer loads. It decodes as webp matching its .webp name and its registered hash b69116ddfdc8; decoded a 1440x900 webp frame for catalog explainer mug, rendered from components/explainers/scenes/mug.js by scripts/capture-explainer-posters.ts; no icon, manifest or lockup declaration in the 19 sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on 75 routes at 1440x900 and 375x812. Not established: JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header, not the depicted subject; The explainer catalog, scene source and capture script identify a locally rendered poster, not what its pixels depict; exact-byte editorial approval is checked separately by the asset seal",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#assets:first-party-visual",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "assetPath": "explainers/posters/mug.webp",
+          "category": "static-asset",
+          "sealedBy": "robot-wiki-editorial",
+          "sealedPurpose": "First-party poster for the \"Four ways to see a mug\" 3D explainer on /how-robots-work/: its first step captured on the 16:10 desktop stage, shown until the explainer loads.",
+          "sealedSha256": "b69116ddfdc8ef58f574f914590e8e6868c10b6d23f0f59c991ac8bbcaa1b465",
+          "shippedSha256": "b69116ddfdc8ef58f574f914590e8e6868c10b6d23f0f59c991ac8bbcaa1b465",
+          "sealedAssetCount": 33,
+          "approvalSource": "contract/brand-v2-asset-seal.json",
+          "byteCount": 55386,
+          "byteHash": "b69116ddfdc8ef58f574f914590e8e6868c10b6d23f0f59c991ac8bbcaa1b465",
+          "declaredExtension": ".webp",
+          "decodedFormat": "webp",
+          "formatMatchesExtension": true,
+          "basis": "registered-explainer",
+          "decoded": {
+            "kind": "raster",
+            "widthPx": 1440,
+            "heightPx": 900,
+            "colourComponents": null,
+            "pixelsDecoded": false
+          },
+          "established": [
+            "decoded a 1440x900 webp frame for catalog explainer mug, rendered from components/explainers/scenes/mug.js by scripts/capture-explainer-posters.ts"
+          ],
+          "limitations": [
+            "JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header, not the depicted subject",
+            "The explainer catalog, scene source and capture script identify a locally rendered poster, not what its pixels depict; exact-byte editorial approval is checked separately by the asset seal"
+          ],
+          "identitySourcesChecked": 19,
+          "iconDeclarationsAcrossSweep": 0,
+          "symbolNodesInLockupsAcrossSweep": 0,
+          "routesSwept": 75,
+          "evidence": [
+            "explainers/posters/mug.webp",
+            "contract/brand-v2-asset-seal.json",
+            "evidence/brand-v2/identity-runtime.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ID-006:asset:explainers/posters/path.webp",
+      "assertionId": "VAL-B2-ID-006",
+      "populationMemberId": "asset:explainers/posters/path.webp",
+      "coveredPopulationMemberIds": [
+        "asset:explainers/posters/path.webp"
+      ],
+      "coverageKind": "per-member",
+      "expected": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
+      "actual": "explainers/posters/path.webp ships exactly the 40410 bytes sealed at d15a6d0a5fd4 in contract/brand-v2-asset-seal.json, approved by robot-wiki-editorial for: First-party poster for the \"Finding a path\" 3D explainer on /how-robots-work/: its first step captured on the 16:10 desktop stage, shown until the explainer loads. It decodes as webp matching its .webp name and its registered hash d15a6d0a5fd4; decoded a 1440x900 webp frame for catalog explainer path, rendered from components/explainers/scenes/path.js by scripts/capture-explainer-posters.ts; no icon, manifest or lockup declaration in the 19 sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on 75 routes at 1440x900 and 375x812. Not established: JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header, not the depicted subject; The explainer catalog, scene source and capture script identify a locally rendered poster, not what its pixels depict; exact-byte editorial approval is checked separately by the asset seal",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#assets:first-party-visual",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "assetPath": "explainers/posters/path.webp",
+          "category": "static-asset",
+          "sealedBy": "robot-wiki-editorial",
+          "sealedPurpose": "First-party poster for the \"Finding a path\" 3D explainer on /how-robots-work/: its first step captured on the 16:10 desktop stage, shown until the explainer loads.",
+          "sealedSha256": "d15a6d0a5fd45525b04b9398b3d711163e9ef33cc5150f2f317f3e829dfd070e",
+          "shippedSha256": "d15a6d0a5fd45525b04b9398b3d711163e9ef33cc5150f2f317f3e829dfd070e",
+          "sealedAssetCount": 33,
+          "approvalSource": "contract/brand-v2-asset-seal.json",
+          "byteCount": 40410,
+          "byteHash": "d15a6d0a5fd45525b04b9398b3d711163e9ef33cc5150f2f317f3e829dfd070e",
+          "declaredExtension": ".webp",
+          "decodedFormat": "webp",
+          "formatMatchesExtension": true,
+          "basis": "registered-explainer",
+          "decoded": {
+            "kind": "raster",
+            "widthPx": 1440,
+            "heightPx": 900,
+            "colourComponents": null,
+            "pixelsDecoded": false
+          },
+          "established": [
+            "decoded a 1440x900 webp frame for catalog explainer path, rendered from components/explainers/scenes/path.js by scripts/capture-explainer-posters.ts"
+          ],
+          "limitations": [
+            "JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header, not the depicted subject",
+            "The explainer catalog, scene source and capture script identify a locally rendered poster, not what its pixels depict; exact-byte editorial approval is checked separately by the asset seal"
+          ],
+          "identitySourcesChecked": 19,
+          "iconDeclarationsAcrossSweep": 0,
+          "symbolNodesInLockupsAcrossSweep": 0,
+          "routesSwept": 75,
+          "evidence": [
+            "explainers/posters/path.webp",
+            "contract/brand-v2-asset-seal.json",
+            "evidence/brand-v2/identity-runtime.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ID-006:asset:explainers/posters/puppeteer.webp",
+      "assertionId": "VAL-B2-ID-006",
+      "populationMemberId": "asset:explainers/posters/puppeteer.webp",
+      "coveredPopulationMemberIds": [
+        "asset:explainers/posters/puppeteer.webp"
+      ],
+      "coverageKind": "per-member",
+      "expected": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
+      "actual": "explainers/posters/puppeteer.webp ships exactly the 50154 bytes sealed at 0d30e5d68e5e in contract/brand-v2-asset-seal.json, approved by robot-wiki-editorial for: First-party poster for the \"Learning from a puppeteer\" 3D explainer on /how-robots-work/: its first step captured on the 16:10 desktop stage, shown until the explainer loads. It decodes as webp matching its .webp name and its registered hash 0d30e5d68e5e; decoded a 1440x900 webp frame for catalog explainer puppeteer, rendered from components/explainers/scenes/puppeteer.js by scripts/capture-explainer-posters.ts; no icon, manifest or lockup declaration in the 19 sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on 75 routes at 1440x900 and 375x812. Not established: JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header, not the depicted subject; The explainer catalog, scene source and capture script identify a locally rendered poster, not what its pixels depict; exact-byte editorial approval is checked separately by the asset seal",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#assets:first-party-visual",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "assetPath": "explainers/posters/puppeteer.webp",
+          "category": "static-asset",
+          "sealedBy": "robot-wiki-editorial",
+          "sealedPurpose": "First-party poster for the \"Learning from a puppeteer\" 3D explainer on /how-robots-work/: its first step captured on the 16:10 desktop stage, shown until the explainer loads.",
+          "sealedSha256": "0d30e5d68e5e2957c450a2b2f6d935f2d1dee0f219e247f1f471b540c95cc0c7",
+          "shippedSha256": "0d30e5d68e5e2957c450a2b2f6d935f2d1dee0f219e247f1f471b540c95cc0c7",
+          "sealedAssetCount": 33,
+          "approvalSource": "contract/brand-v2-asset-seal.json",
+          "byteCount": 50154,
+          "byteHash": "0d30e5d68e5e2957c450a2b2f6d935f2d1dee0f219e247f1f471b540c95cc0c7",
+          "declaredExtension": ".webp",
+          "decodedFormat": "webp",
+          "formatMatchesExtension": true,
+          "basis": "registered-explainer",
+          "decoded": {
+            "kind": "raster",
+            "widthPx": 1440,
+            "heightPx": 900,
+            "colourComponents": null,
+            "pixelsDecoded": false
+          },
+          "established": [
+            "decoded a 1440x900 webp frame for catalog explainer puppeteer, rendered from components/explainers/scenes/puppeteer.js by scripts/capture-explainer-posters.ts"
+          ],
+          "limitations": [
+            "JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header, not the depicted subject",
+            "The explainer catalog, scene source and capture script identify a locally rendered poster, not what its pixels depict; exact-byte editorial approval is checked separately by the asset seal"
+          ],
+          "identitySourcesChecked": 19,
+          "iconDeclarationsAcrossSweep": 0,
+          "symbolNodesInLockupsAcrossSweep": 0,
+          "routesSwept": 75,
+          "evidence": [
+            "explainers/posters/puppeteer.webp",
+            "contract/brand-v2-asset-seal.json",
+            "evidence/brand-v2/identity-runtime.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ID-006:asset:explainers/posters/reaching.webp",
+      "assertionId": "VAL-B2-ID-006",
+      "populationMemberId": "asset:explainers/posters/reaching.webp",
+      "coveredPopulationMemberIds": [
+        "asset:explainers/posters/reaching.webp"
+      ],
+      "coverageKind": "per-member",
+      "expected": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
+      "actual": "explainers/posters/reaching.webp ships exactly the 25706 bytes sealed at 10b5165a947f in contract/brand-v2-asset-seal.json, approved by robot-wiki-editorial for: First-party poster for the \"Reaching\" 3D explainer on /how-robots-work/: its first step captured on the 16:10 desktop stage, shown until the explainer loads. It decodes as webp matching its .webp name and its registered hash 10b5165a947f; decoded a 1440x900 webp frame for catalog explainer reaching, rendered from components/explainers/scenes/reaching.js by scripts/capture-explainer-posters.ts; no icon, manifest or lockup declaration in the 19 sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on 75 routes at 1440x900 and 375x812. Not established: JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header, not the depicted subject; The explainer catalog, scene source and capture script identify a locally rendered poster, not what its pixels depict; exact-byte editorial approval is checked separately by the asset seal",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#assets:first-party-visual",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "assetPath": "explainers/posters/reaching.webp",
+          "category": "static-asset",
+          "sealedBy": "robot-wiki-editorial",
+          "sealedPurpose": "First-party poster for the \"Reaching\" 3D explainer on /how-robots-work/: its first step captured on the 16:10 desktop stage, shown until the explainer loads.",
+          "sealedSha256": "10b5165a947f800802121c9f4a0b5441fdbeea83dd6750644264fabff3a7a8a4",
+          "shippedSha256": "10b5165a947f800802121c9f4a0b5441fdbeea83dd6750644264fabff3a7a8a4",
+          "sealedAssetCount": 33,
+          "approvalSource": "contract/brand-v2-asset-seal.json",
+          "byteCount": 25706,
+          "byteHash": "10b5165a947f800802121c9f4a0b5441fdbeea83dd6750644264fabff3a7a8a4",
+          "declaredExtension": ".webp",
+          "decodedFormat": "webp",
+          "formatMatchesExtension": true,
+          "basis": "registered-explainer",
+          "decoded": {
+            "kind": "raster",
+            "widthPx": 1440,
+            "heightPx": 900,
+            "colourComponents": null,
+            "pixelsDecoded": false
+          },
+          "established": [
+            "decoded a 1440x900 webp frame for catalog explainer reaching, rendered from components/explainers/scenes/reaching.js by scripts/capture-explainer-posters.ts"
+          ],
+          "limitations": [
+            "JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header, not the depicted subject",
+            "The explainer catalog, scene source and capture script identify a locally rendered poster, not what its pixels depict; exact-byte editorial approval is checked separately by the asset seal"
+          ],
+          "identitySourcesChecked": 19,
+          "iconDeclarationsAcrossSweep": 0,
+          "symbolNodesInLockupsAcrossSweep": 0,
+          "routesSwept": 75,
+          "evidence": [
+            "explainers/posters/reaching.webp",
+            "contract/brand-v2-asset-seal.json",
+            "evidence/brand-v2/identity-runtime.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ID-006:asset:explainers/posters/upright.webp",
+      "assertionId": "VAL-B2-ID-006",
+      "populationMemberId": "asset:explainers/posters/upright.webp",
+      "coveredPopulationMemberIds": [
+        "asset:explainers/posters/upright.webp"
+      ],
+      "coverageKind": "per-member",
+      "expected": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
+      "actual": "explainers/posters/upright.webp ships exactly the 44208 bytes sealed at 20bc3a57d408 in contract/brand-v2-asset-seal.json, approved by robot-wiki-editorial for: First-party poster for the \"Staying upright\" 3D explainer on /how-robots-work/: its first step captured on the 16:10 desktop stage, shown until the explainer loads. It decodes as webp matching its .webp name and its registered hash 20bc3a57d408; decoded a 1440x900 webp frame for catalog explainer upright, rendered from components/explainers/scenes/upright.js by scripts/capture-explainer-posters.ts; no icon, manifest or lockup declaration in the 19 sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on 75 routes at 1440x900 and 375x812. Not established: JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header, not the depicted subject; The explainer catalog, scene source and capture script identify a locally rendered poster, not what its pixels depict; exact-byte editorial approval is checked separately by the asset seal",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#assets:first-party-visual",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "assetPath": "explainers/posters/upright.webp",
+          "category": "static-asset",
+          "sealedBy": "robot-wiki-editorial",
+          "sealedPurpose": "First-party poster for the \"Staying upright\" 3D explainer on /how-robots-work/: its first step captured on the 16:10 desktop stage, shown until the explainer loads.",
+          "sealedSha256": "20bc3a57d408d1876980136da1956f766b261c2d32395f37a1f3c358305b06dc",
+          "shippedSha256": "20bc3a57d408d1876980136da1956f766b261c2d32395f37a1f3c358305b06dc",
+          "sealedAssetCount": 33,
+          "approvalSource": "contract/brand-v2-asset-seal.json",
+          "byteCount": 44208,
+          "byteHash": "20bc3a57d408d1876980136da1956f766b261c2d32395f37a1f3c358305b06dc",
+          "declaredExtension": ".webp",
+          "decodedFormat": "webp",
+          "formatMatchesExtension": true,
+          "basis": "registered-explainer",
+          "decoded": {
+            "kind": "raster",
+            "widthPx": 1440,
+            "heightPx": 900,
+            "colourComponents": null,
+            "pixelsDecoded": false
+          },
+          "established": [
+            "decoded a 1440x900 webp frame for catalog explainer upright, rendered from components/explainers/scenes/upright.js by scripts/capture-explainer-posters.ts"
+          ],
+          "limitations": [
+            "JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header, not the depicted subject",
+            "The explainer catalog, scene source and capture script identify a locally rendered poster, not what its pixels depict; exact-byte editorial approval is checked separately by the asset seal"
+          ],
+          "identitySourcesChecked": 19,
+          "iconDeclarationsAcrossSweep": 0,
+          "symbolNodesInLockupsAcrossSweep": 0,
+          "routesSwept": 75,
+          "evidence": [
+            "explainers/posters/upright.webp",
+            "contract/brand-v2-asset-seal.json",
+            "evidence/brand-v2/identity-runtime.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ID-006:asset:explainers/posters/whereami.webp",
+      "assertionId": "VAL-B2-ID-006",
+      "populationMemberId": "asset:explainers/posters/whereami.webp",
+      "coveredPopulationMemberIds": [
+        "asset:explainers/posters/whereami.webp"
+      ],
+      "coverageKind": "per-member",
+      "expected": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
+      "actual": "explainers/posters/whereami.webp ships exactly the 37444 bytes sealed at 8ef8ce919f84 in contract/brand-v2-asset-seal.json, approved by robot-wiki-editorial for: First-party poster for the \"Knowing where you are\" 3D explainer on /how-robots-work/: its first step captured on the 16:10 desktop stage, shown until the explainer loads. It decodes as webp matching its .webp name and its registered hash 8ef8ce919f84; decoded a 1440x900 webp frame for catalog explainer whereami, rendered from components/explainers/scenes/whereami.js by scripts/capture-explainer-posters.ts; no icon, manifest or lockup declaration in the 19 sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on 75 routes at 1440x900 and 375x812. Not established: JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header, not the depicted subject; The explainer catalog, scene source and capture script identify a locally rendered poster, not what its pixels depict; exact-byte editorial approval is checked separately by the asset seal",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#assets:first-party-visual",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "assetPath": "explainers/posters/whereami.webp",
+          "category": "static-asset",
+          "sealedBy": "robot-wiki-editorial",
+          "sealedPurpose": "First-party poster for the \"Knowing where you are\" 3D explainer on /how-robots-work/: its first step captured on the 16:10 desktop stage, shown until the explainer loads.",
+          "sealedSha256": "8ef8ce919f8475abdcbeeacaff7a64c229c53bbf69a18df70042699acc9ae7e6",
+          "shippedSha256": "8ef8ce919f8475abdcbeeacaff7a64c229c53bbf69a18df70042699acc9ae7e6",
+          "sealedAssetCount": 33,
+          "approvalSource": "contract/brand-v2-asset-seal.json",
+          "byteCount": 37444,
+          "byteHash": "8ef8ce919f8475abdcbeeacaff7a64c229c53bbf69a18df70042699acc9ae7e6",
+          "declaredExtension": ".webp",
+          "decodedFormat": "webp",
+          "formatMatchesExtension": true,
+          "basis": "registered-explainer",
+          "decoded": {
+            "kind": "raster",
+            "widthPx": 1440,
+            "heightPx": 900,
+            "colourComponents": null,
+            "pixelsDecoded": false
+          },
+          "established": [
+            "decoded a 1440x900 webp frame for catalog explainer whereami, rendered from components/explainers/scenes/whereami.js by scripts/capture-explainer-posters.ts"
+          ],
+          "limitations": [
+            "JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header, not the depicted subject",
+            "The explainer catalog, scene source and capture script identify a locally rendered poster, not what its pixels depict; exact-byte editorial approval is checked separately by the asset seal"
+          ],
+          "identitySourcesChecked": 19,
+          "iconDeclarationsAcrossSweep": 0,
+          "symbolNodesInLockupsAcrossSweep": 0,
+          "routesSwept": 75,
+          "evidence": [
+            "explainers/posters/whereami.webp",
+            "contract/brand-v2-asset-seal.json",
+            "evidence/brand-v2/identity-runtime.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ID-006:asset:explainers/posters/worlds.webp",
+      "assertionId": "VAL-B2-ID-006",
+      "populationMemberId": "asset:explainers/posters/worlds.webp",
+      "coveredPopulationMemberIds": [
+        "asset:explainers/posters/worlds.webp"
+      ],
+      "coverageKind": "per-member",
+      "expected": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
+      "actual": "explainers/posters/worlds.webp ships exactly the 23088 bytes sealed at 6e02e3c49228 in contract/brand-v2-asset-seal.json, approved by robot-wiki-editorial for: First-party poster for the \"Practising in a thousand worlds\" 3D explainer on /how-robots-work/: its first step captured on the 16:10 desktop stage, shown until the explainer loads. It decodes as webp matching its .webp name and its registered hash 6e02e3c49228; decoded a 1440x900 webp frame for catalog explainer worlds, rendered from components/explainers/scenes/worlds.js by scripts/capture-explainer-posters.ts; no icon, manifest or lockup declaration in the 19 sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on 75 routes at 1440x900 and 375x812. Not established: JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header, not the depicted subject; The explainer catalog, scene source and capture script identify a locally rendered poster, not what its pixels depict; exact-byte editorial approval is checked separately by the asset seal",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#assets:first-party-visual",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "assetPath": "explainers/posters/worlds.webp",
+          "category": "static-asset",
+          "sealedBy": "robot-wiki-editorial",
+          "sealedPurpose": "First-party poster for the \"Practising in a thousand worlds\" 3D explainer on /how-robots-work/: its first step captured on the 16:10 desktop stage, shown until the explainer loads.",
+          "sealedSha256": "6e02e3c4922870db23a5b94dbefecf5550e9e3a5ced99ebf7023c0571fb99c1b",
+          "shippedSha256": "6e02e3c4922870db23a5b94dbefecf5550e9e3a5ced99ebf7023c0571fb99c1b",
+          "sealedAssetCount": 33,
+          "approvalSource": "contract/brand-v2-asset-seal.json",
+          "byteCount": 23088,
+          "byteHash": "6e02e3c4922870db23a5b94dbefecf5550e9e3a5ced99ebf7023c0571fb99c1b",
+          "declaredExtension": ".webp",
+          "decodedFormat": "webp",
+          "formatMatchesExtension": true,
+          "basis": "registered-explainer",
+          "decoded": {
+            "kind": "raster",
+            "widthPx": 1440,
+            "heightPx": 900,
+            "colourComponents": null,
+            "pixelsDecoded": false
+          },
+          "established": [
+            "decoded a 1440x900 webp frame for catalog explainer worlds, rendered from components/explainers/scenes/worlds.js by scripts/capture-explainer-posters.ts"
+          ],
+          "limitations": [
+            "JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header, not the depicted subject",
+            "The explainer catalog, scene source and capture script identify a locally rendered poster, not what its pixels depict; exact-byte editorial approval is checked separately by the asset seal"
+          ],
+          "identitySourcesChecked": 19,
+          "iconDeclarationsAcrossSweep": 0,
+          "symbolNodesInLockupsAcrossSweep": 0,
+          "routesSwept": 75,
+          "evidence": [
+            "explainers/posters/worlds.webp",
+            "contract/brand-v2-asset-seal.json",
+            "evidence/brand-v2/identity-runtime.json"
+          ]
+        }
+      }
+    },
+    {
       "resultId": "result:VAL-B2-ID-006:asset:images/anymal-anybotics-2022.jpg",
       "assertionId": "VAL-B2-ID-006",
       "populationMemberId": "asset:images/anymal-anybotics-2022.jpg",
@@ -132419,7 +133149,7 @@
           "sealedPurpose": "Editorial photograph of an ANYmal quadruped in an industrial facility, credited to ANYbotics under CC BY-SA 4.0 and used to illustrate legged inspection hardware.",
           "sealedSha256": "65bd6998719c0f2f7c65c492072fb66bb3a78ec501d7e00a1e9555c9cf5d8a5b",
           "shippedSha256": "65bd6998719c0f2f7c65c492072fb66bb3a78ec501d7e00a1e9555c9cf5d8a5b",
-          "sealedAssetCount": 21,
+          "sealedAssetCount": 33,
           "approvalSource": "contract/brand-v2-asset-seal.json",
           "byteCount": 706854,
           "byteHash": "65bd6998719c0f2f7c65c492072fb66bb3a78ec501d7e00a1e9555c9cf5d8a5b",
@@ -132474,7 +133204,7 @@
           "sealedPurpose": "Editorial photograph of the 2013 DARPA Atlas humanoid, a public-domain US government image used to illustrate hydraulic humanoid hardware.",
           "sealedSha256": "b473db0480ee8a1854da69855f9e8b61a3e6552a5e1ecfc83895d089467e9caf",
           "shippedSha256": "b473db0480ee8a1854da69855f9e8b61a3e6552a5e1ecfc83895d089467e9caf",
-          "sealedAssetCount": 21,
+          "sealedAssetCount": 33,
           "approvalSource": "contract/brand-v2-asset-seal.json",
           "byteCount": 333540,
           "byteHash": "b473db0480ee8a1854da69855f9e8b61a3e6552a5e1ecfc83895d089467e9caf",
@@ -132529,7 +133259,7 @@
           "sealedPurpose": "First-party explanatory diagram of covariate shift between demonstration corridor and policy rollout, drawn for the behaviour-cloning articles.",
           "sealedSha256": "ade5687e7b5f6b0ddce3bda3584e3811a0b3f89bac7a85648b16560f5a5608e8",
           "shippedSha256": "ade5687e7b5f6b0ddce3bda3584e3811a0b3f89bac7a85648b16560f5a5608e8",
-          "sealedAssetCount": 21,
+          "sealedAssetCount": 33,
           "approvalSource": "contract/brand-v2-asset-seal.json",
           "byteCount": 2589,
           "byteHash": "ade5687e7b5f6b0ddce3bda3584e3811a0b3f89bac7a85648b16560f5a5608e8",
@@ -132602,7 +133332,7 @@
           "sealedPurpose": "Editorial photograph of a Franka Emika Panda arm at CeBIT 2017, reused under its recorded licence to illustrate collaborative manipulator hardware.",
           "sealedSha256": "61ace804a61a2d5b991e54a791b6615d05b99e72e569c119c588ad1aa2c5a908",
           "shippedSha256": "61ace804a61a2d5b991e54a791b6615d05b99e72e569c119c588ad1aa2c5a908",
-          "sealedAssetCount": 21,
+          "sealedAssetCount": 33,
           "approvalSource": "contract/brand-v2-asset-seal.json",
           "byteCount": 277465,
           "byteHash": "61ace804a61a2d5b991e54a791b6615d05b99e72e569c119c588ad1aa2c5a908",
@@ -132657,7 +133387,7 @@
           "sealedPurpose": "Editorial stroboscopic photograph of a PUMA 560 arm at NASA Ames, a public-domain image used to illustrate classical industrial manipulation.",
           "sealedSha256": "4167b56e44518d5c28a233bbd14d145f9bfbe3469acf5a9042bac1f04929417d",
           "shippedSha256": "4167b56e44518d5c28a233bbd14d145f9bfbe3469acf5a9042bac1f04929417d",
-          "sealedAssetCount": 21,
+          "sealedAssetCount": 33,
           "approvalSource": "contract/brand-v2-asset-seal.json",
           "byteCount": 421421,
           "byteHash": "4167b56e44518d5c28a233bbd14d145f9bfbe3469acf5a9042bac1f04929417d",
@@ -132712,7 +133442,7 @@
           "sealedPurpose": "First-party explanatory diagram of temporal ensembling across overlapping action chunks, drawn for the action-chunking article.",
           "sealedSha256": "fc9e74e11fd90cd5f07883d796f89f8ce8554de807d74ac44242144cfe8f4645",
           "shippedSha256": "fc9e74e11fd90cd5f07883d796f89f8ce8554de807d74ac44242144cfe8f4645",
-          "sealedAssetCount": 21,
+          "sealedAssetCount": 33,
           "approvalSource": "contract/brand-v2-asset-seal.json",
           "byteCount": 4182,
           "byteHash": "fc9e74e11fd90cd5f07883d796f89f8ce8554de807d74ac44242144cfe8f4645",
@@ -132800,7 +133530,7 @@
           "sealedPurpose": "SO-101 base motor holder mesh, referenced by models/so101/so101.urdf and loaded by the 3D playground scene.",
           "sealedSha256": "2452a592eb9fb5d05e5f23328b1b4502607a220442d3c8c11a285200872fce80",
           "shippedSha256": "2452a592eb9fb5d05e5f23328b1b4502607a220442d3c8c11a285200872fce80",
-          "sealedAssetCount": 21,
+          "sealedAssetCount": 33,
           "approvalSource": "contract/brand-v2-asset-seal.json",
           "byteCount": 109556,
           "byteHash": "2452a592eb9fb5d05e5f23328b1b4502607a220442d3c8c11a285200872fce80",
@@ -132860,7 +133590,7 @@
           "sealedPurpose": "SO-101 base link mesh, referenced by models/so101/so101.urdf and loaded by the 3D playground scene.",
           "sealedSha256": "3d602953853522d6a5091699142a3754ea7f451b36634bcc64236c16df40fd04",
           "shippedSha256": "3d602953853522d6a5091699142a3754ea7f451b36634bcc64236c16df40fd04",
-          "sealedAssetCount": 21,
+          "sealedAssetCount": 33,
           "approvalSource": "contract/brand-v2-asset-seal.json",
           "byteCount": 35688,
           "byteHash": "3d602953853522d6a5091699142a3754ea7f451b36634bcc64236c16df40fd04",
@@ -132920,7 +133650,7 @@
           "sealedPurpose": "SO-101 base-side motor holder mesh, referenced by models/so101/so101.urdf and loaded by the 3D playground scene.",
           "sealedSha256": "f15fc345016acaa8f599fd9d24bc815b6d54807f1c358603a372bb07ca72735b",
           "shippedSha256": "f15fc345016acaa8f599fd9d24bc815b6d54807f1c358603a372bb07ca72735b",
-          "sealedAssetCount": 21,
+          "sealedAssetCount": 33,
           "approvalSource": "contract/brand-v2-asset-seal.json",
           "byteCount": 69112,
           "byteHash": "f15fc345016acaa8f599fd9d24bc815b6d54807f1c358603a372bb07ca72735b",
@@ -132980,7 +133710,7 @@
           "sealedPurpose": "SO-101 wrist-side motor holder mesh, referenced by models/so101/so101.urdf and loaded by the 3D playground scene.",
           "sealedSha256": "ba8ee6cb2638ef9bacfaa63aa759603c10740c937991267b43ff74e006bf3aeb",
           "shippedSha256": "ba8ee6cb2638ef9bacfaa63aa759603c10740c937991267b43ff74e006bf3aeb",
-          "sealedAssetCount": 21,
+          "sealedAssetCount": 33,
           "approvalSource": "contract/brand-v2-asset-seal.json",
           "byteCount": 66156,
           "byteHash": "ba8ee6cb2638ef9bacfaa63aa759603c10740c937991267b43ff74e006bf3aeb",
@@ -133040,7 +133770,7 @@
           "sealedPurpose": "SO-101 moving gripper jaw mesh, referenced by models/so101/so101.urdf and loaded by the 3D playground scene.",
           "sealedSha256": "b78ae523c975da9c74ad71caa086723a6de780aa2f142a225b6b37f06a6da484",
           "shippedSha256": "b78ae523c975da9c74ad71caa086723a6de780aa2f142a225b6b37f06a6da484",
-          "sealedAssetCount": 21,
+          "sealedAssetCount": 33,
           "approvalSource": "contract/brand-v2-asset-seal.json",
           "byteCount": 86152,
           "byteHash": "b78ae523c975da9c74ad71caa086723a6de780aa2f142a225b6b37f06a6da484",
@@ -133100,7 +133830,7 @@
           "sealedPurpose": "SO-101 shoulder rotation-pitch link mesh, referenced by models/so101/so101.urdf and loaded by the 3D playground scene.",
           "sealedSha256": "8ef260977bfb20859fd2d5b8fc9968973b1a4415bd7fc9aa539548e3ad76c517",
           "shippedSha256": "8ef260977bfb20859fd2d5b8fc9968973b1a4415bd7fc9aa539548e3ad76c517",
-          "sealedAssetCount": 21,
+          "sealedAssetCount": 33,
           "approvalSource": "contract/brand-v2-asset-seal.json",
           "byteCount": 55136,
           "byteHash": "8ef260977bfb20859fd2d5b8fc9968973b1a4415bd7fc9aa539548e3ad76c517",
@@ -133160,7 +133890,7 @@
           "sealedPurpose": "SO-101 STS3215 servo body without horn mesh, referenced by models/so101/so101.urdf and loaded by the 3D playground scene.",
           "sealedSha256": "ef99525fcedee826a2d5a47cc8d31a13423e32224c473df1617407111e926ad1",
           "shippedSha256": "ef99525fcedee826a2d5a47cc8d31a13423e32224c473df1617407111e926ad1",
-          "sealedAssetCount": 21,
+          "sealedAssetCount": 33,
           "approvalSource": "contract/brand-v2-asset-seal.json",
           "byteCount": 44360,
           "byteHash": "ef99525fcedee826a2d5a47cc8d31a13423e32224c473df1617407111e926ad1",
@@ -133220,7 +133950,7 @@
           "sealedPurpose": "SO-101 STS3215 servo body mesh, referenced by models/so101/so101.urdf and loaded by the 3D playground scene.",
           "sealedSha256": "1f3d99c550d1385ed199bf0c42e0a9d52b23ec2aa69712461dd33316414425e5",
           "shippedSha256": "1f3d99c550d1385ed199bf0c42e0a9d52b23ec2aa69712461dd33316414425e5",
-          "sealedAssetCount": 21,
+          "sealedAssetCount": 33,
           "approvalSource": "contract/brand-v2-asset-seal.json",
           "byteCount": 49684,
           "byteHash": "1f3d99c550d1385ed199bf0c42e0a9d52b23ec2aa69712461dd33316414425e5",
@@ -133280,7 +134010,7 @@
           "sealedPurpose": "SO-101 under-arm link mesh, referenced by models/so101/so101.urdf and loaded by the 3D playground scene.",
           "sealedSha256": "e73fa2121ae8fa8302ae96a121b0975eadf8499ffce8bd7416f365630d3c215e",
           "shippedSha256": "e73fa2121ae8fa8302ae96a121b0975eadf8499ffce8bd7416f365630d3c215e",
-          "sealedAssetCount": 21,
+          "sealedAssetCount": 33,
           "approvalSource": "contract/brand-v2-asset-seal.json",
           "byteCount": 117612,
           "byteHash": "e73fa2121ae8fa8302ae96a121b0975eadf8499ffce8bd7416f365630d3c215e",
@@ -133340,7 +134070,7 @@
           "sealedPurpose": "SO-101 upper-arm link mesh, referenced by models/so101/so101.urdf and loaded by the 3D playground scene.",
           "sealedSha256": "531d6b8f9670eebfd7d09b67983000d5b3b616fd5d19c4e3ea06455ac3b6ccad",
           "shippedSha256": "531d6b8f9670eebfd7d09b67983000d5b3b616fd5d19c4e3ea06455ac3b6ccad",
-          "sealedAssetCount": 21,
+          "sealedAssetCount": 33,
           "approvalSource": "contract/brand-v2-asset-seal.json",
           "byteCount": 77472,
           "byteHash": "531d6b8f9670eebfd7d09b67983000d5b3b616fd5d19c4e3ea06455ac3b6ccad",
@@ -133400,7 +134130,7 @@
           "sealedPurpose": "SO-101 Waveshare mounting plate mesh, referenced by models/so101/so101.urdf and loaded by the 3D playground scene.",
           "sealedSha256": "bd1dc7b2573c2a9e4dfaf7367d7d9f398f8a7337840cc7cd06785927f85c6dca",
           "shippedSha256": "bd1dc7b2573c2a9e4dfaf7367d7d9f398f8a7337840cc7cd06785927f85c6dca",
-          "sealedAssetCount": 21,
+          "sealedAssetCount": 33,
           "approvalSource": "contract/brand-v2-asset-seal.json",
           "byteCount": 4952,
           "byteHash": "bd1dc7b2573c2a9e4dfaf7367d7d9f398f8a7337840cc7cd06785927f85c6dca",
@@ -133460,7 +134190,7 @@
           "sealedPurpose": "SO-101 wrist-roll follower link mesh, referenced by models/so101/so101.urdf and loaded by the 3D playground scene.",
           "sealedSha256": "c728435fba1f51a33a284a213e9f5ab34059e1c2d14bab7d19b28542271231f2",
           "shippedSha256": "c728435fba1f51a33a284a213e9f5ab34059e1c2d14bab7d19b28542271231f2",
-          "sealedAssetCount": 21,
+          "sealedAssetCount": 33,
           "approvalSource": "contract/brand-v2-asset-seal.json",
           "byteCount": 88084,
           "byteHash": "c728435fba1f51a33a284a213e9f5ab34059e1c2d14bab7d19b28542271231f2",
@@ -133520,7 +134250,7 @@
           "sealedPurpose": "SO-101 wrist roll-pitch link mesh, referenced by models/so101/so101.urdf and loaded by the 3D playground scene.",
           "sealedSha256": "8cfb052019d607094a3ae9f92c1359e2afd5bea7adc1f525f36208b007180b35",
           "shippedSha256": "8cfb052019d607094a3ae9f92c1359e2afd5bea7adc1f525f36208b007180b35",
-          "sealedAssetCount": 21,
+          "sealedAssetCount": 33,
           "approvalSource": "contract/brand-v2-asset-seal.json",
           "byteCount": 167936,
           "byteHash": "8cfb052019d607094a3ae9f92c1359e2afd5bea7adc1f525f36208b007180b35",
@@ -133580,7 +134310,7 @@
           "sealedPurpose": "SO-101 kinematic description: the link, joint and mesh declarations the 3D playground and the build-time reach figures are derived from.",
           "sealedSha256": "8cc4e19a494c19dd78fd4e229e48f318e73e346e5045232e6e2ad493ce04bc95",
           "shippedSha256": "8cc4e19a494c19dd78fd4e229e48f318e73e346e5045232e6e2ad493ce04bc95",
-          "sealedAssetCount": 21,
+          "sealedAssetCount": 33,
           "approvalSource": "contract/brand-v2-asset-seal.json",
           "byteCount": 16231,
           "byteHash": "8cc4e19a494c19dd78fd4e229e48f318e73e346e5045232e6e2ad493ce04bc95",
@@ -136819,6 +137549,402 @@
               "id": "asset:clips/kalman-episode.png",
               "observed": {
                 "path": "clips/kalman-episode.png",
+                "category": "static-asset",
+                "creator": "owner:static-asset",
+                "sourceName": "first-party asset"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-IMG-001:asset:explainers/posters/arm.webp",
+      "assertionId": "VAL-B2-IMG-001",
+      "populationMemberId": "asset:explainers/posters/arm.webp",
+      "coveredPopulationMemberIds": [
+        "asset:explainers/posters/arm.webp"
+      ],
+      "coverageKind": "per-member",
+      "expected": "First-party surfaces contain no AI-generated robots, synthetic labs, stock chrome heads, glowing brains, circuit wallpaper, or fake blueprints.",
+      "actual": "asset:explainers/posters/arm.webp carries a named creator and a checkable origin, with no synthesis vocabulary anywhere in its record",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#assets",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "contract/brand-v2-registries.json",
+        "predicate": "asset:explainers/posters/arm.webp carries a named creator and a checkable origin, with no synthesis vocabulary anywhere in its record",
+        "observed": {
+          "member": "asset:explainers/posters/arm.webp",
+          "measured": [
+            {
+              "id": "asset:explainers/posters/arm.webp",
+              "observed": {
+                "path": "explainers/posters/arm.webp",
+                "category": "static-asset",
+                "creator": "owner:static-asset",
+                "sourceName": "first-party asset"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-IMG-001:asset:explainers/posters/flying.webp",
+      "assertionId": "VAL-B2-IMG-001",
+      "populationMemberId": "asset:explainers/posters/flying.webp",
+      "coveredPopulationMemberIds": [
+        "asset:explainers/posters/flying.webp"
+      ],
+      "coverageKind": "per-member",
+      "expected": "First-party surfaces contain no AI-generated robots, synthetic labs, stock chrome heads, glowing brains, circuit wallpaper, or fake blueprints.",
+      "actual": "asset:explainers/posters/flying.webp carries a named creator and a checkable origin, with no synthesis vocabulary anywhere in its record",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#assets",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "contract/brand-v2-registries.json",
+        "predicate": "asset:explainers/posters/flying.webp carries a named creator and a checkable origin, with no synthesis vocabulary anywhere in its record",
+        "observed": {
+          "member": "asset:explainers/posters/flying.webp",
+          "measured": [
+            {
+              "id": "asset:explainers/posters/flying.webp",
+              "observed": {
+                "path": "explainers/posters/flying.webp",
+                "category": "static-asset",
+                "creator": "owner:static-asset",
+                "sourceName": "first-party asset"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-IMG-001:asset:explainers/posters/grip.webp",
+      "assertionId": "VAL-B2-IMG-001",
+      "populationMemberId": "asset:explainers/posters/grip.webp",
+      "coveredPopulationMemberIds": [
+        "asset:explainers/posters/grip.webp"
+      ],
+      "coverageKind": "per-member",
+      "expected": "First-party surfaces contain no AI-generated robots, synthetic labs, stock chrome heads, glowing brains, circuit wallpaper, or fake blueprints.",
+      "actual": "asset:explainers/posters/grip.webp carries a named creator and a checkable origin, with no synthesis vocabulary anywhere in its record",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#assets",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "contract/brand-v2-registries.json",
+        "predicate": "asset:explainers/posters/grip.webp carries a named creator and a checkable origin, with no synthesis vocabulary anywhere in its record",
+        "observed": {
+          "member": "asset:explainers/posters/grip.webp",
+          "measured": [
+            {
+              "id": "asset:explainers/posters/grip.webp",
+              "observed": {
+                "path": "explainers/posters/grip.webp",
+                "category": "static-asset",
+                "creator": "owner:static-asset",
+                "sourceName": "first-party asset"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-IMG-001:asset:explainers/posters/hand.webp",
+      "assertionId": "VAL-B2-IMG-001",
+      "populationMemberId": "asset:explainers/posters/hand.webp",
+      "coveredPopulationMemberIds": [
+        "asset:explainers/posters/hand.webp"
+      ],
+      "coverageKind": "per-member",
+      "expected": "First-party surfaces contain no AI-generated robots, synthetic labs, stock chrome heads, glowing brains, circuit wallpaper, or fake blueprints.",
+      "actual": "asset:explainers/posters/hand.webp carries a named creator and a checkable origin, with no synthesis vocabulary anywhere in its record",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#assets",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "contract/brand-v2-registries.json",
+        "predicate": "asset:explainers/posters/hand.webp carries a named creator and a checkable origin, with no synthesis vocabulary anywhere in its record",
+        "observed": {
+          "member": "asset:explainers/posters/hand.webp",
+          "measured": [
+            {
+              "id": "asset:explainers/posters/hand.webp",
+              "observed": {
+                "path": "explainers/posters/hand.webp",
+                "category": "static-asset",
+                "creator": "owner:static-asset",
+                "sourceName": "first-party asset"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-IMG-001:asset:explainers/posters/humanoid.webp",
+      "assertionId": "VAL-B2-IMG-001",
+      "populationMemberId": "asset:explainers/posters/humanoid.webp",
+      "coveredPopulationMemberIds": [
+        "asset:explainers/posters/humanoid.webp"
+      ],
+      "coverageKind": "per-member",
+      "expected": "First-party surfaces contain no AI-generated robots, synthetic labs, stock chrome heads, glowing brains, circuit wallpaper, or fake blueprints.",
+      "actual": "asset:explainers/posters/humanoid.webp carries a named creator and a checkable origin, with no synthesis vocabulary anywhere in its record",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#assets",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "contract/brand-v2-registries.json",
+        "predicate": "asset:explainers/posters/humanoid.webp carries a named creator and a checkable origin, with no synthesis vocabulary anywhere in its record",
+        "observed": {
+          "member": "asset:explainers/posters/humanoid.webp",
+          "measured": [
+            {
+              "id": "asset:explainers/posters/humanoid.webp",
+              "observed": {
+                "path": "explainers/posters/humanoid.webp",
+                "category": "static-asset",
+                "creator": "owner:static-asset",
+                "sourceName": "first-party asset"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-IMG-001:asset:explainers/posters/mug.webp",
+      "assertionId": "VAL-B2-IMG-001",
+      "populationMemberId": "asset:explainers/posters/mug.webp",
+      "coveredPopulationMemberIds": [
+        "asset:explainers/posters/mug.webp"
+      ],
+      "coverageKind": "per-member",
+      "expected": "First-party surfaces contain no AI-generated robots, synthetic labs, stock chrome heads, glowing brains, circuit wallpaper, or fake blueprints.",
+      "actual": "asset:explainers/posters/mug.webp carries a named creator and a checkable origin, with no synthesis vocabulary anywhere in its record",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#assets",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "contract/brand-v2-registries.json",
+        "predicate": "asset:explainers/posters/mug.webp carries a named creator and a checkable origin, with no synthesis vocabulary anywhere in its record",
+        "observed": {
+          "member": "asset:explainers/posters/mug.webp",
+          "measured": [
+            {
+              "id": "asset:explainers/posters/mug.webp",
+              "observed": {
+                "path": "explainers/posters/mug.webp",
+                "category": "static-asset",
+                "creator": "owner:static-asset",
+                "sourceName": "first-party asset"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-IMG-001:asset:explainers/posters/path.webp",
+      "assertionId": "VAL-B2-IMG-001",
+      "populationMemberId": "asset:explainers/posters/path.webp",
+      "coveredPopulationMemberIds": [
+        "asset:explainers/posters/path.webp"
+      ],
+      "coverageKind": "per-member",
+      "expected": "First-party surfaces contain no AI-generated robots, synthetic labs, stock chrome heads, glowing brains, circuit wallpaper, or fake blueprints.",
+      "actual": "asset:explainers/posters/path.webp carries a named creator and a checkable origin, with no synthesis vocabulary anywhere in its record",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#assets",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "contract/brand-v2-registries.json",
+        "predicate": "asset:explainers/posters/path.webp carries a named creator and a checkable origin, with no synthesis vocabulary anywhere in its record",
+        "observed": {
+          "member": "asset:explainers/posters/path.webp",
+          "measured": [
+            {
+              "id": "asset:explainers/posters/path.webp",
+              "observed": {
+                "path": "explainers/posters/path.webp",
+                "category": "static-asset",
+                "creator": "owner:static-asset",
+                "sourceName": "first-party asset"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-IMG-001:asset:explainers/posters/puppeteer.webp",
+      "assertionId": "VAL-B2-IMG-001",
+      "populationMemberId": "asset:explainers/posters/puppeteer.webp",
+      "coveredPopulationMemberIds": [
+        "asset:explainers/posters/puppeteer.webp"
+      ],
+      "coverageKind": "per-member",
+      "expected": "First-party surfaces contain no AI-generated robots, synthetic labs, stock chrome heads, glowing brains, circuit wallpaper, or fake blueprints.",
+      "actual": "asset:explainers/posters/puppeteer.webp carries a named creator and a checkable origin, with no synthesis vocabulary anywhere in its record",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#assets",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "contract/brand-v2-registries.json",
+        "predicate": "asset:explainers/posters/puppeteer.webp carries a named creator and a checkable origin, with no synthesis vocabulary anywhere in its record",
+        "observed": {
+          "member": "asset:explainers/posters/puppeteer.webp",
+          "measured": [
+            {
+              "id": "asset:explainers/posters/puppeteer.webp",
+              "observed": {
+                "path": "explainers/posters/puppeteer.webp",
+                "category": "static-asset",
+                "creator": "owner:static-asset",
+                "sourceName": "first-party asset"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-IMG-001:asset:explainers/posters/reaching.webp",
+      "assertionId": "VAL-B2-IMG-001",
+      "populationMemberId": "asset:explainers/posters/reaching.webp",
+      "coveredPopulationMemberIds": [
+        "asset:explainers/posters/reaching.webp"
+      ],
+      "coverageKind": "per-member",
+      "expected": "First-party surfaces contain no AI-generated robots, synthetic labs, stock chrome heads, glowing brains, circuit wallpaper, or fake blueprints.",
+      "actual": "asset:explainers/posters/reaching.webp carries a named creator and a checkable origin, with no synthesis vocabulary anywhere in its record",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#assets",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "contract/brand-v2-registries.json",
+        "predicate": "asset:explainers/posters/reaching.webp carries a named creator and a checkable origin, with no synthesis vocabulary anywhere in its record",
+        "observed": {
+          "member": "asset:explainers/posters/reaching.webp",
+          "measured": [
+            {
+              "id": "asset:explainers/posters/reaching.webp",
+              "observed": {
+                "path": "explainers/posters/reaching.webp",
+                "category": "static-asset",
+                "creator": "owner:static-asset",
+                "sourceName": "first-party asset"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-IMG-001:asset:explainers/posters/upright.webp",
+      "assertionId": "VAL-B2-IMG-001",
+      "populationMemberId": "asset:explainers/posters/upright.webp",
+      "coveredPopulationMemberIds": [
+        "asset:explainers/posters/upright.webp"
+      ],
+      "coverageKind": "per-member",
+      "expected": "First-party surfaces contain no AI-generated robots, synthetic labs, stock chrome heads, glowing brains, circuit wallpaper, or fake blueprints.",
+      "actual": "asset:explainers/posters/upright.webp carries a named creator and a checkable origin, with no synthesis vocabulary anywhere in its record",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#assets",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "contract/brand-v2-registries.json",
+        "predicate": "asset:explainers/posters/upright.webp carries a named creator and a checkable origin, with no synthesis vocabulary anywhere in its record",
+        "observed": {
+          "member": "asset:explainers/posters/upright.webp",
+          "measured": [
+            {
+              "id": "asset:explainers/posters/upright.webp",
+              "observed": {
+                "path": "explainers/posters/upright.webp",
+                "category": "static-asset",
+                "creator": "owner:static-asset",
+                "sourceName": "first-party asset"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-IMG-001:asset:explainers/posters/whereami.webp",
+      "assertionId": "VAL-B2-IMG-001",
+      "populationMemberId": "asset:explainers/posters/whereami.webp",
+      "coveredPopulationMemberIds": [
+        "asset:explainers/posters/whereami.webp"
+      ],
+      "coverageKind": "per-member",
+      "expected": "First-party surfaces contain no AI-generated robots, synthetic labs, stock chrome heads, glowing brains, circuit wallpaper, or fake blueprints.",
+      "actual": "asset:explainers/posters/whereami.webp carries a named creator and a checkable origin, with no synthesis vocabulary anywhere in its record",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#assets",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "contract/brand-v2-registries.json",
+        "predicate": "asset:explainers/posters/whereami.webp carries a named creator and a checkable origin, with no synthesis vocabulary anywhere in its record",
+        "observed": {
+          "member": "asset:explainers/posters/whereami.webp",
+          "measured": [
+            {
+              "id": "asset:explainers/posters/whereami.webp",
+              "observed": {
+                "path": "explainers/posters/whereami.webp",
+                "category": "static-asset",
+                "creator": "owner:static-asset",
+                "sourceName": "first-party asset"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-IMG-001:asset:explainers/posters/worlds.webp",
+      "assertionId": "VAL-B2-IMG-001",
+      "populationMemberId": "asset:explainers/posters/worlds.webp",
+      "coveredPopulationMemberIds": [
+        "asset:explainers/posters/worlds.webp"
+      ],
+      "coverageKind": "per-member",
+      "expected": "First-party surfaces contain no AI-generated robots, synthetic labs, stock chrome heads, glowing brains, circuit wallpaper, or fake blueprints.",
+      "actual": "asset:explainers/posters/worlds.webp carries a named creator and a checkable origin, with no synthesis vocabulary anywhere in its record",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#assets",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "contract/brand-v2-registries.json",
+        "predicate": "asset:explainers/posters/worlds.webp carries a named creator and a checkable origin, with no synthesis vocabulary anywhere in its record",
+        "observed": {
+          "member": "asset:explainers/posters/worlds.webp",
+          "measured": [
+            {
+              "id": "asset:explainers/posters/worlds.webp",
+              "observed": {
+                "path": "explainers/posters/worlds.webp",
                 "category": "static-asset",
                 "creator": "owner:static-asset",
                 "sourceName": "first-party asset"
@@ -160294,6 +161420,18 @@
       "populationMemberId": "population:contract/brand-v2-registries.json#assets",
       "coveredPopulationMemberIds": [
         "asset:clips/kalman-episode.png",
+        "asset:explainers/posters/arm.webp",
+        "asset:explainers/posters/flying.webp",
+        "asset:explainers/posters/grip.webp",
+        "asset:explainers/posters/hand.webp",
+        "asset:explainers/posters/humanoid.webp",
+        "asset:explainers/posters/mug.webp",
+        "asset:explainers/posters/path.webp",
+        "asset:explainers/posters/puppeteer.webp",
+        "asset:explainers/posters/reaching.webp",
+        "asset:explainers/posters/upright.webp",
+        "asset:explainers/posters/whereami.webp",
+        "asset:explainers/posters/worlds.webp",
         "asset:fonts/Tektur-latin-wdth-wght.woff2",
         "asset:images/anymal-anybotics-2022.jpg",
         "asset:images/atlas-darpa-frontview-2013.jpg",
@@ -160455,6 +161593,18 @@
       "populationMemberId": "population:contract/brand-v2-registries.json#assets",
       "coveredPopulationMemberIds": [
         "asset:clips/kalman-episode.png",
+        "asset:explainers/posters/arm.webp",
+        "asset:explainers/posters/flying.webp",
+        "asset:explainers/posters/grip.webp",
+        "asset:explainers/posters/hand.webp",
+        "asset:explainers/posters/humanoid.webp",
+        "asset:explainers/posters/mug.webp",
+        "asset:explainers/posters/path.webp",
+        "asset:explainers/posters/puppeteer.webp",
+        "asset:explainers/posters/reaching.webp",
+        "asset:explainers/posters/upright.webp",
+        "asset:explainers/posters/whereami.webp",
+        "asset:explainers/posters/worlds.webp",
         "asset:fonts/Tektur-latin-wdth-wght.woff2",
         "asset:images/anymal-anybotics-2022.jpg",
         "asset:images/atlas-darpa-frontview-2013.jpg",
@@ -160808,6 +161958,18 @@
       "populationMemberId": "population:contract/brand-v2-registries.json#assets",
       "coveredPopulationMemberIds": [
         "asset:clips/kalman-episode.png",
+        "asset:explainers/posters/arm.webp",
+        "asset:explainers/posters/flying.webp",
+        "asset:explainers/posters/grip.webp",
+        "asset:explainers/posters/hand.webp",
+        "asset:explainers/posters/humanoid.webp",
+        "asset:explainers/posters/mug.webp",
+        "asset:explainers/posters/path.webp",
+        "asset:explainers/posters/puppeteer.webp",
+        "asset:explainers/posters/reaching.webp",
+        "asset:explainers/posters/upright.webp",
+        "asset:explainers/posters/whereami.webp",
+        "asset:explainers/posters/worlds.webp",
         "asset:fonts/Tektur-latin-wdth-wght.woff2",
         "asset:images/anymal-anybotics-2022.jpg",
         "asset:images/atlas-darpa-frontview-2013.jpg",
@@ -160969,6 +162131,18 @@
       "populationMemberId": "population:contract/brand-v2-registries.json#assets",
       "coveredPopulationMemberIds": [
         "asset:clips/kalman-episode.png",
+        "asset:explainers/posters/arm.webp",
+        "asset:explainers/posters/flying.webp",
+        "asset:explainers/posters/grip.webp",
+        "asset:explainers/posters/hand.webp",
+        "asset:explainers/posters/humanoid.webp",
+        "asset:explainers/posters/mug.webp",
+        "asset:explainers/posters/path.webp",
+        "asset:explainers/posters/puppeteer.webp",
+        "asset:explainers/posters/reaching.webp",
+        "asset:explainers/posters/upright.webp",
+        "asset:explainers/posters/whereami.webp",
+        "asset:explainers/posters/worlds.webp",
         "asset:fonts/Tektur-latin-wdth-wght.woff2",
         "asset:images/anymal-anybotics-2022.jpg",
         "asset:images/atlas-darpa-frontview-2013.jpg",
@@ -198706,7 +199880,7 @@
               "id": "/how-robots-work/",
               "observed": {
                 "monoRequiredCount": 0,
-                "interfaceControlCount": 16,
+                "interfaceControlCount": 18,
                 "controlsInProse": 0,
                 "registrationLabelCount": 1
               }

@@ -1577,7 +1577,7 @@
       "routeId": "route:/how-robots-work/",
       "owner": "route:/how-robots-work/",
       "ownerPath": "app/how-robots-work/page.tsx",
-      "ownerSourceFingerprint": "ec63dbd6ff75a17d8c202c58c627f9d3d0c8e885f7f5839a3576d86b5c43f1f6",
+      "ownerSourceFingerprint": "fad61cccc6fdfef956fa54a566fc6388e7089f3f86ad47301ef136539833afdc",
       "canonical": "https://robot-wiki.com/how-robots-work/",
       "title": "How Robots Work: Interactive 3D Explainers",
       "description": "How robots work, in interactive 3D explainers: guess first, then drag, push or tilt a robot model to see why, with a source for every number.",
@@ -1597,7 +1597,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "ae885c88309dae240e3b170d2f9a932be9288ab96cea028f7c1b66c9cbb668e9"
+      "fingerprint": "7ec6317253f0951ad9c7be06cd23314c8ff7f2577b8e5ab4406f9cfcb44e0dba"
     },
     {
       "id": "metadata:/manipulation/",
@@ -2734,6 +2734,126 @@
       "byteHash": "2f1b410520c36d5a0f1a14fb413736ffcfe9c97148efe7d0cf96f886a02a3504",
       "semanticHash": null,
       "fingerprint": "a7a4c1838440c1182f234ca9eb6643dd17a84bc82ee9ff0a8cf98a93825e7951"
+    },
+    {
+      "id": "asset:explainers/posters/arm.webp",
+      "path": "explainers/posters/arm.webp",
+      "category": "static-asset",
+      "ownershipId": "owner:static-asset",
+      "sourceRegistryId": null,
+      "byteHash": "1882e1c989590b8966bab13dad35b7fd54fb3214dbc0a813816c4333fe511ad7",
+      "semanticHash": null,
+      "fingerprint": "abcd2b3c5afbfd52aa268caede0cf31a94007e1fcde2dfb4c621078051793c8c"
+    },
+    {
+      "id": "asset:explainers/posters/flying.webp",
+      "path": "explainers/posters/flying.webp",
+      "category": "static-asset",
+      "ownershipId": "owner:static-asset",
+      "sourceRegistryId": null,
+      "byteHash": "b191432ca3c62c77526a77b718f81994a8d4eb6c8132505b6f99e39c9edeb018",
+      "semanticHash": null,
+      "fingerprint": "61e89d37f4c49c40f579a76ef24635a8f4c2aa78e9597b48bd7c50b19175e20f"
+    },
+    {
+      "id": "asset:explainers/posters/grip.webp",
+      "path": "explainers/posters/grip.webp",
+      "category": "static-asset",
+      "ownershipId": "owner:static-asset",
+      "sourceRegistryId": null,
+      "byteHash": "7cdea4cff65082650646b0d733472bbbaa4a0098552370ab0ba540270528f905",
+      "semanticHash": null,
+      "fingerprint": "66e39b533a8534ba7af419073cf089d88ad9eb433c283ff55d508530c730cd63"
+    },
+    {
+      "id": "asset:explainers/posters/hand.webp",
+      "path": "explainers/posters/hand.webp",
+      "category": "static-asset",
+      "ownershipId": "owner:static-asset",
+      "sourceRegistryId": null,
+      "byteHash": "4e24ddf9d123d8a93d65e7981e05611c562d6f7b0a03ecabd682c5981c166b9c",
+      "semanticHash": null,
+      "fingerprint": "4bf59303bd602aa2d931a29b22395b13b6e56c7db353b6a308f9bc4d837e2d92"
+    },
+    {
+      "id": "asset:explainers/posters/humanoid.webp",
+      "path": "explainers/posters/humanoid.webp",
+      "category": "static-asset",
+      "ownershipId": "owner:static-asset",
+      "sourceRegistryId": null,
+      "byteHash": "170fee9e5f6d6d69a4bfaaf0a6400a889e56ba83d6e51d588ab2dffeb1ab91e7",
+      "semanticHash": null,
+      "fingerprint": "51c9967452a58ab160ee01ecb73064e3e316025ee622fb221ead63fe77d36fca"
+    },
+    {
+      "id": "asset:explainers/posters/mug.webp",
+      "path": "explainers/posters/mug.webp",
+      "category": "static-asset",
+      "ownershipId": "owner:static-asset",
+      "sourceRegistryId": null,
+      "byteHash": "b69116ddfdc8ef58f574f914590e8e6868c10b6d23f0f59c991ac8bbcaa1b465",
+      "semanticHash": null,
+      "fingerprint": "4c8f6c3b6eb41419c84b32b908afbcb9f657f57713a08105aee058169efb5e31"
+    },
+    {
+      "id": "asset:explainers/posters/path.webp",
+      "path": "explainers/posters/path.webp",
+      "category": "static-asset",
+      "ownershipId": "owner:static-asset",
+      "sourceRegistryId": null,
+      "byteHash": "d15a6d0a5fd45525b04b9398b3d711163e9ef33cc5150f2f317f3e829dfd070e",
+      "semanticHash": null,
+      "fingerprint": "35599f37027dffb42daeb03854e8f7f16435c9923ddc3d569da9370a11b9834f"
+    },
+    {
+      "id": "asset:explainers/posters/puppeteer.webp",
+      "path": "explainers/posters/puppeteer.webp",
+      "category": "static-asset",
+      "ownershipId": "owner:static-asset",
+      "sourceRegistryId": null,
+      "byteHash": "0d30e5d68e5e2957c450a2b2f6d935f2d1dee0f219e247f1f471b540c95cc0c7",
+      "semanticHash": null,
+      "fingerprint": "45246275738bbe1ddf3bc0b3193cde9c6e475cb339f646dc62303707eb7dbc02"
+    },
+    {
+      "id": "asset:explainers/posters/reaching.webp",
+      "path": "explainers/posters/reaching.webp",
+      "category": "static-asset",
+      "ownershipId": "owner:static-asset",
+      "sourceRegistryId": null,
+      "byteHash": "10b5165a947f800802121c9f4a0b5441fdbeea83dd6750644264fabff3a7a8a4",
+      "semanticHash": null,
+      "fingerprint": "db5fb385ae1791bead0f4ed5943b1fde45a732195731b1bc0990a8c97001b2a9"
+    },
+    {
+      "id": "asset:explainers/posters/upright.webp",
+      "path": "explainers/posters/upright.webp",
+      "category": "static-asset",
+      "ownershipId": "owner:static-asset",
+      "sourceRegistryId": null,
+      "byteHash": "20bc3a57d408d1876980136da1956f766b261c2d32395f37a1f3c358305b06dc",
+      "semanticHash": null,
+      "fingerprint": "68d7133996b30c990a54aa98765aa11a7f7c420d911229ee40a97a2d4833856c"
+    },
+    {
+      "id": "asset:explainers/posters/whereami.webp",
+      "path": "explainers/posters/whereami.webp",
+      "category": "static-asset",
+      "ownershipId": "owner:static-asset",
+      "sourceRegistryId": null,
+      "byteHash": "8ef8ce919f8475abdcbeeacaff7a64c229c53bbf69a18df70042699acc9ae7e6",
+      "semanticHash": null,
+      "fingerprint": "50fc6a95ccdfb13cc32e666e969ceb03b7660f75ec910b5e19071a966339dfa7"
+    },
+    {
+      "id": "asset:explainers/posters/worlds.webp",
+      "path": "explainers/posters/worlds.webp",
+      "category": "static-asset",
+      "ownershipId": "owner:static-asset",
+      "sourceRegistryId": null,
+      "byteHash": "6e02e3c4922870db23a5b94dbefecf5550e9e3a5ced99ebf7023c0571fb99c1b",
+      "semanticHash": null,
+      "fingerprint": "3056753ef0eac0a57795cd0d56b2aa8d51edbeb6d6cbcf9f4a175632ee73e20f"
     },
     {
       "id": "asset:fonts/Tektur-latin-wdth-wght.woff2",
@@ -4059,6 +4179,18 @@
   "assetExceptions": [],
   "assetUses": [
     "asset:clips/kalman-episode.png",
+    "asset:explainers/posters/arm.webp",
+    "asset:explainers/posters/flying.webp",
+    "asset:explainers/posters/grip.webp",
+    "asset:explainers/posters/hand.webp",
+    "asset:explainers/posters/humanoid.webp",
+    "asset:explainers/posters/mug.webp",
+    "asset:explainers/posters/path.webp",
+    "asset:explainers/posters/puppeteer.webp",
+    "asset:explainers/posters/reaching.webp",
+    "asset:explainers/posters/upright.webp",
+    "asset:explainers/posters/whereami.webp",
+    "asset:explainers/posters/worlds.webp",
     "asset:fonts/Tektur-latin-wdth-wght.woff2",
     "asset:images/anymal-anybotics-2022.jpg",
     "asset:images/atlas-darpa-frontview-2013.jpg",
@@ -11664,5 +11796,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "c8437cdda9db0ad73204668bc853a4e3b5a1591b99c6f166bddf7218e37adc05"
+  "rootFingerprint": "3afc2e2d85c53932515ff3701f55087ac04176a3cd3b389ba70a86fb992f6277"
 }

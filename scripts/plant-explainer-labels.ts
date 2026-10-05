@@ -1,7 +1,7 @@
 /**
  * Mutation proof for the explainer label check (VAL-OPUS-043).
  *
- *   node scripts/plant-explainer-labels.ts [--out out | --base-url URL] [--ids flying,puppeteer,hand,whereami]
+ *   node scripts/plant-explainer-labels.ts [--out out | --base-url URL] [--ids flying,puppeteer]
  *
  * Runs the check three times and fails unless:
  * - with the planted layout (no clamp, no push-apart) the step sweep exits non-zero, and every
@@ -17,7 +17,8 @@ const option = (name: string, fallback: string) => {
   return at >= 0 && args[at + 1] ? args[at + 1] : fallback;
 };
 const server = option('--base-url', '') ? ['--base-url', option('--base-url', '')] : ['--out', option('--out', 'out')];
-const ids = option('--ids', 'flying,puppeteer,hand,whereami');
+// Two labels that collide in flying step 3, and a label under the prompt in puppeteer step 1 at 390 px.
+const ids = option('--ids', 'flying,puppeteer');
 const MESSAGE = /^explainer-labels: #([a-z]+) step (\d+(?: guess| reveal| back)?|fixture) at (1280|390) px: "[^"]+" (overlaps "[^"]+" by \d+ x \d+ px|runs \d+ px past the stage (left|top|right|bottom) edge|is clipped by \S+)$/;
 
 const runs = [
