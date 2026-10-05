@@ -156,7 +156,8 @@ describe('industrial deployment original 44: MIT leadership evidence', () => {
     }
   });
 
-  it('keeps the native domain summary reconciled without changing recorded verdicts', () => {
+  // About 2.3 s alone, and over the 5 s default under a loaded full suite.
+  it('keeps the native domain summary reconciled without changing recorded verdicts', { timeout: 30_000 }, () => {
     // The summary counts all native typed-local and corrected outcomes.
     // Scalar mutation cases above intentionally retain their narrower
     // comparison context, so this expensive full check runs only once.

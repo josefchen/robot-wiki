@@ -51,6 +51,8 @@
     "check:figure-system:plant": "node scripts/plant-figure-system.ts",
     "check:reader-first": "node scripts/check-reader-first.ts",
     "check:reader-first:plant": "node scripts/plant-reader-first.ts",
+    "check:explainer-labels": "node scripts/check-explainer-labels.ts",
+    "check:explainer-labels:plant": "node scripts/plant-explainer-labels.ts",
     "capture:reader-first": "node scripts/capture-reader-first.ts",
     "record:reader-first": "node scripts/record-reader-first.ts",
     "check:seo": "node scripts/check-seo.ts",

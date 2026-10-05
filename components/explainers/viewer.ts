@@ -5,7 +5,7 @@ import {
   type ExplainerModule,
 } from './catalog';
 
-type KitStage = { clear: () => void; dispose: () => void };
+type KitStage = { clear: () => void; dispose: () => void; moving: boolean };
 type KitUI = { predictEl: HTMLElement; _pending: (() => void) | null; reset: () => void };
 
 const SITE_ORIGIN = /^https:\/\/robot-wiki\.com(?=\/)/;
@@ -166,6 +166,8 @@ export async function startExplainers(root: HTMLElement): Promise<() => void> {
     get steps() { return inst?.steps.length ?? 0; },
     get ready() { return inst !== null; },
     get busy() { return entering; },
+    get moving() { return stage?.moving ?? false; },
+    get stage() { return stage; },
   };
   (window as unknown as { __explainer?: typeof hook }).__explainer = hook;
   void open(location.hash.slice(1));

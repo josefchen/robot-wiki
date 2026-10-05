@@ -42,7 +42,9 @@ describe('industrial52 authored economics evidence', () => {
       for (const value of [NaN, Infinity, -Infinity, ranges[key].min - 1, ranges[key].max + 1]) check({ ...defaults, [key]: value });
     }
   });
-  it('requires every external and local part, binding and observation', () => {
+  // Loads the whole local-basis catalogue and validates seven mutated copies:
+  // about 2.2 s alone, and over the 5 s default under a loaded full suite.
+  it('requires every external and local part, binding and observation', { timeout: 30_000 }, () => {
     const routes = publishedModules().map(m => `/${m.domain}/${m.slug}/`);
     expect(routes).toContain(ROUTE);
     const ctx = loadLocalBasisContext(process.cwd(), routes);

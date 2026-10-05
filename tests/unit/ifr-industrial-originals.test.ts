@@ -147,7 +147,9 @@ describe('five IFR and OSHA industrial originals', () => {
     expect(citation.venue).not.toContain('2025-09-25');
   });
 
-  it('preserves the peer pair, completed original 8, held original 52 and old review date', () => {
+  // Seven full ledger parses plus a historical render: about 2.3 s alone, and
+  // over the 5 s default when the full suite loads the machine.
+  it('preserves the peer pair, completed original 8, held original 52 and old review date', { timeout: 30_000 }, () => {
     // EVST alone did not resolve the historical hold. The later authored-proof
     // completion must independently validate against the merged checkout.
     expect(parse().claimRecords[7].evidenceFailures).toEqual([]);

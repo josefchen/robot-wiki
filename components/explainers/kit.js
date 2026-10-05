@@ -13,6 +13,7 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+import { layoutLabels } from './label-layout.js';
 
 export { THREE };
 export const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -84,6 +85,8 @@ export class Stage {
     this._themeFns = new Set();
     this._frameFns = new Set();
     this._labels = new Set();
+    // An instance property, so the label check can plant a layout without the clamp and push-apart.
+    this.layoutLabels = layoutLabels;
     this._drags = [];
     this._tweens = new Set();
     this.dragging = false;
@@ -193,6 +196,8 @@ export class Stage {
     this.camera.aspect = aspect; this.camera.updateProjectionMatrix();
   }
 
+  // True while a camera move or another eased transition is running.
+  get moving() { return this._tweens.size > 0; }
   // Animate any value over time with the shared easing. Returns a promise.
   tween(duration, fn) {
     return new Promise((resolve) => {
@@ -271,31 +276,57 @@ export class Stage {
   hoverPick(fn) { this._hoverPick = fn; }
 
   // Plain-language label anchored to a 3D point. tone: 'plain' | 'focus' | 'fail' | 'ok' | 'sense' | 'act'.
+  // The stage places every label each frame (label-layout.js); scenes only say what to label and where.
   label(text, at, { tone = 'plain' } = {}) {
     const el = document.createElement('div');
     el.className = `tag tone-${tone}`;
     el.textContent = text;
     this.brand.surface(el);
-    this.el.append(el);
-    const L = { el, at, hidden: false,
+    const leader = document.createElement('div');
+    leader.className = 'tag-leader';
+    leader.setAttribute('aria-hidden', 'true');
+    this.el.append(leader, el);
+    const L = { el, leader, at, hidden: false,
       set: (t) => { el.textContent = t; return L; },
       tone: (t) => { el.className = `tag tone-${t}`; return L; },
-      show: (v = true) => { L.hidden = !v; el.style.opacity = v ? '1' : '0'; return L; },
-      remove: () => { el.remove(); this._labels.delete(L); } };
+      show: (v = true) => { L.hidden = !v; el.style.opacity = leader.style.opacity = v ? '1' : '0'; return L; },
+      remove: () => { el.remove(); leader.remove(); this._labels.delete(L); } };
     this._labels.add(L);
     return L;
   }
+  // Overlays drawn over the stage (the interaction prompt, the part card) that labels keep clear of.
+  _overlays() {
+    const frame = this.el.getBoundingClientRect(), out = [];
+    for (const o of (this.el.parentElement ?? this.el).querySelectorAll('[data-stage-overlay]')) {
+      if (o.hidden || !o.textContent.trim()) continue;
+      const r = o.getBoundingClientRect();
+      if (!r.width || r.right <= frame.left || r.left >= frame.right || r.bottom <= frame.top || r.top >= frame.bottom) continue;
+      out.push({ x: r.left - frame.left, y: r.top - frame.top, w: r.width, h: r.height });
+    }
+    return out;
+  }
   _placeLabels() {
-    const v = new THREE.Vector3();
+    const width = this.el.clientWidth, height = this.el.clientHeight;
+    const v = new THREE.Vector3(), live = [], items = [];
     for (const L of this._labels) {
       const p = typeof L.at === 'function' ? L.at() : L.at;
-      if (!p) { L.el.style.display = 'none'; continue; }
-      v.copy(p).project(this.camera);
-      const behind = v.z > 1;
-      L.el.style.display = behind ? 'none' : '';
-      L.el.style.left = `${(v.x * 0.5 + 0.5) * this.el.clientWidth}px`;
-      L.el.style.top = `${(-v.y * 0.5 + 0.5) * this.el.clientHeight}px`;
+      const off = !p || v.copy(p).project(this.camera).z > 1;
+      L.el.style.display = L.leader.style.display = off ? 'none' : '';
+      if (off || L.hidden) continue;
+      live.push(L);
+      items.push({ ax: (v.x * 0.5 + 0.5) * width, ay: (-v.y * 0.5 + 0.5) * height, w: L.el.offsetWidth, h: L.el.offsetHeight });
     }
+    if (!live.length) return;
+    const placed = this.layoutLabels(items, { width, height, obstacles: this._overlays() });
+    live.forEach((L, i) => {
+      const { box, leader } = placed[i];
+      L.el.style.transform = `translate(${Math.round(box.x)}px, ${Math.round(box.y)}px)`;
+      L.leader.style.visibility = leader ? '' : 'hidden';
+      if (!leader) return;
+      const dx = leader.x2 - leader.x1, dy = leader.y2 - leader.y1;
+      L.leader.style.width = `${Math.hypot(dx, dy)}px`;
+      L.leader.style.transform = `translate(${leader.x1}px, ${leader.y1}px) rotate(${Math.atan2(dy, dx)}rad)`;
+    });
   }
 
   // Remove everything an explainer added. Called between explainers.

@@ -1,0 +1,31 @@
+# Steps every explainer on /how-robots-work/ at 1280 and 390 px and fails when two stage labels
+# overlap or a label runs past the stage (VAL-OPUS-043). The sweep needs a browser with WebGL,
+# which the static deploy build does not have, so it runs here on every push.
+name: Explainer labels
+
+on: push
+
+jobs:
+  label-sweep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Build the static export
+        run: npx next build
+        env:
+          NEXT_TELEMETRY_DISABLED: '1'
+      - name: Step sweep
+        run: node scripts/check-explainer-labels.ts --record explainer-label-sweep.json
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: explainer-label-sweep
+          path: explainer-label-sweep.json
+          if-no-files-found: ignore
