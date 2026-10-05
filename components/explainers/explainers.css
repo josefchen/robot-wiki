@@ -64,13 +64,16 @@
 .explainers .stage canvas:focus-visible { box-shadow: inset 0 0 0 2px var(--color-focus); }
 .explainers .status { position: absolute; inset: 0; display: grid; place-items: center; padding: 16px; text-align: center; font-family: var(--font-sans); font-size: 14px; color: var(--dim); pointer-events: none; }
 .explainers .hint { position: absolute; right: 12px; top: 10px; font-family: var(--font-sans); font-size: 13px; color: var(--dim); pointer-events: none; }
-.explainers .tag { position: absolute; transform: translate(-50%, -135%); font-family: var(--font-sans); font-size: 13px; font-weight: 500; color: var(--ink); background: var(--color-surface); border: 1px solid var(--rule); border-radius: 2px; padding: 2px 8px; white-space: nowrap; pointer-events: none; transition: opacity 0.2s; }
-.explainers .tag::after { content: ''; position: absolute; left: 50%; top: 100%; width: 1px; height: 12px; background: var(--dim); }
+/* The kit places each label and its leader in stage pixels (label-layout.js). */
+.explainers .tag { position: absolute; left: 0; top: 0; font-family: var(--font-sans); font-size: 13px; font-weight: 500; color: var(--ink); background: var(--color-surface); border: 1px solid var(--rule); border-radius: 2px; padding: 2px 8px; white-space: nowrap; pointer-events: none; transition: opacity 0.2s; }
+.explainers .tag-leader { position: absolute; left: 0; top: 0; height: 1px; background: var(--dim); transform-origin: 0 50%; pointer-events: none; transition: opacity 0.2s; }
 .explainers .tag.tone-focus { background: var(--color-selection); border-color: var(--ink); color: var(--ink); }
 .explainers .tag.tone-fail { border-color: var(--fail); color: var(--fail); }
 .explainers .tag.tone-ok { border-color: var(--ok); color: var(--ok); }
 .explainers .tag.tone-sense { border-color: var(--sense); color: var(--sense); }
 .explainers .tag.tone-act { border-color: var(--act); color: var(--act); }
+/* The part card sits over the stage's lower left; on a phone it moves below the stage. */
+.explainers .stage-wrap { position: relative; min-width: 0; }
 .explainers .card { position: absolute; left: 12px; bottom: 12px; width: min(300px, calc(100% - 24px)); background: var(--color-surface); border: 1px solid var(--rule); border-radius: 4px; padding: 10px 12px; font-family: var(--font-sans); font-size: 14px; line-height: 1.45; display: grid; gap: 3px; }
 .explainers .card .k,
 .explainers .predict .k { font-size: 11px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--dim); font-weight: 600; }
@@ -137,7 +140,7 @@
 @container (max-width: 560px) {
   .explainers .layout { font-size: 17px; }
   .explainers .stage { aspect-ratio: 4 / 5; }
-  .explainers .card { position: static; width: auto; }
+  .explainers .card { position: static; width: auto; margin-top: 8px; }
   .explainers .steps { grid-template-columns: minmax(0, 1fr); }
   .explainers .step-text { font-size: 18px; }
   .explainers .btn,
@@ -146,4 +149,4 @@
   .explainers summary { min-height: 44px; }
   .explainers .dots button { width: 44px; height: 44px; }
 }
-@media (prefers-reduced-motion: reduce) { .explainers .tag { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .explainers .tag, .explainers .tag-leader { transition: none; } }
