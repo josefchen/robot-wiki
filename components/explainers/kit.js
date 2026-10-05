@@ -2,8 +2,9 @@
 // One stage (renderer, camera, light, floor) reused by every explainer, plus the shared teaching UI:
 // step rail, predict-then-reveal, part card, anchored labels, controls, self-check.
 //
-// Colour has ONE meaning everywhere (use these, never ad-hoc colours):
-//   focus  (blue)    the thing the current step is about
+// Colour has ONE meaning everywhere (use these, never ad-hoc colours). A step shows at most one of
+// focus, ok, sense and act, plus fail; whatever else it draws, even a force, is ink or grey.
+//   focus  (lime)    the thing the current step is about
 //   fail   (red)     failure, limits, collisions, unreachable
 //   ok     (green)   success, safe, holds
 //   sense  (yellow)  measurements and sensor readings
@@ -112,7 +113,9 @@ export class Stage {
     const fill = new THREE.DirectionalLight(0xffffff, 0.65);
     fill.position.set(-0.8, 0.5, -0.7);
     this.scene.add(fill);
-    this.floorMat = new THREE.ShadowMaterial({ opacity: 0.13 });
+    // The shadow catcher hides nothing, so it writes no depth. Across a 400 m plane, depth is too coarse
+    // in software renderers, and floor overlays a millimetre above it lost the depth test in patches.
+    this.floorMat = new THREE.ShadowMaterial({ opacity: 0.13, depthWrite: false });
     this.floor = new THREE.Mesh(new THREE.PlaneGeometry(400, 400), this.floorMat);
     this.floor.rotation.x = -Math.PI / 2;
     this.floor.receiveShadow = true;
@@ -765,7 +768,8 @@ export class TeachUI {
       el.innerHTML = `<span class="k">Guess first</span><p class="q">${question}</p><div class="opts"></div><p class="explain" hidden></p>`;
       const opts = el.querySelector('.opts'), ex = el.querySelector('.explain');
       // Words rather than tick and cross marks, which first-time readers do not always read as right and wrong.
-      const verdict = (b, text) => { const s = document.createElement('span'); s.className = 'verdict'; s.textContent = ` (${text})`; b.append(s); };
+      // A no-break space: the button is a flex box, which drops an ordinary space at the start of the span.
+      const verdict = (b, text) => { const s = document.createElement('span'); s.className = 'verdict'; s.textContent = `\u00a0(${text})`; b.append(s); };
       const finish = (id) => {
         opts.querySelectorAll('button').forEach((b) => {
           b.disabled = true;

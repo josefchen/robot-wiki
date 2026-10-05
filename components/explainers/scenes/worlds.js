@@ -204,7 +204,8 @@ export default {
     stage.world.add(tiles, robots, robotsFar);
     shuffle();
 
-    // Shoves: purple arrows, placed on the CPU for the few robots being pushed right now.
+    // Shoves: arrows placed on the CPU for the few robots being pushed right now. They are ink, so the
+    // ground tints and the real-world frame keep the step's one focus colour.
     const MAXA = 700;
     const arrowGeo = (() => {
       const shaft = new THREE.CylinderGeometry(0.045, 0.045, 0.45, 8).translate(0, 0.225, 0);
@@ -217,7 +218,7 @@ export default {
       shaft.dispose(); head.dispose();
       return g;
     })();
-    const arrows = new THREE.InstancedMesh(arrowGeo, stage.material('act'), MAXA);
+    const arrows = new THREE.InstancedMesh(arrowGeo, stage.material('ink'), MAXA);
     arrows.count = 0; arrows.frustumCulled = false; arrows.castShadow = false;
     stage.world.add(arrows);
 
@@ -455,7 +456,7 @@ export default {
             ui.readout([
               `${swatch(52, 10, 'linear-gradient(90deg, color-mix(in srgb-linear, var(--focus) 16%, var(--paper)), color-mix(in srgb-linear, var(--focus) 72%, var(--paper)))')}slippery to grippy ground`,
               `${swatch(12, 10, 'color-mix(in srgb-linear, var(--clay) 40%, var(--dark))')}darker body: heavier`,
-              `${swatch(18, 4, 'var(--act)')}arrow: a random shove, every 10 seconds`,
+              `${swatch(18, 4, 'var(--ink)')}arrow: a random shove, every 10 seconds`,
               `${swatch(12, 10, 'var(--fail)')}red: it fell and starts over`,
             ].map((s) => `<span style="white-space:nowrap">${s}</span>`).join(' · '));
             const from = U.uRand.value;

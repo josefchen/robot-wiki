@@ -360,8 +360,9 @@ export default {
       if (t.goal < 0) { ui.readout(`No way through after <b>${fmt(t.nTries)}</b> tries. Move the shelf again.`); return; }
       buildRoute();
       oldPath.visible = false; treeMat.opacity = 0.4;
-      setTube(smooth, route.pts); smooth.material.setRole('ok'); reveal(smooth, 0);
-      pathLabel.set('New path').tone('ok'); pathAt = route.curve.getPointAt(0.12); pathLabel.show(true);
+      // The new path takes the focus colour of the shelf's label, the step's one colour; a blocked path is red.
+      setTube(smooth, route.pts); smooth.material.setRole('focus'); reveal(smooth, 0);
+      pathLabel.set('New path').tone('focus'); pathAt = route.curve.getPointAt(0.12); pathLabel.show(true);
       const when = ms < 1 ? 'under 1 millisecond' : `${Math.round(ms)} milliseconds`;
       ui.readout(`New tree: <b>${fmt(t.nTries)}</b> tries, worked out in <b>${when}</b> on this device.`);
       if (!(await anim(0.3, (k) => reveal(smooth, k), my))) return;
@@ -452,7 +453,7 @@ export default {
         { text: STEP_TEXT[4],
           enter: async () => {
             const my = resetScene(); stage.focus(roomPts); firstTree(); showEdges(T.n - 1); buildRoute();
-            setTube(smooth, route.pts); smooth.material.setRole('ok'); treeMat.opacity = 0.4;
+            setTube(smooth, route.pts); smooth.material.setRole('focus'); treeMat.opacity = 0.4;
             dragLabel.show(true);
             // Frame the shelf where it ends up too, so the view holds it after it slides.
             MAP(0.8, corners(BLOCKING.x - 0.18, 0, BLOCKING.z - 0.13, BLOCKING.x + 0.18, 0.62, BLOCKING.z + 0.13));

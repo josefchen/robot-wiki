@@ -2761,9 +2761,9 @@
       "category": "static-asset",
       "ownershipId": "owner:static-asset",
       "sourceRegistryId": null,
-      "byteHash": "7cdea4cff65082650646b0d733472bbbaa4a0098552370ab0ba540270528f905",
+      "byteHash": "a312459ca87cc82550589c6da89ef109d86500c2b74e61d43303005180e15e8f",
       "semanticHash": null,
-      "fingerprint": "66e39b533a8534ba7af419073cf089d88ad9eb433c283ff55d508530c730cd63"
+      "fingerprint": "9c39a36b86a6a0da4713ad1971a61ce4fc28461f90f3eda68f75e8bce5dc68a6"
     },
     {
       "id": "asset:explainers/posters/hand.webp",
@@ -2781,9 +2781,9 @@
       "category": "static-asset",
       "ownershipId": "owner:static-asset",
       "sourceRegistryId": null,
-      "byteHash": "170fee9e5f6d6d69a4bfaaf0a6400a889e56ba83d6e51d588ab2dffeb1ab91e7",
+      "byteHash": "3a2a69bc9e17bf434bdbe887df21d64797e66b2aa7c6cbd5afd382ec42a9f1b0",
       "semanticHash": null,
-      "fingerprint": "51c9967452a58ab160ee01ecb73064e3e316025ee622fb221ead63fe77d36fca"
+      "fingerprint": "e971c2e5c1cf09d61fa69e3df01e6abaf61ee1aca37c83390840093828ecbbda"
     },
     {
       "id": "asset:explainers/posters/mug.webp",
@@ -2791,9 +2791,9 @@
       "category": "static-asset",
       "ownershipId": "owner:static-asset",
       "sourceRegistryId": null,
-      "byteHash": "b69116ddfdc8ef58f574f914590e8e6868c10b6d23f0f59c991ac8bbcaa1b465",
+      "byteHash": "3502ffb24298e46f24857b1949d25245c8307f0b9fada16d4440957bf791c3ef",
       "semanticHash": null,
-      "fingerprint": "4c8f6c3b6eb41419c84b32b908afbcb9f657f57713a08105aee058169efb5e31"
+      "fingerprint": "9eef0971a35d535e4e53c2cfbe80b42268ee02410a85d843fc91ab765b808219"
     },
     {
       "id": "asset:explainers/posters/path.webp",
@@ -2801,9 +2801,9 @@
       "category": "static-asset",
       "ownershipId": "owner:static-asset",
       "sourceRegistryId": null,
-      "byteHash": "d15a6d0a5fd45525b04b9398b3d711163e9ef33cc5150f2f317f3e829dfd070e",
+      "byteHash": "250165150d23380577ab8396cd136f3f6dee831d07e2d08358866c84e8adf404",
       "semanticHash": null,
-      "fingerprint": "35599f37027dffb42daeb03854e8f7f16435c9923ddc3d569da9370a11b9834f"
+      "fingerprint": "746eff433f3684aed3d01a216b9c779a34a5d432de5bc4999cf6913c911478de"
     },
     {
       "id": "asset:explainers/posters/puppeteer.webp",
@@ -2831,9 +2831,9 @@
       "category": "static-asset",
       "ownershipId": "owner:static-asset",
       "sourceRegistryId": null,
-      "byteHash": "20bc3a57d408d1876980136da1956f766b261c2d32395f37a1f3c358305b06dc",
+      "byteHash": "3f1ca89898825c524abfa5e7f6dd0d49ebc7735b212ee45cbca90ab2248c02b5",
       "semanticHash": null,
-      "fingerprint": "68d7133996b30c990a54aa98765aa11a7f7c420d911229ee40a97a2d4833856c"
+      "fingerprint": "236f66cade59305d2ed77530492d7ad5ee4cc768e324ac8baa2ca1cae5f296c0"
     },
     {
       "id": "asset:explainers/posters/whereami.webp",
@@ -2841,9 +2841,9 @@
       "category": "static-asset",
       "ownershipId": "owner:static-asset",
       "sourceRegistryId": null,
-      "byteHash": "8ef8ce919f8475abdcbeeacaff7a64c229c53bbf69a18df70042699acc9ae7e6",
+      "byteHash": "bc7e4c0874ca07691c8d2fd792ff191014aa52e32d5a7ae75564dcbe95e88aca",
       "semanticHash": null,
-      "fingerprint": "50fc6a95ccdfb13cc32e666e969ceb03b7660f75ec910b5e19071a966339dfa7"
+      "fingerprint": "998b9428d5e23e3aa7b9a8180cac98901c3d0eb0bd36f58e0bdb1e89e797d903"
     },
     {
       "id": "asset:explainers/posters/worlds.webp",
@@ -11796,5 +11796,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "3afc2e2d85c53932515ff3701f55087ac04176a3cd3b389ba70a86fb992f6277"
+  "rootFingerprint": "075ab2c4bcfe034d48f4711d8ad8403fa1c74fd5e82f0fa7b7e8376e7ae2bb7c"
 }
