@@ -17,6 +17,8 @@ citations:
   - cosmos-3-2026
   - knowledge-insulation-paper-2025
   - dreamzero-2026
+  - robottt-2026
+  - t2mem-2026
 seeAlso:
   - "world-models/taxonomy"
   - "manipulation/generalist-policies"
@@ -73,6 +75,8 @@ These architectures reuse pretrained visual and language representations; whethe
 The π0 line changed the action side. π0 uses a pretrained VLM plus a separate flow-matching action expert that generates continuous action chunks <Cite id="pi0-2024" />. The model distinguishes the pretrained vision-language backbone from a separately added continuous-action expert. Later work named the design principle knowledge insulation: the paper fine-tunes the VLM backbone with discretized actions while simultaneously adapting a continuous-action expert <Cite id="knowledge-insulation-paper-2025" />.
 
 The π0.7 authors title their 2026 report a steerable generalist robotic foundation model <Cite id="pi07-2026" />; evaluate its claimed transfer by task and adaptation setting. The relevant evidence is not the phrase in the title. It is whether the same pretrained system produces useful transfer under stated adaptation budgets and held-out physical conditions.
+
+Two 2026 papers extend how much history a VLA can use through test-time training, which stores past observations in fast weights updated by gradient descent while the policy runs. In July 2026, Yunfan Jiang, Li Fei-Fei, Yuke Zhu, Linxi Fan and colleagues reported RoboTTT, which extends visuomotor context to 8K timesteps without growing inference latency. On long-horizon real-robot tasks it averaged a 79% task completion score, against 42% for the single-step-context GR00T N1.7 baseline, and it fully completed a five-minute, ten-stage assembly task that no baseline completed <Cite id="robottt-2026" />. In September 2026, Yize Liu, Li Fei-Fei, Jiajun Wu and colleagues applied the mechanism to memory with T²Mem, which raised average success on 16 RoboMME tasks from 17.93% to 56.83% over its memory-free base policy <Cite id="t2mem-2026" />.
 
 ## Humanoid foundations: embodiment is part of the bet
 

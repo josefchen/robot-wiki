@@ -26,7 +26,7 @@ import {
   sealedHash,
   showAt,
 } from './helpers/continuation-merge-ledger';
-import { preReaderFirst, preSeoPassText } from '../helpers/seo-pass';
+import { preKolBacklog, preReaderFirst, preSeoPassText } from '../helpers/seo-pass';
 
 const ledgerPath = 'audit/data-hardware.md';
 const markdown = readFileSync(ledgerPath, 'utf8');
@@ -300,7 +300,7 @@ describe('industrial deployment originals 51 and 43: bounded MIT closeout', () =
     expect(proseHash(laneArticle.replace(newSpan, oldSpan))).toBe(oldProseHash);
     // Integrated line: the merged member is re-anchored from its seal.
     const preMotion = headReanchorFor(approvals.filter(delta => !delta.id.startsWith('seo-pass-20261002-')
-      && !delta.id.startsWith('reader-first-20261002-')),
+      && !delta.id.startsWith('reader-first-20261002-') && !delta.id.startsWith('kol-backlog-20261005-')),
       'prose', 'article:data-hardware/industrial-deployment')!;
     expect(preMotion.oldHash).toBe(sealedHash('prose', 'article:data-hardware/industrial-deployment'));
     const motion = approvals.find(delta =>
@@ -340,7 +340,16 @@ describe('industrial deployment originals 51 and 43: bounded MIT closeout', () =
     expect(readerFirst.reconciles?.at(-1)).toEqual({
       id: seo.id, oldHash: seo.oldHash, newHash: seo.newHash,
     });
-    expect(readerFirst.newHash).toBe(proseHash(readFileSync(articlePath, 'utf8')));
+    expect(readerFirst.newHash).toBe(proseHash(preKolBacklog(articlePath).toString('utf8')));
+    // The 2026-10-05 KOL backlog resolution binds the reader-first endpoint
+    // and reaches the live article, which adds the World Robotics 2026 paragraph.
+    const kol = approvals.find(delta =>
+      delta.id === 'kol-backlog-20261005-data-hardware-prose-industrial-deployment')!;
+    expect(kol.oldHash).toBe(preMotion.oldHash);
+    expect(kol.reconciles?.at(-1)).toEqual({
+      id: readerFirst.id, oldHash: readerFirst.oldHash, newHash: readerFirst.newHash,
+    });
+    expect(kol.newHash).toBe(proseHash(readFileSync(articlePath, 'utf8')));
     expect(laneArticle.match(/<Cite\s/g)).toHaveLength(32);
     expect(showAt('ac65cf4', articlePath).match(/<Cite\s/g)).toHaveLength(33);
     expect(showAt('0cbdda1', articlePath).match(/<Cite\s/g)).toHaveLength(34);

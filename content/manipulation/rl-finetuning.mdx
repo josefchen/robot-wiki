@@ -24,6 +24,7 @@ citations:
   - dsrl-2025
   - realtime-expo-ft-2026
   - perry-dong-post-training-2026
+  - prefpi-2026
 seeAlso:
   - "manipulation/realtime-execution"
   - "rl-sim2real/parallel-sim-rl"
@@ -152,6 +153,8 @@ The headline result: 30/30 successes on every evaluated task, within an average 
 Read the HIL-SERL column with the paper's own caveat: HIL-SERL is highly reliable in its original evaluations, and this suite randomizes a substantially larger initial-state space; the standard training budget was too small for learning to even start on Cube Pick and Pool Shot. With extra samples, HIL-SERL reaches 27/30 and 13/30 on those two tasks. A 5.5/30 average under this protocol is evidence about initial-state breadth, and the original HIL-SERL results above stand on their own protocol <Cite id="expo-ft-2026" /> <Cite id="hil-serl-2024" />.
 
 DSRL represents a third position in the same comparison: keep the base policy frozen entirely and run RL over its latent-noise space, with black-box access and no weight updates <Cite id="dsrl-2025" />. Its authors demonstrate real-world autonomous improvement of diffusion policies and pretrained generalists this way. Dong and Finn argue the approach has a ceiling: “If the skill a robot needs isn't already somewhere in what the base model learned during pretraining, no amount of noise-searching will produce the action.” In their four-task comparison, DSRL averages 19/30 <Cite id="perry-dong-post-training-2026" /> <Cite id="expo-ft-2026" />.
+
+A September 2026 paper from Seungeun Rho, Wontaek Kim, Danfei Xu and Sehoon Ha studies the same limit using preferences alone. Their PrefPI steers pretrained diffusion policies and π0.5 using relative preferences over the policy's own trajectories, aiming at behaviors the initial policy rarely or never produces; on real hardware, 150 preference-labeled trajectories raised object transport height from 10.7 cm to 19.8 cm <Cite id="prefpi-2026" />.
 
 Dong and Finn's September 2026 position, stated in a joint blog post, is that the field is at its GPT-2 moment: capable demos from pretrained VLAs, and no shared post-training recipe behind them. In their words, “RL shows incredible promise in training frontier robotics models, but it is not yet a recipe. It's a craft.” They argue robotics needs what language modeling has: a stable algorithm plus standard protocols for reward specification, resets, human input, hyperparameters and initialization. They attach their own limits to EXPO-FT: a human still defines success, resets the scene and intervenes; longer horizons strain the value function; and “Nineteen minutes of robot interaction is not nineteen minutes of post-training,” because gradient updates on a model this size dominate wall-clock time <Cite id="perry-dong-post-training-2026" />.
 

@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3100,
+      "visibleTextLength": 3088,
       "header": {
         "present": true,
         "display": "flex",
@@ -1215,7 +1215,7 @@
     },
     {
       "route": "/adjacent/surgical/",
-      "visibleTextLength": 16978,
+      "visibleTextLength": 17656,
       "header": {
         "present": true,
         "display": "flex",
@@ -2845,7 +2845,7 @@
     },
     {
       "route": "/classical/state-estimation/",
-      "visibleTextLength": 19987,
+      "visibleTextLength": 20619,
       "header": {
         "present": true,
         "display": "flex",
@@ -3334,7 +3334,7 @@
     },
     {
       "route": "/data-hardware/data-bottleneck/",
-      "visibleTextLength": 15184,
+      "visibleTextLength": 17696,
       "header": {
         "present": true,
         "display": "flex",
@@ -3986,7 +3986,7 @@
     },
     {
       "route": "/data-hardware/industrial-deployment/",
-      "visibleTextLength": 24472,
+      "visibleTextLength": 25142,
       "header": {
         "present": true,
         "display": "flex",
@@ -5119,7 +5119,7 @@
     },
     {
       "route": "/frontier/dexterity/",
-      "visibleTextLength": 23686,
+      "visibleTextLength": 24271,
       "header": {
         "present": true,
         "display": "flex",
@@ -5608,7 +5608,7 @@
     },
     {
       "route": "/frontier/safety-and-assurance/",
-      "visibleTextLength": 26044,
+      "visibleTextLength": 26797,
       "header": {
         "present": true,
         "display": "flex",
@@ -7238,7 +7238,7 @@
     },
     {
       "route": "/manipulation/foundation-models/",
-      "visibleTextLength": 12568,
+      "visibleTextLength": 13805,
       "header": {
         "present": true,
         "display": "flex",
@@ -7564,7 +7564,7 @@
     },
     {
       "route": "/manipulation/hierarchical/",
-      "visibleTextLength": 18486,
+      "visibleTextLength": 20694,
       "header": {
         "present": true,
         "display": "flex",
@@ -8053,7 +8053,7 @@
     },
     {
       "route": "/manipulation/realtime-execution/",
-      "visibleTextLength": 16237,
+      "visibleTextLength": 17049,
       "header": {
         "present": true,
         "display": "flex",
@@ -8216,7 +8216,7 @@
     },
     {
       "route": "/manipulation/rl-finetuning/",
-      "visibleTextLength": 37164,
+      "visibleTextLength": 37773,
       "header": {
         "present": true,
         "display": "flex",
@@ -11460,7 +11460,7 @@
     },
     {
       "route": "/world-models/jepa/",
-      "visibleTextLength": 15561,
+      "visibleTextLength": 16253,
       "header": {
         "present": true,
         "display": "flex",

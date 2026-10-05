@@ -1,0 +1,262 @@
+{
+  "schemaVersion": "kol-backlog-continuity-v1",
+  "name": "kol-backlog-20261005",
+  "reviewedBy": "implementation helper for the KOL backlog batch of 2026-10-05 (not independent acceptance)",
+  "rationale": "The KOL backlog batch of 2026-10-05 added dated, attributed sentences about new primary research to existing articles, each verified against the primary source fetched that day, and declared each new citation id in the article frontmatter. Each change is recorded here as exact edits over the bytes the article had before the batch. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor, every earlier line survives in order and the frontmatter differs only by appended citation ids, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
+  "observedAt": "2026-10-05T05:04:48Z",
+  "sources": [
+    {
+      "archivedFrom": "811e9da70747cce58c2174bfebb3eec2867be278",
+      "before": {
+        "path": "content/adjacent/surgical.mdx",
+        "bytes": 12986,
+        "sha256": "a7ad242e43324bc5038d55caa117d0b7f023093e10c5912576f8060387d243f3"
+      },
+      "after": {
+        "path": "content/adjacent/surgical.mdx",
+        "bytes": 13479,
+        "sha256": "5715334d09882b723e7498639aaef0235a74f38b444a2afcddcff60893f2f33e"
+      },
+      "edits": [
+        {
+          "before": "  - scopilot-clearance-2025\n",
+          "after": "  - scopilot-clearance-2025\n  - agro-suvide-2026\n"
+        },
+        {
+          "before": "First, surgical robotics is the existence proof that verified reliability gates deployment even when capability exists in the highest-stakes domains. The entire field is organized around a human-in-the-loop architecture whose every increment of automation is individually cleared: force sensing first as a display, camera control as an on-demand assistant, one procedure at a time. Compare that with the AV module's account of how driving autonomy is earned through statistical crash-rate evidence over hundreds of millions of miles, and with the drones module's hardware-identical race wins: same problem, three different evidentiary bars. The lesson generalizes to manipulation: the bar your policy must clear is set by the worst outcome of the task, beyond the benchmark median.\n",
+          "after": "First, surgical robotics is the existence proof that verified reliability gates deployment even when capability exists in the highest-stakes domains. The entire field is organized around a human-in-the-loop architecture whose every increment of automation is individually cleared: force sensing first as a display, camera control as an on-demand assistant, one procedure at a time. Compare that with the AV module's account of how driving autonomy is earned through statistical crash-rate evidence over hundreds of millions of miles, and with the drones module's hardware-identical race wins: same problem, three different evidentiary bars. The lesson generalizes to manipulation: the bar your policy must clear is set by the worst outcome of the task, beyond the benchmark median.\n\nIn September 2026, Shutong Jin, Ken Goldberg and colleagues reported AGRO-SUVIDE, a coding-agent framework that builds debridement skills from one expert demonstration and retries a skill when its checks fail. In 340 physical trials on the da Vinci Research Kit, it removed single fragments from a viscoelastic substrate with 85% average success and completed three consecutive removals 60% of the time, or 95% with one human intervention <Cite id=\"agro-suvide-2026\" />.\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "1583b74a769398cc0b4bae673a1b11d1bbd31209",
+      "before": {
+        "path": "content/classical/state-estimation.mdx",
+        "bytes": 15940,
+        "sha256": "0a19c6117f682e939aa4d29dcb1ce061f47657a7b8ed4285b8eed461fde09ba6"
+      },
+      "after": {
+        "path": "content/classical/state-estimation.mdx",
+        "bytes": 16451,
+        "sha256": "506d14a40574c756ac45411bd7a59f1b482e68b00388e0a1efa10cda14c96841"
+      },
+      "edits": [
+        {
+          "before": "  - gtsam-2026\n",
+          "after": "  - gtsam-2026\n  - mesh-mcl-construction-2026\n"
+        },
+        {
+          "before": "State estimation is the layer of the classical stack that learning has penetrated least, and the reason is the honest number: a covariance you can trust is worth more than a point estimate that is usually right. Learned components mostly enter as better sensors. A learned depth model or a learned visual-odometry frontend feeds the same filter or factor graph, which keeps the uncertainty bookkeeping classical even when the measurement model is a network.\n",
+          "after": "State estimation is the layer of the classical stack that learning has penetrated least, and the reason is the honest number: a covariance you can trust is worth more than a point estimate that is usually right. Learned components mostly enter as better sensors. A learned depth model or a learned visual-odometry frontend feeds the same filter or factor graph, which keeps the uncertainty bookkeeping classical even when the measurement model is a network.\n\nA September 2026 paper from Linus Kramer, William Talbot, Olga Vysotska and Marco Hutter is an example. For robots on construction sites, they replace the observation model of a Monte Carlo localization particle filter with a network that matches LiDAR scans against the building mesh, trained only on scans simulated inside that mesh. On real-world datasets it outperformed diffusion-based and ScanContext++ baselines at 18 ms per call <Cite id=\"mesh-mcl-construction-2026\" />.\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "d3119cd1fb76532bc15b98e642e7f48cda3313e6",
+      "before": {
+        "path": "content/data-hardware/data-bottleneck.mdx",
+        "bytes": 11608,
+        "sha256": "971c789f4fe8c97ea480b430931f998c8a7c5094991e8623a65e62339a564339"
+      },
+      "after": {
+        "path": "content/data-hardware/data-bottleneck.mdx",
+        "bytes": 13244,
+        "sha256": "509675b55fca4b46724651a35cdf2ff632a71235f022a93a72248657cfc381fe"
+      },
+      "edits": [
+        {
+          "before": "  - ego4d-2022\n",
+          "after": "  - ego4d-2022\n  - grail-2026\n  - humanoidmimicgen-2026\n  - prism-humanoid-2026\n  - dexagent-2026\n"
+        },
+        {
+          "before": "EgoScale is the strongest evidence so far that this route scales. Zheng et al. trained a vision-language-action model on 20,854 hours of action-labeled egocentric human video, more than twenty times larger than prior efforts, and uncovered a log-linear scaling law between human data scale and validation loss <Cite id=\"egoscale-2026\" />. That validation loss, in turn, correlated with real-robot performance and gave human video a measured link to robot performance. Their two-stage recipe, large-scale human pretraining followed by a lightweight aligned human-robot mid-training, improved average <Term id=\"success-rate\">success rate</Term> by 54% over a no-pretraining baseline on a 22-DoF dexterous hand and transferred to robots with simpler hands.\n",
+          "after": "EgoScale is the strongest evidence so far that this route scales. Zheng et al. trained a vision-language-action model on 20,854 hours of action-labeled egocentric human video, more than twenty times larger than prior efforts, and uncovered a log-linear scaling law between human data scale and validation loss <Cite id=\"egoscale-2026\" />. That validation loss, in turn, correlated with real-robot performance and gave human video a measured link to robot performance. Their two-stage recipe, large-scale human pretraining followed by a lightweight aligned human-robot mid-training, improved average <Term id=\"success-rate\">success rate</Term> by 54% over a no-pretraining baseline on a 22-DoF dexterous hand and transferred to robots with simpler hands.\n\nGenerated data is a third route, and several 2026 humanoid papers trained on it. GRAIL, from Tianyi Xie, Linxi Fan, Yuke Zhu, Ye Yuan and colleagues in June 2026, builds human-object interaction videos from 3D assets and video foundation models, reconstructs them in 4D and retargets them to a humanoid, giving more than 20,000 sequences; policies trained only on that data reached 84% pick-up success on a Unitree G1, averaged over five objects at ten trials each, and 90% on stair climbing <Cite id=\"grail-2026\" />. HumanoidMimicGen, from Kevin Lin, Ajay Mandlekar, Linxi Fan, Yuke Zhu and colleagues in May 2026, adapts a handful of source demonstrations to new object poses with whole-body planning; on four real-world tasks, average success rose from 0.51 with real demonstrations alone to 0.71 when they were co-trained with its generated data <Cite id=\"humanoidmimicgen-2026\" />. In September 2026, PRISM, from Zihan Wang, Guanya Shi, Angjoo Kanazawa and colleagues, turned a few real videos into hundreds of generated variants and deployed the resulting policy on a real humanoid with no real-world fine-tuning, picking up, carrying and dropping new instances of boxes, barrels, bins and balls <Cite id=\"prism-humanoid-2026\" />. The same month, DexAgent, from Youhui Wang, Yunzhu Li, Li Fei-Fei, Jiajun Wu and Huang Huang, turned a single egocentric human video and a task prompt into simulated robot trajectories, and across eleven real tasks its policies reached 3.5 times the success rate of competing baselines <Cite id=\"dexagent-2026\" />.\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "d3119cd1fb76532bc15b98e642e7f48cda3313e6",
+      "before": {
+        "path": "content/data-hardware/industrial-deployment.mdx",
+        "bytes": 19739,
+        "sha256": "6ef26dad2b09242e755de200dc04000556ca32006534a87ccd8c7f9f3c30968c"
+      },
+      "after": {
+        "path": "content/data-hardware/industrial-deployment.mdx",
+        "bytes": 20222,
+        "sha256": "f257e2d44571f32030fa2186f884105a1b1b701422ad2531b993b6f699189c9f"
+      },
+      "edits": [
+        {
+          "before": "  - bessemer-robotics-2026\n",
+          "after": "  - bessemer-robotics-2026\n  - ifr-world-robotics-2026-release\n"
+        },
+        {
+          "before": "Industrial deployment is the installation of robots in factories and warehouses, where each cell has to pay back its cost. IFR's World Robotics 2025 reports a global operational stock of 4,663,698 industrial robots in 2024; annual installations exceeded 500,000 in each year from 2021 through 2024, with 542,076 installed in 2024 <Cite id=\"ifr-world-robotics-2025\" />. Those machines are the field robot learning is trying to enter, and almost nothing about how they got there resembles the pipeline a paper describes. In 2024, China had 2,027,190 industrial robots in operation and Japan had 450,530. China had about 4.5 times the stock of Japan, the second-ranked country, and received 295,045 new installations that year, reported as 54 percent of the global total. IFR's May 5, 2026 release repeats the rounded stock and installation-share figures from World Robotics 2025 <span className=\"max-sm:[&_[role=tooltip]]:-translate-x-8\"><Cite id=\"ifr-world-robotics-2025\" /></span> <Cite id=\"ifr-china-five-year-plan-2026\" />. By customer industry in 2024, electrical/electronics accounted for 128,899 installations (reported as 24 percent), automotive for 126,088, and metal and machinery for 88,777 (16 percent). The IFR summary gives automotive 23 percent on page 13 but 24 percent on page 16; its chart and automotive discussion both report 126,088 units. These categories describe customer industries; they do not divide installations into application families. IFR says the customer industry was unspecified for 14 percent of installations <span className=\"max-sm:[&_[role=tooltip]]:-translate-x-4\"><Cite id=\"ifr-world-robotics-2025\" /></span>. Humanoid company reports have different scopes: Agility describes 65,000 hours of Digit production experience on an undated, changing homepage, without an allocation by facility or a measurement date <Cite id=\"agility-digit-production\" />. Hours cannot be substituted for units installed in IFR's industrial category. This page is that field.\n",
+          "after": "Industrial deployment is the installation of robots in factories and warehouses, where each cell has to pay back its cost. IFR's World Robotics 2025 reports a global operational stock of 4,663,698 industrial robots in 2024; annual installations exceeded 500,000 in each year from 2021 through 2024, with 542,076 installed in 2024 <Cite id=\"ifr-world-robotics-2025\" />. Those machines are the field robot learning is trying to enter, and almost nothing about how they got there resembles the pipeline a paper describes. In 2024, China had 2,027,190 industrial robots in operation and Japan had 450,530. China had about 4.5 times the stock of Japan, the second-ranked country, and received 295,045 new installations that year, reported as 54 percent of the global total. IFR's May 5, 2026 release repeats the rounded stock and installation-share figures from World Robotics 2025 <span className=\"max-sm:[&_[role=tooltip]]:-translate-x-8\"><Cite id=\"ifr-world-robotics-2025\" /></span> <Cite id=\"ifr-china-five-year-plan-2026\" />. By customer industry in 2024, electrical/electronics accounted for 128,899 installations (reported as 24 percent), automotive for 126,088, and metal and machinery for 88,777 (16 percent). The IFR summary gives automotive 23 percent on page 13 but 24 percent on page 16; its chart and automotive discussion both report 126,088 units. These categories describe customer industries; they do not divide installations into application families. IFR says the customer industry was unspecified for 14 percent of installations <span className=\"max-sm:[&_[role=tooltip]]:-translate-x-4\"><Cite id=\"ifr-world-robotics-2025\" /></span>. Humanoid company reports have different scopes: Agility describes 65,000 hours of Digit production experience on an undated, changing homepage, without an allocation by facility or a measurement date <Cite id=\"agility-digit-production\" />. Hours cannot be substituted for units installed in IFR's industrial category. This page is that field.\n\nIFR's release of World Robotics 2026 on September 24, 2026 carries the count one year forward. It reports a record operational stock of 5 million industrial robots in 2025, up 9%, and more than 600,000 installations that year, up 11%. China installed 354,000 units, 59% of global deployments, and the United States, with almost 38,500 installations, passed Japan to become the second-largest market <Cite id=\"ifr-world-robotics-2026-release\" />.\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "8bf9a1bcc060558ed3abf9b82fbdbd924fd786b7",
+      "before": {
+        "path": "content/frontier/dexterity.mdx",
+        "bytes": 17836,
+        "sha256": "28df457c23f3ddc1724065713e0c127d66a3e07df0a8565c383c1029361586da"
+      },
+      "after": {
+        "path": "content/frontier/dexterity.mdx",
+        "bytes": 18264,
+        "sha256": "8202fff0ca24020b75c13256581c0634376191cac2045ddabd0414f667b307d9"
+      },
+      "edits": [
+        {
+          "before": "  - trace-cables-2026\n",
+          "after": "  - trace-cables-2026\n  - fingr-2026\n"
+        },
+        {
+          "before": "In June 2026, Xinghao Zhu, Yuke Zhu and colleagues reported CHORD, a reinforcement-learning framework for long-horizon dexterous manipulation that compares human and robot motions by the forces and torques they can induce on the object. On 1,831 tasks from its simulated benchmark of 4,739 bimanual tasks, it averaged 82.12% success, and its learned policies transferred to the real world <Cite id=\"chord-2026\" />.\n",
+          "after": "In June 2026, Xinghao Zhu, Yuke Zhu and colleagues reported CHORD, a reinforcement-learning framework for long-horizon dexterous manipulation that compares human and robot motions by the forces and torques they can induce on the object. On 1,831 tasks from its simulated benchmark of 4,739 bimanual tasks, it averaged 82.12% success, and its learned policies transferred to the real world <Cite id=\"chord-2026\" />.\n\nIn September 2026, Yutong Liang, Quanquan Peng, Matthew Kim and Xiaolong Wang reported FINGR, a flow policy that turns Rubik's Cube layers with a single real dexterous hand. It succeeded on 99.0% of 300 turn attempts, against 79.7% for the base flow policy, and with grasping and table-assisted regrasping added it solved all ten scrambled 2×2×2 cubes in about 137 seconds on average <Cite id=\"fingr-2026\" />.\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "8bf9a1bcc060558ed3abf9b82fbdbd924fd786b7",
+      "before": {
+        "path": "content/frontier/safety-and-assurance.mdx",
+        "bytes": 19760,
+        "sha256": "04b4c95aeaa5cf9f0ac0cde5817a3a5607cbcb779e4152a89af87f26b7dbbbf5"
+      },
+      "after": {
+        "path": "content/frontier/safety-and-assurance.mdx",
+        "bytes": 20354,
+        "sha256": "ce051d78536d780f6653b25d8e66848322c7e3b01527f6a7668ebc4ee27d36e0"
+      },
+      "edits": [
+        {
+          "before": "  - kalra-paddock-2016\n",
+          "after": "  - kalra-paddock-2016\n  - wcbf-hyper-redundant-2026\n"
+        },
+        {
+          "before": "The formal instance is the safety filter. A <Term id=\"control-barrier-function\">control barrier function</Term> defines a set the system must stay inside and turns forward invariance of that set into a constraint on the commanded input, which the controller enforces each step <Cite id=\"ames-cbf-2019\" />. Wabersich and colleagues survey the family, including the reachability and predictive variants, and name the architecture directly: a filter that accepts a proposed input from any source and modifies it as little as necessary to keep the system safe <Cite id=\"wabersich-safety-filters-2023\" />. The guarantee belongs to the filter, and it holds whatever produced the proposal, which is precisely why the policy is permitted to be unverifiable.\n",
+          "after": "The formal instance is the safety filter. A <Term id=\"control-barrier-function\">control barrier function</Term> defines a set the system must stay inside and turns forward invariance of that set into a constraint on the commanded input, which the controller enforces each step <Cite id=\"ames-cbf-2019\" />. Wabersich and colleagues survey the family, including the reachability and predictive variants, and name the architecture directly: a filter that accepts a proposed input from any source and modifies it as little as necessary to keep the system safe <Cite id=\"wabersich-safety-filters-2023\" />. The guarantee belongs to the filter, and it holds whatever produced the proposal, which is precisely why the policy is permitted to be unverifiable.\n\nBarrier functions are also being adapted to bodies that rigid-arm controllers handle poorly. In September 2026, Zijian Cai, Daniela Rus, Cecilia Laschi and colleagues weighted the control barrier functions along a slender hyper-redundant robot to enforce obstacle constraints while correcting tracking errors from uneven loading. On a circular path-following task with obstacles, fixed weights cut the root-mean-square tracking error of the unweighted method by up to 59.6% in simulation and 87.7% in physical experiments <Cite id=\"wcbf-hyper-redundant-2026\" />.\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "1e1a32a05402d90f66dab71d7cf98f59a303059d",
+      "before": {
+        "path": "content/manipulation/foundation-models.mdx",
+        "bytes": 9539,
+        "sha256": "ea61a8caadaa5644ae1cc378b24648177d045ab2af840906c2888f2dc05300f4"
+      },
+      "after": {
+        "path": "content/manipulation/foundation-models.mdx",
+        "bytes": 10422,
+        "sha256": "740b0103ef13d24de61317aea6ca7dd95b6f7b223812ed8432220d729d01ddd3"
+      },
+      "edits": [
+        {
+          "before": "  - dreamzero-2026\n",
+          "after": "  - dreamzero-2026\n  - robottt-2026\n  - t2mem-2026\n"
+        },
+        {
+          "before": "The π0.7 authors title their 2026 report a steerable generalist robotic foundation model <Cite id=\"pi07-2026\" />; evaluate its claimed transfer by task and adaptation setting. The relevant evidence is not the phrase in the title. It is whether the same pretrained system produces useful transfer under stated adaptation budgets and held-out physical conditions.\n",
+          "after": "The π0.7 authors title their 2026 report a steerable generalist robotic foundation model <Cite id=\"pi07-2026\" />; evaluate its claimed transfer by task and adaptation setting. The relevant evidence is not the phrase in the title. It is whether the same pretrained system produces useful transfer under stated adaptation budgets and held-out physical conditions.\n\nTwo 2026 papers extend how much history a VLA can use through test-time training, which stores past observations in fast weights updated by gradient descent while the policy runs. In July 2026, Yunfan Jiang, Li Fei-Fei, Yuke Zhu, Linxi Fan and colleagues reported RoboTTT, which extends visuomotor context to 8K timesteps without growing inference latency. On long-horizon real-robot tasks it averaged a 79% task completion score, against 42% for the single-step-context GR00T N1.7 baseline, and it fully completed a five-minute, ten-stage assembly task that no baseline completed <Cite id=\"robottt-2026\" />. In September 2026, Yize Liu, Li Fei-Fei, Jiajun Wu and colleagues applied the mechanism to memory with T²Mem, which raised average success on 16 RoboMME tasks from 17.93% to 56.83% over its memory-free base policy <Cite id=\"t2mem-2026\" />.\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "1e1a32a05402d90f66dab71d7cf98f59a303059d",
+      "before": {
+        "path": "content/manipulation/hierarchical.mdx",
+        "bytes": 14600,
+        "sha256": "4adceecac3a8ae38e4266418cebb8756aedf73e2a3d87dea0edcf74dcaddfabb"
+      },
+      "after": {
+        "path": "content/manipulation/hierarchical.mdx",
+        "bytes": 15982,
+        "sha256": "88fe12598ffec080170e81c93e78ee066e4f74c00d376b5272aeb9c26e66a017"
+      },
+      "edits": [
+        {
+          "before": "  - mem-2026\n",
+          "after": "  - mem-2026\n  - simex-2026\n  - embodiedswe-2026\n  - roboharn-evo-2026\n  - asena-2026\n"
+        },
+        {
+          "before": "These capabilities depend on the supplied APIs and prompts. The paper assumes the instructions are feasible and cannot establish in advance whether a generated response is correct. Its real-robot systems use ViLD or MDETR <Term id=\"vision-language-model\">VLM</Term> detections, with depth and a camera-to-robot transform registered in advance to lift detections into 3D. The authors attribute many real-world failures to inaccurate detections. Quantitative robot-system evaluation is confined to the specified tabletop simulation; the real-robot systems are demonstrations <Cite id=\"code-as-policies-2022\" />.\n",
+          "after": "These capabilities depend on the supplied APIs and prompts. The paper assumes the instructions are feasible and cannot establish in advance whether a generated response is correct. Its real-robot systems use ViLD or MDETR <Term id=\"vision-language-model\">VLM</Term> detections, with depth and a camera-to-robot transform registered in advance to lift detections into 3D. The authors attribute many real-world failures to inaccurate detections. Quantitative robot-system evaluation is confined to the specified tabletop simulation; the real-robot systems are demonstrations <Cite id=\"code-as-policies-2022\" />.\n\nIn September 2026, several groups returned to code-writing planners with coding agents that test and repair their own programs. SimEX, from Jiaheng Hu, Guanya Shi and colleagues, has the agent build a robot toolbox in simulation and then correct the simulator from a few physical trials; the authors report towel folding, barcode scanning and plate manipulation learned with no demonstrations and 10 minutes of real-robot interaction <Cite id=\"simex-2026\" />. EmbodiedSWE, from Zeyu Shen, Dhruv Shah and colleagues, expands one verified coding-agent solution into many simulated demonstrations, and a VLA fine-tuned only on those demonstrations completed a long-horizon task on a real robot <Cite id=\"embodiedswe-2026\" />. RoboHarn-Evo, from Shifeng Bao, Cheng Chi and colleagues, keeps the model weights fixed and stores task-level and action-level knowledge that physical feedback revises; after 80 interaction rollouts, held-out success rose from 48.3% to 75.0% with GPT-5.5 and from 70.0% to 88.3% with GPT-6 <Cite id=\"roboharn-evo-2026\" />. ASENA, from An-Chieh Cheng, Linxi Fan, Yuke Zhu and colleagues, gives a coding agent navigation tools; with simulator feedback, ten passes over recurring 100-task subsets raised success from 72% to 98% on R2R and from 65% to 89% on RxR <Cite id=\"asena-2026\" />.\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "1e1a32a05402d90f66dab71d7cf98f59a303059d",
+      "before": {
+        "path": "content/manipulation/realtime-execution.mdx",
+        "bytes": 13094,
+        "sha256": "bb06da7b1e9176191461cc77c8f623384fa95be32e96e0e9cebfbdc4eb31c31b"
+      },
+      "after": {
+        "path": "content/manipulation/realtime-execution.mdx",
+        "bytes": 13671,
+        "sha256": "8cc8e843080a6e977bfab48fffba4ac6bfde0cf29b2d880f3f8c39cf820e801e"
+      },
+      "edits": [
+        {
+          "before": "  - vla-perf-2026\n",
+          "after": "  - vla-perf-2026\n  - chunktrust-2026\n"
+        },
+        {
+          "before": "π0.7 uses a training-time version of <Term id=\"real-time-chunking\">Real-Time Chunking</Term>. Its paper states that training simulates delays of 0 to 12 timesteps, corresponding to a maximum inference latency of 240 ms on a 50 Hz robot <Cite id=\"pi07-2026\" />. Treat that as a stated training setting; it carries no measured worst-case latency guarantee and proves no production deployment. The experiments predict 50 actions and execute either 15 or 25; UR5e robots run at 20 Hz and the other tested robots at 50 Hz. The paper does not assign the execution choices to specific robots <Cite id=\"pi07-2026\" />.\n",
+          "after": "π0.7 uses a training-time version of <Term id=\"real-time-chunking\">Real-Time Chunking</Term>. Its paper states that training simulates delays of 0 to 12 timesteps, corresponding to a maximum inference latency of 240 ms on a 50 Hz robot <Cite id=\"pi07-2026\" />. Treat that as a stated training setting; it carries no measured worst-case latency guarantee and proves no production deployment. The experiments predict 50 actions and execute either 15 or 25; UR5e robots run at 20 Hz and the other tested robots at 50 Hz. The paper does not assign the execution choices to specific robots <Cite id=\"pi07-2026\" />.\n\nIn September 2026, Fanding Huang, Cheng Chi, Zhi Wang and colleagues reported ChunkTrust, which infers how many actions to execute before replanning from the policy's own outputs while it runs. Its training-free horizon selector combines the stability of each generated chunk with its continuity with the actions already executed. Over all 50 RoboTwin2.0 tasks it raised π0.5's task-averaged success by 6.80 percentage points, and on four real household tasks it raised the mean normalized process score from 50.4% to 57.5% <Cite id=\"chunktrust-2026\" />.\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "1e1a32a05402d90f66dab71d7cf98f59a303059d",
+      "before": {
+        "path": "content/manipulation/rl-finetuning.mdx",
+        "bytes": 28104,
+        "sha256": "56f5df84018fb07d5f6d3d7b8e83083f67a9aded995c59f5f8e399bb87d17978"
+      },
+      "after": {
+        "path": "content/manipulation/rl-finetuning.mdx",
+        "bytes": 28572,
+        "sha256": "107fdaa88095cc192a401f1e1855ad896de33f2d04d3114cfa54f783baa2cc0b"
+      },
+      "edits": [
+        {
+          "before": "  - perry-dong-post-training-2026\n",
+          "after": "  - perry-dong-post-training-2026\n  - prefpi-2026\n"
+        },
+        {
+          "before": "DSRL represents a third position in the same comparison: keep the base policy frozen entirely and run RL over its latent-noise space, with black-box access and no weight updates <Cite id=\"dsrl-2025\" />. Its authors demonstrate real-world autonomous improvement of diffusion policies and pretrained generalists this way. Dong and Finn argue the approach has a ceiling: “If the skill a robot needs isn't already somewhere in what the base model learned during pretraining, no amount of noise-searching will produce the action.” In their four-task comparison, DSRL averages 19/30 <Cite id=\"perry-dong-post-training-2026\" /> <Cite id=\"expo-ft-2026\" />.\n",
+          "after": "DSRL represents a third position in the same comparison: keep the base policy frozen entirely and run RL over its latent-noise space, with black-box access and no weight updates <Cite id=\"dsrl-2025\" />. Its authors demonstrate real-world autonomous improvement of diffusion policies and pretrained generalists this way. Dong and Finn argue the approach has a ceiling: “If the skill a robot needs isn't already somewhere in what the base model learned during pretraining, no amount of noise-searching will produce the action.” In their four-task comparison, DSRL averages 19/30 <Cite id=\"perry-dong-post-training-2026\" /> <Cite id=\"expo-ft-2026\" />.\n\nA September 2026 paper from Seungeun Rho, Wontaek Kim, Danfei Xu and Sehoon Ha studies the same limit using preferences alone. Their PrefPI steers pretrained diffusion policies and π0.5 using relative preferences over the policy's own trajectories, aiming at behaviors the initial policy rarely or never produces; on real hardware, 150 preference-labeled trajectories raised object transport height from 10.7 cm to 19.8 cm <Cite id=\"prefpi-2026\" />.\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "78d0600ab1da991522b1cadf2306d1d6acbb6976",
+      "before": {
+        "path": "content/world-models/jepa.mdx",
+        "bytes": 13758,
+        "sha256": "1f1e9fdc0e28dd7d46ad43edef991a2f79d1c99a36362836bb634f2d6ef6abd9"
+      },
+      "after": {
+        "path": "content/world-models/jepa.mdx",
+        "bytes": 14289,
+        "sha256": "9e5cab58ff71ac385685b256c20fdf0270fbf52202f22a9af8e098ffec228c56"
+      },
+      "edits": [
+        {
+          "before": "  - fast-wam-2026\n",
+          "after": "  - fast-wam-2026\n  - ad-e2e-jepa-2026\n"
+        },
+        {
+          "before": "Two results would break the stalemate. The first is an interactive, inspectable, action-controllable JEPA environment: something a user can steer and probe the way Genie 3 can be steered today. Whether its absence is fundamental or an engineering gap is the crux of the debate. The second is a demonstrated JEPA advantage on contact-rich tasks, where the generative camp's best evidence and the JEPA camp's best evidence both currently run out. Until one of those lands, the honest summary is that the JEPA line has the cheapest demonstrated path from observation to zero-shot planning, and the [generative video](/world-models/generative-video) line has the only usable simulators.\n",
+          "after": "Two results would break the stalemate. The first is an interactive, inspectable, action-controllable JEPA environment: something a user can steer and probe the way Genie 3 can be steered today. Whether its absence is fundamental or an engineering gap is the crux of the debate. The second is a demonstrated JEPA advantage on contact-rich tasks, where the generative camp's best evidence and the JEPA camp's best evidence both currently run out. Until one of those lands, the honest summary is that the JEPA line has the cheapest demonstrated path from observation to zero-shot planning, and the [generative video](/world-models/generative-video) line has the only usable simulators.\n\nIn September 2026, Haoran Zhu, Wancong Zhang, Yann LeCun and Anna Choromanska tested JEPA world models as driving planners with no driving policy trained, using ground-truth future observations as goals. They report that earlier JEPA models were either accurate but slow or fast but too weak to plan, and that their AD-E2E-JEPA projector gives a 100-fold inference speedup while keeping planning performance, rolling out 256 candidate trajectories over 8 frames in 0.8 seconds <Cite id=\"ad-e2e-jepa-2026\" />.\n"
+        }
+      ]
+    }
+  ]
+}

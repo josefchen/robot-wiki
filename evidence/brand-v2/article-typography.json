@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "62b4fc529151e6c5287ad28f5f93c71172aa55b4f60243ad817e2ac6fa9ff0d7",
+  "fingerprint": "7bb86ffe7159301cd6dbd63d8ea834a1808ff5aeb09270546196c488ee04c4ff",
   "viewports": [
     "375x812",
     "1440x900"
@@ -143,7 +143,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3100,
+      "visibleTextLength": 3088,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -3539,7 +3539,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16978,
+      "visibleTextLength": 17656,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -3606,12 +3606,12 @@
           "Surgical Robotics"
         ],
         "lastReviewed": "2026-08-18",
-        "readingMinutes": 10,
-        "citationCount": 9,
+        "readingMinutes": 11,
+        "citationCount": 10,
         "reviewDateText": "18 August 2026",
         "reviewDateTime": "2026-08-18",
-        "readingTimeText": "10 min",
-        "citationCountText": "9",
+        "readingTimeText": "11 min",
+        "citationCountText": "10",
         "bibliographyIds": [
           "yang-autonomy-2017",
           "star-suturing-2016",
@@ -3621,7 +3621,8 @@
           "versius-plus-510k-2025",
           "maestro-tavac-2023",
           "maestro-commercial-510k-2024",
-          "scopilot-clearance-2025"
+          "scopilot-clearance-2025",
+          "agro-suvide-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -3763,6 +3764,15 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "In September 2026, Shutong Jin, Ken Goldberg and colleagues "
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Second, the field is building exactly the data substrate lea"
         }
       ],
@@ -3865,7 +3875,7 @@
         },
         {
           "kind": "reference",
-          "count": 9,
+          "count": 10,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -3875,7 +3885,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 9,
+              "count": 10,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -3887,7 +3897,7 @@
         },
         {
           "kind": "citation",
-          "count": 40,
+          "count": 42,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -3897,7 +3907,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 40,
+              "count": 42,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -11300,7 +11310,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19987,
+      "visibleTextLength": 20619,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -11368,11 +11378,11 @@
         ],
         "lastReviewed": "2026-08-17",
         "readingMinutes": 15,
-        "citationCount": 12,
+        "citationCount": 13,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
         "readingTimeText": "15 min",
-        "citationCountText": "12",
+        "citationCountText": "13",
         "bibliographyIds": [
           "kalman-1960-filter",
           "mcgee-schmidt-1985",
@@ -11385,7 +11395,8 @@
           "kaess-2012",
           "cadena-2016",
           "forster-2017",
-          "gtsam-2026"
+          "gtsam-2026",
+          "mesh-mcl-construction-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -11635,6 +11646,15 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "A September 2026 paper from Linus Kramer, William Talbot, Ol"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "One connection is deeper than the rest. The latent-dynamics "
         },
         {
@@ -11800,7 +11820,7 @@
         },
         {
           "kind": "reference",
-          "count": 12,
+          "count": 13,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -11810,7 +11830,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 12,
+              "count": 13,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -11822,7 +11842,7 @@
         },
         {
           "kind": "citation",
-          "count": 38,
+          "count": 40,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -11832,7 +11852,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 38,
+              "count": 40,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -12537,7 +12557,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 15184,
+      "visibleTextLength": 17696,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -12604,12 +12624,12 @@
           "The Data Bottleneck"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 8,
-        "citationCount": 13,
+        "readingMinutes": 10,
+        "citationCount": 17,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "8 min",
-        "citationCountText": "13",
+        "readingTimeText": "10 min",
+        "citationCountText": "17",
         "bibliographyIds": [
           "gpt3-2020",
           "llama-3-2024",
@@ -12623,7 +12643,11 @@
           "umi-2024",
           "egodex-2025",
           "egoscale-2026",
-          "ego4d-2022"
+          "ego4d-2022",
+          "grail-2026",
+          "humanoidmimicgen-2026",
+          "prism-humanoid-2026",
+          "dexagent-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -12837,6 +12861,15 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "Generated data is a third route, and several 2026 humanoid p"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Simulation is the other escape route: GPU-parallel environme"
         },
         {
@@ -12948,7 +12981,7 @@
         },
         {
           "kind": "reference",
-          "count": 13,
+          "count": 17,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -12958,7 +12991,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 13,
+              "count": 17,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -12970,7 +13003,7 @@
         },
         {
           "kind": "citation",
-          "count": 28,
+          "count": 36,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -12980,7 +13013,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 28,
+              "count": 36,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -13290,6 +13323,30 @@
         {
           "tag": "button",
           "text": "Show all 15 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 20 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 10 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 9 authors",
           "familyHead": "ibm plex sans",
           "sizePx": 13,
           "inProse": false,
@@ -15983,7 +16040,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24472,
+      "visibleTextLength": 25142,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -16050,12 +16107,12 @@
           "Industrial Deployment"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 14,
-        "citationCount": 22,
+        "readingMinutes": 15,
+        "citationCount": 23,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "14 min",
-        "citationCountText": "22",
+        "readingTimeText": "15 min",
+        "citationCountText": "23",
         "bibliographyIds": [
           "ifr-world-robotics-2025",
           "ifr-china-five-year-plan-2026",
@@ -16078,7 +16135,8 @@
           "morgan-stanley-pr-problem-2026",
           "figure-8hr-shift-2026",
           "goldberg-data-gap-2025",
-          "bessemer-robotics-2026"
+          "bessemer-robotics-2026",
+          "ifr-world-robotics-2026-release"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -16104,6 +16162,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Industrial deployment is the installation of robots in facto"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "IFR's release of World Robotics 2026 on September 24, 2026 c"
         },
         {
           "familyHead": "newsreader",
@@ -16529,7 +16596,7 @@
         },
         {
           "kind": "reference",
-          "count": 22,
+          "count": 23,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -16539,7 +16606,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 22,
+              "count": 23,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -16551,7 +16618,7 @@
         },
         {
           "kind": "citation",
-          "count": 66,
+          "count": 68,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -16561,7 +16628,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 66,
+              "count": 68,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -20642,7 +20709,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23686,
+      "visibleTextLength": 24271,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -20710,11 +20777,11 @@
         ],
         "lastReviewed": "2026-08-18",
         "readingMinutes": 14,
-        "citationCount": 27,
+        "citationCount": 28,
         "reviewDateText": "18 August 2026",
         "reviewDateTime": "2026-08-18",
         "readingTimeText": "14 min",
-        "citationCountText": "27",
+        "citationCountText": "28",
         "bibliographyIds": [
           "brooks-dexterity-2025",
           "macefield-touch-2022",
@@ -20742,7 +20809,8 @@
           "rl-100-2025",
           "t-rex-2026",
           "chord-2026",
-          "trace-cables-2026"
+          "trace-cables-2026",
+          "fingr-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -20983,6 +21051,15 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "In September 2026, Yutong Liang, Quanquan Peng, Matthew Kim "
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Rigid objects are the easy case. A wooden block rests on one"
         },
         {
@@ -21166,7 +21243,7 @@
         },
         {
           "kind": "reference",
-          "count": 27,
+          "count": 28,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -21176,7 +21253,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 27,
+              "count": 28,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -21188,7 +21265,7 @@
         },
         {
           "kind": "citation",
-          "count": 80,
+          "count": 82,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -21198,7 +21275,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 80,
+              "count": 82,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -23217,7 +23294,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26044,
+      "visibleTextLength": 26797,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -23284,12 +23361,12 @@
           "Safety and Assurance"
         ],
         "lastReviewed": "2026-08-22",
-        "readingMinutes": 15,
-        "citationCount": 29,
+        "readingMinutes": 16,
+        "citationCount": 30,
         "reviewDateText": "22 August 2026",
         "reviewDateTime": "2026-08-22",
-        "readingTimeText": "15 min",
-        "citationCountText": "29",
+        "readingTimeText": "16 min",
+        "citationCountText": "30",
         "bibliographyIds": [
           "iso-12100",
           "iso-10218-1-2025",
@@ -23319,7 +23396,8 @@
           "gemini-robotics-er2-2026",
           "koopman-safe-enough-2026",
           "rss-2017",
-          "kalra-paddock-2016"
+          "kalra-paddock-2016",
+          "wcbf-hyper-redundant-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -23605,6 +23683,15 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "Barrier functions are also being adapted to bodies that rigi"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "The industrial instance of the same pattern is cruder and mu"
         },
         {
@@ -23851,7 +23938,7 @@
         },
         {
           "kind": "reference",
-          "count": 29,
+          "count": 30,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -23861,7 +23948,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 29,
+              "count": 30,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -23873,7 +23960,7 @@
         },
         {
           "kind": "citation",
-          "count": 64,
+          "count": 66,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -23883,7 +23970,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 64,
+              "count": 66,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -30097,7 +30184,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12568,
+      "visibleTextLength": 13805,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -30164,12 +30251,12 @@
           "Foundation Models for Robotics"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 6,
-        "citationCount": 9,
+        "readingMinutes": 7,
+        "citationCount": 11,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "6 min",
-        "citationCountText": "9",
+        "readingTimeText": "7 min",
+        "citationCountText": "11",
         "bibliographyIds": [
           "rt2-2023",
           "openvla-2024",
@@ -30179,7 +30266,9 @@
           "vjepa2-2025",
           "cosmos-3-2026",
           "knowledge-insulation-paper-2025",
-          "dreamzero-2026"
+          "dreamzero-2026",
+          "robottt-2026",
+          "t2mem-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -30295,6 +30384,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "The π0.7 authors title their 2026 report a steerable general"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Two 2026 papers extend how much history a VLA can use throug"
         },
         {
           "familyHead": "newsreader",
@@ -30576,7 +30674,7 @@
         },
         {
           "kind": "reference",
-          "count": 9,
+          "count": 11,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -30586,7 +30684,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 9,
+              "count": 11,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -30598,7 +30696,7 @@
         },
         {
           "kind": "citation",
-          "count": 18,
+          "count": 22,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -30608,7 +30706,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 18,
+              "count": 22,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -30841,6 +30939,14 @@
         {
           "tag": "button",
           "text": "Show all 36 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 11 authors",
           "familyHead": "ibm plex sans",
           "sizePx": 13,
           "inProse": false,
@@ -31828,7 +31934,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18486,
+      "visibleTextLength": 20694,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -31895,12 +32001,12 @@
           "Hierarchical Approaches"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 11,
-        "citationCount": 13,
+        "readingMinutes": 12,
+        "citationCount": 17,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "11 min",
-        "citationCountText": "13",
+        "readingTimeText": "12 min",
+        "citationCountText": "17",
         "bibliographyIds": [
           "saycan-2022",
           "code-as-policies-2022",
@@ -31914,7 +32020,11 @@
           "helix-02-2026",
           "agibot-go2-2026",
           "pi07-2026",
-          "mem-2026"
+          "mem-2026",
+          "simex-2026",
+          "embodiedswe-2026",
+          "roboharn-evo-2026",
+          "asena-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -32075,6 +32185,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "These capabilities depend on the supplied APIs and prompts. "
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "In September 2026, several groups returned to code-writing p"
         },
         {
           "familyHead": "newsreader",
@@ -32293,7 +32412,7 @@
         },
         {
           "kind": "reference",
-          "count": 13,
+          "count": 17,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -32303,7 +32422,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 13,
+              "count": 17,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -32315,7 +32434,7 @@
         },
         {
           "kind": "citation",
-          "count": 58,
+          "count": 66,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -32325,7 +32444,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 58,
+              "count": 66,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -32609,6 +32728,30 @@
         {
           "tag": "button",
           "text": "Show all 17 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 19 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 10 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 10 authors",
           "familyHead": "ibm plex sans",
           "sizePx": 13,
           "inProse": false,
@@ -34440,7 +34583,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16237,
+      "visibleTextLength": 17049,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -34508,18 +34651,19 @@
         ],
         "lastReviewed": "2026-08-17",
         "readingMinutes": 11,
-        "citationCount": 6,
+        "citationCount": 7,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
         "readingTimeText": "11 min",
-        "citationCountText": "6",
+        "citationCountText": "7",
         "bibliographyIds": [
           "act-aloha-2023",
           "pi0-2024",
           "pi06-model-card-2025",
           "pi07-2026",
           "real-time-chunking-2025",
-          "vla-perf-2026"
+          "vla-perf-2026",
+          "chunktrust-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -34814,6 +34958,15 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "In September 2026, Fanding Huang, Cheng Chi, Zhi Wang and co"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "VLA-Perf’s π0 sweep shows that step count affects expert and"
         },
         {
@@ -34961,7 +35114,7 @@
         },
         {
           "kind": "reference",
-          "count": 6,
+          "count": 7,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -34971,7 +35124,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 6,
+              "count": 7,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -34983,7 +35136,7 @@
         },
         {
           "kind": "citation",
-          "count": 54,
+          "count": 56,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -34993,7 +35146,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 54,
+              "count": 56,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -35270,6 +35423,14 @@
           "sizePx": 13,
           "inProse": false,
           "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 16 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
         }
       ],
       "rules": [
@@ -35290,7 +35451,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 37164,
+      "visibleTextLength": 37773,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -35357,12 +35518,12 @@
           "RL Fine-Tuning of Policies"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 24,
-        "citationCount": 17,
+        "readingMinutes": 25,
+        "citationCount": 18,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "24 min",
-        "citationCountText": "17",
+        "readingTimeText": "25 min",
+        "citationCountText": "18",
         "bibliographyIds": [
           "dagger-2011",
           "dppo-2024",
@@ -35380,7 +35541,8 @@
           "expo-2025",
           "dsrl-2025",
           "realtime-expo-ft-2026",
-          "perry-dong-post-training-2026"
+          "perry-dong-post-training-2026",
+          "prefpi-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -35819,6 +35981,15 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "A September 2026 paper from Seungeun Rho, Wontaek Kim, Danfe"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Dong and Finn's September 2026 position, stated in a joint b"
         },
         {
@@ -36038,7 +36209,7 @@
         },
         {
           "kind": "reference",
-          "count": 17,
+          "count": 18,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -36048,7 +36219,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 17,
+              "count": 18,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -36060,7 +36231,7 @@
         },
         {
           "kind": "citation",
-          "count": 122,
+          "count": 124,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -36070,7 +36241,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 122,
+              "count": 124,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -50157,7 +50328,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15561,
+      "visibleTextLength": 16253,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -50224,12 +50395,12 @@
           "JEPA and the Non-Generative Counterargument"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 9,
-        "citationCount": 9,
+        "readingMinutes": 10,
+        "citationCount": 10,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "9 min",
-        "citationCountText": "9",
+        "readingTimeText": "10 min",
+        "citationCountText": "10",
         "bibliographyIds": [
           "vjepa-2024",
           "vjepa2-2025",
@@ -50239,7 +50410,8 @@
           "cosmos-3-2026",
           "odyssey-2-2025",
           "interactive-world-simulator-2026",
-          "fast-wam-2026"
+          "fast-wam-2026",
+          "ad-e2e-jepa-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -50453,6 +50625,15 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "In September 2026, Haoran Zhu, Wancong Zhang, Yann LeCun and"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Use a JEPA-style model when the downstream decision depends "
         },
         {
@@ -50600,7 +50781,7 @@
         },
         {
           "kind": "reference",
-          "count": 9,
+          "count": 10,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -50610,7 +50791,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 9,
+              "count": 10,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -50622,7 +50803,7 @@
         },
         {
           "kind": "citation",
-          "count": 42,
+          "count": 44,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -50632,7 +50813,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 42,
+              "count": 44,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -54275,7 +54456,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 3338,
+      "visibleTextLength": 3326,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -57671,7 +57852,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17312,
+      "visibleTextLength": 17990,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -57738,12 +57919,12 @@
           "Surgical Robotics"
         ],
         "lastReviewed": "2026-08-18",
-        "readingMinutes": 10,
-        "citationCount": 9,
+        "readingMinutes": 11,
+        "citationCount": 10,
         "reviewDateText": "18 August 2026",
         "reviewDateTime": "2026-08-18",
-        "readingTimeText": "10 min",
-        "citationCountText": "9",
+        "readingTimeText": "11 min",
+        "citationCountText": "10",
         "bibliographyIds": [
           "yang-autonomy-2017",
           "star-suturing-2016",
@@ -57753,7 +57934,8 @@
           "versius-plus-510k-2025",
           "maestro-tavac-2023",
           "maestro-commercial-510k-2024",
-          "scopilot-clearance-2025"
+          "scopilot-clearance-2025",
+          "agro-suvide-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -57895,6 +58077,15 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "In September 2026, Shutong Jin, Ken Goldberg and colleagues "
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Second, the field is building exactly the data substrate lea"
         }
       ],
@@ -57997,7 +58188,7 @@
         },
         {
           "kind": "reference",
-          "count": 9,
+          "count": 10,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -58007,7 +58198,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 9,
+              "count": 10,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -58019,7 +58210,7 @@
         },
         {
           "kind": "citation",
-          "count": 40,
+          "count": 42,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -58029,7 +58220,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 40,
+              "count": 42,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -65432,7 +65623,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20422,
+      "visibleTextLength": 21054,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -65500,11 +65691,11 @@
         ],
         "lastReviewed": "2026-08-17",
         "readingMinutes": 15,
-        "citationCount": 12,
+        "citationCount": 13,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
         "readingTimeText": "15 min",
-        "citationCountText": "12",
+        "citationCountText": "13",
         "bibliographyIds": [
           "kalman-1960-filter",
           "mcgee-schmidt-1985",
@@ -65517,7 +65708,8 @@
           "kaess-2012",
           "cadena-2016",
           "forster-2017",
-          "gtsam-2026"
+          "gtsam-2026",
+          "mesh-mcl-construction-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -65767,6 +65959,15 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "A September 2026 paper from Linus Kramer, William Talbot, Ol"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "One connection is deeper than the rest. The latent-dynamics "
         },
         {
@@ -65932,7 +66133,7 @@
         },
         {
           "kind": "reference",
-          "count": 12,
+          "count": 13,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -65942,7 +66143,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 12,
+              "count": 13,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -65954,7 +66155,7 @@
         },
         {
           "kind": "citation",
-          "count": 38,
+          "count": 40,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -65964,7 +66165,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 38,
+              "count": 40,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -66669,7 +66870,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 15579,
+      "visibleTextLength": 18091,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -66736,12 +66937,12 @@
           "The Data Bottleneck"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 8,
-        "citationCount": 13,
+        "readingMinutes": 10,
+        "citationCount": 17,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "8 min",
-        "citationCountText": "13",
+        "readingTimeText": "10 min",
+        "citationCountText": "17",
         "bibliographyIds": [
           "gpt3-2020",
           "llama-3-2024",
@@ -66755,7 +66956,11 @@
           "umi-2024",
           "egodex-2025",
           "egoscale-2026",
-          "ego4d-2022"
+          "ego4d-2022",
+          "grail-2026",
+          "humanoidmimicgen-2026",
+          "prism-humanoid-2026",
+          "dexagent-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -66969,6 +67174,15 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "Generated data is a third route, and several 2026 humanoid p"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Simulation is the other escape route: GPU-parallel environme"
         },
         {
@@ -67080,7 +67294,7 @@
         },
         {
           "kind": "reference",
-          "count": 13,
+          "count": 17,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -67090,7 +67304,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 13,
+              "count": 17,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -67102,7 +67316,7 @@
         },
         {
           "kind": "citation",
-          "count": 28,
+          "count": 36,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -67112,7 +67326,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 28,
+              "count": 36,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -67422,6 +67636,30 @@
         {
           "tag": "button",
           "text": "Show all 15 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 20 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 10 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 9 authors",
           "familyHead": "ibm plex sans",
           "sizePx": 13,
           "inProse": false,
@@ -70115,7 +70353,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24867,
+      "visibleTextLength": 25537,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -70182,12 +70420,12 @@
           "Industrial Deployment"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 14,
-        "citationCount": 22,
+        "readingMinutes": 15,
+        "citationCount": 23,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "14 min",
-        "citationCountText": "22",
+        "readingTimeText": "15 min",
+        "citationCountText": "23",
         "bibliographyIds": [
           "ifr-world-robotics-2025",
           "ifr-china-five-year-plan-2026",
@@ -70210,7 +70448,8 @@
           "morgan-stanley-pr-problem-2026",
           "figure-8hr-shift-2026",
           "goldberg-data-gap-2025",
-          "bessemer-robotics-2026"
+          "bessemer-robotics-2026",
+          "ifr-world-robotics-2026-release"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -70236,6 +70475,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Industrial deployment is the installation of robots in facto"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "IFR's release of World Robotics 2026 on September 24, 2026 c"
         },
         {
           "familyHead": "newsreader",
@@ -70661,7 +70909,7 @@
         },
         {
           "kind": "reference",
-          "count": 22,
+          "count": 23,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -70671,7 +70919,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 22,
+              "count": 23,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -70683,7 +70931,7 @@
         },
         {
           "kind": "citation",
-          "count": 66,
+          "count": 68,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -70693,7 +70941,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 66,
+              "count": 68,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -74774,7 +75022,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24037,
+      "visibleTextLength": 24622,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -74842,11 +75090,11 @@
         ],
         "lastReviewed": "2026-08-18",
         "readingMinutes": 14,
-        "citationCount": 27,
+        "citationCount": 28,
         "reviewDateText": "18 August 2026",
         "reviewDateTime": "2026-08-18",
         "readingTimeText": "14 min",
-        "citationCountText": "27",
+        "citationCountText": "28",
         "bibliographyIds": [
           "brooks-dexterity-2025",
           "macefield-touch-2022",
@@ -74874,7 +75122,8 @@
           "rl-100-2025",
           "t-rex-2026",
           "chord-2026",
-          "trace-cables-2026"
+          "trace-cables-2026",
+          "fingr-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -75115,6 +75364,15 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "In September 2026, Yutong Liang, Quanquan Peng, Matthew Kim "
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Rigid objects are the easy case. A wooden block rests on one"
         },
         {
@@ -75298,7 +75556,7 @@
         },
         {
           "kind": "reference",
-          "count": 27,
+          "count": 28,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -75308,7 +75566,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 27,
+              "count": 28,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -75320,7 +75578,7 @@
         },
         {
           "kind": "citation",
-          "count": 80,
+          "count": 82,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -75330,7 +75588,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 80,
+              "count": 82,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -77349,7 +77607,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26395,
+      "visibleTextLength": 27148,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -77416,12 +77674,12 @@
           "Safety and Assurance"
         ],
         "lastReviewed": "2026-08-22",
-        "readingMinutes": 15,
-        "citationCount": 29,
+        "readingMinutes": 16,
+        "citationCount": 30,
         "reviewDateText": "22 August 2026",
         "reviewDateTime": "2026-08-22",
-        "readingTimeText": "15 min",
-        "citationCountText": "29",
+        "readingTimeText": "16 min",
+        "citationCountText": "30",
         "bibliographyIds": [
           "iso-12100",
           "iso-10218-1-2025",
@@ -77451,7 +77709,8 @@
           "gemini-robotics-er2-2026",
           "koopman-safe-enough-2026",
           "rss-2017",
-          "kalra-paddock-2016"
+          "kalra-paddock-2016",
+          "wcbf-hyper-redundant-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -77737,6 +77996,15 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "Barrier functions are also being adapted to bodies that rigi"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "The industrial instance of the same pattern is cruder and mu"
         },
         {
@@ -77983,7 +78251,7 @@
         },
         {
           "kind": "reference",
-          "count": 29,
+          "count": 30,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -77993,7 +78261,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 29,
+              "count": 30,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -78005,7 +78273,7 @@
         },
         {
           "kind": "citation",
-          "count": 64,
+          "count": 66,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -78015,7 +78283,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 64,
+              "count": 66,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -84229,7 +84497,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 13211,
+      "visibleTextLength": 14448,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -84296,12 +84564,12 @@
           "Foundation Models for Robotics"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 6,
-        "citationCount": 9,
+        "readingMinutes": 7,
+        "citationCount": 11,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "6 min",
-        "citationCountText": "9",
+        "readingTimeText": "7 min",
+        "citationCountText": "11",
         "bibliographyIds": [
           "rt2-2023",
           "openvla-2024",
@@ -84311,7 +84579,9 @@
           "vjepa2-2025",
           "cosmos-3-2026",
           "knowledge-insulation-paper-2025",
-          "dreamzero-2026"
+          "dreamzero-2026",
+          "robottt-2026",
+          "t2mem-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -84427,6 +84697,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "The π0.7 authors title their 2026 report a steerable general"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Two 2026 papers extend how much history a VLA can use throug"
         },
         {
           "familyHead": "newsreader",
@@ -84708,7 +84987,7 @@
         },
         {
           "kind": "reference",
-          "count": 9,
+          "count": 11,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -84718,7 +84997,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 9,
+              "count": 11,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -84730,7 +85009,7 @@
         },
         {
           "kind": "citation",
-          "count": 18,
+          "count": 22,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -84740,7 +85019,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 18,
+              "count": 22,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -84973,6 +85252,14 @@
         {
           "tag": "button",
           "text": "Show all 36 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 11 authors",
           "familyHead": "ibm plex sans",
           "sizePx": 13,
           "inProse": false,
@@ -85960,7 +86247,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19129,
+      "visibleTextLength": 21337,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -86027,12 +86314,12 @@
           "Hierarchical Approaches"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 11,
-        "citationCount": 13,
+        "readingMinutes": 12,
+        "citationCount": 17,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "11 min",
-        "citationCountText": "13",
+        "readingTimeText": "12 min",
+        "citationCountText": "17",
         "bibliographyIds": [
           "saycan-2022",
           "code-as-policies-2022",
@@ -86046,7 +86333,11 @@
           "helix-02-2026",
           "agibot-go2-2026",
           "pi07-2026",
-          "mem-2026"
+          "mem-2026",
+          "simex-2026",
+          "embodiedswe-2026",
+          "roboharn-evo-2026",
+          "asena-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -86207,6 +86498,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "These capabilities depend on the supplied APIs and prompts. "
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "In September 2026, several groups returned to code-writing p"
         },
         {
           "familyHead": "newsreader",
@@ -86425,7 +86725,7 @@
         },
         {
           "kind": "reference",
-          "count": 13,
+          "count": 17,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -86435,7 +86735,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 13,
+              "count": 17,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -86447,7 +86747,7 @@
         },
         {
           "kind": "citation",
-          "count": 58,
+          "count": 66,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -86457,7 +86757,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 58,
+              "count": 66,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -86741,6 +87041,30 @@
         {
           "tag": "button",
           "text": "Show all 17 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 19 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 10 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 10 authors",
           "familyHead": "ibm plex sans",
           "sizePx": 13,
           "inProse": false,
@@ -88572,7 +88896,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16880,
+      "visibleTextLength": 17692,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -88640,18 +88964,19 @@
         ],
         "lastReviewed": "2026-08-17",
         "readingMinutes": 11,
-        "citationCount": 6,
+        "citationCount": 7,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
         "readingTimeText": "11 min",
-        "citationCountText": "6",
+        "citationCountText": "7",
         "bibliographyIds": [
           "act-aloha-2023",
           "pi0-2024",
           "pi06-model-card-2025",
           "pi07-2026",
           "real-time-chunking-2025",
-          "vla-perf-2026"
+          "vla-perf-2026",
+          "chunktrust-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -88946,6 +89271,15 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "In September 2026, Fanding Huang, Cheng Chi, Zhi Wang and co"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "VLA-Perf’s π0 sweep shows that step count affects expert and"
         },
         {
@@ -89093,7 +89427,7 @@
         },
         {
           "kind": "reference",
-          "count": 6,
+          "count": 7,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -89103,7 +89437,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 6,
+              "count": 7,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -89115,7 +89449,7 @@
         },
         {
           "kind": "citation",
-          "count": 54,
+          "count": 56,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -89125,7 +89459,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 54,
+              "count": 56,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -89402,6 +89736,14 @@
           "sizePx": 13,
           "inProse": false,
           "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 16 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
         }
       ],
       "rules": [
@@ -89422,7 +89764,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 37807,
+      "visibleTextLength": 38416,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -89489,12 +89831,12 @@
           "RL Fine-Tuning of Policies"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 24,
-        "citationCount": 17,
+        "readingMinutes": 25,
+        "citationCount": 18,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "24 min",
-        "citationCountText": "17",
+        "readingTimeText": "25 min",
+        "citationCountText": "18",
         "bibliographyIds": [
           "dagger-2011",
           "dppo-2024",
@@ -89512,7 +89854,8 @@
           "expo-2025",
           "dsrl-2025",
           "realtime-expo-ft-2026",
-          "perry-dong-post-training-2026"
+          "perry-dong-post-training-2026",
+          "prefpi-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -89951,6 +90294,15 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "A September 2026 paper from Seungeun Rho, Wontaek Kim, Danfe"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Dong and Finn's September 2026 position, stated in a joint b"
         },
         {
@@ -90170,7 +90522,7 @@
         },
         {
           "kind": "reference",
-          "count": 17,
+          "count": 18,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -90180,7 +90532,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 17,
+              "count": 18,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -90192,7 +90544,7 @@
         },
         {
           "kind": "citation",
-          "count": 122,
+          "count": 124,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -90202,7 +90554,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 122,
+              "count": 124,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -104289,7 +104641,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16061,
+      "visibleTextLength": 16753,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -104356,12 +104708,12 @@
           "JEPA and the Non-Generative Counterargument"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 9,
-        "citationCount": 9,
+        "readingMinutes": 10,
+        "citationCount": 10,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "9 min",
-        "citationCountText": "9",
+        "readingTimeText": "10 min",
+        "citationCountText": "10",
         "bibliographyIds": [
           "vjepa-2024",
           "vjepa2-2025",
@@ -104371,7 +104723,8 @@
           "cosmos-3-2026",
           "odyssey-2-2025",
           "interactive-world-simulator-2026",
-          "fast-wam-2026"
+          "fast-wam-2026",
+          "ad-e2e-jepa-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -104585,6 +104938,15 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "In September 2026, Haoran Zhu, Wancong Zhang, Yann LeCun and"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Use a JEPA-style model when the downstream decision depends "
         },
         {
@@ -104732,7 +105094,7 @@
         },
         {
           "kind": "reference",
-          "count": 9,
+          "count": 10,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -104742,7 +105104,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 9,
+              "count": 10,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -104754,7 +105116,7 @@
         },
         {
           "kind": "citation",
-          "count": 42,
+          "count": 44,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -104764,7 +105126,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 42,
+              "count": 44,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",

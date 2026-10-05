@@ -20,6 +20,10 @@ citations:
   - egodex-2025
   - egoscale-2026
   - ego4d-2022
+  - grail-2026
+  - humanoidmimicgen-2026
+  - prism-humanoid-2026
+  - dexagent-2026
 seeAlso:
   - "data-hardware/datasets"
   - "manipulation/foundation-models"
@@ -95,6 +99,8 @@ If breadth is the constraint, sources that are cheap and broad beat sources that
 UMI removes the robot from collection entirely: an operator holds a 3D-printed gripper fitted with a GoPro and performs the task wherever the task naturally lives, and policies trained on the handheld data deploy zero-shot onto real arms <Cite id="umi-2024" />. Apple's EgoDex used the Vision Pro's hand tracking to record 829 hours of dexterous human manipulation with per-joint 3D poses across 194 tabletop tasks, again with no robot in the loop <Cite id="egodex-2025" />. Ego4D offers 3,670 hours of egocentric daily-life video from 931 camera wearers across 74 locations, valuable for visual pretraining even though it carries no action labels <Cite id="ego4d-2022" />.
 
 EgoScale is the strongest evidence so far that this route scales. Zheng et al. trained a vision-language-action model on 20,854 hours of action-labeled egocentric human video, more than twenty times larger than prior efforts, and uncovered a log-linear scaling law between human data scale and validation loss <Cite id="egoscale-2026" />. That validation loss, in turn, correlated with real-robot performance and gave human video a measured link to robot performance. Their two-stage recipe, large-scale human pretraining followed by a lightweight aligned human-robot mid-training, improved average <Term id="success-rate">success rate</Term> by 54% over a no-pretraining baseline on a 22-DoF dexterous hand and transferred to robots with simpler hands.
+
+Generated data is a third route, and several 2026 humanoid papers trained on it. GRAIL, from Tianyi Xie, Linxi Fan, Yuke Zhu, Ye Yuan and colleagues in June 2026, builds human-object interaction videos from 3D assets and video foundation models, reconstructs them in 4D and retargets them to a humanoid, giving more than 20,000 sequences; policies trained only on that data reached 84% pick-up success on a Unitree G1, averaged over five objects at ten trials each, and 90% on stair climbing <Cite id="grail-2026" />. HumanoidMimicGen, from Kevin Lin, Ajay Mandlekar, Linxi Fan, Yuke Zhu and colleagues in May 2026, adapts a handful of source demonstrations to new object poses with whole-body planning; on four real-world tasks, average success rose from 0.51 with real demonstrations alone to 0.71 when they were co-trained with its generated data <Cite id="humanoidmimicgen-2026" />. In September 2026, PRISM, from Zihan Wang, Guanya Shi, Angjoo Kanazawa and colleagues, turned a few real videos into hundreds of generated variants and deployed the resulting policy on a real humanoid with no real-world fine-tuning, picking up, carrying and dropping new instances of boxes, barrels, bins and balls <Cite id="prism-humanoid-2026" />. The same month, DexAgent, from Youhui Wang, Yunzhu Li, Li Fei-Fei, Jiajun Wu and Huang Huang, turned a single egocentric human video and a task prompt into simulated robot trajectories, and across eleven real tasks its policies reached 3.5 times the success rate of competing baselines <Cite id="dexagent-2026" />.
 
 Simulation is the other escape route: GPU-parallel environments compress months of interaction into hours of wall-clock, at the price of the <Term id="sim-to-real-gap">sim-to-real gap</Term> covered in [massively parallel sim RL](/rl-sim2real/parallel-sim-rl). And whichever source the data comes from, the failure modes of learning from it in closed loop are the ones covered in [behavior cloning foundations](/manipulation/bc-foundations): <Term id="covariate-shift">covariate shift</Term> does not care whether the demonstrations came from a teleop rig, a GoPro, or a physics engine.
 

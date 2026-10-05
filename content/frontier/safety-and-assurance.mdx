@@ -36,6 +36,7 @@ citations:
   - koopman-safe-enough-2026
   - rss-2017
   - kalra-paddock-2016
+  - wcbf-hyper-redundant-2026
 seeAlso:
   - "data-hardware/industrial-deployment"
   - "rl-sim2real/legged-locomotion"
@@ -99,6 +100,8 @@ So a learned policy is not certified. What ships is an architecture that routes 
 The load-bearing idea of this module is that safety and capability are assigned to different components. The policy is allowed to be a black box, and something simple enough to be verified sits between it and the actuators, with the authority to override.
 
 The formal instance is the safety filter. A <Term id="control-barrier-function">control barrier function</Term> defines a set the system must stay inside and turns forward invariance of that set into a constraint on the commanded input, which the controller enforces each step <Cite id="ames-cbf-2019" />. Wabersich and colleagues survey the family, including the reachability and predictive variants, and name the architecture directly: a filter that accepts a proposed input from any source and modifies it as little as necessary to keep the system safe <Cite id="wabersich-safety-filters-2023" />. The guarantee belongs to the filter, and it holds whatever produced the proposal, which is precisely why the policy is permitted to be unverifiable.
+
+Barrier functions are also being adapted to bodies that rigid-arm controllers handle poorly. In September 2026, Zijian Cai, Daniela Rus, Cecilia Laschi and colleagues weighted the control barrier functions along a slender hyper-redundant robot to enforce obstacle constraints while correcting tracking errors from uneven loading. On a circular path-following task with obstacles, fixed weights cut the root-mean-square tracking error of the unweighted method by up to 59.6% in simulation and 87.7% in physical experiments <Cite id="wcbf-hyper-redundant-2026" />.
 
 The industrial instance of the same pattern is cruder and much more widely deployed: force limiting in the actuator, velocity limiting in the drive, and workspace limiting in the safety controller. Those are the mechanisms the standards above already know how to rate, and they do not care what generated the trajectory. A learned policy running inside a power-and-force-limited envelope inherits a safety property it did not earn, which is a good deal, and it is also the reason so many humanoid demonstrations happen at speeds that look oddly slow.
 

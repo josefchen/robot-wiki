@@ -5,6 +5,7 @@ import { CITATIONS } from '@/data/citations';
 import { METHODS } from '@/data/methods';
 import { LATENCY_REFERENCES } from '@/lib/control-loop';
 import { parseLedger, type CompoundPlan } from '@/lib/audit-ledger';
+import { withoutKolBacklog20261005Citations } from '../helpers/kol-backlog-20261005';
 
 const read = (path: string) => readFileSync(path, 'utf8');
 const selectedIds = [
@@ -47,8 +48,11 @@ const selectedIds = [
 const plans = JSON.parse(read('audit/compound-evidence.json')) as CompoundPlan[];
 const citationIds = new Set(CITATIONS.map((c) => c.id));
 const articles = ['comparison-matrix', 'knowledge-insulation', 'pi-line', 'realtime-execution'];
+// The 2026-10-05 KOL backlog batch appended citation ids to some of these
+// articles; the pinned sets are the ones before that batch.
 const articleCitations = Object.fromEntries([
-  ...articles.map((slug) => [slug, matter(read(`content/manipulation/${slug}.mdx`)).data.citations]),
+  ...articles.map((slug) => [slug, withoutKolBacklog20261005Citations(`manipulation/${slug}.mdx`,
+    matter(read(`content/manipulation/${slug}.mdx`)).data).citations]),
   ['rl-for-robotics', matter(read('content/rl-sim2real/rl-for-robotics.mdx')).data.citations],
 ]);
 function row(id: string, compoundPlans = plans) {

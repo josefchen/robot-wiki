@@ -10,7 +10,7 @@ import { collectArticleTruthManifests } from '../../scripts/brand-v2-baseline';
 import { committedSource, preservedApprovalPacket } from '../helpers/continuation-integration';
 import { READER_RELEASE_BASE, readerTruthAt } from '../helpers/reader-integration';
 import { finalSevenBefore } from '../helpers/residual-integration';
-import { preReaderFirst, preSeoPassHash, preSeoPassText } from '../helpers/seo-pass';
+import { preKolBacklog, preReaderFirst, preSeoPassHash, preSeoPassText } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
 const readLive = (path: string) => readFileSync(resolve(root, path), 'utf8');
@@ -91,9 +91,13 @@ function throughSeoPass(path: string) {
   const predict = approvals.filter(a => a.manifest === 'prose' && a.memberId === id
     && a.id.startsWith('reader-first-20261003-predict-'));
   // The 2026-10-03 figure batches belong to the same reader-first pass.
+  // The 2026-10-05 KOL backlog batch then adds dated paragraphs to some of
+  // them, with one resolution edge per article from the pre-batch endpoint.
+  const preKol = hashOf(preKolBacklog(path).toString('utf8'));
   const readerFirst = edge(['reader-first-20261002-', 'reader-first-20261003-prose-'], seo,
-    predict.length ? predict[0].oldHash : hashOf(readLive(path)), true);
-  edge(['reader-first-20261003-predict-'], readerFirst, hashOf(readLive(path)));
+    predict.length ? predict[0].oldHash : preKol, true);
+  edge(['reader-first-20261003-predict-'], readerFirst, preKol);
+  edge(['kol-backlog-20261005-'], preKol, hashOf(readLive(path)));
 }
 
 describe('merged reader corrections preserve production additions and exact approvals', () => {

@@ -112,7 +112,7 @@ describe('content integration of 2026-09-23', () => {
       expect(entry.ownerApproval).toMatch(/^Owner-delegated approval: Josef Chen delegated release decisions to the delegated release reviewer on 2026-09-22\/23 \('you think and decide all'\); approved after primary-source verification of \S/);
     }
     expect(headReanchorFor(approvals, 'article-metadata', 'citation-rendering:label-and-meta')?.id)
-      .toBe('seo-pass-20261002-citation-rendering');
+      .toBe('kol-backlog-20261005-classical-citation-rendering');
     expect(approvals.find(a => a.id === 'main-merge-20260924-citation-rendering'))
       .toMatchObject({
         oldHash: sealedHash('article-metadata', 'citation-rendering:label-and-meta'),
@@ -172,14 +172,17 @@ describe('content integration of 2026-09-23', () => {
       'web.archive.org/web/20251118224554/',
     );
     expect(CITATIONS.map((c) => c.id).filter((id) => !baseIds.includes(id)).sort()).toEqual([
-      'agility-digit-production', 'chord-2026', 'dreamzero-2026', 'dsrl-2025', 'excavator-mbrl-2026', 'expo-2025',
-      'expo-ft-2026', 'figure-bmw-production-2025', 'insertion-world-models-2026', 'lei-cycle-time-definition',
-      'lei-takt-time-definition', 'llama-3-herd-2024', 'morphometric-imitation-2026',
+      'ad-e2e-jepa-2026', 'agility-digit-production', 'agro-suvide-2026', 'asena-2026', 'chord-2026', 'chunktrust-2026', 'dexagent-2026',
+      'dreamzero-2026', 'dsrl-2025', 'embodiedswe-2026', 'excavator-mbrl-2026', 'expo-2025',
+      'expo-ft-2026', 'figure-bmw-production-2025', 'fingr-2026', 'grail-2026', 'humanoidmimicgen-2026',
+      'ifr-world-robotics-2026-release', 'insertion-world-models-2026', 'lei-cycle-time-definition',
+      'lei-takt-time-definition', 'llama-3-herd-2024', 'mesh-mcl-construction-2026', 'morphometric-imitation-2026',
       'nasa-availability-prediction-analysis', 'paxton-autonomous-trucks-2026',
-      'perry-dong-post-training-2026', 'realtime-expo-ft-2026',
-      'shiu-ahmad-1989', 'simfoundry-2026', 't-rex-2026', 'tesla-q1-2026-update', 'trace-cables-2026',
+      'perry-dong-post-training-2026', 'prefpi-2026', 'prism-humanoid-2026', 'realtime-expo-ft-2026', 'roboharn-evo-2026', 'robottt-2026',
+      'shiu-ahmad-1989', 'simex-2026', 'simfoundry-2026', 't-rex-2026', 't2mem-2026', 'tesla-q1-2026-update',
+      'trace-cables-2026', 'wcbf-hyper-redundant-2026',
     ]);
-    expect(CITATIONS).toHaveLength(baseIds.length + 20);
+    expect(CITATIONS).toHaveLength(baseIds.length + 38);
     expect(CITATIONS.find((c) => c.id === 'agility-digit-production')).toMatchObject({
       year: 'n.d.',
       accessedOn: '2026-09-24',

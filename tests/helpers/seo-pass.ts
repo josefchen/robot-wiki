@@ -1,6 +1,7 @@
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { kolBacklogPredecessor } from '../../lib/audit-kol-backlog-continuity.ts';
 import { readerFirstPredecessor } from '../../lib/audit-reader-first-continuity.ts';
 import { seoPassCheckerPredecessor, seoPassPredecessor } from '../../lib/audit-seo-pass-continuity.ts';
 
@@ -12,12 +13,21 @@ const specReview = JSON.parse(readFileSync(resolve(root,
   'audit/evidence/seo-pass-20261002/spec-transition.json'), 'utf8')) as { sources: { before: Artifact; after: Artifact }[] };
 
 /**
+ * The bytes the KOL backlog layer of 2026-10-05 hands every check older than
+ * that batch: the rebuilt pre-batch article while the live article is the
+ * reviewed successor, otherwise the live bytes.
+ */
+export function preKolBacklog(path: string): Buffer {
+  return kolBacklogPredecessor(root, { path, bytes: 0, sha256: '' }, readFileSync(resolve(root, path)));
+}
+
+/**
  * The bytes the reader-first layer hands every check older than the
  * reader-first figure pass: the rebuilt pre-pass file while the live file is
  * the reviewed successor, otherwise the live bytes.
  */
 export function preReaderFirst(path: string): Buffer {
-  return readerFirstPredecessor(root, { path, bytes: 0, sha256: '' }, readFileSync(resolve(root, path)));
+  return readerFirstPredecessor(root, { path, bytes: 0, sha256: '' }, preKolBacklog(path));
 }
 
 /**

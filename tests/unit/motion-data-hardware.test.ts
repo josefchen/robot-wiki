@@ -9,6 +9,7 @@ import { NO_SLOP_EXCEPTIONS } from '@/data/no-slop-exceptions';
 import { findStructuralTells, structuralTellReport, STRUCTURAL_TELL_LIMIT } from '@/lib/no-slop';
 import { approvedDeltaPath, sha256, type ApprovedDelta, type BaselineBundle } from '@/lib/brand-v2-baseline';
 import { collectArticleTruthManifests } from '@/scripts/brand-v2-baseline';
+import { withoutKolBacklogParagraphs } from '../helpers/kol-backlog-20261001';
 
 type Decision = 'keep' | 'restyle' | 'rethink' | 'replace' | 'remove' | 'add';
 interface Row {
@@ -129,7 +130,8 @@ describe('data-hardware prose truth', () => {
       // industrial-deployment from its seal, reconciling the qualification.
       // The 2026-10-02 SEO pass and then the reader-first figure pass each
       // added one edge of the same kind to each, and the reader-first pass's
-      // optional prediction step added one more to evaluation-crisis.
+      // optional prediction step added one more to evaluation-crisis. The
+      // 2026-10-05 KOL backlog batch then re-resolved industrial-deployment.
       const laterIds = slug === 'evaluation-crisis'
         ? ['round5-pinned-leftovers-20260928-prose-evaluation-crisis',
           'opus-figure-migration-20261001-prose-evaluation-crisis',
@@ -138,7 +140,8 @@ describe('data-hardware prose truth', () => {
           'reader-first-20261003-predict-prose-data-hardware-evaluation-crisis']
         : ['round6-prose-restores-20260929-prose-industrial-deployment',
           'seo-pass-20261002-prose-data-hardware-industrial-deployment',
-          'reader-first-20261002-prose-data-hardware-industrial-deployment'];
+          'reader-first-20261002-prose-data-hardware-industrial-deployment',
+          'kol-backlog-20261005-data-hardware-prose-industrial-deployment'];
       const later = edges.filter((entry) => laterIds.includes(entry.id));
       expect(later.map((entry) => entry.id)).toEqual(laterIds);
       expect(edges.slice(edges.indexOf(qualification))).toEqual([qualification, ...later]);
@@ -171,7 +174,7 @@ describe('data-hardware prose truth', () => {
 
   it('preserves all numeric and ordered citation tokens from the audited checkpoint', () => {
     for (const file of articles) {
-      const current = readFileSync(join(folder, file), 'utf8');
+      const current = withoutKolBacklogParagraphs(`data-hardware/${file}`, readFileSync(join(folder, file), 'utf8'));
       const before = execFileSync('git', ['show', `69e01316:content/data-hardware/${file}`], {
         cwd: root, encoding: 'utf8',
       });

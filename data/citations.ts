@@ -9305,6 +9305,236 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2609.29103',
     type: 'paper',
   },
+  {
+    // KOL backlog batch 2026-10-05 (Yann LeCun intake). Abstract page fetched
+    // 2026-10-05; submitted 28 September 2026.
+    id: 'ad-e2e-jepa-2026',
+    title: 'AD-E2E-JEPA: A Joint-Embedding Predictive Architecture For End-to-End Autonomous Driving',
+    authors: ['Haoran Zhu', 'Wancong Zhang', 'Yann LeCun', 'Anna Choromanska'],
+    year: 2026,
+    arxiv: '2609.34085',
+    url: 'https://arxiv.org/abs/2609.34085',
+    type: 'paper',
+  },
+  {
+    // KOL backlog batch 2026-10-05 (Guanya Shi intake). Abstract page fetched
+    // 2026-10-05; submitted 30 September 2026.
+    id: 'simex-2026',
+    title: 'SimEX: Simulation-Integrated Robotics AutoResearch',
+    authors: ['Jiaheng Hu', 'Roberto Martin-Martin', 'Peter Stone', 'Rocky Duan', 'Zhenyu Jiang', 'Guanya Shi'],
+    year: 2026,
+    arxiv: '2609.38982',
+    url: 'https://arxiv.org/abs/2609.38982',
+    type: 'paper',
+  },
+  {
+    // KOL backlog batch 2026-10-05 (Dhruv Shah intake). Abstract page fetched
+    // 2026-10-05; v1 23 September 2026, v2 25 September 2026.
+    id: 'embodiedswe-2026',
+    title: 'EmbodiedSWE: Coding Agents for Long Horizon Dexterous Robotics',
+    authors: [
+      'Zeyu Shen', 'Haoxiang You', 'Yilang Liu', 'Zhicheng Zheng', 'Lihan Zha', 'Kashu Yamazaki',
+      'Mingtong Zhang', 'Suning Huang', 'Jiankai Sun', 'Qianzhong Chen', 'Lucy He', 'Kaiyuan Liu',
+      'Haoran Chang', 'Katerina Fragkiadaki', 'Dhruv Shah', 'Mac Schwager', 'Peter Henderson',
+      'Ian Abraham', 'Canwen Xu',
+    ],
+    year: 2026,
+    arxiv: '2609.27308',
+    url: 'https://arxiv.org/abs/2609.27308',
+    type: 'paper',
+  },
+  {
+    // KOL backlog batch 2026-10-05 (Cheng Chi intake). Abstract page fetched
+    // 2026-10-05; v1 29 September 2026, v2 30 September 2026.
+    id: 'roboharn-evo-2026',
+    title: 'RoboHarn-Evo: Evolving Hierarchical Physical Knowledge for Self-Improving Robotic Manipulation',
+    authors: [
+      'Shifeng Bao', 'Fanding Huang', 'Yihan Lin', 'Youhe Feng', 'Guanlin Li', 'Chen Zhao', 'Yang Li',
+      'Jiawei He', 'Cheng Chi', 'Jing Zhang',
+    ],
+    year: 2026,
+    arxiv: '2609.37583',
+    url: 'https://arxiv.org/abs/2609.37583',
+    type: 'paper',
+  },
+  {
+    // KOL backlog batch 2026-10-05 (Jim Fan intake). Abstract page fetched
+    // 2026-10-05; submitted 30 September 2026.
+    id: 'asena-2026',
+    title: 'ASENA: Self-evolving Agents for Embodied Navigation',
+    authors: [
+      'An-Chieh Cheng', 'Isabella Liu', 'Edmund Bu', 'Johan Bjorck', 'Hongxu Yin', 'Zhengyi Luo', 'Jan Kautz',
+      'Linxi Fan', 'Yuke Zhu', 'Sifei Liu',
+    ],
+    year: 2026,
+    arxiv: '2609.39207',
+    url: 'https://arxiv.org/abs/2609.39207',
+    type: 'paper',
+  },
+  {
+    // KOL backlog batch 2026-10-05 (Yuke Zhu intake). Abstract page and HTML
+    // full text fetched 2026-10-05; submitted 16 July 2026.
+    id: 'robottt-2026',
+    title: 'RoboTTT: Context Scaling for Robot Policies',
+    authors: [
+      'Yunfan Jiang', 'Yevgen Chebotar', 'Ruijie Zheng', 'Fengyuan Hu', 'Yunhao Ge', 'Jimmy Wu', 'Tianyuan Dai',
+      'Scott Reed', 'Li Fei-Fei', 'Yuke Zhu', 'Linxi Fan',
+    ],
+    year: 2026,
+    arxiv: '2607.15275',
+    url: 'https://arxiv.org/abs/2607.15275',
+    type: 'paper',
+  },
+  {
+    // KOL backlog batch 2026-10-05 (Jiajun Wu intake). Abstract page fetched
+    // 2026-10-05; submitted 29 September 2026. arXiv typesets the name as T$^2$Mem.
+    id: 't2mem-2026',
+    title: 'T²Mem: Learning Test-Time Memory for Robotics',
+    authors: ['Yize Liu', 'Huang Huang', 'Yining Hong', 'Zijian Du', 'Zhi Cao', 'Li Fei-Fei', 'Jiajun Wu'],
+    year: 2026,
+    arxiv: '2609.36720',
+    url: 'https://arxiv.org/abs/2609.36720',
+    type: 'paper',
+  },
+  {
+    // KOL backlog batch 2026-10-05 (Cheng Chi intake). Abstract page fetched
+    // 2026-10-05; submitted 30 September 2026.
+    id: 'chunktrust-2026',
+    title: 'ChunkTrust: Adapting Execution Horizons for Robot Policies with Action-Expert Evidence',
+    authors: [
+      'Fanding Huang', 'Jingyan Jiang', 'Shifeng Bao', 'Mingkang Pu', 'Shiwei Li', 'Jing Xu', 'Shijia Xu',
+      'Guanbo Huang', 'Chenghao Gu', 'Yuzhi Huang', 'Chenxin Li', 'Faisal Nadeem Khan', 'Huan Yang', 'Yan Wang',
+      'Cheng Chi', 'Zhi Wang',
+    ],
+    year: 2026,
+    arxiv: '2609.39754',
+    url: 'https://arxiv.org/abs/2609.39754',
+    type: 'paper',
+  },
+  {
+    // KOL backlog batch 2026-10-05 (Danfei Xu intake). Abstract page fetched
+    // 2026-10-05; submitted 30 September 2026.
+    id: 'prefpi-2026',
+    title: 'PrefPI: Preference-Guided Steering into Out-of-Distribution Behaviors',
+    authors: ['Seungeun Rho', 'Wontaek Kim', 'Danfei Xu', 'Sehoon Ha'],
+    year: 2026,
+    arxiv: '2609.40165',
+    url: 'https://arxiv.org/abs/2609.40165',
+    type: 'paper',
+  },
+  {
+    // KOL backlog batch 2026-10-05 (Ken Goldberg intake). Abstract page fetched
+    // 2026-10-05; v1 28 September 2026, v2 29 September 2026.
+    id: 'agro-suvide-2026',
+    title: 'AGRO-SUVIDE: Agentic Robotics for Surgical Viscoelastic Debridement',
+    authors: [
+      'Shutong Jin', 'Ziyang Chen', 'Preethi Satish', 'Meadow Shen', 'Gary Guthart', 'Florian T. Pokorny',
+      'Ken Goldberg',
+    ],
+    year: 2026,
+    arxiv: '2609.34823',
+    url: 'https://arxiv.org/abs/2609.34823',
+    type: 'paper',
+  },
+  {
+    // KOL backlog batch 2026-10-05 (Xiaolong Wang intake). Abstract page fetched
+    // 2026-10-05; v1 27 September 2026, v2 29 September 2026.
+    id: 'fingr-2026',
+    title: "FINGR: Learning Dexterous Hand Control for Real-World Rubik's Cube Solving",
+    authors: ['Yutong Liang', 'Quanquan Peng', 'Matthew Kim', 'Xiaolong Wang'],
+    year: 2026,
+    arxiv: '2609.33973',
+    url: 'https://arxiv.org/abs/2609.33973',
+    type: 'paper',
+  },
+  {
+    // KOL backlog batch 2026-10-05 (Daniela Rus intake). Abstract page fetched
+    // 2026-10-05; submitted 21 September 2026.
+    id: 'wcbf-hyper-redundant-2026',
+    title: 'Safety Control of a Hyper-redundant Robot via Adaptive Weighted Control Barrier Functions',
+    authors: ['Zijian Cai', 'Kiwan Wong', 'Wenci Xin', 'Wei Xiao', 'Daniela Rus', 'Cecilia Laschi'],
+    year: 2026,
+    arxiv: '2609.24062',
+    url: 'https://arxiv.org/abs/2609.24062',
+    type: 'paper',
+  },
+  {
+    // KOL backlog batch 2026-10-05 (Yuke Zhu intake). Abstract page and HTML
+    // full text fetched 2026-10-05; submitted 3 June 2026.
+    id: 'grail-2026',
+    title: 'GRAIL: Generating Humanoid Loco-Manipulation from 3D Assets and Video Priors',
+    authors: [
+      'Tianyi Xie', 'Haotian Zhang', 'Jinhyung Park', 'Zi Wang', 'Bowen Wen', 'Jiefeng Li', 'Xueting Li',
+      'Qingwei Ben', 'Haoyang Weng', 'Yufei Ye', 'David Minor', 'Tingwu Wang', 'Chenfanfu Jiang', 'Sanja Fidler',
+      'Jan Kautz', 'Linxi Fan', 'Yuke Zhu', 'Zhengyi Luo', 'Umar Iqbal', 'Ye Yuan',
+    ],
+    year: 2026,
+    arxiv: '2606.05160',
+    url: 'https://arxiv.org/abs/2606.05160',
+    type: 'paper',
+  },
+  {
+    // KOL backlog batch 2026-10-05 (Yuke Zhu intake). Abstract page and HTML
+    // full text fetched 2026-10-05; submitted 26 May 2026.
+    id: 'humanoidmimicgen-2026',
+    title: 'HumanoidMimicGen: Data Generation for Loco-Manipulation via Whole-Body Planning',
+    authors: [
+      'Kevin Lin', 'Ajay Mandlekar', 'Caelan Reed Garrett', 'Nikita Chernyadev', 'Yu Fang', 'Runyu Ding',
+      'Yuqi Xie', 'Justin Tran', 'Linxi Fan', 'Yuke Zhu',
+    ],
+    year: 2026,
+    arxiv: '2605.27724',
+    url: 'https://arxiv.org/abs/2605.27724',
+    type: 'paper',
+  },
+  {
+    // KOL backlog batch 2026-10-05 (Pieter Abbeel intake). Abstract page fetched
+    // 2026-10-05; submitted 29 September 2026; the page lists CoRL 2026.
+    id: 'prism-humanoid-2026',
+    title: 'Counterfactual Video Generation Enables Scalable Humanoid Loco-Manipulation',
+    authors: [
+      'Zihan Wang', 'Zhen Wu', 'Pieter Abbeel', 'Rocky Duan', 'Jitendra Malik', 'Carmelo Sferrazza',
+      'C. Karen Liu', 'Guanya Shi', 'Angjoo Kanazawa',
+    ],
+    year: 2026,
+    venue: 'CoRL 2026',
+    arxiv: '2609.38172',
+    url: 'https://arxiv.org/abs/2609.38172',
+    type: 'paper',
+  },
+  {
+    // KOL backlog batch 2026-10-05 (Jiajun Wu intake). Abstract page fetched
+    // 2026-10-05; submitted 28 September 2026.
+    id: 'dexagent-2026',
+    title: 'DexAgent: An Agentic Human2Sim2Robot Framework for Dexterous Manipulation with Self-Evolving Tool Library',
+    authors: ['Youhui Wang', 'Yunzhu Li', 'Li Fei-Fei', 'Jiajun Wu', 'Huang Huang'],
+    year: 2026,
+    arxiv: '2609.35318',
+    url: 'https://arxiv.org/abs/2609.35318',
+    type: 'paper',
+  },
+  {
+    // KOL backlog batch 2026-10-05 (The Robot Report intake, a trade summary;
+    // the IFR release itself is cited). Press release fetched 2026-10-05.
+    id: 'ifr-world-robotics-2026-release',
+    title: 'Five Million Robots now Operate in Factories Globally',
+    authors: ['International Federation of Robotics'],
+    year: 2026,
+    venue: 'IFR press release, 2026-09-24',
+    url: 'https://ifr.org/ifr-press-releases/news/five-million-robots-now-operate-in-factories-globally',
+    type: 'press',
+  },
+  {
+    // KOL backlog batch 2026-10-05 (Marco Hutter intake). Abstract page fetched
+    // 2026-10-05; submitted 25 September 2026.
+    id: 'mesh-mcl-construction-2026',
+    title: 'Transformer-based Monte Carlo Localization in Construction Meshes',
+    authors: ['Linus Kramer', 'William Talbot', 'Olga Vysotska', 'Marco Hutter'],
+    year: 2026,
+    arxiv: '2609.31357',
+    url: 'https://arxiv.org/abs/2609.31357',
+    type: 'paper',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));

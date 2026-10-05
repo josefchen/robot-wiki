@@ -3,7 +3,7 @@
   "name": "reader-first-figures",
   "reviewedBy": "release steward re-anchoring the reader-first figure pass (not independent acceptance)",
   "rationale": "The reader-first figure pass of 2026-10-02 rewrote each article figure so a reader with no engineering background gets its point in five seconds: a takeaway headline, at most two visible controls with plain labels, every further control in an Adjust more fold, and the method, sources and caveats in a How this was made fold. The articles that point at those controls name them in plain words, the end-to-end specs open a fold before they use a control it now holds, and the figure sources changed with them. Each change is recorded here as exact edits over the bytes the file had before the pass. The earlier bytes stand in for the live file only while the live file is exactly the reviewed successor, so older reviews, runs and receipts that pinned them still check the bytes they recorded.",
-  "observedAt": "2026-10-04T23:49:44Z",
+  "observedAt": "2026-10-05T05:04:55Z",
   "sources": [
     {
       "archivedFrom": "6fffffaf345d1ea5e258645567df3312e8f5c71b",
@@ -8423,13 +8423,61 @@
       },
       "after": {
         "path": "tests/unit/main-merge-approved-deltas.test.ts",
-        "bytes": 86705,
-        "sha256": "16e434d15c49529c8a1444ee42dfa01f902ef857f2a48b8c64e5d17078cfce84"
+        "bytes": 89785,
+        "sha256": "cb0fb5d9028a798194da54f479af4fdd86039ebae4402216782516faa83a03e4"
       },
       "edits": [
         {
+          "before": "const beforeReaderFirst = (entries: ApprovedDelta[]) => entries.filter(x => !allReaderFirstAppends.includes(x.id));\n",
+          "after": "// The 2026-10-05 KOL backlog batch appends its block last, per domain commit\n// in the same shape as the 2026-10-01 batch: plain edges for each changed\n// article member and new citation, a resolution where a chain already holds\n// one, and one resolution for the shared citation rendering.\nconst kolBacklog20261005Appends = merged.filter(x => x.id.startsWith('kol-backlog-20261005-')).map(x => x.id);\nconst laterThanSeoPass = [...allReaderFirstAppends, ...kolBacklog20261005Appends];\nconst beforeReaderFirst = (entries: ApprovedDelta[]) => entries.filter(x => !laterThanSeoPass.includes(x.id));\n"
+        },
+        {
+          "before": "const afterHowRobotsWork = merged.length - readerFirstManipulationAppends.length;\n",
+          "after": "const kolBacklog20261005Edges = (manifest: string, memberId: string) => merged\n  .filter(x => kolBacklog20261005Appends.includes(x.id) && x.manifest === manifest && x.memberId === memberId)\n  .map(x => x.id);\nconst afterReaderFirstManipulation = merged.length - kolBacklog20261005Appends.length;\nconst afterHowRobotsWork = afterReaderFirstManipulation - readerFirstManipulationAppends.length;\n"
+        },
+        {
+          "before": "    // the how-robots-work page appends its block, and the reader-first\n    // manipulation batch appends its block last.\n",
+          "after": "    // the how-robots-work page appends its block, the reader-first\n    // manipulation batch appends its block, and the 2026-10-05 KOL backlog\n    // batch appends its block last.\n"
+        },
+        {
+          "before": "        + readerFirstManipulationAppends.length]);\n",
+          "after": "        + readerFirstManipulationAppends.length + kolBacklog20261005Appends.length]);\n"
+        },
+        {
+          "before": "      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends, ...opusFigureMigrationAppends, ...kolBacklogAppends, ...seoPassAppends, ...readerFirstAppends, ...howRobotsWorkAppends, ...readerFirstManipulationAppends]);\n",
+          "after": "      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends, ...opusFigureMigrationAppends, ...kolBacklogAppends, ...seoPassAppends, ...readerFirstAppends, ...howRobotsWorkAppends, ...readerFirstManipulationAppends, ...kolBacklog20261005Appends]);\n"
+        },
+        {
+          "before": "    expect(merged.slice(afterHowRobotsWork).map(x => [x.manifest, x.memberId])).toEqual([\n",
+          "after": "    expect(merged.slice(afterHowRobotsWork, afterReaderFirstManipulation).map(x => [x.manifest, x.memberId])).toEqual([\n"
+        },
+        {
           "before": "      ].map(memberId => ['accessible-names', memberId]),\n",
           "after": "      ].map(memberId => ['accessible-names', memberId]),\n      // The optional prediction step then shortened the question, hint and\n      // cue of the five articles that carry one.\n      ...['classical/control', 'data-hardware/data-bottleneck', 'data-hardware/evaluation-crisis',\n        'manipulation/bc-foundations', 'frontier/generalization'].map(slug => ['prose', `article:${slug}`]),\n      // The second manipulation batch then moved the accessible names its\n      // rewritten figures print and the three cues that name their controls.\n      ...[\n        'literal:components/interactive/flow-matching-trajectory.tsx:aria-label:1',\n        'expression:components/interactive/flow-matching-trajectory.tsx:aria-label:2',\n        'literal:components/interactive/hierarchy-timescales.tsx:aria-label:1',\n        'literal:components/interactive/cross-embodiment-strategies.tsx:aria-label:1',\n        'expression:components/interactive/cross-embodiment-strategies.tsx:aria-label:2',\n        'expression:components/interactive/generalist-release-timeline.tsx:aria-label:2',\n      ].map(memberId => ['accessible-names', memberId]),\n      ...['generalist-policies', 'knowledge-insulation', 'rl-finetuning']\n        .map(slug => ['prose', `article:manipulation/${slug}`]),\n      // The first RL and sim-to-real batch then renamed the two stages that\n      // now draw a robot, and its preset groups took over two group names.\n      ...[\n        'expression:components/interactive/contact-geometry.tsx:aria-label:2',\n        'expression:components/interactive/teacher-student.tsx:aria-label:2',\n        'literal:components/interactive/contact-geometry.tsx:aria-labelledby:1',\n        'literal:components/interactive/wbc-decomposition.tsx:aria-label:1',\n      ].map(memberId => ['accessible-names', memberId]),\n      // The second RL batch then gave the ledger's two sliders the plain\n      // labels they print and moved its source choice below them, which\n      // shifts the unchanged source-button name from ordinal 2 to 3.\n      ...[1, 2, 3].map(ordinal => ['accessible-names',\n        `expression:components/interactive/sample-efficiency-ledger.tsx:aria-label:${ordinal}`]),\n"
+        },
+        {
+          "before": "    expect(merged.slice(afterHowRobotsWork)).toMatchObject(readerFirstManipulationAppends.map(id => ({\n      id, responsibleMilestone: 'opus-pass', disposition: 'permanent',\n",
+          "after": "    expect(merged.slice(afterHowRobotsWork, afterReaderFirstManipulation)).toMatchObject(\n      readerFirstManipulationAppends.map(id => ({\n        id, responsibleMilestone: 'opus-pass', disposition: 'permanent',\n      })));\n    expect(merged.slice(afterReaderFirstManipulation)).toMatchObject(kolBacklog20261005Appends.map(id => ({\n      id, responsibleMilestone: 'brand-v2-hygiene', disposition: 'permanent',\n      affectedAssertions: ['VAL-KOL-001', 'VAL-B2-BASE-002', 'VAL-B2-BASE-010', 'VAL-B2-BASE-011'],\n"
+        },
+        {
+          "before": "      // Only a named figure-migration, SEO pass or reader-first edge may follow\n      // the restore; the restore is checked against the chain it closed.\n",
+          "after": "      // Only a named figure-migration, SEO pass, reader-first or 2026-10-05 KOL\n      // backlog edge may follow the restore; the restore is checked against the\n      // chain it closed.\n"
+        },
+        {
+          "before": "        ...seoPassEdges('prose', memberId), ...readerFirstEdges('prose', memberId)]);\n",
+          "after": "        ...seoPassEdges('prose', memberId), ...readerFirstEdges('prose', memberId),\n        ...kolBacklog20261005Edges('prose', memberId)]);\n"
+        },
+        {
+          "before": "      // A later reader-first batch may close the chain again; this edge is\n      // checked against the chain as it stood when it was appended.\n",
+          "after": "      // A later reader-first batch or the 2026-10-05 KOL backlog batch may\n      // close the chain again; this edge is checked against the chain as it\n      // stood when it was appended.\n"
+        },
+        {
+          "before": "      expect(all.slice(edges.length).every(x => allReaderFirstAppends.includes(x.id))).toBe(true);\n",
+          "after": "      expect(all.slice(edges.length).every(x => laterThanSeoPass.includes(x.id))).toBe(true);\n"
+        },
+        {
+          "before": "        expect(entry.oldHash).toBe(previous);\n      }\n    }\n",
+          "after": "        expect(entry.oldHash).toBe(previous);\n      }\n    }\n  });\n\n  it('binds each 2026-10-05 KOL backlog edge to its previous endpoint and to the sealed hash', () => {\n    expect(kolBacklog20261005Appends.length).toBeGreaterThan(1);\n    for (const id of kolBacklog20261005Appends) {\n      const entry = merged.find(x => x.id === id)!;\n      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(\n        readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));\n      const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;\n      const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);\n      const prior = edges.slice(0, edges.indexOf(entry));\n      expect(entry.newHash).not.toBe(prior.at(-1)?.newHash ?? sealed);\n      const path = approvedDeltaPath([...prior, entry], sealed, entry.newHash);\n      expect(path.status).toBe('approved');\n      expect(path.path.at(-1)).toBe(entry);\n      if (prior.some(x => x.reconciles !== undefined)) {\n        expect(entry.oldHash).toBe(sealed);\n        expect(entry.reconciles).toEqual(prior.map(x => ({ id: x.id, oldHash: x.oldHash, newHash: x.newHash })));\n      } else {\n        expect(entry.reconciles).toBeUndefined();\n        expect(entry.oldHash).toBe(prior.at(-1)?.newHash ?? sealed);\n      }\n      expect(approvedDeltaPath(prior, sealed, entry.newHash).status).not.toBe('approved');\n    }\n    expect(kolBacklog20261005Appends.filter(id => id.endsWith('-citation-rendering')))\n      .toEqual(['world-models', 'manipulation', 'adjacent', 'frontier', 'data-hardware', 'classical'].map(domain => `kol-backlog-20261005-${domain}-citation-rendering`));\n"
         }
       ]
     },
@@ -8442,10 +8490,14 @@
       },
       "after": {
         "path": "tests/unit/motion-data-hardware.test.ts",
-        "bytes": 10604,
-        "sha256": "94918864073288bb439045d430df875802f3683ead6ed71d81337ea69b8200c1"
+        "bytes": 10895,
+        "sha256": "d9a5ffee78d77b45a6155155c84992e3299e892e4e32e2a9c08fd62837842648"
       },
       "edits": [
+        {
+          "before": "import { collectArticleTruthManifests } from '@/scripts/brand-v2-baseline';\n",
+          "after": "import { collectArticleTruthManifests } from '@/scripts/brand-v2-baseline';\nimport { withoutKolBacklogParagraphs } from '../helpers/kol-backlog-20261001';\n"
+        },
         {
           "before": "    const quick = jamOverheadFrame(spans[1].end);\n    const slow = jamOverheadFrame(spans[2].end);\n    expect(quick.outputs).toEqual(computeEconomics({ ...DEFAULT_INPUTS, successRatePercent: 99, jamClearSeconds: 15 }));\n",
           "after": "    // The quick cell is drawn from the first beat on; the slow cell's\n    // clearing time sweeps from 15 to 300 seconds over the second beat.\n    const quick = jamOverheadFrame(spans[0].end);\n    const slow = jamOverheadFrame(spans[1].end);\n    expect(quick.quick).toEqual(computeEconomics({ ...DEFAULT_INPUTS, successRatePercent: 99, jamClearSeconds: 15 }));\n    expect(jamOverheadFrame(spans[1].start).outputs).toEqual(quick.quick);\n"
@@ -8456,7 +8508,7 @@
         },
         {
           "before": "      // The 2026-10-02 SEO pass then added one edge of the same kind to each.\n",
-          "after": "      // The 2026-10-02 SEO pass and then the reader-first figure pass each\n      // added one edge of the same kind to each, and the reader-first pass's\n      // optional prediction step added one more to evaluation-crisis.\n"
+          "after": "      // The 2026-10-02 SEO pass and then the reader-first figure pass each\n      // added one edge of the same kind to each, and the reader-first pass's\n      // optional prediction step added one more to evaluation-crisis. The\n      // 2026-10-05 KOL backlog batch then re-resolved industrial-deployment.\n"
         },
         {
           "before": "          'seo-pass-20261002-prose-data-hardware-evaluation-crisis']\n",
@@ -8464,7 +8516,11 @@
         },
         {
           "before": "          'seo-pass-20261002-prose-data-hardware-industrial-deployment'];\n",
-          "after": "          'seo-pass-20261002-prose-data-hardware-industrial-deployment',\n          'reader-first-20261002-prose-data-hardware-industrial-deployment'];\n"
+          "after": "          'seo-pass-20261002-prose-data-hardware-industrial-deployment',\n          'reader-first-20261002-prose-data-hardware-industrial-deployment',\n          'kol-backlog-20261005-data-hardware-prose-industrial-deployment'];\n"
+        },
+        {
+          "before": "      const current = readFileSync(join(folder, file), 'utf8');\n",
+          "after": "      const current = withoutKolBacklogParagraphs(`data-hardware/${file}`, readFileSync(join(folder, file), 'utf8'));\n"
         }
       ]
     },
@@ -8535,17 +8591,21 @@
       },
       "after": {
         "path": "tests/unit/reader-release-integration.test.ts",
-        "bytes": 19261,
-        "sha256": "2c240178bd0271dafcac45c07773036b0d379b2bf2c8f6b0e5cd33400b56eafe"
+        "bytes": 19527,
+        "sha256": "ce670ab54720d695996b4d4a2286557cc16984a7beb632599d2d40ffc23fdd9e"
       },
       "edits": [
+        {
+          "before": "import { preReaderFirst, preSeoPassHash, preSeoPassText } from '../helpers/seo-pass';\n",
+          "after": "import { preKolBacklog, preReaderFirst, preSeoPassHash, preSeoPassText } from '../helpers/seo-pass';\n"
+        },
         {
           "before": "  const edge = (prefix: string, from: string, to: string, batches = false) => {\n    const edges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id && a.id.startsWith(prefix));\n",
           "after": "  const edge = (prefixes: string[], from: string, to: string, batches = false) => {\n    const edges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id\n      && prefixes.some(prefix => a.id.startsWith(prefix)));\n"
         },
         {
           "before": "  const seo = edge('seo-pass-20261002-', hashOf(read(path)), hashOf(readSeoSuccessor(path)));\n  edge('reader-first-20261002-', seo, hashOf(readLive(path)), true);\n",
-          "after": "  const seo = edge(['seo-pass-20261002-'], hashOf(read(path)), hashOf(readSeoSuccessor(path)));\n  // The optional prediction step later moved some of these articles on with\n  // one plain edge from the reader-first endpoint to the live article.\n  const predict = approvals.filter(a => a.manifest === 'prose' && a.memberId === id\n    && a.id.startsWith('reader-first-20261003-predict-'));\n  // The 2026-10-03 figure batches belong to the same reader-first pass.\n  const readerFirst = edge(['reader-first-20261002-', 'reader-first-20261003-prose-'], seo,\n    predict.length ? predict[0].oldHash : hashOf(readLive(path)), true);\n  edge(['reader-first-20261003-predict-'], readerFirst, hashOf(readLive(path)));\n"
+          "after": "  const seo = edge(['seo-pass-20261002-'], hashOf(read(path)), hashOf(readSeoSuccessor(path)));\n  // The optional prediction step later moved some of these articles on with\n  // one plain edge from the reader-first endpoint to the live article.\n  const predict = approvals.filter(a => a.manifest === 'prose' && a.memberId === id\n    && a.id.startsWith('reader-first-20261003-predict-'));\n  // The 2026-10-03 figure batches belong to the same reader-first pass.\n  // The 2026-10-05 KOL backlog batch then adds dated paragraphs to some of\n  // them, with one resolution edge per article from the pre-batch endpoint.\n  const preKol = hashOf(preKolBacklog(path).toString('utf8'));\n  const readerFirst = edge(['reader-first-20261002-', 'reader-first-20261003-prose-'], seo,\n    predict.length ? predict[0].oldHash : preKol, true);\n  edge(['reader-first-20261003-predict-'], readerFirst, preKol);\n  edge(['kol-backlog-20261005-'], preKol, hashOf(readLive(path)));\n"
         }
       ]
     },
@@ -8558,13 +8618,17 @@
       },
       "after": {
         "path": "tests/unit/robomind-hours-evidence.test.ts",
-        "bytes": 24284,
-        "sha256": "5ebe3b4fcbfad4d179645a8db2e6116b79f903f333a3791b2523a0f41b2bfb6a"
+        "bytes": 25008,
+        "sha256": "b6180ad7cf1930ad9d6a1a4511e7f3011da9a0e26e5922ca64396f672f70cc39"
       },
       "edits": [
         {
+          "before": "import { preReaderFirst, preSeoPassText } from '../helpers/seo-pass';\n",
+          "after": "import { preKolBacklog, preReaderFirst, preSeoPassText } from '../helpers/seo-pass';\n"
+        },
+        {
           "before": "    expect(adjacentHash(read(adjacentPath))).toBe(readerFirst[0].newHash);\n",
-          "after": "    // The optional prediction step then shortened the step's question and\n    // hint with one more plain edge, from that endpoint to the live article.\n    const predict = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries.filter(\n      (a: { id: string; manifest: string; memberId: string; oldHash: string }) => a.manifest === 'prose'\n        && a.memberId === 'article:data-hardware/data-bottleneck' && a.oldHash === readerFirst[0].newHash);\n    expect(predict.map((a: { id: string }) => a.id))\n      .toEqual(['reader-first-20261003-predict-prose-data-hardware-data-bottleneck']);\n    expect(predict[0].reconciles).toBeUndefined();\n    expect(adjacentHash(read(adjacentPath))).toBe(predict[0].newHash);\n"
+          "after": "    // The optional prediction step then shortened the step's question and\n    // hint with one more plain edge, from that endpoint to the live article.\n    const predict = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries.filter(\n      (a: { id: string; manifest: string; memberId: string; oldHash: string }) => a.manifest === 'prose'\n        && a.memberId === 'article:data-hardware/data-bottleneck' && a.oldHash === readerFirst[0].newHash);\n    expect(predict.map((a: { id: string }) => a.id))\n      .toEqual(['reader-first-20261003-predict-prose-data-hardware-data-bottleneck']);\n    expect(predict[0].reconciles).toBeUndefined();\n    expect(adjacentHash(preKolBacklog(adjacentPath).toString('utf8'))).toBe(predict[0].newHash);\n    // The 2026-10-05 KOL backlog batch added one dated paragraph with one more\n    // plain edge, from the prediction endpoint to the live article.\n    const kol = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries.filter(\n      (a: { id: string; manifest: string; memberId: string; oldHash: string }) => a.manifest === 'prose'\n        && a.memberId === 'article:data-hardware/data-bottleneck' && a.oldHash === predict[0].newHash);\n    expect(kol.map((a: { id: string }) => a.id)).toEqual(['kol-backlog-20261005-data-hardware-prose-data-bottleneck']);\n    expect(kol[0].reconciles).toBeUndefined();\n    expect(adjacentHash(read(adjacentPath))).toBe(kol[0].newHash);\n"
         }
       ]
     }

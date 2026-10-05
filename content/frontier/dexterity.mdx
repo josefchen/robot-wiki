@@ -34,6 +34,7 @@ citations:
   - t-rex-2026
   - chord-2026
   - trace-cables-2026
+  - fingr-2026
 seeAlso:
   - "data-hardware/hardware-taxonomy"
   - "data-hardware/teleop-rigs"
@@ -93,6 +94,8 @@ The spread is the story. Tesla's 22-<Term id="degrees-of-freedom">degree-of-free
 Progress here is real but narrow. Sanctuary announced in-hand manipulation with its 21-DoF hydraulic hands in December 2024, reorienting held objects without setting them down <Cite id="sanctuary-inhand-2024" /> <Cite id="robozaps-phoenix-2026" />, then showed a sim-trained reinforcement-learning policy reorienting objects against gravity with a 500 g weight added, a vendor-run result the company published itself <Cite id="sanctuary-hydraulic-rl-2025" />. Figure says Helix 02, using Figure 03's fingertip sensors and palm cameras, performs four tasks it describes as manipulation previously out of reach for its stack, in videos it calls fully autonomous and without teleoperation: unscrewing a bottle cap, extracting a single pill from an organizer, a task titled "Push exactly 5 ml from a syringe", and picking small metal parts from clutter. The announcement publishes no task-level success rates, volume calibration, or sensor-ablation results <Cite id="helix-02-2026" />. Shadow's hand was designed for exactly this: each finger has independent side-to-side motion for in-hand work <Cite id="shadow-dexterous-hand-2026" />. None of these is the general skill. Each is a task or a task family with its own training run.
 
 In June 2026, Xinghao Zhu, Yuke Zhu and colleagues reported CHORD, a reinforcement-learning framework for long-horizon dexterous manipulation that compares human and robot motions by the forces and torques they can induce on the object. On 1,831 tasks from its simulated benchmark of 4,739 bimanual tasks, it averaged 82.12% success, and its learned policies transferred to the real world <Cite id="chord-2026" />.
+
+In September 2026, Yutong Liang, Quanquan Peng, Matthew Kim and Xiaolong Wang reported FINGR, a flow policy that turns Rubik's Cube layers with a single real dexterous hand. It succeeded on 99.0% of 300 turn attempts, against 79.7% for the base flow policy, and with grasping and table-assisted regrasping added it solved all ten scrambled 2×2×2 cubes in about 137 seconds on average <Cite id="fingr-2026" />.
 
 ## Deformables and the long tail
 
