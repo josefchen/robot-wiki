@@ -49,9 +49,7 @@ export default {
     stage.setScale(2.2);
     const Y = 0.003; // floor overlays sit just above the floor
 
-    // Route and landmarks.
-    const route = shapes.line(stage, [new THREE.Vector3(START[0] - 0.2, Y, 0), new THREE.Vector3(END_X + 0.25, Y, 0)], 'ref', { dashed: true });
-    stage.world.add(route);
+    // Landmarks.
     const marks = LANDMARKS.map((l) => { const g = buildLandmark(stage); g.position.set(l.x, 0, l.z); g.rotation.y = l.face; stage.world.add(g); g.boardWorld = () => g.localToWorld(g.top.clone()); return g; });
 
     // The robot itself, drawn faint where it really is (it cannot see this), and its best guess:
@@ -61,8 +59,7 @@ export default {
     const dot = new THREE.Group();
     const dotMat = stage.material('focus');
     const puck = shapes.mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.022, 32), dotMat); puck.position.y = 0.011;
-    const nose = shapes.mesh(new THREE.ConeGeometry(0.03, 0.05, 3), dotMat); nose.rotation.set(Math.PI / 2, 0, -Math.PI / 2); nose.scale.set(1, 1, 0.35); nose.position.set(0.075, 0.011, 0);
-    dot.add(puck, nose); stage.world.add(dot);
+    dot.add(puck); stage.world.add(dot);
 
     // Cloud of doubt: translucent fill plus a rim, scaled into an ellipse.
     const makeEllipse = (role, fillOpacity, rimOpacity) => {
@@ -170,8 +167,8 @@ export default {
       truth: stage.label('Where it really is', () => v3(st.truth[0] - 0.04, 0.3, st.truth[1])).show(false),
       cloud: stage.label('Cloud of doubt', () => (cloud.size > 0.22 ? nearEdge() : null), { tone: 'focus' }).show(false), // hidden while the cloud is too small to point at
       landmark: stage.label('Landmark it knows', () => marks[0].boardWorld().add(v3(0, 0.16, 0))).show(false),
-      before: stage.label('Cloud before', () => { if (!before.visible) return null; const { x, P } = before.info, s = Math.sqrt(P[2]); return v3(x[0] + (2 * P[1]) / s, Y, x[1] + 2 * s); }).show(false),
-      reading: stage.label('Sensor reading', () => (pin.visible ? pin.position.clone().add(v3(0, 0.5, 0)) : null), { tone: 'plain' }).show(false),
+      before: stage.label('Cloud before looking', () => { if (!before.visible) return null; const { x, P } = before.info, s = Math.sqrt(P[2]); return v3(x[0] + (2 * P[1]) / s, Y, x[1] + 2 * s); }).show(false),
+      reading: stage.label('Where the landmark says it is', () => (pin.visible ? pin.position.clone().add(v3(0, 0.5, 0)) : null), { tone: 'plain' }).show(false),
       other: stage.label('With a good sensor', () => (other.visible && otherInfo ? v3(otherInfo.x[0] - 2 * Math.sqrt(otherInfo.P[0]), Y, otherInfo.x[1]) : null)).show(false),
     };
     const hideLabels = () => Object.values(L).forEach((l) => l.show(false));
@@ -181,7 +178,7 @@ export default {
     const say = (html) => { report.last = html; ui.readout(html + (gpsLine ? `<br>${gpsLine}` : '')); };
     let gpsLine = '';
     const moveText = () => `Driven <b>${st.driven.toFixed(1)} metres</b> by counting wheel turns. Every turn adds a little error, so the cloud keeps growing.`;
-    const lookText = (res, prefix = '') => `${prefix}${prefix ? 'it' : 'It'} moved its guess <b>${res.pct}%</b> of the way to the reading. The cloud is now <b>${times(res.shrink)} times</b> smaller.`;
+    const lookText = (res, prefix = '') => `${prefix}${prefix ? 'its' : 'Its'} guess moved <b>${res.pct}%</b> of the way to where the landmark says it is. The cloud is now <b>${times(res.shrink)} times</b> smaller.`;
     const doMove = async () => {
       if (busy) return; busy = true;
       if (st.x[0] + STEP > END_X + 1e-6) { restart(); say('Back at the start, where it knows exactly where it is.'); busy = false; moveBtn.set('Move'); return; }
@@ -243,7 +240,6 @@ export default {
           enter: async () => {
             const my = reset(); await driveTo(3, false); if (my !== epoch) return;
             L.landmark.show(true); L.cloud.show(true); L.truth.show(true);
-            say(moveText());
             await stage.fit([marks[0], ghost.root, cloud, dot], narrow() ? [0.15, 1.0, 1] : [0.2, 0.95, 1], { margin: 0.74 }); if (my !== epoch) return;
             await ui.predict({ question: 'It spots a landmark. What happens to the cloud?', answer: 'shrinks',
               options: [{ id: 'grows', label: 'It grows' }, { id: 'same', label: 'It stays the same' }, { id: 'shrinks', label: 'It shrinks' }],
@@ -276,7 +272,7 @@ export default {
               say(lookText(res, q === 'good' ? 'Good sensor: ' : 'Poor sensor: '));
             };
             onSensor = (q) => { if (!busy) run(q); else sensor.set(q === 'good' ? 'poor' : 'good'); };
-            L.cloud.set('Cloud after the reading').show(true); L.reading.show(true); stage.focus(cloud, other, readCloud, pin, dot);
+            L.cloud.set('Cloud after looking').show(true); L.reading.show(true); stage.focus(cloud, other, readCloud, pin, dot);
             sensor.set('poor'); sensor.show(true); ui.hint('Switch the sensor');
             await frame([0.08, 0.1, -0.22], [0.12, 1.3, 1], 0.68, 0.5, 1.0); if (my !== epoch) return;
             await run('poor');

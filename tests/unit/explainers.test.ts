@@ -4,7 +4,7 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { EXPLAINER_CURRICULUM, EXPLAINER_ORDER } from '../../components/explainers/catalog';
 import { EXPLAINER_WORDS } from '../../components/explainers/words';
-import { explainerDigest, explainerSources, teachBackProblems } from '../../lib/teach-back';
+import { explainerDigest, explainerSources, teachBackProblems, uncountedReason } from '../../lib/teach-back';
 
 const ORDER = ['arm', 'humanoid', 'hand', 'reaching', 'upright', 'flying', 'path', 'grip', 'mug', 'whereami', 'puppeteer', 'worlds'];
 // The concept each explainer names, which only its last step may say.
@@ -78,6 +78,23 @@ describe('the teach-back records', () => {
     } finally {
       rmSync(empty, { recursive: true, force: true });
     }
+  });
+
+  it('let go only the concept the last step names and words that appear only in the kicker', () => {
+    const arm = EXPLAINER_WORDS.arm;
+    expect(uncountedReason(arm, 'kinematic chain')).toBe('the concept the last step introduces');
+    expect(uncountedReason(arm, 'Kinematic')).toBe('the concept the last step introduces');
+    expect(uncountedReason(arm, 'anatomy')).toBe('only in the kicker');
+    expect(uncountedReason(arm, 'motor')).toBeNull();
+    expect(uncountedReason(arm, 'newton-metres')).toBeNull();
+    expect(uncountedReason(EXPLAINER_WORDS.humanoid, 'Degrees of freedom')).toBe('the concept the last step introduces');
+    expect(uncountedReason(EXPLAINER_WORDS.path, 'millionths')).toBeNull();
+  });
+
+  it('run from npm', () => {
+    const scripts = (JSON.parse(readFileSync('package.json', 'utf8')) as { scripts: Record<string, string> }).scripts;
+    expect(scripts['check:teach-back']).toBe('node scripts/check-teach-back.ts');
+    expect(scripts['check:teach-back:plant']).toBe('node scripts/plant-teach-back.ts');
   });
 });
 

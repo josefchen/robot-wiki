@@ -197,19 +197,19 @@ export default {
     const leaderLabel = stage.label('Leader', () => lBase.position.clone().add(V(tall ? 0.12 : 0.03, 0.29, 0)), { tone: 'plain' }).show(false);
     const followerLabel = stage.label('Follower', () => fBase.position.clone().add(V(0.03, 0.29, 0)), { tone: 'plain' }).show(false);
     const handLabel = stage.label('Drag this hand', () => leader.tipWorld().add(V(-0.02, 0.11, 0)), { tone: 'focus' }).show(false);
-    const camLabel = stage.label('Camera', () => camEye.clone().add(V(0, 0.035, 0)), { tone: 'sense' }).show(false);
+    const camLabel = stage.label('Camera and what it sees', () => camEye.clone().add(V(0, 0.035, 0)), { tone: 'sense' }).show(false);
 
     const recBtn = ui.button('Record', () => {
       if (recording) { recording = false; recBtn.set('Record again'); writeReadout(); return; }
       clearDots(); examples = 0; recT = 0; recording = true; driver = 'drag'; onDemoEnd = null; recBtn.set('Stop');
       resetBlock(); ui.hint('Drag the hand');
     });
-    const playBtn = ui.button('Play it back alone', () => startSolo());
+    const playBtn = ui.button('Watch it again', () => startSolo());
     recBtn.show(false); playBtn.show(false);
 
     const resetBlock = () => { held = false; placed = false; block.position.copy(blockHome); };
     const writeReadout = () => {
-      if (recording || examples) ui.readout(`${recording ? 'Recording' : 'Recorded'} <b>${examples}</b> examples, ${RATE} a second. Each one: a camera picture plus all six joint angles.`);
+      if (recording || examples) ui.readout(`${recording ? 'Recording' : 'Recorded'} <b>${examples}</b> examples, ${RATE} a second. Each dot is one: a camera picture plus the position of all six joints.`);
     };
 
     const setFollowerFromHistory = () => {
@@ -357,10 +357,10 @@ export default {
             for (let t = 0; t <= duration(DEMO); t += 1 / RATE) { sample(DEMO, t, smp); dotPos.push(local(FOLLOWER, smp.x, smp.y)); dotAge.push(0); }
             paintDots();
             await home();
-            await ui.predict({ question: 'A 2023 robot learned delicate two-arm tasks this way, such as slotting a battery. How much demonstrating did each task take?', answer: 'min',
+            await ui.predict({ question: 'A 2023 robot learned delicate tasks this way, such as fitting a battery into its slot. How much demonstrating did each task take?', answer: 'min',
               options: [{ id: 'min', label: 'About 10 minutes' }, { id: 'hour', label: 'About 10 hours' }, { id: 'day', label: 'About 10 days' }],
               explain: 'About 10 minutes: 50 demonstrations of 8 to 14 seconds each. On its own, the robot then got tasks like these right 80 to 90% of the time.' });
-            ui.readout('In 2023, a two-arm robot learned tasks like slotting a battery, working <b>80 to 90%</b> of the time, from about <b>10 minutes</b> of demonstrations.');
+            ui.readout('In 2023, a robot learned tasks like fitting a battery into its slot, working <b>80 to 90%</b> of the time, from about <b>10 minutes</b> of demonstrations. Grey dots: the demonstration it copies.');
             leaderLabel.set('The demonstration').show(true);
             followerLabel.set('Moving alone').tone('focus').show(true);
             playBtn.show(true);

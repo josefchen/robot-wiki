@@ -113,7 +113,8 @@ function readStep() {
   };
 }
 
-const TEACH_BACK_CSS = `[data-x="summary"] .sentence, [data-explainer-fold], .pager, [data-explainer-words] { display: none !important; }`;
+// The skip link sits off screen until focused, but an element screenshot of the explainer still paints it.
+const TEACH_BACK_CSS = `[data-x="summary"] .sentence, [data-explainer-fold], .pager, [data-explainer-words], .skip-link { display: none !important; }`;
 // The site header sticks to the top of the viewport; captures scrolled under it would show it over the stage.
 const UNSTICK_CSS = 'header.sticky { position: static !important; }';
 

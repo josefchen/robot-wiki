@@ -69,14 +69,16 @@ export default {
     const handLabel = stage.label('Hand', () => arm.tipWorld(), { tone: 'plain' }).show(false);
     const cupLabel = stage.label('Drag the cup', () => cup.position.clone().add(new THREE.Vector3(0, 0.07, 0)), { tone: 'focus' }).show(false);
 
-    const angles = () => ['shoulder_pan', 'shoulder_lift', 'elbow_flex', 'wrist_flex'].map((k) => `${{ shoulder_pan: 'Base', shoulder_lift: 'Shoulder', elbow_flex: 'Elbow', wrist_flex: 'Wrist' }[k]} <b>${Math.round(J[k].value * DEG)}°</b>`).join(' · ');
+    // How far each joint is turned, without a sign: which way it turns is plain on the stage, and a minus sign is not.
+    const turned = (rad) => `${Math.abs(Math.round(rad * DEG))}°`;
+    const angles = () => `Joints turned: ${['shoulder_pan', 'shoulder_lift', 'elbow_flex', 'wrist_flex'].map((k) => `${{ shoulder_pan: 'base', shoulder_lift: 'shoulder', elbow_flex: 'elbow', wrist_flex: 'wrist' }[k]} <b>${turned(J[k].value)}</b>`).join(', ')}.`;
     let state = 'idle';
     const solve = () => {
       const r = arm.solveIK(grab());
       const ok = r.error < 0.01;
       cupMat.color.copy(ok ? stage.colors.focus : stage.colors.fail);
       cupLabel.set(ok ? 'Reached' : 'Out of reach').tone(ok ? 'focus' : 'fail');
-      ui.readout(ok ? angles() : `No joint angles put the hand there. Closest miss: <b>${Math.round(r.error * 100)} cm</b>.`);
+      ui.readout(ok ? angles() : `No joint angles put the hand there; it gets no closer than <b>${Math.round(r.error * 100)} centimetres</b>.`);
       return ok;
     };
     const drag = stage.draggable(cup, { handle: cup, plane: 'horizontal',
@@ -88,8 +90,8 @@ export default {
     const slideCup = (to, d) => { const from = cup.position.clone(); return stage.tween(d, (k) => { cup.position.lerpVectors(from, to, k); }); };
     const reachToward = (from, to, d) => stage.tween(d, (k) => { arm.solveIK(new THREE.Vector3().lerpVectors(from, to, k).add(new THREE.Vector3(0, 0.085, 0))); });
 
-    const shoulder = ui.slider({ label: 'Shoulder', left: 'Back', right: 'Forward', min: J.shoulder_lift.lower, max: J.shoulder_lift.upper, value: HOME.shoulder_lift,
-      onInput: (v) => { J.shoulder_lift.set(v); tracePts.push(arm.tipWorld()); trace.update(tracePts); trace.visible = true; ui.readout(`Shoulder <b>${Math.round(v * DEG)}°</b>`); } });
+    const shoulder = ui.slider({ label: 'Shoulder', left: 'Tilt back', right: 'Tilt forward', min: J.shoulder_lift.lower, max: J.shoulder_lift.upper, value: HOME.shoulder_lift,
+      onInput: (v) => { J.shoulder_lift.set(v); tracePts.push(arm.tipWorld()); trace.update(tracePts); trace.visible = true; ui.readout(`Shoulder turned <b>${turned(v)}</b>. The dashed line is the hand's path.`); } });
     const sol = ui.choice({ label: 'Same cup,', options: [{ id: 'a', label: 'Elbow up' }, { id: 'b', label: 'Elbow down' }], value: 'a', onChange: (id) => showSolution(id) });
     shoulder.show(false); sol.show(false);
 
@@ -117,7 +119,7 @@ export default {
             await slideCup(far, 1.0);
             await ui.predict({ question: 'Can the arm reach the cup over there?', answer: 'no',
               options: [{ id: 'yes', label: 'Yes' }, { id: 'no', label: 'No' }],
-              explain: 'It is too far. No set of joint angles puts the hand there. The green ring shows where cups can be reached.' });
+              explain: 'It is too far. No set of joint angles puts the hand there. The green ring shows where cups can be reached: not too far, and not too close to the base.' });
             await reachToward(near, far, 1.2);
             state = 'drag'; solve(); cupLabel.show(true);
             cloud.visible = true; zoneLabel.show(true);

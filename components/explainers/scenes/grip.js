@@ -123,11 +123,11 @@ export default {
     // Labels (at most three on stage at once).
     const status = stage.label('Holds', () => new THREE.Vector3(blockPos.x, Math.max(blockPos.y - H / 2 - 0.016, 0.014), D / 2), { tone: 'ok' }).show(false);
     const coneLabel = stage.label('Fingertip cone', () => { const [a] = contacts(); return a.add(new THREE.Vector3(CONE_H * 0.55, CONE_H * Math.tan(alpha) * 0.7 * coneGrow, 0)); }, { tone: 'focus' }).show(false);
-    const lineLabel = stage.label('Squeeze line', () => { const [a, b] = contacts(); return a.lerp(b, 0.78).add(new THREE.Vector3(0, 0.004, 0)); }, { tone: 'plain' }).show(false);
+    const lineLabel = stage.label('Line between fingertips', () => { const [a, b] = contacts(); return a.lerp(b, 0.78).add(new THREE.Vector3(0, 0.004, 0)); }, { tone: 'plain' }).show(false);
     let statusOn = false;
 
     // Controls: tilt (with drag), surface.
-    const tilt = ui.slider({ label: 'Tilt', left: 'Square', right: 'Tilted', min: 0, max: 40, step: 1, value: 0, onInput: (v) => setTilt((theta < 0 ? -1 : 1) * v * DEG) });
+    const tilt = ui.slider({ label: 'Tilt', left: 'Straight', right: 'Tilted', min: 0, max: 40, step: 1, value: 0, onInput: (v) => setTilt((theta < 0 ? -1 : 1) * v * DEG) });
     const surf = ui.choice({ label: 'Surface', value: 'plastic', options: Object.entries(SURF).map(([id, s]) => ({ id, label: s.name })), onChange: (id) => setSurface(id) });
     tilt.show(false); surf.show(false);
     const setTilt = (th) => { theta = clamp(th, -MAX_TILT, MAX_TILT); applyGrip(); tilt.set(Math.round(Math.abs(theta) / DEG)); };
@@ -184,7 +184,7 @@ export default {
       if (statusOn) { const ok = !showBad && blockState !== 'down'; status.set(ok ? 'Holds' : 'Slips').tone(ok ? 'ok' : 'fail'); }
       if (mode === 'live') {
         const phi = Math.round(lineAngle(theta) / DEG), al = Math.round(alpha / DEG);
-        const html = `Line between the fingertips: <b>${phi}°</b> off square · ${SURF[surface].name} cone: <b>${al}°</b> each side${readoutTail}`;
+        const html = `The line between the fingertips leans <b>${phi}°</b>; each ${SURF[surface].name.toLowerCase()} cone allows up to <b>${al}°</b>. Both are measured from straight across.${readoutTail}`;
         if (html !== lastReadout) { ui.readout(html); lastReadout = html; }
       }
     });
@@ -237,7 +237,7 @@ export default {
             await growCones(0.5); if (!alive(my)) return;
             await ui.predict({ question: 'When the gripper lifts, does the block come up with it?', answer: 'slips',
               options: [{ id: 'holds', label: 'It comes up' }, { id: 'slips', label: 'It slips out' }],
-              explain: `It slips. The line between the fingertips leans ${Math.round(lineAngle(TRY_TILT) / DEG)}°, outside both plastic cones (${Math.round(Math.atan(SURF.plastic.mu) / DEG)}° each side), so friction cannot stop the fingers sliding. Drag the gripper back toward square until it holds.` });
+              explain: `It slips. The line between the fingertips leans ${Math.round(lineAngle(TRY_TILT) / DEG)}°, but each plastic cone allows only ${Math.round(Math.atan(SURF.plastic.mu) / DEG)}°, so the fingers slide. Drag the gripper back toward straight until it holds.` });
             if (!alive(my)) return;
             showLine = true; forceBad = true; statusOn = true; status.show(true); lineLabel.show(true);
             await run(0.8, (k) => { grip.root.position.y = lerp(REST_Y, HOLD.y, k); blockPos.y = REST_Y + 0.006 * Math.sin(Math.PI * Math.min(1, k * 2.5)); }); if (!alive(my)) return;
@@ -249,6 +249,7 @@ export default {
             setTilt(TRY_TILT); surfTween++; surface = 'ice'; alpha = Math.atan(SURF.ice.mu); surf.set('ice');
             blockPos.set(0, REST_Y, 0); blockState = 'down';
             goLive(); surf.show(true); statusOn = true; status.show(true);
+            readoutTail = `<br>Each cone allows: ${Object.values(SURF).map((s) => `${s.name.toLowerCase()} <b>${Math.round(Math.atan(s.mu) / DEG)}°</b>`).join(', ')}.`;
             ui.hint('Pick a surface, or drag the gripper');
             await A.frame([0, 0.1, 0], [0.12, 0.12, 1], 0.075, 0.112); if (!alive(my)) return;
             await wait(0.4); if (!alive(my) || surface !== 'ice') return; // the reader may have picked already
@@ -259,7 +260,7 @@ export default {
             const my = A.next(); reset(); stage.focus(block, ...cones.map((c) => c.g)); setSee(true); showCones = true; showLine = true; coneGrow = 1;
             goLive(); surf.show(true); statusOn = true; status.show(true);
             await A.frame([0, HOLD.y + 0.016, 0], [0.12, 0.12, 1], 0.07, 0.09); if (!alive(my)) return;
-            readoutTail = '<br>In a 2026 study of 1,599 robot-hand grasps, <b>53%</b> of those that held at the assumed friction would lose their hold if friction were at the low end of what is plausible.';
+            readoutTail = '<br>In a 2026 study of 1,599 robot-hand grasps, <b>53%</b> of the grasps that should hold would fail on surfaces at the slippery end of what is realistic.';
           } },
       ],
       dispose() { drag.remove(); },

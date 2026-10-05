@@ -124,13 +124,11 @@ export default {
     const foot = shapes.mesh(shapes.cylinder(0.022, 0.006, 32), stage.mats.clay); foot.position.set(CAM_AT.x, 0.003, CAM_AT.z);
     rig.add(camBody, pole, foot);
     {
-      // Its view: four edge rays out to the mug's distance, and a small picture frame just in front of the lenses.
+      // Its view: four edge rays out to the mug's distance.
       const tanY = Math.tan(((DEPTH_FOV / 2) * Math.PI) / 180), tanX = tanY * (DEPTH_W / DEPTH_H);
       const at = (d) => [[-1, -1], [1, -1], [1, 1], [-1, 1]].map(([sx, sy]) => new THREE.Vector3(sx * tanX * d, sy * tanY * d, -d).applyMatrix4(dcam.matrixWorld));
-      const far = at(CAM_AT.distanceTo(MUG_MID)), near = at(0.05);
       const segs = [];
-      far.forEach((c) => segs.push(CAM_AT, c));
-      near.forEach((c, i) => segs.push(c, near[(i + 1) % 4]));
+      at(CAM_AT.distanceTo(MUG_MID)).forEach((c) => segs.push(CAM_AT, c));
       const fr = new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints(segs), stage.lineMaterial('ref', { opacity: 0.55 }));
       rig.add(fr);
     }
@@ -258,10 +256,10 @@ export default {
     const counts = { dots: DOTS, cubes: CUBES, skin: triangles, blobs: SPLATS };
     const words = { dots: 'dots', cubes: 'cubes', skin: 'triangles', blobs: 'soft blobs' };
     const detail = {
-      dots: 'one per camera pixel that lands on the mug',
+      dots: 'one for each point the camera measured on the mug',
       cubes: 'each 1 centimetre across, full or empty',
       skin: 'small flat pieces of surface',
-      blobs: 'each a soft, see-through smudge of colour',
+      blobs: 'each a soft, see-through smudge',
     };
 
     // ----- Labels (at most three at once) -----
@@ -325,7 +323,7 @@ export default {
         if (!(await anim(1.5, (k) => { const n = Math.round(DOTS * k); dotsPts.geometry.setDrawRange(0, n); ui.readout(`<b>${fmt(n)}</b> dots`); }, my))) return;
         dotsPts.geometry.setDrawRange(0, Infinity);
         hiddenLabel.show(true);
-        ui.readout(readCount('dots'));
+        ui.readout(`${readCount('dots')} The faint shape is the real mug.`);
       },
       cubes: async (my) => {
         HERO(0.9); cubeLabel.show(false);
@@ -356,6 +354,8 @@ export default {
     const probeMat = probe.material;
     const asked = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(VOXEL, VOXEL, VOXEL)), stage.lineMaterial('focus'));
     probe.visible = false; asked.visible = false; W.add(probe, asked);
+    const tipLabel = stage.label('Fingertip', () => (probe.visible ? probe.position.clone().add(new THREE.Vector3(0, 0.012, 0)) : null)).show(false);
+    labels.push(tipLabel);
     // Cubes already asked about stay as faint outlines, so the trail of look-ups is visible.
     const trailMat = stage.lineMaterial('ref', { opacity: 0.6 });
     const trail = Array.from({ length: 40 }, () => { const t = new THREE.LineSegments(asked.geometry, trailMat); t.visible = false; W.add(t); return t; });
@@ -415,7 +415,7 @@ export default {
             const a = new THREE.Vector3(c.x + 0.045, 0.062, c.z + 0.16), b = new THREE.Vector3(c.x + 0.004, 0.062, c.z);
             let stopAt = 1;
             for (let k = 0; k <= 1; k += 0.002) { const q = cellOf(a.clone().lerp(b, k)); if (cellIndex.has(q.join(','))) { stopAt = k + 0.004; break; } }
-            probe.position.copy(a); probe.visible = true;
+            probe.position.copy(a); probe.visible = true; tipLabel.show(true);
             const seen = new Set(); let empty = 0;
             let lastK = 0;
             if (!(await anim(2.2, (k) => {
@@ -428,7 +428,7 @@ export default {
               }
               lastK = k;
             }, my))) return;
-            ui.readout(`${lineup()}<br>Each check asks one cube: full or empty? <b>${empty}</b> empty, then <b>one full</b>: stop before touching the mug.`);
+            ui.readout(`${lineup()}<br>The fingertip checks one cube at a time. Outlined: the <b>${empty}</b> empty cubes it passed. Red: the first full one, so it stops before touching the mug.`);
           } },
       ],
       dispose() { offFrame(); },

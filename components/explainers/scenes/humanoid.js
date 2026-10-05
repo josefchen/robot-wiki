@@ -1,14 +1,14 @@
 // Body 2: Inside a humanoid. Takeaway: over half of a humanoid's motors move its legs and keep it balanced,
 // hands with fingers need about as many again, and the battery limits how long it can work.
 // Numbers: Unitree G1 spec page (unitree.com/g1). Model proportions and joint layout: Unitree's g1_23dof.urdf.
-import { THREE, ExplodedModel, shapes, slicer } from '../kit.js';
+import { THREE, ExplodedModel, shapes, slicer, reduceMotion } from '../kit.js';
 import { buildHumanoid, STAND_Y } from '../models/humanoid.js';
 import { EXPLAINER_WORDS } from '../words.ts';
 
 const SPEC = 'Unitree G1 spec page';
 const REGIONS = {
   legs: { name: 'Legs', count: 12, role: 'Six per leg: three at the hip, one at the knee, two for the ankle. They carry the whole body and keep it balanced.', spec: 'The knees have the strongest motors' },
-  arms: { name: 'Arms', count: 10, role: 'Five per arm: three at the shoulder, one at the elbow, one to turn the wrist.', spec: 'Each arm lifts about 2 kilograms' },
+  arms: { name: 'Arms', count: 10, role: 'Five per arm: three at the shoulder, one at the elbow, one to turn the wrist.', spec: 'Each arm can carry about 2 kilograms' },
   waist: { name: 'Waist', count: 1, role: 'One motor turns the whole upper body left and right.', spec: 'Turns up to 155 degrees each way' },
   hands: { name: 'Hands', count: 0, role: 'The standard hands have no motors. The optional three-finger hand has 7 motors each: 14 for both, more than the legs.', spec: 'Optional hand: 7 motors (thumb 3, two fingers 2 each)' },
   torso: { name: 'Torso and head', count: 0, role: 'No motors here. It holds the battery and the computer, and the head holds a depth camera and a laser scanner.', spec: 'Battery: about 2 hours per charge' },
@@ -104,12 +104,14 @@ export default {
     const L = {
       g1: stage.label('Unitree G1', wp(H.head, [0, 0.1, 0])),
       legs: stage.label('Legs: 12 motors', wp(H.legs[0].knee, [0.08, 0, 0]), { tone: 'focus' }),
-      arms: stage.label('Arms: 10', wp(H.arms[1].elbow, [-0.03, 0, 0])),
-      waist: stage.label('Waist: 1', wp(H.waistMotor, [0, 0, 0])),
+      arms: stage.label('Arms: 10 motors', wp(H.arms[1].elbow, [-0.03, 0, 0])),
+      waist: stage.label('Waist: 1 motor', wp(H.waistMotor, [0, 0, 0])),
+      hands: stage.label('Three-finger hands: 14 motors', wp(H.hands[1], [0, -0.05, 0]), { tone: 'focus' }),
       knee: stage.label('Knee: the strongest motor', wp(H.legs[0].knee, [0.08, 0, 0.03]), { tone: 'focus' }),
-      weight: stage.label('Weight: about 35 kilograms', () => H.com().add(new THREE.Vector3(0, 0.08, 0)), { tone: 'act' }),
+      weight: stage.label('Weight pulling down: about 35 kilograms', () => H.com().add(new THREE.Vector3(0, 0.08, 0)), { tone: 'act' }),
       battery: stage.label('Battery: about 2 hours', wp(H.battery, [0, -0.02, 0.03]), { tone: 'focus' }),
-      computer: stage.label('Computer', wp(H.computer, [0, 0.02, 0.02])),
+      computer: stage.label('Computer: controls the motors', wp(H.computer, [0, 0.02, 0.02])),
+      cover: stage.label('Chest cover', () => new THREE.Box3().setFromObject(H.cover).getCenter(new THREE.Vector3())),
     };
     const labels = (...on) => { for (const [k, l] of Object.entries(L)) l.show(on.includes(k)); };
     labels();
@@ -131,7 +133,7 @@ export default {
       model.selected = p && p !== model.selected ? p : null;
     };
     const offClick = stage.onClick((ray) => { if (tapOn) tapPart(model.pick(ray)); });
-    const tally = () => ui.readout(ORDER.map((id) => `${REGIONS[id].name.split(' ')[0]} <b>${REGIONS[id].count}</b>`).join(' · ') + ' · in all <b>23</b>');
+    const tally = () => ui.readout('Motors: legs <b>12</b>, arms <b>10</b>, waist <b>1</b>. That is all <b>23</b>; the standard hands and the torso have none.');
 
     const reset = () => {
       tapOn = false; model.selected = null; ui.card(null); ui.hint(''); ui.readout('');
@@ -143,7 +145,7 @@ export default {
       steps: [
         { text: STEP_TEXT[0],
           enter: async () => { const my = ++epoch; reset(); ctx.visible = true; labels('g1'); stage.focus(H.root, ctx);
-            ui.readout('Unitree G1 · <b>1.32 metres</b> tall · about <b>35 kilograms</b>');
+            ui.readout('The G1, made by the company Unitree: <b>1.32 metres</b> tall, about <b>35 kilograms</b>.');
             // Frame the robot as it will stand once put back together, with its doorway and stairs.
             const was = model.explode; model.setExplode(0);
             const framing = stage.fit([H.root, ctx], [0.5, 0.3, 1], { margin: 0.86, duration: 1.2 });
@@ -155,7 +157,7 @@ export default {
             shot([0, 0.72, 0], [0.32, 0.18, 1], 1.15, 1.6, 1.1);
             await ui.predict({ question: 'Where do most of its 23 motors go?', answer: 'legs',
               options: [{ id: 'legs', label: 'Legs' }, { id: 'arms', label: 'Arms' }, { id: 'hands', label: 'Hands' }, { id: 'torso', label: 'Torso' }],
-              explain: 'Legs: 12 of the 23, six in each. The arms have 10 and the waist 1. The standard hands have none.' });
+              explain: 'The legs: 12 of the 23, over half. The arms have 10 and the waist 1. The standard hands are fixed, with no motors.' });
             if (my !== epoch) return;
             paint(['legs']); labels('legs', 'arms', 'waist'); tally();
             tapOn = true; ui.hint('Tap a part of the body'); ui.parts(ORDER.map((id) => parts.find((p) => p.id === id)), tapPart, (p) => model.selected === p); },
@@ -165,7 +167,7 @@ export default {
             model.animateExplode(0, 0.6);
             paint(['legs']); paintMeshes(H.kneeMotors, stage.mats.focus);
             labels('knee', 'weight');
-            ui.readout('The knees have the strongest motors. Each arm lifts only about <b>2 kilograms</b>.');
+            ui.readout('The knees have the strongest motors. Each arm can carry only about <b>2 kilograms</b>.');
             const place = () => { const c = H.com(); weight.set(c, down, 0.5); };
             place(); weight.visible = true;
             shot([0, 0.64, 0], [0.85, 0.3, 1], 1.0, 1.5, 1.0);
@@ -175,10 +177,10 @@ export default {
           enter: async () => { const my = ++epoch; reset(); stage.focus(H.battery, H.computer);
             model.animateExplode(0, 0.5);
             paint(['torso'], { fade: true }); paintMeshes([H.battery], stage.mats.focus); paintMeshes([H.computer], stage.mats.dark);
-            ui.readout('One charge lasts about <b>2 hours</b>. A quick-release latch lets the battery swap out.');
+            ui.readout('One charge lasts about <b>2 hours</b>. Then a person can swap in a charged battery.');
             shot([0, 1.0, 0.06], [-0.55, 0.28, 1], 0.72, 0.8, 1.0);
             await tw(1.0, (k) => setCover(k)); if (my !== epoch) return;
-            labels('battery', 'computer'); } },
+            labels('battery', 'computer', 'cover'); } },
         { text: STEP_TEXT[4],
           enter: async () => { const my = ++epoch; reset(); stage.focus(H.root);
             model.animateExplode(0, 0.5);
@@ -186,10 +188,13 @@ export default {
             const all = [...H.motors.legs, ...H.motors.waist, ...H.motors.arms];
             for (let i = 0; i < all.length; i++) {
               paintMeshes([all[i]], stage.mats.focus);
-              ui.readout(`Degrees of freedom: <b>${i + 1}</b>`);
+              ui.readout(`Motors: <b>${i + 1}</b>`);
               await new Promise((r) => setTimeout(r, 60)); if (my !== epoch) return;
             }
-            ui.readout('Standard G1: <b>23</b> degrees of freedom. The research version has up to <b>43</b>; its three-finger hands alone add <b>14</b>, more than the <b>12</b> in the legs.'); } },
+            await new Promise((r) => setTimeout(r, reduceMotion ? 0 : 500)); if (my !== epoch) return;
+            // Then the optional three-finger hands light up beside the legs: 14 motors against 12.
+            paint(['legs', 'hands'], { beads: true }); labels('legs', 'hands');
+            ui.readout('The standard G1 has <b>23</b>. Optional three-finger hands add <b>14</b>, more than the <b>12</b> in the legs. With every optional extra, a G1 has up to <b>43</b>.'); } },
       ],
       dispose() { offClick(); },
     };
