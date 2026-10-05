@@ -121,7 +121,8 @@ export default {
     const applyGrip = () => { grip.root.rotation.z = theta; grip.setGap(gapFor(theta)); };
 
     // Labels (at most three on stage at once).
-    const status = stage.label('Holds', () => new THREE.Vector3(blockPos.x, Math.max(blockPos.y - H / 2 - 0.016, 0.014), D / 2), { tone: 'ok' }).show(false);
+    // Plain when it holds: the cones carry the step's one colour, and only a slip turns red.
+    const status = stage.label('Holds', () => new THREE.Vector3(blockPos.x, Math.max(blockPos.y - H / 2 - 0.016, 0.014), D / 2), { tone: 'plain' }).show(false);
     const coneLabel = stage.label('Fingertip cone', () => { const [a] = contacts(); return a.add(new THREE.Vector3(CONE_H * 0.55, CONE_H * Math.tan(alpha) * 0.7 * coneGrow, 0)); }, { tone: 'focus' }).show(false);
     const lineLabel = stage.label('Line between fingertips', () => { const [a, b] = contacts(); return a.lerp(b, 0.78).add(new THREE.Vector3(0, 0.004, 0)); }, { tone: 'plain' }).show(false);
     let statusOn = false;
@@ -181,7 +182,7 @@ export default {
       squeeze.visible = showLine; dots[0].position.copy(a); dots[1].position.copy(b); dots.forEach((d) => { d.visible = showLine; });
       const lm = showBad ? lineMats.bad : lineMats.ok; squeeze.material = lm; dots.forEach((d) => { d.material = lm; });
 
-      if (statusOn) { const ok = !showBad && blockState !== 'down'; status.set(ok ? 'Holds' : 'Slips').tone(ok ? 'ok' : 'fail'); }
+      if (statusOn) { const ok = !showBad && blockState !== 'down'; status.set(ok ? 'Holds' : 'Slips').tone(ok ? 'plain' : 'fail'); }
       if (mode === 'live') {
         const phi = Math.round(lineAngle(theta) / DEG), al = Math.round(alpha / DEG);
         const html = `The line between the fingertips leans <b>${phi}°</b>; each ${SURF[surface].name.toLowerCase()} cone allows up to <b>${al}°</b>. Both are measured from straight across.${readoutTail}`;

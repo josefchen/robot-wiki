@@ -108,7 +108,7 @@ export default {
       waist: stage.label('Waist: 1 motor', wp(H.waistMotor, [0, 0, 0])),
       hands: stage.label('Three-finger hands: 14 motors', wp(H.hands[1], [0, -0.05, 0]), { tone: 'focus' }),
       knee: stage.label('Knee: the strongest motor', wp(H.legs[0].knee, [0.08, 0, 0.03]), { tone: 'focus' }),
-      weight: stage.label('Weight pulling down: about 35 kilograms', () => H.com().add(new THREE.Vector3(0, 0.08, 0)), { tone: 'act' }),
+      weight: stage.label('Weight pulling down: about 35 kilograms', () => H.com().add(new THREE.Vector3(0, 0.08, 0))),
       battery: stage.label('Battery: about 2 hours', wp(H.battery, [0, -0.02, 0.03]), { tone: 'focus' }),
       computer: stage.label('Computer: controls the motors', wp(H.computer, [0, 0.02, 0.02])),
       cover: stage.label('Chest cover', () => new THREE.Box3().setFromObject(H.cover).getCenter(new THREE.Vector3())),
@@ -116,8 +116,8 @@ export default {
     const labels = (...on) => { for (const [k, l] of Object.entries(L)) l.show(on.includes(k)); };
     labels();
 
-    // Weight arrow for step 3.
-    const weight = shapes.arrow(stage, 'act', 0.013); weight.visible = false; stage.world.add(weight);
+    // Weight arrow for step 3, in ink: the knee motors carry the step's one colour.
+    const weight = shapes.arrow(stage, 'ink', 0.013); weight.visible = false; stage.world.add(weight);
     weight.traverse((m) => { if (m.isMesh) { m.material.depthTest = false; m.renderOrder = 20; m.castShadow = false; } }); // seen through the body
     const down = new THREE.Vector3(0, -1, 0);
 
