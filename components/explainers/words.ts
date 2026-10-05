@@ -28,10 +28,10 @@ export const EXPLAINER_WORDS = {
     takeaway:
       'A robot arm is a chain: each motor moves everything after it, so the motors nearest the base work hardest.',
     steps: [
-      'People build this small arm themselves to teach robots new tasks. It has six motors, one for each joint.',
-      'Pull it apart. Printed plastic parts and motors alternate, from the base to the jaw. Tap any part to see what it does.',
+      'This small robot arm has six motors (highlighted), one per joint: base, shoulder lift, elbow, wrist bend, wrist turn and gripper.',
+      'Pull it apart. 3D-printed plastic parts and motors alternate, from the base to the gripper. Tap any part to see what it does.',
       'Each motor carries every part after it. With the arm stretched out like this, which motor works hardest just to hold it still?',
-      'So arms need their strongest motors near the base and can lift only a little at the tip. This is a kinematic chain.',
+      'So arms need their strongest motors near the base, and the tip can lift only a little. Linked parts like this form a kinematic chain.',
     ],
     concept: {
       name: 'This chain of rigid parts and joints is called a kinematic chain',
@@ -45,7 +45,7 @@ export const EXPLAINER_WORDS = {
     },
     parts: [
       'Base', 'Base motor', 'Shoulder bracket', 'Shoulder lift motor', 'Upper arm', 'Elbow motor', 'Forearm',
-      'Wrist bend motor', 'Wrist', 'Wrist turn motor', 'Fixed jaw', 'Gripper motor', 'Moving jaw',
+      'Wrist bend motor', 'Wrist', 'Wrist turn motor', 'Fixed finger', 'Gripper motor', 'Moving finger',
     ],
   },
   humanoid: {
@@ -54,11 +54,11 @@ export const EXPLAINER_WORDS = {
     takeaway:
       'Over half of a humanoid\'s motors move its legs and keep it balanced, hands with fingers need about as many again, and the battery limits how long it can work.',
     steps: [
-      'A humanoid is shaped like us so it can use our doors, stairs and tools. This one, a Unitree G1, stands 1.32 metres tall.',
+      'A humanoid is shaped like us so it can use our doors, stairs and tools. This one, Unitree\'s G1, stands 1.32 metres tall.',
       'Its 23 motors sit in its joints, one per joint. Guess where most of them go, then tap any part of the body to count.',
-      'The legs carry the whole body, about 35 kilograms, and must react instantly, so they get the strongest motors.',
-      'The battery and computer sit in the torso. One charge lasts only about two hours, so the battery limits how long it can work.',
-      'Each motor adds a degree of freedom, a way to move that must be controlled. Hands with fingers need about as many as the legs.',
+      'The legs carry the whole body, about 35 kilograms, and keep it from falling, so they get the strongest motors.',
+      'The chest cover swings open: the battery and computer sit inside. One charge lasts only about two hours, which limits its working time.',
+      'Each motor adds one way to move, called a degree of freedom. Hands with fingers need about as many motors as the legs.',
     ],
     concept: {
       name: 'Each independent way a robot can move is called a degree of freedom',
@@ -79,8 +79,8 @@ export const EXPLAINER_WORDS = {
       'A human hand packs about 20 ways to move and dense touch into a small space; most robots use a simple two-finger clamp instead and lose most of that.',
     steps: [
       'Many robots hold things with a simple clamp: two fingers and one motor that opens and closes them.',
-      'A human hand has 27 bones and about 20 ways to move. Each finger bends at three joints and swings sideways.',
-      'Robot hands copy this. The LEAP Hand, a research hand, keeps three fingers and a thumb: 16 joints, each with its own motor.',
+      'Your hand and wrist have 27 bones. The fingers and thumb make about 20 separate movements: each finger bends at three joints and swings sideways.',
+      'Robot hands copy this. One research robot hand keeps three fingers and a thumb: 16 joints, each with its own motor.',
       'Touch matters too. A slip starts as a tiny vibration; fingertip sensors feel it, and the hand squeezes before the object falls.',
       'Last test: turn the key to point sideways, using only the fingers. Doing that is called dexterous manipulation.',
     ],
@@ -96,7 +96,7 @@ export const EXPLAINER_WORDS = {
     },
   },
   reaching: {
-    kicker: 'Kinematics · reaching',
+    kicker: 'Robot arms · reaching',
     question: 'How does a robot arm reach a cup?',
     takeaway:
       'The robot works backwards from where the hand must go to an angle for every joint, and some places it simply cannot reach.',
@@ -104,7 +104,7 @@ export const EXPLAINER_WORDS = {
       'An arm only controls its joints. Turn the shoulder and the hand swings in an arc.',
       'To pick up a cup, the robot must find an angle for every joint at once. Drag the cup and watch it solve.',
       'Now the cup is at the far end of the table.',
-      'Some places can be reached in two different ways: elbow up or elbow down.',
+      'Some places can be reached two ways: elbow up or elbow down. The faint arm shows the other way.',
       'Turning joints to see where the hand goes is forward kinematics. Working backwards from the hand to the joints is inverse kinematics.',
     ],
     concept: {
@@ -125,10 +125,10 @@ export const EXPLAINER_WORDS = {
       'A robot stays up while its balance point is over the patch between its feet; four feet make a big patch, two make a tiny one.',
     steps: [
       'Every body has a balance point, where its weight is centred. Here it is the dot, inside a robot dog and a humanoid.',
-      'The shaded patch spans the feet on the ground. While the dot\'s shadow stays inside it, the robot stays up.',
+      'The shaded patch spans the feet on the ground. While the spot straight below the dot stays inside it, the robot stays up.',
       'Both robots get the same push, and both balance points move the same distance forward.',
       'Walking, only one or two feet touch at a time, so the patch shrinks to a line or one foot. Walking is falling and catching.',
-      'This patch is called the support polygon. The robot dog ANYmal adjusts its legs 200 times a second, using a skill learned in simulation.',
+      'This patch is called the support polygon. The robot dog ANYmal adjusts its legs 200 times a second to stay balanced.',
     ],
     concept: {
       name: 'The patch between the feet is called the support polygon',
@@ -150,8 +150,8 @@ export const EXPLAINER_WORDS = {
       'Four motors, a battery and a flight computer. Two propellers spin clockwise and two counter-clockwise.',
       'Spin all four at the same speed and it hovers: together they lift exactly its weight. Faster together, it climbs.',
       'Now fly forward. No propeller points forward, so something else has to push it that way.',
-      'To turn, speed up the two clockwise propellers and slow the other two. Their extra twist turns the whole drone the other way.',
-      'The flight computer rebalances the four speeds hundreds of times a second to hold the tilt it wants. This is attitude control.',
+      'To turn, speed up the two clockwise propellers and slow the other two. Their extra twist turns the drone counter-clockwise.',
+      'The flight computer adjusts the four speeds hundreds of times a second to keep the drone at the right tilt. This is attitude control.',
     ],
     concept: {
       name: 'Holding the right tilt by constantly adjusting motor speeds is called attitude control',
@@ -171,11 +171,11 @@ export const EXPLAINER_WORDS = {
     takeaway:
       'It tries random moves, keeps the safe ones, and grows a tree until a branch reaches the goal.',
     steps: [
-      'The gripper must reach the can on the far shelf. Going in a straight line, it runs into the shelf in between.',
+      'A robot\'s gripper, drawn without its arm, must reach the can on the far shelf. Straight there, it hits the shelf in between.',
       'Pick a random point. From the nearest spot reached so far, take one short step toward it. Keep the step only if it hits nothing.',
       'Repeat thousands of times. The kept steps branch out into a tree that creeps into every open gap.',
       'When a branch reaches the goal, follow it back to the start. Then cut every corner where a straight shortcut is safe.',
-      'Drag the shelf; the tree regrows. This is a rapidly-exploring random tree. Fast software plans an arm\'s path in about 40 millionths of a second.',
+      'Drag the shelf; the tree regrows. This is a rapidly-exploring random tree. Fast software plans a typical arm path in 40 millionths of a second.',
     ],
     concept: {
       name: 'Growing a tree of random safe steps is called a rapidly-exploring random tree',
@@ -194,8 +194,8 @@ export const EXPLAINER_WORDS = {
     takeaway:
       'A pinch holds only if each finger pushes within a narrow cone set by friction; tilt the grip outside the cones and the object slides out.',
     steps: [
-      'Two fingers pinch a block squarely and lift it. It holds.',
-      'Each fingertip can push only within a cone. Push outside it, and the finger slides along the surface.',
+      'Two fingers pinch a block straight across and lift it. It holds.',
+      'A fingertip can push straight into the surface or at a slant, but only within this cone. Slant more, and it slides.',
       'Now it grabs the block with a tilted grip and lifts. The fingers still squeeze along the line between them.',
       'Slippery surfaces narrow the cones. Rubber holds at tilts where plastic and ice slip.',
       'This is the friction cone. Robots plan a grasp by hunting for finger spots whose cones face each other, with room to spare.',
@@ -217,10 +217,10 @@ export const EXPLAINER_WORDS = {
     takeaway:
       'It stores the world as dots, cubes, a skin or soft blobs, and each one trades detail against speed and memory.',
     steps: [
-      'A depth camera measures one distance for every pixel. Each becomes a dot, but only on the side the camera can see.',
+      'A depth camera measures how far away each point in its picture is. Each becomes a dot, but only on the side it can see.',
       'Cubes, called voxels, split space into a grid where each box is simply full or empty. Coarse, but very simple.',
       'A skin, called a mesh, joins the surface into small flat triangles. Its smooth shape is what you need to plan where fingers go.',
-      'Soft blobs, called Gaussian splats, blend together into an image that looks like a photo. They are the newest of the four.',
+      'Soft blobs, called splats, blend into a smooth surface. Real ones carry colour and look like a photo. They are the newest of the four.',
       'Same mug, four costs: more pieces give more detail but take more memory and time. These are scene representations.',
     ],
     concept: {
@@ -241,8 +241,8 @@ export const EXPLAINER_WORDS = {
       'A robot never knows exactly where it is: it keeps a best guess and a cloud of doubt, and moving grows the doubt while every measurement shrinks it.',
     steps: [
       'It drives by counting wheel turns. Each turn adds a little error, so its guess drifts and its cloud of doubt grows.',
-      'Now it spots a landmark whose place on its map it already knows.',
-      'A worse sensor shrinks the cloud less. The robot blends its guess with the reading, trusting whichever has less doubt.',
+      'Now it spots a landmark: a sign with a pattern it recognises, whose place on its map it already knows.',
+      'A worse sensor shrinks the cloud less. The robot blends its guess with what the landmark says, trusting whichever has less doubt.',
       'This blending is a Kalman filter. Spacecraft, drones and many robots use one to keep track of where they are.',
     ],
     concept: {
@@ -262,7 +262,7 @@ export const EXPLAINER_WORDS = {
     takeaway:
       'A person moves a copy of the arm, the robot mirrors it, and every moment becomes an example for the robot to imitate.',
     steps: [
-      'A person moves the leader arm by hand. The follower copies every joint a moment later. Drag the leader\'s hand.',
+      'A person moves the leader arm by hand; the follower copies it a moment later. Drag its hand to put the block on the circle.',
       'Press record. Thirty times a second, the robot saves what its camera sees and where every joint is: one example each time.',
       'After many demonstrations, the robot learns to copy them. Now it moves alone, beside a grey ghost replaying one demonstration.',
       'Steering a robot through a copy of itself is teleoperation. Learning to repeat the recordings on its own is imitation learning.',
@@ -285,7 +285,7 @@ export const EXPLAINER_WORDS = {
       'They practise in thousands of slightly different simulated worlds at once, so the real world is just one more variation.',
     steps: [
       'One simulated robot tries to walk. It stumbles, falls, resets and tries again, doing a little better each time.',
-      'Now run 4,096 copies at once on one graphics chip. They share one brain, so every fall teaches all of them.',
+      'Now run 4,096 copies at once on one computer. They pool what they learn, so every fall teaches all of them.',
       'Make every world a little different: slippery or grippy ground, heavier bodies, random shoves. Shuffle to deal new worlds.',
       'One tile is the real world. Two robots step onto it: one practised in a single perfect world, one in all 4,096.',
       'Practise in thousands of varied worlds and reality is just one more. This is massively parallel simulation with domain randomization.',

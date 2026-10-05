@@ -119,9 +119,10 @@ export default {
     const [L1, L2, L3] = labels;
     const place = (L, text, at, tone = 'plain') => { L.set(text).tone(tone).show(true); L.at = at; };
     const replay = ui.button('Let it slip again', () => slipDemo(A.next()));
-    const tryWith = ui.choice({ label: 'Turn the key with', value: 'hand', options: [{ id: 'clamp', label: 'The clamp' }, { id: 'hand', label: 'The hand' }],
-      onChange: (id) => { const my = A.next(); if (id === 'clamp') clampTry(my); else handTurn(my); } });
-    replay.show(false); tryWith.show(false);
+    const againClamp = ui.button('Watch the clamp again', () => clampTry(A.next()));
+    const againHand = ui.button('Watch the hand again', () => handTurn(A.next()));
+    const showAgain = (v) => { againClamp.show(v); againHand.show(v); };
+    replay.show(false); showAgain(false);
 
     const lerpPose = (a, b, k) => Object.fromEntries(Object.keys(b).map((n) => [n, b[n].map((v, i) => lerp(a[n][i], v, k))]));
     const toPose = (to, d) => { const from = hand.getPose(); return A.run(d, (k) => hand.setPose(lerpPose(from, to, k))); };
@@ -132,7 +133,7 @@ export default {
     const knuckleAt = (i, up = 0) => () => hand.knuckles[i].mesh.getWorldPosition(new THREE.Vector3()).add(new THREE.Vector3(0, up, 0));
 
     const reset = () => {
-      replay.show(false); tryWith.show(false); ui.hint(''); ui.readout(''); ui.card(null);
+      replay.show(false); showAgain(false); ui.hint(''); ui.readout(''); ui.card(null);
       labels.forEach((L) => L.show(false));
       grip.root.visible = false; grip.motor.material = M.dark; gripKey.visible = false; gripGhost.visible = false;
       grip.root.position.set(0, 0.11, 0); grip.root.rotation.set(0, 0, 0); grip.setGap(0.05);
@@ -208,7 +209,7 @@ export default {
             const my = A.next(); reset(); stage.focus(hand.root);
             showHand('human', 'on', 0); hand.setPose(RELAX);
             stage.fit([hand.root], [0.12, 0.12, 1], { margin: 0.86, duration: 1.0 });
-            const say = (n) => ui.readout(`Ways to move counted: <b>${n}</b> · Bones in the wrist and hand: <b>27</b>`);
+            const say = (n) => ui.readout(`Movements counted: <b>${n}</b>`);
             say(0);
             let n = 0;
             for (let i = 0; i < hand.knuckles.length; i++) {
@@ -217,6 +218,7 @@ export default {
               if (i === 0) place(L1, 'Bends and swings sideways', knuckleAt(0), 'focus');
               if (i === 2) place(L2, 'Bends', knuckleAt(2), 'plain');
             }
+            ui.readout(`Movements counted: <b>${n}</b>. Anatomy books count a few more or fewer, so about 20.`);
           } },
         { text: STEP_TEXT[2],
           enter: async () => {
@@ -240,7 +242,7 @@ export default {
             showHand('robot', 'off'); handKey.visible = true; handKey.setMat(M.clay);
             hand.showSensors(true); hand.setSensorLevel(0.15);
             place(L1, 'Touch sensors', () => hand.tipWorld('middle').add(new THREE.Vector3(0, 0.016, 0)), 'sense');
-            ui.readout("One research fingertip, Meta's Digit 360, has about <b>8.3 million</b> sensing points and feels vibrations up to <b>10,000</b> times a second.");
+            ui.readout('One research fingertip from Meta has about <b>8.3 million</b> tiny touch-sensing spots and feels vibrations up to <b>10,000</b> times a second.');
             const r0 = hand.root.rotation.y;
             hand.root.rotation.y = TURN; const pw = H2W(Q); hand.root.rotation.y = r0;
             A.frame([pw.x - 0.008, pw.y + 0.012, pw.z], [-0.12, 0.22, 1], 0.08, 0.085);
@@ -258,14 +260,14 @@ export default {
             showHand('robot', 'off', TURN); hand.root.position.set(hx, HAND_AT.y, 0); hand.setPose(PINCH); handKey.visible = true; handGhost.visible = true;
             place(L1, 'Clamp', () => grip.root.localToWorld(new THREE.Vector3(0, 0.25, 0)), 'plain');
             place(L2, 'Hand', () => H2W(new THREE.Vector3(0, 0.2, 0)), 'plain');
-            place(L3, 'Goal', () => grip.root.localToWorld(bladeDir(GOAL).multiplyScalar(0.045).add(new THREE.Vector3(0, KEY_DROP + 0.008, 0))), 'plain');
+            place(L3, 'Faint key: the goal', () => grip.root.localToWorld(bladeDir(GOAL).multiplyScalar(0.045).add(new THREE.Vector3(0, KEY_DROP + 0.008, 0))), 'plain');
             await stage.fit([grip.root, hand.root], [-0.04, 0.2, 1], { margin: 0.78, duration: 1.0 }); if (!A.alive(my)) return;
-            await ui.predict({ question: 'Keeping the wrist still, which one can turn its key to the goal?', answer: 'hand',
+            await ui.predict({ question: 'Using only its fingers, which one can turn its key to the goal?', answer: 'hand',
               options: [{ id: 'clamp', label: 'The clamp' }, { id: 'hand', label: 'The hand' }, { id: 'both', label: 'Both' }],
               explain: 'Only the hand. The clamp can only open and close, so its key stays the way it was picked up. The hand walks the key round, one finger push at a time.' });
             if (!A.alive(my)) return;
             await Promise.all([clampTry(my), handTurn(my)]); if (!A.alive(my)) return;
-            tryWith.show(true); ui.hint('Try each one again');
+            showAgain(true);
           } },
       ],
       dispose() {},

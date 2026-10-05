@@ -35,7 +35,10 @@ export type TeachBackRecord = {
   takeaway: string;
   selfCheck: { question: string; answer: string; correct: boolean };
   sentence: string;
+  /** The words the reviewer did not understand that count against a pass. */
   unclearTerms: string[];
+  /** Words the reviewer also listed that the test does not count, each with the rule that lets it go. */
+  uncountedTerms?: { term: string; why: string }[];
   samePoint: 'yes' | 'no';
   reason: string;
   noiseAudit: NoiseRow[];
@@ -88,6 +91,26 @@ export async function explainerDigest(root: string, id: string): Promise<string>
   return hash.digest('hex');
 }
 
+// Lower case, punctuation dropped and plurals folded, so "Degrees of freedom" finds "degree of freedom".
+const plain = (text: string) =>
+  ` ${text.toLowerCase().replace(/[^a-z0-9'\- ]+/g, ' ').split(/\s+/).filter(Boolean).map((w) => (w.length > 3 ? w.replace(/s$/, '') : w)).join(' ')} `;
+
+type ReviewedWords = { kicker: string; steps: readonly string[]; concept: { name: string } };
+
+/**
+ * Why the test lets a word the reviewer listed go, or null when it counts. Words that appear only in
+ * the kicker, and the concept the last step introduces, do not count (VAL-OPUS-044).
+ */
+export function uncountedReason(words: ReviewedWords, term: string): string | null {
+  const t = plain(term).trim();
+  if (!t) return null;
+  const says = (text: string) => plain(text).includes(` ${t} `);
+  const earlier = words.steps.slice(0, -1);
+  if (says(words.steps.at(-1) ?? '') && says(words.concept.name) && !earlier.some(says)) return 'the concept the last step introduces';
+  if (says(words.kicker) && !words.steps.some(says)) return 'only in the kicker';
+  return null;
+}
+
 const NAMED_TOOL = /\b(claude|opus|sonnet|haiku|anthropic|openai|gpt|gemini|grok|llm|chatgpt|droid|playwright|chromium)\b/i;
 const NEUTRAL_SESSION = /^reader-session-[0-9a-z-]+$/;
 
@@ -110,6 +133,9 @@ export async function teachBackProblems(root: string, id: string): Promise<strin
   if (record.verdict !== 'pass') problems.push(`${name}: teach-back verdict is ${record.verdict}`);
   if (record.samePoint !== 'yes' || !record.selfCheck?.correct || (record.unclearTerms ?? []).length > 0 || !record.noiseClean) {
     problems.push(`${name}: teach-back record does not support a pass`);
+  }
+  for (const { term } of record.uncountedTerms ?? []) {
+    if (!words || !uncountedReason(words as ReviewedWords, term)) problems.push(`${name}: the record lets "${term}" go, but it counts as an unclear word`);
   }
   const shots = record.screenshots ?? [];
   for (const width of TEACH_BACK_WIDTHS) {

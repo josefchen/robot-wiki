@@ -764,11 +764,13 @@ export class TeachUI {
       const el = this.predictEl; el.hidden = false;
       el.innerHTML = `<span class="k">Guess first</span><p class="q">${question}</p><div class="opts"></div><p class="explain" hidden></p>`;
       const opts = el.querySelector('.opts'), ex = el.querySelector('.explain');
+      // Words rather than tick and cross marks, which first-time readers do not always read as right and wrong.
+      const verdict = (b, text) => { const s = document.createElement('span'); s.className = 'verdict'; s.textContent = ` (${text})`; b.append(s); };
       const finish = (id) => {
         opts.querySelectorAll('button').forEach((b) => {
           b.disabled = true;
-          if (b.dataset.id === answer) { b.classList.add('right'); b.insertAdjacentHTML('afterbegin', '<span aria-hidden="true">✓ </span>'); }
-          if (b.dataset.id === id && id !== answer) { b.classList.add('wrong'); b.insertAdjacentHTML('afterbegin', '<span aria-hidden="true">✗ </span>'); }
+          if (b.dataset.id === answer) { b.classList.add('right'); verdict(b, id === answer ? 'your guess: right' : 'right answer'); }
+          if (b.dataset.id === id && id !== answer) { b.classList.add('wrong'); verdict(b, 'your guess'); }
         });
         ex.hidden = false;
         ex.textContent = (id === answer ? 'Right. ' : id ? 'Not quite. ' : '') + explain;

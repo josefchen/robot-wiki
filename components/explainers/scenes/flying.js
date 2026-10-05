@@ -20,7 +20,7 @@ class QuadSim {
   reset(p, yaw = 0) {
     this.p = [...p]; this.v = [0, 0, 0]; this.yaw = yaw; this.pitch = 0; this.roll = 0;
     this.s = [1, 1, 1, 1]; this.t = 0; this.frozen = false;
-    this.manual = false; this.boost = [0, 0, 0, 0]; this.ext = 0; this.extP = 0; this.extF = 0; this.plan = null;
+    this.ext = 0; this.extP = 0; this.extF = 0; this.plan = null;
     this.home = { p: [...p], yaw };
   }
   up() {
@@ -41,16 +41,9 @@ class QuadSim {
     const tg = this.targets();
     const upY = Math.cos(this.pitch) * Math.cos(this.roll);
     const Tsum = (M * G + DV * 4 * (tg.h - this.p[1])) / Math.max(0.5, upY);
-    let Ti;
-    if (!this.manual) {
-      const tauP = CP * 9 * (tg.pitch - this.pitch), tauR = CP * 9 * (tg.roll - this.roll), tauY = CY * 3 * (tg.yaw - this.yaw);
-      const aR = tauR / (4 * QUAD.a), aP = tauP / (4 * QUAD.a), aY = tauY / (4 * KQ);
-      Ti = ROTORS.map((r) => Tsum / 4 - aR * Math.sign(r.z) + aP * Math.sign(r.x) + aY * r.dir);
-    } else {
-      const bT = this.boost.map((b) => TH * ((1 + b) ** 2 - 1));
-      const mean = bT.reduce((a, b) => a + b, 0) / 4;
-      Ti = bT.map((b) => Tsum / 4 + b - mean); // the computer still holds the height
-    }
+    const tauP = CP * 9 * (tg.pitch - this.pitch), tauR = CP * 9 * (tg.roll - this.roll), tauY = CY * 3 * (tg.yaw - this.yaw);
+    const aR = tauR / (4 * QUAD.a), aP = tauP / (4 * QUAD.a), aY = tauY / (4 * KQ);
+    const Ti = ROTORS.map((r) => Tsum / 4 - aR * Math.sign(r.z) + aP * Math.sign(r.x) + aY * r.dir);
     const cmd = Ti.map((t) => clampN(Math.sqrt(Math.max(t, 0) / TH), 0.6, 1.4));
     const k = 1 - Math.exp(-dt / 0.025);
     this.s = this.s.map((s, i) => s + (cmd[i] - s) * k);
@@ -138,8 +131,8 @@ export default {
       front: stage.label('Front pair', () => quad.root.localToWorld(v3().set(QUAD.a, 0.08 + Math.max(arrowLen(0), arrowLen(2)), 0))).show(false),
       back: stage.label('Back pair', () => quad.root.localToWorld(v3().set(-QUAD.a, 0.08 + Math.max(arrowLen(1), arrowLen(3)), 0))).show(false),
       pair: stage.label('Clockwise pair speeds up', at(quad.props[2], [0, 0.02, 0]), { tone: 'focus' }).show(false),
-      turn: stage.label('Drone turns the other way', () => yawArc.localToWorld(yawArc.tip.clone()), { tone: 'act' }).show(false),
-      gust: stage.label('Gust', () => gust.position.clone(), { tone: 'act' }).show(false),
+      turn: stage.label('Drone turns counter-clockwise', () => yawArc.localToWorld(yawArc.tip.clone()), { tone: 'act' }).show(false),
+      gust: stage.label('Gust of wind', () => gust.position.clone(), { tone: 'act' }).show(false),
       fc: stage.label('Flight computer', at(quad.computer, [0, 0.01, 0]), { tone: 'focus' }).show(false),
     };
     const hideLabels = () => Object.values(L).forEach((l) => l.show(false));
@@ -147,7 +140,7 @@ export default {
     // ---------- Controls ----------
     let onPreset = () => {};
     const tryIt = ui.choice({ label: 'Try', value: null,
-      options: [{ id: 'hover', label: 'Hover' }, { id: 'climb', label: 'Climb' }, { id: 'forward', label: 'Forward' }, { id: 'turn', label: 'Turn' }, { id: 'adjust', label: 'Adjust' }],
+      options: [{ id: 'hover', label: 'Hover' }, { id: 'climb', label: 'Climb' }, { id: 'forward', label: 'Forward' }, { id: 'turn', label: 'Turn' }],
       onChange: (id) => onPreset(id) });
     const segs = [...tryIt.el.querySelectorAll('.seg')];
     const showOpts = (ids) => {
@@ -169,7 +162,7 @@ export default {
     };
 
     // ---------- Frame loop: simulate, pose, arrows, spin, narrate ----------
-    let epoch = 0, running = false, narrate = null, lastMsg = '', strobe = null, guardOn = false, suffix = '', gustOn = false, follow = false, recovering = false;
+    let epoch = 0, running = false, narrate = null, lastMsg = '', strobe = null, suffix = '', gustOn = false, follow = false;
     const narrow = () => stage.camera.aspect < 1.1;
     // A manoeuvre holds the stage as moving until the drone is at rest and the camera has caught up.
     let release = null, ended = null, lastYaw = 0, heldAt = 0;
@@ -185,8 +178,8 @@ export default {
     const describe = () => {
       const q = pairs(), p = sim.pitch / DEG, r = sim.roll / DEG;
       if (gustOn) return sim.extP ? 'A gust tips it over.' : Math.abs(p) > 1 || Math.abs(r) > 1 ? 'The flight computer speeds up the low side to push it back to level.' : 'Level again, and back to equal speeds.';
-      if (q.cw - q.ccw > 0.02) return 'Clockwise pair faster, the other pair slower: their twists no longer cancel, so the drone turns the other way.';
-      if (q.ccw - q.cw > 0.02) return 'Counter-clockwise pair faster: the drone turns the other way.';
+      if (q.cw - q.ccw > 0.02) return 'Clockwise pair faster, the other pair slower: their twists no longer cancel, so the drone turns counter-clockwise.';
+      if (q.ccw - q.cw > 0.02) return 'Counter-clockwise pair faster: it turns back slightly, clockwise.';
       if (Math.abs(q.right - q.left) > 0.02) return 'The low side speeds up to push the drone back to level.';
       if (q.back - q.front > 0.02) return p > 3 ? 'Back pair faster: it tips back to level.' : 'Back pair faster: the nose dips.';
       if (q.front - q.back > 0.02) return p < -3 ? 'Front pair faster: it tips nose-up to brake.' : 'Front pair faster: the nose lifts.';
@@ -197,19 +190,6 @@ export default {
       if (q.mean < 0.985) return 'All four slower: it sinks.';
       return 'All four at the same speed: it hovers. Together they lift exactly its weight.';
     };
-    const adjustText = () => {
-      const b = sim.boost;
-      if (!b.some((x) => x > 0)) return 'Tap a propeller to speed it up. Tap again to slow it back down.';
-      let pitch = 0, right = 0, cw = 0;
-      ROTORS.forEach((r, i) => { pitch += b[i] * Math.sign(r.x); right += b[i] * Math.sign(r.z); cw += b[i] * r.dir; });
-      const fx = [];
-      if (pitch < 0) fx.push('the nose dips and it moves forward'); else if (pitch > 0) fx.push('the nose lifts and it moves backward');
-      if (right > 0) fx.push('it tips and slides left'); else if (right < 0) fx.push('it tips and slides right');
-      if (cw > 0) fx.push('it turns left'); else if (cw < 0) fx.push('it turns right');
-      const names = ROTORS.filter((r, i) => b[i] > 0).map((r) => r.name.toLowerCase()).join(', ');
-      return `Faster: ${names}. So ${fx.join(', and ') || 'the pushes cancel out'}.`;
-    };
-
     stage.onFrame((dt) => {
       if (!running) return;
       // Under reduced motion each frame runs the flight to rest, so a manoeuvre jumps to its end.
@@ -228,16 +208,6 @@ export default {
       // Ten seconds is far longer than any manoeuvre takes; past it the hold lets go regardless.
       if (release && ((ended?.() && atRest()) || performance.now() - heldAt > 10_000)) { release(); release = null; }
       lastYaw = sim.yaw;
-      // Adjust mode safety net: past a steep tilt or the edge of the stage, the flight computer takes
-      // back control, flies home and levels out, then hands the propellers back to the reader.
-      if (guardOn && sim.manual && (Math.abs(sim.pitch) > 25 * DEG || Math.abs(sim.roll) > 25 * DEG || Math.abs(sim.p[0]) > 0.85 || Math.abs(sim.p[2]) > 0.7)) {
-        sim.manual = false; sim.boost = [0, 0, 0, 0]; sim.home = { p: [...HOME], yaw: sim.yaw }; recovering = true;
-        spinArcs.forEach((a) => a.setRole('ref'));
-        narrate = () => 'Too far over: the flight computer took back control and is flying it home.';
-      }
-      if (recovering && Math.hypot(sim.p[0] - HOME[0], sim.p[1] - HOME[1], sim.p[2] - HOME[2]) < 0.04 && Math.hypot(...sim.v) < 0.04 && Math.abs(sim.pitch) + Math.abs(sim.roll) < 2 * DEG) {
-        recovering = false; sim.manual = true; narrate = () => (sim.manual ? adjustText() : describe());
-      }
       if (narrate) say(narrate() + suffix);
     });
 
@@ -245,7 +215,7 @@ export default {
     const showThrust = (v) => thrust.forEach((a) => { a.visible = v; });
     const spinning = (v) => { running = v; quad.discs.forEach((d) => { d.visible = v; }); if (!v) { thrust.forEach((a) => { a.visible = false; }); } };
     const reset = (p = HOME) => {
-      epoch++; strobe = null; narrate = null; lastMsg = ''; guardOn = false; suffix = ''; gustOn = false; follow = false; recovering = false;
+      epoch++; strobe = null; narrate = null; lastMsg = ''; suffix = ''; gustOn = false; follow = false;
       release?.(); release = null; ended = null;
       sim.reset(p); applyPose();
       hideLabels(); ui.readout(''); ui.hint(''); ui.card(null);
@@ -259,7 +229,7 @@ export default {
     };
     // Glide back to a start pose (not simulated), then hand over to the physics.
     const rewind = async (to, yaw = 0) => {
-      const my = epoch; sim.frozen = true; sim.plan = null; sim.manual = false; strobe = null;
+      const my = epoch; sim.frozen = true; sim.plan = null; strobe = null;
       const p0 = [...sim.p], y0 = sim.yaw, pi0 = sim.pitch, r0 = sim.roll;
       const far = Math.hypot(p0[0] - to[0], p0[1] - to[1], p0[2] - to[2]) + Math.abs(y0 - yaw) * 0.3 + Math.abs(pi0) + Math.abs(r0);
       if (far > 0.02) await stage.tween(Math.min(1.3, 0.5 + far * 0.5), (k) => { if (my !== epoch) return; sim.p = p0.map((v, i) => lerp(v, to[i], k)); sim.yaw = lerp(y0, yaw, k); sim.pitch = lerp(pi0, 0, k); sim.roll = lerp(r0, 0, k); });
@@ -284,7 +254,7 @@ export default {
       if (!(await rewind(HOME, 0))) return;
       sim.plan = (t) => ({ yaw: 90 * DEG * sm(t / 1.0) });
       holdUntilRest(() => sim.t > 1.0);
-      narrate = () => (Math.abs(sim.yaw - 90 * DEG) < 3 * DEG && Math.abs(pairs().cw - pairs().ccw) < 0.01 ? 'Speeds equal again: the turn stops. It now faces left.' : describe());
+      narrate = () => (Math.abs(sim.yaw - 90 * DEG) < 3 * DEG && Math.abs(pairs().cw - pairs().ccw) < 0.01 ? 'Speeds equal again: the turn stops after a quarter turn.' : describe());
     };
     const runClimb = async (h) => {
       const from = sim.p[1];
@@ -293,17 +263,11 @@ export default {
       narrate = describe;
     };
 
-    // Taps: parts in step 1, propellers in Adjust.
+    // Taps pick parts in step 1.
     let tapMode = null;
-    const propPick = (ray) => { const hit = ray.intersectObjects(quad.discs, false)[0]; return hit ? quad.discs.indexOf(hit.object) : -1; };
     const tapPart = (p) => { model.select(p === model.selected ? null : p); ui.card(model.selected ? p : null); };
     const offClick = stage.onClick((ray) => {
       if (tapMode === 'parts') tapPart(model.pick(ray));
-      if (tapMode === 'props' && sim.manual) {
-        const i = propPick(ray); if (i < 0) return;
-        sim.boost[i] = sim.boost[i] > 0 ? 0 : 0.05;
-        spinArcs[i].setRole(sim.boost[i] > 0 ? 'focus' : 'ref');
-      }
     });
     // A gust tips the drone; the flight computer levels it again. The arrow stays until it is level.
     let gustToken = 0;
@@ -314,7 +278,7 @@ export default {
       if (!(await rewind(HOME, 0))) return;
       await view;
       if (my !== epoch || tok !== gustToken) return;
-      tryIt.set(null); guardOn = false; tapMode = null; ui.hint('');
+      tryIt.set(null); ui.hint('');
       ghosts.forEach((gh) => { gh.root.visible = false; });
       spinArcs.forEach((a) => { a.visible = false; });
       gust.visible = true; L.gust.show(true); gustOn = true; narrate = describe;
@@ -331,15 +295,6 @@ export default {
         if (performance.now() - t0 > 1500 && Math.abs(sim.pitch) < 1 * DEG) off();
       });
     };
-    const startAdjust = async () => {
-      if (!(await rewind(HOME, 0))) return;
-      sim.manual = true; sim.boost = [0, 0, 0, 0]; guardOn = true; follow = narrow();
-      spinArcs.forEach((a) => { a.visible = true; a.setRole('ref'); });
-      tapMode = 'props'; stage.hoverPick((ray) => propPick(ray) >= 0);
-      ui.hint('Tap a propeller');
-      narrate = () => (sim.manual ? adjustText() : describe());
-    };
-
     stage.camera.position.set(1.1, 1.3, 1.5); stage.controls.target.set(0, 0.58, 0);
 
     return {
@@ -376,7 +331,6 @@ export default {
             // Wide stages show the whole flight; narrow ones follow the drone.
             stage.focus(quad.root, ...(narrow() ? [] : [START, [-START[0], START[1], START[2]]]));
             L.front.show(true); L.back.show(true);
-            narrate = describe;
             await (narrow() ? frame([START[0] + 0.2, 0.56, 0], [0, 0.16, 1], 0.55, 0.3, 1.1) : frame([0, 0.56, 0], [0, 0.16, 1], 1.3, 0.34, 1.1)); if (my !== epoch) return;
             await ui.predict({ question: 'To fly forward, which propellers speed up?', answer: 'back',
               options: [{ id: 'front', label: 'The front two' }, { id: 'back', label: 'The back two' }, { id: 'all', label: 'All four' }],
@@ -401,24 +355,20 @@ export default {
           enter: async () => {
             reset(HOME); spinning(true); showThrust(true); stage.focus(quad.root, gust);
             model.highlight([P.computer], 'focus'); L.fc.show(true);
-            suffix = `<br>PX4, flight software that many drones run, makes this correction <b>${RATE_HZ} times a second</b> by default.`;
-            narrate = () => (sim.manual ? adjustText() : describe());
-            showOpts(['climb', 'forward', 'turn', 'adjust']);
+            suffix = `<br>Flight software used on many drones makes this correction <b>${RATE_HZ} times a second</b> by default.`;
+            narrate = describe;
+            showOpts(['climb', 'forward', 'turn']);
             onPreset = async (id) => {
-              guardOn = false; sim.manual = false; tapMode = null; ui.hint(''); stage.hoverPick(() => null);
-              spinArcs.forEach((a) => { a.visible = false; a.setRole('ref'); });
               ghosts.forEach((g) => { g.root.visible = false; });
-              gustToken++; gustOn = false; follow = false; recovering = false; gust.visible = false; L.gust.show(false);
+              gustToken++; gustOn = false; follow = false; gust.visible = false; L.gust.show(false);
               frame(...(id === 'forward' ? (narrow() ? [[START[0] + 0.2, 0.56, 0], [0.2, 0.25, 1], 0.55, 0.32] : [[0, 0.56, 0], [0.3, 0.3, 1], 1.2, 0.36])
                 : id === 'climb' ? [[0, 0.75, 0], [0.5, 0.3, 1], 0.6, 0.45]
-                : id === 'adjust' ? [[0, 0.5, 0], [0.5, 0.75, 1], narrow() ? 0.62 : 1.0, 0.42]
                 : [[0, 0.52, 0], [0.5, 0.6, 1], 0.6, 0.36]), 0.9);
               if (id === 'climb') { if (await rewind(HOME)) runClimb(0.95); }
               if (id === 'forward') await runForward();
               if (id === 'turn') await runTurn();
-              if (id === 'adjust') await startAdjust();
             };
-            onAgain = () => pushGust(); again.set('Gust again'); again.show(true);
+            onAgain = () => pushGust(); again.set('Send another gust'); again.show(true);
             await pushGust();
           },
           leave: () => { model.select(null); } },
