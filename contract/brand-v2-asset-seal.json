@@ -9,6 +9,90 @@
       "purpose": "First-party schematic final-frame poster for the owner-authorized Kalman pilot clip; the seeded truth, sensor readings, estimate and uncertainty band sit on the graphite stage under an IBM Plex Sans legend band."
     },
     {
+      "path": "explainers/posters/arm.webp",
+      "sha256": "1882e1c989590b8966bab13dad35b7fd54fb3214dbc0a813816c4333fe511ad7",
+      "byteCount": 42140,
+      "owner": "robot-wiki-editorial",
+      "purpose": "First-party poster for the \"The arm\" 3D explainer on /how-robots-work/: its first step captured on the 16:10 desktop stage, shown until the explainer loads."
+    },
+    {
+      "path": "explainers/posters/flying.webp",
+      "sha256": "b191432ca3c62c77526a77b718f81994a8d4eb6c8132505b6f99e39c9edeb018",
+      "byteCount": 52850,
+      "owner": "robot-wiki-editorial",
+      "purpose": "First-party poster for the \"Flying\" 3D explainer on /how-robots-work/: its first step captured on the 16:10 desktop stage, shown until the explainer loads."
+    },
+    {
+      "path": "explainers/posters/grip.webp",
+      "sha256": "7cdea4cff65082650646b0d733472bbbaa4a0098552370ab0ba540270528f905",
+      "byteCount": 13474,
+      "owner": "robot-wiki-editorial",
+      "purpose": "First-party poster for the \"Holding without slipping\" 3D explainer on /how-robots-work/: its first step captured on the 16:10 desktop stage, shown until the explainer loads."
+    },
+    {
+      "path": "explainers/posters/hand.webp",
+      "sha256": "4e24ddf9d123d8a93d65e7981e05611c562d6f7b0a03ecabd682c5981c166b9c",
+      "byteCount": 19974,
+      "owner": "robot-wiki-editorial",
+      "purpose": "First-party poster for the \"The hand\" 3D explainer on /how-robots-work/: its first step captured on the 16:10 desktop stage, shown until the explainer loads."
+    },
+    {
+      "path": "explainers/posters/humanoid.webp",
+      "sha256": "170fee9e5f6d6d69a4bfaaf0a6400a889e56ba83d6e51d588ab2dffeb1ab91e7",
+      "byteCount": 26986,
+      "owner": "robot-wiki-editorial",
+      "purpose": "First-party poster for the \"Inside a humanoid\" 3D explainer on /how-robots-work/: its first step captured on the 16:10 desktop stage, shown until the explainer loads."
+    },
+    {
+      "path": "explainers/posters/mug.webp",
+      "sha256": "b69116ddfdc8ef58f574f914590e8e6868c10b6d23f0f59c991ac8bbcaa1b465",
+      "byteCount": 55386,
+      "owner": "robot-wiki-editorial",
+      "purpose": "First-party poster for the \"Four ways to see a mug\" 3D explainer on /how-robots-work/: its first step captured on the 16:10 desktop stage, shown until the explainer loads."
+    },
+    {
+      "path": "explainers/posters/path.webp",
+      "sha256": "d15a6d0a5fd45525b04b9398b3d711163e9ef33cc5150f2f317f3e829dfd070e",
+      "byteCount": 40410,
+      "owner": "robot-wiki-editorial",
+      "purpose": "First-party poster for the \"Finding a path\" 3D explainer on /how-robots-work/: its first step captured on the 16:10 desktop stage, shown until the explainer loads."
+    },
+    {
+      "path": "explainers/posters/puppeteer.webp",
+      "sha256": "0d30e5d68e5e2957c450a2b2f6d935f2d1dee0f219e247f1f471b540c95cc0c7",
+      "byteCount": 50154,
+      "owner": "robot-wiki-editorial",
+      "purpose": "First-party poster for the \"Learning from a puppeteer\" 3D explainer on /how-robots-work/: its first step captured on the 16:10 desktop stage, shown until the explainer loads."
+    },
+    {
+      "path": "explainers/posters/reaching.webp",
+      "sha256": "10b5165a947f800802121c9f4a0b5441fdbeea83dd6750644264fabff3a7a8a4",
+      "byteCount": 25706,
+      "owner": "robot-wiki-editorial",
+      "purpose": "First-party poster for the \"Reaching\" 3D explainer on /how-robots-work/: its first step captured on the 16:10 desktop stage, shown until the explainer loads."
+    },
+    {
+      "path": "explainers/posters/upright.webp",
+      "sha256": "20bc3a57d408d1876980136da1956f766b261c2d32395f37a1f3c358305b06dc",
+      "byteCount": 44208,
+      "owner": "robot-wiki-editorial",
+      "purpose": "First-party poster for the \"Staying upright\" 3D explainer on /how-robots-work/: its first step captured on the 16:10 desktop stage, shown until the explainer loads."
+    },
+    {
+      "path": "explainers/posters/whereami.webp",
+      "sha256": "8ef8ce919f8475abdcbeeacaff7a64c229c53bbf69a18df70042699acc9ae7e6",
+      "byteCount": 37444,
+      "owner": "robot-wiki-editorial",
+      "purpose": "First-party poster for the \"Knowing where you are\" 3D explainer on /how-robots-work/: its first step captured on the 16:10 desktop stage, shown until the explainer loads."
+    },
+    {
+      "path": "explainers/posters/worlds.webp",
+      "sha256": "6e02e3c4922870db23a5b94dbefecf5550e9e3a5ced99ebf7023c0571fb99c1b",
+      "byteCount": 23088,
+      "owner": "robot-wiki-editorial",
+      "purpose": "First-party poster for the \"Practising in a thousand worlds\" 3D explainer on /how-robots-work/: its first step captured on the 16:10 desktop stage, shown until the explainer loads."
+    },
+    {
       "path": "images/anymal-anybotics-2022.jpg",
       "sha256": "65bd6998719c0f2f7c65c492072fb66bb3a78ec501d7e00a1e9555c9cf5d8a5b",
       "byteCount": 706854,

@@ -232,6 +232,68 @@ describe('registered first-party asset verdicts', () => {
     expect(poster?.basis).toBe('registered-clip');
     expect(poster?.established.join(' ')).toMatch(/1280x720.*kalman-episode/);
     expect(poster?.limitations).toContain(ASSET_CONTENT_LIMITATIONS.clipPoster);
+    const still = verdicts.find(({ path }) => path === 'explainers/posters/arm.webp');
+    expect(still?.basis).toBe('registered-explainer');
+    expect(still?.established.join(' ')).toMatch(/1440x900.*explainer arm/);
+    expect(still?.limitations).toContain(ASSET_CONTENT_LIMITATIONS.explainerPoster);
+  });
+
+  it('requires a catalog registration, scene source, capture source and poster size for an explainer poster', () => {
+    const poster = readFileSync(join(ROOT, 'public/explainers/posters/arm.webp'));
+    const catalog = readFileSync(join(ROOT, 'components/explainers/catalog.ts'), 'utf8');
+    const baseFiles: Record<string, string | Buffer> = {
+      'public/models/so101/so101.urdf': MINIMAL_URDF,
+      'public/explainers/posters/arm.webp': poster,
+      'components/explainers/catalog.ts': catalog,
+      'components/explainers/scenes/arm.js': '// locally authored scene',
+      'scripts/capture-explainer-posters.ts': '// locally authored capture',
+    };
+    const verdictFor = (files: Record<string, string | Buffer>) =>
+      assetContentVerdicts({
+        root: scratchRoot(files),
+        assets: [
+          {
+            id: 'asset:explainers/posters/arm.webp',
+            path: 'explainers/posters/arm.webp',
+            category: 'static-asset',
+            byteHash: hash(poster),
+            sourceRegistryId: null,
+          },
+          {
+            id: 'asset:models/so101/so101.urdf',
+            path: 'models/so101/so101.urdf',
+            category: 'playground-model',
+            byteHash: hash(MINIMAL_URDF),
+            sourceRegistryId: null,
+          },
+        ],
+        provenanceById: new Map(),
+        identitySourcePaths: [],
+      })[0];
+
+    expect(verdictFor(baseFiles).failures).toEqual([]);
+    for (const missing of [
+      'components/explainers/catalog.ts',
+      'components/explainers/scenes/arm.js',
+      'scripts/capture-explainer-posters.ts',
+    ]) {
+      const files = Object.fromEntries(
+        Object.entries(baseFiles).filter(([path]) => path !== missing),
+      );
+      expect(verdictFor(files).failures.join(' ')).toMatch(/explainer.*(registration|source)/i);
+    }
+    expect(
+      verdictFor({
+        ...baseFiles,
+        'components/explainers/catalog.ts': catalog.replace(/width: 1440/, 'width: 640'),
+      }).failures.join(' '),
+    ).toMatch(/dimensions/);
+    expect(
+      verdictFor({
+        ...baseFiles,
+        'components/explainers/catalog.ts': catalog.replace("id: 'arm'", "id: 'another'"),
+      }).failures.join(' '),
+    ).toMatch(/registration/);
   });
 
   it('requires an exact local clip registration, render source, encodings and dimensions for an owned poster', () => {

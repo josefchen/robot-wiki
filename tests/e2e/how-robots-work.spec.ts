@@ -1,5 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
-import { EXPLAINER_ORDER } from '../../components/explainers/catalog';
+import { EXPLAINER_CURRICULUM, EXPLAINER_ORDER } from '../../components/explainers/catalog';
+import { EXPLAINER_WORDS } from '../../components/explainers/words';
 
 const ROUTE = '/how-robots-work/';
 const VIEWPORTS = [
@@ -19,8 +20,10 @@ function collectErrors(page: Page) {
 
 async function waitForScene(page: Page) {
   await page.waitForFunction(
-    () => (window as unknown as { __explainer?: { ready: boolean; steps: number } })
-      .__explainer?.ready === true,
+    () => {
+      const hook = (window as unknown as { __explainer?: { ready: boolean; live: boolean } }).__explainer;
+      return hook?.ready === true && hook.live;
+    },
     undefined,
     { timeout: 45_000 },
   );
@@ -36,6 +39,9 @@ test.describe('how robots work', () => {
     await expect(page).toHaveTitle(/How Robots Work/);
     await expect(page.getByRole('heading', { level: 1 })).toHaveText('How robots work');
     const rail = page.getByRole('navigation', { name: 'Explainers' });
+    await expect(rail.getByRole('heading', { level: 2 })).toHaveText(
+      EXPLAINER_CURRICULUM.map(({ group }) => group),
+    );
     await expect(rail.getByRole('link')).toHaveCount(EXPLAINER_ORDER.length);
     for (const { id, label } of EXPLAINER_ORDER) {
       await expect(rail.locator(`a[href="#${id}"]`)).toHaveText(new RegExp(label));
@@ -98,6 +104,8 @@ test.describe('how robots work', () => {
         await expect(page.locator('[data-x="sentence"]')).not.toBeEmpty();
         const concept = page.locator('[data-x="concept"] a');
         await expect(concept).toHaveAttribute('href', /^\/[a-z0-9-]+\/[a-z0-9-]+\/(#[a-z0-9-]+)?$/);
+        await expect(concept).toHaveText(EXPLAINER_WORDS[id].concept.term);
+        await expect(page.locator('[data-x="concept"]')).toHaveText(`${EXPLAINER_WORDS[id].concept.name}.`);
         const check = summary.locator('details.check');
         await check.locator('summary').click();
         await expect(page.locator('[data-x="checkA"]')).toBeVisible();

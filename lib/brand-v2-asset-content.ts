@@ -47,6 +47,8 @@ export const ASSET_CONTENT_LIMITATIONS = {
     'JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header, not the depicted subject',
   clipPoster:
     'Clip registration and shipped encodings identify a locally authored poster, not what its pixels depict; exact-byte editorial approval is checked separately by the asset seal',
+  explainerPoster:
+    'The explainer catalog, scene source and capture script identify a locally rendered poster, not what its pixels depict; exact-byte editorial approval is checked separately by the asset seal',
   model:
     'glTF mesh geometry is read as counts, names and accessor extents, not as shape: what a mesh draws is not classified',
   vector:
@@ -135,7 +137,12 @@ export type AssetContentVerdict = {
   formatMatchesExtension: boolean;
   decode: AssetDecode;
   /** How the claim about this asset is supported. */
-  basis: 'decoded-content' | 'external-provenance' | 'registered-clip' | 'undecidable';
+  basis:
+    | 'decoded-content'
+    | 'external-provenance'
+    | 'registered-clip'
+    | 'registered-explainer'
+    | 'undecidable';
   /** What the mechanism established about this asset, in its own terms. */
   established: string[];
   /** What it did not establish, named. */
@@ -330,6 +337,35 @@ export function decodeRaster(bytes: Buffer, format: AssetFormat): RasterDecode {
       heightPx: bytes.readUInt32BE(20),
     };
   }
+  if (format === 'webp' && bytes.length >= 30) {
+    const chunk = bytes.toString('ascii', 12, 16);
+    // VP8X carries the canvas as 24-bit little-endian sizes minus one.
+    if (chunk === 'VP8X') {
+      return {
+        ...empty,
+        widthPx: bytes.readUIntLE(24, 3) + 1,
+        heightPx: bytes.readUIntLE(27, 3) + 1,
+      };
+    }
+    // Lossy keyframe: 14-bit sizes after the start code.
+    if (chunk === 'VP8 ') {
+      return {
+        ...empty,
+        widthPx: bytes.readUInt16LE(26) & 0x3fff,
+        heightPx: bytes.readUInt16LE(28) & 0x3fff,
+      };
+    }
+    // Lossless: 14-bit sizes minus one, packed after the signature byte.
+    if (chunk === 'VP8L' && bytes[20] === 0x2f) {
+      const bits = bytes.readUInt32LE(21);
+      return {
+        ...empty,
+        widthPx: (bits & 0x3fff) + 1,
+        heightPx: ((bits >> 14) & 0x3fff) + 1,
+      };
+    }
+    return empty;
+  }
   if (format !== 'jpeg') return empty;
   let offset = 2;
   while (offset + 9 < bytes.length) {
@@ -445,6 +481,78 @@ function registeredClipPoster(
   }
   return {
     description: `decoded a ${frame.widthPx}x${frame.heightPx} png frame for locally registered clip ${match[1]} with render source ${source} and shipped ${encodings.join(' and ')}`,
+    failure: null,
+  };
+}
+
+/**
+ * An explainer poster is a still the capture script renders from the
+ * explainer's own scene, so its origin is first-party in the same way a clip
+ * poster's is. Read it from the explainer catalog, the scene source and the
+ * capture script on disk, not from the filename. The seal still decides
+ * whether these exact bytes are approved; this does not attest to the pixels.
+ */
+function registeredExplainerPoster(
+  root: string,
+  path: string,
+  frame: RasterDecode,
+): { description: string | null; failure: string | null } {
+  const match = path.match(/^explainers\/posters\/([a-z0-9]+(?:-[a-z0-9]+)*)\.webp$/);
+  if (!match) {
+    return {
+      description: null,
+      failure: `${path} is not a registered explainer poster path`,
+    };
+  }
+  const catalogPath = join(root, 'components/explainers/catalog.ts');
+  if (!existsSync(catalogPath)) {
+    return {
+      description: null,
+      failure: `${path} has no explainer catalog registration in components/explainers/catalog.ts`,
+    };
+  }
+  const catalog = readFileSync(catalogPath, 'utf8');
+  const id = match[1];
+  const registrations = catalog.split(`id: '${id}'`).length - 1;
+  if (registrations !== 1) {
+    return {
+      description: null,
+      failure: `${path} has ${registrations} explainer catalog registration(s), not exactly one`,
+    };
+  }
+  const size = catalog.match(
+    /POSTER_SIZE\s*=\s*\{\s*width:\s*(\d+),\s*height:\s*(\d+)\s*\}/,
+  );
+  if (!size) {
+    return {
+      description: null,
+      failure: `${path} has no explainer poster size in components/explainers/catalog.ts`,
+    };
+  }
+  const width = Number(size[1]);
+  const height = Number(size[2]);
+  if (frame.widthPx !== width || frame.heightPx !== height) {
+    return {
+      description: null,
+      failure: `${path} frame dimensions ${frame.widthPx}x${frame.heightPx} do not match the explainer poster size ${width}x${height}`,
+    };
+  }
+  const scene = `components/explainers/scenes/${id}.js`;
+  if (!catalog.includes(`import('./scenes/${id}.js')`) || !existsSync(join(root, scene))) {
+    return {
+      description: null,
+      failure: `${path} has no explainer scene source ${scene} loaded by the catalog`,
+    };
+  }
+  const capture = 'scripts/capture-explainer-posters.ts';
+  if (!existsSync(join(root, capture))) {
+    return {
+      description: null,
+      failure: `${path} has no explainer poster capture source ${capture}`,
+    };
+  }
+  return {
+    description: `decoded a ${width}x${height} webp frame for catalog explainer ${id}, rendered from ${scene} by ${capture}`,
     failure: null,
   };
 }
@@ -670,13 +778,22 @@ export function assetContentVerdicts(
           ? provenance.sourceUrl.trim()
           : '';
       if (externalOrigin.length === 0) {
-        const local = decodedFormat === 'png' && asset.path.startsWith('clips/')
+        const clip = decodedFormat === 'png' && asset.path.startsWith('clips/');
+        const explainer =
+          decodedFormat === 'webp' && asset.path.startsWith('explainers/posters/');
+        const local = clip
           ? registeredClipPoster(input.root, asset.path, raster)
-          : null;
+          : explainer
+            ? registeredExplainerPoster(input.root, asset.path, raster)
+            : null;
         if (local?.description) {
-          basis = 'registered-clip';
+          basis = clip ? 'registered-clip' : 'registered-explainer';
           established.push(local.description);
-          limitations.push(ASSET_CONTENT_LIMITATIONS.clipPoster);
+          limitations.push(
+            clip
+              ? ASSET_CONTENT_LIMITATIONS.clipPoster
+              : ASSET_CONTENT_LIMITATIONS.explainerPoster,
+          );
         } else {
           basis = 'undecidable';
           failures.push(

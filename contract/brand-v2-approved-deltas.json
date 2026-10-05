@@ -51362,6 +51362,34 @@
         "VAL-B2-BASE-011"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "how-robots-work-20261005-accessible-names-explainers-as-text",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/explainers/how-robots-work.tsx:aria-labelledby:3",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "a30c8602fd40a06f1caebab0b1e7fde1562f82133cd4ec0ac800708c9c5fec26",
+      "reason": "New aria-labelledby on the \"All twelve as text\" section of /how-robots-work/, which serves every explainer's question, steps and takeaway as text, for site search and for readers without 3D. It points at the section's own heading, so the section is named by the words it shows.",
+      "ownerApproval": "Owner directive of 2026-10-02 16:40 (ship the 3D explainers now): /how-robots-work/ follows the /playground/ pattern, a search-indexed body included (VAL-OPUS-040), and the 3D decision of 2026-10-02 asks for each explainer's text in the served HTML (VAL-OPUS-045). Accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "how-robots-work-20261005-accessible-names-poster-alt",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/explainers/how-robots-work.tsx:alt:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "0c214dec7b6ecaf60aeb4908ac41461d5876b9254af07a82332bcbfacb576ca3",
+      "reason": "New alt on the poster image that stands in for the open explainer's 3D scene on /how-robots-work/ until it runs, without WebGL, in print and under reduced motion. The alt is the first step of the explainer the poster shows, read from the explainers' words file, and the page script sets the poster and its alt together when the reader opens another explainer.",
+      "ownerApproval": "The 3D decision of 2026-10-02 (owner-decision-3d-explainers-20261002.md, robustness) asks for a static pre-rendered poster when WebGL is unavailable, under reduced motion and in print, and VAL-OPUS-045 keeps it under reduced motion until the reader starts the explainer. Accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

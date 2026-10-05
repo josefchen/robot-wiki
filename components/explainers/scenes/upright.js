@@ -1,8 +1,9 @@
 // Move 5: Staying upright. Takeaway: a robot stays up while its balance point is over the patch between its
 // feet; four feet make a big patch, two a tiny one.
-import { THREE, shapes, ease, clamp, lerp, reduceMotion } from '../kit.js';
+import { THREE, shapes, ease, clamp, lerp, reduceMotion, slicer } from '../kit.js';
 import { buildHumanoid, STAND_Y, G1 } from '../models/humanoid.js';
 import { buildQuadruped, DOG } from '../models/quadruped.js';
+import { EXPLAINER_WORDS } from '../words.ts';
 
 const DOG_X = -0.62, HUM_X = 0.38; // both face +x (screen right), side by side
 const SHIFT = 0.18; // how far the push carries each balance point forward (metres)
@@ -21,13 +22,10 @@ function hull(pts) {
 const insideHull = (h, x, z) => h.length >= 3 && h.every((a, i) => { const b = h[(i + 1) % h.length]; return (b[0] - a[0]) * (z - a[1]) - (b[1] - a[1]) * (x - a[0]) >= 0; });
 const seg = (t, a, b) => ease(clamp((t - a) / (b - a), 0, 1));
 
+const STEP_TEXT = EXPLAINER_WORDS.upright.steps;
+
 export default {
   id: 'upright',
-  kicker: 'Legged robots · balance',
-  question: 'Why are two legs harder than four?',
-  takeaway: 'A robot stays up while its balance point is over the patch between its feet. Four feet make a big patch; two make a tiny one.',
-  concept: { name: 'The patch between the feet is called the support polygon', article: 'Legged Locomotion Lineage', href: 'https://robot-wiki.com/rl-sim2real/legged-locomotion/' },
-  selfCheck: { q: 'Why does a humanoid take a small step when pushed?', a: 'The push carries its balance point past the edge of the small patch under its feet. Stepping puts a foot down beyond it, so the patch grows to cover the balance point again.' },
   how: `<ul>
     <li>Control rate: the learned controller on ANYmal, a dog-sized robot of about 32 kg, "was evaluated at 200 Hz" for walking and running, after training in simulation (<a href="https://arxiv.org/abs/1901.08652" target="_blank" rel="noopener">Hwangbo et al. 2019, Science Robotics</a>).</li>
     <li>Light legs: in the MIT Cheetah, "two actuators and the gear train are coaxially located at the hip of the leg to minimize the total moment of inertia" (<a href="https://doi.org/10.1109/TRO.2016.2640183" target="_blank" rel="noopener">Wensing et al. 2017, IEEE Transactions on Robotics</a>). The dog here is stylised on that layout: three motors per leg, all at the hip, with a belt to the knee.</li>
@@ -37,8 +35,11 @@ export default {
 
   async mount(stage, ui) {
     stage.setScale(1.6);
+    const breathe = slicer();
     const dog = buildQuadruped(stage); dog.root.position.x = DOG_X; dog.root.rotation.y = Math.PI / 2; stage.world.add(dog.root);
+    await breathe();
     const hum = buildHumanoid(stage); hum.root.position.x = HUM_X; hum.root.rotation.y = Math.PI / 2; stage.world.add(hum.root);
+    await breathe();
     dog.pose(); hum.pose();
     // Looks: 'solid', or fade the bodies to ghosts keeping only the feet ('feet') or the legs ('legs') solid.
     const keep = { feet: new Set(), legs: new Set() };
@@ -95,6 +96,7 @@ export default {
     const dogGear = makeGear(() => dog.feet().flatMap((f, i) => ((S.dogSwing ? !S.dogSwing[i] : f.contact) ? circle(f.x, f.z) : [])), (o) => dog.com(o));
     const humGear = makeGear(() => hum.soles().flatMap((s, i) => ((S.humSwing ? !S.humSwing[i] : s.contact) ? s.pts : [])), (o) => hum.com(o));
     const gears = [dogGear, humGear];
+    await breathe();
 
     // ---- Posing from the animation state ----
     const A = G1.ankle, R = STAND_Y - A;
@@ -224,21 +226,21 @@ export default {
 
     return {
       steps: [
-        { text: 'Every body has a balance point, where its weight is centred. Here it is the dot, inside a robot dog and a humanoid.',
-          enter: async () => { const my = ++epoch; reset(); gearsShow({ dot: true }); labels('dotD', 'dotH');
+        { text: STEP_TEXT[0],
+          enter: async () => { const my = ++epoch; reset(); stage.focus(dog.root, hum.root); gearsShow({ dot: true }); labels('dotD', 'dotH');
             gears.forEach((g) => g.dot.scale.setScalar(0.01));
             shot(...WIDE(), 1.0);
             await run(0.6, (t) => gears.forEach((g) => g.dot.scale.setScalar(Math.max(0.01, ease(t / 0.6)))));
             if (my !== epoch) return; } },
-        { text: 'The shaded patch spans the feet on the ground. While the dot\'s shadow stays inside it, the robot stays up.',
-          enter: async () => { const my = ++epoch; reset(); gearsShow({ dot: true, patch: true }); gears.forEach((g) => g.dot.scale.setScalar(1));
+        { text: STEP_TEXT[1],
+          enter: async () => { const my = ++epoch; reset(); stage.focus(dog.root, hum.root); gearsShow({ dot: true, patch: true }); gears.forEach((g) => g.dot.scale.setScalar(1));
             labels('patchD', 'patchH'); look('feet');
             gears.forEach((g) => { g.patchOk.opacity = 0; });
-            shot(...FLOOR(), 1.1);
+            stage.fit([dog.root, hum.root], FLOOR()[1], { margin: 0.84, duration: 1.1 });
             await run(0.8, (t) => gears.forEach((g) => { g.patchOk.opacity = 0.3 * ease(t / 0.8); }));
             if (my !== epoch) return; } },
-        { text: 'Both robots get the same push, and both balance points move the same distance forward.',
-          enter: async () => { const my = ++epoch; reset(); gearsShow({ dot: true, patch: true }); gears.forEach((g) => { g.dot.scale.setScalar(1); g.patchOk.opacity = 0.3; });
+        { text: STEP_TEXT[2],
+          enter: async () => { const my = ++epoch; reset(); stage.focus(dog.root, hum.root); gearsShow({ dot: true, patch: true }); gears.forEach((g) => { g.dot.scale.setScalar(1); g.patchOk.opacity = 0.3; });
             shot(...WIDE(), 0.9);
             await ui.predict({ question: 'Push both. Which one must take a step to stay up?', answer: 'humanoid',
               options: [{ id: 'dog', label: 'The dog' }, { id: 'humanoid', label: 'The humanoid' }, { id: 'both', label: 'Both' }],
@@ -247,15 +249,15 @@ export default {
             await push(); if (my !== epoch) return;
             pushBtn.show(true); tapOn = true; ui.hint('Tap a robot to push it'); },
           leave: () => { tapOn = false; pushBtn.show(false); ui.hint(''); } },
-        { text: 'Walking, only one or two feet touch at a time, so the patch shrinks to a line or one foot. Walking is falling and catching.',
-          enter: async () => { const my = ++epoch; reset(); gearsShow({ dot: true, patch: true }); gears.forEach((g) => { g.dot.scale.setScalar(1); g.patchOk.opacity = 0.3; });
+        { text: STEP_TEXT[3],
+          enter: async () => { const my = ++epoch; reset(); stage.focus(dog.root, hum.root); gearsShow({ dot: true, patch: true }); gears.forEach((g) => { g.dot.scale.setScalar(1); g.patchOk.opacity = 0.3; });
             S.gait = true; look('legs');
-            await shot(...FLOOR(), 1.0); if (my !== epoch) return; },
+            await stage.fit([dog.root, hum.root], FLOOR()[1], { margin: 0.8, duration: 1.0 }); if (my !== epoch) return; },
           leave: () => { S.gait = false; S.dogSwing = S.humSwing = null; standStill(); look('solid'); } },
-        { text: 'This patch is called the support polygon. The robot dog ANYmal adjusts its legs 200 times a second, using a skill learned in simulation.',
-          enter: async () => { const my = ++epoch; reset(); gearsShow({ dot: true, patch: true }); gears.forEach((g) => { g.dot.scale.setScalar(1); g.patchOk.opacity = 0.3; });
+        { text: STEP_TEXT[4],
+          enter: async () => { const my = ++epoch; reset(); stage.focus(dog.root, hum.root); gearsShow({ dot: true, patch: true }); gears.forEach((g) => { g.dot.scale.setScalar(1); g.patchOk.opacity = 0.3; });
             labels('named');
-            ui.readout('ANYmal, a robot dog of about 32 kilograms, ran its learned walking controller <b>200 times a second</b> (Hwangbo and colleagues, 2019).');
+            ui.readout('ANYmal, a robot dog of about 32 kilograms, chose new leg moves <b>200 times a second</b> with its learned skill (Hwangbo and colleagues, 2019).');
             pushBtn.show(true); tapOn = true; ui.hint('Tap a robot to push it');
             await shot(...WIDE(), 1.0); if (my !== epoch) return; },
           leave: () => { tapOn = false; pushBtn.show(false); ui.hint(''); } },

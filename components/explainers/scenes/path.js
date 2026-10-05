@@ -3,6 +3,7 @@
 // Everything shown is computed live: a real rapidly-exploring random tree (LaValle 1998) over the
 // gripper's position, with exact box-against-box collision checks, path shortcutting and corner smoothing.
 import { THREE, shapes, lerp, clamp, ease, reduceMotion } from '../kit.js';
+import { EXPLAINER_WORDS } from '../words.ts';
 
 // ---------- Planning core (pure, no three.js) ----------
 const rng = (a) => () => { a |= 0; a = (a + 0x6d2b79f5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
@@ -108,13 +109,10 @@ const lengthOf = (pts) => pts.reduce((s, p, i) => (i ? s + Math.hypot(p[0] - pts
 const fmt = (n) => n.toLocaleString('en-GB');
 const V = (a) => new THREE.Vector3(a[0], a[1], a[2]);
 
+const STEP_TEXT = EXPLAINER_WORDS.path.steps;
+
 export default {
   id: 'path',
-  kicker: 'Motion planning · finding a path',
-  question: 'How does a robot get around obstacles?',
-  takeaway: 'It tries random moves, keeps the safe ones, and grows a tree until a branch reaches the goal.',
-  concept: { name: 'Growing a tree of random safe steps is called a rapidly-exploring random tree', article: 'Motion planning', href: 'https://robot-wiki.com/classical/motion-planning/#sampling-based-planning' },
-  selfCheck: { q: 'A box falls into the gripper\'s path. What does the planner do?', a: 'It grows a new tree: random points, short safe steps, until a branch reaches the goal again. It never needs to know the way round in advance, only whether each small step hits something.' },
   how: `<ul>
     <li>The tree is a real rapidly-exploring random tree, the method introduced by Steven LaValle in 1998 (<a href="https://lavalle.pl/papers/Lav98c.pdf" target="_blank" rel="noopener">"Rapidly-exploring random trees: a new tool for path planning"</a>), running in your browser. Each try picks a random point in the room and steps 5 centimetres toward it from the nearest point of the tree.</li>
     <li>Collision checks are exact: the gripper's bounding box is swept along each step and tested against every shelf board, panel and box. The first tree uses a fixed random seed so every reader sees the same one; each replan uses a new seed.</li>
@@ -127,41 +125,17 @@ export default {
     stage.setScale(1.0);
     const W = stage.world;
     const cam = stage.camera;
-    // Frame a box of width w and height h (as seen) around target, from direction dir.
-    const frame = (target, dir, w, h) => {
-      const vf = (cam.fov * Math.PI) / 180, hf = 2 * Math.atan(Math.tan(vf / 2) * cam.aspect);
-      const d = Math.max(w / 2 / Math.tan(hf / 2), h / 2 / Math.tan(vf / 2));
-      return [target, new THREE.Vector3(...dir).normalize().multiplyScalar(d).add(new THREE.Vector3(...target)).toArray()];
-    };
-    const look = (target, dir, w, h, s = 1.1) => { const [t, p] = frame(target, dir, w, h); return stage.view(t, p, s); };
     // On a tall phone stage, look down more steeply so the room's depth fills the height.
     const tall = () => cam.aspect < 1;
-    // Frame a set of world points from a direction: find the distance and centre that just fit them all.
-    const fitLook = (pts, dir, s = 1.1, margin = 0.86) => {
-      const D = new THREE.Vector3(...dir).normalize(), c = cam.clone(), v = new THREE.Vector3();
-      const T = new THREE.Box3().setFromPoints(pts).getCenter(new THREE.Vector3());
-      const place = (d) => { c.position.copy(T).addScaledVector(D, d); c.lookAt(T); c.updateMatrixWorld(); };
-      const extent = (d) => { place(d); let m = 0; for (const p of pts) { v.copy(p).project(c); if (v.z > 1) return Infinity; m = Math.max(m, Math.abs(v.x), Math.abs(v.y)); } return m; };
-      let d = 1;
-      for (let pass = 0; pass < 3; pass++) {
-        let lo = 0.05, hi = 30;
-        for (let i = 0; i < 40; i++) { const mid = (lo + hi) / 2; if (extent(mid) > margin) lo = mid; else hi = mid; }
-        d = hi; place(d);
-        let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
-        for (const p of pts) { v.copy(p).project(c); x0 = Math.min(x0, v.x); x1 = Math.max(x1, v.x); y0 = Math.min(y0, v.y); y1 = Math.max(y1, v.y); }
-        const halfH = Math.tan((c.fov * Math.PI) / 360) * d, halfW = halfH * c.aspect;
-        T.addScaledVector(new THREE.Vector3().setFromMatrixColumn(c.matrixWorld, 0), ((x0 + x1) / 2) * halfW).addScaledVector(new THREE.Vector3().setFromMatrixColumn(c.matrixWorld, 1), ((y0 + y1) / 2) * halfH);
-      }
-      return stage.view(T, T.clone().addScaledVector(D, d), s);
-    };
     const corners = (x0, y0, z0, x1, y1, z1) => { const out = []; for (const x of [x0, x1]) for (const y of [y0, y1]) for (const z of [z0, z1]) out.push(new THREE.Vector3(x, y, z)); return out; };
     // The room's key pieces (start, both shelves, room above for labels).
     const roomPts = () => [...corners(START[0] - 0.06, START[1] - 0.08, START[2] - 0.05, START[0] + 0.06, START[1] + 0.16, START[2] + 0.05),
       ...corners(shelfAt.x - 0.18, 0, shelfAt.z - 0.13, shelfAt.x + 0.18, 0.62, shelfAt.z + 0.13), ...corners(0.4, 0, -0.14, 0.68, 0.76, 0.14)];
     // On a tall phone stage, look along the room from the start's end, so start, shelf and goal stack up the screen.
-    const OVER = (s) => (tall() ? fitLook(roomPts(), [-1, 1.05, 0.5], s) : look([0.06, 0.3, 0.06], [-0.28, 0.72, 1], 1.42, 1.0, s));
+    const OVER = (s) => stage.fit([roomPts], tall() ? [-1, 1.05, 0.5] : [-0.28, 0.72, 1], { margin: 0.86, duration: s });
     // A higher, map-like view for the tree and paths, so it is clear which side of a shelf a path passes.
-    const MAP = (s) => (tall() ? fitLook(roomPts(), [-0.75, 2.2, 0.55], s) : look([0.06, 0.26, 0.08], [-0.2, 1.05, 0.85], 1.42, 1.2, s));
+    const MAP = (s, extra = []) => stage.fit([roomPts, ...extra], tall() ? [-0.75, 2.2, 0.55] : [-0.2, 1.05, 0.85], { margin: 0.86, duration: s });
+    const BLOCKING = { x: 0.02, z: 0.22 };
 
     // ----- The room -----
     const clay = stage.mats.clay;
@@ -389,7 +363,7 @@ export default {
       setTube(smooth, route.pts); smooth.material.setRole('ok'); reveal(smooth, 0);
       pathLabel.set('New path').tone('ok'); pathAt = route.curve.getPointAt(0.12); pathLabel.show(true);
       const when = ms < 1 ? 'under 1 millisecond' : `${Math.round(ms)} milliseconds`;
-      ui.readout(`New tree: <b>${fmt(t.nTries)}</b> tries, worked out in <b>${when}</b> in your browser. VAMP, a fast planner, needs a median <b>40 millionths of a second</b> for a 7-joint arm.`);
+      ui.readout(`New tree: <b>${fmt(t.nTries)}</b> tries, worked out in <b>${when}</b> in your browser. VAMP, fast planning software, plans half its paths for a 7-joint arm in under <b>40 millionths of a second</b>.`);
       if (!(await anim(0.3, (k) => reveal(smooth, k), my))) return;
       if (await fly(my, 1.8)) ghost.visible = false;
     };
@@ -408,9 +382,9 @@ export default {
 
     return {
       steps: [
-        { text: 'The gripper must reach the can on the far shelf. Going in a straight line, it runs into the shelf in between.',
+        { text: STEP_TEXT[0],
           enter: async () => {
-            const my = resetScene(); firstTree(); tree.visible = false;
+            const my = resetScene(); stage.focus(roomPts); firstTree(); tree.visible = false;
             startLabel.show(true); goalLabel.show(true);
             const k = firstHit(C, ...START, ...GRASP);
             const a = V(START), b = V(GRASP), hit = a.clone().lerp(b, k);
@@ -423,9 +397,9 @@ export default {
             hitAt = hit.clone().add(new THREE.Vector3(0, 0.08, 0)); hitLabel.show(true);
             ui.readout(`Straight there is <b>${a.distanceTo(b).toFixed(2)} metres</b>, but it is blocked after <b>${a.distanceTo(hit).toFixed(2)} metres</b>.`);
           } },
-        { text: 'Pick a random point. From the nearest part of the tree, take one short step toward it. Keep the step only if it hits nothing.',
+        { text: STEP_TEXT[1],
           enter: async () => {
-            const my = resetScene(); firstTree(); tree.visible = false;
+            const my = resetScene(); stage.focus(roomPts); firstTree(); tree.visible = false;
             startLabel.show(true); next = 0;
             // Random points can land anywhere in the room, so on a phone look down from above to keep them all in view.
             if (tall()) MAP(0.7); else OVER(0.7);
@@ -439,9 +413,9 @@ export default {
             }
             another.show(true); ui.hint('Tap for another try');
           } },
-        { text: 'Repeat thousands of times. The kept steps branch out into a tree that creeps into every open gap.',
+        { text: STEP_TEXT[2],
           enter: async () => {
-            const my = resetScene(); firstTree(); showTries(SLOW);
+            const my = resetScene(); stage.focus(roomPts); firstTree(); showTries(SLOW);
             goalLabel.show(true);
             MAP();
             await ui.predict({ question: 'Why pick random points, instead of always stepping straight toward the goal?', answer: 'spread',
@@ -457,9 +431,9 @@ export default {
             const nk = T.tries[n - 1].kept;
             ui.readout(`<b>${fmt(n)}</b> random points tried · <b>${fmt(nk)}</b> safe steps kept · <b>${fmt(n - nk)}</b> skipped. One branch reached the goal.`);
           } },
-        { text: 'When a branch reaches the goal, follow it back to the start. Then cut every corner where a straight shortcut is safe.',
+        { text: STEP_TEXT[3],
           enter: async () => {
-            const my = resetScene(); firstTree(); showEdges(T.n - 1);
+            const my = resetScene(); stage.focus(roomPts); firstTree(); showEdges(T.n - 1);
             buildRoute();
             MAP(0.9);
             // Follow the branch back, from the goal to the start.
@@ -475,16 +449,17 @@ export default {
             ui.readout(`Followed back: <b>${route.raw.length - 1}</b> steps, <b>${lengthOf(route.raw).toFixed(2)} metres</b>. Smoothed: <b>${lengthOf(route.smooth).toFixed(2)} metres</b>.`);
             if (await fly(my, 2.0)) ghost.visible = false;
           } },
-        { text: 'Drag the shelf and the tree regrows. This is a rapidly-exploring random tree; fast arm planners need about 40 millionths of a second.',
+        { text: STEP_TEXT[4],
           enter: async () => {
-            const my = resetScene(); firstTree(); showEdges(T.n - 1); buildRoute();
+            const my = resetScene(); stage.focus(roomPts); firstTree(); showEdges(T.n - 1); buildRoute();
             setTube(smooth, route.pts); smooth.material.setRole('ok'); treeMat.opacity = 0.4;
             dragLabel.show(true);
-            MAP(0.8);
+            // Frame the shelf where it ends up too, so the view holds it after it slides.
+            MAP(0.8, corners(BLOCKING.x - 0.18, 0, BLOCKING.z - 0.13, BLOCKING.x + 0.18, 0.62, BLOCKING.z + 0.13));
             if (!(await wait(0.4, my))) return;
             // Show it once: slide the shelf into the path, then let the tree regrow.
             const from = { ...shelfAt };
-            if (!(await anim(0.6, (k) => setShelf(lerp(from.x, 0.02, k), lerp(from.z, 0.22, k)), my))) return;
+            if (!(await anim(0.6, (k) => setShelf(lerp(from.x, BLOCKING.x, k), lerp(from.z, BLOCKING.z, k)), my))) return;
             markBlocked();
             if (!(await wait(0.3, my))) return;
             drag.enable(true); ui.hint('Drag the shelf');

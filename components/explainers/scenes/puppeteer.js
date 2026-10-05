@@ -2,6 +2,7 @@
 // and every moment becomes an example to imitate.
 import { THREE, shapes, lerp, clamp, ease, reduceMotion } from '../kit.js';
 import { loadSO101 } from '../models/so101.js';
+import { EXPLAINER_WORDS } from '../words.ts';
 
 const V = (x = 0, y = 0, z = 0) => new THREE.Vector3(x, y, z);
 const OPEN = 1.0, SHUT = 0.02;          // gripper joint values (radians): jaw open, jaw closed on the block
@@ -60,13 +61,10 @@ function frameBox(stage, box, dir, pad = 1.08) {
   return { target: c, position: c.clone().addScaledVector(d0, d) };
 }
 
+const STEP_TEXT = EXPLAINER_WORDS.puppeteer.steps;
+
 export default {
   id: 'puppeteer',
-  kicker: 'Robot learning · teleoperation',
-  question: 'How do robots learn new tasks?',
-  takeaway: 'A person moves a copy of the arm, the robot mirrors it, and every moment becomes an example for the robot to imitate.',
-  concept: { name: 'Steering a robot through a copy of itself is called teleoperation, and learning from the recordings is imitation learning', article: 'Teleoperation Rigs', href: 'https://robot-wiki.com/data-hardware/teleop-rigs/' },
-  selfCheck: { q: 'Why steer the robot with a second copy of the arm instead of a joystick?', a: 'The copy has the same joints, so each joint angle carries straight across. Moving it feels natural, and every recording is already written in the robot\'s own joint angles, ready to imitate.' },
   how: `<ul>
     <li>Arms: two SO-101s, the leader on the left and the follower on the right, from <a href="https://github.com/TheRobotStudio/SO-ARM100" target="_blank" rel="noopener">TheRobotStudio/SO-ARM100</a> (Apache-2.0). Both are drawn with the follower's model. The real leader has a handle in place of the jaw (the guide's assembly step is called "Gripper / Handle"), and "uses three differently geared motors to make sure it can both sustain its own weight and it can be moved without requiring much force" (<a href="https://huggingface.co/docs/lerobot/en/so101" target="_blank" rel="noopener">LeRobot SO-101 guide</a>).</li>
     <li>This is how the SO-101 is used: "you'll use a 'teloperation' device, such as a leader arm or keyboard to teleoperate the robot and record its motion trajectories. Once you've gathered enough trajectories, you'll train a neural network to imitate these trajectories" (<a href="https://huggingface.co/docs/lerobot/en/il_robots" target="_blank" rel="noopener">LeRobot, imitation learning on real-world robots</a>). LeRobot records 30 frames a second by default (<code>fps: int = 30</code> in <a href="https://github.com/huggingface/lerobot/blob/main/src/lerobot/configs/dataset.py" target="_blank" rel="noopener">configs/dataset.py</a>); each frame stores the camera pictures and the joint positions.</li>
@@ -250,7 +248,7 @@ export default {
     };
 
     let story = null;
-    const offFrame = stage.onFrame((dt) => {
+    const tick = (dt) => {
       clock += dt;
       for (const tw of [...tweens]) tw();
       if (driver === 'demo') {
@@ -285,9 +283,19 @@ export default {
         solveDown(follower, local(FOLLOWER, smp.x, smp.y, P));
         follower.joints.gripper.set(smp.g); follower.root.updateMatrixWorld(true);
         stepBlock(dt, false);
-        if (solo.t > duration(LEARNED) + 1.4) { const f = soloEnd; if (f) f(); else startSolo(); }
+        // Under reduced motion a run plays once and stops; otherwise it loops, or hands over to the next part of the story.
+        if (solo.t > duration(LEARNED) + 1.4) { const f = soloEnd; if (reduceMotion) solo = null; else if (f) f(); else startSolo(); }
       }
       if (dotRole === 'sense' && dotPos.length) { for (let i = 0; i < dotAge.length; i++) dotAge[i] += dt; paintDots(); }
+    };
+    // Under reduced motion anything that plays by itself (a demonstration, a run alone, the recorded dots
+    // fading) plays out within one frame, so it jumps to its end state.
+    const playing = () => driver === 'demo' || solo !== null || (driver === 'replay' && tDemo < duration(DEMO))
+      || (dotRole === 'sense' && dotAge.some((age) => age < 4.9));
+    const offFrame = stage.onFrame((dt) => {
+      if (!reduceMotion) { tick(dt); return; }
+      let n = 0;
+      do { tick(1 / 60); n += 1; } while (n < 3600 && playing());
     });
 
     // Camera moves run on the wall clock, so a slow device still lands each step on time.
@@ -323,9 +331,9 @@ export default {
 
     return {
       steps: [
-        { text: 'A person moves the leader arm by hand. The follower copies every joint a moment later. Drag the leader\'s hand.',
+        { text: STEP_TEXT[0],
           enter: async () => {
-            reset(); driver = 'drag'; drag.enable(true);
+            reset(); stage.focus(leader.root, follower.root); driver = 'drag'; drag.enable(true);
             leaderLabel.show(true); followerLabel.show(true); handLabel.show(true); ui.hint('Drag the hand');
             await home();
             if (driver !== 'drag' || stage.dragging) return;
@@ -333,23 +341,23 @@ export default {
             await tween(0.9, (k) => { if (!stage.dragging && driver === 'drag') target.lerpVectors(a, b, k); });
             await tween(0.9, (k) => { if (!stage.dragging && driver === 'drag') target.lerpVectors(b, a, k); });
           } },
-        { text: 'Press record. Thirty times a second, the robot saves what its camera sees and where every joint is: one example each time.',
+        { text: STEP_TEXT[1],
           enter: async () => {
-            reset(); cone.visible = true; camLabel.show(true); leaderLabel.show(true); followerLabel.show(true);
+            reset(); stage.focus(leader.root, follower.root); cone.visible = true; camLabel.show(true); leaderLabel.show(true); followerLabel.show(true);
             recBtn.show(true); recBtn.set('Stop'); drag.enable(true);
             driver = 'demo'; tDemo = -0.3; recording = true; recT = 0; examples = 0;
             onDemoEnd = () => { recording = false; recBtn.set('Record again'); writeReadout(); ui.hint('Drag the hand, or record again'); };
             await home();
           } },
-        { text: 'After many demonstrations, the robot learns to copy them. Now it moves alone, beside a grey ghost replaying one demonstration.',
+        { text: STEP_TEXT[2],
           enter: async () => {
-            reset(); paintLeader('ghost');
+            reset(); stage.focus(leader.root, follower.root); paintLeader('ghost');
             // The demonstration it learned from, drawn as grey dots on the follower's table.
             dotRole = 'ref';
             for (let t = 0; t <= duration(DEMO); t += 1 / RATE) { sample(DEMO, t, smp); dotPos.push(local(FOLLOWER, smp.x, smp.y)); dotAge.push(0); }
             paintDots();
             await home();
-            await ui.predict({ question: 'A 2023 robot learned fine two-arm tasks this way, such as slotting a battery. How much demonstrating did each task take?', answer: 'min',
+            await ui.predict({ question: 'A 2023 robot learned delicate two-arm tasks this way, such as slotting a battery. How much demonstrating did each task take?', answer: 'min',
               options: [{ id: 'min', label: 'About 10 minutes' }, { id: 'hour', label: 'About 10 hours' }, { id: 'day', label: 'About 10 days' }],
               explain: 'About 10 minutes: 50 demonstrations of 8 to 14 seconds each. On its own, the robot then got tasks like these right 80 to 90% of the time.' });
             ui.readout('In 2023, a two-arm robot learned tasks like slotting a battery, working <b>80 to 90%</b> of the time, from about <b>10 minutes</b> of demonstrations.');
@@ -358,9 +366,9 @@ export default {
             playBtn.show(true);
             driver = 'replay'; startSolo();
           } },
-        { text: 'Steering a robot through a copy of itself is teleoperation. Learning to repeat the recordings on its own is imitation learning.',
+        { text: STEP_TEXT[3],
           enter: async () => {
-            reset();
+            reset(); stage.focus(leader.root, follower.root);
             const teleop = () => {
               paintLeader('hand'); resetBlock(); clearDots(); dotRole = 'sense'; solo = null;
               leader.setPose(HOME); follower.setPose(HOME); local(LEADER, 0.205, 0.14, target);

@@ -81,13 +81,13 @@ function readStage(): { width: number; height: number; labels: StageLabel[] } {
   return { width: frame.width, height: frame.height, labels };
 }
 
-type Hook = { ready: boolean; busy: boolean; moving?: boolean; steps: number };
+type Hook = { ready: boolean; live?: boolean; busy: boolean; moving?: boolean; steps: number };
 
 async function settle(page: Page) {
   await page.waitForFunction(() => {
     const h = (window as unknown as { __explainer?: Hook }).__explainer;
     const predict = document.querySelector<HTMLElement>('[data-predict]');
-    return Boolean(h?.ready) && (!h!.busy || predict?.hidden === false) && !h!.moving;
+    return Boolean(h?.ready && h.live !== false) && (!h!.busy || predict?.hidden === false) && !h!.moving;
   }, undefined, { timeout: 120_000, polling: 100 });
   // Labels fade in over 0.2 s and are placed on the next frame.
   await page.waitForTimeout(800);

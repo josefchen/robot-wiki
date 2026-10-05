@@ -9,16 +9,22 @@
   --ink: var(--color-ink);
   --dim: var(--color-graphite);
   --rule: var(--color-concrete);
-  --wash: var(--color-surface-2, #ebeced);
-  --clay: #c9cacb;
-  --dark: #4a5359;
-  --ghost: #b4b6b8;
+  --wash: var(--color-surface-2);
+  /* The clay greys sit between the site's concrete and graphite. */
+  --clay: color-mix(in srgb, var(--color-concrete), var(--color-graphite) 9%);
+  --dark: color-mix(in srgb, var(--color-graphite), var(--color-concrete) 22%);
+  --ghost: color-mix(in srgb, var(--color-concrete), var(--color-graphite) 21%);
   --focus: var(--role-highlight-graphic);
   --fail: var(--role-constraint-graphic);
   --ok: var(--role-value-graphic);
   --sense: var(--role-measurement-graphic);
   --act: var(--role-action-graphic);
   --ref: var(--role-reference-graphic);
+  /* Text that names a role reads in the role's text shade. */
+  --fail-text: var(--role-constraint-text);
+  --ok-text: var(--role-value-text);
+  --sense-text: var(--role-measurement-text);
+  --act-text: var(--role-action-text);
   --shadow: 0.13;
   container-type: inline-size;
   color: var(--color-ink);
@@ -27,18 +33,6 @@
   line-height: 1.55;
 }
 .explainers [hidden] { display: none !important; }
-/* Text that names a role reads in the role's text shade. */
-.explainers .readout,
-.explainers .tag,
-.explainers .card {
-  --focus: var(--role-highlight-text);
-  --fail: var(--role-constraint-text);
-  --ok: var(--role-value-text);
-  --sense: var(--role-measurement-text);
-  --act: var(--role-action-text);
-  --ref: var(--role-reference-text);
-  --dark: var(--color-graphite);
-}
 .explainers a { color: var(--color-link); text-decoration: underline; text-decoration-color: var(--color-border-strong); text-underline-offset: 2px; }
 .explainers a:hover { text-decoration-color: var(--color-link); }
 .explainers :focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
@@ -64,14 +58,22 @@
 .explainers .stage canvas:focus-visible { box-shadow: inset 0 0 0 2px var(--color-focus); }
 .explainers .status { position: absolute; inset: 0; display: grid; place-items: center; padding: 16px; text-align: center; font-family: var(--font-sans); font-size: 14px; color: var(--dim); pointer-events: none; }
 .explainers .hint { position: absolute; right: 12px; top: 10px; font-family: var(--font-sans); font-size: 13px; color: var(--dim); pointer-events: none; }
+/* The poster stands in for the scene until it runs, without WebGL and in print. */
+.explainers .stage .poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
+.explainers .stage[data-mode='live'] .poster { display: none; }
+.explainers .stage[data-mode='poster'] canvas,
+.explainers .stage[data-mode='poster'] .tag,
+.explainers .stage[data-mode='poster'] .tag-leader { visibility: hidden; }
+.explainers .stage[data-mode='poster'] .status { inset: auto 0 0; padding: 8px 16px; background: color-mix(in srgb, var(--paper) 90%, transparent); }
+.explainers .stage .start { position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%); background: var(--color-surface); }
 /* The kit places each label and its leader in stage pixels (label-layout.js). */
-.explainers .tag { position: absolute; left: 0; top: 0; font-family: var(--font-sans); font-size: 13px; font-weight: 500; color: var(--ink); background: var(--color-surface); border: 1px solid var(--rule); border-radius: 2px; padding: 2px 8px; white-space: nowrap; pointer-events: none; transition: opacity 0.2s; }
-.explainers .tag-leader { position: absolute; left: 0; top: 0; height: 1px; background: var(--dim); transform-origin: 0 50%; pointer-events: none; transition: opacity 0.2s; }
+.explainers .tag { position: absolute; left: 0; top: 0; font-family: var(--font-sans); font-size: 13px; font-weight: 500; color: var(--ink); background: var(--color-surface); border: 1px solid var(--rule); border-radius: 2px; padding: 2px 8px; white-space: nowrap; pointer-events: none; }
+.explainers .tag-leader { position: absolute; left: 0; top: 0; height: 1px; background: var(--dim); transform-origin: 0 50%; pointer-events: none; }
 .explainers .tag.tone-focus { background: var(--color-selection); border-color: var(--ink); color: var(--ink); }
-.explainers .tag.tone-fail { border-color: var(--fail); color: var(--fail); }
-.explainers .tag.tone-ok { border-color: var(--ok); color: var(--ok); }
-.explainers .tag.tone-sense { border-color: var(--sense); color: var(--sense); }
-.explainers .tag.tone-act { border-color: var(--act); color: var(--act); }
+.explainers .tag.tone-fail { border-color: var(--fail-text); color: var(--fail-text); }
+.explainers .tag.tone-ok { border-color: var(--ok-text); color: var(--ok-text); }
+.explainers .tag.tone-sense { border-color: var(--sense-text); color: var(--sense-text); }
+.explainers .tag.tone-act { border-color: var(--act-text); color: var(--act-text); }
 /* The part card sits over the stage's lower left; on a phone it moves below the stage. */
 .explainers .stage-wrap { position: relative; min-width: 0; }
 .explainers .card { position: absolute; left: 12px; bottom: 12px; width: min(300px, calc(100% - 24px)); background: var(--color-surface); border: 1px solid var(--rule); border-radius: 4px; padding: 10px 12px; font-family: var(--font-sans); font-size: 14px; line-height: 1.45; display: grid; gap: 3px; }
@@ -85,7 +87,7 @@
 .explainers .dots { display: flex; flex-wrap: wrap; gap: 6px; padding-top: 2px; }
 .explainers .dots button { width: 28px; height: 28px; border-radius: 2px; border: 1px solid var(--rule); background: transparent; font-family: var(--font-mono); font-size: 12px; color: var(--dim); cursor: pointer; padding: 0; }
 .explainers .dots button.done { color: var(--ink); border-color: var(--ink); }
-.explainers .dots button[aria-pressed='true'] { background: var(--color-selection); color: var(--ink); border-color: var(--ink); font-weight: 600; box-shadow: inset 0 -2px 0 var(--ink); }
+.explainers .dots button[aria-pressed='true'] { background: var(--wash); color: var(--ink); border-color: var(--ink); font-weight: 600; }
 .explainers .step-text { margin: 0; font-size: 19px; min-height: 2.6em; max-width: 60ch; }
 .explainers .nav { display: flex; gap: 8px; }
 .explainers .btn,
@@ -107,7 +109,7 @@
 .explainers .seg-frame { display: inline-flex; border: 1px solid var(--color-border-strong); border-radius: 4px; overflow: hidden; }
 .explainers .seg { border: 0; border-left: 1px solid var(--rule); border-radius: 0; }
 .explainers .seg:first-child { border-left: 0; }
-.explainers .seg[aria-pressed='true'] { background: var(--color-selection); color: var(--ink); font-weight: 600; box-shadow: inset 0 -2px 0 var(--ink); }
+.explainers .seg[aria-pressed='true'] { background: var(--wash); color: var(--ink); font-weight: 600; box-shadow: inset 0 0 0 1px var(--color-border-strong); }
 .explainers .readout { font-family: var(--font-mono); font-size: 13.5px; color: var(--dim); font-variant-numeric: tabular-nums; }
 .explainers .readout b { color: var(--ink); font-weight: 500; }
 .explainers .predict { border-left: 2px solid var(--color-active-path); padding: 6px 0 6px 14px; display: grid; gap: 8px; font-family: var(--font-sans); font-size: 15px; }
@@ -125,6 +127,18 @@
 .explainers .fold { font-family: var(--font-sans); font-size: 14px; color: var(--dim); border-top: 1px solid var(--rule); padding-top: 10px; }
 .explainers .fold summary { color: var(--ink); }
 .explainers .fold ul { list-style: disc; margin: 8px 0 0; padding-left: 18px; display: grid; gap: 4px; }
+.explainers .parts ol { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.explainers .parts .part { min-height: 28px; font-family: var(--font-sans); font-size: 13px; color: var(--ink); background: transparent; border: 1px solid var(--rule); border-radius: 4px; padding: 4px 10px; cursor: pointer; }
+.explainers .parts .part:hover { background: var(--wash); }
+.explainers .parts .part[aria-pressed='true'] { background: var(--wash); border-color: var(--ink); font-weight: 600; }
+.explainers .in-words summary h2 { display: inline; margin: 0; font: inherit; }
+.explainers .in-words h3 { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--dim); margin: 18px 0 0; font-weight: 500; }
+.explainers .in-words article { margin-top: 10px; max-width: 68ch; }
+.explainers .in-words h4 { margin: 0; font-size: 15px; font-weight: 600; }
+.explainers .in-words ol { margin: 6px 0 0; padding-left: 20px; display: grid; gap: 4px; color: var(--ink); }
+.explainers .in-words p { margin: 6px 0 0; color: var(--ink); }
+.explainers .in-words h5 { margin: 8px 0 0; font-size: 14px; font-weight: 600; color: var(--ink); }
+.explainers .in-words ul { margin: 4px 0 0; padding-left: 20px; columns: 2 14ch; color: var(--ink); }
 .explainers .pager { display: flex; justify-content: space-between; gap: 12px; font-family: var(--font-sans); font-size: 14px; border-top: 1px solid var(--rule); padding-top: 12px; }
 .explainers .pager a { text-decoration: none; }
 .explainers .pager .lab { display: block; font-size: 11px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--dim); }
@@ -149,4 +163,12 @@
   .explainers summary { min-height: 44px; }
   .explainers .dots button { width: 44px; height: 44px; }
 }
-@media (prefers-reduced-motion: reduce) { .explainers .tag, .explainers .tag-leader { transition: none; } }
+@media print {
+  .explainers .stage canvas,
+  .explainers .stage .tag,
+  .explainers .stage .tag-leader,
+  .explainers .stage .hint,
+  .explainers .stage .status,
+  .explainers .stage .start { display: none !important; }
+  .explainers .stage .poster { display: block !important; }
+}
