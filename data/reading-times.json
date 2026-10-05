@@ -28,15 +28,15 @@
     "minutes": 11
   },
   "manipulation/hierarchical": {
-    "words": 2119,
-    "minutes": 11
+    "words": 2325,
+    "minutes": 12
   },
   "manipulation/rl-finetuning": {
-    "words": 4833,
-    "minutes": 24
+    "words": 4902,
+    "minutes": 25
   },
   "manipulation/realtime-execution": {
-    "words": 2162,
+    "words": 2248,
     "minutes": 11
   },
   "manipulation/cross-embodiment": {
@@ -56,8 +56,8 @@
     "minutes": 6
   },
   "manipulation/foundation-models": {
-    "words": 1217,
-    "minutes": 6
+    "words": 1351,
+    "minutes": 7
   },
   "rl-sim2real/rl-for-robotics": {
     "words": 3099,
@@ -104,8 +104,8 @@
     "minutes": 11
   },
   "world-models/jepa": {
-    "words": 1829,
-    "minutes": 9
+    "words": 1908,
+    "minutes": 10
   },
   "world-models/generative-sim": {
     "words": 1981,
@@ -124,8 +124,8 @@
     "minutes": 11
   },
   "data-hardware/data-bottleneck": {
-    "words": 1687,
-    "minutes": 8
+    "words": 1939,
+    "minutes": 10
   },
   "data-hardware/datasets": {
     "words": 2123,
@@ -144,8 +144,8 @@
     "minutes": 11
   },
   "data-hardware/industrial-deployment": {
-    "words": 2832,
-    "minutes": 14
+    "words": 2902,
+    "minutes": 15
   },
   "data-hardware/robot-learning-stack": {
     "words": 1245,
@@ -164,7 +164,7 @@
     "minutes": 16
   },
   "classical/state-estimation": {
-    "words": 2991,
+    "words": 3064,
     "minutes": 15
   },
   "classical/grasp-planning": {
@@ -192,7 +192,7 @@
     "minutes": 8
   },
   "frontier/dexterity": {
-    "words": 2718,
+    "words": 2787,
     "minutes": 14
   },
   "frontier/generalization": {
@@ -208,8 +208,8 @@
     "minutes": 8
   },
   "frontier/safety-and-assurance": {
-    "words": 3023,
-    "minutes": 15
+    "words": 3103,
+    "minutes": 16
   },
   "adjacent/autonomous-vehicles": {
     "words": 3773,
@@ -220,8 +220,8 @@
     "minutes": 12
   },
   "adjacent/surgical": {
-    "words": 2075,
-    "minutes": 10
+    "words": 2148,
+    "minutes": 11
   },
   "adjacent/space": {
     "words": 2193,

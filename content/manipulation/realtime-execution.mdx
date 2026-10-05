@@ -13,6 +13,7 @@ citations:
   - pi07-2026
   - real-time-chunking-2025
   - vla-perf-2026
+  - chunktrust-2026
 seeAlso:
   - "data-hardware/hardware-taxonomy"
   - "manipulation/rl-finetuning"
@@ -74,6 +75,8 @@ The comparison below is an illustrative hand-off model; it implements and measur
 ## Training the tolerance in
 
 π0.7 uses a training-time version of <Term id="real-time-chunking">Real-Time Chunking</Term>. Its paper states that training simulates delays of 0 to 12 timesteps, corresponding to a maximum inference latency of 240 ms on a 50 Hz robot <Cite id="pi07-2026" />. Treat that as a stated training setting; it carries no measured worst-case latency guarantee and proves no production deployment. The experiments predict 50 actions and execute either 15 or 25; UR5e robots run at 20 Hz and the other tested robots at 50 Hz. The paper does not assign the execution choices to specific robots <Cite id="pi07-2026" />.
+
+In September 2026, Fanding Huang, Cheng Chi, Zhi Wang and colleagues reported ChunkTrust, which infers how many actions to execute before replanning from the policy's own outputs while it runs. Its training-free horizon selector combines the stability of each generated chunk with its continuity with the actions already executed. Over all 50 RoboTwin2.0 tasks it raised π0.5's task-averaged success by 6.80 percentage points, and on four real household tasks it raised the mean normalized process score from 50.4% to 57.5% <Cite id="chunktrust-2026" />.
 
 ## Spending the step budget
 

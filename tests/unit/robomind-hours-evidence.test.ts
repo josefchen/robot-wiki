@@ -18,7 +18,7 @@ import { readerTruthAt, READER_RELEASE_BASE } from '../helpers/reader-integratio
 import { currentAuditContext, finalSevenBefore } from '../helpers/residual-integration';
 import { preservedLegacySurvivors } from '../helpers/audit-plan-history';
 import { committedText, committedJson } from '../helpers/editorial-current-context';
-import { preReaderFirst, preSeoPassText } from '../helpers/seo-pass';
+import { preKolBacklog, preReaderFirst, preSeoPassText } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
 const base = '358f5050333386606f041505613e4a65d90dc703';
@@ -225,7 +225,15 @@ describe('RoboMIND paper-v3 hours correction, zero completion credit', () => {
     expect(predict.map((a: { id: string }) => a.id))
       .toEqual(['reader-first-20261003-predict-prose-data-hardware-data-bottleneck']);
     expect(predict[0].reconciles).toBeUndefined();
-    expect(adjacentHash(read(adjacentPath))).toBe(predict[0].newHash);
+    expect(adjacentHash(preKolBacklog(adjacentPath).toString('utf8'))).toBe(predict[0].newHash);
+    // The 2026-10-05 KOL backlog batch added one dated paragraph with one more
+    // plain edge, from the prediction endpoint to the live article.
+    const kol = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries.filter(
+      (a: { id: string; manifest: string; memberId: string; oldHash: string }) => a.manifest === 'prose'
+        && a.memberId === 'article:data-hardware/data-bottleneck' && a.oldHash === predict[0].newHash);
+    expect(kol.map((a: { id: string }) => a.id)).toEqual(['kol-backlog-20261005-data-hardware-prose-data-bottleneck']);
+    expect(kol[0].reconciles).toBeUndefined();
+    expect(adjacentHash(read(adjacentPath))).toBe(kol[0].newHash);
     expect(read(adjacentPath)).toContain('Real-world robot data is different. Every hour of it');
     // The SEO pass replaced only the related links in the frontmatter.
     expect({ ...matter(article).data, seeAlso: undefined })

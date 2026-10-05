@@ -7,9 +7,11 @@ import {
   READER_FIRST_CONTINUITY_DIR, loadReaderFirstRegistryReview, loadReaderFirstReview, readerFirstPredecessor,
   readerFirstRegistry, registryRecordHash, verifyReaderFirstSource,
 } from '../../lib/audit-reader-first-continuity';
+import { preKolBacklog } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
-const read = (path: string) => readFileSync(join(root, path));
+// The reader-first successors as the newer KOL backlog layer hands them back.
+const read = (path: string) => preKolBacklog(path);
 const sha = (bytes: Buffer) => createHash('sha256').update(bytes).digest('hex');
 const sourceDrift = /reader-first continuity drift/;
 const registryDrift = /reader-first registry continuity drift/;

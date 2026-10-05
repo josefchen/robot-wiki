@@ -335,9 +335,12 @@ describe('hierarchy original 15 bounded synthesis correction', () => {
     });
     expect(compareBaseline(after15, bundle(article + '\nUnapproved extra assertion.'),
       [{ ...pass[0], oldHash: newHash, reconciles: undefined }]).ok).toBe(false);
-    // The SEO pass resolution binds the cue endpoint and reaches the live article.
+    // The SEO pass resolution binds the cue endpoint; the 2026-10-05 KOL backlog
+    // resolution binds the SEO endpoint and reaches the live article.
     const seo = approvals.find(d => d.id === 'seo-pass-20261002-prose-manipulation-hierarchical')!;
     expect(seo.reconciles?.some(binding => binding.id === cue[0].id && binding.newHash === cueHash)).toBe(true);
-    expect(prose(readFileSync(articlePath, 'utf8')).members[0].hash).toBe(seo.newHash);
+    const kol = approvals.find(d => d.id === 'kol-backlog-20261005-manipulation-prose-hierarchical')!;
+    expect(kol.reconciles?.at(-1)).toMatchObject({ id: seo.id, newHash: seo.newHash });
+    expect(prose(readFileSync(articlePath, 'utf8')).members[0].hash).toBe(kol.newHash);
   });
 });

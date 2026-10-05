@@ -221,6 +221,7 @@ describe('industrial release preserves both evidence histories', { timeout: 60_0
             'audit/evidence/figure-migration-20261001',
             'audit/evidence/seo-pass-20261002',
             'audit/evidence/reader-first-20261002',
+            'audit/evidence/kol-backlog-20261005',
             'audit/evidence/citation-closeout-20260924/relevant-continuity.json',
             'audit/evidence/technology-withdrawal-20260924',
             'content/data-hardware/industrial-deployment.mdx',

@@ -19,6 +19,7 @@ citations:
   - cadena-2016
   - forster-2017
   - gtsam-2026
+  - mesh-mcl-construction-2026
 seeAlso:
   - "rl-sim2real/legged-locomotion"
   - "adjacent/autonomous-vehicles"
@@ -129,6 +130,8 @@ Cadena and colleagues describe a classical SLAM period from 1986 to 2004 that in
 ## Where this meets the learned stack
 
 State estimation is the layer of the classical stack that learning has penetrated least, and the reason is the honest number: a covariance you can trust is worth more than a point estimate that is usually right. Learned components mostly enter as better sensors. A learned depth model or a learned visual-odometry frontend feeds the same filter or factor graph, which keeps the uncertainty bookkeeping classical even when the measurement model is a network.
+
+A September 2026 paper from Linus Kramer, William Talbot, Olga Vysotska and Marco Hutter is an example. For robots on construction sites, they replace the observation model of a Monte Carlo localization particle filter with a network that matches LiDAR scans against the building mesh, trained only on scans simulated inside that mesh. On real-world datasets it outperformed diffusion-based and ScanContext++ baselines at 18 ms per call <Cite id="mesh-mcl-construction-2026" />.
 
 One connection is deeper than the rest. The latent-dynamics world models in the [world-models](/world-models/latent-dynamics) module are learned state estimators in disguise: a recurrent latent state that predicts the next observation is a belief state by another name, trained end to end instead of derived. What learning changes is where the models come from; the predict-update structure underneath has survived every regime change since 1960.
 

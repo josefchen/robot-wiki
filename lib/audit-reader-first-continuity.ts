@@ -34,7 +34,7 @@ export type ReaderFirstReview = {
 
 // BEGIN reader-first pins (written by scripts/record-reader-first-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 1256419, sha256: '0ed181b2916478c0b45ba022fa388a019d9dad5f89ffbbe96d24b17534d52b9e' };
+const reviewPin = { bytes: 1266918, sha256: '60d2295b1f86e70089a3094f7d73ea826d37c10640529b8c6ceef7beee41bfea' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -193,12 +193,12 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/unit/appearance-physics-push.test.ts', [5351, '7e9275704d3f5dca27c2fa72a760aaff5083ff37625daf297900cb3f1051b0d6']],
   ['tests/unit/brand-v2-annotation-scan.test.ts', [13596, '8dfdd1f46946d655fb927f9af75538b168a5fa0e4e5d636523af59fb87796f5b']],
   ['tests/unit/brand-v2-figure-evidence.test.ts', [29809, 'efeb601b9064edb8645a82df23eadf6bc0eaf0ead89b0775f0b6b67bcc827f61']],
-  ['tests/unit/main-merge-approved-deltas.test.ts', [86705, '16e434d15c49529c8a1444ee42dfa01f902ef857f2a48b8c64e5d17078cfce84']],
-  ['tests/unit/motion-data-hardware.test.ts', [10604, '94918864073288bb439045d430df875802f3683ead6ed71d81337ea69b8200c1']],
+  ['tests/unit/main-merge-approved-deltas.test.ts', [89785, 'cb0fb5d9028a798194da54f479af4fdd86039ebae4402216782516faa83a03e4']],
+  ['tests/unit/motion-data-hardware.test.ts', [10895, 'd9a5ffee78d77b45a6155155c84992e3299e892e4e32e2a9c08fd62837842648']],
   ['tests/unit/motion-frontier-adjacent-home.test.ts', [10400, '65d530b06879dcadbb24c1660a49c723882aece6335a11e0ca5ba299a9a14fe3']],
   ['tests/unit/motion-tokens.test.ts', [4233, 'b6ab1f9ed18b3b0b4cbc084da4846571d8fb69e95a45328947b96700800ee00a']],
-  ['tests/unit/reader-release-integration.test.ts', [19261, '2c240178bd0271dafcac45c07773036b0d379b2bf2c8f6b0e5cd33400b56eafe']],
-  ['tests/unit/robomind-hours-evidence.test.ts', [24284, '5ebe3b4fcbfad4d179645a8db2e6116b79f903f333a3791b2523a0f41b2bfb6a']],
+  ['tests/unit/reader-release-integration.test.ts', [19527, 'ce670ab54720d695996b4d4a2286557cc16984a7beb632599d2d40ffc23fdd9e']],
+  ['tests/unit/robomind-hours-evidence.test.ts', [25008, 'b6180ad7cf1930ad9d6a1a4511e7f3011da9a0e26e5922ca64396f672f70cc39']],
 ]);
 // END reader-first pins
 

@@ -6,11 +6,14 @@ import { loadLocalBasisContext } from '../../lib/audit-local-basis';
 import { committedSource } from '../helpers/continuation-integration';
 import { compoundPartDigest, compoundPlanDigest, parseLedger, type CompoundPlan, originalClaimDigest } from '../../lib/audit-ledger';
 import { committedText } from '../helpers/editorial-current-context';
+import { preKolBacklog } from '../helpers/seo-pass';
 
 const ordinals = [15, 16, 17, 18, 49];
 const plans: CompoundPlan[] = JSON.parse(readFileSync('audit/compound-evidence.json', 'utf8'));
 const ledger = readFileSync('audit/data-hardware.md', 'utf8');
-const article = readFileSync('content/data-hardware/industrial-deployment.mdx', 'utf8');
+// The 2026-10-05 KOL backlog batch only appended a paragraph and one citation id;
+// these originals are checked against the article as it stood before that batch.
+const article = preKolBacklog('content/data-hardware/industrial-deployment.mdx').toString('utf8');
 const selected = ordinals.map(n => plans.find(p => p.ledgerPath === 'audit/data-hardware.md' && p.articleSlug === 'industrial-deployment' && p.rowOrdinal === n));
 const localBasis = loadLocalBasisContext(process.cwd(), publishedModules().map(m => `/${m.domain}/${m.slug}/`));
 const parse = (catalog = plans, includeLocal = false) => parseLedger('audit/data-hardware.md', ledger, new Set(CITATIONS.map(c => c.id)), { compoundPlans: catalog, ...(includeLocal ? { localBasis } : {}) }).find(s => s.slug === 'industrial-deployment')!;
