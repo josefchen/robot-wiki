@@ -2,10 +2,11 @@ import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 // A value written into the server HTML before React attaches is dropped,
 // so every slider set waits for hydration first.
-import { setHydratedSlider as setSlider } from './interaction-ready';
+import { setHydratedSlider as setSlider, waitForHydration } from './interaction-ready';
 import type { Page } from '@playwright/test';
 import { writeFileSync } from 'node:fs';
 import { splatTransferReaderProof } from './splat-transfer-reader-proof';
+import { openAdjustMore } from './helpers/figure-fold';
 
 const ROUTE = '/rl-sim2real/sim2real-transfer/';
 
@@ -68,13 +69,15 @@ test.describe('sim2real-transfer module', () => {
     await page.goto(ROUTE);
     await expect(friction(page)).toHaveCount(1);
 
-    // Default: real robot at the training friction, point policy ahead.
-    await expect(friction(page).getByTestId('real-mu-readout')).toHaveText('0.80');
-    await expect(friction(page).getByTestId('point-readout')).toHaveText('97%');
+    // Default: a real floor more slippery than the practice floor, where
+    // the one-floor robot has already failed and the many-floor robot holds.
+    await expect(friction(page).getByTestId('real-mu-readout')).toHaveText('0.50');
+    await expect(friction(page).getByTestId('point-readout')).toHaveText('0%');
     await expect(friction(page).getByTestId('dr-readout')).toHaveText('74%');
     await expect(friction(page).getByTestId('delta-readout')).toHaveText(
-      /point \+\d+ pts/,
+      /DR \+\d+ pts/,
     );
+    await expect(friction(page).locator('[data-figure-annotation]')).toContainText('one-floor robot fails');
     await expect(friction(page).getByTestId('point-curve')).toBeVisible();
     await expect(friction(page).getByTestId('dr-curve')).toBeVisible();
     await expect(friction(page).getByTestId('real-line')).toBeVisible();
@@ -95,17 +98,23 @@ test.describe('sim2real-transfer module', () => {
     await page.keyboard.press('ArrowRight');
     await expect(friction(page).getByTestId('real-mu-readout')).toHaveText('0.36');
 
-    // Widen the randomization range: the DR peak drops.
+    // On the training friction itself the point policy is ahead.
     await setSlider(muSlider, 80);
+    await expect(friction(page).getByTestId('real-mu-readout')).toHaveText('0.80');
+    await expect(friction(page).getByTestId('point-readout')).toHaveText('97%');
+    await expect(friction(page).getByTestId('delta-readout')).toHaveText(/point \+\d+ pts/);
+
+    // Widen the randomization range: the DR peak drops.
     const rangeSlider = friction(page).getByRole('slider', {
       name: /randomization half-width/i,
     });
     await setSlider(rangeSlider, 65);
     await expect(friction(page).getByTestId('dr-readout')).toHaveText('57%');
 
-    // Reset restores everything.
+    // Reset, in Adjust more, restores everything.
+    await openAdjustMore(friction(page));
     await friction(page).getByRole('button', { name: 'Reset' }).click();
-    await expect(friction(page).getByTestId('real-mu-readout')).toHaveText('0.80');
+    await expect(friction(page).getByTestId('real-mu-readout')).toHaveText('0.50');
     await expect(friction(page).getByTestId('dr-readout')).toHaveText('74%');
   });
 
@@ -117,6 +126,15 @@ test.describe('sim2real-transfer module', () => {
     await expect(page.getByTestId('student-panel')).toBeVisible();
     await expect(page.getByTestId('recon-panel')).toBeVisible();
 
+    // Clean, Some noise and Very noisy are the visible presets; the slider is in Adjust more.
+    const teacher = page.locator('div.prose [data-figure-frame="teacher-student"]');
+    await expect(teacher.getByRole('button', { name: 'Some noise' })).toHaveAttribute('aria-pressed', 'true');
+    const clean = teacher.getByRole('button', { name: 'Clean' });
+    await waitForHydration(clean);
+    await clean.click();
+    await expect(clean).toHaveAttribute('aria-pressed', 'true');
+    await expect(page.getByTestId('divergence-readout')).toHaveText('0.00');
+    await openAdjustMore(teacher);
     const slider = page.getByRole('slider', {
       name: /proprioceptive degradation/i,
     });

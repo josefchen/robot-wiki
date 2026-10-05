@@ -4,6 +4,7 @@ import { join } from 'node:path';
 import matter from 'gray-matter';
 import { getModule } from '../../data/modules';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
+import { openAdjustMore } from './helpers/figure-fold';
 
 /**
  * Search excerpt quality. Pagefind must never fuse the hidden tooltip copy
@@ -550,6 +551,8 @@ test.describe('excerpt chrome: figure credits and interactive controls', () => {
         timeout: 10_000,
       });
     }
+    // The step and reset controls sit in the active scene's "Adjust more".
+    await openAdjustMore(page.locator('[data-motion-scene]', { has: page.getByTestId('motion-scrubber') }));
     for (const name of [
       /step back one beat/i,
       /step forward one beat/i,
@@ -570,13 +573,16 @@ test.describe('excerpt chrome: figure credits and interactive controls', () => {
     await expect(readout).toContainText('beat');
     expect(await readout.getAttribute('data-pagefind-ignore')).toBeNull();
 
-    // Selector chips are concept nouns and stay indexed (scenario names
-    // on the why-rl-locomotion ContactGeometry).
+    // Selector chips are concept nouns and stay indexed (the error-size
+    // presets on the why-rl-locomotion ContactGeometry); its Reset, in
+    // "Adjust more", is transport.
     await page.goto(`${BASE}/rl-sim2real/why-rl-locomotion/`);
-    const locomotion = page.getByRole('button', { name: 'Locomotion', exact: true });
-    await expect(locomotion).toBeVisible();
-    expect(await locomotion.getAttribute('data-pagefind-ignore')).toBeNull();
-    const reset = page.getByRole('button', { name: 'Reset', exact: true });
+    const contact = page.locator('main [data-figure-frame="contact-geometry"]');
+    const preset = contact.getByRole('button', { name: /coin’s thickness/ });
+    await expect(preset).toBeVisible();
+    expect(await preset.getAttribute('data-pagefind-ignore')).toBeNull();
+    await openAdjustMore(contact);
+    const reset = contact.getByRole('button', { name: 'Reset', exact: true });
     await expect(reset).toHaveAttribute('data-pagefind-ignore', 'true');
   });
 });

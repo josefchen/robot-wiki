@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "a1aefce9c09dd141a59da98db7b161c1a1ba3d57f5613f477f929ad569a7d0f7",
+  "fingerprint": "f8e7ab9172d10bd70fde7ac502838bf0c742416d16a8aa4c38203cf2ee1c7bb2",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -7493,7 +7493,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 21198,
+      "visibleTextLength": 20695,
       "route": "/rl-sim2real/humanoid-wbc/",
       "viewport": "1440x900"
     },
@@ -7620,7 +7620,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18886,
+      "visibleTextLength": 18780,
       "route": "/rl-sim2real/legged-locomotion/",
       "viewport": "1440x900"
     },
@@ -7874,7 +7874,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 16122,
+      "visibleTextLength": 16141,
       "route": "/rl-sim2real/parallel-sim-rl/",
       "viewport": "1440x900"
     },
@@ -8001,7 +8001,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 28501,
+      "visibleTextLength": 27904,
       "route": "/rl-sim2real/reward-design-mpc/",
       "viewport": "1440x900"
     },
@@ -8128,7 +8128,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 28325,
+      "visibleTextLength": 27646,
       "route": "/rl-sim2real/rl-for-robotics/",
       "viewport": "1440x900"
     },
@@ -8255,7 +8255,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24545,
+      "visibleTextLength": 23619,
       "route": "/rl-sim2real/sim2real-transfer/",
       "viewport": "1440x900"
     },
@@ -8382,7 +8382,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 12365,
+      "visibleTextLength": 12249,
       "route": "/rl-sim2real/why-rl-locomotion/",
       "viewport": "1440x900"
     },
@@ -17064,7 +17064,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 20707,
+      "visibleTextLength": 20204,
       "route": "/rl-sim2real/humanoid-wbc/",
       "viewport": "375x812"
     },
@@ -17191,7 +17191,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18395,
+      "visibleTextLength": 18289,
       "route": "/rl-sim2real/legged-locomotion/",
       "viewport": "375x812"
     },
@@ -17445,7 +17445,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 15631,
+      "visibleTextLength": 15650,
       "route": "/rl-sim2real/parallel-sim-rl/",
       "viewport": "375x812"
     },
@@ -17572,7 +17572,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 28010,
+      "visibleTextLength": 27413,
       "route": "/rl-sim2real/reward-design-mpc/",
       "viewport": "375x812"
     },
@@ -17699,7 +17699,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27834,
+      "visibleTextLength": 27155,
       "route": "/rl-sim2real/rl-for-robotics/",
       "viewport": "375x812"
     },
@@ -17826,7 +17826,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24054,
+      "visibleTextLength": 23128,
       "route": "/rl-sim2real/sim2real-transfer/",
       "viewport": "375x812"
     },
@@ -17953,7 +17953,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 11874,
+      "visibleTextLength": 11758,
       "route": "/rl-sim2real/why-rl-locomotion/",
       "viewport": "375x812"
     },

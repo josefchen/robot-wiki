@@ -3,7 +3,7 @@
   "name": "reader-first-registry",
   "reviewedBy": "release steward re-anchoring the reader-first figure pass (not independent acceptance)",
   "rationale": "The interactive registry derives each figure's state cases from its source: a preset row adds discrete options, and a state word such as \"empty\" anywhere in the file adds or drops a witness. The reader-first figure pass changed those sources, so registry records that earlier local-basis plans bind changed with them while the calculations, defaults and readouts those plans observed stayed the same. Each changed record is held here with the record it had before the pass and the reason for the change; the older record stands in only while the live record is exactly the reviewed successor.",
-  "observedAt": "2026-10-03T01:44:17Z",
+  "observedAt": "2026-10-04T23:35:49Z",
   "records": [
     {
       "id": "interactive:ChunkSizeCurve",
@@ -66,6 +66,79 @@
       "beforeHash": "dbab4eeac22e53b49098b8dca493cdce3763ee7a33760e09959e30df3c0113a4",
       "after": "71347fe2937866e38f6e2fbd6c924c395286c9b27828d9abf0ea7c7bbac9863b",
       "reason": "The reader-first rewrite of the chunk-size curve gives it two named presets, one move at a time and 100 moves per plan, buttons with aria-pressed, beside the chunk-size slider it moved into Adjust more, so the registry adds the discrete-options case and, with two independent control kinds, the pairwise case. The ACT ablation points, the slider range and the readouts are unchanged."
+    },
+    {
+      "id": "interactive:ContactGeometry",
+      "archivedFrom": "d58c896a6900c75fde37824f8b30a8b7b2b765a0",
+      "before": {
+        "id": "interactive:ContactGeometry",
+        "component": "ContactGeometry",
+        "sourcePath": "components/interactive/contact-geometry.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "pairwise-independent-controls",
+            "kind": "pairwise",
+            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
+          },
+          {
+            "id": "empty-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented empty witness"
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 11,
+        "fingerprint": "0b861e663cca99ab97dcd41063bb20ae67e5782c22deb3ca8a19e5615accc5de"
+      },
+      "beforeHash": "6a8a106aec157691804e27436faa8327c3ac35c8fe4ce6b4f76dcdde0c1b8d97",
+      "after": "55dda0bf0d7a9a91f2f9ce4850c74474e5a5275a83b6fb73e2bd9d0b3b5e2fcf",
+      "reason": "The reader-first rewrite of the contact-geometry figure dropped a source comment saying the stage is empty right of the hole, so the state scan no longer finds that word and the empty witness becomes not applicable. The preset group, slider and Reset still yield the same discrete-options and pairwise cases."
     },
     {
       "id": "interactive:DataScaleChart",
@@ -325,6 +398,198 @@
       "beforeHash": "c258db16f5647aeae97430718b9977390b509a06ebae7ecc538fd7e4a3cd8721",
       "after": "c6ccfc703846e26531416a618780dd2c9a6acc7addda33e4a1bc3de469781c87",
       "reason": "The reader-first rewrite of the receding-horizon figure turns its two preset buttons into one named preset group, buttons with aria-pressed, and moves the two horizon sliders into Adjust more, so the registry adds the discrete-options case and, with two independent control kinds, the pairwise case. The Diffusion Policy horizons, the plan lanes and the replan readouts are unchanged."
+    },
+    {
+      "id": "interactive:RewardShaping",
+      "archivedFrom": "fe7237103f9ff9d31d57f856ec7fd424386068e9",
+      "before": {
+        "id": "interactive:RewardShaping",
+        "component": "RewardShaping",
+        "sourcePath": "components/interactive/reward-shaping.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "327a5f9e2b93170796c19331d2256174f8b675ec8369ff8cfd1a3eb0d6bd149a"
+      },
+      "beforeHash": "9a20f439580a262f895ef8da309cc34804ff3cf18da33c4e04450efda97b3c59",
+      "after": "89184adf2b3d1bcc0fd6f0340a1013426234fabff3cc50f016e2891000234099",
+      "reason": "The reader-first rewrite of the reward figure gives it four named scoring presets, Balanced score, Too strict on effort, Loves high steps and Ignores jerky moves, buttons with aria-pressed, beside the term sliders it moved into Adjust more, so the registry adds the discrete-options case and, with two independent control kinds, the pairwise case. Its new caption says robots learn by trial and error, so the state scan finds that word and lists an error witness in place of not applicable; the figure still implements no error state. The terms, weights, scoring rule and Reset are unchanged."
+    },
+    {
+      "id": "interactive:SampleEfficiencyLedger",
+      "archivedFrom": "fe7237103f9ff9d31d57f856ec7fd424386068e9",
+      "before": {
+        "id": "interactive:SampleEfficiencyLedger",
+        "component": "SampleEfficiencyLedger",
+        "sourcePath": "components/interactive/sample-efficiency-ledger.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 10,
+        "fingerprint": "f792185fbe72246455f519a8acaa8b929df33bcae38d70a088b2e62ab072fe3c"
+      },
+      "beforeHash": "f42d5ad56d0af8d8e4aa967ca16726179711e04a8ee3e81ca0254d6421f4ca4b",
+      "after": "af1bae08588736d53d3680329d218749f6446002cf67ed54d913a63a9e58d64f",
+      "reason": "The reader-first rewrite of the sample-efficiency ledger moves its assumptions and paper sources out of the figure's own details element into the shared How this was made fold, so the state scan no longer finds a details element and drops the discrete-options case; the source choice keeps its radio buttons in Adjust more. Its new caption says robots learn by trial and error, so the state scan finds that word and lists an error witness in place of not applicable; the figure still implements no error state. The sliders, sources, anchors and Reset are unchanged."
+    },
+    {
+      "id": "interactive:TeacherStudent",
+      "archivedFrom": "d58c896a6900c75fde37824f8b30a8b7b2b765a0",
+      "before": {
+        "id": "interactive:TeacherStudent",
+        "component": "TeacherStudent",
+        "sourcePath": "components/interactive/teacher-student.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "ff466a9b88a31025825df803ceab21d108c9fb8bf618802137eb5627d8908c82"
+      },
+      "beforeHash": "25188b1df01ca988d00bbca281f8858314ada184783e4764066e5fe3c15e1a33",
+      "after": "d0c72add470c498e0ede261cefe30f291e532e74f8d1d010626b69c7594c84a0",
+      "reason": "The reader-first rewrite of the teacher-student figure gives it three named sensor-noise presets, Clean, Some noise and Very noisy, buttons with aria-pressed, beside the degradation slider it moved into Adjust more, so the registry adds the discrete-options and pairwise cases. The reconstruction, its seeded noise, defaults and readouts are unchanged."
     },
     {
       "id": "mount:/data-hardware/data-bottleneck/:DataScaleChart:1",
@@ -674,6 +939,287 @@
       "beforeHash": "5f1ec1b835283b2dee6aeb43e3893ed4739b41417f2cd49da5c7c33651931d7e",
       "after": "bc5871c592c69d95a57e670b46d52b75f357842fa07fdb57871939fb5fe5c878",
       "reason": "The mount record repeats its source case list, so it changes with the source: the named rethink presets add the discrete-options and pairwise cases. Route, owner file, ordinal and props are unchanged."
+    },
+    {
+      "id": "mount:/rl-sim2real/reward-design-mpc/:RewardShaping:1",
+      "archivedFrom": "fe7237103f9ff9d31d57f856ec7fd424386068e9",
+      "before": {
+        "id": "mount:/rl-sim2real/reward-design-mpc/:RewardShaping:1",
+        "sourceId": "interactive:RewardShaping",
+        "route": "/rl-sim2real/reward-design-mpc/",
+        "ownerPath": "content/rl-sim2real/reward-design-mpc.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "3a6579332c610250594e178b43141b49e1128e48cc2af9b6bab2af54eaf82e0d"
+      },
+      "beforeHash": "71542d917ebcc1ab36171b46812271722a4de2bac192dd3e9abf20809cdd79ba",
+      "after": "f82b03d4ef1b4de2840c465144dda85eb0ce2411a11373c052d8a68b507527ce",
+      "reason": "The mount record repeats its source case list, so it gains the same discrete-options, pairwise and error-witness cases as the source. Route, owner file, ordinal and props are unchanged."
+    },
+    {
+      "id": "mount:/rl-sim2real/rl-for-robotics/:SampleEfficiencyLedger:1",
+      "archivedFrom": "fe7237103f9ff9d31d57f856ec7fd424386068e9",
+      "before": {
+        "id": "mount:/rl-sim2real/rl-for-robotics/:SampleEfficiencyLedger:1",
+        "sourceId": "interactive:SampleEfficiencyLedger",
+        "route": "/rl-sim2real/rl-for-robotics/",
+        "ownerPath": "content/rl-sim2real/rl-for-robotics.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 10,
+        "fingerprint": "679571d58c32f6d5789059b07ba13d844db9157486c594a8efc642e490c79bbe"
+      },
+      "beforeHash": "524b72ba9426bee27f09b992f1595608e9c5a9d3ae0759e0ed5d7a41d5a69ce6",
+      "after": "1135b3ad7199177c2def1780c29b0fdad8b51b475184f8122ecbb1c370fde275",
+      "reason": "The mount record repeats its source case list, so it changes with the source: the discrete-options case leaves and the error witness comes from the caption's wording. Route, owner file, ordinal and props are unchanged."
+    },
+    {
+      "id": "mount:/rl-sim2real/sim2real-transfer/:TeacherStudent:1",
+      "archivedFrom": "d58c896a6900c75fde37824f8b30a8b7b2b765a0",
+      "before": {
+        "id": "mount:/rl-sim2real/sim2real-transfer/:TeacherStudent:1",
+        "sourceId": "interactive:TeacherStudent",
+        "route": "/rl-sim2real/sim2real-transfer/",
+        "ownerPath": "content/rl-sim2real/sim2real-transfer.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "9ed667385cf9b21016faecab2c40cd2322001625e502f3f1dc9207f165df851a"
+      },
+      "beforeHash": "7a0a95c11adfb155f602c1dc4ac62d96c73c4dc9cb2ea311c8228752f0420169",
+      "after": "2f413f329b091a84ec893307525da4aae297fa84f5b4a75dd1b52d9aa3674d3e",
+      "reason": "The mount record repeats its source case list, so it gains the same discrete-options and pairwise cases as the source. Route, owner file, ordinal and props are unchanged."
+    },
+    {
+      "id": "mount:/rl-sim2real/why-rl-locomotion/:ContactGeometry:1",
+      "archivedFrom": "d58c896a6900c75fde37824f8b30a8b7b2b765a0",
+      "before": {
+        "id": "mount:/rl-sim2real/why-rl-locomotion/:ContactGeometry:1",
+        "sourceId": "interactive:ContactGeometry",
+        "route": "/rl-sim2real/why-rl-locomotion/",
+        "ownerPath": "content/rl-sim2real/why-rl-locomotion.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "pairwise-independent-controls",
+            "kind": "pairwise",
+            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
+          },
+          {
+            "id": "empty-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented empty witness"
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 11,
+        "fingerprint": "caae96c4c7a65e889c0246a4522d7bd28b3aa92fe0604afcef989be290006b69"
+      },
+      "beforeHash": "7b45b9be758bbe1ef90d92bb9d166516573d627916011e8136e5498920a7b154",
+      "after": "48a74d1a0f824fce48b13503da6286a40c7c1a6e95d90127375550338ee9ce30",
+      "reason": "The mount record repeats its source case list, so it changes with the source: the empty witness becomes not applicable. Route, owner file, ordinal and props are unchanged."
     }
   ]
 }

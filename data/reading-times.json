@@ -60,31 +60,31 @@
     "minutes": 6
   },
   "rl-sim2real/rl-for-robotics": {
-    "words": 3222,
-    "minutes": 16
+    "words": 3099,
+    "minutes": 15
   },
   "rl-sim2real/why-rl-locomotion": {
-    "words": 1315,
+    "words": 1304,
     "minutes": 7
   },
   "rl-sim2real/parallel-sim-rl": {
-    "words": 1804,
+    "words": 1818,
     "minutes": 9
   },
   "rl-sim2real/sim2real-transfer": {
-    "words": 2826,
-    "minutes": 14
+    "words": 2697,
+    "minutes": 13
   },
   "rl-sim2real/legged-locomotion": {
-    "words": 2193,
+    "words": 2180,
     "minutes": 11
   },
   "rl-sim2real/humanoid-wbc": {
-    "words": 2427,
+    "words": 2348,
     "minutes": 12
   },
   "rl-sim2real/reward-design-mpc": {
-    "words": 3398,
+    "words": 3309,
     "minutes": 17
   },
   "rl-sim2real/offline-rl": {

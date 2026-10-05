@@ -1,4 +1,5 @@
 import { test, expect, type Locator } from '@playwright/test';
+import { openAdjustMore } from './helpers/figure-fold';
 import AxeBuilder from '@axe-core/playwright';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { getCitation } from '../../data/citations';
@@ -115,6 +116,7 @@ for (const width of [375, 1440]) for (const slug of ['legged-locomotion', 'rewar
       await page.mouse.move(2, 2); await termLink.blur();
       if (slug === 'reward-design-mpc') {
         const panel = page.locator('[data-figure-frame="reward-shaping"]');
+        await openAdjustMore(panel);
         const torque = panel.getByRole('slider', { name: /torque/i });
         await torque.focus(); await page.keyboard.press('End');
         await expect(page.getByTestId('behavior-status')).toContainText(/freeze/i);

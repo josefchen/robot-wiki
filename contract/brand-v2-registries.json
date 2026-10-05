@@ -4753,9 +4753,9 @@
             "expectedEnumeration": "one deterministic implemented error witness"
           },
           {
-            "id": "empty-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented empty witness"
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
           },
           {
             "id": "unavailable-not-applicable",
@@ -4764,7 +4764,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "0b861e663cca99ab97dcd41063bb20ae67e5782c22deb3ca8a19e5615accc5de"
+        "fingerprint": "756ed74dea551f6ca412a78352c417cf0c68d4e96d119cd8f1c83d0b7d4d47d5"
       },
       {
         "id": "interactive:ControlLoopBudget",
@@ -6724,8 +6724,19 @@
             "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
           },
           {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
             "id": "reset",
             "kind": "reset"
+          },
+          {
+            "id": "pairwise-independent-controls",
+            "kind": "pairwise",
+            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
           },
           {
             "id": "loading-not-applicable",
@@ -6733,9 +6744,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a error state."
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
           },
           {
             "id": "empty-not-applicable",
@@ -6748,8 +6759,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "327a5f9e2b93170796c19331d2256174f8b675ec8369ff8cfd1a3eb0d6bd149a"
+        "expectedCaseCount": 11,
+        "fingerprint": "24f7563202dad1a4f7f8fff97bbf7b3c1bc7aa11e7ab953f5e9d72906c7b493c"
       },
       {
         "id": "interactive:RrtExplorer",
@@ -6834,12 +6845,6 @@
             "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
           },
           {
-            "id": "discrete-options",
-            "kind": "discrete-options",
-            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
-            "expectedEnumeration": "every rendered discrete option independently"
-          },
-          {
             "id": "reset",
             "kind": "reset"
           },
@@ -6849,9 +6854,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a error state."
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
           },
           {
             "id": "empty-not-applicable",
@@ -6864,8 +6869,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 10,
-        "fingerprint": "f792185fbe72246455f519a8acaa8b929df33bcae38d70a088b2e62ab072fe3c"
+        "expectedCaseCount": 9,
+        "fingerprint": "f89cfb62ecae3d6aba1cc4bc8d7f8ef5faa52c19b1277855cb2cf6fc80a75e81"
       },
       {
         "id": "interactive:SceneRepresentationLadder",
@@ -6961,8 +6966,19 @@
             "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
           },
           {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
             "id": "reset",
             "kind": "reset"
+          },
+          {
+            "id": "pairwise-independent-controls",
+            "kind": "pairwise",
+            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
           },
           {
             "id": "loading-not-applicable",
@@ -6985,8 +7001,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "ff466a9b88a31025825df803ceab21d108c9fb8bf618802137eb5627d8908c82"
+        "expectedCaseCount": 11,
+        "fingerprint": "f7975e6cc0b3484b3df877bf76626461bac4ffe732061247588e71a6133f7341"
       },
       {
         "id": "interactive:TeleopRigMatrix",
@@ -9922,8 +9938,19 @@
             "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
           },
           {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
             "id": "reset",
             "kind": "reset"
+          },
+          {
+            "id": "pairwise-independent-controls",
+            "kind": "pairwise",
+            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
           },
           {
             "id": "loading-not-applicable",
@@ -9931,9 +9958,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a error state."
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
           },
           {
             "id": "empty-not-applicable",
@@ -9946,8 +9973,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "3a6579332c610250594e178b43141b49e1128e48cc2af9b6bab2af54eaf82e0d"
+        "expectedCaseCount": 11,
+        "fingerprint": "544b118bb2fbbb64e82a9bdc1bd64a197ac14b6c8a368e0e8b8be40a052b9df6"
       },
       {
         "id": "mount:/rl-sim2real/rl-for-robotics/:SampleEfficiencyLedger:1",
@@ -9981,12 +10008,6 @@
             "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
           },
           {
-            "id": "discrete-options",
-            "kind": "discrete-options",
-            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
-            "expectedEnumeration": "every rendered discrete option independently"
-          },
-          {
             "id": "reset",
             "kind": "reset"
           },
@@ -9996,9 +10017,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a error state."
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
           },
           {
             "id": "empty-not-applicable",
@@ -10011,8 +10032,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 10,
-        "fingerprint": "679571d58c32f6d5789059b07ba13d844db9157486c594a8efc642e490c79bbe"
+        "expectedCaseCount": 9,
+        "fingerprint": "b89208972bbb78a8255bb5a352509b749cc866a93ff2cc6f7feadb4c1bcd2b66"
       },
       {
         "id": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:1",
@@ -10105,8 +10126,19 @@
             "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
           },
           {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
             "id": "reset",
             "kind": "reset"
+          },
+          {
+            "id": "pairwise-independent-controls",
+            "kind": "pairwise",
+            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
           },
           {
             "id": "loading-not-applicable",
@@ -10129,8 +10161,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "9ed667385cf9b21016faecab2c40cd2322001625e502f3f1dc9207f165df851a"
+        "expectedCaseCount": 11,
+        "fingerprint": "0c89b5946cc823c624bbea0a7c436c275052b00ffe6306e4ac43f0612783aaf4"
       },
       {
         "id": "mount:/rl-sim2real/why-rl-locomotion/:ContactGeometry:1",
@@ -10189,9 +10221,9 @@
             "expectedEnumeration": "one deterministic implemented error witness"
           },
           {
-            "id": "empty-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented empty witness"
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
           },
           {
             "id": "unavailable-not-applicable",
@@ -10200,7 +10232,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "caae96c4c7a65e889c0246a4522d7bd28b3aa92fe0604afcef989be290006b69"
+        "fingerprint": "d0fc8c3ceb752917d5c8725f2a95059836e31691a3cb4a0da11b14e5b3a21601"
       },
       {
         "id": "mount:/world-models/generative-sim/:AppearancePhysicsPush:1",
@@ -11130,7 +11162,6 @@
         "components/interactive/pendulum-controller.tsx",
         "components/interactive/reward-shaping.tsx",
         "components/interactive/rrt-explorer.tsx",
-        "components/interactive/sample-efficiency-ledger.tsx",
         "components/market-map/company-card.tsx",
         "components/market-map/filter-bar.tsx",
         "components/market-map/funding-timeline.tsx",
@@ -11168,7 +11199,6 @@
         "components/interactive/pendulum-controller.tsx",
         "components/interactive/reward-shaping.tsx",
         "components/interactive/rrt-explorer.tsx",
-        "components/interactive/sample-efficiency-ledger.tsx",
         "components/market-map/company-card.tsx",
         "components/market-map/filter-bar.tsx",
         "components/market-map/funding-timeline.tsx",
@@ -11201,7 +11231,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "56821805c5ecd9ca613b10c2e5a6c4462cb7f4c7cd82b075a3c27eb98aab8a33"
+      "fingerprint": "800261d05c0f285f057423b9a1d0039bac19dda03c6ccf31c0eedcade80da4fc"
     },
     {
       "id": "control:selection",
@@ -11226,7 +11256,6 @@
         "components/interactive/advantage-scrubber.tsx",
         "components/interactive/appearance-physics-push.tsx",
         "components/interactive/comparison-matrix.tsx",
-        "components/interactive/contact-geometry.tsx",
         "components/interactive/dataset-table.tsx",
         "components/interactive/egoscale-scaling.tsx",
         "components/interactive/flow-matching-trajectory.tsx",
@@ -11245,7 +11274,6 @@
         "components/interactive/teleop-rig-matrix.tsx",
         "components/interactive/thesis-explorer.tsx",
         "components/interactive/training-time-chart.tsx",
-        "components/interactive/wbc-decomposition.tsx",
         "components/interactive/wm-disambiguator.tsx",
         "components/market-map/bubble-view.tsx",
         "components/market-map/filter-bar.tsx",
@@ -11261,7 +11289,6 @@
         "components/interactive/advantage-scrubber.tsx",
         "components/interactive/appearance-physics-push.tsx",
         "components/interactive/comparison-matrix.tsx",
-        "components/interactive/contact-geometry.tsx",
         "components/interactive/dataset-table.tsx",
         "components/interactive/egoscale-scaling.tsx",
         "components/interactive/flow-matching-trajectory.tsx",
@@ -11278,7 +11305,6 @@
         "components/interactive/scene-representation-ladder.tsx",
         "components/interactive/teleop-rig-matrix.tsx",
         "components/interactive/thesis-explorer.tsx",
-        "components/interactive/wbc-decomposition.tsx",
         "components/interactive/wm-disambiguator.tsx",
         "components/market-map/bubble-view.tsx",
         "components/market-map/filter-bar.tsx",
@@ -11300,7 +11326,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "af8616d227f65eb9f3b69b12dfc9ff756647cc036631546f5a5e24e574a37933"
+      "fingerprint": "4bc7f348df2e2d822b0a5c3b735297c8de63f36c42be503574928fc4b33ff039"
     },
     {
       "id": "control:link-focus",
@@ -11638,5 +11664,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "66cf0b29bbead41413ab33141ca29da1e39f080993e66dbcc5d9315112eb0800"
+  "rootFingerprint": "c8437cdda9db0ad73204668bc853a4e3b5a1591b99c6f166bddf7218e37adc05"
 }

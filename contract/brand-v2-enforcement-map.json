@@ -8880,11 +8880,6 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/contact-geometry.tsx:aria-labelledby:1",
-          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
-        },
-        {
-          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/eureka-loop.tsx:aria-label:1",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -9021,11 +9016,6 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/thesis-explorer.tsx:aria-label:1",
-          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/wbc-decomposition.tsx:aria-label:1",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -13185,7 +13175,7 @@
         "statement": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 1048,
+        "populationSize": 1046,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -13383,7 +13373,6 @@
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/comparison-matrix.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/comparison-matrix.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/compounding-error.tsx:aria-label:1",
-          "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/contact-geometry.tsx:aria-labelledby:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/eureka-loop.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/execution-modes.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/expo-ft-results.tsx:aria-label:1",
@@ -13412,7 +13401,6 @@
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/teleop-rig-matrix.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/teleop-rig-matrix.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/thesis-explorer.tsx:aria-label:1",
-          "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/wbc-decomposition.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/wm-disambiguator.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/wm-disambiguator.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/market-map/bubble-view.tsx:aria-label:1",

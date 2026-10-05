@@ -1281,7 +1281,7 @@
     {
       "id": "batch-scale",
       "route": "/rl-sim2real/parallel-sim-rl/",
-      "sourceSha256": "d40ebee539d2912737de7c9fb22cc7e33fefe4f12aeed365d03699658e5af9b0",
+      "sourceSha256": "4dac97d8131e38417a753b1f66d22c489f4b57a9d4f5de0188589fcae468a144",
       "marks": [
         {
           "mark": "cpu-cost-time",
@@ -1319,24 +1319,14 @@
     {
       "id": "gait-support",
       "route": "/rl-sim2real/legged-locomotion/",
-      "sourceSha256": "d2921186974d4a433ce28d48d3194fa904aedc259597ec2d77d971b245e60d68",
+      "sourceSha256": "de4a32c095e202de69b0ae70d2b72d68217c6015ffecf420ad6c5ebf35d54895",
       "marks": [
         {
           "mark": "bound-phase-0",
           "role": "state",
           "hex": "#007A91",
           "beats": [
-            3,
-            4
-          ]
-        },
-        {
-          "mark": "bound-phase-1",
-          "role": "constraint",
-          "hex": "#CB3B32",
-          "beats": [
-            3,
-            4
+            3
           ]
         },
         {
@@ -1344,17 +1334,23 @@
           "role": "state",
           "hex": "#007A91",
           "beats": [
-            3,
-            4
+            3
           ]
         },
         {
-          "mark": "bound-phase-3",
-          "role": "constraint",
-          "hex": "#CB3B32",
+          "mark": "bound-phase-4",
+          "role": "state",
+          "hex": "#007A91",
           "beats": [
-            3,
-            4
+            3
+          ]
+        },
+        {
+          "mark": "bound-phase-6",
+          "role": "state",
+          "hex": "#007A91",
+          "beats": [
+            3
           ]
         },
         {
@@ -1366,25 +1362,25 @@
           ]
         },
         {
-          "mark": "pronk-phase-1",
-          "role": "constraint",
-          "hex": "#CB3B32",
-          "beats": [
-            4
-          ]
-        },
-        {
           "mark": "pronk-phase-2",
-          "role": "constraint",
-          "hex": "#CB3B32",
+          "role": "state",
+          "hex": "#007A91",
           "beats": [
             4
           ]
         },
         {
-          "mark": "pronk-phase-3",
-          "role": "constraint",
-          "hex": "#CB3B32",
+          "mark": "pronk-phase-4",
+          "role": "state",
+          "hex": "#007A91",
+          "beats": [
+            4
+          ]
+        },
+        {
+          "mark": "pronk-phase-6",
+          "role": "state",
+          "hex": "#007A91",
           "beats": [
             4
           ]
@@ -1394,19 +1390,7 @@
           "role": "state",
           "hex": "#007A91",
           "beats": [
-            2,
-            3,
-            4
-          ]
-        },
-        {
-          "mark": "trot-phase-1",
-          "role": "state",
-          "hex": "#007A91",
-          "beats": [
-            2,
-            3,
-            4
+            2
           ]
         },
         {
@@ -1414,19 +1398,23 @@
           "role": "state",
           "hex": "#007A91",
           "beats": [
-            2,
-            3,
-            4
+            2
           ]
         },
         {
-          "mark": "trot-phase-3",
+          "mark": "trot-phase-4",
           "role": "state",
           "hex": "#007A91",
           "beats": [
-            2,
-            3,
-            4
+            2
+          ]
+        },
+        {
+          "mark": "trot-phase-6",
+          "role": "state",
+          "hex": "#007A91",
+          "beats": [
+            2
           ]
         },
         {
@@ -1434,21 +1422,7 @@
           "role": "state",
           "hex": "#007A91",
           "beats": [
-            1,
-            2,
-            3,
-            4
-          ]
-        },
-        {
-          "mark": "walk-phase-1",
-          "role": "state",
-          "hex": "#007A91",
-          "beats": [
-            1,
-            2,
-            3,
-            4
+            1
           ]
         },
         {
@@ -1456,10 +1430,7 @@
           "role": "state",
           "hex": "#007A91",
           "beats": [
-            1,
-            2,
-            3,
-            4
+            1
           ]
         },
         {
@@ -1467,10 +1438,31 @@
           "role": "state",
           "hex": "#007A91",
           "beats": [
-            1,
-            2,
-            3,
-            4
+            1
+          ]
+        },
+        {
+          "mark": "walk-phase-4",
+          "role": "state",
+          "hex": "#007A91",
+          "beats": [
+            1
+          ]
+        },
+        {
+          "mark": "walk-phase-6",
+          "role": "state",
+          "hex": "#007A91",
+          "beats": [
+            1
+          ]
+        },
+        {
+          "mark": "walk-phase-7",
+          "role": "state",
+          "hex": "#007A91",
+          "beats": [
+            1
           ]
         }
       ]
