@@ -60,14 +60,17 @@ export function HowRobotsWork() {
               Loading…
             </h2>
           </header>
-          <div className="stage" data-x="stage">
-            <div className="status" data-x="status">
-              Loading…
+          <div className="stage-wrap">
+            <div className="stage" data-x="stage">
+              <div className="status" data-x="status">
+                Loading…
+              </div>
+              <div className="hint" data-hint data-stage-overlay hidden />
             </div>
-            <div className="hint" data-hint hidden />
             <div
               className="card"
               data-card
+              data-stage-overlay
               data-brand-surface-id="surface:flat"
               aria-live="polite"
               hidden

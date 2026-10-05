@@ -178,8 +178,10 @@ describe('industrial32 and perception2/19: zero-completion truth repairs', () =>
     expect(budget.totalMm).toBeCloseTo(Math.hypot(handEyeErrorMm(0.5, 0.5), 10, 3), 12);
   });
 
+  // Each `row` parses a whole ledger with its local-basis context: about 2.5 s
+  // alone, and over the 5 s default under a loaded full suite.
   for (const [ledgerPath, slug, ordinal, oldDigest] of selected) {
-    it(`preserves ${slug}:${ordinal} history and its current disposition`, () => {
+    it(`preserves ${slug}:${ordinal} history and its current disposition`, { timeout: 30_000 }, () => {
       const record = row(ledgerPath, slug, ordinal);
       if (slug === 'industrial-deployment') {
         expect(record.outcome).toBe('passing');
@@ -374,7 +376,8 @@ describe('two new citation links: scoped observations, not whole-corpus acceptan
     expect(isAuditFailure(resolved)).toBe(true);
   });
 
-  it('does not excuse another citation or convert link success to a completed original claim', () => {
+  // One full `row` parse: about 2.2 s alone, over 5 s under a loaded full suite.
+  it('does not excuse another citation or convert link success to a completed original claim', { timeout: 30_000 }, () => {
     const other: CitationAuditResult = { ...observed, id: 'cc-by-4-0-deed' };
     expect(applyTitleMismatchException(other, exception)).toBe(other);
     expect(isAuditFailure(other)).toBe(true);
