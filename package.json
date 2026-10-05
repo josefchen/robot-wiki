@@ -53,6 +53,8 @@
     "check:reader-first:plant": "node scripts/plant-reader-first.ts",
     "check:explainer-labels": "node scripts/check-explainer-labels.ts",
     "check:explainer-labels:plant": "node scripts/plant-explainer-labels.ts",
+    "check:teach-back": "node scripts/check-teach-back.ts",
+    "check:teach-back:plant": "node scripts/plant-teach-back.ts",
     "capture:reader-first": "node scripts/capture-reader-first.ts",
     "record:reader-first": "node scripts/record-reader-first.ts",
     "check:seo": "node scripts/check-seo.ts",

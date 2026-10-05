@@ -246,7 +246,7 @@ export default {
 
     // ----- Labels (at most three at once) -----
     const startLabel = stage.label('Start', () => V(START).add(new THREE.Vector3(0, 0.075, 0))).show(false);
-    const goalLabel = stage.label('Goal', () => V(GRASP).add(new THREE.Vector3(0, 0.07, 0))).show(false);
+    const goalLabel = stage.label('Goal: the can', () => V(GRASP).add(new THREE.Vector3(0, 0.07, 0))).show(false);
     let hitAt = null;
     const hitLabel = stage.label('Hits the shelf', () => hitAt, { tone: 'fail' }).show(false);
     const pointLabel = stage.label('Random point', () => (sampleDot.visible ? sampleDot.position : null), { tone: 'focus' }).show(false);
@@ -363,7 +363,7 @@ export default {
       setTube(smooth, route.pts); smooth.material.setRole('ok'); reveal(smooth, 0);
       pathLabel.set('New path').tone('ok'); pathAt = route.curve.getPointAt(0.12); pathLabel.show(true);
       const when = ms < 1 ? 'under 1 millisecond' : `${Math.round(ms)} milliseconds`;
-      ui.readout(`New tree: <b>${fmt(t.nTries)}</b> tries, worked out in <b>${when}</b> in your browser. VAMP, fast planning software, plans half its paths for a 7-joint arm in under <b>40 millionths of a second</b>.`);
+      ui.readout(`New tree: <b>${fmt(t.nTries)}</b> tries, worked out in <b>${when}</b> on this device.`);
       if (!(await anim(0.3, (k) => reveal(smooth, k), my))) return;
       if (await fly(my, 1.8)) ghost.visible = false;
     };

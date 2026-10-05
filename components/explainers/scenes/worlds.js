@@ -375,7 +375,7 @@ export default {
       const r = lerp(0.2 + dist * 0.17, 46, smooth(0.8, 1, v));
       setReveal(v <= 0.001 ? 0 : r);
       const n = v <= 0.001 ? 1 : (v >= 0.999 ? COUNT : Math.max(1, within(r + 0.5)));
-      ui.readout(`Robots practising at once: <b>${fmt(n)}</b>, on one graphics chip. Trained like this, a four-legged robot learned to walk on flat ground in under <b>four minutes</b>, and on rough ground in twenty.`);
+      ui.readout(`Robots practising at once: <b>${fmt(n)}</b>, on one computer. Trained like this, a four-legged robot learned to walk on flat ground in under <b>four minutes</b>, and on rough ground in twenty.`);
     };
     const zoom = ui.slider({ label: '', left: 'One robot', right: '4,096 robots', min: 0, max: 1, step: 0.001, value: 1, onInput: (v) => applyV(v) });
     const shuffleBtn = ui.button('Shuffle worlds', () => { shuffle(); const from = 0.25; tween(0.7, (k) => { U.uRand.value = lerp(from, 1, k); }); });
@@ -431,7 +431,7 @@ export default {
               const fell = st.fall > 0.2;
               fellLabel.show(fell);
               const n = ((hero.tries - 1) % 3) + 1;
-              const msg = fell ? `Try <b>${n}</b>: it fell. It starts again and keeps what it learned.` : (st.tw >= WALK - 0.01 ? `Try <b>${n}</b>: it made it across.` : `Try <b>${n}</b>: walking…`);
+              const msg = fell ? `Attempt <b>${n}</b>: it fell. It starts over and keeps what it learned.` : (st.tw >= WALK - 0.01 ? `Attempt <b>${n}</b>: it made it across.` : `Attempt <b>${n}</b>: walking…`);
               if (msg !== last) { ui.readout(msg); last = msg; }
             };
             await go(heroView());
@@ -450,8 +450,14 @@ export default {
         { text: STEP_TEXT[2],
           enter: async () => {
             reset(); stage.focus(corners(midBox())); gridOn = true; failRate = 0.07; setReveal(46);
-            shuffleBtn.show(true);
-            ui.readout(`<span style="white-space:nowrap"><i style="display:inline-block;width:52px;height:10px;border-radius:3px;vertical-align:middle;margin-right:6px;background:linear-gradient(90deg, color-mix(in srgb-linear, var(--focus) 16%, var(--paper)), color-mix(in srgb-linear, var(--focus) 72%, var(--paper)))"></i>slippery to grippy ground</span> · <span style="white-space:nowrap"><i style="display:inline-block;width:12px;height:10px;border-radius:3px;vertical-align:middle;margin-right:6px;background:color-mix(in srgb-linear, var(--clay) 40%, var(--dark))"></i>darker body: heavier</span> · <span style="white-space:nowrap"><b style="color:var(--act-text)">→</b> a random shove, every 10 seconds</span>`);
+            heroShown = false; shuffleBtn.show(true);
+            const swatch = (w, h, bg) => `<i style="display:inline-block;width:${w}px;height:${h}px;border-radius:3px;vertical-align:middle;margin-right:6px;background:${bg}"></i>`;
+            ui.readout([
+              `${swatch(52, 10, 'linear-gradient(90deg, color-mix(in srgb-linear, var(--focus) 16%, var(--paper)), color-mix(in srgb-linear, var(--focus) 72%, var(--paper)))')}slippery to grippy ground`,
+              `${swatch(12, 10, 'color-mix(in srgb-linear, var(--clay) 40%, var(--dark))')}darker body: heavier`,
+              `${swatch(18, 4, 'var(--act)')}arrow: a random shove, every 10 seconds`,
+              `${swatch(12, 10, 'var(--fail)')}red: it fell and starts over`,
+            ].map((s) => `<span style="white-space:nowrap">${s}</span>`).join(' · '));
             const from = U.uRand.value;
             tween(1.2, live(epoch, (k) => { U.uRand.value = lerp(from, 1, k); }));
             await go(midView(), 1.3);

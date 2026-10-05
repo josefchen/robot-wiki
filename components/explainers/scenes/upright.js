@@ -77,7 +77,7 @@ export default {
       g.edge = new THREE.LineLoop(new THREE.BufferGeometry(), stage.lineMaterial('focus')); g.edge.renderOrder = 3; stage.world.add(g.edge);
       g.edgeOk = g.edge.material; g.edgeFail = stage.lineMaterial('fail');
       g.patchOk = g.patch.material; g.patchFail = stage.material('fail', { opacity: 0.3 });
-      g.show = ({ dot = false, patch = false } = {}) => { g.dot.visible = g.drop.visible = g.spot.visible = dot; g.patch.visible = g.edge.visible = patch; };
+      g.show = ({ dot = false, drop = dot, patch = false } = {}) => { g.dot.visible = dot; g.drop.visible = g.spot.visible = drop; g.patch.visible = g.edge.visible = patch; };
       g.update = () => {
         const c = com(g.com3);
         g.dot.position.copy(c);
@@ -135,7 +135,7 @@ export default {
       if (S.gait) {
         S.gt += reduceMotion ? 0 : dt; gaitPose(S.gt);
         const n = `${S.dogSwing.filter((x) => !x).length}|${S.humSwing.filter((x) => !x).length}`;
-        if (n !== lastCount) { lastCount = n; const [d, h] = n.split('|'); ui.readout(`Feet on the ground: dog <b>${d}</b> of 4 · humanoid <b>${h}</b> of 2<br>Light legs swing fast: the dog's motors all sit at its hips.`); }
+        if (n !== lastCount) { lastCount = n; const [d, h] = n.split('|'); ui.readout(`Feet on the ground: dog <b>${d}</b> of 4, humanoid <b>${h}</b> of 2.<br>A red spot is outside the patch: the robot tips until its next foot lands.`); }
       } else gears.forEach((g) => g.update());
     });
 
@@ -227,7 +227,7 @@ export default {
     return {
       steps: [
         { text: STEP_TEXT[0],
-          enter: async () => { const my = ++epoch; reset(); stage.focus(dog.root, hum.root); gearsShow({ dot: true }); labels('dotD', 'dotH');
+          enter: async () => { const my = ++epoch; reset(); stage.focus(dog.root, hum.root); gearsShow({ dot: true, drop: false }); labels('dotD', 'dotH');
             gears.forEach((g) => g.dot.scale.setScalar(0.01));
             shot(...WIDE(), 1.0);
             await run(0.6, (t) => gears.forEach((g) => g.dot.scale.setScalar(Math.max(0.01, ease(t / 0.6)))));
@@ -235,6 +235,7 @@ export default {
         { text: STEP_TEXT[1],
           enter: async () => { const my = ++epoch; reset(); stage.focus(dog.root, hum.root); gearsShow({ dot: true, patch: true }); gears.forEach((g) => g.dot.scale.setScalar(1));
             labels('patchD', 'patchH'); look('feet');
+            ui.readout('The bodies are faded so the feet show. The dashed line drops from each balance point to the spot on the floor below it.');
             gears.forEach((g) => { g.patchOk.opacity = 0; });
             stage.fit([dog.root, hum.root], FLOOR()[1], { margin: 0.84, duration: 1.1 });
             await run(0.8, (t) => gears.forEach((g) => { g.patchOk.opacity = 0.3 * ease(t / 0.8); }));
@@ -257,7 +258,7 @@ export default {
         { text: STEP_TEXT[4],
           enter: async () => { const my = ++epoch; reset(); stage.focus(dog.root, hum.root); gearsShow({ dot: true, patch: true }); gears.forEach((g) => { g.dot.scale.setScalar(1); g.patchOk.opacity = 0.3; });
             labels('named');
-            ui.readout('ANYmal, a robot dog of about 32 kilograms, chose new leg moves <b>200 times a second</b> with its learned skill (Hwangbo and colleagues, 2019).');
+            ui.readout('ANYmal weighs about <b>32 kilograms</b> and picks new leg moves <b>200 times a second</b>.');
             pushBtn.show(true); tapOn = true; ui.hint('Tap a robot to push it');
             await shot(...WIDE(), 1.0); if (my !== epoch) return; },
           leave: () => { tapOn = false; pushBtn.show(false); ui.hint(''); } },

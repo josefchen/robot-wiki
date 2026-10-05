@@ -30,11 +30,11 @@ export default {
     const byLink = {};
     for (const v of arm.visuals) (byLink[v.link] ??= []).push(v);
     const motorOf = { base_link: 'shoulder_pan', shoulder_link: 'shoulder_lift', upper_arm_link: 'elbow_flex', lower_arm_link: 'wrist_flex', wrist_link: 'wrist_roll', gripper_link: 'gripper' };
-    const linkName = { base_link: 'Base', shoulder_link: 'Shoulder bracket', upper_arm_link: 'Upper arm', lower_arm_link: 'Forearm', wrist_link: 'Wrist', gripper_link: 'Fixed jaw', moving_jaw_so101_v1_link: 'Moving jaw' };
+    const linkName = { base_link: 'Base', shoulder_link: 'Shoulder bracket', upper_arm_link: 'Upper arm', lower_arm_link: 'Forearm', wrist_link: 'Wrist', gripper_link: 'Fixed finger', moving_jaw_so101_v1_link: 'Moving finger' };
     const parts = [], motors = [];
     for (const [link, vs] of Object.entries(byLink)) {
       const servo = vs.filter((v) => v.isServo), frame = vs.filter((v) => !v.isServo);
-      if (frame.length) parts.push({ id: link, kind: 'Printed part', name: linkName[link] || link, role: 'Plastic structure. It carries the motors after it.', objects: frame.map((v) => v.holder) });
+      if (frame.length) parts.push({ id: link, kind: '3D-printed part', name: linkName[link] || link, role: 'Plastic structure. It carries the motors after it.', objects: frame.map((v) => v.holder) });
       if (servo.length) {
         const j = motorOf[link];
         const p = { id: j, kind: `Motor ${motors.length + 1} of 6`, name: SO101_NAMES[j], listName: `${SO101_NAMES[j]} motor`, role: 'Turns one joint. It also carries every part after it.', spec: 'Feetech STS3215 · 55 grams', src: 'Feetech; LeRobot SO-101 guide', objects: servo.map((v) => v.holder), joint: j };
@@ -61,7 +61,7 @@ export default {
       const top = [...motors].sort((a, b) => tau[b.joint] - tau[a.joint]).slice(0, 3);
       loadLabels.forEach((l) => l.remove()); loadLabels.length = 0;
       for (const m of top) loadLabels.push(stage.label(`${m.name}: ${share(tau[m.joint])}`, () => model.center(m), { tone: m === top[0] ? 'act' : 'plain' }));
-      ui.readout(`Each number is how much of its full strength a motor uses just to hold the arm still. The shoulder lift uses <b>${share(tau.shoulder_lift)}</b>. The base motor only swings the arm round, so it holds none of the weight.`);
+      ui.readout(`Each number is how much of its full strength a motor uses just to hold the arm still; the harder it works, the stronger its colour. The shoulder lift uses <b>${share(tau.shoulder_lift)}</b>. The unlabelled motors hold almost nothing.`);
     };
     const clearLoads = () => { paintLoad(false); loadLabels.forEach((l) => l.remove()); loadLabels.length = 0; ui.readout(''); };
 
@@ -102,7 +102,7 @@ export default {
             await stage.view([0.2, 0.14, 0.02], [0.28, 0.3, 1.0], 1.0);
             await ui.predict({ question: 'Which motor works hardest?', answer: 'shoulder_lift',
               options: [{ id: 'gripper', label: 'Gripper' }, { id: 'wrist_flex', label: 'Wrist bend' }, { id: 'elbow_flex', label: 'Elbow' }, { id: 'shoulder_lift', label: 'Shoulder lift' }],
-              explain: 'The shoulder lift holds up everything after it, far out from its joint. Now tuck the arm in and watch its load collapse.' });
+              explain: 'The shoulder lift holds up everything after it, far out from its joint. Now tuck the arm in and see its number drop.' });
             reach.show(true); showLoads(); ui.hint('Move the slider');
           },
           leave: () => { ui.hint(''); } },
