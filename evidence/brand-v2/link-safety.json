@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "ce644edc68875948831574f8dc8032034417e033921c4c60c41d17f3100148b9",
+  "fingerprint": "f18fb9e957cf93111b43518f146f3e478d8affde5b9d2e68dc19082ff051a6c1",
   "source": "out/ static export",
   "routes": [
     {
@@ -80,8 +80,8 @@
     },
     {
       "route": "/adjacent/surgical/",
-      "outboundAnchors": 32,
-      "distinctHrefs": 12,
+      "outboundAnchors": 34,
+      "distinctHrefs": 13,
       "shapes": [
         "citation-chip",
         "footer",
@@ -191,8 +191,8 @@
     },
     {
       "route": "/classical/state-estimation/",
-      "outboundAnchors": 34,
-      "distinctHrefs": 15,
+      "outboundAnchors": 36,
+      "distinctHrefs": 16,
       "shapes": [
         "citation-chip",
         "footer",
@@ -220,8 +220,8 @@
     },
     {
       "route": "/data-hardware/data-bottleneck/",
-      "outboundAnchors": 31,
-      "distinctHrefs": 17,
+      "outboundAnchors": 39,
+      "distinctHrefs": 21,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -266,8 +266,8 @@
     },
     {
       "route": "/data-hardware/industrial-deployment/",
-      "outboundAnchors": 58,
-      "distinctHrefs": 25,
+      "outboundAnchors": 60,
+      "distinctHrefs": 26,
       "shapes": [
         "citation-chip",
         "footer",
@@ -339,8 +339,8 @@
     },
     {
       "route": "/frontier/dexterity/",
-      "outboundAnchors": 80,
-      "distinctHrefs": 30,
+      "outboundAnchors": 82,
+      "distinctHrefs": 31,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -374,8 +374,8 @@
     },
     {
       "route": "/frontier/safety-and-assurance/",
-      "outboundAnchors": 64,
-      "distinctHrefs": 32,
+      "outboundAnchors": 66,
+      "distinctHrefs": 33,
       "shapes": [
         "citation-chip",
         "footer",
@@ -480,8 +480,8 @@
     },
     {
       "route": "/manipulation/foundation-models/",
-      "outboundAnchors": 21,
-      "distinctHrefs": 12,
+      "outboundAnchors": 25,
+      "distinctHrefs": 14,
       "shapes": [
         "citation-chip",
         "footer",
@@ -503,8 +503,8 @@
     },
     {
       "route": "/manipulation/hierarchical/",
-      "outboundAnchors": 46,
-      "distinctHrefs": 16,
+      "outboundAnchors": 54,
+      "distinctHrefs": 20,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -539,8 +539,8 @@
     },
     {
       "route": "/manipulation/realtime-execution/",
-      "outboundAnchors": 36,
-      "distinctHrefs": 9,
+      "outboundAnchors": 38,
+      "distinctHrefs": 10,
       "shapes": [
         "citation-chip",
         "footer",
@@ -550,8 +550,8 @@
     },
     {
       "route": "/manipulation/rl-finetuning/",
-      "outboundAnchors": 81,
-      "distinctHrefs": 20,
+      "outboundAnchors": 83,
+      "distinctHrefs": 21,
       "shapes": [
         "citation-chip",
         "footer",
@@ -756,8 +756,8 @@
     },
     {
       "route": "/world-models/jepa/",
-      "outboundAnchors": 33,
-      "distinctHrefs": 12,
+      "outboundAnchors": 35,
+      "distinctHrefs": 13,
       "shapes": [
         "citation-chip",
         "footer",
@@ -811,17 +811,17 @@
     }
   ],
   "routesSwept": 76,
-  "outboundAnchors": 3165,
-  "distinctOutboundHrefs": 864,
+  "outboundAnchors": 3201,
+  "distinctOutboundHrefs": 882,
   "anchorsByShape": {
-    "citation-chip": 1378,
+    "citation-chip": 1396,
     "footer": 152,
-    "reference-entry": 760,
+    "reference-entry": 778,
     "other": 561,
     "figure-credit": 314
   },
   "anchorsWithoutNoopener": 0,
-  "anchorsWithNoreferrer": 2618,
+  "anchorsWithNoreferrer": 2654,
   "keyboard": [
     {
       "route": "/",
@@ -889,11 +889,11 @@
     },
     {
       "route": "/adjacent/surgical/",
-      "outboundInDom": 32,
-      "reachedByTab": 32,
+      "outboundInDom": 34,
+      "reachedByTab": 34,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 103
+      "tabStops": 106
     },
     {
       "route": "/classical/",
@@ -969,11 +969,11 @@
     },
     {
       "route": "/classical/state-estimation/",
-      "outboundInDom": 34,
-      "reachedByTab": 34,
+      "outboundInDom": 36,
+      "reachedByTab": 36,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 139
+      "tabStops": 142
     },
     {
       "route": "/credits/",
@@ -993,11 +993,11 @@
     },
     {
       "route": "/data-hardware/data-bottleneck/",
-      "outboundInDom": 31,
-      "reachedByTab": 31,
+      "outboundInDom": 39,
+      "reachedByTab": 39,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 120
+      "tabStops": 135
     },
     {
       "route": "/data-hardware/datasets/",
@@ -1025,11 +1025,11 @@
     },
     {
       "route": "/data-hardware/industrial-deployment/",
-      "outboundInDom": 58,
-      "reachedByTab": 58,
+      "outboundInDom": 60,
+      "reachedByTab": 60,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 175
+      "tabStops": 178
     },
     {
       "route": "/data-hardware/robot-learning-stack/",
@@ -1081,11 +1081,11 @@
     },
     {
       "route": "/frontier/dexterity/",
-      "outboundInDom": 80,
-      "reachedByTab": 80,
+      "outboundInDom": 82,
+      "reachedByTab": 82,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 206
+      "tabStops": 209
     },
     {
       "route": "/frontier/generalization/",
@@ -1105,11 +1105,11 @@
     },
     {
       "route": "/frontier/safety-and-assurance/",
-      "outboundInDom": 64,
-      "reachedByTab": 64,
+      "outboundInDom": 66,
+      "reachedByTab": 66,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 178
+      "tabStops": 182
     },
     {
       "route": "/glossary/",
@@ -1185,11 +1185,11 @@
     },
     {
       "route": "/manipulation/foundation-models/",
-      "outboundInDom": 21,
-      "reachedByTab": 21,
+      "outboundInDom": 25,
+      "reachedByTab": 25,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 115
+      "tabStops": 122
     },
     {
       "route": "/manipulation/generalist-policies/",
@@ -1201,11 +1201,11 @@
     },
     {
       "route": "/manipulation/hierarchical/",
-      "outboundInDom": 46,
-      "reachedByTab": 46,
+      "outboundInDom": 54,
+      "reachedByTab": 54,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 155
+      "tabStops": 170
     },
     {
       "route": "/manipulation/knowledge-insulation/",
@@ -1225,19 +1225,19 @@
     },
     {
       "route": "/manipulation/realtime-execution/",
-      "outboundInDom": 36,
-      "reachedByTab": 36,
+      "outboundInDom": 38,
+      "reachedByTab": 38,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 143
+      "tabStops": 147
     },
     {
       "route": "/manipulation/rl-finetuning/",
-      "outboundInDom": 81,
-      "reachedByTab": 81,
+      "outboundInDom": 83,
+      "reachedByTab": 83,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 246
+      "tabStops": 249
     },
     {
       "route": "/manipulation/robot-learning-roadmap/",
@@ -1393,11 +1393,11 @@
     },
     {
       "route": "/world-models/jepa/",
-      "outboundInDom": 33,
-      "reachedByTab": 33,
+      "outboundInDom": 35,
+      "reachedByTab": 35,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 121
+      "tabStops": 124
     },
     {
       "route": "/world-models/latent-dynamics/",

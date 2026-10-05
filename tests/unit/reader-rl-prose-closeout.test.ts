@@ -11,6 +11,7 @@ import {
 import { preservedApprovalPacket, committedSource } from '../helpers/continuation-integration';
 import { readerTruthAt } from '../helpers/reader-integration';
 import { preSeoPassText } from '../helpers/seo-pass';
+import { KOL_BACKLOG_20261005_CITATIONS, withoutKolBacklog20261005Citations } from '../helpers/kol-backlog-20261005';
 
 const root = resolve(import.meta.dirname, '../..');
 const base = '280d8661a49feb16e45ef337e7cb46a794211004';
@@ -78,7 +79,11 @@ describe('bounded RL reader prose closeout, zero original completions', () => {
     expect(source).not.toMatch(/<Cite[^>]+\/>\s*\.\s*\./);
     // The EXPO-FT intake (owner decision 20260925) adds five citations to
     // rl-finetuning; every citation cluster present before it remains.
-    const added = new Set(['dsrl-2025', 'expo-2025', 'expo-ft-2026', 'perry-dong-post-training-2026', 'realtime-expo-ft-2026']);
+    // The 2026-10-05 KOL backlog batch adds the ids it appends to the frontmatter.
+    const added = new Set([
+      'dsrl-2025', 'expo-2025', 'expo-ft-2026', 'perry-dong-post-training-2026', 'realtime-expo-ft-2026',
+      ...(KOL_BACKLOG_20261005_CITATIONS[path.slice('content/'.length)] ?? []),
+    ]);
     const prior = new Set(cites(before(path)));
     const current = new Set(cites(source));
     for (const id of current) if (!added.has(id)) expect(prior.has(id)).toBe(true);
@@ -180,9 +185,11 @@ describe('bounded RL reader prose closeout, zero original completions', () => {
 
   it('preserves scoped metadata, fallback wrappers and citation coverage', () => {
     for (const path of paths) {
-      // The 2026-10-02 SEO pass replaced only the related links.
+      // The 2026-10-02 SEO pass replaced only the related links; the 2026-10-05
+      // KOL backlog batch only appended citation ids.
       const data = matter(preSeoPassText(path)).data;
-      expect({ ...matter(read(path)).data, seeAlso: undefined }).toEqual({ ...data, seeAlso: undefined });
+      expect({ ...withoutKolBacklog20261005Citations(path, matter(read(path)).data), seeAlso: undefined })
+        .toEqual({ ...data, seeAlso: undefined });
       const beforeData = matter(before(path)).data;
       if (path === paths[0]) {
         // The EXPO-FT intake updated the description and appended five

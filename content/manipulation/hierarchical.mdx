@@ -20,6 +20,10 @@ citations:
   - agibot-go2-2026
   - pi07-2026
   - mem-2026
+  - simex-2026
+  - embodiedswe-2026
+  - roboharn-evo-2026
+  - asena-2026
 seeAlso:
   - "classical/motion-planning"
   - "frontier/competing-theses"
@@ -54,6 +58,8 @@ The available skills limit what the system can do. Environmental feedback reache
 Code as Policies (2022) prompts a code-writing LLM with example instruction-program pairs to generate Python that calls supplied perception and control APIs. A function-generation prompt recursively expands functions missing from the execution scope. The programs can combine loops, conditionals and library calls for spatial arithmetic, and can express feedback loops over perceptual outputs <Cite id="code-as-policies-2022" />.
 
 These capabilities depend on the supplied APIs and prompts. The paper assumes the instructions are feasible and cannot establish in advance whether a generated response is correct. Its real-robot systems use ViLD or MDETR <Term id="vision-language-model">VLM</Term> detections, with depth and a camera-to-robot transform registered in advance to lift detections into 3D. The authors attribute many real-world failures to inaccurate detections. Quantitative robot-system evaluation is confined to the specified tabletop simulation; the real-robot systems are demonstrations <Cite id="code-as-policies-2022" />.
+
+In September 2026, several groups returned to code-writing planners with coding agents that test and repair their own programs. SimEX, from Jiaheng Hu, Guanya Shi and colleagues, has the agent build a robot toolbox in simulation and then correct the simulator from a few physical trials; the authors report towel folding, barcode scanning and plate manipulation learned with no demonstrations and 10 minutes of real-robot interaction <Cite id="simex-2026" />. EmbodiedSWE, from Zeyu Shen, Dhruv Shah and colleagues, expands one verified coding-agent solution into many simulated demonstrations, and a VLA fine-tuned only on those demonstrations completed a long-horizon task on a real robot <Cite id="embodiedswe-2026" />. RoboHarn-Evo, from Shifeng Bao, Cheng Chi and colleagues, keeps the model weights fixed and stores task-level and action-level knowledge that physical feedback revises; after 80 interaction rollouts, held-out success rose from 48.3% to 75.0% with GPT-5.5 and from 70.0% to 88.3% with GPT-6 <Cite id="roboharn-evo-2026" />. ASENA, from An-Chieh Cheng, Linxi Fan, Yuke Zhu and colleagues, gives a coding agent navigation tools; with simulator feedback, ten passes over recurring 100-task subsets raised success from 72% to 98% on R2R and from 65% to 89% on RxR <Cite id="asena-2026" />.
 
 ## The keypoint turn: VLMs emit geometry instead of skill names
 

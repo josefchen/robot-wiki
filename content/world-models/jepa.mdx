@@ -16,6 +16,7 @@ citations:
   - odyssey-2-2025
   - interactive-world-simulator-2026
   - fast-wam-2026
+  - ad-e2e-jepa-2026
 seeAlso:
   - "adjacent/drones"
   - "manipulation/vla-models"
@@ -83,6 +84,8 @@ The argument is no longer only a research position. LeCun left Meta and co-found
 ## What would settle it
 
 Two results would break the stalemate. The first is an interactive, inspectable, action-controllable JEPA environment: something a user can steer and probe the way Genie 3 can be steered today. Whether its absence is fundamental or an engineering gap is the crux of the debate. The second is a demonstrated JEPA advantage on contact-rich tasks, where the generative camp's best evidence and the JEPA camp's best evidence both currently run out. Until one of those lands, the honest summary is that the JEPA line has the cheapest demonstrated path from observation to zero-shot planning, and the [generative video](/world-models/generative-video) line has the only usable simulators.
+
+In September 2026, Haoran Zhu, Wancong Zhang, Yann LeCun and Anna Choromanska tested JEPA world models as driving planners with no driving policy trained, using ground-truth future observations as goals. They report that earlier JEPA models were either accurate but slow or fast but too weak to plan, and that their AD-E2E-JEPA projector gives a 100-fold inference speedup while keeping planning performance, rolling out 256 candidate trajectories over 8 frames in 0.8 seconds <Cite id="ad-e2e-jepa-2026" />.
 
 ## A deployment rule for representation prediction
 

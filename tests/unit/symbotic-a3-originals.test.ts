@@ -8,11 +8,14 @@ import {
   compoundPartDigest, compoundPlanDigest, originalClaimDigest, parseLedger, type CompoundPlan,
 } from '../../lib/audit-ledger';
 import { committedText } from '../helpers/editorial-current-context';
+import { preKolBacklog } from '../helpers/seo-pass';
 
 const ordinals = [19, 20, 21, 39, 40, 14, 50];
 const plans: CompoundPlan[] = JSON.parse(readFileSync('audit/compound-evidence.json', 'utf8'));
 const ledger = readFileSync('audit/data-hardware.md', 'utf8');
-const article = readFileSync('content/data-hardware/industrial-deployment.mdx', 'utf8');
+// The 2026-10-05 KOL backlog batch only appended a paragraph and one citation id;
+// these originals are checked against the article as it stood before that batch.
+const article = preKolBacklog('content/data-hardware/industrial-deployment.mdx').toString('utf8');
 const selected = ordinals.map(n => plans.find(p => p.ledgerPath === 'audit/data-hardware.md'
   && p.articleSlug === 'industrial-deployment' && p.rowOrdinal === n));
 const localBasis = loadLocalBasisContext(process.cwd(), publishedModules().map(m => `/${m.domain}/${m.slug}/`));

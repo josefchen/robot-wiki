@@ -648,7 +648,13 @@ const readerFirstAppends = merged.filter(x => x.id.startsWith('reader-first-2026
 const readerFirstManipulationAppends = merged
   .filter(x => x.id.startsWith('reader-first-20261003-')).map(x => x.id);
 const allReaderFirstAppends = [...readerFirstAppends, ...readerFirstManipulationAppends];
-const beforeReaderFirst = (entries: ApprovedDelta[]) => entries.filter(x => !allReaderFirstAppends.includes(x.id));
+// The 2026-10-05 KOL backlog batch appends its block last, per domain commit
+// in the same shape as the 2026-10-01 batch: plain edges for each changed
+// article member and new citation, a resolution where a chain already holds
+// one, and one resolution for the shared citation rendering.
+const kolBacklog20261005Appends = merged.filter(x => x.id.startsWith('kol-backlog-20261005-')).map(x => x.id);
+const laterThanSeoPass = [...allReaderFirstAppends, ...kolBacklog20261005Appends];
+const beforeReaderFirst = (entries: ApprovedDelta[]) => entries.filter(x => !laterThanSeoPass.includes(x.id));
 const howRobotsWorkAppends = [
   'how-robots-work-20261002-accessible-names-explainers-rail',
   'how-robots-work-20261002-accessible-names-explainer-pager',
@@ -665,7 +671,11 @@ const seoPassEdges = (manifest: string, memberId: string) => merged
   .filter(x => seoPassAppends.includes(x.id) && x.manifest === manifest && x.memberId === memberId).map(x => x.id);
 const readerFirstEdges = (manifest: string, memberId: string) => merged
   .filter(x => allReaderFirstAppends.includes(x.id) && x.manifest === manifest && x.memberId === memberId).map(x => x.id);
-const afterHowRobotsWork = merged.length - readerFirstManipulationAppends.length;
+const kolBacklog20261005Edges = (manifest: string, memberId: string) => merged
+  .filter(x => kolBacklog20261005Appends.includes(x.id) && x.manifest === manifest && x.memberId === memberId)
+  .map(x => x.id);
+const afterReaderFirstManipulation = merged.length - kolBacklog20261005Appends.length;
+const afterHowRobotsWork = afterReaderFirstManipulation - readerFirstManipulationAppends.length;
 const afterReaderFirst = afterHowRobotsWork - howRobotsWorkAppends.length;
 const afterSeoPass = afterReaderFirst - readerFirstAppends.length;
 const afterKolBacklog = afterSeoPass - seoPassAppends.length;
@@ -695,15 +705,16 @@ describe('two-parent exact approval reconciliation', () => {
     // home front page and the figure migration add the edges named above,
     // the KOL backlog batch appends its own named block, the SEO pass
     // appends its block, the reader-first figure pass appends its block, and
-    // the how-robots-work page appends its block, and the reader-first
-    // manipulation batch appends its block last.
+    // the how-robots-work page appends its block, the reader-first
+    // manipulation batch appends its block, and the 2026-10-05 KOL backlog
+    // batch appends its block last.
     expect([main.length, local.length, localOnly.length, merged.length])
       .toEqual([1558, 1104, 7, 2026 + readerFirstAppends.length + howRobotsWorkAppends.length
-        + readerFirstManipulationAppends.length]);
+        + readerFirstManipulationAppends.length + kolBacklog20261005Appends.length]);
     expect(merged.slice(0, main.length)).toEqual(main);
     expect(merged.slice(main.length, main.length + localOnly.length)).toEqual(localOnly);
     expect(merged.slice(main.length + localOnly.length).map(x => x.id))
-      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends, ...opusFigureMigrationAppends, ...kolBacklogAppends, ...seoPassAppends, ...readerFirstAppends, ...howRobotsWorkAppends, ...readerFirstManipulationAppends]);
+      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends, ...opusFigureMigrationAppends, ...kolBacklogAppends, ...seoPassAppends, ...readerFirstAppends, ...howRobotsWorkAppends, ...readerFirstManipulationAppends, ...kolBacklog20261005Appends]);
     expect(merged.slice(beforeRound6.length, afterRound6Prose)).toMatchObject(round6ProseRestoreEndpoints.map(
       ([memberId, , newHash], index) => ({
         id: round6ProseRestoreAppends[index], manifest: 'prose', memberId, newHash,
@@ -749,7 +760,7 @@ describe('two-parent exact approval reconciliation', () => {
       id, manifest: id.includes('-navigation-') ? 'navigation' : 'accessible-names',
       responsibleMilestone: 'opus-pass', disposition: 'permanent',
     })));
-    expect(merged.slice(afterHowRobotsWork).map(x => [x.manifest, x.memberId])).toEqual([
+    expect(merged.slice(afterHowRobotsWork, afterReaderFirstManipulation).map(x => [x.manifest, x.memberId])).toEqual([
       ...['action-chunking', 'bc-foundations', 'diffusion-policy', 'vla-models']
         .map(slug => ['prose', `article:manipulation/${slug}`]),
       ...[
@@ -792,8 +803,13 @@ describe('two-parent exact approval reconciliation', () => {
       ...[1, 2, 3].map(ordinal => ['accessible-names',
         `expression:components/interactive/sample-efficiency-ledger.tsx:aria-label:${ordinal}`]),
     ]);
-    expect(merged.slice(afterHowRobotsWork)).toMatchObject(readerFirstManipulationAppends.map(id => ({
-      id, responsibleMilestone: 'opus-pass', disposition: 'permanent',
+    expect(merged.slice(afterHowRobotsWork, afterReaderFirstManipulation)).toMatchObject(
+      readerFirstManipulationAppends.map(id => ({
+        id, responsibleMilestone: 'opus-pass', disposition: 'permanent',
+      })));
+    expect(merged.slice(afterReaderFirstManipulation)).toMatchObject(kolBacklog20261005Appends.map(id => ({
+      id, responsibleMilestone: 'brand-v2-hygiene', disposition: 'permanent',
+      affectedAssertions: ['VAL-KOL-001', 'VAL-B2-BASE-002', 'VAL-B2-BASE-010', 'VAL-B2-BASE-011'],
     })));
     expect(beforeRound6.slice(-1)).toMatchObject([{
       id: sharedReaderLayoutAppends[0], manifest: 'article-metadata',
@@ -1017,11 +1033,13 @@ describe('two-parent exact approval reconciliation', () => {
       readFileSync('evidence/brand-v2/baseline/prose.json', 'utf8'));
     for (const [index, [memberId, previous, current]] of round6ProseRestoreEndpoints.entries()) {
       const all = merged.filter(x => x.manifest === 'prose' && x.memberId === memberId);
-      // Only a named figure-migration, SEO pass or reader-first edge may follow
-      // the restore; the restore is checked against the chain it closed.
+      // Only a named figure-migration, SEO pass, reader-first or 2026-10-05 KOL
+      // backlog edge may follow the restore; the restore is checked against the
+      // chain it closed.
       const edges = all.slice(0, all.findIndex(x => x.id === round6ProseRestoreAppends[index]) + 1);
       expect(all.slice(edges.length).map(x => x.id)).toEqual([...opusFigureMigrationEdges('prose', memberId),
-        ...seoPassEdges('prose', memberId), ...readerFirstEdges('prose', memberId)]);
+        ...seoPassEdges('prose', memberId), ...readerFirstEdges('prose', memberId),
+        ...kolBacklog20261005Edges('prose', memberId)]);
       const sealed = sealedProse.members.find(x => x.id === memberId)!.hash;
       const entry = edges.at(-1)!;
       const prior = edges.slice(0, -1);
@@ -1231,10 +1249,11 @@ describe('two-parent exact approval reconciliation', () => {
         readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));
       const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;
       const all = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);
-      // A later reader-first batch may close the chain again; this edge is
-      // checked against the chain as it stood when it was appended.
+      // A later reader-first batch or the 2026-10-05 KOL backlog batch may
+      // close the chain again; this edge is checked against the chain as it
+      // stood when it was appended.
       const edges = all.slice(0, all.indexOf(entry) + 1);
-      expect(all.slice(edges.length).every(x => allReaderFirstAppends.includes(x.id))).toBe(true);
+      expect(all.slice(edges.length).every(x => laterThanSeoPass.includes(x.id))).toBe(true);
       const prior = edges.slice(0, -1);
       const previous = prior.at(-1)?.newHash ?? sealed;
       expect(entry.newHash).not.toBe(previous);
@@ -1260,5 +1279,31 @@ describe('two-parent exact approval reconciliation', () => {
         expect(entry.oldHash).toBe(previous);
       }
     }
+  });
+
+  it('binds each 2026-10-05 KOL backlog edge to its previous endpoint and to the sealed hash', () => {
+    expect(kolBacklog20261005Appends.length).toBeGreaterThan(1);
+    for (const id of kolBacklog20261005Appends) {
+      const entry = merged.find(x => x.id === id)!;
+      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(
+        readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));
+      const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;
+      const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);
+      const prior = edges.slice(0, edges.indexOf(entry));
+      expect(entry.newHash).not.toBe(prior.at(-1)?.newHash ?? sealed);
+      const path = approvedDeltaPath([...prior, entry], sealed, entry.newHash);
+      expect(path.status).toBe('approved');
+      expect(path.path.at(-1)).toBe(entry);
+      if (prior.some(x => x.reconciles !== undefined)) {
+        expect(entry.oldHash).toBe(sealed);
+        expect(entry.reconciles).toEqual(prior.map(x => ({ id: x.id, oldHash: x.oldHash, newHash: x.newHash })));
+      } else {
+        expect(entry.reconciles).toBeUndefined();
+        expect(entry.oldHash).toBe(prior.at(-1)?.newHash ?? sealed);
+      }
+      expect(approvedDeltaPath(prior, sealed, entry.newHash).status).not.toBe('approved');
+    }
+    expect(kolBacklog20261005Appends.filter(id => id.endsWith('-citation-rendering')))
+      .toEqual(['world-models', 'manipulation', 'adjacent', 'frontier', 'data-hardware', 'classical'].map(domain => `kol-backlog-20261005-${domain}-citation-rendering`));
   });
 });
