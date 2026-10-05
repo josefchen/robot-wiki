@@ -2,6 +2,7 @@
 // simulated worlds at once, so the real world is just one more variation.
 import { THREE, lerp, clamp, ease, reduceMotion } from '../kit.js';
 import { Q, makeQuadruped, quadrupedLowPoly, GAIT_GLSL } from '../models/walker.js';
+import { EXPLAINER_WORDS } from '../words.ts';
 
 const V = (x = 0, y = 0, z = 0) => new THREE.Vector3(x, y, z);
 const N = 64, COUNT = N * N, TILE = 2.0, TILE_SIZE = 1.84;
@@ -116,13 +117,10 @@ const tintFragment = (sh) => {
   sh.fragmentShader = sh.fragmentShader.replace('#include <common>', '#include <common>\nvarying vec3 vTint;').replace('#include <color_fragment>', 'diffuseColor.rgb = vTint;');
 };
 
+const STEP_TEXT = EXPLAINER_WORDS.worlds.steps;
+
 export default {
   id: 'worlds',
-  kicker: 'Robot learning · simulation',
-  question: 'How do robots learn to walk without breaking?',
-  takeaway: 'They practise in thousands of slightly different simulated worlds at once, so the real world is just one more variation.',
-  concept: { name: 'Training thousands of copies at once is massively parallel simulation, and varying their worlds is domain randomization', article: 'Massively Parallel Sim RL', href: 'https://robot-wiki.com/rl-sim2real/parallel-sim-rl/' },
-  selfCheck: { q: 'Why vary the worlds instead of building one perfect copy of the real one?', a: 'No copy is ever perfect: real ground, weight and bumps always differ a little. A robot that copes with thousands of different worlds treats the real one as just one more.' },
   how: `<ul>
     <li>Anchor: Rudin, Hoeller, Reist and Hutter, <a href="https://arxiv.org/abs/2109.11978" target="_blank" rel="noopener">Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning</a> (CoRL 2021): "The parallel approach allows training policies for flat terrain in under four minutes, and in twenty minutes for uneven terrain." The policy they took to the real ANYmal robot was "trained with 4096 robots", on a single workstation graphics card (an NVIDIA RTX A6000).</li>
     <li>The worlds vary the way that paper's do: "we randomize the friction of the ground, add noise to the observations and randomly push the robots", with ground friction drawn between 0.5 and 1.25 and pushes every 10 seconds. Heavier bodies follow RMA (Kumar et al., <a href="https://arxiv.org/abs/2107.04034" target="_blank" rel="noopener">arXiv 2107.04034</a>), which trains with 0 to 6 kg of extra load on a 12 kg robot.</li>
@@ -195,6 +193,8 @@ export default {
       tintFragment(sh);
     };
     tileMat.customProgramCacheKey = () => 'worlds-tile';
+    // The stage redraws only when something it can see changes; these uniforms live outside the materials.
+    robotMat.userData.uniforms = tileMat.userData.uniforms = U;
     const tiles = new THREE.InstancedMesh(tileGeo, tileMat, COUNT);
     const m4 = new THREE.Matrix4();
     for (let k = 0; k < COUNT; k++) { m4.makeTranslation(tileX[k], 0, tileZ[k]); robots.setMatrixAt(k, m4); tiles.setMatrixAt(k, m4); }
@@ -309,7 +309,9 @@ export default {
       if (dirty) fallAttr.needsUpdate = true;
     };
 
-    const offFrame = stage.onFrame((dt) => {
+    // Under reduced motion the clock stands still: each step shows one moment of its worlds.
+    const offFrame = stage.onFrame((frameDt) => {
+      const dt = reduceMotion ? 0 : frameDt;
       T += dt;
       for (const tw of [...tweens]) tw(); U.uTime.value = T;
       // keep depth precision across a 2 m close-up and a 130 m overview
@@ -347,10 +349,16 @@ export default {
       return tween(d, (k) => { stage.controls.target.lerpVectors(t0, f.target, k); cam.position.lerpVectors(p0, f.position, k); });
     };
     const narrow = () => cam.aspect < 1;
-    const heroView = () => frameBox(stage, new THREE.Box3(V(-0.95, 0, -0.5), V(0.95, 0.6, 0.5)), narrow() ? V(1, 0.55, 0.8) : V(0.45, 0.38, 1), 1.04);
-    const gridView = () => frameBox(stage, new THREE.Box3(V(-65, 0, -65), V(63, 1, 63)), narrow() ? V(0.2, 2.2, 1) : V(0.25, 1.25, 1), 1.02);
-    const midView = () => frameBox(stage, narrow() ? new THREE.Box3(V(-4, 0, -5), V(4, 0.5, 5)) : new THREE.Box3(V(-7, 0, -5), V(7, 0.5, 5)), V(0.3, 0.95, 1));
-    const realView = () => frameBox(stage, new THREE.Box3(realC.clone().add(V(-0.95, 0, -0.95)), realC.clone().add(V(0.95, 0.65, 0.95))), V(1, 0.62, 0.42));
+    // Each step frames one region, and that region is the step's subject: the first robot's lane, the
+    // whole grid, a patch of varied worlds, or the real ground with its two robots.
+    const HERO_BOX = new THREE.Box3(V(-0.95, 0, -0.5), V(0.95, 0.6, 0.5)), GRID_BOX = new THREE.Box3(V(-65, 0, -65), V(63, 1, 63));
+    const midBox = () => (narrow() ? new THREE.Box3(V(-4, 0, -5), V(4, 0.5, 5)) : new THREE.Box3(V(-7, 0, -5), V(7, 0.5, 5)));
+    const realBox = () => new THREE.Box3(realC.clone().add(V(-0.95, 0, -0.95)), realC.clone().add(V(0.95, 0.65, 0.95)));
+    const corners = (b) => () => [0, 1, 2, 3, 4, 5, 6, 7].map((i) => V(i & 1 ? b.max.x : b.min.x, i & 2 ? b.max.y : b.min.y, i & 4 ? b.max.z : b.min.z));
+    const heroView = () => frameBox(stage, HERO_BOX, narrow() ? V(1, 0.55, 0.8) : V(0.45, 0.38, 1), 1.04);
+    const gridView = () => frameBox(stage, GRID_BOX, narrow() ? V(0.2, 2.2, 1) : V(0.25, 1.25, 1), 1.02);
+    const midView = () => frameBox(stage, midBox(), V(0.3, 0.95, 1));
+    const realView = () => frameBox(stage, realBox(), V(1, 0.62, 0.42));
     let lastScale = 2;
     const scaleFor = (d) => { const s = clamp(d / 2.5, 2, 140); if (Math.abs(s - lastScale) > lastScale * 0.15) { stage.setScale(s); lastScale = s; } stage.controls.minDistance = 0.5; stage.controls.maxDistance = 1500; };
     const go = (f, d = 1.2) => { scaleFor(Math.max(f.dist, cam.position.distanceTo(stage.controls.target))); return view(f, d).then(() => scaleFor(f.dist)); };
@@ -381,11 +389,12 @@ export default {
 
     // Step 4: the same real ground for both. One robot only ever met one world, so it slips; the other walks on.
     const runContrast = (play) => {
-      let t = LEAD, last = performance.now();
+      // Under reduced motion a played contrast shows the moment the one-world robot is down and the other walks on.
+      let t = play && reduceMotion ? 3.0 : LEAD, last = performance.now();
       contrast = {
         step: () => {
           const now = performance.now();
-          if (play) t += Math.min(0.25, (now - last) / 1000);
+          if (play && !reduceMotion) t += Math.min(0.25, (now - last) / 1000);
           last = now;
           const tl = t % 8;  // a longer loop here, so the outcome stays on screen
           const a = poseRobot(one, realC, tl, 1.55, -1, 0.1, { slip: 1, lane: -0.45, ep: 8 });
@@ -412,10 +421,11 @@ export default {
 
     return {
       steps: [
-        { text: 'One simulated robot tries to walk. It stumbles, falls, resets and tries again, doing a little better each time.',
+        { text: STEP_TEXT[0],
           enter: async () => {
-            reset(); gridOn = false; U.uRand.value = 0; setReveal(0); arrows.count = 0;
-            hero.t = 0; hero.ep = -1; hero.tries = 0; hero.script = (n) => [1.7, 3.1, 99][(n - 1) % 3];
+            reset(); stage.focus(corners(HERO_BOX)); gridOn = false; U.uRand.value = 0; setReveal(0); arrows.count = 0;
+            // Under reduced motion the first try stands still just after the fall.
+            hero.t = reduceMotion ? 2.6 : 0; hero.ep = -1; hero.tries = 0; hero.script = (n) => [1.7, 3.1, 99][(n - 1) % 3];
             let last = '';
             onHero = (st) => {
               const fell = st.fall > 0.2;
@@ -426,9 +436,9 @@ export default {
             };
             await go(heroView());
           } },
-        { text: 'Now run 4,096 copies at once on one graphics chip. They share one brain, so every fall teaches all of them.',
+        { text: STEP_TEXT[1],
           enter: async () => {
-            reset(); U.uRand.value = 0; failRate = 0.6; gridOn = true;
+            reset(); stage.focus(corners(GRID_BOX)); U.uRand.value = 0; failRate = 0.6; gridOn = true;
             firstLabel.show(true);
             A = heroView(); B = gridView();
             await go(A, 0.6); applyV(0);
@@ -437,18 +447,18 @@ export default {
             await tween(2.6, live(e, (k) => { applyV(k); zoom.set(k); }));
             tween(7, live(e, (k) => { failRate = lerp(0.6, 0.1, k); }));
           } },
-        { text: 'Make every world a little different: slippery or grippy ground, heavier bodies, random shoves. Shuffle to deal new worlds.',
+        { text: STEP_TEXT[2],
           enter: async () => {
-            reset(); gridOn = true; failRate = 0.07; setReveal(46);
+            reset(); stage.focus(corners(midBox())); gridOn = true; failRate = 0.07; setReveal(46);
             shuffleBtn.show(true);
-            ui.readout(`<span style="white-space:nowrap"><i style="display:inline-block;width:52px;height:10px;border-radius:3px;vertical-align:middle;margin-right:6px;background:linear-gradient(90deg, color-mix(in srgb-linear, var(--focus) 16%, var(--paper)), color-mix(in srgb-linear, var(--focus) 72%, var(--paper)))"></i>slippery to grippy ground</span> · <span style="white-space:nowrap"><i style="display:inline-block;width:12px;height:10px;border-radius:3px;vertical-align:middle;margin-right:6px;background:color-mix(in srgb-linear, var(--clay) 40%, var(--dark))"></i>darker body: heavier</span> · <span style="white-space:nowrap"><b style="color:var(--act)">→</b> a random shove, every 10 seconds</span>`);
+            ui.readout(`<span style="white-space:nowrap"><i style="display:inline-block;width:52px;height:10px;border-radius:3px;vertical-align:middle;margin-right:6px;background:linear-gradient(90deg, color-mix(in srgb-linear, var(--focus) 16%, var(--paper)), color-mix(in srgb-linear, var(--focus) 72%, var(--paper)))"></i>slippery to grippy ground</span> · <span style="white-space:nowrap"><i style="display:inline-block;width:12px;height:10px;border-radius:3px;vertical-align:middle;margin-right:6px;background:color-mix(in srgb-linear, var(--clay) 40%, var(--dark))"></i>darker body: heavier</span> · <span style="white-space:nowrap"><b style="color:var(--act-text)">→</b> a random shove, every 10 seconds</span>`);
             const from = U.uRand.value;
             tween(1.2, live(epoch, (k) => { U.uRand.value = lerp(from, 1, k); }));
             await go(midView(), 1.3);
           } },
-        { text: 'One tile is the real world. Two robots step onto it: one practised in a single perfect world, one in all 4,096.',
+        { text: STEP_TEXT[3],
           enter: async () => {
-            reset(); gridOn = true; failRate = 0.03; setReveal(46); U.uRand.value = 1;
+            reset(); stage.focus(corners(realBox())); gridOn = true; failRate = 0.03; setReveal(46); U.uRand.value = 1;
             frame.visible = true; runContrast(false);
             realLabel.show(true); oneLabel.show(true); manyLabel.show(true);
             heroShown = false;
@@ -461,9 +471,9 @@ export default {
               explain: 'Its single world never quite matched real ground, so the one-world robot slips. The robot that met thousands of floors treats this one as one more.' });
             if (e === epoch) runContrast(true);
           } },
-        { text: 'Practise in thousands of varied worlds and reality is just one more. This is massively parallel simulation with domain randomization.',
+        { text: STEP_TEXT[4],
           enter: async () => {
-            reset(); gridOn = true; failRate = 0.03; setReveal(46); U.uRand.value = 1;
+            reset(); stage.focus(corners(GRID_BOX)); gridOn = true; failRate = 0.03; setReveal(46); U.uRand.value = 1;
             frame.visible = true; runContrast(true);
             realLabel.show(true);
             await go(gridView(), 1.8);

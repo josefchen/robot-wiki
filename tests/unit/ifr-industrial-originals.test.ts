@@ -49,7 +49,9 @@ describe('five IFR and OSHA industrial originals', () => {
     }
   });
 
-  it('rejects deletion of each source pair, including both rank-cut sources', () => {
+  // One ledger parse per source pair (about 1.5 s alone) can pass the 5 s
+  // default when the full suite loads the machine.
+  it('rejects deletion of each source pair, including both rank-cut sources', { timeout: 30_000 }, () => {
     expect(selected).toHaveLength(5);
     for (const p of selected) for (const e of p.evidence) {
       const changed = structuredClone(plans);
@@ -60,7 +62,8 @@ describe('five IFR and OSHA industrial originals', () => {
     }
   });
 
-  it('rejects missing adjudications and stale tuple, passage and whole-plan review', () => {
+  // Twenty ledger parses, one per mutation: about 1.5 s alone.
+  it('rejects missing adjudications and stale tuple, passage and whole-plan review', { timeout: 30_000 }, () => {
     expect(selected).toHaveLength(5);
     for (const p of selected) for (const mutation of ['adjudication', 'tuple', 'passage', 'review']) {
       const changed = structuredClone(plans);

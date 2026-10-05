@@ -1,8 +1,9 @@
 // Sense 9: Four ways to see a mug. Takeaway: a robot stores the world as dots, cubes, a skin or soft
 // blobs, and each trades detail against speed and memory.
 // One mug model, four forms, every count computed from what is drawn.
-import { THREE, shapes, lerp, clamp, ease, reduceMotion } from '../kit.js';
+import { THREE, shapes, lerp, clamp, ease, reduceMotion, slicer } from '../kit.js';
 import { mugGeometries, surfaceSampler } from '../models/mug.js';
+import { EXPLAINER_WORDS } from '../words.ts';
 
 const rng = (a) => () => { a |= 0; a = (a + 0x6d2b79f5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
 const fmt = (n) => n.toLocaleString('en-GB');
@@ -13,13 +14,10 @@ const CAM_AT = new THREE.Vector3(0.17, 0.27, 0.16); // depth camera position; it
 const MUG_MID = new THREE.Vector3(0, 0.048, 0);
 const FORMS = ['dots', 'cubes', 'skin', 'blobs'];
 
+const STEP_TEXT = EXPLAINER_WORDS.mug.steps;
+
 export default {
   id: 'mug',
-  kicker: 'Scene representation · four ways to see a mug',
-  question: 'What does a robot actually see?',
-  takeaway: 'It stores the world as dots, cubes, a skin or soft blobs, and each one trades detail against speed and memory.',
-  concept: { name: 'These ways of storing the world are called scene representations', article: 'Scene representation', href: 'https://robot-wiki.com/classical/scene-representation/#the-ladder-and-what-each-rung-can-answer' },
-  selfCheck: { q: 'Why might one robot keep the same mug both as cubes and as a skin?', a: 'Each answers a different question. Cubes say "is this space free?" in a single look-up, which suits collision checks. A skin gives the exact smooth surface, which is what planning a grasp needs.' },
   how: `<ul>
     <li>One mug, modelled as a turned body (a lathe shape) plus a curved handle: 8 centimetres across and 9.5 centimetres tall. Every count in the readout is computed from what is drawn.</li>
     <li>Dots: a simulated depth camera of ${DEPTH_W} by ${DEPTH_H} pixels. The mug's surface is sampled finely, only surface facing the camera is kept, and each pixel keeps its nearest hit, as a real depth image does. One dot per pixel that lands on the mug; the far side stays empty.</li>
@@ -75,8 +73,10 @@ export default {
     const sampler = surfaceSampler([body, handle]);
     const NSAMP = 150000;
     const SP = new Float32Array(NSAMP * 3), SN = new Float32Array(NSAMP * 3);
+    // The long loops below hand the page back as they go, so mounting never holds it for long.
+    const breathe = slicer();
     { const r = rng(7), p = new THREE.Vector3(), n = new THREE.Vector3();
-      for (let i = 0; i < NSAMP; i++) { sampler.sample(r, p, n); SP.set([p.x, p.y, p.z], i * 3); SN.set([n.x, n.y, n.z], i * 3); } }
+      for (let i = 0; i < NSAMP; i++) { sampler.sample(r, p, n); p.toArray(SP, i * 3); n.toArray(SN, i * 3); if ((i & 4095) === 4095) await breathe(); } }
 
     // ----- Dots: a simulated depth camera -----
     const dcam = new THREE.PerspectiveCamera(DEPTH_FOV, DEPTH_W / DEPTH_H, 0.02, 1.0);
@@ -85,6 +85,7 @@ export default {
     {
       const inv = dcam.matrixWorldInverse.elements, pr = dcam.projectionMatrix.elements;
       for (let i = 0; i < NSAMP; i++) {
+        if ((i & 4095) === 4095) await breathe();
         const x = SP[i * 3], y = SP[i * 3 + 1], z = SP[i * 3 + 2];
         // Only surface that faces the camera can be seen.
         if ((CAM_AT.x - x) * SN[i * 3] + (CAM_AT.y - y) * SN[i * 3 + 1] + (CAM_AT.z - z) * SN[i * 3 + 2] <= 0) continue;
@@ -138,8 +139,10 @@ export default {
     // ----- Cubes: a 1 cm grid, a cube is full if any surface sample falls inside it -----
     const cells = new Map();
     for (let i = 0; i < NSAMP; i++) {
+      if ((i & 4095) === 4095) await breathe();
       const ix = Math.floor((SP[i * 3] + 0.045) / VOXEL), iy = Math.floor(SP[i * 3 + 1] / VOXEL), iz = Math.floor((SP[i * 3 + 2] + 0.045) / VOXEL);
-      cells.set(`${ix},${iy},${iz}`, [ix, iy, iz]);
+      const key = (ix + 64) * 16384 + (iy + 64) * 128 + (iz + 64);
+      if (!cells.has(key)) cells.set(key, [ix, iy, iz]);
     }
     const cellList = [...cells.values()].sort((a, b) => a[1] - b[1] || a[0] - b[0] || a[2] - b[2]);
     const CUBES = cellList.length;
@@ -378,16 +381,19 @@ export default {
     FORMS.forEach((f) => setAmount(f, 0));
     stage.camera.position.set(-0.45, 0.35, 0.6); stage.controls.target.set(0.08, 0.07, 0.08);
 
-    const stepFor = (f, text) => ({ text, enter: async () => { const my = reset(); await open(f, my); } });
+    const stepFor = (f, text) => ({ text, enter: async () => {
+      const my = reset(); stage.focus(() => (f === 'dots' ? [...mugPts(), ...rigPts] : mugPts())); await open(f, my);
+    } });
     return {
       steps: [
-        stepFor('dots', 'A depth camera measures one distance for every pixel. Each becomes a dot, but only on the side the camera can see.'),
-        stepFor('cubes', 'Cubes, called voxels, split space into a grid where each box is simply full or empty. Coarse, but very simple.'),
-        stepFor('skin', 'A skin, called a mesh, joins the surface into small flat triangles. Its smooth shape is what you need to plan where fingers go.'),
-        stepFor('blobs', 'Soft blobs, called Gaussian splats, blend together into an image that looks like a photo. They are the newest of the four.'),
-        { text: 'Same mug, four costs: more pieces give more detail but take more memory and time. These are scene representations.',
+        stepFor('dots', STEP_TEXT[0]),
+        stepFor('cubes', STEP_TEXT[1]),
+        stepFor('skin', STEP_TEXT[2]),
+        stepFor('blobs', STEP_TEXT[3]),
+        { text: STEP_TEXT[4],
           enter: async () => {
             const my = reset(); choice.show(false); single = false;
+            stage.focus(() => FORMS.flatMap((f) => mugPts(groups[f].position)));
             labels.forEach((l) => l.show(false));
             place('row'); rig.visible = false; dotsPts.geometry.setDrawRange(0, Infinity);
             const from = { ...amount };
@@ -395,7 +401,7 @@ export default {
             lookRow();
             anim(0.8, (k) => FORMS.forEach((f) => setAmount(f, lerp(from[f], 1, k))), my);
             ui.readout(lineup());
-            await ui.predict({ question: 'Which would you use to check for collisions fast?', answer: 'cubes',
+            await ui.predict({ question: 'Which one lets the robot check fastest that its arm won\'t bump into the mug?', answer: 'cubes',
               options: [{ id: 'dots', label: 'Dots' }, { id: 'cubes', label: 'Cubes' }, { id: 'skin', label: 'Skin' }, { id: 'blobs', label: 'Blobs' }],
               explain: 'Cubes. To ask "is this spot taken?", the robot looks up one box: full or empty. Dots leave gaps, a skin means searching through its triangles, and blobs have no hard edge.' });
             if (!alive(my)) return;
@@ -404,6 +410,7 @@ export default {
             const fade = tall() ? { dots: 0, skin: 0, blobs: 0 } : { dots: 0.15, skin: 0.12, blobs: 0.04 }, was = { ...amount };
             anim(0.6, (k) => Object.keys(fade).forEach((f) => setAmount(f, lerp(was[f], fade[f], k))), my);
             const c = cubes.position.clone();
+            stage.focus(() => [...mugPts(c), ...boxPts([0.03, 0.05, 0.14], [0.05, 0.07, 0.17], c)]);
             fitLook([...mugPts(c), ...boxPts([0.03, 0.05, 0.14], [0.05, 0.07, 0.17], c)], tall() ? [1, 0.8, 0.3] : [-0.3, 0.45, 1], 0.9, 0.8);
             const a = new THREE.Vector3(c.x + 0.045, 0.062, c.z + 0.16), b = new THREE.Vector3(c.x + 0.004, 0.062, c.z);
             let stopAt = 1;

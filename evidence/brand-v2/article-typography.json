@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "cdbf58d973e4b9a49b833e53932aa67b5f55db7fa78948bf544c90c4245a5d78",
+  "fingerprint": "4dfb7dd9aedd5e58b5df8d29d3e0e863a0c3ad6806066aa56d21a867ec05d654",
   "viewports": [
     "375x812",
     "1440x900"
@@ -24455,7 +24455,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 774,
+      "visibleTextLength": 798,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -24686,6 +24686,14 @@
         },
         {
           "tag": "button",
+          "text": "Start",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "1",
           "familyHead": "ibm plex mono",
           "sizePx": 12,
@@ -24743,6 +24751,14 @@
         {
           "tag": "summary",
           "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "All twelve as text",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": false,
@@ -78768,7 +78784,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 1012,
+      "visibleTextLength": 1036,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -78999,6 +79015,14 @@
         },
         {
           "tag": "button",
+          "text": "Start",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "1",
           "familyHead": "ibm plex mono",
           "sizePx": 12,
@@ -79056,6 +79080,14 @@
         {
           "tag": "summary",
           "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "All twelve as text",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": false,

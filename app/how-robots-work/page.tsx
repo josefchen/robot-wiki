@@ -26,8 +26,8 @@ export default function HowRobotsWorkPage() {
         }}
       />
       {/* The explainer column below is filled in the browser from the open
-          scene and changes on every step, so only the heading and the
-          introduction are indexed. */}
+          scene and changes on every step, so the index takes the heading,
+          the introduction and the explainers' served text instead. */}
       <div data-pagefind-body className="mb-8 max-w-[68ch]">
         <h1
           data-tektur-role="page-h1"

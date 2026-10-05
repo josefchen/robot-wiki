@@ -10,6 +10,7 @@ import { execFileSync } from 'node:child_process';
 import { dirname, extname, join, relative } from 'node:path';
 import { DOMAINS, DOMAIN_META, publishedModules } from '../data/modules.ts';
 import { IMAGES } from '../data/images.ts';
+import { EXPLAINER_ORDER } from '../components/explainers/catalog.ts';
 import {
   FIRST_PARTY_TYPE_ROLES,
   TEKTUR_ASSIGNED_STRINGS,
@@ -1266,6 +1267,12 @@ function assetUses(assets: ReturnType<typeof assetRegistry>): string[] {
   // Checked-in fonts are owned delivery assets even before v2 runtime wiring.
   for (const asset of assets.filter(({ category }) => category === 'font')) {
     used.add(asset.id);
+  }
+  // The explainer viewer loads each catalog entry's poster by id
+  // (`/explainers/posters/${id}.webp`), so only catalog ids own a poster.
+  for (const { id } of EXPLAINER_ORDER) {
+    const poster = assets.find(({ path }) => path === `explainers/posters/${id}.webp`);
+    if (poster) used.add(poster.id);
   }
   return [...used].sort();
 }

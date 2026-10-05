@@ -7965,6 +7965,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:expression:components/explainers/how-robots-work.tsx:alt:1",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:expression:components/home/contents-index.tsx:aria-label:1",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -8836,6 +8841,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/explainers/how-robots-work.tsx:aria-label:2",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/explainers/how-robots-work.tsx:aria-labelledby:3",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -13265,7 +13275,7 @@
         "statement": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 1064,
+        "populationSize": 1066,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -13280,6 +13290,7 @@
           "result:VAL-B2-BASE-002:accessible-names:expression:components/article/citation-records.tsx:title:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/article/commit-to-reveal.tsx:aria-labelledby:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/article/heading-permalink.tsx:aria-label:1",
+          "result:VAL-B2-BASE-002:accessible-names:expression:components/explainers/how-robots-work.tsx:alt:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/home/contents-index.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/home/did-you-know.tsx:title:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/action-conditioning.tsx:aria-label:1",
@@ -13455,6 +13466,7 @@
           "result:VAL-B2-BASE-002:accessible-names:literal:components/article/references.tsx:aria-labelledby:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/explainers/how-robots-work.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/explainers/how-robots-work.tsx:aria-label:2",
+          "result:VAL-B2-BASE-002:accessible-names:literal:components/explainers/how-robots-work.tsx:aria-labelledby:3",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/home/home-search.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/home/home-search.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/action-tokenization.tsx:aria-label:1",
@@ -21052,6 +21064,66 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:explainers/posters/arm.webp",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the checked-in byte seal contract/brand-v2-asset-seal.json, reconciled in both directions against contract/brand-v2-registries.json#assets:first-party-visual and re-hashed per asset, plus the decoded content description of each sealed asset"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:explainers/posters/flying.webp",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the checked-in byte seal contract/brand-v2-asset-seal.json, reconciled in both directions against contract/brand-v2-registries.json#assets:first-party-visual and re-hashed per asset, plus the decoded content description of each sealed asset"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:explainers/posters/grip.webp",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the checked-in byte seal contract/brand-v2-asset-seal.json, reconciled in both directions against contract/brand-v2-registries.json#assets:first-party-visual and re-hashed per asset, plus the decoded content description of each sealed asset"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:explainers/posters/hand.webp",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the checked-in byte seal contract/brand-v2-asset-seal.json, reconciled in both directions against contract/brand-v2-registries.json#assets:first-party-visual and re-hashed per asset, plus the decoded content description of each sealed asset"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:explainers/posters/humanoid.webp",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the checked-in byte seal contract/brand-v2-asset-seal.json, reconciled in both directions against contract/brand-v2-registries.json#assets:first-party-visual and re-hashed per asset, plus the decoded content description of each sealed asset"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:explainers/posters/mug.webp",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the checked-in byte seal contract/brand-v2-asset-seal.json, reconciled in both directions against contract/brand-v2-registries.json#assets:first-party-visual and re-hashed per asset, plus the decoded content description of each sealed asset"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:explainers/posters/path.webp",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the checked-in byte seal contract/brand-v2-asset-seal.json, reconciled in both directions against contract/brand-v2-registries.json#assets:first-party-visual and re-hashed per asset, plus the decoded content description of each sealed asset"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:explainers/posters/puppeteer.webp",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the checked-in byte seal contract/brand-v2-asset-seal.json, reconciled in both directions against contract/brand-v2-registries.json#assets:first-party-visual and re-hashed per asset, plus the decoded content description of each sealed asset"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:explainers/posters/reaching.webp",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the checked-in byte seal contract/brand-v2-asset-seal.json, reconciled in both directions against contract/brand-v2-registries.json#assets:first-party-visual and re-hashed per asset, plus the decoded content description of each sealed asset"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:explainers/posters/upright.webp",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the checked-in byte seal contract/brand-v2-asset-seal.json, reconciled in both directions against contract/brand-v2-registries.json#assets:first-party-visual and re-hashed per asset, plus the decoded content description of each sealed asset"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:explainers/posters/whereami.webp",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the checked-in byte seal contract/brand-v2-asset-seal.json, reconciled in both directions against contract/brand-v2-registries.json#assets:first-party-visual and re-hashed per asset, plus the decoded content description of each sealed asset"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:explainers/posters/worlds.webp",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the checked-in byte seal contract/brand-v2-asset-seal.json, reconciled in both directions against contract/brand-v2-registries.json#assets:first-party-visual and re-hashed per asset, plus the decoded content description of each sealed asset"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ID-006:asset:images/anymal-anybotics-2022.jpg",
           "mechanism": "VAL-B2-ID-006 per-member evidence derived from the checked-in byte seal contract/brand-v2-asset-seal.json, reconciled in both directions against contract/brand-v2-registries.json#assets:first-party-visual and re-hashed per asset, plus the decoded content description of each sealed asset"
         },
@@ -21174,7 +21246,7 @@
         "statement": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
         "expected": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 21,
+        "populationSize": 33,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -21184,6 +21256,18 @@
       "producedResult": {
         "resultIds": [
           "result:VAL-B2-ID-006:asset:clips/kalman-episode.png",
+          "result:VAL-B2-ID-006:asset:explainers/posters/arm.webp",
+          "result:VAL-B2-ID-006:asset:explainers/posters/flying.webp",
+          "result:VAL-B2-ID-006:asset:explainers/posters/grip.webp",
+          "result:VAL-B2-ID-006:asset:explainers/posters/hand.webp",
+          "result:VAL-B2-ID-006:asset:explainers/posters/humanoid.webp",
+          "result:VAL-B2-ID-006:asset:explainers/posters/mug.webp",
+          "result:VAL-B2-ID-006:asset:explainers/posters/path.webp",
+          "result:VAL-B2-ID-006:asset:explainers/posters/puppeteer.webp",
+          "result:VAL-B2-ID-006:asset:explainers/posters/reaching.webp",
+          "result:VAL-B2-ID-006:asset:explainers/posters/upright.webp",
+          "result:VAL-B2-ID-006:asset:explainers/posters/whereami.webp",
+          "result:VAL-B2-ID-006:asset:explainers/posters/worlds.webp",
           "result:VAL-B2-ID-006:asset:images/anymal-anybotics-2022.jpg",
           "result:VAL-B2-ID-006:asset:images/atlas-darpa-frontview-2013.jpg",
           "result:VAL-B2-ID-006:asset:images/covariate-shift.svg",
@@ -21778,6 +21862,66 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-001:asset:clips/kalman-episode.png",
+          "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-001:asset:explainers/posters/arm.webp",
+          "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-001:asset:explainers/posters/flying.webp",
+          "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-001:asset:explainers/posters/grip.webp",
+          "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-001:asset:explainers/posters/hand.webp",
+          "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-001:asset:explainers/posters/humanoid.webp",
+          "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-001:asset:explainers/posters/mug.webp",
+          "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-001:asset:explainers/posters/path.webp",
+          "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-001:asset:explainers/posters/puppeteer.webp",
+          "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-001:asset:explainers/posters/reaching.webp",
+          "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-001:asset:explainers/posters/upright.webp",
+          "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-001:asset:explainers/posters/whereami.webp",
+          "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-001:asset:explainers/posters/worlds.webp",
           "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
         },
         {
@@ -22464,7 +22608,7 @@
         "statement": "First-party surfaces contain no AI-generated robots, synthetic labs, stock chrome heads, glowing brains, circuit wallpaper, or fake blueprints.",
         "expected": "First-party surfaces contain no AI-generated robots, synthetic labs, stock chrome heads, glowing brains, circuit wallpaper, or fake blueprints.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 133,
+        "populationSize": 145,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -22474,6 +22618,18 @@
       "producedResult": {
         "resultIds": [
           "result:VAL-B2-IMG-001:asset:clips/kalman-episode.png",
+          "result:VAL-B2-IMG-001:asset:explainers/posters/arm.webp",
+          "result:VAL-B2-IMG-001:asset:explainers/posters/flying.webp",
+          "result:VAL-B2-IMG-001:asset:explainers/posters/grip.webp",
+          "result:VAL-B2-IMG-001:asset:explainers/posters/hand.webp",
+          "result:VAL-B2-IMG-001:asset:explainers/posters/humanoid.webp",
+          "result:VAL-B2-IMG-001:asset:explainers/posters/mug.webp",
+          "result:VAL-B2-IMG-001:asset:explainers/posters/path.webp",
+          "result:VAL-B2-IMG-001:asset:explainers/posters/puppeteer.webp",
+          "result:VAL-B2-IMG-001:asset:explainers/posters/reaching.webp",
+          "result:VAL-B2-IMG-001:asset:explainers/posters/upright.webp",
+          "result:VAL-B2-IMG-001:asset:explainers/posters/whereami.webp",
+          "result:VAL-B2-IMG-001:asset:explainers/posters/worlds.webp",
           "result:VAL-B2-IMG-001:asset:fonts/Tektur-latin-wdth-wght.woff2",
           "result:VAL-B2-IMG-001:asset:images/anymal-anybotics-2022.jpg",
           "result:VAL-B2-IMG-001:asset:images/atlas-darpa-frontview-2013.jpg",
@@ -24350,7 +24506,7 @@
         "statement": "Third-party marks retain required attribution and are not modified beyond consistent sizing, placement, and neutral-plate treatment.",
         "expected": "Third-party marks retain required attribution and are not modified beyond consistent sizing, placement, and neutral-plate treatment.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 133,
+        "populationSize": 145,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -24384,7 +24540,7 @@
         "statement": "Visual-asset parity holds among physical files, JS/TS imports, CSS URLs, inline-SVG dependencies, asset registries, rendered uses, and credits; orphan files, missing files, unregistered uses, stale credits, extras, and symlinks fail except narrow documented generated/tooling exceptions.",
         "expected": "Visual-asset parity holds among physical files, JS/TS imports, CSS URLs, inline-SVG dependencies, asset registries, rendered uses, and credits; orphan files, missing files, unregistered uses, stale credits, extras, and symlinks fail except narrow documented generated/tooling exceptions.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 133,
+        "populationSize": 145,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -24488,7 +24644,7 @@
         "statement": "Photo and logo binaries are byte-hash preserved against baseline except approved-delta entries; SVGs use normalized semantic comparison; every asset and rendered use carries a stable registry/ownership ID.",
         "expected": "Photo and logo binaries are byte-hash preserved against baseline except approved-delta entries; SVGs use normalized semantic comparison; every asset and rendered use carries a stable registry/ownership ID.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 133,
+        "populationSize": 145,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -24522,7 +24678,7 @@
         "statement": "Favicon, web manifest icons, touch icons, inline symbols, CSS masks, and unused first-party symbol assets are swept; any invented first-party mark, unregistered icon byte, orphan symbol, or stale v1 identity asset fails.",
         "expected": "Favicon, web manifest icons, touch icons, inline symbols, CSS masks, and unused first-party symbol assets are swept; any invented first-party mark, unregistered icon byte, orphan symbol, or stale v1 identity asset fails.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 133,
+        "populationSize": 145,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",

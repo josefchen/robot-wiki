@@ -1,7 +1,8 @@
 // Sense 10: Knowing where you are. Takeaway: a robot never knows exactly where it is. It keeps a best
 // guess and a cloud of doubt; moving grows the doubt and every measurement shrinks it.
-import { THREE, shapes, lerp } from '../kit.js';
+import { THREE, shapes, lerp, reduceMotion } from '../kit.js';
 import { buildRover, makeRoverGeometries, buildLandmark, ROVER } from '../models/rover.js';
+import { EXPLAINER_WORDS } from '../words.ts';
 
 const GPS_M = 4.9; // gps.gov: GPS-enabled smartphones are typically accurate to within a 4.9 m radius under open sky
 const STEP = 0.5; // metres per Move
@@ -32,13 +33,10 @@ const ellipseOf = (P) => { const [a, b, c] = P, m = (a + c) / 2, d = Math.sqrt((
 const area = (P) => Math.sqrt(Math.max(1e-12, P[0] * P[2] - P[1] * P[1]));
 const times = (r) => (r >= 3 ? `${Math.round(r)}` : r.toFixed(1));
 
+const STEP_TEXT = EXPLAINER_WORDS.whereami.steps;
+
 export default {
   id: 'whereami',
-  kicker: 'State estimation · knowing where you are',
-  question: 'Does a robot know where it is?',
-  takeaway: 'Never exactly. It keeps a best guess and a cloud of doubt: moving grows the doubt, and every measurement shrinks it.',
-  concept: { name: 'Blending a predicted position with noisy measurements by how much each can be trusted is called a Kalman filter', article: 'State Estimation', href: 'https://robot-wiki.com/classical/state-estimation/#the-kalman-filter' },
-  selfCheck: { q: 'Why can\'t it simply trust the GPS?', a: 'GPS alone is only good to a few metres: a phone is typically within 4.9 metres under open sky, and worse near buildings and trees. Blending it with the robot\'s own motion gives a better guess than either one alone.' },
   how: `<ul>
     <li>The cloud is drawn two standard deviations wide, so the true position should fall inside it about 86 times in 100. The faint robot shows where it really is; the robot itself never sees that.</li>
     <li>Moving adds doubt in proportion to the distance driven (more sideways than forward, as small heading errors build up). Each reading is combined with the guess by the standard Kalman update: the gain is the guess's doubt divided by the guess's doubt plus the reading's doubt (<a href="https://doi.org/10.1115/1.3662552" target="_blank" rel="noopener">Kalman 1960</a>). The noise sizes are illustrative, chosen to be visible at this scale.</li>
@@ -77,15 +75,16 @@ export default {
       return g;
     };
     const cloud = makeEllipse('focus', 0.2, 0.85); cloud.position.y = Y * 2; stage.world.add(cloud);
-    const readCloud = makeEllipse('sense', 0.16, 0.8); readCloud.visible = false; stage.world.add(readCloud);
+    // The guess is the step's one colour, so the sensor and its reading stay neutral.
+    const readCloud = makeEllipse('ref', 0.16, 0.8); readCloud.visible = false; stage.world.add(readCloud);
     // Reading: a pin standing where the sensor says the robot is.
     const pin = new THREE.Group();
-    const senseMat = stage.material('sense');
+    const senseMat = stage.material('dark');
     const stem = shapes.mesh(new THREE.CylinderGeometry(0.008, 0.008, 0.44, 12), senseMat); stem.position.y = 0.22;
     const head = shapes.mesh(shapes.sphere(0.035, 20), senseMat); head.position.y = 0.46;
     pin.add(stem, head); pin.visible = false; stage.world.add(pin);
     // Line of sight from the sensor to the landmark.
-    const sight = shapes.mesh(new THREE.CylinderGeometry(0.006, 0.006, 1, 10), stage.material('sense', { opacity: 0.85 }), { cast: false });
+    const sight = shapes.mesh(new THREE.CylinderGeometry(0.006, 0.006, 1, 10), stage.material('dark', { opacity: 0.85 }), { cast: false });
     sight.visible = false; stage.world.add(sight);
     // Outline of the other sensor's result, for comparison (ref, dashed).
     const ellPts = (cx, cz, P, n = 72) => { const e = ellipseOf(P), pts = []; for (let i = 0; i <= n; i++) { const t = (i / n) * Math.PI * 2, u = e.A * Math.cos(t), v = e.B * Math.sin(t); pts.push(new THREE.Vector3(cx + u * Math.cos(e.ang) - v * Math.sin(e.ang), Y * 3, cz + u * Math.sin(e.ang) + v * Math.cos(e.ang))); } return pts; };
@@ -172,7 +171,7 @@ export default {
       cloud: stage.label('Cloud of doubt', () => (cloud.size > 0.22 ? nearEdge() : null), { tone: 'focus' }).show(false), // hidden while the cloud is too small to point at
       landmark: stage.label('Landmark it knows', () => marks[0].boardWorld().add(v3(0, 0.16, 0))).show(false),
       before: stage.label('Cloud before', () => { if (!before.visible) return null; const { x, P } = before.info, s = Math.sqrt(P[2]); return v3(x[0] + (2 * P[1]) / s, Y, x[1] + 2 * s); }).show(false),
-      reading: stage.label('Sensor reading', () => (pin.visible ? pin.position.clone().add(v3(0, 0.5, 0)) : null), { tone: 'sense' }).show(false),
+      reading: stage.label('Sensor reading', () => (pin.visible ? pin.position.clone().add(v3(0, 0.5, 0)) : null), { tone: 'plain' }).show(false),
       other: stage.label('With a good sensor', () => (other.visible && otherInfo ? v3(otherInfo.x[0] - 2 * Math.sqrt(otherInfo.P[0]), Y, otherInfo.x[1]) : null)).show(false),
     };
     const hideLabels = () => Object.values(L).forEach((l) => l.show(false));
@@ -223,29 +222,29 @@ export default {
       const half = cam.position.distanceTo(T) * Math.tan(Math.atan(Math.tan(THREE.MathUtils.degToRad(cam.fov) / 2) * cam.aspect));
       const off = st.x[0] - T.x, want = off > 0.42 * half ? off - 0.42 * half : off < -0.85 * half ? off + 0.85 * half : 0;
       if (Math.abs(want) < 1e-4) return;
-      const dx = want * Math.min(1, dt * 2.5); T.x += dx; cam.position.x += dx;
+      const dx = reduceMotion ? want : want * Math.min(1, dt * 2.5); T.x += dx; cam.position.x += dx;
     });
     stage.camera.position.set(-0.4, 3.0, 3.9); stage.controls.target.set(-0.6, 0.1, -0.15);
     restart();
 
     return {
       steps: [
-        { text: 'It drives by counting wheel turns. Each turn adds a little error, so its guess drifts and its cloud of doubt grows.',
+        { text: STEP_TEXT[0],
           enter: async () => {
-            const my = reset(); marks.forEach((m) => { m.visible = false; });
+            const my = reset(); marks.forEach((m) => { m.visible = false; }); stage.focus(dot, ghost.root, cloud);
             L.guess.show(true); L.truth.show(true); L.cloud.show(true);
             if (narrow()) frame([-0.2, 0.1, -0.15], [0.1, 1.15, 1], 0.75, 0.5, 1.0); else frame([-0.6, 0.1, -0.12], [0.1, 1.15, 1], 1.05, 0.5, 1.0);
-            await new Promise((r) => setTimeout(r, 450)); if (my !== epoch) return;
+            await new Promise((r) => setTimeout(r, reduceMotion ? 0 : 450)); if (my !== epoch) return;
             busy = true;
             for (let i = 0; i < 3; i++) { await move(true); if (my !== epoch) return; say(moveText()); }
             busy = false; moveBtn.show(true); ui.hint('Press Move');
           } },
-        { text: 'Now it spots a landmark whose place on its map it already knows.',
+        { text: STEP_TEXT[1],
           enter: async () => {
             const my = reset(); await driveTo(3, false); if (my !== epoch) return;
             L.landmark.show(true); L.cloud.show(true); L.truth.show(true);
             say(moveText());
-            await (narrow() ? frame([0.15, 0.2, -0.25], [0.15, 1.0, 1], 0.72, 0.7, 1.1) : frame([0.25, 0.2, -0.22], [0.2, 0.95, 1], 0.95, 0.8, 1.1)); if (my !== epoch) return;
+            await stage.fit([marks[0], ghost.root, cloud, dot], narrow() ? [0.15, 1.0, 1] : [0.2, 0.95, 1], { margin: 0.74 }); if (my !== epoch) return;
             await ui.predict({ question: 'It spots a landmark. What happens to the cloud?', answer: 'shrinks',
               options: [{ id: 'grows', label: 'It grows' }, { id: 'same', label: 'It stays the same' }, { id: 'shrinks', label: 'It shrinks' }],
               explain: 'It shrinks sharply. Seeing a landmark it knows tells the robot roughly where it must be, which rules out most of the cloud.' });
@@ -255,7 +254,7 @@ export default {
             say(lookText(res));
             moveBtn.show(true); lookBtn.show(true);
           } },
-        { text: 'A worse sensor shrinks the cloud less. The robot blends its guess with the reading, trusting whichever has less doubt.',
+        { text: STEP_TEXT[2],
           enter: async () => {
             const my = reset(); await driveTo(3, false); if (my !== epoch) return;
             const base = { x: [...st.x], P: [...st.P], truth: [...st.truth], th: st.th };
@@ -277,18 +276,18 @@ export default {
               say(lookText(res, q === 'good' ? 'Good sensor: ' : 'Poor sensor: '));
             };
             onSensor = (q) => { if (!busy) run(q); else sensor.set(q === 'good' ? 'poor' : 'good'); };
-            L.cloud.set('Cloud after the reading').show(true); L.reading.show(true);
+            L.cloud.set('Cloud after the reading').show(true); L.reading.show(true); stage.focus(cloud, other, readCloud, pin, dot);
             sensor.set('poor'); sensor.show(true); ui.hint('Switch the sensor');
             await frame([0.08, 0.1, -0.22], [0.12, 1.3, 1], 0.68, 0.5, 1.0); if (my !== epoch) return;
             await run('poor');
           },
           leave: () => { L.cloud.set('Cloud of doubt'); } },
-        { text: 'This blending is a Kalman filter. Spacecraft, drones and many robots use one to keep track of where they are.',
+        { text: STEP_TEXT[3],
           enter: async () => {
             const my = reset(); await driveTo(3, false); if (my !== epoch) return;
             await look('good', { animate: false }); await move(false); if (my !== epoch) return;
             gpsLine = `A phone's GPS alone is typically within <b>${GPS_M} metres</b> under open sky, and worse near buildings and trees.`;
-            say('Each Move grows the cloud. Each Look shrinks it.');
+            say('Each Move grows the cloud. Each Look shrinks it.'); stage.focus(dot, ghost.root, cloud);
             L.cloud.show(true); L.truth.show(true);
             moveBtn.show(true); lookBtn.show(true); ui.hint('Move, then Look');
             await (narrow() ? frame([0.65, 0.2, -0.3], [0.1, 0.95, 1], 0.95, 0.7, 1.1) : frame([0.85, 0.2, -0.3], [0.1, 0.9, 1], 1.25, 0.7, 1.1));

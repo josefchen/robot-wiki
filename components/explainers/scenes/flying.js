@@ -1,7 +1,8 @@
 // Move 6: Flying. Takeaway: a drone steers only by changing its four propeller speeds:
 // speed up the back pair to tilt and fly forward, speed up one spinning pair to turn.
-import { THREE, shapes, ExplodedModel, lerp } from '../kit.js';
+import { THREE, shapes, ExplodedModel, lerp, reduceMotion } from '../kit.js';
 import { buildQuadcopter, makeQuadGeometries, arcArrow, ROTORS, QUAD } from '../models/quadcopter.js';
+import { EXPLAINER_WORDS } from '../words.ts';
 
 const RATE_HZ = 400; // PX4 default for IMU_GYRO_RATEMAX, "the loop rate for the rate controller and outputs"
 const DEG = Math.PI / 180;
@@ -75,13 +76,10 @@ const forwardPlan = () => {
   return plan;
 };
 
+const STEP_TEXT = EXPLAINER_WORDS.flying.steps;
+
 export default {
   id: 'flying',
-  kicker: 'Drones · flying',
-  question: 'How does a drone steer with no wings or rudder?',
-  takeaway: 'Only by changing its four propeller speeds: speed up the back pair to tilt and fly forward, and speed up one spinning pair to turn.',
-  concept: { name: 'Holding the right tilt by constantly adjusting motor speeds is called attitude control', article: 'Drones and Aerial Robotics', href: 'https://robot-wiki.com/adjacent/drones/#the-autonomy-stack-on-a-flying-robot' },
-  selfCheck: { q: 'Why do two propellers spin one way and two the other?', a: 'Each spinning propeller twists the drone the opposite way. With two each way the twists cancel, so it can hover without turning; speeding up one pair lets it turn on purpose.' },
   how: `<ul>
     <li>Model: a stylised quadcopter with a 400 mm motor-to-motor "X" frame. Diagonal motors spin the same way, as in the standard quad layouts in the <a href="https://docs.px4.io/main/en/airframes/airframe_reference.html" target="_blank" rel="noopener">PX4 airframe reference</a>.</li>
     <li>Physics: each propeller's lift grows with the square of its speed, and each one twists the body against its spin. The motion is simplified and slowed down about two and a half times: rotation is heavily damped, so the drone stops tilting as soon as the speeds even out. A real drone also has to brake its own rotation.</li>
@@ -108,7 +106,9 @@ export default {
       battery: { id: 'battery', kind: 'Power', name: 'Battery', role: 'Stores the energy for the motors and the flight computer.', objects: [quad.battery], dir: new THREE.Vector3(0, -1, 0), dist: 0.1 },
       computer: { id: 'computer', kind: 'Electronics', name: 'Flight computer', role: 'Feels how the drone is tilted and turning, and sets each motor\'s speed many times a second.', objects: [quad.computer], dir: new THREE.Vector3(0, 1, 0), dist: 0.12 },
     };
-    const model = new ExplodedModel(stage, quad.root, Object.values(P));
+    // Top first, so each propeller lifts off before its motor follows it up.
+    const model = new ExplodedModel(stage, quad.root, [P.props, P.computer, P.motors, P.battery, P.frame]);
+    const partsList = [P.frame, P.motors, P.props, P.battery, P.computer];
 
     // Thrust arrows (act colour), one per rotor, riding on the body so they tilt with it.
     const UP = new THREE.Vector3(0, 1, 0);
@@ -171,6 +171,15 @@ export default {
     // ---------- Frame loop: simulate, pose, arrows, spin, narrate ----------
     let epoch = 0, running = false, narrate = null, lastMsg = '', strobe = null, guardOn = false, suffix = '', gustOn = false, follow = false, recovering = false;
     const narrow = () => stage.camera.aspect < 1.1;
+    // A manoeuvre holds the stage as moving until the drone is at rest and the camera has caught up.
+    let release = null, ended = null, lastYaw = 0, heldAt = 0;
+    const holdUntilRest = (done) => {
+      release?.(); release = null;
+      if (!reduceMotion) { release = stage.hold(); ended = done; heldAt = performance.now(); }
+    };
+    const atRest = () => Math.hypot(...sim.v) < 0.003 && Math.abs(sim.pitch) + Math.abs(sim.roll) < 0.2 * DEG
+      && Math.abs(sim.yaw - lastYaw) < 1e-4 && Math.max(...sim.s) - Math.min(...sim.s) < 0.003
+      && (!follow || Math.abs(sim.p[0] - stage.controls.target.x) < 0.003);
     const say = (html) => { if (html !== lastMsg) { lastMsg = html; ui.readout(html); } };
     const pairs = () => { const s = sim.s; return { front: (s[0] + s[2]) / 2, back: (s[1] + s[3]) / 2, cw: (s[2] + s[3]) / 2, ccw: (s[0] + s[1]) / 2, right: (s[0] + s[3]) / 2, left: (s[1] + s[2]) / 2, mean: (s[0] + s[1] + s[2] + s[3]) / 4 }; };
     const describe = () => {
@@ -203,14 +212,22 @@ export default {
 
     stage.onFrame((dt) => {
       if (!running) return;
-      if (!sim.frozen) sim.step(dt); else sim.s = sim.s.map((s) => s + (1 - s) * Math.min(1, dt * 6));
+      // Under reduced motion each frame runs the flight to rest, so a manoeuvre jumps to its end.
+      const n = reduceMotion ? 400 : 1, h = reduceMotion ? 1 / 60 : dt;
+      for (let i = 0; i < n; i += 1) {
+        if (!sim.frozen) sim.step(h); else sim.s = sim.s.map((s) => s + (1 - s) * Math.min(1, h * 6));
+        if (strobe) { applyPose(); strobe(h); }
+      }
       applyPose();
       thrust.forEach((a, i) => a.set(a.base, UP, arrowLen(i)));
-      quad.props.forEach((p, i) => { p.rotation.y += -ROTORS[i].dir * 10 * sim.s[i] * dt; });
+      // The blur discs show the spin; under reduced motion the blades stand still.
+      if (!reduceMotion) quad.props.forEach((p, i) => { p.rotation.y += -ROTORS[i].dir * 10 * sim.s[i] * dt; });
       if (weight.visible) weight.set(new THREE.Vector3(sim.p[0], sim.p[1] - 0.07, sim.p[2]), new THREE.Vector3(0, -1, 0), 0.4);
       yawArc.position.set(sim.p[0], sim.p[1] + 0.03, sim.p[2]);
-      if (strobe) strobe(dt);
-      if (follow) { const dx = (sim.p[0] - stage.controls.target.x) * Math.min(1, dt * 2.5); stage.controls.target.x += dx; stage.camera.position.x += dx; }
+      if (follow) { const dx = (sim.p[0] - stage.controls.target.x) * (reduceMotion ? 1 : Math.min(1, dt * 2.5)); stage.controls.target.x += dx; stage.camera.position.x += dx; }
+      // Ten seconds is far longer than any manoeuvre takes; past it the hold lets go regardless.
+      if (release && ((ended?.() && atRest()) || performance.now() - heldAt > 10_000)) { release(); release = null; }
+      lastYaw = sim.yaw;
       // Adjust mode safety net: past a steep tilt or the edge of the stage, the flight computer takes
       // back control, flies home and levels out, then hands the propellers back to the reader.
       if (guardOn && sim.manual && (Math.abs(sim.pitch) > 25 * DEG || Math.abs(sim.roll) > 25 * DEG || Math.abs(sim.p[0]) > 0.85 || Math.abs(sim.p[2]) > 0.7)) {
@@ -229,6 +246,7 @@ export default {
     const spinning = (v) => { running = v; quad.discs.forEach((d) => { d.visible = v; }); if (!v) { thrust.forEach((a) => { a.visible = false; }); } };
     const reset = (p = HOME) => {
       epoch++; strobe = null; narrate = null; lastMsg = ''; guardOn = false; suffix = ''; gustOn = false; follow = false; recovering = false;
+      release?.(); release = null; ended = null;
       sim.reset(p); applyPose();
       hideLabels(); ui.readout(''); ui.hint(''); ui.card(null);
       showThrust(false); weight.visible = false; yawArc.visible = false; gust.visible = false;
@@ -253,6 +271,7 @@ export default {
       follow = narrow();
       if (!(await rewind(START))) return;
       const plan = forwardPlan(); sim.plan = plan;
+      holdUntilRest(() => !sim.plan);
       const times = [0, 1.9, 3.2]; let clock = 0, n = 0;
       strobe = (dt) => {
         clock += dt;
@@ -264,19 +283,22 @@ export default {
     const runTurn = async () => {
       if (!(await rewind(HOME, 0))) return;
       sim.plan = (t) => ({ yaw: 90 * DEG * sm(t / 1.0) });
+      holdUntilRest(() => sim.t > 1.0);
       narrate = () => (Math.abs(sim.yaw - 90 * DEG) < 3 * DEG && Math.abs(pairs().cw - pairs().ccw) < 0.01 ? 'Speeds equal again: the turn stops. It now faces left.' : describe());
     };
     const runClimb = async (h) => {
       const from = sim.p[1];
       sim.plan = (t) => ({ h: lerp(from, h, sm(t / 1.0)) }); sim.t = 0;
+      holdUntilRest(() => sim.t > 1.0);
       narrate = describe;
     };
 
     // Taps: parts in step 1, propellers in Adjust.
     let tapMode = null;
     const propPick = (ray) => { const hit = ray.intersectObjects(quad.discs, false)[0]; return hit ? quad.discs.indexOf(hit.object) : -1; };
+    const tapPart = (p) => { model.select(p === model.selected ? null : p); ui.card(model.selected ? p : null); };
     const offClick = stage.onClick((ray) => {
-      if (tapMode === 'parts') { const p = model.pick(ray); model.select(p === model.selected ? null : p); ui.card(model.selected ? p : null); }
+      if (tapMode === 'parts') tapPart(model.pick(ray));
       if (tapMode === 'props' && sim.manual) {
         const i = propPick(ray); if (i < 0) return;
         sim.boost[i] = sim.boost[i] > 0 ? 0 : 0.05;
@@ -298,6 +320,7 @@ export default {
       gust.visible = true; L.gust.show(true); gustOn = true; narrate = describe;
       gust.set(new THREE.Vector3(HOME[0] - 0.66, HOME[1] + 0.03, HOME[2]), new THREE.Vector3(1, 0, 0), 0.32);
       sim.extP = -0.7; sim.extF = 1.5;
+      holdUntilRest(() => !sim.extP && !sim.extF);
       await new Promise((r) => setTimeout(r, 320)); sim.extP = 0; sim.extF = 0;
       if (my !== epoch || tok !== gustToken) return;
       // Keep a faint copy of the most tipped moment, so the correction stays readable after it ends.
@@ -321,24 +344,25 @@ export default {
 
     return {
       steps: [
-        { text: 'Four motors, a battery and a flight computer. Two propellers spin clockwise and two counter-clockwise.',
+        { text: STEP_TEXT[0],
           enter: async () => {
-            const my = reset(HOME); spinning(false);
+            const my = reset(HOME); spinning(false); stage.focus(quad.root);
             tapMode = 'parts'; stage.hoverPick((ray) => model.pick(ray)); ui.hint('Tap a part');
+            ui.parts(partsList, tapPart, (p) => model.selected === p);
             frame([0, 0.6, 0], [0.75, 0.6, 1], 0.36, 0.25, 1.1);
             await model.animateExplode(1, 0.9); if (my !== epoch) return;
             L.motor.show(true); L.battery.show(true); L.computer.show(true);
-            await new Promise((r) => setTimeout(r, 1700)); if (my !== epoch) return;
+            await new Promise((r) => setTimeout(r, reduceMotion ? 0 : 1700)); if (my !== epoch) return;
             L.motor.show(false); L.battery.show(false); L.computer.show(false);
             await model.animateExplode(0, 0.9); if (my !== epoch) return;
             spinArcs.forEach((a) => { a.visible = true; });
             L.cw.show(true); L.ccw.show(true);
           },
-          leave: () => { tapMode = null; model.select(null); ui.card(null); ui.hint(''); } },
+          leave: () => { tapMode = null; model.select(null); ui.card(null); ui.hint(''); ui.parts(null); } },
 
-        { text: 'Spin all four at the same speed and it hovers: together they lift exactly its weight. Faster together, it climbs.',
+        { text: STEP_TEXT[1],
           enter: async () => {
-            reset(HOME); spinning(true); showThrust(true); weight.visible = true;
+            reset(HOME); spinning(true); showThrust(true); weight.visible = true; stage.focus(quad.root, weight);
             L.lift.show(true); L.weight.show(true);
             showOpts(['hover', 'climb']); tryIt.set('hover');
             onPreset = (id) => runClimb(id === 'climb' ? 0.95 : HOME[1]);
@@ -346,9 +370,11 @@ export default {
             await frame([0, 0.55, 0], [0.55, 0.22, 1], 0.42, 0.52, 1.1);
           } },
 
-        { text: 'Now fly forward. No propeller points forward, so something else has to push it that way.',
+        { text: STEP_TEXT[2],
           enter: async () => {
             const my = reset(START); spinning(true); showThrust(true);
+            // Wide stages show the whole flight; narrow ones follow the drone.
+            stage.focus(quad.root, ...(narrow() ? [] : [START, [-START[0], START[1], START[2]]]));
             L.front.show(true); L.back.show(true);
             narrate = describe;
             await (narrow() ? frame([START[0] + 0.2, 0.56, 0], [0, 0.16, 1], 0.55, 0.3, 1.1) : frame([0, 0.56, 0], [0, 0.16, 1], 1.3, 0.34, 1.1)); if (my !== epoch) return;
@@ -360,9 +386,9 @@ export default {
             await runForward(); if (my === epoch) again.show(true);
           } },
 
-        { text: 'To turn, speed up one spinning pair and slow the other. Their extra twist turns the whole drone the opposite way.',
+        { text: STEP_TEXT[3],
           enter: async () => {
-            const my = reset(HOME); spinning(true); showThrust(true);
+            const my = reset(HOME); spinning(true); showThrust(true); stage.focus(quad.root, yawArc);
             spinArcs.forEach((a, i) => { a.visible = true; a.setRole(ROTORS[i].dir > 0 ? 'focus' : 'ref'); });
             yawArc.visible = true; L.pair.show(true); L.turn.show(true);
             narrate = describe;
@@ -371,11 +397,11 @@ export default {
             await runTurn();
           } },
 
-        { text: 'The flight computer rebalances the four speeds hundreds of times a second to hold the tilt it wants. This is attitude control.',
+        { text: STEP_TEXT[4],
           enter: async () => {
-            reset(HOME); spinning(true); showThrust(true);
+            reset(HOME); spinning(true); showThrust(true); stage.focus(quad.root, gust);
             model.highlight([P.computer], 'focus'); L.fc.show(true);
-            suffix = `<br>PX4, open-source flight software used on many drones, runs this correction <b>${RATE_HZ} times a second</b> by default.`;
+            suffix = `<br>PX4, flight software that many drones run, makes this correction <b>${RATE_HZ} times a second</b> by default.`;
             narrate = () => (sim.manual ? adjustText() : describe());
             showOpts(['climb', 'forward', 'turn', 'adjust']);
             onPreset = async (id) => {
