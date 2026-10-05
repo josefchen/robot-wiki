@@ -6,7 +6,7 @@ const scenes = [
   {
     id: 'batch-scale',
     route: '/rl-sim2real/parallel-sim-rl/',
-    captions: [/64 parallel environments/i, /4,096 environments/i, /CPU-side work/i, /16,384 environments/i],
+    captions: [/64 virtual robots/i, /4,096 robots/i, /main computer/i, /16,384 virtual robots/i],
   },
   {
     id: 'gait-support',
@@ -181,15 +181,15 @@ test('paired RL stage labels render at least twelve CSS pixels across every reve
           expect(sizes.some((label) => !label.annotated), `${id} ${width} ${beat} unannotated text covered`).toBe(true);
           const texts = sizes.map((label) => label.text);
           expect(texts, `${id} ${width} ${beat} stage heading`).toContain(
-            id === 'gait-support' ? 'feet on ground · sampled cycle' : 'toy fixed-transition budget',
+            id === 'gait-support' ? 'Walk' : 'training time',
           );
           if (id === 'gait-support') {
-            expect(texts, `${id} ${width} ${beat} toy disclosure`).toContain(
-              'illustrative phases · no measured footfall data',
+            expect(texts, `${id} ${width} ${beat} toy disclosure`).toEqual(
+              expect.arrayContaining(['schematic,', 'not measured']),
             );
           } else if (beat === 'poster' || beat === 'beat 4') {
-            expect(texts, `${id} ${width} ${beat} recap`).toContain(
-              'same budget · different iteration cost',
+            expect(texts, `${id} ${width} ${beat} recap`).toEqual(
+              expect.arrayContaining(['16,384 at once:', 'about 1.5 minutes']),
             );
           }
           for (const label of sizes) expect(label.px, `${id} ${width} ${beat} ${label.text}`).toBeGreaterThanOrEqual(12);

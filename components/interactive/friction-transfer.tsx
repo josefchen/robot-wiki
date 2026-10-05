@@ -8,32 +8,31 @@ import {
   INSTRUMENT_SLIDER_CLASS,
   InstrumentFigure,
   InstrumentLegend,
-  InstrumentReadout,
   InstrumentReset,
   LegendItem,
   PlotStage,
+  SliderEnds,
 } from '@/components/ui/instrument';
-import { FigureStage } from '@/components/motion/figure-frame';
+import { FigureStage, StageStatus } from '@/components/motion/figure-frame';
 import {
   CHART_STROKE,
   CHART_STRUCTURE,
   CHART_TYPE,
   CHART_VIEW_WIDTH,
   ChartAxes,
+  DirectLabel,
   LegendSwatch,
   PointMarker,
+  StageAnnotation,
   roleColour,
 } from '@/components/motion/chart';
 import {
   DEFAULT_DR_RANGE,
-  DEFAULT_REAL_MU,
   DR_RANGE_MAX,
   DR_RANGE_MIN,
   MU_MAX,
   MU_MIN,
   MU_TRAIN,
-  POINT_PEAK,
-  POINT_SIGMA,
   drCurvePoints,
   drPeak,
   drSuccess,
@@ -48,15 +47,24 @@ import {
  * The selected friction and half-width drive deterministic formulas.
  * Peak-versus-width coupling is a local assumption, not a paper result.
  *
+ * The robot trained on one floor (the point curve) is the grey dashed
+ * spike; the robot trained on many floors (the domain-randomized curve) is
+ * the solid value-coloured plateau. The real floor starts at 0.50, where
+ * the spike has already fallen to zero and the plateau still holds, so the
+ * first frame shows why randomization is used.
+ *
  * Interactive contract: deterministic initial render, native range inputs
- * (keyboard-accessible) plus pointer drag on the real-robot line, visible
- * readouts, reset control, fixed SVG viewport (no layout shift), no
+ * (keyboard-accessible) plus pointer drag on the real-floor line, readouts
+ * one click away, reset control, fixed SVG viewport (no layout shift), no
  * JS-driven motion (scrub-only, so reduced-motion safe by construction).
  */
 
 const WIDTH = CHART_VIEW_WIDTH;
-const HEIGHT = 244;
-const PLOT = { left: 48, right: 322, top: 38, bottom: 198 } as const;
+const HEIGHT = 242;
+const PLOT = { left: 72, right: 326, top: 86, bottom: 210 } as const;
+
+/** The real floor the figure opens on: more slippery than the practice floor. */
+export const OPENING_REAL_MU = 0.5;
 
 /** Round to 2 decimals so SSR HTML and client hydration serialize identically. */
 const f = (v: number) => Number(v.toFixed(2));
@@ -70,12 +78,7 @@ function yFor(success: number): number {
   return f(PLOT.bottom - success * (PLOT.bottom - PLOT.top));
 }
 
-// The 0.20 origin tick is drawn apart from these: centred like the others,
-// its label ran into the 0% tick label at narrow widths, so it starts at
-// its tick. The axis still labels both ends of the plotted range, which
-// the sampled table's first and last rows carry.
-const X_TICKS = [0.5, 0.8, 1.1, 1.5] as const;
-const Y_TICKS = [0, 0.25, 0.5, 0.75, 1] as const;
+const Y_TICKS = [0, 0.5, 1] as const;
 
 const POINT_POINTS = pointCurvePoints();
 
@@ -83,36 +86,40 @@ function polyline(points: Array<{ mu: number; success: number }>): string {
   return points.map((p) => `${xFor(p.mu)},${yFor(p.success)}`).join(' ');
 }
 
-const LABEL_GAP = 4;
-/** "DR 74%" at the label size, in stage units. */
-const DR_LABEL_WIDTH = CHART_TYPE.labelPx * 3.6;
-
-/** Where the point curve's rising edge crosses a success level. */
-function pointEdgeMu(level: number): number {
-  if (level >= POINT_PEAK) return MU_TRAIN;
-  return MU_TRAIN - POINT_SIGMA * Math.sqrt(2 * Math.log(POINT_PEAK / level));
-}
-
-/**
- * The point curve's spike splits the DR plateau in two. The plateau label
- * sits on the plateau's left segment when it fits between the band edge and
- * the spike, and just left of the band otherwise, so it never crosses a curve.
- */
-function drLabelPlacement(range: number, peak: number) {
-  const bandLeft = xFor(Math.max(MU_MIN, MU_TRAIN - range));
-  const room = xFor(pointEdgeMu(peak)) - (bandLeft + LABEL_GAP);
-  const inside = room >= DR_LABEL_WIDTH + LABEL_GAP;
-  return {
-    x: f(inside ? bandLeft + LABEL_GAP : bandLeft - LABEL_GAP),
-    y: f(yFor(peak) - 6),
-    anchor: inside ? ('start' as const) : ('end' as const),
-  };
-}
-
 const formatSuccessTick = (t: number) => `${Math.round(t * 100)}%`;
 
+/** The practice floors as plain words: "0.45 to 1.15". */
+const floorSpan = (range: number) =>
+  `${formatMu(Math.max(MU_MIN, MU_TRAIN - range))} to ${formatMu(Math.min(MU_MAX, MU_TRAIN + range))}`;
+
+/** The real floor in words, against the one practice floor. */
+function floorWords(mu: number): string {
+  const gap = mu - MU_TRAIN;
+  if (Math.abs(gap) < 0.05) return 'like the practice floor';
+  if (gap < -0.25) return 'much more slippery';
+  if (gap < 0) return 'a bit more slippery';
+  return gap > 0.25 ? 'much grippier' : 'a bit grippier';
+}
+
+/** How widely the practice floors spread, in words. */
+const spreadWords = (range: number) =>
+  range <= 0.15 ? 'a narrow spread' : range <= 0.4 ? 'a middling spread' : 'a wide spread';
+
+function annotationLines(realMu: number, point: number, dr: number): string[] {
+  if (point >= dr) return ['On the practice floor itself the', `one-floor robot wins, ${formatPct(point)} against ${formatPct(dr)}`];
+  if (dr < 0.2) return ['Far from every practice floor,', 'both robots mostly fail'];
+  if (point < 0.1) {
+    return [
+      `Floor ${realMu < MU_TRAIN ? 'more slippery' : 'grippier'} than practised:`,
+      'the one-floor robot fails, the',
+      'many-floor robot keeps going',
+    ];
+  }
+  return ['Off the practice floor the many-floor', `robot does better, ${formatPct(dr)} against ${formatPct(point)}`];
+}
+
 export function FrictionTransfer({
-  defaultRealMu = DEFAULT_REAL_MU,
+  defaultRealMu = OPENING_REAL_MU,
   defaultRange = DEFAULT_DR_RANGE,
   className,
 }: {
@@ -175,20 +182,24 @@ export function FrictionTransfer({
   );
   const bandLeft = xFor(Math.max(MU_MIN, MU_TRAIN - range));
   const bandRight = xFor(Math.min(MU_MAX, MU_TRAIN + range));
-  const drLabel = drLabelPlacement(range, drPeakValue);
   const valueColour = roleColour('value');
+  const greyColour = roleColour('reference');
   const highlightColour = roleColour('highlight');
+  const realLabelX = Math.min(PLOT.right - 34, Math.max(PLOT.left + 34, lineX));
+  const practiceX = xFor(MU_TRAIN);
+  const higher = point > dr ? 'point curve is higher' : 'DR curve is higher';
 
   return (
     <InstrumentFigure
       figureId="friction-transfer"
       className={className}
-      heading="Task success across ground friction"
+      kicker="Domain randomization"
+      heading="A specialist wins on one floor; a generalist survives many"
       controls={
         <>
           <ControlField>
-            <ControlLabel htmlFor={`${uid}-real-mu`} value={formatMu(realMu)}>
-              Real robot mu
+            <ControlLabel htmlFor={`${uid}-real-mu`} value={floorWords(realMu)}>
+              Real floor
             </ControlLabel>
             <input
               id={`${uid}-real-mu`}
@@ -202,13 +213,11 @@ export function FrictionTransfer({
               aria-label={`Real robot friction, currently ${formatMu(realMu)}`}
               className={INSTRUMENT_SLIDER_CLASS}
             />
+            <SliderEnds low="slippery" high="grippy" />
           </ControlField>
           <ControlField>
-            <ControlLabel
-              htmlFor={`${uid}-range`}
-              value={`+/- ${formatMu(range)}`}
-            >
-              DR half-width
+            <ControlLabel htmlFor={`${uid}-range`} value={spreadWords(range)}>
+              Range of practice floors
             </ControlLabel>
             <input
               id={`${uid}-range`}
@@ -222,62 +231,27 @@ export function FrictionTransfer({
               aria-label={`Randomization half-width, currently plus or minus ${formatMu(range)}`}
               className={INSTRUMENT_SLIDER_CLASS}
             />
+            <SliderEnds low="nearly one floor" high="many floors" />
           </ControlField>
-          <InstrumentReset onClick={reset} />
         </>
       }
+      adjust={<InstrumentReset onClick={reset} />}
       stage={
         <FigureStage
           footer={
             <>
               <InstrumentLegend>
-                <LegendItem series="point-policy" swatch={<LegendSwatch role="value" mark="dash" />}>
-                  trained at mu = {formatMu(MU_TRAIN)} only
+                <LegendItem series="point-policy" swatch={<LegendSwatch role="reference" mark="dash" />}>
+                  trained on one floor
                 </LegendItem>
                 <LegendItem series="dr-policy" swatch={<LegendSwatch role="value" mark="line" />}>
-                  trained over uniform mu in [{formatMu(MU_TRAIN - range)},{' '}
-                  {formatMu(MU_TRAIN + range)}]
+                  trained on many floors
                 </LegendItem>
-                <LegendItem series="training-range" swatch={<LegendSwatch role="reference" mark="dash" />}>
-                  assumed training range
-                </LegendItem>
-                <LegendItem series="real-robot" swatch={<LegendSwatch role="highlight" mark="line" />}>
-                  selected real-robot friction
+                <LegendItem series="training-range" swatch={<BandSwatch />}>
+                  the many practice floors
                 </LegendItem>
               </InstrumentLegend>
-              <InstrumentReadout>
-                Real robot mu{' '}
-                <span data-testid="real-mu-readout" style={{ color: highlightColour }}>
-                  {formatMu(realMu)}
-                </span>
-                : point policy{' '}
-                <span data-testid="point-readout" style={{ color: valueColour }}>
-                  {formatPct(point)}
-                </span>
-                , DR policy{' '}
-                <span data-testid="dr-readout" style={{ color: valueColour }}>
-                  {formatPct(dr)}
-                </span>
-                , edge{' '}
-                <span data-testid="delta-readout">
-                  {deltaPts >= 0
-                    ? `DR +${deltaPts} pts`
-                    : `point +${-deltaPts} pts`}
-                </span>
-              </InstrumentReadout>
-              <ChartDescription
-                id={`${uid}-ft-description`}
-                form="table"
-                summary="Sampled task success against ground friction"
-                rowHeader="mu"
-                columns={[
-                  { header: 'point policy', numeric: true },
-                  { header: 'DR policy', numeric: true },
-                  { header: 'playhead', numeric: false },
-                ]}
-                rows={sampleRows}
-                description={descriptionText}
-              />
+              <StageStatus>Illustrative, not measured</StageStatus>
             </>
           }
         >
@@ -292,46 +266,49 @@ export function FrictionTransfer({
             onPointerUp={() => setDragging(false)}
             onPointerCancel={() => setDragging(false)}
           >
-            <ChartAxes
-              plot={PLOT}
-              x={xFor}
-              y={yFor}
-              xTicks={X_TICKS}
-              yTicks={Y_TICKS}
-              formatX={formatMu}
-              formatY={formatSuccessTick}
-              xLabel="ground friction coefficient mu"
-            />
+            <StageAnnotation x={8} y={16} lines={annotationLines(realMu, point, dr)} />
+            <ChartAxes plot={PLOT} x={xFor} y={yFor} yTicks={Y_TICKS} formatY={formatSuccessTick} />
+            <text
+              data-scene-axis=""
+              transform={`rotate(-90 16 ${f((PLOT.top + PLOT.bottom) / 2)})`}
+              x={16}
+              y={f((PLOT.top + PLOT.bottom) / 2)}
+              textAnchor="middle"
+              fontSize={CHART_TYPE.axisPx}
+              fill={CHART_STRUCTURE.labelSecondary}
+            >
+              chance of success
+            </text>
             <g data-chart-axes="">
               <line
-                x1={xFor(MU_MIN)}
-                x2={xFor(MU_MIN)}
+                x1={practiceX}
+                x2={practiceX}
                 y1={PLOT.bottom}
                 y2={PLOT.bottom + CHART_STROKE.tickLength}
                 stroke={CHART_STRUCTURE.axes}
                 strokeWidth={CHART_STROKE.structure}
                 opacity={CHART_STRUCTURE.axesOpacity}
               />
-              <text
-                data-scene-tick=""
-                x={xFor(MU_MIN)}
-                y={PLOT.bottom + CHART_STROKE.tickLength + CHART_TYPE.tickPx}
-                textAnchor="start"
-                fontSize={CHART_TYPE.tickPx}
-                fill={CHART_STRUCTURE.labelSecondary}
-              >
-                {formatMu(MU_MIN)}
-              </text>
+              {(
+                [
+                  [PLOT.left, 'start', 'slippery'],
+                  [practiceX, 'middle', 'practice floor'],
+                  [PLOT.right, 'end', 'grippy'],
+                ] as const
+              ).map(([x, anchor, word]) => (
+                <text
+                  key={word}
+                  data-scene-tick=""
+                  x={x}
+                  y={PLOT.bottom + CHART_STROKE.tickLength + CHART_TYPE.tickPx + 2}
+                  textAnchor={anchor}
+                  fontSize={CHART_TYPE.tickPx}
+                  fill={CHART_STRUCTURE.labelSecondary}
+                >
+                  {word}
+                </text>
+              ))}
             </g>
-            <text
-              data-scene-axis=""
-              x={PLOT.left}
-              y={PLOT.top - 16}
-              fontSize={CHART_TYPE.axisPx}
-              fill={CHART_STRUCTURE.labelSecondary}
-            >
-              task success
-            </text>
 
             <g data-testid="dr-band" data-series="training-range">
               <rect
@@ -351,9 +328,10 @@ export function FrictionTransfer({
                   x2={xFor(mu)}
                   y1={PLOT.top}
                   y2={PLOT.bottom}
-                  stroke={roleColour('reference')}
-                  strokeWidth={CHART_STROKE.reference}
+                  stroke={greyColour}
+                  strokeWidth={CHART_STROKE.structure}
                   strokeDasharray={CHART_STROKE.dash}
+                  opacity={0.6}
                 />
               ))}
             </g>
@@ -362,10 +340,10 @@ export function FrictionTransfer({
               data-testid="point-curve"
               data-series="point-policy"
               data-chart-mark="line"
-              data-chart-role="value"
+              data-chart-role="reference"
               points={polyline(POINT_POINTS)}
               fill="none"
-              stroke={valueColour}
+              stroke={greyColour}
               strokeWidth={CHART_STROKE.trace}
               strokeDasharray={CHART_STROKE.dash}
               strokeLinejoin="round"
@@ -381,27 +359,6 @@ export function FrictionTransfer({
               strokeWidth={CHART_STROKE.trace}
               strokeLinejoin="round"
             />
-
-            <text
-              data-chart-label=""
-              x={f(xFor(MU_TRAIN) + 8)}
-              y={f(yFor(POINT_PEAK) + 5)}
-              fontSize={CHART_TYPE.labelPx}
-              fill={valueColour}
-            >
-              point {formatPct(POINT_PEAK)}
-            </text>
-            <text
-              data-testid="dr-peak-label"
-              data-chart-label=""
-              x={drLabel.x}
-              y={drLabel.y}
-              textAnchor={drLabel.anchor}
-              fontSize={CHART_TYPE.labelPx}
-              fill={valueColour}
-            >
-              DR {formatPct(drPeakValue)}
-            </text>
 
             <g data-testid="real-line" data-series="real-robot" data-selection="">
               <line
@@ -432,9 +389,12 @@ export function FrictionTransfer({
                 }}
               />
             </g>
+            <DirectLabel x={realLabelX} y={PLOT.top - 14} anchor="middle" role="highlight">
+              real floor
+            </DirectLabel>
 
             <g data-testid="point-marker" data-series="point-policy">
-              <PointMarker x={lineX} y={yFor(point)} role="value" />
+              <PointMarker x={lineX} y={yFor(point)} role="reference" />
             </g>
             <g data-testid="dr-marker" data-series="dr-policy">
               <PointMarker x={lineX} y={yFor(dr)} role="value" />
@@ -442,13 +402,66 @@ export function FrictionTransfer({
           </PlotStage>
         </FigureStage>
       }
-      caption="In this authored toy, the point policy peaks sharply at its training friction; randomized training trades that peak for breadth."
-      source={
-        <span data-testid="ft-explanation">
-          All curves are authored formulas, not trained policies or robot
-          data; every value and the falling DR peak are local assumptions.
-        </span>
+      caption="Real floors never match the simulator exactly, so engineers vary the practice world on purpose to get robots that cope everywhere."
+      method={
+        <>
+          <p>
+            Friction is the ground friction coefficient, mu: low is slippery, high is grippy. The robot trained on one
+            floor is a point policy trained at mu {formatMu(MU_TRAIN)} only. The robot trained on many floors is a
+            domain-randomized (DR) policy trained over uniform mu in [{formatMu(MU_TRAIN - range)},{' '}
+            {formatMu(MU_TRAIN + range)}], a half-width of {formatMu(range)} either side of the practice floor; the
+            shaded band is that assumed training range, not a confidence interval.
+          </p>
+          <p>
+            Real robot mu{' '}
+            <span data-testid="real-mu-readout" style={{ color: highlightColour }}>
+              {formatMu(realMu)}
+            </span>
+            : point policy <span data-testid="point-readout">{formatPct(point)}</span>, DR policy{' '}
+            <span data-testid="dr-readout" style={{ color: valueColour }}>
+              {formatPct(dr)}
+            </span>
+            , edge{' '}
+            <span data-testid="delta-readout">
+              {deltaPts >= 0 ? `DR +${deltaPts} pts` : `point +${-deltaPts} pts`}
+            </span>
+            . The practice floors span friction {floorSpan(range)}, and the DR plateau is{' '}
+            <span data-testid="dr-peak-label">DR {formatPct(drPeakValue)}</span>; the point peak is{' '}
+            {formatPct(pointSuccess(MU_TRAIN))}.
+          </p>
+          <p data-testid="ft-explanation">
+            At friction {formatMu(realMu)} the {higher}. All curves are authored formulas, not trained policies or
+            robot data, and not measured robot performance. All values and the falling DR peak are local
+            assumptions: the plateau height is 0.93 minus 0.55 times the half-width, so it widens and falls together,
+            74% at half-width 0.35 and 57% at 0.65. These authored values do not come from Peng paper results, and
+            domain randomization has no measured universal law of this shape.
+          </p>
+          <ChartDescription
+            id={`${uid}-ft-description`}
+            form="table"
+            open
+            summary="Sampled task success against ground friction"
+            rowHeader="mu"
+            columns={[
+              { header: 'point policy', numeric: true },
+              { header: 'DR policy', numeric: true },
+              { header: 'playhead', numeric: false },
+            ]}
+            rows={sampleRows}
+            description={descriptionText}
+          />
+        </>
       }
+      source="All curves are authored formulas, not trained policies or robot data; every value and the falling DR peak are local assumptions."
     />
+  );
+}
+
+/** The practice-floor band's legend swatch: the band's own quiet fill. */
+function BandSwatch() {
+  return (
+    <svg aria-hidden="true" focusable="false" width={28} height={14} viewBox="0 0 28 14" className="shrink-0">
+      <rect x={0} y={0} width={28} height={14} fill={CHART_STRUCTURE.grid} opacity={CHART_STRUCTURE.gridOpacity} />
+    </svg>
   );
 }

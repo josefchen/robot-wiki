@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { openAdjustMore } from './helpers/figure-fold';
 
 /**
  * RL reward-design + MPC module. The module shipped with unit and component
@@ -18,7 +19,8 @@ test.describe('RL reward-design and MPC module', () => {
     await expect(page.getByTestId('quad-preview')).toBeVisible();
     await expect(page.getByTestId('total-readout')).toContainText(/\/ step/);
     await expect(page.getByTestId('behavior-status')).toContainText(/balanced/i);
-    // Twelve weight sliders, all labelled.
+    // Twelve weight sliders, all labelled, in "Adjust more".
+    await openAdjustMore(panel);
     const sliders = panel.getByRole('slider');
     expect(await sliders.count()).toBe(12);
   });
@@ -26,6 +28,8 @@ test.describe('RL reward-design and MPC module', () => {
   test('a dominant torque weight flips the behavior readout; reset restores it', async ({ page }) => {
     await page.goto(ROUTE, { waitUntil: 'networkidle' });
     await expect(page.getByTestId('behavior-status')).toContainText(/balanced/i);
+    const panel = page.locator('[data-figure-frame="reward-shaping"]');
+    await openAdjustMore(panel);
     // Find the torque slider by its accessible name and push it high.
     const torque = page.getByRole('slider', { name: /torque/i });
     await torque.focus();
@@ -35,7 +39,6 @@ test.describe('RL reward-design and MPC module', () => {
     await expect(page.getByTestId('behavior-status')).toContainText(/freeze/i);
     // Three interactives on this page carry a Reset; scope to the
     // reward-shaping figure frame.
-    const panel = page.locator('[data-figure-frame="reward-shaping"]');
     await panel.getByRole('button', { name: 'Reset' }).click();
     await expect(page.getByTestId('behavior-status')).toContainText(/balanced/i);
   });

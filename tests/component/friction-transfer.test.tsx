@@ -31,8 +31,32 @@ describe('FrictionTransfer', () => {
     expect(screen.getByRole('button', { name: /reset/i })).toBeInTheDocument();
   });
 
-  it('defaults to the training friction with the point policy ahead', () => {
+  it('opens on a floor more slippery than practised, where the many-floor robot wins', () => {
+    const { container } = render(<FrictionTransfer />);
+    expect(readout('real-mu-readout')).toBe('0.50');
+    expect(readout('point-readout')).toBe('0%');
+    expect(readout('dr-readout')).toBe('74%');
+    expect(readout('delta-readout')).toMatch(/DR \+\d+ pts/);
+    expect(container.querySelector('[data-figure-title]')).toHaveTextContent(
+      'A specialist wins on one floor; a generalist survives many',
+    );
+    const note = container.querySelectorAll('[data-figure-annotation]');
+    expect(note).toHaveLength(1);
+    expect(note[0]).toHaveTextContent(/one-floor robot fails/);
+    // Both sliders are in view, named in plain words; Reset sits in Adjust more.
+    const controls = container.querySelector('[data-figure-controls]')!;
+    expect(controls).toContainElement(realMuSlider());
+    expect(controls).toContainElement(rangeSlider());
+    expect(controls).toHaveTextContent('much more slippery');
+    expect(controls).toHaveTextContent('a middling spread');
+    expect(container.querySelector('details[data-figure-fold="adjust"]')).toContainElement(
+      screen.getByRole('button', { name: /reset/i }),
+    );
+  });
+
+  it('on the training friction itself the point policy is ahead', () => {
     render(<FrictionTransfer />);
+    fireEvent.change(realMuSlider(), { target: { value: '80' } });
     expect(readout('real-mu-readout')).toBe('0.80');
     expect(readout('point-readout')).toBe('97%');
     expect(readout('dr-readout')).toBe('74%');
@@ -65,8 +89,8 @@ describe('FrictionTransfer', () => {
     fireEvent.change(realMuSlider(), { target: { value: '120' } });
     fireEvent.change(rangeSlider(), { target: { value: '65' } });
     await user.click(screen.getByRole('button', { name: /reset/i }));
-    expect(readout('real-mu-readout')).toBe('0.80');
-    expect(readout('point-readout')).toBe('97%');
+    expect(readout('real-mu-readout')).toBe('0.50');
+    expect(readout('point-readout')).toBe('0%');
     expect(readout('dr-readout')).toBe('74%');
   });
 
@@ -82,7 +106,7 @@ describe('FrictionTransfer', () => {
     expect(rows).toBeGreaterThanOrEqual(5);
     expect(rows).toBeLessThanOrEqual(10);
     const before = desc?.textContent ?? '';
-    fireEvent.change(realMuSlider(), { target: { value: '50' } });
+    fireEvent.change(realMuSlider(), { target: { value: '80' } });
     expect(container.querySelector('[data-chart-description]')?.textContent).not.toBe(
       before,
     );
@@ -103,7 +127,7 @@ describe('FrictionTransfer', () => {
     fireEvent.change(realMuSlider(), { target: { value: '20' } });
     fireEvent.change(rangeSlider(), { target: { value: '10' } });
     fireEvent.click(screen.getByRole('button', { name: /reset/i }));
-    expect(readout('real-mu-readout')).toBe('0.80');
+    expect(readout('real-mu-readout')).toBe('0.50');
     expect(readout('dr-readout')).toBe('57%');
   });
 

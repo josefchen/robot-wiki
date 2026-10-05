@@ -132,6 +132,30 @@ describe('RewardShaping', () => {
     expect(desc).not.toMatch(/stay below/);
   });
 
+  it('each named scoring rule selects its walk, and Balanced score restores the trot', async () => {
+    const user = userEvent.setup();
+    render(<RewardShaping />);
+    const balanced = screen.getByRole('button', { name: 'Balanced score' });
+    expect(balanced.getAttribute('aria-pressed')).toBe('true');
+    for (const [preset, status, walk] of [
+      ['Too strict on effort', /freez/i, 'Stands still'],
+      ['Loves high steps', /pranc/i, 'Bounces in place'],
+      ['Ignores jerky moves', /chatter/i, 'Legs jitter'],
+    ] as const) {
+      await user.click(screen.getByRole('button', { name: preset }));
+      expect(statusText()).toMatch(status);
+      expect(screen.getByTestId('walk-readout').textContent).toBe(walk);
+      expect(screen.getByTestId('robot-dog-ghost')).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: preset }).getAttribute('aria-pressed')).toBe('true');
+    }
+    await user.click(balanced);
+    expect(statusText()).toMatch(/balanced/i);
+    expect(screen.getByTestId('walk-readout').textContent).toBe('Steady trot');
+    expect(screen.queryByTestId('robot-dog-ghost')).not.toBeInTheDocument();
+    const expected = weightedTotal(defaultWeights()).toFixed(2);
+    expect(screen.getByTestId('total-readout').textContent).toContain(expected);
+  });
+
   it('play toggles to pause and back', async () => {
     const user = userEvent.setup();
     render(<RewardShaping />);

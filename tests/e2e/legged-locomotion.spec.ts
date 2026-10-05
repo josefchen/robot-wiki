@@ -136,14 +136,14 @@ test.describe('legged-locomotion module', () => {
     await page.keyboard.press('ArrowRight');
     // Three feet always down, then two, then a flight phase with none.
     const readout = scene.getByTestId('motion-readout');
-    await expect(readout).toContainText(/walk\s*minimum support 3 feet/i);
+    await expect(readout).toContainText(/walk:\s*at least 3 feet on the ground/i);
     await openAdjustMore(scene);
     const forward = scene.getByRole('button', { name: 'Step forward one beat' });
     await expect(forward).toHaveText('Step forward');
     await forward.click();
-    await expect(readout).toContainText(/trot\s*minimum support 2 feet/i);
+    await expect(readout).toContainText(/trot:\s*at least 2 feet on the ground/i);
     await forward.click();
-    await expect(readout).toContainText(/bound\s*minimum support 0 feet/i);
+    await expect(readout).toContainText(/bound:\s*at times no feet on the ground/i);
   });
 
   test('zero axe violations', async ({ page }) => {

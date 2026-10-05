@@ -1,5 +1,6 @@
 import { expect, test, type Locator } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
 import {
   ROOT, DIRECTORY, BROWSER, rewardDisclosure, eurekaDisclosure, defaults,
   rewardRecipe, eurekaRecipe, extract, dependencies, artifact, save,
@@ -58,6 +59,10 @@ test('observes the mounted authored reward and complete scripted replay', async 
     await reward.getByRole('button', { name: 'Reset', exact: true }).click();
     await expect(page.getByTestId('behavior-status')).toHaveText('balanced gait');
   }
+  // The twelve weight sliders and the Reset sit in the figure's "Adjust more";
+  // the category and weighted-total readouts sit in "How this was made".
+  await openAdjustMore(reward);
+  await openHowThisWasMade(reward);
   await expect(reward.getByRole('slider')).toHaveCount(12);
   const ids = await reward.getByRole('slider').evaluateAll(nodes => nodes.map(n => n.id.replace('rs-', '')));
   expect(ids).toEqual(Object.keys(defaults));

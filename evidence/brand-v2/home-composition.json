@@ -610,8 +610,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "The Evaluation Crisis",
-      "href": "/data-hardware/evaluation-crisis/",
+      "accessibleName": "The Robot Learning Stack",
+      "href": "/data-hardware/robot-learning-stack/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 932.28,
@@ -985,8 +985,8 @@
     {
       "label": "Featured article",
       "signature": "plain/module-heading/lead-excerpt",
-      "prose": "The evaluation crisis is the gap between the success rates robot learning papers report and what those rates can establish.",
-      "text": "Featured article The Evaluation Crisis The evaluation crisis is the gap between the success rates robot learning papers report and what those rates can establish."
+      "prose": "A robot-learning system is a pipeline from physical events to decisions and back again. The checkpoint is one component.",
+      "text": "Featured article The Robot Learning Stack A robot-learning system is a pipeline from physical events to decisions and back again. The checkpoint is one component."
     },
     {
       "label": "Featured scene",

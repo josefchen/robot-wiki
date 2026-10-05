@@ -5,6 +5,7 @@ import { join } from 'node:path';
 import matter from 'gray-matter';
 import { modulesByDomain } from '../../data/modules';
 import { setSlider } from './slider';
+import { openAdjustMore } from './helpers/figure-fold';
 
 /**
  * RL for Robotics (VAL-RL-001, 035 through 041).
@@ -342,6 +343,8 @@ test.describe('rl-for-robotics module', () => {
   }) => {
     await page.goto(ROUTE);
     await expect(page.getByTestId('sample-efficiency')).toBeVisible();
+    // The source choice and its exact readouts sit in "Adjust more".
+    await openAdjustMore(page.getByTestId('sample-efficiency'));
 
     // The default budget, then a second one, both measured through the
     // reader-visible readouts.
@@ -417,6 +420,8 @@ test.describe('rl-for-robotics module', () => {
 
     await setSlider(slider(page, 'budget'), 9.6);
     await setSlider(slider(page, 'fleet'), 61);
+    // The source choice and Reset sit in "Adjust more".
+    await openAdjustMore(page.getByTestId('sample-efficiency'));
     await page.getByTestId('sample-source-fleet').check();
     expect(await readout(page, 'sample-budget-value')).not.toBe(opening.budget);
 

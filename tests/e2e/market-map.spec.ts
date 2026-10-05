@@ -325,7 +325,7 @@ test.describe('market map visualization', () => {
     // uppercasing them. Once the uppercase transform came off they rendered
     // literally lowercase. innerText is the instrument that can see this:
     // it reflects text-transform, textContent does not.
-    const cases: ReadonlyArray<{ route: string; labels: readonly string[] }> = [
+    const cases: ReadonlyArray<{ route: string; labels: readonly string[]; openFolds?: boolean }> = [
       // The generative-video figure is one stage whose visible controls
       // are the two video-model presets.
       {
@@ -346,15 +346,19 @@ test.describe('market map visualization', () => {
         ],
       },
       // The contact-geometry figure reads its contact count, patch and
-      // tolerance as one readout sentence, so its visible labels are the
-      // error control and the scenario that opens the readout.
+      // tolerance as one readout sentence, so its labels are the error
+      // control and the scenario that opens the readout. Both sit in the
+      // figure's folds, which a reader opens first.
       {
         route: '/rl-sim2real/why-rl-locomotion/',
         labels: ['Contact-model error', 'Locomotion at'],
+        openFolds: true,
       },
+      // The whole-body-control readouts sit in "How this was made".
       {
         route: '/rl-sim2real/humanoid-wbc/',
         labels: ['Representative:', 'Layers:', 'Fastest loop:', 'Motion data'],
+        openFolds: true,
       },
       // The taxonomy figure's one visible control names the form a model
       // imagines; its use tags moved into "Adjust more".
@@ -365,8 +369,16 @@ test.describe('market map visualization', () => {
         labels: ['Downloadable:'],
       },
     ];
-    for (const { route, labels } of cases) {
+    for (const { route, labels, openFolds } of cases) {
       await page.goto(route);
+      if (openFolds) {
+        const summaries = page.locator('article [data-figure-fold] > summary');
+        for (let i = 0; i < await summaries.count(); i += 1) {
+          const summary = summaries.nth(i);
+          await summary.click();
+          await expect(summary.locator('..')).toHaveJSProperty('open', true);
+        }
+      }
       // Match on labels that OPEN an element's rendered text. Substring
       // matching over the whole article would collide with body prose that
       // legitimately contains these phrases lowercase mid-sentence

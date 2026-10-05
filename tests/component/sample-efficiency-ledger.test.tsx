@@ -1,7 +1,7 @@
 import { fireEvent, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
-import { SampleEfficiencyLedger } from '@/components/interactive/sample-efficiency-ledger';
+import { SampleEfficiencyLedger, durationWords, stepWords } from '@/components/interactive/sample-efficiency-ledger';
 import { ANCHORS, BUDGET_SPEC, FLEET_SPEC } from '@/lib/sample-efficiency';
 import { renderWithCitations } from '../helpers/widget-citations';
 
@@ -17,8 +17,11 @@ const readout = (id: string) =>
 describe('SampleEfficiencyLedger', () => {
   it('renders the budget slider, the three sources, the fleet slider and reset', () => {
     render(<SampleEfficiencyLedger />);
-    expect(slider(/environment-step budget/i)).toBeInTheDocument();
-    expect(slider(/robots in the fleet/i)).toBeInTheDocument();
+    // Each slider's accessible name starts with the label printed above it.
+    expect(slider(/^How much practice: the environment-step budget, currently /)).toBeInTheDocument();
+    expect(slider(/^Real robots sharing the work, currently /)).toBeInTheDocument();
+    expect(screen.getByText('How much practice')).toBeInTheDocument();
+    expect(screen.getByText('Real robots sharing the work')).toBeInTheDocument();
     for (const id of ['sim', 'robot', 'fleet']) {
       expect(screen.getByTestId(`sample-source-${id}`)).toBeInTheDocument();
     }
@@ -88,7 +91,7 @@ describe('SampleEfficiencyLedger', () => {
     render(<SampleEfficiencyLedger />);
     await user.click(screen.getByTestId('sample-source-fleet'));
     const small = readout('sample-wallclock-readout');
-    fireEvent.change(slider(/robots in the fleet/i), {
+    fireEvent.change(slider(/real robots sharing the work/i), {
       target: { value: String(FLEET_SPEC.max) },
     });
     expect(readout('sample-wallclock-readout')).not.toBe(small);
@@ -116,7 +119,7 @@ describe('SampleEfficiencyLedger', () => {
     fireEvent.change(slider(/environment-step budget/i), {
       target: { value: '9.5' },
     });
-    fireEvent.change(slider(/robots in the fleet/i), { target: { value: '42' } });
+    fireEvent.change(slider(/real robots sharing the work/i), { target: { value: '42' } });
     await user.click(screen.getByTestId('sample-source-robot'));
     expect(readout('sample-budget-value')).not.toBe(opening.budget);
 
@@ -138,5 +141,23 @@ describe('SampleEfficiencyLedger', () => {
       /environment steps/i,
     );
     expect(screen.getByRole('table')).toBeInTheDocument();
+  });
+  it('says the same practice in words on the stage: minutes in simulation, months on one robot', () => {
+    const { container } = render(<SampleEfficiencyLedger />);
+    const note = container.querySelector('[data-figure-annotation]')?.textContent ?? '';
+    expect(note).toBe('Same practice: about 21 minutes in simulation,about 2.7 months on one robot');
+    expect(readout('sample-budget-value')).toBe('158 million steps');
+    const lanes = [...container.querySelectorAll('[data-series="modelled-lanes"] text')].map((t) => t.textContent);
+    expect(lanes).toEqual(['In simulation: 21 minutes', 'One real robot: 2.7 months', '7 real robots: 12 days']);
+  });
+
+  it('writes durations and step counts in words', () => {
+    expect(durationWords(45)).toBe('45 seconds');
+    expect(durationWords(60)).toBe('1 minute');
+    expect(durationWords(3 * 3600)).toBe('3 hours');
+    expect(durationWords(40 * 86_400)).toBe('40 days');
+    expect(durationWords(3 * 365.25 * 86_400)).toBe('3 years');
+    expect(stepWords(1e5)).toBe('100 thousand steps');
+    expect(stepWords(2.5e9)).toBe('2.5 billion steps');
   });
 });

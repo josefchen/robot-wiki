@@ -374,7 +374,7 @@ describe('state-form chart descriptions', () => {
     const { container } = render(<WbcDecomposition />);
     const { text } = assertDescribed(screen.getByTestId('wbc-diagram'), container);
     expect(text).toMatch(/Motion-tracking RL/);
-    fireEvent.click(screen.getByRole('button', { name: /latent-action hierarchy/i }));
+    fireEvent.click(screen.getByRole('button', { name: /learned movement codes/i }));
     const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
     expect(moved).not.toBe(text);
     expect(moved).toMatch(/Latent-action hierarchy/);

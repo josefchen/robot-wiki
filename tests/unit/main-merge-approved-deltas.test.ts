@@ -778,6 +778,19 @@ describe('two-parent exact approval reconciliation', () => {
       ].map(memberId => ['accessible-names', memberId]),
       ...['generalist-policies', 'knowledge-insulation', 'rl-finetuning']
         .map(slug => ['prose', `article:manipulation/${slug}`]),
+      // The first RL and sim-to-real batch then renamed the two stages that
+      // now draw a robot, and its preset groups took over two group names.
+      ...[
+        'expression:components/interactive/contact-geometry.tsx:aria-label:2',
+        'expression:components/interactive/teacher-student.tsx:aria-label:2',
+        'literal:components/interactive/contact-geometry.tsx:aria-labelledby:1',
+        'literal:components/interactive/wbc-decomposition.tsx:aria-label:1',
+      ].map(memberId => ['accessible-names', memberId]),
+      // The second RL batch then gave the ledger's two sliders the plain
+      // labels they print and moved its source choice below them, which
+      // shifts the unchanged source-button name from ordinal 2 to 3.
+      ...[1, 2, 3].map(ordinal => ['accessible-names',
+        `expression:components/interactive/sample-efficiency-ledger.tsx:aria-label:${ordinal}`]),
     ]);
     expect(merged.slice(afterHowRobotsWork)).toMatchObject(readerFirstManipulationAppends.map(id => ({
       id, responsibleMilestone: 'opus-pass', disposition: 'permanent',

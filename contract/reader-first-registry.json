@@ -11,7 +11,7 @@
         "components/interactive/compounding-error.tsx",
         "lib/compounding-error.ts"
       ],
-      "takeaway": ""
+      "takeaway": "When a robot copies an expert, its small slips pile up: a task twice as long leaves it about four times as far off course."
     },
     {
       "id": "manipulation--action-chunking--temporal-ensembling",
@@ -22,7 +22,7 @@
       "sources": [
         "components/ui/original-schematics.tsx"
       ],
-      "takeaway": ""
+      "takeaway": "The robot's next move blends three overlapping plans, and the oldest plan gets the biggest say."
     },
     {
       "id": "manipulation--action-chunking--latency-comparison",
@@ -34,7 +34,7 @@
         "components/interactive/latency-comparison.tsx",
         "lib/latency-chunking.ts"
       ],
-      "takeaway": ""
+      "takeaway": "Averaging an old plan with a late new one can send the robot on a move neither plan chose, straight into the obstacle."
     },
     {
       "id": "manipulation--diffusion-policy--scene-diffusion-denoising",
@@ -46,7 +46,7 @@
         "components/motion/scenes/diffusion-denoising.tsx",
         "lib/denoising.ts"
       ],
-      "takeaway": ""
+      "takeaway": "Starting from random guesses and cleaning them up, the robot ends with two separate good moves instead of one blurred average."
     },
     {
       "id": "manipulation--vla-models--action-tokenization",
@@ -58,7 +58,7 @@
         "components/interactive/action-tokenization.tsx",
         "lib/action-tokenization.ts"
       ],
-      "takeaway": ""
+      "takeaway": "Each moment of an arm's movement is written as seven words, one for each direction of motion, so a language model can produce it."
     },
     {
       "id": "manipulation--pi-line--flow-matching-trajectory",
@@ -70,7 +70,7 @@
         "components/interactive/flow-matching-trajectory.tsx",
         "lib/flow-matching.ts"
       ],
-      "takeaway": ""
+      "takeaway": "Several small refining steps land on the right move where one big jump misses, and each step costs time."
     },
     {
       "id": "manipulation--comparison-matrix--comparison-matrix",
@@ -84,7 +84,7 @@
         "lib/entity-cells.ts",
         "lib/methods.ts"
       ],
-      "takeaway": ""
+      "takeaway": "Through 2025 every robot model here said how it produces motion, but most 2026 entries do not disclose it."
     },
     {
       "id": "manipulation--hierarchical--hierarchy-timescales",
@@ -96,7 +96,7 @@
         "components/interactive/hierarchy-timescales.tsx",
         "lib/hierarchy-timescales.ts"
       ],
-      "takeaway": ""
+      "takeaway": "A robot's plan changes slowly while its motor commands come fast: about 100 of them while the plan changes twice."
     },
     {
       "id": "manipulation--realtime-execution--control-loop-budget",
@@ -108,7 +108,7 @@
         "components/interactive/control-loop-budget.tsx",
         "lib/control-loop.ts"
       ],
-      "takeaway": ""
+      "takeaway": "The robot's computer takes more than twice as long to choose a move as the arm can wait between commands."
     },
     {
       "id": "manipulation--realtime-execution--execution-modes",
@@ -120,7 +120,7 @@
         "components/interactive/execution-modes.tsx",
         "lib/execution-modes.ts"
       ],
-      "takeaway": ""
+      "takeaway": "A robot handed a new plan mid-motion can pause, lurch or blend the two plans."
     },
     {
       "id": "manipulation--cross-embodiment--cross-embodiment-strategies",
@@ -132,7 +132,7 @@
         "components/interactive/cross-embodiment-strategies.tsx",
         "lib/cross-embodiment.ts"
       ],
-      "takeaway": ""
+      "takeaway": "Describing actions as where the hand moves, instead of joint angles, lets one model learn from many robots and from human videos."
     },
     {
       "id": "manipulation--knowledge-insulation--mot-insulation",
@@ -144,7 +144,7 @@
         "components/interactive/mot-insulation.tsx",
         "lib/knowledge-insulation.ts"
       ],
-      "takeaway": ""
+      "takeaway": "Walling off the language part of the model while the robot learns to move protects what it knows about language and trains faster."
     },
     {
       "id": "rl-sim2real--why-rl-locomotion--contact-geometry",
@@ -156,7 +156,7 @@
         "components/interactive/contact-geometry.tsx",
         "lib/contact-geometry.ts"
       ],
-      "takeaway": ""
+      "takeaway": "Walking legs cope with small errors in the simulated ground, but fitting a tight part leaves almost no room for error."
     },
     {
       "id": "rl-sim2real--parallel-sim-rl--scene-batch-scale",
@@ -168,7 +168,7 @@
         "components/motion/scenes/batch-scale.tsx",
         "lib/parallel-sim.ts"
       ],
-      "takeaway": ""
+      "takeaway": "Running thousands of practice robots at once on one graphics chip cuts training from hours to minutes, but the speed-up levels off."
     },
     {
       "id": "rl-sim2real--sim2real-transfer--teacher-student",
@@ -180,7 +180,7 @@
         "components/interactive/teacher-student.tsx",
         "lib/sim2real.ts"
       ],
-      "takeaway": ""
+      "takeaway": "A robot that cannot see the ground can still learn its shape by feeling it through its legs."
     },
     {
       "id": "rl-sim2real--legged-locomotion--scene-gait-support",
@@ -192,7 +192,7 @@
         "components/motion/scenes/gait-support.tsx",
         "lib/gait.ts"
       ],
-      "takeaway": ""
+      "takeaway": "Going from walking to hopping, a four-legged robot keeps fewer feet on the ground, trading steadiness for bounce."
     },
     {
       "id": "rl-sim2real--humanoid-wbc--wbc-decomposition",
@@ -204,7 +204,7 @@
         "components/interactive/wbc-decomposition.tsx",
         "lib/wbc-decomposition.ts"
       ],
-      "takeaway": ""
+      "takeaway": "Humanoid control is split into layers, slow decisions on top and fast balancing below, and designs differ in where they draw the lines."
     },
     {
       "id": "rl-sim2real--reward-design-mpc--reward-shaping",
@@ -217,7 +217,7 @@
         "lib/gait.ts",
         "lib/reward-shaping.ts"
       ],
-      "takeaway": ""
+      "takeaway": "The scoring rule decides how a learning robot walks: change what earns points and a different walk comes out."
     },
     {
       "id": "world-models--taxonomy--wm-disambiguator",
@@ -229,7 +229,7 @@
         "components/interactive/wm-disambiguator.tsx",
         "lib/world-model-taxonomy.ts"
       ],
-      "takeaway": ""
+      "takeaway": "World models differ in what they imagine: some predict full pictures of what comes next, others only a compact summary."
     },
     {
       "id": "world-models--latent-dynamics--latent-imagination",
@@ -241,7 +241,7 @@
         "components/interactive/latent-imagination.tsx",
         "lib/latent-imagination.ts"
       ],
-      "takeaway": ""
+      "takeaway": "The further ahead a robot imagines, the more its imagined path drifts from what really happens."
     },
     {
       "id": "world-models--jepa--jepa-planning",
@@ -253,7 +253,7 @@
         "components/interactive/jepa-planning.tsx",
         "lib/jepa-planning.ts"
       ],
-      "takeaway": ""
+      "takeaway": "The robot plans by trying moves in its compact mental summary and keeping whichever brings it closest to the goal."
     },
     {
       "id": "data-hardware--data-bottleneck--data-scale-chart",
@@ -265,7 +265,7 @@
         "components/interactive/data-scale-chart.tsx",
         "lib/data-scaling.ts"
       ],
-      "takeaway": ""
+      "takeaway": "Robot training data is tiny next to the text used to train chatbots: ten part-time robots would need 143 years to collect 10,000 hours."
     },
     {
       "id": "classical--state-estimation--scene-kalman-predict-update",
@@ -300,7 +300,7 @@
       "sources": [
         "components/ui/original-schematics.tsx"
       ],
-      "takeaway": ""
+      "takeaway": "The robot's next move blends three overlapping plans, and the oldest plan gets the biggest say."
     },
     {
       "id": "frontier--dexterity--scene-tactile-slip",
@@ -311,7 +311,7 @@
       "sources": [
         "components/motion/scenes/tactile-slip.tsx"
       ],
-      "takeaway": ""
+      "takeaway": "When fingers block the camera's view, touch sensors in the fingertips can still feel the object slipping."
     },
     {
       "id": "frontier--competing-theses--thesis-explorer",
@@ -323,7 +323,7 @@
         "components/interactive/thesis-explorer.tsx",
         "lib/competing-theses.ts"
       ],
-      "takeaway": ""
+      "takeaway": "Experts hold six competing bets on how robots will become generally capable, and each bet names the result that would prove it wrong."
     },
     {
       "id": "manipulation--action-chunking--chunk-size-curve",
@@ -335,7 +335,7 @@
         "components/interactive/chunk-size-curve.tsx",
         "lib/chunk-size.ts"
       ],
-      "takeaway": ""
+      "takeaway": "Planning 100 moves at a time instead of one at a time raised the simulated robot's success from 1% to 44%."
     },
     {
       "id": "manipulation--diffusion-policy--receding-horizon",
@@ -347,7 +347,7 @@
         "components/interactive/receding-horizon.tsx",
         "lib/receding-horizon.ts"
       ],
-      "takeaway": ""
+      "takeaway": "The robot plans 1.6 seconds ahead, carries out only the first half, then plans again."
     },
     {
       "id": "manipulation--pi-line--pi-generation-timeline",
@@ -359,7 +359,7 @@
         "components/interactive/pi-generation-timeline.tsx",
         "lib/pi-generations.ts"
       ],
-      "takeaway": ""
+      "takeaway": "Physical Intelligence released a new robot model every few months, and only the first three are confirmed downloadable."
     },
     {
       "id": "manipulation--generalist-policies--generalist-release-timeline",
@@ -371,7 +371,7 @@
         "components/interactive/generalist-release-timeline.tsx",
         "lib/generalist-policies.ts"
       ],
-      "takeaway": ""
+      "takeaway": "Thirteen general-purpose robot models have come out since early 2025, and only four can be downloaded."
     },
     {
       "id": "rl-sim2real--rl-for-robotics--sample-efficiency-ledger",
@@ -383,7 +383,7 @@
         "components/interactive/sample-efficiency-ledger.tsx",
         "lib/sample-efficiency.ts"
       ],
-      "takeaway": ""
+      "takeaway": "Practice that would take a real robot months takes a simulator minutes, because learning by trial and error needs millions of tries."
     },
     {
       "id": "rl-sim2real--sim2real-transfer--friction-transfer",
@@ -395,7 +395,7 @@
         "components/interactive/friction-transfer.tsx",
         "lib/sim2real.ts"
       ],
-      "takeaway": ""
+      "takeaway": "A robot trained on one floor does best there, while one trained on many varied floors copes with all of them."
     },
     {
       "id": "rl-sim2real--reward-design-mpc--eureka-loop",
@@ -431,7 +431,7 @@
         "components/interactive/action-conditioning.tsx",
         "lib/action-conditioning.ts"
       ],
-      "takeaway": ""
+      "takeaway": "A useful video model predicts a different future when the robot's action changes."
     },
     {
       "id": "home--scene-reliability-threshold",
@@ -455,7 +455,7 @@
         "components/motion/scenes/jam-overhead.tsx",
         "lib/deployment-economics.ts"
       ],
-      "takeaway": ""
+      "takeaway": "Even when a picking robot succeeds 99% of the time, slow jam fixes can eat 19 minutes of every hour."
     },
     {
       "id": "data-hardware--industrial-deployment--deployment-economics",
@@ -467,7 +467,7 @@
         "components/interactive/deployment-economics.tsx",
         "lib/deployment-economics.ts"
       ],
-      "takeaway": ""
+      "takeaway": "The longer each jam takes a person to fix, the longer a picking robot takes to pay for itself."
     },
     {
       "id": "classical--motion-planning--rrt-explorer",
@@ -528,7 +528,7 @@
         "components/interactive/scene-representation-ladder.tsx",
         "lib/scene-representation.ts"
       ],
-      "takeaway": ""
+      "takeaway": "The way a robot stores a scene decides which questions it can answer; finer resolution only changes cost and detail."
     },
     {
       "id": "frontier--reliability-gap--deployment-dashboard",
@@ -540,7 +540,7 @@
         "components/interactive/deployment-dashboard.tsx",
         "lib/deployment-reality.ts"
       ],
-      "takeaway": ""
+      "takeaway": "No outside auditor has checked any of these humanoid work records, so they are company claims, not proven performance."
     },
     {
       "id": "frontier--dexterity--hand-comparison",
@@ -552,7 +552,7 @@
         "components/interactive/hand-comparison.tsx",
         "lib/dexterous-hands.ts"
       ],
-      "takeaway": ""
+      "takeaway": "None of these robot hands publishes both its touch sensitivity and its price."
     },
     {
       "id": "frontier--generalization--egoscale-scaling",
@@ -564,7 +564,7 @@
         "components/interactive/egoscale-scaling.tsx",
         "lib/egoscale-law.ts"
       ],
-      "takeaway": ""
+      "takeaway": "Robots finished more tasks as they trained on more human video, but the study stopped at 20,000 hours, so anything beyond that is a guess."
     },
     {
       "id": "frontier--bear-case--milestones-watchlist",
@@ -576,7 +576,7 @@
         "components/interactive/milestones-watchlist.tsx",
         "lib/bear-case.ts"
       ],
-      "takeaway": ""
+      "takeaway": "Eight results would show robotics is not overhyped; as of August 2026 none has fully happened and four are partly there."
     },
     {
       "id": "adjacent--drones--perception-latency",
@@ -588,7 +588,7 @@
         "components/interactive/perception-latency.tsx",
         "lib/aerial-latency.ts"
       ],
-      "takeaway": ""
+      "takeaway": "The faster a drone's camera reports an obstacle, the faster the drone can safely fly."
     },
     {
       "id": "adjacent--drones--scene-sense-avoid",
@@ -600,7 +600,7 @@
         "components/motion/scenes/sense-avoid.tsx",
         "lib/aerial-latency.ts"
       ],
-      "takeaway": ""
+      "takeaway": "A slower camera forces the drone to fly slower to stay safe, cutting its top speed from about 69 to 53 km/h here."
     },
     {
       "id": "manipulation--rl-finetuning--advantage-scrubber",
@@ -612,7 +612,7 @@
         "components/interactive/advantage-scrubber.tsx",
         "lib/advantage-episode.ts"
       ],
-      "takeaway": ""
+      "takeaway": "Tagging each step as helping or hurting shows the robot that its failure was caused by a crooked grip 20 seconds earlier."
     },
     {
       "id": "world-models--generative-sim--appearance-physics-push",
@@ -624,7 +624,7 @@
         "components/interactive/appearance-physics-push.tsx",
         "lib/appearance-physics-push.ts"
       ],
-      "takeaway": ""
+      "takeaway": "A realistic picture of a mug cannot be pushed, because it has no weight or friction until someone adds physics."
     },
     {
       "id": "credits--covariate-shift",
@@ -635,7 +635,7 @@
       "sources": [
         "components/ui/original-schematics.tsx"
       ],
-      "takeaway": ""
+      "takeaway": "After one small slip, a robot trained by copying lands where it has no examples to follow, and its mistakes grow."
     },
     {
       "id": "frontier--reliability-gap--reliability-compounding",
@@ -647,7 +647,7 @@
         "components/interactive/reliability-compounding.tsx",
         "lib/reliability.ts"
       ],
-      "takeaway": ""
+      "takeaway": "Even a robot that gets each step 95% right usually fails a long job, so every step has to be almost perfect."
     },
     {
       "id": "frontier--safety-and-assurance--collaborative-operation-modes",
@@ -659,7 +659,7 @@
         "components/interactive/collaborative-operation-modes.tsx",
         "lib/safety-modes.ts"
       ],
-      "takeaway": ""
+      "takeaway": "The faster a robot moves, the bigger the gap it must keep from people."
     },
     {
       "id": "manipulation--bc-foundations--covariate-shift",
@@ -670,7 +670,7 @@
       "sources": [
         "components/ui/original-schematics.tsx"
       ],
-      "takeaway": ""
+      "takeaway": "After one small slip, a robot trained by copying lands where it has no examples to follow, and its mistakes grow."
     },
     {
       "id": "manipulation--rl-finetuning--expo-ft-results",
@@ -681,7 +681,7 @@
       "sources": [
         "components/interactive/expo-ft-results.tsx"
       ],
-      "takeaway": ""
+      "takeaway": "After practice with EXPO-FT, the robot succeeded on all 30 tries on each of four tasks, ahead of the other methods."
     },
     {
       "id": "data-hardware--evaluation-crisis--reliability-compounding",
@@ -693,7 +693,7 @@
         "components/interactive/reliability-compounding.tsx",
         "lib/reliability.ts"
       ],
-      "takeaway": ""
+      "takeaway": "At 95% success per step about half of 14-step jobs fail, because a long job works only if every step works."
     },
     {
       "id": "classical--kinematics--planar-fk-arm",

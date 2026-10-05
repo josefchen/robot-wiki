@@ -47823,6 +47823,118 @@
           "newHash": "e2bec4dd9ffd492bca2b22ede6dcc3208e1c3cb27775b6a16c01fed2202e9993"
         }
       ]
+    },
+    {
+      "id": "reader-first-20261003-name-contact-geometry-expression-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/contact-geometry.tsx:aria-label:2",
+      "oldHash": "2e7f36e4f52b5db23b580291ec4a74764f42a685f42d63666341f22c19c48f63",
+      "newHash": "7c7c6ab21eb41646bdb54ce2caa84b06c5bbf96afddf7c5e27644073be9dd2fc",
+      "reason": "Reader-first rewrite of the contact-geometry figure (VAL-OPUS-142): the stage now draws a four-legged robot on the simulated floor beside a gripper lowering a peg toward the hole, both at once, in place of one scenario box at a time, so its accessible name describes the two drawings and both outcomes at the current error. The error in millimetres and the outcome rule for each side are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "responsibleMilestone": "opus-pass"
+    },
+    {
+      "id": "reader-first-20261003-name-teacher-student-expression-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/teacher-student.tsx:aria-label:2",
+      "oldHash": "f163178fc7b8f1cc8720ddc8bbbd8772e0137886bcd580fda4c9c56528a631d5",
+      "newHash": "26244d1c2948e834ba1c49761f4bd213b62afc8dfeada878ccb6dd5f7588ee5b",
+      "reason": "Reader-first rewrite of the teacher-student figure (VAL-OPUS-142 and the A15 correction of VAL-OPUS-146): the three tile panels become one side-view ground profile under a walking four-legged robot, with the student's guess dashed on top and gaps where leg readings are lost, so the stage's accessible name describes that drawing. The degradation percent, the lost-reading count, the mean absolute error and the action divergence it reads out are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "responsibleMilestone": "opus-pass"
+    },
+    {
+      "id": "reader-first-20261003-name-contact-geometry-literal-aria-labelledby-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/contact-geometry.tsx:aria-labelledby:1",
+      "oldHash": "b8f86484d6645ea66c5b5727ebb0144f07cc1e93f67fbd9a34c334ef1a3ee7b1",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Reader-first rewrite of the contact-geometry figure (VAL-OPUS-138): the \"Scenario\" group that switched between walking and peg insertion leaves the figure because the stage now shows both side by side, and the error presets use the shared preset group labelled \"How wrong the simulator’s surface is\", whose accessible name borrows that printed label, so the literal aria-labelledby leaves the file. The error slider keeps its own name.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "responsibleMilestone": "opus-pass"
+    },
+    {
+      "id": "reader-first-20261003-name-wbc-decomposition-literal-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/wbc-decomposition.tsx:aria-label:1",
+      "oldHash": "7d55169a84e6effcfdd289d4a1824b03c2f157de66ca5f26a6af4059c536777f",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Reader-first rewrite of the whole-body control figure (VAL-OPUS-138): the approach group named \"Whole-body control decomposition\" becomes the shared preset group labelled \"Design\", whose accessible name borrows that printed label, so the literal name leaves the file. The three approaches, their layers and their disclosed loop rates are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "responsibleMilestone": "opus-pass"
+    },
+    {
+      "id": "reader-first-20261003-name-sample-efficiency-ledger-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/sample-efficiency-ledger.tsx:aria-label:1",
+      "oldHash": "b54290ee515f863323271c2c7c4415364f255faa25c6861b8dbc6da7041c3218",
+      "newHash": "6e3312ae88067955f61efe2a49529d9789263875a4d33daecf6727149b45188e",
+      "reason": "Reader-first rewrite of the sample-efficiency ledger (VAL-OPUS-138): the budget slider now prints the plain label \"How much practice\", so its accessible name starts with that label and keeps \"the environment-step budget\" the article names. The slider, its range and the exact step count it reads out are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control’s accessible name restates the label it prints. Not release approval.",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "responsibleMilestone": "opus-pass"
+    },
+    {
+      "id": "reader-first-20261003-name-sample-efficiency-ledger-expression-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/sample-efficiency-ledger.tsx:aria-label:2",
+      "oldHash": "020dd9eb673ad870adb3c1cc548d058d3410200012890621f8ca3c76b06f59b3",
+      "newHash": "1a4cf7d31c55ec9fb071ea50ccdef1d0613d8c34060ec35b53669685547b0a86",
+      "reason": "Reader-first rewrite of the sample-efficiency ledger (VAL-OPUS-138): the source choice moves into \"Adjust more\" below the two sliders, so the second name in the file is now the fleet slider's, which starts with its printed label \"Real robots sharing the work\" in place of \"Robots in the fleet\". The source buttons keep their names under ordinal 3; the fleet range and the count it reads out are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control’s accessible name restates the label it prints. Not release approval.",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "responsibleMilestone": "opus-pass"
+    },
+    {
+      "id": "reader-first-20261003-name-sample-efficiency-ledger-expression-aria-label-3",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/sample-efficiency-ledger.tsx:aria-label:3",
+      "oldHash": "010b8bd09dc1953efe1dc71a22bcbaab2bf014c0c9e26d52e3089d19d7749775",
+      "newHash": "020dd9eb673ad870adb3c1cc548d058d3410200012890621f8ca3c76b06f59b3",
+      "reason": "Ordinal shift, not a new name: the source buttons' name {option.label} moves from ordinal 2 to ordinal 3 because the source choice now sits in \"Adjust more\" below the fleet slider. Its hash 020dd9eb... is unchanged; the fleet slider that held ordinal 3 is registered under ordinal 2.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control’s accessible name restates the label it prints. Not release approval.",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "responsibleMilestone": "opus-pass"
     }
   ]
 }

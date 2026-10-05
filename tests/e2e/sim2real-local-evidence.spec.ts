@@ -4,6 +4,7 @@ import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { frictionOracle, teacherOracle } from '../../audit/evidence/sim2real-local-20260923/proof-support';
 import { setSlider } from './slider';
+import { openAdjustMore } from './helpers/figure-fold';
 
 const directory = 'audit/evidence/sim2real-local-20260923';
 const producing = process.env.SIM2REAL_WRITE_EVIDENCE === '1';
@@ -67,7 +68,8 @@ test('sim2real raw mounted evidence covers the friction mount and teacher transi
     return { line, curve };
   }
 
-  const initial = await frictionState(ordinary, 'friction-default', 0.8, 0.35);
+  // The figure opens on a floor more slippery than the practice floor (0.50).
+  const initial = await frictionState(ordinary, 'friction-default', 0.5, 0.35);
   await setSlider(ordinary.getByRole('slider', { name: /real robot friction/i }), 150);
   const far = await frictionState(ordinary, 'friction-far', 1.5, 0.35);
   expect(far.line).not.toEqual(initial.line);
@@ -75,20 +77,39 @@ test('sim2real raw mounted evidence covers the friction mount and teacher transi
   await setSlider(ordinary.getByRole('slider', { name: /randomization half-width/i }), 65);
   const wide = await frictionState(ordinary, 'friction-wide', 0.8, 0.65);
   expect(wide.curve).not.toEqual(initial.curve);
+  await openAdjustMore(ordinary);
   await ordinary.getByRole('button', { name: 'Reset', exact: true }).click();
-  expect(await frictionState(ordinary, 'friction-reset', 0.8, 0.35)).toEqual(initial);
+  expect(await frictionState(ordinary, 'friction-reset', 0.5, 0.35)).toEqual(initial);
 
   const teacher = page.getByTestId('teacher-panel')
     .locator('xpath=ancestor::*[@data-figure-frame][1]');
+  // The exact degradation slider and Reset sit in "Adjust more"; the presets stay on the main view.
+  await openAdjustMore(teacher);
   const degradationSlider = teacher.getByRole('slider', { name: /proprioceptive degradation/i });
+  // The student's guess is drawn as dashed runs over the kept cells; a lost reading leaves a gap.
+  // Each kept cell is matched back to its index through the real profile's x positions.
+  const keptCells = () => teacher.evaluate(frame => {
+    const pairs = (points: string | null) => (points ?? '').trim().split(/\s+/).map(pair => pair.split(',').map(Number));
+    const truth = frame.querySelector('[data-testid="teacher-panel"] polyline')!.getAttribute('points');
+    const xs = pairs(truth).map(([x]) => x);
+    const recon = frame.querySelector('[data-testid="recon-panel"]')!;
+    const guessXs: number[] = [];
+    for (const mark of recon.querySelectorAll('polyline, line')) {
+      if (mark.tagName === 'polyline') guessXs.push(...pairs(mark.getAttribute('points')).map(([x]) => x));
+      else guessXs.push((Number(mark.getAttribute('x1')) + Number(mark.getAttribute('x2'))) / 2);
+    }
+    return guessXs.map(x => xs.findIndex(candidate => Math.abs(candidate - x) < 0.02));
+  });
   async function teacherState(name: string, degradation: number) {
     const expected = teacherOracle(degradation);
     await expect(degradationSlider).toHaveValue(String(degradation * 100));
     await expect(teacher.getByTestId('mae-readout')).toHaveText(expected.maeDisplay);
     await expect(teacher.getByTestId('divergence-readout')).toHaveText(expected.divergenceDisplay);
     await expect(teacher.getByTestId('occluded-readout')).toHaveText(expected.occludedDisplay);
-    await expect(teacher.getByTestId('recon-panel').locator('rect')).toHaveCount(24);
-    await expect(teacher.getByTestId('student-panel').locator('g')).toHaveCount(expected.occluded.filter(Boolean).length);
+    await expect(teacher.getByTestId('teacher-panel').locator('rect')).toHaveCount(24);
+    await expect(teacher.getByTestId('student-panel').locator('[data-series="occluded"]')).toHaveCount(expected.occluded.filter(Boolean).length);
+    await expect(teacher.getByTestId('student-panel').locator('rect')).toHaveCount(expected.occluded.filter(lost => !lost).length);
+    expect(await keptCells()).toEqual(expected.occluded.flatMap((lost, index) => (lost ? [] : [index])));
     const reconstruction = await teacher.getByTestId('recon-panel').innerHTML();
     const input = await teacher.getByTestId('student-panel').innerHTML();
     observations.push({ name, input: { degradation }, expected, reconstruction, inputMarkup: input, artifact: await capture(page, teacher, name) });
@@ -104,9 +125,12 @@ test('sim2real raw mounted evidence covers the friction mount and teacher transi
   // Terrain height is painted as fill plus fill-opacity, so both are compared.
   const cellPaint = (nodes: Element[]) => nodes.map(node => `${node.getAttribute('fill')} ${node.getAttribute('fill-opacity')}`);
   const teacherColors = await teacher.getByTestId('teacher-panel').locator('rect').evaluateAll(cellPaint);
-  const reconColors = await teacher.getByTestId('recon-panel').locator('rect').evaluateAll(cellPaint);
   expect(new Set(teacherColors).size).toBeGreaterThan(1);
-  expect(reconColors).toEqual(teacherColors);
+  // With no degradation the student's guess is the real ground: one unbroken run on the same points.
+  const reconLines = teacher.getByTestId('recon-panel').locator('polyline');
+  await expect(reconLines).toHaveCount(1);
+  expect(await reconLines.getAttribute('points'))
+    .toEqual(await teacher.getByTestId('teacher-panel').locator('polyline').getAttribute('points'));
   await teacher.getByRole('button', { name: 'Reset', exact: true }).click();
   expect(await teacherState('teacher-reset', 0.15)).toEqual(teacherInitial);
   await expect(teacher).toContainText('Darker cells are higher terrain');

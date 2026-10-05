@@ -1,6 +1,8 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { setSlider } from './slider';
+import { waitForHydration } from './interaction-ready';
+import { openAdjustMore } from './helpers/figure-fold';
 
 const ROUTE = '/rl-sim2real/why-rl-locomotion/';
 
@@ -65,40 +67,42 @@ test.describe('why-rl-locomotion module', () => {
     expect(await chips.count()).toBeGreaterThanOrEqual(5);
   });
 
-  test('contact geometry interactive: scenario switch, slider, and reset', async ({
+  test('contact geometry interactive: error presets, slider, and reset', async ({
     page,
   }) => {
     await page.goto(ROUTE);
+    const frame = page.locator('main [data-figure-frame="contact-geometry"]');
 
-    // Default: locomotion, survivable 2 mm error, four contacts.
-    await expect(page.getByTestId('contact-count-readout')).toHaveText('4');
-    await expect(page.getByTestId('outcome-readout')).toHaveText(/stable/i);
+    // Default: the coin preset, a survivable 2 mm error for locomotion with
+    // four contacts, while the peg beside it, with fourteen, jams.
+    await expect(frame.getByRole('button', { name: /coin/i })).toHaveAttribute('aria-pressed', 'true');
+    await expect(page.getByTestId('contact-count-readout-locomotion')).toHaveText('4');
+    await expect(page.getByTestId('outcome-readout-locomotion')).toHaveText(/stable/i);
+    await expect(page.getByTestId('contact-count-readout-manipulation')).toHaveText('14');
+    await expect(page.getByTestId('outcome-readout-manipulation')).toHaveText(/jammed/i);
+    await expect(frame.locator('[data-figure-annotation]')).toContainText('the peg misses the hole');
 
-    // Scenario switch: more contacts, jammed at the same error.
-    await page.getByRole('button', { name: 'Manipulation', exact: true }).click();
-    await expect(page.getByTestId('contact-count-readout')).toHaveText('14');
-    await expect(page.getByTestId('outcome-readout')).toHaveText(/jammed/i);
-
-    // Keyboard slider: below clearance the peg seats.
+    // Keyboard slider, in Adjust more: below clearance the peg seats.
+    await openAdjustMore(frame);
     const slider = page.getByRole('slider', { name: /contact-model error/i });
+    await waitForHydration(slider);
     await slider.focus();
     for (let i = 0; i < 18; i += 1) await page.keyboard.press('ArrowLeft');
-    await expect(page.getByTestId('error-readout')).toHaveText('ε = 0.2 mm');
-    await expect(page.getByTestId('outcome-readout')).toHaveText(/seats/i);
+    await expect(page.getByTestId('error-readout')).toHaveText('0.2 mm');
+    await expect(page.getByTestId('outcome-readout-manipulation')).toHaveText(/seats/i);
 
     // Locomotion tolerates the same error until 20 mm.
-    await page.getByRole('button', { name: 'Locomotion', exact: true }).click();
-    await expect(page.getByTestId('outcome-readout')).toHaveText(/stable/i);
+    await expect(page.getByTestId('outcome-readout-locomotion')).toHaveText(/stable/i);
     await setSlider(slider, 25);
-    await expect(page.getByTestId('outcome-readout')).toHaveText(
+    await expect(page.getByTestId('outcome-readout-locomotion')).toHaveText(
       /support lost/i,
     );
 
     // Reset restores the initial state.
-    await page.getByRole('button', { name: 'Reset' }).click();
-    await expect(page.getByTestId('contact-count-readout')).toHaveText('4');
-    await expect(page.getByTestId('error-readout')).toHaveText('ε = 2.0 mm');
-    await expect(page.getByTestId('outcome-readout')).toHaveText(/stable/i);
+    await frame.getByRole('button', { name: 'Reset' }).click();
+    await expect(page.getByTestId('contact-count-readout-locomotion')).toHaveText('4');
+    await expect(page.getByTestId('error-readout')).toHaveText('2.0 mm');
+    await expect(page.getByTestId('outcome-readout-locomotion')).toHaveText(/stable/i);
   });
 
   test('zero axe violations', async ({ page }) => {
