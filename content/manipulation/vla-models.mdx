@@ -39,6 +39,9 @@ citations:
   - gr00t-n1-2025
   - pi07-2026
   - gemini-robotics-2-2026
+  - lbm-cotraining-2026
+  - x-vla-2025
+  - xiaomi-robotics-1-2026
 seeAlso:
   - "data-hardware/evaluation-crisis"
   - "manipulation/generalist-policies"
@@ -47,7 +50,7 @@ seeAlso:
 
 import { ActionTokenization } from '@/components/interactive/action-tokenization';
 
-A <Term id="vision-language-action-model">vision-language-action (VLA)</Term> model is a robot policy built by adapting a vision-language model to output robot actions. Earlier [behavior cloning](/manipulation/bc-foundations/) and [Diffusion Policy](/manipulation/diffusion-policy/) policies learned from robot data alone. It starts from a model pretrained on web-scale images and text, and the defining design question is how to get actions out of a model whose output space is text <Cite id="rt2-2023" />.
+A <Term id="vision-language-action-model">vision-language-action (VLA)</Term> model is a robot policy built by adapting a vision-language model to output robot actions. Earlier [behavior cloning](/manipulation/bc-foundations/) and [Diffusion Policy](/manipulation/diffusion-policy/) learned from robot data alone. It starts from a model pretrained on web-scale images and text, and the design question is how to get actions out of a model that outputs text <Cite id="rt2-2023" />.
 
 <ActionTokenization className="my-6" />
 
@@ -79,6 +82,8 @@ In a May 2025 research note, Danny Driess and colleagues at Physical Intelligenc
 ## Open X-Embodiment and RT-X: pooling the data
 
 <Term id="open-x-embodiment">Open X-Embodiment</Term> pools more than one million real robot trajectories spanning 22 embodiments, 527 skills and 160,266 tasks. Its abstract names 21 institutions; its dataset description covers 60 datasets from 34 labs. RT-1-X and RT-2-X trained on a nine-embodiment subset. RT-1-X beat the original methods on four of five small-data domains but underperformed RT-1 in the large-data setting, where the higher-capacity RT-2-X outperformed both. RT-2-X gained Google Robot skills from WidowX Bridge data, a <Term id="cross-embodiment">cross-embodiment</Term> transfer, and performed roughly on par with RT-2 on unseen objects, backgrounds and environments <Cite id="open-x-embodiment-2023" />.
+
+In February 2026, Fanqi Lin, Jose Barreiros and colleagues at Toyota Research Institute compared 89 co-trained policies over 58,000 simulated and 2,835 real rollouts. Vision-language and cross-embodiment co-training substantially improved generalization, while discrete action-token variants brought no significant benefit <Cite id="lbm-cotraining-2026" />. X-VLA gives each data source its own learned soft-prompt embeddings, and its authors report state-of-the-art results for the 0.9B model across six simulations and three real robots <Cite id="x-vla-2025" />. Xiaomi-Robotics-1 (July 2026) pretrains on over 100,000 hours of UMI handheld-gripper and egocentric trajectories. It reports 57.4% on RoboCasa365 against a previous best of 46.6%, and its authors say code and checkpoints will be released <Cite id="xiaomi-robotics-1-2026" />.
 
 Moritz Reuss's October 2025 post, which he presents as his personal selection and opinion, says "OXE is mostly low-quality data" and "we still lack good methods to quantify data quality in imitation learning" <Cite id="oxe-quality-critique-2026" />. Re-Mix's learned domain weights beat uniform weights by 38% and human-selected weights by 32% on the RT-X training data <Cite id="remix-2024" />.
 

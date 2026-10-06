@@ -49,7 +49,9 @@ import { ChunkSizeCurve } from '@/components/interactive/chunk-size-curve';
 import { LatencyComparison } from '@/components/interactive/latency-comparison';
 import { PolicyChunkingTable } from '@/components/mdx/policy-chunking-table';
 
-Action chunking is a policy design in which each inference predicts a sequence of future actions instead of a single action <Cite id="act-aloha-2023" />. The term comes from psychology, where grouped actions execute as one unit and become cheaper to store <Cite id="act-aloha-2023" /> <Cite id="lai-action-chunking-2022" />. Chunking is now standard in robot policies, from diffusion and flow policies to vision-language-action models <Cite id="dehp-2026" />. Try “100 moves per plan”.
+Action chunking is a policy design in which each inference predicts a sequence of future actions instead of a single action <Cite id="act-aloha-2023" />. The term comes from psychology, where grouped actions execute as one unit and become cheaper to store <Cite id="act-aloha-2023" /> <Cite id="lai-action-chunking-2022" />.
+
+Chunking is now standard in robot policies, from diffusion and flow policies to vision-language-action models <Cite id="dehp-2026" />. Try “100 moves per plan”.
 
 <ChunkSizeCurve className="my-6" />
 
@@ -115,7 +117,7 @@ For oldest-to-newest predictions `[0, 10, 20]` after selection, $m = 0.01$ gives
 
 When consecutive chunks diverge in strategy, say left versus right around an obstacle, averaging them can backfire <Cite id="bidirectional-decoding-2024" />. Demonstration pauses, unpredictable from a single-step Markovian state, freeze single-step policies, as both ACT and [Diffusion Policy](/manipulation/diffusion-policy/) document <Cite id="act-aloha-2023" /> <Cite id="diffusion-policy-2023" />.
 
-<Term id="real-time-chunking">Real-Time Chunking</Term> (RTC) treats the hand-off between chunks as inpainting on the flow or diffusion trajectory: actions that will already have executed are frozen, the overlap is partially attended to, and the rest is generated fresh. With π0.5 at five denoising steps, model latency was 76 ms for the baselines and 97 ms for RTC, plus 10 to 20 ms over LAN. Temporal-ensembling variants triggered protective stops at an added 100 or 200 ms of injected delay, while RTC kept average task throughput through +200 ms without retraining <Cite id="real-time-chunking-2025" />. The RTC blog averages six tasks, ten episodes each <Cite id="pi-real-time-chunking-blog-2025" />.
+<Term id="real-time-chunking">Real-Time Chunking</Term> (RTC) treats [the hand-off between chunks](/manipulation/realtime-execution/) as inpainting on the flow or diffusion trajectory: actions that will already have executed are frozen, the overlap is partially attended to, and the rest is generated fresh. With π0.5 at five denoising steps, model latency was 76 ms for the baselines and 97 ms for RTC, plus 10 to 20 ms over LAN. Temporal-ensembling variants triggered protective stops at an added 100 or 200 ms of injected delay, while RTC kept average task throughput through +200 ms without retraining <Cite id="real-time-chunking-2025" />. The RTC blog averages six tasks, ten episodes each <Cite id="pi-real-time-chunking-blog-2025" />.
 
 A training-time variant matched inference-time RTC's task performance and speed on π0.6 box building and espresso at lower compute <Cite id="training-time-rtc-2025" />, and LeRobot ships RTC for Pi0, Pi0.5 and SmolVLA <Cite id="lerobot-rtc-docs" />. A2C2 adds a per-step correction head to an unchanged VLA and beats RTC by 23 points on Kinetix and 7 on LIBERO Spatial <Cite id="a2c2-2025" />. REMAC targets intra-chunk inconsistency, where the executing chunk misaligns with current perception <Cite id="remac-2026" />. In the toy below, press “None” to watch the two plans agree.
 

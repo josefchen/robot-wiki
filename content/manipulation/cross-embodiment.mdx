@@ -39,6 +39,10 @@ citations:
   - helix-2-5-2026
   - embodiment-scaling-2025
   - skild-omni-bodied-2025
+  - lbm-cotraining-2026
+  - generalist-gen1-2026
+  - dreamzero-2026
+  - gott-2026
 seeAlso:
   - "data-hardware/teleop-rigs"
   - "frontier/dexterity"
@@ -47,7 +51,7 @@ seeAlso:
 
 import { CrossEmbodimentStrategies } from '@/components/interactive/cross-embodiment-strategies';
 
-<Term id="cross-embodiment">Cross-embodiment transfer</Term> is training one robot policy on data from bodies with different joint counts, action dimensions and sensors, or moving a policy to a body it has not seen. Open X-Embodiment pools data from 22 robot embodiments <Cite id="open-x-embodiment-2023" />, and human video adds a body whose actions must be estimated from images <Cite id="egoscale-2026" />. Try “Translate between bodies”.
+<Term id="cross-embodiment">Cross-embodiment transfer</Term> is training one policy on data from bodies with different joint counts, action dimensions and sensors, or moving a policy to an unseen body. Open X-Embodiment pools data from 22 robot embodiments <Cite id="open-x-embodiment-2023" />, and human video adds a body whose actions are estimated from images <Cite id="egoscale-2026" />. Try “Translate between bodies”.
 
 <CrossEmbodimentStrategies className="my-6" />
 
@@ -62,7 +66,7 @@ import { CrossEmbodimentStrategies } from '@/components/interactive/cross-embodi
 
 π0's 10,000 hours are its own data from 7 robot configurations and 68 tasks, added to OXE, DROID and Bridge. By timesteps, open-source data is 9.1% of the mixture, against 903 million steps of π0's own <Cite id="pi0-2024" />. RT-X experiments used 9 of OXE's 22 embodiments <Cite id="open-x-embodiment-2023" />. GR00T N1.7's rounded 20K pretraining hours are EgoScale human video <Cite id="isaac-gr00t-repo-2026" />.
 
-Moritz Reuss wrote in October 2025 that "OXE is mostly low-quality data" and that imitation learning lacks good ways to measure [data quality](/data-hardware/data-bottleneck/) <Cite id="oxe-quality-critique-2026" />. Re-Mix's learned mixture weights beat uniform weights by 38% on average and human-selected ones by 32% <Cite id="remix-2024" />.
+Moritz Reuss wrote in October 2025 that "OXE is mostly low-quality data" and that imitation learning lacks good ways to measure [data quality](/data-hardware/data-bottleneck/) <Cite id="oxe-quality-critique-2026" />. Re-Mix's learned mixture weights beat uniform weights by 38% on average and human-selected ones by 32% <Cite id="remix-2024" />. Toyota Research Institute's controlled study of 89 policies found that co-training with cross-embodiment robot data improves generalization to distribution shifts and unseen tasks <Cite id="lbm-cotraining-2026" />.
 
 ## Robot action interfaces
 
@@ -70,7 +74,7 @@ ACT's ALOHA action is a 14-dimensional absolute-joint vector for two 6-DoF Viper
 
 Octo curates 25 <Term id="open-x-embodiment">OXE</Term> datasets with delta <Term id="end-effector">end-effector</Term> control, zero-pads missing camera channels and aligns grippers to +1 open, 0 closed; new spaces get lightweight encoders or heads on the kept transformer <Cite id="octo-2024" />. CrossFormer trains one transformer on 900K trajectories from 20 embodiments without manually aligning observation or action spaces <Cite id="crossformer-2024" />.
 
-HPT maps each embodiment's proprioception and vision to a few tokens for a shared trunk, scaling to 52 datasets <Cite id="hpt-2024" />, and X-VLA learns one embedding set per data source as an embodiment prompt <Cite id="x-vla-2025" />. LAP writes low-level actions as natural language; LAP-3B reports over 50% average zero-shot success on unseen robots, about twice the strongest prior VLAs <Cite id="lap-2026" />.
+HPT maps each embodiment's proprioception and vision to a few tokens for a shared trunk, scaling to 52 datasets <Cite id="hpt-2024" />, and X-VLA learns one soft-prompt embedding set per data source as an embodiment prompt <Cite id="x-vla-2025" />. LAP writes low-level actions as natural language; LAP-3B reports over 50% average zero-shot success on unseen robots, about twice the strongest prior VLAs <Cite id="lap-2026" />.
 
 ## Motion Transfer across robot embodiments
 
@@ -106,8 +110,10 @@ EgoScale's Ruijie Zheng and coauthors instead pretrain on human video, mid-train
 
 EgoBridge aligns human and robot policy latents with optimal transport and reports a 44% absolute success gain over human-augmented cross-embodiment baselines <Cite id="egobridge-2025" />. H-RDT pretrains on egocentric human data and fine-tunes with per-robot action encoders and decoders, gaining 40.5% over training from scratch on real robots <Cite id="h-rdt-2025" />.
 
-Phantom needs no robot data: it inpaints the human arm, overlays a rendered robot and deploys zero-shot, with success up to 92% <Cite id="phantom-2025" />. Masquerade robotizes in-the-wild human video, fine-tunes on 50 [robot demonstrations](/data-hardware/teleop-rigs/) per task and beats baselines by 5 to 6 times <Cite id="masquerade-2026" />. Figure reports that Index human-video pretraining, all else fixed, raised Helix 2.5's zero-shot success in 30 unseen homes from 9% to 56% <Cite id="helix-2-5-2026" />.
+Phantom needs no robot data: it inpaints the human arm, overlays a rendered robot and deploys zero-shot, with success up to 92% <Cite id="phantom-2025" />. Masquerade robotizes in-the-wild human video, fine-tunes on 50 [robot demonstrations](/data-hardware/teleop-rigs/) per task and beats baselines by 5 to 6 times <Cite id="masquerade-2026" />. Figure reports that Index human-video pretraining, all else fixed, raised Helix 2.5's zero-shot success in 30 unseen homes from 9% to 56% <Cite id="helix-2-5-2026" />. Generalist's GEN-1 base model (April 2026) uses no robot data: it pretrains on over half a million hours from wearable devices on humans, then adapts with about an hour of robot data per task <Cite id="generalist-gen1-2026" />.
 
 ## Scaling the number of embodiments
 
-Across about 1,000 procedurally generated locomotion bodies, adding embodiments generalizes more broadly than adding data on fixed ones <Cite id="embodiment-scaling-2025" />. Skild reports training one model on 100,000 simulated robots and testing zero-shot on robots excluded from training <Cite id="skild-omni-bodied-2025" />.
+Across about 1,000 procedurally generated locomotion bodies, adding embodiments generalizes more broadly than adding data on fixed ones <Cite id="embodiment-scaling-2025" />. Skild reports training one model on 100,000 simulated robots and testing zero-shot on robots excluded from training <Cite id="skild-omni-bodied-2025" />. DreamZero adapted from AgiBot G1 to a YAM bimanual robot with 55 trajectories, about 30 minutes of play data; its authors describe the result qualitatively <Cite id="dreamzero-2026" />.
+
+GOTT, posted on October 2, 2026 by Pieter Abbeel, Haozhi Qi and colleagues at Amazon FAR, UC Berkeley, UC San Diego and the University of Chicago, trains one closed-loop contact primitive with RL across XHand, Sharpa and Allegro hands. On four Franka-Sharpa tasks it averaged 80.0% task success against 35.0% for open-loop grasp baselines. On unseen simulated Allegro variants it matched per-variant oracle policies, 72.1% against 72.2% <Cite id="gott-2026" />.

@@ -36,25 +36,25 @@ export type DomainPassReview = {
 
 // BEGIN domain-pass pins (written by scripts/record-domain-pass-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 382825, sha256: 'd1e2c1142fbb9ef91308ea8a9d900ed4e6c8a2bcbb21c27b9797108382ec4842' };
+const reviewPin = { bytes: 392720, sha256: '7f9149283d68dfd0e9f50df1dcbe74dacbdb81cfffdd4664872957febfe2be66' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
-  ['content/manipulation/action-chunking.mdx', [12679, '6b1d7d47fe4cc5e47a38c5f9454b0d58ebe9ab0dfb70b17faf1351e63224f5e5']],
-  ['content/manipulation/action-spaces.mdx', [9332, '10a3a9f95f8d1099a677d1622d4eb34bcd2929cd6baf2de278b99b6f070a5e4b']],
-  ['content/manipulation/bc-foundations.mdx', [12484, '9360607b5991d9853d781fed6becd9345fc34a0c8443ff983b72811334f3b054']],
+  ['content/manipulation/action-chunking.mdx', [12717, '917487e6f9b1beaba9b0485b8acd73580a6d70af06f71bf9efa674a9ae225939']],
+  ['content/manipulation/action-spaces.mdx', [10641, 'ff854c17cf0a59f4554c02d770e4160bddba7d9061437029d5e00b0f09d5aa2f']],
+  ['content/manipulation/bc-foundations.mdx', [13675, '7b8e48c921e210aa96860e48c6852eb89e0dd61d488972134e48bb2450921fc9']],
   ['content/manipulation/comparison-matrix.mdx', [11084, 'e9c7195f34e3e31bdc8bf047c701d3999c9a718f5bc7d7a7a07fd8d421c94750']],
-  ['content/manipulation/cross-embodiment.mdx', [10446, '297c42515c9cd70ee6906f6e4124271c6b69327076409c8968e25b242d39a02d']],
-  ['content/manipulation/diffusion-policy.mdx', [10412, 'edf531a7c5fd2efe57f06efe3937f487b8dac057d5e84cd4aa51f88df2b8fd60']],
-  ['content/manipulation/foundation-models.mdx', [9987, 'a0c99d565063f0ad5923b83855363d8fe9b89ff7711f1983247c24693f861657']],
-  ['content/manipulation/generalist-policies.mdx', [14707, 'dc1f5b1bae1cb595ecd7a3e747bb798c287cc3e7b17e81d215bdf4c930f73ba9']],
-  ['content/manipulation/hierarchical.mdx', [13666, '5951d1ac4234a63f0f929c5c5571399fa917f9a4af6b8436812b98515396bfa1']],
-  ['content/manipulation/knowledge-insulation.mdx', [9089, '49c75fa273f9f9145bdde4fb50b5d97d13e0b25ff69d0911764ea5d5df7c4d4f']],
-  ['content/manipulation/pi-line.mdx', [16618, 'ee0a366d1e688812a78f9d1a92b131106369bc854b23a329a1ea08ff47993a43']],
-  ['content/manipulation/realtime-execution.mdx', [11765, 'ada00bae97ff0cbb54f80b2e9816b1666cbff6f7d28ff30e6a001d4afdecfa1d']],
-  ['content/manipulation/rl-finetuning.mdx', [22679, 'acd5d42ce6e35340194669108b3d4d946d3400cae96ee6fb46c56311e1fc0065']],
-  ['content/manipulation/robot-learning-roadmap.mdx', [9690, '59656b226f93fd1b5a2a8d3e05d2921b67cc760a5e2b86895f00fa96020b1ff3']],
-  ['content/manipulation/vla-models.mdx', [13509, '675fbf2caf96085d45a811179bc4b22da0a4070be64b81f2ff61a8686bc9f27c']],
+  ['content/manipulation/cross-embodiment.mdx', [11614, 'f82cfbf97ee32f39f46764ff15d4365b5b4eb34d1df781908f85cd5d1dba3ba5']],
+  ['content/manipulation/diffusion-policy.mdx', [11387, '532b8324fd2085a5f813c841a23be2dade8013237ce3769093da5d5469dcfc01']],
+  ['content/manipulation/foundation-models.mdx', [10919, '293309a11c0d3cd59eb399ed1c9b8d0af07abd60439d248a3a97daca47e2c634']],
+  ['content/manipulation/generalist-policies.mdx', [14708, '1aa7ca82c4b664ffa4e15357864504eba4d7a8f9fa3d6381f47c9a1cc8384aa2']],
+  ['content/manipulation/hierarchical.mdx', [14469, 'ae6172a18e68898d49a5b112602f6aa5f8492b65565bdb33f6839319183acc05']],
+  ['content/manipulation/knowledge-insulation.mdx', [9559, '7924d14a17d29904d969035f60bcab707e813bd6152fe487cbcbcbebb2e1d640']],
+  ['content/manipulation/pi-line.mdx', [16619, 'ef185510767caa0fba8bc2d0416d9cfebe636221a93888fe232efec8f30e0545']],
+  ['content/manipulation/realtime-execution.mdx', [12504, 'f1db1ff6aa7e6e1ff6221ee56e96d257a6f77920c9360c1759539e0bd1bb8c8a']],
+  ['content/manipulation/rl-finetuning.mdx', [23472, '280f348bedc667981cdd497d4dbfef2d708b9a2bdf3cf1c8ce2d871235e6a46e']],
+  ['content/manipulation/robot-learning-roadmap.mdx', [9916, 'c10473a9d9a52893fe18ce799007c4d7612a23da2934c68a303f33fe9b156aa6']],
+  ['content/manipulation/vla-models.mdx', [14391, '3e0f91826050ffdb4b69bd6a39622c315f4497ccfbe931b02f7787a83c3ce854']],
 ]);
 // END domain-pass pins
 

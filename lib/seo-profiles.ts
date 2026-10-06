@@ -145,7 +145,7 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     title: 'Generalist Robot Policies: Gemini, GR00T, Helix',
     headTerm: 'generalist robot policies',
     description:
-      'Generalist robot policies compared: Gemini Robotics 2, GR00T, Helix, Skild and GO-2 by architecture, evidence quality and which weights you can download.',
+      'Generalist robot policies compared: Gemini Robotics 2, GR00T, Helix 2.5, GEN-1.5, Skild S1 and GO-2 by architecture, evidence quality and open weights.',
     queries: ['generalist robot policy', 'robot foundation model companies', 'Helix vs GR00T vs Gemini Robotics'],
   },
   '/manipulation/comparison-matrix/': {
@@ -159,14 +159,14 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     title: 'Hierarchical Robot Policies: Planners and VLAs',
     headTerm: 'hierarchical robot policies',
     description:
-      'Hierarchical robot policies split what to do from how to move: SayCan, Code as Policies, keypoint VLMs, pi0.5 subtasks and Gemini Robotics ER 1.5.',
+      'Hierarchical robot policies split what to do from how to move: SayCan, Code as Policies, pi0.5 subtasks and orchestrators such as Gemini Robotics ER 2.',
     queries: ['hierarchical VLA', 'LLM robot planning', 'SayCan code as policies'],
   },
   '/manipulation/rl-finetuning/': {
     title: 'RL Fine-Tuning for VLA Robot Policies',
     headTerm: 'RL fine-tuning',
     description:
-      'RL fine-tuning of robot policies and VLAs: HIL-SERL, DPPO, Recap, pi_RL and EXPO-FT, with reported results and caveats.',
+      'RL fine-tuning of robot policies and VLAs: HIL-SERL, DPPO, Recap, pi_RL, RL tokens and EXPO-FT, with reported results and caveats.',
     queries: ['RL fine-tuning VLA', 'reinforcement learning robot policy fine-tuning'],
   },
   '/manipulation/realtime-execution/': {
@@ -180,7 +180,7 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     title: 'Cross-Embodiment Learning for Robot Policies',
     headTerm: 'cross-embodiment learning',
     description:
-      'Cross-embodiment learning trains one policy on many bodies and human video: padded actions, relative end-effector actions and human-to-robot transfer.',
+      'Cross-embodiment learning trains one policy on many robots and human video: padded actions, soft prompts, relative end-effector actions and human data.',
     queries: ['cross-embodiment robot learning', 'human video to robot transfer'],
   },
   '/manipulation/knowledge-insulation/': {

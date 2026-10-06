@@ -42,6 +42,9 @@ citations:
   - libero-plus-2025
   - libero-pro-2025
   - ecomem-2026
+  - helix-2-5-2026
+  - generalist-gen1-2026
+  - lbm-cotraining-2026
 seeAlso:
   - "world-models/taxonomy"
   - "manipulation/generalist-policies"
@@ -88,11 +91,11 @@ Calibration, gripper dynamics, control rate and success labels enter during adap
 
 π0 pairs a pretrained VLM with a separate flow-matching expert for continuous action chunks <Cite id="pi0-2024" />. Knowledge insulation trains the backbone on discretized actions alongside the continuous expert <Cite id="knowledge-insulation-paper-2025" />. π0.5 credits its generalization to co-training on heterogeneous tasks <Cite id="pi05-2025" />, and π0.7's authors call their 2026 model a steerable generalist robotic foundation model <Cite id="pi07-2026" />.
 
-Test-time training stores past observations in fast weights that gradient descent updates while the policy runs. In July 2026, Yunfan Jiang, Li Fei-Fei, Yuke Zhu, Linxi Fan and colleagues reported RoboTTT, which extends visuomotor context to 8K timesteps without growing inference latency. On long-horizon real-robot tasks it averaged a 79% task completion score, against 42% for the single-step-context GR00T N1.7 baseline, and it fully completed a five-minute, ten-stage assembly task that no baseline completed <Cite id="robottt-2026" />. In September 2026, Yize Liu, Li Fei-Fei, Jiajun Wu and colleagues applied the mechanism to memory with T²Mem, which raised average success on 16 RoboMME tasks from 17.93% to 56.83% over its memory-free base policy <Cite id="t2mem-2026" />. ECoMEM, posted on September 30, 2026 by Yize Liu, Mac Schwager, Jiajun Wu and colleagues, keeps an explicit record of task facts that a learned reader turns into memory tokens for the VLA. It led the evaluated policies on 15 of 16 RoboMME tasks, and on two new real-robot tasks it reached 86.1% success, against 8.6% for a VLA without memory <Cite id="ecomem-2026" />.
+Test-time training stores past observations in fast weights that gradient descent updates while the policy runs. In July 2026, Yunfan Jiang, Li Fei-Fei, Yuke Zhu, Linxi Fan and colleagues reported RoboTTT, which extends visuomotor context to 8K timesteps without growing inference latency. On long-horizon real-robot tasks it averaged a 79% task completion score, against 42% for the single-step-context GR00T N1.7 baseline, and it fully completed a five-minute, ten-stage assembly task that no baseline completed <Cite id="robottt-2026" />. In September 2026, Yize Liu, Li Fei-Fei, Jiajun Wu and colleagues applied the mechanism to memory with T²Mem, which raised average success on 16 RoboMME tasks from 17.93% to 56.83% over its memory-free base policy <Cite id="t2mem-2026" />. ECoMEM, posted on September 30, 2026 by Stanford's Yize Liu, Mac Schwager, Jiajun Wu and colleagues, keeps an explicit record of task facts that a learned reader turns into memory tokens for the VLA. It led the evaluated policies on 15 of 16 RoboMME tasks, and on two new real-robot tasks it reached 86.1% success, against 8.6% for a VLA without memory <Cite id="ecomem-2026" />.
 
 ## Humanoid foundations
 
-GR00T N1 combines a vision-language module with a diffusion transformer, trained on real-robot trajectories, human videos and synthetic datasets <Cite id="gr00t-n1-2025" />. For a humanoid, morphology, whole-body balance and shared action coordinates set the reuse boundary.
+GR00T N1 combines a vision-language module with a diffusion transformer, trained on real-robot trajectories, human videos and synthetic datasets <Cite id="gr00t-n1-2025" />. For a humanoid, morphology, whole-body balance and shared action coordinates set the reuse boundary. In September 2026, Figure reported pretraining [Helix 2.5](/manipulation/generalist-policies/) from random initialization entirely on Index, its dataset of human behavior. With identical task data, it succeeded on 56% of zero-shot trials in 30 unseen homes, against 9% for a policy trained from scratch <Cite id="helix-2-5-2026" />.
 
 ## Predictive foundations
 
@@ -104,7 +107,7 @@ DreamZero (Ye, Zhu and colleagues, February 2026) is a [world action model](/wor
 
 ## What pretraining does not erase
 
-Pretraining can cut semantic supervision, representation learning from small robot datasets, initialization across related tasks and per-policy visual backbones. In TRI's blind, randomized trials, multitask pretraining matched from-scratch policies with 3 to 5 times less data <Cite id="tri-lbm-2025" />. VC-1 found no pretrained visual representation universally dominant, and more pretraining data helped only on average <Cite id="vc1-2023" />.
+Pretraining can cut semantic supervision, representation learning from small robot datasets, initialization across related tasks and per-policy visual backbones. In TRI's blind, randomized trials, multitask pretraining matched from-scratch policies with 3 to 5 times less data <Cite id="tri-lbm-2025" />. VC-1 found no pretrained visual representation universally dominant, and more pretraining data helped only on average <Cite id="vc1-2023" />. In April 2026, Generalist reported that GEN-1's base model trains on over half a million hours of wearable human data and no robot data. With about one hour of robot data per task, it averaged 99% on three tasks, against 19% from scratch <Cite id="generalist-gen1-2026" />. Toyota Research Institute's 89-policy study found that vision-language and cross-embodiment co-training improve generalization, and that robot-only training degrades the backbone's visiolinguistic understanding <Cite id="lbm-cotraining-2026" />.
 
 It leaves synchronized, correctly transformed actions, calibration and control integration, closed-loop evaluation under perturbation, latency and memory limits, and safety cases. RoboPAIR jailbroke LLM-controlled robots, including a deployed Unitree Go2, often at 100% attack success <Cite id="robopair-2024" />. A downloadable checkpoint can hide its training mixture, adaptation data, controller assumptions or benchmark protocol.
 

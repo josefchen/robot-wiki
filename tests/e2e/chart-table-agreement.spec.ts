@@ -203,6 +203,9 @@ async function captureCharts(page: import('@playwright/test').Page): Promise<Omi
 }
 
 test('VAL-EDU-023: every table-form disclosure agrees with its chart', async ({ browser }) => {
+  // The walk opens every registry route in a fresh context, as clause (c)
+  // does, so it gets the same budget.
+  test.setTimeout(240_000);
   const charts: CapturedChart[] = [];
   await forEachInOwnContext(browser, ROUTES, async (page, route) => {
     await page.goto(BASE + route, { waitUntil: 'domcontentloaded' });
@@ -244,9 +247,10 @@ test('VAL-EDU-023: every table-form disclosure agrees with its chart', async ({ 
       'it 27; one visual per concept dropped the second instance of the seven ' +
       'table-form charts repeated in their page\'s prediction step (eight ' +
       'disclosures: LatencyComparison has two) and the GaitDiagram and ' +
-      'TrainingTimeChart mounts, making it 17; a change here means a chart ' +
-      'was added, removed or re-declared form)',
-  ).toBe(17);
+      'TrainingTimeChart mounts, making it 17; the reader-first DeploymentEconomics ' +
+      'payback-by-clearing-time chart on industrial-deployment made it 18; a ' +
+      'change here means a chart was added, removed or re-declared form)',
+  ).toBe(18);
 
   // Clause (a): endpoint agreement with rendered tick labels (graded only
   // where the SVG x-axis measures the table's row quantity; recorded
@@ -385,10 +389,16 @@ test('VAL-EDU-023 clause (c): control probes move the readout to the sampled row
             range.dispatchEvent(new Event('input', { bubbles: true }));
             range.dispatchEvent(new Event('change', { bubbles: true }));
             await new Promise((res) => setTimeout(res, 150));
-            // Readout text excludes the disclosure itself: the table
-            // echoes its own row, so counting it would grade nothing.
+            // A reader opens "How this was made" with one click, and some
+            // readouts live there (VAL-OPUS-144), so the probe opens every
+            // figure fold before it reads.
+            panel.querySelectorAll('details[data-figure-fold]').forEach((fold) => {
+              (fold as HTMLDetailsElement).open = true;
+            });
+            // Readout text excludes the table-form disclosures themselves:
+            // the table echoes its own row, so counting it would grade nothing.
             const clone = panel.cloneNode(true) as Element;
-            clone.querySelectorAll('details').forEach((dd) => dd.remove());
+            clone.querySelectorAll('details[data-chart-data]').forEach((dd) => dd.remove());
             return (clone.textContent ?? '').replace(/\s+/g, ' ');
           },
           { ci, sliderIndex: s.index, sv },

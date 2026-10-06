@@ -128,7 +128,7 @@ const entries: Array<[Domain, string, string, string]> = [
     'manipulation',
     'hierarchical',
     'Hierarchical Approaches',
-    'SayCan, code-as-policies, and keypoint affordances; why separate planners gave way to internalized hierarchy.',
+    'SayCan, Code as Policies and keypoint affordances, then the learned and orchestrated hierarchies of Helix, pi0.5 and Gemini Robotics ER 2.',
   ],
   [
     'manipulation',
@@ -146,7 +146,7 @@ const entries: Array<[Domain, string, string, string]> = [
     'manipulation',
     'cross-embodiment',
     'Cross-Embodiment Transfer',
-    'Padded action vectors, motion transfer, and shared relative end-effector frames; the live disagreement.',
+    'Padded action vectors, shared relative end-effector frames, soft prompts and human-to-robot transfer: how one policy learns from many bodies.',
   ],
   [
     'manipulation',

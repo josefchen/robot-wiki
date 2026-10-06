@@ -39,6 +39,7 @@ citations:
   - tobin-2017
   - offline-rl-tutorial-2020
   - serl-2024
+  - simplevla-rl-2025
 seeAlso:
   - "classical/kinematics"
   - "classical/ros2-for-ml-engineers"
@@ -114,7 +115,7 @@ Open-loop loss is a diagnostic. Check datasets for leakage, action distributions
 
 Simulation tests controller stability, robustness to parameter variation and safe reward optimization. Domain randomization aims to make the real world look like one more simulated variation <Cite id="tobin-2017" />. Isaac Lab targets large-scale, multi-modal robot learning <Cite id="isaac-lab-2025" />; measure its dynamics gap to the hardware.
 
-Offline RL learns from logged data without new collection <Cite id="offline-rl-tutorial-2020" />, so it fits logs whose outcome quality varies and a reward can rank. Online RL needs safe exploration, automatic resets and cheap evaluation; SERL bundles an off-policy learner with reward computation, resets and a controller <Cite id="serl-2024" />. Without those, <Term id="imitation-learning">imitation learning</Term> is the practical first use of demonstrations.
+Offline RL learns from logged data without new collection <Cite id="offline-rl-tutorial-2020" />, so it fits logs whose outcome quality varies and a reward can rank. Online RL needs safe exploration, automatic resets and cheap evaluation; SERL bundles an off-policy learner with reward computation, resets and a controller <Cite id="serl-2024" />. Without those, <Term id="imitation-learning">imitation learning</Term> is the practical first use of demonstrations. In simulation, RL can stand in for scarce demonstrations: SimpleVLA-RL lifted OpenVLA-OFT trained on one demonstration per task from 48.9% to 96.9% average LIBERO success <Cite id="simplevla-rl-2025" />.
 
 ## A practical sequence
 

@@ -38,6 +38,8 @@ citations:
   - consistency-policy-2024
   - pd-vla-2025
   - fast-in-slow-2025
+  - realtime-vla-2025
+  - realtime-expo-ft-2026
 seeAlso:
   - "data-hardware/hardware-taxonomy"
   - "manipulation/rl-finetuning"
@@ -48,7 +50,7 @@ import { ControlLoopBudget } from '@/components/interactive/control-loop-budget'
 import { ExecutionModes } from '@/components/interactive/execution-modes';
 
 
-Real-time execution is the problem of delivering a policy's actions on the controller's clock while the next inference runs. At 50 Hz the control period is 20 ms, shared by cameras, network, preprocessing and model, and the hand-off between action chunks changes what the robot does <Cite id="real-time-chunking-2025" />. Slide the model-size control and the missed-deadline count follows the new inference time.
+Real-time execution is delivering a policy's actions on the controller's clock while the next inference runs. At 50 Hz the control period is 20 ms, shared by cameras, network, preprocessing and model, and the hand-off between action chunks changes what the robot does <Cite id="real-time-chunking-2025" />. Slide the model-size control and the missed-deadline count follows the new inference time.
 
 <ControlLoopBudget className="my-6" />
 
@@ -75,7 +77,7 @@ On B100, raising denoising steps from 10 to 50 at chunk size 50 multiplies actio
 
 VLA-Perf calls 10 Hz inference "acceptable" and 100 Hz "high-performance" relative to common camera rates. Thor's predicted 19 Hz clears the first; the authors propose smaller models, fewer denoising steps or lower-precision quantization for the second <Cite id="vla-perf-2026" />. NVIDIA's Jetson AI Lab measured π0.5 (action horizon 10) on Jetson AGX Thor: about 132 ms in PyTorch BF16, 54 ms with TensorRT FP8 (2.4x) and 49 ms with FP8 plus NVFP4 (about 2.7x). That model and setup differ from VLA-Perf's <Cite id="jetson-ai-lab-openpi-thor" />. NVIDIA rates Thor at up to 2,070 FP4 teraflops within 130 W, and 7.5x the AI compute of Jetson Orin <Cite id="nvidia-jetson-thor-available-2025" />.
 
-RT-2's 55B model ran at 1 to 3 Hz and its 5B version at about 5 Hz <Cite id="rt2-2023" />. The 7B OpenVLA runs at about 6 Hz on an RTX 4090 but 1.2 Hz on its evaluation A5000 <Cite id="openvla-2024" />. OpenVLA-OFT's parallel decoding of chunked continuous actions raised throughput 26x and average success from 76.5% to 97.1% <Cite id="openvla-oft-2025" />. Fast-in-Slow, which embeds a fast action module in its VLM, reaches 117.7 Hz control with eight-action chunks <Cite id="fast-in-slow-2025" />.
+RT-2's 55B model ran at 1 to 3 Hz and its 5B version at about 5 Hz <Cite id="rt2-2023" />. The 7B OpenVLA runs at about 6 Hz on an RTX 4090 but 1.2 Hz on its evaluation A5000 <Cite id="openvla-2024" />. OpenVLA-OFT's parallel decoding of chunked continuous actions raised throughput 26x and average success from 76.5% to 97.1% <Cite id="openvla-oft-2025" />. On one A100 with three camera images, OpenVLA-OFT's authors measured 1.8 actions per second for OpenVLA, 77.9 for OpenVLA-OFT+, 291.6 for π0 and 432.8 for ACT <Cite id="openvla-oft-2025" />. In October 2025, Yunchao Ma and colleagues at Dexmal and StepFun ran π0 with two camera views in 27.3 ms on one RTX 4090, a 30 Hz frame rate, with action trajectories up to 480 Hz <Cite id="realtime-vla-2025" />. Fast-in-Slow, which embeds a fast action module in its VLM, reaches 117.7 Hz control with eight-action chunks <Cite id="fast-in-slow-2025" />.
 
 In VLA-Perf, server placement depends on the network: synchronous π0 on an RTX 4090 takes 38.7 ms over WiFi 6 against Thor's 52.6 ms, but 55.7 ms over 5G; B100 over 5G takes 27.8 ms. B100 over Ethernet 10G with a fast cloud link takes 23.4 ms, and over 4G with a slow cloud link 273.4 ms. Modeled links (upload/download, base latency): WiFi 6 560/800 Mbps, 3.5 ms; 5G 80/500 Mbps, 10 ms; 4G 19/75 Mbps, 25 ms; fast and slow cloud 10 and 1 Gbps, 10 and 100 ms <Cite id="vla-perf-2026" />.
 
@@ -97,7 +99,7 @@ VLASH rolls the robot state forward with the previous chunk and cuts reaction la
 
 ## Training the tolerance in
 
-Black et al. (2025) simulate the delay in training, which avoids inference-time inpainting's added latency and works better at higher delays <Cite id="training-time-rtc-2025" />. π0.7 trains with simulated delays of 0 to 12 timesteps, a maximum of 240 ms on a 50 Hz robot. It predicts 50 actions and executes 15 or 25, with UR5e robots at 20 Hz and the others at 50 Hz <Cite id="pi07-2026" />. Soft RTC's medium overlap window cuts high-delay action delta and jerk by 9.1% and 9.6% against hard training-time RTC, at near-naive runtime <Cite id="soft-rtc-2026" />. NVIDIA uses test-time and train-time RTC for GR00T N1.6 on the Unitree G1 and bimanual YAM <Cite id="gr00t-n1-6-2025" />. Figure's Helix offsets its two systems' training inputs to match their deployed latency gap, with S1 holding a 200 Hz loop <Cite id="helix-2025" />.
+Black et al. (2025) simulate the delay in training, which avoids inference-time inpainting's added latency and works better at higher delays <Cite id="training-time-rtc-2025" />. π0.7 trains with simulated delays of 0 to 12 timesteps, a maximum of 240 ms on a 50 Hz robot. It predicts 50 actions and executes 15 or 25, with UR5e robots at 20 Hz and the others at 50 Hz <Cite id="pi07-2026" />. Soft RTC's medium overlap window cuts high-delay action delta and jerk by 9.1% and 9.6% against hard training-time RTC, at near-naive runtime <Cite id="soft-rtc-2026" />. [Real-Time EXPO-FT](/manipulation/rl-finetuning/) learns a lightweight edit policy that reacts to the latest observation while a slow VLA proposes chunks. On four dynamic real tasks, average performance rose from 42% to 97% with at most 10 minutes of online data <Cite id="realtime-expo-ft-2026" />. NVIDIA uses test-time and train-time RTC for GR00T N1.6 on the Unitree G1 and bimanual YAM <Cite id="gr00t-n1-6-2025" />. Figure's Helix offsets its two systems' training inputs to match their deployed latency gap, with S1 holding a 200 Hz loop <Cite id="helix-2025" />.
 
 In September 2026, Fanding Huang, Cheng Chi, Zhi Wang and colleagues reported ChunkTrust, which infers how many actions to execute before replanning from the policy's own outputs while it runs. Its training-free horizon selector combines the stability of each generated chunk with its continuity with the actions already executed. Over all 50 RoboTwin2.0 tasks it raised π0.5's task-averaged success by 6.80 percentage points, and on four real household tasks it raised the mean normalized process score from 50.4% to 57.5% <Cite id="chunktrust-2026" />.
 

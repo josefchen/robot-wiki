@@ -38,6 +38,9 @@ citations:
   - rectified-flow-2022
   - training-time-rtc-2025
   - demystifying-diffusion-policies-2025
+  - xiaomi-robotics-1-2026
+  - drifting-models-2026
+  - bilinear-flow-policy-2026
 seeAlso:
   - "data-hardware/teleop-rigs"
   - "manipulation/realtime-execution"
@@ -104,11 +107,11 @@ The visual encoder swaps BatchNorm for GroupNorm, whose computation is independe
 
 ## Variants and scale
 
-DP3 conditions on sparse point clouds and handles most of 72 simulation tasks with 10 demonstrations <Cite id="dp3-2024" />. Equivariant Diffusion Policy builds in SO(2) symmetry and averages 21.9% higher success than Diffusion Policy <Cite id="equivariant-diffusion-policy-2024" />. ALOHA Unleashed pairs Diffusion Policies with large-scale [ALOHA 2](/data-hardware/teleop-rigs/) data for deformable, contact-rich bimanual tasks <Cite id="aloha-unleashed-2024" />. TRI's Large Behavior Models scale the recipe to approximately 1,700 hours and match from-scratch policies with 3 to 5 times less data <Cite id="tri-lbm-2025" />.
+DP3 conditions on sparse point clouds and handles most of 72 simulation tasks with 10 demonstrations <Cite id="dp3-2024" />. Equivariant Diffusion Policy builds in SO(2) symmetry and averages 21.9% higher success than Diffusion Policy <Cite id="equivariant-diffusion-policy-2024" />. ALOHA Unleashed pairs Diffusion Policies with large-scale [ALOHA 2](/data-hardware/teleop-rigs/) data for deformable, contact-rich bimanual tasks <Cite id="aloha-unleashed-2024" />. TRI's Large Behavior Models scale the recipe to approximately 1,700 hours and match from-scratch policies with 3 to 5 times less data <Cite id="tri-lbm-2025" />. Xiaomi-Robotics-1 pairs a VLM with a diffusion-transformer action module and pretrains on over 100,000 hours of UMI handheld-gripper and egocentric data <Cite id="xiaomi-robotics-1-2026" />.
 
 ## Distillation
 
-Iterative denoising is slow for mobile manipulators and quadrotors without high-end GPUs. Consistency models generate in one step by design <Cite id="consistency-models-2023" />, and Consistency Policy distills an EDM-based Diffusion Policy teacher into one- or three-step generation. On Robomimic Square, teachers at 0.92, 0.88 and 0.84 success yielded students at 0.92, 0.92 and 0.88, robust over that range <Cite id="consistency-policy-2024" />. One-Step Diffusion Policy lifts action prediction from 1.5 Hz to 62 Hz on real Franka tasks <Cite id="one-step-diffusion-2024" />, and MP1 averages 6.8 ms per one-step inference <Cite id="mp1-2026" />. The teacher-free One-Step Flow Policy outperforms 100-step diffusion and flow policies across 56 simulated tasks <Cite id="one-step-flow-policy-2026" />.
+Iterative denoising is slow for mobile manipulators and quadrotors without high-end GPUs. Consistency models generate in one step by design <Cite id="consistency-models-2023" />, and Consistency Policy distills an EDM-based Diffusion Policy teacher into one- or three-step generation. On Robomimic Square, teachers at 0.92, 0.88 and 0.84 success yielded students at 0.92, 0.92 and 0.88, robust over that range <Cite id="consistency-policy-2024" />. One-Step Diffusion Policy lifts action prediction from 1.5 Hz to 62 Hz on real Franka tasks <Cite id="one-step-diffusion-2024" />, and MP1 averages 6.8 ms per one-step inference <Cite id="mp1-2026" />. The teacher-free One-Step Flow Policy outperforms 100-step diffusion and flow policies across 56 simulated tasks <Cite id="one-step-flow-policy-2026" />. Drifting Models (Mingyang Deng, Kaiming He and colleagues, February 2026) train a one-step generator without distillation. Swapped into Diffusion Policy, one step matched or beat the 100-step original on 10 of 14 simulated task settings <Cite id="drifting-models-2026" />.
 
 ## Flow matching
 
@@ -119,6 +122,8 @@ A_t^\tau = \tau A_t + (1 - \tau)\varepsilon, \qquad u(A_t^\tau \mid A_t) = A_t -
 $$
 
 then trains the network to predict $u$, drawing $\tau$ from a beta distribution weighted toward the noisy end. Sampling integrates from $\tau = 0$ to $\tau = 1$ with 10 forward Euler steps <Cite id="pi0-2024" />.
+
+On October 5, 2026, Wonsuhk Jung (Georgia Tech), Abhishek Gupta (University of Washington), Haruki Nishimura (Toyota Research Institute) and colleagues posted Bilinear Flow Policy for goals outside the training distribution. Across five simulated tasks it reached 2.63 times the out-of-distribution success of a goal-conditioned flow policy; on two real tasks it reached 50% against 18% <Cite id="bilinear-flow-policy-2026" />.
 
 ## Real-time chunking
 

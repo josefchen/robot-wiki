@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "8741e4c27db33e80d7f634d6a20d7f6df3ba1e485f1157ffe9ec9496b1384d41",
+  "fingerprint": "3f0166f8589147733944c89593b0c097ca4fd8e8afd42345afc534bdd62ec169",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -254,7 +254,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3346,
+      "visibleTextLength": 3370,
       "route": "/",
       "viewport": "1440x900"
     },
@@ -762,7 +762,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 30274,
+      "visibleTextLength": 30303,
       "route": "/adjacent/autonomous-vehicles/",
       "viewport": "1440x900"
     },
@@ -1143,7 +1143,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17990,
+      "visibleTextLength": 18019,
       "route": "/adjacent/surgical/",
       "viewport": "1440x900"
     },
@@ -1651,7 +1651,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 16896,
+      "visibleTextLength": 16934,
       "route": "/classical/grasp-planning/",
       "viewport": "1440x900"
     },
@@ -1778,7 +1778,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 14746,
+      "visibleTextLength": 14784,
       "route": "/classical/kinematics/",
       "viewport": "1440x900"
     },
@@ -1905,7 +1905,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27690,
+      "visibleTextLength": 27719,
       "route": "/classical/motion-planning/",
       "viewport": "1440x900"
     },
@@ -2032,7 +2032,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 42345,
+      "visibleTextLength": 42374,
       "route": "/classical/perception/",
       "viewport": "1440x900"
     },
@@ -2794,7 +2794,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18091,
+      "visibleTextLength": 18167,
       "route": "/data-hardware/data-bottleneck/",
       "viewport": "1440x900"
     },
@@ -2921,7 +2921,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17573,
+      "visibleTextLength": 17611,
       "route": "/data-hardware/datasets/",
       "viewport": "1440x900"
     },
@@ -3556,7 +3556,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 15706,
+      "visibleTextLength": 15744,
       "route": "/data-hardware/teleop-rigs/",
       "viewport": "1440x900"
     },
@@ -4064,7 +4064,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 22973,
+      "visibleTextLength": 23002,
       "route": "/frontier/competing-theses/",
       "viewport": "1440x900"
     },
@@ -4191,7 +4191,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24622,
+      "visibleTextLength": 24698,
       "route": "/frontier/dexterity/",
       "viewport": "1440x900"
     },
@@ -4826,7 +4826,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 854,
+      "visibleTextLength": 863,
       "route": "/how-robots-work/",
       "viewport": "1440x900"
     },
@@ -4953,7 +4953,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3380,
+      "visibleTextLength": 3447,
       "route": "/manipulation/",
       "viewport": "1440x900"
     },
@@ -5080,7 +5080,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 22993,
+      "visibleTextLength": 22994,
       "route": "/manipulation/action-chunking/",
       "viewport": "1440x900"
     },
@@ -5207,7 +5207,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 16370,
+      "visibleTextLength": 19001,
       "route": "/manipulation/action-spaces/",
       "viewport": "1440x900"
     },
@@ -5334,7 +5334,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18093,
+      "visibleTextLength": 19967,
       "route": "/manipulation/bc-foundations/",
       "viewport": "1440x900"
     },
@@ -5576,19 +5576,19 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Cross-Embodiment Learning for Robot Policies | Robot Wiki",
-        "description": "Cross-embodiment learning trains one policy on many bodies and human video: padded actions, relative end-effector actions and human-to-robot transfer.",
+        "description": "Cross-embodiment learning trains one policy on many robots and human video: padded actions, soft prompts, relative end-effector actions and human data.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "Cross-Embodiment Transfer",
-        "ogDescription": "Cross-embodiment learning trains one policy on many bodies and human video: padded actions, relative end-effector actions and human-to-robot transfer.",
+        "ogDescription": "Cross-embodiment learning trains one policy on many robots and human video: padded actions, soft prompts, relative end-effector actions and human data.",
         "ogImageAlt": "Open graph card for the Robot Wiki article Cross-Embodiment Transfer",
         "ogImage": "https://robot-wiki.com/og/manipulation/cross-embodiment.png",
         "twitterTitle": "Cross-Embodiment Transfer",
-        "twitterDescription": "Cross-embodiment learning trains one policy on many bodies and human video: padded actions, relative end-effector actions and human-to-robot transfer.",
+        "twitterDescription": "Cross-embodiment learning trains one policy on many robots and human video: padded actions, soft prompts, relative end-effector actions and human data.",
         "canonical": "https://robot-wiki.com/manipulation/cross-embodiment/"
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18326,
+      "visibleTextLength": 20312,
       "route": "/manipulation/cross-embodiment/",
       "viewport": "1440x900"
     },
@@ -5715,7 +5715,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17701,
+      "visibleTextLength": 19232,
       "route": "/manipulation/diffusion-policy/",
       "viewport": "1440x900"
     },
@@ -5842,7 +5842,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18548,
+      "visibleTextLength": 19927,
       "route": "/manipulation/foundation-models/",
       "viewport": "1440x900"
     },
@@ -5957,19 +5957,19 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Generalist Robot Policies: Gemini, GR00T, Helix | Robot Wiki",
-        "description": "Generalist robot policies compared: Gemini Robotics 2, GR00T, Helix, Skild and GO-2 by architecture, evidence quality and which weights you can download.",
+        "description": "Generalist robot policies compared: Gemini Robotics 2, GR00T, Helix 2.5, GEN-1.5, Skild S1 and GO-2 by architecture, evidence quality and open weights.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "Other Generalist Policies",
-        "ogDescription": "Generalist robot policies compared: Gemini Robotics 2, GR00T, Helix, Skild and GO-2 by architecture, evidence quality and which weights you can download.",
+        "ogDescription": "Generalist robot policies compared: Gemini Robotics 2, GR00T, Helix 2.5, GEN-1.5, Skild S1 and GO-2 by architecture, evidence quality and open weights.",
         "ogImageAlt": "Open graph card for the Robot Wiki article Other Generalist Policies",
         "ogImage": "https://robot-wiki.com/og/manipulation/generalist-policies.png",
         "twitterTitle": "Other Generalist Policies",
-        "twitterDescription": "Generalist robot policies compared: Gemini Robotics 2, GR00T, Helix, Skild and GO-2 by architecture, evidence quality and which weights you can download.",
+        "twitterDescription": "Generalist robot policies compared: Gemini Robotics 2, GR00T, Helix 2.5, GEN-1.5, Skild S1 and GO-2 by architecture, evidence quality and open weights.",
         "canonical": "https://robot-wiki.com/manipulation/generalist-policies/"
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 23674,
+      "visibleTextLength": 23704,
       "route": "/manipulation/generalist-policies/",
       "viewport": "1440x900"
     },
@@ -6084,19 +6084,19 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Hierarchical Robot Policies: Planners and VLAs | Robot Wiki",
-        "description": "Hierarchical robot policies split what to do from how to move: SayCan, Code as Policies, keypoint VLMs, pi0.5 subtasks and Gemini Robotics ER 1.5.",
+        "description": "Hierarchical robot policies split what to do from how to move: SayCan, Code as Policies, pi0.5 subtasks and orchestrators such as Gemini Robotics ER 2.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "Hierarchical Approaches",
-        "ogDescription": "Hierarchical robot policies split what to do from how to move: SayCan, Code as Policies, keypoint VLMs, pi0.5 subtasks and Gemini Robotics ER 1.5.",
+        "ogDescription": "Hierarchical robot policies split what to do from how to move: SayCan, Code as Policies, pi0.5 subtasks and orchestrators such as Gemini Robotics ER 2.",
         "ogImageAlt": "Open graph card for the Robot Wiki article Hierarchical Approaches",
         "ogImage": "https://robot-wiki.com/og/manipulation/hierarchical.png",
         "twitterTitle": "Hierarchical Approaches",
-        "twitterDescription": "Hierarchical robot policies split what to do from how to move: SayCan, Code as Policies, keypoint VLMs, pi0.5 subtasks and Gemini Robotics ER 1.5.",
+        "twitterDescription": "Hierarchical robot policies split what to do from how to move: SayCan, Code as Policies, pi0.5 subtasks and orchestrators such as Gemini Robotics ER 2.",
         "canonical": "https://robot-wiki.com/manipulation/hierarchical/"
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 23191,
+      "visibleTextLength": 24689,
       "route": "/manipulation/hierarchical/",
       "viewport": "1440x900"
     },
@@ -6223,7 +6223,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 16571,
+      "visibleTextLength": 17530,
       "route": "/manipulation/knowledge-insulation/",
       "viewport": "1440x900"
     },
@@ -6350,7 +6350,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 25159,
+      "visibleTextLength": 25198,
       "route": "/manipulation/pi-line/",
       "viewport": "1440x900"
     },
@@ -6477,7 +6477,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 20462,
+      "visibleTextLength": 21551,
       "route": "/manipulation/realtime-execution/",
       "viewport": "1440x900"
     },
@@ -6592,19 +6592,19 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "RL Fine-Tuning for VLA Robot Policies | Robot Wiki",
-        "description": "RL fine-tuning of robot policies and VLAs: HIL-SERL, DPPO, Recap, pi_RL and EXPO-FT, with reported results and caveats.",
+        "description": "RL fine-tuning of robot policies and VLAs: HIL-SERL, DPPO, Recap, pi_RL, RL tokens and EXPO-FT, with reported results and caveats.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "RL Fine-Tuning of Policies",
-        "ogDescription": "RL fine-tuning of robot policies and VLAs: HIL-SERL, DPPO, Recap, pi_RL and EXPO-FT, with reported results and caveats.",
+        "ogDescription": "RL fine-tuning of robot policies and VLAs: HIL-SERL, DPPO, Recap, pi_RL, RL tokens and EXPO-FT, with reported results and caveats.",
         "ogImageAlt": "Open graph card for the Robot Wiki article RL Fine-Tuning of Policies",
         "ogImage": "https://robot-wiki.com/og/manipulation/rl-finetuning.png",
         "twitterTitle": "RL Fine-Tuning of Policies",
-        "twitterDescription": "RL fine-tuning of robot policies and VLAs: HIL-SERL, DPPO, Recap, pi_RL and EXPO-FT, with reported results and caveats.",
+        "twitterDescription": "RL fine-tuning of robot policies and VLAs: HIL-SERL, DPPO, Recap, pi_RL, RL tokens and EXPO-FT, with reported results and caveats.",
         "canonical": "https://robot-wiki.com/manipulation/rl-finetuning/"
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 36634,
+      "visibleTextLength": 37831,
       "route": "/manipulation/rl-finetuning/",
       "viewport": "1440x900"
     },
@@ -6731,7 +6731,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 15828,
+      "visibleTextLength": 16259,
       "route": "/manipulation/robot-learning-roadmap/",
       "viewport": "1440x900"
     },
@@ -6858,7 +6858,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 22751,
+      "visibleTextLength": 24408,
       "route": "/manipulation/vla-models/",
       "viewport": "1440x900"
     },
@@ -7493,7 +7493,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 20695,
+      "visibleTextLength": 20724,
       "route": "/rl-sim2real/humanoid-wbc/",
       "viewport": "1440x900"
     },
@@ -9825,7 +9825,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3108,
+      "visibleTextLength": 3132,
       "route": "/",
       "viewport": "375x812"
     },
@@ -10333,7 +10333,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 29940,
+      "visibleTextLength": 29969,
       "route": "/adjacent/autonomous-vehicles/",
       "viewport": "375x812"
     },
@@ -10714,7 +10714,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17656,
+      "visibleTextLength": 17685,
       "route": "/adjacent/surgical/",
       "viewport": "375x812"
     },
@@ -11222,7 +11222,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 16459,
+      "visibleTextLength": 16497,
       "route": "/classical/grasp-planning/",
       "viewport": "375x812"
     },
@@ -11349,7 +11349,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 14309,
+      "visibleTextLength": 14347,
       "route": "/classical/kinematics/",
       "viewport": "375x812"
     },
@@ -11476,7 +11476,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27253,
+      "visibleTextLength": 27282,
       "route": "/classical/motion-planning/",
       "viewport": "375x812"
     },
@@ -11603,7 +11603,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 41915,
+      "visibleTextLength": 41944,
       "route": "/classical/perception/",
       "viewport": "375x812"
     },
@@ -12365,7 +12365,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17696,
+      "visibleTextLength": 17772,
       "route": "/data-hardware/data-bottleneck/",
       "viewport": "375x812"
     },
@@ -12492,7 +12492,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17178,
+      "visibleTextLength": 17216,
       "route": "/data-hardware/datasets/",
       "viewport": "375x812"
     },
@@ -13127,7 +13127,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 15311,
+      "visibleTextLength": 15349,
       "route": "/data-hardware/teleop-rigs/",
       "viewport": "375x812"
     },
@@ -13635,7 +13635,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 22622,
+      "visibleTextLength": 22651,
       "route": "/frontier/competing-theses/",
       "viewport": "375x812"
     },
@@ -13762,7 +13762,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24271,
+      "visibleTextLength": 24347,
       "route": "/frontier/dexterity/",
       "viewport": "375x812"
     },
@@ -14397,7 +14397,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 616,
+      "visibleTextLength": 625,
       "route": "/how-robots-work/",
       "viewport": "375x812"
     },
@@ -14524,7 +14524,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 2737,
+      "visibleTextLength": 2804,
       "route": "/manipulation/",
       "viewport": "375x812"
     },
@@ -14651,7 +14651,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 22350,
+      "visibleTextLength": 22351,
       "route": "/manipulation/action-chunking/",
       "viewport": "375x812"
     },
@@ -14778,7 +14778,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 15727,
+      "visibleTextLength": 18358,
       "route": "/manipulation/action-spaces/",
       "viewport": "375x812"
     },
@@ -14905,7 +14905,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17450,
+      "visibleTextLength": 19324,
       "route": "/manipulation/bc-foundations/",
       "viewport": "375x812"
     },
@@ -15147,19 +15147,19 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Cross-Embodiment Learning for Robot Policies | Robot Wiki",
-        "description": "Cross-embodiment learning trains one policy on many bodies and human video: padded actions, relative end-effector actions and human-to-robot transfer.",
+        "description": "Cross-embodiment learning trains one policy on many robots and human video: padded actions, soft prompts, relative end-effector actions and human data.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "Cross-Embodiment Transfer",
-        "ogDescription": "Cross-embodiment learning trains one policy on many bodies and human video: padded actions, relative end-effector actions and human-to-robot transfer.",
+        "ogDescription": "Cross-embodiment learning trains one policy on many robots and human video: padded actions, soft prompts, relative end-effector actions and human data.",
         "ogImageAlt": "Open graph card for the Robot Wiki article Cross-Embodiment Transfer",
         "ogImage": "https://robot-wiki.com/og/manipulation/cross-embodiment.png",
         "twitterTitle": "Cross-Embodiment Transfer",
-        "twitterDescription": "Cross-embodiment learning trains one policy on many bodies and human video: padded actions, relative end-effector actions and human-to-robot transfer.",
+        "twitterDescription": "Cross-embodiment learning trains one policy on many robots and human video: padded actions, soft prompts, relative end-effector actions and human data.",
         "canonical": "https://robot-wiki.com/manipulation/cross-embodiment/"
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17683,
+      "visibleTextLength": 19669,
       "route": "/manipulation/cross-embodiment/",
       "viewport": "375x812"
     },
@@ -15286,7 +15286,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17058,
+      "visibleTextLength": 18589,
       "route": "/manipulation/diffusion-policy/",
       "viewport": "375x812"
     },
@@ -15413,7 +15413,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17905,
+      "visibleTextLength": 19284,
       "route": "/manipulation/foundation-models/",
       "viewport": "375x812"
     },
@@ -15528,19 +15528,19 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Generalist Robot Policies: Gemini, GR00T, Helix | Robot Wiki",
-        "description": "Generalist robot policies compared: Gemini Robotics 2, GR00T, Helix, Skild and GO-2 by architecture, evidence quality and which weights you can download.",
+        "description": "Generalist robot policies compared: Gemini Robotics 2, GR00T, Helix 2.5, GEN-1.5, Skild S1 and GO-2 by architecture, evidence quality and open weights.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "Other Generalist Policies",
-        "ogDescription": "Generalist robot policies compared: Gemini Robotics 2, GR00T, Helix, Skild and GO-2 by architecture, evidence quality and which weights you can download.",
+        "ogDescription": "Generalist robot policies compared: Gemini Robotics 2, GR00T, Helix 2.5, GEN-1.5, Skild S1 and GO-2 by architecture, evidence quality and open weights.",
         "ogImageAlt": "Open graph card for the Robot Wiki article Other Generalist Policies",
         "ogImage": "https://robot-wiki.com/og/manipulation/generalist-policies.png",
         "twitterTitle": "Other Generalist Policies",
-        "twitterDescription": "Generalist robot policies compared: Gemini Robotics 2, GR00T, Helix, Skild and GO-2 by architecture, evidence quality and which weights you can download.",
+        "twitterDescription": "Generalist robot policies compared: Gemini Robotics 2, GR00T, Helix 2.5, GEN-1.5, Skild S1 and GO-2 by architecture, evidence quality and open weights.",
         "canonical": "https://robot-wiki.com/manipulation/generalist-policies/"
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 23031,
+      "visibleTextLength": 23061,
       "route": "/manipulation/generalist-policies/",
       "viewport": "375x812"
     },
@@ -15655,19 +15655,19 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Hierarchical Robot Policies: Planners and VLAs | Robot Wiki",
-        "description": "Hierarchical robot policies split what to do from how to move: SayCan, Code as Policies, keypoint VLMs, pi0.5 subtasks and Gemini Robotics ER 1.5.",
+        "description": "Hierarchical robot policies split what to do from how to move: SayCan, Code as Policies, pi0.5 subtasks and orchestrators such as Gemini Robotics ER 2.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "Hierarchical Approaches",
-        "ogDescription": "Hierarchical robot policies split what to do from how to move: SayCan, Code as Policies, keypoint VLMs, pi0.5 subtasks and Gemini Robotics ER 1.5.",
+        "ogDescription": "Hierarchical robot policies split what to do from how to move: SayCan, Code as Policies, pi0.5 subtasks and orchestrators such as Gemini Robotics ER 2.",
         "ogImageAlt": "Open graph card for the Robot Wiki article Hierarchical Approaches",
         "ogImage": "https://robot-wiki.com/og/manipulation/hierarchical.png",
         "twitterTitle": "Hierarchical Approaches",
-        "twitterDescription": "Hierarchical robot policies split what to do from how to move: SayCan, Code as Policies, keypoint VLMs, pi0.5 subtasks and Gemini Robotics ER 1.5.",
+        "twitterDescription": "Hierarchical robot policies split what to do from how to move: SayCan, Code as Policies, pi0.5 subtasks and orchestrators such as Gemini Robotics ER 2.",
         "canonical": "https://robot-wiki.com/manipulation/hierarchical/"
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 22548,
+      "visibleTextLength": 24046,
       "route": "/manipulation/hierarchical/",
       "viewport": "375x812"
     },
@@ -15794,7 +15794,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 15928,
+      "visibleTextLength": 16887,
       "route": "/manipulation/knowledge-insulation/",
       "viewport": "375x812"
     },
@@ -15921,7 +15921,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24516,
+      "visibleTextLength": 24555,
       "route": "/manipulation/pi-line/",
       "viewport": "375x812"
     },
@@ -16048,7 +16048,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 19819,
+      "visibleTextLength": 20908,
       "route": "/manipulation/realtime-execution/",
       "viewport": "375x812"
     },
@@ -16163,19 +16163,19 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "RL Fine-Tuning for VLA Robot Policies | Robot Wiki",
-        "description": "RL fine-tuning of robot policies and VLAs: HIL-SERL, DPPO, Recap, pi_RL and EXPO-FT, with reported results and caveats.",
+        "description": "RL fine-tuning of robot policies and VLAs: HIL-SERL, DPPO, Recap, pi_RL, RL tokens and EXPO-FT, with reported results and caveats.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "RL Fine-Tuning of Policies",
-        "ogDescription": "RL fine-tuning of robot policies and VLAs: HIL-SERL, DPPO, Recap, pi_RL and EXPO-FT, with reported results and caveats.",
+        "ogDescription": "RL fine-tuning of robot policies and VLAs: HIL-SERL, DPPO, Recap, pi_RL, RL tokens and EXPO-FT, with reported results and caveats.",
         "ogImageAlt": "Open graph card for the Robot Wiki article RL Fine-Tuning of Policies",
         "ogImage": "https://robot-wiki.com/og/manipulation/rl-finetuning.png",
         "twitterTitle": "RL Fine-Tuning of Policies",
-        "twitterDescription": "RL fine-tuning of robot policies and VLAs: HIL-SERL, DPPO, Recap, pi_RL and EXPO-FT, with reported results and caveats.",
+        "twitterDescription": "RL fine-tuning of robot policies and VLAs: HIL-SERL, DPPO, Recap, pi_RL, RL tokens and EXPO-FT, with reported results and caveats.",
         "canonical": "https://robot-wiki.com/manipulation/rl-finetuning/"
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 35991,
+      "visibleTextLength": 37188,
       "route": "/manipulation/rl-finetuning/",
       "viewport": "375x812"
     },
@@ -16302,7 +16302,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 15185,
+      "visibleTextLength": 15616,
       "route": "/manipulation/robot-learning-roadmap/",
       "viewport": "375x812"
     },
@@ -16429,7 +16429,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 22108,
+      "visibleTextLength": 23765,
       "route": "/manipulation/vla-models/",
       "viewport": "375x812"
     },
@@ -17064,7 +17064,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 20204,
+      "visibleTextLength": 20233,
       "route": "/rl-sim2real/humanoid-wbc/",
       "viewport": "375x812"
     },

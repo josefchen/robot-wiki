@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "b7feb526cc59c51739a1bea730ff640e5948abef4853f2d7f6975f8873f49140",
+  "fingerprint": "d1ff4c5da2de6ac299d8b8ca5d1faf4083c033b759cea107c561ca655eda0c62",
   "viewport": "375x812",
   "routes": [
     "/",
@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3108,
+      "visibleTextLength": 3132,
       "header": {
         "present": true,
         "display": "flex",
@@ -726,7 +726,7 @@
     },
     {
       "route": "/adjacent/autonomous-vehicles/",
-      "visibleTextLength": 29940,
+      "visibleTextLength": 29969,
       "header": {
         "present": true,
         "display": "flex",
@@ -1215,7 +1215,7 @@
     },
     {
       "route": "/adjacent/surgical/",
-      "visibleTextLength": 17656,
+      "visibleTextLength": 17685,
       "header": {
         "present": true,
         "display": "flex",
@@ -1867,7 +1867,7 @@
     },
     {
       "route": "/classical/grasp-planning/",
-      "visibleTextLength": 16459,
+      "visibleTextLength": 16497,
       "header": {
         "present": true,
         "display": "flex",
@@ -2030,7 +2030,7 @@
     },
     {
       "route": "/classical/kinematics/",
-      "visibleTextLength": 14309,
+      "visibleTextLength": 14347,
       "header": {
         "present": true,
         "display": "flex",
@@ -2193,7 +2193,7 @@
     },
     {
       "route": "/classical/motion-planning/",
-      "visibleTextLength": 27253,
+      "visibleTextLength": 27282,
       "header": {
         "present": true,
         "display": "flex",
@@ -2356,7 +2356,7 @@
     },
     {
       "route": "/classical/perception/",
-      "visibleTextLength": 41915,
+      "visibleTextLength": 41944,
       "header": {
         "present": true,
         "display": "flex",
@@ -3334,7 +3334,7 @@
     },
     {
       "route": "/data-hardware/data-bottleneck/",
-      "visibleTextLength": 17696,
+      "visibleTextLength": 17772,
       "header": {
         "present": true,
         "display": "flex",
@@ -3497,7 +3497,7 @@
     },
     {
       "route": "/data-hardware/datasets/",
-      "visibleTextLength": 17178,
+      "visibleTextLength": 17216,
       "header": {
         "present": true,
         "display": "flex",
@@ -4312,7 +4312,7 @@
     },
     {
       "route": "/data-hardware/teleop-rigs/",
-      "visibleTextLength": 15311,
+      "visibleTextLength": 15349,
       "header": {
         "present": true,
         "display": "flex",
@@ -4956,7 +4956,7 @@
     },
     {
       "route": "/frontier/competing-theses/",
-      "visibleTextLength": 22622,
+      "visibleTextLength": 22651,
       "header": {
         "present": true,
         "display": "flex",
@@ -5119,7 +5119,7 @@
     },
     {
       "route": "/frontier/dexterity/",
-      "visibleTextLength": 24271,
+      "visibleTextLength": 24347,
       "header": {
         "present": true,
         "display": "flex",
@@ -6097,7 +6097,7 @@
     },
     {
       "route": "/manipulation/",
-      "visibleTextLength": 2737,
+      "visibleTextLength": 2804,
       "header": {
         "present": true,
         "display": "flex",
@@ -6260,7 +6260,7 @@
     },
     {
       "route": "/manipulation/action-chunking/",
-      "visibleTextLength": 22350,
+      "visibleTextLength": 22351,
       "header": {
         "present": true,
         "display": "flex",
@@ -6423,7 +6423,7 @@
     },
     {
       "route": "/manipulation/action-spaces/",
-      "visibleTextLength": 15727,
+      "visibleTextLength": 18358,
       "header": {
         "present": true,
         "display": "flex",
@@ -6586,7 +6586,7 @@
     },
     {
       "route": "/manipulation/bc-foundations/",
-      "visibleTextLength": 17450,
+      "visibleTextLength": 19324,
       "header": {
         "present": true,
         "display": "flex",
@@ -6912,7 +6912,7 @@
     },
     {
       "route": "/manipulation/cross-embodiment/",
-      "visibleTextLength": 17683,
+      "visibleTextLength": 19669,
       "header": {
         "present": true,
         "display": "flex",
@@ -7075,7 +7075,7 @@
     },
     {
       "route": "/manipulation/diffusion-policy/",
-      "visibleTextLength": 17058,
+      "visibleTextLength": 18589,
       "header": {
         "present": true,
         "display": "flex",
@@ -7238,7 +7238,7 @@
     },
     {
       "route": "/manipulation/foundation-models/",
-      "visibleTextLength": 17905,
+      "visibleTextLength": 19284,
       "header": {
         "present": true,
         "display": "flex",
@@ -7401,7 +7401,7 @@
     },
     {
       "route": "/manipulation/generalist-policies/",
-      "visibleTextLength": 23031,
+      "visibleTextLength": 23061,
       "header": {
         "present": true,
         "display": "flex",
@@ -7564,7 +7564,7 @@
     },
     {
       "route": "/manipulation/hierarchical/",
-      "visibleTextLength": 22548,
+      "visibleTextLength": 24046,
       "header": {
         "present": true,
         "display": "flex",
@@ -7727,7 +7727,7 @@
     },
     {
       "route": "/manipulation/knowledge-insulation/",
-      "visibleTextLength": 15928,
+      "visibleTextLength": 16887,
       "header": {
         "present": true,
         "display": "flex",
@@ -7890,7 +7890,7 @@
     },
     {
       "route": "/manipulation/pi-line/",
-      "visibleTextLength": 24516,
+      "visibleTextLength": 24555,
       "header": {
         "present": true,
         "display": "flex",
@@ -8053,7 +8053,7 @@
     },
     {
       "route": "/manipulation/realtime-execution/",
-      "visibleTextLength": 19819,
+      "visibleTextLength": 20908,
       "header": {
         "present": true,
         "display": "flex",
@@ -8216,7 +8216,7 @@
     },
     {
       "route": "/manipulation/rl-finetuning/",
-      "visibleTextLength": 35991,
+      "visibleTextLength": 37188,
       "header": {
         "present": true,
         "display": "flex",
@@ -8379,7 +8379,7 @@
     },
     {
       "route": "/manipulation/robot-learning-roadmap/",
-      "visibleTextLength": 15185,
+      "visibleTextLength": 15616,
       "header": {
         "present": true,
         "display": "flex",
@@ -8542,7 +8542,7 @@
     },
     {
       "route": "/manipulation/vla-models/",
-      "visibleTextLength": 22108,
+      "visibleTextLength": 23765,
       "header": {
         "present": true,
         "display": "flex",
@@ -9349,7 +9349,7 @@
     },
     {
       "route": "/rl-sim2real/humanoid-wbc/",
-      "visibleTextLength": 20204,
+      "visibleTextLength": 20233,
       "header": {
         "present": true,
         "display": "flex",

@@ -38,6 +38,8 @@ citations:
   - vla-continual-forgetting-2026
   - act2answer-2026
   - openvla-2024
+  - lbm-cotraining-2026
+  - dm0-2026
 seeAlso:
   - "manipulation/action-spaces"
   - "manipulation/comparison-matrix"
@@ -88,10 +90,10 @@ Figure's Helix instead backpropagates from its fast policy into the VLM through 
 
 A many-embodiment π0 generalist needs 7.5 times the training steps of π0.5 + KI to reach similar table-bussing performance. Single-embodiment π0-FAST specialists need twice the wall-clock time from slow inference <Cite id="knowledge-insulation-paper-2025" /> <Cite id="knowledge-insulation-2025" />. Table bussing starts with 12 objects for dish and trash receptacles, at ten episodes per task and policy. When a mobile robot moves unseen objects into an open drawer, web-data co-training boosts generalization most, and language following improves but stays imperfect <Cite id="knowledge-insulation-paper-2025" /> <Cite id="knowledge-insulation-2025" />.
 
-In third-party fine-tuning, π0.5 with KI stays near zero on out-of-distribution task perturbations; KI alone does not fix out-of-distribution language generalization <Cite id="apt-action-expert-pretraining-2026" />. A reimplemented co-training plus KI baseline trailed standard behavior cloning on mean LIBERO-PRO and LIBERO-Plus success <Cite id="anchor-align-2026" />, though the dual FAST and flow objective mitigates forgetting more than flow alone <Cite id="garg-self-demonstrated-control-2026" />. Across seven VLAs, VQA co-training goes with better knowledge retention <Cite id="act2answer-2026" />.
+In third-party fine-tuning, π0.5 with KI stays near zero on out-of-distribution task perturbations; KI alone does not fix out-of-distribution language generalization <Cite id="apt-action-expert-pretraining-2026" />. A reimplemented co-training plus KI baseline trailed standard behavior cloning on mean LIBERO-PRO and LIBERO-Plus success <Cite id="anchor-align-2026" />, though the dual FAST and flow objective mitigates forgetting more than flow alone <Cite id="garg-self-demonstrated-control-2026" />. Across seven VLAs, VQA co-training goes with better knowledge retention <Cite id="act2answer-2026" />. In Toyota Research Institute's 89-policy co-training study, training only on robot data cost the VLM backbone its ability to generate language, and co-training with effective modalities restored it <Cite id="lbm-cotraining-2026" />.
 
 ## Later models
 
-openpi's public π0.5 checkpoints were trained with KI, but the repository serves only the flow-matching head <Cite id="openpi-repo-2024" />. Outside groups therefore reimplemented the FAST loss and stop-gradient <Cite id="garg-self-demonstrated-control-2026" />. LAP-3B blocks expert gradients and runs at 25 Hz on an RTX 4090 <Cite id="lap-2026" />, and LabVLA applies KI to a FAST-pretrained Qwen3-VL-4B <Cite id="labvla-2026" />. A 2026 review sorts implementations into gradient stopping, as in π0.5-KI and π0.6, and inpainting <Cite id="stulp-full-stack-transfer-2026" />.
+openpi's public π0.5 checkpoints were trained with KI, but the repository serves only the flow-matching head <Cite id="openpi-repo-2024" />. Outside groups therefore reimplemented the FAST loss and stop-gradient <Cite id="garg-self-demonstrated-control-2026" />. LAP-3B blocks expert gradients and runs at 25 Hz on an RTX 4090 <Cite id="lap-2026" />, and LabVLA applies KI to a FAST-pretrained Qwen3-VL-4B <Cite id="labvla-2026" />. Dexmal and StepFun's 2B DM0 (February 2026) adopts a hybrid gradient strategy "inspired by Knowledge Insulation": on embodied data, action-expert gradients stay out of the VLM <Cite id="dm0-2026" />. A 2026 review sorts implementations into gradient stopping, as in π0.5-KI and π0.6, and inpainting <Cite id="stulp-full-stack-transfer-2026" />.
 
 The π0.6 card lists a Gemma3 4B backbone predicting FAST tokens, a SigLIP 400M encoder and an approximately 860M equal-depth expert whose gradients stay out of the backbone. A chunk takes 63 ms on one H100 with five denoising steps and three cameras <Cite id="pi06-model-card-2025" />. π0.7 keeps a Gemma3-based VLM, a MEM-style video-history encoder and a flow-matching expert under FAST supervision with expert gradients stopped <Cite id="pi07-2026" />.

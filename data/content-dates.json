@@ -106,15 +106,15 @@
     },
     "manipulation/action-chunking": {
       "published": "2026-08-07T17:34:21+01:00",
-      "modified": "2026-10-06T03:56:42+02:00"
+      "modified": "2026-10-06T09:23:14+02:00"
     },
     "manipulation/action-spaces": {
       "published": "2026-09-16T07:39:57+02:00",
-      "modified": "2026-10-06T03:18:36+02:00"
+      "modified": "2026-10-06T09:23:14+02:00"
     },
     "manipulation/bc-foundations": {
       "published": "2026-08-08T02:18:37+01:00",
-      "modified": "2026-10-06T03:56:42+02:00"
+      "modified": "2026-10-06T09:23:14+02:00"
     },
     "manipulation/comparison-matrix": {
       "published": "2026-08-08T06:52:08+01:00",
@@ -122,47 +122,47 @@
     },
     "manipulation/cross-embodiment": {
       "published": "2026-08-08T15:31:40+01:00",
-      "modified": "2026-10-06T03:56:42+02:00"
+      "modified": "2026-10-06T09:23:14+02:00"
     },
     "manipulation/diffusion-policy": {
       "published": "2026-08-08T03:05:28+01:00",
-      "modified": "2026-10-06T03:18:36+02:00"
+      "modified": "2026-10-06T09:23:14+02:00"
     },
     "manipulation/foundation-models": {
       "published": "2026-09-16T07:39:57+02:00",
-      "modified": "2026-10-06T05:36:53+02:00"
+      "modified": "2026-10-06T09:23:14+02:00"
     },
     "manipulation/generalist-policies": {
       "published": "2026-08-08T05:49:43+01:00",
-      "modified": "2026-10-06T05:04:46+02:00"
+      "modified": "2026-10-06T09:23:14+02:00"
     },
     "manipulation/hierarchical": {
       "published": "2026-08-08T07:15:55+01:00",
-      "modified": "2026-10-06T05:36:53+02:00"
+      "modified": "2026-10-06T09:23:14+02:00"
     },
     "manipulation/knowledge-insulation": {
       "published": "2026-08-08T15:56:20+01:00",
-      "modified": "2026-10-06T03:56:42+02:00"
+      "modified": "2026-10-06T09:23:14+02:00"
     },
     "manipulation/pi-line": {
       "published": "2026-08-08T05:30:52+01:00",
-      "modified": "2026-10-06T05:04:46+02:00"
+      "modified": "2026-10-06T09:23:14+02:00"
     },
     "manipulation/realtime-execution": {
       "published": "2026-08-08T08:03:48+01:00",
-      "modified": "2026-10-06T05:04:46+02:00"
+      "modified": "2026-10-06T09:23:14+02:00"
     },
     "manipulation/rl-finetuning": {
       "published": "2026-08-08T07:35:58+01:00",
-      "modified": "2026-10-06T05:04:46+02:00"
+      "modified": "2026-10-06T09:23:14+02:00"
     },
     "manipulation/robot-learning-roadmap": {
       "published": "2026-09-16T07:39:57+02:00",
-      "modified": "2026-10-06T03:18:36+02:00"
+      "modified": "2026-10-06T09:23:14+02:00"
     },
     "manipulation/vla-models": {
       "published": "2026-08-08T04:53:11+01:00",
-      "modified": "2026-10-06T03:18:36+02:00"
+      "modified": "2026-10-06T09:23:14+02:00"
     },
     "rl-sim2real/humanoid-wbc": {
       "published": "2026-08-08T19:09:26+01:00",
@@ -231,28 +231,28 @@
   },
   "routes": {
     "/": {
-      "modified": "2026-10-06T05:36:53+02:00"
+      "modified": "2026-10-06T09:23:14+02:00"
     },
     "/manipulation/": {
-      "modified": "2026-10-02T05:08:36+02:00"
+      "modified": "2026-10-06T09:23:14+02:00"
     },
     "/classical/": {
-      "modified": "2026-10-02T05:08:36+02:00"
+      "modified": "2026-10-06T09:23:14+02:00"
     },
     "/rl-sim2real/": {
-      "modified": "2026-10-02T05:08:36+02:00"
+      "modified": "2026-10-06T09:23:14+02:00"
     },
     "/world-models/": {
-      "modified": "2026-10-02T05:08:36+02:00"
+      "modified": "2026-10-06T09:23:14+02:00"
     },
     "/frontier/": {
-      "modified": "2026-10-02T05:08:36+02:00"
+      "modified": "2026-10-06T09:23:14+02:00"
     },
     "/data-hardware/": {
-      "modified": "2026-10-02T05:08:36+02:00"
+      "modified": "2026-10-06T09:23:14+02:00"
     },
     "/adjacent/": {
-      "modified": "2026-10-02T05:08:36+02:00"
+      "modified": "2026-10-06T09:23:14+02:00"
     },
     "/market-map/": {
       "modified": "2026-10-02T05:08:36+02:00"
@@ -264,7 +264,7 @@
       "modified": "2026-10-06T02:30:02+02:00"
     },
     "/glossary/": {
-      "modified": "2026-10-06T05:36:53+02:00"
+      "modified": "2026-10-06T09:23:14+02:00"
     },
     "/credits/": {
       "modified": "2026-10-02T05:08:36+02:00"
@@ -273,10 +273,10 @@
       "modified": "2026-09-16T12:22:31+02:00"
     },
     "/about/": {
-      "modified": "2026-09-30T16:41:57+02:00"
+      "modified": "2026-10-06T09:23:14+02:00"
     },
     "/a-z/": {
-      "modified": "2026-09-29T16:33:30+02:00"
+      "modified": "2026-10-06T09:23:14+02:00"
     }
   }
 }

@@ -57820,6 +57820,1642 @@
         "VAL-B2-BASE-011"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-prose-action-chunking",
+      "manifest": "prose",
+      "memberId": "article:manipulation/action-chunking",
+      "oldHash": "83617c5e965b2a0117181f292f952533769b88ff32a46d4b074690a0003bd883",
+      "newHash": "7e978f3da7336ab773671ff9a7e3d8940153ea225b446792b5f3d5a0020560b7",
+      "reason": "Lead length and sweep item AC.R3 in the manipulation domain pass of 2026-10-06 on manipulation/action-chunking: the lead splits after its two defining sentences so it stays within 60 visible words (D2), and the RTC paragraph links its existing words \"the hand-off between chunks\" to realtime-execution, where Soft RTC is covered; no word or citation changes. This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-prose-action-spaces",
+      "manifest": "prose",
+      "memberId": "article:manipulation/action-spaces",
+      "oldHash": "7f985b006a4a1ba04c6e54d24c2a3f4c87d12a131626c358630122986ba5a791",
+      "newHash": "fcb2be76cfa8db52947ee15b33fcbbf8c872b0d37bef8bc03503766e0d0bd376",
+      "reason": "Sweep recency in the manipulation domain pass of 2026-10-06 on manipulation/action-spaces: AS.R3 (X-VLA soft prompts), AS.R4 (FACTR 2 and T-Rex), AS.R5 (GEN-1.5 100 Hz and Helix 02 S0 1 kHz) and AS.R1/AS.R2 (ActionCodec and LAP), one cited sentence each. This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-prose-bc-foundations",
+      "manifest": "prose",
+      "memberId": "article:manipulation/bc-foundations",
+      "oldHash": "9a6aed0cbd9a1dd7cc6d6579b2e7bd8ef29d636eaad34298858da0bbf341d607",
+      "newHash": "b407c7093264be5f3c81f0dfc7298d7602578867014cbd43fe17b0e28108ecc9",
+      "reason": "KOL intake in the manipulation domain pass of 2026-10-06 on manipulation/bc-foundations: three attributed, dated DAgger passages (RebarSim, Abhishek Gupta intake; DITTO-X, Jiajun Wu intake; Recova, Linxi Fan intake), every number from the fetched arXiv HTML. This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-prose-cross-embodiment",
+      "manifest": "prose",
+      "memberId": "article:manipulation/cross-embodiment",
+      "oldHash": "6d5bb7421683eaa9d58a7b686cdaecd9ddb3375934a3fde6807630d9195186aa",
+      "newHash": "889882f20c03fe0c38d5333d33cf485fd029b9edbb1e5cdec6ca701ab2794c06",
+      "reason": "Sweep recency in the manipulation domain pass of 2026-10-06 on manipulation/cross-embodiment: CE.R6 (TRI pooling evidence), CE.R3 (GEN-1 human-only pretraining) and CE.R4 (DreamZero 30-minute adaptation), plus the KOL intake of Pieter Abbeel (GOTT); the module summary and search description drop \"the live disagreement\" and name soft prompts. Its lead splits after the defining sentences or drops filler words, so it stays within 60 visible words (D2); no cited fact, number, citation or link is removed. This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-prose-diffusion-policy",
+      "manifest": "prose",
+      "memberId": "article:manipulation/diffusion-policy",
+      "oldHash": "4f2994aeff39915d24d3414612cdf3f135d765ece4ee209898d8af2ba2d0de49",
+      "newHash": "8b4509e1c5c0693d154f936b7932d1213c495e5ed3b78a641efaadd270f6ff17",
+      "reason": "Sweep recency in the manipulation domain pass of 2026-10-06 on manipulation/diffusion-policy: DP.R3 (Xiaomi-Robotics-1 UMI scale) and DP.R2 (Drifting Models one-step generator), plus the KOL intake of Abhishek Gupta (Bilinear Flow Policy) under Flow matching. This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-prose-foundation-models",
+      "manifest": "prose",
+      "memberId": "article:manipulation/foundation-models",
+      "oldHash": "dbb38ec41ea755bb8c853c05ad5b4700aaa9378821247d38c1340875765476ea",
+      "newHash": "98ac2cf3855bbe855a22301105661fa1d90685bbfbcc82e4567b3fe98a7667e5",
+      "reason": "Sweep recency in the manipulation domain pass of 2026-10-06 on manipulation/foundation-models: FM.R1 (Helix 2.5 Index pretraining, linked to generalist policies), FM.R2 (GEN-1) and FM.R5 (TRI co-training); the ECoMEM sentence gains its Stanford affiliation. This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-prose-generalist-policies",
+      "manifest": "prose",
+      "memberId": "article:manipulation/generalist-policies",
+      "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+      "newHash": "375fa401bcd684d16d115413f132e4b0d13158b5a05a088bc6380d9502810a0f",
+      "reason": "Sweep SEO item GP.S-desc in the manipulation domain pass of 2026-10-06 on manipulation/generalist-policies: the search description names Helix 2.5, GEN-1.5 and Skild S1, which the page covers. The lead splits after its defining sentence so it stays within 60 visible words (D2), and the Gemini Robotics citation moves from the definition to the sentence that names Gemini Robotics; no cited fact, number, citation or link is removed. This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "oft-gemini-oxe-20260908-3",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "b0d9127ac3bef7bed9b28c8f87905c443ff2f58a2daf92f1892b8895b59d0e3b"
+        },
+        {
+          "id": "go-helix-cross-transfer-20260908-5",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "68840092b1fedab94737f684e08a280476ed11a1f7103453aa0766cc7bfb761f"
+        },
+        {
+          "id": "vla-generalist-closeouts-20260908-2",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "94cc9a639c8e66f97c327f9ff916f40f6bfc558a2177a6f8a9f42cdeed08bf8e"
+        },
+        {
+          "id": "generalist-attribution-p1-20260922-1",
+          "oldHash": "94cc9a639c8e66f97c327f9ff916f40f6bfc558a2177a6f8a9f42cdeed08bf8e",
+          "newHash": "a38e7023403782407cace0c918dc1f149234149748e62e9c57fe9d03d3166951"
+        },
+        {
+          "id": "continuation-merge-20260922-prose-manipulation-generalist-policies",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "a38e7023403782407cace0c918dc1f149234149748e62e9c57fe9d03d3166951"
+        },
+        {
+          "id": "four-local-truth-repairs-20260922-1",
+          "oldHash": "a38e7023403782407cace0c918dc1f149234149748e62e9c57fe9d03d3166951",
+          "newHash": "bd4a5abdc213e0ef0102c1a3427a1eb6ad49db0f784dfdbe582d70ee0f1a1df4"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-prose-article-manipulation-generalist-policies",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "bd4a5abdc213e0ef0102c1a3427a1eb6ad49db0f784dfdbe582d70ee0f1a1df4"
+        },
+        {
+          "id": "crossdomain-closure-20260923-1",
+          "oldHash": "bd4a5abdc213e0ef0102c1a3427a1eb6ad49db0f784dfdbe582d70ee0f1a1df4",
+          "newHash": "6309e206061df1481bc9e606d5a83a26b866859b4889a2cb7f08d8772b0f0646"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0140-prose-article-manipulation-generalist-policies",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "6309e206061df1481bc9e606d5a83a26b866859b4889a2cb7f08d8772b0f0646"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-manipulation-generalist-policies",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "6309e206061df1481bc9e606d5a83a26b866859b4889a2cb7f08d8772b0f0646"
+        },
+        {
+          "id": "humanizer-manipulation-v3-20260925-prose-generalist-policies",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "7c0fd3cef651f4e97cf6b32181db26d53bec8eeda1433d63db6d1d0060aebcbe"
+        },
+        {
+          "id": "educational-cue-20260926-prose-generalist-policies",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "e8ad571aa51f67edebeef1383eb79df06f749ca8199c51693e2f3a567e6d41df"
+        },
+        {
+          "id": "seo-pass-20261002-prose-manipulation-generalist-policies",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "2e80b0706d877102f600ddd127b860ee052bf6eb4b1b1942a544b882cf499bc1"
+        },
+        {
+          "id": "reader-first-20261003-prose-manipulation-generalist-policies",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "a52436bd5e9e4bc660b8bdfe0081cf753d2cfe2da56329415fcdf3614c28b5bc"
+        },
+        {
+          "id": "domain-pass-20261006-g3-prose-generalist-policies",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "83b1f584530b16bee39365bc1f91fa2d6c2b406464dee90214a904194048b2b8"
+        }
+      ]
+    },
+    {
+      "id": "domain-pass-20261006-g5-prose-hierarchical",
+      "manifest": "prose",
+      "memberId": "article:manipulation/hierarchical",
+      "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+      "newHash": "ca5a1a94e02aa2361704c366f9535762b3fe9262c258d0e0bfd43d18dfffc63c",
+      "reason": "Sweep recency in the manipulation domain pass of 2026-10-06 on manipulation/hierarchical: HI.R3 (TRI chain-of-thought result) and HI.R4 (ENPIRE), plus the KOL intake of Aviral Kumar (SeeQ); the RPG sentence gains its UC Berkeley and Amazon FAR affiliation; the module summary and search description name the 2026 orchestrators. Its lead splits after the defining sentences or drops filler words, so it stays within 60 visible words (D2); no cited fact, number, citation or link is removed. This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "oft-gemini-oxe-20260908-4",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "e61d22c100e301219e0ad92bda2456f5c899cc6077d308a8206a37650ed9b9f3"
+        },
+        {
+          "id": "go-helix-cross-transfer-20260908-6",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "f4d1b9e437d94d44d254a03d431af63d12c388f4514e15cba00a1f07f86a791e"
+        },
+        {
+          "id": "vla-generalist-closeouts-20260908-3",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "6653d1cddb175e5405614b0877b7847f059164ea06eb3205d17feeeafe271d4b"
+        },
+        {
+          "id": "keypoint-hierarchy-20260913-2",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "1ad8d672a630982ea64b781bcc37605f6ed105e32519b81dd2fc518fbcec95a6"
+        },
+        {
+          "id": "saycan-cap-two-20260914-1",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "c438f16829f3bc8ac358c6d6a1001e08c5fa13cda6bad5b6713e89e7af192142"
+        },
+        {
+          "id": "hierarchical-ecot-hirobot-20260914-1",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "0099fefeabfd63e0069bd671ffe7caee84c6c0398f90d8004a695cf4f9a61223"
+        },
+        {
+          "id": "hierarchy14-box-web-correction-20260921",
+          "oldHash": "0099fefeabfd63e0069bd671ffe7caee84c6c0398f90d8004a695cf4f9a61223",
+          "newHash": "e0892dbb5fefa56957931bae74c3cd2c60640f122f8587e2365db852af2680a7"
+        },
+        {
+          "id": "hierarchy15-bounded-synthesis-correction-20260921",
+          "oldHash": "e0892dbb5fefa56957931bae74c3cd2c60640f122f8587e2365db852af2680a7",
+          "newHash": "50b49ee3f2e6b130c24367d5ed71b34bb07f2965e7a8154e9a59783ef14fc00c"
+        },
+        {
+          "id": "continuation-merge-20260922-prose-manipulation-hierarchical",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "50b49ee3f2e6b130c24367d5ed71b34bb07f2965e7a8154e9a59783ef14fc00c"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-manipulation-hierarchical",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "50b49ee3f2e6b130c24367d5ed71b34bb07f2965e7a8154e9a59783ef14fc00c"
+        },
+        {
+          "id": "humanizer-manipulation-v3-20260925-prose-hierarchical",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "73bde0c3426f143ca86c66b27d5422609412bc50fae05d31e227a6c60a2a295b"
+        },
+        {
+          "id": "educational-cue-20260926-prose-hierarchical",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "9646ce943ff9e1a1ae4efe3f190bf6ae43f26debd0f654048cf1e5981b8ac97c"
+        },
+        {
+          "id": "seo-pass-20261002-prose-manipulation-hierarchical",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "07c56b674127c6e460752cec8472636a26a03ab01decb31685f19a9485189327"
+        },
+        {
+          "id": "kol-backlog-20261005-manipulation-prose-hierarchical",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "615d79ced68b53ee05e2bb6695f0dd7c8a77c7679081459c466e5cd8ce224284"
+        },
+        {
+          "id": "domain-pass-20261006-g3-prose-hierarchical",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "53989ccfebafeab915226e71a528906e80295915975d3e38b5f03e82b2edeee2"
+        },
+        {
+          "id": "domain-pass-20261006-g4-prose-hierarchical",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "fe4134e1aa340a02c4369aceaac7c9890251fd10692a8281db632b9192e8d314"
+        }
+      ]
+    },
+    {
+      "id": "domain-pass-20261006-g5-prose-knowledge-insulation",
+      "manifest": "prose",
+      "memberId": "article:manipulation/knowledge-insulation",
+      "oldHash": "893c22c629811c8a48c6d0d36181aeaca9b6916c989f775472b6f412fa627de4",
+      "newHash": "119b18351a8300830f928603b75086c24108345507ebf37d86643522eaa0c4c7",
+      "reason": "Sweep recency in the manipulation domain pass of 2026-10-06 on manipulation/knowledge-insulation: KI.R3 (TRI: robot-only training erodes language generation) and KI.R2 (DM0 adopts a KI-inspired gradient barrier), one cited sentence each. This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-prose-pi-line",
+      "manifest": "prose",
+      "memberId": "article:manipulation/pi-line",
+      "oldHash": "eedad663f0a4a69da9f1873b5e55f9db5a0b08841bafb9f958ee638bcf905aa6",
+      "newHash": "826b5d3aea85e7930454a95056fbcc3accacf2afe2ca3fc407d06587f9934427",
+      "reason": "Lead length in the manipulation domain pass of 2026-10-06 on manipulation/pi-line: the lead splits after its defining sentence so it stays within 60 visible words (D2); no word, citation or link changes. This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-prose-realtime-execution",
+      "manifest": "prose",
+      "memberId": "article:manipulation/realtime-execution",
+      "oldHash": "f712937d7a68072196aa8d5d0b765f5dd44bd2b67dbd865ebda479ed3ccd6ba2",
+      "newHash": "8d44869d256a2c74ec9c5afde33041c6b05a5d92d49f00a41c080efa120b1f56",
+      "reason": "Sweep recency in the manipulation domain pass of 2026-10-06 on manipulation/realtime-execution: RT.R5 (OpenVLA-OFT same-setup A100 throughput), RT.R1 (pi0 at 30 Hz on one RTX 4090) and RT.R4 (Real-Time EXPO-FT), cited sentences in the hardware and training sections. Its lead splits after the defining sentences or drops filler words, so it stays within 60 visible words (D2); no cited fact, number, citation or link is removed. This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-prose-rl-finetuning",
+      "manifest": "prose",
+      "memberId": "article:manipulation/rl-finetuning",
+      "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+      "newHash": "22ccb18c6e901e6ce74f1f0a28d43742469cf5ed300bb5235b89b758f673d2c4",
+      "reason": "Sweep recency in the manipulation domain pass of 2026-10-06 on manipulation/rl-finetuning: RL.R3 (ENPIRE) plus the KOL intake of Aviral Kumar (SeeQ best-of-N steering); the search description adds RL tokens (RL.S-desc). Its lead splits after the defining sentences or drops filler words, so it stays within 60 visible words (D2); no cited fact, number, citation or link is removed. This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "brand-v2-rl-finetuning-display-math-delimiters",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "8a0f433c78e6aedaa4b5e0c2729fd6f36cf4141af498cb19042a663b41ebdb87"
+        },
+        {
+          "id": "cross-article-closeouts-20260907-4",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "4483c83f0ab4302e38386b794c017a09a8ecdcf63fecb006c13bef8966e01b1b"
+        },
+        {
+          "id": "rl-finetuning-closeout-20260908-1",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "5424024e10a7e82ad997df5eb7988b12b0b04e127dfcc3f53bdbb9e0b4fe67c0"
+        },
+        {
+          "id": "brand-v2-rl-reader-citation-placement-20260908",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "120deb06728a78d1969b84b131812bb5d8c78e152a1df1589ec6b7b0b3dbe834"
+        },
+        {
+          "id": "rl-correct-originals-20260908-prose",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "f3eeff488db5b1d89c05e6ac2348ed84d323d983546ebcd45966ea815032e03c"
+        },
+        {
+          "id": "pirl-pld-four-originals-20260908-1",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "58266d3f46c78229772028ac412853551ca8252b6137772d21b40b27cbc809cf"
+        },
+        {
+          "id": "rl-method-table-original-11-20260908-1",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "9698d653d74ac61fb0fb4973114c938fba4178245fcf140fb753728d6e22749f"
+        },
+        {
+          "id": "reader-rl-prose-20260923-1",
+          "oldHash": "9698d653d74ac61fb0fb4973114c938fba4178245fcf140fb753728d6e22749f",
+          "newHash": "985f5f0f8e17bfc229d604ab4b42c2bb99676da58943e2ba20d99558d09f16a6"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1745-prose-article-manipulation-rl-finetuning",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "985f5f0f8e17bfc229d604ab4b42c2bb99676da58943e2ba20d99558d09f16a6"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-manipulation-rl-finetuning",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "985f5f0f8e17bfc229d604ab4b42c2bb99676da58943e2ba20d99558d09f16a6"
+        },
+        {
+          "id": "humanizer-manipulation-v3-20260925-prose-rl-finetuning",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "9cd86548ec63a88ef26aa27fb724b7a74cb6b6a895112e9278c6c1b968786363"
+        },
+        {
+          "id": "seo-pass-20261002-prose-manipulation-rl-finetuning",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "e2bec4dd9ffd492bca2b22ede6dcc3208e1c3cb27775b6a16c01fed2202e9993"
+        },
+        {
+          "id": "reader-first-20261003-prose-manipulation-rl-finetuning",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "bb06d2ef09091fa8d5dbbe61153bbbe05b81920b2802ed62af543b648bcd171c"
+        },
+        {
+          "id": "kol-backlog-20261005-manipulation-prose-rl-finetuning",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "75ff06297ec79e9f945b7c8ec09e6fdc09a8d68bc1389dbd57e2dcf55323d095"
+        },
+        {
+          "id": "domain-pass-20261006-g3-prose-rl-finetuning",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "b2823eee35043243a426295813960c586044e3b82a1acd616faca7a7c7a48b7d"
+        }
+      ]
+    },
+    {
+      "id": "domain-pass-20261006-g5-prose-robot-learning-roadmap",
+      "manifest": "prose",
+      "memberId": "article:manipulation/robot-learning-roadmap",
+      "oldHash": "1935d94adbd264358911f2444ff7e044870878adf6aa40de8d99e80c3b504ae6",
+      "newHash": "e671d5d898f7d2ab82c1ccffb11050749e3fe819cba38852ca997aa97fd31121",
+      "reason": "Sweep recency in the manipulation domain pass of 2026-10-06 on manipulation/robot-learning-roadmap: RM.R4 (SimpleVLA-RL one-demonstration LIBERO result) in Simulation and RL. This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-prose-vla-models",
+      "manifest": "prose",
+      "memberId": "article:manipulation/vla-models",
+      "oldHash": "0b6fa4ea9d9e1855944edb60c787387950f1f27db49dc80f7a2385ca33447926",
+      "newHash": "9c2320788e26e4511517e9499d422351bec7ed639ce63c74831a36a445e62209",
+      "reason": "Sweep recency in the manipulation domain pass of 2026-10-06 on manipulation/vla-models: VLA.R4 (TRI 89-policy co-training study), VLA.R2 (X-VLA soft prompts) and VLA.R5 (Xiaomi-Robotics-1) as one cited paragraph after Open X-Embodiment. Its lead splits after the defining sentences or drops filler words, so it stays within 60 visible words (D2); no cited fact, number, citation or link is removed. This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-relationships-action-chunking",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/action-chunking",
+      "oldHash": "358f3dfaf8792d0b1c33417e10340a2ec99bf396d5def74ea00a7c9543f94fff",
+      "newHash": "c3768ef530b8f292cf8aa89f3484a023eae4c83378103e2a74dc560541bac4a2",
+      "reason": "Lead length and sweep item AC.R3 in the manipulation domain pass of 2026-10-06 on manipulation/action-chunking: the lead splits after its two defining sentences so it stays within 60 visible words (D2), and the RTC paragraph links its existing words \"the hand-off between chunks\" to realtime-execution, where Soft RTC is covered; no word or citation changes. This edge moves the relationships record from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-relationships-action-spaces",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/action-spaces",
+      "oldHash": "a1cf36d967b7981c24c704ea0fea0b9da52f0ab19fd6977a74fac45542767466",
+      "newHash": "a13fe45a9c421652ec5e7a954fcd887f752c78b8609ff1ed0d86d199c7cac0e4",
+      "reason": "Sweep recency in the manipulation domain pass of 2026-10-06 on manipulation/action-spaces: AS.R3 (X-VLA soft prompts), AS.R4 (FACTR 2 and T-Rex), AS.R5 (GEN-1.5 100 Hz and Helix 02 S0 1 kHz) and AS.R1/AS.R2 (ActionCodec and LAP), one cited sentence each. This edge moves the relationships record from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-relationships-bc-foundations",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/bc-foundations",
+      "oldHash": "437f2b9f06722f4d05695a13ae3e6369c941e08a8b35c796211ff46650402cb8",
+      "newHash": "5363a6721274aee03a14debf8ec7b17a7333273d7db92cf47e195899ee6490a3",
+      "reason": "KOL intake in the manipulation domain pass of 2026-10-06 on manipulation/bc-foundations: three attributed, dated DAgger passages (RebarSim, Abhishek Gupta intake; DITTO-X, Jiajun Wu intake; Recova, Linxi Fan intake), every number from the fetched arXiv HTML. This edge moves the relationships record from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-relationships-cross-embodiment",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/cross-embodiment",
+      "oldHash": "ffc8a7ac9ad2b555f80c325cea08c47fce3d41d26a60c85f664c01e0cabc6912",
+      "newHash": "6935c972ed87244aa8755e99f0335e1a0cfb30bb43098a27281238d810dc2d94",
+      "reason": "Sweep recency in the manipulation domain pass of 2026-10-06 on manipulation/cross-embodiment: CE.R6 (TRI pooling evidence), CE.R3 (GEN-1 human-only pretraining) and CE.R4 (DreamZero 30-minute adaptation), plus the KOL intake of Pieter Abbeel (GOTT); the module summary and search description drop \"the live disagreement\" and name soft prompts. Its lead splits after the defining sentences or drops filler words, so it stays within 60 visible words (D2); no cited fact, number, citation or link is removed. This edge moves the relationships record from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-relationships-diffusion-policy",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/diffusion-policy",
+      "oldHash": "9bcab21ceae17c5c60922ece5d7c2e4d6ff6bf3b198aa3ccf571f71cee599270",
+      "newHash": "d76dbf6a34baca4887f10b04024524e45c89eba3ddc46ed82ce2a28b8573e4cb",
+      "reason": "Sweep recency in the manipulation domain pass of 2026-10-06 on manipulation/diffusion-policy: DP.R3 (Xiaomi-Robotics-1 UMI scale) and DP.R2 (Drifting Models one-step generator), plus the KOL intake of Abhishek Gupta (Bilinear Flow Policy) under Flow matching. This edge moves the relationships record from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-relationships-foundation-models",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/foundation-models",
+      "oldHash": "2397d24d4923e392980b33bd1cff7aaa93b7cf38b31f17424baa1f6533cd9c7e",
+      "newHash": "3f931c95091f4567e0f669a78c4d91f6b1a5613f160cdc16cbeb674f87df12a8",
+      "reason": "Sweep recency in the manipulation domain pass of 2026-10-06 on manipulation/foundation-models: FM.R1 (Helix 2.5 Index pretraining, linked to generalist policies), FM.R2 (GEN-1) and FM.R5 (TRI co-training); the ECoMEM sentence gains its Stanford affiliation. This edge moves the relationships record from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-relationships-hierarchical",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/hierarchical",
+      "oldHash": "1c4c8ec379222f44a29c29fd3a3bfdff27036e5d104f227bd4c7d0db618b8881",
+      "newHash": "7eeecbcf519d3c6de290c191dad98530854e5ef0b62d8a078edcd531d2c49062",
+      "reason": "Sweep recency in the manipulation domain pass of 2026-10-06 on manipulation/hierarchical: HI.R3 (TRI chain-of-thought result) and HI.R4 (ENPIRE), plus the KOL intake of Aviral Kumar (SeeQ); the RPG sentence gains its UC Berkeley and Amazon FAR affiliation; the module summary and search description name the 2026 orchestrators. Its lead splits after the defining sentences or drops filler words, so it stays within 60 visible words (D2); no cited fact, number, citation or link is removed. This edge moves the relationships record from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-relationships-knowledge-insulation",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/knowledge-insulation",
+      "oldHash": "ff455b5a254966404302efd3d03de3910e2a04b5c6ab4ee6bfe3ed69fc1e4eb7",
+      "newHash": "f32be79231c84bc67574b6208cfc95f0819d8d41ed5bab29c3c018fb6f22b6ce",
+      "reason": "Sweep recency in the manipulation domain pass of 2026-10-06 on manipulation/knowledge-insulation: KI.R3 (TRI: robot-only training erodes language generation) and KI.R2 (DM0 adopts a KI-inspired gradient barrier), one cited sentence each. This edge moves the relationships record from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-relationships-realtime-execution",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/realtime-execution",
+      "oldHash": "5e3ece8883bddab00ef68b264f5d97083928a2256749bd19d8839320ed61ecae",
+      "newHash": "bcec0ab6a4569f98055cede6be493b8143eb086125b1707f73f1fbdb27c9709c",
+      "reason": "Sweep recency in the manipulation domain pass of 2026-10-06 on manipulation/realtime-execution: RT.R5 (OpenVLA-OFT same-setup A100 throughput), RT.R1 (pi0 at 30 Hz on one RTX 4090) and RT.R4 (Real-Time EXPO-FT), cited sentences in the hardware and training sections. Its lead splits after the defining sentences or drops filler words, so it stays within 60 visible words (D2); no cited fact, number, citation or link is removed. This edge moves the relationships record from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-relationships-rl-finetuning",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/rl-finetuning",
+      "oldHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
+      "newHash": "7ea6c674daf3aa3f4e8bce51ccc79ca510a41ee282e59e20b46ee653e6e51840",
+      "reason": "Sweep recency in the manipulation domain pass of 2026-10-06 on manipulation/rl-finetuning: RL.R3 (ENPIRE) plus the KOL intake of Aviral Kumar (SeeQ best-of-N steering); the search description adds RL tokens (RL.S-desc). Its lead splits after the defining sentences or drops filler words, so it stays within 60 visible words (D2); no cited fact, number, citation or link is removed. This edge moves the relationships record from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "cross-article-closeouts-20260907-13",
+          "oldHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
+          "newHash": "0b61e313d835e95eac8a7dfc47273d2c3d3f0173f3db0da5b2abd40dec67b8f8"
+        },
+        {
+          "id": "rl-finetuning-closeout-20260908-2",
+          "oldHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
+          "newHash": "6a2a8eebcd9e36011ca58d06a1afaa75bb2812c5986c477c21462d0460d1fc0c"
+        },
+        {
+          "id": "rl-correct-originals-20260908-relationships",
+          "oldHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
+          "newHash": "6f6e93db5e6b361cdf37d42f53e6484fb6e0b54e290f4fcc0d45b119f7a81d9f"
+        },
+        {
+          "id": "pirl-pld-four-originals-20260908-3",
+          "oldHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
+          "newHash": "ee8e5ecb41721ad37d66394732c5f66028a71febf86046815145b3a6accfb609"
+        },
+        {
+          "id": "rl-method-table-original-11-20260908-2",
+          "oldHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
+          "newHash": "cdab4c3ed1b14dfbfb4020d9841dafd0b3e70cc9745497e15484d5de254b6886"
+        },
+        {
+          "id": "reader-rl-prose-20260923-3",
+          "oldHash": "cdab4c3ed1b14dfbfb4020d9841dafd0b3e70cc9745497e15484d5de254b6886",
+          "newHash": "39b1f9eeda0e57414a51de3da379021bfdefef4aae73100bf55a7b5ac7dc925a"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1745-relationships-article-manipulation-rl-finetuning",
+          "oldHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
+          "newHash": "39b1f9eeda0e57414a51de3da379021bfdefef4aae73100bf55a7b5ac7dc925a"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-relationships-article-manipulation-rl-finetuning",
+          "oldHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
+          "newHash": "39b1f9eeda0e57414a51de3da379021bfdefef4aae73100bf55a7b5ac7dc925a"
+        },
+        {
+          "id": "expo-ft-intake-20260925-relationships-rl-finetuning",
+          "oldHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
+          "newHash": "1394c86b31ad1ba8c5face5adea3c0d80b0ffc6c1bcf8f7736aae2934953cc66"
+        },
+        {
+          "id": "seo-pass-20261002-relationships-manipulation-rl-finetuning",
+          "oldHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
+          "newHash": "a7859654451be726cec2e0cfad747aa38668f7b61efbba8232f7181d85f85254"
+        },
+        {
+          "id": "kol-backlog-20261005-manipulation-relationships-rl-finetuning",
+          "oldHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
+          "newHash": "b2485233d5dfcd307637e888245c0c97b5f5283b35a104b9716abc7fbbdd1138"
+        },
+        {
+          "id": "domain-pass-20261006-g3-relationships-rl-finetuning",
+          "oldHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
+          "newHash": "34bb9b5e59c52d13469908f133fb6822d84236b78ce02ec7e53763d009600617"
+        }
+      ]
+    },
+    {
+      "id": "domain-pass-20261006-g5-relationships-robot-learning-roadmap",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/robot-learning-roadmap",
+      "oldHash": "ef6216ffcc31fc3a6f8f453881677be7a16ee2acc1679892593b7b12429c4311",
+      "newHash": "c9e742d767d78db40cb1a86b82d31a48217015302571b5fd88eb4fff2da4f3b1",
+      "reason": "Sweep recency in the manipulation domain pass of 2026-10-06 on manipulation/robot-learning-roadmap: RM.R4 (SimpleVLA-RL one-demonstration LIBERO result) in Simulation and RL. This edge moves the relationships record from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-relationships-vla-models",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/vla-models",
+      "oldHash": "6e169751528cf4e777669003f1645e1c85d707a748aaa2bf22377438a8bc414b",
+      "newHash": "e4696bd4bbd456fcbcd5b04548b66a3b92a931e536cefc8809a253cf94aff84d",
+      "reason": "Sweep recency in the manipulation domain pass of 2026-10-06 on manipulation/vla-models: VLA.R4 (TRI 89-policy co-training study), VLA.R2 (X-VLA soft prompts) and VLA.R5 (Xiaomi-Robotics-1) as one cited paragraph after Open X-Embodiment. Its lead splits after the defining sentences or drops filler words, so it stays within 60 visible words (D2); no cited fact, number, citation or link is removed. This edge moves the relationships record from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-frontmatter-action-spaces",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:manipulation/action-spaces",
+      "oldHash": "8bab3c1584a2b9ffd94f4d4f22f76d36001fabb42195bd8539b6a49046750894",
+      "newHash": "ca885a5fd6e43de75d97adbfb5c5f364a8285a7d91a33638a8f12f455e84f8f2",
+      "reason": "Sweep recency in the manipulation domain pass of 2026-10-06 on manipulation/action-spaces: AS.R3 (X-VLA soft prompts), AS.R4 (FACTR 2 and T-Rex), AS.R5 (GEN-1.5 100 Hz and Helix 02 S0 1 kHz) and AS.R1/AS.R2 (ActionCodec and LAP), one cited sentence each. This edge moves the front-matter citation list from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-frontmatter-bc-foundations",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:manipulation/bc-foundations",
+      "oldHash": "cfb84ff244356b22ab4ef661c430eb1c797ae4ef1206b3f516626b1ec590bfb5",
+      "newHash": "5b81ca62a932583e8ac6b9e30e45f82ac19ecc22558330bbc047670f5a834889",
+      "reason": "KOL intake in the manipulation domain pass of 2026-10-06 on manipulation/bc-foundations: three attributed, dated DAgger passages (RebarSim, Abhishek Gupta intake; DITTO-X, Jiajun Wu intake; Recova, Linxi Fan intake), every number from the fetched arXiv HTML. This edge moves the front-matter citation list from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-frontmatter-cross-embodiment",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:manipulation/cross-embodiment",
+      "oldHash": "f19702acaac47b14f945c17d8ee37909e0e7590db2a4bdd965cf917a4bec9c09",
+      "newHash": "a52100ba0ee35318a19e617011854eb1f36b713437816a75b1b3cab0832a2a45",
+      "reason": "Sweep recency in the manipulation domain pass of 2026-10-06 on manipulation/cross-embodiment: CE.R6 (TRI pooling evidence), CE.R3 (GEN-1 human-only pretraining) and CE.R4 (DreamZero 30-minute adaptation), plus the KOL intake of Pieter Abbeel (GOTT); the module summary and search description drop \"the live disagreement\" and name soft prompts. Its lead splits after the defining sentences or drops filler words, so it stays within 60 visible words (D2); no cited fact, number, citation or link is removed. This edge moves the front-matter citation list from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-frontmatter-diffusion-policy",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:manipulation/diffusion-policy",
+      "oldHash": "51ebca8f4ec20bb303bfaafe84775854c265e27ffb4194cb20d6013c036f2b31",
+      "newHash": "179d1b1599155c9bd4485cbba4c34b5b4a0c0f0b947611fe09648313f92f7386",
+      "reason": "Sweep recency in the manipulation domain pass of 2026-10-06 on manipulation/diffusion-policy: DP.R3 (Xiaomi-Robotics-1 UMI scale) and DP.R2 (Drifting Models one-step generator), plus the KOL intake of Abhishek Gupta (Bilinear Flow Policy) under Flow matching. This edge moves the front-matter citation list from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-frontmatter-foundation-models",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:manipulation/foundation-models",
+      "oldHash": "513e94bb32db9f1434170627dc290b2604011b2089d493ff11e0b695378bd88f",
+      "newHash": "dd824f662dad1a2cab71810c32a6320826bfe2585a211d7df2a43551ac2bdca3",
+      "reason": "Sweep recency in the manipulation domain pass of 2026-10-06 on manipulation/foundation-models: FM.R1 (Helix 2.5 Index pretraining, linked to generalist policies), FM.R2 (GEN-1) and FM.R5 (TRI co-training); the ECoMEM sentence gains its Stanford affiliation. This edge moves the front-matter citation list from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-frontmatter-hierarchical",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:manipulation/hierarchical",
+      "oldHash": "5fd94c2b1de923b84de155be2d5fee0485381e5c5f07c004745e4072159d400b",
+      "newHash": "8c14c167265b9fd93dcca266b6980ac52cdaeb549014ae51456981009a78119b",
+      "reason": "Sweep recency in the manipulation domain pass of 2026-10-06 on manipulation/hierarchical: HI.R3 (TRI chain-of-thought result) and HI.R4 (ENPIRE), plus the KOL intake of Aviral Kumar (SeeQ); the RPG sentence gains its UC Berkeley and Amazon FAR affiliation; the module summary and search description name the 2026 orchestrators. Its lead splits after the defining sentences or drops filler words, so it stays within 60 visible words (D2); no cited fact, number, citation or link is removed. This edge moves the front-matter citation list from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-frontmatter-knowledge-insulation",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:manipulation/knowledge-insulation",
+      "oldHash": "f508a741ea8bf554e6a48b340b2d6dcb71a28e462591455952fb1625cb679172",
+      "newHash": "1820934d4bc537b17df97c076ad5a9c303245b6fd67d9c6672cab6cca0b820c0",
+      "reason": "Sweep recency in the manipulation domain pass of 2026-10-06 on manipulation/knowledge-insulation: KI.R3 (TRI: robot-only training erodes language generation) and KI.R2 (DM0 adopts a KI-inspired gradient barrier), one cited sentence each. This edge moves the front-matter citation list from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-frontmatter-realtime-execution",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:manipulation/realtime-execution",
+      "oldHash": "6391bdeeed35d8928a01b0019bf48af219a9eb79fb2e1f4a3e83841abcdf1dee",
+      "newHash": "e1a49723e539638788c935ffa8dc8bcbf2690ec3bdf1a957bf44b565711c1536",
+      "reason": "Sweep recency in the manipulation domain pass of 2026-10-06 on manipulation/realtime-execution: RT.R5 (OpenVLA-OFT same-setup A100 throughput), RT.R1 (pi0 at 30 Hz on one RTX 4090) and RT.R4 (Real-Time EXPO-FT), cited sentences in the hardware and training sections. Its lead splits after the defining sentences or drops filler words, so it stays within 60 visible words (D2); no cited fact, number, citation or link is removed. This edge moves the front-matter citation list from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-frontmatter-rl-finetuning",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:manipulation/rl-finetuning",
+      "oldHash": "ec04949283b4d3cdb8483c79253542516f8201ba6da5e6ca6e31503d81508f6f",
+      "newHash": "b0560ad50e0969170726eb43ca93d4b08fbec80d57b581fd6c2165a7e34ef71d",
+      "reason": "Sweep recency in the manipulation domain pass of 2026-10-06 on manipulation/rl-finetuning: RL.R3 (ENPIRE) plus the KOL intake of Aviral Kumar (SeeQ best-of-N steering); the search description adds RL tokens (RL.S-desc). Its lead splits after the defining sentences or drops filler words, so it stays within 60 visible words (D2); no cited fact, number, citation or link is removed. This edge moves the front-matter citation list from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-frontmatter-robot-learning-roadmap",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:manipulation/robot-learning-roadmap",
+      "oldHash": "bb24c2bb2e5bed9f8340f867692206cd2422f2dcaf890762043bcfb897c089e7",
+      "newHash": "0ea288c189f0ee86949263f63e4bc900bf8c4fd3eff58980c32c342c6bdc7f73",
+      "reason": "Sweep recency in the manipulation domain pass of 2026-10-06 on manipulation/robot-learning-roadmap: RM.R4 (SimpleVLA-RL one-demonstration LIBERO result) in Simulation and RL. This edge moves the front-matter citation list from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-frontmatter-vla-models",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:manipulation/vla-models",
+      "oldHash": "61a88a43ecdc540a13cd5ba4c5153f10f8a6979e30899bf7f57a388aa2c0a645",
+      "newHash": "bf80a2493da36ce18bdd93c2c628e26afdc838bac6eb5a4ab8094218da4d8ae8",
+      "reason": "Sweep recency in the manipulation domain pass of 2026-10-06 on manipulation/vla-models: VLA.R4 (TRI 89-policy co-training study), VLA.R2 (X-VLA soft prompts) and VLA.R5 (Xiaomi-Robotics-1) as one cited paragraph after Open X-Embodiment. Its lead splits after the defining sentences or drops filler words, so it stays within 60 visible words (D2); no cited fact, number, citation or link is removed. This edge moves the front-matter citation list from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-article-metadata-article-metadata-manipulation-cross-embodiment",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:manipulation/cross-embodiment",
+      "oldHash": "e81a409afca60cf9da05baf023a7bb6217185cd961c0c8dbabbde6a6dbb7745e",
+      "newHash": "f77eee5c47b5a2df3a6b19b1c75524060a17599aae1a5375355260c59481122a",
+      "reason": "Sweep item CE.I5 in the manipulation domain pass of 2026-10-06: the registry summary in data/modules.ts that feeds the deck, hub card, feed and llms.txt drops \"the live disagreement\" and names soft prompts and human-to-robot transfer, which the page covers. This edge moves the article-metadata record from its prior approved endpoint to the reviewed summary; no route or rendering rule changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-article-metadata-article-metadata-manipulation-hierarchical",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:manipulation/hierarchical",
+      "oldHash": "27b8927fa38dabc7b5ab52650f1a482ef2f8a4880b10b62844d895b779ff6a5f",
+      "newHash": "b5a331f9ff58602dc7595af17bbd2c7eea317bcff234a0e7a477c46f80177645",
+      "reason": "Sweep item HI.I1 in the manipulation domain pass of 2026-10-06: the registry summary in data/modules.ts that feeds the deck, hub card, feed and llms.txt no longer says separate planners gave way to internalized hierarchy, which contradicted the verdict; it names the learned and orchestrated hierarchies the page covers. This edge moves the article-metadata record from its prior approved endpoint to the reviewed summary; no route or rendering rule changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-article-metadata-canonical-metadata-source-data-modules-ts",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/modules.ts",
+      "oldHash": "2b267908e3aba5449d21c513bfc85fecbc4adf623f0e0b1c7ce098c76c51806a",
+      "newHash": "3ae553c7a590ca567ecb3249bfe9ad8ee513a4c5b836203b0ecf3b1ac624f418",
+      "reason": "Sweep items HI.I1 and CE.I5 in the manipulation domain pass of 2026-10-06: the registry summaries of manipulation/hierarchical and manipulation/cross-embodiment (the visible deck, hub card, feed and llms.txt line) now name what each page covers (Gemini Robotics ER 2 and the 2025-26 hierarchies; soft prompts and human-to-robot transfer); no other module field, slug, order or status changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-citation-rendering",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "8e198326a8254e01cbabb3b442d824528d3ab013b1ecba871daf4aecdcc36c80",
+      "reason": "Resolution entry for the citation-rendering:label-and-meta approval graph after the g5 part of the manipulation domain pass of 2026-10-06 (13 new registry entries from the sweep recency items and the KOL intake). Every prior edge for this member is inventoried exactly, with its endpoint hashes and approval records retained as history. This resolution approves the single new endpoint produced by that change; any removed, altered or newly added edge invalidates it.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "brand-v2-citation-rendering-seal-added",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "0e79fe7b2d2828ace0e597a938188665ca6a49a1377c5eef7019ac6016e8aea8"
+        },
+        {
+          "id": "current-dp-td3-20260907-5",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "04049261ce9dd32c29a001de30b8a74fc76e8c891d25bd18a20116a2b0dfe259"
+        },
+        {
+          "id": "act-convention-20260907-7",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "ca93d000ecfc779c557d142061c72267ec25d28ca44213758c76ec4b87a22ad8"
+        },
+        {
+          "id": "bc-foundations-20260907-6",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "3ec80be198832290602b14ecb3ee7375dbd096af9e8f2f536cc1d0f60fadab33"
+        },
+        {
+          "id": "act-current-claims-20260907-7",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "9ccd4c34ab44d2d927394888ee44ef170ef1fa2d42a37cd4c4da9d2e1aecc571"
+        },
+        {
+          "id": "act-five-sources-20260907-18",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "2adadd231e996bb34f0c5974dfa1b80ff276ffb83e75bdabd6849748a84975b2"
+        },
+        {
+          "id": "cross-article-closeouts-20260907-23",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "287633b834b110f8f96446c84f22efac91fa05ddb6abef8b4d23643d320535bf"
+        },
+        {
+          "id": "oft-gemini-oxe-20260908-39",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "45e21d8955bf710fc8859f7a514dbdfbdbaa91c31c9014be8d335569e67ca56d"
+        },
+        {
+          "id": "go-helix-cross-transfer-20260908-23",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "905dc70516ada8e0838923ef2f5d1bedb989a32ebf63d9efe0f99e56fdc508b8"
+        },
+        {
+          "id": "vla-generalist-closeouts-20260908-10",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "1e7e287ed05943c558a08a22c5435ac2b4415080f7b90431b199cbd6b9f08d19"
+        },
+        {
+          "id": "rl-source-closeouts-20260908-8",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "9c9644600fe3193ec9e21a7511fcb5293e60894aab91d0f6f5a1aaafe69ba9b8"
+        },
+        {
+          "id": "jepa-source-closeouts-20260908-7",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "a903ea05e32dc5baa6c30c6accda84cf8b8d736d7cabe2d12e2bcc68d0f81dc6"
+        },
+        {
+          "id": "cosmos-reader-closeout-20260908-7",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "ce936431e57110acb81dfb9ffe53777f9113b270a134d499642441ccb24a967e"
+        },
+        {
+          "id": "isaac-v1-twelve-originals-7-20260908",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "38a5fafd03466fe1f774197a0f7a3108fa45d985f1aa5ec20c8894e9a16e7ca5"
+        },
+        {
+          "id": "pirl-pld-four-originals-20260908-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "bc758e2c141629a284dbe42110669da6a4a2c98dcaac76d37d1c0c0a1ab39e0e"
+        },
+        {
+          "id": "neural-scene-originals-12-16-20260908-3",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "b6e1d5997438ce5c7ede6b5987c92db4236a94d3252f816a0572307ed4f6c9c6"
+        },
+        {
+          "id": "classical-slam-cadena-25-20260908-2",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "e4d5ea650d814a12a217868b42e5230bbce2ae6b4316389526fed203fc2e24e9"
+        },
+        {
+          "id": "pose-metrics-bop-four-originals-20260908-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "b990f28bc59b401cc490d8936a863b8cceed1310cbf393439ba46fa1d23b10d8"
+        },
+        {
+          "id": "servo-apollo-integration-20260909-5",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "9c6da7f1ba8ef59c2cfb14e77e96d42635dcdee06b102ec75f8d41cce6b8b3af"
+        },
+        {
+          "id": "randomization-citation-rendering-reconciliation-20260909",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "4b36cb18768cb7b21719fae5a0bdae280818b7330a3b9f12b7162febb7972205"
+        },
+        {
+          "id": "rudin-protocol-20260909-fdd3edc8ec7ccb2da3",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "382c8296f46c710890966bf9ffdae876f02ed430fdbc4ff8c795e73341636208"
+        },
+        {
+          "id": "ifr-industrial-originals-20260912-3",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "9db509451024c2f2ba02808619b47af462f31d835eed4ad8e26b7ffefc930856"
+        },
+        {
+          "id": "amazon-industrial-originals-20260913-2",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "ad43c3cc6acae54840e4bb247b68fd857c46e4ebea2bde03d12ac9be86fb30cd"
+        },
+        {
+          "id": "industrial-engineering-originals-20260913-2",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "71f7df8ba7ae919b5e2049f73fb4fb4d1d36d969368d856a073a79bbf5181a46"
+        },
+        {
+          "id": "evaluation-statistics-originals-20260913-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "5570fa96d9961e65be4a31f072b16d1ec616bfbbaa1e00e599686bd829e6c446"
+        },
+        {
+          "id": "perception-foundations-20260913-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "43d99fc56253db83d960b989acd81a7ba776310a27c99d6cc62eeb1f9ff40195"
+        },
+        {
+          "id": "perception-depth-20260913-2",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "e1dadc72fb980c3d8ab17b743dcf82f79f80232ad1bca2f50bbc81e997e61d76"
+        },
+        {
+          "id": "optimal-sampling-ompl-20260913-3",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "eab0d47adaa2cd995273dcf17f7434a8bfb75c37a899d7a0dd773402c61c32f3"
+        },
+        {
+          "id": "orb-scene-four-20260914-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "65553c74d026e7397f9cb0b678224af3a8c78eb48b1f96c4674f020fcb79a56e"
+        },
+        {
+          "id": "seo-merge-20260916-article-metadata-143",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "079a39b797d139832e982ce57f899d1bbe5ac8c1dc7d266e34d96952a49702a2"
+        },
+        {
+          "id": "seo-merge-20260916-b3-article-metadata-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "21c594db74adf7e091b5ef8b35615dfe145f87dd2a681fc2434ede2c1e1fb223"
+        },
+        {
+          "id": "seo-merge-20260916-metadata-label-and-meta",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "c6d54bfdf8468ccbc39743598bc452a64dc59a6e5bf489e8fb366a747cc59bc1"
+        },
+        {
+          "id": "wm-cost-labelmeta-20260917-1",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d4b364d55f8c6a688b5c2a17484919b1fd3efa21a3c148010034904bac0376c5"
+        },
+        {
+          "id": "round5-closeout-citation-rendering-digest",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "6aec4b2772e8d4a5cb9c9ad1c462534912f9a8b01958c39e6fb9069e27c00cc7"
+        },
+        {
+          "id": "aq0917a-citation-rendering-digest",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "8c97b4c2c2475caf673e5e25f0a654784734716a434c4f3f41c3249248d80507"
+        },
+        {
+          "id": "dataset-license-pair-20260921-2",
+          "oldHash": "8c97b4c2c2475caf673e5e25f0a654784734716a434c4f3f41c3249248d80507",
+          "newHash": "525d7e43d59c75f31cb2dee4e5c449bc583f757b95b475c146155764c342fc7b"
+        },
+        {
+          "id": "generalist-attribution-p1-20260922-4",
+          "oldHash": "525d7e43d59c75f31cb2dee4e5c449bc583f757b95b475c146155764c342fc7b",
+          "newHash": "40f4007276443c40512e8a7ad8ab461aec51eacf8f9a372f99c0e2a36563d3ef"
+        },
+        {
+          "id": "continuation-merge-20260922-article-metadata-label-and-meta",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "5f3bad00fb7f68ff333ded54c5a51dfbada7ac788bb2f213839864ec17e5cefb"
+        },
+        {
+          "id": "content-integration-20260923-label-and-meta",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "3955fc201543cf29cabfe07ea3d65b0a726c26be36d7387bd7fa4315520085fb"
+        },
+        {
+          "id": "industrial-perception-zero-credit-20260922-6",
+          "oldHash": "40f4007276443c40512e8a7ad8ab461aec51eacf8f9a372f99c0e2a36563d3ef",
+          "newHash": "f00819fcdb746cca4f9aa4cc25e3b0d56e10202fc6f8ab83f1f85a0bb963c450"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-article-metadata-citation-rendering-label-and-meta",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "833ab76d14390836473994dfb50f9b70b384d4de8a37157be70a88ccce449a2f"
+        },
+        {
+          "id": "industrial-closure-20260923-3",
+          "oldHash": "f00819fcdb746cca4f9aa4cc25e3b0d56e10202fc6f8ab83f1f85a0bb963c450",
+          "newHash": "51f54329ecb1d1a289c6764b3e38e5653abbd9144f3470266d8a489fcec467ab"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1940-article-metadata-citation-rendering-label-and-meta",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "3373e6623166e653a62074c4d156e1e5a454dfb89f5c56691ce6d35521ade5f2"
+        },
+        {
+          "id": "control-citation-20260924-rendering-inventory",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "4eef21fee12072861cf36b8849218a09714aace4ee4199f2da71fa6cfebcf7b6"
+        },
+        {
+          "id": "main-merge-20260924-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "03de761700f6c1776eeeb9336c009832040f21d39951916c7a20c6025b1e9e53"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-tech-withdrawal-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "2822722c660d8405d900c39dadeeb0e6efc72016bf5ea756a61211ea049ee6a0"
+        },
+        {
+          "id": "expo-ft-intake-20260925-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "dc3c6a368d704a0fc06005dd34dd7985b3fc1e36fa68f4fa81a84d6c9b89d96f"
+        },
+        {
+          "id": "kol-backlog-20261001-world-models-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "0f638d06385adacc58d419c23a0fa24860069dd6dfc63a53ec0250766064c5d0"
+        },
+        {
+          "id": "kol-backlog-20261001-adjacent-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d0708a60d3214684fda52170fcd4447bcd66c56ff7078283c9ab19be9f8ee92d"
+        },
+        {
+          "id": "kol-backlog-20261001-manipulation-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "86bdaf2aad9c7973398e9465830cfd5b157a4933034ddd17f285ee5e6ff9ab12"
+        },
+        {
+          "id": "kol-backlog-20261001-frontier-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "bacb386d64e42b7c3c9e8d2d79257fa1c4bc2a2245cbd846ceb9c9cc495f08fa"
+        },
+        {
+          "id": "seo-pass-20261002-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "4275fce1f2fa6fcab3e9f65b8451c851a1c9000c0ce172fe97ba5e9f46d443b0"
+        },
+        {
+          "id": "kol-backlog-20261005-world-models-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d5fa6de0920efb6f604b3adb78671398a2f7315e701b7679c84db792de6ca6c9"
+        },
+        {
+          "id": "kol-backlog-20261005-manipulation-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "fb35cb7a742017f7eb5c1fff3b0002b8a60a6c67776a33db155b0aebe0b4a8f0"
+        },
+        {
+          "id": "kol-backlog-20261005-adjacent-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "4ed90498df28ec03385a9fec964589aaf8d39c804f9460765cd315ebf06bea31"
+        },
+        {
+          "id": "kol-backlog-20261005-frontier-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "126e7b445dc19b681249cf921a88515accb5ce3d2ca9014530a39252d7629134"
+        },
+        {
+          "id": "kol-backlog-20261005-data-hardware-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d88adcb29d51f3923544c1761f138cc80ada2ac4861b0f1f84e0f8ad67319de4"
+        },
+        {
+          "id": "kol-backlog-20261005-classical-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "6d7fb89f953cd5806346a46d295a04f6925fd41f3174d80f05f1a812435c81e4"
+        },
+        {
+          "id": "domain-pass-20261006-g1-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "3e1ca8a9c5dc154bd815e226b7d53d9527f38e7255f2a3a0dabb7fcf3df91849"
+        },
+        {
+          "id": "domain-pass-20261006-g2-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "912315196c4c4633c733b5e0b53ef0c0c3c8be2237449b78c8652e036210819f"
+        },
+        {
+          "id": "domain-pass-20261006-g3-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "7c11f6330dc6494c88e40d10722e448679cc4356022d05e3f8240a41afc671da"
+        },
+        {
+          "id": "domain-pass-20261006-g4-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "bf7a5e8a8094ce208c548b783c6a54d45f5a1de61a4d0886bbf2a8928061fa60"
+        }
+      ]
+    },
+    {
+      "id": "domain-pass-20261006-g5-citation-actioncodec-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:actioncodec-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "0d76b70e9e1c20ce1b45e578d8f14b3e59aece5f71604e7511fbbf30f1f2d17f",
+      "reason": "Registers or corrects the citation actioncodec-2026 for the manipulation domain pass of 2026-10-06. Abstract and HTML of arXiv 2602.15397 fetched 2026-10-06 (HTTP 200); title, eleven author entries, year and URL match; the audit row in audit/citations.md quotes the passages used. This edge approves the reviewed registry record only.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-citation-bilinear-flow-policy-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:bilinear-flow-policy-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "d05c456ea4096996dbe6c51a728d0296a9afaf900a0c64f5de7809fa0269a0e1",
+      "reason": "Registers or corrects the citation bilinear-flow-policy-2026 for the manipulation domain pass of 2026-10-06. Abstract and HTML of arXiv 2610.05765 fetched 2026-10-06 (HTTP 200); title, seven author entries, year and URL match; the audit row in audit/citations.md quotes the passages used. This edge approves the reviewed registry record only.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-citation-ditto-x-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:ditto-x-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "d310b80a892e7b4d65592311477469a15a23a7327447b68a79b032de7e84704d",
+      "reason": "Registers or corrects the citation ditto-x-2026 for the manipulation domain pass of 2026-10-06. Abstract and HTML of arXiv 2610.00781 fetched 2026-10-06 (HTTP 200); title, eight author entries, year and URL match; the audit row in audit/citations.md quotes the passages used. This edge approves the reviewed registry record only.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-citation-dm0-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:dm0-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "563f65017415eaf0459987afdfbe782ca568137ce5676390504fbaff5500d12f",
+      "reason": "Registers or corrects the citation dm0-2026 for the manipulation domain pass of 2026-10-06. Abstract and HTML of arXiv 2602.14974 fetched 2026-10-06 (HTTP 200); title, forty-nine author entries, year and URL match; the audit row in audit/citations.md quotes the passages used. This edge approves the reviewed registry record only.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-citation-drifting-models-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:drifting-models-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "ce17278f0b517c1a52775cf575d59776d9bdd49c672f0d20e25587f96224fd37",
+      "reason": "Registers or corrects the citation drifting-models-2026 for the manipulation domain pass of 2026-10-06. Abstract and HTML of arXiv 2602.04770 fetched 2026-10-06 (HTTP 200); title, five author entries, year and URL match; the audit row in audit/citations.md quotes the passages used. This edge approves the reviewed registry record only.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-citation-factr-2-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:factr-2-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "466d805a189d6ae0c0abb89c1a9bdf03352a949c6cec2f6af53553b891eadfdb",
+      "reason": "Registers or corrects the citation factr-2-2026 for the manipulation domain pass of 2026-10-06. Abstract and HTML of arXiv 2606.12406 fetched 2026-10-06 (HTTP 200); title, eight author entries, year and URL match; the audit row in audit/citations.md quotes the passages used. This edge approves the reviewed registry record only.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-citation-gott-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:gott-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "6224f2bdd44d2811eae7d0e91b13bb164a32aca5763bbc6d085e7f9311447f98",
+      "reason": "Registers or corrects the citation gott-2026 for the manipulation domain pass of 2026-10-06. Abstract and HTML of arXiv 2610.03861 fetched 2026-10-06 (HTTP 200); title, seven author entries, year and URL match; the audit row in audit/citations.md quotes the passages used. This edge approves the reviewed registry record only.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-citation-lbm-cotraining-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:lbm-cotraining-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "4334d25b39c1364a922a1d9f4c985863f3a3792c6d006d0a28fc658dce2fef29",
+      "reason": "Registers or corrects the citation lbm-cotraining-2026 for the manipulation domain pass of 2026-10-06. Abstract and HTML of arXiv 2602.01067 fetched 2026-10-06 (HTTP 200); title, twelve author entries, year and URL match; the audit row in audit/citations.md quotes the passages used. This edge approves the reviewed registry record only.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-citation-realtime-vla-2025",
+      "manifest": "article-metadata",
+      "memberId": "citation:realtime-vla-2025",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "9c287069a7eb2f81561ba95404ba80e1a6e8347a6401ed1e6c775b2ba345246b",
+      "reason": "Registers or corrects the citation realtime-vla-2025 for the manipulation domain pass of 2026-10-06. Abstract and HTML of arXiv 2510.26742 fetched 2026-10-06 (HTTP 200); title, five author entries, year and URL match; the audit row in audit/citations.md quotes the passages used. This edge approves the reviewed registry record only.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-citation-rebarsim-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:rebarsim-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "f87379f230d00ff6464c2912df68038c04f8116c5ba4aead51e4ad83f16d6656",
+      "reason": "Registers or corrects the citation rebarsim-2026 for the manipulation domain pass of 2026-10-06. Abstract and HTML of arXiv 2609.20477 fetched 2026-10-06 (HTTP 200); title, eight author entries, year and URL match; the audit row in audit/citations.md quotes the passages used. This edge approves the reviewed registry record only.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-citation-recova-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:recova-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "77f54d634dfabd3c9476c90fc8f46ae0de2264b6ccd73d011ed614b4cf7760e6",
+      "reason": "Registers or corrects the citation recova-2026 for the manipulation domain pass of 2026-10-06. Abstract and HTML of arXiv 2610.01178 fetched 2026-10-06 (HTTP 200); title, nine author entries, year and URL match; the audit row in audit/citations.md quotes the passages used. This edge approves the reviewed registry record only.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-citation-seeq-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:seeq-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "12b8892909b384cd4961089b5d0476271f9806e0f7f16582b7b35cb560a54c44",
+      "reason": "Registers or corrects the citation seeq-2026 for the manipulation domain pass of 2026-10-06. Abstract and HTML of arXiv 2609.22085 fetched 2026-10-06 (HTTP 200); title, six author entries, year and URL match; the audit row in audit/citations.md quotes the passages used. This edge approves the reviewed registry record only.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g5-citation-xiaomi-robotics-1-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:xiaomi-robotics-1-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "b139f006a66d7d6c0cd9ccf679151b1ccc297fe029d50aa5cedb85d1561d2f9a",
+      "reason": "Registers or corrects the citation xiaomi-robotics-1-2026 for the manipulation domain pass of 2026-10-06. Abstract and HTML of arXiv 2607.15330 fetched 2026-10-06 (HTTP 200); title, thirty-four author entries, year and URL match; the audit row in audit/citations.md quotes the passages used. This edge approves the reviewed registry record only.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (owner-sweep-20260929/manipulation.md) and owner directive of 2026-09-30 00:40 (mission AGENTS.md): the manipulation domain pass applies the sweep's sourced 2026 recency, SEO and summary items the drafts leave open, and integrates this domain's kol-intake queue notes as attributed, dated, linked KOL thinking under owner-decision-kol-coverage-and-evidence-standards-20260924, with every number checked against the primary source fetched on 2026-10-06. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
     }
   ]
 }
