@@ -11682,6 +11682,199 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.02204',
     type: 'paper',
   },
+  // lbm-cotraining-2026: domain pass 2026-10-06, owner sweep item VLA.R4 (also KI.R3, HI.R3, CE.R6, FM.R5).
+  // Abstract and HTML fetched 2026-10-06; v1 submitted 1 February 2026. Toyota Research Institute
+  // per the correspondence address (tri.global) and acknowledgements; no affiliation block is printed.
+  {
+    id: 'lbm-cotraining-2026',
+    title: 'A Systematic Study of Data Modalities and Strategies for Co-training Large Behavior Models for Robot Manipulation',
+    authors: [
+      'Fanqi Lin', 'Kushal Arora', 'Jean Mercat', 'Haruki Nishimura', 'Paarth Shah', 'Chen Xu', 'Mengchao Zhang',
+      'Mark Zolotas', 'Maya Angeles', 'Owen Pfannenstiehl', 'Andrew Beaulieu', 'Jose Barreiros',
+    ],
+    year: 2026,
+    arxiv: '2602.01067',
+    url: 'https://arxiv.org/abs/2602.01067',
+    type: 'paper',
+  },
+  // xiaomi-robotics-1-2026: domain pass 2026-10-06, owner sweep item VLA.R5 (also DP.R3).
+  // Abstract and HTML fetched 2026-10-06; v1 16 July 2026, v2 22 July 2026.
+  {
+    id: 'xiaomi-robotics-1-2026',
+    title: 'Xiaomi-Robotics-1: Scaling Vision-Language-Action Models with over 100K Hours of Real-World Trajectories',
+    authors: [
+      'Xiaomi Robotics Team', 'Jun Guo', 'Piaopiao Jin', 'Jason Li', 'Peiyan Li', 'Yingyan Li', 'Futeng Liu',
+      'Wanli Peng', 'Optimus Qin', 'Yifei Su', 'Nan Sun', 'Qiao Sun', 'Runze Suo', 'Heyun Wang', 'Yunhong Wang',
+      'Rujie Wu', 'Caoyu Xia', 'Lina Zhang', 'Jack Zhao', 'Guoliang Chen', 'Wenlong Chen', 'Xinze He', 'Bin Li',
+      'Qing Li', 'Zhuorong Li', 'Heng Qu', 'Wenxuan Song', 'Diyun Xiang', 'Yifan Xie', 'Peiran Xu', 'Hangjun Ye',
+      'Wen Ye', 'Han Zhao', 'Quanyun Zhou',
+    ],
+    year: 2026,
+    arxiv: '2607.15330',
+    url: 'https://arxiv.org/abs/2607.15330',
+    type: 'paper',
+  },
+  // drifting-models-2026: domain pass 2026-10-06, owner sweep item DP.R2.
+  // Abstract and HTML fetched 2026-10-06; v1 4 February 2026, v2 6 February 2026.
+  {
+    id: 'drifting-models-2026',
+    title: 'Generative Modeling via Drifting',
+    authors: [
+      'Mingyang Deng', 'He Li', 'Tianhong Li', 'Yilun Du', 'Kaiming He',
+    ],
+    year: 2026,
+    arxiv: '2602.04770',
+    url: 'https://arxiv.org/abs/2602.04770',
+    type: 'paper',
+  },
+  // realtime-vla-2025: domain pass 2026-10-06, owner sweep item RT.R1.
+  // Abstract and HTML fetched 2026-10-06; v1 30 October 2025. Dexmal and StepFun.
+  {
+    id: 'realtime-vla-2025',
+    title: 'Running VLAs at Real-time Speed',
+    authors: [
+      'Yunchao Ma', 'Yizhuang Zhou', 'Yunhuan Yang', 'Tiancai Wang', 'Haoqiang Fan',
+    ],
+    year: 2025,
+    arxiv: '2510.26742',
+    url: 'https://arxiv.org/abs/2510.26742',
+    type: 'paper',
+  },
+  // dm0-2026: domain pass 2026-10-06, owner sweep item KI.R2.
+  // Abstract and HTML fetched 2026-10-06; v1 16 February 2026. "DM0 Team, Dexmal & StepFun";
+  // the 49 authors are listed alphabetically by the paper.
+  {
+    id: 'dm0-2026',
+    title: 'DM0: An Embodied-Native Vision-Language-Action Model towards Physical AI',
+    authors: [
+      'En Yu', 'Haoran Lv', 'Jianjian Sun', 'Kangheng Lin', 'Ruitao Zhang', 'Yukang Shi', 'Yuyang Chen', 'Ze Chen',
+      'Ziheng Zhang', 'Fan Jia', 'Kaixin Liu', 'Meng Zhang', 'Ruitao Hao', 'Saike Huang', 'Songhan Xie', 'Yu Liu',
+      'Zhao Wu', 'Bin Xie', 'Pengwei Zhang', 'Qi Yang', 'Xianchi Deng', 'Yunfei Wei', 'Enwen Zhang', 'Hongyang Peng',
+      'Jie Zhao', 'Kai Liu', 'Wei Sun', 'Yajun Wei', 'Yi Yang', 'Yunqiao Zhang', 'Ziwei Yan', 'Haitao Yang',
+      'Hao Liu', 'Haoqiang Fan', 'Haowei Zhang', 'Junwen Huang', 'Yang Chen', 'Yunchao Ma', 'Yunhuan Yang',
+      'Zhengyuan Du', 'Ziming Liu', 'Jiahui Niu', 'Yucheng Zhao', 'Daxin Jiang', 'Wenbin Tang', 'Xiangyu Zhang',
+      'Zheng Ge', 'Erjin Zhou', 'Tiancai Wang',
+    ],
+    year: 2026,
+    arxiv: '2602.14974',
+    url: 'https://arxiv.org/abs/2602.14974',
+    type: 'paper',
+  },
+  // actioncodec-2026: domain pass 2026-10-06, owner sweep item AS.R1.
+  // Abstract and HTML fetched 2026-10-06; v1 17 February 2026.
+  {
+    id: 'actioncodec-2026',
+    title: 'ActionCodec: What Makes for Good Action Tokenizers',
+    authors: [
+      'Zibin Dong', 'Yicheng Liu', 'Shiduo Zhang', 'Baijun Ye', 'Yifu Yuan', 'Fei Ni', 'Jingjing Gong', 'Xipeng Qiu',
+      'Hang Zhao', 'Yinchuan Li', 'Jianye Hao',
+    ],
+    year: 2026,
+    arxiv: '2602.15397',
+    url: 'https://arxiv.org/abs/2602.15397',
+    type: 'paper',
+  },
+  // factr-2-2026: domain pass 2026-10-06, owner sweep item AS.R4.
+  // Abstract and HTML fetched 2026-10-06; v1 10 June 2026, v2 12 August 2026. Carnegie Mellon University
+  // and Waseda University.
+  {
+    id: 'factr-2-2026',
+    title: 'FACTR 2: Learning External Force Sensing for Commodity Robot Arms Improves Policy Learning',
+    authors: [
+      'Steven Oh', 'Jason Jingzhou Liu', 'Tony Tao', 'Philip Han', 'Kenneth Shaw', 'Satoshi Funabashi',
+      'Ruslan Salakhutdinov', 'Deepak Pathak',
+    ],
+    year: 2026,
+    arxiv: '2606.12406',
+    url: 'https://arxiv.org/abs/2606.12406',
+    type: 'paper',
+  },
+  // recova-2026: domain pass 2026-10-06, KOL intake note of Linxi Fan.
+  // Abstract and HTML fetched 2026-10-06; v1 submitted 1 October 2026. UC San Diego, UT Austin and NVIDIA.
+  {
+    id: 'recova-2026',
+    title: 'Recova: Agent-Guided Failure Recovery for Autonomous Robotic Manipulation',
+    authors: [
+      'Isabella Liu', 'An-Chieh Cheng', 'Johan Bjorck', 'Zhiding Yu', 'Hongxu Yin', 'Jan Kautz', 'Linxi Fan',
+      'Yuke Zhu', 'Sifei Liu',
+    ],
+    year: 2026,
+    arxiv: '2610.01178',
+    url: 'https://arxiv.org/abs/2610.01178',
+    type: 'paper',
+  },
+  // rebarsim-2026: domain pass 2026-10-06, KOL intake note of Abhishek Gupta.
+  // Abstract and HTML fetched 2026-10-06; v1 submitted 17 September 2026. University of Washington, McGill
+  // University and Princeton University; corresponding author Yi Shao (McGill).
+  {
+    id: 'rebarsim-2026',
+    title: 'Visual Sim-to-Real Learning for Robotic Insertion under Geometric Variations: Application to Rebar Installation',
+    authors: [
+      'Tao Sun', 'Beining Han', 'Patrick Yin', 'Rui Xu', 'Harry He', 'Abhishek Gupta', 'Szymon Rusinkiewicz',
+      'Yi Shao',
+    ],
+    year: 2026,
+    arxiv: '2609.20477',
+    url: 'https://arxiv.org/abs/2609.20477',
+    type: 'paper',
+  },
+  // seeq-2026: domain pass 2026-10-06, KOL intake note of Aviral Kumar.
+  // Abstract and HTML fetched 2026-10-06; v1 18 September 2026, v2 27 September 2026. Carnegie Mellon University.
+  {
+    id: 'seeq-2026',
+    title: 'SeeQ: Training Generalist Value Functions for Long-Horizon Robotic Manipulation',
+    authors: [
+      'Saksham Singh', 'Zheyuan Hu', 'Max Sobol Mark', 'Jeffrey Yu', 'Zackory Erickson', 'Aviral Kumar',
+    ],
+    year: 2026,
+    arxiv: '2609.22085',
+    url: 'https://arxiv.org/abs/2609.22085',
+    type: 'paper',
+  },
+  // bilinear-flow-policy-2026: domain pass 2026-10-06, KOL intake note of Abhishek Gupta.
+  // Abstract and HTML fetched 2026-10-06; v1 submitted 5 October 2026. Georgia Institute of Technology,
+  // Toyota Research Institute and University of Washington.
+  {
+    id: 'bilinear-flow-policy-2026',
+    title: 'Bilinear Flow Policy: Distributional Extrapolation for Goal-Conditioned Visuomotor Imitation',
+    authors: [
+      'Wonsuhk Jung', 'Sundhar Vinodh Sangeetha', 'Chen Xu', 'Abhishek Gupta', 'Masha Itkina', 'Shreyas Kousik',
+      'Haruki Nishimura',
+    ],
+    year: 2026,
+    arxiv: '2610.05765',
+    url: 'https://arxiv.org/abs/2610.05765',
+    type: 'paper',
+  },
+  // ditto-x-2026: domain pass 2026-10-06, KOL intake note of Jiajun Wu.
+  // Abstract and HTML fetched 2026-10-06; v1 30 September 2026, v2 5 October 2026. Stanford University and
+  // Columbia University.
+  {
+    id: 'ditto-x-2026',
+    title: 'DITTO-X: Forward and Reverse Teleoperation for Dexterous Manipulation and Human Intervention',
+    authors: [
+      'Zhanpeng He', 'Joaquin Palacios', 'Zhangyu Wang', 'Chenhao Li', 'Katelyn Lee', 'Matei Ciocarlie',
+      'C. Karen Liu', 'Jiajun Wu',
+    ],
+    year: 2026,
+    arxiv: '2610.00781',
+    url: 'https://arxiv.org/abs/2610.00781',
+    type: 'paper',
+  },
+  // gott-2026: domain pass 2026-10-06, KOL intake note of Pieter Abbeel.
+  // Abstract and HTML fetched 2026-10-06; v1 submitted 2 October 2026. Amazon FAR, UC San Diego, UC Berkeley
+  // and University of Chicago.
+  {
+    id: 'gott-2026',
+    title: 'GOTT: Object-centric Dexterous Manipulation with a Reusable Cross-Embodiment Primitive',
+    authors: [
+      'Yulin Liu', 'Lai Wei', 'Yen-Jen Wang', 'Akash Sharma', 'Pieter Abbeel', 'Henrik I. Christensen', 'Haozhi Qi',
+    ],
+    year: 2026,
+    arxiv: '2610.03861',
+    url: 'https://arxiv.org/abs/2610.03861',
+    type: 'paper',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));
@@ -11748,6 +11941,7 @@ export const ORGANIZATION_CHIP_NAMES: ReadonlyMap<string, string> = new Map([
   ['UL Standards & Engagement', 'UL Standards & Engagement'],
   ['Unitree Robotics', 'Unitree Robotics'],
   ['Universal Robots', 'Universal Robots'],
+  ['Xiaomi Robotics Team', 'Xiaomi Robotics Team'],
 ]);
 
 /**

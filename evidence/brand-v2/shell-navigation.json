@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "c7579053f5854f065ea9be372c717c7a2d8b0665431c3deb3772b3b8c685740c",
+  "fingerprint": "280cc188039037d3392867b1f6359e85629ad500d5d81b7773525a76b63ef149",
   "viewport": "1440x900",
   "routes": [
     "/",
@@ -81,7 +81,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3346,
+      "visibleTextLength": 3370,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -653,7 +653,7 @@
       }
     },
     {
-      "visibleTextLength": 30274,
+      "visibleTextLength": 30303,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -1241,7 +1241,7 @@
       }
     },
     {
-      "visibleTextLength": 17990,
+      "visibleTextLength": 18019,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -2205,7 +2205,7 @@
       }
     },
     {
-      "visibleTextLength": 16896,
+      "visibleTextLength": 16934,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -2461,7 +2461,7 @@
       }
     },
     {
-      "visibleTextLength": 14746,
+      "visibleTextLength": 14784,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -2717,7 +2717,7 @@
       }
     },
     {
-      "visibleTextLength": 27690,
+      "visibleTextLength": 27719,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -2973,7 +2973,7 @@
       }
     },
     {
-      "visibleTextLength": 42345,
+      "visibleTextLength": 42374,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -4365,7 +4365,7 @@
       }
     },
     {
-      "visibleTextLength": 18091,
+      "visibleTextLength": 18167,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -4597,7 +4597,7 @@
       }
     },
     {
-      "visibleTextLength": 17573,
+      "visibleTextLength": 17611,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -5757,7 +5757,7 @@
       }
     },
     {
-      "visibleTextLength": 15706,
+      "visibleTextLength": 15744,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -6545,7 +6545,7 @@
       }
     },
     {
-      "visibleTextLength": 22973,
+      "visibleTextLength": 23002,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -6765,7 +6765,7 @@
       }
     },
     {
-      "visibleTextLength": 24622,
+      "visibleTextLength": 24698,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -7917,7 +7917,7 @@
       }
     },
     {
-      "visibleTextLength": 3380,
+      "visibleTextLength": 3447,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -8245,7 +8245,7 @@
       }
     },
     {
-      "visibleTextLength": 22993,
+      "visibleTextLength": 22994,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -8573,7 +8573,7 @@
       }
     },
     {
-      "visibleTextLength": 16370,
+      "visibleTextLength": 19001,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -8901,7 +8901,7 @@
       }
     },
     {
-      "visibleTextLength": 18093,
+      "visibleTextLength": 19967,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -9557,7 +9557,7 @@
       }
     },
     {
-      "visibleTextLength": 18326,
+      "visibleTextLength": 20312,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -9885,7 +9885,7 @@
       }
     },
     {
-      "visibleTextLength": 17701,
+      "visibleTextLength": 19232,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -10213,7 +10213,7 @@
       }
     },
     {
-      "visibleTextLength": 18548,
+      "visibleTextLength": 19927,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -10541,7 +10541,7 @@
       }
     },
     {
-      "visibleTextLength": 23674,
+      "visibleTextLength": 23704,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -10869,7 +10869,7 @@
       }
     },
     {
-      "visibleTextLength": 23191,
+      "visibleTextLength": 24689,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -11197,7 +11197,7 @@
       }
     },
     {
-      "visibleTextLength": 16571,
+      "visibleTextLength": 17530,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -11525,7 +11525,7 @@
       }
     },
     {
-      "visibleTextLength": 25159,
+      "visibleTextLength": 25198,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -11853,7 +11853,7 @@
       }
     },
     {
-      "visibleTextLength": 20462,
+      "visibleTextLength": 21551,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -12181,7 +12181,7 @@
       }
     },
     {
-      "visibleTextLength": 36634,
+      "visibleTextLength": 37831,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -12509,7 +12509,7 @@
       }
     },
     {
-      "visibleTextLength": 15828,
+      "visibleTextLength": 16259,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -12837,7 +12837,7 @@
       }
     },
     {
-      "visibleTextLength": 22751,
+      "visibleTextLength": 24408,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -13797,7 +13797,7 @@
       }
     },
     {
-      "visibleTextLength": 20695,
+      "visibleTextLength": 20724,
       "ariaCurrentNodes": [
         {
           "tag": "a",

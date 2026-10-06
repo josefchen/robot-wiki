@@ -46,6 +46,8 @@ citations:
   - simplevla-rl-2025
   - roboreward-2026
   - pi07-2026
+  - seeq-2026
+  - enpire-2026
 seeAlso:
   - "manipulation/realtime-execution"
   - "rl-sim2real/parallel-sim-rl"
@@ -56,7 +58,9 @@ import { AdvantageScrubber } from '@/components/interactive/advantage-scrubber';
 import { ExpoFtResults } from '@/components/interactive/expo-ft-results';
 import { RlMethodsTable } from '@/components/mdx/rl-methods-table';
 
-RL fine-tuning is the use of reinforcement learning to improve a pretrained robot policy from its own successes and failures. <Term id="imitation-learning">Imitation learning</Term> is brittle off the demonstration distribution because errors compound <Cite id="dagger-2011" />, and Physical Intelligence finds reliable success much harder than occasional success <Cite id="pistar06-blog-2025" />. Dong and Finn call RL for frontier robot models "not yet a recipe" <Cite id="perry-dong-post-training-2026" />. Switch to “What it learns”.
+RL fine-tuning is the use of reinforcement learning to improve a pretrained robot policy from its own successes and failures. <Term id="imitation-learning">Imitation learning</Term> is brittle off the demonstration distribution because errors compound <Cite id="dagger-2011" />, and Physical Intelligence finds reliable success much harder than occasional success <Cite id="pistar06-blog-2025" />.
+
+Dong and Finn call RL for frontier robot models "not yet a recipe" <Cite id="perry-dong-post-training-2026" />. Switch to “What it learns”.
 
 <AdvantageScrubber className="my-6" />
 
@@ -151,6 +155,8 @@ DSRL keeps the base policy frozen and runs RL over its latent-noise space with b
 
 A September 2026 paper from Seungeun Rho, Wontaek Kim, Danfei Xu and Sehoon Ha studies the same limit using preferences alone. Their PrefPI steers pretrained diffusion policies and π0.5 using relative preferences over the policy's own trajectories, aiming at behaviors the initial policy rarely or never produces; on real hardware, 150 preference-labeled trajectories raised object transport height from 10.7 cm to 19.8 cm <Cite id="prefpi-2026" />.
 
+SeeQ, from Saksham Singh, Aviral Kumar and colleagues at Carnegie Mellon (September 2026), steers at test time with a value function. It learns Q-values for the currently active subtask, which shortens the horizon enough for temporal-difference learning on broad, suboptimal data. Picking the best of eight π0.5 action chunks raised shirt hanging from 10/24 to 22/24 and lid sealing from 10/24 to 15/24 <Cite id="seeq-2026" />.
+
 Dong and Finn's September 2026 blog post says pretrained VLAs give capable demos with no shared post-training recipe behind them: "RL shows incredible promise in training frontier robotics models, but it is not yet a recipe. It's a craft." They call for a stable algorithm plus standard protocols for reward specification, resets, human input, hyperparameters and initialization. EXPO-FT still needs a human to define success, reset the scene and intervene, longer horizons strain the value function, and "Nineteen minutes of robot interaction is not nineteen minutes of post-training," because gradient updates dominate wall-clock time <Cite id="perry-dong-post-training-2026" />.
 
 The September 2026 follow-up, Real-Time EXPO-FT, lets a lightweight edit policy react to the latest observation while a slow VLA proposes action chunks. On Kinetix the delayed policy beats every delayed and non-delayed competitor in 10 of 10 environments. On four dynamic real tasks with at most 10 minutes of online data, average performance rises from 42% to 97% with no human intervention <Cite id="realtime-expo-ft-2026" />. [Real-time execution](/manipulation/realtime-execution/) covers the latency budgets.
@@ -163,7 +169,7 @@ The protocols differ too much for a cross-paper ranking. DPPO, ConRFT, EXPO-FT, 
 
 ## Real-world and fleet-scale results
 
-RL-100, published in Science Robotics in July 2026, applies one clipped-PPO objective within the denoising process across offline and online stages. It reports 1000 of 1000 successful episodes on eight real tasks, including 250 consecutive successes on one <Cite id="rl-100-2025" />. LWD runs offline-to-online RL on a fleet of 16 dual-arm robots, where one generalist policy reaches 95% average success across eight real tasks <Cite id="lwd-2026" />. SOP's performance scales near-linearly with the number of robots in its fleet <Cite id="sop-2026" />.
+RL-100, published in Science Robotics in July 2026, applies one clipped-PPO objective within the denoising process across offline and online stages. It reports 1000 of 1000 successful episodes on eight real tasks, including 250 consecutive successes on one <Cite id="rl-100-2025" />. LWD runs offline-to-online RL on a fleet of 16 dual-arm robots, where one generalist policy reaches 95% average success across eight real tasks <Cite id="lwd-2026" />. SOP's performance scales near-linearly with the number of robots in its fleet <Cite id="sop-2026" />. ENPIRE gives coding agents the whole real-robot improvement loop, from scene reset and verification to training-code changes. Its authors report 99% success on dexterous tasks such as fastening a zip tie, and eight agents cut the time to near-perfect pin insertion from over 1.5 hours to about 40 minutes <Cite id="enpire-2026" />.
 
 ## What RL actually buys, and the caveats
 

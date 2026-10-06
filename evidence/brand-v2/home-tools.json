@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "b20cbdde0b60fec56d1d0839757d8275ee66677df339f424d81fb1d55b9579ee",
+  "fingerprint": "788f25f5c31e0b8c5b7ff6c771dc2793706728fc804916e98ac5680563a95392",
   "route": "/",
   "viewport": "1440x900",
   "featured": {
@@ -25,7 +25,7 @@
     "posterReadout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
     "posterCaption": "The same horizon exposes the last stretch.",
     "idleFrameRequests": 0,
-    "playingFrameRequests": 51,
+    "playingFrameRequests": 50,
     "focusOutlineWidthPx": 2,
     "focusOutlineStyle": "solid",
     "focusOutlineColour": "rgb(36, 95, 255)",
@@ -92,7 +92,7 @@
     "posterReadout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
     "posterCaption": "The same horizon exposes the last stretch.",
     "idleFrameRequests": 0,
-    "playingFrameRequests": 52,
+    "playingFrameRequests": 50,
     "focusOutlineWidthPx": 2,
     "focusOutlineStyle": "solid",
     "focusOutlineColour": "rgb(36, 95, 255)",
@@ -2932,9 +2932,9 @@
         },
         {
           "memberId": "count:/:sources",
-          "text": "643 sources",
-          "expected": 643,
-          "actual": 643
+          "text": "656 sources",
+          "expected": 656,
+          "actual": 656
         },
         {
           "memberId": "count:/:glossary-terms",

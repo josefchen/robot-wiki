@@ -1,26 +1,26 @@
 {
   "manipulation/bc-foundations": {
-    "words": 1644,
-    "minutes": 8
+    "words": 1834,
+    "minutes": 9
   },
   "manipulation/action-chunking": {
     "words": 2393,
     "minutes": 12
   },
   "manipulation/diffusion-policy": {
-    "words": 1686,
-    "minutes": 8
+    "words": 1817,
+    "minutes": 9
   },
   "manipulation/vla-models": {
-    "words": 1984,
-    "minutes": 10
+    "words": 2101,
+    "minutes": 11
   },
   "manipulation/pi-line": {
     "words": 2503,
     "minutes": 13
   },
   "manipulation/generalist-policies": {
-    "words": 2120,
+    "words": 2121,
     "minutes": 11
   },
   "manipulation/comparison-matrix": {
@@ -28,36 +28,36 @@
     "minutes": 9
   },
   "manipulation/hierarchical": {
-    "words": 1993,
-    "minutes": 10
+    "words": 2111,
+    "minutes": 11
   },
   "manipulation/rl-finetuning": {
-    "words": 4094,
-    "minutes": 20
+    "words": 4218,
+    "minutes": 21
   },
   "manipulation/realtime-execution": {
-    "words": 1943,
+    "words": 2059,
     "minutes": 10
   },
   "manipulation/cross-embodiment": {
-    "words": 1467,
-    "minutes": 7
+    "words": 1635,
+    "minutes": 8
   },
   "manipulation/knowledge-insulation": {
-    "words": 1218,
+    "words": 1284,
     "minutes": 6
   },
   "manipulation/robot-learning-roadmap": {
-    "words": 1062,
+    "words": 1093,
     "minutes": 5
   },
   "manipulation/action-spaces": {
-    "words": 1085,
-    "minutes": 5
+    "words": 1272,
+    "minutes": 6
   },
   "manipulation/foundation-models": {
-    "words": 1282,
-    "minutes": 6
+    "words": 1406,
+    "minutes": 7
   },
   "rl-sim2real/rl-for-robotics": {
     "words": 3099,

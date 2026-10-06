@@ -1752,7 +1752,7 @@
       "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/manipulation/cross-embodiment/",
       "title": "Cross-Embodiment Transfer",
-      "description": "Padded action vectors, motion transfer, and shared relative end-effector frames; the live disagreement.",
+      "description": "Padded action vectors, shared relative end-effector frames, soft prompts and human-to-robot transfer: how one policy learns from many bodies.",
       "openGraph": {
         "type": "article",
         "url": "https://robot-wiki.com/manipulation/cross-embodiment/",
@@ -1771,7 +1771,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "e1ae9ea62641a506ea8ede3b8b8ccd752dcfa8c59fd94838780d9be12d737c1f"
+      "fingerprint": "8b6bb33de9005e1460173593ce01c6833c36def456a8bddf1cf3ef3c80b442c1"
     },
     {
       "id": "metadata:/manipulation/diffusion-policy/",
@@ -1868,7 +1868,7 @@
       "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/manipulation/hierarchical/",
       "title": "Hierarchical Approaches",
-      "description": "SayCan, code-as-policies, and keypoint affordances; why separate planners gave way to internalized hierarchy.",
+      "description": "SayCan, Code as Policies and keypoint affordances, then the learned and orchestrated hierarchies of Helix, pi0.5 and Gemini Robotics ER 2.",
       "openGraph": {
         "type": "article",
         "url": "https://robot-wiki.com/manipulation/hierarchical/",
@@ -1887,7 +1887,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "9648730f9f69877db6bd8c0a3175c118f10047c2469852de87537d7689bc252f"
+      "fingerprint": "cf6f717b67f64f2e98a12d45387d8770741ea0478bc9a9fa2acb28445cbef5e0"
     },
     {
       "id": "metadata:/manipulation/knowledge-insulation/",
@@ -11795,5 +11795,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "d892db82ca4cca7fbde337fd007325fcab66c7e7f420ac3cf16da8e7479058eb"
+  "rootFingerprint": "22b275c0cab14d35807755d27a0be55dc1701775005a4dddd7f5a3069acdac4b"
 }
