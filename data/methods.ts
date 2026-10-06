@@ -36,10 +36,13 @@ const ROWS: Method[] = [
     actionHorizon: { planned: 1, executed: 1 },
     controlFrequencyHz: 3,
     controlFrequencyNote: 'Everyday Robots commanded control; six input images are observation history, not action horizon',
-    backbone: 'FiLM-EfficientNet + TokenLearner + 19M transformer',
+    // Pairing scope: rt1-2022 §6.4 executes RT-1 "within the SayCan (Ahn et
+    // al., 2022) framework in two different real kitchens".
+    backbone: 'FiLM-EfficientNet + TokenLearner + 19M transformer; separate SayCan planner in the long-horizon kitchen runs',
     conditioning: ['language', '6-frame image history'],
     crossEmbodiment: 'limited',
-    hierarchy: 'none',
+    // External: the §6.4 SayCan pairing above.
+    hierarchy: 'external',
     openWeights: null,
     weightsNote: 'Pretrained weights not disclosed in the checked RT-1 paper; its code-release statement is not a weight release',
     sources: ['rt1-2022'],
@@ -95,7 +98,11 @@ const ROWS: Method[] = [
     controlFrequencyNote: 'Multi-TPU cloud serving: PaLI-X-55B 1-3 Hz; 5B model around 5 Hz. No universal scalar.',
     backbone: 'PaLI-X / PaLM-E, up to 55B',
     conditioning: ['language', 'image'],
-    crossEmbodiment: 'limited',
+    // No: rt2-2023 §4 trains on "the robot demonstration data from Brohan et
+    // al. (2022), which was collected with 13 robots over 17 months in an
+    // office kitchen environment"; §4.1 trains a separate PaLI 3B model for
+    // Language-Table. No RT-2 model is trained on or run across two bodies.
+    crossEmbodiment: 'no',
     hierarchy: 'none',
     openWeights: null,
     weightsNote: 'Model-specific weight-release terms are not established by the checked RT-2 paper; not a closed-license claim',
@@ -172,10 +179,14 @@ const ROWS: Method[] = [
     },
     controlFrequencyHz: 20,
     controlFrequencyNote: 'UR5e/Franka; other evaluated robots 50 Hz (paper: up to 50 Hz)',
-    backbone: 'PaliGemma (Gemma 2B language model) + ~300M action expert',
+    // Pairing scope: pi0-2024 §V-B, "We use such a high-level policy to
+    // assist our model with high-level strategy for several of our
+    // experimental tasks" (a high-level VLM, "analogous to ... SayCan").
+    backbone: 'PaliGemma (Gemma 2B language model) + ~300M action expert; separate high-level VLM for several evaluated tasks',
     conditioning: ['2-3 RGB cameras', 'language', 'proprioception'],
     crossEmbodiment: 'yes',
-    hierarchy: 'none',
+    // External: the §V-B high-level VLM above (the paper's pi0-HL condition, §VI-B).
+    hierarchy: 'external',
     openWeights: true,
     weightsNote: 'The pinned openpi README lists pi0 base checkpoints; this is download availability, not license openness',
     sources: ['pi0-2024', 'openpi-repo-2024'],
@@ -214,8 +225,14 @@ const ROWS: Method[] = [
     actionHorizon: { planned: 50, executed: null, note: '50 predictions (inclusive H=49); executed count not disclosed in the v1 paper' },
     controlFrequencyHz: 50,
     controlFrequencyNote: 'v1 paper mobile-manipulation targets; not inference throughput',
-    backbone: 'PaliGemma-initialized VLM + 300M expert (v1 technical appendix labels the VLM 2B)',
-    conditioning: ['language', 'images', 'web VQA', 'subtask prediction'],
+    // Web data is co-training data (abstract; §IV-D "We include web data
+    // (WD) to preserve the model's semantic and visual capabilities").
+    backbone: 'PaliGemma-initialized VLM co-trained with web data + 300M expert (v1 technical appendix labels the VLM 2B)',
+    // pi05-2025 §IV-A: o_t "consists of the images from all of the cameras
+    // and the robot's configuration"; the textual output is "either a
+    // predicted high-level subtask" or a web-data answer, and the low-level
+    // step conditions on that predicted subtask.
+    conditioning: ['language', 'images', 'proprioceptive state', 'predicted subtask'],
     crossEmbodiment: 'yes',
     hierarchy: 'internal',
     openWeights: true,
@@ -236,7 +253,9 @@ const ROWS: Method[] = [
     controlFrequencyHz: null,
     controlFrequencyNote: 'Robot-control Hz not disclosed in the model card; 63 ms chunk inference uses five denoising steps, three cameras and one H100',
     backbone: 'SigLIP 400M + Gemma3 4B + approximately 860M expert; no total stated in the card',
-    conditioning: ['language', 'up to 4 images', 'metadata'],
+    // pi06-model-card-2025, Model Design: image tokens "are concatenated
+    // with the tokenized language prompt and tokenized proprioceptive states".
+    conditioning: ['language', 'up to 4 images', 'proprioceptive state', 'metadata'],
     crossEmbodiment: 'yes',
     hierarchy: 'internal',
     openWeights: null,
@@ -259,12 +278,19 @@ const ROWS: Method[] = [
     controlFrequencyHz: 20,
     controlFrequencyNote: 'UR5e reference; other tested robots 50 Hz',
     backbone: 'Gemma3 4B + 860M expert, ~5B',
+    // pi07-2026 §VII: "For any task we always prompt the model with the
+    // control mode and episode metadata" (§V-D: c in {joint, ee}). §VI-B:
+    // "up to four camera images ... each with up to six history frames"
+    // and "We also feed the proprioceptive state q_t".
     conditioning: [
       'language',
       'subtask',
       'metadata',
+      'control mode',
+      'up to 4 camera images',
       'subgoal images',
       'memory',
+      'proprioceptive state',
     ],
     crossEmbodiment: 'yes',
     hierarchy: 'internal',

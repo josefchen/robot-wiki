@@ -43,7 +43,8 @@ const ROWS: PolicyRow[] = [
     horizon: 100,
     frequencyHz: 50,
     representation: 'CVAE decoder, continuous k x 14',
-    open: true,
+    open: model('act').openWeights,
+    weightsNote: model('act').weightsNote,
   },
   {
     policy: 'Diffusion Policy',

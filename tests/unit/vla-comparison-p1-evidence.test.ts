@@ -75,8 +75,13 @@ describe('VLA21 and comparison1 current identity and scoped introduction', { tim
       .find((a: { id: string }) => a.id === 'domain-pass-20261006-g2-prose-comparison-matrix');
     expect(domainPassEntry.oldHash).toBe(seoEntry.newHash);
     expect(domainPassEntry.reconciles).toBeUndefined();
+    // The domain pass's style read (group g6) adds one more plain edge.
+    const styleReadEntry = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries
+      .find((a: { id: string }) => a.id === 'domain-pass-20261006-g6-prose-comparison-matrix');
+    expect(styleReadEntry.oldHash).toBe(domainPassEntry.newHash);
+    expect(styleReadEntry.reconciles).toBeUndefined();
     expect(truthManifests['prose'].members.find(m => m.id === 'article:manipulation/comparison-matrix')?.hash)
-      .toBe(domainPassEntry.newHash);
+      .toBe(styleReadEntry.newHash);
     expect(article).toContain(currentIntro);
     expect(article).not.toContain(oldIntro);
     expect({ ...matter(article).data, seeAlso: undefined })

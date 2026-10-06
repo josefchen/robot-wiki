@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/manipulation/action-chunking/",
+  "mount": "mount:/manipulation/action-chunking/:ChunkSizeCurve:1",
+  "screenshots": {
+    "375": "evidence/reader-first/manipulation--action-chunking--chunk-size-curve.375.png",
+    "1280": "evidence/reader-first/manipulation--action-chunking--chunk-size-curve.1280.png"
+  },
+  "takeaway": "Planning 100 moves at a time instead of one at a time raised the simulated robot's success from 1% to 44%.",
+  "sentence": "If the robot plans 100 moves at a time instead of deciding one move at a time, it succeeds at its task far more often: 44% of the time instead of 1%, because it only has to make 4 decisions instead of 400.",
+  "unclearTerms": [
+    "Action chunking",
+    "moves per plan (what a single 'move' is)",
+    "decisions per task",
+    "the uneven spacing of the 1, 10, 100, 400 axis",
+    "estimate (the pale band that slopes downward past 100)",
+    "why success drops after 100 moves per plan",
+    "measured vs estimate (what was measured, and how)",
+    "the grey bar and the four green tick marks (what they stand for)",
+    "simulated robot / simulated tasks",
+    "ACT ablation",
+    "Zhao et al., 2023",
+    "the 400-move task (where 400 comes from)",
+    "the large ringed dot vs the small dot"
+  ],
+  "samePoint": "yes",
+  "reason": "Both say that planning 100 moves at a time instead of one raised success from 1% to 44%; my sentence also gave the 4-versus-400 decisions explanation and did not mention that the robot was simulated.",
+  "verdict": "fail",
+  "screenshotCommit": "946b3ba57f0afc284d941e88077b2619598ff70a",
+  "date": "2026-10-06",
+  "reviewerSession": "reader-session-42c71677",
+  "sourceDigest": "400aa39cf8142d7aa89441609375263231ac0b5fe56650e34e981105d29fc9a6"
+}

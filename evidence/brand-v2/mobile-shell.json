@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3132,
+      "visibleTextLength": 3138,
       "header": {
         "present": true,
         "display": "flex",
@@ -6260,7 +6260,7 @@
     },
     {
       "route": "/manipulation/action-chunking/",
-      "visibleTextLength": 22351,
+      "visibleTextLength": 22472,
       "header": {
         "present": true,
         "display": "flex",
@@ -6423,7 +6423,7 @@
     },
     {
       "route": "/manipulation/action-spaces/",
-      "visibleTextLength": 18358,
+      "visibleTextLength": 18307,
       "header": {
         "present": true,
         "display": "flex",
@@ -6586,7 +6586,7 @@
     },
     {
       "route": "/manipulation/bc-foundations/",
-      "visibleTextLength": 19324,
+      "visibleTextLength": 19323,
       "header": {
         "present": true,
         "display": "flex",
@@ -6749,7 +6749,7 @@
     },
     {
       "route": "/manipulation/comparison-matrix/",
-      "visibleTextLength": 20490,
+      "visibleTextLength": 20429,
       "header": {
         "present": true,
         "display": "flex",
@@ -7075,7 +7075,7 @@
     },
     {
       "route": "/manipulation/diffusion-policy/",
-      "visibleTextLength": 18589,
+      "visibleTextLength": 18679,
       "header": {
         "present": true,
         "display": "flex",
@@ -7238,7 +7238,7 @@
     },
     {
       "route": "/manipulation/foundation-models/",
-      "visibleTextLength": 19284,
+      "visibleTextLength": 19246,
       "header": {
         "present": true,
         "display": "flex",
@@ -7564,7 +7564,7 @@
     },
     {
       "route": "/manipulation/hierarchical/",
-      "visibleTextLength": 24046,
+      "visibleTextLength": 24043,
       "header": {
         "present": true,
         "display": "flex",
@@ -7890,7 +7890,7 @@
     },
     {
       "route": "/manipulation/pi-line/",
-      "visibleTextLength": 24555,
+      "visibleTextLength": 24487,
       "header": {
         "present": true,
         "display": "flex",
@@ -8216,7 +8216,7 @@
     },
     {
       "route": "/manipulation/rl-finetuning/",
-      "visibleTextLength": 37188,
+      "visibleTextLength": 37174,
       "header": {
         "present": true,
         "display": "flex",

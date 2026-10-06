@@ -1,0 +1,114 @@
+[
+ {
+  "route": "/manipulation/action-chunking/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Fewer decisions means fewer chances to slip: deciding 4 times per task instead of 400 made a simulated robot far more re",
+   "file": "manipulation__action-chunking__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Fewer decisions means fewer chances to slip: deciding 4 times per task instead of 400 made a simulated robot far more re",
+   "file": "manipulation__action-chunking__00.png"
+  }
+ },
+ {
+  "route": "/manipulation/action-chunking/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "Blending several overlapping plans smooths the robot’s motion, so one odd prediction jerks the arm less.",
+   "file": "manipulation__action-chunking__01.png"
+  },
+  "after": {
+   "idx": 1,
+   "label": "Blending several overlapping plans smooths the robot’s motion, so one odd prediction jerks the arm less.",
+   "file": "manipulation__action-chunking__01.png"
+  }
+ },
+ {
+  "route": "/manipulation/action-chunking/",
+  "changed": true,
+  "before": {
+   "idx": 2,
+   "label": "When a new plan arrives late, averaging it with the old one can pick a path neither plan chose; real-time chunking keeps",
+   "file": "manipulation__action-chunking__02.png"
+  },
+  "after": {
+   "idx": 2,
+   "label": "When a new plan arrives late, averaging it with the old one can pick a path neither plan chose; real-time chunking keeps",
+   "file": "manipulation__action-chunking__02.png"
+  }
+ },
+ {
+  "route": "/manipulation/comparison-matrix/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Through 2025 every system here published how it outputs motion; four of the six 2026 entries are company announcements t",
+   "file": "manipulation__comparison-matrix__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Through 2025 every system here published how it outputs motion; four of the six 2026 entries are company announcements t",
+   "file": "manipulation__comparison-matrix__00.png"
+  }
+ },
+ {
+  "route": "/manipulation/diffusion-policy/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: Diffusion policy: denoising actions",
+   "file": "manipulation__diffusion-policy__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Motion scene: Diffusion policy: denoising actions",
+   "file": "manipulation__diffusion-policy__00.png"
+  }
+ },
+ {
+  "route": "/manipulation/diffusion-policy/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "Acting on only the first half of each plan, then replanning, lets the robot react to what it sees while still moving smo",
+   "file": "manipulation__diffusion-policy__01.png"
+  },
+  "after": {
+   "idx": 1,
+   "label": "Acting on only the first half of each plan, then replanning, lets the robot react to what it sees while still moving smo",
+   "file": "manipulation__diffusion-policy__01.png"
+  }
+ },
+ {
+  "route": "/manipulation/pi-line/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Getting a precise move takes several small refining steps, each costing time; π0 used ten, π0.6 and π0.7 use five.",
+   "file": "manipulation__pi-line__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Getting a precise move takes several small refining steps, each costing time; π0 used ten, π0.6 and π0.7 use five.",
+   "file": "manipulation__pi-line__00.png"
+  }
+ },
+ {
+  "route": "/manipulation/pi-line/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "Physical Intelligence released a new robot model every few months; only the first three are confirmed downloadable.",
+   "file": "manipulation__pi-line__01.png"
+  },
+  "after": {
+   "idx": 1,
+   "label": "Physical Intelligence released a new robot model every few months; only the first three are confirmed downloadable.",
+   "file": "manipulation__pi-line__01.png"
+  }
+ }
+]

@@ -4,11 +4,11 @@
     "minutes": 9
   },
   "manipulation/action-chunking": {
-    "words": 2393,
+    "words": 2409,
     "minutes": 12
   },
   "manipulation/diffusion-policy": {
-    "words": 1817,
+    "words": 1844,
     "minutes": 9
   },
   "manipulation/vla-models": {
@@ -16,23 +16,23 @@
     "minutes": 11
   },
   "manipulation/pi-line": {
-    "words": 2503,
-    "minutes": 13
+    "words": 2495,
+    "minutes": 12
   },
   "manipulation/generalist-policies": {
     "words": 2121,
     "minutes": 11
   },
   "manipulation/comparison-matrix": {
-    "words": 1873,
+    "words": 1865,
     "minutes": 9
   },
   "manipulation/hierarchical": {
-    "words": 2111,
+    "words": 2110,
     "minutes": 11
   },
   "manipulation/rl-finetuning": {
-    "words": 4218,
+    "words": 4214,
     "minutes": 21
   },
   "manipulation/realtime-execution": {
@@ -52,11 +52,11 @@
     "minutes": 5
   },
   "manipulation/action-spaces": {
-    "words": 1272,
+    "words": 1265,
     "minutes": 6
   },
   "manipulation/foundation-models": {
-    "words": 1406,
+    "words": 1400,
     "minutes": 7
   },
   "rl-sim2real/rl-for-robotics": {
