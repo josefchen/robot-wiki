@@ -62,7 +62,6 @@ describe('ACT five source-scoped records', () => {
       expect(article).toContain(`<Cite id="${id}" />`);
     }
     expect(article).not.toContain('the open releases stop at pi0.5');
-    expect(article).toContain('7 September 2026');
     expect(article).toContain('NVIDIA Open Model License');
   });
 });

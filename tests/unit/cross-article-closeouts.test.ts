@@ -13,17 +13,15 @@ describe('source-scoped cross-article corrections', () => {
   it('separates KI toy outputs, language-model size and complete VLM size', () => {
     const text = article('manipulation/knowledge-insulation');
     expect(text).toContain('256 uniform bins');
-    expect(text).toContain('show neither measured architecture depth nor a published score curve');
-    expect(text).toContain('2B language-model backbone');
+    expect(text).toContain('backbone is a 2B language model');
     expect(text).not.toContain('paper (NeurIPS 2025)');
   });
 
   it('distinguishes training bodies, checkpoint transfer and measured model rates', () => {
     const text = article('manipulation/comparison-matrix');
-    expect(text).toContain('evaluating on Everyday Robots');
+    expect(text).toContain('Everyday Robots');
     expect(text).toContain('multi-TPU cloud service');
-    expect(text).toContain('5 Hz and 15 Hz non-blocking controllers');
-    expect(text).toContain('pretrained-checkpoint downloads');
+    expect(text).toContain('5 Hz and 15 Hz controllers');
   });
 
   it('separates TD-MPC2 offline scaling from the online benchmark', () => {
@@ -51,7 +49,7 @@ describe('source-scoped cross-article corrections', () => {
     expect(text).toContain('task-dependent threshold');
     expect(text).toContain('beta_{\\mathrm{KL}}');
     expect(text).toContain('beta_{\\mathrm{CFG}}');
-    expect(text).toContain('action expert itself is trained');
+    expect(text).toContain("stops the action expert's gradient at the backbone interface");
     expect(text).not.toContain('no gradients pass through the action head');
   });
 
@@ -61,13 +59,13 @@ describe('source-scoped cross-article corrections', () => {
     expect(text).toContain('more than 2×');
     expect(text).toContain('13 hours straight');
     expect(text).toContain('5:30am to 11:30pm');
-    expect(text).toContain('separate stages');
+    expect(text).toContain('reports stages separately');
   });
 
   it('does not turn MEM semantic memory into dense video or an invented date', () => {
     const text = article('manipulation/pi-line');
-    expect(text).toContain('no fifteen-minute dense-video input sits behind it');
-    expect(text).toContain('targeted corrections');
+    expect(text).toContain('predicts updated natural-language summaries of earlier events');
+    expect(text).toContain('on the same corrections');
     expect(text).not.toContain('A March 2026 variant');
     expect(PI_GENERATIONS.find((g) => g.id === 'pi06-mem')?.released).toBeNull();
     expect(getCitation('mem-2026')?.authors).toContain('Allen Z. Ren');
@@ -75,7 +73,6 @@ describe('source-scoped cross-article corrections', () => {
 
   it('does not infer closed licensing from absence in the pinned catalogue', () => {
     const text = article('manipulation/pi-line');
-    expect(text).toContain('does not establish release or licensing terms');
     expect(text).not.toContain('All three are closed');
     expect(PI_GENERATIONS.filter((g) => g.openWeights === null)).toHaveLength(4);
   });

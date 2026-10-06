@@ -3,7 +3,7 @@
   "name": "reader-first-figures",
   "reviewedBy": "release steward re-anchoring the reader-first figure pass (not independent acceptance)",
   "rationale": "The reader-first figure pass of 2026-10-02 rewrote each article figure so a reader with no engineering background gets its point in five seconds: a takeaway headline, at most two visible controls with plain labels, every further control in an Adjust more fold, and the method, sources and caveats in a How this was made fold. The articles that point at those controls name them in plain words, the end-to-end specs open a fold before they use a control it now holds, and the figure sources changed with them. Each change is recorded here as exact edits over the bytes the file had before the pass. The earlier bytes stand in for the live file only while the live file is exactly the reviewed successor, so older reviews, runs and receipts that pinned them still check the bytes they recorded.",
-  "observedAt": "2026-10-05T18:07:29Z",
+  "observedAt": "2026-10-06T02:34:12Z",
   "sources": [
     {
       "archivedFrom": "6fffffaf345d1ea5e258645567df3312e8f5c71b",
@@ -5817,17 +5817,21 @@
       },
       "after": {
         "path": "tests/e2e/bc-foundations-corrections.spec.ts",
-        "bytes": 7090,
-        "sha256": "961ea23b5fd45fe64e52363e6d65a8c38835eb9b9604159d115ebb02cee14af0"
+        "bytes": 7124,
+        "sha256": "9991f5ad43cc691f7d8e6f8ccbf936c17e02769f241978fd740bd2d3ca065c13"
       },
       "edits": [
         {
-          "before": "    // The toy is stated once, in the prose, and the figure lives inside\n    // the prediction step at its seeded 240-step horizon.\n",
-          "after": "    // The toy is stated once, in the prose, and the figure lives in the\n    // prediction step at its seeded 240-step horizon, shown with the\n    // reasoning still closed.\n"
+          "before": "    await expect(prose).toContainText('proposed future work');\n    await expect(prose).toContainText('it promises no improvement for any particular iterate');\n",
+          "after": "    await expect(prose).toContainText('The guarantee is existential');\n    await expect(prose).toContainText('Algorithm 3.1 returns the policy best on validation');\n"
         },
         {
-          "before": "    await page.locator('[data-predict] details[data-reveal] > summary').click();\n    const toy = page.locator('[data-predict] [data-figure-frame=\"compounding-error\"]');\n",
-          "after": "    const reveal = page.locator('[data-predict] details[data-reveal]');\n    await expect(reveal).not.toHaveAttribute('open');\n    const toy = page.locator('[data-predict] > [data-predict-figure] [data-figure-frame=\"compounding-error\"]');\n"
+          "before": "    await expect(prose).toContainText('uninterrupted control');\n",
+          "after": "    await expect(prose).toContainText('steers back to a safe, stable region and hands back control');\n"
+        },
+        {
+          "before": "    // The toy is stated once, in the prose, and the figure lives inside\n    // the prediction step at its seeded 240-step horizon.\n    await expect(prose).toContainText('neither a source benchmark nor a task-cost theorem');\n    await page.locator('[data-predict] details[data-reveal] > summary').click();\n    const toy = page.locator('[data-predict] [data-figure-frame=\"compounding-error\"]');\n",
+          "after": "    // The toy is stated once, in the prose, and the figure lives in the\n    // prediction step at its seeded 240-step horizon, shown with the\n    // reasoning still closed.\n    await expect(prose).toContainText('does not establish a task-cost guarantee');\n    const reveal = page.locator('[data-predict] details[data-reveal]');\n    await expect(reveal).not.toHaveAttribute('open');\n    const toy = page.locator('[data-predict] > [data-predict-figure] [data-figure-frame=\"compounding-error\"]');\n"
         },
         {
           "before": "    await toy.scrollIntoViewIfNeeded();\n",
@@ -6161,8 +6165,8 @@
       },
       "after": {
         "path": "tests/e2e/chart-state-descriptions.spec.ts",
-        "bytes": 24394,
-        "sha256": "0183bfeac2c8990525fe16fe3bb1f5e136f85ca964b7dc49d42763d5d060a372"
+        "bytes": 24422,
+        "sha256": "45add6055717cda1d15b81bd7a712a74544d8c48fe593a7f751879821b1592cb"
       },
       "edits": [
         {
@@ -6192,6 +6196,10 @@
         {
           "before": "    match: 'physics proxy is off',\n",
           "after": "    match: 'With only the picture',\n"
+        },
+        {
+          "before": "    match: 'pinned checkpoint catalogue',\n",
+          "after": "    match: 'pinned commit of August 24, 2026 lists base checkpoints',\n"
         },
         {
           "before": "    match: 'latent rollout view',\n",
@@ -8013,8 +8021,8 @@
       },
       "after": {
         "path": "tests/e2e/rl-finetuning.spec.ts",
-        "bytes": 11751,
-        "sha256": "639f76c13f198df8821b44cf0712a653225cc72eb676de1f0f7fa0e8193567d4"
+        "bytes": 11702,
+        "sha256": "5bb1cae098b6bc560a7c89dc1a28cfb5281949ed52dc6a1e6edd998518e83526"
       },
       "edits": [
         {
@@ -8050,8 +8058,32 @@
           "after": "    // Reset restores the settled state.\n    await page.getByRole('button', { name: /reset/i }).click();\n    await expect(timeReadout).toHaveText(/t = 40\\.0 s/);\n"
         },
         {
+          "before": "    await expect(prose).toContainText('PPO updates the denoising policy while the environment dynamics stay fixed.');\n    await expect(prose).toContainText('16 of 20 hardware trials');\n    await expect(prose).toContainText('from 15 to 90 minutes');\n",
+          "after": "    await expect(prose).toContainText('DPPO embeds denoising inside the environment MDP');\n    await expect(prose).toContainText('16 of 20 trials');\n    await expect(prose).toContainText('15 to 90 minutes');\n"
+        },
+        {
+          "before": "    await expect(prose).toContainText('PA-RL without them');\n",
+          "after": "    await expect(prose).toContainText('fine-tuning OpenVLA autonomously with Cal-QL');\n"
+        },
+        {
+          "before": "    await expect(prose).toContainText('50.6-percentage-point gain');\n    await expect(prose).toContainText('displayed means differ by 24.8 points');\n    await expect(prose).toContainText('per-stage one-shot success is not 100%');\n",
+          "after": "    await expect(prose).toContainText('WidowX carrot task from 43.3% to 93.9%');\n    await expect(prose).toContainText('the means differ by 24.8');\n    await expect(prose).toContainText('per-stage one-shot success stays below 100%');\n"
+        },
+        {
+          "before": "    await expect(prose).toContainText('Perry Dong, Kuo-Han Hung, Tian Gao, Dorsa Sadigh and Chelsea Finn (Stanford)');\n",
+          "after": "    await expect(prose).toContainText('Dong, Kuo-Han Hung, Tian Gao, Sadigh and Finn');\n"
+        },
+        {
+          "before": "    await expect(prose).toContainText('30/30 successes on every evaluated task');\n",
+          "after": "    await expect(prose).toContainText('30/30 on every evaluated task');\n"
+        },
+        {
+          "before": "    await expect(prose).toContainText('over 95% accuracy');\n    await expect(prose).toContainText('around 40% success before online RL starts');\n",
+          "after": "    await expect(prose).toContainText('detectors over 95% accurate');\n    await expect(prose).toContainText('around 40% success or above before online RL');\n"
+        },
+        {
           "before": "    // The HIL-SERL footnote keeps the protocol caveat next to the chart.\n    await expect(page.getByText('randomizes a substantially larger initial-state space').first()).toBeVisible();\n",
-          "after": "    // The HIL-SERL paragraph keeps the protocol caveat next to the chart;\n    // the chart's own description repeats it inside \"How this was made\".\n    await expect(\n      page\n        .locator('#main-content p', { hasText: 'randomizes a substantially larger initial-state space' })\n        .filter({ visible: true })\n        .first(),\n    ).toBeVisible();\n"
+          "after": "    // The HIL-SERL paragraph keeps the protocol caveat next to the chart;\n    // the chart's own description repeats it inside \"How this was made\".\n    await expect(\n      page\n        .locator('#main-content p', { hasText: 'randomizes a much larger initial-state space' })\n        .filter({ visible: true })\n        .first(),\n    ).toBeVisible();\n"
         }
       ]
     },
@@ -8431,17 +8463,17 @@
       },
       "after": {
         "path": "tests/unit/main-merge-approved-deltas.test.ts",
-        "bytes": 92346,
-        "sha256": "6d4eb18768ca25ba5aa6bc7f9306de29d17e3da64aed4df72689bf7d5ecc63ec"
+        "bytes": 95328,
+        "sha256": "14ababe5db0be560e487ad82b3a89c37a6f799393d8e0be3256adc2e578542e5"
       },
       "edits": [
         {
           "before": "const beforeReaderFirst = (entries: ApprovedDelta[]) => entries.filter(x => !allReaderFirstAppends.includes(x.id));\n",
-          "after": "// The 2026-10-05 KOL backlog batch appends its block last, per domain commit\n// in the same shape as the 2026-10-01 batch: plain edges for each changed\n// article member and new citation, a resolution where a chain already holds\n// one, and one resolution for the shared citation rendering.\nconst kolBacklog20261005Appends = merged.filter(x => x.id.startsWith('kol-backlog-20261005-')).map(x => x.id);\n// The 2026-10-05 explainer work on /how-robots-work/ appends its block after\n// that: the accessible names its page markup gained after the page shipped.\nconst howRobotsWork20261005Appends = [\n  'how-robots-work-20261005-accessible-names-explainers-as-text',\n  'how-robots-work-20261005-accessible-names-poster-alt',\n];\nconst laterThanSeoPass = [...allReaderFirstAppends, ...kolBacklog20261005Appends, ...howRobotsWork20261005Appends];\nconst beforeReaderFirst = (entries: ApprovedDelta[]) => entries.filter(x => !laterThanSeoPass.includes(x.id));\n"
+          "after": "// The 2026-10-05 KOL backlog batch appends its block last, per domain commit\n// in the same shape as the 2026-10-01 batch: plain edges for each changed\n// article member and new citation, a resolution where a chain already holds\n// one, and one resolution for the shared citation rendering.\nconst kolBacklog20261005Appends = merged.filter(x => x.id.startsWith('kol-backlog-20261005-')).map(x => x.id);\n// The 2026-10-05 explainer work on /how-robots-work/ appends its block after\n// that: the accessible names its page markup gained after the page shipped.\nconst howRobotsWork20261005Appends = [\n  'how-robots-work-20261005-accessible-names-explainers-as-text',\n  'how-robots-work-20261005-accessible-names-poster-alt',\n];\n// The 2026-10-06 opus-pass domain passes append theirs after that, one block\n// per article group, in the same shape as the KOL backlog batch.\nconst domainPass20261006Appends = merged.filter(x => x.id.startsWith('domain-pass-20261006-')).map(x => x.id);\nconst laterThanSeoPass = [...allReaderFirstAppends, ...kolBacklog20261005Appends, ...howRobotsWork20261005Appends,\n  ...domainPass20261006Appends];\nconst beforeReaderFirst = (entries: ApprovedDelta[]) => entries.filter(x => !laterThanSeoPass.includes(x.id));\n"
         },
         {
           "before": "const afterHowRobotsWork = merged.length - readerFirstManipulationAppends.length;\n",
-          "after": "const kolBacklog20261005Edges = (manifest: string, memberId: string) => merged\n  .filter(x => kolBacklog20261005Appends.includes(x.id) && x.manifest === manifest && x.memberId === memberId)\n  .map(x => x.id);\nconst afterKolBacklog20261005 = merged.length - howRobotsWork20261005Appends.length;\nconst afterReaderFirstManipulation = afterKolBacklog20261005 - kolBacklog20261005Appends.length;\nconst afterHowRobotsWork = afterReaderFirstManipulation - readerFirstManipulationAppends.length;\n"
+          "after": "const kolBacklog20261005Edges = (manifest: string, memberId: string) => merged\n  .filter(x => kolBacklog20261005Appends.includes(x.id) && x.manifest === manifest && x.memberId === memberId)\n  .map(x => x.id);\nconst domainPass20261006Edges = (manifest: string, memberId: string) => merged\n  .filter(x => domainPass20261006Appends.includes(x.id) && x.manifest === manifest && x.memberId === memberId)\n  .map(x => x.id);\nconst afterHowRobotsWork20261005 = merged.length - domainPass20261006Appends.length;\nconst afterKolBacklog20261005 = afterHowRobotsWork20261005 - howRobotsWork20261005Appends.length;\nconst afterReaderFirstManipulation = afterKolBacklog20261005 - kolBacklog20261005Appends.length;\nconst afterHowRobotsWork = afterReaderFirstManipulation - readerFirstManipulationAppends.length;\n"
         },
         {
           "before": "    // the how-robots-work page appends its block, and the reader-first\n    // manipulation batch appends its block last.\n",
@@ -8449,11 +8481,11 @@
         },
         {
           "before": "        + readerFirstManipulationAppends.length]);\n",
-          "after": "        + readerFirstManipulationAppends.length + kolBacklog20261005Appends.length\n        + howRobotsWork20261005Appends.length]);\n"
+          "after": "        + readerFirstManipulationAppends.length + kolBacklog20261005Appends.length\n        + howRobotsWork20261005Appends.length + domainPass20261006Appends.length]);\n"
         },
         {
           "before": "      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends, ...opusFigureMigrationAppends, ...kolBacklogAppends, ...seoPassAppends, ...readerFirstAppends, ...howRobotsWorkAppends, ...readerFirstManipulationAppends]);\n",
-          "after": "      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends, ...opusFigureMigrationAppends, ...kolBacklogAppends, ...seoPassAppends, ...readerFirstAppends, ...howRobotsWorkAppends, ...readerFirstManipulationAppends, ...kolBacklog20261005Appends, ...howRobotsWork20261005Appends]);\n"
+          "after": "      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends, ...opusFigureMigrationAppends, ...kolBacklogAppends, ...seoPassAppends, ...readerFirstAppends, ...howRobotsWorkAppends, ...readerFirstManipulationAppends, ...kolBacklog20261005Appends, ...howRobotsWork20261005Appends, ...domainPass20261006Appends]);\n"
         },
         {
           "before": "    expect(merged.slice(afterHowRobotsWork).map(x => [x.manifest, x.memberId])).toEqual([\n",
@@ -8465,7 +8497,11 @@
         },
         {
           "before": "    expect(merged.slice(afterHowRobotsWork)).toMatchObject(readerFirstManipulationAppends.map(id => ({\n      id, responsibleMilestone: 'opus-pass', disposition: 'permanent',\n    })));\n",
-          "after": "    expect(merged.slice(afterHowRobotsWork, afterReaderFirstManipulation)).toMatchObject(\n      readerFirstManipulationAppends.map(id => ({\n        id, responsibleMilestone: 'opus-pass', disposition: 'permanent',\n      })));\n    expect(merged.slice(afterReaderFirstManipulation, afterKolBacklog20261005)).toMatchObject(\n      kolBacklog20261005Appends.map(id => ({\n        id, responsibleMilestone: 'brand-v2-hygiene', disposition: 'permanent',\n        affectedAssertions: ['VAL-KOL-001', 'VAL-B2-BASE-002', 'VAL-B2-BASE-010', 'VAL-B2-BASE-011'],\n      })));\n    expect(merged.slice(afterKolBacklog20261005)).toMatchObject([{\n      id: 'how-robots-work-20261005-accessible-names-explainers-as-text', manifest: 'accessible-names',\n      memberId: 'literal:components/explainers/how-robots-work.tsx:aria-labelledby:3',\n      oldHash: MISSING_MEMBER,\n      newHash: 'a30c8602fd40a06f1caebab0b1e7fde1562f82133cd4ec0ac800708c9c5fec26',\n      responsibleMilestone: 'opus-pass', disposition: 'permanent', affectedAssertions: ['VAL-B2-BASE-011'],\n    }, {\n      id: 'how-robots-work-20261005-accessible-names-poster-alt', manifest: 'accessible-names',\n      memberId: 'expression:components/explainers/how-robots-work.tsx:alt:1',\n      oldHash: MISSING_MEMBER,\n      newHash: '0c214dec7b6ecaf60aeb4908ac41461d5876b9254af07a82332bcbfacb576ca3',\n      responsibleMilestone: 'opus-pass', disposition: 'permanent', affectedAssertions: ['VAL-B2-BASE-011'],\n    }]);\n"
+          "after": "    expect(merged.slice(afterHowRobotsWork, afterReaderFirstManipulation)).toMatchObject(\n      readerFirstManipulationAppends.map(id => ({\n        id, responsibleMilestone: 'opus-pass', disposition: 'permanent',\n      })));\n    expect(merged.slice(afterReaderFirstManipulation, afterKolBacklog20261005)).toMatchObject(\n      kolBacklog20261005Appends.map(id => ({\n        id, responsibleMilestone: 'brand-v2-hygiene', disposition: 'permanent',\n        affectedAssertions: ['VAL-KOL-001', 'VAL-B2-BASE-002', 'VAL-B2-BASE-010', 'VAL-B2-BASE-011'],\n      })));\n    expect(merged.slice(afterKolBacklog20261005, afterHowRobotsWork20261005)).toMatchObject([{\n      id: 'how-robots-work-20261005-accessible-names-explainers-as-text', manifest: 'accessible-names',\n      memberId: 'literal:components/explainers/how-robots-work.tsx:aria-labelledby:3',\n      oldHash: MISSING_MEMBER,\n      newHash: 'a30c8602fd40a06f1caebab0b1e7fde1562f82133cd4ec0ac800708c9c5fec26',\n      responsibleMilestone: 'opus-pass', disposition: 'permanent', affectedAssertions: ['VAL-B2-BASE-011'],\n    }, {\n      id: 'how-robots-work-20261005-accessible-names-poster-alt', manifest: 'accessible-names',\n      memberId: 'expression:components/explainers/how-robots-work.tsx:alt:1',\n      oldHash: MISSING_MEMBER,\n      newHash: '0c214dec7b6ecaf60aeb4908ac41461d5876b9254af07a82332bcbfacb576ca3',\n      responsibleMilestone: 'opus-pass', disposition: 'permanent', affectedAssertions: ['VAL-B2-BASE-011'],\n    }]);\n"
+        },
+        {
+          "before": "        ...readerFirstEdges('prose', memberId),\n",
+          "after": "        ...readerFirstEdges('prose', memberId),\n        ...domainPass20261006Edges('prose', memberId),\n"
         },
         {
           "before": "      // Only a named figure-migration, SEO pass or reader-first edge may follow\n      // the restore; the restore is checked against the chain it closed.\n",
@@ -8473,7 +8509,7 @@
         },
         {
           "before": "        ...seoPassEdges('prose', memberId), ...readerFirstEdges('prose', memberId)]);\n",
-          "after": "        ...seoPassEdges('prose', memberId), ...readerFirstEdges('prose', memberId),\n        ...kolBacklog20261005Edges('prose', memberId)]);\n"
+          "after": "        ...seoPassEdges('prose', memberId), ...readerFirstEdges('prose', memberId),\n        ...kolBacklog20261005Edges('prose', memberId), ...domainPass20261006Edges('prose', memberId)]);\n"
         },
         {
           "before": "      // A later reader-first batch may close the chain again; this edge is\n      // checked against the chain as it stood when it was appended.\n",
@@ -8485,7 +8521,7 @@
         },
         {
           "before": "        expect(entry.oldHash).toBe(previous);\n      }\n",
-          "after": "        expect(entry.oldHash).toBe(previous);\n      }\n    }\n  });\n\n  it('binds each 2026-10-05 KOL backlog edge to its previous endpoint and to the sealed hash', () => {\n    expect(kolBacklog20261005Appends.length).toBeGreaterThan(1);\n    for (const id of kolBacklog20261005Appends) {\n      const entry = merged.find(x => x.id === id)!;\n      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(\n        readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));\n      const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;\n      const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);\n      const prior = edges.slice(0, edges.indexOf(entry));\n      expect(entry.newHash).not.toBe(prior.at(-1)?.newHash ?? sealed);\n      const path = approvedDeltaPath([...prior, entry], sealed, entry.newHash);\n      expect(path.status).toBe('approved');\n      expect(path.path.at(-1)).toBe(entry);\n      if (prior.some(x => x.reconciles !== undefined)) {\n        expect(entry.oldHash).toBe(sealed);\n        expect(entry.reconciles).toEqual(prior.map(x => ({ id: x.id, oldHash: x.oldHash, newHash: x.newHash })));\n      } else {\n        expect(entry.reconciles).toBeUndefined();\n        expect(entry.oldHash).toBe(prior.at(-1)?.newHash ?? sealed);\n      }\n      expect(approvedDeltaPath(prior, sealed, entry.newHash).status).not.toBe('approved');\n    }\n    expect(kolBacklog20261005Appends.filter(id => id.endsWith('-citation-rendering')))\n      .toEqual(['world-models', 'manipulation', 'adjacent', 'frontier', 'data-hardware', 'classical'].map(domain => `kol-backlog-20261005-${domain}-citation-rendering`));\n  });\n\n  it('binds each 2026-10-05 how-robots-work name to an absent seal as one plain edge', () => {\n    expect(merged.filter(x => x.id.startsWith('how-robots-work-20261005-')).map(x => x.id))\n      .toEqual(howRobotsWork20261005Appends);\n    for (const id of howRobotsWork20261005Appends) {\n      const entry = merged.find(x => x.id === id)!;\n      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(\n        readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));\n      expect(sealedManifest.members.some(x => x.id === entry.memberId)).toBe(false);\n      expect(merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId)).toEqual([entry]);\n      expect(entry.reconciles).toBeUndefined();\n      expect(entry.oldHash).toBe(MISSING_MEMBER);\n      const path = approvedDeltaPath([entry], MISSING_MEMBER, entry.newHash);\n      expect(path.status).toBe('approved');\n      expect(approvedDeltaPath([], MISSING_MEMBER, entry.newHash).status).not.toBe('approved');\n"
+          "after": "        expect(entry.oldHash).toBe(previous);\n      }\n    }\n  });\n\n  it('binds each 2026-10-05 KOL backlog edge to its previous endpoint and to the sealed hash', () => {\n    expect(kolBacklog20261005Appends.length).toBeGreaterThan(1);\n    for (const id of kolBacklog20261005Appends) {\n      const entry = merged.find(x => x.id === id)!;\n      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(\n        readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));\n      const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;\n      const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);\n      const prior = edges.slice(0, edges.indexOf(entry));\n      expect(entry.newHash).not.toBe(prior.at(-1)?.newHash ?? sealed);\n      const path = approvedDeltaPath([...prior, entry], sealed, entry.newHash);\n      expect(path.status).toBe('approved');\n      expect(path.path.at(-1)).toBe(entry);\n      if (prior.some(x => x.reconciles !== undefined)) {\n        expect(entry.oldHash).toBe(sealed);\n        expect(entry.reconciles).toEqual(prior.map(x => ({ id: x.id, oldHash: x.oldHash, newHash: x.newHash })));\n      } else {\n        expect(entry.reconciles).toBeUndefined();\n        expect(entry.oldHash).toBe(prior.at(-1)?.newHash ?? sealed);\n      }\n      expect(approvedDeltaPath(prior, sealed, entry.newHash).status).not.toBe('approved');\n    }\n    expect(kolBacklog20261005Appends.filter(id => id.endsWith('-citation-rendering')))\n      .toEqual(['world-models', 'manipulation', 'adjacent', 'frontier', 'data-hardware', 'classical'].map(domain => `kol-backlog-20261005-${domain}-citation-rendering`));\n  });\n\n  it('binds each 2026-10-06 domain pass edge to its previous endpoint and to the sealed hash', () => {\n    expect(domainPass20261006Appends.length).toBeGreaterThan(1);\n    expect(merged.slice(afterHowRobotsWork20261005).map(x => x.id)).toEqual(domainPass20261006Appends);\n    for (const id of domainPass20261006Appends) {\n      const entry = merged.find(x => x.id === id)!;\n      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(\n        readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));\n      const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;\n      const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);\n      const prior = edges.slice(0, edges.indexOf(entry));\n      expect(entry.newHash).not.toBe(prior.at(-1)?.newHash ?? sealed);\n      const path = approvedDeltaPath([...prior, entry], sealed, entry.newHash);\n      expect(path.status).toBe('approved');\n      expect(path.path.at(-1)).toBe(entry);\n      if (prior.some(x => x.reconciles !== undefined)) {\n        expect(entry.oldHash).toBe(sealed);\n        expect(entry.reconciles).toEqual(prior.map(x => ({ id: x.id, oldHash: x.oldHash, newHash: x.newHash })));\n      } else {\n        expect(entry.reconciles).toBeUndefined();\n        expect(entry.oldHash).toBe(prior.at(-1)?.newHash ?? sealed);\n      }\n      // A positional value-state cell can return to an endpoint its chain\n      // already approved; every other edge must be the first to approve it.\n      if (!(entry.manifest === 'value-states' && prior.some(x => x.newHash === entry.newHash))) {\n        expect(approvedDeltaPath(prior, sealed, entry.newHash).status).not.toBe('approved');\n      }\n    }\n    // One shared citation-rendering resolution per article group, in group order.\n    const groups = [...new Set(domainPass20261006Appends.map(id => id.split('-')[3]))];\n    expect(groups).toEqual(groups.map((_, index) => `g${index + 1}`));\n    expect(domainPass20261006Appends.filter(id => id.endsWith('-citation-rendering')))\n      .toEqual(groups.map(group => `domain-pass-20261006-${group}-citation-rendering`));\n  });\n\n  it('binds each 2026-10-05 how-robots-work name to an absent seal as one plain edge', () => {\n    expect(merged.filter(x => x.id.startsWith('how-robots-work-20261005-')).map(x => x.id))\n      .toEqual(howRobotsWork20261005Appends);\n    for (const id of howRobotsWork20261005Appends) {\n      const entry = merged.find(x => x.id === id)!;\n      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(\n        readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));\n      expect(sealedManifest.members.some(x => x.id === entry.memberId)).toBe(false);\n      expect(merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId)).toEqual([entry]);\n      expect(entry.reconciles).toBeUndefined();\n      expect(entry.oldHash).toBe(MISSING_MEMBER);\n      const path = approvedDeltaPath([entry], MISSING_MEMBER, entry.newHash);\n      expect(path.status).toBe('approved');\n      expect(approvedDeltaPath([], MISSING_MEMBER, entry.newHash).status).not.toBe('approved');\n"
         }
       ]
     },
@@ -8599,13 +8635,13 @@
       },
       "after": {
         "path": "tests/unit/reader-release-integration.test.ts",
-        "bytes": 19527,
-        "sha256": "ce670ab54720d695996b4d4a2286557cc16984a7beb632599d2d40ffc23fdd9e"
+        "bytes": 19817,
+        "sha256": "bbdf2acf3dd06ef909c61a7fab69c41ed8008d3e715f0eab8696787793c842ce"
       },
       "edits": [
         {
           "before": "import { preReaderFirst, preSeoPassHash, preSeoPassText } from '../helpers/seo-pass';\n",
-          "after": "import { preKolBacklog, preReaderFirst, preSeoPassHash, preSeoPassText } from '../helpers/seo-pass';\n"
+          "after": "import { preDomainPass, preKolBacklog, preReaderFirst, preSeoPassHash, preSeoPassText } from '../helpers/seo-pass';\n"
         },
         {
           "before": "  const edge = (prefix: string, from: string, to: string, batches = false) => {\n    const edges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id && a.id.startsWith(prefix));\n",
@@ -8613,7 +8649,7 @@
         },
         {
           "before": "  const seo = edge('seo-pass-20261002-', hashOf(read(path)), hashOf(readSeoSuccessor(path)));\n  edge('reader-first-20261002-', seo, hashOf(readLive(path)), true);\n",
-          "after": "  const seo = edge(['seo-pass-20261002-'], hashOf(read(path)), hashOf(readSeoSuccessor(path)));\n  // The optional prediction step later moved some of these articles on with\n  // one plain edge from the reader-first endpoint to the live article.\n  const predict = approvals.filter(a => a.manifest === 'prose' && a.memberId === id\n    && a.id.startsWith('reader-first-20261003-predict-'));\n  // The 2026-10-03 figure batches belong to the same reader-first pass.\n  // The 2026-10-05 KOL backlog batch then adds dated paragraphs to some of\n  // them, with one resolution edge per article from the pre-batch endpoint.\n  const preKol = hashOf(preKolBacklog(path).toString('utf8'));\n  const readerFirst = edge(['reader-first-20261002-', 'reader-first-20261003-prose-'], seo,\n    predict.length ? predict[0].oldHash : preKol, true);\n  edge(['reader-first-20261003-predict-'], readerFirst, preKol);\n  edge(['kol-backlog-20261005-'], preKol, hashOf(readLive(path)));\n"
+          "after": "  const seo = edge(['seo-pass-20261002-'], hashOf(read(path)), hashOf(readSeoSuccessor(path)));\n  // The optional prediction step later moved some of these articles on with\n  // one plain edge from the reader-first endpoint to the live article.\n  const predict = approvals.filter(a => a.manifest === 'prose' && a.memberId === id\n    && a.id.startsWith('reader-first-20261003-predict-'));\n  // The 2026-10-03 figure batches belong to the same reader-first pass.\n  // The 2026-10-05 KOL backlog batch then adds dated paragraphs to some of\n  // them, with one resolution edge per article from the pre-batch endpoint.\n  const preKol = hashOf(preKolBacklog(path).toString('utf8'));\n  const readerFirst = edge(['reader-first-20261002-', 'reader-first-20261003-prose-'], seo,\n    predict.length ? predict[0].oldHash : preKol, true);\n  edge(['reader-first-20261003-predict-'], readerFirst, preKol);\n  const preDomain = hashOf(preDomainPass(path).toString('utf8'));\n  edge(['kol-backlog-20261005-'], preKol, preDomain);\n  // The 2026-10-06 domain pass rewrote some articles from the owner's\n  // drafts; its edge binds the KOL endpoint and reaches the live article.\n  edge(['domain-pass-20261006-'], preDomain, hashOf(readLive(path)), true);\n"
         }
       ]
     },

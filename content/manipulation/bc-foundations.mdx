@@ -13,6 +13,32 @@ citations:
   - pistar06-blog-2025
   - act-aloha-2023
   - diffusion-policy-2023
+  - ross-bagnell-2010
+  - pomerleau-1991
+  - bojarski-e2e-driving-2016
+  - chauffeurnet-2018
+  - foster-bc-horizon-2024
+  - rajaraman-il-limits-2020
+  - simchowitz-continuous-il-2025
+  - implicit-bc-2021
+  - much-ado-noising-2025
+  - causal-confusion-2019
+  - copycat-bc-2020
+  - robomimic-2021
+  - lin-data-scaling-laws-2024
+  - butterfly-sgd-noise-2023
+  - dart-2017
+  - diffusion-meets-dagger-2024
+  - bc-z-2022
+  - cr-dagger-2025
+  - sop-2026
+  - rac-2025
+  - zhang-chunking-exploration-2025
+  - block-generative-bc-2023
+  - gail-2016
+  - darp-2026
+  - hil-serl-2024
+  - tri-lbm-2025
 seeAlso:
   - "data-hardware/teleop-rigs"
   - "frontier/reliability-gap"
@@ -21,13 +47,11 @@ seeAlso:
 
 import { CompoundingError } from '@/components/interactive/compounding-error';
 
-<Term id="behavior-cloning">Behavior cloning</Term> is the oldest way to make a robot imitate a person: record what an expert did, treat each observation as an input and the expert's action as the label, and fit a policy $\pi(a \mid s)$ by supervised learning. The idea predates deep learning. ALVINN (1988) used a three-layer back-propagation network with camera and laser-range inputs. It was trained on simulated road images and tested on NAVLAB, a modified Chevy van; training on real images while a human drives was proposed future work, and the reported training procedure uses simulated road images <Cite id="alvinn-1988" />.
-
-The appeal is obvious: no reward function to design, no exploration to manage, just regression onto demonstrations. The failure mode is equally specific, and nearly every architectural innovation in learned manipulation since 2023 is a partial answer to it. Supervised learning assumes that test inputs come from the same distribution as training inputs. A robot running in closed loop violates that assumption with its own actions.
+<Term id="behavior-cloning">Behavior cloning</Term> is imitation learning cast as supervised learning: a policy $\pi(a \mid s)$ is regressed onto [expert actions](/how-robots-work/#puppeteer) given expert observations. In closed loop the robot's own actions choose its future inputs, breaking the i.i.d. assumption, so <Term id="compounding-error">errors compound</Term> <Cite id="ross-bagnell-2010" />.
 
 ## Watch the error compound
 
-This deterministic toy illustrates persistent drift; it is neither a source benchmark nor a task-cost theorem. Each prediction adds an error that grows with the drift. Try “A teacher corrects it” to watch DAgger-style relabeling cut the summed deviation.
+Try “A teacher corrects it” to watch DAgger-style relabeling <Cite id="dagger-2011" /> cut the summed deviation.
 
 <PredictThenReveal
   prompt="Make the task twice as long, 240 moves instead of 120, with the same 5% slip per move and nothing else changed. Roughly what happens to the total drift?"
@@ -56,41 +80,33 @@ This deterministic toy illustrates persistent drift; it is neither a source benc
   <CompoundingError defaultEpsilon={0.05} defaultSteps={240} className="mt-3" />
 </PredictThenReveal>
 
-<Callout variant="info">
-  At 5% per-step error, the accumulated-deviation readout rounds to 370 units over 120 steps. At 240 steps it rounds to 1505 units. That approximately fourfold change describes this recurrence over this range; no measured robot result or proof of the paper’s worst-case bound rides on it.
-</Callout>
+## Origins in driving
+
+ALVINN (1988), a three-layer back-propagation network with camera and laser-range inputs, trained on simulated road images and was tested on NAVLAB, a modified Chevy van <Cite id="alvinn-1988" />. By 1991 it learned in under 5 minutes by watching a human driver, then drove at up to 20 mph <Cite id="pomerleau-1991" />. Later systems added off-centre, rotated training views <Cite id="bojarski-e2e-driving-2016" />, or synthesized perturbations after 30 million examples proved not enough <Cite id="chauffeurnet-2018" />.
 
 ## Covariate shift, stated precisely
 
-Training data is drawn from the expert's state distribution $d_{\pi^*}$. At deployment the robot visits its own distribution $d_\pi$, and the two diverge the moment the policy makes its first mistake. A small error moves the robot into a state slightly outside the demonstrations; from that unfamiliar state the policy is more likely to err again; each error pushes it further out. Ross, Gordon, and Bagnell made this precise: a policy with per-step error $\varepsilon$ on the expert distribution can incur total cost growing quadratically in the episode length $T$, and they gave a matching lower bound showing the quadratic term is unavoidable under i.i.d. training <Cite id="dagger-2011" />.
-
-For a task cost bounded in $[0,1]$ and a surrogate loss that upper-bounds imitation 0-1 loss, the two relevant statements are:
+Training data follow the expert's state distribution $d_{\pi^*}$; the robot visits its own $d_\pi$, drifting further with each mistake <Cite id="dagger-2011" />. Ross and Bagnell (2010) proved a regret bound that grows quadratically in the horizon $T$ <Cite id="ross-bagnell-2010" />. The DAgger paper restates their bound for expert-distribution error $\varepsilon$ bounding the 0-1 loss and task cost in $[0,1]$, and notes it is tight <Cite id="dagger-2011" />:
 
 $$
 J(\pi) \leq J(\pi^*) + T^2\varepsilon
 $$
 
-$$
-J(\hat{\pi}) \leq J(\pi^*) + uT\varepsilon_N + O(1).
-$$
-
-The first uses error $\varepsilon$ on the expert distribution. The second is DAgger’s conditional, infinite-sample Theorem 3.2: after $N=\tilde{O}(uT)$ iterations there exists a policy $\hat{\pi}$ in the learned sequence satisfying the bound. Here $\varepsilon_N$ is the true loss of the best policy in hindsight across the collected mixed-policy state distributions, a different quantity from the expert-distribution error above. The factor $u$ bounds the increase in expert cost-to-go after one action. Linear-in-$T$ excess cost requires $u$ independent of $T$; in the worst case $u$ can be $O(T)$. The loss and mixing assumptions are stated in the <Term id="dagger">DAgger</Term> section below <Cite id="dagger-2011" />. Physical Intelligence restated the same point in operational terms in 2025: it is relatively easy to get a learned policy to succeed at a task some of the time, and much harder to make it succeed reliably <Cite id="pistar06-blog-2025" />.
+With log-loss, behavior cloning reaches horizon-independent sample complexity when payoff range and policy-class complexity are controlled; absent further assumptions, online interaction cannot beat it for deterministic stationary policies <Cite id="foster-bc-horizon-2024" />. A tabular lower bound of order $|S|T^2/N$ survives even active expert queries <Cite id="rajaraman-il-limits-2020" />. With continuous actions, smooth deterministic imitators can suffer execution error exponentially larger in the horizon than their training error <Cite id="simchowitz-continuous-il-2025" />. Physical Intelligence finds occasional VLA success relatively easy and reliable success quite hard <Cite id="pistar06-blog-2025" />.
 
 <Image id="covariate-shift" />
 
-## Fitting demonstrations is hard before deployment even starts
+## Training-side problems
 
-<Term id="compounding-error">Compounding error</Term> is the deployment problem. Three training-side problems compound it:
+On demonstrations with several valid strategies, energy-based implicit policies often beat mean-squared-error and mixture-density policies <Cite id="implicit-bc-2021" />, and <Term id="diffusion-policy">Diffusion Policy</Term> learns both Push-T modes, committing to one per rollout <Cite id="diffusion-policy-2023" />. Pan et al. (2025) attribute generative policies' benchmark gains to iterative computation instead of multimodality <Cite id="much-ado-noising-2025" />.
 
-**Multimodality.** Human demonstrations can contain several valid action strategies. <Term id="diffusion-policy">Diffusion Policy</Term> models multimodal action distributions: in its Push-T example it learns both modes, left-going and right-going, and commits to one mode within a rollout <Cite id="diffusion-policy-2023" />.
+A single Markovian state cannot predict pauses, so single-step policies confuse waiting with acting and freeze, as ACT and Diffusion Policy document <Cite id="act-aloha-2023" /> <Cite id="diffusion-policy-2023" />. Temporal context is the usual fix. Yet more input information can worsen a cloned policy under shift <Cite id="causal-confusion-2019" />, and a history-conditioned policy can cheat by copying the expert's previous action <Cite id="copycat-bc-2020" />.
 
-**Temporally correlated confounders.** Demonstrations contain pauses and idle segments that are unpredictable from a single Markovian state. A single-step policy cannot tell "waiting" from "acting," and both ACT and Diffusion Policy document robots freezing in place because of it <Cite id="act-aloha-2023" /> <Cite id="diffusion-policy-2023" />. The fix is temporal context; a larger backbone is beside the point.
-
-**The demonstration ceiling.** Behavior cloning can at best match the demonstrator. If the teleoperator is slow, cautious, or inconsistent, the policy inherits all of it, and the <Term id="covariate-shift">covariate-shift</Term> analysis above means it will usually do worse.
+Behavior cloning at best matches its demonstrator; robomimic found results depend on demonstration quality and checkpoint selection <Cite id="robomimic-2021" />. Past a threshold, extra demonstrations per environment or object barely help; diversity matters far more <Cite id="lin-data-scaling-laws-2024" />. Minibatch SGD noise can swing long-horizon reward while barely moving cloning loss, and an exponential moving average of iterates is surprisingly effective <Cite id="butterfly-sgd-noise-2023" />.
 
 ## DAgger: relabel the states you actually visit
 
-DAgger (Dataset Aggregation) attacks the quadratic bound directly <Cite id="dagger-2011" />. The loop:
+<Term id="dagger">DAgger</Term> (Dataset Aggregation) labels the states the learner visits, reducing <Term id="imitation-learning">imitation learning</Term> to no-regret online learning <Cite id="dagger-2011" />.
 
 <Card title="One DAgger iteration" className="my-6">
   <KeyValue
@@ -103,7 +119,11 @@ DAgger (Dataset Aggregation) attacks the quadratic bound directly <Cite id="dagg
   />
 </Card>
 
-DAgger reduces <Term id="imitation-learning">imitation learning</Term> to no-regret online learning. Its guarantee is existential over the learned sequence; it promises no improvement for any particular iterate. Theorem 3.2 assumes a bounded, strongly convex surrogate loss that upper-bounds imitation 0-1 loss, with expert mixing $\beta_i \leq (1-\alpha)^{i-1}$ for a constant $\alpha$ independent of $T$. It uses the true best-policy-in-hindsight loss
+Infinite-sample Theorem 3.2 assumes a bounded, strongly convex surrogate loss and expert mixing $\beta_i \leq (1-\alpha)^{i-1}$, with $\alpha$ independent of $T$. After $N=\tilde{O}(uT)$ iterations some learned policy satisfies the bound below, where $u$ bounds the rise in expert cost-to-go after one action <Cite id="dagger-2011" />:
+
+$$
+J(\hat{\pi}) \leq J(\pi^*) + uT\varepsilon_N + O(1).
+$$
 
 $$
 \begin{gathered}
@@ -112,17 +132,19 @@ $$
 \end{gathered}
 $$
 
-The analysis allows selection of the sequence policy with the lowest true loss under its own state distribution, or uniformly choosing a sequence policy once for an entire episode. Algorithm 3.1 returns the best policy on validation; it does not guarantee that the last iterate is best. Finite-sample Theorem 3.4 instead uses empirical training loss $\hat{\varepsilon}_N$: with $m=O(1)$ trajectories per iteration and $N=O(u^2T^2\log(1/\delta))$, the analogous bound holds for some sequence policy with probability at least $\left(1-\delta\right)$. On-policy coverage alone neither makes $u$ constant nor guarantees linear task cost <Cite id="dagger-2011" />.
+Excess cost is linear in $T$ only if $u$ is independent of $T$; in the worst case $u$ is $O(T)$. The guarantee is existential; Algorithm 3.1 returns the policy best on validation. Finite-sample Theorem 3.4 holds with probability at least ${1-\delta}$ for empirical loss $\hat{\varepsilon}_N$, $m=O(1)$ trajectories per iteration and $N=O(u^2T^2\log(1/\delta))$ <Cite id="dagger-2011" />.
 
-The catch is the expert. Classic DAgger needs a supervisor who can look at an arbitrary mid-failure robot state and name the correct action, which is unnatural and slow for a human teleoperator. HG-DAgger (the retained arXiv revision) gives the human expert uninterrupted control when they judge intervention necessary. The expert guides the system back to a safe, stable region; action labels are collected during these recovery trajectories, and the expert manually returns control to the novice <Cite id="hg-dagger-2019" />. Fourteen years later, the same pattern shows up as the "coaching" stage of Physical Intelligence's Recap, where human corrections on visited states fine-tune a vision-language-action policy <Cite id="pistar06-blog-2025" />.
+Off-policy DART injects noise into demonstrations so the supervisor shows recoveries, gaining 62% on average over behavior cloning at grasping in clutter <Cite id="dart-2017" />. Diffusion Meets DAgger synthesizes out-of-distribution samples, reaching 80% pushing success from 8 demonstrations against behavior cloning's 20% <Cite id="diffusion-meets-dagger-2024" />.
 
-<Aside title="Why not just collect more demonstrations?">
-  More i.i.d. data can reduce imitation error, but the worst-case guarantee still contains $T^2$. That does not predict quadratic realized cost for every task. DAgger changes where labels are collected; whether its excess-cost bound is linear also depends on the expert’s recovery cost $u$ and the learning assumptions.
-</Aside>
+Labeling arbitrary failure states is unnatural for teleoperators. In HG-DAgger the human takes over when needed, steers back to a safe, stable region and hands back control, labeling the recovery <Cite id="hg-dagger-2019" />. BC-Z gathered such interventions by shared autonomy and did 24 unseen tasks at 44% average success <Cite id="bc-z-2022" />. Compliant Residual DAgger takes delta corrections without pausing the policy, raising base success by 64% on four tasks <Cite id="cr-dagger-2025" />.
+
+Fourteen years after DAgger, Physical Intelligence's Recap coaches a vision-language-action policy with corrections at visited states <Cite id="pistar06-blog-2025" />. SOP runs HG-DAgger and Recap on a robot fleet, with performance scaling near-linearly in fleet size <Cite id="sop-2026" />. RaC found imitation plateaus far below perfect despite thousands of demonstrations; recovery-and-correction data beat the prior best with 10× less collection <Cite id="rac-2025" />.
 
 ## Where this leads
 
-These results separate three questions: can a policy fit demonstrations, will it visit states covered by training, and can the expert recover after a mistake? [Action chunking](/manipulation/action-chunking) addresses temporal action structure. [Diffusion Policy](/manipulation/diffusion-policy) represents multiple action modes. DAgger collects expert labels on visited states. None of those mechanisms alone establishes an unconditional long-horizon task-cost guarantee.
+[Action chunking](/manipulation/action-chunking/) and exploratory data collection each provably avoid exponential compounding through control-theoretic stability <Cite id="zhang-chunking-exploration-2025" />. A generative imitator, such as a [diffusion policy](/manipulation/diffusion-policy/), over a stabilizing controller can match the per-step distribution of expert trajectories <Cite id="block-generative-bc-2023" />.
+
+GAIL's adversarial imitation needs no expert queries <Cite id="gail-2016" />, nor does DARP's nearest-neighbour retrieval, 15 to 46% better than behavior cloning <Cite id="darp-2026" />. HIL-SERL adds real-world RL, reaching near-perfect success in 1 to 2.5 hours, doubling baseline success with 1.8x faster execution <Cite id="hil-serl-2024" />. In blind, randomized trials, multitask pretraining made cloned policies more robust and faster to teach new tasks with a fraction of the data <Cite id="tri-lbm-2025" />.
 
 <SelfCheck
   prompt="A behavior-cloned pick-and-place policy demos perfectly on 20-second trials but drifts off the object within two minutes on the line. Where does the fix have to come from?"

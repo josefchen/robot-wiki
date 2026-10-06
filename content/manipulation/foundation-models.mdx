@@ -19,6 +19,29 @@ citations:
   - dreamzero-2026
   - robottt-2026
   - t2mem-2026
+  - bommasani-foundation-models-2021
+  - open-x-embodiment-2023
+  - robocat-2023
+  - gemini-robotics-2025
+  - octo-2024
+  - pistar06-2025
+  - gen-1-5-2026
+  - skild-s1-2026
+  - rt1-2022
+  - openvla-oft-2025
+  - pi05-2025
+  - r3m-2022
+  - dreamer4-2025
+  - cosmos-predict-2025
+  - cosmos-policy-2026
+  - ctrl-world-2025
+  - nvidia-gtc-gr00t-n2-2026
+  - tri-lbm-2025
+  - vc1-2023
+  - robopair-2024
+  - libero-plus-2025
+  - libero-pro-2025
+  - ecomem-2026
 seeAlso:
   - "world-models/taxonomy"
   - "manipulation/generalist-policies"
@@ -26,11 +49,7 @@ seeAlso:
 ---
 import { FoundationModelFamiliesTable } from '@/components/mdx/text-tables';
 
-“Foundation model” is a claim about reuse, and a large neural network alone earns nothing by the label. In robotics, the useful test is whether one pretrained model supports materially different downstream tasks, environments or embodiments after bounded adaptation. Parameter count alone does not establish that property, and a model trained across many tasks can still be a closed, fixed policy with no foundation role for new ones.
-
-Three families currently carry the label: <Term id="vision-language-action-model">vision-language-action models</Term> that emit controls, predictive world models used for planning or representation learning, and multimodal backbones adapted into either. They share pretraining scale and diverge at the output interface.
-
-Try the check below and choose the evidence that actually supports the foundation claim. The correct option requires transfer to a downstream setting; a large training run alone earns nothing.
+A foundation model is a network trained on broad data at scale and adaptable to many downstream tasks <Cite id="bommasani-foundation-models-2021" />. In robotics, the test is whether one checkpoint transfers to new tasks, environments or embodiments after bounded adaptation. Three families carry the label: <Term id="vision-language-action-model">vision-language-action models</Term>, predictive world models, and multimodal backbones adapted into either. Try the check below.
 
 <SelfCheck
   prompt="Which result is the strongest evidence that a robot model is functioning as a foundation model?"
@@ -57,74 +76,42 @@ Try the check below and choose the evidence that actually supports the foundatio
 
 ## What must be specified
 
-A foundation-model claim is incomplete until it names four things:
+A claim names its pretraining data, objective, interface and adaptation budget. Data spans web text and images, human video, robot trajectories and simulation; Open X-Embodiment pools 22 robots from 21 institutions <Cite id="open-x-embodiment-2023" />. Objectives include next-token prediction, contrastive learning, video prediction and action denoising; interfaces include text, action chunks, predicted futures, values and embeddings.
 
-1. **Pretraining data:** web images and text, human video, robot trajectories, simulation or a mixture.
-2. **Pretraining objective:** next token, contrastive representation, video prediction, action denoising or another loss.
-3. **Downstream interface:** text, an action chunk, a predicted future, a value or a reusable embedding.
-4. **Adaptation budget:** zero-shot prompting, a linear probe, parameter-efficient tuning, full fine-tuning, or new robot data at scale.
+Budgets run from zero-shot prompting through linear probes, parameter-efficient and full fine-tuning to new robot data at scale. RoboCat adapts to new tasks and robots from 100 to 1,000 examples <Cite id="robocat-2023" />, Gemini Robotics learns short-horizon tasks from as few as 100 demonstrations <Cite id="gemini-robotics-2025" />, and Octo fine-tunes to new sensors and action spaces in hours on consumer GPUs <Cite id="octo-2024" />. π*0.6's RL from experience more than doubles throughput on some of the hardest tasks <Cite id="pistar06-2025" />. The newest rung is in-context learning: Generalist reports GEN-1.5 learning a task from one 3 to 12 second demonstration with no training <Cite id="gen-1-5-2026" />, and Skild reports S1 executing a task shown in one video <Cite id="skild-s1-2026" />.
 
-Those fields turn a label into a testable object. They also explain why two “robotics foundation models” can have little technical overlap.
+## VLA foundations
 
-## VLA foundations: knowledge becomes action
+RT-1 argued for task-agnostic training of high-capacity models on diverse robot data <Cite id="rt1-2022" />. RT-2 co-fine-tunes a vision-language model on robot trajectories and internet-scale vision-language tasks, writing actions as reserved tokens <Cite id="rt2-2023" />. OpenVLA made a comparable recipe public: DINOv2 and SigLIP features, a Llama-family backbone and fine-tuning on Open X-Embodiment <Cite id="openvla-2024" />.
 
-RT-2 co-fine-tunes a vision-language model on robot trajectories and internet-scale vision-language tasks, representing actions with reserved tokens <Cite id="rt2-2023" />. OpenVLA made a comparable recipe public, combining DINOv2 and SigLIP visual features with a LLaMA-family language backbone and fine-tuning on Open X-Embodiment <Cite id="openvla-2024" />.
+Calibration, gripper dynamics, control rate and success labels enter during adaptation: VLAs struggle with novel robot setups until fine-tuned, and OpenVLA-OFT's recipe lifted OpenVLA's average success across four task suites from 76.5% to 97.1% <Cite id="openvla-oft-2025" />.
 
-These architectures reuse pretrained visual and language representations; whether that improves a new robot task must be measured under the task's evaluation protocol. Pretraining does not supply embodiment-specific calibration, gripper dynamics, control rate or task success labels. Those enter during adaptation.
+π0 pairs a pretrained VLM with a separate flow-matching expert for continuous action chunks <Cite id="pi0-2024" />. Knowledge insulation trains the backbone on discretized actions alongside the continuous expert <Cite id="knowledge-insulation-paper-2025" />. π0.5 credits its generalization to co-training on heterogeneous tasks <Cite id="pi05-2025" />, and π0.7's authors call their 2026 model a steerable generalist robotic foundation model <Cite id="pi07-2026" />.
 
-The π0 line changed the action side. π0 uses a pretrained VLM plus a separate flow-matching action expert that generates continuous action chunks <Cite id="pi0-2024" />. The model distinguishes the pretrained vision-language backbone from a separately added continuous-action expert. Later work named the design principle knowledge insulation: the paper fine-tunes the VLM backbone with discretized actions while simultaneously adapting a continuous-action expert <Cite id="knowledge-insulation-paper-2025" />.
+Test-time training stores past observations in fast weights that gradient descent updates while the policy runs. In July 2026, Yunfan Jiang, Li Fei-Fei, Yuke Zhu, Linxi Fan and colleagues reported RoboTTT, which extends visuomotor context to 8K timesteps without growing inference latency. On long-horizon real-robot tasks it averaged a 79% task completion score, against 42% for the single-step-context GR00T N1.7 baseline, and it fully completed a five-minute, ten-stage assembly task that no baseline completed <Cite id="robottt-2026" />. In September 2026, Yize Liu, Li Fei-Fei, Jiajun Wu and colleagues applied the mechanism to memory with T²Mem, which raised average success on 16 RoboMME tasks from 17.93% to 56.83% over its memory-free base policy <Cite id="t2mem-2026" />. ECoMEM, posted on September 30, 2026 by Yize Liu, Mac Schwager, Jiajun Wu and colleagues, keeps an explicit record of task facts that a learned reader turns into memory tokens for the VLA. It led the evaluated policies on 15 of 16 RoboMME tasks, and on two new real-robot tasks it reached 86.1% success, against 8.6% for a VLA without memory <Cite id="ecomem-2026" />.
 
-The π0.7 authors title their 2026 report a steerable generalist robotic foundation model <Cite id="pi07-2026" />; evaluate its claimed transfer by task and adaptation setting. The relevant evidence is not the phrase in the title. It is whether the same pretrained system produces useful transfer under stated adaptation budgets and held-out physical conditions.
+## Humanoid foundations
 
-Two 2026 papers extend how much history a VLA can use through test-time training, which stores past observations in fast weights updated by gradient descent while the policy runs. In July 2026, Yunfan Jiang, Li Fei-Fei, Yuke Zhu, Linxi Fan and colleagues reported RoboTTT, which extends visuomotor context to 8K timesteps without growing inference latency. On long-horizon real-robot tasks it averaged a 79% task completion score, against 42% for the single-step-context GR00T N1.7 baseline, and it fully completed a five-minute, ten-stage assembly task that no baseline completed <Cite id="robottt-2026" />. In September 2026, Yize Liu, Li Fei-Fei, Jiajun Wu and colleagues applied the mechanism to memory with T²Mem, which raised average success on 16 RoboMME tasks from 17.93% to 56.83% over its memory-free base policy <Cite id="t2mem-2026" />.
+GR00T N1 combines a vision-language module with a diffusion transformer, trained on real-robot trajectories, human videos and synthetic datasets <Cite id="gr00t-n1-2025" />. For a humanoid, morphology, whole-body balance and shared action coordinates set the reuse boundary.
 
-## Humanoid foundations: embodiment is part of the bet
+## Predictive foundations
 
-GR00T N1 combines a vision-language module and diffusion transformer, trained with real-robot trajectories, human videos and synthetically generated datasets <Cite id="gr00t-n1-2025" />. Its foundation scope is narrower than “all robots” and broader than one humanoid task.
+V-JEPA 2 learns representations from over 1M hours of internet video, then an action-conditioned stage on fewer than 62 hours of unlabeled DROID video <Cite id="vjepa2-2025" />. Its asset is a representation for comparing predicted futures. R3M's embedding, pretrained on Ego4D human video, beats from-scratch training by over 20% <Cite id="r3m-2022" />, and Dreamer 4 draws most of its knowledge from unlabeled video <Cite id="dreamer4-2025" />.
 
-That distinction matters. A foundation can be domain-specific. Protein models, code models and robot models do not need to share an output space. The honest claim names the domain over which reuse has been demonstrated. For a humanoid model, morphology, whole-body balance and shared action coordinates are not incidental details; they define the reuse boundary.
+Cosmos frames a world foundation model as a general-purpose model fine-tuned into custom ones <Cite id="cosmos-predict-2025" />. Cosmos 3 unifies understanding, generation, forward and inverse dynamics and policy outputs in one omnimodal model <Cite id="cosmos-3-2026" />, and Cosmos Policy turns Cosmos-Predict2 into a policy in one post-training stage, reaching 98.5% on LIBERO <Cite id="cosmos-policy-2026" />. Each output needs its own test: Ctrl-World ranks policies without real rollouts <Cite id="ctrl-world-2025" />.
 
-## Predictive foundations: represent or simulate the future
-
-World-model families pretrain a different capability. V-JEPA 2 uses over 1M hours of internet video for representation learning; its action-conditioned stage uses fewer than 62 hours of unlabeled DROID robot video <Cite id="vjepa2-2025" />. The transferable asset is a representation in which future states can be predicted and compared; no direct language-to-action map comes with it.
-
-Cosmos 3 unifies understanding, generation, forward dynamics, inverse dynamics and policy-oriented outputs in an omnimodal model for physical AI <Cite id="cosmos-3-2026" />. Its scale supports several downstream roles, but each role still needs an evaluation suited to that output. A visually convincing future is not automatically a useful control model; inspect action sensitivity and policy-ranking evidence when evaluating one.
-
-In February 2026, Seonghyeon Ye, Yuke Zhu and colleagues described DreamZero, a world action model that is built on a pretrained video diffusion backbone and predicts future video and actions together. In real-robot experiments it more than doubled generalization to new tasks and environments compared with state-of-the-art VLAs, and its 14-billion-parameter model ran closed-loop control at 7 Hz <Cite id="dreamzero-2026" />.
-
-The [world-model taxonomy](/world-models/taxonomy) separates generative video, latent dynamics, JEPA and unified world-action systems. Grouping them only by scale hides the functional differences that determine whether a model can plan, train a policy or generate data.
+DreamZero (Ye, Zhu and colleagues, February 2026) is a [world action model](/world-models/taxonomy/) on a pretrained video diffusion backbone, predicting video and actions together. In real-robot tests it more than doubled average task progress on new tasks and environments over state-of-the-art VLAs, and its 14-billion-parameter model ran closed-loop at 7 Hz <Cite id="dreamzero-2026" />. On 16 March 2026 NVIDIA previewed GR00T N2, based on DreamZero research and slated for release by year end <Cite id="nvidia-gtc-gr00t-n2-2026" />.
 
 ## What pretraining does not erase
 
-Foundation models reduce some marginal costs and leave others untouched.
+Pretraining can cut semantic supervision, representation learning from small robot datasets, initialization across related tasks and per-policy visual backbones. In TRI's blind, randomized trials, multitask pretraining matched from-scratch policies with 3 to 5 times less data <Cite id="tri-lbm-2025" />. VC-1 found no pretrained visual representation universally dominant, and more pretraining data helped only on average <Cite id="vc1-2023" />.
 
-**They can reduce:**
-
-- semantic supervision for new language and object concepts;
-- representation learning from small robot datasets;
-- initialization cost across related tasks;
-- the need to train one visual backbone per policy.
-
-**They do not automatically reduce:**
-
-- the need for synchronized, correctly transformed actions;
-- calibration and control integration on a new robot;
-- closed-loop evaluation under physical perturbations;
-- inference latency and memory constraints;
-- safety cases and recovery behavior.
-
-The remaining costs explain why open weights are not the same as a deployable robot policy. A checkpoint can be downloadable while its training mixture, adaptation data, controller assumptions or benchmark protocol remain impossible to reproduce.
+It leaves synchronized, correctly transformed actions, calibration and control integration, closed-loop evaluation under perturbation, latency and memory limits, and safety cases. RoboPAIR jailbroke LLM-controlled robots, including a deployed Unitree Go2, often at 100% attack success <Cite id="robopair-2024" />. A downloadable checkpoint can hide its training mixture, adaptation data, controller assumptions or benchmark protocol.
 
 ## A comparison framework
 
 <FoundationModelFamiliesTable className="my-6" />
 
-Compare systems within the same row before comparing across rows. A VLA success rate and a world model's video metric do not answer the same question.
+## Evaluating a foundation claim
 
-## How to evaluate a foundation claim
-
-Look for a matrix instead of a highlight. Rows should vary tasks and environments; columns should vary embodiment, adaptation data and evaluation shift. Report the pretrained checkpoint, every tuned component and the amount of new robot interaction. Include a from-scratch baseline under the same data budget.
-
-Then ask what failed. If transfer collapses when camera placement changes, the representation is less foundational than the task list suggests. If a new arm needs full retraining on a large dataset, the model may be a strong multi-task policy with a narrow embodiment boundary. If a small adapter works across genuinely new tasks, the foundation description has earned useful meaning.
-
-The term is valuable when it predicts engineering leverage. Used precisely, it tells you which expensive capability has already been learned and which expensive capability you still have to supply.
+Look for a matrix: rows vary tasks and environments, columns vary embodiment, adaptation data and evaluation shift. Report the checkpoint, every tuned component, the new robot data and a same-budget from-scratch baseline. VLAs near 95% on LIBERO drop below 30% under modest camera or initial-state perturbations <Cite id="libero-plus-2025" />, and models above 90% fall to 0.0% under LIBERO-PRO's generalized setting <Cite id="libero-pro-2025" />. Full retraining for a new arm marks a narrow embodiment boundary; a small adapter working across new tasks earns the label.

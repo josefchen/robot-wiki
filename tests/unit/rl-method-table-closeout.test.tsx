@@ -70,8 +70,8 @@ describe('source-scoped six-method aggregate original 11', () => {
 
   it('preserves finite denominators, source conflicts and non-ranking prose', () => {
     const prose = readFileSync('content/manipulation/rl-finetuning.mdx', 'utf8');
-    for (const value of ['16 of 20', '45-90', '39.4%', 'without stating an evaluation-trial denominator',
-      'not 100%', 'two attempts per sub-policy', '18%', '28%', 'rankings across these protocols would mislead'])
+    for (const value of ['16 of 20', '45-90', '39.4%', 'without a trial count',
+      'stays below 100%', 'two attempts per sub-policy', '18%', '28%', 'The protocols differ too much for a cross-paper ranking'])
       expect(prose).toContain(value);
     expect(prose).not.toContain("Recap's numbers are the most impressive");
     expect(prose).not.toContain("the strongest real-world results, Recap's");

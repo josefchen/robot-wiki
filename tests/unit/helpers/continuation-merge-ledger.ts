@@ -312,6 +312,7 @@ export const LATER_REANCHOR_PREFIXES = [
   'kol-backlog-20261001-',
   'seo-pass-20261002-',
   'kol-backlog-20261005-',
+  'domain-pass-20261006-',
   // Exact ids: other reader-first prose edges are plain edges from the SEO
   // endpoint, and only these two re-anchor from the sealed hash.
   'reader-first-20261003-prose-manipulation-generalist-policies',

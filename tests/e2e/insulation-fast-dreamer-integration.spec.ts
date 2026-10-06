@@ -4,7 +4,7 @@ import { writeFileSync } from 'node:fs';
 import { openAdjustMore } from './helpers/figure-fold';
 
 const surfaces = [
-  { slug: 'knowledge-insulation', domain: 'manipulation', text: '7.5x figure compares training steps', sources: ['knowledge-insulation-paper-2025', 'knowledge-insulation-2025'] },
+  { slug: 'knowledge-insulation', domain: 'manipulation', text: '7.5 times the training steps', sources: ['knowledge-insulation-paper-2025', 'knowledge-insulation-2025'] },
   { slug: 'pi-line', domain: 'manipulation', text: 'one million one-second action chunks', sources: ['pi0-fast-2025', 'knowledge-insulation-paper-2025'] },
   { slug: 'comparison-matrix', domain: 'manipulation', text: 'DROID setup in the FAST v1 paper', sources: [] },
   { slug: 'latent-dynamics', domain: 'world-models', text: 'symlog squared loss', sources: ['dreamerv3-2023'] },

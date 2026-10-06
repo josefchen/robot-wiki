@@ -39,7 +39,7 @@ export const PI_GENERATIONS: readonly PiGeneration[] = [
     openWeights: true,
     backbone: 'PaliGemma 3B + 300M action expert',
     contribution:
-      'Flow-matching action expert grafted onto a pretrained VLM; 50-step action chunks at 50 Hz.',
+      'Flow-matching action expert grafted onto a pretrained VLM; 50-step action chunks, at up to 50 Hz.',
     plain:
       'The first model in the family: it adds a part that turns what a picture-and-language model understands into smooth arm motion.',
     citationId: 'pi0-2024',
@@ -54,7 +54,7 @@ export const PI_GENERATIONS: readonly PiGeneration[] = [
     contribution:
       'DCT + BPE action tokenization (FAST); autoregressive VLAs become viable at 50 Hz.',
     plain:
-      'Packs motion into compact word-like codes, so a model that writes one code at a time can keep up with the arm.',
+      'Packs motion into compact word-like codes, so a model that writes one code at a time can be trained on fast, high-frequency motion.',
     citationId: 'pi0-fast-2025',
   },
   {
@@ -117,9 +117,9 @@ export const PI_GENERATIONS: readonly PiGeneration[] = [
     openWeights: null,
     backbone: 'Gemma3 4B + 860M expert',
     contribution:
-      'Diverse multimodal prompting (metadata, control mode, generated subgoals); compositional generalization.',
+      'Diverse multimodal prompting (metadata, control mode, generated subgoals); early signs of compositional generalization.',
     plain:
-      'Takes richer instructions, such as task details, how to control the arm and generated in-between goals, and combines skills in new ways.',
+      'Takes richer instructions, such as task details, how to control the arm and generated in-between goals, and shows early signs of combining skills in new ways.',
     citationId: 'pi07-2026',
   },
 ];

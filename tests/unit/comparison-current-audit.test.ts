@@ -4,6 +4,7 @@ import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
 import { CITATIONS } from '@/data/citations';
 import { compoundPartDigest, parseCompoundPlans, parseLedger } from '@/lib/audit-ledger';
+import { preDomainPassCitations } from '../helpers/domain-pass';
 
 const ledger = readFileSync('audit/manipulation.md', 'utf8');
 const plans = parseCompoundPlans(JSON.parse(readFileSync('audit/compound-evidence.json', 'utf8')));
@@ -47,7 +48,8 @@ describe('comparison fixed original audit population', () => {
   });
 
   it('requires the actual 21-source identity union and both supported introductory setups', () => {
-    const citations = matter(readFileSync('content/manipulation/comparison-matrix.mdx', 'utf8')).data.citations as string[];
+    // A domain-pass rewrite appends new ids, with their own audit rows; the P1 row keeps certifying the list it declared.
+    const citations = [...preDomainPassCitations('manipulation', 'comparison-matrix', matter(readFileSync('content/manipulation/comparison-matrix.mdx', 'utf8')).data.citations as string[])];
     const plan = plans.find(p => p.id === 'comparison-current-1-20260907')!;
     const identity = plan.parts.filter(p => p.id.startsWith('identity-'));
     expect(citations).toHaveLength(21);

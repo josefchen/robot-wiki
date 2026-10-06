@@ -24,7 +24,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     await region.focus();
     await page.keyboard.press('ArrowRight');
     await page.screenshot({ path: info.outputPath(`${viewport.width}-table-focus.png`) });
-    const note = page.locator('div.prose > p').filter({ hasText: 'ALOHA finetuning example predicts 64 actions' });
+    const note = page.locator('div.prose > p').filter({ hasText: 'example predicts 64 actions' });
     await note.scrollIntoViewIfNeeded();
     await page.screenshot({ path: info.outputPath(`${viewport.width}-source-notes.png`) });
     for (const id of ['octo-2024', 'pi0-2024']) {

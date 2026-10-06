@@ -62,9 +62,8 @@ describe('ACT final model paper corrections', () => {
     const article = readFileSync('content/manipulation/action-chunking.mdx', 'utf8');
     expect(article).toContain('<Cite id="pi06-model-card-2025" />');
     expect(article).toContain('<Cite id="pi07-2026" />');
-    expect(article).toContain('five denoising steps and three camera inputs on one H100');
-    expect(article).toContain('either 15 or 25');
-    expect(article).toContain('does not assign either execution choice to a particular robot');
+    expect(article).toContain('five denoising steps and three cameras on one H100');
+    expect(article).toContain('15 or 25, at');
     expect(article).toContain('RL-trained π*0.6');
     expect(article).not.toContain('executes 15-25');
   });

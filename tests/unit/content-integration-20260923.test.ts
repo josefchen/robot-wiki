@@ -16,6 +16,7 @@ import {
 import { collectArticleTruthManifests } from '../../scripts/brand-v2-baseline';
 import { headReanchorFor, ledgerAt, sealedHash, showAt } from './helpers/continuation-merge-ledger';
 import { RELEASE_BASE as CONTINUATION_RELEASE_BASE } from '../helpers/continuation-integration';
+import { DOMAIN_PASS_CITATION_IDS } from '../helpers/domain-pass';
 
 /**
  * The 2026-09-23 content integration merged release/seo-content-fixes onto
@@ -111,8 +112,11 @@ describe('content integration of 2026-09-23', () => {
       }
       expect(entry.ownerApproval).toMatch(/^Owner-delegated approval: Josef Chen delegated release decisions to the delegated release reviewer on 2026-09-22\/23 \('you think and decide all'\); approved after primary-source verification of \S/);
     }
+    // Each domain-pass article group closes the shared rendering chain with its own resolution; the newest is the head.
+    const domainPassRendering = approvals.filter(a => /^domain-pass-20261006-g\d+-citation-rendering$/.test(a.id));
+    expect(domainPassRendering.length).toBeGreaterThan(0);
     expect(headReanchorFor(approvals, 'article-metadata', 'citation-rendering:label-and-meta')?.id)
-      .toBe('kol-backlog-20261005-classical-citation-rendering');
+      .toBe(domainPassRendering.at(-1)!.id);
     expect(approvals.find(a => a.id === 'main-merge-20260924-citation-rendering'))
       .toMatchObject({
         oldHash: sealedHash('article-metadata', 'citation-rendering:label-and-meta'),
@@ -171,7 +175,8 @@ describe('content integration of 2026-09-23', () => {
     expect(CITATIONS.find((c) => c.id === 'kroger-ocado-closures-2025')?.url).toContain(
       'web.archive.org/web/20251118224554/',
     );
-    expect(CITATIONS.map((c) => c.id).filter((id) => !baseIds.includes(id)).sort()).toEqual([
+    // The 2026-10-06 domain passes append the owner's verified-draft entries, checked by their own audit rows.
+    expect(CITATIONS.map((c) => c.id).filter((id) => !baseIds.includes(id) && !DOMAIN_PASS_CITATION_IDS.has(id)).sort()).toEqual([
       'ad-e2e-jepa-2026', 'agility-digit-production', 'agro-suvide-2026', 'asena-2026', 'chord-2026', 'chunktrust-2026', 'dexagent-2026',
       'dreamzero-2026', 'dsrl-2025', 'embodiedswe-2026', 'excavator-mbrl-2026', 'expo-2025',
       'expo-ft-2026', 'figure-bmw-production-2025', 'fingr-2026', 'grail-2026', 'humanoidmimicgen-2026',
@@ -182,7 +187,7 @@ describe('content integration of 2026-09-23', () => {
       'shiu-ahmad-1989', 'simex-2026', 'simfoundry-2026', 't-rex-2026', 't2mem-2026', 'tesla-q1-2026-update',
       'trace-cables-2026', 'wcbf-hyper-redundant-2026',
     ]);
-    expect(CITATIONS).toHaveLength(baseIds.length + 38);
+    expect(CITATIONS).toHaveLength(baseIds.length + 38 + DOMAIN_PASS_CITATION_IDS.size);
     expect(CITATIONS.find((c) => c.id === 'agility-digit-production')).toMatchObject({
       year: 'n.d.',
       accessedOn: '2026-09-24',

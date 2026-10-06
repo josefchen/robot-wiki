@@ -59,15 +59,16 @@ describe('insulation FAST and Dreamer fixed original records', () => {
     expect(pi).toContain('one million one-second action chunks');
     expect(pi).toContain('five times fewer GPU hours');
     expect(pi).toContain('750 ms');
-    expect(pi).toContain('task wall-clock time');
+    expect(pi).toContain('took twice as long to finish');
     expect(pi).not.toContain('1M real robot trajectories');
     expect(pi).not.toContain('roughly 2x slower to complete tasks');
   });
   it('keeps stopped keys and values, attention leakage and the language co-training exception', () => {
     const ki = read('content/manipulation/knowledge-insulation.mdx');
-    expect(ki).toContain('two-stage');
+    expect(ki).toContain('then post-trained a randomly initialized flow-matching expert');
+    expect(ki).toContain('KI makes this a single stage');
     expect(ki).toContain('keys and values');
-    expect(ki).toContain('does not attend to FAST action tokens');
+    expect(ki).toContain('Discrete FAST action tokens');
     expect(ki).toContain('without stop-gradient');
     expect(ki).not.toContain('misrepresents every frontier model');
     const note = CITATIONS.find(c => c.id === 'knowledge-insulation-2025')!;

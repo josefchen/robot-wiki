@@ -197,14 +197,19 @@ try {
       for (let i = 0; i < count; i += 1) {
         await settle(page);
         const predict = page.locator('[data-predict]');
+        // The pointer leaves the button it pressed, so no capture shows a hovered button as if it were disabled.
         if (await predict.isVisible()) {
           await visit(page, explainer, width, `${i + 1} guess`);
           await predict.locator('.opts button').first().click();
+          await page.mouse.move(0, 0);
           await visit(page, explainer, width, `${i + 1} reveal`);
         } else {
           await visit(page, explainer, width, `${i + 1}`);
         }
-        if (i < count - 1) await page.locator('[data-x="next"]').click();
+        if (i < count - 1) {
+          await page.locator('[data-x="next"]').click();
+          await page.mouse.move(0, 0);
+        }
       }
       await page.close();
     }

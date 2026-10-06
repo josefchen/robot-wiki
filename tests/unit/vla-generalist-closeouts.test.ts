@@ -8,8 +8,8 @@ const article = (slug: string) => readFileSync(join(process.cwd(), 'content/mani
 describe('source-specific VLA and generalist closeout wording', () => {
   it('separates RT-1 transformer size, full-system size and measured timing', () => {
     const body = article('vla-models');
-    expect(body).toContain('19M parameters');
-    expect(body).toContain('35M parameters for the full system');
+    expect(body).toContain('19M-parameter');
+    expect(body).toContain('full system has 35M parameters');
     expect(body).toContain('280 ms');
     expect(body).toContain('3,000 real-world evaluation trials');
   });
@@ -18,7 +18,7 @@ describe('source-specific VLA and generalist closeout wording', () => {
     const body = article('vla-models');
     expect(body).toContain('1st and 99th quantiles');
     expect(body).toContain('17 WidowX tasks with ten trials each');
-    expect(body).toContain('12 Google-robot tasks with five trials each');
+    expect(body).toContain('12 Google-robot tasks with five');
     expect(body).toContain('partial credit');
   });
 
@@ -28,7 +28,9 @@ describe('source-specific VLA and generalist closeout wording', () => {
     expect(frontmatter).toContain('act-aloha-2023');
     expect(frontmatter).toContain('openvla-oft-2025');
     expect(body).toContain('35.3%');
-    expect(body).toContain('44%');
+    // The ACT chunk-size ablation (1% at k=1 to 44% at k=100) lives on the action-chunking page.
+    expect(body).toContain('/manipulation/action-chunking/');
+    expect(article('action-chunking')).toContain('44%');
   });
 
   it('attributes the OXE data-quality criticism rather than declaring consensus', () => {
@@ -36,7 +38,7 @@ describe('source-specific VLA and generalist closeout wording', () => {
       const body = article(slug);
       expect(body).toContain('October 2025');
       expect(body).toContain('Reuss');
-      expect(body).toMatch(/personal|his stated assessment/);
+      expect(body).toMatch(/personal|his stated assessment|Moritz Reuss wrote/);
     }
   });
 

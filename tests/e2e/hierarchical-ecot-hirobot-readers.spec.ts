@@ -84,19 +84,18 @@ async function capture(page: Page, locator: Locator, name: string, info: TestInf
 test('final ECoT prose, Hi Robot bullet and coupled Stat remain readable', async ({ page }, info) => {
   const paragraphs = [
     page.locator('p').filter({ hasText: /^ECoT trains a/ }),
-    page.locator('p').filter({ hasText: /^The paper reports a 28-percentage-point/ }),
-    page.locator('p').filter({ hasText: /^The main evaluation already keeps/ }),
-    page.locator('li').filter({ hasText: /^Hi Robot uses two separately trained policies/ }),
+    page.locator('p').filter({ hasText: /^ECoT.s main evaluation holds/ }),
+    page.locator('p').filter({ hasText: /^Hi Robot trains two policies/ }),
   ];
   for (const [i, p] of paragraphs.entries()) {
     await expect(p).toHaveCount(1);
     await capture(page, p, `final-prose-${i}`, info);
   }
-  await expect(paragraphs[1]).toContainText('66% versus 44%');
-  await expect(paragraphs[1]).toContainText('64% versus 30%');
-  await expect(paragraphs[1]).toContainText('314 trials per approach');
-  await expect(paragraphs[2]).toContainText('the main evaluation follows the recipe above, and this variant stays outside it');
-  await expect(paragraphs[3]).toContainText('low-level instruction violations');
+  await expect(paragraphs[0]).toContainText('66% versus 44%');
+  await expect(paragraphs[0]).toContainText('64% versus 30%');
+  await expect(paragraphs[0]).toContainText('314 trials per approach');
+  await expect(paragraphs[1]).toContainText('a separate variant predicts four future gripper positions');
+  await expect(paragraphs[2]).toContainText('low-level instruction violations');
   const stat = page.getByText('learned hierarchies', { exact: true });
   await expect(stat).toHaveCount(1);
   const statBox = stat.locator('..');

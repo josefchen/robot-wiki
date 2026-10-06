@@ -10,7 +10,8 @@ import {
 } from '@/lib/brand-v2-baseline';
 import { preservedApprovalPacket, committedSource } from '../helpers/continuation-integration';
 import { readerTruthAt } from '../helpers/reader-integration';
-import { preSeoPassText } from '../helpers/seo-pass';
+import { preDomainPass, preSeoPassText } from '../helpers/seo-pass';
+import { preDomainPassCitations } from '../helpers/domain-pass';
 import { KOL_BACKLOG_20261005_CITATIONS, withoutKolBacklog20261005Citations } from '../helpers/kol-backlog-20261005';
 
 const root = resolve(import.meta.dirname, '../..');
@@ -26,7 +27,10 @@ const destinations = [
   'content/manipulation/pi-line.mdx',
   'content/rl-sim2real/sim2real-transfer.mdx',
 ];
-const [rl, why] = paths.map(read);
+// The closeout is certified on the articles as they stood before the 2026-10-06
+// domain pass rewrote rl-finetuning and pi-line from the owner's drafts.
+const preDomain = (path: string) => preDomainPass(path).toString('utf8');
+const [rl, why] = paths.map(preDomain);
 const paragraphs = (text: string) => matter(text).content.split('\n\n');
 const paragraph = (text: string, phrase: string) => paragraphs(text).find(p => p.includes(phrase))!;
 const cites = (text: string) => [...text.matchAll(/<Cite\s+id="([^"]+)"\s*\/>/g)].map(m => m[1]);
@@ -84,6 +88,11 @@ describe('bounded RL reader prose closeout, zero original completions', () => {
       'dsrl-2025', 'expo-2025', 'expo-ft-2026', 'perry-dong-post-training-2026', 'realtime-expo-ft-2026',
       ...(KOL_BACKLOG_20261005_CITATIONS[path.slice('content/'.length)] ?? []),
     ]);
+    // The 2026-10-06 domain pass appends the draft's ids, each with its own audit row.
+    const [domain, slug] = path.slice('content/'.length, -'.mdx'.length).split('/');
+    const declared: string[] = matter(source).data.citations;
+    const prePass = new Set(preDomainPassCitations(domain, slug, declared));
+    for (const id of declared) if (!prePass.has(id)) added.add(id);
     const prior = new Set(cites(before(path)));
     const current = new Set(cites(source));
     for (const id of current) if (!added.has(id)) expect(prior.has(id)).toBe(true);
@@ -112,7 +121,7 @@ describe('bounded RL reader prose closeout, zero original completions', () => {
     const summary = paragraph(rl, "Recap's on-robot experience");
     expect(summary).toBeDefined();
     expect(rl).not.toContain(old);
-    expect(read(destinations[0])).toContain(old);
+    expect(preDomain(destinations[0])).toContain(old);
     expect(summary.split(/\s+/).length).toBeLessThan(old.split(/\s+/).length);
     for (const phrase of [
       'more than doubles successful completions per hour',
@@ -127,14 +136,14 @@ describe('bounded RL reader prose closeout, zero original completions', () => {
   it('keeps both failure-reduction accounts and the laundry and box-stage exclusions in a concise summary', () => {
     // The humanizer pass moved the paper-internal locators out of the prose;
     // the qualifications themselves moved to pi-line intact.
-    const old = paragraph(read(destinations[0]), "Keep the report's qualifications");
+    const old = paragraph(preDomain(destinations[0]), "Keep the report's qualifications");
     expect(old).toContain('“about a factor of two,”');
     expect(old).toContain('“more than 2×.”');
     expect(old).toContain('“90%+” success summary excludes diverse laundry');
     const summary = paragraph(rl, 'The paper qualifies its reliability claims');
     expect(summary).toBeDefined();
     expect(rl).not.toContain(old);
-    expect(read(destinations[0])).toContain(old);
+    expect(preDomain(destinations[0])).toContain(old);
     expect(summary.split(/\s+/).length).toBeLessThan(old.split(/\s+/).length);
     for (const phrase of [
       '“about a factor of two”', '“more than 2×.”',
@@ -188,7 +197,7 @@ describe('bounded RL reader prose closeout, zero original completions', () => {
       // The 2026-10-02 SEO pass replaced only the related links; the 2026-10-05
       // KOL backlog batch only appended citation ids.
       const data = matter(preSeoPassText(path)).data;
-      expect({ ...withoutKolBacklog20261005Citations(path, matter(read(path)).data), seeAlso: undefined })
+      expect({ ...withoutKolBacklog20261005Citations(path, matter(preDomain(path)).data), seeAlso: undefined })
         .toEqual({ ...data, seeAlso: undefined });
       const beforeData = matter(before(path)).data;
       if (path === paths[0]) {

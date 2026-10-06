@@ -9535,6 +9535,2153 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2609.31357',
     type: 'paper',
   },
+  // robosuite-2020: domain pass 2026-10-06, from drafts/manipulation/action-spaces.citations.ts.
+  // Source pack pack-manipulation-1.md#10 for manipulation/action-spaces.
+  {
+    id: 'robosuite-2020',
+    title: 'robosuite: A Modular Simulation Framework and Benchmark for Robot Learning',
+    authors: ['Yuke Zhu', 'Josiah Wong', 'Ajay Mandlekar', 'Roberto Martín-Martín', 'Abhishek Joshi', 'Kevin Lin', 'Abhiram Maddukuri', 'Soroush Nasiriany', 'Yifeng Zhu'],
+    year: 2020,
+    arxiv: '2009.12293',
+    url: 'https://arxiv.org/abs/2009.12293',
+    type: 'paper',
+  },
+  // peng-action-space-2016: domain pass 2026-10-06, from drafts/classical/control.citations.ts; also drafts/manipulation/action-spaces.citations.ts.
+  // arXiv 1611.01055 v1 2016-11-03 (SCA 2017). "four different action parameterizations (torques,
+  // muscle-activations, target joint angles, and target joint-angle velocities)"; "We demonstrate
+  // that the local feedback provided by higher-level action parameterizations can significantly
+  // impact the learning, robustness, and quality of the resulting policies."
+  {
+    id: 'peng-action-space-2016',
+    title: 'Learning Locomotion Skills Using DeepRL: Does the Choice of Action Space Matter?',
+    authors: ['Xue Bin Peng', 'Michiel van de Panne'],
+    year: 2016,
+    venue: 'arXiv preprint (SCA 2017)',
+    arxiv: '1611.01055',
+    url: 'https://arxiv.org/abs/1611.01055',
+    type: 'paper',
+  },
+  // rotation-continuity-2018: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts; also drafts/manipulation/action-spaces.citations.ts.
+  // arXiv 1812.07035 (CVPR 2019). Rotation representations in four or fewer dimensions are
+  // discontinuous; 5D and 6D are continuous.
+  {
+    id: 'rotation-continuity-2018',
+    title: 'On the Continuity of Rotation Representations in Neural Networks',
+    authors: ['Yi Zhou', 'Connelly Barnes', 'Jingwan Lu', 'Jimei Yang', 'Hao Li'],
+    year: 2018,
+    arxiv: '1812.07035',
+    url: 'https://arxiv.org/abs/1812.07035',
+    type: 'paper',
+  },
+  // gr00t-n1-6-2025: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts; also drafts/manipulation/action-spaces.citations.ts, drafts/manipulation/comparison-matrix.citations.ts, drafts/manipulation/cross-embodiment.citations.ts, drafts/manipulation/generalist-policies.citations.ts, drafts/manipulation/knowledge-insulation.citations.ts, drafts/manipulation/realtime-execution.citations.ts.
+  // Official NVIDIA GEAR Lab research page (2025-12). State-relative action chunks; smoother motion;
+  // error accumulation with small datasets. Authors as printed on the page (re-read 2026-10-04):
+  // "Authors (alphabetical): *GEAR Team, Allison Azzolini, ... Yuke Zhu" ("GEAR Team" plus 58 named
+  // authors).
+  {
+    id: 'gr00t-n1-6-2025',
+    title: 'GR00T N1.6: An Improved Open Foundation Model for Generalist Humanoid Robots',
+    authors: ['GEAR Team', 'Allison Azzolini', 'Johan Bjorck', 'Valts Blukis', 'Fernando Castañeda', 'Rahul Chand', 'Yan Chang', 'Danyi Chen', 'Nikita Cherniadev', 'Xingye Da', 'Runyu Ding', 'Shunjia Ding', 'Hassan Eslami', 'Linxi "Jim" Fan', 'Yu Fang', 'Max Fu', 'Shenyuan Gao', 'Yunhao Ge', 'Fengyuan Hu', 'Spencer Huang', 'Joel Jang', 'Xiaowei Jiang', 'Yunfan Jiang', 'Ryan Julian', 'Kaushil Kundalia', 'Jan Kautz', 'Zhiqi Li', 'Kevin Lin', 'Wei Liu', 'Runyu Lu', 'Zhengyi Luo', 'Loic Magne', 'Yunze Man', 'Ajay Mandlekar', 'Abhishek Mishra', 'Avnish Narayan', 'Connor Pederson', 'Nadun Ranawaka', 'Scott Reed', 'Sunil Srinivasa', 'You Liang Tan', 'Guanzhi Wang', 'Jing Wang', 'Qi Wang', 'Shihao Wang', 'Jimmy Wu', 'Yubo Wu', 'Yuqi Xie', 'Tianyi Xiong', 'Mengda Xu', 'Yinzhen Xu', 'Fu-En Yang', 'Seonghyeon Ye', 'Zhiding Yu', 'K.R. Zentner', 'Zhe Zhang', 'Kaiyuan Zheng', 'Ruijie Zheng', 'Yuke Zhu'],
+    year: 2025,
+    url: 'https://research.nvidia.com/labs/gear/gr00t-n1_6/',
+    type: 'blog',
+  },
+  // vla-scaling-alignment-2026: domain pass 2026-10-06, from drafts/manipulation/action-spaces.citations.ts.
+  // Source pack pack-manipulation-1.md#4 for manipulation/action-spaces.
+  {
+    id: 'vla-scaling-alignment-2026',
+    title: 'Rethinking Visual-Language-Action Model Scaling: Alignment, Mixture, and Regularization',
+    authors: ['Ye Wang', 'Sipeng Zheng', 'Hao Luo', 'Wanpeng Zhang', 'Haoqi Yuan', 'Chaoyi Xu', 'Haiweng Xu', 'Yicheng Feng', 'Mingyang Yu', 'Zhiyu Kang', 'Zongqing Lu', 'Qin Jin'],
+    year: 2026,
+    arxiv: '2602.09722',
+    url: 'https://arxiv.org/abs/2602.09722',
+    type: 'paper',
+  },
+  // levine-visuomotor-2015: domain pass 2026-10-06, from drafts/manipulation/action-spaces.citations.ts.
+  // Source pack pack-manipulation-1.md#13 for manipulation/action-spaces.
+  {
+    id: 'levine-visuomotor-2015',
+    title: 'End-to-End Training of Deep Visuomotor Policies',
+    authors: ['Sergey Levine', 'Chelsea Finn', 'Trevor Darrell', 'Pieter Abbeel'],
+    year: 2015,
+    arxiv: '1504.00702',
+    url: 'https://arxiv.org/abs/1504.00702',
+    type: 'paper',
+  },
+  // varin-action-spaces-2019: domain pass 2026-10-06, from drafts/manipulation/action-spaces.citations.ts.
+  // Source pack pack-manipulation-1.md#1 for manipulation/action-spaces.
+  {
+    id: 'varin-action-spaces-2019',
+    title: 'A Comparison of Action Spaces for Learning Manipulation Tasks',
+    authors: ['Patrick Varin', 'Lev Grossman', 'Scott Kuindersma'],
+    year: 2019,
+    arxiv: '1908.08659',
+    url: 'https://arxiv.org/abs/1908.08659',
+    type: 'paper',
+  },
+  // acp-2024: domain pass 2026-10-06, from drafts/classical/control.citations.ts; also drafts/manipulation/action-spaces.citations.ts.
+  // arXiv 2410.09309 v1 2024-10-12 (ICRA 2025). "learns to dynamically adjust system compliance both
+  // spatially and temporally for given manipulation tasks from human demonstrations"; "achieves over
+  // 50\% performance improvement compared to state-of-the-art visuomotor policy methods".
+  {
+    id: 'acp-2024',
+    title: 'Adaptive Compliance Policy: Learning Approximate Compliance for Diffusion Guided Control',
+    authors: ['Yifan Hou', 'Zeyi Liu', 'Cheng Chi', 'Eric Cousineau', 'Naveen Kuppuswamy', 'Siyuan Feng', 'Benjamin Burchfiel', 'Shuran Song'],
+    year: 2024,
+    venue: 'arXiv preprint (ICRA 2025)',
+    arxiv: '2410.09309',
+    url: 'https://arxiv.org/abs/2410.09309',
+    type: 'paper',
+  },
+  // beast-2025: domain pass 2026-10-06, from drafts/manipulation/action-spaces.citations.ts.
+  // Source pack pack-manipulation-1.md#21 for manipulation/action-spaces.
+  {
+    id: 'beast-2025',
+    title: 'BEAST: Efficient Tokenization of B-Splines Encoded Action Sequences for Imitation Learning',
+    authors: ['Hongyi Zhou', 'Weiran Liao', 'Xi Huang', 'Yucheng Tang', 'Fabian Otto', 'Xiaogang Jia', 'Xinkai Jiang', 'Simon Hilber', 'Ge Li', 'Qian Wang', 'Ömer Erdinç Yağmurlu', 'Nils Blank', 'Moritz Reuss', 'Rudolf Lioutikov'],
+    year: 2025,
+    arxiv: '2506.06072',
+    url: 'https://arxiv.org/abs/2506.06072',
+    type: 'paper',
+  },
+  // vq-bet-2024: domain pass 2026-10-06, from drafts/manipulation/action-spaces.citations.ts.
+  // Source pack pack-manipulation-1.md#23 for manipulation/action-spaces.
+  {
+    id: 'vq-bet-2024',
+    title: 'Behavior Generation with Latent Actions',
+    authors: ['Seungjae Lee', 'Yibin Wang', 'Haritheja Etukuru', 'H. Jin Kim', 'Nur Muhammad Mahi Shafiullah', 'Lerrel Pinto'],
+    year: 2024,
+    arxiv: '2403.03181',
+    url: 'https://arxiv.org/abs/2403.03181',
+    type: 'paper',
+  },
+  // action-space-design-2026: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts; also drafts/manipulation/action-spaces.citations.ts.
+  // arXiv 2602.23408. 13,000+ real rollouts, 500+ trained models.
+  {
+    id: 'action-space-design-2026',
+    title: 'Demystifying Action Space Design for Robotic Manipulation Policies',
+    authors: ['Yuchun Feng', 'Jinliang Zheng', 'Zhihao Wang', 'Dongxiu Liu', 'Jianxiong Li', 'Jiangmiao Pang', 'Tai Wang', 'Xianyuan Zhan'],
+    year: 2026,
+    arxiv: '2602.23408',
+    url: 'https://arxiv.org/abs/2602.23408',
+    type: 'paper',
+  },
+  // bommasani-foundation-models-2021: domain pass 2026-10-06, from drafts/manipulation/foundation-models.citations.ts.
+  // Source pack pack-manipulation-2.md#1 for manipulation/foundation-models.
+  {
+    id: 'bommasani-foundation-models-2021',
+    title: 'On the Opportunities and Risks of Foundation Models',
+    authors: ['Rishi Bommasani', 'Drew A. Hudson', 'Ehsan Adeli', 'Russ Altman', 'Simran Arora', 'Sydney von Arx', 'Michael S. Bernstein', 'Jeannette Bohg', 'Antoine Bosselut', 'Emma Brunskill', 'Erik Brynjolfsson', 'Shyamal Buch', 'Dallas Card', 'Rodrigo Castellon', 'Niladri Chatterji', 'Annie Chen', 'Kathleen Creel', 'Jared Quincy Davis', 'Dora Demszky', 'Chris Donahue', 'Moussa Doumbouya', 'Esin Durmus', 'Stefano Ermon', 'John Etchemendy', 'Kawin Ethayarajh', 'Li Fei-Fei', 'Chelsea Finn', 'Trevor Gale', 'Lauren Gillespie', 'Karan Goel', 'Noah Goodman', 'Shelby Grossman', 'Neel Guha', 'Tatsunori Hashimoto', 'Peter Henderson', 'John Hewitt', 'Daniel E. Ho', 'Jenny Hong', 'Kyle Hsu', 'Jing Huang', 'Thomas Icard', 'Saahil Jain', 'Dan Jurafsky', 'Pratyusha Kalluri', 'Siddharth Karamcheti', 'Geoff Keeling', 'Fereshte Khani', 'Omar Khattab', 'Pang Wei Koh', 'Mark Krass', 'Ranjay Krishna', 'Rohith Kuditipudi', 'Ananya Kumar', 'Faisal Ladhak', 'Mina Lee', 'Tony Lee', 'Jure Leskovec', 'Isabelle Levent', 'Xiang Lisa Li', 'Xuechen Li', 'Tengyu Ma', 'Ali Malik', 'Christopher D. Manning', 'Suvir Mirchandani', 'Eric Mitchell', 'Zanele Munyikwa', 'Suraj Nair', 'Avanika Narayan', 'Deepak Narayanan', 'Ben Newman', 'Allen Nie', 'Juan Carlos Niebles', 'Hamed Nilforoshan', 'Julian Nyarko', 'Giray Ogut', 'Laurel Orr', 'Isabel Papadimitriou', 'Joon Sung Park', 'Chris Piech', 'Eva Portelance', 'Christopher Potts', 'Aditi Raghunathan', 'Rob Reich', 'Hongyu Ren', 'Frieda Rong', 'Yusuf Roohani', 'Camilo Ruiz', 'Jack Ryan', 'Christopher Ré', 'Dorsa Sadigh', 'Shiori Sagawa', 'Keshav Santhanam', 'Andy Shih', 'Krishnan Srinivasan', 'Alex Tamkin', 'Rohan Taori', 'Armin W. Thomas', 'Florian Tramèr', 'Rose E. Wang', 'William Wang', 'Bohan Wu', 'Jiajun Wu', 'Yuhuai Wu', 'Sang Michael Xie', 'Michihiro Yasunaga', 'Jiaxuan You', 'Matei Zaharia', 'Michael Zhang', 'Tianyi Zhang', 'Xikun Zhang', 'Yuhui Zhang', 'Lucia Zheng', 'Kaitlyn Zhou', 'Percy Liang'],
+    year: 2021,
+    arxiv: '2108.07258',
+    url: 'https://arxiv.org/abs/2108.07258',
+    type: 'paper',
+  },
+  // robocat-2023: domain pass 2026-10-06, from drafts/manipulation/foundation-models.citations.ts.
+  // Source pack pack-manipulation-2.md#5 for manipulation/foundation-models.
+  {
+    id: 'robocat-2023',
+    title: 'RoboCat: A Self-Improving Generalist Agent for Robotic Manipulation',
+    authors: ['Konstantinos Bousmalis', 'Giulia Vezzani', 'Dushyant Rao', 'Coline Devin', 'Alex X. Lee', 'Maria Bauza', 'Todor Davchev', 'Yuxiang Zhou', 'Agrim Gupta', 'Akhil Raju', 'Antoine Laurens', 'Claudio Fantacci', 'Valentin Dalibard', 'Martina Zambelli', 'Murilo Martins', 'Rugile Pevceviciute', 'Michiel Blokzijl', 'Misha Denil', 'Nathan Batchelor', 'Thomas Lampe', 'Emilio Parisotto', 'Konrad Żołna', 'Scott Reed', 'Sergio Gómez Colmenarejo', 'Jon Scholz', 'Abbas Abdolmaleki', 'Oliver Groth', 'Jean-Baptiste Regli', 'Oleg Sushkov', 'Tom Rothörl', 'José Enrique Chen', 'Yusuf Aytar', 'Dave Barker', 'Joy Ortiz', 'Martin Riedmiller', 'Jost Tobias Springenberg', 'Raia Hadsell', 'Francesco Nori', 'Nicolas Heess'],
+    year: 2023,
+    venue: 'TMLR',
+    arxiv: '2306.11706',
+    url: 'https://arxiv.org/abs/2306.11706',
+    type: 'paper',
+  },
+  // gen-1-5-2026: domain pass 2026-10-06, from drafts/frontier/generalization.citations.ts; also drafts/manipulation/comparison-matrix.citations.ts, drafts/manipulation/foundation-models.citations.ts, drafts/manipulation/generalist-policies.citations.ts.
+  // Generalist AI research post dated August 19, 2026, byline "Generalist Team" (fetched
+  // 2026-10-04): "The model learns new tasks in seconds when prompted with 3 to 12 seconds of a
+  // single demonstration, no training required." Company-reported.
+  {
+    id: 'gen-1-5-2026',
+    title: 'GEN-1.5: Embodied Foundation Models are One-Shot Learners',
+    authors: ['Generalist Team'],
+    year: 2026,
+    venue: 'Generalist AI blog',
+    url: 'https://generalistai.com/blog/gen-1.5',
+    type: 'blog',
+  },
+  // skild-s1-2026: domain pass 2026-10-06, from drafts/manipulation/comparison-matrix.citations.ts; also drafts/manipulation/foundation-models.citations.ts, drafts/manipulation/generalist-policies.citations.ts.
+  // Same source and id as drafts/manipulation/foundation-models.citations.ts,
+  // drafts/manipulation/generalist-policies.citations.ts; copied here unchanged so this draft is
+  // self-contained; register once.
+  {
+    id: 'skild-s1-2026',
+    title: 'Introducing S1: In-Context Learning for Robotics',
+    authors: ['Skild AI Team'],
+    year: 2026,
+    venue: 'Skild AI blog',
+    url: 'https://www.skild.ai/blogs/s1',
+    type: 'blog',
+  },
+  // r3m-2022: domain pass 2026-10-06, from drafts/manipulation/foundation-models.citations.ts.
+  // Source pack pack-manipulation-2.md#7 for manipulation/foundation-models.
+  {
+    id: 'r3m-2022',
+    title: 'R3M: A Universal Visual Representation for Robot Manipulation',
+    authors: ['Suraj Nair', 'Aravind Rajeswaran', 'Vikash Kumar', 'Chelsea Finn', 'Abhinav Gupta'],
+    year: 2022,
+    venue: 'CoRL 2022',
+    arxiv: '2203.12601',
+    url: 'https://arxiv.org/abs/2203.12601',
+    type: 'paper',
+  },
+  // dreamer4-2025: domain pass 2026-10-06, from drafts/manipulation/foundation-models.citations.ts; also drafts/world-models/latent-dynamics.citations.ts.
+  // Source pack pack-manipulation-2.md#22 for manipulation/foundation-models; same source and id
+  // also proposed in drafts/world-models/latent-dynamics.citations.ts; register once.
+  {
+    id: 'dreamer4-2025',
+    title: 'Training Agents Inside of Scalable World Models',
+    authors: ['Danijar Hafner', 'Wilson Yan', 'Timothy Lillicrap'],
+    year: 2025,
+    arxiv: '2509.24527',
+    url: 'https://arxiv.org/abs/2509.24527',
+    type: 'paper',
+  },
+  // ctrl-world-2025: domain pass 2026-10-06, from drafts/data-hardware/evaluation-crisis.citations.ts; also drafts/manipulation/foundation-models.citations.ts, drafts/world-models/evaluation.citations.ts.
+  // Same id as drafts/world-models/evaluation.citations.ts; keep one entry when merging.
+  {
+    id: 'ctrl-world-2025',
+    title: 'Ctrl-World: A Controllable Generative World Model for Robot Manipulation',
+    authors: ['Yanjiang Guo', 'Lucy Xiaoyang Shi', 'Jianyu Chen', 'Chelsea Finn'],
+    year: 2025,
+    arxiv: '2510.10125',
+    url: 'https://arxiv.org/abs/2510.10125',
+    type: 'paper',
+  },
+  // nvidia-gtc-gr00t-n2-2026: domain pass 2026-10-06, from drafts/manipulation/comparison-matrix.citations.ts; also drafts/manipulation/foundation-models.citations.ts, drafts/manipulation/generalist-policies.citations.ts.
+  // Same source and id as drafts/manipulation/foundation-models.citations.ts,
+  // drafts/manipulation/generalist-policies.citations.ts; copied here unchanged so this draft is
+  // self-contained; register once.
+  {
+    id: 'nvidia-gtc-gr00t-n2-2026',
+    title: 'NVIDIA and Global Robotics Leaders Take Physical AI to the Real World',
+    authors: ['NVIDIA'],
+    year: 2026,
+    venue: 'NVIDIA Newsroom',
+    url: 'https://nvidianews.nvidia.com/news/nvidia-and-global-robotics-leaders-take-physical-ai-to-the-real-world',
+    type: 'press',
+  },
+  // vc1-2023: domain pass 2026-10-06, from drafts/manipulation/foundation-models.citations.ts.
+  // Source pack pack-manipulation-2.md#8 for manipulation/foundation-models.
+  {
+    id: 'vc1-2023',
+    title: 'Where are we in the search for an Artificial Visual Cortex for Embodied Intelligence?',
+    authors: ['Arjun Majumdar', 'Karmesh Yadav', 'Sergio Arnaud', 'Yecheng Jason Ma', 'Claire Chen', 'Sneha Silwal', 'Aryan Jain', 'Vincent-Pierre Berges', 'Pieter Abbeel', 'Jitendra Malik', 'Dhruv Batra', 'Yixin Lin', 'Oleksandr Maksymets', 'Aravind Rajeswaran', 'Franziska Meier'],
+    year: 2023,
+    arxiv: '2303.18240',
+    url: 'https://arxiv.org/abs/2303.18240',
+    type: 'paper',
+  },
+  // robopair-2024: domain pass 2026-10-06, from drafts/frontier/safety-and-assurance.citations.ts; also drafts/manipulation/foundation-models.citations.ts.
+  // Abstract re-read 2026-10-04: "often achieving 100% attack success rates"; "our results on the
+  // Unitree Go2 represent the first successful jailbreak of a deployed commercial robotic system."
+  // Source pack pack-manipulation-2.md#34 for manipulation/foundation-models.
+  {
+    id: 'robopair-2024',
+    title: 'Jailbreaking LLM-Controlled Robots',
+    authors: ['Alexander Robey', 'Zachary Ravichandran', 'Vijay Kumar', 'Hamed Hassani', 'George J. Pappas'],
+    year: 2024,
+    arxiv: '2410.13691',
+    url: 'https://arxiv.org/abs/2410.13691',
+    type: 'paper',
+  },
+  // libero-pro-2025: domain pass 2026-10-06, from drafts/data-hardware/evaluation-crisis.citations.ts; also drafts/frontier/generalization.citations.ts, drafts/manipulation/foundation-models.citations.ts.
+  {
+    id: 'libero-pro-2025',
+    title: 'LIBERO-PRO: Towards Robust and Fair Evaluation of Vision-Language-Action Models Beyond Memorization',
+    authors: ['Xueyang Zhou', 'Yangming Xu', 'Guiyao Tie', 'Yongchao Chen', 'Guowen Zhang', 'Duanfeng Chu', 'Pan Zhou', 'Lichao Sun'],
+    year: 2025,
+    arxiv: '2510.03827',
+    url: 'https://arxiv.org/abs/2510.03827',
+    type: 'paper',
+  },
+  // bidirectional-decoding-2024: domain pass 2026-10-06, from drafts/manipulation/action-chunking.citations.ts; also drafts/manipulation/diffusion-policy.citations.ts, drafts/manipulation/realtime-execution.citations.ts.
+  // Source pack pack-manipulation-1.md#10 for manipulation/action-chunking; same source and id also
+  // proposed in drafts/manipulation/diffusion-policy.citations.ts,
+  // drafts/manipulation/realtime-execution.citations.ts; register once.
+  {
+    id: 'bidirectional-decoding-2024',
+    title: 'Bidirectional Decoding: Improving Action Chunking via Guided Test-Time Sampling',
+    authors: ['Yuejiang Liu', 'Jubayer Ibn Hamid', 'Annie Xie', 'Yoonho Lee', 'Maximilian Du', 'Chelsea Finn'],
+    year: 2024,
+    arxiv: '2408.17355',
+    url: 'https://arxiv.org/abs/2408.17355',
+    type: 'paper',
+  },
+  // implicit-bc-2021: domain pass 2026-10-06, from drafts/manipulation/bc-foundations.citations.ts; also drafts/manipulation/diffusion-policy.citations.ts.
+  // Source pack pack-manipulation-1.md#16 for manipulation/bc-foundations.
+  {
+    id: 'implicit-bc-2021',
+    title: 'Implicit Behavioral Cloning',
+    authors: ['Pete Florence', 'Corey Lynch', 'Andy Zeng', 'Oscar Ramirez', 'Ayzaan Wahid', 'Laura Downs', 'Adrian Wong', 'Johnny Lee', 'Igor Mordatch', 'Jonathan Tompson'],
+    year: 2021,
+    arxiv: '2109.00137',
+    url: 'https://arxiv.org/abs/2109.00137',
+    type: 'paper',
+  },
+  // pearce-diffusion-bc-2023: domain pass 2026-10-06, from drafts/manipulation/diffusion-policy.citations.ts.
+  // Source pack pack-manipulation-2.md#13 for manipulation/diffusion-policy.
+  {
+    id: 'pearce-diffusion-bc-2023',
+    title: 'Imitating Human Behaviour with Diffusion Models',
+    authors: ['Tim Pearce', 'Tabish Rashid', 'Anssi Kanervisto', 'Dave Bignell', 'Mingfei Sun', 'Raluca Georgescu', 'Sergio Valcarcel Macua', 'Shan Zheng Tan', 'Ida Momennejad', 'Katja Hofmann', 'Sam Devlin'],
+    year: 2023,
+    venue: 'ICLR 2023',
+    arxiv: '2301.10677',
+    url: 'https://arxiv.org/abs/2301.10677',
+    type: 'paper',
+  },
+  // much-ado-noising-2025: domain pass 2026-10-06, from drafts/manipulation/bc-foundations.citations.ts; also drafts/manipulation/diffusion-policy.citations.ts.
+  // Source pack pack-manipulation-1.md#17 for manipulation/bc-foundations.
+  {
+    id: 'much-ado-noising-2025',
+    title: 'Much Ado About Noising: Dispelling the Myths of Generative Robotic Control',
+    authors: ['Chaoyi Pan', 'Giri Anantharaman', 'Nai-Chieh Huang', 'Claire Jin', 'Daniel Pfrommer', 'Chenyang Yuan', 'Frank Permenter', 'Guannan Qu', 'Nicholas Boffi', 'Guanya Shi', 'Max Simchowitz'],
+    year: 2025,
+    arxiv: '2512.01809',
+    url: 'https://arxiv.org/abs/2512.01809',
+    type: 'paper',
+  },
+  // ddpm-2020: domain pass 2026-10-06, from drafts/manipulation/diffusion-policy.citations.ts.
+  // Source pack pack-manipulation-2.md#1 for manipulation/diffusion-policy.
+  {
+    id: 'ddpm-2020',
+    title: 'Denoising Diffusion Probabilistic Models',
+    authors: ['Jonathan Ho', 'Ajay Jain', 'Pieter Abbeel'],
+    year: 2020,
+    arxiv: '2006.11239',
+    url: 'https://arxiv.org/abs/2006.11239',
+    type: 'paper',
+  },
+  // iddpm-2021: domain pass 2026-10-06, from drafts/manipulation/diffusion-policy.citations.ts.
+  // Source pack pack-manipulation-2.md#3 for manipulation/diffusion-policy.
+  {
+    id: 'iddpm-2021',
+    title: 'Improved Denoising Diffusion Probabilistic Models',
+    authors: ['Alex Nichol', 'Prafulla Dhariwal'],
+    year: 2021,
+    arxiv: '2102.09672',
+    url: 'https://arxiv.org/abs/2102.09672',
+    type: 'paper',
+  },
+  // ddim-2021: domain pass 2026-10-06, from drafts/manipulation/diffusion-policy.citations.ts.
+  // Source pack pack-manipulation-2.md#2 for manipulation/diffusion-policy.
+  {
+    id: 'ddim-2021',
+    title: 'Denoising Diffusion Implicit Models',
+    authors: ['Jiaming Song', 'Chenlin Meng', 'Stefano Ermon'],
+    year: 2021,
+    venue: 'ICLR 2021',
+    arxiv: '2010.02502',
+    url: 'https://arxiv.org/abs/2010.02502',
+    type: 'paper',
+  },
+  // film-2018: domain pass 2026-10-06, from drafts/manipulation/diffusion-policy.citations.ts; also drafts/manipulation/vla-models.citations.ts.
+  // Source pack pack-manipulation-2.md#8 for manipulation/diffusion-policy.
+  {
+    id: 'film-2018',
+    title: 'FiLM: Visual Reasoning with a General Conditioning Layer',
+    authors: ['Ethan Perez', 'Florian Strub', 'Harm de Vries', 'Vincent Dumoulin', 'Aaron Courville'],
+    year: 2018,
+    venue: 'AAAI 2018',
+    arxiv: '1709.07871',
+    url: 'https://arxiv.org/abs/1709.07871',
+    type: 'paper',
+  },
+  // scaledp-2024: domain pass 2026-10-06, from drafts/manipulation/diffusion-policy.citations.ts.
+  // Source pack pack-manipulation-2.md#16 for manipulation/diffusion-policy.
+  {
+    id: 'scaledp-2024',
+    title: 'Scaling Diffusion Policy in Transformer to 1 Billion Parameters for Robotic Manipulation',
+    authors: ['Minjie Zhu', 'Yichen Zhu', 'Jinming Li', 'Junjie Wen', 'Zhiyuan Xu', 'Ning Liu', 'Ran Cheng', 'Chaomin Shen', 'Yaxin Peng', 'Feifei Feng', 'Jian Tang'],
+    year: 2024,
+    arxiv: '2409.14411',
+    url: 'https://arxiv.org/abs/2409.14411',
+    type: 'paper',
+  },
+  // groupnorm-2018: domain pass 2026-10-06, from drafts/manipulation/diffusion-policy.citations.ts.
+  // Source pack pack-manipulation-2.md#9 for manipulation/diffusion-policy.
+  {
+    id: 'groupnorm-2018',
+    title: 'Group Normalization',
+    authors: ['Yuxin Wu', 'Kaiming He'],
+    year: 2018,
+    arxiv: '1803.08494',
+    url: 'https://arxiv.org/abs/1803.08494',
+    type: 'paper',
+  },
+  // dp3-2024: domain pass 2026-10-06, from drafts/manipulation/diffusion-policy.citations.ts.
+  // Source pack pack-manipulation-2.md#14 for manipulation/diffusion-policy.
+  {
+    id: 'dp3-2024',
+    title: '3D Diffusion Policy: Generalizable Visuomotor Policy Learning via Simple 3D Representations',
+    authors: ['Yanjie Ze', 'Gu Zhang', 'Kangning Zhang', 'Chenyuan Hu', 'Muhan Wang', 'Huazhe Xu'],
+    year: 2024,
+    venue: 'RSS 2024',
+    arxiv: '2403.03954',
+    url: 'https://arxiv.org/abs/2403.03954',
+    type: 'paper',
+  },
+  // equivariant-diffusion-policy-2024: domain pass 2026-10-06, from drafts/manipulation/diffusion-policy.citations.ts.
+  // Source pack pack-manipulation-2.md#15 for manipulation/diffusion-policy.
+  {
+    id: 'equivariant-diffusion-policy-2024',
+    title: 'Equivariant Diffusion Policy',
+    authors: ['Dian Wang', 'Stephen Hart', 'David Surovik', 'Tarik Kelestemur', 'Haojie Huang', 'Haibo Zhao', 'Mark Yeatman', 'Jiuguang Wang', 'Robin Walters', 'Robert Platt'],
+    year: 2024,
+    venue: 'CoRL 2024',
+    arxiv: '2407.01812',
+    url: 'https://arxiv.org/abs/2407.01812',
+    type: 'paper',
+  },
+  // aloha-unleashed-2024: domain pass 2026-10-06, from drafts/data-hardware/teleop-rigs.citations.ts; also drafts/manipulation/action-chunking.citations.ts, drafts/manipulation/diffusion-policy.citations.ts.
+  // Fleet figures read in the arXiv HTML body 2026-10-04: "a pool of 35 operators without oversight
+  // by researchers" and "over 26k episodes for 5 real tasks, on 10 different robots in 2 different
+  // buildings over the course of 8 months".
+  {
+    id: 'aloha-unleashed-2024',
+    title: 'ALOHA Unleashed: A Simple Recipe for Robot Dexterity',
+    authors: ['Tony Z. Zhao', 'Jonathan Tompson', 'Danny Driess', 'Pete Florence', 'Kamyar Ghasemipour', 'Chelsea Finn', 'Ayzaan Wahid'],
+    year: 2024,
+    arxiv: '2410.13126',
+    url: 'https://arxiv.org/abs/2410.13126',
+    type: 'paper',
+  },
+  // consistency-models-2023: domain pass 2026-10-06, from drafts/manipulation/diffusion-policy.citations.ts.
+  // Source pack pack-manipulation-2.md#5 for manipulation/diffusion-policy.
+  {
+    id: 'consistency-models-2023',
+    title: 'Consistency Models',
+    authors: ['Yang Song', 'Prafulla Dhariwal', 'Mark Chen', 'Ilya Sutskever'],
+    year: 2023,
+    venue: 'ICML 2023',
+    arxiv: '2303.01469',
+    url: 'https://arxiv.org/abs/2303.01469',
+    type: 'paper',
+  },
+  // mp1-2026: domain pass 2026-10-06, from drafts/manipulation/diffusion-policy.citations.ts.
+  // Source pack pack-manipulation-2.md#25 for manipulation/diffusion-policy.
+  {
+    id: 'mp1-2026',
+    title: 'MP1: MeanFlow Tames Policy Learning in 1-step for Robotic Manipulation',
+    authors: ['Juyi Sheng', 'Ziyi Wang', 'Peiming Li', 'Mengyuan Liu'],
+    year: 2026,
+    venue: 'AAAI 2026',
+    arxiv: '2507.10543',
+    url: 'https://arxiv.org/abs/2507.10543',
+    type: 'paper',
+  },
+  // one-step-flow-policy-2026: domain pass 2026-10-06, from drafts/manipulation/diffusion-policy.citations.ts.
+  // Source pack pack-manipulation-2.md#26 for manipulation/diffusion-policy.
+  {
+    id: 'one-step-flow-policy-2026',
+    title: 'One-Step Flow Policy: Self-Distillation for Fast Visuomotor Policies',
+    authors: ['Shaolong Li', 'Lichao Sun', 'Yongchao Chen'],
+    year: 2026,
+    arxiv: '2603.12480',
+    url: 'https://arxiv.org/abs/2603.12480',
+    type: 'paper',
+  },
+  // lipman-flow-matching-2022: domain pass 2026-10-06, from drafts/manipulation/diffusion-policy.citations.ts; also drafts/manipulation/knowledge-insulation.citations.ts, drafts/manipulation/pi-line.citations.ts, drafts/manipulation/rl-finetuning.citations.ts.
+  // Source pack pack-manipulation-2.md#6 for manipulation/diffusion-policy; same source and id also
+  // proposed in drafts/manipulation/knowledge-insulation.citations.ts; register once.
+  {
+    id: 'lipman-flow-matching-2022',
+    title: 'Flow Matching for Generative Modeling',
+    authors: ['Yaron Lipman', 'Ricky T. Q. Chen', 'Heli Ben-Hamu', 'Maximilian Nickel', 'Matt Le'],
+    year: 2022,
+    arxiv: '2210.02747',
+    url: 'https://arxiv.org/abs/2210.02747',
+    type: 'paper',
+  },
+  // rectified-flow-2022: domain pass 2026-10-06, from drafts/manipulation/diffusion-policy.citations.ts; also drafts/manipulation/pi-line.citations.ts.
+  // Source pack pack-manipulation-2.md#7 for manipulation/diffusion-policy.
+  {
+    id: 'rectified-flow-2022',
+    title: 'Flow Straight and Fast: Learning to Generate and Transfer Data with Rectified Flow',
+    authors: ['Xingchao Liu', 'Chengyue Gong', 'Qiang Liu'],
+    year: 2022,
+    arxiv: '2209.03003',
+    url: 'https://arxiv.org/abs/2209.03003',
+    type: 'paper',
+  },
+  // demystifying-diffusion-policies-2025: domain pass 2026-10-06, from drafts/manipulation/diffusion-policy.citations.ts.
+  // Source pack pack-manipulation-2.md#31 for manipulation/diffusion-policy.
+  {
+    id: 'demystifying-diffusion-policies-2025',
+    title: 'Demystifying Diffusion Policies: Action Memorization and Simple Lookup Table Alternatives',
+    authors: ['Chengyang He', 'Xu Liu', 'Gadiel Sznaier Camps', 'Guillaume Sartoretti', 'Mac Schwager'],
+    year: 2025,
+    arxiv: '2505.05787',
+    url: 'https://arxiv.org/abs/2505.05787',
+    type: 'paper',
+  },
+  // efficientnet-2019: domain pass 2026-10-06, from drafts/manipulation/vla-models.citations.ts.
+  // Source pack pack-manipulation-4.md#1 for manipulation/vla-models.
+  {
+    id: 'efficientnet-2019',
+    title: 'EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks',
+    authors: ['Mingxing Tan', 'Quoc V. Le'],
+    year: 2019,
+    venue: 'ICML 2019',
+    arxiv: '1905.11946',
+    url: 'https://arxiv.org/abs/1905.11946',
+    type: 'paper',
+  },
+  // tokenlearner-2021: domain pass 2026-10-06, from drafts/manipulation/vla-models.citations.ts.
+  // Source pack pack-manipulation-4.md#2 for manipulation/vla-models.
+  {
+    id: 'tokenlearner-2021',
+    title: 'TokenLearner: What Can 8 Learned Tokens Do for Images and Videos?',
+    authors: ['Michael S. Ryoo', 'AJ Piergiovanni', 'Anurag Arnab', 'Mostafa Dehghani', 'Anelia Angelova'],
+    year: 2021,
+    venue: 'NeurIPS 2021',
+    arxiv: '2106.11297',
+    url: 'https://arxiv.org/abs/2106.11297',
+    type: 'paper',
+  },
+  // palm-e-2023: domain pass 2026-10-06, from drafts/manipulation/vla-models.citations.ts.
+  // Source pack pack-manipulation-4.md#5 for manipulation/vla-models.
+  {
+    id: 'palm-e-2023',
+    title: 'PaLM-E: An Embodied Multimodal Language Model',
+    authors: ['Danny Driess', 'Fei Xia', 'Mehdi S. M. Sajjadi', 'Corey Lynch', 'Aakanksha Chowdhery', 'Brian Ichter', 'Ayzaan Wahid', 'Jonathan Tompson', 'Quan Vuong', 'Tianhe Yu', 'Wenlong Huang', 'Yevgen Chebotar', 'Pierre Sermanet', 'Daniel Duckworth', 'Sergey Levine', 'Vincent Vanhoucke', 'Karol Hausman', 'Marc Toussaint', 'Klaus Greff', 'Andy Zeng', 'Igor Mordatch', 'Pete Florence'],
+    year: 2023,
+    arxiv: '2303.03378',
+    url: 'https://arxiv.org/abs/2303.03378',
+    type: 'paper',
+  },
+  // vla-0-2025: domain pass 2026-10-06, from drafts/manipulation/vla-models.citations.ts.
+  // Source pack pack-manipulation-4.md#17 for manipulation/vla-models.
+  {
+    id: 'vla-0-2025',
+    title: 'VLA-0: Building State-of-the-Art VLAs with Zero Modification',
+    authors: ['Ankit Goyal', 'Hugo Hadfield', 'Xuning Yang', 'Valts Blukis', 'Fabio Ramos'],
+    year: 2025,
+    arxiv: '2510.13054',
+    url: 'https://arxiv.org/abs/2510.13054',
+    type: 'paper',
+  },
+  // remix-2024: domain pass 2026-10-06, from drafts/data-hardware/datasets.citations.ts; also drafts/manipulation/cross-embodiment.citations.ts, drafts/manipulation/vla-models.citations.ts.
+  {
+    id: 'remix-2024',
+    title: 'Re-Mix: Optimizing Data Mixtures for Large Scale Imitation Learning',
+    authors: ['Joey Hejna', 'Chethan Bhateja', 'Yichen Jiang', 'Karl Pertsch', 'Dorsa Sadigh'],
+    year: 2024,
+    arxiv: '2408.14037',
+    url: 'https://arxiv.org/abs/2408.14037',
+    type: 'paper',
+  },
+  // prismatic-vlm-2024: domain pass 2026-10-06, from drafts/manipulation/vla-models.citations.ts.
+  // Source pack pack-manipulation-4.md#9 for manipulation/vla-models.
+  {
+    id: 'prismatic-vlm-2024',
+    title: 'Prismatic VLMs: Investigating the Design Space of Visually-Conditioned Language Models',
+    authors: ['Siddharth Karamcheti', 'Suraj Nair', 'Ashwin Balakrishna', 'Percy Liang', 'Thomas Kollar', 'Dorsa Sadigh'],
+    year: 2024,
+    venue: 'ICML 2024',
+    arxiv: '2402.07865',
+    url: 'https://arxiv.org/abs/2402.07865',
+    type: 'paper',
+  },
+  // llama-2-2023: domain pass 2026-10-06, from drafts/manipulation/vla-models.citations.ts.
+  // Source pack pack-manipulation-4.md#12 for manipulation/vla-models.
+  {
+    id: 'llama-2-2023',
+    title: 'Llama 2: Open Foundation and Fine-Tuned Chat Models',
+    authors: ['Hugo Touvron', 'Louis Martin', 'Kevin Stone', 'Peter Albert', 'Amjad Almahairi', 'Yasmine Babaei', 'Nikolay Bashlykov', 'Soumya Batra', 'Prajjwal Bhargava', 'Shruti Bhosale', 'Dan Bikel', 'Lukas Blecher', 'Cristian Canton Ferrer', 'Moya Chen', 'Guillem Cucurull', 'David Esiobu', 'Jude Fernandes', 'Jeremy Fu', 'Wenyin Fu', 'Brian Fuller', 'Cynthia Gao', 'Vedanuj Goswami', 'Naman Goyal', 'Anthony Hartshorn', 'Saghar Hosseini', 'Rui Hou', 'Hakan Inan', 'Marcin Kardas', 'Viktor Kerkez', 'Madian Khabsa', 'Isabel Kloumann', 'Artem Korenev', 'Punit Singh Koura', 'Marie-Anne Lachaux', 'Thibaut Lavril', 'Jenya Lee', 'Diana Liskovich', 'Yinghai Lu', 'Yuning Mao', 'Xavier Martinet', 'Todor Mihaylov', 'Pushkar Mishra', 'Igor Molybog', 'Yixin Nie', 'Andrew Poulton', 'Jeremy Reizenstein', 'Rashi Rungta', 'Kalyan Saladi', 'Alan Schelten', 'Ruan Silva', 'Eric Michael Smith', 'Ranjan Subramanian', 'Xiaoqing Ellen Tan', 'Binh Tang', 'Ross Taylor', 'Adina Williams', 'Jian Xiang Kuan', 'Puxin Xu', 'Zheng Yan', 'Iliyan Zarov', 'Yuchen Zhang', 'Angela Fan', 'Melanie Kambadur', 'Sharan Narang', 'Aurelien Rodriguez', 'Robert Stojnic', 'Sergey Edunov', 'Thomas Scialom'],
+    year: 2023,
+    arxiv: '2307.09288',
+    url: 'https://arxiv.org/abs/2307.09288',
+    type: 'paper',
+  },
+  // siglip-2023: domain pass 2026-10-06, from drafts/manipulation/vla-models.citations.ts.
+  // Source pack pack-manipulation-4.md#10 for manipulation/vla-models.
+  {
+    id: 'siglip-2023',
+    title: 'Sigmoid Loss for Language Image Pre-Training',
+    authors: ['Xiaohua Zhai', 'Basil Mustafa', 'Alexander Kolesnikov', 'Lucas Beyer'],
+    year: 2023,
+    venue: 'ICCV 2023',
+    arxiv: '2303.15343',
+    url: 'https://arxiv.org/abs/2303.15343',
+    type: 'paper',
+  },
+  // smolvla-2025: domain pass 2026-10-06, from drafts/data-hardware/robot-learning-stack.citations.ts; also drafts/manipulation/comparison-matrix.citations.ts, drafts/manipulation/realtime-execution.citations.ts, drafts/manipulation/robot-learning-roadmap.citations.ts, drafts/manipulation/vla-models.citations.ts.
+  {
+    id: 'smolvla-2025',
+    title: 'SmolVLA: A Vision-Language-Action Model for Affordable and Efficient Robotics',
+    authors: ['Mustafa Shukor', 'Dana Aubakirova', 'Francesco Capuano', 'Pepijn Kooijmans', 'Steven Palma', 'Adil Zouitine', 'Michel Aractingi', 'Caroline Pascal', 'Martino Russi', 'Andres Marafioti', 'Simon Alibert', 'Matthieu Cord', 'Thomas Wolf', 'Remi Cadene'],
+    year: 2025,
+    arxiv: '2506.01844',
+    url: 'https://arxiv.org/abs/2506.01844',
+    type: 'paper',
+  },
+  // cogact-2024: domain pass 2026-10-06, from drafts/manipulation/vla-models.citations.ts.
+  // Source pack pack-manipulation-4.md#18 for manipulation/vla-models.
+  {
+    id: 'cogact-2024',
+    title: 'CogACT: A Foundational Vision-Language-Action Model for Synergizing Cognition and Action in Robotic Manipulation',
+    authors: ['Qixiu Li', 'Yaobo Liang', 'Zeyu Wang', 'Lin Luo', 'Xi Chen', 'Mozheng Liao', 'Fangyun Wei', 'Yu Deng', 'Sicheng Xu', 'Yizhong Zhang', 'Xiaofan Wang', 'Bei Liu', 'Jianlong Fu', 'Jianmin Bao', 'Dong Chen', 'Yuanchun Shi', 'Jiaolong Yang', 'Baining Guo'],
+    year: 2024,
+    arxiv: '2411.19650',
+    url: 'https://arxiv.org/abs/2411.19650',
+    type: 'paper',
+  },
+  // pd-vla-2025: domain pass 2026-10-06, from drafts/manipulation/realtime-execution.citations.ts; also drafts/manipulation/vla-models.citations.ts.
+  // Source pack pack-manipulation-3.md#28 for manipulation/realtime-execution.
+  {
+    id: 'pd-vla-2025',
+    title: 'PD-VLA: Accelerating Vision-Language-Action Model Integrated with Action Chunking via Parallel Decoding',
+    authors: ['Wenxuan Song', 'Jiayi Chen', 'Pengxiang Ding', 'Han Zhao', 'Wei Zhao', 'Zhide Zhong', 'Zongyuan Ge', 'Zhijun Li', 'Donglin Wang', 'Jun Ma', 'Lujia Wang', 'Haoang Li'],
+    year: 2025,
+    venue: 'IROS 2025',
+    arxiv: '2503.02310',
+    url: 'https://arxiv.org/abs/2503.02310',
+    type: 'paper',
+  },
+  // robot-learning-tutorial-2025: domain pass 2026-10-06, from drafts/manipulation/robot-learning-roadmap.citations.ts.
+  // Source pack pack-manipulation-4.md#1 for manipulation/robot-learning-roadmap.
+  {
+    id: 'robot-learning-tutorial-2025',
+    title: 'Robot Learning: A Tutorial',
+    authors: ['Francesco Capuano', 'Caroline Pascal', 'Adil Zouitine', 'Thomas Wolf', 'Michel Aractingi'],
+    year: 2025,
+    arxiv: '2510.12403',
+    url: 'https://arxiv.org/abs/2510.12403',
+    type: 'paper',
+  },
+  // tedrake-manipulation-2026: domain pass 2026-10-06, from drafts/manipulation/robot-learning-roadmap.citations.ts.
+  // Source pack pack-manipulation-4.md#3 for manipulation/robot-learning-roadmap; Chapter 3, Basic
+  // Pick and Place, fetched 2026-10-04: "This is one area where careful notation can yield
+  // dividends, and sloppy notation will inevitably lead to confusion and bugs." Page byline (c) Russ
+  // Tedrake, 2020-2026; working notes updated through the Fall 2026 semester.
+  {
+    id: 'tedrake-manipulation-2026',
+    title: 'Robotic Manipulation: Perception, Planning, and Control',
+    authors: ['Russ Tedrake'],
+    year: 2026,
+    accessedOn: '2026-10-04',
+    venue: 'MIT course notes',
+    url: 'https://manipulation.csail.mit.edu/pick.html',
+    type: 'docs',
+  },
+  // kalibr-2013: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts; also drafts/classical/state-estimation.citations.ts, drafts/data-hardware/robot-learning-stack.citations.ts, drafts/manipulation/robot-learning-roadmap.citations.ts.
+  {
+    id: 'kalibr-2013',
+    title: 'Unified temporal and spatial calibration for multi-sensor systems',
+    authors: ['Paul Furgale', 'Joern Rehder', 'Roland Siegwart'],
+    year: 2013,
+    venue: '2013 IEEE/RSJ International Conference on Intelligent Robots and Systems',
+    url: 'https://doi.org/10.1109/IROS.2013.6696514',
+    type: 'paper',
+  },
+  // rlds-2021: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts; also drafts/data-hardware/robot-learning-stack.citations.ts, drafts/manipulation/robot-learning-roadmap.citations.ts.
+  {
+    id: 'rlds-2021',
+    title: 'RLDS: an Ecosystem to Generate, Share and Use Datasets in Reinforcement Learning',
+    authors: ['Sabela Ramos', 'Sertan Girgin', 'Léonard Hussenot', 'Damien Vincent', 'Hanna Yakubovich', 'Daniel Toyama', 'Anita Gergely', 'Piotr Stanczyk', 'Raphael Marinier', 'Jeremiah Harmsen', 'Olivier Pietquin', 'Nikola Momchev'],
+    year: 2021,
+    arxiv: '2111.02767',
+    url: 'https://arxiv.org/abs/2111.02767',
+    type: 'paper',
+  },
+  // lerobot-paper-2026: domain pass 2026-10-06, from drafts/data-hardware/robot-learning-stack.citations.ts; also drafts/manipulation/robot-learning-roadmap.citations.ts.
+  // LeRobot library paper. Abstract read 2026-10-04: integrates "across the entire robot learning
+  // stack" and describes "a generalized asynchronous inference stack".
+  {
+    id: 'lerobot-paper-2026',
+    title: 'LeRobot: An Open-Source Library for End-to-End Robot Learning',
+    authors: ['Remi Cadene', 'Simon Aliberts', 'Francesco Capuano', 'Michel Aractingi', 'Adil Zouitine', 'Pepijn Kooijmans', 'Jade Choghari', 'Martino Russi', 'Caroline Pascal', 'Steven Palma', 'Mustafa Shukor', 'Jess Moss', 'Alexander Soare', 'Dana Aubakirova', 'Quentin Lhoest', 'Quentin Gallouédec', 'Thomas Wolf'],
+    year: 2026,
+    arxiv: '2602.22818',
+    url: 'https://arxiv.org/abs/2602.22818',
+    type: 'paper',
+  },
+  // kress-gazit-evaluation-2024: domain pass 2026-10-06, from drafts/data-hardware/robot-learning-stack.citations.ts; also drafts/frontier/reliability-gap.citations.ts, drafts/manipulation/robot-learning-roadmap.citations.ts.
+  {
+    id: 'kress-gazit-evaluation-2024',
+    title: 'Robot Learning as an Empirical Science: Best Practices for Policy Evaluation',
+    authors: ['Hadas Kress-Gazit', 'Kunimatsu Hashimoto', 'Naveen Kuppuswamy', 'Paarth Shah', 'Phoebe Horgan', 'Gordon Richardson', 'Siyuan Feng', 'Benjamin Burchfiel'],
+    year: 2024,
+    arxiv: '2409.09491',
+    url: 'https://arxiv.org/abs/2409.09491',
+    type: 'paper',
+  },
+  // ros2-science-robotics-2022: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts; also drafts/data-hardware/robot-learning-stack.citations.ts.
+  // Crossref 10.1126/scirobotics.abm6074 read 2026-10-04: Science Robotics 7(66), published
+  // 2022-05-25.
+  {
+    id: 'ros2-science-robotics-2022',
+    title: 'Robot Operating System 2: Design, architecture, and uses in the wild',
+    authors: ['Steven Macenski', 'Tully Foote', 'Brian Gerkey', 'Chris Lalancette', 'William Woodall'],
+    year: 2022,
+    venue: 'Science Robotics 7(66)',
+    url: 'https://doi.org/10.1126/scirobotics.abm6074',
+    type: 'paper',
+  },
+  // serl-2024: domain pass 2026-10-06, from drafts/manipulation/rl-finetuning.citations.ts; also drafts/manipulation/robot-learning-roadmap.citations.ts, drafts/rl-sim2real/rl-for-robotics.citations.ts.
+  // Source pack pack-manipulation-4.md#17 for manipulation/rl-finetuning; same source and id also
+  // proposed in drafts/manipulation/robot-learning-roadmap.citations.ts; register once.
+  {
+    id: 'serl-2024',
+    title: 'SERL: A Software Suite for Sample-Efficient Robotic Reinforcement Learning',
+    authors: ['Jianlan Luo', 'Zheyuan Hu', 'Charles Xu', 'You Liang Tan', 'Jacob Berg', 'Archit Sharma', 'Stefan Schaal', 'Chelsea Finn', 'Abhishek Gupta', 'Sergey Levine'],
+    year: 2024,
+    venue: 'ICRA 2024',
+    arxiv: '2401.16013',
+    url: 'https://arxiv.org/abs/2401.16013',
+    type: 'paper',
+  },
+  // lai-action-chunking-2022: domain pass 2026-10-06, from drafts/manipulation/action-chunking.citations.ts.
+  // Source pack pack-manipulation-1.md#1 for manipulation/action-chunking; PsyArXiv preprint; title,
+  // authors and 2022 from Crossref; abstract read via the OSF API on 2026-10-04: "The action
+  // sequence can become a ``chunk'' when individual actions are grouped together and executed as one
+  // unit, making them more efficient to store and execute.".
+  {
+    id: 'lai-action-chunking-2022',
+    title: 'Action chunking as conditional policy compression',
+    authors: ['Lucy Lai', 'Ann Zixiang Huang', 'Samuel J. Gershman'],
+    year: 2022,
+    venue: 'PsyArXiv',
+    url: 'https://doi.org/10.31234/osf.io/z8yrv',
+    type: 'paper',
+  },
+  // dehp-2026: domain pass 2026-10-06, from drafts/manipulation/action-chunking.citations.ts.
+  // Source pack pack-manipulation-1.md#14 for manipulation/action-chunking.
+  {
+    id: 'dehp-2026',
+    title: 'Dynamic Execution Horizon Prediction for Chunk-based Robot Policies',
+    authors: ['Yuchi Zhao', 'Miroslav Bogdanovic', 'Arjun Sohal', 'Liyu Tao', 'Kourosh Darvish', 'Alán Aspuru-Guzik', 'Florian Shkurti', 'Animesh Garg'],
+    year: 2026,
+    arxiv: '2606.11408',
+    url: 'https://arxiv.org/abs/2606.11408',
+    type: 'paper',
+  },
+  // simchowitz-continuous-il-2025: domain pass 2026-10-06, from drafts/frontier/reliability-gap.citations.ts; also drafts/manipulation/action-chunking.citations.ts, drafts/manipulation/bc-foundations.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2025-03-12, 3 authors.
+  {
+    id: 'simchowitz-continuous-il-2025',
+    title: 'The Pitfalls of Imitation Learning when Actions are Continuous',
+    authors: ['Max Simchowitz', 'Daniel Pfrommer', 'Ali Jadbabaie'],
+    year: 2025,
+    arxiv: '2503.09722',
+    url: 'https://arxiv.org/abs/2503.09722',
+    type: 'paper',
+  },
+  // zhang-chunking-exploration-2025: domain pass 2026-10-06, from drafts/manipulation/action-chunking.citations.ts; also drafts/manipulation/bc-foundations.citations.ts.
+  // Source pack pack-manipulation-1.md#8 for manipulation/action-chunking; same source and id also
+  // proposed in drafts/manipulation/bc-foundations.citations.ts; register once.
+  {
+    id: 'zhang-chunking-exploration-2025',
+    title: 'Action Chunking and Exploratory Data Collection Yield Exponential Improvements in Behavior Cloning for Continuous Control',
+    authors: ['Thomas T. Zhang', 'Daniel Pfrommer', 'Chaoyi Pan', 'Nikolai Matni', 'Max Simchowitz'],
+    year: 2025,
+    arxiv: '2507.09061',
+    url: 'https://arxiv.org/abs/2507.09061',
+    type: 'paper',
+  },
+  // autohorizon-2026: domain pass 2026-10-06, from drafts/manipulation/action-chunking.citations.ts.
+  // Source pack pack-manipulation-1.md#12 for manipulation/action-chunking.
+  {
+    id: 'autohorizon-2026',
+    title: 'VLA Knows Its Limits: Adaptive Execution Horizons for Robot Policies',
+    authors: ['Haoxuan Wang', 'Gengyu Zhang', 'Yan Yan', 'Ramana Rao Kompella', 'Gaowen Liu'],
+    year: 2026,
+    arxiv: '2602.21445',
+    url: 'https://arxiv.org/abs/2602.21445',
+    type: 'paper',
+  },
+  // pace-2026: domain pass 2026-10-06, from drafts/manipulation/action-chunking.citations.ts.
+  // Source pack pack-manipulation-1.md#13 for manipulation/action-chunking.
+  {
+    id: 'pace-2026',
+    title: 'PACE: Phase-Aware Chunk Execution for Robot Policies with Action Chunking',
+    authors: ['Junnan Nie', 'Jiayi Li', 'Chenghao Liu', 'Junyi Lao', 'Jiachen Zhang', 'Tianle Zhang', 'Liang Lin', 'Songfang Huang'],
+    year: 2026,
+    arxiv: '2606.00537',
+    url: 'https://arxiv.org/abs/2606.00537',
+    type: 'paper',
+  },
+  // moh-2025: domain pass 2026-10-06, from drafts/manipulation/action-chunking.citations.ts.
+  // Source pack pack-manipulation-1.md#11 for manipulation/action-chunking.
+  {
+    id: 'moh-2025',
+    title: 'Mixture of Horizons in Action Chunking',
+    authors: ['Dong Jing', 'Gang Wang', 'Jiaqi Liu', 'Weiliang Tang', 'Zelong Sun', 'Yunchao Yao', 'Zhenyu Wei', 'Yunhui Liu', 'Zhiwu Lu', 'Mingyu Ding'],
+    year: 2025,
+    arxiv: '2511.19433',
+    url: 'https://arxiv.org/abs/2511.19433',
+    type: 'paper',
+  },
+  // lerobot-rtc-docs: domain pass 2026-10-06, from drafts/manipulation/action-chunking.citations.ts.
+  // Source pack pack-manipulation-1.md#20 for manipulation/action-chunking; LeRobot docs page, no
+  // publication date printed; read 2026-10-04: "Real-Time Chunking (RTC) is an inference-time method
+  // that allows large, flow-matching based robotic policies, such as Pi0, Pi0.5, and SmolVLA, to
+  // produce smooth, continuous, and reactive motion despite having high inference latency.".
+  {
+    id: 'lerobot-rtc-docs',
+    title: 'Real-Time Chunking (RTC)',
+    authors: ['Hugging Face'],
+    year: 'n.d.',
+    accessedOn: '2026-10-04',
+    venue: 'LeRobot documentation',
+    url: 'https://huggingface.co/docs/lerobot/en/rtc',
+    type: 'docs',
+  },
+  // a2c2-2025: domain pass 2026-10-06, from drafts/manipulation/action-chunking.citations.ts; also drafts/manipulation/realtime-execution.citations.ts.
+  // Source pack pack-manipulation-1.md#16 for manipulation/action-chunking; same source and id also
+  // proposed in drafts/manipulation/realtime-execution.citations.ts; register once.
+  {
+    id: 'a2c2-2025',
+    title: 'Leave No Observation Behind: Real-time Correction for VLA Action Chunks',
+    authors: ['Kohei Sendai', 'Maxime Alvarez', 'Tatsuya Matsushima', 'Yutaka Matsuo', 'Yusuke Iwasawa'],
+    year: 2025,
+    arxiv: '2509.23224',
+    url: 'https://arxiv.org/abs/2509.23224',
+    type: 'paper',
+  },
+  // remac-2026: domain pass 2026-10-06, from drafts/manipulation/action-chunking.citations.ts.
+  // Source pack pack-manipulation-1.md#17 for manipulation/action-chunking.
+  {
+    id: 'remac-2026',
+    title: 'Real-Time Robot Execution with Masked Action Chunking',
+    authors: ['Haoxuan Wang', 'Gengyu Zhang', 'Yan Yan', 'Yuzhang Shang', 'Ramana Rao Kompella', 'Gaowen Liu'],
+    year: 2026,
+    arxiv: '2601.20130',
+    url: 'https://arxiv.org/abs/2601.20130',
+    type: 'paper',
+  },
+  // q-chunking-2025: domain pass 2026-10-06, from drafts/manipulation/action-chunking.citations.ts.
+  // Source pack pack-manipulation-1.md#27 for manipulation/action-chunking.
+  {
+    id: 'q-chunking-2025',
+    title: 'Reinforcement Learning with Action Chunking',
+    authors: ['Qiyang Li', 'Zhiyuan Zhou', 'Sergey Levine'],
+    year: 2025,
+    arxiv: '2507.07969',
+    url: 'https://arxiv.org/abs/2507.07969',
+    type: 'paper',
+  },
+  // ross-bagnell-2010: domain pass 2026-10-06, from drafts/manipulation/bc-foundations.citations.ts.
+  // Source pack pack-manipulation-1.md#1 for manipulation/bc-foundations.
+  {
+    id: 'ross-bagnell-2010',
+    title: 'Efficient Reductions for Imitation Learning',
+    authors: ['Stéphane Ross', 'J. Andrew Bagnell'],
+    year: 2010,
+    venue: 'AISTATS 2010 (PMLR vol. 9)',
+    url: 'https://proceedings.mlr.press/v9/ross10a.html',
+    type: 'paper',
+  },
+  // pomerleau-1991: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; also drafts/manipulation/bc-foundations.citations.ts.
+  // Same id and fields as drafts/manipulation/bc-foundations.citations.ts (drop one copy when
+  // merging). Crossref abstract (read 2026-10-04): "ALVINN is a backpropagation network designed to
+  // drive the CMU Navlab, a modified Chevy van"; "the training techniques that allow ALVINN to learn
+  // in under 5 minutes to autonomously control the Navlab by watching the reactions of a human
+  // driver".
+  {
+    id: 'pomerleau-1991',
+    title: 'Efficient Training of Artificial Neural Networks for Autonomous Navigation',
+    authors: ['Dean A. Pomerleau'],
+    year: 1991,
+    venue: 'Neural Computation 3(1)',
+    url: 'https://doi.org/10.1162/neco.1991.3.1.88',
+    type: 'paper',
+  },
+  // bojarski-e2e-driving-2016: domain pass 2026-10-06, from drafts/manipulation/bc-foundations.citations.ts.
+  // Source pack pack-manipulation-1.md#3 for manipulation/bc-foundations.
+  {
+    id: 'bojarski-e2e-driving-2016',
+    title: 'End to End Learning for Self-Driving Cars',
+    authors: ['Mariusz Bojarski', 'Davide Del Testa', 'Daniel Dworakowski', 'Bernhard Firner', 'Beat Flepp', 'Prasoon Goyal', 'Lawrence D. Jackel', 'Mathew Monfort', 'Urs Muller', 'Jiakai Zhang', 'Xin Zhang', 'Jake Zhao', 'Karol Zieba'],
+    year: 2016,
+    arxiv: '1604.07316',
+    url: 'https://arxiv.org/abs/1604.07316',
+    type: 'paper',
+  },
+  // foster-bc-horizon-2024: domain pass 2026-10-06, from drafts/manipulation/bc-foundations.citations.ts.
+  // Source pack pack-manipulation-1.md#9 for manipulation/bc-foundations.
+  {
+    id: 'foster-bc-horizon-2024',
+    title: 'Is Behavior Cloning All You Need? Understanding Horizon in Imitation Learning',
+    authors: ['Dylan J. Foster', 'Adam Block', 'Dipendra Misra'],
+    year: 2024,
+    arxiv: '2407.15007',
+    url: 'https://arxiv.org/abs/2407.15007',
+    type: 'paper',
+  },
+  // rajaraman-il-limits-2020: domain pass 2026-10-06, from drafts/manipulation/bc-foundations.citations.ts.
+  // Source pack pack-manipulation-1.md#8 for manipulation/bc-foundations.
+  {
+    id: 'rajaraman-il-limits-2020',
+    title: 'Toward the Fundamental Limits of Imitation Learning',
+    authors: ['Nived Rajaraman', 'Lin F. Yang', 'Jiantao Jiao', 'Kannan Ramachandran'],
+    year: 2020,
+    arxiv: '2009.05990',
+    url: 'https://arxiv.org/abs/2009.05990',
+    type: 'paper',
+  },
+  // causal-confusion-2019: domain pass 2026-10-06, from drafts/manipulation/bc-foundations.citations.ts.
+  // Source pack pack-manipulation-1.md#6 for manipulation/bc-foundations.
+  {
+    id: 'causal-confusion-2019',
+    title: 'Causal Confusion in Imitation Learning',
+    authors: ['Pim de Haan', 'Dinesh Jayaraman', 'Sergey Levine'],
+    year: 2019,
+    arxiv: '1905.11979',
+    url: 'https://arxiv.org/abs/1905.11979',
+    type: 'paper',
+  },
+  // copycat-bc-2020: domain pass 2026-10-06, from drafts/manipulation/bc-foundations.citations.ts.
+  // Source pack pack-manipulation-1.md#7 for manipulation/bc-foundations.
+  {
+    id: 'copycat-bc-2020',
+    title: 'Fighting Copycat Agents in Behavioral Cloning from Observation Histories',
+    authors: ['Chuan Wen', 'Jierui Lin', 'Trevor Darrell', 'Dinesh Jayaraman', 'Yang Gao'],
+    year: 2020,
+    arxiv: '2010.14876',
+    url: 'https://arxiv.org/abs/2010.14876',
+    type: 'paper',
+  },
+  // butterfly-sgd-noise-2023: domain pass 2026-10-06, from drafts/manipulation/bc-foundations.citations.ts.
+  // Source pack pack-manipulation-1.md#12 for manipulation/bc-foundations.
+  {
+    id: 'butterfly-sgd-noise-2023',
+    title: 'Butterfly Effects of SGD Noise: Error Amplification in Behavior Cloning and Autoregression',
+    authors: ['Adam Block', 'Dylan J. Foster', 'Akshay Krishnamurthy', 'Max Simchowitz', 'Cyril Zhang'],
+    year: 2023,
+    arxiv: '2310.11428',
+    url: 'https://arxiv.org/abs/2310.11428',
+    type: 'paper',
+  },
+  // dart-2017: domain pass 2026-10-06, from drafts/manipulation/bc-foundations.citations.ts.
+  // Source pack pack-manipulation-1.md#4 for manipulation/bc-foundations.
+  {
+    id: 'dart-2017',
+    title: 'DART: Noise Injection for Robust Imitation Learning',
+    authors: ['Michael Laskey', 'Jonathan Lee', 'Roy Fox', 'Anca Dragan', 'Ken Goldberg'],
+    year: 2017,
+    arxiv: '1703.09327',
+    url: 'https://arxiv.org/abs/1703.09327',
+    type: 'paper',
+  },
+  // diffusion-meets-dagger-2024: domain pass 2026-10-06, from drafts/manipulation/bc-foundations.citations.ts.
+  // Source pack pack-manipulation-1.md#22 for manipulation/bc-foundations.
+  {
+    id: 'diffusion-meets-dagger-2024',
+    title: 'Diffusion Meets DAgger: Supercharging Eye-in-hand Imitation Learning',
+    authors: ['Xiaoyu Zhang', 'Matthew Chang', 'Pranav Kumar', 'Saurabh Gupta'],
+    year: 2024,
+    arxiv: '2402.17768',
+    url: 'https://arxiv.org/abs/2402.17768',
+    type: 'paper',
+  },
+  // bc-z-2022: domain pass 2026-10-06, from drafts/manipulation/bc-foundations.citations.ts.
+  // Source pack pack-manipulation-1.md#21 for manipulation/bc-foundations.
+  {
+    id: 'bc-z-2022',
+    title: 'BC-Z: Zero-Shot Task Generalization with Robotic Imitation Learning',
+    authors: ['Eric Jang', 'Alex Irpan', 'Mohi Khansari', 'Daniel Kappler', 'Frederik Ebert', 'Corey Lynch', 'Sergey Levine', 'Chelsea Finn'],
+    year: 2022,
+    arxiv: '2202.02005',
+    url: 'https://arxiv.org/abs/2202.02005',
+    type: 'paper',
+  },
+  // cr-dagger-2025: domain pass 2026-10-06, from drafts/manipulation/bc-foundations.citations.ts.
+  // Source pack pack-manipulation-1.md#24 for manipulation/bc-foundations.
+  {
+    id: 'cr-dagger-2025',
+    title: 'Compliant Residual DAgger: Improving Real-World Contact-Rich Manipulation with Human Corrections',
+    authors: ['Xiaomeng Xu', 'Yifan Hou', 'Chendong Xin', 'Zeyi Liu', 'Shuran Song'],
+    year: 2025,
+    arxiv: '2506.16685',
+    url: 'https://arxiv.org/abs/2506.16685',
+    type: 'paper',
+  },
+  // sop-2026: domain pass 2026-10-06, from drafts/manipulation/bc-foundations.citations.ts; also drafts/manipulation/rl-finetuning.citations.ts.
+  // Source pack pack-manipulation-1.md#25 for manipulation/bc-foundations.
+  {
+    id: 'sop-2026',
+    title: 'SOP: A Scalable Online Post-Training System for Vision-Language-Action Models',
+    authors: ['Mingjie Pan', 'Siyuan Feng', 'Qinglin Zhang', 'Xinchen Li', 'Jianheng Song', 'Chendi Qu', 'Yi Wang', 'Chuankang Li', 'Ziyu Xiong', 'Zhi Chen', 'Yi Liu', 'Jianlan Luo'],
+    year: 2026,
+    arxiv: '2601.03044',
+    url: 'https://arxiv.org/abs/2601.03044',
+    type: 'paper',
+  },
+  // rac-2025: domain pass 2026-10-06, from drafts/manipulation/bc-foundations.citations.ts.
+  // Source pack pack-manipulation-1.md#23 for manipulation/bc-foundations.
+  {
+    id: 'rac-2025',
+    title: 'RaC: Robot Learning for Long-Horizon Tasks by Scaling Recovery and Correction',
+    authors: ['Zheyuan Hu', 'Robyn Wu', 'Naveen Enock', 'Jasmine Li', 'Riya Kadakia', 'Zackory Erickson', 'Aviral Kumar'],
+    year: 2025,
+    arxiv: '2509.07953',
+    url: 'https://arxiv.org/abs/2509.07953',
+    type: 'paper',
+  },
+  // block-generative-bc-2023: domain pass 2026-10-06, from drafts/manipulation/bc-foundations.citations.ts.
+  // Source pack pack-manipulation-1.md#13 for manipulation/bc-foundations.
+  {
+    id: 'block-generative-bc-2023',
+    title: 'Provable Guarantees for Generative Behavior Cloning: Bridging Low-Level Stability and High-Level Behavior',
+    authors: ['Adam Block', 'Ali Jadbabaie', 'Daniel Pfrommer', 'Max Simchowitz', 'Russ Tedrake'],
+    year: 2023,
+    arxiv: '2307.14619',
+    url: 'https://arxiv.org/abs/2307.14619',
+    type: 'paper',
+  },
+  // gail-2016: domain pass 2026-10-06, from drafts/manipulation/bc-foundations.citations.ts.
+  // Source pack pack-manipulation-1.md#15 for manipulation/bc-foundations.
+  {
+    id: 'gail-2016',
+    title: 'Generative Adversarial Imitation Learning',
+    authors: ['Jonathan Ho', 'Stefano Ermon'],
+    year: 2016,
+    arxiv: '1606.03476',
+    url: 'https://arxiv.org/abs/1606.03476',
+    type: 'paper',
+  },
+  // darp-2026: domain pass 2026-10-06, from drafts/manipulation/bc-foundations.citations.ts.
+  // Source pack pack-manipulation-1.md#28 for manipulation/bc-foundations.
+  {
+    id: 'darp-2026',
+    title: 'Difference-Aware Retrieval Policies for Imitation Learning',
+    authors: ['Quinn Pfeifer', 'Ethan Pronovost', 'Paarth Shah', 'Khimya Khetarpal', 'Siddhartha Srinivasa', 'Abhishek Gupta'],
+    year: 2026,
+    arxiv: '2606.09758',
+    url: 'https://arxiv.org/abs/2606.09758',
+    type: 'paper',
+  },
+  // kumar-finetuning-distorts-2022: domain pass 2026-10-06, from drafts/manipulation/knowledge-insulation.citations.ts.
+  // Source pack pack-manipulation-3.md#3 for manipulation/knowledge-insulation.
+  {
+    id: 'kumar-finetuning-distorts-2022',
+    title: 'Fine-Tuning can Distort Pretrained Features and Underperform Out-of-Distribution',
+    authors: ['Ananya Kumar', 'Aditi Raghunathan', 'Robbie Jones', 'Tengyu Ma', 'Percy Liang'],
+    year: 2022,
+    venue: 'ICLR 2022',
+    arxiv: '2202.10054',
+    url: 'https://arxiv.org/abs/2202.10054',
+    type: 'paper',
+  },
+  // chatvla-2025: domain pass 2026-10-06, from drafts/manipulation/knowledge-insulation.citations.ts.
+  // Source pack pack-manipulation-3.md#16 for manipulation/knowledge-insulation.
+  {
+    id: 'chatvla-2025',
+    title: 'ChatVLA: Unified Multimodal Understanding and Robot Control with Vision-Language-Action Model',
+    authors: ['Zhongyi Zhou', 'Yichen Zhu', 'Minjie Zhu', 'Junjie Wen', 'Ning Liu', 'Zhiyuan Xu', 'Weibin Meng', 'Ran Cheng', 'Yaxin Peng', 'Chaomin Shen', 'Feifei Feng'],
+    year: 2025,
+    arxiv: '2502.14420',
+    url: 'https://arxiv.org/abs/2502.14420',
+    type: 'paper',
+  },
+  // instructvla-2025: domain pass 2026-10-06, from drafts/manipulation/knowledge-insulation.citations.ts.
+  // Source pack pack-manipulation-3.md#19 for manipulation/knowledge-insulation.
+  {
+    id: 'instructvla-2025',
+    title: 'InstructVLA: Vision-Language-Action Instruction Tuning from Understanding to Manipulation',
+    authors: ['Shuai Yang', 'Hao Li', 'Bin Wang', 'Yilun Chen', 'Yang Tian', 'Tai Wang', 'Hanqing Wang', 'Feng Zhao', 'Yiyi Liao', 'Jiangmiao Pang'],
+    year: 2025,
+    arxiv: '2507.17520',
+    url: 'https://arxiv.org/abs/2507.17520',
+    type: 'paper',
+  },
+  // vla-continual-forgetting-2026: domain pass 2026-10-06, from drafts/manipulation/knowledge-insulation.citations.ts.
+  // Source pack pack-manipulation-3.md#27 for manipulation/knowledge-insulation.
+  {
+    id: 'vla-continual-forgetting-2026',
+    title: 'Pretrained Vision-Language-Action Models are Surprisingly Resistant to Forgetting in Continual Learning',
+    authors: ['Huihan Liu', 'Changyeon Kim', 'Bo Liu', 'Minghuan Liu', 'Yuke Zhu'],
+    year: 2026,
+    arxiv: '2603.03818',
+    url: 'https://arxiv.org/abs/2603.03818',
+    type: 'paper',
+  },
+  // paligemma-2024: domain pass 2026-10-06, from drafts/manipulation/knowledge-insulation.citations.ts; also drafts/manipulation/pi-line.citations.ts.
+  // Source pack pack-manipulation-3.md#9 for manipulation/knowledge-insulation.
+  {
+    id: 'paligemma-2024',
+    title: 'PaliGemma: A versatile 3B VLM for transfer',
+    authors: ['Lucas Beyer', 'Andreas Steiner', 'André Susano Pinto', 'Alexander Kolesnikov', 'Xiao Wang', 'Daniel Salz', 'Maxim Neumann', 'Ibrahim Alabdulmohsin', 'Michael Tschannen', 'Emanuele Bugliarello', 'Thomas Unterthiner', 'Daniel Keysers', 'Skanda Koppula', 'Fangyu Liu', 'Adam Grycner', 'Alexey Gritsenko', 'Neil Houlsby', 'Manoj Kumar', 'Keran Rong', 'Julian Eisenschlos', 'Rishabh Kabra', 'Matthias Bauer', 'Matko Bošnjak', 'Xi Chen', 'Matthias Minderer', 'Paul Voigtlaender', 'Ioana Bica', 'Ivana Balazevic', 'Joan Puigcerver', 'Pinelopi Papalampidi', 'Olivier Henaff', 'Xi Xiong', 'Radu Soricut', 'Jeremiah Harmsen', 'Xiaohua Zhai'],
+    year: 2024,
+    arxiv: '2407.07726',
+    url: 'https://arxiv.org/abs/2407.07726',
+    type: 'paper',
+  },
+  // gr00t-n1-5-2025: domain pass 2026-10-06, from drafts/manipulation/generalist-policies.citations.ts; also drafts/manipulation/knowledge-insulation.citations.ts.
+  // Source pack pack-manipulation-2.md#8 for manipulation/generalist-policies; same source and id
+  // also proposed in drafts/manipulation/knowledge-insulation.citations.ts; register once. Fix
+  // 2026-10-04: metadata aligned with the page byline / the other drafts carrying this id (see
+  // verify/manipulation/).
+  {
+    id: 'gr00t-n1-5-2025',
+    title: 'GR00T N1.5: An Improved Open Foundation Model for Generalist Humanoid Robots',
+    authors: ['Johan Bjorck', 'Valts Blukis', 'Fernando Castañeda', 'Nikita Cherniadev', 'Xingye Da', 'Runyu Ding', 'Linxi "Jim" Fan', 'Yu Fang', 'Dieter Fox', 'Fengyuan Hu', 'Spencer Huang', 'Joel Jang', 'Xiaowei Jiang', 'Kaushil Kundalia', 'Jan Kautz', 'Zhiqi Li', 'Kevin Lin', 'Zongyu Lin', 'Loic Magne', 'Yunze Man', 'Ajay Mandlekar', 'Avnish Narayan', 'Soroush Nasiriany', 'Scott Reed', 'You Liang Tan', 'Guanzhi Wang', 'Jing Wang', 'Qi Wang', 'Shihao Wang', 'Jiannan Xiang', 'Yuqi Xie', 'Yinzhen Xu', 'Seonghyeon Ye', 'Zhiding Yu', 'Yizhou Zhao', 'Zhe Zhang', 'Ruijie Zheng', 'Yuke Zhu'],
+    year: 2025,
+    url: 'https://research.nvidia.com/labs/gear/gr00t-n1_5/',
+    type: 'blog',
+  },
+  // blip2-2023: domain pass 2026-10-06, from drafts/manipulation/knowledge-insulation.citations.ts.
+  // Source pack pack-manipulation-3.md#5 for manipulation/knowledge-insulation.
+  {
+    id: 'blip2-2023',
+    title: 'BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models',
+    authors: ['Junnan Li', 'Dongxu Li', 'Silvio Savarese', 'Steven Hoi'],
+    year: 2023,
+    arxiv: '2301.12597',
+    url: 'https://arxiv.org/abs/2301.12597',
+    type: 'paper',
+  },
+  // vlm2vla-2025: domain pass 2026-10-06, from drafts/manipulation/knowledge-insulation.citations.ts.
+  // Source pack pack-manipulation-3.md#18 for manipulation/knowledge-insulation.
+  {
+    id: 'vlm2vla-2025',
+    title: 'Actions as Language: Fine-Tuning VLMs into VLAs Without Catastrophic Forgetting',
+    authors: ['Asher J. Hancock', 'Xindi Wu', 'Lihan Zha', 'Olga Russakovsky', 'Anirudha Majumdar'],
+    year: 2025,
+    arxiv: '2509.22195',
+    url: 'https://arxiv.org/abs/2509.22195',
+    type: 'paper',
+  },
+  // uam-forgetting-2026: domain pass 2026-10-06, from drafts/manipulation/knowledge-insulation.citations.ts.
+  // Source pack pack-manipulation-3.md#25 for manipulation/knowledge-insulation.
+  {
+    id: 'uam-forgetting-2026',
+    title: 'UAM: A Dual-Stream Perspective on Forgetting in VLA Training',
+    authors: ['Jianke Zhang', 'Yuanfei Luo', 'Yucheng Hu', 'Xiaoyu Chen', 'Yanjiang Guo', 'Ziyang Liu', 'Hongbin Xu', 'Tian Lan', 'Jianyu Chen'],
+    year: 2026,
+    arxiv: '2605.15735',
+    url: 'https://arxiv.org/abs/2605.15735',
+    type: 'paper',
+  },
+  // hybridvla-2025: domain pass 2026-10-06, from drafts/manipulation/knowledge-insulation.citations.ts.
+  // Source pack pack-manipulation-3.md#17 for manipulation/knowledge-insulation.
+  {
+    id: 'hybridvla-2025',
+    title: 'HybridVLA: Collaborative Diffusion and Autoregression in a Unified Vision-Language-Action Model',
+    authors: ['Jiaming Liu', 'Hao Chen', 'Pengju An', 'Zhuoyang Liu', 'Renrui Zhang', 'Chenyang Gu', 'Xiaoqi Li', 'Ziyu Guo', 'Sixiang Chen', 'Mengzhen Liu', 'Chengkai Hou', 'Mengdi Zhao', 'KC alex Zhou', 'Pheng-Ann Heng', 'Shanghang Zhang'],
+    year: 2025,
+    arxiv: '2503.10631',
+    url: 'https://arxiv.org/abs/2503.10631',
+    type: 'paper',
+  },
+  // apt-action-expert-pretraining-2026: domain pass 2026-10-06, from drafts/manipulation/knowledge-insulation.citations.ts.
+  // Source pack pack-manipulation-3.md#23 for manipulation/knowledge-insulation.
+  {
+    id: 'apt-action-expert-pretraining-2026',
+    title: 'APT: Action Expert Pretraining Improves Instruction Generalization of Vision-Language-Action Policies',
+    authors: ['Kechun Xu', 'Zhenjie Zhu', 'Anzhe Chen', 'Rong Xiong', 'Yue Wang'],
+    year: 2026,
+    arxiv: '2606.12366',
+    url: 'https://arxiv.org/abs/2606.12366',
+    type: 'paper',
+  },
+  // anchor-align-2026: domain pass 2026-10-06, from drafts/manipulation/knowledge-insulation.citations.ts.
+  // Source pack pack-manipulation-3.md#24 for manipulation/knowledge-insulation.
+  {
+    id: 'anchor-align-2026',
+    title: 'Generalizable VLA Finetuning via Representation Anchoring and Language-Action Alignment',
+    authors: ['Dwip Dalal', 'Shivansh Patel', 'Chahit Jain', 'Jeonghwan Kim', 'Utkarsh Mishra', 'Yuchen Song', 'Alex Baratian', 'Hyeonjeong Ha', 'Heng Ji', 'Svetlana Lazebnik', 'Unnat Jain'],
+    year: 2026,
+    arxiv: '2607.13429',
+    url: 'https://arxiv.org/abs/2607.13429',
+    type: 'paper',
+  },
+  // garg-self-demonstrated-control-2026: domain pass 2026-10-06, from drafts/manipulation/knowledge-insulation.citations.ts; also drafts/manipulation/pi-line.citations.ts.
+  // Source pack pack-manipulation-3.md#26 for manipulation/knowledge-insulation.
+  {
+    id: 'garg-self-demonstrated-control-2026',
+    title: 'Fine-Tuning VLAs with Self-Demonstrated Generative Control for Multi-Task Manipulation',
+    authors: ['Prachi Garg', 'Steve Xing', 'Prahit Yaugand', 'Saurabh Gupta', 'Derek Hoiem'],
+    year: 2026,
+    arxiv: '2608.19490',
+    url: 'https://arxiv.org/abs/2608.19490',
+    type: 'paper',
+  },
+  // act2answer-2026: domain pass 2026-10-06, from drafts/manipulation/knowledge-insulation.citations.ts.
+  // Source pack pack-manipulation-3.md#28 for manipulation/knowledge-insulation.
+  {
+    id: 'act2answer-2026',
+    title: 'Does VLA Even Know the Basics? Measuring Commonsense and World Knowledge Retention in Vision-Language-Action Models',
+    authors: ['Nikita Kachaev', 'Andrey Moskalenko', 'Matvey Skripkin', 'Nikita Kurlaev', 'Daria Pugacheva', 'Albina Burlova', 'Mikhail Kolosov', 'Denis Shepelev', 'Andrey Kuznetsov', 'Elena Tutubalina', 'Aleksandr I. Panov', 'Alexey K. Kovalev', 'Vlad Shakhuro'],
+    year: 2026,
+    arxiv: '2606.19297',
+    url: 'https://arxiv.org/abs/2606.19297',
+    type: 'paper',
+  },
+  // lap-2026: domain pass 2026-10-06, from drafts/manipulation/cross-embodiment.citations.ts; also drafts/manipulation/knowledge-insulation.citations.ts.
+  // Source pack pack-manipulation-2.md#10 for manipulation/cross-embodiment; same source and id also
+  // proposed in drafts/manipulation/knowledge-insulation.citations.ts; register once.
+  {
+    id: 'lap-2026',
+    title: 'LAP: Language-Action Pre-Training Enables Zero-shot Cross-Embodiment Transfer',
+    authors: ['Lihan Zha', 'Asher J. Hancock', 'Mingtong Zhang', 'Tenny Yin', 'Yixuan Huang', 'Dhruv Shah', 'Allen Z. Ren', 'Anirudha Majumdar'],
+    year: 2026,
+    arxiv: '2602.10556',
+    url: 'https://arxiv.org/abs/2602.10556',
+    type: 'paper',
+  },
+  // labvla-2026: domain pass 2026-10-06, from drafts/manipulation/knowledge-insulation.citations.ts.
+  // Source pack pack-manipulation-3.md#21 for manipulation/knowledge-insulation.
+  {
+    id: 'labvla-2026',
+    title: 'LabVLA: Grounding Vision-Language-Action Models in Scientific Laboratories',
+    authors: ['Baochang Ren', 'Xinjie Liu', 'Xi Chen', 'Yanshuo Liu', 'Chenxi Li', 'Daqi Gao', 'Zeqin Su', 'Jintao Xing', 'Zirui Xue', 'Rui Li', 'Xiangyu Zhao', 'Shuofei Qiao', 'Minting Pan', 'Wangmeng Zuo', 'Lei Bai', 'Dongzhan Zhou', 'Ningyu Zhang', 'Huajun Chen'],
+    year: 2026,
+    arxiv: '2606.13578',
+    url: 'https://arxiv.org/abs/2606.13578',
+    type: 'paper',
+  },
+  // stulp-full-stack-transfer-2026: domain pass 2026-10-06, from drafts/manipulation/knowledge-insulation.citations.ts.
+  // Source pack pack-manipulation-3.md#22 for manipulation/knowledge-insulation.
+  {
+    id: 'stulp-full-stack-transfer-2026',
+    title: 'Are Foundation Models the Route to Full-Stack Transfer in Robotics?',
+    authors: ['Freek Stulp', 'Samuel Bustamante', 'João Silvério', 'Alin Albu-Schäffer', 'Jeannette Bohg', 'Shuran Song'],
+    year: 2026,
+    arxiv: '2602.22001',
+    url: 'https://arxiv.org/abs/2602.22001',
+    type: 'paper',
+  },
+  // crossformer-2024: domain pass 2026-10-06, from drafts/data-hardware/datasets.citations.ts; also drafts/manipulation/comparison-matrix.citations.ts, drafts/manipulation/cross-embodiment.citations.ts.
+  {
+    id: 'crossformer-2024',
+    title: 'Scaling Cross-Embodied Learning: One Policy for Manipulation, Navigation, Locomotion and Aviation',
+    authors: ['Ria Doshi', 'Homer Walke', 'Oier Mees', 'Sudeep Dasari', 'Sergey Levine'],
+    year: 2024,
+    arxiv: '2408.11812',
+    url: 'https://arxiv.org/abs/2408.11812',
+    type: 'paper',
+  },
+  // hpt-2024: domain pass 2026-10-06, from drafts/manipulation/cross-embodiment.citations.ts.
+  // Source pack pack-manipulation-2.md#2 for manipulation/cross-embodiment.
+  {
+    id: 'hpt-2024',
+    title: 'Scaling Proprioceptive-Visual Learning with Heterogeneous Pre-trained Transformers',
+    authors: ['Lirui Wang', 'Xinlei Chen', 'Jialiang Zhao', 'Kaiming He'],
+    year: 2024,
+    venue: 'NeurIPS 2024',
+    arxiv: '2409.20537',
+    url: 'https://arxiv.org/abs/2409.20537',
+    type: 'paper',
+  },
+  // x-vla-2025: domain pass 2026-10-06, from drafts/manipulation/cross-embodiment.citations.ts.
+  // Source pack pack-manipulation-2.md#9 for manipulation/cross-embodiment.
+  {
+    id: 'x-vla-2025',
+    title: 'X-VLA: Soft-Prompted Transformer as Scalable Cross-Embodiment Vision-Language-Action Model',
+    authors: ['Jinliang Zheng', 'Jianxiong Li', 'Zhihao Wang', 'Dongxiu Liu', 'Xirui Kang', 'Yuchun Feng', 'Yinan Zheng', 'Jiayin Zou', 'Yilun Chen', 'Jia Zeng', 'Ya-Qin Zhang', 'Jiangmiao Pang', 'Jingjing Liu', 'Tai Wang', 'Xianyuan Zhan'],
+    year: 2025,
+    arxiv: '2510.10274',
+    url: 'https://arxiv.org/abs/2510.10274',
+    type: 'paper',
+  },
+  // gemini-robotics-15-blog-2025: domain pass 2026-10-06, from drafts/manipulation/cross-embodiment.citations.ts; also drafts/manipulation/generalist-policies.citations.ts.
+  // Source pack pack-manipulation-2.md#14 for manipulation/cross-embodiment; Launch post;
+  // datePublished 2025-09-25, author Carolina Parada (read 2026-10-04): "tasks only presented to the
+  // ALOHA 2 robot during training, also just work on the Apptronik's humanoid robot, Apollo, and the
+  // bi-arm Franka robot, and vice versa".
+  {
+    id: 'gemini-robotics-15-blog-2025',
+    title: 'Gemini Robotics 1.5 brings AI agents into the physical world',
+    authors: ['Carolina Parada'],
+    year: 2025,
+    venue: 'Google DeepMind blog',
+    url: 'https://deepmind.google/blog/gemini-robotics-15-brings-ai-agents-into-the-physical-world/',
+    type: 'blog',
+  },
+  // gemini-robotics-on-device-2025: domain pass 2026-10-06, from drafts/manipulation/comparison-matrix.citations.ts; also drafts/manipulation/cross-embodiment.citations.ts, drafts/manipulation/generalist-policies.citations.ts.
+  // Source pack pack-manipulation-1.md#6 for manipulation/comparison-matrix; Launch post;
+  // datePublished 2025-06-24, author Carolina Parada (the pack lists the byline as Google DeepMind)
+  // (read 2026-10-04): "Developers can access the SDK by signing up to our trusted tester program.";
+  // same source and id also proposed in drafts/manipulation/cross-embodiment.citations.ts,
+  // drafts/manipulation/generalist-policies.citations.ts; register once.
+  {
+    id: 'gemini-robotics-on-device-2025',
+    title: 'Gemini Robotics On-Device brings AI to local robotic devices',
+    authors: ['Carolina Parada'],
+    year: 2025,
+    venue: 'Google DeepMind blog',
+    url: 'https://deepmind.google/blog/gemini-robotics-on-device-brings-ai-to-local-robotic-devices/',
+    type: 'blog',
+  },
+  // mirage-2024: domain pass 2026-10-06, from drafts/manipulation/cross-embodiment.citations.ts.
+  // Source pack pack-manipulation-2.md#16 for manipulation/cross-embodiment.
+  {
+    id: 'mirage-2024',
+    title: 'Mirage: Cross-Embodiment Zero-Shot Policy Transfer with Cross-Painting',
+    authors: ['Lawrence Yunliang Chen', 'Kush Hari', 'Karthik Dharmarajan', 'Chenfeng Xu', 'Quan Vuong', 'Ken Goldberg'],
+    year: 2024,
+    venue: 'RSS 2024',
+    arxiv: '2402.19249',
+    url: 'https://arxiv.org/abs/2402.19249',
+    type: 'paper',
+  },
+  // rovi-aug-2024: domain pass 2026-10-06, from drafts/manipulation/cross-embodiment.citations.ts.
+  // Source pack pack-manipulation-2.md#17 for manipulation/cross-embodiment; oral.
+  {
+    id: 'rovi-aug-2024',
+    title: 'RoVi-Aug: Robot and Viewpoint Augmentation for Cross-Embodiment Robot Learning',
+    authors: ['Lawrence Yunliang Chen', 'Chenfeng Xu', 'Karthik Dharmarajan', 'Muhammad Zubair Irshad', 'Richard Cheng', 'Kurt Keutzer', 'Masayoshi Tomizuka', 'Quan Vuong', 'Ken Goldberg'],
+    year: 2024,
+    venue: 'CoRL 2024',
+    arxiv: '2409.03403',
+    url: 'https://arxiv.org/abs/2409.03403',
+    type: 'paper',
+  },
+  // shadow-2025: domain pass 2026-10-06, from drafts/manipulation/cross-embodiment.citations.ts.
+  // Source pack pack-manipulation-2.md#18 for manipulation/cross-embodiment.
+  {
+    id: 'shadow-2025',
+    title: 'Shadow: Leveraging Segmentation Masks for Cross-Embodiment Policy Transfer',
+    authors: ['Marion Lepert', 'Ria Doshi', 'Jeannette Bohg'],
+    year: 2025,
+    arxiv: '2503.00774',
+    url: 'https://arxiv.org/abs/2503.00774',
+    type: 'paper',
+  },
+  // lapa-2025: domain pass 2026-10-06, from drafts/manipulation/cross-embodiment.citations.ts.
+  // Source pack pack-manipulation-2.md#30 for manipulation/cross-embodiment.
+  {
+    id: 'lapa-2025',
+    title: 'Latent Action Pretraining from Videos',
+    authors: ['Seonghyeon Ye', 'Joel Jang', 'Byeongguk Jeon', 'Sejune Joo', 'Jianwei Yang', 'Baolin Peng', 'Ajay Mandlekar', 'Reuben Tan', 'Yu-Wei Chao', 'Bill Yuchen Lin', 'Lars Liden', 'Kimin Lee', 'Jianfeng Gao', 'Luke Zettlemoyer', 'Dieter Fox', 'Minjoon Seo'],
+    year: 2025,
+    venue: 'ICLR 2025',
+    arxiv: '2410.11758',
+    url: 'https://arxiv.org/abs/2410.11758',
+    type: 'paper',
+  },
+  // egomimic-2024: domain pass 2026-10-06, from drafts/data-hardware/teleop-rigs.citations.ts; also drafts/manipulation/cross-embodiment.citations.ts.
+  {
+    id: 'egomimic-2024',
+    title: 'EgoMimic: Scaling Imitation Learning via Egocentric Video',
+    authors: ['Simar Kareer', 'Dhruv Patel', 'Ryan Punamiya', 'Pranay Mathur', 'Shuo Cheng', 'Chen Wang', 'Judy Hoffman', 'Danfei Xu'],
+    year: 2024,
+    arxiv: '2410.24221',
+    url: 'https://arxiv.org/abs/2410.24221',
+    type: 'paper',
+  },
+  // egobridge-2025: domain pass 2026-10-06, from drafts/manipulation/cross-embodiment.citations.ts.
+  // Source pack pack-manipulation-2.md#24 for manipulation/cross-embodiment; the pack also lists a
+  // CoRL 2025 oral.
+  {
+    id: 'egobridge-2025',
+    title: 'EgoBridge: Domain Adaptation for Generalizable Imitation from Egocentric Human Data',
+    authors: ['Ryan Punamiya', 'Dhruv Patel', 'Patcharapong Aphiwetsa', 'Pranav Kuppili', 'Lawrence Y. Zhu', 'Simar Kareer', 'Judy Hoffman', 'Danfei Xu'],
+    year: 2025,
+    venue: 'NeurIPS 2025',
+    arxiv: '2509.19626',
+    url: 'https://arxiv.org/abs/2509.19626',
+    type: 'paper',
+  },
+  // h-rdt-2025: domain pass 2026-10-06, from drafts/manipulation/cross-embodiment.citations.ts.
+  // Source pack pack-manipulation-2.md#26 for manipulation/cross-embodiment.
+  {
+    id: 'h-rdt-2025',
+    title: 'H-RDT: Human Manipulation Enhanced Bimanual Robotic Manipulation',
+    authors: ['Hongzhe Bi', 'Lingxuan Wu', 'Tianwei Lin', 'Hengkai Tan', 'Zhizhong Su', 'Hang Su', 'Jun Zhu'],
+    year: 2025,
+    arxiv: '2507.23523',
+    url: 'https://arxiv.org/abs/2507.23523',
+    type: 'paper',
+  },
+  // phantom-2025: domain pass 2026-10-06, from drafts/manipulation/cross-embodiment.citations.ts.
+  // Source pack pack-manipulation-2.md#27 for manipulation/cross-embodiment.
+  {
+    id: 'phantom-2025',
+    title: 'Phantom: Training Robots Without Robots Using Only Human Videos',
+    authors: ['Marion Lepert', 'Jiaying Fang', 'Jeannette Bohg'],
+    year: 2025,
+    venue: 'CoRL 2025',
+    arxiv: '2503.00779',
+    url: 'https://arxiv.org/abs/2503.00779',
+    type: 'paper',
+  },
+  // masquerade-2026: domain pass 2026-10-06, from drafts/manipulation/cross-embodiment.citations.ts.
+  // Source pack pack-manipulation-2.md#28 for manipulation/cross-embodiment.
+  {
+    id: 'masquerade-2026',
+    title: 'Masquerade: Learning from In-the-wild Human Videos using Data-Editing',
+    authors: ['Marion Lepert', 'Jiaying Fang', 'Jeannette Bohg'],
+    year: 2026,
+    venue: 'ICRA 2026',
+    arxiv: '2508.09976',
+    url: 'https://arxiv.org/abs/2508.09976',
+    type: 'paper',
+  },
+  // helix-2-5-2026: domain pass 2026-10-06, from drafts/frontier/generalization.citations.ts; also drafts/manipulation/comparison-matrix.citations.ts, drafts/manipulation/cross-embodiment.citations.ts, drafts/manipulation/generalist-policies.citations.ts, drafts/rl-sim2real/humanoid-wbc.citations.ts.
+  // Figure news post dated September 17, 2026 (fetched 2026-10-04, no byline): "Then we took the
+  // robot into 30 Bay Area homes with zero data collected in any of them."; "In blind evaluations,
+  // the policy trained from scratch succeeded on 9% of zero-shot trials. The Index-pretrained policy
+  // succeeded on 56%"; "We chose three whole-body tasks: tidying a room, making a bed, and folding
+  // towels."; "A human-to-humanoid robot transfer scaling law. Repeatedly doubling Index pretraining
+  // data improved downstream robot-action prediction smoothly enough to forecast our largest run".
+  // The page publishes no trial counts. Vendor-reported.
+  {
+    id: 'helix-2-5-2026',
+    title: 'Helix 2.5: Zero-Shot 30-Home Generalization',
+    authors: ['Figure AI'],
+    year: 2026,
+    venue: 'Figure news',
+    url: 'https://www.figure.ai/news/helix-2-5-zero-shot-30-home-generalization',
+    type: 'blog',
+  },
+  // embodiment-scaling-2025: domain pass 2026-10-06, from drafts/manipulation/cross-embodiment.citations.ts.
+  // Source pack pack-manipulation-2.md#11 for manipulation/cross-embodiment.
+  {
+    id: 'embodiment-scaling-2025',
+    title: 'Towards Embodiment Scaling Laws in Robot Locomotion',
+    authors: ['Bo Ai', 'Liu Dai', 'Nico Bohlinger', 'Dichen Li', 'Tongzhou Mu', 'Zhanxin Wu', 'K. Fay', 'Henrik I. Christensen', 'Jan Peters', 'Hao Su'],
+    year: 2025,
+    venue: 'CoRL 2025',
+    arxiv: '2505.05753',
+    url: 'https://arxiv.org/abs/2505.05753',
+    type: 'paper',
+  },
+  // skild-omni-bodied-2025: domain pass 2026-10-06, from drafts/manipulation/cross-embodiment.citations.ts; also drafts/manipulation/generalist-policies.citations.ts.
+  // Source pack pack-manipulation-2.md#13 for manipulation/cross-embodiment; Vendor post;
+  // article:published_time "24 Sep, 2025", article:author "Skild AI Team" (read 2026-10-04): "We
+  // created a universe with 100,000 different robots and trained our AI to control them all.".
+  {
+    id: 'skild-omni-bodied-2025',
+    title: 'The case for an omni-bodied robot brain',
+    authors: ['Skild AI Team'],
+    year: 2025,
+    venue: 'Skild AI blog',
+    url: 'https://www.skild.ai/blogs/omni-bodied',
+    type: 'blog',
+  },
+  // generalist-gen1-2026: domain pass 2026-10-06, from drafts/data-hardware/teleop-rigs.citations.ts; also drafts/frontier/generalization.citations.ts, drafts/manipulation/comparison-matrix.citations.ts, drafts/manipulation/generalist-policies.citations.ts.
+  // Company research post dated April 2, 2026, byline "Generalist Team" (read 2026-10-04). "half a
+  // million hours" and the no-robot-data pretraining are company-reported.
+  {
+    id: 'generalist-gen1-2026',
+    title: 'GEN-1: Scaling Embodied Foundation Models to Mastery',
+    authors: ['Generalist Team'],
+    year: 2026,
+    venue: 'Generalist AI blog',
+    url: 'https://generalistai.com/blog/gen-1',
+    type: 'blog',
+  },
+  // gemini-robotics-blog-2025: domain pass 2026-10-06, from drafts/manipulation/generalist-policies.citations.ts.
+  // Source pack pack-manipulation-2.md#1 for manipulation/generalist-policies; Launch post;
+  // datePublished 2025-03-12, author Carolina Parada (read 2026-10-04; the pack's /discover/blog/
+  // URL redirects here): "Gemini Robotics more than doubles performance on a comprehensive
+  // generalization benchmark compared to other state-of-the-art vision-language-action models".
+  {
+    id: 'gemini-robotics-blog-2025',
+    title: 'Gemini Robotics brings AI into the physical world',
+    authors: ['Carolina Parada'],
+    year: 2025,
+    venue: 'Google DeepMind blog',
+    url: 'https://deepmind.google/blog/gemini-robotics-brings-ai-into-the-physical-world/',
+    type: 'blog',
+  },
+  // gemini-robotics-er-1-6-2026: domain pass 2026-10-06, from drafts/classical/perception.citations.ts; also drafts/manipulation/generalist-policies.citations.ts.
+  // Google DeepMind blog, datePublished 2026-04-14, byline Laura Graesser and Peng Xu. "Gemini
+  // Robotics-ER 1.6 shows significant improvement over both Gemini Robotics-ER 1.5 and Gemini 3.0
+  // Flash, specifically enhancing spatial and physical reasoning capabilities such as pointing,
+  // counting, and success detection." and "It acts as the high-level reasoning model for a robot,
+  // capable of executing tasks by natively calling tools like Google Search to find information,
+  // vision-language-action models (VLAs) or any other third-party user-defined functions." (vendor
+  // self-report)
+  {
+    id: 'gemini-robotics-er-1-6-2026',
+    title: 'Gemini Robotics-ER 1.6: Powering real-world robotics tasks through enhanced embodied reasoning',
+    authors: ['Laura Graesser', 'Peng Xu'],
+    year: 2026,
+    venue: 'Google DeepMind blog',
+    url: 'https://deepmind.google/blog/gemini-robotics-er-1-6/',
+    type: 'blog',
+  },
+  // gemini-robotics-er-2-2026: domain pass 2026-10-06, from drafts/manipulation/generalist-policies.citations.ts; also drafts/manipulation/hierarchical.citations.ts.
+  // Source pack pack-manipulation-2.md#6 for manipulation/generalist-policies; Google post;
+  // datePublished 2026-07-30, author Steven Hansen (read 2026-10-04): "Success/failure detection:
+  // Now operates on raw video feeds rather than static snapshots" / "We tested it across 10
+  // different types of instruments.".
+  {
+    id: 'gemini-robotics-er-2-2026',
+    title: 'Introducing Gemini Robotics ER 2',
+    authors: ['Steven Hansen'],
+    year: 2026,
+    venue: 'The Keyword (blog.google)',
+    url: 'https://blog.google/innovation-and-ai/models-and-research/google-deepmind/gemini-robotics-er-2/',
+    type: 'blog',
+  },
+  // veo-world-simulator-2025: domain pass 2026-10-06, from drafts/data-hardware/evaluation-crisis.citations.ts; also drafts/manipulation/generalist-policies.citations.ts, drafts/world-models/evaluation.citations.ts.
+  // Same id as drafts/world-models/evaluation.citations.ts; keep one entry when merging.
+  {
+    id: 'veo-world-simulator-2025',
+    title: 'Evaluating Gemini Robotics Policies in a Veo World Simulator',
+    authors: ['Gemini Robotics Team', 'Krzysztof Choromanski', 'Coline Devin', 'Yilun Du', 'Debidatta Dwibedi', 'Ruiqi Gao', 'Abhishek Jindal', 'Thomas Kipf', 'Sean Kirmani', 'Isabel Leal', 'Fangchen Liu', 'Anirudha Majumdar', 'Andrew Marmon', 'Carolina Parada', 'Yulia Rubanova', 'Dhruv Shah', 'Vikas Sindhwani', 'Jie Tan', 'Fei Xia', 'Ted Xiao', 'Sherry Yang', 'Wenhao Yu', 'Allan Zhou'],
+    year: 2025,
+    arxiv: '2512.10675',
+    url: 'https://arxiv.org/abs/2512.10675',
+    type: 'paper',
+  },
+  // figure-index-2026: domain pass 2026-10-06, from drafts/manipulation/generalist-policies.citations.ts.
+  // Source pack pack-manipulation-2.md#16 for manipulation/generalist-policies; Vendor post dated
+  // August 25, 2026 (read 2026-10-04): "Our Creators, the network of individuals building this data,
+  // have uploaded over 16M videos to our app" / "committed to spend over $1B the next 12 months on
+  // data and compute".
+  {
+    id: 'figure-index-2026',
+    title: 'Introducing Index: Building The World\'s Largest and Most Diverse Physical Dataset',
+    authors: ['Figure AI'],
+    year: 2026,
+    venue: 'Figure news',
+    url: 'https://www.figure.ai/news/introducing-index',
+    type: 'blog',
+  },
+  // agibot-world-repo: domain pass 2026-10-06, from drafts/data-hardware/datasets.citations.ts; also drafts/manipulation/generalist-policies.citations.ts.
+  // Repository README read 2026-10-04: "AgiBot World Beta : Our complete dataset featuring 1,003,672
+  // trajectories" and "All the data and code within this repo are under CC BY-NC-SA 4.0".
+  // Organisation as author; no byline.
+  {
+    id: 'agibot-world-repo',
+    title: 'AgiBot-World (release repository)',
+    authors: ['OpenDriveLab'],
+    year: 'n.d.',
+    accessedOn: '2026-10-04',
+    venue: 'GitHub',
+    url: 'https://github.com/OpenDriveLab/AgiBot-World',
+    type: 'docs',
+  },
+  // acot-vla-2026: domain pass 2026-10-06, from drafts/manipulation/generalist-policies.citations.ts.
+  // Source pack pack-manipulation-2.md#19 for manipulation/generalist-policies.
+  {
+    id: 'acot-vla-2026',
+    title: 'ACoT-VLA: Action Chain-of-Thought for Vision-Language-Action Models',
+    authors: ['Linqing Zhong', 'Yi Liu', 'Yifei Wei', 'Ziyu Xiong', 'Maoqing Yao', 'Si Liu', 'Guanghui Ren'],
+    year: 2026,
+    venue: 'CVPR 2026',
+    arxiv: '2601.11404',
+    url: 'https://arxiv.org/abs/2601.11404',
+    type: 'paper',
+  },
+  // skild-brain-2025: domain pass 2026-10-06, from drafts/manipulation/generalist-policies.citations.ts.
+  // Source pack pack-manipulation-2.md#24 for manipulation/generalist-policies; Vendor post;
+  // article:published_time "29 July, 2025", article:author "Skild AI Team" (read 2026-10-04):
+  // "follows a hierarchical architecture: (1) a low-frequency high-level manipulation and navigation
+  // action policy which provides inputs to a (2) high-frequency low-level action policy".
+  {
+    id: 'skild-brain-2025',
+    title: 'Building the general-purpose robotic brain',
+    authors: ['Skild AI Team'],
+    year: 2025,
+    venue: 'Skild AI blog',
+    url: 'https://www.skild.ai/blogs/building-the-general-purpose-robotic-brain',
+    type: 'blog',
+  },
+  // skild-self-play-2026: domain pass 2026-10-06, from drafts/manipulation/generalist-policies.citations.ts.
+  // Source pack pack-manipulation-2.md#27 for manipulation/generalist-policies; Vendor post;
+  // article:published_time "Sep 23, 2026", article:author "Skild Team" (read 2026-10-04): "After 140
+  // years of simulated play, we transferred the policy into a robot".
+  {
+    id: 'skild-self-play-2026',
+    title: 'Physical Self-Play',
+    authors: ['Skild Team'],
+    year: 2026,
+    venue: 'Skild AI blog',
+    url: 'https://www.skild.ai/blogs/physical-self-play',
+    type: 'blog',
+  },
+  // skild-arr-2026: domain pass 2026-10-06, from drafts/manipulation/generalist-policies.citations.ts.
+  // Source pack pack-manipulation-2.md#28 for manipulation/generalist-policies; Vendor post;
+  // article:published_time "Sep 10, 2026", article:author "Deepak Pathak and Abhinav Gupta" (read
+  // 2026-10-04): "We have crossed $100M in annual recurring revenue." / "In ten months, we've scaled
+  // to 60+ paying customers".
+  {
+    id: 'skild-arr-2026',
+    title: 'The Hidden Pillar of Robotics',
+    authors: ['Deepak Pathak', 'Abhinav Gupta'],
+    year: 2026,
+    venue: 'Skild AI blog',
+    url: 'https://www.skild.ai/blogs/skild-crosses-100m-arr',
+    type: 'blog',
+  },
+  // generalist-gen0-2025: domain pass 2026-10-06, from drafts/data-hardware/robot-learning-stack.citations.ts; also drafts/frontier/generalization.citations.ts, drafts/manipulation/generalist-policies.citations.ts.
+  // Conflict resolved: title follows the publisher's own citation block on
+  // https://generalistai.com/blog/gen-0 ("Please cite this work as: Generalist
+  // Team, 'GEN-0: Embodied Foundation Models That Scale with Physical
+  // Interaction', Generalist AI Blog, Nov 2025"). frontier/generalization used
+  // the page heading form with ' / '.
+  // Company research post dated November 4, 2025, byline "Generalist Team" (read 2026-10-04). Corpus
+  // figures (270,000+ hours, 10,000 hours a week) are company-reported. Title as in the post's own
+  // "Please cite this work as" block (the page heading prints "GEN-0 /"), matching
+  // drafts/manipulation/generalist-policies.citations.ts (fix 2026-10-04).
+  {
+    id: 'generalist-gen0-2025',
+    title: 'GEN-0: Embodied Foundation Models That Scale with Physical Interaction',
+    authors: ['Generalist Team'],
+    year: 2025,
+    venue: 'Generalist AI blog',
+    url: 'https://generalistai.com/blog/gen-0',
+    type: 'blog',
+  },
+  // pi0-blog-2024: domain pass 2026-10-06, from drafts/manipulation/pi-line.citations.ts.
+  // Source pack pack-manipulation-3.md#1 for manipulation/pi-line; PI post published October 31,
+  // 2024; pi.website returns 429 to scripted requests, so read via the Wayback capture of 2026-09-22
+  // (2026-10-04): "We use a smaller 3 billion parameter VLM as a starting point" / "our own datasets
+  // consisting of dexterous tasks from 8 distinct robots".
+  {
+    id: 'pi0-blog-2024',
+    title: 'π0: Our First Generalist Policy',
+    authors: ['Kevin Black', 'Noah Brown', 'Danny Driess', 'Michael Equi', 'Adnan Esmail', 'Chelsea Finn', 'Nick Fusai', 'Lachy Groom', 'Karol Hausman', 'Brian Ichter', 'Szymon Jakubczak', 'Tim Jones', 'Kay Ke', 'Sergey Levine', 'Adrian Li-Bell', 'Mohith Mothukuri', 'Suraj Nair', 'Karl Pertsch', 'Lucy Shi', 'James Tanner', 'Quan Vuong', 'Anna Walling', 'Haohuan Wang', 'Ury Zhilinsky'],
+    year: 2024,
+    venue: 'Physical Intelligence',
+    url: 'https://www.pi.website/blog/pi0',
+    type: 'blog',
+  },
+  // openpi-blog-2025: domain pass 2026-10-06, from drafts/manipulation/pi-line.citations.ts.
+  // Source pack pack-manipulation-3.md#2 for manipulation/pi-line; PI post published February 4,
+  // 2025; pi.website returns 429 to scripted requests, so read via the Wayback capture of 2026-09-23
+  // (2026-10-04): "Today, we are releasing the code and weights for the π0 as part of our
+  // experimental openpi repository." / "between 1 and 20 hours of data was sufficient to fine-tune
+  // to a variety of tasks" / "The model is trained on OXE and 7 of our robot platforms.".
+  {
+    id: 'openpi-blog-2025',
+    title: 'Open Sourcing π0',
+    authors: ['Physical Intelligence'],
+    year: 2025,
+    venue: 'Physical Intelligence',
+    url: 'https://www.pi.website/blog/openpi',
+    type: 'blog',
+  },
+  // jetson-ai-lab-openpi-thor: domain pass 2026-10-06, from drafts/manipulation/pi-line.citations.ts; also drafts/manipulation/realtime-execution.citations.ts.
+  // Source pack pack-manipulation-3.md#26 for manipulation/pi-line; same source and id also proposed
+  // in drafts/manipulation/realtime-execution.citations.ts; register once. Fix 2026-10-04: aligned
+  // with the realtime-execution copy (page prints authors Aditya Sahu and Anqi Liu and no date;
+  // title "OpenPi π₀.₅ on Jetson Thor").
+  {
+    id: 'jetson-ai-lab-openpi-thor',
+    title: 'OpenPi π₀.₅ on Jetson Thor',
+    authors: ['Aditya Sahu', 'Anqi Liu'],
+    year: 'n.d.',
+    accessedOn: '2026-10-04',
+    venue: 'official tutorial',
+    url: 'https://www.jetson-ai-lab.com/tutorials/openpi_on_thor/',
+    type: 'docs',
+  },
+  // pi-fast-blog-2025: domain pass 2026-10-06, from drafts/manipulation/pi-line.citations.ts.
+  // Source pack pack-manipulation-3.md#9 for manipulation/pi-line; PI post published January 16,
+  // 2025; pi.website returns 429 to scripted requests, so read via the Wayback capture of 2026-07-30
+  // (2026-10-04): "we are releasing a general-purpose variant of the FAST tokenizer trained on 1M
+  // real robot action sequences".
+  {
+    id: 'pi-fast-blog-2025',
+    title: 'FAST: Efficient Robot Action Tokenization',
+    authors: ['Karl Pertsch', 'Kyle Stachowicz', 'Brian Ichter', 'Danny Driess', 'Suraj Nair', 'Quan Vuong', 'Oier Mees', 'Chelsea Finn', 'Sergey Levine'],
+    year: 2025,
+    venue: 'Physical Intelligence',
+    url: 'https://www.pi.website/research/fast',
+    type: 'blog',
+  },
+  // hi-robot-blog-2025: domain pass 2026-10-06, from drafts/manipulation/pi-line.citations.ts.
+  // Source pack pack-manipulation-3.md#10 for manipulation/pi-line; PI post published February 26,
+  // 2025; pi.website returns 429 to scripted requests, so read via the Wayback capture of 2026-07-30
+  // (2026-10-04): "π0 serves as the instinctual, reactive \"System 1\"" / "This high-level policy is
+  // itself a VLM (in fact, it uses exactly the same VLM backbone as π0)".
+  {
+    id: 'hi-robot-blog-2025',
+    title: 'Teaching Robots to Listen and Think Harder',
+    authors: ['Lucy Shi', 'Brian Ichter', 'Michael Equi', 'Liyiming Ke', 'Karl Pertsch', 'Quan Vuong', 'James Tanner', 'Anna Walling', 'Haohuan Wang', 'Niccolo Fusai', 'Adrian Li-Bell', 'Danny Driess', 'Lachy Groom', 'Sergey Levine', 'Chelsea Finn'],
+    year: 2025,
+    venue: 'Physical Intelligence',
+    url: 'https://www.pi.website/research/hirobot',
+    type: 'blog',
+  },
+  // gemma3-2025: domain pass 2026-10-06, from drafts/manipulation/pi-line.citations.ts.
+  // Source pack pack-manipulation-3.md#13 for manipulation/pi-line.
+  {
+    id: 'gemma3-2025',
+    title: 'Gemma 3 Technical Report',
+    authors: ['Gemma Team', 'Aishwarya Kamath', 'Johan Ferret', 'Shreya Pathak', 'Nino Vieillard', 'Ramona Merhej', 'Sarah Perrin', 'Tatiana Matejovicova', 'Alexandre Ramé', 'Morgane Rivière', 'Louis Rouillard', 'Thomas Mesnard', 'Geoffrey Cideron', 'Jean-bastien Grill', 'Sabela Ramos', 'Edouard Yvinec', 'Michelle Casbon', 'Etienne Pot', 'Ivo Penchev', 'Gaël Liu', 'Francesco Visin', 'Kathleen Kenealy', 'Lucas Beyer', 'Xiaohai Zhai', 'Anton Tsitsulin', 'Robert Busa-Fekete', 'Alex Feng', 'Noveen Sachdeva', 'Benjamin Coleman', 'Yi Gao', 'Basil Mustafa', 'Iain Barr', 'Emilio Parisotto', 'David Tian', 'Matan Eyal', 'Colin Cherry', 'Jan-Thorsten Peter', 'Danila Sinopalnikov', 'Surya Bhupatiraju', 'Rishabh Agarwal', 'Mehran Kazemi', 'Dan Malkin', 'Ravin Kumar', 'David Vilar', 'Idan Brusilovsky', 'Jiaming Luo', 'Andreas Steiner', 'Abe Friesen', 'Abhanshu Sharma', 'Abheesht Sharma', 'Adi Mayrav Gilady', 'Adrian Goedeckemeyer', 'Alaa Saade', 'Alex Feng', 'Alexander Kolesnikov', 'Alexei Bendebury', 'Alvin Abdagic', 'Amit Vadi', 'András György', 'André Susano Pinto', 'Anil Das', 'Ankur Bapna', 'Antoine Miech', 'Antoine Yang', 'Antonia Paterson', 'Ashish Shenoy', 'Ayan Chakrabarti', 'Bilal Piot', 'Bo Wu', 'Bobak Shahriari', 'Bryce Petrini', 'Charlie Chen', 'Charline Le Lan', 'Christopher A. Choquette-Choo', 'CJ Carey', 'Cormac Brick', 'Daniel Deutsch', 'Danielle Eisenbud', 'Dee Cattle', 'Derek Cheng', 'Dimitris Paparas', 'Divyashree Shivakumar Sreepathihalli', 'Doug Reid', 'Dustin Tran', 'Dustin Zelle', 'Eric Noland', 'Erwin Huizenga', 'Eugene Kharitonov', 'Frederick Liu', 'Gagik Amirkhanyan', 'Glenn Cameron', 'Hadi Hashemi', 'Hanna Klimczak-Plucińska', 'Harman Singh', 'Harsh Mehta', 'Harshal Tushar Lehri', 'Hussein Hazimeh', 'Ian Ballantyne', 'Idan Szpektor', 'Ivan Nardini', 'Jean Pouget-Abadie', 'Jetha Chan', 'Joe Stanton', 'John Wieting', 'Jonathan Lai', 'Jordi Orbay', 'Joseph Fernandez', 'Josh Newlan', 'Ju-yeong Ji', 'Jyotinder Singh', 'Kat Black', 'Kathy Yu', 'Kevin Hui', 'Kiran Vodrahalli', 'Klaus Greff', 'Linhai Qiu', 'Marcella Valentine', 'Marina Coelho', 'Marvin Ritter', 'Matt Hoffman', 'Matthew Watson', 'Mayank Chaturvedi', 'Michael Moynihan', 'Min Ma', 'Nabila Babar', 'Natasha Noy', 'Nathan Byrd', 'Nick Roy', 'Nikola Momchev', 'Nilay Chauhan', 'Noveen Sachdeva', 'Oskar Bunyan', 'Pankil Botarda', 'Paul Caron', 'Paul Kishan Rubenstein', 'Phil Culliton', 'Philipp Schmid', 'Pier Giuseppe Sessa', 'Pingmei Xu', 'Piotr Stanczyk', 'Pouya Tafti', 'Rakesh Shivanna', 'Renjie Wu', 'Renke Pan', 'Reza Rokni', 'Rob Willoughby', 'Rohith Vallu', 'Ryan Mullins', 'Sammy Jerome', 'Sara Smoot', 'Sertan Girgin', 'Shariq Iqbal', 'Shashir Reddy', 'Shruti Sheth', 'Siim Põder', 'Sijal Bhatnagar', 'Sindhu Raghuram Panyam', 'Sivan Eiger', 'Susan Zhang', 'Tianqi Liu', 'Trevor Yacovone', 'Tyler Liechty', 'Uday Kalra', 'Utku Evci', 'Vedant Misra', 'Vincent Roseberry', 'Vlad Feinberg', 'Vlad Kolesnikov', 'Woohyun Han', 'Woosuk Kwon', 'Xi Chen', 'Yinlam Chow', 'Yuvein Zhu', 'Zichuan Wei', 'Zoltan Egyed', 'Victor Cotruta', 'Minh Giang', 'Phoebe Kirk', 'Anand Rao', 'Kat Black', 'Nabila Babar', 'Jessica Lo', 'Erica Moreira', 'Luiz Gustavo Martins', 'Omar Sanseviero', 'Lucas Gonzalez', 'Zach Gleicher', 'Tris Warkentin', 'Vahab Mirrokni', 'Evan Senter', 'Eli Collins', 'Joelle Barral', 'Zoubin Ghahramani', 'Raia Hadsell', 'Yossi Matias', 'D. Sculley', 'Slav Petrov', 'Noah Fiedel', 'Noam Shazeer', 'Oriol Vinyals', 'Jeff Dean', 'Demis Hassabis', 'Koray Kavukcuoglu', 'Clement Farabet', 'Elena Buchatskaya', 'Jean-Baptiste Alayrac', 'Rohan Anil', 'Dmitry', 'Lepikhin', 'Sebastian Borgeaud', 'Olivier Bachem', 'Armand Joulin', 'Alek Andreev', 'Cassidy Hardin', 'Robert Dadashi', 'Léonard Hussenot'],
+    year: 2025,
+    arxiv: '2503.19786',
+    url: 'https://arxiv.org/abs/2503.19786',
+    type: 'paper',
+  },
+  // pi-partner-2026: domain pass 2026-10-06, from drafts/manipulation/pi-line.citations.ts.
+  // Source pack pack-manipulation-3.md#21 for manipulation/pi-line; PI post published February 24,
+  // 2026; pi.website returns 429 to scripted requests, so read via the Wayback capture of 2026-07-30
+  // (2026-10-04): "Continuous shot of π0.6 packaging orders at Ultra's customer site for a full
+  // shift at 96.4% autonomy.".
+  {
+    id: 'pi-partner-2026',
+    title: 'The Physical Intelligence Layer',
+    authors: ['Physical Intelligence'],
+    year: 2026,
+    venue: 'Physical Intelligence',
+    url: 'https://www.pi.website/blog/partner',
+    type: 'blog',
+  },
+  // cfgrl-2025: domain pass 2026-10-06, from drafts/manipulation/pi-line.citations.ts.
+  // Source pack pack-manipulation-3.md#15 for manipulation/pi-line.
+  {
+    id: 'cfgrl-2025',
+    title: 'Diffusion Guidance Is a Controllable Policy Improvement Operator',
+    authors: ['Kevin Frans', 'Seohong Park', 'Pieter Abbeel', 'Sergey Levine'],
+    year: 2025,
+    arxiv: '2505.23458',
+    url: 'https://arxiv.org/abs/2505.23458',
+    type: 'paper',
+  },
+  // mem-blog-2026: domain pass 2026-10-06, from drafts/manipulation/pi-line.citations.ts.
+  // Source pack pack-manipulation-3.md#19 for manipulation/pi-line; PI post published March 3, 2026;
+  // pi.website returns 429 to scripted requests, so read via the Wayback capture of 2026-08-31
+  // (2026-10-04): "MEM VLAs can solve tasks that require up to 15 minutes of memory".
+  {
+    id: 'mem-blog-2026',
+    title: 'VLAs with Long and Short-Term Memory',
+    authors: ['Marcel Torne', 'Karl Pertsch', 'Homer Walke', 'Kyle Vedder', 'Suraj Nair', 'Brian Ichter', 'Allen Ren', 'Haohuan Wang', 'Jiaming Tang', 'Kyle Stachowicz', 'Karan Dhabalia', 'Michael Equi', 'Quan Vuong', 'Jost Tobias Springenberg', 'Sergey Levine', 'Chelsea Finn', 'Danny Driess'],
+    year: 2026,
+    venue: 'Physical Intelligence',
+    url: 'https://www.pi.website/research/memory',
+    type: 'blog',
+  },
+  // rlt-2026: domain pass 2026-10-06, from drafts/manipulation/pi-line.citations.ts; also drafts/manipulation/rl-finetuning.citations.ts.
+  // Source pack pack-manipulation-3.md#20 for manipulation/pi-line; PI post published March 19,
+  // 2026; pi.website returns 429 to scripted requests, so read via the Wayback capture of 2026-09-14
+  // (2026-10-04): "Across four challenging manipulation tasks, RLT speeds up the most precise stages
+  // of each task by up to 3×" / "Training takes a total of two hours, with just 15 minutes of total
+  // robot data".
+  {
+    id: 'rlt-2026',
+    title: 'Precise Manipulation with Efficient Online RL',
+    authors: ['Charles Xu', 'Jost Tobias Springenberg', 'Michael Equi', 'Ali Amin', 'Adnan Esmail', 'Sergey Levine', 'Liyiming Ke'],
+    year: 2026,
+    venue: 'Physical Intelligence',
+    url: 'https://www.pi.website/research/rlt',
+    type: 'blog',
+  },
+  // bagel-2025: domain pass 2026-10-06, from drafts/manipulation/pi-line.citations.ts.
+  // Source pack pack-manipulation-3.md#22 for manipulation/pi-line.
+  {
+    id: 'bagel-2025',
+    title: 'Emerging Properties in Unified Multimodal Pretraining',
+    authors: ['Chaorui Deng', 'Deyao Zhu', 'Kunchang Li', 'Chenhui Gou', 'Feng Li', 'Zeyu Wang', 'Shu Zhong', 'Weihao Yu', 'Xiaonan Nie', 'Ziang Song', 'Guang Shi', 'Haoqi Fan'],
+    year: 2025,
+    arxiv: '2505.14683',
+    url: 'https://arxiv.org/abs/2505.14683',
+    type: 'paper',
+  },
+  // huang-zero-shot-planners-2022: domain pass 2026-10-06, from drafts/manipulation/hierarchical.citations.ts.
+  // Source pack pack-manipulation-3.md#2 for manipulation/hierarchical.
+  {
+    id: 'huang-zero-shot-planners-2022',
+    title: 'Language Models as Zero-Shot Planners: Extracting Actionable Knowledge for Embodied Agents',
+    authors: ['Wenlong Huang', 'Pieter Abbeel', 'Deepak Pathak', 'Igor Mordatch'],
+    year: 2022,
+    arxiv: '2201.07207',
+    url: 'https://arxiv.org/abs/2201.07207',
+    type: 'paper',
+  },
+  // inner-monologue-2022: domain pass 2026-10-06, from drafts/manipulation/hierarchical.citations.ts.
+  // Source pack pack-manipulation-3.md#1 for manipulation/hierarchical.
+  {
+    id: 'inner-monologue-2022',
+    title: 'Inner Monologue: Embodied Reasoning through Planning with Language Models',
+    authors: ['Wenlong Huang', 'Fei Xia', 'Ted Xiao', 'Harris Chan', 'Jacky Liang', 'Pete Florence', 'Andy Zeng', 'Jonathan Tompson', 'Igor Mordatch', 'Yevgen Chebotar', 'Pierre Sermanet', 'Noah Brown', 'Tomas Jackson', 'Linda Luu', 'Sergey Levine', 'Karol Hausman', 'Brian Ichter'],
+    year: 2022,
+    arxiv: '2207.05608',
+    url: 'https://arxiv.org/abs/2207.05608',
+    type: 'paper',
+  },
+  // text2motion-2023: domain pass 2026-10-06, from drafts/manipulation/hierarchical.citations.ts.
+  // Source pack pack-manipulation-3.md#5 for manipulation/hierarchical.
+  {
+    id: 'text2motion-2023',
+    title: 'Text2Motion: From Natural Language Instructions to Feasible Plans',
+    authors: ['Kevin Lin', 'Christopher Agia', 'Toki Migimatsu', 'Marco Pavone', 'Jeannette Bohg'],
+    year: 2023,
+    arxiv: '2303.12153',
+    url: 'https://arxiv.org/abs/2303.12153',
+    type: 'paper',
+  },
+  // voxposer-2023: domain pass 2026-10-06, from drafts/manipulation/hierarchical.citations.ts.
+  // Source pack pack-manipulation-3.md#7 for manipulation/hierarchical.
+  {
+    id: 'voxposer-2023',
+    title: 'VoxPoser: Composable 3D Value Maps for Robotic Manipulation with Language Models',
+    authors: ['Wenlong Huang', 'Chen Wang', 'Ruohan Zhang', 'Yunzhu Li', 'Jiajun Wu', 'Li Fei-Fei'],
+    year: 2023,
+    arxiv: '2307.05973',
+    url: 'https://arxiv.org/abs/2307.05973',
+    type: 'paper',
+  },
+  // rt-trajectory-2023: domain pass 2026-10-06, from drafts/manipulation/hierarchical.citations.ts.
+  // Source pack pack-manipulation-3.md#11 for manipulation/hierarchical.
+  {
+    id: 'rt-trajectory-2023',
+    title: 'RT-Trajectory: Robotic Task Generalization via Hindsight Trajectory Sketches',
+    authors: ['Jiayuan Gu', 'Sean Kirmani', 'Paul Wohlhart', 'Yao Lu', 'Montserrat Gonzalez Arenas', 'Kanishka Rao', 'Wenhao Yu', 'Chuyuan Fu', 'Keerthana Gopalakrishnan', 'Zhuo Xu', 'Priya Sundaresan', 'Peng Xu', 'Hao Su', 'Karol Hausman', 'Chelsea Finn', 'Quan Vuong', 'Ted Xiao'],
+    year: 2023,
+    arxiv: '2311.01977',
+    url: 'https://arxiv.org/abs/2311.01977',
+    type: 'paper',
+  },
+  // hamster-2025: domain pass 2026-10-06, from drafts/manipulation/hierarchical.citations.ts.
+  // Source pack pack-manipulation-3.md#12 for manipulation/hierarchical.
+  {
+    id: 'hamster-2025',
+    title: 'HAMSTER: Hierarchical Action Models For Open-World Robot Manipulation',
+    authors: ['Yi Li', 'Yuquan Deng', 'Jesse Zhang', 'Joel Jang', 'Marius Memmel', 'Raymond Yu', 'Caelan Reed Garrett', 'Fabio Ramos', 'Dieter Fox', 'Anqi Li', 'Abhishek Gupta', 'Ankit Goyal'],
+    year: 2025,
+    arxiv: '2502.05485',
+    url: 'https://arxiv.org/abs/2502.05485',
+    type: 'paper',
+  },
+  // robobrain-25-2026: domain pass 2026-10-06, from drafts/manipulation/hierarchical.citations.ts.
+  // Source pack pack-manipulation-3.md#14 for manipulation/hierarchical.
+  {
+    id: 'robobrain-25-2026',
+    title: 'RoboBrain 2.5: Depth in Sight, Time in Mind',
+    authors: ['Huajie Tan', 'Enshen Zhou', 'Zhiyu Li', 'Yijie Xu', 'Yuheng Ji', 'Xiansheng Chen', 'Cheng Chi', 'Pengwei Wang', 'Huizhu Jia', 'Yulong Ao', 'Mingyu Cao', 'Sixiang Chen', 'Zhe Li', 'Mengzhen Liu', 'Zixiao Wang', 'Shanyu Rong', 'Yaoxu Lyu', 'Zhongxia Zhao', 'Peterson Co', 'Yibo Li', 'Yi Han', 'Shaoxuan Xie', 'Guocai Yao', 'Songjing Wang', 'Leiduo Zhang', 'Xi Yang', 'Yance Jiao', 'Donghai Shi', 'Kunchang Xie', 'Shaokai Nie', 'Chunlei Men', 'Yonghua Lin', 'Zhongyuan Wang', 'Tiejun Huang', 'Shanghang Zhang'],
+    year: 2026,
+    arxiv: '2601.14352',
+    url: 'https://arxiv.org/abs/2601.14352',
+    type: 'paper',
+  },
+  // rt-h-2024: domain pass 2026-10-06, from drafts/manipulation/hierarchical.citations.ts.
+  // Source pack pack-manipulation-3.md#16 for manipulation/hierarchical.
+  {
+    id: 'rt-h-2024',
+    title: 'RT-H: Action Hierarchies Using Language',
+    authors: ['Suneel Belkhale', 'Tianli Ding', 'Ted Xiao', 'Pierre Sermanet', 'Quon Vuong', 'Jonathan Tompson', 'Yevgen Chebotar', 'Debidatta Dwibedi', 'Dorsa Sadigh'],
+    year: 2024,
+    arxiv: '2403.01823',
+    url: 'https://arxiv.org/abs/2403.01823',
+    type: 'paper',
+  },
+  // cot-vla-2025: domain pass 2026-10-06, from drafts/manipulation/hierarchical.citations.ts.
+  // Source pack pack-manipulation-3.md#22 for manipulation/hierarchical.
+  {
+    id: 'cot-vla-2025',
+    title: 'CoT-VLA: Visual Chain-of-Thought Reasoning for Vision-Language-Action Models',
+    authors: ['Qingqing Zhao', 'Yao Lu', 'Moo Jin Kim', 'Zipeng Fu', 'Zhuoyang Zhang', 'Yecheng Wu', 'Zhaoshuo Li', 'Qianli Ma', 'Song Han', 'Chelsea Finn', 'Ankur Handa', 'Ming-Yu Liu', 'Donglai Xiang', 'Gordon Wetzstein', 'Tsung-Yi Lin'],
+    year: 2025,
+    arxiv: '2503.22020',
+    url: 'https://arxiv.org/abs/2503.22020',
+    type: 'paper',
+  },
+  // molmoact-2025: domain pass 2026-10-06, from drafts/classical/perception.citations.ts; also drafts/manipulation/hierarchical.citations.ts.
+  // arXiv 2508.07917 abstract: "Our model, MolmoAct, encodes observations and instructions into
+  // depth-aware perception tokens, generates mid-level spatial plans as editable trajectory traces,
+  // and predicts precise low-level actions".
+  {
+    id: 'molmoact-2025',
+    title: 'MolmoAct: Action Reasoning Models that can Reason in Space',
+    authors: ['Jason Lee', 'Jiafei Duan', 'Haoquan Fang', 'Yuquan Deng', 'Shuo Liu', 'Boyang Li', 'Bohan Fang', 'Jieyu Zhang', 'Yi Ru Wang', 'Sangho Lee', 'Winson Han', 'Wilbert Pumacay', 'Angelica Wu', 'Rose Hendrix', 'Karen Farley', 'Eli VanderBilt', 'Ali Farhadi', 'Dieter Fox', 'Ranjay Krishna'],
+    year: 2025,
+    arxiv: '2508.07917',
+    url: 'https://arxiv.org/abs/2508.07917',
+    type: 'paper',
+  },
+  // fast-in-slow-2025: domain pass 2026-10-06, from drafts/manipulation/hierarchical.citations.ts; also drafts/manipulation/realtime-execution.citations.ts.
+  // Source pack pack-manipulation-3.md#19 for manipulation/hierarchical; same source and id also
+  // proposed in drafts/manipulation/realtime-execution.citations.ts; register once.
+  {
+    id: 'fast-in-slow-2025',
+    title: 'Fast-in-Slow: A Dual-System Foundation Model Unifying Fast Manipulation within Slow Reasoning',
+    authors: ['Hao Chen', 'Jiaming Liu', 'Chenyang Gu', 'Zhuoyang Liu', 'Renrui Zhang', 'Xiaoqi Li', 'Xiao He', 'Yandong Guo', 'Chi-Wing Fu', 'Shanghang Zhang', 'Pheng-Ann Heng'],
+    year: 2025,
+    arxiv: '2506.01953',
+    url: 'https://arxiv.org/abs/2506.01953',
+    type: 'paper',
+  },
+  // vista-2026: domain pass 2026-10-06, from drafts/manipulation/hierarchical.citations.ts.
+  // Source pack pack-manipulation-3.md#29 for manipulation/hierarchical.
+  {
+    id: 'vista-2026',
+    title: 'Scaling World Model for Hierarchical Manipulation Policies',
+    authors: ['Qian Long', 'Yueze Wang', 'Jiaxi Song', 'Junbo Zhang', 'Peiyan Li', 'Wenxuan Wang', 'Yuqi Wang', 'Haoyang Li', 'Shaoxuan Xie', 'Guocai Yao', 'Hanbo Zhang', 'Xinlong Wang', 'Zhongyuan Wang', 'Xuguang Lan', 'Huaping Liu', 'Xinghang Li'],
+    year: 2026,
+    arxiv: '2602.10983',
+    url: 'https://arxiv.org/abs/2602.10983',
+    type: 'paper',
+  },
+  // gemini-robotics-er-15-dev-2025: domain pass 2026-10-06, from drafts/manipulation/hierarchical.citations.ts.
+  // Source pack pack-manipulation-3.md#24 for manipulation/hierarchical; Google post; datePublished
+  // 2025-09-25, authors Kendra Byrne and Fei Xia (read 2026-10-04): "This is the first Gemini
+  // Robotics model to be made broadly available. It acts as a high-level reasoning model for a
+  // robot." / "can call a vision-language-action model (VLA) or any other third-party user-defined
+  // functions to execute the task".
+  {
+    id: 'gemini-robotics-er-15-dev-2025',
+    title: 'Building the Next Generation of Physical Agents with Gemini Robotics-ER 1.5',
+    authors: ['Kendra Byrne', 'Fei Xia'],
+    year: 2025,
+    venue: 'Google Developers Blog',
+    url: 'https://developers.googleblog.com/building-the-next-generation-of-physical-agents-with-gemini-robotics-er-15/',
+    type: 'blog',
+  },
+  // orchestrating-policies-2026: domain pass 2026-10-06, from drafts/manipulation/hierarchical.citations.ts.
+  // Source pack pack-manipulation-3.md#27 for manipulation/hierarchical.
+  {
+    id: 'orchestrating-policies-2026',
+    title: 'What Matters in Orchestrating Robot Policies: A Systematic Study of Hierarchical VLA Agents',
+    authors: ['Jiaheng Hu', 'Mohit Shridhar', 'Caden Lu', 'Dhruv Shah', 'Hao-Tien Lewis Chiang', 'Jie Tan', 'Annie Xie'],
+    year: 2026,
+    arxiv: '2606.10267',
+    url: 'https://arxiv.org/abs/2606.10267',
+    type: 'paper',
+  },
+  // fast-plans-2026: domain pass 2026-10-06, from drafts/manipulation/hierarchical.citations.ts.
+  // Source pack pack-manipulation-3.md#28 for manipulation/hierarchical.
+  {
+    id: 'fast-plans-2026',
+    title: 'Fast Plans, Faithful Actions: Closing the Planning-Execution Gap in Hierarchical Vision-Language-Action Models',
+    authors: ['Chuanliang Xie', 'Boyu Ma', 'Gen Li', 'Yizhou Liu', 'Houwang Chen', 'Xinyu Zhou', 'Jianfei Yang'],
+    year: 2026,
+    arxiv: '2609.30833',
+    url: 'https://arxiv.org/abs/2609.30833',
+    type: 'paper',
+  },
+  // nvidia-jetson-thor-available-2025: domain pass 2026-10-06, from drafts/data-hardware/hardware-taxonomy.citations.ts; also drafts/manipulation/realtime-execution.citations.ts.
+  // Same id as drafts/manipulation/realtime-execution.citations.ts; keep one entry when merging.
+  // Dated August 25, 2025 (read 2026-10-04): "The NVIDIA Jetson AGX Thor developer kit is available
+  // now starting at $3,499"; "up to 7.5x higher AI compute and 3.5x greater energy efficiency".
+  {
+    id: 'nvidia-jetson-thor-available-2025',
+    title: 'NVIDIA Blackwell-Powered Jetson Thor Now Available, Accelerating the Age of General Robotics',
+    authors: ['NVIDIA'],
+    year: 2025,
+    venue: 'press release',
+    url: 'https://nvidianews.nvidia.com/news/nvidia-blackwell-powered-jetson-thor-now-available-accelerating-the-age-of-general-robotics',
+    type: 'press',
+  },
+  // vlash-2025: domain pass 2026-10-06, from drafts/manipulation/realtime-execution.citations.ts.
+  // Source pack pack-manipulation-3.md#9 for manipulation/realtime-execution.
+  {
+    id: 'vlash-2025',
+    title: 'VLASH: Real-Time VLAs via Future-State-Aware Asynchronous Inference',
+    authors: ['Jiaming Tang', 'Yufei Sun', 'Yilong Zhao', 'Shang Yang', 'Yujun Lin', 'Zhuoyang Zhang', 'James Hou', 'Yao Lu', 'Zhijian Liu', 'Song Han'],
+    year: 2025,
+    arxiv: '2512.01031',
+    url: 'https://arxiv.org/abs/2512.01031',
+    type: 'paper',
+  },
+  // futurertc-2026: domain pass 2026-10-06, from drafts/manipulation/realtime-execution.citations.ts.
+  // Source pack pack-manipulation-3.md#12 for manipulation/realtime-execution.
+  {
+    id: 'futurertc-2026',
+    title: 'FutureRTC: Real-Time Robot Execution with Anticipatory-Conditioned Action Chunking',
+    authors: ['Hai Jiang', 'Yixian Zou', 'Binbin Liang', 'Boqian Liu', 'Fanman Meng', 'Shuaicheng Liu'],
+    year: 2026,
+    arxiv: '2607.24008',
+    url: 'https://arxiv.org/abs/2607.24008',
+    type: 'paper',
+  },
+  // event-triggered-vla-2026: domain pass 2026-10-06, from drafts/manipulation/realtime-execution.citations.ts.
+  // Source pack pack-manipulation-3.md#13 for manipulation/realtime-execution.
+  {
+    id: 'event-triggered-vla-2026',
+    title: 'React When You Need To: Event-Triggered Asynchronous Inference for VLA Policies',
+    authors: ['Yansong Wu', 'Huaqing Li', 'Tianding Hou', 'Lingyun Chen', 'Alois Knoll'],
+    year: 2026,
+    arxiv: '2609.22587',
+    url: 'https://arxiv.org/abs/2609.22587',
+    type: 'paper',
+  },
+  // lerobot-async-inference-2025: domain pass 2026-10-06, from drafts/manipulation/realtime-execution.citations.ts.
+  // Source pack pack-manipulation-3.md#7 for manipulation/realtime-execution; Hugging Face blog,
+  // published July 10, 2025; byline read from the page.
+  {
+    id: 'lerobot-async-inference-2025',
+    title: 'Asynchronous Robot Inference: Decoupling Action Prediction and Execution',
+    authors: ['Francesco Capuano', 'Steven Palma', 'Michel Aractingi', 'Mustafa Shukor', 'Dana Aubakirova', 'Adil Zouitine', 'Simon Alibert', 'Remi Cadene'],
+    year: 2025,
+    venue: 'official post',
+    url: 'https://huggingface.co/blog/async-robot-inference',
+    type: 'blog',
+  },
+  // soft-rtc-2026: domain pass 2026-10-06, from drafts/manipulation/realtime-execution.citations.ts.
+  // Source pack pack-manipulation-3.md#3 for manipulation/realtime-execution.
+  {
+    id: 'soft-rtc-2026',
+    title: 'Action-Prior Denoising for Smooth Real-Time Chunking',
+    authors: ['Dongyang Liu', 'Zhaowen Zheng', 'Yu Sun', 'Longxu Zhang', 'Yixuan Liu', 'Hao Wan'],
+    year: 2026,
+    arxiv: '2605.25537',
+    url: 'https://arxiv.org/abs/2605.25537',
+    type: 'paper',
+  },
+  // faster-flow-vla-2026: domain pass 2026-10-06, from drafts/manipulation/realtime-execution.citations.ts.
+  // Source pack pack-manipulation-3.md#11 for manipulation/realtime-execution.
+  {
+    id: 'faster-flow-vla-2026',
+    title: 'FASTER: Rethinking Real-Time Flow VLAs',
+    authors: ['Yuxiang Lu', 'Zhe Liu', 'Xianzhe Fan', 'Zhenya Yang', 'Jinghua Hou', 'Junyi Li', 'Kaixin Ding', 'Hengshuang Zhao'],
+    year: 2026,
+    arxiv: '2603.19199',
+    url: 'https://arxiv.org/abs/2603.19199',
+    type: 'paper',
+  },
+  // ire-vla-2025: domain pass 2026-10-06, from drafts/manipulation/rl-finetuning.citations.ts.
+  // Source pack pack-manipulation-4.md#27 for manipulation/rl-finetuning.
+  {
+    id: 'ire-vla-2025',
+    title: 'Improving Vision-Language-Action Model with Online Reinforcement Learning',
+    authors: ['Yanjiang Guo', 'Jianke Zhang', 'Xiaoyu Chen', 'Xiang Ji', 'Yen-Jen Wang', 'Yucheng Hu', 'Jianyu Chen'],
+    year: 2025,
+    venue: 'ICRA 2025',
+    arxiv: '2501.16664',
+    url: 'https://arxiv.org/abs/2501.16664',
+    type: 'paper',
+  },
+  // ddpo-2023: domain pass 2026-10-06, from drafts/manipulation/rl-finetuning.citations.ts.
+  // Source pack pack-manipulation-4.md#2 for manipulation/rl-finetuning.
+  {
+    id: 'ddpo-2023',
+    title: 'Training Diffusion Models with Reinforcement Learning',
+    authors: ['Kevin Black', 'Michael Janner', 'Yilun Du', 'Ilya Kostrikov', 'Sergey Levine'],
+    year: 2023,
+    arxiv: '2305.13301',
+    url: 'https://arxiv.org/abs/2305.13301',
+    type: 'paper',
+  },
+  // reinflow-2025: domain pass 2026-10-06, from drafts/manipulation/rl-finetuning.citations.ts.
+  // Source pack pack-manipulation-4.md#6 for manipulation/rl-finetuning.
+  {
+    id: 'reinflow-2025',
+    title: 'ReinFlow: Fine-tuning Flow Matching Policy with Online Reinforcement Learning',
+    authors: ['Tonghe Zhang', 'Chao Yu', 'Sichang Su', 'Yu Wang'],
+    year: 2025,
+    arxiv: '2505.22094',
+    url: 'https://arxiv.org/abs/2505.22094',
+    type: 'paper',
+  },
+  // fpo-2025: domain pass 2026-10-06, from drafts/manipulation/rl-finetuning.citations.ts.
+  // Source pack pack-manipulation-4.md#7 for manipulation/rl-finetuning.
+  {
+    id: 'fpo-2025',
+    title: 'Flow Matching Policy Gradients',
+    authors: ['David McAllister', 'Songwei Ge', 'Brent Yi', 'Chung Min Kim', 'Ethan Weber', 'Hongsuk Choi', 'Haiwen Feng', 'Angjoo Kanazawa'],
+    year: 2025,
+    arxiv: '2507.21053',
+    url: 'https://arxiv.org/abs/2507.21053',
+    type: 'paper',
+  },
+  // pa-rl-2024: domain pass 2026-10-06, from drafts/manipulation/rl-finetuning.citations.ts; also drafts/rl-sim2real/offline-rl.citations.ts.
+  // Source pack pack-manipulation-4.md#10 for manipulation/rl-finetuning; same source and id also
+  // proposed in drafts/rl-sim2real/offline-rl.citations.ts; register once.
+  {
+    id: 'pa-rl-2024',
+    title: 'Policy Agnostic RL: Offline RL and Online RL Fine-Tuning of Any Class and Backbone',
+    authors: ['Max Sobol Mark', 'Tian Gao', 'Georgia Gabriela Sampaio', 'Mohan Kumar Srirama', 'Archit Sharma', 'Chelsea Finn', 'Aviral Kumar'],
+    year: 2024,
+    arxiv: '2412.06685',
+    url: 'https://arxiv.org/abs/2412.06685',
+    type: 'paper',
+  },
+  // grpo-2024: domain pass 2026-10-06, from drafts/manipulation/rl-finetuning.citations.ts.
+  // Source pack pack-manipulation-4.md#5 for manipulation/rl-finetuning.
+  {
+    id: 'grpo-2024',
+    title: 'DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models',
+    authors: ['Zhihong Shao', 'Peiyi Wang', 'Qihao Zhu', 'Runxin Xu', 'Junxiao Song', 'Xiao Bi', 'Haowei Zhang', 'Mingchuan Zhang', 'Y. K. Li', 'Y. Wu', 'Daya Guo'],
+    year: 2024,
+    arxiv: '2402.03300',
+    url: 'https://arxiv.org/abs/2402.03300',
+    type: 'paper',
+  },
+  // cfg-2022: domain pass 2026-10-06, from drafts/manipulation/rl-finetuning.citations.ts.
+  // Source pack pack-manipulation-4.md#13 for manipulation/rl-finetuning.
+  {
+    id: 'cfg-2022',
+    title: 'Classifier-Free Diffusion Guidance',
+    authors: ['Jonathan Ho', 'Tim Salimans'],
+    year: 2022,
+    arxiv: '2207.12598',
+    url: 'https://arxiv.org/abs/2207.12598',
+    type: 'paper',
+  },
+  // awr-2019: domain pass 2026-10-06, from drafts/manipulation/rl-finetuning.citations.ts.
+  // Source pack pack-manipulation-4.md#12 for manipulation/rl-finetuning.
+  {
+    id: 'awr-2019',
+    title: 'Advantage-Weighted Regression: Simple and Scalable Off-Policy Reinforcement Learning',
+    authors: ['Xue Bin Peng', 'Aviral Kumar', 'Grace Zhang', 'Sergey Levine'],
+    year: 2019,
+    arxiv: '1910.00177',
+    url: 'https://arxiv.org/abs/1910.00177',
+    type: 'paper',
+  },
+  // residual-rl-2018: domain pass 2026-10-06, from drafts/manipulation/rl-finetuning.citations.ts.
+  // Source pack pack-manipulation-4.md#23 for manipulation/rl-finetuning.
+  {
+    id: 'residual-rl-2018',
+    title: 'Residual Reinforcement Learning for Robot Control',
+    authors: ['Tobias Johannink', 'Shikhar Bahl', 'Ashvin Nair', 'Jianlan Luo', 'Avinash Kumar', 'Matthias Loskyll', 'Juan Aparicio Ojea', 'Eugen Solowjow', 'Sergey Levine'],
+    year: 2018,
+    arxiv: '1812.03201',
+    url: 'https://arxiv.org/abs/1812.03201',
+    type: 'paper',
+  },
+  // lwd-2026: domain pass 2026-10-06, from drafts/manipulation/rl-finetuning.citations.ts.
+  // Source pack pack-manipulation-4.md#21 for manipulation/rl-finetuning.
+  {
+    id: 'lwd-2026',
+    title: 'Learning While Deploying: Fleet-Scale Reinforcement Learning for Generalist Robot Policies',
+    authors: ['Yi Wang', 'Xinchen Li', 'Pengwei Xie', 'Pu Yang', 'Buqing Nie', 'Yunuo Cai', 'Qinglin Zhang', 'Chendi Qu', 'Jeffrey Wu', 'Jianheng Song', 'Xinlin Ren', 'Jingshun Huang', 'Mingjie Pan', 'Siyuan Feng', 'Zhi Chen', 'Jianlan Luo'],
+    year: 2026,
+    arxiv: '2605.00416',
+    url: 'https://arxiv.org/abs/2605.00416',
+    type: 'paper',
+  },
+  // simplevla-rl-2025: domain pass 2026-10-06, from drafts/manipulation/rl-finetuning.citations.ts.
+  // Source pack pack-manipulation-4.md#30 for manipulation/rl-finetuning.
+  {
+    id: 'simplevla-rl-2025',
+    title: 'SimpleVLA-RL: Scaling VLA Training via Reinforcement Learning',
+    authors: ['Haozhan Li', 'Yuxin Zuo', 'Jiale Yu', 'Yuhao Zhang', 'Zhaohui Yang', 'Kaiyan Zhang', 'Xuekai Zhu', 'Yuchen Zhang', 'Tianxing Chen', 'Ganqu Cui', 'Dehui Wang', 'Dingxiang Luo', 'Yuchen Fan', 'Youbang Sun', 'Jia Zeng', 'Jiangmiao Pang', 'Shanghang Zhang', 'Yu Wang', 'Yao Mu', 'Bowen Zhou', 'Ning Ding'],
+    year: 2025,
+    arxiv: '2509.09674',
+    url: 'https://arxiv.org/abs/2509.09674',
+    type: 'paper',
+  },
+  // roboreward-2026: domain pass 2026-10-06, from drafts/manipulation/rl-finetuning.citations.ts.
+  // Source pack pack-manipulation-4.md#32 for manipulation/rl-finetuning.
+  {
+    id: 'roboreward-2026',
+    title: 'RoboReward: General-Purpose Vision-Language Reward Models for Robotics',
+    authors: ['Tony Lee', 'Andrew Wagenmaker', 'Karl Pertsch', 'Percy Liang', 'Sergey Levine', 'Chelsea Finn'],
+    year: 2026,
+    arxiv: '2601.00675',
+    url: 'https://arxiv.org/abs/2601.00675',
+    type: 'docs',
+  },
+  // ecomem-2026: domain pass 2026-10-06, KOL intake note of Jiajun Wu.
+  // Abstract page fetched 2026-10-06; submitted 30 September 2026.
+  {
+    id: 'ecomem-2026',
+    title: 'ECoMEM: Explicit Concept Memory for Memory-Dependent Robot Control',
+    authors: ['Yize Liu', 'Ke Wang', 'Mac Schwager', 'Yiqing Xu', 'Jiajun Wu'],
+    year: 2026,
+    arxiv: '2610.00801',
+    url: 'https://arxiv.org/abs/2610.00801',
+    type: 'paper',
+  },
+  // rpg-2026: domain pass 2026-10-06, KOL intake note of Pieter Abbeel.
+  // Abstract page fetched 2026-10-06; submitted 1 October 2026.
+  {
+    id: 'rpg-2026',
+    title: 'Reconstruct, Practice, Go Real: Guided Self-Improvement for Embodied Agents',
+    authors: [
+      'Yen-Jen Wang', 'Haozhe Jiang', 'Shuying Deng', 'Haoru Xue', 'Weirui Ye', 'Rocky Duan', 'Nika Haghtalab',
+      'S. Shankar Sastry', 'Pieter Abbeel', 'Haozhi Qi',
+    ],
+    year: 2026,
+    arxiv: '2610.02204',
+    url: 'https://arxiv.org/abs/2610.02204',
+    type: 'paper',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));
@@ -9564,7 +11711,10 @@ export const ORGANIZATION_CHIP_NAMES: ReadonlyMap<string, string> = new Map([
   ['EVST Engineering Team', 'EVST Engineering Team'],
   ['Figure AI', 'Figure AI'],
   ['Franka Robotics', 'Franka Robotics'],
+  ['GEAR Team', 'GEAR Team'],
   ['Gemini Robotics Team', 'Gemini Robotics Team'],
+  ['Gemma Team', 'Gemma Team'],
+  ['Generalist Team', 'Generalist Team'],
   ['Google DeepMind', 'Google DeepMind'],
   ['Hugging Face', 'Hugging Face'],
   ['International Federation of Robotics', 'International Federation of Robotics'],
@@ -9588,6 +11738,7 @@ export const ORGANIZATION_CHIP_NAMES: ReadonlyMap<string, string> = new Map([
   ['Seeed Studio', 'Seeed Studio'],
   ['Shadow Robot', 'Shadow Robot'],
   ['Skild AI Team', 'Skild AI Team'],
+  ['Skild Team', 'Skild Team'],
   ['Symbotic Inc.', 'Symbotic'],
   ['Tesla, Inc.', 'Tesla'],
   ['The Robot Report', 'The Robot Report'],

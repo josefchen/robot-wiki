@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3088,
+      "visibleTextLength": 3108,
       "header": {
         "present": true,
         "display": "flex",
@@ -5934,7 +5934,7 @@
     },
     {
       "route": "/how-robots-work/",
-      "visibleTextLength": 823,
+      "visibleTextLength": 793,
       "header": {
         "present": true,
         "display": "flex",
@@ -6260,7 +6260,7 @@
     },
     {
       "route": "/manipulation/action-chunking/",
-      "visibleTextLength": 21344,
+      "visibleTextLength": 22350,
       "header": {
         "present": true,
         "display": "flex",
@@ -6423,7 +6423,7 @@
     },
     {
       "route": "/manipulation/action-spaces/",
-      "visibleTextLength": 12931,
+      "visibleTextLength": 15727,
       "header": {
         "present": true,
         "display": "flex",
@@ -6586,7 +6586,7 @@
     },
     {
       "route": "/manipulation/bc-foundations/",
-      "visibleTextLength": 13050,
+      "visibleTextLength": 17450,
       "header": {
         "present": true,
         "display": "flex",
@@ -6749,7 +6749,7 @@
     },
     {
       "route": "/manipulation/comparison-matrix/",
-      "visibleTextLength": 19484,
+      "visibleTextLength": 20490,
       "header": {
         "present": true,
         "display": "flex",
@@ -6912,7 +6912,7 @@
     },
     {
       "route": "/manipulation/cross-embodiment/",
-      "visibleTextLength": 15788,
+      "visibleTextLength": 17683,
       "header": {
         "present": true,
         "display": "flex",
@@ -7075,7 +7075,7 @@
     },
     {
       "route": "/manipulation/diffusion-policy/",
-      "visibleTextLength": 14461,
+      "visibleTextLength": 17058,
       "header": {
         "present": true,
         "display": "flex",
@@ -7238,7 +7238,7 @@
     },
     {
       "route": "/manipulation/foundation-models/",
-      "visibleTextLength": 13805,
+      "visibleTextLength": 17905,
       "header": {
         "present": true,
         "display": "flex",
@@ -7401,7 +7401,7 @@
     },
     {
       "route": "/manipulation/generalist-policies/",
-      "visibleTextLength": 22096,
+      "visibleTextLength": 23031,
       "header": {
         "present": true,
         "display": "flex",
@@ -7564,7 +7564,7 @@
     },
     {
       "route": "/manipulation/hierarchical/",
-      "visibleTextLength": 20694,
+      "visibleTextLength": 22548,
       "header": {
         "present": true,
         "display": "flex",
@@ -7727,7 +7727,7 @@
     },
     {
       "route": "/manipulation/knowledge-insulation/",
-      "visibleTextLength": 11794,
+      "visibleTextLength": 15928,
       "header": {
         "present": true,
         "display": "flex",
@@ -7890,7 +7890,7 @@
     },
     {
       "route": "/manipulation/pi-line/",
-      "visibleTextLength": 24211,
+      "visibleTextLength": 24516,
       "header": {
         "present": true,
         "display": "flex",
@@ -8053,7 +8053,7 @@
     },
     {
       "route": "/manipulation/realtime-execution/",
-      "visibleTextLength": 17049,
+      "visibleTextLength": 19819,
       "header": {
         "present": true,
         "display": "flex",
@@ -8216,7 +8216,7 @@
     },
     {
       "route": "/manipulation/rl-finetuning/",
-      "visibleTextLength": 37773,
+      "visibleTextLength": 35991,
       "header": {
         "present": true,
         "display": "flex",
@@ -8379,7 +8379,7 @@
     },
     {
       "route": "/manipulation/robot-learning-roadmap/",
-      "visibleTextLength": 10658,
+      "visibleTextLength": 15185,
       "header": {
         "present": true,
         "display": "flex",
@@ -8542,7 +8542,7 @@
     },
     {
       "route": "/manipulation/vla-models/",
-      "visibleTextLength": 19783,
+      "visibleTextLength": 22108,
       "header": {
         "present": true,
         "display": "flex",

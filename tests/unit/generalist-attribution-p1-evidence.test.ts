@@ -11,7 +11,8 @@ import { BASELINE_KINDS, buildManifest, compareBaseline, sha256, type ApprovedDe
 import { collectArticleTruthManifests } from '../../scripts/brand-v2-baseline';
 import { headReanchorFor, integratedHash, laneWindow, reanchorFor, sealedHash, showAt } from './helpers/continuation-merge-ledger';
 import { committedSource } from '../helpers/continuation-integration';
-import { preSeoPassHash, preSeoPassText } from '../helpers/seo-pass';
+import { preDomainPass, preSeoPassHash, preSeoPassText } from '../helpers/seo-pass';
+import { preDomainPassCitations } from '../helpers/domain-pass';
 
 const root = resolve(import.meta.dirname, '../..');
 const base = '9ea4a171131e45deacfbd1b54921940162f3afbf';
@@ -32,7 +33,9 @@ const ledger = read('audit/manipulation.md');
 const plans: CompoundPlan[] = JSON.parse(read('audit/compound-evidence.json'));
 const oldPlans: CompoundPlan[] = JSON.parse(before('audit/compound-evidence.json'));
 const registry = new Set(CITATIONS.map(c => c.id));
-const citations = Object.fromEntries(publishedModules().map(m => [m.slug, matter(read(`content/${m.domain}/${m.slug}.mdx`)).data.citations]));
+// P1 rows certify the citation lists declared before the 2026-10-06 domain pass appended the draft's sources.
+const citations = Object.fromEntries(publishedModules().map(m => [m.slug,
+  preDomainPassCitations(m.domain, m.slug, matter(read(`content/${m.domain}/${m.slug}.mdx`)).data.citations)]));
 const parse = (catalog = plans, markdown = ledger, declared = citations) => parseLedger('audit/manipulation.md', markdown, registry, { compoundPlans: catalog, articleCitations: declared }).find(s => s.slug === 'generalist-policies')!.claimRecords;
 const plan = (ordinal: number, catalog = plans) => catalog.find(p => p.ledgerPath === 'audit/manipulation.md' && p.articleSlug === 'generalist-policies' && p.rowOrdinal === ordinal)!;
 const oldSpan = 'GO-1 (March 2025) is built on ViLLA, vision-language-latent-action. A latent action token sits between the VLM and the low-level action head, and because latent actions can be inferred from unlabeled video, human or robot, the model absorbs video that carries no action labels. GO-1 was open-sourced alongside the AgiBot World Colosseo platform <Cite id="agibot-world-2025" />.';
@@ -171,7 +174,8 @@ describe('generalist originals 15 and 21, exact attribution and metadata correct
     const lastPrePassAnchor = approvals
       .filter(a => a.manifest === 'prose' && a.memberId === 'article:manipulation/generalist-policies'
         && !a.id.startsWith('humanizer-manipulation-v3-') && !a.id.startsWith('educational-cue-20260926-')
-        && !a.id.startsWith('seo-pass-20261002-') && !a.id.startsWith('reader-first-20261003-'))
+        && !a.id.startsWith('seo-pass-20261002-') && !a.id.startsWith('reader-first-20261003-')
+        && !a.id.startsWith('domain-pass-20261006-'))
       .at(-1)!.newHash;
     expect(hashOf(corrected)).toBe(lastPrePassAnchor);
     // The cue re-anchor is a sealed resolution that binds every prior
@@ -186,7 +190,12 @@ describe('generalist originals 15 and 21, exact attribution and metadata correct
     // the member on to the live article with its new figure cue.
     const readerFirst = approvals.find(a => a.id === 'reader-first-20261003-prose-manipulation-generalist-policies')!;
     expect(readerFirst.reconciles?.some(binding => binding.id === seo.id && binding.newHash === seo.newHash)).toBe(true);
-    expect(hashOf(read(articlePath))).toBe(readerFirst.newHash);
+    expect(hashOf(preDomainPass(articlePath).toString('utf8'))).toBe(readerFirst.newHash);
+    // The 2026-10-06 domain pass rewrote the article from the owner's draft;
+    // its edge reconciles the reader-first endpoint and reaches the live article.
+    const domainPass = approvals.find(a => a.id === 'domain-pass-20261006-g3-prose-generalist-policies')!;
+    expect(domainPass.reconciles?.some(binding => binding.id === readerFirst.id && binding.newHash === readerFirst.newHash)).toBe(true);
+    expect(hashOf(read(articlePath))).toBe(domainPass.newHash);
     expect(article.split(newSpan.replace('Its inspected v4 methods describe', 'Its inspected methods describe'))).toHaveLength(2);
     expect(matter(article).data).toEqual(matter(before(articlePath)).data);
     expect(article).not.toContain('GO-1 was open-sourced alongside');
@@ -353,7 +362,15 @@ describe('generalist originals 15 and 21, exact attribution and metadata correct
         // was HEAD until then.
         const seo = seoPassEdge(manifest, memberId);
         const endpoint = seo ? preSeoPassHash(manifest, memberId) : currentHash(manifest, memberId);
-        if (seo) expect(seo.newHash).toBe(currentHash(manifest, memberId));
+        // The 2026-10-06 domain pass, which added the draft's citations,
+        // continues the SEO endpoint to HEAD.
+        const domainPass = approvals.findLast(d => d.id.startsWith('domain-pass-20261006-')
+          && d.manifest === manifest && d.memberId === memberId);
+        if (domainPass) {
+          expect(domainPass.oldHash === seo?.newHash
+            || (domainPass.reconciles ?? []).some(binding => binding.newHash === seo?.newHash)).toBe(true);
+        }
+        if (seo) expect(domainPass?.newHash ?? seo.newHash).toBe(currentHash(manifest, memberId));
         expect(a?.newHash).toBe(endpoint);
         // A lane-only member needs no integration re-anchor; if one exists it must be exact.
         if (reanchor) expect(reanchor).toMatchObject({ oldHash: sealedHash(manifest, memberId), newHash: endpoint });

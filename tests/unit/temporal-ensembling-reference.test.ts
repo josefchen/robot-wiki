@@ -2,6 +2,7 @@ import { expect, test } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { committedJson } from '../helpers/editorial-current-context';
+import { preDomainPassCitations } from '../helpers/domain-pass';
 
 test('ACT reference example uses already-selected oldest-to-newest predictions', () => {
   const article = readFileSync(join(process.cwd(), 'content/manipulation/action-chunking.mdx'), 'utf8');
@@ -51,7 +52,7 @@ test('prose, glossary, image metadata and source identity agree', async () => {
   const image = getImage('temporal-ensembling')!;
   expect(article).toContain('<Term id="temporal-ensembling">');
   expect(article).toContain('<Cite id="act-reference-2023" />');
-  expect(article).toContain('**after selection**');
+  expect(article).toContain('after selection');
   expect(article).toContain('9.93333444');
   expect(article).not.toContain('older predictions are discounted');
   expect(article).not.toContain('issued i chunks ago');
@@ -83,8 +84,10 @@ test('ACT preserves original row histories and requires all sixteen P1 identitie
   const ledger = readFileSync('audit/manipulation.md', 'utf8');
   const source = readFileSync('content/manipulation/action-chunking.mdx', 'utf8');
   const plans = JSON.parse(readFileSync('audit/compound-evidence.json', 'utf8'));
+  // A domain-pass rewrite appends new ids, with their own audit rows; the P1 row keeps certifying the list it declared.
+  const declared = [...preDomainPassCitations('manipulation', 'action-chunking', matter(source).data.citations as string[])];
   const act = parseLedger('audit/manipulation.md', ledger, new Set(CITATIONS.map(c => c.id)), {
-    compoundPlans: plans, articleCitations: { 'action-chunking': matter(source).data.citations },
+    compoundPlans: plans, articleCitations: { 'action-chunking': declared },
   }).find(s => s.slug === 'action-chunking')!;
   expect(act.claimRows).toBe(32);
   // Later action-chunking packets completed the remaining originals; all 32
@@ -111,7 +114,7 @@ test('ACT preserves original row histories and requires all sixteen P1 identitie
   ).find(p => p.id === p1.id)!;
   expect(historical.parts).toHaveLength(7);
   expect(p1.parts.slice(0, 7)).toEqual(historical.parts);
-  expect(p1.parts.flatMap((p: { requiredCitationIds: string[] }) => p.requiredCitationIds)).toEqual(matter(source).data.citations);
+  expect(p1.parts.flatMap((p: { requiredCitationIds: string[] }) => p.requiredCitationIds)).toEqual(declared);
   expect(p1.planReview).not.toBeNull();
   // The frontmatter identity union grew to sixteen parts; adjudications
   // must cover every part.
@@ -123,7 +126,7 @@ test('ACT preserves original row histories and requires all sixteen P1 identitie
     const target = mutated.find((p: { id: string }) => p.id === p1.id);
     target.evidence = target.evidence.filter((e: { partId: string }) => e.partId !== part.id);
     const broken = parseLedger('audit/manipulation.md', ledger, new Set(CITATIONS.map(c => c.id)), {
-      compoundPlans: mutated, articleCitations: { 'action-chunking': matter(source).data.citations },
+      compoundPlans: mutated, articleCitations: { 'action-chunking': declared },
     }).find(s => s.slug === 'action-chunking')!;
     expect(broken.claimRecords[31].evidenceFailures.length).toBeGreaterThan(0);
   }

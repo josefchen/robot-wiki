@@ -9,7 +9,7 @@ const hierarchyBlock = hierarchy.slice(hierarchy.indexOf('## The keypoint turn')
 describe('source-scoped keypoint interfaces', () => {
   it('distinguishes MOKA selection, ReKep constraints and RoboPoint tuning in both articles', () => {
     for (const block of [perceptionBlock, hierarchyBlock]) {
-      for (const phrase of ['GroundedSAM', 'grasp, function and target keypoints where applicable', 'waypoint regions and motion attributes', 'DINOv2 features within SAM masks', 'GPT-4o', 'sub-goal and path constraints', 'penalizes constraint violations', 'human annotations or disable tracking', 'real-image VQA and LVIS detection data', 'end-effector offset and a motion planner']) {
+      for (const phrase of ['GroundedSAM', 'grasp, function and target keypoints', 'waypoint regions and motion attributes', 'DINOv2 features within SAM masks', 'GPT-4o', 'sub-goal and path constraints', block === hierarchyBlock ? 'penalizing violations' : 'penalizes constraint violations', 'human annotations or disable tracking', 'real-image VQA and LVIS detection data', block === hierarchyBlock ? 'end-effector offset and a [motion planner]' : 'end-effector offset and a motion planner']) {
         expect(block.includes(phrase), phrase).toBe(true);
       }
       for (const id of ['moka-2024', 'rekep-2024', 'robopoint-2024']) {
@@ -23,7 +23,7 @@ describe('source-scoped keypoint interfaces', () => {
   it('keeps the Where2Place point metric and protocol distinct from robot success', () => {
     // The Table 2 locator moved from prose into the citation note with the
     // 20260925 humanizer pass; the numbers and protocol stay in prose.
-    for (const phrase of ['Where2Place', '100 real-world images', '46.77%', '29.06%', 'means over three runs', 'robot grasp success is a separate quantity']) {
+    for (const phrase of ['Where2Place', '100 real images', '46.77%', '29.06%', 'means of three runs', 'robot frame, and a separate grasp']) {
       expect(hierarchyBlock.includes(phrase), phrase).toBe(true);
     }
     expect(perceptionBlock.includes('point predictor works without an external detector at test time')).toBe(true);

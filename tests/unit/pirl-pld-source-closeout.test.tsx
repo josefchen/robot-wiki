@@ -29,20 +29,20 @@ describe('retained pi_RL v3 and PLD v1 source corrections', () => {
 
   it('distinguishes denoising-path likelihood and qualified transfer', () => {
     expect(article).toContain('joint likelihood of the denoising path');
-    expect(article).toContain('not an exact marginal likelihood');
+    expect(article).toContain('exact per-step likelihoods');
     expect(article).toContain('one randomly chosen denoising step stochastic');
-    expect(article).toContain('40% real-world success without stating an evaluation-trial denominator');
-    expect(article).toContain('five unseen tasks in MetaWorld ML45');
+    expect(article).toContain('reporting 40% success without a trial count');
+    expect(article).toContain('five unseen MetaWorld ML45 tasks');
     expect(overview).toContain('a policy-gradient update in place of supervised flow-matching regression');
     expect(article).not.toContain('most complete treatment');
     expect(article).not.toContain('log-likelihood fix');
   });
 
   it('preserves PLD denominators, arithmetic conflict and recovery limits', () => {
-    expect(article).toContain('50.6-percentage-point gain');
-    expect(article).toContain('displayed means differ by 24.8 points');
-    expect(article).toContain('per-stage one-shot success is not 100%');
-    expect(article).toContain('The inspected PLD and DSRL sources do not establish a code or weight release');
+    expect(article).toContain('WidowX carrot task from 43.3% to 93.9%');
+    expect(article).toContain('the means differ by 24.8');
+    expect(article).toContain('per-stage one-shot success stays below 100%');
+    expect(article).toContain('inspected PLD, DSRL and Recap sources establish no code, weight or license release');
     expect(article).not.toContain('Xiao et al., ICLR 2026');
     expect(article).not.toContain('100% success on its real Franka and YAM');
     expect(overview).toContain('hybrid recovery data');

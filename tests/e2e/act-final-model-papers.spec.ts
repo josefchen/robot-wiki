@@ -28,7 +28,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     }
     const table = page.getByRole('table', { name: /Action horizon/ });
     await expect(table.getByRole('row', { name: /^pi0.6 / })).toContainText('model card');
-    await expect(table.getByRole('row', { name: /^pi0.7 / })).toContainText('either 15 or 25');
+    await expect(table.getByRole('row', { name: /^pi0.7 / })).toContainText('15 or 25');
     await expect(table.getByRole('row', { name: /^pi0.7 / })).toContainText('UR5e reference');
     await table.getByRole('row', { name: /^pi0.6 / }).scrollIntoViewIfNeeded();
     await page.screenshot({ path: info.outputPath(`${viewport.width}-ACT-horizons.png`) });

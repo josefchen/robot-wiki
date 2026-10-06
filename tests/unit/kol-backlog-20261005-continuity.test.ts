@@ -8,9 +8,11 @@ import {
   loadKolBacklogReview, verifyKolBacklogSource,
 } from '../../lib/audit-kol-backlog-continuity';
 import { seoPassPredecessor } from '../../lib/audit-seo-pass-continuity';
+import { preDomainPass } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
-const read = (path: string) => readFileSync(join(root, path));
+// The newer domain-pass layer hands back the KOL backlog successor of a rewritten article.
+const read = (path: string) => preDomainPass(path);
 const sha = (bytes: Buffer) => createHash('sha256').update(bytes).digest('hex');
 const drift = /kol backlog continuity drift/;
 

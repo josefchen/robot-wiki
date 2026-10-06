@@ -14,8 +14,8 @@
   },
   "citationRegistry": {
     "path": "data/citations.ts",
-    "bytes": 324204,
-    "sha256": "d72e580770502dc8673bc8013c5e2cacb1cf27576b275e36de24acc95ad283bb"
+    "bytes": 446649,
+    "sha256": "2b80418d8b55ad9b634b5197974be6f81102eae57a553acb763899db333312a4"
   },
   "sourceBody": {
     "path": "audit/evidence/citation-closeout-20260924/kroger-archive-webfetch.txt",

@@ -10,7 +10,7 @@ import { collectArticleTruthManifests } from '../../scripts/brand-v2-baseline';
 import { committedSource, preservedApprovalPacket } from '../helpers/continuation-integration';
 import { READER_RELEASE_BASE, readerTruthAt } from '../helpers/reader-integration';
 import { finalSevenBefore } from '../helpers/residual-integration';
-import { preKolBacklog, preReaderFirst, preSeoPassHash, preSeoPassText } from '../helpers/seo-pass';
+import { preDomainPass, preKolBacklog, preReaderFirst, preSeoPassHash, preSeoPassText } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
 const readLive = (path: string) => readFileSync(resolve(root, path), 'utf8');
@@ -97,7 +97,11 @@ function throughSeoPass(path: string) {
   const readerFirst = edge(['reader-first-20261002-', 'reader-first-20261003-prose-'], seo,
     predict.length ? predict[0].oldHash : preKol, true);
   edge(['reader-first-20261003-predict-'], readerFirst, preKol);
-  edge(['kol-backlog-20261005-'], preKol, hashOf(readLive(path)));
+  const preDomain = hashOf(preDomainPass(path).toString('utf8'));
+  edge(['kol-backlog-20261005-'], preKol, preDomain);
+  // The 2026-10-06 domain pass rewrote some articles from the owner's
+  // drafts; its edge binds the KOL endpoint and reaches the live article.
+  edge(['domain-pass-20261006-'], preDomain, hashOf(readLive(path)), true);
 }
 
 describe('merged reader corrections preserve production additions and exact approvals', () => {

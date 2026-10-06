@@ -2,7 +2,7 @@ import { createHash } from 'node:crypto';
 import { committedSource, CONTINUATION_CHECKPOINT, preservedApprovalPacket, preservedCompoundPacket } from '../helpers/continuation-integration';
 import { headReanchorFor } from './helpers/continuation-merge-ledger';
 import { preFigureMigration } from '../helpers/figure-migration';
-import { preSeoPassText } from '../helpers/seo-pass';
+import { preDomainPass, preSeoPassText } from '../helpers/seo-pass';
 import { planPacket, preservedLegacySurvivors } from '../helpers/audit-plan-history';
 import type { LocalPlan } from '../../lib/audit-local-basis';
 import { readFileSync } from 'node:fs';
@@ -318,7 +318,7 @@ describe('four bounded local truth repairs without completion credit', { timeout
         value: delta.manifest === 'prose' ? { path, body: matter(text).content.trim() } : { path, source: text },
       }]).members[0].hash;
       const merged = headReanchorFor(entries.filter(({ id }) => !id.startsWith('seo-pass-20261002-')
-        && !id.startsWith('reader-first-20261003-')),
+        && !id.startsWith('reader-first-20261003-') && !id.startsWith('domain-pass-20261006-')),
         delta.manifest, delta.memberId);
       const restore = restores.find((entry) => entry.memberId === delta.memberId);
       if (restore) expect(restore.oldHash).toBe(merged!.newHash);
@@ -340,7 +340,8 @@ describe('four bounded local truth repairs without completion credit', { timeout
         expect(migratedEndpoint).toBe(memberHash(preSeo));
         const seo = entries.filter((entry) => entry.manifest === 'prose' &&
           entry.memberId === delta.memberId && entry.id.startsWith('seo-pass-20261002-'));
-        expect(seo).toHaveLength(memberHash(preSeo) === memberHash(read(path)) ? 0 : 1);
+        const preDomain = preDomainPass(path).toString('utf8');
+        expect(seo).toHaveLength(memberHash(preSeo) === memberHash(preDomain) ? 0 : 1);
         const seoEndpoint = seo[0]?.newHash ?? migratedEndpoint;
         // The reader-first figure pass may carry the body on once more; its
         // edge either starts at the SEO endpoint or reconciles it.
@@ -350,7 +351,17 @@ describe('four bounded local truth repairs without completion credit', { timeout
           expect(readerFirst.oldHash === seoEndpoint
             || (readerFirst.reconciles ?? []).some((binding) => binding.newHash === seoEndpoint)).toBe(true);
         }
-        expect(readerFirst?.newHash ?? seoEndpoint).toBe(memberHash(read(path)));
+        const passEndpoint = readerFirst?.newHash ?? seoEndpoint;
+        expect(passEndpoint).toBe(memberHash(preDomain));
+        // The 2026-10-06 domain pass, which rewrote the article from the
+        // owner's draft, continues that endpoint to the live article.
+        const domainPass = entries.filter((entry) => entry.manifest === 'prose' &&
+          entry.memberId === delta.memberId && entry.id.startsWith('domain-pass-20261006-')).at(-1);
+        if (domainPass) {
+          expect(domainPass.oldHash === passEndpoint
+            || (domainPass.reconciles ?? []).some((binding) => binding.newHash === passEndpoint)).toBe(true);
+        }
+        expect(domainPass?.newHash ?? passEndpoint).toBe(memberHash(read(path)));
       } else {
         expect(migrated).toHaveLength(0);
       }
