@@ -1,71 +1,71 @@
 {
   "scenes": 8,
-  "beatImagesPerViewport": 33,
+  "beatImagesPerViewport": 34,
   "budgetBytes": 25600,
   "chunks": [
     {
       "id": "kalman-predict-update",
       "chunks": [
-        "31amwi2o8wm6e.js"
+        "3l6e5lanpt2ti.js"
       ],
-      "gzipBytes": 5513,
+      "gzipBytes": 5900,
       "withinBudget": true
     },
     {
       "id": "diffusion-denoising",
       "chunks": [
-        "2x4_-58m9g_rn.js"
+        "1knhqgou_sq07.js"
       ],
-      "gzipBytes": 4689,
+      "gzipBytes": 7039,
       "withinBudget": true
     },
     {
       "id": "batch-scale",
       "chunks": [
-        "03112z38__mye.js"
+        "04luls7mp3v4x.js"
       ],
-      "gzipBytes": 2538,
+      "gzipBytes": 3626,
       "withinBudget": true
     },
     {
       "id": "gait-support",
       "chunks": [
-        "2vplw0ww6695i.js"
+        "2kcvxf_tryqps.js"
       ],
-      "gzipBytes": 2580,
+      "gzipBytes": 4993,
       "withinBudget": true
     },
     {
       "id": "jam-overhead",
       "chunks": [
-        "241ny9cxygcle.js"
+        "39sey3b8ui59-.js"
       ],
-      "gzipBytes": 2495,
+      "gzipBytes": 3694,
       "withinBudget": true
     },
     {
       "id": "reliability-threshold",
       "chunks": [
-        "27ia8j_2zhzr6.js",
+        "0rlxkpge2j68d.js",
         "2qr3-h1m_2w2v.js"
       ],
-      "gzipBytes": 9806,
+      "gzipBytes": 9439,
       "withinBudget": true
     },
     {
       "id": "tactile-slip",
       "chunks": [
-        "1mbduoti0saw_.js"
+        "3_4jppuys1xhb.js"
       ],
-      "gzipBytes": 1469,
+      "gzipBytes": 2255,
       "withinBudget": true
     },
     {
       "id": "sense-avoid",
       "chunks": [
-        "23b2-l1fhp1yd.js"
+        "2sfcx2993y6kl.js"
       ],
-      "gzipBytes": 2185,
+      "gzipBytes": 3377,
       "withinBudget": true
     }
   ],
@@ -106,19 +106,23 @@
     },
     {
       "path": "evidence/motion/scenes/diffusion-denoising/375-beat-1.png",
-      "sha256": "3bdb21113f2e920dcda7bfa5a71dc95fb6e1ce53c2cc76971d65a3f8fa29a723"
+      "sha256": "f2acb1afefc94bb5d861276d4ffe0c3f21fd9334ffeb701fef6c349ed9d64377"
     },
     {
       "path": "evidence/motion/scenes/diffusion-denoising/375-beat-2.png",
-      "sha256": "bb38fee1f8becbd18f34c8fbd908d4b764fe935fd46b8e163dacdd415f208707"
+      "sha256": "1ab95f431f915cd002e71f4c6a6e1676b22c04df53eaaa3135b39ceadd5542ae"
     },
     {
       "path": "evidence/motion/scenes/diffusion-denoising/375-beat-3.png",
-      "sha256": "59f171a71c6414debeeae5482e87bc2e7c93d9936ebd98c5c0d5a64e3604461f"
+      "sha256": "18379a85154405a574b7d0f89b708da1b6185db4d2746f8286fc70c3ecc797b0"
     },
     {
       "path": "evidence/motion/scenes/diffusion-denoising/375-beat-4.png",
-      "sha256": "961a4f94afcee246fbdb6d2cc467a44bd8b0378a428c45af33cbe4ecdf5a3a25"
+      "sha256": "620cd3715f802d3b9a03c34e243609756b0b1479822e73aba49648854bdfdaef"
+    },
+    {
+      "path": "evidence/motion/scenes/diffusion-denoising/375-beat-5.png",
+      "sha256": "783e3115b99b22273193a9bb185be800c463883de2c8403d657216bab719ebc5"
     },
     {
       "path": "evidence/motion/scenes/batch-scale/375-beat-1.png",
@@ -238,19 +242,23 @@
     },
     {
       "path": "evidence/motion/scenes/diffusion-denoising/1440-beat-1.png",
-      "sha256": "d4bfd58737e51ca172905faae1d8f84d7898e6149d4cec79b02aea6cf6e3bd94"
+      "sha256": "526ec5291c4b382c0377c4a2e3c93d3ace8e821f46bc7e1512171afe41c9499c"
     },
     {
       "path": "evidence/motion/scenes/diffusion-denoising/1440-beat-2.png",
-      "sha256": "a3abfaa33746548551f3ed613fe39f8f6fc74cec8e386718c9d1016e48242c4a"
+      "sha256": "a8cd1278d733be3c42758d5ebf3c52ccf57fa4b13cdbfc3e41b7027771714cdf"
     },
     {
       "path": "evidence/motion/scenes/diffusion-denoising/1440-beat-3.png",
-      "sha256": "09e7bbe86ea29e12a3310423e410d8f05aa39becdfa07493ea1d6e6c8468cbd4"
+      "sha256": "521375fbfc7ffb89df2d98ebbdf4cec69e7b4fd14be8976abf0468fc5d908493"
     },
     {
       "path": "evidence/motion/scenes/diffusion-denoising/1440-beat-4.png",
-      "sha256": "e75c9546faa4dc5718031d959d9ad144d02cd1eb9922a9ec3addeab3b2cf0f9a"
+      "sha256": "2475a0ba9cf0f57b7723f5f1b1fa48a5fc1c70ebb1e6d5f41d029b2875174faa"
+    },
+    {
+      "path": "evidence/motion/scenes/diffusion-denoising/1440-beat-5.png",
+      "sha256": "158a43147bbc04956d8afb15a480c8e39b6f44e455425ffa4ec53331011fc9f2"
     },
     {
       "path": "evidence/motion/scenes/batch-scale/1440-beat-1.png",

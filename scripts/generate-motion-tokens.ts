@@ -282,6 +282,10 @@ export const MOTION_LAG = {
   denseThreshold: ${tokens.lag.denseThreshold},
 } as const;
 
+export const MOTION_CAMERA = {
+  focusMaxZoom: ${tokens.camera.focusMaxZoom},
+} as const;
+
 export const MOTION_EASING = {
   smoothFormula: '${tokens.easing.smooth.formula}',
   thereAndBackFormula: '${tokens.easing.thereAndBack.formula}',

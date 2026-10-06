@@ -3,6 +3,7 @@ import { mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { SCENE_TARGETS } from '@/lib/motion-scene-registry';
 import { auditSceneElement } from '@/lib/motion-scene-audit';
+import { MOTION_CAMERA } from '@/lib/motion-tokens';
 import { waitForHydration } from './interaction-ready';
 
 const descriptions = [
@@ -120,6 +121,96 @@ test('diffusion sample 60 approaches noise before the forward beat boundary', as
     const distance = (a: number[], b: number[]) => Math.hypot(a[0] - b[0], a[1] - b[1]);
     expect(distance(near, boundary)).toBeLessThan(distance(clean, boundary) * 0.3);
   }
+});
+
+test('diffusion camera closes on one guess and the relation is rewritten glyph by glyph', async ({ page }) => {
+  const directory = join(process.cwd(), 'evidence/motion/scenes/diffusion-denoising');
+  mkdirSync(directory, { recursive: true });
+  for (const width of [375, 1440]) {
+    await page.setViewportSize({ width, height: width === 375 ? 800 : 900 });
+    await page.goto('/manipulation/diffusion-policy/', { waitUntil: 'networkidle' });
+    await page.addStyleTag({ content: 'nextjs-portal { display: none !important; }' });
+    await page.evaluate(() => document.fonts.ready);
+    const group = page.locator('[data-motion-scene="diffusion-denoising"]');
+    await waitForHydration(group.getByTestId('motion-poster'));
+    await group.getByTestId('motion-poster').click();
+    const scrubber = group.getByTestId('motion-scrubber');
+    await expect(scrubber).toBeVisible();
+    await page.keyboard.press('k');
+    const opacity = (selector: string) => group.locator(selector).first().evaluate((node) => {
+      let alpha = 1;
+      for (let el: Element | null = node; el && !el.matches('svg'); el = el.parentElement) {
+        alpha *= Number(getComputedStyle(el).opacity);
+      }
+      return alpha;
+    });
+    const zoom = async () => Number(
+      (await group.locator('[data-scene-camera]').getAttribute('transform'))?.match(/scale\(([\d.]+)\)/)?.[1],
+    );
+    const clean = async (moment: string) => {
+      const audit = await group.evaluate(auditSceneElement);
+      expect(audit.intersections, `${width} ${moment}`).toEqual([]);
+      expect(audit.overflow, `${width} ${moment}`).toEqual([]);
+    };
+
+    // 40% into the clean-up beat the camera holds on the worked guess,
+    // inside the zoom token, with the ring on it and the labels stepped aside.
+    await scrubber.fill('3800');
+    expect(await zoom()).toBeGreaterThan(1.5);
+    expect(await zoom()).toBeLessThanOrEqual(MOTION_CAMERA.focusMaxZoom);
+    expect(await opacity('[data-scene-mark="worked-guess"]')).toBeGreaterThan(0.9);
+    expect(await opacity('text:text("move one")')).toBeLessThan(0.01);
+    await clean('camera hold');
+    await group.screenshot({ path: join(directory, `${width}-camera-hold.png`) });
+
+    // The shared glyphs slide while "| o" waits for room, then "| o" writes in.
+    await scrubber.fill('5900');
+    expect(await opacity('[data-scene-glyph="arg"]')).toBe(1);
+    expect(await opacity('[data-scene-glyph="given"]')).toBe(0);
+    await clean('glyphs sliding');
+    await group.screenshot({ path: join(directory, `${width}-symbols-slide.png`) });
+    await scrubber.fill('6400');
+    const writing = await opacity('[data-scene-glyph="seen"]');
+    expect(writing).toBeGreaterThan(0);
+    expect(writing).toBeLessThan(1);
+    await clean('glyphs writing in');
+
+    // The camera is home and every symbol gone on the finished frame.
+    await scrubber.fill('9000');
+    expect(await zoom()).toBe(1);
+    for (const id of ['a', 'sim', 'p', 'open', 'arg', 'close', 'given', 'seen']) {
+      expect(await opacity(`[data-scene-glyph="${id}"]`), id).toBe(0);
+    }
+  }
+});
+
+test('a camera window that reaches the stage edge fails the 4px margin', async ({ page }) => {
+  await page.goto('/manipulation/diffusion-policy/', { waitUntil: 'networkidle' });
+  const group = page.locator('[data-motion-scene="diffusion-denoising"]');
+  await waitForHydration(group.getByTestId('motion-poster'));
+  await group.getByTestId('motion-poster').click();
+  const scrubber = group.getByTestId('motion-scrubber');
+  await expect(scrubber).toBeVisible();
+  await page.keyboard.press('k');
+  await scrubber.fill('3800');
+  // A mark the camera window cuts paints only inside the window, which keeps
+  // the margin; widened to the stage edge, the same mark touches that edge.
+  await group.locator('[clip-path]').evaluate((holder) => {
+    const mark = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    for (const [key, value] of Object.entries({ cx: '2', cy: '120', r: '8', 'data-scene-mark': 'planted-window-edge' })) {
+      mark.setAttribute(key, value);
+    }
+    holder.append(mark);
+  });
+  const inWindow = await group.evaluate(auditSceneElement);
+  expect(inWindow.overflow).toEqual([]);
+  expect(inWindow.markCount).toBeGreaterThan(0);
+  await group.locator('clipPath rect').evaluate((rect) => {
+    rect.setAttribute('x', '0');
+    rect.setAttribute('width', '340');
+  });
+  const widened = await group.evaluate(auditSceneElement);
+  expect(widened.overflow.some((row) => row.includes('planted-window-edge'))).toBe(true);
 });
 
 test('painted horizontal, vertical, and thick strokes fail overlap and 4px margins', async ({ page }) => {

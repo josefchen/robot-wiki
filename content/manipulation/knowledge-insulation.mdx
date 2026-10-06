@@ -70,9 +70,9 @@ ChatVLA calls this spurious forgetting, robot training overwriting visual-text a
 
 ## Recipe
 
-1. **The action expert trains with flow matching**, regressing vector fields of fixed conditional probability paths <Cite id="lipman-flow-matching-2022" />, and generates continuous action chunks at inference <Cite id="knowledge-insulation-paper-2025" />.
-2. **The backbone learns from discrete FAST <Term id="action-tokenization">action tokens</Term>** plus vision-language and robot-planning data. FAST normalizes actions, applies a DCT to each action dimension over time, and scales and rounds the coefficients, the lossy step. Byte-pair encoding then compresses the flattened sequence losslessly <Cite id="pi0-fast-2025" />.
-3. **Stop-gradient blocks the expert's updates to the backbone.** The expert attends to the image, language and state prefix and to itself, never to FAST tokens; the backbone never attends to it. Stop-gradient on the backbone keys and values the expert reads keeps the forward path and cuts the backward one <Cite id="knowledge-insulation-paper-2025" />.
+1. The action expert trains with flow matching, regressing vector fields of fixed conditional probability paths <Cite id="lipman-flow-matching-2022" />, and generates continuous action chunks at inference <Cite id="knowledge-insulation-paper-2025" />.
+2. The backbone learns from discrete FAST <Term id="action-tokenization">action tokens</Term> plus vision-language and robot-planning data. FAST normalizes actions, applies a DCT to each action dimension over time, and scales and rounds the coefficients, the lossy step. Byte-pair encoding then compresses the flattened sequence losslessly <Cite id="pi0-fast-2025" />.
+3. Stop-gradient blocks the expert's updates to the backbone. The expert attends to the image, language and state prefix and to itself, never to FAST tokens; the backbone never attends to it. Stop-gradient on the backbone keys and values the expert reads keeps the forward path and cuts the backward one <Cite id="knowledge-insulation-paper-2025" />.
 
 Training both outputs costs about 20% more compute. The paper's backbone is a 2B language model with a 300M expert <Cite id="knowledge-insulation-paper-2025" />; the note labels the complete VLM 3B <Cite id="knowledge-insulation-2025" />, the size of PaliGemma, which pairs a SigLIP-So400m encoder with Gemma-2B <Cite id="paligemma-2024" />.
 

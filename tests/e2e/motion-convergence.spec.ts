@@ -6,6 +6,7 @@ import { SCENE_TARGETS } from '@/lib/motion-scene-registry';
 import { expectedSceneRole } from '@/lib/motion-scene-roles';
 import { auditSceneElement } from '@/lib/motion-scene-audit';
 import { openAdjustMore } from './helpers/figure-fold';
+import { waitForHydration } from './interaction-ready';
 
 type ObservedRole = { mark: string; role: string; hex: string; beats: number[] };
 const observations = new Map<string, ObservedRole[]>();
@@ -47,6 +48,8 @@ for (const target of SCENE_TARGETS) {
       await page.evaluate(() => document.fonts.ready);
       const scene = page.locator(`[data-motion-scene="${target.id}"]`);
       await expect(scene.getByTestId('motion-poster')).toBeVisible();
+      // A poster click before hydration is lost and the player never mounts.
+      await waitForHydration(scene.getByTestId('motion-poster'));
       await scene.getByTestId('motion-poster').click();
       const scrubber = scene.getByTestId('motion-scrubber');
       await expect(scrubber).toBeVisible();

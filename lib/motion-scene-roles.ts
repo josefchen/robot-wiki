@@ -12,7 +12,7 @@ const ROLE_RULES: Record<string, readonly [RegExp, SceneRole | 'gait-phase'][]> 
   ],
   'diffusion-denoising': [[/^observed-state$/, 'state'],
     [/^demonstration-\d+$|^action-arrow-\d+$|^action-\d+$/, 'action'],
-    [/^reference-arrow-\d+$|^noise-\d+$/, 'reference']],
+    [/^reference-arrow-\d+$|^noise-\d+$/, 'reference'], [/^worked-guess$/, 'highlight']],
   'batch-scale': [[/^fixed-budget-time$/, 'value'], [/^cpu-cost-time$/, 'constraint'],
     [/^selected-environment-count$/, 'highlight']],
   'gait-support': [[/^[a-z]+-phase-\d+$/, 'gait-phase']],

@@ -85,7 +85,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/chunk-size-curve.tsx',
     route: '/manipulation/action-chunking/',
     quantityNames: ['success', 'chunk'],
-    text: 'Task success rises from 1% at chunk size k = 1 to the measured 44% peak at k = 100, and at the current k = 100 the curve reads 44% success against 4 closed-loop decisions per 400-step episode; the pale estimate band past k = 100 is interpolated beyond the measured ACT ablation, which reports a slight decline at k = 200 and k = 400 without exact numbers.',
+    text: 'Task success rises from 1% at chunk size k = 1 to the measured 44% peak at k = 100, and at the current k = 100 the curve reads 44% success against 4 closed-loop decisions per 400-step episode; the pale estimate band past k = 100 stands in for the slight decline the ACT ablation reports at k = 200 and k = 400 without exact numbers.',
   },
   {
     component: 'CompoundingError',

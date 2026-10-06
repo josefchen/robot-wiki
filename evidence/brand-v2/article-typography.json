@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "e1f0d4d288353344f79d9fb4368a8f0d442232e0c55e37b0c3060c493c5b85ff",
+  "fingerprint": "f261870be5e6ee5703462b7558915e1706b026b5a6683615ab992a091ccda2f4",
   "viewports": [
     "375x812",
     "1440x900"
@@ -143,7 +143,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3132,
+      "visibleTextLength": 3138,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -25007,7 +25007,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 22351,
+      "visibleTextLength": 22472,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -25164,7 +25164,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Only the two dots are measured; the line between and the pal"
+          "text": "Only the two dots have published numbers; the line between a"
         },
         {
           "familyHead": "ibm plex sans",
@@ -25380,7 +25380,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "In the table, not disclosed marks silence in the checked sou"
+          "text": "In the table, not disclosed means the source omits the value"
         },
         {
           "familyHead": "newsreader",
@@ -26050,7 +26050,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18358,
+      "visibleTextLength": 18307,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -26789,7 +26789,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19324,
+      "visibleTextLength": 19323,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -27165,7 +27165,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Recova, posted on October 1, 2026 by Linxi Fan, Yuke Zhu and"
+          "text": "Linxi Fan, Yuke Zhu and colleagues at NVIDIA, UC San Diego a"
         },
         {
           "familyHead": "newsreader",
@@ -27729,7 +27729,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20490,
+      "visibleTextLength": 20429,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -28008,7 +28008,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The matrix records concrete differences in output mechanism:"
+          "text": "ACT fixes its CVAE latent to the prior mean, zero, to decode"
         },
         {
           "familyHead": "newsreader",
@@ -29624,7 +29624,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18589,
+      "visibleTextLength": 18679,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -29825,10 +29825,10 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 267,
+          "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "beat 4 / 4 60 random guesses, cleaned up in 10 steps"
+          "text": "beat 5 / 5 60 random guesses, each nudged onto a good move i"
         },
         {
           "familyHead": "ibm plex sans",
@@ -29855,6 +29855,15 @@
           "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
+          "text": "The guess the camera follows starts 3.17 from its move and e"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
           "text": "The sample positions come from an illustrative two-move mode"
         },
         {
@@ -29864,7 +29873,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "The four steps, in order:"
+          "text": "The five steps, in order:"
         },
         {
           "familyHead": "newsreader",
@@ -30558,7 +30567,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19284,
+      "visibleTextLength": 19246,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -32430,7 +32439,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24046,
+      "visibleTextLength": 24043,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -34310,7 +34319,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24555,
+      "visibleTextLength": 24487,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -34377,11 +34386,11 @@
           "The Pi Line"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 13,
+        "readingMinutes": 12,
         "citationCount": 37,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "13 min",
+        "readingTimeText": "12 min",
         "citationCountText": "37",
         "bibliographyIds": [
           "pi0-2024",
@@ -34729,7 +34738,7 @@
           }
         },
         {
-          "headingId": "π0-fast-tokens-done-right",
+          "headingId": "π0-fast-compressed-action-tokens",
           "headingTag": "h2",
           "linked": true,
           "colour": "rgb(11, 11, 12)",
@@ -34739,7 +34748,7 @@
           "keyboardFocusable": true,
           "affordance": {
             "tag": "button",
-            "accessibleName": "Copy link to this section, π0-FAST: tokens done right",
+            "accessibleName": "Copy link to this section, π0-FAST: compressed action tokens",
             "widthPx": 24,
             "heightPx": 24,
             "opacity": 1,
@@ -34884,7 +34893,7 @@
         },
         {
           "kind": "citation",
-          "count": 114,
+          "count": 116,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -34894,7 +34903,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 114,
+              "count": 116,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -36341,7 +36350,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 37188,
+      "visibleTextLength": 37174,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -55579,7 +55588,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 3370,
+      "visibleTextLength": 3376,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -80443,7 +80452,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 22994,
+      "visibleTextLength": 23115,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -80600,7 +80609,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Only the two dots are measured; the line between and the pal"
+          "text": "Only the two dots have published numbers; the line between a"
         },
         {
           "familyHead": "ibm plex sans",
@@ -80816,7 +80825,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "In the table, not disclosed marks silence in the checked sou"
+          "text": "In the table, not disclosed means the source omits the value"
         },
         {
           "familyHead": "newsreader",
@@ -81486,7 +81495,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19001,
+      "visibleTextLength": 18950,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -82225,7 +82234,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19967,
+      "visibleTextLength": 19966,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -82601,7 +82610,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Recova, posted on October 1, 2026 by Linxi Fan, Yuke Zhu and"
+          "text": "Linxi Fan, Yuke Zhu and colleagues at NVIDIA, UC San Diego a"
         },
         {
           "familyHead": "newsreader",
@@ -83165,7 +83174,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21133,
+      "visibleTextLength": 21072,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -83444,7 +83453,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The matrix records concrete differences in output mechanism:"
+          "text": "ACT fixes its CVAE latent to the prior mean, zero, to decode"
         },
         {
           "familyHead": "newsreader",
@@ -85060,7 +85069,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19232,
+      "visibleTextLength": 19322,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -85261,10 +85270,10 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 267,
+          "widthPx": 395,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "beat 4 / 4 60 random guesses, cleaned up in 10 steps"
+          "text": "beat 5 / 5 60 random guesses, each nudged onto a good move i"
         },
         {
           "familyHead": "ibm plex sans",
@@ -85291,6 +85300,15 @@
           "widthPx": 715,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
+          "text": "The guess the camera follows starts 3.17 from its move and e"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
           "text": "The sample positions come from an illustrative two-move mode"
         },
         {
@@ -85300,7 +85318,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "The four steps, in order:"
+          "text": "The five steps, in order:"
         },
         {
           "familyHead": "newsreader",
@@ -85994,7 +86012,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19927,
+      "visibleTextLength": 19889,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -87866,7 +87884,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24689,
+      "visibleTextLength": 24686,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -89746,7 +89764,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 25198,
+      "visibleTextLength": 25130,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -89813,11 +89831,11 @@
           "The Pi Line"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 13,
+        "readingMinutes": 12,
         "citationCount": 37,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "13 min",
+        "readingTimeText": "12 min",
         "citationCountText": "37",
         "bibliographyIds": [
           "pi0-2024",
@@ -90165,7 +90183,7 @@
           }
         },
         {
-          "headingId": "π0-fast-tokens-done-right",
+          "headingId": "π0-fast-compressed-action-tokens",
           "headingTag": "h2",
           "linked": true,
           "colour": "rgb(11, 11, 12)",
@@ -90175,7 +90193,7 @@
           "keyboardFocusable": true,
           "affordance": {
             "tag": "button",
-            "accessibleName": "Copy link to this section, π0-FAST: tokens done right",
+            "accessibleName": "Copy link to this section, π0-FAST: compressed action tokens",
             "widthPx": 24,
             "heightPx": 24,
             "opacity": 1,
@@ -90320,7 +90338,7 @@
         },
         {
           "kind": "citation",
-          "count": 114,
+          "count": 116,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -90330,7 +90348,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 114,
+              "count": 116,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -91777,7 +91795,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 37831,
+      "visibleTextLength": 37817,
       "tekturRoles": [
         {
           "role": "shell-wordmark",

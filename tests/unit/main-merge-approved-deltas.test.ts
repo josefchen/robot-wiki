@@ -1366,11 +1366,16 @@ describe('two-parent exact approval reconciliation', () => {
         expect(approvedDeltaPath(prior, sealed, entry.newHash).status).not.toBe('approved');
       }
     }
-    // One shared citation-rendering resolution per article group, in group order.
+    // One shared citation-rendering resolution per article group that registers
+    // or corrects a citation record, in group order. A prose-only group leaves
+    // every rendered label unchanged, so it has no resolution to approve.
     const groups = [...new Set(domainPass20261006Appends.map(id => id.split('-')[3]))];
     expect(groups).toEqual(groups.map((_, index) => `g${index + 1}`));
+    const citing = groups.filter(group => domainPass20261006Appends.some(id =>
+      id.startsWith(`domain-pass-20261006-${group}-citation-`) && !id.endsWith('-citation-rendering')));
+    expect(citing.length).toBeGreaterThan(0);
     expect(domainPass20261006Appends.filter(id => id.endsWith('-citation-rendering')))
-      .toEqual(groups.map(group => `domain-pass-20261006-${group}-citation-rendering`));
+      .toEqual(citing.map(group => `domain-pass-20261006-${group}-citation-rendering`));
   });
 
   it('binds each 2026-10-05 how-robots-work name to an absent seal as one plain edge', () => {
