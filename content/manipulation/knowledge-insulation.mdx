@@ -14,21 +14,38 @@ citations:
   - pi06-model-card-2025
   - pi07-2026
   - rt2-2023
+  - pi05-2025
+  - openpi-repo-2024
+  - kumar-finetuning-distorts-2022
+  - blip2-2023
+  - lipman-flow-matching-2022
+  - paligemma-2024
+  - gr00t-n1-2025
+  - gr00t-n1-5-2025
+  - gr00t-n1-6-2025
+  - helix-2025
+  - chatvla-2025
+  - hybridvla-2025
+  - vlm2vla-2025
+  - instructvla-2025
+  - lap-2026
+  - labvla-2026
+  - stulp-full-stack-transfer-2026
+  - apt-action-expert-pretraining-2026
+  - anchor-align-2026
+  - uam-forgetting-2026
+  - garg-self-demonstrated-control-2026
+  - vla-continual-forgetting-2026
+  - act2answer-2026
+  - openvla-2024
 seeAlso:
   - "manipulation/action-spaces"
   - "manipulation/comparison-matrix"
   - "manipulation/foundation-models"
 ---
-
 import { MotInsulation } from '@/components/interactive/mot-insulation';
 
-<Term id="knowledge-insulation">Knowledge insulation</Term> is a training recipe that keeps action learning from damaging a vision-language-action model's pretrained backbone. RT-2 represents robot actions as tokens, using the discretization introduced for RT-1: each continuous action dimension is divided into 256 uniform bins. Its robot inputs pair a camera image with a task instruction <Cite id="rt2-2023" />. π0 instead adds a continuous <Term id="flow-matching">flow-matching</Term> action expert to a pretrained <Term id="vision-language-model">VLM</Term> <Cite id="pi0-2024" />. Knowledge Insulation, studied by Physical Intelligence in 2025, combines the two: discrete actions train the backbone’s representations while a continuous-action expert trains alongside it without sending gradients back into the backbone.
-
-<Cite id="knowledge-insulation-paper-2025" /> The paper distinguishes the earlier two-stage π0.5 recipe from simultaneous single-stage training.
-
-<Cite id="knowledge-insulation-2025" /> The research note calls this single-stage model π0.5 + KI.
-
-The barrier is below, on the backward pass. Turn off "Protect language skills", which removes the stop-gradient: the damage the recipe exists to prevent runs straight back into the pretrained backbone.
+<Term id="knowledge-insulation">Knowledge insulation</Term> (KI) is a training recipe that keeps action learning from damaging a vision-language-action model's pretrained backbone. Discrete FAST action tokens train the backbone, while a stop-gradient keeps a <Term id="flow-matching">flow-matching</Term> action expert's gradients out of it <Cite id="knowledge-insulation-paper-2025" />. Turn off "Protect language skills" to remove the stop-gradient.
 
 <MotInsulation className="my-6" />
 
@@ -39,46 +56,42 @@ The barrier is below, on the backward pass. Turn off "Protect language skills", 
   <Stat label="Runtime output" value="Continuous" note="FAST action tokens provide training supervision" />
 </div>
 
-The 7.5x figure compares training steps to similar table-bussing performance; inference latency and equal wall-clock training budgets are different axes. The paper reports about 20% extra training cost from the combined objectives. The paper's architecture details describe a 2B language-model backbone within the complete VLM and a 300M action expert; the research note labels the complete VLM as 3B <Cite id="knowledge-insulation-paper-2025" /> <Cite id="knowledge-insulation-2025" />.
+## Origins
 
-## What naive joint training breaks
+RT-2 tokenizes each continuous action dimension into 256 uniform bins, as RT-1 did <Cite id="rt2-2023" />. Physical Intelligence's 2025 KI note judges such fixed-bin tokens unsuitable for high-frequency, precise or fluent motions <Cite id="knowledge-insulation-2025" />, and the 7B token-based OpenVLA decodes at about 6 Hz on an RTX 4090 <Cite id="openvla-2024" />. π0 adds a continuous action expert to a pretrained <Term id="vision-language-model">VLM</Term> <Cite id="pi0-2024" />. π0.5 trained 280k steps on discrete tokens, then post-trained a randomly initialized flow-matching expert <Cite id="pi05-2025" />. KI makes this a single stage <Cite id="knowledge-insulation-paper-2025" />, called π0.5 + KI <Cite id="knowledge-insulation-2025" />.
 
-The paper studies a pretrained VLM with a newly initialized continuous-action expert. It finds that expert gradients can interfere with the image encoder and language backbone during adaptation, slowing learning and weakening language following. The proposed explanation is interference with pretrained representations; the paper measures no claim that every early gradient is large or that the model can never recover <Cite id="knowledge-insulation-paper-2025" />.
+## Naive joint training
 
-One qualitative example illustrates the problem with π0: instructed to bus a spoon into the bin, it grasps trash instead. The research note describes the target as the dish container and explicitly calls its explanation a hypothesis: disrupted language processing may lead the model to learn other correlations first <Cite id="knowledge-insulation-paper-2025" /> <Cite id="knowledge-insulation-2025" />. The note’s phrase "not suitable for high-frequency, precise, or fluent motions" refers to the earlier simple fixed-bin action representation and to no other tokenized-action method <Cite id="knowledge-insulation-2025" />.
+Fine-tuning a pretrained network through a random head distorts its features and raises out-of-distribution error <Cite id="kumar-finetuning-distorts-2022" />. The KI paper finds the same in VLAs: gradients from a new action expert degrade the backbone, slowing training and weakening language following. Told to bus a spoon into the bin, π0 grasps trash <Cite id="knowledge-insulation-paper-2025" />. The note hypothesizes that disrupted language processing lets the model learn other correlations first <Cite id="knowledge-insulation-2025" />.
 
-## The recipe, in three parts
+ChatVLA calls this spurious forgetting, robot training overwriting visual-text alignments <Cite id="chatvla-2025" />, and InstructVLA reports catastrophic forgetting of vision-language skills in existing VLAs <Cite id="instructvla-2025" />. Between robot tasks, pretrained VLAs resist forgetting; simple experience replay sometimes removes it <Cite id="vla-continual-forgetting-2026" />.
 
-Knowledge Insulation separates the learning signals <Cite id="knowledge-insulation-paper-2025" />:
+## Recipe
 
-1. **The action expert trains with flow matching** to generate continuous action chunks at inference.
-2. **The backbone learns from discrete FAST <Term id="action-tokenization">action tokens</Term>**, alongside general vision-language and robot-planning data. FAST normalizes actions, applies a DCT separately along time for each action dimension, scales and rounds the coefficients, then uses byte-pair encoding to compress the flattened sequence. Coefficient quantization is lossy; BPE losslessly compresses the resulting integer sequence <Cite id="pi0-fast-2025" />.
-3. **Stop-gradient blocks the expert’s updates to the backbone.** The expert can attend to the image/language/state prefix and its own continuous-action tokens. It does not attend to FAST action tokens, and the backbone does not attend to the expert. The attention equations apply stop-gradient to the backbone keys and values read by the expert, leaving forward information available while blocking that backward path <Cite id="knowledge-insulation-paper-2025" />.
+1. **The action expert trains with flow matching**, regressing vector fields of fixed conditional probability paths <Cite id="lipman-flow-matching-2022" />, and generates continuous action chunks at inference <Cite id="knowledge-insulation-paper-2025" />.
+2. **The backbone learns from discrete FAST <Term id="action-tokenization">action tokens</Term>** plus vision-language and robot-planning data. FAST normalizes actions, applies a DCT to each action dimension over time, and scales and rounds the coefficients, the lossy step. Byte-pair encoding then compresses the flattened sequence losslessly <Cite id="pi0-fast-2025" />.
+3. **Stop-gradient blocks the expert's updates to the backbone.** The expert attends to the image, language and state prefix and to itself, never to FAST tokens; the backbone never attends to it. Stop-gradient on the backbone keys and values the expert reads keeps the forward path and cuts the backward one <Cite id="knowledge-insulation-paper-2025" />.
 
-The figure at the top of this module walks both passes through the two stacks, including the failure mode with the barrier removed.
+Training both outputs costs about 20% more compute. The paper's backbone is a 2B language model with a 300M expert <Cite id="knowledge-insulation-paper-2025" />; the note labels the complete VLM 3B <Cite id="knowledge-insulation-2025" />, the size of PaliGemma, which pairs a SigLIP-So400m encoder with Gemma-2B <Cite id="paligemma-2024" />.
 
-## Why the barrier alone is not enough
+FAST tokens are π0.5 + KI's training representation and continuous flow actions its runtime output <Cite id="knowledge-insulation-paper-2025" />, so a [comparison matrix](/manipulation/comparison-matrix/) needs both columns.
 
-Stopping expert gradients is not the same as adapting the backbone for robot control. Without another robot-learning signal, the pretrained backbone’s representations remain unadapted to the task. In the paper’s frozen-backbone ablation, shirt-folding performance is reported as 0%; that is an outcome for this tested configuration and proves nothing about all frozen-backbone policies <Cite id="knowledge-insulation-paper-2025" />.
+## Limits and alternatives
 
-FAST-token supervision supplies the missing action-learning signal while the gradient barrier blocks updates from the newly initialized expert. The paper also finds that vision-language co-training can give the joint-training baseline good language following even without stop-gradient. The evidence supports the combined recipe; it makes no claim that continuous gradients always destroy knowledge or that cross-entropy guarantees perfect preservation <Cite id="knowledge-insulation-paper-2025" />.
+Stopping expert gradients does not adapt the backbone: with the backbone frozen, the paper's shirt-folding policy scores 0%. FAST supervision supplies that signal, and vision-language co-training can give plain joint training good language following without stop-gradient <Cite id="knowledge-insulation-paper-2025" />.
 
-## What it buys
+GR00T N1 freezes the language part of its VLM <Cite id="gr00t-n1-2025" />. NVIDIA reports that N1.5, which froze the whole VLM among other changes, raised real GR-1 language following from 46.6% to 93.3% <Cite id="gr00t-n1-5-2025" />; N1.6 unfreezes the top 4 layers <Cite id="gr00t-n1-6-2025" />. BLIP-2 bridges frozen image encoders and language models <Cite id="blip2-2023" />. VLM2VLA writes actions as language and trains only LoRA adapters <Cite id="vlm2vla-2025" />. UAM keeps over 95% of its VLM's multimodal capability with no freezing, gradient stopping or co-training <Cite id="uam-forgetting-2026" />.
 
-The paper separates two table-bussing comparisons. For a generalist trained on many embodiments, π0 needs 7.5 times as many training steps as π0.5 + KI to reach similar performance. For specialist models trained on one embodiment, the authors report that π0-FAST needs twice the wall-clock time to solve the task. That second result is task-completion time; a generic twofold inference-latency multiplier or a comparison across all robot tasks is a different claim <Cite id="knowledge-insulation-paper-2025" /> <Cite id="knowledge-insulation-2025" />.
+Figure's Helix instead backpropagates from its fast policy into the VLM through their shared latent vector <Cite id="helix-2025" />. HybridVLA trains discrete and diffusion action prediction together, using a collaborative recipe against interference <Cite id="hybridvla-2025" />.
 
-The table-bussing task starts with 12 objects and scores correct placement into the dish and trash receptacles. The paper reports ten episodes per real-world task and policy. In a separate mobile-manipulation object-generalization experiment, the robot moves unseen objects from a counter into an already-open drawer; the research note says web-data co-training boosted generalization most in that comparison. These are different evaluation populations and form no single combined benchmark <Cite id="knowledge-insulation-paper-2025" /> <Cite id="knowledge-insulation-2025" />.
+## Results
 
-Language following also improves in the items-in-drawer comparison, but remains imperfect. The paper notes that VLM co-training can help the joint-training baseline follow language even without stop-gradient <Cite id="knowledge-insulation-paper-2025" />.
+A many-embodiment π0 generalist needs 7.5 times the training steps of π0.5 + KI to reach similar table-bussing performance. Single-embodiment π0-FAST specialists need twice the wall-clock time from slow inference <Cite id="knowledge-insulation-paper-2025" /> <Cite id="knowledge-insulation-2025" />. Table bussing starts with 12 objects for dish and trash receptacles, at ten episodes per task and policy. When a mobile robot moves unseen objects into an open drawer, web-data co-training boosts generalization most, and language following improves but stays imperfect <Cite id="knowledge-insulation-paper-2025" /> <Cite id="knowledge-insulation-2025" />.
 
-## Both, in different places
+In third-party fine-tuning, π0.5 with KI stays near zero on out-of-distribution task perturbations; KI alone does not fix out-of-distribution language generalization <Cite id="apt-action-expert-pretraining-2026" />. A reimplemented co-training plus KI baseline trailed standard behavior cloning on mean LIBERO-PRO and LIBERO-Plus success <Cite id="anchor-align-2026" />, though the dual FAST and flow objective mitigates forgetting more than flow alone <Cite id="garg-self-demonstrated-control-2026" />. Across seven VLAs, VQA co-training goes with better knowledge retention <Cite id="act2answer-2026" />.
 
-In the π0.5 + KI recipe, action representation has two roles: FAST tokens provide training supervision for the backbone, while the flow-matching expert generates continuous actions at inference. The expert’s gradients do not update the backbone <Cite id="knowledge-insulation-paper-2025" />. A [comparison matrix](/manipulation/comparison-matrix) should distinguish training representation from runtime output and resist forcing this model into a single binary category.
+## Later models
 
-## Related later models
+openpi's public π0.5 checkpoints were trained with KI, but the repository serves only the flow-matching head <Cite id="openpi-repo-2024" />. Outside groups therefore reimplemented the FAST loss and stop-gradient <Cite id="garg-self-demonstrated-control-2026" />. LAP-3B blocks expert gradients and runs at 25 Hz on an RTX 4090 <Cite id="lap-2026" />, and LabVLA applies KI to a FAST-pretrained Qwen3-VL-4B <Cite id="labvla-2026" />. A 2026 review sorts implementations into gradient stopping, as in π0.5-KI and π0.6, and inpainting <Cite id="stulp-full-stack-transfer-2026" />.
 
-The π0.6 model card describes a Gemma3 4B backbone and an approximately 860M action expert with the same number of layers; its architecture figure also labels a SigLIP 400M vision encoder. The backbone predicts FAST tokens, while the expert predicts continuous actions without sending its gradients back into the backbone. With five denoising steps and three camera inputs, producing a chunk takes 63 ms on one H100 <Cite id="pi06-model-card-2025" />. π0.7 retains a Gemma3-based VLM, a MEM-style video-history encoder and a flow-matching expert. Its prompt adds language, episode metadata and subgoal images; it also uses FAST supervision with action-expert gradients stopped at the backbone <Cite id="pi07-2026" />.
-
-<Callout variant="warn" title="How to read this module">
-  The interactive’s eight drawn layers and 0 to 100 language meter are a deterministic illustration and show neither measured architecture depth nor a published score curve. The Knowledge Insulation paper provides the qualitative spoon/trash example and the generalist table-bussing comparison: π0 takes 7.5 times as many training steps to reach similar performance as π0.5 + KI. The paper's appendix specifies a 2B language-model backbone and a 300M expert; the separate research-note diagram labels the complete VLM as 3B. The π0.6 card separately describes a Gemma3 4B backbone and an approximately 860M expert <Cite id="knowledge-insulation-paper-2025" /> <Cite id="knowledge-insulation-2025" /> <Cite id="pi06-model-card-2025" />.
-</Callout>
+The π0.6 card lists a Gemma3 4B backbone predicting FAST tokens, a SigLIP 400M encoder and an approximately 860M equal-depth expert whose gradients stay out of the backbone. A chunk takes 63 ms on one H100 with five denoising steps and three cameras <Cite id="pi06-model-card-2025" />. π0.7 keeps a Gemma3-based VLM, a MEM-style video-history encoder and a flow-matching expert under FAST supervision with expert gradients stopped <Cite id="pi07-2026" />.

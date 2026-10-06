@@ -29,6 +29,7 @@ import { join } from 'node:path';
 import matter from 'gray-matter';
 import { parseCorrectedDispositions } from '../lib/audit-corrected-disposition.ts';
 import { loadLocalBasisContext } from '../lib/audit-local-basis.ts';
+import { preDomainPassCitations } from '../lib/audit-domain-pass-continuity.ts';
 import {
   AUDIT_LEDGERS,
   parseLedger,
@@ -104,7 +105,8 @@ const coverage: DomainCoverage[] = AUDIT_LEDGERS.map((ledger) => {
     if (frontmatter.domain !== ledger.domain || frontmatter.slug !== plan.articleSlug) {
       throw new Error(`compound plan ${plan.id}: canonical frontmatter identity differs from its target`);
     }
-    articleCitations[plan.articleSlug] = frontmatter.citations;
+    articleCitations[plan.articleSlug] = preDomainPassCitations(root,
+      `content/${ledger.domain}/${plan.articleSlug}.mdx`, frontmatter.citations);
   }
   const context = { compoundPlans, articleCitations, localBasis, correctedDispositions };
   if (writeSummaries) {

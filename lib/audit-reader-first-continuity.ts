@@ -34,7 +34,7 @@ export type ReaderFirstReview = {
 
 // BEGIN reader-first pins (written by scripts/record-reader-first-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 1270365, sha256: '8042889e1fc85b1236d60db34128bbbe4567f7a5f34eb4094bedd7bca519e7f2' };
+const reviewPin = { bytes: 1276918, sha256: '2ed868a6b1d7400d0afed0ed00d6aa1b86b88591e8dd3ab77e47b43e615807d9' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -135,7 +135,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/component/ui/brand-v2-primitives.test.tsx', [5771, 'c45483aac01802b620444f681ba6b4218967b3afb71411a213532a092ba5539d']],
   ['tests/component/wbc-decomposition.test.tsx', [6886, '867390e1c9fd7f5f1f51c390d1dd1401dc9993502bab07e2afb8a55b56e51f6e']],
   ['tests/component/wm-disambiguator.test.tsx', [9527, '7736ae8871e1a50756e6f0277ccc6f3cc0452221f6ae2b8431409e2d6aaf3b20']],
-  ['tests/e2e/bc-foundations-corrections.spec.ts', [7090, '961ea23b5fd45fe64e52363e6d65a8c38835eb9b9604159d115ebb02cee14af0']],
+  ['tests/e2e/bc-foundations-corrections.spec.ts', [7124, '9991f5ad43cc691f7d8e6f8ccbf936c17e02769f241978fd740bd2d3ca065c13']],
   ['tests/e2e/bc-foundations.spec.ts', [4704, '679771c7f8588a469afcd9fb3655b59c3cd99260f03b5d697be6cc91eb3ca9f4']],
   ['tests/e2e/bear-case.spec.ts', [12124, 'cd87d6c153033de4616ececc82620a207196e7ad1a991a07d45d922985c97919']],
   ['tests/e2e/brand-v2-figures.spec.ts', [10556, 'fbae3d209cf5b933244b5a7da42d1391abbf814f71ca65ffd4208befc6fdefa3']],
@@ -143,7 +143,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/e2e/chart-coverage-sweep.spec.ts', [12272, '0b05cc763dbc74fb1e31ad53c7bcfce17b3d4001b540129e6d7e85fa5e6b1c35']],
   ['tests/e2e/chart-description-registry.spec.ts', [6569, '458e4b53e02328a4f47069cf4057a3f98c1855acf5b88b3ebe3ae9a450e19781']],
   ['tests/e2e/chart-descriptions.spec.ts', [15766, '59699f9d3b85a780115a4c913bd52944808404fb5084d6679ef69917df482309']],
-  ['tests/e2e/chart-state-descriptions.spec.ts', [24394, '0183bfeac2c8990525fe16fe3bb1f5e136f85ca964b7dc49d42763d5d060a372']],
+  ['tests/e2e/chart-state-descriptions.spec.ts', [24422, '45add6055717cda1d15b81bd7a712a74544d8c48fe593a7f751879821b1592cb']],
   ['tests/e2e/competing-theses.spec.ts', [9790, '42020e2d5dfb33bab2959e059998b9d79592453d522f6b9482e562b588682ed9']],
   ['tests/e2e/control.spec.ts', [25826, '26ed69dde595802054c0eae798dd0af7974da2837ca3ca16bf15e4d56052f9ed']],
   ['tests/e2e/data-bottleneck.spec.ts', [7827, 'aa6c97f41580e006c54cc443e728b00d2a6acc908da19a2fca857b6322e4bb1b']],
@@ -183,7 +183,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/e2e/residual-release-final-seven.spec.ts', [8515, 'ee12949e0a9d3dc52517e3639fa702c4c92f7014475d3a8784e7370f03d218c9']],
   ['tests/e2e/residual-release-industrial.spec.ts', [7926, '0599bcf96efc6477c6da0e4e5000b4d2c72c0bb760e02398bca448ebde2dd0ea']],
   ['tests/e2e/reward-local-evidence.spec.ts', [7920, 'de6611a9844281dd184b4090c0557ec503e908ba1ee1fc6b16ad6bc8e5295b50']],
-  ['tests/e2e/rl-finetuning.spec.ts', [11751, '639f76c13f198df8821b44cf0712a653225cc72eb676de1f0f7fa0e8193567d4']],
+  ['tests/e2e/rl-finetuning.spec.ts', [11702, '5bb1cae098b6bc560a7c89dc1a28cfb5281949ed52dc6a1e6edd998518e83526']],
   ['tests/e2e/safety-and-assurance.spec.ts', [23544, 'd8eb080ba5f910c343430f63f9e0d2a6c8b7e34d3cd814d292d42ea77d61e0fd']],
   ['tests/e2e/sim2real-local-evidence.spec.ts', [10444, '6098bdce6d76b790445c5cc8244349d2b5deb64733514591e436e0b5a5741618']],
   ['tests/e2e/sim2real-transfer.spec.ts', [11461, 'd7b10157da292b08fa92d4137d1f66b879e8e635cf5d992825945aa4e595e483']],
@@ -193,11 +193,11 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/unit/appearance-physics-push.test.ts', [5351, '7e9275704d3f5dca27c2fa72a760aaff5083ff37625daf297900cb3f1051b0d6']],
   ['tests/unit/brand-v2-annotation-scan.test.ts', [13596, '8dfdd1f46946d655fb927f9af75538b168a5fa0e4e5d636523af59fb87796f5b']],
   ['tests/unit/brand-v2-figure-evidence.test.ts', [29809, 'efeb601b9064edb8645a82df23eadf6bc0eaf0ead89b0775f0b6b67bcc827f61']],
-  ['tests/unit/main-merge-approved-deltas.test.ts', [92346, '6d4eb18768ca25ba5aa6bc7f9306de29d17e3da64aed4df72689bf7d5ecc63ec']],
+  ['tests/unit/main-merge-approved-deltas.test.ts', [95328, '14ababe5db0be560e487ad82b3a89c37a6f799393d8e0be3256adc2e578542e5']],
   ['tests/unit/motion-data-hardware.test.ts', [10895, 'd9a5ffee78d77b45a6155155c84992e3299e892e4e32e2a9c08fd62837842648']],
   ['tests/unit/motion-frontier-adjacent-home.test.ts', [10400, '65d530b06879dcadbb24c1660a49c723882aece6335a11e0ca5ba299a9a14fe3']],
   ['tests/unit/motion-tokens.test.ts', [4233, 'b6ab1f9ed18b3b0b4cbc084da4846571d8fb69e95a45328947b96700800ee00a']],
-  ['tests/unit/reader-release-integration.test.ts', [19527, 'ce670ab54720d695996b4d4a2286557cc16984a7beb632599d2d40ffc23fdd9e']],
+  ['tests/unit/reader-release-integration.test.ts', [19817, 'bbdf2acf3dd06ef909c61a7fab69c41ed8008d3e715f0eab8696787793c842ce']],
   ['tests/unit/robomind-hours-evidence.test.ts', [25008, 'b6180ad7cf1930ad9d6a1a4511e7f3011da9a0e26e5922ca64396f672f70cc39']],
 ]);
 // END reader-first pins

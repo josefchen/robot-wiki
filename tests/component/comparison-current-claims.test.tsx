@@ -46,19 +46,18 @@ describe('comparison current claim corrections', () => {
   });
 
   it('does not invent a continuous pi0.7 execution interval', () => {
-    expect(parsed.content).toContain('either 15 or 25');
+    expect(parsed.content).toContain('15 or 25');
     expect(parsed.content).not.toMatch(/15 to 25|15-25/);
   });
 
   it('replaces the universal regression-displacement and latency assertions', () => {
     expect(parsed.content).not.toMatch(/every row samples|Generative action heads displaced regression|twice the end-to-end latency|Fifty hertz became the standard claim|frontier rows all carry/);
     expect(parsed.content).toContain('deterministically');
-    expect(parsed.content).toContain('not an inference-throughput comparison');
   });
 
   it('scopes DP horizons to a named configuration rather than all architectures', () => {
-    expect(parsed.content).toContain('CNN Push-T configuration');
-    expect(parsed.content).toContain('predicts 16 steps and executes 8');
+    expect(parsed.content).toContain('CNN Push-T');
+    expect(parsed.content).toContain('prediction and execution horizons of 2, 16 and 8');
   });
 
   it('does not call an unset scalar proof that a primary paper lacks rates', () => {

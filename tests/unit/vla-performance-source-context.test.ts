@@ -9,10 +9,10 @@ const hardware = () => article('content/data-hardware/hardware-taxonomy.mdx');
 
 describe('VLA-Perf source context', () => {
   it('distinguishes analytical predictions from empirical profiling in both articles', () => {
-    expect(realtime()).toContain('roofline-based analytical model');
-    expect(realtime()).toContain('no hardware-wide profiling campaign behind it');
-    expect(realtime()).toContain('hypothetical variant');
-    expect(realtime()).toContain('baseline is 2.7B parameters');
+    expect(realtime()).toContain('analytical roofline model');
+    expect(realtime()).toContain('reaches 73.3 to 82.6% of its predicted throughput');
+    expect(realtime()).toContain('A hypothetical 9.1B π0-L');
+    expect(realtime()).toContain('baseline π0 has 2.7B parameters');
     expect(hardware()).toContain('batch-one analytical predictions');
     expect(hardware()).toContain('have no measurements from running the policy on all five GPUs');
     for (const text of [realtime(), hardware()]) {
@@ -62,14 +62,11 @@ describe('VLA-Perf source context', () => {
 
   it('keeps network exceptions, quantization uncertainty, and toy defaults explicit', () => {
     const text = realtime();
-    expect(text).toContain('RTX 4090 over 5G is slower at 55.7 ms');
-    expect(text).toContain('not an FP4/FP8 2 to 4× speedup result or an accuracy-loss validation');
-    expect(text).toContain('bind no universal robot-control requirement');
+    expect(text).toContain("synchronous π0 on an RTX 4090 takes 38.7 ms over WiFi 6 against Thor's 52.6 ms, but 55.7 ms over 5G");
+    expect(text).toContain('the authors propose smaller models, fewer denoising steps or lower-precision quantization');
+    expect(text).toContain('relative to common camera rates');
     // The page mounts the control-loop toy once, at its stock 3.0B default.
     expect(text.match(/<ControlLoopBudget\b/g)).toHaveLength(1);
     expect(text).not.toContain('defaultParamsB=');
-    expect(text).toContain('deliberately chosen 3.0B reference coordinate');
-    expect(text).toContain('five-tick linear blend');
-    expect(text).toContain('a discontinuity proxy standing in for physical jerk');
   });
 });

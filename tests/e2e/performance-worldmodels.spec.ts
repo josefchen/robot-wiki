@@ -47,7 +47,7 @@ for (const width of [375, 1440]) {
 }
 
 const routes = [
-  { domain: 'manipulation', slug: 'realtime-execution', text: 'roofline-based analytical model', source: 'vla-perf-2026' },
+  { domain: 'manipulation', slug: 'realtime-execution', text: 'analytical roofline model', source: 'vla-perf-2026' },
   { domain: 'data-hardware', slug: 'hardware-taxonomy', text: 'batch-one analytical predictions', source: 'vla-perf-2026' },
   { domain: 'world-models', slug: 'latent-dynamics', text: 'MBPO-PPO', source: 'robotic-world-model-2025' },
   { domain: 'world-models', slug: 'taxonomy', text: 'Causal Conditioning Gaps', source: 'world-model-survey-2026' },

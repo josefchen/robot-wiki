@@ -3,7 +3,7 @@ import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
 import { CITATIONS } from '../../data/citations';
 import { committedSource } from '../helpers/continuation-integration';
-import { preSeoPassText } from '../helpers/seo-pass';
+import { preDomainPass, preSeoPassText } from '../helpers/seo-pass';
 import {
   compoundPartDigest, compoundPlanDigest, originalClaimDigest, parseLedger,
   type CompoundPlan,
@@ -336,11 +336,22 @@ describe('hierarchy original 15 bounded synthesis correction', () => {
     expect(compareBaseline(after15, bundle(article + '\nUnapproved extra assertion.'),
       [{ ...pass[0], oldHash: newHash, reconciles: undefined }]).ok).toBe(false);
     // The SEO pass resolution binds the cue endpoint; the 2026-10-05 KOL backlog
-    // resolution binds the SEO endpoint and reaches the live article.
+    // resolution binds the SEO endpoint and reaches the pre-domain-pass
+    // article; the 2026-10-06 domain pass continues it to the live article.
     const seo = approvals.find(d => d.id === 'seo-pass-20261002-prose-manipulation-hierarchical')!;
     expect(seo.reconciles?.some(binding => binding.id === cue[0].id && binding.newHash === cueHash)).toBe(true);
     const kol = approvals.find(d => d.id === 'kol-backlog-20261005-manipulation-prose-hierarchical')!;
     expect(kol.reconciles?.at(-1)).toMatchObject({ id: seo.id, newHash: seo.newHash });
-    expect(prose(readFileSync(articlePath, 'utf8')).members[0].hash).toBe(kol.newHash);
+    expect(prose(preDomainPass(articlePath).toString('utf8')).members[0].hash).toBe(kol.newHash);
+    // Each later domain-pass group's edge continues the previous one.
+    const domainPass = approvals.filter(d => /^domain-pass-20261006-g\d+-prose-hierarchical$/.test(d.id));
+    expect(domainPass[0].id).toBe('domain-pass-20261006-g3-prose-hierarchical');
+    let previous: { id: string; newHash: string } = kol;
+    for (const edge of domainPass) {
+      expect(edge.oldHash === previous.newHash
+        || (edge.reconciles ?? []).some(binding => binding.id === previous.id && binding.newHash === previous.newHash)).toBe(true);
+      previous = edge;
+    }
+    expect(prose(readFileSync(articlePath, 'utf8')).members[0].hash).toBe(previous.newHash);
   });
 });

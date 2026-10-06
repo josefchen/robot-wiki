@@ -11,6 +11,7 @@ import {
   parseCompoundPlans,
   parseLedger,
 } from '../../lib/audit-ledger';
+import { preDomainPassCitations } from '../helpers/domain-pass';
 
 const read = (path: string) => readFileSync(path, 'utf8');
 const plans = parseCompoundPlans(JSON.parse(read('audit/compound-evidence.json')));
@@ -42,7 +43,7 @@ const ledgers = AUDIT_LEDGERS.map(ledger => {
       if (frontmatter.domain !== ledger.domain || frontmatter.slug !== p.articleSlug) {
         throw new Error(`compound plan ${p.id} has a different canonical target`);
       }
-      return [p.articleSlug, frontmatter.citations];
+      return [p.articleSlug, preDomainPassCitations(ledger.domain, p.articleSlug, frontmatter.citations)];
     }));
   return {
     ...ledger,

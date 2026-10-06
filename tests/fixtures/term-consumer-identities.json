@@ -335,13 +335,12 @@
     },
     {
       "route": "/manipulation/bc-foundations/",
-      "rawOpeningTags": 6,
+      "rawOpeningTags": 5,
       "termIds": [
         "behavior-cloning",
-        "dagger",
         "compounding-error",
         "diffusion-policy",
-        "covariate-shift",
+        "dagger",
         "imitation-learning"
       ]
     },
@@ -359,11 +358,11 @@
       "route": "/manipulation/cross-embodiment/",
       "rawOpeningTags": 6,
       "termIds": [
-        "retargeting",
         "cross-embodiment",
         "open-x-embodiment",
         "end-effector",
         "vision-language-action-model",
+        "retargeting",
         "proprioception"
       ]
     },
@@ -424,12 +423,11 @@
     },
     {
       "route": "/manipulation/realtime-execution/",
-      "rawOpeningTags": 4,
+      "rawOpeningTags": 3,
       "termIds": [
-        "action-chunking",
         "real-time-chunking",
-        "temporal-ensembling",
-        "real-time-chunking"
+        "action-chunking",
+        "temporal-ensembling"
       ]
     },
     {
@@ -437,8 +435,8 @@
       "rawOpeningTags": 5,
       "termIds": [
         "imitation-learning",
-        "flow-matching",
         "ppo",
+        "flow-matching",
         "behavior-cloning",
         "success-rate"
       ]

@@ -6,6 +6,7 @@ import { METHODS } from '@/data/methods';
 import { LATENCY_REFERENCES } from '@/lib/control-loop';
 import { parseLedger, type CompoundPlan } from '@/lib/audit-ledger';
 import { withoutKolBacklog20261005Citations } from '../helpers/kol-backlog-20261005';
+import { preDomainPassCitations } from '../helpers/domain-pass';
 
 const read = (path: string) => readFileSync(path, 'utf8');
 const selectedIds = [
@@ -51,8 +52,12 @@ const articles = ['comparison-matrix', 'knowledge-insulation', 'pi-line', 'realt
 // The 2026-10-05 KOL backlog batch appended citation ids to some of these
 // articles; the pinned sets are the ones before that batch.
 const articleCitations = Object.fromEntries([
-  ...articles.map((slug) => [slug, withoutKolBacklog20261005Citations(`manipulation/${slug}.mdx`,
-    matter(read(`content/manipulation/${slug}.mdx`)).data).citations]),
+  ...articles.map((slug) => {
+    // The 2026-10-06 domain pass appended more, with their own audit rows.
+    const data = matter(read(`content/manipulation/${slug}.mdx`)).data;
+    return [slug, withoutKolBacklog20261005Citations(`manipulation/${slug}.mdx`,
+      { ...data, citations: [...preDomainPassCitations('manipulation', slug, data.citations as string[])] }).citations];
+  }),
   ['rl-for-robotics', matter(read('content/rl-sim2real/rl-for-robotics.mdx')).data.citations],
 ]);
 function row(id: string, compoundPlans = plans) {
@@ -103,7 +108,7 @@ describe('manipulation and RL retained-source integration', () => {
   });
   it('retains the control-mode dropout exception and distinguishes high-level coaching', () => {
     const pi = read('content/manipulation/pi-line.mdx');
-    expect(pi).toMatch(/control mode[^.]*not dropped|not apply dropout[^.]*control mode|control-mode[^.]*not dropped/i);
+    expect(pi).toContain('always keeps the joint or end-effector control-mode label');
     expect(pi).toContain('high-level policy');
     expect(pi).not.toContain('for 3.3B total');
     expect(pi).not.toContain('committed the whole 50-step chunk');

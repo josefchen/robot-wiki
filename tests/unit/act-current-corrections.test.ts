@@ -5,18 +5,18 @@ import { CITATIONS } from '@/data/citations';
 const article = readFileSync('content/manipulation/action-chunking.mdx', 'utf8');
 describe('ACT current source qualifications', () => {
   it('distinguishes six joints plus a gripper from the paper shorthand', () => {
-    expect(article).toContain('six arm joints and one gripper coordinate per arm');
+    expect(article).toContain('joints and one gripper coordinate');
     expect(article).toContain('7+7=14');
   });
   it('represents the paper L1 versus MSE inconsistency rather than a universal objective', () => {
-    expect(article).toContain("ACT's implementation description, which specifies L1 reconstruction");
+    expect(article).toContain("ACT's implementation description specifies L1 reconstruction");
     expect(article).not.toContain('the experiments specify L1 reconstruction');
     expect(article).toContain('the printed algorithm uses MSE');
   });
   it('separates added delay, base model latency and experiment scope', () => {
     expect(article).toContain('76 ms for the baselines and 97 ms for RTC');
     expect(article).toContain('10 to 20 ms');
-    expect(article).toContain('six tasks, ten episodes per task');
+    expect(article).toContain('six tasks, ten episodes');
     expect(article).not.toContain('which is why the later');
     expect(article).not.toContain('Once inference latency reaches 100 to 200 ms');
   });
@@ -29,6 +29,7 @@ describe('ACT current source qualifications', () => {
     const component = readFileSync('components/interactive/latency-comparison.tsx', 'utf8');
     expect(component).toContain('Deterministic toy, not measured throughput');
     expect(component).toContain('not a universal latency threshold');
-    expect(article).toContain('toy score');
+    // The article names the figure a toy where it gives the operating cue; the figure's own label carries the full qualification.
+    expect(article).toContain('In the toy below');
   });
 });

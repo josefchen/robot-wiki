@@ -19,6 +19,25 @@ citations:
   - pi0-fast-2025
   - isaac-gr00t-repo-2026
   - franka-fci-docs
+  - open-x-embodiment-2023
+  - droid-2024
+  - robosuite-2020
+  - peng-action-space-2016
+  - rotation-continuity-2018
+  - gr00t-n1-6-2025
+  - umi-2024
+  - vla-scaling-alignment-2026
+  - levine-visuomotor-2015
+  - rudin-2021
+  - hogan-1985
+  - varin-action-spaces-2019
+  - acp-2024
+  - beast-2025
+  - vq-bet-2024
+  - openvla-oft-2025
+  - helix-2025
+  - knowledge-insulation-paper-2025
+  - action-space-design-2026
 seeAlso:
   - "manipulation/knowledge-insulation"
   - "frontier/dexterity"
@@ -26,11 +45,7 @@ seeAlso:
 ---
 import { ActionSpaceTable } from '@/components/mdx/text-tables';
 
-An action space is the interface between a policy and the rest of the robot. It decides what the network predicts, which errors the low-level controller must absorb, how frequently inference must run, and whether data from two embodiments can share labels. Calling both outputs “actions” hides differences large enough to reverse a model comparison.
-
-The useful question is not which action space is best. It is which responsibilities should live in the learner and which should remain in a controller with explicit geometry, dynamics and safety limits.
-
-Try the check below and choose the Cartesian interface only if the controller underneath can uphold its side of the contract.
+An action space is the interface between a policy and the rest of the robot: what the network predicts, which errors the controller absorbs, how often inference runs and whether embodiments share labels. In Open X-Embodiment, the same seven numbers can mean absolute or relative positions or velocities <Cite id="open-x-embodiment-2023" />. Try the check below.
 
 <SelfCheck
   prompt="A policy must transfer between two arms with different link lengths, while each robot already has a stable Cartesian controller. Which first action representation is the cleanest shared interface?"
@@ -57,63 +72,40 @@ Try the check below and choose the Cartesian interface only if the controller un
 
 ## The contract has four parts
 
-An action is more than a vector. A complete action contract specifies:
-
-1. **Coordinates:** joint, Cartesian, object-relative or another frame.
-2. **Semantics:** absolute target, delta, velocity, force, torque or controller parameter.
-3. **Timing:** control rate, prediction horizon and how stale predictions are handled.
-4. **Execution:** interpolation, clipping, inverse kinematics, feedback control and safety limits.
-
-Two papers can both report a seven-dimensional action while meaning different things. One may emit a relative end-effector delta integrated by a task-space controller; another may emit absolute joint targets under a separate low-level loop. The output widths match; the learning problems do not.
+A contract names coordinates (joint, Cartesian, object-relative or another frame), semantics (absolute target, delta, velocity, force, torque or controller parameter), timing (rate, horizon and stale-prediction handling) and execution (interpolation, clipping, inverse kinematics, feedback and safety limits). DROID records equivalent commands in several action spaces <Cite id="droid-2024" />, and robosuite's controllers span joint and Cartesian spaces <Cite id="robosuite-2020" />.
 
 ## Joint-space actions
 
-**Joint position targets** are one imitation-learning baseline. On matched leader-follower setups, demonstrated joint angles can serve as labels after checking calibration and gripper conventions. ACT uses absolute joint-and-gripper targets for its two ViperX arms, predicted in chunks <Cite id="act-aloha-2023" />.
+**Joint position targets** are a common imitation baseline: on matched leader-follower rigs, demonstrated angles become labels after calibration checks. ACT uses the leader arms' joint positions as actions, predicting chunks of absolute joint-and-gripper targets for two ViperX arms <Cite id="act-aloha-2023" />. The controller interpolates, enforces limits and closes a fast loop, but one shoulder angle moves different arms differently.
 
-The advantage is repeatability on one mechanism. The controller can interpolate targets, enforce joint limits and close a high-rate loop below the policy. The cost is embodiment specificity. A shoulder angle on one arm does not describe the same end-effector motion on another.
-
-**Joint velocity targets** encode increments instead of absolute configurations. Integrating them requires current joint state and can drift; equal velocities can produce different Cartesian motion on different robots.
-
-Both representations require an accurate kinematic model. The [kinematics module](/classical/kinematics) derives the forward map and Jacobian that connect joint motion to the hand <Cite id="modern-robotics-2017" />.
+**Joint velocity targets** encode increments and can drift when integrated. The [kinematics module](/classical/kinematics/) derives the forward map and Jacobian that both need <Cite id="modern-robotics-2017" />. In locomotion RL, target joint angles with local feedback beat raw torques for learning speed, robustness and motion quality <Cite id="peng-action-space-2016" />.
 
 ## Cartesian actions
 
-Cartesian actions describe what the tool should do: translate, rotate, open or close. Relative deltas encode motion from the current pose instead of an absolute target; their range and frame still need to be specified. They also provide a plausible shared label for arms whose joint counts and link lengths differ.
+Cartesian actions say what the tool should do: translate, rotate, open or close. Relative deltas from the current pose can label arms with different joint counts and link lengths alike once range and frame are fixed. Each robot then needs inverse kinematics or an operational-space controller, singularity handling and joint-limit avoidance. Khatib's 1987 IEEE Journal on Robotics and Automation paper on the operational space formulation unifies motion and force control <Cite id="khatib-1987" />.
 
-The simplicity is above the waterline. Underneath, each robot needs inverse kinematics or an operational-space controller, singularity handling, joint-limit avoidance and a named reference frame. Khatib's 1987 IEEE Journal of Robotics and Automation paper, "A Unified Approach for Motion and Force Control of Robot Manipulators: The Operational Space Formulation," frames motion and force control as one problem and gives the operational-space formulation its name <Cite id="khatib-1987" />.
+Euler angles and quaternions are discontinuous as network outputs, while 6D representations are continuous <Cite id="rotation-continuity-2018" />. Axis-angle increments must also name the tool or world frame.
 
-Rotation needs special care. Euler-angle deltas have discontinuities and depend on axis order. Axis-angle and exponential coordinates are compact but must define whether the increment is expressed in the tool or world frame. A six-number action is not portable until that convention is written down.
-
-NVIDIA says GR00T N1.7 adopts relative end-effector deltas shared across robot and human embodiments <Cite id="isaac-gr00t-repo-2026" />. That is a representation choice with consequences beyond preprocessing: it determines which non-robot data can become a useful target.
+NVIDIA says GR00T N1.7 shares relative end-effector deltas across robot and human embodiments, deciding what non-robot data can become a target <Cite id="isaac-gr00t-repo-2026" />. Its N1.6 notes find relative actions smoother and more accurate than absolute ones but prone to error accumulation on small datasets <Cite id="gr00t-n1-6-2025" />. UMI pairs relative-trajectory actions with latency matching to deploy one policy on several arms <Cite id="umi-2024" />, and a unified end-effector-relative representation was critical for cross-embodiment transfer in matched VLA pretraining ablations <Cite id="vla-scaling-alignment-2026" />.
 
 ## Torque and impedance actions
 
-**Torque actions** expose low-level dynamics and contact directly; position and impedance controllers can express related behaviors through their own feedback loops. They also demand a high control rate, accurate timing, actuator-specific scaling and a safety layer that remains effective when the learned output is wrong. Franka's control interface documentation states that libfranka can send real-time control values at 1 kHz using five different control modes, including gravity- and friction-compensated joint-level torque commands <Cite id="franka-fci-docs" />.
+**Torque actions** expose dynamics and contact; Levine et al. mapped raw images to motor torques <Cite id="levine-visuomotor-2015" />. They need a high rate, accurate timing, actuator-specific scaling and a safety layer that holds when the output is wrong. libfranka sends 1 kHz commands in five modes, including gravity- and friction-compensated joint torque <Cite id="franka-fci-docs" />. Rudin et al.'s locomotion pipeline sends joint-position targets to a PD controller instead <Cite id="rudin-2021" />.
 
-**Impedance actions** are a useful middle layer. The policy selects a pose target plus stiffness and damping, while a controller converts the error into forces. Variable end-effector impedance has been studied explicitly as an RL action space for contact-rich tasks <Cite id="martin-martin-2019" />. It gives learning control over compliance without asking it to synthesize every torque sample.
-
-One design keeps compliance targets in the learned policy while a separately tested controller owns the fast feedback.
+**Impedance actions** sit between: the policy picks a pose target plus stiffness and damping, and a controller turns error into force. Hogan judged position or force control alone inadequate for manipulation <Cite id="hogan-1985" />. Variable end-effector impedance has been studied as an RL action space for contact-rich tasks <Cite id="martin-martin-2019" />. Task-space impedance references needed the fewest samples in a comparison with torque, joint PD and inverse dynamics <Cite id="varin-action-spaces-2019" />, and Adaptive Compliance Policy's predicted compliance beats position-only visuomotor policies by over 50% <Cite id="acp-2024" />.
 
 ## Chunks change the time axis
 
-An <Term id="action-chunking">action chunk</Term> predicts several future steps per inference. In ACT's ablations, chunking improved ACT and the two baselines the authors retrofitted with it, and the CVAE objective proved essential on human demonstrations: removing it cut success on the two simulated human-data tasks from 35.3% to 2% <Cite id="act-aloha-2023" />. Diffusion Policy also predicts a horizon and executes only the first portion before replanning <Cite id="diffusion-policy-2023" />.
-
-Chunks can represent temporally coordinated motion, but their inference cost depends on how often the policy replans. Longer open-loop execution can leave a stale plan when the scene changes. If contact makes the world diverge after the first few steps, the remaining chunk reflects an observation that is no longer current. Receding-horizon execution, temporal ensembling and real-time chunk replacement <Cite id="real-time-chunking-2025" /> are different answers to that problem.
-
-Report the chunk horizon and the executed horizon separately. A predicted chunk length alone does not tell the reader whether all actions run open loop or when the policy replans.
+An <Term id="action-chunking">action chunk</Term> predicts several steps per inference; chunking helped ACT and two retrofitted baselines ([action chunking](/manipulation/action-chunking/)) <Cite id="act-aloha-2023" />. Diffusion Policy executes the first part of a predicted horizon, then replans <Cite id="diffusion-policy-2023" />. Open-loop chunks go stale when contact changes the scene; receding horizons, temporal ensembling and real-time chunk replacement answer this differently <Cite id="real-time-chunking-2025" /> ([real-time execution](/manipulation/realtime-execution/)). Report predicted and executed horizons separately.
 
 ## Tokens change the output geometry
 
-RT-2 <Cite id="rt2-2023" /> and OpenVLA mapped continuous action dimensions into discrete vocabulary tokens so robot control could use language-model training machinery. OpenVLA discretizes seven action dimensions into 256 bins <Cite id="openvla-2024" />. Discretization permits token-level cross-entropy and imposes finite-bin resolution; autoregressive decoding must be budgeted in the latency measurement.
+RT-2 <Cite id="rt2-2023" /> and OpenVLA map continuous actions to vocabulary tokens to reuse language-model training, OpenVLA binning seven dimensions into 256 values <Cite id="openvla-2024" />. Binning allows cross-entropy, limits resolution and adds autoregressive decoding to latency. FAST quantizes a chunk's frequency coefficients and applies byte-pair encoding, compressing far better than per-dimension binning; its universal FAST+ tokenizer was trained on 1M real robot action trajectories <Cite id="pi0-fast-2025" />. BEAST's B-spline tokens need no tokenizer training and decode in parallel <Cite id="beast-2025" />, and VQ-BeT's vector-quantized actions infer 5 times faster than Diffusion Policy <Cite id="vq-bet-2024" />.
 
-FAST takes the opposite route: transform an action chunk into frequency coefficients, quantize them, then apply byte-pair encoding <Cite id="pi0-fast-2025" />. Its universal FAST+ tokenizer was trained on 1M real robot action trajectories <Cite id="pi0-fast-2025" />. The paper reports that this DCT-plus-BPE scheme compresses action chunks significantly better than existing action tokenizers, but the decoded result is still meaningful only under the action convention used before tokenization.
-
-Tokenization is therefore not an action space by itself. It is an encoding layered on joint, Cartesian or another continuous action space.
+Continuous heads skip tokens: OpenVLA-OFT's continuous actions, parallel decoding and L1 objective lifted LIBERO success from 76.5% to 97.1% <Cite id="openvla-oft-2025" />, and Figure says Helix outputs continuous control to avoid tokenization <Cite id="helix-2025" />. Naively adding a continuous expert to a VLM harms training speed and knowledge transfer, which [knowledge insulation](/manipulation/knowledge-insulation/) addresses <Cite id="knowledge-insulation-paper-2025" />. Tokens mean something only under the continuous convention they encode.
 
 ## A selection rule
 
-Choose the lowest-level action that the task requires and the platform can support safely.
+Choose the lowest-level action the task requires and the platform supports safely. Across 13,000+ real rollouts and 500+ models, predicting delta actions consistently helped, with joint space favoring control stability and task space favoring generalization <Cite id="action-space-design-2026" />. Hold controller, rate, horizon and observation history fixed when comparing architectures, or the comparison measures interface changes.
 
 <ActionSpaceTable className="my-6" />
-
-Hold the controller, rate, horizon and observation history fixed when comparing policy architectures. Otherwise the experiment measures a package of interface changes. The action space is the package's most consequential part because it decides which errors learning must solve and which errors classical control is still allowed to reject.

@@ -14,10 +14,10 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     const prose = page.locator('div.prose[data-pagefind-body]');
     await expect(prose).toContainText('camera and laser-range inputs');
     await expect(prose).toContainText('trained on simulated road images');
-    await expect(prose).toContainText('proposed future work');
-    await expect(prose).toContainText('it promises no improvement for any particular iterate');
+    await expect(prose).toContainText('The guarantee is existential');
+    await expect(prose).toContainText('Algorithm 3.1 returns the policy best on validation');
     await expect(prose).toContainText('strongly convex');
-    await expect(prose).toContainText('uninterrupted control');
+    await expect(prose).toContainText('steers back to a safe, stable region and hands back control');
     await expect(prose.locator('.katex-error')).toHaveCount(0);
     expect(await prose.locator('.katex').count()).toBeGreaterThan(10);
     await expect(page.getByText('$$', { exact: true })).toHaveCount(0);
@@ -31,7 +31,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     // The toy is stated once, in the prose, and the figure lives in the
     // prediction step at its seeded 240-step horizon, shown with the
     // reasoning still closed.
-    await expect(prose).toContainText('neither a source benchmark nor a task-cost theorem');
+    await expect(prose).toContainText('does not establish a task-cost guarantee');
     const reveal = page.locator('[data-predict] details[data-reveal]');
     await expect(reveal).not.toHaveAttribute('open');
     const toy = page.locator('[data-predict] > [data-predict-figure] [data-figure-frame="compounding-error"]');

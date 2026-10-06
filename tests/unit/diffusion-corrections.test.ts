@@ -3,9 +3,11 @@ import { readFileSync } from 'node:fs';
 import matter from 'gray-matter';
 import { CITATIONS, getCitation } from '@/data/citations';
 import { parseLedger, originalClaimDigest } from '@/lib/audit-ledger';
+import { preDomainPassCitations } from '../helpers/domain-pass';
 
 const source = readFileSync('content/manipulation/diffusion-policy.mdx', 'utf8');
 const ledger = readFileSync('audit/manipulation.md', 'utf8');
+const declared = preDomainPassCitations('manipulation', 'diffusion-policy', matter(source).data.citations);
 const canonical = ['diffusion-policy-2023', 'diffusion-policy-2023-v1', 'diffuser-2022',
   'act-aloha-2023', 'consistency-policy-2024', 'one-step-diffusion-2024',
   'octo-2024', 'pi0-2024', 'real-time-chunking-2025'];
@@ -15,7 +17,7 @@ describe('authorized Diffusion Policy current-claim corrections', () => {
     const section = parseLedger('audit/manipulation.md', ledger,
       new Set(CITATIONS.map(c => c.id)), {
         compoundPlans: JSON.parse(readFileSync('audit/compound-evidence.json', 'utf8')),
-        articleCitations: { 'diffusion-policy': matter(source).data.citations },
+        articleCitations: { 'diffusion-policy': declared },
       }).find(s => s.slug === 'diffusion-policy')!;
     expect(section.claimRows).toBe(25);
     expect(section.claimRecords.filter(r => r.evidenceFailures.length === 0)).toHaveLength(25);
@@ -32,7 +34,9 @@ describe('authorized Diffusion Policy current-claim corrections', () => {
     }
   });
   it('binds nine canonical works and preserves the review date', () => {
-    expect(matter(source).data.citations).toEqual(canonical);
+    expect(declared).toEqual(canonical);
+    // The domain pass appends the draft's new sources after the nine.
+    expect(matter(source).data.citations.slice(0, canonical.length)).toEqual(canonical);
     expect(matter(source).data.lastReviewed).toBe('2026-08-17');
     expect(source).toContain('single- and multi-task benchmarks');
     expect(source).not.toContain('is exactly what Octo');

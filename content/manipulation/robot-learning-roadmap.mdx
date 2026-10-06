@@ -16,17 +16,36 @@ citations:
   - droid-2024
   - isaac-lab-2025
   - libero-plus-2025
+  - robot-learning-tutorial-2025
+  - tedrake-manipulation-2026
+  - kalibr-2013
+  - rlds-2021
+  - open-x-embodiment-2023
+  - lin-data-scaling-laws-2024
+  - gello-2023
+  - lerobot-paper-2026
+  - hg-dagger-2019
+  - robomimic-2021
+  - pi0-fast-2025
+  - martin-martin-2019
+  - pi0-2024
+  - smolvla-2025
+  - tri-lbm-2025
+  - kress-gazit-evaluation-2024
+  - optimal-stopping-2025
+  - simpler-2024
+  - roboarena-2025
+  - ros2-science-robotics-2022
+  - tobin-2017
+  - offline-rl-tutorial-2020
+  - serl-2024
 seeAlso:
   - "classical/kinematics"
   - "classical/ros2-for-ml-engineers"
   - "manipulation/bc-foundations"
 ---
 
-The robot learning curriculum for ML engineers is a staged path through the robotics that policy experiments depend on, from coordinates to evaluation. Machine learning gives you optimization, representation learning, sequence models and experimental discipline. It does not give you coordinate frames, control loops, contact dynamics or a reliable definition of task success. A useful robot-learning roadmap therefore starts at the interfaces where a model meets a machine. The aim is not to learn all of robotics before training a policy. It is to learn each dependency just before an experiment needs it.
-
-The shortest route has six layers: geometry, data, imitation, action representation, evaluation and deployment. Foundation models and reinforcement learning sit on top of those layers; they do not remove them.
-
-Try the check below and choose the baseline you would run before a larger policy. The option names the first experiment that separates a data problem from a model problem.
+The robot learning curriculum for ML engineers is a staged path through the robotics that policy experiments depend on: geometry, data, imitation, action representation, evaluation and deployment, each learned just before an experiment needs it. A 2025 open tutorial runs from behavior cloning and reinforcement learning to generalist policies <Cite id="robot-learning-tutorial-2025" />. Try the check below.
 
 <SelfCheck
   prompt="You have a small set of clean demonstrations for one tabletop task and no trusted success detector. What should you build first?"
@@ -51,59 +70,52 @@ Try the check below and choose the baseline you would run before a larger policy
   takeaway="Earn complexity: first prove that the data, action convention and success measurement support a small closed-loop policy."
 />
 
-## Stage 1: make coordinates concrete
+## Stage 1: coordinates
 
-Start with [kinematics](/classical/kinematics); the reason is that observations and actions live in frames, with no expectation that every learner implements an inverse-kinematics solver. You should be able to answer four questions without looking at the training code: which frame an object pose uses, which frame an end-effector delta uses, whether rotations compose on the left or right, and where joint limits enter. *Modern Robotics* supplies the compact mathematical vocabulary for this layer <Cite id="modern-robotics-2017" />.
+Start with [kinematics](/classical/kinematics/): know which frame an object pose and an end-effector delta use, whether rotations compose on the left or right, and where joint limits enter. *Modern Robotics* supplies the vocabulary <Cite id="modern-robotics-2017" />, and Tedrake warns that sloppy kinematic notation "will inevitably lead to confusion and bugs" <Cite id="tedrake-manipulation-2026" />.
 
-Then read [calibration](/classical/calibration) and [state estimation](/classical/state-estimation). A policy can appear stochastic when the real defect is a drifting camera transform or a timestamp mismatch. This is the first habit to import from robotics: before changing the network, prove that the target the network sees refers to the same physical state as the action in the label.
+Then study [calibration](/classical/calibration/) and [state estimation](/classical/state-estimation/): a drifting camera transform or timestamp mismatch can look like a stochastic policy. Kalibr estimates sensor time offsets to a fraction of the smallest measurement period <Cite id="kalibr-2013" />.
 
-## Stage 2: treat data collection as a system
+## Stage 2: data as a system
 
-Robot data is a coupled record; a folder of images carries none of the coupling. Each transition needs synchronized observations, the commanded action, the action actually realized when available, robot state, task identity, termination, and enough provenance to reproduce the split. DROID reports 76k episodes collected across 13 institutions <Cite id="droid-2024" />.
+Each transition couples synchronized observations, commanded and realized actions, robot state, task identity, termination and provenance; RLDS stores such episodes losslessly <Cite id="rlds-2021" />. Among public [datasets](/data-hardware/datasets/), Open X-Embodiment pools 22 robots from 21 institutions <Cite id="open-x-embodiment-2023" />, and DROID holds 76k trajectories from 13 institutions <Cite id="droid-2024" />.
 
-Before collecting at scale, record ten episodes and replay them end to end. Plot timestamp gaps. Render actions back onto the robot state. Verify units and rotation conventions. Check that train and test environments do not share nearly identical episodes. These checks are cheaper than discovering after substantial teleoperation that camera and joint streams were misaligned.
+Before scaling, record ten episodes and replay them: plot timestamp gaps, render actions onto the robot state, and check units and rotation conventions. Past a threshold per environment or object, more demonstrations add little, and diversity matters far more <Cite id="lin-data-scaling-laws-2024" />.
 
-The [datasets guide](/data-hardware/datasets) explains the public corpora; the [robot-learning stack](/data-hardware/robot-learning-stack) explains the machinery around your own.
+GELLO collects demonstrations more reliably than VR controllers or 3D spacemice <Cite id="gello-2023" />, and LeRobot spans the [robot-learning stack](/data-hardware/robot-learning-stack/) from motor middleware to dataset streaming <Cite id="lerobot-paper-2026" />.
 
-## Stage 3: establish the imitation baseline
+## Stage 3: imitation baseline
 
-Behavior cloning is supervised learning with a closed-loop distribution shift. The learner sees expert states during training and its own imperfect states at deployment. DAgger formalized why errors compound and why collecting corrective actions on learner-induced states changes the problem <Cite id="dagger-2011" />.
+[Behavior cloning](/manipulation/bc-foundations/) trains on expert states and then visits its own, a closed-loop distribution shift. DAgger formalized why errors compound and why corrective labels on learner-induced states change the problem <Cite id="dagger-2011" />. HG-DAgger adapts it for human experts, whose labels can degrade without full control <Cite id="hg-dagger-2019" />.
 
-Run the smallest baseline that can close the loop. For image observations, that might be an encoder plus an MLP or a short transformer. Keep one camera, one task and one action convention. If it fails, inspect data alignment, normalization, reset diversity and label multimodality before adding scale.
+Run the smallest closed-loop baseline, such as an image encoder and MLP, on one camera, task and action convention. If it fails, inspect alignment, normalization, reset diversity and label multimodality before adding scale. robomimic found results sensitive to design choices, demonstration quality and stopping criteria <Cite id="robomimic-2021" />.
 
-Once the baseline is legible, add temporal structure. ACT predicts action chunks and temporally ensembles overlapping predictions at execution <Cite id="act-aloha-2023" />. Diffusion Policy represents a multimodal distribution over action sequences and executes it in a receding horizon <Cite id="diffusion-policy-2023" />. Both methods produce temporal action sequences; their objectives and inference procedures differ, so compare their controller and execution contracts directly.
+Add temporal structure. ACT predicts action chunks and temporally ensembles overlapping predictions <Cite id="act-aloha-2023" />. Diffusion Policy models a multimodal distribution over action sequences, executed in a receding horizon <Cite id="diffusion-policy-2023" />.
 
-## Stage 4: choose the action contract
+## Stage 4: action contract
 
-Read [action spaces](/manipulation/action-spaces) before comparing policy architectures. Joint positions are mechanism-specific. End-effector deltas can provide a shared task-space convention when each robot has a compatible controller and frame convention. Torque and tokens impose different low-level and decoding costs.
+Among [action spaces](/manipulation/action-spaces/), joint positions are mechanism-specific; end-effector deltas share a task-space convention across compatible controllers and frames. Torque and tokens add low-level and decoding costs, and per-dimension binning tokenizers handle high-frequency dexterous data poorly <Cite id="pi0-fast-2025" />.
 
-The action representation is part of the dataset. Changing it changes the labels, the controller under the policy, the error modes and often the set of robots that can share data. No model comparison is clean if those changed at the same time.
+The action representation is part of the dataset: it fixes the labels, the controller, the error modes and which robots can share data. Change it apart from the model. Variable-impedance end-effector actions improved sample efficiency and safety in three manipulation tasks <Cite id="martin-martin-2019" />.
 
-## Stage 5: add pretraining only after the interfaces hold
+## Stage 5: pretraining
 
-A VLA is useful when task language, semantic generalization or multi-task transfer matters. OpenVLA made the recipe reproducible: fuse spatial and semantic vision features into a language backbone, then fine-tune it to emit robot actions <Cite id="openvla-2024" />. The starting checkpoint is valuable, but the same data alignment and action-space constraints remain.
+A VLA helps when language, semantic generalization or multi-task transfer matters. OpenVLA made the recipe reproducible: fuse spatial and semantic vision features into a language backbone, then fine-tune it to emit actions <Cite id="openvla-2024" />. π0 pretrains on over 10,000 hours of robot data <Cite id="pi0-2024" />, and SmolVLA trains on one GPU yet performs comparably to VLAs ten times larger <Cite id="smolvla-2025" />.
 
-Ask what pretraining is supposed to provide. If the missing capability is recognizing an unseen object category, web-scale vision-language pretraining is a plausible intervention. If the failure is a gripper colliding because the hand-eye transform is wrong, it is not. The [foundation-model guide](/manipulation/foundation-models) separates transfer claims from architecture labels.
+[Pretraining](/manipulation/foundation-models/) can help recognize an unseen object category; a wrong hand-eye transform still needs calibration. In TRI's blind, randomized trials, multitask pretraining made policies more successful and robust and taught new tasks with a fraction of the data <Cite id="tri-lbm-2025" />.
 
-## Stage 6: make evaluation harder than the demo
+## Stage 6: evaluation
 
-Create the evaluation protocol before the main training run. Define task success, failure, intervention, reset and timeout. Separate familiar configurations from changed objects, backgrounds, lighting and geometry. Report trial counts and uncertainty alongside the average. LIBERO-Plus tests VLA robustness under controlled changes to object layout, camera viewpoint, robot initial state, language, lighting, background texture and sensor noise <Cite id="libero-plus-2025" />.
+Define success, failure, intervention, reset and timeout before the main run, and separate familiar configurations from changed objects, backgrounds, lighting and geometry. Papers often give little or no information on run counts, initial conditions, success criteria or statistics <Cite id="kress-gazit-evaluation-2024" />. Report trial counts and uncertainty; STEP's sequential test needs up to 32% fewer trials than prior tests <Cite id="optimal-stopping-2025" />.
 
-Open-loop loss is a diagnostic; the result sits elsewhere. A useful evaluation pyramid has four levels:
+Open-loop loss is a diagnostic. Check datasets for leakage, action distributions, timestamps and annotations; open-loop error and calibration on held-out episodes; closed-loop success, interventions and failures under controlled shifts; and deployment cycle time, recovery, resets, faults and operator load. LIBERO-Plus shifts object layout, camera viewpoint, initial state, language, lighting, background and sensor noise <Cite id="libero-plus-2025" />. SIMPLER's simulated scores correlate with real performance <Cite id="simpler-2024" />, and RoboArena's double-blind pairwise trials rank generalist policies better than centralized evaluation <Cite id="roboarena-2025" />. For deployment, [ROS 2](/classical/ros2-for-ml-engineers/) was rebuilt with the production-grade features ROS 1 lacked <Cite id="ros2-science-robotics-2022" />.
 
-1. **Dataset checks:** leakage, action distributions, timestamps and annotation quality.
-2. **Open-loop checks:** prediction error and calibration on held-out episodes.
-3. **Closed-loop checks:** success, interventions and failure modes under controlled shifts.
-4. **Deployment checks:** cycle time, recovery, resets, hardware faults and operator load.
+## Simulation and RL
 
-## When simulation and RL enter
+Simulation tests controller stability, robustness to parameter variation and safe reward optimization. Domain randomization aims to make the real world look like one more simulated variation <Cite id="tobin-2017" />. Isaac Lab targets large-scale, multi-modal robot learning <Cite id="isaac-lab-2025" />; measure its dynamics gap to the hardware.
 
-Simulation belongs where it answers a concrete question: whether a controller is stable, whether a policy survives parameter variation, or whether a reward can be optimized safely. Isaac Lab is designed for large-scale, multi-modal robot-learning workflows and is an appropriate environment once the task's contact and sensor assumptions are credible <Cite id="isaac-lab-2025" />. It is not a substitute for measuring the gap between its dynamics and the hardware.
-
-Offline RL belongs when a logged dataset contains meaningful variation in outcome quality and a reward can rank that variation. Online RL belongs when the system can explore safely, reset automatically and evaluate cheaply. When reward, safe exploration and resets are missing, <Term id="imitation-learning">imitation learning</Term> is a practical first use of collected demonstrations.
+Offline RL learns from logged data without new collection <Cite id="offline-rl-tutorial-2020" />, so it fits logs whose outcome quality varies and a reward can rank. Online RL needs safe exploration, automatic resets and cheap evaluation; SERL bundles an off-policy learner with reward computation, resets and a controller <Cite id="serl-2024" />. Without those, <Term id="imitation-learning">imitation learning</Term> is the practical first use of demonstrations.
 
 ## A practical sequence
 
-For a first serious project, spend the opening phase on replayable data and a deterministic evaluation harness. Build behavior cloning next. Add action chunks or a multimodal head only when the baseline exposes the need. Add a VLA when semantic transfer is part of the task. Add RL only when the reward, coverage and reset loop are real.
-
-The sequence is conservative because robot experiments are expensive and confounded. Its benefit is speed: every stage produces an artifact you keep, and every added method answers a failure you can already name.
+Build replayable data and a deterministic evaluation harness, then behavior cloning; add chunks when the baseline needs them, a VLA for semantic transfer, and RL once reward, coverage and resets are real. The tutorial provides ready-to-use LeRobot examples <Cite id="robot-learning-tutorial-2025" />.

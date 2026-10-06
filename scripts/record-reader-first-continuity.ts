@@ -193,11 +193,13 @@ function main(paths: string[]): void {
 async function verify(): Promise<boolean> {
   const layer = await import('../lib/audit-reader-first-continuity.ts');
   const { kolBacklogPredecessor } = await import('../lib/audit-kol-backlog-continuity.ts');
+  const { domainPassPredecessor } = await import('../lib/audit-domain-pass-continuity.ts');
   let ok = true;
   for (const source of layer.loadReaderFirstReview(root).sources) {
     try {
-      // The newer KOL backlog layer hands back the reader-first successor first.
-      const live = kolBacklogPredecessor(root, source.before, readFileSync(join(root, source.after.path)));
+      // The newer domain-pass and KOL backlog layers hand back the reader-first successor first.
+      const live = kolBacklogPredecessor(root, source.before,
+        domainPassPredecessor(root, source.before, readFileSync(join(root, source.after.path))));
       const prior = layer.readerFirstPredecessor(root, source.before, live);
       if (digest(prior) !== source.before.sha256) throw new Error('rebuilt bytes differ from the predecessor');
     } catch (error) {
