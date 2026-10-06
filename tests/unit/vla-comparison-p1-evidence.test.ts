@@ -13,7 +13,8 @@ import { headReanchorFor, showAt } from './helpers/continuation-merge-ledger';
 import { currentAuditContext, finalSevenPriorPlans } from '../helpers/residual-integration';
 import { preservedLegacySurvivors } from '../helpers/audit-plan-history';
 import { committedJson, committedText } from '../helpers/editorial-current-context';
-import { preSeoPassHash, preSeoPassText } from '../helpers/seo-pass';
+import { preDomainPass, preSeoPassHash, preSeoPassText } from '../helpers/seo-pass';
+import { preDomainPassCitations } from '../helpers/domain-pass';
 
 const root = resolve(import.meta.dirname, '../..');
 const base = 'afeeb058097ed5720ca11b03e41d3d2167573f5d';
@@ -21,12 +22,15 @@ const transaction = '89cda670f72443e321f3282b256974b4376da0f1';
 const read = (path: string) => readFileSync(resolve(root, path), 'utf8');
 const before = (path: string) => showAt(base, path);
 const articlePath = 'content/manipulation/comparison-matrix.mdx';
-const article = read(articlePath);
+// The row certifies the introduction as it stood before the 2026-10-06 domain pass rewrote the article from the owner's draft.
+const article = preDomainPass(articlePath).toString('utf8');
 const ledger = read('audit/manipulation.md');
 const plans: CompoundPlan[] = JSON.parse(read('audit/compound-evidence.json'));
 const oldPlans: CompoundPlan[] = JSON.parse(before('audit/compound-evidence.json'));
 const ids = new Set(CITATIONS.map(c => c.id));
-const declared = Object.fromEntries(publishedModules().map(m => [m.slug, matter(read(`content/${m.domain}/${m.slug}.mdx`)).data.citations as string[]]));
+// A domain-pass rewrite appends new ids, with their own audit rows; a P1 row keeps certifying the list it declared.
+const declared = Object.fromEntries(publishedModules().map(m => [m.slug,
+  [...preDomainPassCitations(m.domain, m.slug, matter(read(`content/${m.domain}/${m.slug}.mdx`)).data.citations as string[])]]));
 const selected = [['vla-models', 21, 9], ['comparison-matrix', 1, 23]] as const;
 const parse = (catalog = plans, md = ledger, citations = declared) => parseLedger('audit/manipulation.md', md, ids, { compoundPlans: catalog, articleCitations: citations });
 const row = (slug: string, ordinal: number, catalog = plans, md = ledger, citations = declared) => parse(catalog, md, citations).find(s => s.slug === slug)!.claimRecords[ordinal - 1];
@@ -67,8 +71,12 @@ describe('VLA21 and comparison1 current identity and scoped introduction', { tim
     const seoEntry = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries
       .find((a: { id: string }) => a.id === 'seo-pass-20261002-prose-manipulation-comparison-matrix');
     expect(seoEntry.oldHash).toBe(cueEntry.newHash);
+    const domainPassEntry = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries
+      .find((a: { id: string }) => a.id === 'domain-pass-20261006-g2-prose-comparison-matrix');
+    expect(domainPassEntry.oldHash).toBe(seoEntry.newHash);
+    expect(domainPassEntry.reconciles).toBeUndefined();
     expect(truthManifests['prose'].members.find(m => m.id === 'article:manipulation/comparison-matrix')?.hash)
-      .toBe(seoEntry.newHash);
+      .toBe(domainPassEntry.newHash);
     expect(article).toContain(currentIntro);
     expect(article).not.toContain(oldIntro);
     expect({ ...matter(article).data, seeAlso: undefined })
@@ -114,8 +122,13 @@ describe('VLA21 and comparison1 current identity and scoped introduction', { tim
       .find((a: { id: string }) => a.id === 'reader-first-20261003-prose-manipulation-vla-models');
     expect(vlaReaderFirst.oldHash).toBe(vlaSeo.newHash);
     expect(vlaReaderFirst.reconciles).toBeUndefined();
+    // The 2026-10-06 domain pass continues the reader-first endpoint to the live article with one plain edge.
+    const vlaDomainPass = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries
+      .find((a: { id: string }) => a.id === 'domain-pass-20261006-g1-prose-vla-models');
+    expect(vlaDomainPass.oldHash).toBe(vlaReaderFirst.newHash);
+    expect(vlaDomainPass.reconciles).toBeUndefined();
     expect(truthManifests['prose'].members.find(m => m.id === 'article:manipulation/vla-models')?.hash)
-      .toBe(vlaReaderFirst.newHash);
+      .toBe(vlaDomainPass.newHash);
     // The original VLA packet did not alter the registry. NASA was added by
     // the later industrial packet, whose complete record has its own test.
     expect(committedSource('89cda67', 'data/citations.ts')).toBe(before('data/citations.ts'));

@@ -1102,7 +1102,7 @@
     },
     "surface:flat": {
       "kind": "surfaces",
-      "fingerprint": "b281a867bea86067f10346622c1cac4fa31f6aab76d5dceb11d2b1fc9a295b0f",
+      "fingerprint": "7a99437af613e8c70d3545f2b911bd0622348bc8027f38379674be02955493fd",
       "mountState": "production",
       "definedIn": [
         "app/page.tsx",
@@ -1184,7 +1184,6 @@
         "components/nav/search-box.tsx",
         "components/three/playground-canvas.tsx",
         "components/three/playground-hud.tsx",
-        "components/ui/aside.tsx",
         "components/ui/badge.tsx",
         "components/ui/callout.tsx",
         "components/ui/card.tsx",

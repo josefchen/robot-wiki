@@ -11,7 +11,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     const cases = [
       ['/manipulation/comparison-matrix', 'Octo transformer checkpoints:'],
       ['/manipulation/knowledge-insulation', '63 ms on one H100'],
-      ['/manipulation/pi-line', 'control-mode label is not dropped'],
+      ['/manipulation/pi-line', 'control-mode label'],
       ['/manipulation/realtime-execution', '138.98'],
       ['/rl-sim2real/rl-for-robotics', '122,880'],
     ];

@@ -8,12 +8,14 @@ import {
   parseCompoundPlans,
   parseLedger,
 } from '@/lib/audit-ledger';
+import { preDomainPassCitations } from '../helpers/domain-pass';
 
 const path = 'audit/manipulation.md';
 const ledger = readFileSync(path, 'utf8');
 const plans = parseCompoundPlans(JSON.parse(readFileSync('audit/compound-evidence.json', 'utf8')));
 const ids = new Set(CITATIONS.map(c => c.id));
-const citations = matter(readFileSync('content/manipulation/action-chunking.mdx', 'utf8')).data.citations as string[];
+// A domain-pass rewrite appends new ids, with their own audit rows; the P1 row keeps certifying the list it declared.
+const citations = [...preDomainPassCitations('manipulation', 'action-chunking', matter(readFileSync('content/manipulation/action-chunking.mdx', 'utf8')).data.citations as string[])];
 const rows = (compoundPlans = plans) => parseLedger(path, ledger, ids, {
   compoundPlans, articleCitations: { 'action-chunking': citations },
 }).find(section => section.slug === 'action-chunking')!.claimRecords;

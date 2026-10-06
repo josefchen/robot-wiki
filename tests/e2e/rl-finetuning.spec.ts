@@ -127,11 +127,11 @@ test.describe('rl-finetuning module', () => {
   test('DPPO and ConRFT keep source-specific results and conflicts visible', async ({ page }) => {
     await page.goto(ROUTE);
     const prose = page.locator('div.prose[data-pagefind-body]');
-    await expect(prose).toContainText('PPO updates the denoising policy while the environment dynamics stay fixed.');
-    await expect(prose).toContainText('16 of 20 hardware trials');
-    await expect(prose).toContainText('from 15 to 90 minutes');
+    await expect(prose).toContainText('DPPO embeds denoising inside the environment MDP');
+    await expect(prose).toContainText('16 of 20 trials');
+    await expect(prose).toContainText('15 to 90 minutes');
     await expect(prose).toContainText('144% is a rounded relative gain');
-    await expect(prose).toContainText('PA-RL without them');
+    await expect(prose).toContainText('fine-tuning OpenVLA autonomously with Cal-QL');
     const table = page.getByRole('table').filter({ has: page.getByRole('columnheader', { name: 'Headline result' }) });
     await expect(table).toHaveCount(1);
     const dppo = table.getByRole('row').filter({ has: page.getByRole('cell', { name: 'DPPO', exact: true }) });
@@ -174,9 +174,9 @@ test.describe('rl-finetuning module', () => {
     await expect(row).toContainText('99.2% across 3 LIBERO suites');
     await expect(row).toContainText('50 trials/task');
     await expect(row).toContainText('not 100% one-shot success');
-    await expect(prose).toContainText('50.6-percentage-point gain');
-    await expect(prose).toContainText('displayed means differ by 24.8 points');
-    await expect(prose).toContainText('per-stage one-shot success is not 100%');
+    await expect(prose).toContainText('WidowX carrot task from 43.3% to 93.9%');
+    await expect(prose).toContainText('the means differ by 24.8');
+    await expect(prose).toContainText('per-stage one-shot success stays below 100%');
     await expect(prose.getByRole('link', { name: /Xiao et al\. 2025/ }).first())
       .toHaveAttribute('href', 'https://arxiv.org/abs/2511.00091');
   });
@@ -185,12 +185,12 @@ test.describe('rl-finetuning module', () => {
     await page.goto(ROUTE);
     const prose = page.locator('div.prose[data-pagefind-body]');
     // Attribution names the Stanford authors and dates the position pieces.
-    await expect(prose).toContainText('Perry Dong, Kuo-Han Hung, Tian Gao, Dorsa Sadigh and Chelsea Finn (Stanford)');
+    await expect(prose).toContainText('Dong, Kuo-Han Hung, Tian Gao, Sadigh and Finn');
     // Verified paper numbers stay in prose.
-    await expect(prose).toContainText('30/30 successes on every evaluated task');
+    await expect(prose).toContainText('30/30 on every evaluated task');
     await expect(prose).toContainText('19.1 minutes of online robot data');
-    await expect(prose).toContainText('over 95% accuracy');
-    await expect(prose).toContainText('around 40% success before online RL starts');
+    await expect(prose).toContainText('detectors over 95% accurate');
+    await expect(prose).toContainText('around 40% success or above before online RL');
     await expect(prose).toContainText("It's a craft.");
     await expect(prose).toContainText('from 42% to 97%');
     // Citation chips link to the primary sources.
@@ -227,7 +227,7 @@ test.describe('rl-finetuning module', () => {
     // the chart's own description repeats it inside "How this was made".
     await expect(
       page
-        .locator('#main-content p', { hasText: 'randomizes a substantially larger initial-state space' })
+        .locator('#main-content p', { hasText: 'randomizes a much larger initial-state space' })
         .filter({ visible: true })
         .first(),
     ).toBeVisible();

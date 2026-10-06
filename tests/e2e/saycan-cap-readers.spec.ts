@@ -28,21 +28,21 @@ test('SayCan and CaP retain complete caveats, definitions and reference identiti
 
   const saycan = page.getByRole('heading', { name: 'SayCan: scoring usefulness and affordance' });
   await saycan.scrollIntoViewIfNeeded();
-  await expect(page.locator('p').filter({ hasText: 'SayCan (2022) scores candidate skills' })).toContainText('appends the selected skill description');
-  await expect(page.locator('p').filter({ hasText: 'In the mobile-manipulator implementation' })).toContainText('require empirical calibration');
+  await expect(page.locator('p').filter({ hasText: 'SayCan (2022) scores each skill' })).toContainText('its description is appended to the prompt');
+  await expect(page.locator('p').filter({ hasText: 'mobile manipulator' })).toContainText('calibrated before use as probabilities');
   await shot('saycan-mechanism');
-  const limitation = page.locator('p').filter({ hasText: 'The available skills limit what the system can do.' });
+  const limitation = page.locator('p').filter({ hasText: 'The skill library bounds the system' });
   await limitation.scrollIntoViewIfNeeded();
-  await expect(limitation).toContainText('not confirmation that it succeeded');
+  await expect(limitation).toContainText('difficulty reacting when a skill fails despite a high value');
   await shot('saycan-limitations');
   const cap = page.getByRole('heading', { name: 'Code as Policies: the planner writes programs' });
   await cap.scrollIntoViewIfNeeded();
-  await expect(page.locator('p').filter({ hasText: 'Code as Policies (2022) prompts' })).toContainText('feedback loops over perceptual outputs');
+  await expect(page.locator('p').filter({ hasText: 'Code as Policies (2022) prompts' })).toContainText('loops, conditionals, spatial arithmetic and feedback over perception outputs');
   await shot('cap-mechanism');
-  const capLimits = page.locator('p').filter({ hasText: 'These capabilities depend on the supplied APIs and prompts.' });
+  const capLimits = page.locator('p').filter({ hasText: 'It assumes feasible instructions and cannot check correctness in advance.' });
   await capLimits.scrollIntoViewIfNeeded();
-  await expect(capLimits).toContainText('camera-to-robot transform registered in advance');
-  await expect(capLimits).toContainText('real-robot systems are demonstrations');
+  await expect(capLimits).toContainText('pre-registered camera-to-robot transform');
+  await expect(capLimits).toContainText('Quantitative evaluation covers only a tabletop simulation');
   await shot('cap-limitations');
 
   for (const id of ['saycan-2022', 'code-as-policies-2022']) {
@@ -115,7 +115,7 @@ test('SayCan and CaP retain complete caveats, definitions and reference identiti
   // Back's URL, mounted body and focus are separate observations, not navigation acceptance.
   observations.afterBack = await page.evaluate(() => ({
     url: location.href, heading: document.querySelector('h1')?.textContent,
-    articleBodyPresent: [...document.querySelectorAll('p')].some(el => el.textContent?.includes('These capabilities depend on the supplied APIs and prompts.')),
+    articleBodyPresent: [...document.querySelectorAll('p')].some(el => el.textContent?.includes('It assumes feasible instructions and cannot check correctness in advance.')),
     tag: document.activeElement?.tagName, href: document.activeElement?.getAttribute('href'),
   }));
   info.annotations.push({ type: 'scope', description: 'Term Escape and Back body/focus are recorded for the separately owned shared-reader gate, not certified by this content test.' });

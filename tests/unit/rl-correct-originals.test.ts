@@ -65,14 +65,14 @@ describe('correctly bound RL originals 6/8/9/10', () => {
   it('preserves HIL seed, comparator, attempt and timing distinctions', () => {
     const prose = read('content/manipulation/rl-finetuning.mdx');
     for (const value of ['20 to 30 demonstrations', '30 demonstrations', 'two attempts per sub-policy',
-      '6 hours', '49.7%', '9.6 versus 5.4', 'intended stops', 'learning curves']) expect(prose).toContain(value);
+      '6 for timing-belt assembly', '49.7%', '9.6 versus 5.4', 'intended stops', 'learning curves']) expect(prose).toContain(value);
     expect(prose).not.toContain('all initialized with 200 demonstrations');
     expect(read('components/mdx/rl-methods-table.tsx')).toContain('6 h for timing belt');
   });
 
   it('distinguishes percentage points, mixed stages and RLDG limitations', () => {
     const prose = read('content/manipulation/rl-finetuning.mdx');
-    for (const value of ['20/20', '12/20', '40-percentage-point', 'grasping and transport',
+    for (const value of ['20/20', '12/20', 'against 12/20 with human demonstrations', 'grasping and transport',
       'action quality', 'premature object drops', '4 Hz', '10 Hz']) expect(prose).toContain(value);
     expect(prose).not.toContain('by up to 40% higher success rates');
     expect((20 / 20 - 12 / 20) * 100).toBe(40);
@@ -81,9 +81,9 @@ describe('correctly bound RL originals 6/8/9/10', () => {
 
   it('retains Liu appendix exceptions and PAIR noncausal scope', () => {
     const prose = read('content/manipulation/rl-finetuning.mdx');
-    for (const value of ['SFT wins', 'January 2026', 'multi-receptacle',
+    for (const value of ['SFT wins', 'A September 2025 revision adds appendix tests', 'multi-receptacle',
       'sensitivity-only', 'target-pose success', 'in-distribution',
-      'leaves reward design unisolated', 'real-world transfer remains untested']) expect(prose).toContain(value);
+      'real-world transfer is untested']) expect(prose).toContain(value);
     expect(prose).not.toContain('can become newly fragile');
     expect(prose).not.toContain('because the task reward says nothing');
     // Registry landing URLs retain their existing citation-ledger audit.

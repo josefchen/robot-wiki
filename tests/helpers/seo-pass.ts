@@ -1,6 +1,7 @@
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { domainPassPredecessor } from '../../lib/audit-domain-pass-continuity.ts';
 import { kolBacklogPredecessor } from '../../lib/audit-kol-backlog-continuity.ts';
 import { readerFirstPredecessor } from '../../lib/audit-reader-first-continuity.ts';
 import { seoPassCheckerPredecessor, seoPassPredecessor } from '../../lib/audit-seo-pass-continuity.ts';
@@ -18,7 +19,16 @@ const specReview = JSON.parse(readFileSync(resolve(root,
  * reviewed successor, otherwise the live bytes.
  */
 export function preKolBacklog(path: string): Buffer {
-  return kolBacklogPredecessor(root, { path, bytes: 0, sha256: '' }, readFileSync(resolve(root, path)));
+  return kolBacklogPredecessor(root, { path, bytes: 0, sha256: '' }, preDomainPass(path));
+}
+
+/**
+ * The bytes the domain-pass layer of 2026-10-06 hands every check older than
+ * that pass: the rebuilt pre-pass article while the live article is the
+ * reviewed successor, otherwise the live bytes.
+ */
+export function preDomainPass(path: string): Buffer {
+  return domainPassPredecessor(root, { path, bytes: 0, sha256: '' }, readFileSync(resolve(root, path)));
 }
 
 /**

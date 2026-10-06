@@ -10,8 +10,8 @@
   },
   "citationRegistry": {
     "path": "data/citations.ts",
-    "bytes": 324204,
-    "sha256": "d72e580770502dc8673bc8013c5e2cacb1cf27576b275e36de24acc95ad283bb"
+    "bytes": 446649,
+    "sha256": "2b80418d8b55ad9b634b5197974be6f81102eae57a553acb763899db333312a4"
   },
   "sourceBody": {
     "path": "audit/evidence/citation-closeout-20260924/kroger-archive-webfetch.txt",
@@ -21,7 +21,7 @@
   "readerReceipt": {
     "path": "audit/evidence/citation-closeout-20260924/reader-observations.json",
     "bytes": 3328,
-    "sha256": "53690a0981724bed6617a6ea5b0e3ac343ca2d32c039c8d598a39d3e18609cc5"
+    "sha256": "d3da29bb1fd5ce7ac9c05356b992431a23168045279528dbd72b270e0d64a44e"
   },
   "changedChildren": [
     {

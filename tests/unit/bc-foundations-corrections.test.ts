@@ -4,6 +4,7 @@ import { accumulatedCost, simulateDeviation } from '@/lib/compounding-error';
 import { CITATIONS } from '@/data/citations';
 import { parseLedger } from '@/lib/audit-ledger';
 import matter from 'gray-matter';
+import { preDomainPassCitations } from '../helpers/domain-pass';
 
 const article = readFileSync('content/manipulation/bc-foundations.mdx', 'utf8');
 const component = readFileSync('components/interactive/compounding-error.tsx', 'utf8');
@@ -15,7 +16,7 @@ describe('BC source-backed corrections', () => {
       'audit/manipulation.md',
       readFileSync('audit/manipulation.md', 'utf8'),
       new Set(CITATIONS.map((c) => c.id)),
-      { compoundPlans: plans, articleCitations: { 'bc-foundations': matter(article).data.citations } },
+      { compoundPlans: plans, articleCitations: { 'bc-foundations': [...preDomainPassCitations('manipulation', 'bc-foundations', matter(article).data.citations as string[])] } },
     ).find((s) => s.slug === 'bc-foundations')!;
     expect(section.claimRecords).toHaveLength(14);
     expect(section.unevidencedRows).toEqual([]);
@@ -30,26 +31,24 @@ describe('BC source-backed corrections', () => {
   });
 
   it('preserves the BC definition while distinguishing ALVINN simulation training', () => {
-    expect(article).toContain('record what an expert did');
     expect(article).toContain('camera and laser-range inputs');
     expect(article).toContain('trained on simulated road images');
-    expect(article).toContain('proposed future work');
   });
 
   it('states the conditional existential theorem with true and empirical losses distinct', () => {
     expect(article).toContain('\\varepsilon_N');
     expect(article).toContain('\\hat{\\varepsilon}_N');
-    expect(article).toContain('infinite-sample');
+    expect(article).toContain('Infinite-sample Theorem 3.2');
     expect(article).toContain('strongly convex');
-    expect(article).toContain('it promises no improvement for any particular iterate');
-    expect(article).toContain('$u$ can be $O(T)$');
+    expect(article).toContain('The guarantee is existential');
+    expect(article).toContain('in the worst case $u$ is $O(T)$');
     expect(article).not.toContain('mismatch that drives compounding error shrinks each iteration');
   });
 
   it('narrows multimodality and HG-DAgger to their documented mechanisms', () => {
-    expect(article).toContain('learns both modes');
+    expect(article).toContain('learns both Push-T modes');
     expect(article).not.toContain('heads were built to solve');
-    expect(article).toContain('uninterrupted control');
+    expect(article).toContain('steers back to a safe, stable region and hands back control');
     expect(article).not.toContain('variant that survives in practice');
   });
 
@@ -57,7 +56,7 @@ describe('BC source-backed corrections', () => {
     expect(component).toContain('not a task-cost theorem');
     expect(component).not.toContain('analytic regret bounds');
     expect(component).toContain('illustrative reference curves');
-    expect(article).toContain('neither a source benchmark nor a task-cost theorem');
+    expect(article).toContain('does not establish a task-cost guarantee');
     const params = { epsilon: 0.05, mode: 'per-step' as const, chunkSize: 25, dagger: false };
     const cost = (steps: number) => accumulatedCost(simulateDeviation({ ...params, steps }));
     expect(Math.round(cost(120))).toBe(370);

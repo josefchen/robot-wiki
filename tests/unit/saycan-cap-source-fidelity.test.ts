@@ -23,17 +23,17 @@ describe('SayCan and Code as Policies exact source conjunctions', () => {
     expect(records().map(r => r.evidenceFailures)).toEqual([[], []]);
   });
   it('distinguishes selected skills, calibrated values and mixed implementations', () => {
-    expect(article).toContain('appends the selected skill description');
-    expect(article).toContain('skill selection runs through those value functions, with no separately trained model per skill');
-    expect(article).toContain('require empirical calibration');
-    expect(article).toContain('not confirmation that it succeeded');
+    expect(article).toContain('its description is appended to the prompt');
+    expect(article).toContain('score skills without a separate model per skill');
+    expect(article).toContain('calibrated before use as probabilities');
+    expect(article).toContain('difficulty reacting when a skill fails despite a high value');
     expect(article).not.toContain('The affordance half is the contribution that survived');
     expect(article).not.toContain('recovery from a failed skill means another expensive pass');
   });
   it('keeps Python/API recursion and the measured-versus-demonstrated boundary', () => {
-    expect(article).toContain('recursively expands functions missing from the execution scope');
-    expect(article).toContain('many real-world failures to inaccurate detections');
-    expect(article).toContain('the real-robot systems are demonstrations');
+    expect(article).toContain('Missing functions are generated recursively');
+    expect(article).toContain('many failures trace to inaccurate detections');
+    expect(article).toContain('Quantitative evaluation covers only a tabletop simulation');
     expect(article).not.toContain('spatial estimates were the weakest link');
     expect(article).toContain('<Term id="vision-language-model">VLM</Term>');
   });
