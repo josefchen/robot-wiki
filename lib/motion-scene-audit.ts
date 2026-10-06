@@ -38,7 +38,7 @@ export function auditSceneElement(root: Element): SceneAudit {
         rect: element.getBoundingClientRect(),
       }))
       .filter(({ rect }) => rect.width > 0.01 && rect.height > 0.01);
-  const text = boxes('text, [data-scene-equation]');
+  const text = boxes('text, [data-scene-equation], [data-scene-glyph]');
   const paintedRect = (element: SVGGraphicsElement): DOMRect | null => {
     const geometry = element.getBoundingClientRect();
     const style = getComputedStyle(element);
@@ -87,11 +87,35 @@ export function auditSceneElement(root: Element): SceneAudit {
     return new DOMRect(geometry.left - dx, geometry.top - dy,
       geometry.width + 2 * dx, geometry.height + 2 * dy);
   };
+  // A mark under a clip path (a camera window) paints only inside the
+  // window, so its painted box is cut to the window's screen box.
+  const clipBox = (element: Element): DOMRect | null => {
+    const holder = element.closest('[clip-path]');
+    const id = holder?.getAttribute('clip-path')?.match(/^url\(#(.+)\)$/)?.[1];
+    const shape = id ? svg.querySelector<SVGRectElement>(`clipPath[id="${id}"] > rect`) : null;
+    const matrix = shape ? (holder as SVGGraphicsElement).getScreenCTM() : null;
+    if (!shape || !matrix) return null;
+    const corners = [[0, 0], [1, 0], [0, 1], [1, 1]].map(([u, v]) => new DOMPoint(
+      shape.x.baseVal.value + u * shape.width.baseVal.value,
+      shape.y.baseVal.value + v * shape.height.baseVal.value,
+    ).matrixTransform(matrix));
+    const xs = corners.map((point) => point.x);
+    const ys = corners.map((point) => point.y);
+    return new DOMRect(Math.min(...xs), Math.min(...ys), Math.max(...xs) - Math.min(...xs), Math.max(...ys) - Math.min(...ys));
+  };
+  const cutTo = (rect: DOMRect | null, clip: DOMRect | null): DOMRect | null => {
+    if (!rect || !clip) return rect;
+    const left = Math.max(rect.left, clip.left);
+    const top = Math.max(rect.top, clip.top);
+    const right = Math.min(rect.right, clip.right);
+    const bottom = Math.min(rect.bottom, clip.bottom);
+    return right - left > 0.01 && bottom - top > 0.01 ? new DOMRect(left, top, right - left, bottom - top) : null;
+  };
   const marks = [...svg.querySelectorAll<Element>('circle, ellipse, line, path, polygon, polyline, rect')]
-    .filter((element) => !element.closest('[data-scene-structure]') && visible(element))
+    .filter((element) => !element.closest('[data-scene-structure], clipPath') && visible(element))
     .map((element, index) => ({
       name: `${element.getAttribute('data-scene-mark') ?? element.tagName.toLowerCase()}#${index}`,
-      rect: paintedRect(element as SVGGraphicsElement),
+      rect: cutTo(paintedRect(element as SVGGraphicsElement), clipBox(element)),
     }))
     .filter((item): item is { name: string; rect: DOMRect } => item.rect !== null);
   const intersects = (a: DOMRect, b: DOMRect) =>

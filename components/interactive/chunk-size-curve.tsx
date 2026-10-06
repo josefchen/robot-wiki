@@ -38,9 +38,9 @@ import { MOTION_STAGE_TYPE } from '@/lib/motion-tokens';
  *
  * The stage plots task success against how many moves the robot commits to
  * per decision, on a log axis so the measured rise from 1 to 100 fills most
- * of the plot. Only the two anchors (1% at one move, 44% at 100) are
- * measured; the line between them is a drawn interpolation and the taper
- * past 100 is a pale estimate band. Under the plot, one tick per decision
+ * of the plot. Only the two anchors (1% at one move, 44% at 100) have
+ * published numbers; the line between them is a drawn interpolation and the
+ * taper past 100 is a pale estimate band. Under the plot, one tick per decision
  * in a 400-move task shows what chunking shrinks. The main view offers the
  * two measured settings; the free slider and Reset sit in "Adjust more".
  */
@@ -163,7 +163,7 @@ export function ChunkSizeCurve({
       values: [
         formatPercent(successAtChunkSize(k)),
         `${decisionsPerEpisode(episodeSteps, k)}`,
-        measuredK.has(k) ? 'measured' : k < peakK ? 'interpolated' : 'past the measured range',
+        measuredK.has(k) ? 'measured' : k < peakK ? 'interpolated' : 'estimated',
         k === chunkSize ? 'playhead' : 'off',
       ],
     }));
@@ -173,7 +173,7 @@ export function ChunkSizeCurve({
     success,
   )} success against ${decisions} closed-loop ${
     decisions === 1 ? 'decision' : 'decisions'
-  } per ${episodeSteps}-step episode; the pale estimate band past k = 100 is interpolated beyond the measured ACT ablation, which reports a slight decline at k = 200 and k = 400 without exact numbers.`;
+  } per ${episodeSteps}-step episode; the pale estimate band past k = 100 stands in for the slight decline the ACT ablation reports at k = 200 and k = 400 without exact numbers.`;
 
   function reset() {
     setChunkSize(defaultChunkSize);
@@ -242,7 +242,7 @@ export function ChunkSizeCurve({
                 success, <span data-testid="chunk-decisions-readout">{decisions}</span>{' '}
                 {decisions === 1 ? 'decision' : 'decisions'} per {episodeSteps}-move task
               </StageReadout>
-              <StageStatus>Only the two dots are measured; the line between and the pale band are estimates.</StageStatus>
+              <StageStatus>Only the two dots have published numbers; the line between and the pale band are estimates.</StageStatus>
             </>
           }
         >
@@ -343,10 +343,10 @@ export function ChunkSizeCurve({
             Chunk size k is how many moves the robot commits to per decision. The two dots are ACT&apos;s
             own ablation (Zhao et al., 2023): 1% success at k = 1 and 44% at k = 100, the mean of two
             simulated tasks, Cube Transfer and Bimanual Insertion, each trained on scripted and on human
-            demonstrations with temporal ensembling disabled. Only those two values are measured. The line
-            between them is a log-linear interpolation drawn for reading, and the pale band past k = 100
-            is an estimate: the paper reports a slight decline at k = 200 and k = 400 without exact
-            numbers.
+            demonstrations with temporal ensembling disabled. The paper plots the other chunk sizes it
+            trained but gives numbers only for these two. The line between them is a log-linear
+            interpolation drawn for reading, and the pale band past k = 100 is an estimate: the paper
+            reports a slight decline at k = 200 and k = 400 without exact numbers.
           </p>
           <p>
             The ticks count decisions in a {episodeSteps}-step episode, 8 s of motion at 50 Hz: one per
@@ -368,7 +368,7 @@ export function ChunkSizeCurve({
           />
         </>
       }
-      source="Measured points: ACT ablation (Zhao et al., 2023), mean of two simulated tasks. The taper past 100 moves per plan is interpolated."
+      source="Measured points: ACT ablation (Zhao et al., 2023), mean of two simulated tasks. The taper past 100 moves per plan is an estimate."
     />
   );
 }

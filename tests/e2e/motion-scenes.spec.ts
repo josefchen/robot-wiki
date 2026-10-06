@@ -32,11 +32,18 @@ const SCENES = [
     id: 'diffusion-denoising',
     route: '/manipulation/diffusion-policy/',
     title: /diffusion policy/i,
-    // A schematic of possible moves with no axes; the relation sits in
-    // "How this was made" instead of on the stage.
+    // A schematic of possible moves with no axes. The typeset relation sits
+    // in "How this was made"; the stage writes it glyph by glyph only in the
+    // symbols beat, so the settled poster shows none of it.
     axes: [],
     equation: 'method',
-    beats: [/demonstrations/i, /random noise is added/i, /ten small steps/i, /keep two different good moves/i],
+    beats: [
+      /demonstrations/i,
+      /random noise is added/i,
+      /ten small steps/i,
+      /in symbols/i,
+      /keep two different good moves/i,
+    ],
   },
 ] as const satisfies readonly {
   id: string;
@@ -151,6 +158,12 @@ for (const scene of SCENES) {
               math: equation?.querySelector('.katex .mord') !== null,
               mathml: equation?.querySelector('math annotation[encoding="application/x-tex"]') !== null,
               mathColor: equation ? getComputedStyle(equation.querySelector('.katex')!).color : '',
+              glyphsShown: [...node.querySelectorAll('[data-scene-glyph]')].filter((glyph) => {
+                for (let el: Element | null = glyph; el && el !== node; el = el.parentElement) {
+                  if (Number(getComputedStyle(el).opacity) < 0.01) return false;
+                }
+                return true;
+              }).map((glyph) => glyph.getAttribute('data-scene-glyph')),
               text: [...node.querySelectorAll<SVGTextElement>('text')].map((el) => {
                 const style = getComputedStyle(el);
                 const matrix = el.getScreenCTM()!;
@@ -171,8 +184,9 @@ for (const scene of SCENES) {
             expect(roles.mathColor).toBe('rgb(11, 11, 12)');
           } else {
             // The relation is typeset in "How this was made", not painted
-            // on the stage a first-time reader looks at.
+            // on the settled stage a first-time reader looks at.
             expect(roles.onStage).toBe(false);
+            expect(roles.glyphsShown, `${width} symbols at settle`).toEqual([]);
             const folded = scope.locator('[data-figure-fold="method"] [data-scene-equation]');
             await expect(folded.locator('.katex .mord').first()).toBeAttached();
             await expect(folded.locator('math annotation[encoding="application/x-tex"]')).toHaveCount(1);
@@ -202,8 +216,10 @@ for (const scene of SCENES) {
           }
           const smallest = (name: string) => Math.min(...of(name).map((item) => item.painted));
           const largest = (name: string) => Math.max(...of(name).map((item) => item.painted));
-          expect(largest('tick'), `${width} ticks under axis names`).toBeLessThan(smallest('axis'));
-          expect(largest('tick'), `${width} ticks under object labels`).toBeLessThan(smallest('label'));
+          // Stage text has one 14 px size (design system, stage type), so a
+          // tick may equal an axis name or a label but never outrank one.
+          expect(largest('tick'), `${width} ticks not above axis names`).toBeLessThanOrEqual(smallest('axis'));
+          expect(largest('tick'), `${width} ticks not above object labels`).toBeLessThanOrEqual(smallest('label'));
         } finally {
           await context.close();
         }

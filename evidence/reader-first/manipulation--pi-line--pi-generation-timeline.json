@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/manipulation/pi-line/",
+  "mount": "mount:/manipulation/pi-line/:PiGenerationTimeline:1",
+  "screenshots": {
+    "375": "evidence/reader-first/manipulation--pi-line--pi-generation-timeline.375.png",
+    "1280": "evidence/reader-first/manipulation--pi-line--pi-generation-timeline.1280.png"
+  },
+  "takeaway": "Physical Intelligence released a new robot model every few months, and only the first three are confirmed downloadable.",
+  "sentence": "Physical Intelligence has brought out a new robot model every few months from late 2024 to 2026, and only the first three can be downloaded.",
+  "unclearTerms": [
+    "π",
+    "π0-FAST",
+    "π*0.6 (the star)",
+    "π0.6-MEM",
+    "MEM",
+    "FAST",
+    "weights downloadable",
+    "weights",
+    "picture-and-language model",
+    "openpi checkpoint catalogue",
+    "checkpoint",
+    "filled dots versus hollow dots"
+  ],
+  "samePoint": "yes",
+  "reason": "Both say Physical Intelligence put out a new robot model every few months and only the first three can be downloaded; the only difference is that mine adds the 2024 to 2026 date range and leaves out the word \"confirmed\".",
+  "verdict": "fail",
+  "screenshotCommit": "19e993716295c5fc894ce7164b84116bcd84e15f",
+  "date": "2026-10-06",
+  "reviewerSession": "reader-session-69a682c9",
+  "sourceDigest": "4afa4b960af78dd82949bd30588c5baaebb9715c9a2ac4987141511674e41e24"
+}

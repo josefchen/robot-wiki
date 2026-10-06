@@ -1,0 +1,1161 @@
+{
+ "schemaVersion": "domain-capture-diff-v1",
+ "domain": "manipulation",
+ "start": "a8e577cf",
+ "end": "8c34ffbb",
+ "fields": [
+  "kind",
+  "label",
+  "w",
+  "h",
+  "surface",
+  "scene",
+  "colours"
+ ],
+ "widths": {
+  "1440": {
+   "visualsStart": 19,
+   "visualsEnd": 19,
+   "routeCountsStart": {
+    "/manipulation/": {
+     "dom": 0,
+     "manifest": 0
+    },
+    "/manipulation/bc-foundations/": {
+     "dom": 2,
+     "manifest": 2
+    },
+    "/manipulation/action-chunking/": {
+     "dom": 3,
+     "manifest": 3
+    },
+    "/manipulation/diffusion-policy/": {
+     "dom": 2,
+     "manifest": 2
+    },
+    "/manipulation/vla-models/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/manipulation/pi-line/": {
+     "dom": 2,
+     "manifest": 2
+    },
+    "/manipulation/generalist-policies/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/manipulation/comparison-matrix/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/manipulation/hierarchical/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/manipulation/rl-finetuning/": {
+     "dom": 2,
+     "manifest": 2
+    },
+    "/manipulation/realtime-execution/": {
+     "dom": 2,
+     "manifest": 2
+    },
+    "/manipulation/cross-embodiment/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/manipulation/knowledge-insulation/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/manipulation/robot-learning-roadmap/": {
+     "dom": 0,
+     "manifest": 0
+    },
+    "/manipulation/action-spaces/": {
+     "dom": 0,
+     "manifest": 0
+    },
+    "/manipulation/foundation-models/": {
+     "dom": 0,
+     "manifest": 0
+    }
+   },
+   "routeCountsEnd": {
+    "/manipulation/": {
+     "dom": 0,
+     "manifest": 0
+    },
+    "/manipulation/bc-foundations/": {
+     "dom": 2,
+     "manifest": 2
+    },
+    "/manipulation/action-chunking/": {
+     "dom": 3,
+     "manifest": 3
+    },
+    "/manipulation/diffusion-policy/": {
+     "dom": 2,
+     "manifest": 2
+    },
+    "/manipulation/vla-models/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/manipulation/pi-line/": {
+     "dom": 2,
+     "manifest": 2
+    },
+    "/manipulation/generalist-policies/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/manipulation/comparison-matrix/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/manipulation/hierarchical/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/manipulation/rl-finetuning/": {
+     "dom": 2,
+     "manifest": 2
+    },
+    "/manipulation/realtime-execution/": {
+     "dom": 2,
+     "manifest": 2
+    },
+    "/manipulation/cross-embodiment/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/manipulation/knowledge-insulation/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/manipulation/robot-learning-roadmap/": {
+     "dom": 0,
+     "manifest": 0
+    },
+    "/manipulation/action-spaces/": {
+     "dom": 0,
+     "manifest": 0
+    },
+    "/manipulation/foundation-models/": {
+     "dom": 0,
+     "manifest": 0
+    }
+   },
+   "unchanged": 15,
+   "changed": [
+    "/manipulation/action-chunking/ manipulation__action-chunking__00.png: h",
+    "/manipulation/comparison-matrix/ manipulation__comparison-matrix__00.png: h",
+    "/manipulation/diffusion-policy/ manipulation__diffusion-policy__00.png: h, colours",
+    "/manipulation/pi-line/ manipulation__pi-line__01.png: h"
+   ],
+   "visuals": [
+    {
+     "route": "/manipulation/action-chunking/",
+     "file": "manipulation__action-chunking__00.png",
+     "kind": "figure/instrument",
+     "label": "Fewer decisions means fewer chances to slip: deciding 4 times per task instead of 400 made a simulated robot far more re",
+     "start": {
+      "w": 715,
+      "h": 1615
+     },
+     "end": {
+      "w": 715,
+      "h": 1635
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": [
+      "h"
+     ]
+    },
+    {
+     "route": "/manipulation/action-chunking/",
+     "file": "manipulation__action-chunking__01.png",
+     "kind": "figure/instrument",
+     "label": "Blending several overlapping plans smooths the robot’s motion, so one odd prediction jerks the arm less.",
+     "start": {
+      "w": 715,
+      "h": 777
+     },
+     "end": {
+      "w": 715,
+      "h": 777
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": []
+    },
+    {
+     "route": "/manipulation/action-chunking/",
+     "file": "manipulation__action-chunking__02.png",
+     "kind": "figure/instrument",
+     "label": "When a new plan arrives late, averaging it with the old one can pick a path neither plan chose; real-time chunking keeps",
+     "start": {
+      "w": 715,
+      "h": 2276
+     },
+     "end": {
+      "w": 715,
+      "h": 2276
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": []
+    },
+    {
+     "route": "/manipulation/bc-foundations/",
+     "file": "manipulation__bc-foundations__00.png",
+     "kind": "figure/instrument",
+     "label": "A robot that copies an expert makes tiny slips; each slip pushes it somewhere unfamiliar, so mistakes pile up faster tha",
+     "start": {
+      "w": 715,
+      "h": 2081
+     },
+     "end": {
+      "w": 715,
+      "h": 2081
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": []
+    },
+    {
+     "route": "/manipulation/bc-foundations/",
+     "file": "manipulation__bc-foundations__01.png",
+     "kind": "figure/instrument",
+     "label": "Robots trained by copying only learn the situations they were shown; one slip lands them somewhere new, where slips grow",
+     "start": {
+      "w": 715,
+      "h": 750
+     },
+     "end": {
+      "w": 715,
+      "h": 750
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": []
+    },
+    {
+     "route": "/manipulation/comparison-matrix/",
+     "file": "manipulation__comparison-matrix__00.png",
+     "kind": "figure/instrument",
+     "label": "Through 2025 every system here published how it outputs motion; four of the six 2026 entries are company announcements t",
+     "start": {
+      "w": 1104,
+      "h": 6522
+     },
+     "end": {
+      "w": 1104,
+      "h": 6590
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": [
+      "h"
+     ]
+    },
+    {
+     "route": "/manipulation/cross-embodiment/",
+     "file": "manipulation__cross-embodiment__00.png",
+     "kind": "figure/instrument",
+     "label": "Robots have different bodies; describing actions as where the hand moves lets one model learn from many robots and from ",
+     "start": {
+      "w": 715,
+      "h": 1836
+     },
+     "end": {
+      "w": 715,
+      "h": 1836
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": []
+    },
+    {
+     "route": "/manipulation/diffusion-policy/",
+     "file": "manipulation__diffusion-policy__00.png",
+     "kind": "scene",
+     "label": "Motion scene: Diffusion policy: denoising actions",
+     "start": {
+      "w": 715,
+      "h": 1216
+     },
+     "end": {
+      "w": 715,
+      "h": 1300
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": [
+      "h",
+      "colours"
+     ]
+    },
+    {
+     "route": "/manipulation/diffusion-policy/",
+     "file": "manipulation__diffusion-policy__01.png",
+     "kind": "figure/instrument",
+     "label": "Acting on only the first half of each plan, then replanning, lets the robot react to what it sees while still moving smo",
+     "start": {
+      "w": 715,
+      "h": 1172
+     },
+     "end": {
+      "w": 715,
+      "h": 1172
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": []
+    },
+    {
+     "route": "/manipulation/generalist-policies/",
+     "file": "manipulation__generalist-policies__00.png",
+     "kind": "figure/instrument",
+     "label": "General-purpose robot brains arrived quickly from early 2025, but most makers don't offer the trained model or haven't s",
+     "start": {
+      "w": 715,
+      "h": 2416
+     },
+     "end": {
+      "w": 715,
+      "h": 2416
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": []
+    },
+    {
+     "route": "/manipulation/hierarchical/",
+     "file": "manipulation__hierarchical__00.png",
+     "kind": "figure/instrument",
+     "label": "Like a person, the robot keeps one goal in mind, updates its next step now and then, and adjusts its motors constantly.",
+     "start": {
+      "w": 715,
+      "h": 1520
+     },
+     "end": {
+      "w": 715,
+      "h": 1520
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": []
+    },
+    {
+     "route": "/manipulation/knowledge-insulation/",
+     "file": "manipulation__knowledge-insulation__00.png",
+     "kind": "figure/instrument",
+     "label": "Teaching movement can wear away an AI's grasp of language; walling it off keeps that grasp, and training needed 7.5 time",
+     "start": {
+      "w": 715,
+      "h": 1427
+     },
+     "end": {
+      "w": 715,
+      "h": 1427
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": []
+    },
+    {
+     "route": "/manipulation/pi-line/",
+     "file": "manipulation__pi-line__00.png",
+     "kind": "figure/instrument",
+     "label": "Getting a precise move takes several small refining steps, each costing time; π0 used ten, π0.6 and π0.7 use five.",
+     "start": {
+      "w": 715,
+      "h": 1159
+     },
+     "end": {
+      "w": 715,
+      "h": 1159
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": []
+    },
+    {
+     "route": "/manipulation/pi-line/",
+     "file": "manipulation__pi-line__01.png",
+     "kind": "figure/instrument",
+     "label": "Physical Intelligence released a new robot model every few months; only the first three are confirmed downloadable.",
+     "start": {
+      "w": 715,
+      "h": 1522
+     },
+     "end": {
+      "w": 715,
+      "h": 1562
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": [
+      "h"
+     ]
+    },
+    {
+     "route": "/manipulation/realtime-execution/",
+     "file": "manipulation__realtime-execution__00.png",
+     "kind": "figure/instrument",
+     "label": "If the robot's brain can't answer before the next beat, the arm either waits or keeps going on stale orders, which is wh",
+     "start": {
+      "w": 715,
+      "h": 1829
+     },
+     "end": {
+      "w": 715,
+      "h": 1829
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": []
+    },
+    {
+     "route": "/manipulation/realtime-execution/",
+     "file": "manipulation__realtime-execution__01.png",
+     "kind": "figure/instrument",
+     "label": "A robot that gets a new plan mid-motion can stop, lurch, or blend the two; blending keeps it moving smoothly.",
+     "start": {
+      "w": 715,
+      "h": 1717
+     },
+     "end": {
+      "w": 715,
+      "h": 1717
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": []
+    },
+    {
+     "route": "/manipulation/rl-finetuning/",
+     "file": "manipulation__rl-finetuning__00.png",
+     "kind": "figure/instrument",
+     "label": "Tagging each step as helping or hurting lets the robot learn from its own failures, even when the cause came long before",
+     "start": {
+      "w": 715,
+      "h": 1695
+     },
+     "end": {
+      "w": 715,
+      "h": 1695
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": []
+    },
+    {
+     "route": "/manipulation/rl-finetuning/",
+     "file": "manipulation__rl-finetuning__01.png",
+     "kind": "figure/instrument",
+     "label": "After practising with EXPO-FT, the robot succeeded on every try across four tasks; copying demonstrations alone managed ",
+     "start": {
+      "w": 715,
+      "h": 1293
+     },
+     "end": {
+      "w": 715,
+      "h": 1293
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": []
+    },
+    {
+     "route": "/manipulation/vla-models/",
+     "file": "manipulation__vla-models__00.png",
+     "kind": "figure/instrument",
+     "label": "Chopping each motion into 256 levels lets a language model steer an arm by writing seven words per moment, one after ano",
+     "start": {
+      "w": 715,
+      "h": 2108
+     },
+     "end": {
+      "w": 715,
+      "h": 2108
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": []
+    }
+   ]
+  },
+  "375": {
+   "visualsStart": 19,
+   "visualsEnd": 19,
+   "routeCountsStart": {
+    "/manipulation/": {
+     "dom": 0,
+     "manifest": 0
+    },
+    "/manipulation/bc-foundations/": {
+     "dom": 2,
+     "manifest": 2
+    },
+    "/manipulation/action-chunking/": {
+     "dom": 3,
+     "manifest": 3
+    },
+    "/manipulation/diffusion-policy/": {
+     "dom": 2,
+     "manifest": 2
+    },
+    "/manipulation/vla-models/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/manipulation/pi-line/": {
+     "dom": 2,
+     "manifest": 2
+    },
+    "/manipulation/generalist-policies/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/manipulation/comparison-matrix/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/manipulation/hierarchical/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/manipulation/rl-finetuning/": {
+     "dom": 2,
+     "manifest": 2
+    },
+    "/manipulation/realtime-execution/": {
+     "dom": 2,
+     "manifest": 2
+    },
+    "/manipulation/cross-embodiment/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/manipulation/knowledge-insulation/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/manipulation/robot-learning-roadmap/": {
+     "dom": 0,
+     "manifest": 0
+    },
+    "/manipulation/action-spaces/": {
+     "dom": 0,
+     "manifest": 0
+    },
+    "/manipulation/foundation-models/": {
+     "dom": 0,
+     "manifest": 0
+    }
+   },
+   "routeCountsEnd": {
+    "/manipulation/": {
+     "dom": 0,
+     "manifest": 0
+    },
+    "/manipulation/bc-foundations/": {
+     "dom": 2,
+     "manifest": 2
+    },
+    "/manipulation/action-chunking/": {
+     "dom": 3,
+     "manifest": 3
+    },
+    "/manipulation/diffusion-policy/": {
+     "dom": 2,
+     "manifest": 2
+    },
+    "/manipulation/vla-models/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/manipulation/pi-line/": {
+     "dom": 2,
+     "manifest": 2
+    },
+    "/manipulation/generalist-policies/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/manipulation/comparison-matrix/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/manipulation/hierarchical/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/manipulation/rl-finetuning/": {
+     "dom": 2,
+     "manifest": 2
+    },
+    "/manipulation/realtime-execution/": {
+     "dom": 2,
+     "manifest": 2
+    },
+    "/manipulation/cross-embodiment/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/manipulation/knowledge-insulation/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/manipulation/robot-learning-roadmap/": {
+     "dom": 0,
+     "manifest": 0
+    },
+    "/manipulation/action-spaces/": {
+     "dom": 0,
+     "manifest": 0
+    },
+    "/manipulation/foundation-models/": {
+     "dom": 0,
+     "manifest": 0
+    }
+   },
+   "unchanged": 15,
+   "changed": [
+    "/manipulation/action-chunking/ manipulation__action-chunking__00.png: h",
+    "/manipulation/comparison-matrix/ manipulation__comparison-matrix__00.png: h",
+    "/manipulation/diffusion-policy/ manipulation__diffusion-policy__00.png: h, colours",
+    "/manipulation/pi-line/ manipulation__pi-line__01.png: h"
+   ],
+   "visuals": [
+    {
+     "route": "/manipulation/action-chunking/",
+     "file": "manipulation__action-chunking__00.png",
+     "kind": "figure/instrument",
+     "label": "Fewer decisions means fewer chances to slip: deciding 4 times per task instead of 400 made a simulated robot far more re",
+     "start": {
+      "w": 335,
+      "h": 1620
+     },
+     "end": {
+      "w": 335,
+      "h": 1544
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": [
+      "h"
+     ]
+    },
+    {
+     "route": "/manipulation/action-chunking/",
+     "file": "manipulation__action-chunking__01.png",
+     "kind": "figure/instrument",
+     "label": "Blending several overlapping plans smooths the robot’s motion, so one odd prediction jerks the arm less.",
+     "start": {
+      "w": 335,
+      "h": 750
+     },
+     "end": {
+      "w": 335,
+      "h": 750
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": []
+    },
+    {
+     "route": "/manipulation/action-chunking/",
+     "file": "manipulation__action-chunking__02.png",
+     "kind": "figure/instrument",
+     "label": "When a new plan arrives late, averaging it with the old one can pick a path neither plan chose; real-time chunking keeps",
+     "start": {
+      "w": 335,
+      "h": 2176
+     },
+     "end": {
+      "w": 335,
+      "h": 2176
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": []
+    },
+    {
+     "route": "/manipulation/bc-foundations/",
+     "file": "manipulation__bc-foundations__00.png",
+     "kind": "figure/instrument",
+     "label": "A robot that copies an expert makes tiny slips; each slip pushes it somewhere unfamiliar, so mistakes pile up faster tha",
+     "start": {
+      "w": 335,
+      "h": 2191
+     },
+     "end": {
+      "w": 335,
+      "h": 2191
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": []
+    },
+    {
+     "route": "/manipulation/bc-foundations/",
+     "file": "manipulation__bc-foundations__01.png",
+     "kind": "figure/instrument",
+     "label": "Robots trained by copying only learn the situations they were shown; one slip lands them somewhere new, where slips grow",
+     "start": {
+      "w": 335,
+      "h": 747
+     },
+     "end": {
+      "w": 335,
+      "h": 747
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": []
+    },
+    {
+     "route": "/manipulation/comparison-matrix/",
+     "file": "manipulation__comparison-matrix__00.png",
+     "kind": "figure/instrument",
+     "label": "Through 2025 every system here published how it outputs motion; four of the six 2026 entries are company announcements t",
+     "start": {
+      "w": 335,
+      "h": 8001
+     },
+     "end": {
+      "w": 335,
+      "h": 8069
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": [
+      "h"
+     ]
+    },
+    {
+     "route": "/manipulation/cross-embodiment/",
+     "file": "manipulation__cross-embodiment__00.png",
+     "kind": "figure/instrument",
+     "label": "Robots have different bodies; describing actions as where the hand moves lets one model learn from many robots and from ",
+     "start": {
+      "w": 335,
+      "h": 2201
+     },
+     "end": {
+      "w": 335,
+      "h": 2201
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": []
+    },
+    {
+     "route": "/manipulation/diffusion-policy/",
+     "file": "manipulation__diffusion-policy__00.png",
+     "kind": "scene",
+     "label": "Motion scene: Diffusion policy: denoising actions",
+     "start": {
+      "w": 335,
+      "h": 1242
+     },
+     "end": {
+      "w": 335,
+      "h": 1343
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": [
+      "h",
+      "colours"
+     ]
+    },
+    {
+     "route": "/manipulation/diffusion-policy/",
+     "file": "manipulation__diffusion-policy__01.png",
+     "kind": "figure/instrument",
+     "label": "Acting on only the first half of each plan, then replanning, lets the robot react to what it sees while still moving smo",
+     "start": {
+      "w": 335,
+      "h": 1383
+     },
+     "end": {
+      "w": 335,
+      "h": 1383
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": []
+    },
+    {
+     "route": "/manipulation/generalist-policies/",
+     "file": "manipulation__generalist-policies__00.png",
+     "kind": "figure/instrument",
+     "label": "General-purpose robot brains arrived quickly from early 2025, but most makers don't offer the trained model or haven't s",
+     "start": {
+      "w": 335,
+      "h": 2873
+     },
+     "end": {
+      "w": 335,
+      "h": 2873
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": []
+    },
+    {
+     "route": "/manipulation/hierarchical/",
+     "file": "manipulation__hierarchical__00.png",
+     "kind": "figure/instrument",
+     "label": "Like a person, the robot keeps one goal in mind, updates its next step now and then, and adjusts its motors constantly.",
+     "start": {
+      "w": 335,
+      "h": 1948
+     },
+     "end": {
+      "w": 335,
+      "h": 1948
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": []
+    },
+    {
+     "route": "/manipulation/knowledge-insulation/",
+     "file": "manipulation__knowledge-insulation__00.png",
+     "kind": "figure/instrument",
+     "label": "Teaching movement can wear away an AI's grasp of language; walling it off keeps that grasp, and training needed 7.5 time",
+     "start": {
+      "w": 335,
+      "h": 1544
+     },
+     "end": {
+      "w": 335,
+      "h": 1544
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": []
+    },
+    {
+     "route": "/manipulation/pi-line/",
+     "file": "manipulation__pi-line__00.png",
+     "kind": "figure/instrument",
+     "label": "Getting a precise move takes several small refining steps, each costing time; π0 used ten, π0.6 and π0.7 use five.",
+     "start": {
+      "w": 335,
+      "h": 1329
+     },
+     "end": {
+      "w": 335,
+      "h": 1329
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": []
+    },
+    {
+     "route": "/manipulation/pi-line/",
+     "file": "manipulation__pi-line__01.png",
+     "kind": "figure/instrument",
+     "label": "Physical Intelligence released a new robot model every few months; only the first three are confirmed downloadable.",
+     "start": {
+      "w": 335,
+      "h": 1775
+     },
+     "end": {
+      "w": 335,
+      "h": 1815
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": [
+      "h"
+     ]
+    },
+    {
+     "route": "/manipulation/realtime-execution/",
+     "file": "manipulation__realtime-execution__00.png",
+     "kind": "figure/instrument",
+     "label": "If the robot's brain can't answer before the next beat, the arm either waits or keeps going on stale orders, which is wh",
+     "start": {
+      "w": 335,
+      "h": 2240
+     },
+     "end": {
+      "w": 335,
+      "h": 2240
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": []
+    },
+    {
+     "route": "/manipulation/realtime-execution/",
+     "file": "manipulation__realtime-execution__01.png",
+     "kind": "figure/instrument",
+     "label": "A robot that gets a new plan mid-motion can stop, lurch, or blend the two; blending keeps it moving smoothly.",
+     "start": {
+      "w": 335,
+      "h": 1785
+     },
+     "end": {
+      "w": 335,
+      "h": 1785
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": []
+    },
+    {
+     "route": "/manipulation/rl-finetuning/",
+     "file": "manipulation__rl-finetuning__00.png",
+     "kind": "figure/instrument",
+     "label": "Tagging each step as helping or hurting lets the robot learn from its own failures, even when the cause came long before",
+     "start": {
+      "w": 335,
+      "h": 1796
+     },
+     "end": {
+      "w": 335,
+      "h": 1796
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": []
+    },
+    {
+     "route": "/manipulation/rl-finetuning/",
+     "file": "manipulation__rl-finetuning__01.png",
+     "kind": "figure/instrument",
+     "label": "After practising with EXPO-FT, the robot succeeded on every try across four tasks; copying demonstrations alone managed ",
+     "start": {
+      "w": 335,
+      "h": 1197
+     },
+     "end": {
+      "w": 335,
+      "h": 1197
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": []
+    },
+    {
+     "route": "/manipulation/vla-models/",
+     "file": "manipulation__vla-models__00.png",
+     "kind": "figure/instrument",
+     "label": "Chopping each motion into 256 levels lets a language model steer an arm by writing seven words per moment, one after ano",
+     "start": {
+      "w": 335,
+      "h": 2142
+     },
+     "end": {
+      "w": 335,
+      "h": 2142
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": []
+    }
+   ]
+  }
+ }
+}

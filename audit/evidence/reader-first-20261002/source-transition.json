@@ -3,7 +3,7 @@
   "name": "reader-first-figures",
   "reviewedBy": "release steward re-anchoring the reader-first figure pass (not independent acceptance)",
   "rationale": "The reader-first figure pass of 2026-10-02 rewrote each article figure so a reader with no engineering background gets its point in five seconds: a takeaway headline, at most two visible controls with plain labels, every further control in an Adjust more fold, and the method, sources and caveats in a How this was made fold. The articles that point at those controls name them in plain words, the end-to-end specs open a fold before they use a control it now holds, and the figure sources changed with them. Each change is recorded here as exact edits over the bytes the file had before the pass. The earlier bytes stand in for the live file only while the live file is exactly the reviewed successor, so older reviews, runs and receipts that pinned them still check the bytes they recorded.",
-  "observedAt": "2026-10-06T02:34:12Z",
+  "observedAt": "2026-10-06T16:26:42Z",
   "sources": [
     {
       "archivedFrom": "6fffffaf345d1ea5e258645567df3312e8f5c71b",
@@ -3864,13 +3864,13 @@
       },
       "after": {
         "path": "lib/chart-descriptions.ts",
-        "bytes": 25226,
-        "sha256": "f3ca020601ae25314a64dfd3e85c41791a606279013b394e5366dae6e272704d"
+        "bytes": 25203,
+        "sha256": "564b5f2a24c3750823203744be8b1f2be854807a888d09dd44f8cbb37893493b"
       },
       "edits": [
         {
           "before": "    text: 'Task success rises from 1% at chunk size k = 1 to the measured 44% peak at k = 100, and at the current k = 100 the curve reads 44% success against 4 closed-loop decisions per 400-step episode; the dashed region past k = 100 is interpolated beyond the measured ACT ablation, which reports a slight decline at k = 200 and k = 400 without exact numbers.',\n",
-          "after": "    text: 'Task success rises from 1% at chunk size k = 1 to the measured 44% peak at k = 100, and at the current k = 100 the curve reads 44% success against 4 closed-loop decisions per 400-step episode; the pale estimate band past k = 100 is interpolated beyond the measured ACT ablation, which reports a slight decline at k = 200 and k = 400 without exact numbers.',\n"
+          "after": "    text: 'Task success rises from 1% at chunk size k = 1 to the measured 44% peak at k = 100, and at the current k = 100 the curve reads 44% success against 4 closed-loop decisions per 400-step episode; the pale estimate band past k = 100 stands in for the slight decline the ACT ablation reports at k = 200 and k = 400 without exact numbers.',\n"
         },
         {
           "before": "    text: 'Along the Δx action lane of the 16-step chunk, the continuous command runs from 0.183 at t = 0 to 0.183 at t = 15, and at the current step 7 the value -0.056 falls in bin 120 of 255; the 7 dashed rules are each dimension\\'s zero line, and the chunk is a fixed synthetic example rather than measured robot data.',\n",
@@ -3965,8 +3965,8 @@
       },
       "after": {
         "path": "lib/motion-tokens.ts",
-        "bytes": 4188,
-        "sha256": "2ce77bbb9e4134da1b3553b5ef243e1c529824989a281ea4c08b6b33b3cfe30a"
+        "bytes": 4253,
+        "sha256": "309a270e6d1858dfbb4c54fc50853b89884ccf81f69fbed730e5dd379285a3d6"
       },
       "edits": [
         {
@@ -4016,6 +4016,10 @@
         {
           "before": "  readoutFont: 'var(--font-mono)',\n",
           "after": "  readoutFont: 'var(--font-sans)',\n"
+        },
+        {
+          "before": "  denseThreshold: 12,\n",
+          "after": "  denseThreshold: 12,\n} as const;\n\nexport const MOTION_CAMERA = {\n  focusMaxZoom: 2.5,\n"
         }
       ]
     },
@@ -4141,8 +4145,8 @@
       },
       "after": {
         "path": "scripts/generate-motion-tokens.ts",
-        "bytes": 15352,
-        "sha256": "9bc9e95ac64a10e5aafed1ab722b17afb33950820901bc3285038115e23cd82f"
+        "bytes": 15443,
+        "sha256": "cb1ab52a530955375c13a1751fa4b1ff4cd8bdde7405852871a74dffcac5cc67"
       },
       "edits": [
         {
@@ -4156,6 +4160,10 @@
         {
           "before": "/** The graphite stage and its structure, resolved from the brand tokens. */\n",
           "after": "/** The figure stage (the page ground) and its structure, resolved from the brand tokens. */\n"
+        },
+        {
+          "before": "  denseThreshold: ${tokens.lag.denseThreshold},\n",
+          "after": "  denseThreshold: ${tokens.lag.denseThreshold},\n} as const;\n\nexport const MOTION_CAMERA = {\n  focusMaxZoom: ${tokens.camera.focusMaxZoom},\n"
         }
       ]
     },
@@ -8463,8 +8471,8 @@
       },
       "after": {
         "path": "tests/unit/main-merge-approved-deltas.test.ts",
-        "bytes": 95328,
-        "sha256": "14ababe5db0be560e487ad82b3a89c37a6f799393d8e0be3256adc2e578542e5"
+        "bytes": 95711,
+        "sha256": "e2a8edfe5f7eb92168c4b1e751dada73fad32067cfadd0db667a16dd458fbe37"
       },
       "edits": [
         {
@@ -8521,7 +8529,7 @@
         },
         {
           "before": "        expect(entry.oldHash).toBe(previous);\n      }\n",
-          "after": "        expect(entry.oldHash).toBe(previous);\n      }\n    }\n  });\n\n  it('binds each 2026-10-05 KOL backlog edge to its previous endpoint and to the sealed hash', () => {\n    expect(kolBacklog20261005Appends.length).toBeGreaterThan(1);\n    for (const id of kolBacklog20261005Appends) {\n      const entry = merged.find(x => x.id === id)!;\n      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(\n        readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));\n      const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;\n      const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);\n      const prior = edges.slice(0, edges.indexOf(entry));\n      expect(entry.newHash).not.toBe(prior.at(-1)?.newHash ?? sealed);\n      const path = approvedDeltaPath([...prior, entry], sealed, entry.newHash);\n      expect(path.status).toBe('approved');\n      expect(path.path.at(-1)).toBe(entry);\n      if (prior.some(x => x.reconciles !== undefined)) {\n        expect(entry.oldHash).toBe(sealed);\n        expect(entry.reconciles).toEqual(prior.map(x => ({ id: x.id, oldHash: x.oldHash, newHash: x.newHash })));\n      } else {\n        expect(entry.reconciles).toBeUndefined();\n        expect(entry.oldHash).toBe(prior.at(-1)?.newHash ?? sealed);\n      }\n      expect(approvedDeltaPath(prior, sealed, entry.newHash).status).not.toBe('approved');\n    }\n    expect(kolBacklog20261005Appends.filter(id => id.endsWith('-citation-rendering')))\n      .toEqual(['world-models', 'manipulation', 'adjacent', 'frontier', 'data-hardware', 'classical'].map(domain => `kol-backlog-20261005-${domain}-citation-rendering`));\n  });\n\n  it('binds each 2026-10-06 domain pass edge to its previous endpoint and to the sealed hash', () => {\n    expect(domainPass20261006Appends.length).toBeGreaterThan(1);\n    expect(merged.slice(afterHowRobotsWork20261005).map(x => x.id)).toEqual(domainPass20261006Appends);\n    for (const id of domainPass20261006Appends) {\n      const entry = merged.find(x => x.id === id)!;\n      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(\n        readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));\n      const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;\n      const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);\n      const prior = edges.slice(0, edges.indexOf(entry));\n      expect(entry.newHash).not.toBe(prior.at(-1)?.newHash ?? sealed);\n      const path = approvedDeltaPath([...prior, entry], sealed, entry.newHash);\n      expect(path.status).toBe('approved');\n      expect(path.path.at(-1)).toBe(entry);\n      if (prior.some(x => x.reconciles !== undefined)) {\n        expect(entry.oldHash).toBe(sealed);\n        expect(entry.reconciles).toEqual(prior.map(x => ({ id: x.id, oldHash: x.oldHash, newHash: x.newHash })));\n      } else {\n        expect(entry.reconciles).toBeUndefined();\n        expect(entry.oldHash).toBe(prior.at(-1)?.newHash ?? sealed);\n      }\n      // A positional value-state cell can return to an endpoint its chain\n      // already approved; every other edge must be the first to approve it.\n      if (!(entry.manifest === 'value-states' && prior.some(x => x.newHash === entry.newHash))) {\n        expect(approvedDeltaPath(prior, sealed, entry.newHash).status).not.toBe('approved');\n      }\n    }\n    // One shared citation-rendering resolution per article group, in group order.\n    const groups = [...new Set(domainPass20261006Appends.map(id => id.split('-')[3]))];\n    expect(groups).toEqual(groups.map((_, index) => `g${index + 1}`));\n    expect(domainPass20261006Appends.filter(id => id.endsWith('-citation-rendering')))\n      .toEqual(groups.map(group => `domain-pass-20261006-${group}-citation-rendering`));\n  });\n\n  it('binds each 2026-10-05 how-robots-work name to an absent seal as one plain edge', () => {\n    expect(merged.filter(x => x.id.startsWith('how-robots-work-20261005-')).map(x => x.id))\n      .toEqual(howRobotsWork20261005Appends);\n    for (const id of howRobotsWork20261005Appends) {\n      const entry = merged.find(x => x.id === id)!;\n      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(\n        readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));\n      expect(sealedManifest.members.some(x => x.id === entry.memberId)).toBe(false);\n      expect(merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId)).toEqual([entry]);\n      expect(entry.reconciles).toBeUndefined();\n      expect(entry.oldHash).toBe(MISSING_MEMBER);\n      const path = approvedDeltaPath([entry], MISSING_MEMBER, entry.newHash);\n      expect(path.status).toBe('approved');\n      expect(approvedDeltaPath([], MISSING_MEMBER, entry.newHash).status).not.toBe('approved');\n"
+          "after": "        expect(entry.oldHash).toBe(previous);\n      }\n    }\n  });\n\n  it('binds each 2026-10-05 KOL backlog edge to its previous endpoint and to the sealed hash', () => {\n    expect(kolBacklog20261005Appends.length).toBeGreaterThan(1);\n    for (const id of kolBacklog20261005Appends) {\n      const entry = merged.find(x => x.id === id)!;\n      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(\n        readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));\n      const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;\n      const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);\n      const prior = edges.slice(0, edges.indexOf(entry));\n      expect(entry.newHash).not.toBe(prior.at(-1)?.newHash ?? sealed);\n      const path = approvedDeltaPath([...prior, entry], sealed, entry.newHash);\n      expect(path.status).toBe('approved');\n      expect(path.path.at(-1)).toBe(entry);\n      if (prior.some(x => x.reconciles !== undefined)) {\n        expect(entry.oldHash).toBe(sealed);\n        expect(entry.reconciles).toEqual(prior.map(x => ({ id: x.id, oldHash: x.oldHash, newHash: x.newHash })));\n      } else {\n        expect(entry.reconciles).toBeUndefined();\n        expect(entry.oldHash).toBe(prior.at(-1)?.newHash ?? sealed);\n      }\n      expect(approvedDeltaPath(prior, sealed, entry.newHash).status).not.toBe('approved');\n    }\n    expect(kolBacklog20261005Appends.filter(id => id.endsWith('-citation-rendering')))\n      .toEqual(['world-models', 'manipulation', 'adjacent', 'frontier', 'data-hardware', 'classical'].map(domain => `kol-backlog-20261005-${domain}-citation-rendering`));\n  });\n\n  it('binds each 2026-10-06 domain pass edge to its previous endpoint and to the sealed hash', () => {\n    expect(domainPass20261006Appends.length).toBeGreaterThan(1);\n    expect(merged.slice(afterHowRobotsWork20261005).map(x => x.id)).toEqual(domainPass20261006Appends);\n    for (const id of domainPass20261006Appends) {\n      const entry = merged.find(x => x.id === id)!;\n      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(\n        readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));\n      const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;\n      const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);\n      const prior = edges.slice(0, edges.indexOf(entry));\n      expect(entry.newHash).not.toBe(prior.at(-1)?.newHash ?? sealed);\n      const path = approvedDeltaPath([...prior, entry], sealed, entry.newHash);\n      expect(path.status).toBe('approved');\n      expect(path.path.at(-1)).toBe(entry);\n      if (prior.some(x => x.reconciles !== undefined)) {\n        expect(entry.oldHash).toBe(sealed);\n        expect(entry.reconciles).toEqual(prior.map(x => ({ id: x.id, oldHash: x.oldHash, newHash: x.newHash })));\n      } else {\n        expect(entry.reconciles).toBeUndefined();\n        expect(entry.oldHash).toBe(prior.at(-1)?.newHash ?? sealed);\n      }\n      // A positional value-state cell can return to an endpoint its chain\n      // already approved; every other edge must be the first to approve it.\n      if (!(entry.manifest === 'value-states' && prior.some(x => x.newHash === entry.newHash))) {\n        expect(approvedDeltaPath(prior, sealed, entry.newHash).status).not.toBe('approved');\n      }\n    }\n    // One shared citation-rendering resolution per article group that registers\n    // or corrects a citation record, in group order. A prose-only group leaves\n    // every rendered label unchanged, so it has no resolution to approve.\n    const groups = [...new Set(domainPass20261006Appends.map(id => id.split('-')[3]))];\n    expect(groups).toEqual(groups.map((_, index) => `g${index + 1}`));\n    const citing = groups.filter(group => domainPass20261006Appends.some(id =>\n      id.startsWith(`domain-pass-20261006-${group}-citation-`) && !id.endsWith('-citation-rendering')));\n    expect(citing.length).toBeGreaterThan(0);\n    expect(domainPass20261006Appends.filter(id => id.endsWith('-citation-rendering')))\n      .toEqual(citing.map(group => `domain-pass-20261006-${group}-citation-rendering`));\n  });\n\n  it('binds each 2026-10-05 how-robots-work name to an absent seal as one plain edge', () => {\n    expect(merged.filter(x => x.id.startsWith('how-robots-work-20261005-')).map(x => x.id))\n      .toEqual(howRobotsWork20261005Appends);\n    for (const id of howRobotsWork20261005Appends) {\n      const entry = merged.find(x => x.id === id)!;\n      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(\n        readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));\n      expect(sealedManifest.members.some(x => x.id === entry.memberId)).toBe(false);\n      expect(merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId)).toEqual([entry]);\n      expect(entry.reconciles).toBeUndefined();\n      expect(entry.oldHash).toBe(MISSING_MEMBER);\n      const path = approvedDeltaPath([entry], MISSING_MEMBER, entry.newHash);\n      expect(path.status).toBe('approved');\n      expect(approvedDeltaPath([], MISSING_MEMBER, entry.newHash).status).not.toBe('approved');\n"
         }
       ]
     },

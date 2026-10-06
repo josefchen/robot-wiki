@@ -294,6 +294,8 @@ describe('motion scene player', () => {
     const caption = screen.getByTestId('motion-caption');
     expect(caption).toHaveTextContent(/keep two different good moves/i);
     fireEvent.click(back);
+    expect(caption).toHaveTextContent(/in symbols/i);
+    fireEvent.click(back);
     expect(caption).toHaveTextContent(/ten small steps/i);
     fireEvent.click(back);
     expect(caption).toHaveTextContent(/random noise is added/i);
@@ -301,12 +303,9 @@ describe('motion scene player', () => {
     expect(caption).toHaveTextContent(/demonstrations/i);
     fireEvent.click(back);
     expect(caption).toHaveTextContent(/demonstrations/i);
-    fireEvent.click(forward);
-    fireEvent.click(forward);
-    fireEvent.click(forward);
-    fireEvent.click(forward);
+    for (let step = 0; step < 5; step += 1) fireEvent.click(forward);
     expect(caption).toHaveTextContent(/keep two different good moves/i);
-    expect(screen.getByTestId('motion-beat-count')).toHaveTextContent('beat 4 / 4');
+    expect(screen.getByTestId('motion-beat-count')).toHaveTextContent('beat 5 / 5');
   });
 
   it('announces the caption politely and carries the text alternative', () => {

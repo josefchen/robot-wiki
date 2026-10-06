@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "fingerprint": "fc1584ef1273c208b83bc7db9f4c63d1864bb0e73edaff7befab08251e787d55",
+  "fingerprint": "96dff644dbee42f4cfafd36ad7c33b01d59110d8f05cc9677736b87495c590ee",
   "viewport": "1440x900",
   "route": "/",
-  "visibleTextLength": 2980,
+  "visibleTextLength": 2986,
   "documentScrollWidthPx": 1440,
   "documentClientWidthPx": 1440,
   "heroLockups": [
@@ -745,8 +745,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Cross-Embodiment Transfer",
-      "href": "/manipulation/cross-embodiment/",
+      "accessibleName": "Comparison Matrix",
+      "href": "/manipulation/comparison-matrix/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2485.34,
@@ -754,8 +754,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Diffusion Policy",
-      "href": "/manipulation/diffusion-policy/",
+      "accessibleName": "Foundation Models for Robotics",
+      "href": "/manipulation/foundation-models/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2516.34,
@@ -1004,7 +1004,7 @@
       "label": "Recently updated",
       "signature": "plain/module-heading/dated-links",
       "prose": "",
-      "text": "Recently updated 2026-10-06 Action Chunking (ACT and ALOHA) 2026-10-06 Action Spaces for Robot Learning 2026-10-06 Behavior Cloning Foundations 2026-10-06 Cross-Embodiment Transfer 2026-10-06 Diffusion Policy"
+      "text": "Recently updated 2026-10-06 Action Chunking (ACT and ALOHA) 2026-10-06 Action Spaces for Robot Learning 2026-10-06 Behavior Cloning Foundations 2026-10-06 Comparison Matrix 2026-10-06 Foundation Models for Robotics"
     },
     {
       "label": "Tools",

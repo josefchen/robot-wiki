@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "4d7e8c698957ff59c19feb075c5dd7d9c7a0d91e81550029863c890bb3124d0f",
+  "fingerprint": "af16291750eaf37f61a6ccc760a1a28da53445af95a331c0785c4a8e7ae5aa23",
   "source": "out/ static export",
   "routes": [
     {
@@ -527,7 +527,7 @@
     },
     {
       "route": "/manipulation/pi-line/",
-      "outboundAnchors": 105,
+      "outboundAnchors": 106,
       "distinctHrefs": 40,
       "shapes": [
         "citation-chip",
@@ -811,17 +811,17 @@
     }
   ],
   "routesSwept": 76,
-  "outboundAnchors": 3889,
+  "outboundAnchors": 3890,
   "distinctOutboundHrefs": 1077,
   "anchorsByShape": {
-    "citation-chip": 1723,
+    "citation-chip": 1724,
     "footer": 152,
     "reference-entry": 1139,
     "other": 561,
     "figure-credit": 314
   },
   "anchorsWithoutNoopener": 0,
-  "anchorsWithNoreferrer": 3342,
+  "anchorsWithNoreferrer": 3343,
   "keyboard": [
     {
       "route": "/",
@@ -1217,11 +1217,11 @@
     },
     {
       "route": "/manipulation/pi-line/",
-      "outboundInDom": 105,
-      "reachedByTab": 105,
+      "outboundInDom": 106,
+      "reachedByTab": 106,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 276
+      "tabStops": 278
     },
     {
       "route": "/manipulation/realtime-execution/",

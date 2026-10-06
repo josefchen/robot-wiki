@@ -147,6 +147,10 @@ export const MOTION_LAG = {
   denseThreshold: 12,
 } as const;
 
+export const MOTION_CAMERA = {
+  focusMaxZoom: 2.5,
+} as const;
+
 export const MOTION_EASING = {
   smoothFormula: 't^3 * (10*(1-t)^2 + 5*t*(1-t) + t^2)',
   thereAndBackFormula: 'smooth(2t) for t < 0.5, smooth(2 - 2t) after',

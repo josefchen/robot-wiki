@@ -122,7 +122,7 @@ const ROWS: MethodRow[] = [
       "19/30 average on EXPO-FT's four-task comparison; its own evaluation demonstrates real-world autonomous improvement of diffusion policies and pretrained generalists",
     evidence: 'preprint',
     open: null,
-    sourceIds: ["dsrl-2025"],
+    sourceIds: ["dsrl-2025","expo-ft-2026"],
     opennessNote: "The inspected DSRL abstract does not state a code or weight release.",
   },
 ];

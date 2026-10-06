@@ -59456,6 +59456,365 @@
         "VAL-B2-BASE-011"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g6-prose-action-chunking",
+      "manifest": "prose",
+      "memberId": "article:manipulation/action-chunking",
+      "oldHash": "7e978f3da7336ab773671ff9a7e3d8940153ea225b446792b5f3d5a0020560b7",
+      "newHash": "e0aa9c407285689c8a67358ad28dceffabe8516b1b7d05c3c1cc0f030c685c3d",
+      "reason": "Style read in the manipulation domain pass of 2026-10-06 on manipulation/action-chunking: the table note now says what `not disclosed` means instead of describing the checked source. No fact, number, citation or link changes. This edge moves the article body from its prior approved endpoint to the reviewed text of the style read; no route or rendering rule changes.",
+      "ownerApproval": "Owner directives of 2026-10-02 13:15 and 2026-10-04 11:00 in the mission AGENTS.md and the D4 style bar of the opus-pass contract: each domain pass reads its prose for writing tells and fixes them, cutting bold labels, restating closers and sentences about how a source words a result, while every cited fact, number, quote and citation survives. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g6-prose-action-spaces",
+      "manifest": "prose",
+      "memberId": "article:manipulation/action-spaces",
+      "oldHash": "fcb2be76cfa8db52947ee15b33fcbbf8c872b0d37bef8bc03503766e0d0bd376",
+      "newHash": "531644ecb2d7db74ff8e2974a7f0f58c59498406889d3e74ebc4b5c1a3d0052e",
+      "reason": "Style read in the manipulation domain pass of 2026-10-06 on manipulation/action-spaces: four bold paragraph labels become plain text, the GR00T N1.7 sentence's trailing clause now states what the cited README says (priors learned from human video transfer to robot control), and an uncited closer that restated its paragraph is cut. No number, citation or link changes. This edge moves the article body from its prior approved endpoint to the reviewed text of the style read; no route or rendering rule changes.",
+      "ownerApproval": "Owner directives of 2026-10-02 13:15 and 2026-10-04 11:00 in the mission AGENTS.md and the D4 style bar of the opus-pass contract: each domain pass reads its prose for writing tells and fixes them, cutting bold labels, restating closers and sentences about how a source words a result, while every cited fact, number, quote and citation survives. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g6-prose-bc-foundations",
+      "manifest": "prose",
+      "memberId": "article:manipulation/bc-foundations",
+      "oldHash": "b407c7093264be5f3c81f0dfc7298d7602578867014cbd43fe17b0e28108ecc9",
+      "newHash": "b55ffb630f23dc378688881103435e75e20ddf9333d11b6522e76421c8114e10",
+      "reason": "Style read in the manipulation domain pass of 2026-10-06 on manipulation/bc-foundations: the Recova paragraph opens with its authors, so three dated paragraphs in a row no longer share one opening frame. No fact, number, citation or link changes. This edge moves the article body from its prior approved endpoint to the reviewed text of the style read; no route or rendering rule changes.",
+      "ownerApproval": "Owner directives of 2026-10-02 13:15 and 2026-10-04 11:00 in the mission AGENTS.md and the D4 style bar of the opus-pass contract: each domain pass reads its prose for writing tells and fixes them, cutting bold labels, restating closers and sentences about how a source words a result, while every cited fact, number, quote and citation survives. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g6-prose-comparison-matrix",
+      "manifest": "prose",
+      "memberId": "article:manipulation/comparison-matrix",
+      "oldHash": "7a514b89edcc38ab9520a34f6e50803c312f8ac9aa04b3a26762ae7703fa3301",
+      "newHash": "14476b41e372c1ef41da0eb68761b066ed0646ec277f1a8ee1a72edd3e9c5e9f",
+      "reason": "Style read in the manipulation domain pass of 2026-10-06 on manipulation/comparison-matrix: six bold axis labels become plain text, and the paragraph under \"What the matrix can establish\" opens on the ACT and π0 facts instead of restating its heading. No fact, number, citation or link changes. This edge moves the article body from its prior approved endpoint to the reviewed text of the style read; no route or rendering rule changes.",
+      "ownerApproval": "Owner directives of 2026-10-02 13:15 and 2026-10-04 11:00 in the mission AGENTS.md and the D4 style bar of the opus-pass contract: each domain pass reads its prose for writing tells and fixes them, cutting bold labels, restating closers and sentences about how a source words a result, while every cited fact, number, quote and citation survives. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g6-prose-foundation-models",
+      "manifest": "prose",
+      "memberId": "article:manipulation/foundation-models",
+      "oldHash": "98ac2cf3855bbe855a22301105661fa1d90685bbfbcc82e4567b3fe98a7667e5",
+      "newHash": "5fb95364d4b43d0f4e6cfcd87940350f17a3d3273e17d7392c733ff7540f5a20",
+      "reason": "Style read in the manipulation domain pass of 2026-10-06 on manipulation/foundation-models: the closing sentence states the embodiment boundary plainly, and its second clause, which restated the bounded-adaptation test of the opening, is cut. No fact, number, citation or link changes. This edge moves the article body from its prior approved endpoint to the reviewed text of the style read; no route or rendering rule changes.",
+      "ownerApproval": "Owner directives of 2026-10-02 13:15 and 2026-10-04 11:00 in the mission AGENTS.md and the D4 style bar of the opus-pass contract: each domain pass reads its prose for writing tells and fixes them, cutting bold labels, restating closers and sentences about how a source words a result, while every cited fact, number, quote and citation survives. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g6-prose-hierarchical",
+      "manifest": "prose",
+      "memberId": "article:manipulation/hierarchical",
+      "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+      "newHash": "226055eb65a962e716c41fecb791c59a51cd91ac45041c3988e0c47aad50f7ae",
+      "reason": "Style read in the manipulation domain pass of 2026-10-06 on manipulation/hierarchical: GO-2's teacher forcing is stated as how GO-2 trains instead of rebutting an unmade claim, and \"the robot's high-level brain\" is attributed to DeepMind, whose wording it is. No fact, number, citation or link changes. This edge moves the article body from its prior approved endpoint to the reviewed text of the style read; no route or rendering rule changes.",
+      "ownerApproval": "Owner directives of 2026-10-02 13:15 and 2026-10-04 11:00 in the mission AGENTS.md and the D4 style bar of the opus-pass contract: each domain pass reads its prose for writing tells and fixes them, cutting bold labels, restating closers and sentences about how a source words a result, while every cited fact, number, quote and citation survives. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "oft-gemini-oxe-20260908-4",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "e61d22c100e301219e0ad92bda2456f5c899cc6077d308a8206a37650ed9b9f3"
+        },
+        {
+          "id": "go-helix-cross-transfer-20260908-6",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "f4d1b9e437d94d44d254a03d431af63d12c388f4514e15cba00a1f07f86a791e"
+        },
+        {
+          "id": "vla-generalist-closeouts-20260908-3",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "6653d1cddb175e5405614b0877b7847f059164ea06eb3205d17feeeafe271d4b"
+        },
+        {
+          "id": "keypoint-hierarchy-20260913-2",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "1ad8d672a630982ea64b781bcc37605f6ed105e32519b81dd2fc518fbcec95a6"
+        },
+        {
+          "id": "saycan-cap-two-20260914-1",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "c438f16829f3bc8ac358c6d6a1001e08c5fa13cda6bad5b6713e89e7af192142"
+        },
+        {
+          "id": "hierarchical-ecot-hirobot-20260914-1",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "0099fefeabfd63e0069bd671ffe7caee84c6c0398f90d8004a695cf4f9a61223"
+        },
+        {
+          "id": "hierarchy14-box-web-correction-20260921",
+          "oldHash": "0099fefeabfd63e0069bd671ffe7caee84c6c0398f90d8004a695cf4f9a61223",
+          "newHash": "e0892dbb5fefa56957931bae74c3cd2c60640f122f8587e2365db852af2680a7"
+        },
+        {
+          "id": "hierarchy15-bounded-synthesis-correction-20260921",
+          "oldHash": "e0892dbb5fefa56957931bae74c3cd2c60640f122f8587e2365db852af2680a7",
+          "newHash": "50b49ee3f2e6b130c24367d5ed71b34bb07f2965e7a8154e9a59783ef14fc00c"
+        },
+        {
+          "id": "continuation-merge-20260922-prose-manipulation-hierarchical",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "50b49ee3f2e6b130c24367d5ed71b34bb07f2965e7a8154e9a59783ef14fc00c"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-manipulation-hierarchical",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "50b49ee3f2e6b130c24367d5ed71b34bb07f2965e7a8154e9a59783ef14fc00c"
+        },
+        {
+          "id": "humanizer-manipulation-v3-20260925-prose-hierarchical",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "73bde0c3426f143ca86c66b27d5422609412bc50fae05d31e227a6c60a2a295b"
+        },
+        {
+          "id": "educational-cue-20260926-prose-hierarchical",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "9646ce943ff9e1a1ae4efe3f190bf6ae43f26debd0f654048cf1e5981b8ac97c"
+        },
+        {
+          "id": "seo-pass-20261002-prose-manipulation-hierarchical",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "07c56b674127c6e460752cec8472636a26a03ab01decb31685f19a9485189327"
+        },
+        {
+          "id": "kol-backlog-20261005-manipulation-prose-hierarchical",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "615d79ced68b53ee05e2bb6695f0dd7c8a77c7679081459c466e5cd8ce224284"
+        },
+        {
+          "id": "domain-pass-20261006-g3-prose-hierarchical",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "53989ccfebafeab915226e71a528906e80295915975d3e38b5f03e82b2edeee2"
+        },
+        {
+          "id": "domain-pass-20261006-g4-prose-hierarchical",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "fe4134e1aa340a02c4369aceaac7c9890251fd10692a8281db632b9192e8d314"
+        },
+        {
+          "id": "domain-pass-20261006-g5-prose-hierarchical",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "ca5a1a94e02aa2361704c366f9535762b3fe9262c258d0e0bfd43d18dfffc63c"
+        }
+      ]
+    },
+    {
+      "id": "domain-pass-20261006-g6-prose-knowledge-insulation",
+      "manifest": "prose",
+      "memberId": "article:manipulation/knowledge-insulation",
+      "oldHash": "119b18351a8300830f928603b75086c24108345507ebf37d86643522eaa0c4c7",
+      "newHash": "5bfd48e453c0834414d23e209df0e51d3d04655e243e5d3d8492ea6a17e39da9",
+      "reason": "Style read in the manipulation domain pass of 2026-10-06 on manipulation/knowledge-insulation: the bold opening clauses of the three recipe steps become plain text. No wording changes. This edge moves the article body from its prior approved endpoint to the reviewed text of the style read; no route or rendering rule changes.",
+      "ownerApproval": "Owner directives of 2026-10-02 13:15 and 2026-10-04 11:00 in the mission AGENTS.md and the D4 style bar of the opus-pass contract: each domain pass reads its prose for writing tells and fixes them, cutting bold labels, restating closers and sentences about how a source words a result, while every cited fact, number, quote and citation survives. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g6-prose-pi-line",
+      "manifest": "prose",
+      "memberId": "article:manipulation/pi-line",
+      "oldHash": "826b5d3aea85e7930454a95056fbcc3accacf2afe2ca3fc407d06587f9934427",
+      "newHash": "23342fc7bc428a27f6eb295e8b046cf7676fc96d75193ac41c4165583f3b3bf5",
+      "reason": "Style read in the manipulation domain pass of 2026-10-06 on manipulation/pi-line: sentences that compared how sources word a number now state the fact first and keep every quote and number, the π0 paper citation is repeated where its 7-configuration count is stated, and the heading \"π0-FAST: tokens done right\" becomes \"π0-FAST: compressed action tokens\" with its old anchor kept. This edge moves the article body from its prior approved endpoint to the reviewed text of the style read; no route or rendering rule changes.",
+      "ownerApproval": "Owner directives of 2026-10-02 13:15 and 2026-10-04 11:00 in the mission AGENTS.md and the D4 style bar of the opus-pass contract: each domain pass reads its prose for writing tells and fixes them, cutting bold labels, restating closers and sentences about how a source words a result, while every cited fact, number, quote and citation survives. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261006-g6-prose-rl-finetuning",
+      "manifest": "prose",
+      "memberId": "article:manipulation/rl-finetuning",
+      "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+      "newHash": "02b2e83b71b73f4dfc193b4bdf066644fcf675b730a304e8f3d7864a69056638",
+      "reason": "Style read in the manipulation domain pass of 2026-10-06 on manipulation/rl-finetuning: sentences that described the sources (ConRFT's training times and headline 144%, PA-RL's autonomous fine-tuning, pi_RL's inconsistency about π0.5's state input, the Recap failure reduction, HIL-SERL's DP 18% and 28%) now state the facts first and keep every quote and number, and HIL-SERL's code availability becomes its own sentence. No citation or link changes. This edge moves the article body from its prior approved endpoint to the reviewed text of the style read; no route or rendering rule changes.",
+      "ownerApproval": "Owner directives of 2026-10-02 13:15 and 2026-10-04 11:00 in the mission AGENTS.md and the D4 style bar of the opus-pass contract: each domain pass reads its prose for writing tells and fixes them, cutting bold labels, restating closers and sentences about how a source words a result, while every cited fact, number, quote and citation survives. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "brand-v2-rl-finetuning-display-math-delimiters",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "8a0f433c78e6aedaa4b5e0c2729fd6f36cf4141af498cb19042a663b41ebdb87"
+        },
+        {
+          "id": "cross-article-closeouts-20260907-4",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "4483c83f0ab4302e38386b794c017a09a8ecdcf63fecb006c13bef8966e01b1b"
+        },
+        {
+          "id": "rl-finetuning-closeout-20260908-1",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "5424024e10a7e82ad997df5eb7988b12b0b04e127dfcc3f53bdbb9e0b4fe67c0"
+        },
+        {
+          "id": "brand-v2-rl-reader-citation-placement-20260908",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "120deb06728a78d1969b84b131812bb5d8c78e152a1df1589ec6b7b0b3dbe834"
+        },
+        {
+          "id": "rl-correct-originals-20260908-prose",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "f3eeff488db5b1d89c05e6ac2348ed84d323d983546ebcd45966ea815032e03c"
+        },
+        {
+          "id": "pirl-pld-four-originals-20260908-1",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "58266d3f46c78229772028ac412853551ca8252b6137772d21b40b27cbc809cf"
+        },
+        {
+          "id": "rl-method-table-original-11-20260908-1",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "9698d653d74ac61fb0fb4973114c938fba4178245fcf140fb753728d6e22749f"
+        },
+        {
+          "id": "reader-rl-prose-20260923-1",
+          "oldHash": "9698d653d74ac61fb0fb4973114c938fba4178245fcf140fb753728d6e22749f",
+          "newHash": "985f5f0f8e17bfc229d604ab4b42c2bb99676da58943e2ba20d99558d09f16a6"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1745-prose-article-manipulation-rl-finetuning",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "985f5f0f8e17bfc229d604ab4b42c2bb99676da58943e2ba20d99558d09f16a6"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-manipulation-rl-finetuning",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "985f5f0f8e17bfc229d604ab4b42c2bb99676da58943e2ba20d99558d09f16a6"
+        },
+        {
+          "id": "humanizer-manipulation-v3-20260925-prose-rl-finetuning",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "9cd86548ec63a88ef26aa27fb724b7a74cb6b6a895112e9278c6c1b968786363"
+        },
+        {
+          "id": "seo-pass-20261002-prose-manipulation-rl-finetuning",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "e2bec4dd9ffd492bca2b22ede6dcc3208e1c3cb27775b6a16c01fed2202e9993"
+        },
+        {
+          "id": "reader-first-20261003-prose-manipulation-rl-finetuning",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "bb06d2ef09091fa8d5dbbe61153bbbe05b81920b2802ed62af543b648bcd171c"
+        },
+        {
+          "id": "kol-backlog-20261005-manipulation-prose-rl-finetuning",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "75ff06297ec79e9f945b7c8ec09e6fdc09a8d68bc1389dbd57e2dcf55323d095"
+        },
+        {
+          "id": "domain-pass-20261006-g3-prose-rl-finetuning",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "b2823eee35043243a426295813960c586044e3b82a1acd616faca7a7c7a48b7d"
+        },
+        {
+          "id": "domain-pass-20261006-g5-prose-rl-finetuning",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "22ccb18c6e901e6ce74f1f0a28d43742469cf5ed300bb5235b89b758f673d2c4"
+        }
+      ]
+    },
+    {
+      "id": "domain-pass-20261006-g6-relationships-pi-line",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/pi-line",
+      "oldHash": "61aa6e27650d0fae72bd72da7bb577d777882091de3d1f1e6b100f4171640836",
+      "newHash": "1efd1549bb367c3edc02354b9c7d6edfbd47a9b4b359201470b69b8a7b6ae516",
+      "reason": "Style read in the manipulation domain pass of 2026-10-06 on manipulation/pi-line: sentences that compared how sources word a number now state the fact first and keep every quote and number, the π0 paper citation is repeated where its 7-configuration count is stated, and the heading \"π0-FAST: tokens done right\" becomes \"π0-FAST: compressed action tokens\" with its old anchor kept. This edge moves the relationships record from its prior approved endpoint to the reviewed text of the style read; no route or rendering rule changes.",
+      "ownerApproval": "Owner directives of 2026-10-02 13:15 and 2026-10-04 11:00 in the mission AGENTS.md and the D4 style bar of the opus-pass contract: each domain pass reads its prose for writing tells and fixes them, cutting bold labels, restating closers and sentences about how a source words a result, while every cited fact, number, quote and citation survives. Applied in the manipulation domain pass of 2026-10-06 (owner directive 2026-10-06 02:00). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-049",
+        "VAL-OPUS-151",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

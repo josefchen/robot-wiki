@@ -2,11 +2,12 @@
  * Chunk-size curve math for the ACT ablation interactive. Pure functions,
  * unit-tested in tests/unit/chunk-size.test.ts.
  *
- * Data honesty: only two points on this curve are measured. The ACT paper
- * (arXiv:2304.13705) reports 1% success at k=1 and 44% at k=100, with a
- * slight decline at k=200 and k=400 whose exact values are not published
- * (see research/01-learned-manipulation-lineage.md). Everything between and
- * beyond the anchors is an interpolation and is labeled as such in the UI.
+ * Data honesty: only two points on this curve are published as numbers. The
+ * ACT paper (arXiv:2304.13705) states 1% success at k=1 and 44% at k=100 and
+ * plots the other chunk sizes it trained, including a slight decline at k=200
+ * and k=400, without printing their values (see
+ * research/01-learned-manipulation-lineage.md). Everything between and beyond
+ * the anchors is an interpolation and is labeled as such in the UI.
  */
 
 /** The two published ablation values. Do not add invented points here. */

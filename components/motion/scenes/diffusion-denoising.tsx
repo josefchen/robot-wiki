@@ -7,11 +7,14 @@
  * schedule) drawn as motion: the two demonstrated moves, the training noise
  * that blurs every move into one random cloud, the ten clean-up steps that
  * carry the cloud back onto the two moves, guided by what the robot sees,
- * and the finished frame. The poster is that finished frame, with faint
- * trails back to each guess's random start, so the two separate moves show
- * before Play. The sample positions are the model's own; the picture is
- * schematic, with no axes, and the relation a ~ p(a | o) sits in "How this
- * was made".
+ * the same idea in symbols, and the finished frame. During the clean-up the
+ * camera closes in on one guess (the worked instance, with its own
+ * distances in the readout) and pulls back to the whole cloud; the next
+ * beat turns a ~ p(a) into a ~ p(a | o) glyph by glyph. The camera is home
+ * at every beat end and the symbols leave before the finished frame, so the
+ * poster is that frame, with faint trails back to each guess's random
+ * start. The sample positions are the model's own; the picture is
+ * schematic, with no axes.
  */
 import { SceneMount } from '@/components/motion/scene-mount';
 import { StageSvg, type PlotArea } from '@/components/motion/stage';
@@ -20,7 +23,13 @@ import {
   AnimatedElement,
   AnimatedGroup,
 } from '@/components/motion/animated';
-import { Create, laggedProgress } from '@/components/motion/primitives';
+import {
+  Create,
+  focusViewBox,
+  laggedProgress,
+  transformMatchingTex,
+  type TexGlyph,
+} from '@/components/motion/primitives';
 import { beatSpans, type SceneDefinition } from '@/components/motion/timeline';
 import { clamp01, smooth } from '@/components/motion/easing';
 import {
@@ -30,8 +39,8 @@ import {
   generateDenoisingTrajectory,
   meanDistanceToMode,
 } from '@/lib/denoising';
-import { SCENE_EQUATIONS } from '@/lib/motion-equations';
-import { MOTION_LAG } from '@/lib/motion-tokens';
+import { SCENE_EQUATIONS, SCENE_GLYPHS } from '@/lib/motion-equations';
+import { MOTION_CAMERA, MOTION_LAG } from '@/lib/motion-tokens';
 import { LegendItem } from '@/components/ui/instrument';
 
 const WIDTH = 340;
@@ -93,7 +102,13 @@ const SCENE: SceneDefinition = {
       duration: 'long',
       linear: true,
       caption:
-        'To act, the robot starts from random guesses and cleans them up in ten small steps, guided by what it sees.',
+        'To act, the robot starts from random guesses and cleans them up in ten small steps, guided by what it sees; follow one guess.',
+    },
+    {
+      id: 'in-symbols',
+      duration: 'long',
+      caption:
+        'Every guess ends on a good move: in symbols, a move a is drawn to fit what the robot sees, o.',
     },
     {
       id: 'recap',
@@ -106,6 +121,7 @@ const SCENE: SceneDefinition = {
 /** The scene definition, exported for the player-level tests. */
 export const DIFFUSION_SCENE = SCENE;
 const SPANS = beatSpans(SCENE.beats);
+const BEAT_WORDS = ['one', 'two', 'three', 'four', 'five', 'six'][SCENE.beats.length - 1];
 
 const beatProgress = (index: number) => (t: number) =>
   clamp01((t - SPANS[index].start) / SPANS[index].duration);
@@ -187,6 +203,12 @@ export function diffusionSampleAt(index: number, t: number): [number, number] {
   return [target.x, target.y];
 }
 
+/** Sample i's position on the stage, in stage pixels, at scene time t. */
+export function diffusionSamplePointAt(index: number, t: number): [number, number] {
+  const [x, y] = diffusionSampleAt(index, t);
+  return [xScale(x), yScale(y)];
+}
+
 /** The reverse-process step the clock is showing, 0..10. */
 export function diffusionStepAt(t: number): number {
   if (t < SPANS[2].start) return 0;
@@ -195,6 +217,189 @@ export function diffusionStepAt(t: number): number {
 
 /** Round rendered geometry so server HTML and hydrated DOM agree. */
 const r2 = (v: number) => Number(v.toFixed(2));
+const r3 = (v: number) => Number(v.toFixed(3));
+
+/** The worked instance: a guess whose whole clean-up path the camera can frame. */
+export const WORKED_GUESS = 11;
+const WORKED = SAMPLES[WORKED_GUESS];
+const distanceToMove = (point: { x: number; y: number }) => {
+  const center = MODE_CENTERS[WORKED.target.mode];
+  return Math.hypot(point.x - center.x, point.y - center.y);
+};
+/** The worked guess's distance from its move, at its random start and at the end. */
+export const WORKED_DISTANCES = {
+  start: distanceToMove(WORKED.noise),
+  end: distanceToMove(WORKED.target),
+} as const;
+
+/** Above this line the stage keeps its status lines; the camera never paints there. */
+const CAMERA_TOP = 30;
+/**
+ * The camera window stays inside the stage's 4 px margin, so a mark it cuts
+ * never touches the edge; 6 units keep 4 px on stages drawn narrower than 1:1.
+ */
+const WINDOW_INSET = 6;
+export const CAMERA_WINDOW = {
+  x: WINDOW_INSET,
+  y: CAMERA_TOP,
+  width: WIDTH - 2 * WINDOW_INSET,
+  height: HEIGHT - CAMERA_TOP - WINDOW_INSET,
+} as const;
+const FOCUS_PAD = 16;
+/** The worked guess's path with a margin: the detail the camera closes in on. */
+const FOCUS_BOX = (() => {
+  const xs = [xScale(WORKED.noise.x), xScale(WORKED.target.x)];
+  const ys = [yScale(WORKED.noise.y), yScale(WORKED.target.y)];
+  const x = Math.min(...xs) - FOCUS_PAD;
+  const y = Math.min(...ys) - FOCUS_PAD;
+  return { x, y, width: Math.max(...xs) + FOCUS_PAD - x, height: Math.max(...ys) + FOCUS_PAD - y };
+})();
+/** Close enough to fill the stage below the status lines, never past the token. */
+export const FOCUS_ZOOM = Math.min(
+  MOTION_CAMERA.focusMaxZoom,
+  WIDTH / FOCUS_BOX.width,
+  (HEIGHT - 2 * CAMERA_TOP) / FOCUS_BOX.height,
+);
+const CAMERA = { inEnd: 0.25, outStart: 0.6, outEnd: 0.9 } as const;
+
+/**
+ * How far the camera has closed in on the worked guess, 0 (home) to 1. It
+ * moves only inside the clean-up beat and is home at every beat end.
+ */
+export function diffusionCameraAt(t: number): number {
+  if (t <= SPANS[2].start || t >= SPANS[2].end) return 0;
+  const k = beatProgress(2)(t);
+  if (k < CAMERA.inEnd) return k / CAMERA.inEnd;
+  if (k < CAMERA.outStart) return 1;
+  return clamp01((CAMERA.outEnd - k) / (CAMERA.outEnd - CAMERA.outStart));
+}
+
+/** The camera as a transform on the data layer, eased by focusViewBox. */
+export function diffusionCameraTransform(t: number): string {
+  const share = diffusionCameraAt(t);
+  if (share === 0) return 'translate(0 0) scale(1)';
+  const [x, y, width] = focusViewBox(
+    { x: 0, y: 0, width: WIDTH, height: HEIGHT },
+    FOCUS_BOX,
+    share,
+    FOCUS_ZOOM,
+  ).split(' ').map(Number);
+  const scale = WIDTH / width;
+  return `translate(${r2(-x * scale)} ${r2(-y * scale)}) scale(${r3(scale)})`;
+}
+
+/** Labels pinned to stage positions step aside while the camera is away. */
+const labelShare = (t: number) => {
+  if (t <= SPANS[2].start || t >= SPANS[2].end) return 1;
+  const k = beatProgress(2)(t);
+  if (k < 0.5) return r2(1 - smooth(clamp01(k / 0.15)));
+  return r2(smooth(clamp01((k - 0.85) / 0.15)));
+};
+
+/** The highlight ring that Indicates the worked guess while the camera is on it. */
+const ringShare = (t: number) => {
+  if (t <= SPANS[2].start || t >= SPANS[2].end) return 0;
+  const k = beatProgress(2)(t);
+  return r2(Math.min(smooth(clamp01((k - 0.08) / 0.17)), 1 - smooth(clamp01((k - 0.6) / 0.12))));
+};
+
+type GlyphName = keyof typeof SCENE_GLYPHS;
+/** KaTeX advance widths in em, from its Main and Math-Italic font metrics. */
+const GLYPH_EM: Record<GlyphName, number> = {
+  a: 0.52859,
+  sim: 0.77778,
+  p: 0.50313,
+  lparen: 0.38889,
+  mid: 0.27778,
+  o: 0.48472,
+  rparen: 0.38889,
+};
+/** KaTeX sets a relation between two thick spaces of 5/18 em. */
+const RELATIONS = new Set<GlyphName>(['sim', 'mid']);
+const REL_SPACE = 5 / 18;
+/** The stage's equation size: 16 px text at KaTeX's own 1.21 em. */
+const GLYPH_PX = 16 * 1.21;
+const GLYPH_Y = 30;
+const GLYPH_H = 24;
+type Slot = { id: string; glyph: GlyphName };
+const BEFORE: Slot[] = [
+  { id: 'a', glyph: 'a' },
+  { id: 'sim', glyph: 'sim' },
+  { id: 'p', glyph: 'p' },
+  { id: 'open', glyph: 'lparen' },
+  { id: 'arg', glyph: 'a' },
+  { id: 'close', glyph: 'rparen' },
+];
+const AFTER: Slot[] = [
+  ...BEFORE.slice(0, 5),
+  { id: 'given', glyph: 'mid' },
+  { id: 'seen', glyph: 'o' },
+  BEFORE[5],
+];
+const GLYPH_OF = new Map([...BEFORE, ...AFTER].map((slot) => [slot.id, slot.glyph]));
+
+/** Glyph left edges, centred on the stage, spaced as KaTeX spaces them. */
+function layoutGlyphs(slots: readonly Slot[]): TexGlyph[] {
+  let cursor = 0;
+  const lefts = slots.map(({ glyph }) => {
+    if (RELATIONS.has(glyph)) cursor += REL_SPACE;
+    const left = cursor;
+    cursor += GLYPH_EM[glyph] + (RELATIONS.has(glyph) ? REL_SPACE : 0);
+    return left;
+  });
+  const start = WIDTH / 2 - (cursor * GLYPH_PX) / 2;
+  return slots.map((slot, index) => ({ id: slot.id, x: start + lefts[index] * GLYPH_PX, y: GLYPH_Y }));
+}
+const MORPH = transformMatchingTex(layoutGlyphs(BEFORE), layoutGlyphs(AFTER));
+
+/** The relation is written in the symbols beat and leaves early in the recap. */
+const formulaShare = (t: number) => {
+  if (t <= SPANS[3].start) return 0;
+  if (t <= SPANS[3].end) return r2(smooth(clamp01(beatProgress(3)(t) / 0.2)));
+  return r2(1 - smooth(clamp01(beatProgress(4)(t) / 0.3)));
+};
+
+/**
+ * Every glyph of the relation at scene time t. The glyphs a ~ p(a) share
+ * keep their identity and slide to their places in a ~ p(a | o); only the
+ * new "| o" fades in, and only once the slide has made room for it, so no
+ * two glyphs ever overlap. Tests pin this.
+ */
+export function diffusionGlyphsAt(t: number) {
+  const progress = beatProgress(3)(t);
+  const leave = smooth(clamp01((progress - 0.2) / 0.15));
+  const slide = smooth(clamp01((progress - 0.3) / 0.3));
+  const arrive = smooth(clamp01((progress - 0.6) / 0.2));
+  const shown = formulaShare(t);
+  const glyph = (id: string) => GLYPH_OF.get(id) as GlyphName;
+  const width = (id: string) => r2(GLYPH_EM[glyph(id)] * GLYPH_PX);
+  return [
+    ...MORPH.matched.map(({ id, from, to }) => ({
+      id, glyph: glyph(id), x: r2(from.x + (to.x - from.x) * slide), width: width(id), opacity: shown, matched: true,
+    })),
+    ...MORPH.fadeIn.map(({ id, x }) => ({
+      id, glyph: glyph(id), x: r2(x), width: width(id), opacity: r2(shown * arrive), matched: false,
+    })),
+    ...MORPH.fadeOut.map(({ id, x }) => ({
+      id, glyph: glyph(id), x: r2(x), width: width(id), opacity: r2(shown * (1 - leave)), matched: false,
+    })),
+  ];
+}
+const GLYPH_IDS = diffusionGlyphsAt(0).map((item) => item.id);
+const glyphAt = (id: string, t: number) => diffusionGlyphsAt(t).find((item) => item.id === id)!;
+const GLYPH_INK: Partial<Record<GlyphName, string>> = {
+  a: 'var(--role-action-stage)',
+  o: 'var(--role-state-stage)',
+};
+/**
+ * Article math styles resize and recolour every `.katex`, so each glyph pins
+ * its own size (the layout's advance widths assume it) and its role colour.
+ */
+const glyphMarkup = (glyph: GlyphName) =>
+  SCENE_GLYPHS[glyph].html.replace(
+    '<span class="katex">',
+    `<span class="katex" style="font-size:${r2(GLYPH_PX)}px;color:${GLYPH_INK[glyph] ?? 'var(--motion-stage-label)'}">`,
+  );
 
 const [MODE_ONE, MODE_TWO] = MODE_POINTS;
 /** The top edge of each finished cluster, where the note's leaders land. */
@@ -215,79 +420,34 @@ function statusShare(variant: 'demo' | 'noise' | number, t: number): number {
   if (variant === 'demo') return t <= SPANS[0].end ? 1 : 0;
   if (variant === 'noise') return t > SPANS[0].end && t <= SPANS[1].end ? 1 : 0;
   if (t > SPANS[1].end && t <= SPANS[2].end) return diffusionStepAt(t) === variant ? 1 : 0;
-  // The last count gives way to the note early in the final beat.
+  // The last count stays while the symbols are written, then gives way to
+  // the note early in the final beat.
   if (t > SPANS[2].end && variant === DENOISING_STEPS) {
-    return r2(1 - clamp01(beatProgress(3)(t) / 0.4));
+    if (t <= SPANS[3].end) return 1;
+    return r2(1 - clamp01(beatProgress(4)(t) / 0.4));
   }
   return 0;
 }
 
-const noteShare = (t: number) => r2(smooth(clamp01((beatProgress(3)(t) - 0.4) / 0.6)));
+const noteShare = (t: number) => r2(smooth(clamp01((beatProgress(4)(t) - 0.4) / 0.6)));
 
-function DiffusionStage() {
-  const dotsIn = (t: number) => smooth(clamp01((beatProgress(0)(t) - 0.7) / 0.3));
-  const actionShare = (t: number) => {
-    if (t < SPANS[1].start) return 1;
-    if (t < SPANS[1].end) return 1 - smooth(beatProgress(1)(t));
-    return convergence(beatProgress(2)(t));
-  };
-  const leaderShare = (t: number) => r2(0.7 * actionShare(t) * dotsIn(t));
+const dotsIn = (t: number) => smooth(clamp01((beatProgress(0)(t) - 0.7) / 0.3));
+const actionShare = (t: number) => {
+  if (t < SPANS[1].start) return 1;
+  if (t < SPANS[1].end) return 1 - smooth(beatProgress(1)(t));
+  return convergence(beatProgress(2)(t));
+};
+const leaderShare = (t: number) => r2(0.7 * actionShare(t) * dotsIn(t) * labelShare(t));
+const CAMERA_CLIP = 'diffusion-denoising-camera';
 
+/** Everything drawn in action space: the layer the camera moves. */
+function ActionSpace() {
   return (
-    <StageSvg viewBox={`0 0 ${WIDTH} ${HEIGHT}`}>
-      {/* Always painted, so it is the stage's first text: the observed state
-          every move is chosen given. Its leader and dot are drawn below. */}
-      <text
-        x={r2(ORIGIN[0])}
-        y={LABEL_Y}
-        textAnchor="middle"
-        fontSize={FONT}
-        fill="var(--role-state-stage)"
-      >
-        what the robot sees
-      </text>
-      {/* Status line above the samples: one sentence per beat. */}
-      <AnimatedElement
-        as="text"
-        x={WIDTH / 2}
-        y={STATUS_Y}
-        textAnchor="middle"
-        fontSize={FONT}
-        fill="var(--motion-stage-label)"
-        bindings={{ opacity: (t) => statusShare('demo', t) }}
-      >
-        Two demonstrated moves
-      </AnimatedElement>
-      <AnimatedElement
-        as="text"
-        x={WIDTH / 2}
-        y={STATUS_Y}
-        textAnchor="middle"
-        fontSize={FONT}
-        fill="var(--motion-stage-label)"
-        bindings={{ opacity: (t) => statusShare('noise', t) }}
-      >
-        Random guesses
-      </AnimatedElement>
-      {Array.from({ length: DENOISING_STEPS + 1 }, (_, k) => (
-        <AnimatedElement
-          as="text"
-          key={`step-${k}`}
-          x={WIDTH / 2}
-          y={STATUS_Y}
-          textAnchor="middle"
-          fontSize={FONT}
-          fill="var(--motion-stage-label)"
-          bindings={{ opacity: (t) => statusShare(k, t) }}
-        >
-          {`Clean-up step ${k} of ${DENOISING_STEPS}`}
-        </AnimatedElement>
-      ))}
-
+    <>
       {/* Faint trails from each random start to where it finished. */}
       <AnimatedGroup
         data-scene-structure="denoising-trails"
-        bindings={{ opacity: (t) => r2(0.5 * smooth(beatProgress(3)(t))) }}
+        bindings={{ opacity: (t) => r2(0.5 * smooth(beatProgress(4)(t))) }}
       >
         {SAMPLES.map((sample, index) => (
           <line
@@ -301,18 +461,6 @@ function DiffusionStage() {
           />
         ))}
       </AnimatedGroup>
-
-      {/* What the robot sees: every move is chosen given this. */}
-      <line
-        data-scene-structure="observed-state-leader"
-        x1={r2(ORIGIN[0])}
-        y1={LABEL_Y - 16}
-        x2={r2(ORIGIN[0])}
-        y2={r2(ORIGIN[1] + 7)}
-        stroke="var(--role-state-stage)"
-        strokeWidth={1}
-        opacity={0.6}
-      />
       <AnimatedCircle
         data-scene-mark="observed-state"
         cx={r2(ORIGIN[0])}
@@ -390,6 +538,103 @@ function DiffusionStage() {
         );
       })}
 
+      {/* The worked guess, Indicated while the camera is on it. */}
+      <AnimatedCircle
+        data-scene-mark="worked-guess"
+        r={DOT_R + 2.4}
+        fill="none"
+        stroke="var(--role-highlight-stage)"
+        strokeWidth={1.2}
+        bindings={{
+          cx: (t) => r2(diffusionSamplePointAt(WORKED_GUESS, t)[0]),
+          cy: (t) => r2(diffusionSamplePointAt(WORKED_GUESS, t)[1]),
+          opacity: ringShare,
+        }}
+      />
+    </>
+  );
+}
+
+function DiffusionStage() {
+  return (
+    <StageSvg viewBox={`0 0 ${WIDTH} ${HEIGHT}`}>
+      {/* The stage's first text: the observed state every move is chosen
+          given. It steps aside only while the camera is away. Its leader
+          and dot are drawn below. */}
+      <AnimatedElement
+        as="text"
+        x={r2(ORIGIN[0])}
+        y={LABEL_Y}
+        textAnchor="middle"
+        fontSize={FONT}
+        fill="var(--role-state-stage)"
+        bindings={{ opacity: labelShare }}
+      >
+        what the robot sees; both moves start here
+      </AnimatedElement>
+      {/* Status line above the samples: one sentence per beat. */}
+      <AnimatedElement
+        as="text"
+        x={WIDTH / 2}
+        y={STATUS_Y}
+        textAnchor="middle"
+        fontSize={FONT}
+        fill="var(--motion-stage-label)"
+        bindings={{ opacity: (t) => statusShare('demo', t) }}
+      >
+        Two demonstrated moves
+      </AnimatedElement>
+      <AnimatedElement
+        as="text"
+        x={WIDTH / 2}
+        y={STATUS_Y}
+        textAnchor="middle"
+        fontSize={FONT}
+        fill="var(--motion-stage-label)"
+        bindings={{ opacity: (t) => statusShare('noise', t) }}
+      >
+        Random guesses
+      </AnimatedElement>
+      {Array.from({ length: DENOISING_STEPS + 1 }, (_, k) => (
+        <AnimatedElement
+          as="text"
+          key={`step-${k}`}
+          x={WIDTH / 2}
+          y={STATUS_Y}
+          textAnchor="middle"
+          fontSize={FONT}
+          fill="var(--motion-stage-label)"
+          bindings={{ opacity: (t) => statusShare(k, t) }}
+        >
+          {`Clean-up step ${k} of ${DENOISING_STEPS}`}
+        </AnimatedElement>
+      ))}
+
+      {/* What the robot sees: every move is chosen given this. */}
+      <AnimatedElement
+        as="line"
+        data-scene-structure="observed-state-leader"
+        x1={r2(ORIGIN[0])}
+        y1={LABEL_Y - 16}
+        x2={r2(ORIGIN[0])}
+        y2={r2(ORIGIN[1] + 7)}
+        stroke="var(--role-state-stage)"
+        strokeWidth={1}
+        bindings={{ opacity: (t) => r2(0.6 * labelShare(t)) }}
+      />
+
+      <defs data-scene-structure="camera-clip">
+        <clipPath id={CAMERA_CLIP}>
+          <rect {...CAMERA_WINDOW} />
+        </clipPath>
+      </defs>
+      {/* The camera: everything drawn in action space moves with it. */}
+      <g clipPath={`url(#${CAMERA_CLIP})`}>
+        <AnimatedGroup data-scene-camera="" bindings={{ transform: diffusionCameraTransform }}>
+          <ActionSpace />
+        </AnimatedGroup>
+      </g>
+
       {/* The two moves, named beside the clusters they finish in. */}
       <AnimatedElement
         as="line"
@@ -402,15 +647,17 @@ function DiffusionStage() {
         strokeWidth={1}
         bindings={{ opacity: leaderShare }}
       />
-      <text
+      <AnimatedElement
+        as="text"
         x={PLOT.left - 8}
         y={r2(MODE_ONE[1] + 5)}
         textAnchor="end"
         fontSize={FONT}
         fill="var(--motion-stage-label)"
+        bindings={{ opacity: labelShare }}
       >
         move one
-      </text>
+      </AnimatedElement>
       <AnimatedElement
         as="line"
         data-scene-structure="move-two-leader"
@@ -422,15 +669,49 @@ function DiffusionStage() {
         strokeWidth={1}
         bindings={{ opacity: leaderShare }}
       />
-      <text
+      <AnimatedElement
+        as="text"
         x={PLOT.right + 8}
         y={r2(MODE_TWO[1] + 5)}
         textAnchor="start"
         fontSize={FONT}
         fill="var(--motion-stage-label)"
+        bindings={{ opacity: labelShare }}
       >
         move two
-      </text>
+      </AnimatedElement>
+
+      {/* The relation, glyph by glyph: shared glyphs slide, "| o" fades in. */}
+      <g data-scene-formula="diffusion">
+        {GLYPH_IDS.map((id) => {
+          const glyph = GLYPH_OF.get(id) as GlyphName;
+          const { width } = glyphAt(id, 0);
+          return (
+            <AnimatedGroup
+              key={`glyph-${id}`}
+              bindings={{
+                transform: (t) => `translate(${glyphAt(id, t).x} 0)`,
+                opacity: (t) => glyphAt(id, t).opacity,
+              }}
+            >
+              <foreignObject
+                x={0}
+                y={GLYPH_Y}
+                width={r2(width - 0.4)}
+                height={GLYPH_H}
+                overflow="visible"
+                data-scene-glyph={id}
+              >
+                <div
+                  {...{ xmlns: 'http://www.w3.org/1999/xhtml' }}
+                  className="whitespace-nowrap text-center leading-[24px]"
+                  dangerouslySetInnerHTML={{ __html: glyphMarkup(glyph) }}
+                />
+              </foreignObject>
+            </AnimatedGroup>
+          );
+        })}
+      </g>
 
       {/* The one highlight note, pointing at both finished clusters. */}
       <AnimatedElement as="g" data-figure-annotation="" bindings={{ opacity: noteShare }}>
@@ -488,15 +769,34 @@ export function DiffusionDenoising({ className }: { className?: string }) {
               />
             }
           >
-            random guess
+            random guess and its path
           </LegendItem>
         </>
       }
-      readout={() => (
-        <>
-          {SAMPLE_COUNT} random guesses, cleaned up in {DENOISING_STEPS} steps
-        </>
-      )}
+      readout={({ beatIndex }) => {
+        // The worked guess first, then the whole cloud: numbers before symbols.
+        if (beatIndex === 2) {
+          return (
+            <>
+              One guess: {WORKED_DISTANCES.start.toFixed(2)} {'\u2192'}{' '}
+              {WORKED_DISTANCES.end.toFixed(2)} from its move
+            </>
+          );
+        }
+        if (beatIndex === 3) {
+          return (
+            <>
+              All {SAMPLE_COUNT} guesses: {NOISE_DISPERSION.toFixed(2)} {'\u2192'}{' '}
+              {FINAL_DISPERSION.toFixed(2)} from their moves, on average
+            </>
+          );
+        }
+        return (
+          <>
+            {SAMPLE_COUNT} random guesses, each nudged onto a good move in {DENOISING_STEPS} steps
+          </>
+        );
+      }}
       statusLine="Illustrative: a drawn model of the idea, not a trained robot’s output."
       method={
         <>
@@ -511,8 +811,12 @@ export function DiffusionDenoising({ className }: { className?: string }) {
             </span>
             .
           </p>
+          <p>
+            The guess the camera follows starts {WORKED_DISTANCES.start.toFixed(2)} from its move
+            and ends {WORKED_DISTANCES.end.toFixed(2)} away.
+          </p>
           <p>{DIFFUSION_METHOD_NOTE}</p>
-          <p>The four steps, in order:</p>
+          <p>The {BEAT_WORDS} steps, in order:</p>
           <ol>
             {SCENE.beats.map((beat) => (
               <li key={beat.id}>{beat.caption}</li>
@@ -520,11 +824,11 @@ export function DiffusionDenoising({ className }: { className?: string }) {
           </ol>
         </>
       }
-      textAlternative={`${SCENE.title}. A four-beat scene among possible robot moves. ${SCENE.beats.map(
+      textAlternative={`${SCENE.title}. A ${BEAT_WORDS}-beat scene among possible robot moves. ${SCENE.beats.map(
         (beat, index) => `Beat ${index + 1}: ${beat.caption}`,
       ).join(
         ' ',
-      )} The relation a ~ p(a | o) means an action a is sampled from a distribution of actions conditioned on the observed state o. Mean distance from a sample to its mode falls from ${NOISE_DISPERSION.toFixed(2)} to ${FINAL_DISPERSION.toFixed(2)} over the ten steps.`}
+      )} The relation a ~ p(a | o) means an action a is sampled from a distribution of actions conditioned on the observed state o. The guess the camera follows starts ${WORKED_DISTANCES.start.toFixed(2)} from its move and ends ${WORKED_DISTANCES.end.toFixed(2)} away. Mean distance from a sample to its mode falls from ${NOISE_DISPERSION.toFixed(2)} to ${FINAL_DISPERSION.toFixed(2)} over the ten steps.`}
     />
   );
 }

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "575a865f505d88bec462d9daa5e48d78afd1152a3d0e76180ed0c1e1de6e3b8d",
+  "fingerprint": "79313e1d3acaec2d77d7e3442e3869f0d7f4f47783180b156465b943cb392a18",
   "viewports": [
     "375x812",
     "1440x900"
@@ -5076,7 +5076,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 22351,
+      "visibleTextLength": 22472,
       "figures": [
         {
           "imageId": "temporal-ensembling",
@@ -5123,7 +5123,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 19324,
+      "visibleTextLength": 19323,
       "figures": [
         {
           "imageId": "covariate-shift",
@@ -10280,7 +10280,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 22994,
+      "visibleTextLength": 23115,
       "figures": [
         {
           "imageId": "temporal-ensembling",
@@ -10327,7 +10327,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 19967,
+      "visibleTextLength": 19966,
       "figures": [
         {
           "imageId": "covariate-shift",

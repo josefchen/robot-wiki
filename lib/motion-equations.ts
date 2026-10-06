@@ -9,3 +9,34 @@ export const SCENE_EQUATIONS = {
     "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo>∼</mo><mi>p</mi><mo stretchy=\"false\">(</mo><mi>a</mi><mo>∣</mo><mi>o</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">a \\sim p(a \\mid o)</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.4306em;\"></span><span class=\"mord mathnormal\">a</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mrel\">∼</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span></span><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:1em;vertical-align:-0.25em;\"></span><span class=\"mord mathnormal\">p</span><span class=\"mopen\">(</span><span class=\"mord mathnormal\">a</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mrel\">∣</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span></span><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:1em;vertical-align:-0.25em;\"></span><span class=\"mord mathnormal\">o</span><span class=\"mclose\">)</span></span></span></span>"
   }
 } as const;
+
+export const SCENE_GLYPHS = {
+  "a": {
+    "tex": "a",
+    "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi></mrow><annotation encoding=\"application/x-tex\">a</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.4306em;\"></span><span class=\"mord mathnormal\">a</span></span></span></span>"
+  },
+  "sim": {
+    "tex": "\\sim",
+    "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∼</mo></mrow><annotation encoding=\"application/x-tex\">\\sim</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.3669em;\"></span><span class=\"mrel\">∼</span></span></span></span>"
+  },
+  "p": {
+    "tex": "p",
+    "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi></mrow><annotation encoding=\"application/x-tex\">p</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.625em;vertical-align:-0.1944em;\"></span><span class=\"mord mathnormal\">p</span></span></span></span>"
+  },
+  "lparen": {
+    "tex": "(",
+    "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo></mrow><annotation encoding=\"application/x-tex\">(</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:1em;vertical-align:-0.25em;\"></span><span class=\"mopen\">(</span></span></span></span>"
+  },
+  "mid": {
+    "tex": "\\mid",
+    "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∣</mo></mrow><annotation encoding=\"application/x-tex\">\\mid</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:1em;vertical-align:-0.25em;\"></span><span class=\"mrel\">∣</span></span></span></span>"
+  },
+  "o": {
+    "tex": "o",
+    "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>o</mi></mrow><annotation encoding=\"application/x-tex\">o</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.4306em;\"></span><span class=\"mord mathnormal\">o</span></span></span></span>"
+  },
+  "rparen": {
+    "tex": ")",
+    "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">)</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:1em;vertical-align:-0.25em;\"></span><span class=\"mclose\">)</span></span></span></span>"
+  }
+} as const;
