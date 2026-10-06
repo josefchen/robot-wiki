@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "270d030aff4534f71d26169027305ad78c28e12cbaa0b97f4560929092c24b0c",
+  "fingerprint": "e1f0d4d288353344f79d9fb4368a8f0d442232e0c55e37b0c3060c493c5b85ff",
   "viewports": [
     "375x812",
     "1440x900"
@@ -143,7 +143,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3108,
+      "visibleTextLength": 3132,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -1195,7 +1195,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 29940,
+      "visibleTextLength": 29969,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -3539,7 +3539,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17656,
+      "visibleTextLength": 17685,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -5987,7 +5987,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16459,
+      "visibleTextLength": 16497,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -6707,7 +6707,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14309,
+      "visibleTextLength": 14347,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -7446,7 +7446,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27253,
+      "visibleTextLength": 27282,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -8383,7 +8383,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 41915,
+      "visibleTextLength": 41944,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -12557,7 +12557,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 17696,
+      "visibleTextLength": 17772,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -13371,7 +13371,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17178,
+      "visibleTextLength": 17216,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -17744,7 +17744,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15311,
+      "visibleTextLength": 15349,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -19796,7 +19796,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22622,
+      "visibleTextLength": 22651,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -20709,7 +20709,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24271,
+      "visibleTextLength": 24347,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -24771,7 +24771,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 2737,
+      "visibleTextLength": 2804,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -25007,7 +25007,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 22350,
+      "visibleTextLength": 22351,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -25138,6 +25138,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Action chunking is a policy design in which each inference p"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Chunking is now standard in robot policies, from diffusion a"
         },
         {
           "familyHead": "ibm plex sans",
@@ -25660,7 +25669,7 @@
         },
         {
           "kind": "internal",
-          "count": 10,
+          "count": 11,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -25670,7 +25679,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 10,
+              "count": 11,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -26041,7 +26050,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15727,
+      "visibleTextLength": 18358,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -26108,12 +26117,12 @@
           "Action Spaces for Robot Learning"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 5,
-        "citationCount": 30,
+        "readingMinutes": 6,
+        "citationCount": 37,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "5 min",
-        "citationCountText": "30",
+        "readingTimeText": "6 min",
+        "citationCountText": "37",
         "bibliographyIds": [
           "modern-robotics-2017",
           "act-aloha-2023",
@@ -26144,7 +26153,14 @@
           "openvla-oft-2025",
           "helix-2025",
           "knowledge-insulation-paper-2025",
-          "action-space-design-2026"
+          "action-space-design-2026",
+          "x-vla-2025",
+          "factr-2-2026",
+          "t-rex-2026",
+          "gen-1-5-2026",
+          "helix-02-2026",
+          "actioncodec-2026",
+          "lap-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -26260,6 +26276,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Impedance actions sit between: the policy picks a pose targe"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "FACTR 2 (Carnegie Mellon and Waseda University, June 2026) e"
         },
         {
           "familyHead": "newsreader",
@@ -26451,7 +26476,7 @@
         },
         {
           "kind": "reference",
-          "count": 30,
+          "count": 37,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -26461,7 +26486,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 30,
+              "count": 37,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -26473,7 +26498,7 @@
         },
         {
           "kind": "citation",
-          "count": 62,
+          "count": 76,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -26483,7 +26508,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 62,
+              "count": 76,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -26720,6 +26745,30 @@
           "sizePx": 13,
           "inProse": false,
           "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 15 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 34 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 11 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
         }
       ],
       "rules": [
@@ -26740,7 +26789,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17450,
+      "visibleTextLength": 19324,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -26807,12 +26856,12 @@
           "Behavior Cloning Foundations"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 8,
-        "citationCount": 32,
+        "readingMinutes": 9,
+        "citationCount": 35,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "8 min",
-        "citationCountText": "32",
+        "readingTimeText": "9 min",
+        "citationCountText": "35",
         "bibliographyIds": [
           "alvinn-1988",
           "dagger-2011",
@@ -26845,7 +26894,10 @@
           "gail-2016",
           "darp-2026",
           "hil-serl-2024",
-          "tri-lbm-2025"
+          "tri-lbm-2025",
+          "rebarsim-2026",
+          "ditto-x-2026",
+          "recova-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -27095,6 +27147,33 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "In September 2026, Abhishek Gupta (University of Washington)"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "DITTO-X, posted on September 30, 2026 by Stanford and Columb"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Recova, posted on October 1, 2026 by Linxi Fan, Yuke Zhu and"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Action chunking and exploratory data collection each provabl"
         },
         {
@@ -27260,7 +27339,7 @@
         },
         {
           "kind": "reference",
-          "count": 32,
+          "count": 35,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -27270,7 +27349,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 32,
+              "count": 35,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -27282,7 +27361,7 @@
         },
         {
           "kind": "citation",
-          "count": 80,
+          "count": 86,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -27292,7 +27371,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 80,
+              "count": 86,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -27618,6 +27697,14 @@
         {
           "tag": "button",
           "text": "Show all 82 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 9 authors",
           "familyHead": "ibm plex sans",
           "sizePx": 13,
           "inProse": false,
@@ -28615,7 +28702,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17683,
+      "visibleTextLength": 19669,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -28675,19 +28762,19 @@
         "h1Count": 1,
         "h1Text": "Cross-Embodiment Transfer",
         "summaryCount": 1,
-        "summaryText": "Padded action vectors, motion transfer, and shared relative end-effector frames;",
+        "summaryText": "Padded action vectors, shared relative end-effector frames, soft prompts and hum",
         "breadcrumbLabels": [
           "Home",
           "Manipulation & Learned Policies",
           "Cross-Embodiment Transfer"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 7,
-        "citationCount": 32,
+        "readingMinutes": 8,
+        "citationCount": 36,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "7 min",
-        "citationCountText": "32",
+        "readingTimeText": "8 min",
+        "citationCountText": "36",
         "bibliographyIds": [
           "act-aloha-2023",
           "pi0-2024",
@@ -28720,7 +28807,11 @@
           "masquerade-2026",
           "helix-2-5-2026",
           "embodiment-scaling-2025",
-          "skild-omni-bodied-2025"
+          "skild-omni-bodied-2025",
+          "lbm-cotraining-2026",
+          "generalist-gen1-2026",
+          "dreamzero-2026",
+          "gott-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -28971,6 +29062,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Across about 1,000 procedurally generated locomotion bodies,"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "GOTT, posted on October 2, 2026 by Pieter Abbeel, Haozhi Qi "
         }
       ],
       "sectionLinks": [
@@ -29144,7 +29244,7 @@
         },
         {
           "kind": "reference",
-          "count": 32,
+          "count": 36,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -29154,7 +29254,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 32,
+              "count": 36,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -29166,7 +29266,7 @@
         },
         {
           "kind": "citation",
-          "count": 78,
+          "count": 86,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -29176,7 +29276,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 78,
+              "count": 86,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -29232,7 +29332,7 @@
         },
         {
           "kind": "internal",
-          "count": 6,
+          "count": 7,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -29242,7 +29342,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 6,
+              "count": 7,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -29488,6 +29588,22 @@
           "sizePx": 13,
           "inProse": false,
           "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 12 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 36 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
         }
       ],
       "rules": [
@@ -29508,7 +29624,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17058,
+      "visibleTextLength": 18589,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -29575,12 +29691,12 @@
           "Diffusion Policy"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 8,
-        "citationCount": 31,
+        "readingMinutes": 9,
+        "citationCount": 34,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "8 min",
-        "citationCountText": "31",
+        "readingTimeText": "9 min",
+        "citationCountText": "34",
         "bibliographyIds": [
           "diffusion-policy-2023",
           "diffusion-policy-2023-v1",
@@ -29612,7 +29728,10 @@
           "lipman-flow-matching-2022",
           "rectified-flow-2022",
           "training-time-rtc-2025",
-          "demystifying-diffusion-policies-2025"
+          "demystifying-diffusion-policies-2025",
+          "xiaomi-robotics-1-2026",
+          "drifting-models-2026",
+          "bilinear-flow-policy-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -29844,6 +29963,15 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "On October 5, 2026, Wonsuhk Jung (Georgia Tech), Abhishek Gu"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Real-Time Chunkingreal-time chunkingAn inference-time scheme"
         },
         {
@@ -30045,7 +30173,7 @@
         },
         {
           "kind": "reference",
-          "count": 31,
+          "count": 34,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -30055,7 +30183,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 31,
+              "count": 34,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -30067,7 +30195,7 @@
         },
         {
           "kind": "citation",
-          "count": 82,
+          "count": 88,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -30077,7 +30205,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 82,
+              "count": 88,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -30402,6 +30530,14 @@
           "sizePx": 13,
           "inProse": false,
           "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 34 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
         }
       ],
       "rules": [
@@ -30422,7 +30558,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17905,
+      "visibleTextLength": 19284,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -30489,12 +30625,12 @@
           "Foundation Models for Robotics"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 6,
-        "citationCount": 34,
+        "readingMinutes": 7,
+        "citationCount": 37,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "6 min",
-        "citationCountText": "34",
+        "readingTimeText": "7 min",
+        "citationCountText": "37",
         "bibliographyIds": [
           "rt2-2023",
           "openvla-2024",
@@ -30529,7 +30665,10 @@
           "robopair-2024",
           "libero-plus-2025",
           "libero-pro-2025",
-          "ecomem-2026"
+          "ecomem-2026",
+          "helix-2-5-2026",
+          "generalist-gen1-2026",
+          "lbm-cotraining-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -30845,7 +30984,7 @@
         },
         {
           "kind": "reference",
-          "count": 34,
+          "count": 37,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -30855,7 +30994,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 34,
+              "count": 37,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -30867,7 +31006,7 @@
         },
         {
           "kind": "citation",
-          "count": 68,
+          "count": 74,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -30877,7 +31016,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 68,
+              "count": 74,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -30922,7 +31061,7 @@
         },
         {
           "kind": "internal",
-          "count": 7,
+          "count": 9,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -30932,7 +31071,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 7,
+              "count": 9,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -31218,6 +31357,14 @@
           "sizePx": 13,
           "inProse": false,
           "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 12 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
         }
       ],
       "rules": [
@@ -31238,7 +31385,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23031,
+      "visibleTextLength": 23061,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -31377,6 +31524,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "A generalist robot policy is one learned model trained to pe"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Outside the VLA line and Physical Intelligence's π models, t"
         },
         {
           "familyHead": "ibm plex sans",
@@ -32274,7 +32430,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22548,
+      "visibleTextLength": 24046,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -32334,19 +32490,19 @@
         "h1Count": 1,
         "h1Text": "Hierarchical Approaches",
         "summaryCount": 1,
-        "summaryText": "SayCan, code-as-policies, and keypoint affordances; why separate planners gave w",
+        "summaryText": "SayCan, Code as Policies and keypoint affordances, then the learned and orchestr",
         "breadcrumbLabels": [
           "Home",
           "Manipulation & Learned Policies",
           "Hierarchical Approaches"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 10,
-        "citationCount": 38,
+        "readingMinutes": 11,
+        "citationCount": 41,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "10 min",
-        "citationCountText": "38",
+        "readingTimeText": "11 min",
+        "citationCountText": "41",
         "bibliographyIds": [
           "saycan-2022",
           "code-as-policies-2022",
@@ -32385,7 +32541,10 @@
           "gemini-robotics-er-2-2026",
           "orchestrating-policies-2026",
           "fast-plans-2026",
-          "rpg-2026"
+          "rpg-2026",
+          "enpire-2026",
+          "lbm-cotraining-2026",
+          "seeq-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -32411,6 +32570,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Hierarchical approaches are robot architectures in which one"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "By 2026 the high level can run inside the policy network, as"
         },
         {
           "familyHead": "ibm plex sans",
@@ -32809,7 +32977,7 @@
         },
         {
           "kind": "reference",
-          "count": 38,
+          "count": 41,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -32819,7 +32987,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 38,
+              "count": 41,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -32831,7 +32999,7 @@
         },
         {
           "kind": "citation",
-          "count": 86,
+          "count": 92,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -32841,7 +33009,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 86,
+              "count": 92,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -33249,6 +33417,22 @@
           "sizePx": 13,
           "inProse": false,
           "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 17 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 12 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
         }
       ],
       "rules": [
@@ -33269,7 +33453,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15928,
+      "visibleTextLength": 16887,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -33337,11 +33521,11 @@
         ],
         "lastReviewed": "2026-08-17",
         "readingMinutes": 6,
-        "citationCount": 31,
+        "citationCount": 33,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
         "readingTimeText": "6 min",
-        "citationCountText": "31",
+        "citationCountText": "33",
         "bibliographyIds": [
           "knowledge-insulation-paper-2025",
           "knowledge-insulation-2025",
@@ -33373,7 +33557,9 @@
           "garg-self-demonstrated-control-2026",
           "vla-continual-forgetting-2026",
           "act2answer-2026",
-          "openvla-2024"
+          "openvla-2024",
+          "lbm-cotraining-2026",
+          "dm0-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -33680,7 +33866,7 @@
         },
         {
           "kind": "reference",
-          "count": 31,
+          "count": 33,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -33690,7 +33876,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 31,
+              "count": 33,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -33702,7 +33888,7 @@
         },
         {
           "kind": "citation",
-          "count": 92,
+          "count": 96,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -33712,7 +33898,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 92,
+              "count": 96,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -34088,6 +34274,22 @@
           "sizePx": 13,
           "inProse": false,
           "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 12 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 49 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
         }
       ],
       "rules": [
@@ -34108,7 +34310,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24516,
+      "visibleTextLength": 24555,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -34244,6 +34446,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "The pi line is Physical Intelligence's series of vision-lang"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "π0 kept a pretrained vision-language backbone and replaced d"
         },
         {
           "familyHead": "ibm plex sans",
@@ -35183,7 +35394,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19819,
+      "visibleTextLength": 20908,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -35251,11 +35462,11 @@
         ],
         "lastReviewed": "2026-08-17",
         "readingMinutes": 10,
-        "citationCount": 31,
+        "citationCount": 33,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
         "readingTimeText": "10 min",
-        "citationCountText": "31",
+        "citationCountText": "33",
         "bibliographyIds": [
           "act-aloha-2023",
           "pi0-2024",
@@ -35287,7 +35498,9 @@
           "one-step-diffusion-2024",
           "consistency-policy-2024",
           "pd-vla-2025",
-          "fast-in-slow-2025"
+          "fast-in-slow-2025",
+          "realtime-vla-2025",
+          "realtime-expo-ft-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -35312,7 +35525,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Real-time execution is the problem of delivering a policy's "
+          "text": "Real-time execution is delivering a policy's actions on the "
         },
         {
           "familyHead": "ibm plex sans",
@@ -35711,7 +35924,7 @@
         },
         {
           "kind": "reference",
-          "count": 31,
+          "count": 33,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -35721,7 +35934,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 31,
+              "count": 33,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -35733,7 +35946,7 @@
         },
         {
           "kind": "citation",
-          "count": 92,
+          "count": 98,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -35743,7 +35956,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 92,
+              "count": 98,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -35788,7 +36001,7 @@
         },
         {
           "kind": "internal",
-          "count": 3,
+          "count": 4,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -35798,7 +36011,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 3,
+              "count": 4,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -36128,7 +36341,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 35991,
+      "visibleTextLength": 37188,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -36195,12 +36408,12 @@
           "RL Fine-Tuning of Policies"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 20,
-        "citationCount": 39,
+        "readingMinutes": 21,
+        "citationCount": 41,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "20 min",
-        "citationCountText": "39",
+        "readingTimeText": "21 min",
+        "citationCountText": "41",
         "bibliographyIds": [
           "dagger-2011",
           "dppo-2024",
@@ -36240,7 +36453,9 @@
           "lwd-2026",
           "simplevla-rl-2025",
           "roboreward-2026",
-          "pi07-2026"
+          "pi07-2026",
+          "seeq-2026",
+          "enpire-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -36266,6 +36481,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "RL fine-tuning is the use of reinforcement learning to impro"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Dong and Finn call RL for frontier robot models \"not yet a r"
         },
         {
           "familyHead": "ibm plex sans",
@@ -36571,6 +36795,15 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "SeeQ, from Saksham Singh, Aviral Kumar and colleagues at Car"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Dong and Finn's September 2026 blog post says pretrained VLA"
         },
         {
@@ -36799,7 +37032,7 @@
         },
         {
           "kind": "reference",
-          "count": 39,
+          "count": 41,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -36809,7 +37042,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 39,
+              "count": 41,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -36821,7 +37054,7 @@
         },
         {
           "kind": "citation",
-          "count": 144,
+          "count": 148,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -36831,7 +37064,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 144,
+              "count": 148,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -37212,6 +37445,14 @@
           "sizePx": 13,
           "inProse": false,
           "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 17 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
         }
       ],
       "rules": [
@@ -37232,7 +37473,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15185,
+      "visibleTextLength": 15616,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -37300,11 +37541,11 @@
         ],
         "lastReviewed": "2026-09-24",
         "readingMinutes": 5,
-        "citationCount": 31,
+        "citationCount": 32,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
         "readingTimeText": "5 min",
-        "citationCountText": "31",
+        "citationCountText": "32",
         "bibliographyIds": [
           "modern-robotics-2017",
           "dagger-2011",
@@ -37336,7 +37577,8 @@
           "ros2-science-robotics-2022",
           "tobin-2017",
           "offline-rl-tutorial-2020",
-          "serl-2024"
+          "serl-2024",
+          "simplevla-rl-2025"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -37706,7 +37948,7 @@
         },
         {
           "kind": "reference",
-          "count": 31,
+          "count": 32,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -37716,7 +37958,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 31,
+              "count": 32,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -37728,7 +37970,7 @@
         },
         {
           "kind": "citation",
-          "count": 64,
+          "count": 66,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -37738,7 +37980,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 64,
+              "count": 66,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -38015,6 +38257,14 @@
           "sizePx": 13,
           "inProse": false,
           "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 21 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
         }
       ],
       "rules": [
@@ -38035,7 +38285,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22108,
+      "visibleTextLength": 23765,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -38102,12 +38352,12 @@
           "Vision-Language-Action Models"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 10,
-        "citationCount": 32,
+        "readingMinutes": 11,
+        "citationCount": 35,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "10 min",
-        "citationCountText": "32",
+        "readingTimeText": "11 min",
+        "citationCountText": "35",
         "bibliographyIds": [
           "rt1-2022",
           "rt2-2023",
@@ -38140,7 +38390,10 @@
           "simpler-2024",
           "gr00t-n1-2025",
           "pi07-2026",
-          "gemini-robotics-2-2026"
+          "gemini-robotics-2-2026",
+          "lbm-cotraining-2026",
+          "x-vla-2025",
+          "xiaomi-robotics-1-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -38301,6 +38554,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Open X-EmbodimentOpen X-EmbodimentA 2023 collaboration acros"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 335,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "In February 2026, Fanqi Lin, Jose Barreiros and colleagues a"
         },
         {
           "familyHead": "newsreader",
@@ -38582,7 +38844,7 @@
         },
         {
           "kind": "reference",
-          "count": 32,
+          "count": 35,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -38592,7 +38854,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 32,
+              "count": 35,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -38604,7 +38866,7 @@
         },
         {
           "kind": "citation",
-          "count": 100,
+          "count": 106,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -38614,7 +38876,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 100,
+              "count": 106,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -39023,6 +39285,30 @@
         {
           "tag": "button",
           "text": "Show all 87 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 12 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 15 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 34 authors",
           "familyHead": "ibm plex sans",
           "sizePx": 13,
           "inProse": false,
@@ -40259,7 +40545,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 786,
+      "visibleTextLength": 1664,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -40420,6 +40706,24 @@
           "familyHead": "ibm plex mono",
           "sizePx": 11,
           "trackingEm": 0.14
+        },
+        {
+          "text": "Joint angles",
+          "familyHead": "ibm plex mono",
+          "sizePx": 12,
+          "trackingEm": 0.14
+        },
+        {
+          "text": "IK target",
+          "familyHead": "ibm plex mono",
+          "sizePx": 12,
+          "trackingEm": 0.14
+        },
+        {
+          "text": "Trajectory",
+          "familyHead": "ibm plex mono",
+          "sizePx": 12,
+          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -40487,6 +40791,126 @@
           "sizePx": 14,
           "inProse": false,
           "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset pose",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "input",
+          "text": "0.391",
+          "familyHead": "ibm plex mono",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:input"
+        },
+        {
+          "tag": "input",
+          "text": "0.226",
+          "familyHead": "ibm plex mono",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:input"
+        },
+        {
+          "tag": "input",
+          "text": "0",
+          "familyHead": "ibm plex mono",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:input"
+        },
+        {
+          "tag": "button",
+          "text": "Solve to target",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Clear target",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Record",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Add keyframe",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Stop",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Clear",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Export JSON",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Import",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "textarea",
+          "text": "Paste a trajectory JSON file her",
+          "familyHead": "ibm plex mono",
+          "sizePx": 11,
+          "inProse": false,
+          "controlId": "control:input"
+        },
+        {
+          "tag": "input",
+          "text": "Choose a trajectory JSON file",
+          "familyHead": "ibm plex mono",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:input"
         }
       ],
       "rules": [],
@@ -40954,7 +41378,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 20204,
+      "visibleTextLength": 20233,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -55155,7 +55579,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 3346,
+      "visibleTextLength": 3370,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -56207,7 +56631,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 30274,
+      "visibleTextLength": 30303,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -58551,7 +58975,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17990,
+      "visibleTextLength": 18019,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -60999,7 +61423,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16896,
+      "visibleTextLength": 16934,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -61719,7 +62143,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14746,
+      "visibleTextLength": 14784,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -62458,7 +62882,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27690,
+      "visibleTextLength": 27719,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -63395,7 +63819,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 42345,
+      "visibleTextLength": 42374,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -67569,7 +67993,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 18091,
+      "visibleTextLength": 18167,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -68383,7 +68807,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17573,
+      "visibleTextLength": 17611,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -72756,7 +73180,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15706,
+      "visibleTextLength": 15744,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -74808,7 +75232,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22973,
+      "visibleTextLength": 23002,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -75721,7 +76145,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24622,
+      "visibleTextLength": 24698,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -79783,7 +80207,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 3380,
+      "visibleTextLength": 3447,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -80019,7 +80443,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 22993,
+      "visibleTextLength": 22994,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -80150,6 +80574,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Action chunking is a policy design in which each inference p"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Chunking is now standard in robot policies, from diffusion a"
         },
         {
           "familyHead": "ibm plex sans",
@@ -80672,7 +81105,7 @@
         },
         {
           "kind": "internal",
-          "count": 10,
+          "count": 11,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -80682,7 +81115,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 10,
+              "count": 11,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -81053,7 +81486,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16370,
+      "visibleTextLength": 19001,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -81120,12 +81553,12 @@
           "Action Spaces for Robot Learning"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 5,
-        "citationCount": 30,
+        "readingMinutes": 6,
+        "citationCount": 37,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "5 min",
-        "citationCountText": "30",
+        "readingTimeText": "6 min",
+        "citationCountText": "37",
         "bibliographyIds": [
           "modern-robotics-2017",
           "act-aloha-2023",
@@ -81156,7 +81589,14 @@
           "openvla-oft-2025",
           "helix-2025",
           "knowledge-insulation-paper-2025",
-          "action-space-design-2026"
+          "action-space-design-2026",
+          "x-vla-2025",
+          "factr-2-2026",
+          "t-rex-2026",
+          "gen-1-5-2026",
+          "helix-02-2026",
+          "actioncodec-2026",
+          "lap-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -81272,6 +81712,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Impedance actions sit between: the policy picks a pose targe"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "FACTR 2 (Carnegie Mellon and Waseda University, June 2026) e"
         },
         {
           "familyHead": "newsreader",
@@ -81463,7 +81912,7 @@
         },
         {
           "kind": "reference",
-          "count": 30,
+          "count": 37,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -81473,7 +81922,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 30,
+              "count": 37,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -81485,7 +81934,7 @@
         },
         {
           "kind": "citation",
-          "count": 62,
+          "count": 76,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -81495,7 +81944,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 62,
+              "count": 76,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -81732,6 +82181,30 @@
           "sizePx": 13,
           "inProse": false,
           "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 15 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 34 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 11 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
         }
       ],
       "rules": [
@@ -81752,7 +82225,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18093,
+      "visibleTextLength": 19967,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -81819,12 +82292,12 @@
           "Behavior Cloning Foundations"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 8,
-        "citationCount": 32,
+        "readingMinutes": 9,
+        "citationCount": 35,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "8 min",
-        "citationCountText": "32",
+        "readingTimeText": "9 min",
+        "citationCountText": "35",
         "bibliographyIds": [
           "alvinn-1988",
           "dagger-2011",
@@ -81857,7 +82330,10 @@
           "gail-2016",
           "darp-2026",
           "hil-serl-2024",
-          "tri-lbm-2025"
+          "tri-lbm-2025",
+          "rebarsim-2026",
+          "ditto-x-2026",
+          "recova-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -82107,6 +82583,33 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "In September 2026, Abhishek Gupta (University of Washington)"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "DITTO-X, posted on September 30, 2026 by Stanford and Columb"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Recova, posted on October 1, 2026 by Linxi Fan, Yuke Zhu and"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Action chunking and exploratory data collection each provabl"
         },
         {
@@ -82272,7 +82775,7 @@
         },
         {
           "kind": "reference",
-          "count": 32,
+          "count": 35,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -82282,7 +82785,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 32,
+              "count": 35,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -82294,7 +82797,7 @@
         },
         {
           "kind": "citation",
-          "count": 80,
+          "count": 86,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -82304,7 +82807,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 80,
+              "count": 86,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -82630,6 +83133,14 @@
         {
           "tag": "button",
           "text": "Show all 82 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 9 authors",
           "familyHead": "ibm plex sans",
           "sizePx": 13,
           "inProse": false,
@@ -83627,7 +84138,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18326,
+      "visibleTextLength": 20312,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -83687,19 +84198,19 @@
         "h1Count": 1,
         "h1Text": "Cross-Embodiment Transfer",
         "summaryCount": 1,
-        "summaryText": "Padded action vectors, motion transfer, and shared relative end-effector frames;",
+        "summaryText": "Padded action vectors, shared relative end-effector frames, soft prompts and hum",
         "breadcrumbLabels": [
           "Home",
           "Manipulation & Learned Policies",
           "Cross-Embodiment Transfer"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 7,
-        "citationCount": 32,
+        "readingMinutes": 8,
+        "citationCount": 36,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "7 min",
-        "citationCountText": "32",
+        "readingTimeText": "8 min",
+        "citationCountText": "36",
         "bibliographyIds": [
           "act-aloha-2023",
           "pi0-2024",
@@ -83732,7 +84243,11 @@
           "masquerade-2026",
           "helix-2-5-2026",
           "embodiment-scaling-2025",
-          "skild-omni-bodied-2025"
+          "skild-omni-bodied-2025",
+          "lbm-cotraining-2026",
+          "generalist-gen1-2026",
+          "dreamzero-2026",
+          "gott-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -83983,6 +84498,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Across about 1,000 procedurally generated locomotion bodies,"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "GOTT, posted on October 2, 2026 by Pieter Abbeel, Haozhi Qi "
         }
       ],
       "sectionLinks": [
@@ -84156,7 +84680,7 @@
         },
         {
           "kind": "reference",
-          "count": 32,
+          "count": 36,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -84166,7 +84690,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 32,
+              "count": 36,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -84178,7 +84702,7 @@
         },
         {
           "kind": "citation",
-          "count": 78,
+          "count": 86,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -84188,7 +84712,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 78,
+              "count": 86,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -84244,7 +84768,7 @@
         },
         {
           "kind": "internal",
-          "count": 6,
+          "count": 7,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -84254,7 +84778,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 6,
+              "count": 7,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -84500,6 +85024,22 @@
           "sizePx": 13,
           "inProse": false,
           "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 12 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 36 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
         }
       ],
       "rules": [
@@ -84520,7 +85060,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17701,
+      "visibleTextLength": 19232,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -84587,12 +85127,12 @@
           "Diffusion Policy"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 8,
-        "citationCount": 31,
+        "readingMinutes": 9,
+        "citationCount": 34,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "8 min",
-        "citationCountText": "31",
+        "readingTimeText": "9 min",
+        "citationCountText": "34",
         "bibliographyIds": [
           "diffusion-policy-2023",
           "diffusion-policy-2023-v1",
@@ -84624,7 +85164,10 @@
           "lipman-flow-matching-2022",
           "rectified-flow-2022",
           "training-time-rtc-2025",
-          "demystifying-diffusion-policies-2025"
+          "demystifying-diffusion-policies-2025",
+          "xiaomi-robotics-1-2026",
+          "drifting-models-2026",
+          "bilinear-flow-policy-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -84856,6 +85399,15 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "On October 5, 2026, Wonsuhk Jung (Georgia Tech), Abhishek Gu"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Real-Time Chunkingreal-time chunkingAn inference-time scheme"
         },
         {
@@ -85057,7 +85609,7 @@
         },
         {
           "kind": "reference",
-          "count": 31,
+          "count": 34,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -85067,7 +85619,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 31,
+              "count": 34,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -85079,7 +85631,7 @@
         },
         {
           "kind": "citation",
-          "count": 82,
+          "count": 88,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -85089,7 +85641,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 82,
+              "count": 88,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -85414,6 +85966,14 @@
           "sizePx": 13,
           "inProse": false,
           "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 34 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
         }
       ],
       "rules": [
@@ -85434,7 +85994,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18548,
+      "visibleTextLength": 19927,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -85501,12 +86061,12 @@
           "Foundation Models for Robotics"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 6,
-        "citationCount": 34,
+        "readingMinutes": 7,
+        "citationCount": 37,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "6 min",
-        "citationCountText": "34",
+        "readingTimeText": "7 min",
+        "citationCountText": "37",
         "bibliographyIds": [
           "rt2-2023",
           "openvla-2024",
@@ -85541,7 +86101,10 @@
           "robopair-2024",
           "libero-plus-2025",
           "libero-pro-2025",
-          "ecomem-2026"
+          "ecomem-2026",
+          "helix-2-5-2026",
+          "generalist-gen1-2026",
+          "lbm-cotraining-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -85857,7 +86420,7 @@
         },
         {
           "kind": "reference",
-          "count": 34,
+          "count": 37,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -85867,7 +86430,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 34,
+              "count": 37,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -85879,7 +86442,7 @@
         },
         {
           "kind": "citation",
-          "count": 68,
+          "count": 74,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -85889,7 +86452,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 68,
+              "count": 74,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -85934,7 +86497,7 @@
         },
         {
           "kind": "internal",
-          "count": 7,
+          "count": 9,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -85944,7 +86507,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 7,
+              "count": 9,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -86230,6 +86793,14 @@
           "sizePx": 13,
           "inProse": false,
           "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 12 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
         }
       ],
       "rules": [
@@ -86250,7 +86821,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23674,
+      "visibleTextLength": 23704,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -86389,6 +86960,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "A generalist robot policy is one learned model trained to pe"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Outside the VLA line and Physical Intelligence's π models, t"
         },
         {
           "familyHead": "ibm plex sans",
@@ -87286,7 +87866,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23191,
+      "visibleTextLength": 24689,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -87346,19 +87926,19 @@
         "h1Count": 1,
         "h1Text": "Hierarchical Approaches",
         "summaryCount": 1,
-        "summaryText": "SayCan, code-as-policies, and keypoint affordances; why separate planners gave w",
+        "summaryText": "SayCan, Code as Policies and keypoint affordances, then the learned and orchestr",
         "breadcrumbLabels": [
           "Home",
           "Manipulation & Learned Policies",
           "Hierarchical Approaches"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 10,
-        "citationCount": 38,
+        "readingMinutes": 11,
+        "citationCount": 41,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "10 min",
-        "citationCountText": "38",
+        "readingTimeText": "11 min",
+        "citationCountText": "41",
         "bibliographyIds": [
           "saycan-2022",
           "code-as-policies-2022",
@@ -87397,7 +87977,10 @@
           "gemini-robotics-er-2-2026",
           "orchestrating-policies-2026",
           "fast-plans-2026",
-          "rpg-2026"
+          "rpg-2026",
+          "enpire-2026",
+          "lbm-cotraining-2026",
+          "seeq-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -87423,6 +88006,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Hierarchical approaches are robot architectures in which one"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "By 2026 the high level can run inside the policy network, as"
         },
         {
           "familyHead": "ibm plex sans",
@@ -87821,7 +88413,7 @@
         },
         {
           "kind": "reference",
-          "count": 38,
+          "count": 41,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -87831,7 +88423,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 38,
+              "count": 41,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -87843,7 +88435,7 @@
         },
         {
           "kind": "citation",
-          "count": 86,
+          "count": 92,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -87853,7 +88445,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 86,
+              "count": 92,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -88261,6 +88853,22 @@
           "sizePx": 13,
           "inProse": false,
           "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 17 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 12 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
         }
       ],
       "rules": [
@@ -88281,7 +88889,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16571,
+      "visibleTextLength": 17530,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -88349,11 +88957,11 @@
         ],
         "lastReviewed": "2026-08-17",
         "readingMinutes": 6,
-        "citationCount": 31,
+        "citationCount": 33,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
         "readingTimeText": "6 min",
-        "citationCountText": "31",
+        "citationCountText": "33",
         "bibliographyIds": [
           "knowledge-insulation-paper-2025",
           "knowledge-insulation-2025",
@@ -88385,7 +88993,9 @@
           "garg-self-demonstrated-control-2026",
           "vla-continual-forgetting-2026",
           "act2answer-2026",
-          "openvla-2024"
+          "openvla-2024",
+          "lbm-cotraining-2026",
+          "dm0-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -88692,7 +89302,7 @@
         },
         {
           "kind": "reference",
-          "count": 31,
+          "count": 33,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -88702,7 +89312,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 31,
+              "count": 33,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -88714,7 +89324,7 @@
         },
         {
           "kind": "citation",
-          "count": 92,
+          "count": 96,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -88724,7 +89334,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 92,
+              "count": 96,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -89100,6 +89710,22 @@
           "sizePx": 13,
           "inProse": false,
           "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 12 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 49 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
         }
       ],
       "rules": [
@@ -89120,7 +89746,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 25159,
+      "visibleTextLength": 25198,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -89256,6 +89882,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "The pi line is Physical Intelligence's series of vision-lang"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "π0 kept a pretrained vision-language backbone and replaced d"
         },
         {
           "familyHead": "ibm plex sans",
@@ -90195,7 +90830,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20462,
+      "visibleTextLength": 21551,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -90263,11 +90898,11 @@
         ],
         "lastReviewed": "2026-08-17",
         "readingMinutes": 10,
-        "citationCount": 31,
+        "citationCount": 33,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
         "readingTimeText": "10 min",
-        "citationCountText": "31",
+        "citationCountText": "33",
         "bibliographyIds": [
           "act-aloha-2023",
           "pi0-2024",
@@ -90299,7 +90934,9 @@
           "one-step-diffusion-2024",
           "consistency-policy-2024",
           "pd-vla-2025",
-          "fast-in-slow-2025"
+          "fast-in-slow-2025",
+          "realtime-vla-2025",
+          "realtime-expo-ft-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -90324,7 +90961,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Real-time execution is the problem of delivering a policy's "
+          "text": "Real-time execution is delivering a policy's actions on the "
         },
         {
           "familyHead": "ibm plex sans",
@@ -90723,7 +91360,7 @@
         },
         {
           "kind": "reference",
-          "count": 31,
+          "count": 33,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -90733,7 +91370,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 31,
+              "count": 33,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -90745,7 +91382,7 @@
         },
         {
           "kind": "citation",
-          "count": 92,
+          "count": 98,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -90755,7 +91392,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 92,
+              "count": 98,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -90800,7 +91437,7 @@
         },
         {
           "kind": "internal",
-          "count": 3,
+          "count": 4,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -90810,7 +91447,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 3,
+              "count": 4,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -91140,7 +91777,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 36634,
+      "visibleTextLength": 37831,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -91207,12 +91844,12 @@
           "RL Fine-Tuning of Policies"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 20,
-        "citationCount": 39,
+        "readingMinutes": 21,
+        "citationCount": 41,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "20 min",
-        "citationCountText": "39",
+        "readingTimeText": "21 min",
+        "citationCountText": "41",
         "bibliographyIds": [
           "dagger-2011",
           "dppo-2024",
@@ -91252,7 +91889,9 @@
           "lwd-2026",
           "simplevla-rl-2025",
           "roboreward-2026",
-          "pi07-2026"
+          "pi07-2026",
+          "seeq-2026",
+          "enpire-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -91278,6 +91917,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "RL fine-tuning is the use of reinforcement learning to impro"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Dong and Finn call RL for frontier robot models \"not yet a r"
         },
         {
           "familyHead": "ibm plex sans",
@@ -91583,6 +92231,15 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "SeeQ, from Saksham Singh, Aviral Kumar and colleagues at Car"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Dong and Finn's September 2026 blog post says pretrained VLA"
         },
         {
@@ -91811,7 +92468,7 @@
         },
         {
           "kind": "reference",
-          "count": 39,
+          "count": 41,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -91821,7 +92478,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 39,
+              "count": 41,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -91833,7 +92490,7 @@
         },
         {
           "kind": "citation",
-          "count": 144,
+          "count": 148,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -91843,7 +92500,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 144,
+              "count": 148,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -92224,6 +92881,14 @@
           "sizePx": 13,
           "inProse": false,
           "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 17 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
         }
       ],
       "rules": [
@@ -92244,7 +92909,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15828,
+      "visibleTextLength": 16259,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -92312,11 +92977,11 @@
         ],
         "lastReviewed": "2026-09-24",
         "readingMinutes": 5,
-        "citationCount": 31,
+        "citationCount": 32,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
         "readingTimeText": "5 min",
-        "citationCountText": "31",
+        "citationCountText": "32",
         "bibliographyIds": [
           "modern-robotics-2017",
           "dagger-2011",
@@ -92348,7 +93013,8 @@
           "ros2-science-robotics-2022",
           "tobin-2017",
           "offline-rl-tutorial-2020",
-          "serl-2024"
+          "serl-2024",
+          "simplevla-rl-2025"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -92718,7 +93384,7 @@
         },
         {
           "kind": "reference",
-          "count": 31,
+          "count": 32,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -92728,7 +93394,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 31,
+              "count": 32,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -92740,7 +93406,7 @@
         },
         {
           "kind": "citation",
-          "count": 64,
+          "count": 66,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -92750,7 +93416,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 64,
+              "count": 66,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -93027,6 +93693,14 @@
           "sizePx": 13,
           "inProse": false,
           "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 21 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
         }
       ],
       "rules": [
@@ -93047,7 +93721,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22751,
+      "visibleTextLength": 24408,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -93114,12 +93788,12 @@
           "Vision-Language-Action Models"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 10,
-        "citationCount": 32,
+        "readingMinutes": 11,
+        "citationCount": 35,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "10 min",
-        "citationCountText": "32",
+        "readingTimeText": "11 min",
+        "citationCountText": "35",
         "bibliographyIds": [
           "rt1-2022",
           "rt2-2023",
@@ -93152,7 +93826,10 @@
           "simpler-2024",
           "gr00t-n1-2025",
           "pi07-2026",
-          "gemini-robotics-2-2026"
+          "gemini-robotics-2-2026",
+          "lbm-cotraining-2026",
+          "x-vla-2025",
+          "xiaomi-robotics-1-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -93313,6 +93990,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Open X-EmbodimentOpen X-EmbodimentA 2023 collaboration acros"
+        },
+        {
+          "familyHead": "newsreader",
+          "sizePx": 19,
+          "lineHeightRatio": 1.7,
+          "widthPx": 715,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "In February 2026, Fanqi Lin, Jose Barreiros and colleagues a"
         },
         {
           "familyHead": "newsreader",
@@ -93594,7 +94280,7 @@
         },
         {
           "kind": "reference",
-          "count": 32,
+          "count": 35,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -93604,7 +94290,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 32,
+              "count": 35,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -93616,7 +94302,7 @@
         },
         {
           "kind": "citation",
-          "count": 100,
+          "count": 106,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -93626,7 +94312,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 100,
+              "count": 106,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -94035,6 +94721,30 @@
         {
           "tag": "button",
           "text": "Show all 87 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 12 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 15 authors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 34 authors",
           "familyHead": "ibm plex sans",
           "sizePx": 13,
           "inProse": false,
@@ -95271,7 +95981,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 1024,
+      "visibleTextLength": 1902,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -95432,6 +96142,24 @@
           "familyHead": "ibm plex mono",
           "sizePx": 11,
           "trackingEm": 0.14
+        },
+        {
+          "text": "Joint angles",
+          "familyHead": "ibm plex mono",
+          "sizePx": 12,
+          "trackingEm": 0.14
+        },
+        {
+          "text": "IK target",
+          "familyHead": "ibm plex mono",
+          "sizePx": 12,
+          "trackingEm": 0.14
+        },
+        {
+          "text": "Trajectory",
+          "familyHead": "ibm plex mono",
+          "sizePx": 12,
+          "trackingEm": 0.14
         }
       ],
       "monoRequired": [],
@@ -95499,6 +96227,126 @@
           "sizePx": 14,
           "inProse": false,
           "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset pose",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "input",
+          "text": "0.391",
+          "familyHead": "ibm plex mono",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:input"
+        },
+        {
+          "tag": "input",
+          "text": "0.226",
+          "familyHead": "ibm plex mono",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:input"
+        },
+        {
+          "tag": "input",
+          "text": "0",
+          "familyHead": "ibm plex mono",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:input"
+        },
+        {
+          "tag": "button",
+          "text": "Solve to target",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Clear target",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Record",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Add keyframe",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Stop",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Clear",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Export JSON",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Import",
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "textarea",
+          "text": "Paste a trajectory JSON file her",
+          "familyHead": "ibm plex mono",
+          "sizePx": 11,
+          "inProse": false,
+          "controlId": "control:input"
+        },
+        {
+          "tag": "input",
+          "text": "Choose a trajectory JSON file",
+          "familyHead": "ibm plex mono",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:input"
         }
       ],
       "rules": [],
@@ -95966,7 +96814,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 20695,
+      "visibleTextLength": 20724,
       "tekturRoles": [
         {
           "role": "shell-wordmark",

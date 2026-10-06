@@ -39,6 +39,9 @@ citations:
   - darp-2026
   - hil-serl-2024
   - tri-lbm-2025
+  - rebarsim-2026
+  - ditto-x-2026
+  - recova-2026
 seeAlso:
   - "data-hardware/teleop-rigs"
   - "frontier/reliability-gap"
@@ -139,6 +142,12 @@ Off-policy DART injects noise into demonstrations so the supervisor shows recove
 Labeling arbitrary failure states is unnatural for teleoperators. In HG-DAgger the human takes over when needed, steers back to a safe, stable region and hands back control, labeling the recovery <Cite id="hg-dagger-2019" />. BC-Z gathered such interventions by shared autonomy and did 24 unseen tasks at 44% average success <Cite id="bc-z-2022" />. Compliant Residual DAgger takes delta corrections without pausing the policy, raising base success by 64% on four tasks <Cite id="cr-dagger-2025" />.
 
 Fourteen years after DAgger, Physical Intelligence's Recap coaches a vision-language-action policy with corrections at visited states <Cite id="pistar06-blog-2025" />. SOP runs HG-DAgger and Recap on a robot fleet, with performance scaling near-linearly in fleet size <Cite id="sop-2026" />. RaC found imitation plateaus far below perfect despite thousands of demonstrations; recovery-and-correction data beat the prior best with 10× less collection <Cite id="rac-2025" />.
+
+In September 2026, Abhishek Gupta (University of Washington), Yi Shao (McGill University) and colleagues used DAgger to distill a state-based RL teacher into an RGB student. Their RebarSim seated rebar at 1.4 mm clearance in 137 of 150 real rollouts. In simulation, pure behavior cloning in place of the DAgger mixture cut success from 96.1% to 68.9% <Cite id="rebarsim-2026" />.
+
+DITTO-X, posted on September 30, 2026 by Stanford and Columbia researchers including Jiajun Wu, is an actuated hand exoskeleton for taking over a dexterous robot hand. It back-drives the operator's fingers into the robot's configuration before control passes. In a six-person study, interventions succeeded on 78.3% of trials against 27.7% with a commercial glove <Cite id="ditto-x-2026" />.
+
+Recova, posted on October 1, 2026 by Linxi Fan, Yuke Zhu and colleagues at NVIDIA, UC San Diego and UT Austin, has an agent monitor rollouts and develop recovery skills in a digital twin of each task. On four real tasks at 20 trials each, DAgger fine-tuning raised mean success from 23.8% to 77.5%, and recovery skills raised it to 87.5% <Cite id="recova-2026" />.
 
 ## Where this leads
 

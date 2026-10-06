@@ -12,7 +12,7 @@ import { collectArticleTruthManifests } from '../../scripts/brand-v2-baseline';
 import { headReanchorFor, integratedHash, laneWindow, reanchorFor, sealedHash, showAt } from './helpers/continuation-merge-ledger';
 import { committedSource } from '../helpers/continuation-integration';
 import { preDomainPass, preSeoPassHash, preSeoPassText } from '../helpers/seo-pass';
-import { preDomainPassCitations } from '../helpers/domain-pass';
+import { domainPassEndpoint, preDomainPassCitations } from '../helpers/domain-pass';
 
 const root = resolve(import.meta.dirname, '../..');
 const base = '9ea4a171131e45deacfbd1b54921940162f3afbf';
@@ -192,10 +192,10 @@ describe('generalist originals 15 and 21, exact attribution and metadata correct
     expect(readerFirst.reconciles?.some(binding => binding.id === seo.id && binding.newHash === seo.newHash)).toBe(true);
     expect(hashOf(preDomainPass(articlePath).toString('utf8'))).toBe(readerFirst.newHash);
     // The 2026-10-06 domain pass rewrote the article from the owner's draft;
-    // its edge reconciles the reader-first endpoint and reaches the live article.
+    // its edge reconciles the reader-first endpoint, and its last batch reaches the live article.
     const domainPass = approvals.find(a => a.id === 'domain-pass-20261006-g3-prose-generalist-policies')!;
     expect(domainPass.reconciles?.some(binding => binding.id === readerFirst.id && binding.newHash === readerFirst.newHash)).toBe(true);
-    expect(hashOf(read(articlePath))).toBe(domainPass.newHash);
+    expect(hashOf(read(articlePath))).toBe(domainPassEndpoint(approvals, domainPass).newHash);
     expect(article.split(newSpan.replace('Its inspected v4 methods describe', 'Its inspected methods describe'))).toHaveLength(2);
     expect(matter(article).data).toEqual(matter(before(articlePath)).data);
     expect(article).not.toContain('GO-1 was open-sourced alongside');

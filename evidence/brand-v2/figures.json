@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "f074d5c36ce982868b01842dddf892ccb73e5f0ef1333caf36e3635e6bfd4ed9",
+  "fingerprint": "575a865f505d88bec462d9daa5e48d78afd1152a3d0e76180ed0c1e1de6e3b8d",
   "viewports": [
     "375x812",
     "1440x900"
@@ -17,7 +17,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 14309,
+      "visibleTextLength": 14347,
       "figures": [
         {
           "imageId": "puma-560-nasa-ames",
@@ -5076,7 +5076,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 22350,
+      "visibleTextLength": 22351,
       "figures": [
         {
           "imageId": "temporal-ensembling",
@@ -5123,7 +5123,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 17450,
+      "visibleTextLength": 19324,
       "figures": [
         {
           "imageId": "covariate-shift",
@@ -5221,7 +5221,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 14746,
+      "visibleTextLength": 14784,
       "figures": [
         {
           "imageId": "puma-560-nasa-ames",
@@ -10280,7 +10280,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 22993,
+      "visibleTextLength": 22994,
       "figures": [
         {
           "imageId": "temporal-ensembling",
@@ -10327,7 +10327,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 18093,
+      "visibleTextLength": 19967,
       "figures": [
         {
           "imageId": "covariate-shift",
