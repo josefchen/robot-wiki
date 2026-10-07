@@ -332,6 +332,7 @@ test.describe('market map visualization', () => {
         route: '/world-models/generative-video/',
         labels: ['Listens to the action', 'Ignores the action'],
       },
+      // The reward-weight figure's weighted total sits in "How this was made".
       {
         route: '/rl-sim2real/reward-design-mpc/',
         labels: [
@@ -344,6 +345,7 @@ test.describe('market map visualization', () => {
           'Compute per step:',
           'Model-based MPC (iLQR + MuJoCo)',
         ],
+        openFolds: true,
       },
       // The contact-geometry figure reads its contact count, patch and
       // tolerance as one readout sentence, so its labels are the error

@@ -185,7 +185,7 @@ const CHARTS: Array<{
     control: 'button',
     moves: ['π0.5', 'π0.7'],
     def: 'π0',
-    match: 'pinned commit of August 24, 2026 lists base checkpoints',
+    match: 'pinned checkpoint catalogue',
   },
   {
     route: '/manipulation/generalist-policies',

@@ -159,10 +159,14 @@ test.describe('References bibliography', () => {
         // year, rendered once when the venue already states it ("RSS 2023."
         // rather than "RSS 2023, 2023."). A list longer than eight names
         // shows the first eight and a count, and its toggle swaps in the
-        // full registry list. The derivation is inlined here so the spec
+        // full registry list. An undated source ("n.d.") also states the
+        // registry's access date. The derivation is inlined here so the spec
         // does not grade the renderer with the renderer's own rule.
+        const year = citation.year === 'n.d.'
+          ? `n.d.; accessed ${citation.accessedOn}`
+          : String(citation.year);
         const trailing = `${citation.venue ? `, ${citation.venue}` : ''}${
-          citation.venue?.includes(String(citation.year)) ? '' : `, ${citation.year}`}.`;
+          citation.venue?.includes(String(citation.year)) ? '' : `, ${year}`}.`;
         const meta = item.locator('p').first();
         const count = citation.authors.length;
         if (count > 8) {

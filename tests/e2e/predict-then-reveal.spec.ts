@@ -467,7 +467,9 @@ test.describe('prediction step (PredictThenReveal)', () => {
         has: page.locator('svg[aria-label^="Line chart of episode success"]'),
       })
       .first();
-    // The full per-step slider sits in the frame's "Adjust more" fold.
+    // The full per-step slider sits in the frame's "Adjust more" fold. A fold
+    // opened before hydration makes React report an `open` mismatch.
+    await waitForHydration(reliabilityFigure.locator('[data-figure-fold="adjust"] > summary'));
     await openAdjustMore(reliabilityFigure);
     await expect(
       reliabilityFigure.getByRole('slider', { name: /per-step success probability/i }),
@@ -486,6 +488,9 @@ test.describe('prediction step (PredictThenReveal)', () => {
         has: page.locator('svg[aria-label^="Control-loop timeline"]'),
       })
       .first();
+    // The model-size slider and its readouts sit in the frame's "Adjust more" fold.
+    await waitForHydration(clbStandalone.locator('[data-figure-fold="adjust"] > summary'));
+    await openAdjustMore(clbStandalone);
     await expect(
       clbStandalone.getByRole('slider', { name: /model size in billions/i }),
     ).toHaveValue('3');

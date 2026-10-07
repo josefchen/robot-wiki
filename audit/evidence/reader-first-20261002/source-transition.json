@@ -3,7 +3,7 @@
   "name": "reader-first-figures",
   "reviewedBy": "release steward re-anchoring the reader-first figure pass (not independent acceptance)",
   "rationale": "The reader-first figure pass of 2026-10-02 rewrote each article figure so a reader with no engineering background gets its point in five seconds: a takeaway headline, at most two visible controls with plain labels, every further control in an Adjust more fold, and the method, sources and caveats in a How this was made fold. The articles that point at those controls name them in plain words, the end-to-end specs open a fold before they use a control it now holds, and the figure sources changed with them. Each change is recorded here as exact edits over the bytes the file had before the pass. The earlier bytes stand in for the live file only while the live file is exactly the reviewed successor, so older reviews, runs and receipts that pinned them still check the bytes they recorded.",
-  "observedAt": "2026-10-06T16:26:42Z",
+  "observedAt": "2026-10-06T23:00:19Z",
   "sources": [
     {
       "archivedFrom": "6fffffaf345d1ea5e258645567df3312e8f5c71b",
@@ -5825,10 +5825,18 @@
       },
       "after": {
         "path": "tests/e2e/bc-foundations-corrections.spec.ts",
-        "bytes": 7124,
-        "sha256": "9991f5ad43cc691f7d8e6f8ccbf936c17e02769f241978fd740bd2d3ca065c13"
+        "bytes": 7532,
+        "sha256": "c793b30c6254171c4cb85308f52d5a1e9cbc49d85dd058478a04a3472cfba8a2"
       },
       "edits": [
+        {
+          "before": "import { expect, test } from '@playwright/test';\n",
+          "after": "import { readFileSync } from 'node:fs';\nimport { expect, test } from '@playwright/test';\n"
+        },
+        {
+          "before": "import { openAdjustMore } from './helpers/figure-fold';\n\n",
+          "after": "import { openAdjustMore } from './helpers/figure-fold';\n\nconst manuscript = readFileSync(new URL('../../content/manipulation/bc-foundations.mdx', import.meta.url), 'utf8');\n\n"
+        },
         {
           "before": "    await expect(prose).toContainText('proposed future work');\n    await expect(prose).toContainText('it promises no improvement for any particular iterate');\n",
           "after": "    await expect(prose).toContainText('The guarantee is existential');\n    await expect(prose).toContainText('Algorithm 3.1 returns the policy best on validation');\n"
@@ -5844,6 +5852,14 @@
         {
           "before": "    await toy.scrollIntoViewIfNeeded();\n",
           "after": "    await toy.scrollIntoViewIfNeeded();\n    await expect(toy).toBeVisible();\n    await expect(reveal).not.toHaveAttribute('open');\n"
+        },
+        {
+          "before": "    expect(citationIds).toEqual([\n",
+          "after": "    // The corrections' sources stay cited, and every source the article cites renders as a chip.\n    expect(citationIds).toEqual(expect.arrayContaining([\n"
+        },
+        {
+          "before": "    ]);\n",
+          "after": "    ]));\n    expect(citationIds).toEqual([...new Set([...manuscript.matchAll(/<Cite\\s+id=\"([^\"]+)\"/g)]\n      .map((m) => m[1]))].sort());\n"
         }
       ]
     },
@@ -6173,8 +6189,8 @@
       },
       "after": {
         "path": "tests/e2e/chart-state-descriptions.spec.ts",
-        "bytes": 24422,
-        "sha256": "45add6055717cda1d15b81bd7a712a74544d8c48fe593a7f751879821b1592cb"
+        "bytes": 24394,
+        "sha256": "0183bfeac2c8990525fe16fe3bb1f5e136f85ca964b7dc49d42763d5d060a372"
       },
       "edits": [
         {
@@ -6204,10 +6220,6 @@
         {
           "before": "    match: 'physics proxy is off',\n",
           "after": "    match: 'With only the picture',\n"
-        },
-        {
-          "before": "    match: 'pinned checkpoint catalogue',\n",
-          "after": "    match: 'pinned commit of August 24, 2026 lists base checkpoints',\n"
         },
         {
           "before": "    match: 'latent rollout view',\n",
@@ -7385,8 +7397,8 @@
       },
       "after": {
         "path": "tests/e2e/market-map.spec.ts",
-        "bytes": 16699,
-        "sha256": "ae7bde5565636935e5c1dc42a37847f4c3c20b852e275643d540c08215b91bb9"
+        "bytes": 16804,
+        "sha256": "3ce058f6bfbdd03a41fa59b658cedef1ae782d6f2c2511547ea405f7a3ef6c2c"
       },
       "edits": [
         {
@@ -7394,8 +7406,12 @@
           "after": "    const cases: ReadonlyArray<{ route: string; labels: readonly string[]; openFolds?: boolean }> = [\n      // The generative-video figure is one stage whose visible controls\n      // are the two video-model presets.\n"
         },
         {
-          "before": "        labels: ['Strong conditioning', 'Weak conditioning'],\n",
-          "after": "        labels: ['Listens to the action', 'Ignores the action'],\n"
+          "before": "        labels: ['Strong conditioning', 'Weak conditioning'],\n      },\n",
+          "after": "        labels: ['Listens to the action', 'Ignores the action'],\n      },\n      // The reward-weight figure's weighted total sits in \"How this was made\".\n"
+        },
+        {
+          "before": "        ],\n",
+          "after": "        ],\n        openFolds: true,\n"
         },
         {
           "before": "      // tolerance as one readout sentence, so its visible labels are the\n      // error control and the scenario that opens the readout.\n",
@@ -7726,8 +7742,8 @@
       },
       "after": {
         "path": "tests/e2e/predict-then-reveal.spec.ts",
-        "bytes": 40327,
-        "sha256": "9651d91a585c1f9bd2bda8d29456340dde0feae523fd7e463c80693227520e81"
+        "bytes": 40718,
+        "sha256": "673e694b4b4d89a858a73c08e39004aaa3f39aa872bfcf8a4e77bf04bcdfebdc"
       },
       "edits": [
         {
@@ -7836,7 +7852,11 @@
         },
         {
           "before": "        has: page.locator('svg[aria-label^=\"Line chart of episode success\"]'),\n      })\n      .first();\n",
-          "after": "        has: page.locator('svg[aria-label^=\"Line chart of episode success\"]'),\n      })\n      .first();\n    // The full per-step slider sits in the frame's \"Adjust more\" fold.\n    await openAdjustMore(reliabilityFigure);\n"
+          "after": "        has: page.locator('svg[aria-label^=\"Line chart of episode success\"]'),\n      })\n      .first();\n    // The full per-step slider sits in the frame's \"Adjust more\" fold. A fold\n    // opened before hydration makes React report an `open` mismatch.\n    await waitForHydration(reliabilityFigure.locator('[data-figure-fold=\"adjust\"] > summary'));\n    await openAdjustMore(reliabilityFigure);\n"
+        },
+        {
+          "before": "        has: page.locator('svg[aria-label^=\"Control-loop timeline\"]'),\n      })\n      .first();\n",
+          "after": "        has: page.locator('svg[aria-label^=\"Control-loop timeline\"]'),\n      })\n      .first();\n    // The model-size slider and its readouts sit in the frame's \"Adjust more\" fold.\n    await waitForHydration(clbStandalone.locator('[data-figure-fold=\"adjust\"] > summary'));\n    await openAdjustMore(clbStandalone);\n"
         }
       ]
     },
@@ -8029,13 +8049,21 @@
       },
       "after": {
         "path": "tests/e2e/rl-finetuning.spec.ts",
-        "bytes": 11702,
-        "sha256": "5bb1cae098b6bc560a7c89dc1a28cfb5281949ed52dc6a1e6edd998518e83526"
+        "bytes": 11831,
+        "sha256": "7b280a8981f129fa4e5ac5593d6ee9a29fefb3e32d760284570b5b98f89e9889"
       },
       "edits": [
         {
           "before": "import { waitForHydration } from './interaction-ready';\n",
           "after": "import { waitForHydration } from './interaction-ready';\nimport { openAdjustMore } from './helpers/figure-fold';\n"
+        },
+        {
+          "before": "    const main = page.locator('#main-content');\n",
+          "after": "    const main = page.locator('#main-content');\n    // SERL is also \"Luo et al. 2024\" and now comes first, so pick HIL-SERL by its id.\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: /Luo et al\\. 2024/ }).first(),\n",
+          "after": "      main.locator('[data-cite-id=\"hil-serl-2024\"]').getByRole('link', { name: /Luo et al\\. 2024/ }).first(),\n"
         },
         {
           "before": "  test('advantage scrubber: scrub, views, and reset', async ({ page }) => {\n    await page.goto(ROUTE);\n\n    const timeReadout = page.getByTestId('time-readout');\n    await expect(timeReadout).toHaveText(/t = 0\\.0 s/);\n",

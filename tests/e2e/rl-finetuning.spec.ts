@@ -60,8 +60,9 @@ test.describe('rl-finetuning module', () => {
   test('citation chips link to external primary sources', async ({ page }) => {
     await page.goto(ROUTE);
     const main = page.locator('#main-content');
+    // SERL is also "Luo et al. 2024" and now comes first, so pick HIL-SERL by its id.
     await expect(
-      main.getByRole('link', { name: /Luo et al\. 2024/ }).first(),
+      main.locator('[data-cite-id="hil-serl-2024"]').getByRole('link', { name: /Luo et al\. 2024/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2410.21845');
     // Recap cites the pi.website lab report.
     await expect(

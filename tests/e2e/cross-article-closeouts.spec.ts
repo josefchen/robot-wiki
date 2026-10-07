@@ -4,8 +4,8 @@ import AxeBuilder from '@axe-core/playwright';
 import { openAdjustMore } from './helpers/figure-fold';
 
 const routes = [
-  { slug: 'knowledge-insulation', domain: 'manipulation', text: 'eight drawn layers', source: 'https://www.pi.website/research/knowledge_insulation' },
-  { slug: 'pi-line', domain: 'manipulation', text: 'The pinned openpi README', source: 'https://arxiv.org/abs/2501.09747' },
+  { slug: 'knowledge-insulation', domain: 'manipulation', text: 'backbone is a 2B language model', source: 'https://www.pi.website/research/knowledge_insulation' },
+  { slug: 'pi-line', domain: 'manipulation', text: 'The openpi README at the pinned commit', source: 'https://arxiv.org/abs/2501.09747' },
   { slug: 'comparison-matrix', domain: 'manipulation', text: 'multi-TPU cloud service', source: 'https://arxiv.org/abs/2307.15818' },
   { slug: 'rl-finetuning', domain: 'manipulation', text: 'about a factor of two', source: 'https://www.pi.website/download/pistar06.pdf' },
   { slug: 'latent-dynamics', domain: 'world-models', text: '545M', source: 'https://arxiv.org/abs/2310.16828' },
@@ -142,14 +142,17 @@ for (const width of [375, 1440]) {
         await page.getByRole('button', { name: 'Reset', exact: true }).click();
       }
       if (route.slug === 'latent-dynamics') {
-        await expect(page.getByText('Illustrative toy, not measured model performance.', { exact: false })).toBeVisible();
-        await page.getByRole('button', { name: /decoder-free/ }).click();
-        await expect(page.getByTestId('decoded-frames')).toHaveCount(0);
-        await expect(page.getByTestId('decoder-free-note')).toContainText('fixed multiple of the toy latent deviation');
-        await page.getByTestId('decoder-free-note').scrollIntoViewIfNeeded();
+        // The model choice and Reset sit in the figure's "Adjust more" fold.
+        const figure = page.locator('main [data-figure-frame="latent-imagination"]');
+        await expect(figure.getByText(/Illustrative: a toy model, not measured on a real robot/)).toBeVisible();
+        const adjust = await openAdjustMore(figure);
+        await adjust.getByRole('button', { name: 'TD-MPC2 (no pictures)', exact: true }).click();
+        await expect(figure.getByTestId('decoded-frames')).toHaveCount(0);
+        await expect(figure.getByTestId('decoder-free-note')).toContainText('a fixed multiple of the toy deviation');
+        await figure.getByTestId('decoder-free-note').scrollIntoViewIfNeeded();
         await page.screenshot({ path: info.outputPath('decoder-free-toy.png') });
-        await page.getByRole('button', { name: 'Reset', exact: true }).click();
-        await expect(page.getByRole('slider', { name: /imagination horizon/i })).toHaveValue('15');
+        await adjust.getByRole('button', { name: 'Reset', exact: true }).click();
+        await expect(figure.getByRole('slider', { name: /how far ahead to imagine/i })).toHaveValue('15');
       }
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth - innerWidth);
       expect(overflow).toBeLessThanOrEqual(0);
