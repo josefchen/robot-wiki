@@ -128,7 +128,11 @@ errors, 11 covered by documented exceptions. Exit code 0.
   page's title tag is the note's tagline; the page body names "Knowledge
   Insulation" five times.
 - **gtsam-2026** (title-mismatch): gtsam.org's title tag is a tagline; the
-  page body states "Georgia Tech Smoothing and Mapping".
+  page body states "Georgia Tech Smoothing and Mapping". Corrected
+  2026-10-07: the body statement does not reproduce. The live title is
+  "GTSAM 4.3 | GTSAM", and the expansion appears in the borglab/gtsam
+  README heading ("GTSAM: Georgia Tech Smoothing and Mapping Library"),
+  which the exception now records.
 - **maestro-tavac-2023** (blocked): sages.org serves a Cloudflare challenge
   to curl, node fetch and headless Chromium alike. Document identity
   confirmed through the search index (exact URL, 2023-01-31, authors
@@ -1822,3 +1826,24 @@ New registry entries for the classical articles rewritten from the owner's verif
 | particlesplat-2026 | https://arxiv.org/abs/2609.19463 | ok | match | added 2026-10-07 (KOL backlog step before the classical domain pass: Deepak Pathak intake; classical/scene-representation) | Fetched 2026-10-07 (HTTP 200): abstract page and PDF first page, v1 submitted 16 Sep 2026; authors Lyuxing He, Daniel Guo, Elizabeth Terveen, Deepak Pathak, David Held, Tal Daniel; Robotics Institute, Carnegie Mellon University. Verbatim: "we introduce a 3D latent particle space trained with a novel view synthesis objective. Our model jointly encodes multiple views with camera poses into a shared 3D object-centric latent space, then transforms particles into particle-aligned 3D Gaussians", "this formulation inherently learns object masks without supervision and supports controllable 3D scene editing, such as moving objects by modifying particles in the latent space" and "the learned 3D representation improves downstream performance on robotic manipulation tasks". |
 | scenelm-2026 | https://arxiv.org/abs/2609.21400 | ok | match | added 2026-10-07 (KOL backlog step before the classical domain pass: Jitendra Malik intake; classical/scene-representation) | Fetched 2026-10-07 (HTTP 200): abstract page and PDF first page, v1 submitted 18 Sep 2026; nine authors from Adam Lilja to Marco Pavone; Chalmers, Zenseact, Stanford, UC Berkeley (Jitendra Malik) and NVIDIA. Verbatim: "The full scene is represented as a structured text list of objects, which serves as the model's only persistent memory. For each input image, the model reads the current scene state and updates the map by adding, editing, and removing objects.", "the model produces a scene map that achieves competitive performance with complete mapping systems built from dedicated perception and geometric modules while producing a scene representation that is 6–12× more compact" and "SceneLM can be run online on an edge device through experiments on a quadruped". |
 | tacdyn-wam-2026 | https://arxiv.org/abs/2610.00638 | ok | match | added 2026-10-07 (KOL backlog step before the classical domain pass: Cheng Chi intake, a name collision; frontier/dexterity) | Fetched 2026-10-07 (HTTP 200): abstract page, HTML v1 and PDF first page, v1 submitted 30 Sep 2026; 15 authors from first author Enyi Wang to corresponding author Yan Wang, both at the Institute for AI Industry Research (AIR), Tsinghua University. The paper's Cheng Chi is at the School of Information, Renmin University of China, not the tracked Cheng Chi of Sunday, so the sentence credits the first and corresponding authors and makes no KOL claim. Verbatim: "a heterogeneous visuo-tactile world action model that predicts implicit tactile dynamics rather than reconstructing future tactile observations. It learns TacRep, a dynamics-aware tactile target space", "We collect 60 teleoperated demonstrations for each of five contact-rich tasks" and "trained on per-task demonstrations alone reaches 71.0% average success, 16 points above the tactile policy FTP-1, and modest-scale pretraining on about 6,000 real visuo-tactile trajectories raises it to 85.0%". |
+
+## Classical domain pass: exception evidence, 2026-10-07
+
+- **opencv-hand-eye-docs-2026** (blocked): docs.opencv.org redirects the 4.x
+  URL to the 4.13.0 path and answers HTTP 403 there to both checkers
+  (`scripts/check-citation-links.ts` reports it BLOCKED and
+  `scripts/check-citations.ts` fails it, each run with `--id` on
+  2026-10-07). An independent fetch of the exact URL the same day returned
+  HTTP 200, title "OpenCV: Camera Calibration and 3D Reconstruction", with
+  the calibrateHandEye() passage quoted in the row above. The exception is
+  now in data/link-check-exceptions.ts; the row's verdict stays ok.
+- **gtsam-2026** (title-mismatch): re-documented against the borglab/gtsam
+  README (see "Documented exceptions added"). `scripts/check-citations.ts
+  --id gtsam-2026` reports it as a documented exception.
+- **whitney-1969** (data/crossref-author-exceptions.ts): the kinematics
+  audit noted that the entry for the registry's "Daniel E. Whitney" cited
+  only Crossref, which prints "Daniel Whitney". IEEE Xplore's record for
+  the paper (document 4081862, exact title), read 2026-10-07, prints
+  "Daniel E. Whitney" of MIT's Department of Mechanical Engineering, and
+  the entry now records it. `scripts/check-crossref-authors.ts --id
+  whitney-1969` reports no divergence before and after the change.
