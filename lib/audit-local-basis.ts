@@ -1237,7 +1237,7 @@ const HISTORICAL_VERIFICATION_INPUTS: Readonly<Record<string, {
   'tests/unit/classical-closure-evidence.test.ts': {
     bytes: 12839, sha256: '9537b31a882d4ab119e514dee5011b9356a6358e1d49a33f8c6f5228e02bf8c7',
     snapshot: 'classical-closure.pre-residual-release.test.ts.txt',
-    currentTestHash: 'cf53d3e938e03ddeef8028aa289edecaee34eb30e5a943756fad8d3bf35b4eb9',
+    currentTestHash: '28cda95ec399bde3b339630a35239882d53e606c5fec8d0cbca5845de283b148',
   },
   'tests/unit/crossdomain-closure-evidence.test.ts': {
     bytes: 5982, sha256: '1a032856eb14361495d2cbdb451de87f8bd7ec68e00e4165eb8760aa8e7047d3',

@@ -8,7 +8,7 @@ import {
   seoPassCheckerPredecessor, seoPassPredecessor, verifySeoPassSource, verifySeoPassSpec,
   type SeoPassEdit, type SeoPassSource, type SeoPassSpec,
 } from '../../lib/audit-seo-pass-continuity';
-import { preReaderFirst } from '../helpers/seo-pass';
+import { preDomainPass, preReaderFirst } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
 const dir = 'audit/evidence/seo-pass-20261002/';
@@ -178,7 +178,8 @@ describe('seo pass end-to-end spec successors', () => {
 });
 
 describe('seo pass checker revision', () => {
-  const checker = read('lib/audit-local-basis.ts');
+  // The SEO-pass revision, as the domain-pass checker layer hands it back.
+  const checker = preDomainPass('lib/audit-local-basis.ts');
 
   it('hands the reviewed checker its figure-migration head and passes other bytes through', () => {
     const before = seoPassCheckerPredecessor(root, checker);

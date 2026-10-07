@@ -133,16 +133,16 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     await captureText(budget.locator('[data-figure-source]'), 'calculator-reference');
 
     for (const [text, name, checks] of [
-      ['The examples below report specifications', 'named-device-introduction', ['named devices', 'universal accuracy or speed ranking']],
+      ['The 2% figure is measured', 'specification-conditions', ['texture-less white target', 'publishes no target condition', 'is not disclosed in either datasheet']],
       ['The March 2026 RealSense', 'd400-model-conditions', ['valid pixels', 'ground truth', '150 mW', '250 lux', 'D401/D405', '80%', 'HD resolution']],
-      ['Industrial 3D scanning.', 'phoxi-separate-fields', ['0.200 mm (1 σ)', '0.190 mm (1 σ)', '870 to 2150 mm', '250 to 2750 ms', 'not establish uniform accuracy throughout']],
+      ['For industrial 3D scanning', 'phoxi-separate-fields', ['0.200 mm calibration accuracy', '0.190 mm temporal noise (both 1 σ)', '870 to 2150 mm', '250 to 2750 ms', 'These are separate specification fields for one model']],
     ] as const) {
       const paragraph = prose.locator('p').filter({ hasText: text });
       for (const check of checks) await expect(paragraph).toContainText(check);
       await captureText(paragraph, name);
     }
     const specular = prose.locator('li').filter({ hasText: 'Specular reflections' });
-    for (const text of ['D400f', 'May cause image saturation', 'Saturation mitigated', 'Saturation can still occur']) await expect(specular).toContainText(text);
+    for (const text of ['D400f', 'can saturate D400 images', 'Saturation mitigated']) await expect(specular).toContainText(text);
     await expect(specular.locator('[data-cite-id="azure-kinect-depth-docs-2026"]')).toHaveCount(1);
     await captureText(specular, 'paired-saturation-statements');
 

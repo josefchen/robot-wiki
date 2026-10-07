@@ -2,6 +2,7 @@ import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { setHydratedSlider as setSlider, waitForHydration } from './interaction-ready';
 import { writeFileSync } from 'node:fs';
+import { citedSourceCount, leadWords, MAX_LEAD_WORDS, MIN_CITED_SOURCES } from './helpers/brevity-bar';
 
 const ROUTE = '/classical/control/';
 
@@ -72,7 +73,7 @@ test.describe('classical control module', () => {
       const response = await page.goto(ROUTE);
       expect(response?.status()).toBe(200);
       const text = await visibleArticleText(page);
-      expect(text).not.toMatch(/more than 95%|>95%|Kalman's 1960|Åström and Murray/i);
+      expect(text).not.toMatch(/more than 95%|>95%|Kalman's 1960/i);
       await expect(page.locator('[data-cite-id="astrom-murray-2008"]')).toHaveCount(0);
       await expect(page.locator('[data-cite-id="kalman-1960"]')).toHaveCount(0);
       const zn = page.locator('[data-cite-id="ziegler-nichols-1942"] a').first();
@@ -143,11 +144,10 @@ test.describe('classical control module', () => {
       main.getByText(/Riccati/i).filter({ visible: true }).first(),
     ).toBeVisible();
 
-    // Substantive long-form body: several hundred words at minimum.
+    // Brevity bar: at least 30 distinct cited sources and a lead of 60 words or fewer.
     const visibleText = await visibleArticleText(page);
-    expect(visibleText.split(/\s+/).filter(Boolean).length).toBeGreaterThan(
-      800,
-    );
+    expect(await citedSourceCount(page)).toBeGreaterThanOrEqual(MIN_CITED_SOURCES);
+    expect(leadWords('classical/control')).toBeLessThanOrEqual(MAX_LEAD_WORDS);
 
     // No raw MDX or component source leaks into the rendered page.
     expect(visibleText).not.toContain('import {');
@@ -481,9 +481,9 @@ test.describe('classical control module', () => {
       .indexOf('where this meets the learned stack');
     const text = articleText.slice(start, end);
     // The inability claim as a complete prose sentence.
-    expect(text).toMatch(/cannot regulate contact force/i);
+    expect(text).toMatch(/cannot regulate force in the contact-rich/i);
     // Both alternatives named as literal text in the same section.
-    expect(text).toMatch(/torque-controlled arms/i);
+    expect(text).toMatch(/torque-controlled/i);
     expect(text).toMatch(/series elastic actuation/i);
   });
 

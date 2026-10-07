@@ -729,7 +729,8 @@ export function SceneRepresentationLadder({
           edge. Footprints come from declared storage models, volumetric
           stores billed over the whole volume and surface stores over the
           observed area only, which is why a narrow-band signed-distance field
-          costs less than the occupancy grid it resembles{' '}
+          holds fewer cells than the occupancy grid it resembles and its cost
+          grows more slowly as the spacing shrinks{' '}
           <CiteRef id="curless-levoy-1996" />. The bottle is drawn{' '}
           {TRANSPARENT_DEPTH_BIAS_CM} cm behind its true face, where a depth
           sensor reports it, and the thin post survives only while the

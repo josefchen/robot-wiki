@@ -28,31 +28,30 @@ const urls: Record<string, string> = {
 
 describe('paper-scoped occupancy and map tradeoffs', () => {
   it('keeps sonar projection, uncertain reflector and overlapping observations together', () => {
-    for (const text of ['two-dimensional horizontal', 'different sensors and robot positions',
-      'probably empty beam interior', 'reflecting point somewhere near the measured range',
-      'Overlapping readings refined these constraints']) expect(source).toContain(text);
+    for (const text of ['projected wide-angle sonar readings', 'different sensors and robot positions',
+      'probably empty beam interior', 'uncertain reflecting point near the measured range',
+      'overlapping readings refined these constraints']) expect(source).toContain(text);
     expect(source).not.toContain('volume that reflected it');
   });
 
   it('scopes zero, negative and positive confidence to the paper, not every navigation stack', () => {
-    expect(source).toContain('In their sonar map, a cell with no information is unknown');
-    expect(source).toContain('Zero represents unknown occupancy');
-    expect(source).toContain('negative and positive cell values represent probably empty and probably occupied');
+    expect(source).toContain('Zero represented unknown occupancy');
+    expect(source).toContain('negative and positive values probably empty and probably occupied cells');
     expect(source).not.toContain('Every later navigation stack inherits');
   });
 
   it('retains task-dependent sparse and dense roles without impossible or universal cost rankings', () => {
-    for (const text of ['discriminative features', 'dense geometric models better suited to obstacle avoidance',
-      'dense models also appear in visual SLAM', 'storage size, construction cost and usefulness for the task',
+    for (const text of ['contrast sparse landmark maps', 'dense models suited to obstacle avoidance',
+      'storage size, construction cost and usefulness for the task',
       'octrees and voxel hashing']) expect(source).toContain(text);
     expect(source).not.toContain('cannot be used for collision checking');
     expect(source).not.toContain('does the reverse at much greater cost');
   });
 
   it('retains conditional room aliasing and specific illumination and active-range limitations', () => {
-    for (const text of ['sensor-environment pair', 'two rooms may look identical to a 2D laser scanner',
-      'bag-of-words methods discussed in the review', 'active range cameras',
-      'range and external-light limitations']) expect(source).toContain(text);
+    for (const text of ['Two rooms can look identical to a 2D laser yet differ to a camera',
+      'Severe illumination changes defeat bag-of-words methods', 'active range cameras',
+      'range and external-light limits']) expect(source).toContain(text);
     expect(source).not.toContain('geometrically featureless corridors');
     expect(source).not.toContain('cheap and information-dense');
   });

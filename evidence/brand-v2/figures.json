@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "79313e1d3acaec2d77d7e3442e3869f0d7f4f47783180b156465b943cb392a18",
+  "fingerprint": "eb882d975e978a0d60a527766c8f86c392ed7c898997bd31c618e32285d02c29",
   "viewports": [
     "375x812",
     "1440x900"
@@ -17,7 +17,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 14347,
+      "visibleTextLength": 18500,
       "figures": [
         {
           "imageId": "puma-560-nasa-ames",
@@ -4983,7 +4983,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 26540,
+      "visibleTextLength": 26529,
       "figures": [
         {
           "imageId": "franka-emika-panda-cebit-2017",
@@ -5221,7 +5221,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 14784,
+      "visibleTextLength": 18937,
       "figures": [
         {
           "imageId": "puma-560-nasa-ames",
@@ -10187,7 +10187,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 26935,
+      "visibleTextLength": 26924,
       "figures": [
         {
           "imageId": "franka-emika-panda-cebit-2017",

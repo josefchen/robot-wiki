@@ -5,6 +5,7 @@ import { join } from 'node:path';
 import matter from 'gray-matter';
 import { setHydratedSlider as setSlider, waitForHydration } from './interaction-ready';
 import { publishedModules } from '../../data/modules';
+import { citedSourceCount, leadWords, MAX_LEAD_WORDS, MIN_CITED_SOURCES } from './helpers/brevity-bar';
 
 /**
  * Scene Representation and Mapping (VAL-CLASS-046 through VAL-CLASS-051).
@@ -134,13 +135,13 @@ test.describe('classical scene-representation module', () => {
   test('paper-scoped occupancy and map tradeoffs retain their local source chips', async ({ page }) => {
     await page.goto(ROUTE);
     const expectations = [
-      ['moravec-elfes-1985', 0, 2, 'two-dimensional horizontal', 'https://doi.org/10.1109/ROBOT.1985.1087316'],
-      ['moravec-elfes-1985', 1, 2, 'Zero represents unknown occupancy', 'https://doi.org/10.1109/ROBOT.1985.1087316'],
+      ['moravec-elfes-1985', 0, 1, 'projected wide-angle sonar readings', 'https://doi.org/10.1109/ROBOT.1985.1087316'],
+      ['moravec-elfes-1985', 0, 1, 'Zero represented unknown occupancy', 'https://doi.org/10.1109/ROBOT.1985.1087316'],
       ['cadena-2016', 0, 1, 'storage size, construction cost and usefulness for the task', 'https://arxiv.org/abs/1606.05830'],
-      ['cadena-2016', 0, 1, 'range and external-light limitations', 'https://arxiv.org/abs/1606.05830'],
+      ['cadena-2016', 0, 1, 'face range and external-light limits', 'https://arxiv.org/abs/1606.05830'],
     ] as const;
-    await expect(page.locator('.prose > p [data-cite-id="moravec-elfes-1985"]')).toHaveCount(2);
-    await expect(page.locator('.prose > p [data-cite-id="cadena-2016"]')).toHaveCount(5);
+    await expect(page.locator('.prose > p [data-cite-id="moravec-elfes-1985"]')).toHaveCount(1);
+    await expect(page.locator('.prose > p [data-cite-id="cadena-2016"]')).toHaveCount(7);
     // Cadena also supports other claims: select each tradeoff paragraph,
     // not an article-wide ordinal or the removed Source-only wrapper.
     for (const [id, ordinal, count, text, href] of expectations) {
@@ -217,9 +218,10 @@ test.describe('classical scene-representation module', () => {
     // Not all four rungs leaning on one source (VAL-CLASS-047).
     expect(idsAcrossRungs.size).toBeGreaterThanOrEqual(4);
 
-    // Long-form body, and no MDX or component source leaks.
+    // Brevity bar (cited sources and lead length), and no MDX or component source leaks.
     const visible = await visibleArticleText(page);
-    expect(visible.split(/\s+/).filter(Boolean).length).toBeGreaterThan(1200);
+    expect(await citedSourceCount(page)).toBeGreaterThanOrEqual(MIN_CITED_SOURCES);
+    expect(leadWords('classical/scene-representation')).toBeLessThanOrEqual(MAX_LEAD_WORDS);
     expect(visible).not.toContain('import {');
     expect(visible).not.toContain('<Cite');
     expect(visible).not.toContain('<SceneRepresentationLadder');
@@ -235,13 +237,13 @@ test.describe('classical scene-representation module', () => {
     const visible = await visibleArticleText(page);
     expect(visible).toMatch(/loop closure/i);
     expect(visible).toMatch(/place recognition/i);
-    for (const caveat of ['geometric and covisibility checks', 'gravity-direction checks', 'This is not a guarantee that every revisit removes all error', 'This is not a universal ranking of the cost of every false match']) expect(visible).toContain(caveat);
+    for (const caveat of ['geometric and covisibility checks', 'gravity-direction checks', 'can reduce odometric drift and in some cases correct it', 'false negatives discard useful measurements']) expect(visible).toContain(caveat);
     // Corrected source boundaries must survive MDX rendering, with each
     // supporting chip attached to the paragraph carrying its claim.
     const correctedSources = [
-      ['lowry-2016-place-recognition', /motion information can also inform this belief/, 'https://doi.org/10.1109/TRO.2015.2496823'],
-      ['dellaert-kaess-2006', /QR of the measurement Jacobian or Cholesky of the information matrix/, 'https://doi.org/10.1177/0278364906072768'],
-      ['kaess-2012', /large loop closures can cost as much as a batch solve/, 'https://doi.org/10.1177/0278364911430419'],
+      ['lowry-2016-place-recognition', /motion information can also inform that belief/, 'https://doi.org/10.1109/TRO.2015.2496823'],
+      ['dellaert-kaess-2006', /solves successive linearized systems by QR or Cholesky/, 'https://doi.org/10.1177/0278364906072768'],
+      ['kaess-2012', /a large loop closure can cost as much as a batch solve/, 'https://doi.org/10.1177/0278364911430419'],
     ] as const;
     for (const [id, qualification, href] of correctedSources) {
       const chip = page.locator(`.prose [data-cite-id="${id}"]`);
@@ -293,10 +295,10 @@ test.describe('classical scene-representation module', () => {
     // The verdict, as rendered article prose.
     expect(visible).toMatch(/radiance field is geometry for rendering/i);
     expect(visible).toMatch(
-      /not a calibrated free\/occupied\/unknown cell classification/i,
+      /no free, occupied or unknown label/i,
     );
-    expect(visible).toMatch(/not an explicit triangle surface carrying contact normals/i);
-    expect(visible).toMatch(/does not make surface extraction impossible/i);
+    expect(visible).toMatch(/the stored primitive is a volumetric Gaussian/i);
+    expect(visible).toMatch(/extracted meshes by Poisson reconstruction/i);
 
     // An inline internal link to a published world-models module.
     const prose = page.locator('div.prose[data-pagefind-body]');

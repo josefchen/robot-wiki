@@ -12,6 +12,7 @@ import {
   offsetContactGridValue,
 } from '../helpers/grasp-contact-grid';
 import { setHydratedSlider as setSlider, waitForHydration } from './interaction-ready';
+import { citedSourceCount, leadWords, MAX_LEAD_WORDS, MIN_CITED_SOURCES } from './helpers/brevity-bar';
 
 const ROUTE = '/classical/grasp-planning/';
 
@@ -116,11 +117,10 @@ test.describe('classical grasp-planning module', () => {
       main.getByText(/Ferrari and Canny/i).filter({ visible: true }).first(),
     ).toBeVisible();
 
-    // Substantive long-form body: several hundred words at minimum.
+    // Brevity bar: at least 30 distinct cited sources and a lead of 60 words or fewer.
     const visibleText = await visibleArticleText(page);
-    expect(visibleText.split(/\s+/).filter(Boolean).length).toBeGreaterThan(
-      800,
-    );
+    expect(await citedSourceCount(page)).toBeGreaterThanOrEqual(MIN_CITED_SOURCES);
+    expect(leadWords('classical/grasp-planning')).toBeLessThanOrEqual(MAX_LEAD_WORDS);
 
     // No raw MDX or component source leaks into the rendered page.
     expect(visibleText).not.toContain('import {');

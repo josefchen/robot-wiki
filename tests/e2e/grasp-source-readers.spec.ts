@@ -32,10 +32,10 @@ test('grasp readers: complete final text pixels and clean apparatus', async ({ p
     const coverage = proof.coverage as unknown[];
     await dismissReaderPopups(page);
     for (const [label, prefix] of [
-      ['roa-final', 'Roa and Suárez review quality measures'],
-      ['dexnet-training', 'Dex-Net 2.0 uses analytic grasp metrics'],
-      ['dexnet-method', 'The basic planner samples antipodal'],
-      ['dexnet-results', 'For the eight known, 3D-printed adversarial objects'],
+      ['roa-final', 'Roa and Suárez review measures'],
+      ['dexnet-training', 'Dex-Net 2.0 labels synthetic data with analytic metrics'],
+      ['dexnet-method', 'The planner samples antipodal'],
+      ['dexnet-results', 'On eight 3D-printed adversarial objects'],
     ]) {
       const paragraph = page.locator('.prose > p').filter({ hasText: prefix });
       coverage.push(await captureReaderText(page, paragraph, label, info));

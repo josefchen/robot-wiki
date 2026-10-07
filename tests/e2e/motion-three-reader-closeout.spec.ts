@@ -10,9 +10,9 @@ import { readerGateInputs } from './helpers/reader-gate-inputs';
 const PROSE = 'div.prose[data-pagefind-body]';
 // Literal reader expectations from the preserved article/registry. Not source certification.
 const SOURCES = [
-  { id: 'lozano-perez-1983', count: 2, title: 'Spatial Planning: A Configuration Space Approach', authors: ['Tomás Lozano-Pérez'], meta: 'Tomás Lozano-Pérez, IEEE Trans. Computers, 1983', url: 'https://doi.org/10.1109/TC.1983.1676196' },
-  { id: 'lavalle-2006', count: 7, title: 'Planning Algorithms', authors: ['Steven M. LaValle'], meta: 'Steven M. LaValle, Cambridge University Press, 2006', url: 'https://lavalle.pl/planning/' },
-  { id: 'lavalle-1998', count: 5, title: 'Rapidly-exploring Random Trees: A New Tool for Path Planning', authors: ['Steven M. LaValle'], meta: 'Steven M. LaValle, Iowa State University TR 98-11, 1998', url: 'https://lavalle.pl/papers/Lav98c.pdf' },
+  { id: 'lozano-perez-1983', count: 3, title: 'Spatial Planning: A Configuration Space Approach', authors: ['Tomás Lozano-Pérez'], meta: 'Tomás Lozano-Pérez, IEEE Trans. Computers, 1983', url: 'https://doi.org/10.1109/TC.1983.1676196' },
+  { id: 'lavalle-2006', count: 6, title: 'Planning Algorithms', authors: ['Steven M. LaValle'], meta: 'Steven M. LaValle, Cambridge University Press, 2006', url: 'https://lavalle.pl/planning/' },
+  { id: 'lavalle-1998', count: 4, title: 'Rapidly-exploring Random Trees: A New Tool for Path Planning', authors: ['Steven M. LaValle'], meta: 'Steven M. LaValle, Iowa State University TR 98-11, 1998', url: 'https://lavalle.pl/papers/Lav98c.pdf' },
   { id: 'kavraki-1996', count: 1, title: 'Probabilistic Roadmaps for Path Planning in High-Dimensional Configuration Spaces', authors: ['Lydia E. Kavraki', 'P. Švestka', 'J.-C. Latombe', 'M. H. Overmars'], meta: 'Lydia E. Kavraki, P. Švestka, J.-C. Latombe et al., IEEE Trans. Robotics and Automation, 1996', url: 'https://doi.org/10.1109/70.508439' },
 ] as const;
 
@@ -78,17 +78,23 @@ test('three foundation originals retain construction, density and probabilistic-
   await expect(page.getByRole('heading', { level: 1, name: 'Motion Planning', exact: true })).toBeVisible();
   await expect(page.getByText('17 August 2026', { exact: true })).toBeVisible();
   const paragraphs = page.locator(`${PROSE} > p`);
-  const construction = paragraphs.filter({ hasText: 'Constructing the collision-constrained space is difficult' });
+  const construction = paragraphs.filter({ hasText: 'Explicit boundary or solid models' });
   await expect(construction).toHaveCount(1);
-  for (const text of ['does not become impossible beyond a fixed number of dimensions', 'constructive translational cases', 'PSPACE-hardness', 'unbounded', 'does not establish impossibility for every seven-joint arm', 'validate entire local paths']) await expect(construction).toContainText(text);
-  await e.slices(construction, 'construction-complexity', 'make efficient sampling difficult');
+  for (const text of ['semi-algebraic models for chains and trees', 'PSPACE-hard', 'unbounded', "Canny's roadmap method is singly exponential"]) await expect(construction).toContainText(text);
+  await e.slices(construction, 'construction-complexity', 'singly exponential');
+  const localPaths = paragraphs.filter({ hasText: 'Sampling-based methods skip building' });
+  await expect(localPaths).toHaveCount(1);
+  for (const text of ['validating whole local paths', 'closed-chain constraints make sampling difficult']) await expect(localPaths).toContainText(text);
   const sampling = paragraphs.filter({ hasText: 'The probabilistic roadmap (PRM)' });
-  await expect(sampling).toHaveCount(1); await expect(sampling).toContainText('validating local paths');
-  await e.slices(sampling, 'sampling-module', 'plan many start-goal pairs against it');
-  const convergence = paragraphs.filter({ hasText: 'Nearest-neighbor selection gives RRT an exploration bias' });
+  await expect(sampling).toHaveCount(1); await expect(sampling).toContainText('A local planner links nearby nodes');
+  await e.slices(sampling, 'sampling-module', 'one roadmap serves many start-goal pairs');
+  const convergence = paragraphs.filter({ hasText: 'Nearest-neighbor selection gives RRT a Voronoi bias' });
   await expect(convergence).toHaveCount(1);
-  for (const text of ['planar holonomic example', 'larger Voronoi regions', 'infinite dense sample sequence', 'dense with probability one', 'do not guarantee fast coverage on every problem', 'convergence-rate analysis open', 'gives no finite-budget assurance for an arbitrary existing path', 'robust feasibility', 'positive clearance', 'independent uniform free-space samples', 'entire straight-line connections', '1-nearest sPRM counterexample is not probabilistically complete']) await expect(convergence).toContainText(text);
-  await e.slices(convergence, 'voronoi-density-completeness', 'not probabilistically complete');
+  for (const text of ['larger Voronoi regions', 'The report leaves convergence rates open']) await expect(convergence).toContainText(text);
+  const completeness = paragraphs.filter({ hasText: 'Probabilistic completeness means' });
+  await expect(completeness).toHaveCount(1);
+  for (const text of ['with no finite-budget guarantee', 'clearance', 'uniform independent samples', 'a fixed sPRM radius', 'straight-line collision tests', '1-nearest-neighbor sPRM is not probabilistically complete']) await expect(completeness).toContainText(text);
+  await e.slices(completeness, 'voronoi-density-completeness', 'not probabilistically complete');
   const stats = page.locator(`${PROSE} > div.grid`);
   await expect(stats).toHaveCount(1);
   for (const text of ['RRT introduced', '1998', 'CHOMP', '2009', 'RRT* analysis', '2011', 'conditional theorem', '2D', '100 by 64 world, 5 obstacles']) await expect(stats).toContainText(text);

@@ -5,6 +5,7 @@ import { createHash } from 'node:crypto';
 import { join } from 'node:path';
 import matter from 'gray-matter';
 import { setHydratedSlider as setSlider, waitForHydration } from './interaction-ready';
+import { citedSourceCount, leadWords, MAX_LEAD_WORDS, MIN_CITED_SOURCES } from './helpers/brevity-bar';
 
 /**
  * Perception for Manipulation (VAL-CLASS-039 through VAL-CLASS-045).
@@ -134,9 +135,10 @@ test.describe('classical perception module', () => {
       ).toBeGreaterThan(0);
     }
 
-    // Long-form body, and no MDX or component source leaks.
+    // Brevity bar (cited sources and lead length), and no MDX or component source leaks.
     const visible = await visibleArticleText(page);
-    expect(visible.split(/\s+/).filter(Boolean).length).toBeGreaterThan(1200);
+    expect(await citedSourceCount(page)).toBeGreaterThanOrEqual(MIN_CITED_SOURCES);
+    expect(leadWords('classical/perception')).toBeLessThanOrEqual(MAX_LEAD_WORDS);
     expect(visible).not.toContain('import {');
     expect(visible).not.toContain('<Cite');
     expect(visible).not.toContain('<PerceptionErrorBudget');
@@ -154,17 +156,17 @@ test.describe('classical perception module', () => {
     await expect(page.getByText('visual-servo formulation', { exact: true })).toBeVisible();
     expect(servo!.text).toMatch(/applies a task-function framework/i);
     expect(servo!.text).toMatch(/need not be the raw feature difference/i);
-    expect(servo!.text).toMatch(/relative to the scene, expressed in the camera frame/i);
+    expect(servo!.text).toMatch(/velocity in the camera frame/i);
     expect(servo!.text).toMatch(/neglecting target motion can leave a tracking error/i);
-    expect(servo!.text).toMatch(/six-component spatial velocity, not a vector of joint rates/i);
-    expect(servo!.text).toMatch(/local asymptotic stability/i);
+    expect(servo!.text).toMatch(/six-component spatial velocity/i);
+    expect(servo!.text).toMatch(/locally asymptotically stable/i);
     expect(servo!.text).toMatch(/full rank/i);
     expect(servo!.text).toMatch(/positivity condition/i);
     expect(servo!.text).toMatch(/local minima or singularities/i);
-    expect(servo!.text).toMatch(/Visibility requirements depend on the chosen measurements/);
-    expect(servo!.text).toMatch(/observed in both images/);
-    expect(servo!.text).toMatch(/matches between the current and desired images/);
-    expect(servo!.text).toMatch(/Part I[\s\S]*performance and stability/);
+    expect(servo!.text).toMatch(/PBVS points can leave the field of view/);
+    expect(servo!.text).toMatch(/address visibility, occlusions and joint limits/);
+    expect(servo!.text).toMatch(/relative pose between current and desired images/);
+    expect(servo!.text).toMatch(/Chaumette and Hutchinson's Part I[\s\S]*Part II \(2007\)/);
     expect(servo!.citeIds).toContain('chaumette-hutchinson-2006');
     expect(servo!.citeIds).toContain('chaumette-hutchinson-2007');
     expect(servo!.text).not.toMatch(/deletes the pose-estimation term|final image error still converges to zero|must stay in view for the whole motion/);
@@ -185,31 +187,29 @@ test.describe('classical perception module', () => {
     const depth = sectionMatching(await sections(page), /depth sensing/i);
     expect(depth, 'the depth-sensing section').toBeDefined();
     for (const text of ['D410/D415 and D43x', 'up to 2 m', '80%', 'HD resolution',
-      'valid pixels', 'ground truth', 'PhoXi 3D Scanner L', '0.200 mm (1 σ)',
-      '0.190 mm (1 σ)', '870 to 2150 mm', '250 to 2750 ms',
-      'May cause image saturation', 'D400f', 'Saturation mitigated',
-      'Saturation can still occur']) expect(depth!.text).toContain(text);
+      'valid pixels', 'ground truth', 'PhoXi 3D Scanner L', '0.200 mm calibration accuracy',
+      '0.190 mm temporal noise (both 1 σ)', '870 to 2150 mm', '250 to 2750 ms',
+      'can saturate D400 images', 'D400f', 'Saturation mitigated']) expect(depth!.text).toContain(text);
     expect(depth!.text).not.toMatch(/Three families of depth sensor|accurate option and the slow one|rules out closing a control loop/);
     await expect(page.getByTestId('perception-target-note')).toContainText(
       'not a measured property of that material',
     );
-    // Keep all named topics; do not certify five universal failure classes.
-    for (const topic of [/transparent/i, /specular/i, /dark surfaces/i, /thin objects/i, /self-occlusion/i]) {
+    // Keep the named topics; do not certify universal failure classes.
+    for (const topic of [/transparent/i, /specular/i, /dark surfaces/i, /repetitive structures/i, /view-dependent invalidation/i]) {
       expect(depth!.text).toMatch(topic);
     }
     expect(depth!.citeIds).toContain('realsense-tuning-2026');
     expect(depth!.citeIds).toContain('azure-kinect-depth-docs-2026');
-    expect(depth!.text).toMatch(/D415 and D435/);
+    expect(depth!.text).toMatch(/D415\/D435/);
     expect(depth!.text).toMatch(/staying outside the minimum operating distance, MinZ/);
-    for (const cause of ['outside the active IR illumination mask', 'saturated IR signal', 'low IR signal', 'filter outlier', 'multi-path interference']) {
+    for (const cause of ['outside the IR illumination mask', 'saturated IR signal', 'low IR signal', 'filter outlier', 'multi-path interference']) {
       expect(depth!.text.toLowerCase()).toContain(cause.toLowerCase());
     }
-    expect(depth!.text).toMatch(/the surface has not been measured at zero distance/);
+    expect(depth!.text).toMatch(/Invalid pixels carry depth zero/);
     expect(depth!.text).toMatch(/underexposure and overexposure/);
-    expect(depth!.text).toMatch(/leaving the projector on/);
-    expect(depth!.text).toMatch(/even when they differ/);
-    expect(depth!.text).toMatch(/it makes no blanket failure claim for every thin object/);
-    expect(depth!.text).toMatch(/does not establish recovery of every missing surface by multi-view capture or describe generic self-occlusion/);
+    expect(depth!.text).toMatch(/reducing background light with the projector on/);
+    expect(depth!.text).toMatch(/differing left and right views/);
+    expect(depth!.text).toMatch(/invalidated by multi-path from one camera view can reappear from another/);
     expect(depth!.text).not.toMatch(/which is why multi-view capture is a standard answer|return never clears the noise floor/);
     // Preserved unassigned row34 display oracle, not source acceptance of absence.
     expect(depth!.text).toMatch(/not disclosed/i);
@@ -530,10 +530,10 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
       Object.keys(el).some(key => key.startsWith('__reactFiber$'))));
     await page.evaluate(async () => { await document.fonts.ready; await new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))); });
     const prose = page.locator('div.prose[data-pagefind-body]');
-    await expect(prose).toContainText('Equality counts as correct');
-    await expect(prose).toContainText('strict correctness test');
+    await expect(prose).toContainText('An estimate is correct when');
+    await expect(prose).toContainText('with a strict test');
     await expect(prose).toContainText('0 to 100 scale');
-    await expect(prose).toContainText('comparable, with distinct evaluation tracks');
+    await expect(prose).toContainText('the report calls these comparable across distinct tracks');
     await expect(prose).not.toContainText('Three years erased');
     await expect(prose.locator('[data-cite-id="hinterstoisser-2012"]')).toHaveCount(4);
     await expect(prose.locator('[data-cite-id="bop-challenge-2023"]')).toHaveCount(3);
@@ -710,9 +710,9 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     await page.keyboard.press('Tab');
     await expect(prose.getByRole('tooltip')).toHaveCount(0);
     for (const [text, name] of [
-      ['The paper counts the detection', 'inclusive-threshold'],
-      ['The BOP Challenge 2023 report uses', 'bop-protocol'],
-      ['In the report’s retrospective', 'bop-retrospective'],
+      ['An estimate is correct when', 'inclusive-threshold'],
+      ['The BOP Challenge 2023 report scores', 'bop-protocol'],
+      ['From 2017 to 2023, seen-object accuracy rose', 'bop-retrospective'],
       ['For unseen objects, GenFlow', 'bop-unseen'],
     ]) await captureText(prose.locator('p').filter({ hasText: text }), name);
     for (const [id, authors] of [

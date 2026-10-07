@@ -161,9 +161,8 @@ describe('control originals integration (2026-09-16 evidence completions)', () =
     expect(mpc.note).toContain('power plants and petroleum reﬁneries');
     expect(mpc.note).toContain('garcia-1989 -> qin-badgwell-2003');
     const article = readFileSync(join(ROOT, 'content/classical/control.mdx'), 'utf8');
-    expect(article).toContain('MPC grew out of power-plant and petroleum-refinery practice in the 1970s and 1980s');
+    expect(article).toContain('MPC grew out of 1970s and 1980s power-plant and refinery practice');
     expect(article).not.toContain('MPC grew out of refinery practice');
-    expect(article).toContain('exactly what PID could not handle <Cite id="qin-badgwell-2003" />');
   });
 
   it('records integrator plan review on the 20260917a paywall plans', () => {

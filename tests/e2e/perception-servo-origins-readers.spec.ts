@@ -119,14 +119,14 @@ test('visual-servo origin pair has bounded reader, glossary and control evidence
   await expect(stat).toContainText('Espiau, Chaumette and Rives; image-feature feedback');
   await captureText(stat, 'attributed-stat');
   const prose = page.locator('div.prose[data-pagefind-body]');
-  const opening = prose.locator('p').filter({ hasText: 'Image-based visual control defines' });
+  const opening = prose.locator('p').filter({ hasText: "Espiau, Chaumette and Rives's 1992 paper applies a task-function framework" });
   for (const text of ['1992 paper applies a task-function framework', 'need not be the raw feature difference',
-    'relative to the scene, expressed in the camera frame', 'neglecting target motion can leave a tracking error']) {
+    'velocity in the camera frame', 'neglecting target motion can leave a tracking error']) {
     await expect(opening).toContainText(text);
   }
   await captureText(opening, 'servo-formulation');
-  const equation = prose.locator('p').filter({ hasText: 'For the fixed goal and motionless target considered' });
-  await expect(equation).toContainText('six-component spatial velocity, not a vector of joint rates');
+  const equation = prose.locator('p').filter({ hasText: 'For a fixed goal and motionless target' });
+  await expect(equation).toContainText('six-component spatial velocity');
   await expect(equation.locator('annotation').first()).toHaveText('\\dot{s} = L_s v_c');
   await captureText(equation, 'camera-velocity-equation');
   const term = prose.locator('[data-term-id="visual-servoing"]');

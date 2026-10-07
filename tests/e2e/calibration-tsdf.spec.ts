@@ -52,7 +52,7 @@ test.describe('calibration and TSDF reader', () => {
           const prose = page.locator('div.prose[data-pagefind-body]');
           const sourceId = slug === 'perception' ? 'zhang-2000-calibration' : 'kinectfusion-2011';
           const paragraph = prose.locator('p').filter({
-            hasText: slug === 'perception' ? 'models radial lens distortion' : '11-bit, 640×480 depth frames at 30 Hz',
+            hasText: slug === 'perception' ? 'models radial lens distortion' : '11-bit, 640×480 Kinect depth frames at 30 Hz',
           });
           await expect(paragraph).toHaveCount(1);
           const source = paragraph.locator(`[data-cite-id="${sourceId}"]`);
@@ -74,12 +74,12 @@ test.describe('calibration and TSDF reader', () => {
             await prose.getByText('planar target; motion need not be known', { exact: true }).scrollIntoViewIfNeeded();
             await capture('calibration-stat');
           } else {
-            await expect(prose).toContainText('positive values toward visible free space and negative values on the non-visible side');
+            await expect(prose).toContainText('positive toward visible free space and negative on the non-visible side');
             await expect(prose).toContainText('both at zero weight');
-            await expect(prose).toContainText('KinectFusion uses a projective TSDF');
-            await expect(prose).toContainText('non-visible points farther than');
-            await expect(paragraph).toContainText('sensor frame rate');
-            await expect(paragraph).toContainText('tracking drift or failure');
+            await expect(prose).toContainText('Its projective TSDF caps visible-space values');
+            await expect(prose).toContainText('leaves non-visible points beyond');
+            await expect(paragraph).toContainText('at the sensor rate');
+            await expect(paragraph).toContainText('drift or tracking failure');
             await expect(link).toHaveAttribute('href', 'https://doi.org/10.1109/ISMAR.2011.6092378');
             await prose.getByRole('heading', { name: 'Signed-distance fields' }).scrollIntoViewIfNeeded();
             await capture('tsdf-conventions');

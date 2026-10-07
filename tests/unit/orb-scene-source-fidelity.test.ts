@@ -14,23 +14,22 @@ const records = (catalog = plans) => catalog === plans ? currentRecords : parseR
 
 describe('ORB scene source fidelity', () => {
   it('keeps monocular feature roles and recognition validation separate', () => {
-    for (const text of ['2015 monocular ORB-SLAM', 'tracking, local mapping, relocalisation and loop closing',
-      'mapping triangulates matched ORB features', 'local bundle adjustment', 'DBoW2 vocabulary',
-      'candidates, which require geometric validation']) expect(article).toContain(text);
+    for (const text of ['Monocular ORB-SLAM (2015)', 'tracking, local mapping, relocalization and loop closing',
+      'triangulating matched features', 'local bundle adjustment', 'DBoW2 vocabulary',
+      'loop candidates that need geometric validation']) expect(article).toContain(text);
   });
   it('keeps modalities, recovery, merging and failure qualifications together', () => {
-    for (const text of ['monocular-inertial and stereo-inertial', 'IMU initialization uses MAP',
-      'Tracking loss first triggers recovery attempts', 'discard an immature map',
+    for (const text of ['stereo, RGB-D and visual-inertial modes', 'MAP-based IMU initialization',
+      'starts a new map after persistent tracking loss',
       'geometric and covisibility checks', 'gravity-direction checks',
-      'Low texture remains a failure case', 'slow motion can leave inertial initialization poorly constrained'])
+      'Low texture remains the main failure case', 'slow motion can delay inertial initialization'])
       expect(article).toContain(text);
     expect(article).not.toContain('seamlessly merged');
   });
   it('attributes graph error distribution to ORB and avoids universal error claims', () => {
-    expect(article).toContain('reduce and possibly correct trajectory drift');
+    expect(article).toContain('can reduce odometric drift and in some cases correct it');
     expect(article).toContain('Essential Graph optimization');
-    expect(article).toContain('This is not a guarantee that every revisit removes all error');
-    expect(article).toContain('This is not a universal ranking of the cost of every false match');
+    expect(article).toContain('false-positive associations that corrupt back-end estimates, while false negatives discard useful measurements');
     expect(article).not.toContain('error grows without bound');
     expect(article).not.toContain('A false match is worse than a missed one');
   });
@@ -96,8 +95,8 @@ describe('ORB scene source fidelity', () => {
     });
   }
   it('preserves Lowry, DSO, dates and unselected incomplete originals', () => {
-    expect(article).toContain('motion information can also inform this belief');
-    expect(article).toContain("Direct Sparse Odometry's formulation");
+    expect(article).toContain('motion information can also inform that belief');
+    expect(article).toContain('Direct Sparse Odometry skips the detector');
     expect(article).toContain('lastReviewed: "2026-08-22"');
     for (const ordinal of [25, 32, 34, 35, 38, 39]) expect(records()[ordinal - 1].evidenceFailures).toEqual([]);
     // Rows 18/24/45/49 were completed lawfully by the scene-representation
