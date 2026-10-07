@@ -78,6 +78,8 @@ interface CapturedSlider extends SliderInfo {
 }
 
 interface CapturedChart extends ChartSnapshot {
+  /** Whether the disclosure's description id resolved to a rendered svg. */
+  described: boolean;
   sliderDefaults?: string[];
   sliders: CapturedSlider[];
   aDetail: string;
@@ -105,6 +107,7 @@ const ROUTES = ['/', ...publishedModules().map((m) => slash(`/${m.domain}/${m.sl
 async function captureCharts(page: import('@playwright/test').Page): Promise<Omit<CapturedChart, 'route'>[]> {
   const raw = await page.evaluate((): Array<{
     desc: string;
+    described: boolean;
     headers: string[];
     rows: Array<{ label: string; cells: string[] }>;
     texts: Array<{ content: string; x: number; y: number }>;
@@ -132,6 +135,7 @@ async function captureCharts(page: import('@playwright/test').Page): Promise<Omi
 
     const out: Array<{
       desc: string;
+      described: boolean;
       headers: string[];
       rows: Array<{ label: string; cells: string[] }>;
       texts: Array<{ content: string; x: number; y: number }>;
@@ -153,9 +157,11 @@ async function captureCharts(page: import('@playwright/test').Page): Promise<Omi
         const desc = wrapper.querySelector('[data-chart-description]');
         const descId = desc?.id ?? null;
         // Small multiples describe each panel group, not the shared svg.
+        // aria-describedby is an id list ("caption description"), so the
+        // description id is matched as one token of it.
         const svg = descId
-          ? document.querySelector(`svg[aria-describedby="${descId}"]`) ??
-            document.querySelector(`svg g[aria-describedby="${descId}"]`)?.closest('svg') ??
+          ? document.querySelector(`svg[aria-describedby~="${descId}"]`) ??
+            document.querySelector(`svg g[aria-describedby~="${descId}"]`)?.closest('svg') ??
             null
           : null;
         const panel = wrapper.closest('[data-figure-frame]');
@@ -164,6 +170,7 @@ async function captureCharts(page: import('@playwright/test').Page): Promise<Omi
         );
         out.push({
           desc: (desc?.textContent ?? '').replace(/\s+/g, ' ').trim(),
+          described: svg != null,
           headers: Array.from(d.querySelectorAll('thead th')).map((h) =>
             (h.textContent ?? '').trim(),
           ),
@@ -251,6 +258,13 @@ test('VAL-EDU-023: every table-form disclosure agrees with its chart', async ({ 
       'payback-by-clearing-time chart on industrial-deployment made it 18; a ' +
       'change here means a chart was added, removed or re-declared form)',
   ).toBe(18);
+  // An unresolved svg yields no ticks, which clause (a) would otherwise
+  // record as one more carve-out: the payback chart went ungraded that way
+  // while its svg named a caption and the description in one id list.
+  expect(
+    charts.filter((c) => !c.described).map((c) => `${c.route} [${c.desc.slice(0, 40)}]`),
+    'every table-form disclosure resolves the svg it describes',
+  ).toEqual([]);
 
   // Clause (a): endpoint agreement with rendered tick labels (graded only
   // where the SVG x-axis measures the table's row quantity; recorded
@@ -314,15 +328,30 @@ test('VAL-EDU-023: every table-form disclosure agrees with its chart', async ({ 
   // SampleEfficiencyLedger source rows, the categorical data-bottleneck
   // datasets, and the categorical EXPO-FT task rows. The floor and the
   // cap each allow two honest new carve-outs; with the population pinned
-  // they fail together.
+  // they fail together. Re-measured after the reader-first figures
+  // (population 18, pinned above), once the extractor read "1 million",
+  // matched "s" to "seconds" and resolved an svg described by a caption
+  // and a description together: pass=9 skip=9 fail=0. Three graded charts
+  // now label their x-axis in words, leaving no numeric tick to compare:
+  // the action-chunking hand-off trace ("go left", "go right"), the
+  // vla-models action trace ("start", "finish") and the sim2real-transfer
+  // friction chart ("slippery" to "grippy"). The new industrial-deployment
+  // payback table runs in seconds under minute ticks, a unit the gate does
+  // not convert. The other five are the carve-outs above, the
+  // realtime-execution model-size bars now drawing no axis at all.
+  // Name every carve-out in the failure text, so a floor or cap breach
+  // says which charts moved instead of only how many.
+  const skipList = aSkips
+    .map((c) => `${c.route} [${c.desc.slice(0, 40)}] ${checkClauseA(c).detail}`)
+    .join(' | ');
   expect(
     aGraded.length,
-    'clause (a) graded population (measured 12 of 17 after one visual per concept; 10 leaves margin for two honest new carve-outs)',
-  ).toBeGreaterThanOrEqual(10);
+    `clause (a) graded population (measured 9 of 18 after the reader-first figures; 7 leaves margin for two honest new carve-outs). Skipped: ${skipList}`,
+  ).toBeGreaterThanOrEqual(7);
   expect(
     aSkips.length,
-    'clause (a) skip count (measured 5 honest non-comparable axes; a mass carve-out must fail loudly, not pass silently)',
-  ).toBeLessThanOrEqual(7);
+    `clause (a) skip count (measured 9 honest non-comparable axes; a mass carve-out must fail loudly, not pass silently). Skipped: ${skipList}`,
+  ).toBeLessThanOrEqual(11);
 });
 
 test('VAL-EDU-023 clause (c): control probes move the readout to the sampled rows', async ({ browser }) => {

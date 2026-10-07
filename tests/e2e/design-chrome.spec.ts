@@ -127,6 +127,22 @@ test.describe('design chrome discipline', () => {
     // previous version measured against <main>, which on a 1440px article
     // route is ~1.75x the prose column, so it counted zero rules for any
     // implementation and could never fail.
+    //
+    // The article no longer carries a Callout or Aside (VAL-OPUS-151), so a
+    // callout-shaped note is planted in the prose to keep the container-role
+    // exclusion exercised. It has top and bottom borders at
+    // full column width, so it would count as a rule if container roles were
+    // not excluded.
+    await page.evaluate(() => {
+      const prose = document.querySelector('article .prose') ?? document.querySelector('article');
+      const plant = document.createElement('div');
+      plant.setAttribute('role', 'note');
+      plant.setAttribute('data-test-plant', 'container-role');
+      plant.style.borderTop = '1px solid rgb(0, 0, 0)';
+      plant.style.borderBottom = '1px solid rgb(0, 0, 0)';
+      plant.textContent = 'Planted note';
+      prose?.appendChild(plant);
+    });
     const analysis = await page.evaluate(() => {
       const main = document.querySelector('main');
       if (!main) return null;
@@ -243,16 +259,16 @@ test.describe('design chrome discipline', () => {
       }
       return { rules, rejected };
     });
+    await page.locator('[data-test-plant="container-role"]').evaluate((el) => el.remove());
     expect(analysis, 'main element present').not.toBeNull();
     expect(
       analysis!.rules.length,
       `full-width rules: ${JSON.stringify(analysis!.rules)}`,
     ).toBeLessThanOrEqual(2);
-    // The exclusions must actually fire on this dense article: it renders
-    // Callouts and an Aside (container roles), a bordered comparison
-    // table (table internals inside a four-sided frame), and boxed
-    // content, and each is evaluated and rejected rather than silently
-    // uncounted.
+    // The exclusions must actually fire on this dense article: the planted
+    // note (container role), a bordered comparison table (table internals
+    // inside a four-sided frame), and boxed content are each evaluated and
+    // rejected rather than silently uncounted.
     const reasons = new Set(analysis!.rejected.map((r) => r.reason));
     expect(reasons, JSON.stringify(analysis!.rejected)).toContain(
       'container role',

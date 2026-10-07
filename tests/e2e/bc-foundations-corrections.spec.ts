@@ -1,7 +1,10 @@
+import { readFileSync } from 'node:fs';
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { setSlider } from './slider';
 import { openAdjustMore } from './helpers/figure-fold';
+
+const manuscript = readFileSync(new URL('../../content/manipulation/bc-foundations.mdx', import.meta.url), 'utf8');
 
 for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 }]) {
   test(`BC corrections retain truthful math and toy behavior at ${viewport.width}`, async ({ page }, testInfo) => {
@@ -82,10 +85,13 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     await capture('hg-citation');
     const citationIds = await prose.locator('[data-cite-id]').evaluateAll((els) =>
       [...new Set(els.map((el) => el.getAttribute('data-cite-id')))].sort());
-    expect(citationIds).toEqual([
+    // The corrections' sources stay cited, and every source the article cites renders as a chip.
+    expect(citationIds).toEqual(expect.arrayContaining([
       'act-aloha-2023', 'alvinn-1988', 'dagger-2011',
       'diffusion-policy-2023', 'hg-dagger-2019', 'pistar06-blog-2025',
-    ]);
+    ]));
+    expect(citationIds).toEqual([...new Set([...manuscript.matchAll(/<Cite\s+id="([^"]+)"/g)]
+      .map((m) => m[1]))].sort());
     await hg.blur();
     expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
     expect(pageErrors).toEqual([]);

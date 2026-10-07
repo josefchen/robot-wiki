@@ -210,10 +210,11 @@ test.describe('search excerpt quality', () => {
     page,
   }) => {
     test.setTimeout(60_000);
-    // "two diverge" excerpts the bc-foundations covariate-shift paragraph;
-    // pre-fix its excerpt read exactly "dπ∗d_{\pi^*}dπ∗ ... dπd_\pidπ"
-    // (measured on the pre-fix export, 2026-08-12).
-    const excerpts = await searchExcerpts(page, 'two diverge');
+    // "state distribution" excerpts the bc-foundations covariate-shift
+    // paragraph ("the expert's state distribution dπ∗"); pre-fix its excerpt
+    // read exactly "dπ∗d_{\pi^*}dπ∗ ... dπd_\pidπ" (measured on the pre-fix
+    // export, 2026-08-12).
+    const excerpts = await searchExcerpts(page, 'state distribution');
     expect(excerpts.length).toBeGreaterThan(0);
     for (const excerpt of excerpts) {
       // TeX annotation leakage is unambiguous: no indexed prose or code
@@ -479,13 +480,14 @@ test.describe('excerpt chrome: figure credits and interactive controls', () => {
     page,
   }) => {
     test.setTimeout(60_000);
-    // "370 units" exists only in the CompoundingError readout and
-    // "balanced gait" only in the RewardShaping status readout (verified:
-    // no prose occurrence). If readouts were excluded with the buttons,
-    // these queries would lose their excerpt.
+    // "over the first 120: 370" exists only in the CompoundingError readout
+    // ("Total drift over 240 moves: 1505 units; over the first 120: 370")
+    // and "Selected category: balanced gait" only in the RewardShaping
+    // readout (verified: no prose occurrence). If readouts were excluded
+    // with the buttons, these queries would lose their excerpt.
     const cases: ReadonlyArray<readonly [string, string]> = [
-      ['370 units', '370 units'],
-      ['balanced gait', 'balanced gait'],
+      ['370 units', 'over the first 120: 370'],
+      ['category balanced gait', 'Selected category: balanced gait'],
     ];
     for (const [query, readoutFragment] of cases) {
       const excerpts = await searchExcerpts(page, query);

@@ -25,7 +25,7 @@ export const READER_LANES = {
   },
   keypoint: {
     specs: ['tests/e2e/perception-keypoint-readers.spec.ts'],
-    helpers: ['tests/e2e/servo-apollo-fixture.ts', ORACLE, 'tests/e2e/helpers/term-consumer-inventory.ts', 'tests/e2e/slider.ts', SELF],
+    helpers: ['tests/e2e/servo-apollo-fixture.ts', ORACLE, 'tests/e2e/helpers/term-consumer-inventory.ts', 'tests/e2e/slider.ts', 'tests/e2e/helpers/figure-fold.ts', SELF],
   },
   'servo-apollo': {
     specs: ['tests/e2e/servo-apollo-reader.spec.ts'],

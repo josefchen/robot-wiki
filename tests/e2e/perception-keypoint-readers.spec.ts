@@ -6,6 +6,7 @@ import { CITATIONS } from '../../data/citations';
 import { GLOSSARY } from '../../data/glossary';
 import { termConsumerInventory } from './helpers/term-consumer-inventory';
 import { setSlider } from './slider';
+import { openAdjustMore } from './helpers/figure-fold';
 import { assertFullReferenceAuthors, assertShortMetadata, KEYPOINT_SHORT_META, ownedEvidencePath } from './helpers/keypoint-reader-oracle';
 import { readerGateInputs } from './helpers/reader-gate-inputs';
 
@@ -48,6 +49,8 @@ for (const route of ['/classical/perception/', '/manipulation/hierarchical/']) {
     page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
     expect((await page.goto(route))?.status()).toBe(200);
     await page.waitForFunction(() => [...document.querySelectorAll('button')].some(el => Object.keys(el).some(k => k.startsWith('__reactFiber$'))));
+    // A screenshot hides the caret with an inline style, and React reports that as a hydration mismatch on any input it has not hydrated yet.
+    await page.waitForFunction(() => [...document.querySelectorAll('main input')].every(el => Object.keys(el).some(k => k.startsWith('__reactFiber$'))));
     await page.evaluate(async () => { await document.fonts.ready; await new Promise<void>(done => requestAnimationFrame(() => requestAnimationFrame(() => done()))); });
     const prose = page.locator('div.prose[data-pagefind-body]');
     const roles = await page.evaluate(() => ['h1', 'div.prose[data-pagefind-body] > p'].map(selector => { const cs = getComputedStyle(document.querySelector(selector)!); return { selector, family: cs.fontFamily, size: cs.fontSize, lineHeight: cs.lineHeight, loaded: document.fonts.check('16px ' + cs.fontFamily.split(',')[0]) }; }));
@@ -69,13 +72,16 @@ for (const route of ['/classical/perception/', '/manipulation/hierarchical/']) {
       await expect(page.getByTestId('perception-total-readout')).toHaveText(original); await expect(page.getByTestId('perception-target-opaque')).toBeChecked();
       const stat = page.getByText('visual-servo formulation', { exact: true }).locator('..'); await expect(stat).toContainText('1992'); await textCapture(stat, 'preserved-stat');
     } else {
-      const slider = page.getByRole('slider', { name: /Playhead position/ }); await slider.focus(); await page.keyboard.press('ArrowRight'); await expect(slider).not.toHaveValue('0');
-      await page.getByRole('button', { name: 'Reset', exact: true }).click(); await expect(slider).toHaveValue('0');
+      // The playhead and Reset sit in the figure's "Adjust more" fold; the playhead settles at the end of the 2 seconds, so it steps back.
+      const adjust = await openAdjustMore(page.locator('main [data-figure-frame="hierarchy-timescales"]'));
+      const slider = adjust.getByRole('slider', { name: /Playhead position/ }); await slider.focus(); const settled = await slider.inputValue(); await page.keyboard.press('ArrowLeft'); await expect(slider).not.toHaveValue(settled);
+      await adjust.getByRole('button', { name: 'Reset', exact: true }).click(); await expect(slider).toHaveValue(settled);
       const stat = page.getByText('keypoint interfaces', { exact: true }).locator('..'); await expect(stat).toContainText('2024'); await textCapture(stat, 'preserved-stat');
     }
     states.push({ name: 'calculator-or-playhead-default-changed-reset', kind: perception ? 'perception-error-budget' : 'hierarchy-playhead' });
     const details = page.locator('main details');
-    for (let i = 0; i < await details.count(); i++) { const d = details.nth(i), before = await d.evaluate(el => (el as HTMLDetailsElement).open); await d.locator('summary').first().focus(); await page.keyboard.press('Enter'); expect(await d.evaluate(el => (el as HTMLDetailsElement).open)).toBe(!before); await page.keyboard.press('Enter'); expect(await d.evaluate(el => (el as HTMLDetailsElement).open)).toBe(before); }
+    // A disclosure nested in a closed fold is reached by opening that fold first, as a reader would.
+    for (let i = 0; i < await details.count(); i++) { const d = details.nth(i), fold = d.locator('xpath=ancestor::details[1]'); if (await fold.count() && !(await fold.evaluate(el => (el as HTMLDetailsElement).open))) await fold.locator(':scope > summary').click(); const before = await d.evaluate(el => (el as HTMLDetailsElement).open); await d.locator('summary').first().focus(); await page.keyboard.press('Enter'); expect(await d.evaluate(el => (el as HTMLDetailsElement).open)).toBe(!before); await page.keyboard.press('Enter'); expect(await d.evaluate(el => (el as HTMLDetailsElement).open)).toBe(before); }
     states.push({ name: 'disclosures', count: await details.count(), emptyPopulationIsNotApplicable: true });
     for (const [index, id] of ids.entries()) {
       const root = prose.locator(`[data-cite-id="${id}"]`); await expect(root).toHaveCount(1);

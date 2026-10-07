@@ -538,6 +538,9 @@ test.describe('home page', () => {
   });
 
   test('the engineering grid appears only on the home title sheet (VAL-DSBRAND-005)', async ({ browser }) => {
+    // One fresh context per route over the whole registry population runs
+    // close to the default 30 s budget on its own.
+    test.setTimeout(90_000);
     // Population derived from the registry: every published module route
     // plus the standalone surfaces, so a newly published module joins the
     // sweep without a fixture edit.

@@ -67,6 +67,15 @@ describe('parseNumericToken', () => {
     expect(parseNumericToken('0 s')).toBe(0);
     expect(parseNumericToken('40 s')).toBe(40);
   });
+  it('reads a magnitude word spelled out after the number', () => {
+    // /frontier/generalization/ labels its last tick "1 million"; read as
+    // a bare 1 it put a phantom tick below the table's 1k h first row.
+    expect(parseNumericToken('1 million')).toBe(1_000_000);
+    expect(parseNumericToken('2.5 thousand')).toBe(2500);
+    expect(parseNumericToken('3 billion')).toBe(3e9);
+    expect(parseNumericToken('10 min')).toBe(10);
+    expect(parseNumericToken('1 millionth')).toBe(1);
+  });
 });
 
 describe('splitClauses', () => {
@@ -155,6 +164,50 @@ describe('extractXTicks', () => {
 describe('clause (a)', () => {
   it('passes exact endpoint match', () => {
     expect(checkClauseA(egoscalePreFix).status).toBe('pass');
+  });
+  it('passes the live generalization axis, whose last tick reads "1 million"', () => {
+    const texts = [
+      { content: '1,000', x: 44, y: 309.2 },
+      { content: '20,000', x: 155.89, y: 309.2 },
+      { content: '1 million', x: 302, y: 309.2 },
+      { content: '0%', x: 33.5, y: 288.2 },
+      { content: '50%', x: 33.5, y: 178.2 },
+      { content: 'hours of first-person human video', x: 302, y: 329.29 },
+    ];
+    const ticks = extractXTicks(texts, []);
+    expect(ticks).toEqual(['1,000', '20,000', '1 million']);
+    const a = checkClauseA({ ...egoscaleFixed, ticks, axisNote: ['hours of first-person human video'] });
+    expect(a.status).toBe('pass');
+    // The same axis with the old reading of "1 million" as 1 must still fail.
+    const misread = checkClauseA({ ...egoscaleFixed, ticks: ['1', '1,000', '20,000'], axisNote: ['hours of first-person human video'] });
+    expect(misread.status).toBe('fail');
+  });
+  it('grades a "time (s)" table against an axis titled in seconds', () => {
+    // /manipulation/rl-finetuning/ dropped the "s" from its ticks and titles
+    // the axis "seconds"; the bare "s" once stemmed to "" and skipped it.
+    const snap: ChartSnapshot = {
+      route: '/manipulation/rl-finetuning/',
+      desc: '',
+      headers: ['time (s)'],
+      rows: ['0', '8', '16', '26', '32', '40'].map((label) => ({ label, cells: ['x'] })),
+      ticks: ['0', '20', '40'],
+      axisNote: ['seconds'],
+    };
+    expect(checkClauseA(snap).status).toBe('pass');
+    expect(checkClauseA({ ...snap, ticks: ['0', '20', '60'] }).status).toBe('fail');
+  });
+  it('skips minute ticks against a seconds table: a unit the gate cannot convert', () => {
+    const snap: ChartSnapshot = {
+      route: '/data-hardware/industrial-deployment/',
+      desc: '',
+      headers: ['jam-clearing seconds'],
+      rows: ['5', '15', '60', '300'].map((label) => ({ label, cells: ['x'] })),
+      ticks: ['1', '2', '3', '4', '5'],
+      axisNote: ['minutes to fix each jam'],
+    };
+    const a = checkClauseA(snap);
+    expect(a.status).toBe('skip');
+    expect(a.detail).toContain('axis unit [minute]');
   });
   it('skips non-comparable axes', () => {
     const snap: ChartSnapshot = {

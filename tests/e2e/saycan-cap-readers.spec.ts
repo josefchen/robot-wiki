@@ -4,6 +4,8 @@ import AxeBuilder from '@axe-core/playwright';
 import { writeFileSync } from 'node:fs';
 import { GLOSSARY } from '../../data/glossary';
 import { CITATIONS } from '../../data/citations';
+import { openAdjustMore } from './helpers/figure-fold';
+import { waitForHydration } from './interaction-ready';
 
 // Normal-suite collectability must not require a Mission or its input manifest.
 const test = process.env.ROBOT_WIKI_GATE_INPUTS ? missionTest : standardTest;
@@ -15,21 +17,26 @@ test('SayCan and CaP retain complete caveats, definitions and reference identiti
   const shot = async (name: string) => {
     await page.screenshot({ path: info.outputPath(`${name}.png`) });
   };
-  const controls = page.getByRole('group', { name: 'Select a system overlay' });
+  // The system selector, the playhead (which starts at the 2000 ms end) and
+  // Reset sit in the figure's "Adjust more" fold.
+  const figure = page.locator('main [data-figure-frame="hierarchy-timescales"]');
+  await waitForHydration(figure.locator('[data-figure-fold="adjust"] > summary'));
+  await openAdjustMore(figure);
+  const controls = page.getByRole('group', { name: 'Robot system' });
   const choices = controls.locator('button[aria-pressed]');
   await choices.last().click();
   await expect(choices.last()).toHaveAttribute('aria-pressed', 'true');
   const playhead = page.locator('#hierarchy-playhead');
   await playhead.focus();
-  await page.keyboard.press('ArrowRight');
-  await expect(playhead).not.toHaveValue('0');
-  await controls.getByRole('button', { name: /reset/i }).click();
-  await expect(playhead).toHaveValue('0');
+  await page.keyboard.press('ArrowLeft');
+  await expect(playhead).not.toHaveValue('2000');
+  await figure.getByRole('button', { name: /reset/i }).click();
+  await expect(playhead).toHaveValue('2000');
 
   const saycan = page.getByRole('heading', { name: 'SayCan: scoring usefulness and affordance' });
   await saycan.scrollIntoViewIfNeeded();
   await expect(page.locator('p').filter({ hasText: 'SayCan (2022) scores each skill' })).toContainText('its description is appended to the prompt');
-  await expect(page.locator('p').filter({ hasText: 'mobile manipulator' })).toContainText('calibrated before use as probabilities');
+  await expect(page.locator('p').filter({ hasText: 'On the mobile manipulator,' })).toContainText('calibrated before use as probabilities');
   await shot('saycan-mechanism');
   const limitation = page.locator('p').filter({ hasText: 'The skill library bounds the system' });
   await limitation.scrollIntoViewIfNeeded();
@@ -45,7 +52,14 @@ test('SayCan and CaP retain complete caveats, definitions and reference identiti
   await expect(capLimits).toContainText('Quantitative evaluation covers only a tabletop simulation');
   await shot('cap-limitations');
 
-  for (const id of ['saycan-2022', 'code-as-policies-2022']) {
+  const citeIds = ['saycan-2022', 'code-as-policies-2022'];
+  // Escape is handled by the hydrated chip; before hydration the tooltip only
+  // shows. Wait for both chips up front: the first chip's reference jump is a
+  // hash navigation, which clears history.state, the hydration signal.
+  for (const id of citeIds) {
+    await waitForHydration(page.locator(`[data-cite-id="${id}"]`).first().locator('a').first());
+  }
+  for (const id of citeIds) {
     const citation = CITATIONS.find(item => item.id === id)!;
     const chip = page.locator(`[data-cite-id="${id}"]`).first();
     const source = chip.locator('a').first();

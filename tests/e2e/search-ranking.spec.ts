@@ -405,6 +405,12 @@ test.describe('VAL-SEARCH-026: structured results carry a snippet', () => {
           await page.goto(`${BASE}${route}`, { waitUntil: 'domcontentloaded' });
           // The market map and both tables render every row client-side.
           await page.waitForTimeout(1000);
+          // A figure keeps its full table in "Adjust more", one click away
+          // (VAL-OPUS-144), so the folds are opened as a reader would.
+          const summaries = page.locator('article [data-figure-fold] > summary');
+          for (let i = 0; i < await summaries.count(); i += 1) {
+            await summaries.nth(i).click();
+          }
           routeText.set(
             route,
             normalize(
