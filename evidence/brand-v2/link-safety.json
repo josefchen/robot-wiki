@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "af16291750eaf37f61a6ccc760a1a28da53445af95a331c0785c4a8e7ae5aa23",
+  "fingerprint": "1fd8237b077409f3a2e954da09b8533f802bb0d8b23c6e85fa2d4071bcd88de6",
   "source": "out/ static export",
   "routes": [
     {
@@ -99,8 +99,8 @@
     },
     {
       "route": "/classical/calibration/",
-      "outboundAnchors": 21,
-      "distinctHrefs": 12,
+      "outboundAnchors": 79,
+      "distinctHrefs": 41,
       "shapes": [
         "citation-chip",
         "footer",
@@ -110,8 +110,8 @@
     },
     {
       "route": "/classical/control/",
-      "outboundAnchors": 51,
-      "distinctHrefs": 24,
+      "outboundAnchors": 101,
+      "distinctHrefs": 47,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -122,8 +122,8 @@
     },
     {
       "route": "/classical/grasp-planning/",
-      "outboundAnchors": 32,
-      "distinctHrefs": 13,
+      "outboundAnchors": 100,
+      "distinctHrefs": 42,
       "shapes": [
         "citation-chip",
         "footer",
@@ -133,8 +133,8 @@
     },
     {
       "route": "/classical/kinematics/",
-      "outboundAnchors": 21,
-      "distinctHrefs": 11,
+      "outboundAnchors": 92,
+      "distinctHrefs": 40,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -145,8 +145,8 @@
     },
     {
       "route": "/classical/motion-planning/",
-      "outboundAnchors": 53,
-      "distinctHrefs": 13,
+      "outboundAnchors": 118,
+      "distinctHrefs": 44,
       "shapes": [
         "citation-chip",
         "footer",
@@ -156,8 +156,8 @@
     },
     {
       "route": "/classical/perception/",
-      "outboundAnchors": 86,
-      "distinctHrefs": 31,
+      "outboundAnchors": 144,
+      "distinctHrefs": 64,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -168,8 +168,8 @@
     },
     {
       "route": "/classical/ros2-for-ml-engineers/",
-      "outboundAnchors": 15,
-      "distinctHrefs": 9,
+      "outboundAnchors": 73,
+      "distinctHrefs": 36,
       "shapes": [
         "citation-chip",
         "footer",
@@ -179,8 +179,8 @@
     },
     {
       "route": "/classical/scene-representation/",
-      "outboundAnchors": 66,
-      "distinctHrefs": 27,
+      "outboundAnchors": 135,
+      "distinctHrefs": 60,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -191,8 +191,8 @@
     },
     {
       "route": "/classical/state-estimation/",
-      "outboundAnchors": 36,
-      "distinctHrefs": 16,
+      "outboundAnchors": 101,
+      "distinctHrefs": 42,
       "shapes": [
         "citation-chip",
         "footer",
@@ -339,8 +339,8 @@
     },
     {
       "route": "/frontier/dexterity/",
-      "outboundAnchors": 82,
-      "distinctHrefs": 31,
+      "outboundAnchors": 84,
+      "distinctHrefs": 32,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -385,8 +385,8 @@
     },
     {
       "route": "/glossary/",
-      "outboundAnchors": 194,
-      "distinctHrefs": 140,
+      "outboundAnchors": 196,
+      "distinctHrefs": 141,
       "shapes": [
         "footer",
         "other"
@@ -811,17 +811,17 @@
     }
   ],
   "routesSwept": 76,
-  "outboundAnchors": 3890,
-  "distinctOutboundHrefs": 1077,
+  "outboundAnchors": 4456,
+  "distinctOutboundHrefs": 1298,
   "anchorsByShape": {
-    "citation-chip": 1724,
+    "citation-chip": 2027,
     "footer": 152,
-    "reference-entry": 1139,
-    "other": 561,
+    "reference-entry": 1400,
+    "other": 563,
     "figure-credit": 314
   },
   "anchorsWithoutNoopener": 0,
-  "anchorsWithNoreferrer": 3343,
+  "anchorsWithNoreferrer": 3909,
   "keyboard": [
     {
       "route": "/",
@@ -905,75 +905,75 @@
     },
     {
       "route": "/classical/calibration/",
-      "outboundInDom": 21,
-      "reachedByTab": 21,
+      "outboundInDom": 79,
+      "reachedByTab": 79,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 101
+      "tabStops": 190
     },
     {
       "route": "/classical/control/",
-      "outboundInDom": 51,
-      "reachedByTab": 51,
+      "outboundInDom": 101,
+      "reachedByTab": 101,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 186
+      "tabStops": 268
     },
     {
       "route": "/classical/grasp-planning/",
-      "outboundInDom": 32,
-      "reachedByTab": 32,
-      "unreached": [],
-      "withoutFocusIndicator": [],
-      "tabStops": 132
-    },
-    {
-      "route": "/classical/kinematics/",
-      "outboundInDom": 21,
-      "reachedByTab": 21,
-      "unreached": [],
-      "withoutFocusIndicator": [],
-      "tabStops": 113
-    },
-    {
-      "route": "/classical/motion-planning/",
-      "outboundInDom": 53,
-      "reachedByTab": 53,
-      "unreached": [],
-      "withoutFocusIndicator": [],
-      "tabStops": 182
-    },
-    {
-      "route": "/classical/perception/",
-      "outboundInDom": 86,
-      "reachedByTab": 86,
+      "outboundInDom": 100,
+      "reachedByTab": 100,
       "unreached": [],
       "withoutFocusIndicator": [],
       "tabStops": 239
     },
     {
-      "route": "/classical/ros2-for-ml-engineers/",
-      "outboundInDom": 15,
-      "reachedByTab": 15,
+      "route": "/classical/kinematics/",
+      "outboundInDom": 92,
+      "reachedByTab": 92,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 90
+      "tabStops": 232
+    },
+    {
+      "route": "/classical/motion-planning/",
+      "outboundInDom": 118,
+      "reachedByTab": 118,
+      "unreached": [],
+      "withoutFocusIndicator": [],
+      "tabStops": 282
+    },
+    {
+      "route": "/classical/perception/",
+      "outboundInDom": 144,
+      "reachedByTab": 144,
+      "unreached": [],
+      "withoutFocusIndicator": [],
+      "tabStops": 330
+    },
+    {
+      "route": "/classical/ros2-for-ml-engineers/",
+      "outboundInDom": 73,
+      "reachedByTab": 73,
+      "unreached": [],
+      "withoutFocusIndicator": [],
+      "tabStops": 180
     },
     {
       "route": "/classical/scene-representation/",
-      "outboundInDom": 66,
-      "reachedByTab": 66,
+      "outboundInDom": 135,
+      "reachedByTab": 135,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 197
+      "tabStops": 304
     },
     {
       "route": "/classical/state-estimation/",
-      "outboundInDom": 36,
-      "reachedByTab": 36,
+      "outboundInDom": 101,
+      "reachedByTab": 101,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 142
+      "tabStops": 242
     },
     {
       "route": "/credits/",
@@ -1081,11 +1081,11 @@
     },
     {
       "route": "/frontier/dexterity/",
-      "outboundInDom": 82,
-      "reachedByTab": 82,
+      "outboundInDom": 84,
+      "reachedByTab": 84,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 209
+      "tabStops": 213
     },
     {
       "route": "/frontier/generalization/",
@@ -1113,11 +1113,11 @@
     },
     {
       "route": "/glossary/",
-      "outboundInDom": 194,
-      "reachedByTab": 194,
+      "outboundInDom": 196,
+      "reachedByTab": 196,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 216
+      "tabStops": 218
     },
     {
       "route": "/how-robots-work/",

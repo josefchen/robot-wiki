@@ -48,8 +48,8 @@ const pairedSources = (plan: CompoundPlan) =>
 describe('source-scoped calibration and TSDF corrections', () => {
   it('uses the Zhang journal abstract without borrowing unseen report details', () => {
     expect(perception).toContain('value="2000" note="planar target; motion need not be known"');
-    expect(perception).toContain('models radial lens distortion');
-    expect(perception).toContain('closed-form solution followed by nonlinear refinement under a maximum-likelihood criterion');
+    expect(perception).toContain('It models radial distortion');
+    expect(perception).toContain('gives a closed-form solution followed by maximum-likelihood nonlinear refinement');
     expect(perception).not.toContain('recovers them along with each view\'s pose');
     expect(perception).not.toContain('intrinsics from a planar target at unknown orientations');
     expect(perception).toContain('lastReviewed: "2026-08-22"');
@@ -57,20 +57,20 @@ describe('source-scoped calibration and TSDF corrections', () => {
 
   it('names both sign constructions and keeps projective truncation source-specific', () => {
     for (const text of [
-      'KinectFusion describes positive values toward visible free space and negative values on the non-visible side',
+      'KinectFusion uses the opposite sign: positive toward visible free space and negative on the non-visible side',
       'empty space with negative $D_{min}$ and unseen space with positive $D_{max}$, both at zero weight',
-      'KinectFusion uses a projective TSDF',
-      'non-visible points farther than $\\mu$ from the surface are not measured',
+      'Its projective TSDF caps visible-space values at the truncation distance $\\mu$',
+      'leaves non-visible points beyond $\\mu$ unmeasured',
     ]) expect(scene).toContain(text);
     expect(scene).not.toContain('For robotics the truncated variant is the one that matters');
   });
 
   it('bounds KinectFusion timing to its sensor and GPU setup with planar-scene failure', () => {
     for (const text of [
-      '11-bit, 640×480 depth frames at 30 Hz',
-      'coarse-to-fine ICP tracks the live depth frame against the fused global model',
-      'commodity-GPU implementation tracks and maps at the sensor frame rate',
-      'large planar scene filling most of the field of view can cause tracking drift or failure',
+      '11-bit, 640×480 Kinect depth frames at 30 Hz',
+      'tracking each frame against the global model by coarse-to-fine ICP',
+      'mapping at the sensor rate on a commodity GPU',
+      'A large plane filling most of the view can cause drift or tracking failure',
     ]) expect(scene).toContain(text);
     expect(scene).not.toContain('which is what moved the representation from offline reconstruction onto live robots');
     expect(comments).not.toContain('Curless-Levoy volumetric method onto a live robot');
@@ -184,8 +184,8 @@ describe('source-scoped calibration and TSDF corrections', () => {
       expect(originalClaimDigest(current[ordinal - 1])).toBe(digest);
       expect(current[ordinal - 1].evidenceFailures, `prior complete original ${ordinal}`).toEqual([]);
     }
-    expect(scene).toContain('does not perform loop closure');
+    expect(scene).toContain('performs no loop closure');
     expect(scene).toContain('storage size, construction cost and usefulness for the task');
-    expect(scene).toContain('motion information can also inform this belief');
+    expect(scene).toContain('motion information can also inform that belief');
   });
 });

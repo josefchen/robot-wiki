@@ -129,6 +129,15 @@ describe('memory footprint', () => {
     expect(bandRatio).toBeCloseTo(4, 1);
   });
 
+  it('holds fewer band cells than grid voxels at every spacing, at more bytes each', () => {
+    // The source line says the band holds fewer cells; it must not say the
+    // band costs less, because its bytes exceed the grid's at every stop.
+    for (const cm of RESOLUTION_CM) {
+      expect(footprint('tsdf', cm).elements).toBeLessThan(footprint('occupancy-grid', cm).elements);
+      expect(footprint('tsdf', cm).bytes).toBeGreaterThan(footprint('occupancy-grid', cm).bytes);
+    }
+  });
+
   it('prices a Gaussian far above a voxel at the same spacing', () => {
     expect(footprint('gaussian-splat', 20).bytes).toBeGreaterThan(
       footprint('occupancy-grid', 20).bytes,

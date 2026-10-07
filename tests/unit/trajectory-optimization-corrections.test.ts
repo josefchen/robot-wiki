@@ -15,19 +15,18 @@ const trajoptTables = readFileSync(
 const catalog = JSON.parse(readFileSync('audit/compound-evidence.json', 'utf8'));
 const ledger = readFileSync('audit/classical.md', 'utf8');
 const required = [
-  'interior waypoints', 'workspace signed-distance field is negative',
-  'inverse of a smoothness metric', 'first six joints of a seven-DoF Barrett WAM',
-  '105 planning problems', 'CHOMP solved 99', 'ZMP preview controller',
+  'interior waypoints', "signed-distance penalty over the robot's body",
+  'inverse smoothness metric', 'first six joints of a seven-DoF Barrett WAM',
+  '99 of 105 problems from 15 endpoint configurations', 'CHOMP solved 99', 'ZMP preview controller',
   'Hamiltonian Monte Carlo', 'squared displacements between successive waypoints',
   'linear constraints are imposed directly', String.raw`d_{\mathrm{check}}>d_{\mathrm{safe}}`,
-  'it expands when actual improvement', String.raw`d_{\mathrm{arc}}=r\phi^2/8`,
-  'not guaranteed accurate in 3D', 'Bullet and convex hulls',
-  'those were penalized at discrete times', '198 seven-DoF PR2 arm problems',
+  'expanding when actual improvement matches the local model', String.raw`d_{\mathrm{arc}}=r\phi^2/8`,
+  'not guaranteed accurate in 3D', 'Bullet with convex hulls of robot meshes',
+  'penalized self-collisions only at discrete times', '198 seven-DoF PR2 arm problems',
   '96 eighteen-DoF full-body problems', 'three seconds per CHOMP initialization',
-  'thirty-second full-body OMPL limit', 'not a separate smoothness measurement',
+  'thirty seconds for full-body OMPL',
   '<TrajOptArmTable', '<TrajOptFullBodyTable',
-  'The full-body results omit CHOMP: the authors lacked the documentation or data needed to run that comparison',
-  'These papers describe research methods; they do not establish a standard industrial pipeline today',
+  'The full-body comparison omits CHOMP, for which the authors lacked documentation or data',
 ];
 describe('trajectory corrections retain their scientific counterconditions', () => {
   for (const text of required) it(text, () => expect(article).toContain(text));

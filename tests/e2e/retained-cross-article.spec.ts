@@ -5,16 +5,16 @@ const articles = [
   {
     route: '/classical/perception/',
     source: 'zhang-2000-calibration',
-    paragraphs: ['compares this setup'],
+    paragraphs: ['Zhang contrasts it with classical techniques'],
   },
   {
     route: '/classical/scene-representation/',
     source: 'nav2-2020',
     paragraphs: [
       'is an unordered set of 3D points',
-      'In their RealSense comparison',
-      'Navigation2 provides one concrete',
-      'Navigation2 separates global planning',
+      'where a RealSense camera failed to compute depth',
+      'Navigation2, built on ROS 2, uses a layered costmap',
+      'Its global planner computes a shortest route to the goal',
     ],
   },
   {

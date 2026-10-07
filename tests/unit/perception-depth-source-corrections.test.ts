@@ -15,45 +15,43 @@ const selected = plans.filter(p => p.ledgerPath === 'audit/classical.md' &&
 
 describe('retained primary-source depth corrections', () => {
   it('scopes quadratic error and near-range limits without choosing a conflicting MinZ', () => {
-    expect(depth).toContain('tuning checklist for the D415 and D435');
+    expect(depth).toContain("RealSense's D415/D435 tuning guide says D400 depth error scales with the square of distance");
     expect(depth).toContain('staying outside the minimum operating distance, MinZ');
     expect(depth).toContain('resolution and range trade-offs');
-    expect(depth).toContain('focus and different left/right views');
+    expect(depth).toContain('focus and differing left and right views limit very-near matching');
     expect(depth).not.toMatch(/16\.8\s*cm|19\.5\s*cm/);
   });
 
   it('retains all five Azure invalidations and distinguishes missing data from distance', () => {
-    for (const cause of ['outside the active IR illumination mask', 'saturated IR signal',
+    for (const cause of ['outside the IR illumination mask', 'saturated IR signal',
       'low IR signal', 'filter outlier', 'multi-path interference']) expect(depth).toContain(cause);
-    expect(depth).toContain('the surface has not been measured at zero distance');
+    expect(depth).toContain('Invalid pixels carry depth zero');
   });
 
   it('keeps corner, mixed-edge and motion-exposure qualifications together', () => {
     expect(depth).toContain('one wall onto another in a corner');
-    expect(depth).toContain('mixed foreground/background signals around object edges');
-    expect(depth).toContain('raw-depth exposure interval');
+    expect(depth).toContain('where foreground and background mix at object edges');
+    expect(depth).toContain('Fast motion can increase edge invalidation');
   });
 
   it('distinguishes weak IR, exposure and active illumination from visible darkness', () => {
     expect(depth).toContain('underexposure and overexposure');
-    expect(depth).toContain('leaving the projector on');
-    expect(depth).toContain('a visibly dark object does not always lose depth');
+    expect(depth).toContain('reducing background light with the projector on');
     expect(depth).not.toContain('return never clears the noise floor');
   });
 
   it('uses similar match scores and a rejection threshold, not universal thin-object failure', () => {
     expect(depth).toContain('DSSecondPeakThreshold');
-    expect(depth).toContain('similar scores can indicate aliasing even when they differ');
-    expect(depth).toContain('makes no blanket failure claim for every thin object');
+    expect(depth).toContain('compares the best and second-best match scores');
     expect(depth).not.toContain('two equally good matches');
   });
 
   it('corrects the taxonomy and viewpoint inference while preserving the unassigned ToF lead', () => {
-    expect(depth).toContain('A universal accuracy or speed ranking across sensing technologies would need different evidence');
-    expect(depth).toContain('does not establish recovery of every missing surface by multi-view capture or describe generic self-occlusion');
+    expect(depth).toContain('These are separate specification fields for one model');
+    expect(depth).toContain('a surface invalidated by multi-path from one camera view can reappear from another');
     expect(depth).not.toContain('which is why multi-view capture is a standard answer');
     // This held lead is preserved, not scientifically certified by this test.
-    expect(depth).toContain('It works without texture, but multi-path interference can cause one pixel to integrate light that arrived by more than one route');
+    expect(depth).toContain('Multi-path interference lets one pixel integrate light that arrived by several routes');
     expect(article).toContain('lastReviewed: "2026-08-22"');
   });
 

@@ -57,17 +57,17 @@ describe('source-backed visual-servo origin pair', () => {
 
   it('attributes a 1992 formulation without inventing visual-servo or task-function priority', () => {
     expect(article).toContain('label="visual-servo formulation" value="1992"');
-    expect(article).toContain('Espiau, Chaumette and Rives’s 1992 paper applies a task-function framework');
+    expect(article).toContain("Espiau, Chaumette and Rives's 1992 paper applies a task-function framework");
     expect(article).not.toContain('drove the error to zero directly');
     expect(article).toContain('lastReviewed: "2026-08-22"');
   });
 
   it('distinguishes task error, camera-frame spatial velocity, and conditional regulation', () => {
     for (const text of ['need not be the raw feature difference',
-      'relative to the scene, expressed in the camera frame',
+      'velocity in the camera frame',
       'neglecting target motion can leave a tracking error',
-      'six-component spatial velocity, not a vector of joint rates',
-      '$\\dot{s} = L_s v_c$', 'local asymptotic stability', 'full rank', 'positivity condition']) {
+      "camera's six-component spatial velocity",
+      '$\\dot{s} = L_s v_c$', 'locally asymptotically stable', 'full rank', 'positivity condition']) {
       expect(article).toContain(text);
     }
     expect(perception.claimRecords[54].sourceChecked).toContain('Equation (2)');

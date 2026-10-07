@@ -12,24 +12,23 @@ const depth = article.split('## Depth sensing:')[1].split('## Detection:')[0];
 describe('named-device depth specification corrections', () => {
   it('retains D400 model ranges, valid-pixel metric, ROI and test conditions', () => {
     for (const text of ['D410/D415 and D43x', 'up to 2 m', '80%', 'HD resolution',
-      'D450/D455/D455f/D456', 'up to 4 m', 'D401/D405', 'up to 0.5 m',
+      'D450/D455/D455f/D456', 'up to 4 m', '0.5 m for D401/D405',
       'valid pixels', 'ground truth', 'typical conditions', 'auto exposure',
       '150 mW', '250 lux']) expect(depth).toContain(text);
-    expect(depth).toContain('leaving the rest outside that guarantee');
+    expect(depth).toContain('over an 80% region of interest at HD resolution');
   });
 
   it('separates PhoXi L fields without family ranking or uniform-range inference', () => {
-    for (const text of ['PhoXi 3D Scanner L', '0.200 mm (1 σ)', '0.190 mm (1 σ)',
-      '870 to 2150 mm', '250 to 2750 ms', 'no family-wide ranking',
-      'not establish uniform accuracy throughout']) expect(depth).toContain(text);
+    for (const text of ['PhoXi 3D Scanner L', '0.200 mm calibration accuracy', '0.190 mm temporal noise (both 1 σ)',
+      '870 to 2150 mm', '250 to 2750 ms', 'These are separate specification fields for one model']) expect(depth).toContain(text);
     expect(depth).not.toMatch(/Three families of depth sensor|accurate option and the slow one|rules out closing a control loop/);
-    expect(depth).toContain('named devices');
+    expect(depth).toContain('the PhoXi page publishes no target condition for its 0.200 mm figure');
   });
 
   it('preserves both D400 and D400f saturation statements and Azure citation', () => {
-    const specular = depth.split('- **Specular')[1].split('\n')[0];
-    for (const text of ['D400f', 'May cause image saturation', 'Saturation mitigated',
-      'Saturation can still occur', 'azure-kinect-depth-docs-2026']) expect(specular).toContain(text);
+    const specular = depth.split('- Specular')[1].split('\n')[0];
+    for (const text of ['D400f', 'can saturate D400 images', 'Saturation mitigated',
+      'azure-kinect-depth-docs-2026']) expect(specular).toContain(text);
   });
 
   it('removes the opaque guarantee without changing teaching constants or defaults', () => {

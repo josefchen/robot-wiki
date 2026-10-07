@@ -86,7 +86,7 @@ for (const route of ['/classical/perception/', '/manipulation/hierarchical/']) {
     for (const [index, id] of ids.entries()) {
       const root = prose.locator(`[data-cite-id="${id}"]`); await expect(root).toHaveCount(1);
       const block = root.locator('xpath=ancestor::p[1]');
-      for (const text of [['GroundedSAM', 'grasp, function and target keypoints', 'separate grasp sampler'], ['DINOv2', 'GPT-4o', perception ? 'penalizes constraint violations' : 'penalizing violations', 'human annotations or disable tracking'], ['real-image VQA and LVIS detection data', 'end-effector offset and a motion planner']][index]) await expect(block).toContainText(text);
+      for (const text of [['GroundedSAM', 'grasp, function and target keypoints', 'separate grasp sampler'], ['DINOv2', perception ? 'A large vision-language model' : 'GPT-4o', perception ? 'penalizes constraint violations' : 'penalizing violations', 'human annotations or disable tracking'], ['real-image VQA and LVIS detection data', 'end-effector offset and a motion planner']][index]) await expect(block).toContainText(text);
       if (id === 'robopoint-2024' && !perception) for (const text of ['100 real images', 'point-in-mask accuracy', '46.77%', '29.06%', 'means of three runs', 'add depth, an end-effector offset']) await expect(block).toContainText(text);
       await textCapture(block, id + '-prose');
       const citation = CITATIONS.find(c => c.id === id)!;

@@ -19,6 +19,9 @@ import { committedSource } from '../helpers/continuation-integration';
 // The 2026-10-01 figure migration later edited the motion-planning and
 // sim2real articles; its reviewed successor returns the articles this review names.
 import { carriesThroughFigureMigration, preFigureMigration } from '../helpers/figure-migration';
+// The 2026-10-06 domain pass rewrote motion planning from the owner's draft;
+// its reviewed successor hands these checks the article as it stood before.
+import { preDomainPass } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
 const directory = 'audit/evidence/motion-round6-prose-restores-20260929/';
@@ -197,7 +200,7 @@ it('states each motion-planning scope the classical rewrite dropped, without add
   const path = 'content/classical/motion-planning.mdx';
   const original = committedSource(`${planningRewrite}^`, path);
   const rewritten = committedSource(planningRewrite, path);
-  const live = read(path).toString();
+  const live = preDomainPass(path).toString();
   for (const [preRewrite, plain] of planningScopes) {
     expect(original.split(preRewrite)).toHaveLength(2);
     expect(rewritten).not.toContain(preRewrite);
@@ -216,7 +219,7 @@ it('keeps the release preserved text on the live motion-planning article or its 
   const preserved = dependencies.bindings.filter((binding) => binding.current?.path === path)
     .flatMap((binding) => binding.preservedText ?? []);
   expect(preserved).toHaveLength(1);
-  const live = read(path).toString();
+  const live = preDomainPass(path).toString();
   const reviewed = preFigureMigration(reviewOf('motion-planning').after).toString();
   for (const phrase of preserved) {
     expect(reviewed).toContain(phrase);
@@ -407,7 +410,8 @@ it.each(['missing-review', 'missing-predecessor', 'corrupt-predecessor', 'review
       'audit/evidence/motion-round6-remaining-repairs-20260929/classical-closure-evidence-before.test.ts.txt',
       'audit/evidence/figure-migration-20261001/checker-transition.json',
       'audit/evidence/figure-migration-20261001/audit-local-basis-before.ts.txt',
-      'audit/evidence/seo-pass-20261002/checker-transition.json']);
+      'audit/evidence/seo-pass-20261002/checker-transition.json',
+      'audit/evidence/domain-pass-20261006/checker-transition.json']);
     try {
       const live = read('lib/audit-local-basis.ts');
       expect(round6ProseRestoresCheckerPredecessor(destination, live)).toEqual(read(predecessorPath));

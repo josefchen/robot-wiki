@@ -12,25 +12,23 @@ const plan = (ordinal: number) => {
 
 describe('motion originals 3, 6 and 8', () => {
   it('replaces dimensional impossibility with scoped complexity and constructive limits', () => {
-    expect(article).toContain('does not become impossible beyond a fixed number of dimensions');
-    expect(article).toContain('does not establish impossibility for every seven-joint arm');
     expect(article).toContain('semi-algebraic models for chains and trees can be generated automatically');
-    expect(article).toContain('PSPACE-hardness');
-    expect(article).toContain('Closed-chain constraints can also make efficient sampling difficult');
+    expect(article).toContain('PSPACE-hard when the number of');
+    expect(article).toContain('Hardness holds for a planar linkage with multiple links and for a multi-arm robot among 3D polyhedra');
+    expect(article).toContain('closed-chain constraints make sampling difficult');
     expect(article).not.toMatch(/no one can mesh or visualize|its volume explodes|hopeless beyond a few dimensions/);
   });
   it('distinguishes Voronoi selection, dense sampling and query success from speed', () => {
-    expect(article).toContain("In the report's planar holonomic example");
-    expect(article).toContain("book's step-size-free dense-tree construction assumes an infinite dense sample sequence");
-    expect(article).toContain('do not guarantee fast coverage on every problem: the report leaves convergence-rate analysis open');
-    expect(article).toContain('distinguishes exploring free space from solving a start-goal query');
+    expect(article).toContain('Nearest-neighbor selection gives RRT a Voronoi bias, because frontier vertices own larger Voronoi regions');
+    expect(article).toContain('The report leaves convergence rates open');
+    expect(article).toContain('approaches one as sampling continues, with no finite-budget guarantee');
     expect(article).not.toContain('canopy spreads through free space fast');
   });
   it('states the precise robust geometric completeness model', () => {
-    for (const text of [String.raw`$X=(0,1)^d$, $d\geq2$`, 'an open goal region',
-      String.raw`positive clearance $\delta>0$`, 'independent uniform free-space samples',
-      'fixed positive connection radius for sPRM', 'collision tests over entire straight-line connections',
-      '1-nearest sPRM counterexample is not probabilistically complete']) {
+    for (const text of [String.raw`$X=(0,1)^d$, $d\geq2$`,
+      String.raw`clearance $\delta>0$`, 'uniform independent samples',
+      'a fixed sPRM radius', 'straight-line collision tests',
+      'A 1-nearest-neighbor sPRM is not probabilistically complete']) {
       expect(article).toContain(text);
     }
     expect(article).not.toContain('Both RRT and PRM are probabilistically complete: if a path exists');
@@ -38,7 +36,7 @@ describe('motion originals 3, 6 and 8', () => {
   it('retains a meaningful ordered DoF trigger and retains the subsequently corrected original-5 equation', () => {
     expect(article).toContain('number of <Term id="degrees-of-freedom">degrees of freedom</Term> is unbounded');
     expect([...article.matchAll(/<Term id="([^"]+)"/g)].map(m => m[1]))
-      .toEqual(['trajectory-optimization', 'configuration-space', 'degrees-of-freedom']);
+      .toEqual(['configuration-space', 'degrees-of-freedom', 'trajectory-optimization']);
     expect(article).toContain(String.raw`x_{new} \approx x + f(x,u)\Delta t`);
     expect(article).toContain('lastReviewed: "2026-08-17"');
     // The TrajOpt tables were extracted into shared components; the

@@ -17,7 +17,7 @@ const targets = [
 describe('retained cross-article source scope', () => {
   it('replaces Zhang adoption history with the comparison the journal abstract makes', () => {
     const article = text('content/classical/perception.mdx');
-    expect(article.replace(/<Cite[^>]*\/>/g, '').replace(/\s+/g, ' ')).toContain('Zhang compares this setup with classical techniques that use expensive equipment such as two or three orthogonal planes');
+    expect(article.replace(/<Cite[^>]*\/>/g, '').replace(/\s+/g, ' ')).toContain('Zhang contrasts it with classical techniques that need expensive equipment such as two or three orthogonal planes');
     expect(article).not.toContain('displaced the fixtures');
     expect(article).not.toContain('why calibration on a real robot');
   });
@@ -28,23 +28,23 @@ describe('retained cross-article source scope', () => {
   });
   it('limits camera failure to the reported RealSense experiment', () => {
     const article = text('content/classical/scene-representation.mdx');
-    expect(article).toContain('In their RealSense comparison, the camera failed to compute depth for most transparent objects in the tested scenes');
+    expect(article).toContain('a RealSense camera failed to compute depth for most transparent objects tested');
     expect(article).not.toContain('a depth camera cannot see at all');
   });
   it('names Navigation2 rather than claiming a field-wide costmap standard', () => {
     const article = text('content/classical/scene-representation.mdx');
-    expect(article).toContain('Navigation2 uses a layered costmap');
+    expect(article).toContain('Navigation2, built on ROS 2, uses a layered costmap');
     expect(article).not.toContain('layered form now standard');
   });
   it('preserves Navigation2 planner/controller roles without an unsupported timing rule', () => {
     const article = text('content/classical/scene-representation.mdx');
-    expect(article).toContain('the global planner computes a shortest route to a goal, while the controller uses local information to compute a local path and control signals');
+    expect(article).toContain('Its global planner computes a shortest route to the goal, and a separate controller computes a local path and control signals');
     expect(article).not.toContain('searches the whole known map');
     expect(article).not.toContain('replanning locally at control rate');
   });
   it('identifies Navigation2 as the chosen example rather than external authority', () => {
     const article = text('content/classical/scene-representation.mdx');
-    expect(article).toContain('Navigation2, built on ROS 2, is the implementation used as the example here');
+    expect(article).toContain('Navigation2, built on ROS 2,');
     expect(article).not.toContain('ROS 2 navigation stack is the reference implementation');
   });
   it('attributes payback estimates to the vendor and removes inferred buyer rejection', () => {

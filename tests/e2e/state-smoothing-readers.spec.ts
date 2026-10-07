@@ -14,12 +14,12 @@ const PROSE = 'div.prose[data-pagefind-body]';
 // oracles, not new source reviews or bibliographic acceptance.
 const DEFINITION = "Simultaneous localization and mapping: estimating a robot's state while building a model of its environment. In the landmark-based formulation studied by Square Root SAM, the unknowns include the robot trajectory and landmark map. With known data associations, Gaussian process and measurement models, a uniform landmark prior, and the initial reference frame fixed, joint MAP estimation becomes nonlinear least squares. Cadena and colleagues describe MAP estimation, often expressed with factor graphs, as a standard SLAM formulation while also noting high-performing EKF-based systems.";
 const SOURCES = [
-  { id: 'dellaert-kaess-2006', count: 2, title: 'Square Root SAM: Simultaneous Localization and Mapping via Square Root Information Smoothing',
+  { id: 'dellaert-kaess-2006', count: 5, title: 'Square Root SAM: Simultaneous Localization and Mapping via Square Root Information Smoothing',
     authors: ['Frank Dellaert', 'Michael Kaess'], meta: 'Frank Dellaert, Michael Kaess, Int. J. Robotics Research, 2006', url: 'https://doi.org/10.1177/0278364906072768' },
   { id: 'kaess-2012', count: 1, title: 'iSAM2: Incremental Smoothing and Mapping Using the Bayes Tree',
     authors: ['Michael Kaess', 'Hordur Johannsson', 'Richard Roberts', 'Viorela Ila', 'John J. Leonard', 'Frank Dellaert'],
     meta: 'Michael Kaess, Hordur Johannsson, Richard Roberts et al., Int. J. Robotics Research, 2012', url: 'https://doi.org/10.1177/0278364911430419' },
-  { id: 'cadena-2016', count: 2, title: 'Past, Present, and Future of Simultaneous Localization And Mapping: Towards the Robust-Perception Age',
+  { id: 'cadena-2016', count: 3, title: 'Past, Present, and Future of Simultaneous Localization And Mapping: Towards the Robust-Perception Age',
     authors: ['Cesar Cadena', 'Luca Carlone', 'Henry Carrillo', 'Yasir Latif', 'Davide Scaramuzza', 'José Neira', 'Ian Reid', 'John J. Leonard'],
     meta: 'Cesar Cadena, Luca Carlone, Henry Carrillo et al., IEEE Transactions on Robotics, 2016', url: 'https://arxiv.org/abs/1606.05830' },
 ];
@@ -114,9 +114,9 @@ test('corrected smoothing qualifications and both factor equations remain readab
   await e.capture('state-article-top');
   const prose = page.locator(PROSE);
   for (const [index, expected] of [
-    ['In EKF-based SLAM', 'cannot later relinearize those discarded pose variables', 'does not guarantee that nonlinear optimization reaches the global minimum'],
-    ["Dellaert and Kaess's 2006", 'known data associations', 'a uniform landmark prior', 'initial reference frame fixed', 'successive linearized systems', 'QR acts on the measurement Jacobian', 'Cholesky acts on the information matrix', 'affected cliques and their ancestors', 'reattaches unaffected subtrees', 'thresholds trade accuracy for computation', 'large loop closures can be as expensive as a batch solution'],
-    ['Cadena and colleagues describe a classical SLAM period', '1986 to 2004', '2004 to 2015', 'state-of-the-art performance', 'EKF linearization is accurate', 'unbounded graph growth', 'not a universal rule that smoothing wins'],
+    ['In EKF-based SLAM', 'cannot be relinearized later', 'nonlinear optimization is not guaranteed to reach the global minimum'],
+    ["Dellaert and Kaess's 2006", 'known data associations', 'a uniform landmark prior', 'a fixed initial frame', 'successive linearized systems', 'QR on the measurement Jacobian', 'Cholesky on the information matrix', 'affected cliques and their ancestors', 'reattaches unaffected subtrees', 'Thresholds trade accuracy for computation', 'a large loop closure can cost as much as a batch solve'],
+    ['Cadena and colleagues describe a classical SLAM period', '1986 to 2004', '2004 to 2015', 'state-of-the-art performance', 'EKF linearization is accurate', 'unbounded growth', 'information loss under sparsification'],
   ].entries()) {
     const paragraph = prose.locator(':scope > p').filter({ hasText: expected[0] }); await expect(paragraph).toHaveCount(1);
     for (const text of expected) await expect(paragraph).toContainText(text);
@@ -162,7 +162,7 @@ test('all five changed-source chips preserve hover focus Escape and full Referen
     e.record({ name: 'full-reference', id: source.id, text: await reference.innerText(), authors: source.authors });
     await e.textCapture(reference, `${source.id}-reference`);
   }
-  await expect(page.locator('[data-reference-id]')).toHaveCount(12); await e.clear(); await e.axe('#main-content', 'source-reader-axe');
+  await expect(page.locator('[data-reference-id]')).toHaveCount(39); await e.clear(); await e.axe('#main-content', 'source-reader-axe');
 });
 
 const slamConsumers = termConsumerInventory().flatMap(a => a.occurrences.filter(o => o.termId === 'slam').map(o => ({ route: a.route, ...o })));

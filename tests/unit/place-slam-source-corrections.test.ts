@@ -21,23 +21,22 @@ const records = (catalog = plans) =>
 
 describe('retained visual place and SLAM backend corrections', () => {
   it('scopes Lowry to visual maps, permits motion information and separates aliasing', () => {
-    expect(source).toContain('For visual navigation,');
-    expect(source).toContain('motion information can also inform this belief');
+    expect(source).toContain('asks whether the current image matches a stored place');
+    expect(source).toContain('motion information can also inform that belief');
     expect(source).toContain('Viewpoint, illumination and seasonal changes');
-    expect(source).toContain('different places can look alike (perceptual aliasing)');
+    expect(source).toContain('different places can look alike, which is perceptual aliasing');
     expect(source).not.toContain('deciding from sensor data alone');
     expect(source).toContain('<Cite id="lowry-2016-place-recognition" />');
   });
 
   it('distinguishes joint nonlinear MAP from sparse linearised solves and matrix roles', () => {
     for (const text of [
-      'maximum a posteriori (MAP)',
-      'Gaussian process and measurement models',
+      'by MAP inference',
+      'under Gaussian models',
       'known data associations',
-      'nonlinear least-squares',
-      'successive sparse linearised systems',
-      'QR of the measurement Jacobian',
-      'Cholesky of the information matrix',
+      'sparse nonlinear least squares',
+      'successive linearized systems',
+      'by QR or Cholesky',
       'variable ordering controls fill-in',
     ]) expect(source).toContain(text);
     expect(comments).not.toContain('factor the information matrix once');
@@ -45,11 +44,9 @@ describe('retained visual place and SLAM backend corrections', () => {
 
   it('retains iSAM2 ancestors, subtree reattachment, threshold approximation and batch-cost limits', () => {
     for (const text of [
-      'incremental reordering and relinearisation',
-      'affected cliques and their ancestors',
-      'reattaches unaffected subtrees',
-      'Thresholded state updates trade some accuracy for speed',
-      'large loop closures can cost as much as a batch solve',
+      'incremental reordering and relinearization on a Bayes tree',
+      'Thresholded updates trade some accuracy for speed',
+      'a large loop closure can cost as much as a batch solve',
     ]) expect(source).toContain(text);
     expect(source).not.toContain('a new measurement updates only the affected part');
     expect(comments).not.toContain('incremental updates stay local as the graph grows');
@@ -150,7 +147,7 @@ describe('retained visual place and SLAM backend corrections', () => {
       expect(current[ordinal - 1].evidenceFailures, `later complete original ${ordinal}`).toEqual([]);
     }
     expect(source).toContain('Cadena and colleagues separate a sensor-dependent front end');
-    expect(source).toContain('The MLP is the dense scene map, not the system\'s only stored data');
-    expect(source).toContain('the system does not perform loop closure');
+    expect(source).toContain('learns a scene-specific MLP from scratch');
+    expect(source).toContain('performs no loop closure');
   });
 });

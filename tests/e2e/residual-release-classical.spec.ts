@@ -50,7 +50,7 @@ test('classical closure mounted observations at desktop and mobile', async ({ pa
     for (const absent of ['Wampler', 'Levenberg-Marquardt', 'residual decreases monotonically']) {
       await expect(main).not.toContainText(absent);
     }
-    for (const id of ['wampler-1986', 'levenberg-1944', 'marquardt-1963', 'denavit-hartenberg-1955']) {
+    for (const id of ['wampler-1986', 'levenberg-1944', 'marquardt-1963']) {
       await expect(main.locator(`[data-cite-id="${id}"],[data-reference-id="${id}"]`)).toHaveCount(0);
     }
     await expect(main.getByRole('link', { name: '3D kinematics playground' })).toHaveAttribute('href', '/playground/');
@@ -67,7 +67,7 @@ test('classical closure mounted observations at desktop and mobile', async ({ pa
     }
     await main.getByRole('heading', { name: 'Denavit-Hartenberg parameters', exact: true }).scrollIntoViewIfNeeded();
     await capture(`kinematics-${viewport.width}`, { surface: 'kinematics', glossary,
-      checkedText: ['LaValle describes', '3D kinematics playground', '±0.5mm'] });
+      checkedText: ['LaValle gives the', '3D kinematics playground', '±0.5mm'] });
 
     await ready('/classical/motion-planning/');
     await page.clock.pauseAt(new Date(await page.evaluate(() => Date.now()) + 1000));

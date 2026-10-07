@@ -171,15 +171,15 @@ describe('two source-backed verdict reconciliations, not structural completions'
   it('keeps the already-applied reader corrections and their qualifications', () => {
     const motion = readFileSync('content/classical/motion-planning.mdx', 'utf8');
     expect(motion).toContain(String.raw`x_{new} \approx x + f(x,u)\Delta t`);
-    expect(motion).toContain('initial obstacle-free construction');
+    expect(motion).toContain("LaValle's 2006 book drops the step size");
     expect(motion).toContain(`note="Iowa State TR 98-11; date in LaValle's bibliography"`);
     expect(readFileSync('data/glossary.ts', 'utf8')).toContain(
       'A kinodynamic planner can instead use a state that includes both configuration and velocity.',
     );
     const perception = readFileSync('content/classical/perception.mdx', 'utf8');
     expect(perception).not.toContain('Three families of depth sensor');
-    expect(perception).toContain('no family-wide ranking');
-    expect(perception).toContain('not establish uniform accuracy throughout that range');
+    expect(perception).toContain('These are separate specification fields for one model');
+    expect(perception).toContain('Accuracy for transparent or specular surfaces is not disclosed in either datasheet');
   });
 
   it('records zero new structural completions while closing the two outcome findings', () => {

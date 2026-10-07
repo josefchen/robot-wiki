@@ -50,3 +50,38 @@ export const withoutDomainPassEdges = <T extends Pick<ApprovedDelta, 'id'>>(entr
 /** The citation list a frontmatter P1 row declared for `content/<domain>/<slug>.mdx`. */
 export const preDomainPassCitations = (domain: string, slug: string, citations: readonly string[]) =>
   preDomainPassCitationList(root, `content/${domain}/${slug}.mdx`, citations);
+
+/**
+ * Corrections the domain passes made to registry entries that already
+ * existed, as exact [before, after] runs over the entry's lines. Byte checks
+ * on an older registry state swap each reviewed correction back first; any
+ * other change to an older entry still fails them.
+ */
+export const DOMAIN_PASS_REGISTRY_CORRECTIONS: readonly (readonly [string, string])[] = [
+  // classical: the ROS 2 Lyrical documentation moved from Concepts/ to
+  // ROS-Framework/, so both old URLs return 404 (audit/classical/ros2-for-ml-engineers.md).
+  [`    url: 'https://docs.ros.org/en/lyrical/Concepts/Basic/Interfaces-Topics-Services-Actions.html',
+`,
+    `    url: 'https://docs.ros.org/en/lyrical/ROS-Framework/Interfaces-Topics-Services-Actions.html',
+`],
+  [`    url: 'https://docs.ros.org/en/lyrical/Concepts/Intermediate/About-Quality-of-Service-Settings.html',
+`,
+    `    url: 'https://docs.ros.org/en/lyrical/ROS-Framework/interfaces/topics/About-Quality-of-Service-Settings.html',
+`],
+  // classical: the repository's own description is "Standard Open Arm 100";
+  // the earlier title is not on the repository (audit/classical/kinematics.md).
+  [`    title: 'SO-ARM100: Low-Cost Robot Arms for Everyone',
+`,
+    `    title: 'SO-ARM100: Standard Open Arm 100',
+`],
+];
+
+/** The registry source with every reviewed domain-pass correction swapped back. */
+export function withoutDomainPassRegistryCorrections(registry: string): string {
+  let result = registry;
+  for (const [before, after] of DOMAIN_PASS_REGISTRY_CORRECTIONS) {
+    if (result.split(after).length !== 2) throw new Error('a reviewed domain-pass registry correction drifted');
+    result = result.split(after).join(before);
+  }
+  return result;
+}

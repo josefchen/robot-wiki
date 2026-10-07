@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "fingerprint": "64d1dc16f7d372552bafd9d30b727fc9029eb6e904ee3e3093ed571f436f96fe",
+  "fingerprint": "ed763e928f8b317a640c9a0fc59649a0ee779544072e2d1c4d3af8354831f851",
   "viewport": "1440x900",
   "surfaces": [
     {
       "route": "/",
-      "visibleTextLength": 4218,
+      "visibleTextLength": 4131,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Robot Wiki",
@@ -288,13 +288,13 @@
     },
     {
       "route": "/glossary/",
-      "visibleTextLength": 179622,
+      "visibleTextLength": 179818,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Glossary",
       "h1FontFamilyHead": "tektur",
       "h1SizePx": 30,
-      "monoMetadataCount": 193,
+      "monoMetadataCount": 195,
       "rowLists": [
         {
           "key": "glossary-term",

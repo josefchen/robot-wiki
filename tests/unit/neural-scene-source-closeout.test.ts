@@ -47,11 +47,10 @@ describe('source-scoped neural scene originals 12 through 16', () => {
 
   it('keeps the static-scene, camera-input and two distinct rendering settings explicit', () => {
     const prose = readFileSync('content/classical/scene-representation.mdx', 'utf8');
-    for (const text of ['separate radiance field to a static scene', 'camera poses, intrinsics and scene bounds',
-      'smaller networks and fully fused CUDA kernels', '128 samples in 5 seconds at 1080p',
-      'RTX 3090', 'separate large natural 360-degree scene', '10 frames per second',
-      'no robot reconstruction or control rate measured', "dataset's native image resolution",
-      'not an explicit triangle surface carrying contact normals', 'surface extraction impossible'])
+    for (const text of ['to a static scene from posed RGB photographs', 'intrinsics and scene bounds',
+      'smaller networks and fully fused CUDA kernels', 'rendered one scene at 1080p in 5 seconds over 128 samples',
+      'RTX 3090', 'a large 360-degree scene at 10 frames per second', '10 frames per second',
+      'the stored primitive is a volumetric Gaussian', 'extracted meshes by Poisson reconstruction'])
       expect(prose).toContain(text);
     expect(prose).not.toContain('collapsed training from hours to seconds');
     expect(prose).not.toContain('posed photographs alone suffice');

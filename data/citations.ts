@@ -4974,7 +4974,7 @@ export const CITATIONS: Citation[] = [
     // Verified against the live repository (2026-08-09): SO-ARM100 BOM,
     // SO-101 assembly and the $121.94 follower-arm parts table.
     id: 'so-arm100-repo-2026',
-    title: 'SO-ARM100: Low-Cost Robot Arms for Everyone',
+    title: 'SO-ARM100: Standard Open Arm 100',
     authors: ['TheRobotStudio'],
     year: 2026,
     url: 'https://github.com/TheRobotStudio/SO-ARM100',
@@ -9124,7 +9124,7 @@ export const CITATIONS: Citation[] = [
     authors: ['ROS 2 Project'],
     year: 2026,
     venue: 'ROS 2 Documentation, as of 2026-08-24',
-    url: 'https://docs.ros.org/en/lyrical/Concepts/Basic/Interfaces-Topics-Services-Actions.html',
+    url: 'https://docs.ros.org/en/lyrical/ROS-Framework/Interfaces-Topics-Services-Actions.html',
     type: 'docs',
   },
   {
@@ -9133,7 +9133,7 @@ export const CITATIONS: Citation[] = [
     authors: ['ROS 2 Project'],
     year: 2026,
     venue: 'ROS 2 Documentation, as of 2026-08-24',
-    url: 'https://docs.ros.org/en/lyrical/Concepts/Intermediate/About-Quality-of-Service-Settings.html',
+    url: 'https://docs.ros.org/en/lyrical/ROS-Framework/interfaces/topics/About-Quality-of-Service-Settings.html',
     type: 'docs',
   },
   {
@@ -11875,6 +11875,2823 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.03861',
     type: 'paper',
   },
+  // roth-mooring-ravani-1987: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // IEEE J. Robotics and Automation 3(5), 1987. "Modeling, measurement, identification, and
+  // correction issues in robot calibration are discussed".
+  {
+    id: 'roth-mooring-ravani-1987',
+    title: 'An overview of robot calibration',
+    authors: ['Z. Roth', 'B. Mooring', 'B. Ravani'],
+    year: 1987,
+    venue: 'IEEE J. Robotics and Automation',
+    url: 'https://doi.org/10.1109/JRA.1987.1087124',
+    type: 'paper',
+  },
+  // halo-payload-2026: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts; also drafts/rl-sim2real/sim2real-transfer.citations.ts.
+  // arXiv 2603.15084. Two stages: calibrate the nominal model, then identify the unknown payload's
+  // mass distribution.
+  {
+    id: 'halo-payload-2026',
+    title: 'HALO: Closing Sim-to-Real Gap for Heavy-loaded Humanoid Agile Motion Skills via Differentiable Simulation',
+    authors: ['Xingyi Wang', 'Chenyun Zhang', 'Weiji Xie', 'Chao Yu', 'Wei Song', 'Chenjia Bai', 'Shiqiang Zhu'],
+    year: 2026,
+    arxiv: '2603.15084',
+    url: 'https://arxiv.org/abs/2603.15084',
+    type: 'paper',
+  },
+  // kannala-brandt-2006: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // IEEE TPAMI 28(8), 2006. Crossref byline: J. Kannala, S.S. Brandt.
+  {
+    id: 'kannala-brandt-2006',
+    title: 'A generic camera model and calibration method for conventional, wide-angle, and fish-eye lenses',
+    authors: ['J. Kannala', 'S. S. Brandt'],
+    year: 2006,
+    venue: 'IEEE TPAMI',
+    url: 'https://doi.org/10.1109/TPAMI.2006.153',
+    type: 'paper',
+  },
+  // anycalib-2025: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // arXiv 2503.12701 (ICCV 2025). Single in-the-wild image; pinhole, Brown-Conrady and
+  // Kannala-Brandt models.
+  {
+    id: 'anycalib-2025',
+    title: 'AnyCalib: On-Manifold Learning for Model-Agnostic Single-View Camera Calibration',
+    authors: ['Javier Tirado-Garín', 'Javier Civera'],
+    year: 2025,
+    venue: 'ICCV 2025',
+    arxiv: '2503.12701',
+    url: 'https://arxiv.org/abs/2503.12701',
+    type: 'paper',
+  },
+  // khoshelham-kinect-2012: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // Sensors 12(2), 2012. Random error "ranges from a few millimeters up to about 4 cm at the maximum
+  // range of the sensor."
+  {
+    id: 'khoshelham-kinect-2012',
+    title: 'Accuracy and Resolution of Kinect Depth Data for Indoor Mapping Applications',
+    authors: ['Kourosh Khoshelham', 'Sander Oude Elberink'],
+    year: 2012,
+    venue: 'Sensors',
+    url: 'https://doi.org/10.3390/s120201437',
+    type: 'paper',
+  },
+  // herrera-depth-color-2012: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // IEEE TPAMI 34(10), 2012. Crossref byline prints "Janne Heikkila" without the diaeresis.
+  {
+    id: 'herrera-depth-color-2012',
+    title: 'Joint Depth and Color Camera Calibration with Distortion Correction',
+    authors: ['Daniel Herrera C.', 'Juho Kannala', 'Janne Heikkila'],
+    year: 2012,
+    venue: 'IEEE TPAMI',
+    url: 'https://doi.org/10.1109/TPAMI.2012.125',
+    type: 'paper',
+  },
+  // camera-depth-models-2025: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // arXiv 2509.02530. "CDMs achieve nearly simulation-level accuracy in depth prediction".
+  {
+    id: 'camera-depth-models-2025',
+    title: 'Manipulation as in Simulation: Enabling Accurate Geometry Perception in Robots',
+    authors: ['Minghuan Liu', 'Zhengbang Zhu', 'Xiaoshen Han', 'Peng Hu', 'Haotong Lin', 'Xinyao Li', 'Jingxiao Chen', 'Jiafeng Xu', 'Yichu Yang', 'Yunfeng Lin', 'Xinghang Li', 'Yong Yu', 'Weinan Zhang', 'Tao Kong', 'Bingyi Kang'],
+    year: 2025,
+    arxiv: '2509.02530',
+    url: 'https://arxiv.org/abs/2509.02530',
+    type: 'paper',
+  },
+  // park-martin-1994: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts; also drafts/classical/perception.citations.ts.
+  // IEEE T-RA 10(5), 1994. Closed-form exact and least-squares AX=XB solutions via Lie theory.
+  {
+    id: 'park-martin-1994',
+    title: 'Robot sensor calibration: solving AX=XB on the Euclidean group',
+    authors: ['F. C. Park', 'B. J. Martin'],
+    year: 1994,
+    venue: 'IEEE Trans. Robotics and Automation',
+    url: 'https://doi.org/10.1109/70.326576',
+    type: 'paper',
+  },
+  // daniilidis-1999: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts; also drafts/classical/perception.citations.ts.
+  // IJRR 18(3), 1999. Simultaneous rotation and translation via SVD.
+  {
+    id: 'daniilidis-1999',
+    title: 'Hand-Eye Calibration Using Dual Quaternions',
+    authors: ['Konstantinos Daniilidis'],
+    year: 1999,
+    venue: 'Int. J. Robotics Research',
+    url: 'https://doi.org/10.1177/02783649922066213',
+    type: 'paper',
+  },
+  // apriltag-2011: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // ICRA 2011. "allowing full 6 DOF localization of features from a single image".
+  {
+    id: 'apriltag-2011',
+    title: 'AprilTag: A robust and flexible visual fiducial system',
+    authors: ['Edwin Olson'],
+    year: 2011,
+    venue: 'ICRA 2011',
+    url: 'https://doi.org/10.1109/ICRA.2011.5979561',
+    type: 'paper',
+  },
+  // opencv-hand-eye-docs-2026: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts; also drafts/classical/perception.citations.ts.
+  // calibrateHandEye: "A minimum of 2 motions with non parallel rotation axes are necessary ... So
+  // at least 3 different poses are required, but it is strongly recommended to use many more poses."
+  // docs.opencv.org returned 403 to the generic UA on 2026-10-04; the same text was matched in
+  // opencv/opencv 4.x modules/calib3d/include/opencv2/calib3d.hpp.
+  {
+    id: 'opencv-hand-eye-docs-2026',
+    title: 'Camera Calibration and 3D Reconstruction: calibrateHandEye',
+    authors: ['OpenCV'],
+    year: 2026,
+    venue: 'OpenCV 4.x Documentation, as of 2026-10-04',
+    url: 'https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html',
+    type: 'docs',
+  },
+  // moveit-hand-eye-tutorial-2026: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // "The calibration will improve significantly with a few more samples, and will typically plateau
+  // after about 12 or 15 samples." Matched 2026-10-04.
+  {
+    id: 'moveit-hand-eye-tutorial-2026',
+    title: 'Hand-Eye Calibration',
+    authors: ['MoveIt Maintainers'],
+    year: 2026,
+    venue: 'MoveIt Documentation, as of 2026-10-04',
+    url: 'https://moveit.picknik.ai/main/doc/examples/hand_eye_calibration/hand_eye_calibration_tutorial.html',
+    type: 'docs',
+  },
+  // dream-2019: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // arXiv 1911.09231 (ICRA 2020). Single-frame accuracy "comparable to that of classic off-line
+  // hand-eye calibration using multiple frames."
+  {
+    id: 'dream-2019',
+    title: 'Camera-to-Robot Pose Estimation from a Single Image',
+    authors: ['Timothy E. Lee', 'Jonathan Tremblay', 'Thang To', 'Jia Cheng', 'Terry Mosier', 'Oliver Kroemer', 'Dieter Fox', 'Stan Birchfield'],
+    year: 2019,
+    venue: 'ICRA 2020',
+    arxiv: '1911.09231',
+    url: 'https://arxiv.org/abs/1911.09231',
+    type: 'paper',
+  },
+  // easyhec-2023: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // arXiv 2305.01191; IEEE RA-L 8 (2023) 7234-7241.
+  {
+    id: 'easyhec-2023',
+    title: 'EasyHeC: Accurate and Automatic Hand-eye Calibration via Differentiable Rendering and Space Exploration',
+    authors: ['Linghao Chen', 'Yuzhe Qin', 'Xiaowei Zhou', 'Hao Su'],
+    year: 2023,
+    venue: 'IEEE Robotics and Automation Letters',
+    arxiv: '2305.01191',
+    url: 'https://arxiv.org/abs/2305.01191',
+    type: 'paper',
+  },
+  // kalib-2024: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // arXiv 2408.10562. Prerequisites: "the robot's kinematic chain and a predefined reference point
+  // on the robot."
+  {
+    id: 'kalib-2024',
+    title: 'Kalib: Easy Hand-Eye Calibration with Reference Point Tracking',
+    authors: ['Tutian Tang', 'Minghao Liu', 'Wenqiang Xu', 'Cewu Lu'],
+    year: 2024,
+    arxiv: '2408.10562',
+    url: 'https://arxiv.org/abs/2408.10562',
+    type: 'paper',
+  },
+  // hydra-hand-eye-2025: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // arXiv 2504.20584. "5 mm in task space" against "7 mm in task space".
+  {
+    id: 'hydra-hand-eye-2025',
+    title: 'Hydra: Marker-Free RGB-D Hand-Eye Calibration',
+    authors: ['Martin Huber', 'Huanyu Tian', 'Christopher E. Mower', 'Lucas-Raphael Müller', 'Sébastien Ourselin', 'Christos Bergeles', 'Tom Vercauteren'],
+    year: 2025,
+    arxiv: '2504.20584',
+    url: 'https://arxiv.org/abs/2504.20584',
+    type: 'paper',
+  },
+  // drhec-2026: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // arXiv 2609.36779; IEEE Trans. Instrumentation and Measurement 75 (2026), Art. 7505816. 88.9%
+  // grasping, +46.3 points over EasyHeC (authors' claim).
+  {
+    id: 'drhec-2026',
+    title: 'DRHeC: Differentiable Rendering for Hand-Eye Calibration with RGB-Based Gradients',
+    authors: ['Xiaotian Zhang', 'Yusheng Wang', 'Naoya Kagawa', 'Noritaka Takamura', 'Keiji Okuhara', 'Hiroyasu Baba', 'Jun Ota'],
+    year: 2026,
+    venue: 'IEEE Trans. Instrumentation and Measurement',
+    arxiv: '2609.36779',
+    url: 'https://arxiv.org/abs/2609.36779',
+    type: 'paper',
+  },
+  // humanoid-geometric-calibration-2025: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // arXiv 2507.16369. 31 optimal postures; RMS error reduced by a factor of 2.3 against the
+  // manufacturer's model.
+  {
+    id: 'humanoid-geometric-calibration-2025',
+    title: 'Humanoid Robot Whole-body Geometric Calibration with Embedded Sensors and a Single Plane',
+    authors: ['Thanh D V Nguyen', 'Vincent Bonnet', 'Pierre Fernbach', 'David Daney', 'Florent Lamiraux'],
+    year: 2025,
+    arxiv: '2507.16369',
+    url: 'https://arxiv.org/abs/2507.16369',
+    type: 'paper',
+  },
+  // omnicalib-2026: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // arXiv 2609.19582. Left-wrist correction 10.56 mm and 1.74 degrees relative to CAD; writes only
+  // supported corrections.
+  {
+    id: 'omnicalib-2026',
+    title: 'OmniCalib: Target-Free, Task-Structured Self-Calibration for Humanoid Robots',
+    authors: ['Kaixiang Lu', 'Haiyu Lan', 'Chunxiao Qiao', 'You Li', 'Enyu Li', 'Yehao Lu', 'Jiarui Yang', 'Peiwen Lin', 'Chuang Wang'],
+    year: 2026,
+    arxiv: '2609.19582',
+    url: 'https://arxiv.org/abs/2609.19582',
+    type: 'paper',
+  },
+  // ieee-1588-2019: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // IEEE SA standard page, matched 2026-10-04: "The protocol supports synchronization accuracy and
+  // precision in the sub-microsecond range". Board approval 2019-11-07; published 2020-06-16.
+  {
+    id: 'ieee-1588-2019',
+    title: 'IEEE 1588-2019: Standard for a Precision Clock Synchronization Protocol for Networked Measurement and Control Systems',
+    authors: ['IEEE Standards Association'],
+    year: 2019,
+    venue: 'IEEE Standard',
+    url: 'https://standards.ieee.org/ieee/1588/6825/',
+    type: 'docs',
+  },
+  // realtime-vla-v2-2026: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // arXiv 2603.26360. Delay table for the DOS W1 rig (RealSense D435, Airbot Play): t_camera 55 ms,
+  // t_proprio 50 ms, t_motion 150 ms.
+  {
+    id: 'realtime-vla-v2-2026',
+    title: 'Realtime-VLA V2: Learning to Run VLAs Fast, Smooth, and Accurate',
+    authors: ['Chen Yang', 'Yucheng Hu', 'Yunchao Ma', 'Yunhuan Yang', 'Jing Tan', 'Haoqiang Fan'],
+    year: 2026,
+    arxiv: '2603.26360',
+    url: 'https://arxiv.org/abs/2603.26360',
+    type: 'paper',
+  },
+  // atkeson-an-hollerbach-1986: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // IJRR 5(3), 1986. Identified parameters beat CAD-derived predictions.
+  {
+    id: 'atkeson-an-hollerbach-1986',
+    title: 'Estimation of Inertial Parameters of Manipulator Loads and Links',
+    authors: ['Christopher G. Atkeson', 'Chae H. An', 'John M. Hollerbach'],
+    year: 1986,
+    venue: 'Int. J. Robotics Research',
+    url: 'https://doi.org/10.1177/027836498600500306',
+    type: 'paper',
+  },
+  // swevers-excitation-1997: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // IEEE T-RA 13(5), 1997. Finite Fourier series excitation optimized for parameter uncertainty.
+  {
+    id: 'swevers-excitation-1997',
+    title: 'Optimal robot excitation and identification',
+    authors: ['J. Swevers', 'C. Ganseman', 'D. B. Tukel', 'J. de Schutter', 'H. Van Brussel'],
+    year: 1997,
+    venue: 'IEEE Trans. Robotics and Automation',
+    url: 'https://doi.org/10.1109/70.631234',
+    type: 'paper',
+  },
+  // gaz-panda-dynamics-2019: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // IEEE RA-L 4(4), 2019. First identification of the Panda's dynamic coefficients, friction model
+  // and feasible parameters.
+  {
+    id: 'gaz-panda-dynamics-2019',
+    title: 'Dynamic Identification of the Franka Emika Panda Robot With Retrieval of Feasible Parameters Using Penalty-Based Optimization',
+    authors: ['Claudio Gaz', 'Marco Cognetti', 'Alexander Oliva', 'Paolo Robuffo Giordano', 'Alessandro De Luca'],
+    year: 2019,
+    venue: 'IEEE Robotics and Automation Letters',
+    url: 'https://doi.org/10.1109/LRA.2019.2931248',
+    type: 'paper',
+  },
+  // spi-active-2025: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts; also drafts/rl-sim2real/sim2real-transfer.citations.ts.
+  // arXiv 2505.14266. "outperforming baselines by 42-63% in various locomotion tasks."
+  {
+    id: 'spi-active-2025',
+    title: 'Sampling-Based System Identification with Active Exploration for Legged Robot Sim2Real Learning',
+    authors: ['Nikhil Sobanbabu', 'Guanqi He', 'Tairan He', 'Yuxiang Yang', 'Guanya Shi'],
+    year: 2025,
+    arxiv: '2505.14266',
+    url: 'https://arxiv.org/abs/2505.14266',
+    type: 'paper',
+  },
+  // bjelonic-sim2real-2025: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // arXiv 2509.06342; IJRR 2026. Three primary platforms plus ten more robots, without randomization
+  // of dynamic parameters.
+  {
+    id: 'bjelonic-sim2real-2025',
+    title: 'Towards bridging the gap: Systematic sim-to-real transfer for diverse legged robots',
+    authors: ['Filip Bjelonic', 'Fabian Tischhauser', 'Marco Hutter'],
+    year: 2025,
+    venue: 'Int. J. Robotics Research',
+    arxiv: '2509.06342',
+    url: 'https://arxiv.org/abs/2509.06342',
+    type: 'paper',
+  },
+  // calib-all-2025: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // arXiv 2511.17001 ("CalibAll"). 16 datasets, 4 robot platforms, about 97K calibrated episodes.
+  {
+    id: 'calib-all-2025',
+    title: 'Unify Robot Actions in Camera Frame',
+    authors: ['Sicheng Xie', 'Lingchen Meng', 'Zijie Diao', 'Haidong Cao', 'Zhiying Du', 'Shuyuan Tu', 'Jiaqi Leng', 'Qiuyue Wang', 'Mingsheng Li', 'Shuai Bai', 'Zuxuan Wu', 'Yu-Gang Jiang'],
+    year: 2025,
+    arxiv: '2511.17001',
+    url: 'https://arxiv.org/abs/2511.17001',
+    type: 'paper',
+  },
+  // fbs-2020: domain pass 2026-10-06, from drafts/classical/control.citations.ts.
+  // Official free electronic edition, Version v3.1.5 (2020-07-24), linked from fbswiki.org; PDF text
+  // read 2026-10-04. Chapter epigraph: "Based on a survey of over eleven thousand controllers in the
+  // refining, chemicals and pulp and paper industries, 97% of regulatory controllers utilize a PID
+  // feedback control algorithm. L. Desborough and R. Miller, 2002"; "a controller with integral
+  // action has zero steady-state error"; "an effect known as "integrator windup" can occur and may
+  // result in poor performance unless appropriate "anti-windup" compensation is used".
+  {
+    id: 'fbs-2020',
+    title: 'Feedback Systems: An Introduction for Scientists and Engineers (Second Edition)',
+    authors: ['Karl Johan Åström', 'Richard M. Murray'],
+    year: 2020,
+    venue: 'Princeton University Press (electronic edition v3.1.5)',
+    url: 'https://fbswiki.org/wiki/index.php/Main_Page',
+    type: 'docs',
+  },
+  // berkeley-humanoid-2024: domain pass 2026-10-06, from drafts/classical/control.citations.ts.
+  // arXiv 2407.21781 v1 2024-07-31. HTML body: "The RL policy executes at 50 Hz, the state estimator
+  // at 1 kHz, and the PD controller at 25 kHz."
+  {
+    id: 'berkeley-humanoid-2024',
+    title: 'Berkeley Humanoid: A Research Platform for Learning-based Control',
+    authors: ['Qiayuan Liao', 'Bike Zhang', 'Xuanyu Huang', 'Xiaoyu Huang', 'Zhongyu Li', 'Koushil Sreenath'],
+    year: 2024,
+    venue: 'arXiv preprint',
+    arxiv: '2407.21781',
+    url: 'https://arxiv.org/abs/2407.21781',
+    type: 'paper',
+  },
+  // koenemann-2015: domain pass 2026-10-06, from drafts/classical/control.citations.ts.
+  // Crossref 10.1109/IROS.2015.7353843 (IROS 2015); byline printed with initials. Pack quote: "It is
+  // the first time that such a whole-body model predictive controller is applied in real-time on a
+  // complex dynamic robot."
+  {
+    id: 'koenemann-2015',
+    title: 'Whole-body model-predictive control applied to the HRP-2 humanoid',
+    authors: ['J. Koenemann', 'A. Del Prete', 'Y. Tassa', 'E. Todorov', 'O. Stasse', 'M. Bennewitz', 'N. Mansard'],
+    year: 2015,
+    venue: 'IROS 2015',
+    url: 'https://doi.org/10.1109/IROS.2015.7353843',
+    type: 'paper',
+  },
+  // neunert-2018: domain pass 2026-10-06, from drafts/classical/control.citations.ts.
+  // Crossref 10.1109/LRA.2018.2800124 (IEEE RA-L 2018). Pack quote: "allows for running the
+  // nonlinear Optimal Control solver at rates up to 190 Hz on a quadruped for a time horizon of half
+  // a second."
+  {
+    id: 'neunert-2018',
+    title: 'Whole-Body Nonlinear Model Predictive Control Through Contacts for Quadrupeds',
+    authors: ['Michael Neunert', 'Markus Stauble', 'Markus Giftthaler', 'Carmine D. Bellicoso', 'Jan Carius', 'Christian Gehring', 'Marco Hutter', 'Jonas Buchli'],
+    year: 2018,
+    venue: 'IEEE Robotics and Automation Letters',
+    url: 'https://doi.org/10.1109/LRA.2018.2800124',
+    type: 'paper',
+  },
+  // dial-mpc-2024: domain pass 2026-10-06, from drafts/classical/control.citations.ts; also drafts/rl-sim2real/reward-design-mpc.citations.ts.
+  // arXiv 2409.15610 v1 2024-09-23 (submitted to ICRA 2025). "outperforms reinforcement learning
+  // (RL) policies by $50\%$ in challenging climbing tasks without any training"; "To the best of our
+  // knowledge, DIAL-MPC is the first training-free method that optimizes over full-order quadruped
+  // dynamics in real-time."
+  {
+    id: 'dial-mpc-2024',
+    title: 'Full-Order Sampling-Based MPC for Torque-Level Locomotion Control via Diffusion-Style Annealing',
+    authors: ['Haoru Xue', 'Chaoyi Pan', 'Zeji Yi', 'Guannan Qu', 'Guanya Shi'],
+    year: 2024,
+    venue: 'arXiv preprint (ICRA 2025)',
+    arxiv: '2409.15610',
+    url: 'https://arxiv.org/abs/2409.15610',
+    type: 'paper',
+  },
+  // escande-2014: domain pass 2026-10-06, from drafts/classical/control.citations.ts.
+  // Crossref 10.1177/0278364914521306 (IJRR 2014). Pack quote: "can consider inequalities at any
+  // level while running at the typical control frequency on whole-body size problems."
+  {
+    id: 'escande-2014',
+    title: 'Hierarchical quadratic programming: Fast online humanoid-robot motion generation',
+    authors: ['Adrien Escande', 'Nicolas Mansard', 'Pierre-Brice Wieber'],
+    year: 2014,
+    venue: 'Int. J. Robotics Research',
+    url: 'https://doi.org/10.1177/0278364914521306',
+    type: 'paper',
+  },
+  // kuindersma-2015: domain pass 2026-10-06, from drafts/classical/control.citations.ts.
+  // Crossref 10.1007/s10514-015-9479-3 (Autonomous Robots, 2015). Pack quote: "we describe several
+  // novel applications of convex, mixed-integer, and sparse nonlinear optimization to problems
+  // ranging from footstep placement to whole-body planning and control."
+  {
+    id: 'kuindersma-2015',
+    title: 'Optimization-based locomotion planning, estimation, and control design for the atlas humanoid robot',
+    authors: ['Scott Kuindersma', 'Robin Deits', 'Maurice Fallon', 'Andrés Valenzuela', 'Hongkai Dai', 'Frank Permenter', 'Twan Koolen', 'Pat Marion', 'Russ Tedrake'],
+    year: 2015,
+    venue: 'Autonomous Robots',
+    url: 'https://doi.org/10.1007/s10514-015-9479-3',
+    type: 'paper',
+  },
+  // geiger-impedance-2025: domain pass 2026-10-06, from drafts/classical/control.citations.ts.
+  // arXiv 2509.19696 v1 2025-09-24. "adapt impedance online through directional stiffness and
+  // damping modulation"; "Deployed in real-time torque control on a KUKA LBR iiwa, the approach
+  // enables smooth obstacle traversal and generalizes to unseen tasks, achieving 100% success in
+  // multi-geometry peg-in-hole insertion."
+  {
+    id: 'geiger-impedance-2025',
+    title: 'Diffusion-Based Impedance Learning for Contact-Rich Manipulation Tasks',
+    authors: ['Noah Geiger', 'Tamim Asfour', 'Neville Hogan', 'Johannes Lachner'],
+    year: 2025,
+    venue: 'arXiv preprint',
+    arxiv: '2509.19696',
+    url: 'https://arxiv.org/abs/2509.19696',
+    type: 'paper',
+  },
+  // hartmann-iso-2026: domain pass 2026-10-06, from drafts/classical/control.citations.ts.
+  // Crossref 10.1016/j.rineng.2026.110486 (Results in Engineering, 2026). Pack quote: "the full
+  // normative assimilation of the technical specification ISO/TS 15066". The Elsevier page returned
+  // 403 and Crossref carries no abstract on 2026-10-04; relies on the pack researcher's read.
+  {
+    id: 'hartmann-iso-2026',
+    title: 'Evolution of safety requirements in industrial robotics: Comparative analysis of ISO 10218-1/2 (2011 vs. 2025) and integration of ISO/TS 15066',
+    authors: ['Daniel Hartmann', 'Kristýna Hamříková', 'Aleš Vysocký', 'Vendula Laciok', 'Aleš Bernatík'],
+    year: 2026,
+    venue: 'Results in Engineering',
+    url: 'https://doi.org/10.1016/j.rineng.2026.110486',
+    type: 'paper',
+  },
+  // safety-filter-2023: domain pass 2026-10-06, from drafts/classical/control.citations.ts.
+  // arXiv 2309.05837 v1 2023-09-11 (Annual Review of Control, Robotics, and Autonomous Systems).
+  // "emerging data-driven approaches tend to lack well-understood guarantees, which can result in
+  // unpredictable catastrophic failures"; "This article provides a review of safety filter
+  // approaches".
+  {
+    id: 'safety-filter-2023',
+    title: 'The Safety Filter: A Unified View of Safety-Critical Control in Autonomous Systems',
+    authors: ['Kai-Chieh Hsu', 'Haimin Hu', 'Jaime Fernández Fisac'],
+    year: 2023,
+    venue: 'Annual Review of Control, Robotics, and Autonomous Systems',
+    arxiv: '2309.05837',
+    url: 'https://arxiv.org/abs/2309.05837',
+    type: 'paper',
+  },
+  // ishihara-2024: domain pass 2026-10-06, from drafts/classical/control.citations.ts.
+  // arXiv 2409.08488 v1 2024-09-13. "The simulation-to-real gap problem and the high computational
+  // burden of whole-body Model Predictive Control (whole-body MPC) continue to present challenges";
+  // "an augmented model using a deep residual network is trained by model-based reinforcement
+  // learning".
+  {
+    id: 'ishihara-2024',
+    title: 'Hierarchical Learning Framework for Whole-Body Model Predictive Control of a Real Humanoid Robot',
+    authors: ['Koji Ishihara', 'Hiroaki Gomi', 'Jun Morimoto'],
+    year: 2024,
+    venue: 'arXiv preprint',
+    arxiv: '2409.08488',
+    url: 'https://arxiv.org/abs/2409.08488',
+    type: 'paper',
+  },
+  // dierking-2026: domain pass 2026-10-06, from drafts/classical/control.citations.ts; also drafts/rl-sim2real/reward-design-mpc.citations.ts.
+  // arXiv 2606.20712 v1 2026-06-16 (ICRA 2026 workshop). "deploy it on a Franka Research 3"; "global
+  // physics parameters provide feedback that is too weak for reliable exploitation at typical
+  // replanning frequencies".
+  {
+    id: 'dierking-2026',
+    title: 'Real-World Deployment of Massively Parallel Sampling-Based MPC for Contact-Rich Manipulation',
+    authors: ['Magnus Dierking', 'Joao Carvalho', 'An Thai Le', 'Georgia Chalvatzaki', 'Jan Peters'],
+    year: 2026,
+    venue: 'ICRA 2026 Workshop on Frontiers of Optimization for Robotics',
+    arxiv: '2606.20712',
+    url: 'https://arxiv.org/abs/2606.20712',
+    type: 'paper',
+  },
+  // salisbury-roth-1983: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // ASME J. Mechanisms, Transmissions, and Automation in Design 105(1), 1983. Crossref byline: J. K.
+  // Salisbury, B. Roth.
+  {
+    id: 'salisbury-roth-1983',
+    title: 'Kinematic and Force Analysis of Articulated Mechanical Hands',
+    authors: ['J. K. Salisbury', 'B. Roth'],
+    year: 1983,
+    venue: 'ASME J. Mechanisms, Transmissions, and Automation in Design',
+    url: 'https://doi.org/10.1115/1.3267342',
+    type: 'paper',
+  },
+  // han-trinkle-li-2000: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // IEEE T-RA 16(6), 2000. Friction cones cast as LMIs; force-closure and force-optimization
+  // problems as convex programs.
+  {
+    id: 'han-trinkle-li-2000',
+    title: 'Grasp analysis as linear matrix inequality problems',
+    authors: ['Li Han', 'J. C. Trinkle', 'Z. X. Li'],
+    year: 2000,
+    venue: 'IEEE Trans. Robotics and Automation',
+    url: 'https://doi.org/10.1109/70.897778',
+    type: 'paper',
+  },
+  // kao-lynch-burdick-2016: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // Springer Handbook of Robotics, 2nd ed. (2016), chapter 37. Friction limit surface constructed
+  // for a soft contact.
+  {
+    id: 'kao-lynch-burdick-2016',
+    title: 'Contact Modeling and Manipulation',
+    authors: ['Imin Kao', 'Kevin M. Lynch', 'Joel W. Burdick'],
+    year: 2016,
+    venue: 'Springer Handbook of Robotics (2nd ed.)',
+    url: 'https://doi.org/10.1007/978-3-319-32552-1_37',
+    type: 'paper',
+  },
+  // dexonomy-2025: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // arXiv 2504.18829 (RSS 2025). 10.7k objects, 9.5M grasps, 31 GRASP types.
+  {
+    id: 'dexonomy-2025',
+    title: 'Dexonomy: Synthesizing All Dexterous Grasp Types in a Grasp Taxonomy',
+    authors: ['Jiayi Chen', 'Yubin Ke', 'Lin Peng', 'He Wang'],
+    year: 2025,
+    venue: 'RSS 2025',
+    arxiv: '2504.18829',
+    url: 'https://arxiv.org/abs/2504.18829',
+    type: 'paper',
+  },
+  // graspqp-2025: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // arXiv 2508.15002. Simplified force-closure analysis "tend[s] to converge to power grasps".
+  {
+    id: 'graspqp-2025',
+    title: 'GraspQP: Differentiable Optimization of Force Closure for Diverse and Robust Dexterous Grasping',
+    authors: ['René Zurbrügg', 'Andrei Cramariuc', 'Marco Hutter'],
+    year: 2025,
+    arxiv: '2508.15002',
+    url: 'https://arxiv.org/abs/2508.15002',
+    type: 'paper',
+  },
+  // liu-closure-lp-1999: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // IEEE T-RA 15(1), 1999. Origin-in-hull query as ray shooting, dual to an LP. Crossref byline:
+  // Yun-Hui Liu.
+  {
+    id: 'liu-closure-lp-1999',
+    title: 'Qualitative test and force optimization of 3-D frictional form-closure grasps using linear programming',
+    authors: ['Yun-Hui Liu'],
+    year: 1999,
+    venue: 'IEEE Trans. Robotics and Automation',
+    url: 'https://doi.org/10.1109/70.744611',
+    type: 'paper',
+  },
+  // task-wrench-boundary-2023: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // arXiv 2309.13586. Task Wrench Space versus Grasp Wrench Space objective.
+  {
+    id: 'task-wrench-boundary-2023',
+    title: 'Task-Oriented Dexterous Hand Pose Synthesis Using Differentiable Grasp Wrench Boundary Estimator',
+    authors: ['Jiayi Chen', 'Yuxing Chen', 'Jialiang Zhang', 'He Wang'],
+    year: 2023,
+    arxiv: '2309.13586',
+    url: 'https://arxiv.org/abs/2309.13586',
+    type: 'paper',
+  },
+  // zheng-qian-2005: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // IJRR 24(4), 2005. "Friction uncertainty and contact position uncertainty may have a disastrous
+  // effect on the closure properties of grasps."
+  {
+    id: 'zheng-qian-2005',
+    title: 'Coping with the Grasping Uncertainties in Force-closure Analysis',
+    authors: ['Yu Zheng', 'Wen-Han Qian'],
+    year: 2005,
+    venue: 'Int. J. Robotics Research',
+    url: 'https://doi.org/10.1177/0278364905049469',
+    type: 'paper',
+  },
+  // differentiable-force-closure-2021: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // arXiv 2104.09194 (RA-L). Tests force closure "within milliseconds".
+  {
+    id: 'differentiable-force-closure-2021',
+    title: 'Synthesizing Diverse and Physically Stable Grasps with Arbitrary Hand Structures using Differentiable Force Closure Estimator',
+    authors: ['Tengyu Liu', 'Zeyu Liu', 'Ziyuan Jiao', 'Yixin Zhu', 'Song-Chun Zhu'],
+    year: 2021,
+    venue: 'IEEE Robotics and Automation Letters',
+    arxiv: '2104.09194',
+    url: 'https://arxiv.org/abs/2104.09194',
+    type: 'paper',
+  },
+  // kirkpatrick-mishra-yap-1992: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // Discrete & Computational Geometry 7, 1992 (STOC 1990 conference version:
+  // https://doi.org/10.1145/100216.100261). Quantitative Steinitz theorem as a notion of efficiency
+  // for closure grasps.
+  {
+    id: 'kirkpatrick-mishra-yap-1992',
+    title: 'Quantitative Steinitz\'s theorems with applications to multifingered grasping',
+    authors: ['David Kirkpatrick', 'Bhubaneswar Mishra', 'Chee-Keng Yap'],
+    year: 1992,
+    venue: 'Discrete & Computational Geometry',
+    url: 'https://doi.org/10.1007/BF02187843',
+    type: 'paper',
+  },
+  // pokorny-kragic-2013: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // IROS 2013. l-edge polyhedral cone approximation; Lipschitz continuity of the quality measure.
+  {
+    id: 'pokorny-kragic-2013',
+    title: 'Classical grasp quality evaluation: New algorithms and theory',
+    authors: ['Florian T. Pokorny', 'Danica Kragic'],
+    year: 2013,
+    venue: 'IROS 2013',
+    url: 'https://doi.org/10.1109/IROS.2013.6696854',
+    type: 'paper',
+  },
+  // firmgrasp-2026: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // arXiv 2607.25049. "53% of the nominally force-closed grasps lose closure in the adverse friction
+  // tail" / ranking probability "only 0.53 in the shake test".
+  {
+    id: 'firmgrasp-2026',
+    title: 'FIRMGrasp: A Friction-Informed Risk Margin for Robust Grasp Synthesis',
+    authors: ['Clinton Enwerem', 'John S. Baras', 'Calin Belta'],
+    year: 2026,
+    arxiv: '2607.25049',
+    url: 'https://arxiv.org/abs/2607.25049',
+    type: 'paper',
+  },
+  // weisz-allen-2012: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // ICRA 2012. The most pose-error-robust grasp is usually not the highest- epsilon grasp.
+  {
+    id: 'weisz-allen-2012',
+    title: 'Pose error robust grasping from contact wrench space metrics',
+    authors: ['Jonathan Weisz', 'Peter K. Allen'],
+    year: 2012,
+    venue: 'ICRA 2012',
+    url: 'https://doi.org/10.1109/ICRA.2012.6224697',
+    type: 'paper',
+  },
+  // rubert-grasp-metrics-2017: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // IROS 2017. Good prediction "critically depends on using a combination of metrics as input
+  // features."
+  {
+    id: 'rubert-grasp-metrics-2017',
+    title: 'On the relevance of grasp metrics for predicting grasp success',
+    authors: ['Carlos Rubert', 'Daniel Kappler', 'Antonio Morales', 'Stefan Schaal', 'Jeannette Bohg'],
+    year: 2017,
+    venue: 'IROS 2017',
+    url: 'https://doi.org/10.1109/IROS.2017.8202167',
+    type: 'paper',
+  },
+  // li-sastry-1988: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // IEEE J. Robotics and Automation 4(1), 1988. Crossref byline: Z. Li, S.S. Sastry. Tasks modeled
+  // as ellipsoids in wrench space.
+  {
+    id: 'li-sastry-1988',
+    title: 'Task-oriented optimal grasping by multifingered robot hands',
+    authors: ['Z. Li', 'S. S. Sastry'],
+    year: 1988,
+    venue: 'IEEE J. Robotics and Automation',
+    url: 'https://doi.org/10.1109/56.769',
+    type: 'paper',
+  },
+  // borst-task-wrench-2004: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // ICRA 2004. Drawbacks "derive from the non-uniformity of the wrench space, composed of force and
+  // torque dimensions."
+  {
+    id: 'borst-task-wrench-2004',
+    title: 'Grasp planning: how to choose a suitable task wrench space',
+    authors: ['Ch. Borst', 'M. Fischer', 'G. Hirzinger'],
+    year: 2004,
+    venue: 'ICRA 2004',
+    url: 'https://doi.org/10.1109/ROBOT.2004.1307170',
+    type: 'paper',
+  },
+  // frogger-2023: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // arXiv 2302.13687 (IROS 2023). Min-weight metric; "median synthesis time of 0.834s".
+  {
+    id: 'frogger-2023',
+    title: 'FRoGGeR: Fast Robust Grasp Generation via the Min-Weight Metric',
+    authors: ['Albert H. Li', 'Preston Culbertson', 'Joel W. Burdick', 'Aaron D. Ames'],
+    year: 2023,
+    venue: 'IROS 2023',
+    arxiv: '2302.13687',
+    url: 'https://arxiv.org/abs/2302.13687',
+    type: 'paper',
+  },
+  // dexnet-4-2019: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts; also drafts/data-hardware/industrial-deployment.citations.ts.
+  // Science Robotics 4(26), 2019 (Dex-Net 4.0). Bins of up to 25 novel objects, >95% reliability,
+  // >300 mean picks per hour.
+  {
+    id: 'dexnet-4-2019',
+    title: 'Learning ambidextrous robot grasping policies',
+    authors: ['Jeffrey Mahler', 'Matthew Matl', 'Vishal Satish', 'Michael Danielczuk', 'Bill DeRose', 'Stephen McKinley', 'Ken Goldberg'],
+    year: 2019,
+    venue: 'Science Robotics',
+    url: 'https://doi.org/10.1126/scirobotics.aau4984',
+    type: 'paper',
+  },
+  // graspnet-1billion-2020: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // CVPR 2020. 97,280 RGB-D images, over one billion grasp poses, analytic evaluation.
+  {
+    id: 'graspnet-1billion-2020',
+    title: 'GraspNet-1Billion: A Large-Scale Benchmark for General Object Grasping',
+    authors: ['Hao-Shu Fang', 'Chenxi Wang', 'Minghao Gou', 'Cewu Lu'],
+    year: 2020,
+    venue: 'CVPR 2020',
+    url: 'https://doi.org/10.1109/CVPR42600.2020.01146',
+    type: 'paper',
+  },
+  // dexgraspnet-2-2024: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // arXiv 2410.23004 (CoRL 2024). 427 million grasps; 90.7% real-world dexterous grasping in
+  // cluttered scenes.
+  {
+    id: 'dexgraspnet-2-2024',
+    title: 'DexGraspNet 2.0: Learning Generative Dexterous Grasping in Large-scale Synthetic Cluttered Scenes',
+    authors: ['Jialiang Zhang', 'Haoran Liu', 'Danshi Li', 'Xinqiang Yu', 'Haoran Geng', 'Yufei Ding', 'Jiayi Chen', 'He Wang'],
+    year: 2024,
+    venue: 'CoRL 2024',
+    arxiv: '2410.23004',
+    url: 'https://arxiv.org/abs/2410.23004',
+    type: 'paper',
+  },
+  // graspgen-2025: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // arXiv 2507.13097 (NVIDIA). Over 53 million grasps; labels by simulated shaking in Isaac.
+  {
+    id: 'graspgen-2025',
+    title: 'GraspGen: A Diffusion-based Framework for 6-DOF Grasping with On-Generator Training',
+    authors: ['Adithyavairavan Murali', 'Balakumar Sundaralingam', 'Yu-Wei Chao', 'Wentao Yuan', 'Jun Yamada', 'Mark Carlson', 'Fabio Ramos', 'Stan Birchfield', 'Dieter Fox', 'Clemens Eppner'],
+    year: 2025,
+    arxiv: '2507.13097',
+    url: 'https://arxiv.org/abs/2507.13097',
+    type: 'paper',
+  },
+  // bodex-2024: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // arXiv 2412.16490 (ICRA 2025). 8-vertex pyramidal cones; over 49 grasps per second on a single
+  // 3090 GPU.
+  {
+    id: 'bodex-2024',
+    title: 'BODex: Scalable and Efficient Robotic Dexterous Grasp Synthesis Using Bilevel Optimization',
+    authors: ['Jiayi Chen', 'Yubin Ke', 'He Wang'],
+    year: 2024,
+    venue: 'ICRA 2025',
+    arxiv: '2412.16490',
+    url: 'https://arxiv.org/abs/2412.16490',
+    type: 'paper',
+  },
+  // dexevolve-2026: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // arXiv 2602.15201. Analytic synthesis "often yield[s] physically infeasible grasps that need to
+  // be filtered in high-fidelity simulators".
+  {
+    id: 'dexevolve-2026',
+    title: 'DexEvolve: Evolutionary Optimization for Robust and Diverse Dexterous Grasp Synthesis',
+    authors: ['René Zurbrügg', 'Andrei Cramariuc', 'Marco Hutter'],
+    year: 2026,
+    arxiv: '2602.15201',
+    url: 'https://arxiv.org/abs/2602.15201',
+    type: 'paper',
+  },
+  // grasp-distance-fields-2026: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // arXiv 2608.00600. Median 94% of synthesized quality margin retained; 0.09 ms per QP solve within
+  // a 20 ms control interval.
+  {
+    id: 'grasp-distance-fields-2026',
+    title: 'Grasp Execution Without a Planner: Configuration-Space Grasp Distance Fields with Certified Safety & Guaranteed Quality',
+    authors: ['Clinton Enwerem', 'John S. Baras', 'Calin Belta'],
+    year: 2026,
+    arxiv: '2608.00600',
+    url: 'https://arxiv.org/abs/2608.00600',
+    type: 'paper',
+  },
+  // get-a-grip-2024: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // arXiv 2410.23701. 3.5M grasps on 4.3K objects; most methods degrade when deployed on hardware.
+  {
+    id: 'get-a-grip-2024',
+    title: 'Get a Grip: Multi-Finger Grasp Evaluation at Scale Enables Robust Sim-to-Real Transfer',
+    authors: ['Tyler Ga Wei Lum', 'Albert H. Li', 'Preston Culbertson', 'Krishnan Srinivasan', 'Aaron D. Ames', 'Mac Schwager', 'Jeannette Bohg'],
+    year: 2024,
+    arxiv: '2410.23701',
+    url: 'https://arxiv.org/abs/2410.23701',
+    type: 'paper',
+  },
+  // robustdexgrasp-2025: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // arXiv 2504.05287 (CoRL 2025). "Trained in simulation ... 94.6% across 512 real objects".
+  {
+    id: 'robustdexgrasp-2025',
+    title: 'RobustDexGrasp: Robust Dexterous Grasping of General Objects',
+    authors: ['Hui Zhang', 'Zijian Wu', 'Linyi Huang', 'Sammy Christen', 'Jie Song'],
+    year: 2025,
+    venue: 'CoRL 2025',
+    arxiv: '2504.05287',
+    url: 'https://arxiv.org/abs/2504.05287',
+    type: 'paper',
+  },
+  // graspvla-2025: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // arXiv 2505.03233. SynGrasp-1B, a billion-frame synthetic grasping dataset.
+  {
+    id: 'graspvla-2025',
+    title: 'GraspVLA: a Grasping Foundation Model Pre-trained on Billion-scale Synthetic Action Data',
+    authors: ['Shengliang Deng', 'Mi Yan', 'Songlin Wei', 'Haixin Ma', 'Yuxin Yang', 'Jiayi Chen', 'Zhiqi Zhang', 'Taoyu Yang', 'Xuheng Zhang', 'Wenhao Zhang', 'Heming Cui', 'Zhizheng Zhang', 'He Wang'],
+    year: 2025,
+    arxiv: '2505.03233',
+    url: 'https://arxiv.org/abs/2505.03233',
+    type: 'paper',
+  },
+  // dexgraspvla-2025: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // arXiv 2502.20900. "90+% dexterous grasping success rate under thousands of challenging unseen
+  // cluttered scenes."
+  {
+    id: 'dexgraspvla-2025',
+    title: 'DexGraspVLA: A Vision-Language-Action Framework Towards General Dexterous Grasping',
+    authors: ['Yifan Zhong', 'Xuchuan Huang', 'Ruochong Li', 'Ceyao Zhang', 'Zhang Chen', 'Tianrui Guan', 'Fanlian Zeng', 'Ka Num Lui', 'Yuyao Ye', 'Yitao Liang', 'Yaodong Yang', 'Yuanpei Chen'],
+    year: 2025,
+    arxiv: '2502.20900',
+    url: 'https://arxiv.org/abs/2502.20900',
+    type: 'paper',
+  },
+  // touch-dexterous-grasping-2026: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // arXiv 2609.24068. Vision plus wrench and taxel feedback: 24/25 against 14/25 for vision only.
+  {
+    id: 'touch-dexterous-grasping-2026',
+    title: 'When Does Touch Matter? Charting the Vision-Interaction Gap in Cluttered Dexterous Grasping',
+    authors: ['Hao Jiang', 'Luis Dominguez', 'Daniel Seita'],
+    year: 2026,
+    arxiv: '2609.24068',
+    url: 'https://arxiv.org/abs/2609.24068',
+    type: 'paper',
+  },
+  // corke-dh-2007: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts.
+  // Crossref byline prints "P.I. Corke". Standard and modified DH from one string of elementary
+  // transforms.
+  {
+    id: 'corke-dh-2007',
+    title: 'A Simple and Systematic Approach to Assigning Denavit–Hartenberg Parameters',
+    authors: ['P. I. Corke'],
+    year: 2007,
+    venue: 'IEEE Trans. Robotics',
+    url: 'https://doi.org/10.1109/TRO.2007.896765',
+    type: 'paper',
+  },
+  // okamura-park-1996: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts.
+  // Robotica 14(4), 1996. POE parameters vary smoothly with the joint axes, unlike DH parameters.
+  {
+    id: 'okamura-park-1996',
+    title: 'Kinematic calibration using the product of exponentials formula',
+    authors: ['Koichiro Okamura', 'F. C. Park'],
+    year: 1996,
+    venue: 'Robotica',
+    url: 'https://doi.org/10.1017/S0263574700019810',
+    type: 'paper',
+  },
+  // brockett-1984: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts.
+  // Mathematical Theory of Networks and Systems, Springer LNCIS vol. 58 (1984). Crossref carries no
+  // issued year for the chapter; 1984 is the volume's publication year.
+  {
+    id: 'brockett-1984',
+    title: 'Robotic manipulators and the product of exponentials formula',
+    authors: ['R. W. Brockett'],
+    year: 1984,
+    venue: 'Mathematical Theory of Networks and Systems (LNCIS 58)',
+    url: 'https://doi.org/10.1007/BFb0031048',
+    type: 'paper',
+  },
+  // urdf-dataset-2023: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts; also drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // arXiv 2308.00514 (IEEE RA-L 2024): 322 URDF files, 195 unique robots.
+  {
+    id: 'urdf-dataset-2023',
+    title: 'Understanding URDF: A Dataset and Analysis',
+    authors: ['Daniella Tola', 'Peter Corke'],
+    year: 2023,
+    arxiv: '2308.00514',
+    url: 'https://arxiv.org/abs/2308.00514',
+    type: 'paper',
+  },
+  // yoshikawa-1985: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts.
+  // IJRR 4(2), 1985. Proposes the manipulability measure.
+  {
+    id: 'yoshikawa-1985',
+    title: 'Manipulability of Robotic Mechanisms',
+    authors: ['Tsuneo Yoshikawa'],
+    year: 1985,
+    venue: 'Int. J. Robotics Research',
+    url: 'https://doi.org/10.1177/027836498500400201',
+    type: 'paper',
+  },
+  // siciliano-slotine-1991: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts.
+  // ICAR '91. Task-priority framework for highly redundant systems.
+  {
+    id: 'siciliano-slotine-1991',
+    title: 'A general framework for managing multiple tasks in highly redundant robotic systems',
+    authors: ['B. Siciliano', 'J.-J. E. Slotine'],
+    year: 1991,
+    venue: 'Fifth International Conference on Advanced Robotics (ICAR \'91)',
+    url: 'https://doi.org/10.1109/ICAR.1991.240390',
+    type: 'paper',
+  },
+  // nakamura-hanafusa-1986: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts.
+  // ASME JDSMC 108(3), 1986. Introduces the singularity-robust inverse.
+  {
+    id: 'nakamura-hanafusa-1986',
+    title: 'Inverse Kinematic Solutions With Singularity Robustness for Robot Manipulator Control',
+    authors: ['Yoshihiko Nakamura', 'Hideo Hanafusa'],
+    year: 1986,
+    venue: 'ASME J. Dynamic Systems, Measurement, and Control',
+    url: 'https://doi.org/10.1115/1.3143764',
+    type: 'paper',
+  },
+  // raghavan-roth-1993: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts.
+  // ASME J. Mechanical Design 115(3), 1993. Crossref byline: M. Raghavan, B. Roth. General 6R IK as
+  // one minimum-degree polynomial.
+  {
+    id: 'raghavan-roth-1993',
+    title: 'Inverse Kinematics of the General 6R Manipulator and Related Linkages',
+    authors: ['M. Raghavan', 'B. Roth'],
+    year: 1993,
+    venue: 'ASME J. Mechanical Design',
+    url: 'https://doi.org/10.1115/1.2919218',
+    type: 'paper',
+  },
+  // manocha-canny-1994: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts.
+  // IEEE T-RA 10(5), 1994. "The average running time of the algorithm, for most cases, is 11
+  // milliseconds on an IBM RS/6000 workstation."
+  {
+    id: 'manocha-canny-1994',
+    title: 'Efficient inverse kinematics for general 6R manipulators',
+    authors: ['D. Manocha', 'J. F. Canny'],
+    year: 1994,
+    venue: 'IEEE Trans. Robotics and Automation',
+    url: 'https://doi.org/10.1109/70.326569',
+    type: 'paper',
+  },
+  // ikfast-diankov-2010: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts.
+  // PhD thesis, CMU-RI-TR-10-29, August 2010 (IKFast). "on the order of 6 microseconds" against "on
+  // the order of 10 milliseconds".
+  {
+    id: 'ikfast-diankov-2010',
+    title: 'Automated Construction of Robotic Manipulation Programs',
+    authors: ['Rosen Diankov'],
+    year: 2010,
+    venue: 'PhD thesis, Carnegie Mellon University Robotics Institute (CMU-RI-TR-10-29)',
+    url: 'https://www.ri.cmu.edu/publications/automated-construction-of-robotic-manipulation-programs/',
+    type: 'paper',
+  },
+  // trac-ik-2015: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts.
+  // IEEE-RAS Humanoids 2015. KDL false negatives; TRAC-IK alternative.
+  {
+    id: 'trac-ik-2015',
+    title: 'TRAC-IK: An open-source library for improved solving of generic inverse kinematics',
+    authors: ['Patrick Beeson', 'Barrett Ames'],
+    year: 2015,
+    venue: 'IEEE-RAS Humanoids 2015',
+    url: 'https://doi.org/10.1109/HUMANOIDS.2015.7363472',
+    type: 'paper',
+  },
+  // curobo-2023: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts; also drafts/classical/motion-planning.citations.ts.
+  // arXiv 2310.17274 v1 2023-10-26. "a collision-free IK solver that can solve over 7000 queries/s".
+  {
+    id: 'curobo-2023',
+    title: 'cuRobo: Parallelized Collision-Free Minimum-Jerk Robot Motion Generation',
+    authors: ['Balakumar Sundaralingam', 'Siva Kumar Sastry Hari', 'Adam Fishman', 'Caelan Garrett', 'Karl Van Wyk', 'Valts Blukis', 'Alexander Millane', 'Helen Oleynikova', 'Ankur Handa', 'Fabio Ramos', 'Nathan Ratliff', 'Dieter Fox'],
+    year: 2023,
+    arxiv: '2310.17274',
+    url: 'https://arxiv.org/abs/2310.17274',
+    type: 'paper',
+  },
+  // pyroki-2025: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts.
+  // arXiv 2505.03728. "PyRoki can be 1.4-1.7x faster and converges to lower errors than cuRobo".
+  {
+    id: 'pyroki-2025',
+    title: 'PyRoki: A Modular Toolkit for Robot Kinematic Optimization',
+    authors: ['Chung Min Kim', 'Brent Yi', 'Hongsuk Choi', 'Yi Ma', 'Ken Goldberg', 'Angjoo Kanazawa'],
+    year: 2025,
+    arxiv: '2505.03728',
+    url: 'https://arxiv.org/abs/2505.03728',
+    type: 'paper',
+  },
+  // ikflow-2021: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts.
+  // arXiv 2111.08933 (IEEE RA-L 2022). "2000 solutions in under 10ms", "within 10 millimeters and 2
+  // degrees of an exact solution".
+  {
+    id: 'ikflow-2021',
+    title: 'IKFlow: Generating Diverse Inverse Kinematics Solutions',
+    authors: ['Barrett Ames', 'Jeremy Morgan', 'George Konidaris'],
+    year: 2021,
+    arxiv: '2111.08933',
+    url: 'https://arxiv.org/abs/2111.08933',
+    type: 'paper',
+  },
+  // rl-action-spaces-2026: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts.
+  // arXiv 2606.18594. Joint velocity best for vision-based picking and pushing among four action
+  // spaces.
+  {
+    id: 'rl-action-spaces-2026',
+    title: 'Benchmarking Action Spaces in Reinforcement Learning for Vision-based Robotic Manipulation',
+    authors: ['Seyed Alireza Azimi', 'Homayoon Farrahi', 'Abhishek Naik', 'Colin Bellinger', 'A. Rupam Mahmood'],
+    year: 2026,
+    arxiv: '2606.18594',
+    url: 'https://arxiv.org/abs/2606.18594',
+    type: 'paper',
+  },
+  // latent-action-diffusion-2025: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts.
+  // arXiv 2506.14608 (ICRA 2026). "up to 25.3% improved manipulation success rates".
+  {
+    id: 'latent-action-diffusion-2025',
+    title: 'Latent Action Diffusion for Cross-Embodiment Manipulation',
+    authors: ['Erik Bauer', 'Elvis Nava', 'Robert K. Katzschmann'],
+    year: 2025,
+    arxiv: '2506.14608',
+    url: 'https://arxiv.org/abs/2506.14608',
+    type: 'paper',
+  },
+  // gmr-retargeting-2025: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts; also drafts/rl-sim2real/humanoid-wbc.citations.ts.
+  // arXiv 2510.02252 (ICRA 2026). Retargeting artifacts reduce tracking policy robustness.
+  {
+    id: 'gmr-retargeting-2025',
+    title: 'Retargeting Matters: General Motion Retargeting for Humanoid Motion Tracking',
+    authors: ['Joao Pedro Araujo', 'Yanjie Ze', 'Pei Xu', 'Jiajun Wu', 'C. Karen Liu'],
+    year: 2025,
+    arxiv: '2510.02252',
+    url: 'https://arxiv.org/abs/2510.02252',
+    type: 'paper',
+  },
+  // rep-103-2010: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts; also drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // ROS Enhancement Proposal 103 (Active, 2010). ros.org served a bot challenge to the researchers;
+  // quotes were read from the official REP source, ros-infrastructure/rep, rep-0103.rst.
+  {
+    id: 'rep-103-2010',
+    title: 'REP 103: Standard Units of Measure and Coordinate Conventions',
+    authors: ['Tully Foote', 'Mike Purvis'],
+    year: 2010,
+    venue: 'ROS Enhancement Proposals',
+    url: 'https://www.ros.org/reps/rep-0103.html',
+    type: 'docs',
+  },
+  // rep-105-2010: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts; also drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // ROS Enhancement Proposal 105 (Active, 2010). Quotes read from the official REP source,
+  // ros-infrastructure/rep, rep-0105.rst.
+  {
+    id: 'rep-105-2010',
+    title: 'REP 105: Coordinate Frames for Mobile Platforms',
+    authors: ['Wim Meeussen'],
+    year: 2010,
+    venue: 'ROS Enhancement Proposals',
+    url: 'https://www.ros.org/reps/rep-0105.html',
+    type: 'docs',
+  },
+  // tf-library-2013: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts; also drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // IEEE TePRA 2013. Frame bookkeeping as a common source of bugs.
+  {
+    id: 'tf-library-2013',
+    title: 'tf: The transform library',
+    authors: ['Tully Foote'],
+    year: 2013,
+    venue: 'IEEE TePRA 2013',
+    url: 'https://doi.org/10.1109/TePRA.2013.6556373',
+    type: 'paper',
+  },
+  // lerobot-so101-docs-2026: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts.
+  // LeRobot SO-101 page, read 2026-10-02 for the source pack: leader and follower calibration; 6x
+  // STS3215 motors with 1/345 gearing.
+  {
+    id: 'lerobot-so101-docs-2026',
+    title: 'SO-101',
+    authors: ['Hugging Face'],
+    year: 2026,
+    venue: 'LeRobot Documentation, as of 2026-10-02',
+    url: 'https://huggingface.co/docs/lerobot/so101',
+    type: 'docs',
+  },
+  // solovey-complexity-2020: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // arXiv 2003.03632 v1 2020-03-07; chapter for the Encyclopedia of Robotics. PDF text: "the problem
+  // is PSPACE-hard for a planar mechanical linkage robot with multiple links ( Hopcroft et al 1984a
+  // ) and for for a multi-arm robot in a 3-dimensional polyhedral environment ( Reif 1979 )"; "a
+  // singly exponential algorithm termed the roadmap method was presented Canny (1993)".
+  {
+    id: 'solovey-complexity-2020',
+    title: 'Complexity of Planning',
+    authors: ['Kiril Solovey'],
+    year: 2020,
+    venue: 'arXiv preprint (Encyclopedia of Robotics chapter)',
+    arxiv: '2003.03632',
+    url: 'https://arxiv.org/abs/2003.03632',
+    type: 'paper',
+  },
+  // mcvamp-2026: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // arXiv 2604.13323 v1 2026-04-14. "Current state-of-the-art methods can take tens of seconds to
+  // solve these tasks for complex systems such as humanoid robots"; "CPU SIMD-accelerated
+  // manifold-constrained motion planner"; "Our approach achieves up to 100-1000x speed-ups over the
+  // state-of-the-art".
+  {
+    id: 'mcvamp-2026',
+    title: 'Vectorizing Projection in Manifold-Constrained Motion Planning for Real-Time Whole-Body Control',
+    authors: ['Shrutheesh R Iyer', 'I-Chia Chang', 'Andrew Z. Liu', 'Yan Gu', 'Zachary Kingston'],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2604.13323',
+    url: 'https://arxiv.org/abs/2604.13323',
+    type: 'paper',
+  },
+  // flask-2026: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // arXiv 2603.16059 v1 2026-03-17; comment: accepted at Transactions on Robotics. "requires solving
+  // either challenging two-point boundary value problems (BVPs) or propagating robot dynamics";
+  // "differentially flat robot systems"; "closed-form dynamically feasible trajectory"; "requiring
+  // mere microseconds to milliseconds of planning time".
+  {
+    id: 'flask-2026',
+    title: 'Ultrafast Sampling-based Kinodynamic Planning via Differential Flatness',
+    authors: ['Thai Duong', 'Clayton W. Ramsey', 'Zachary Kingston', 'Wil Thomason', 'Lydia E. Kavraki'],
+    year: 2026,
+    venue: 'IEEE Trans. Robotics (accepted)',
+    arxiv: '2603.16059',
+    url: 'https://arxiv.org/abs/2603.16059',
+    type: 'paper',
+  },
+  // rrt-connect-2000: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // Crossref 10.1109/ROBOT.2000.844730 (ICRA 2000); byline printed with initials. Pack quote: "The
+  // method works by incrementally building two rapidly-exploring random trees (RRTs) rooted at the
+  // start and the goal configurations."
+  {
+    id: 'rrt-connect-2000',
+    title: 'RRT-connect: An efficient approach to single-query path planning',
+    authors: ['J. J. Kuffner', 'S. M. LaValle'],
+    year: 2000,
+    venue: 'ICRA 2000',
+    url: 'https://doi.org/10.1109/ROBOT.2000.844730',
+    type: 'paper',
+  },
+  // orthey-review-2023: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // arXiv 2309.13119 v1 2023-09-22; accepted for Annual Review of Control, Robotics, and Autonomous
+  // Systems vol. 7 (2024). Abstract: "compared on 24 challenging planning problems"; HTML body:
+  // "RRT-Connect has the best overall success rate".
+  {
+    id: 'orthey-review-2023',
+    title: 'Sampling-Based Motion Planning: A Comparative Review',
+    authors: ['Andreas Orthey', 'Constantinos Chamzas', 'Lydia E. Kavraki'],
+    year: 2023,
+    venue: 'Annual Review of Control, Robotics, and Autonomous Systems',
+    arxiv: '2309.13119',
+    url: 'https://arxiv.org/abs/2309.13119',
+    type: 'paper',
+  },
+  // vamp-2023: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // arXiv 2309.14545 v1 2023-09-25 (submitted to ICRA 2024). "performance improvements of more than
+  // 500x over the state-of-the-art, bringing planning times into the range of microseconds and
+  // solution rates into the range of kilohertz, without specialized hardware"; "exploit fine-grained
+  // parallelism"; "forward kinematics and collision checking"; "robots ranging from 7 to 14
+  // degrees-of-freedom".
+  {
+    id: 'vamp-2023',
+    title: 'Motions in Microseconds via Vectorized Sampling-Based Planning',
+    authors: ['Wil Thomason', 'Zachary Kingston', 'Lydia E. Kavraki'],
+    year: 2023,
+    venue: 'arXiv preprint (ICRA 2024)',
+    arxiv: '2309.14545',
+    url: 'https://arxiv.org/abs/2309.14545',
+    type: 'paper',
+  },
+  // prrtc-2025: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // arXiv 2503.06757 v1 2025-03-09. "co-designed for GPU acceleration across the entire algorithm";
+  // "pRRTC achieves as much as a 10x speedup on constrained reaching tasks with a 5.4x reduction in
+  // standard deviation".
+  {
+    id: 'prrtc-2025',
+    title: 'pRRTC: GPU-Parallel RRT-Connect for Fast, Consistent, and Low-Cost Motion Planning',
+    authors: ['Chih H. Huang', 'Pranav Jadhav', 'Brian Plancher', 'Zachary Kingston'],
+    year: 2025,
+    venue: 'arXiv preprint',
+    arxiv: '2503.06757',
+    url: 'https://arxiv.org/abs/2503.06757',
+    type: 'paper',
+  },
+  // ompl-2-2026: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // arXiv 2605.29301 v1 2026-05-28. "we introduce OMPL 2.0, a major evolution of the library that
+  // targets real-time motion planning through hardware acceleration".
+  {
+    id: 'ompl-2-2026',
+    title: 'The Open Motion Planning Library 2.0',
+    authors: ['Weihang Guo', 'Theodoros Tyrovouzis', 'Emiliano Flores', 'Clayton W. Ramsey', 'Zachary K. Kingston', 'Ioan A. Şucan', 'Mark Moll', 'Lydia E. Kavraki'],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2605.29301',
+    url: 'https://arxiv.org/abs/2605.29301',
+    type: 'paper',
+  },
+  // ompl-release-notes-2026: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // Live page read 2026-10-04: "OMPL 2.0.0 (April 6, 2026)"; "Added VAMP (Vector-Accelerated Motion
+  // Planning) as an optional high-performance backend for collision checking and motion validation
+  // VAMP leverages SIMD instructions to accelerate forward kinematics and collision detection,
+  // achieving planning speeds up to 25 kHz"; "New geometric planners: AORRTC". No individual byline;
+  // the maintaining lab is the author.
+  {
+    id: 'ompl-release-notes-2026',
+    title: 'OMPL Release Notes: OMPL 2.0.0 (April 6, 2026)',
+    authors: ['Kavraki Lab'],
+    year: 2026,
+    accessedOn: '2026-10-04',
+    venue: 'OMPL documentation',
+    url: 'https://ompl.kavrakilab.org/releaseNotes.html',
+    type: 'docs',
+  },
+  // fmt-star-2013: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // arXiv 1306.3532 v1 2013-06-15 (later IJRR). "the extra mathematical flexibility of this approach
+  // allows for convergence rate bounds--the first in the field of optimal sampling-based motion
+  // planning".
+  {
+    id: 'fmt-star-2013',
+    title: 'Fast Marching Tree: a Fast Marching Sampling-Based Method for Optimal Motion Planning in Many Dimensions',
+    authors: ['Lucas Janson', 'Edward Schmerling', 'Ashley Clark', 'Marco Pavone'],
+    year: 2013,
+    venue: 'arXiv preprint',
+    arxiv: '1306.3532',
+    url: 'https://arxiv.org/abs/1306.3532',
+    type: 'paper',
+  },
+  // bit-star-2017: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // arXiv 1707.01888 v1 2017-07-06; journal ref IJRR 39(5):543-567, 2020. "Its search is ordered by
+  // potential solution quality, as in A*, and its approximation improves indefinitely with
+  // additional computational time, as in RRT*."
+  {
+    id: 'bit-star-2017',
+    title: 'Batch Informed Trees (BIT*): Informed Asymptotically Optimal Anytime Search',
+    authors: ['Jonathan D. Gammell', 'Timothy D. Barfoot', 'Siddhartha S. Srinivasa'],
+    year: 2017,
+    venue: 'Int. J. Robotics Research',
+    arxiv: '1707.01888',
+    url: 'https://arxiv.org/abs/1707.01888',
+    type: 'paper',
+  },
+  // aorrtc-2025: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // arXiv 2505.10542 v1 2025-05-15; journal ref IEEE RA-L 10(12):13375-13382. "AORRTC finds initial
+  // solutions as fast as RRT-Connect"; "AORRTC finds solutions to difficult high-DoF planning
+  // problems in milliseconds where the other a.s.a.o. planners could not consistently find solutions
+  // in seconds."
+  {
+    id: 'aorrtc-2025',
+    title: 'AORRTC: Almost-Surely Asymptotically Optimal Planning with RRT-Connect',
+    authors: ['Tyler Wilson', 'Wil Thomason', 'Zachary Kingston', 'Jonathan Gammell'],
+    year: 2025,
+    venue: 'IEEE Robotics and Automation Letters',
+    arxiv: '2505.10542',
+    url: 'https://arxiv.org/abs/2505.10542',
+    type: 'paper',
+  },
+  // gcs-2022: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // arXiv 2205.04422 v1 2022-05-09; journal version Science Robotics 2023, DOI
+  // 10.1126/scirobotics.adf7843. arXiv abstract: "the convex relaxation of our programs is very
+  // tight, and a cheap rounding of its solution is typically sufficient to design globally-optimal
+  // trajectories"; "formulate the planning problem as a compact mixed-integer optimization".
+  {
+    id: 'gcs-2022',
+    title: 'Motion Planning around Obstacles with Convex Optimization',
+    authors: ['Tobia Marcucci', 'Mark Petersen', 'David von Wrangel', 'Russ Tedrake'],
+    year: 2022,
+    venue: 'arXiv preprint (Science Robotics 2023)',
+    arxiv: '2205.04422',
+    url: 'https://arxiv.org/abs/2205.04422',
+    type: 'paper',
+  },
+  // chomp-ijrr-2013: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // Crossref 10.1177/0278364913488805 (IJRR 2013). Pack quote: "It uses Hamiltonian Monte Carlo to
+  // alleviate the problem of convergence to high-cost local minima (and for probabilistic
+  // completeness), and is capable of respecting hard constraints along the trajectory."
+  {
+    id: 'chomp-ijrr-2013',
+    title: 'CHOMP: Covariant Hamiltonian optimization for motion planning',
+    authors: ['Matt Zucker', 'Nathan Ratliff', 'Anca D. Dragan', 'Mihail Pivtoraiko', 'Matthew Klingensmith', 'Christopher M. Dellin', 'J. Andrew Bagnell', 'Siddhartha S. Srinivasa'],
+    year: 2013,
+    venue: 'Int. J. Robotics Research',
+    url: 'https://doi.org/10.1177/0278364913488805',
+    type: 'paper',
+  },
+  // stomp-2011: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // Crossref 10.1109/ICRA.2011.5980280 (ICRA 2011). Pack quote: "We experimentally show that the
+  // stochastic nature of STOMP allows it to overcome local minima that gradient-based methods like
+  // CHOMP can get stuck in."
+  {
+    id: 'stomp-2011',
+    title: 'STOMP: Stochastic trajectory optimization for motion planning',
+    authors: ['Mrinal Kalakrishnan', 'Sachin Chitta', 'Evangelos Theodorou', 'Peter Pastor', 'Stefan Schaal'],
+    year: 2011,
+    venue: 'ICRA 2011',
+    url: 'https://doi.org/10.1109/ICRA.2011.5980280',
+    type: 'paper',
+  },
+  // trajopt-ijrr-2014: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // Crossref 10.1177/0278364914528132 (IJRR 2014). Pack quote: "We consider motion planning for 7
+  // DOF robot arms, 18 DOF full-body robots, statically stable walking motion for the 34 DOF Atlas
+  // humanoid robot, and physical experiments with the 18 DOF PR2."
+  {
+    id: 'trajopt-ijrr-2014',
+    title: 'Motion planning with sequential convex optimization and convex collision checking',
+    authors: ['John Schulman', 'Yan Duan', 'Jonathan Ho', 'Alex Lee', 'Ibrahim Awwal', 'Henry Bradlow', 'Jia Pan', 'Sachin Patil', 'Ken Goldberg', 'Pieter Abbeel'],
+    year: 2014,
+    venue: 'Int. J. Robotics Research',
+    url: 'https://doi.org/10.1177/0278364914528132',
+    type: 'paper',
+  },
+  // industrial-curobo-2025: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // arXiv 2508.04146 v1 2025-08-06. Abstract: "including a 7th-axis gantry"; HTML body: "Planning
+  // Time : cuRobo: 45 ± 8ms, MoveIt: 1,200 ± 400ms"; "Planning was performed in ROS2 environment
+  // with RViz visualization using OMPL's RRTConnect planner."
+  {
+    id: 'industrial-curobo-2025',
+    title: 'Industrial Robot Motion Planning with GPUs: Integration of cuRobo for Extended DOF Systems',
+    authors: ['Luai Abuelsamen', 'Harsh Rana', 'Ho-Wei Lu', 'Wenhan Tang', 'Swati Priyadarshini', 'Gabriel Gomes'],
+    year: 2025,
+    venue: 'arXiv preprint',
+    arxiv: '2508.04146',
+    url: 'https://arxiv.org/abs/2508.04146',
+    type: 'paper',
+  },
+  // mr-pop-2026: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // arXiv 2609.30644 v1 2026-09-25. "a GPU-based a.s.a.o. multi-robot planner"; "MR. POP also raises
+  // the success rate of downstream motion optimizers (e.g., from 4% to 72%), by creating
+  // high-quality, diverse seeds that help avoid local minima."
+  {
+    id: 'mr-pop-2026',
+    title: 'MR. POP: Multi-Robot Parallel Optimizing Planner for Almost-Surely Asymptotically Optimal Planning',
+    authors: ['Chih H. Huang', 'Roy Xing', 'Brian Plancher', 'Zachary Kingston'],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2609.30644',
+    url: 'https://arxiv.org/abs/2609.30644',
+    type: 'paper',
+  },
+  // hauser-shortcut-2010: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // Crossref 10.1109/ROBOT.2010.5509683 (ICRA 2010). Pack quote: "The heuristic repeatedly picks two
+  // points on the trajectory and attempts to replace the intermediate trajectory with a shorter,
+  // collision-free segment."
+  {
+    id: 'hauser-shortcut-2010',
+    title: 'Fast smoothing of manipulator trajectories using optimal bounded-acceleration shortcuts',
+    authors: ['Kris Hauser', 'Victor Ng-Thow-Hing'],
+    year: 2010,
+    venue: 'ICRA 2010',
+    url: 'https://doi.org/10.1109/ROBOT.2010.5509683',
+    type: 'paper',
+  },
+  // moveit-trajectory-processing-2026: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // Live page read 2026-10-04: "The recommended algorithm as of January 2023 is
+  // TimeOptimalTrajectoryGeneration (TOTG)." No individual byline; follows the registry precedent of
+  // moveit-planning-scene-2026.
+  {
+    id: 'moveit-trajectory-processing-2026',
+    title: 'Trajectory Processing',
+    authors: ['MoveIt Maintainers'],
+    year: 2026,
+    venue: 'MoveIt 2 Documentation, as of 2026-10-04',
+    url: 'https://moveit.picknik.ai/main/doc/concepts/trajectory_processing.html',
+    type: 'docs',
+  },
+  // moveit-time-parameterization-2026: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // Live page read 2026-10-04: "A time parameterization algorithm such as TOTG calculates velocities
+  // and accelerations for a trajectory, but none of the time parameterization algorithms support
+  // jerk limits."; "As a further post-processing step, the Ruckig jerk-limited smoothing algorithm
+  // can be appliied [sic] to limit joint jerks over the trajectories."; "The Ruckig smoothing
+  // algorithm should run after AddTimeOptimalParameterization".
+  {
+    id: 'moveit-time-parameterization-2026',
+    title: 'Time Parameterization',
+    authors: ['MoveIt Maintainers'],
+    year: 2026,
+    venue: 'MoveIt 2 Documentation, as of 2026-10-04',
+    url: 'https://moveit.picknik.ai/main/doc/examples/time_parameterization/time_parameterization_tutorial.html',
+    type: 'docs',
+  },
+  // moveit-pro-10-1-2026: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // Live page read 2026-10-04 (datePublished 2026-09-18). "Fixed the ProRRT shortcut stage
+  // validating segments more coarsely than the planner's own step, which let paths pass through
+  // obstacles between collision checks."; "Fixed ValidateTrajectory checking the wrong robot
+  // configuration when a trajectory listed the planning group's joints in a different order than the
+  // group, which could report a colliding trajectory as collision-free."
+  {
+    id: 'moveit-pro-10-1-2026',
+    title: 'MoveIt Pro 10.1.0 release notes',
+    authors: ['PickNik Robotics'],
+    year: 2026,
+    venue: 'MoveIt Pro documentation, 2026-09-18',
+    url: 'https://docs.picknik.ai/release-notes/2026/09/18/10.1.0',
+    type: 'docs',
+  },
+  // mpinets-2022: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // arXiv 2210.12209 v1 2022-10-21 (CoRL 2022). "M$\pi$Nets are trained on over 3 million motion
+  // planning problems in over 500,000 environments." Second author printed "Adithyavairan Murali" in
+  // the arXiv record; kept as printed.
+  {
+    id: 'mpinets-2022',
+    title: 'Motion Policy Networks',
+    authors: ['Adam Fishman', 'Adithyavairan Murali', 'Clemens Eppner', 'Bryan Peele', 'Byron Boots', 'Dieter Fox'],
+    year: 2022,
+    venue: 'CoRL 2022',
+    arxiv: '2210.12209',
+    url: 'https://arxiv.org/abs/2210.12209',
+    type: 'paper',
+  },
+  // neural-mp-2024: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // arXiv 2409.05864 v1 2024-09-09. "collects expert data from a motion planner, then distills it
+  // into a reactive generalist policy. We then combine this with lightweight optimization to obtain
+  // a safe path for real world deployment."; "improvement of 23%, 17% and 79% motion planning
+  // success rate over state of the art sampling, optimization and learning based planning methods".
+  {
+    id: 'neural-mp-2024',
+    title: 'Neural MP: A Generalist Neural Motion Planner',
+    authors: ['Murtaza Dalal', 'Jiahui Yang', 'Russell Mendonca', 'Youssef Khaky', 'Ruslan Salakhutdinov', 'Deepak Pathak'],
+    year: 2024,
+    venue: 'arXiv preprint',
+    arxiv: '2409.05864',
+    url: 'https://arxiv.org/abs/2409.05864',
+    type: 'paper',
+  },
+  // deep-reactive-policy-2025: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // arXiv 2509.06953 v1 2025-09-08. HTML body: "we replace AIT* with cuRobo as the expert motion
+  // planner. Due to its GPU acceleration, cuRobo allows us to scale data generation to 10 million
+  // expert trajectories."; "Sampling-based planners such as AIT* completely fail in dynamic
+  // environments, achieving 0% success on all such tasks despite extended planning horizons.";
+  // "cuRobo drops to 3.00% on Dynamic Goal Blocking (DGB), where the goal is temporarily
+  // obstructed."
+  {
+    id: 'deep-reactive-policy-2025',
+    title: 'Deep Reactive Policy: Learning Reactive Manipulator Motion Planning for Dynamic Environments',
+    authors: ['Jiahui Yang', 'Jason Jingzhou Liu', 'Yulong Li', 'Youssef Khaky', 'Kenneth Shaw', 'Deepak Pathak'],
+    year: 2025,
+    venue: 'arXiv preprint',
+    arxiv: '2509.06953',
+    url: 'https://arxiv.org/abs/2509.06953',
+    type: 'paper',
+  },
+  // totg-2012: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // Crossref 10.15607/rss.2012.viii.027 (RSS VIII, 2012). Pack quote: "This paper presents a novel
+  // method to generate the time-optimal trajectory that exactly follows a given differentiable
+  // joint-space path within given bounds on joint accelerations and velocities."
+  {
+    id: 'totg-2012',
+    title: 'Time-Optimal Trajectory Generation for Path Following with Bounded Acceleration and Velocity',
+    authors: ['Tobias Kunz', 'Mike Stilman'],
+    year: 2012,
+    venue: 'Robotics: Science and Systems VIII',
+    url: 'https://doi.org/10.15607/rss.2012.viii.027',
+    type: 'paper',
+  },
+  // ruckig-2021: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // arXiv 2105.04830 v1 2021-05-11 (RSS 2021). "We evaluate the robustness and real-time capability
+  // of the proposed algorithm on a test suite with over 1,000,000,000 random trajectories as well as
+  // in real-world applications."
+  {
+    id: 'ruckig-2021',
+    title: 'Jerk-limited Real-time Trajectory Generation with Arbitrary Target States',
+    authors: ['Lars Berscheid', 'Torsten Kröger'],
+    year: 2021,
+    venue: 'RSS 2021',
+    arxiv: '2105.04830',
+    url: 'https://arxiv.org/abs/2105.04830',
+    type: 'paper',
+  },
+  // curobo-v2-2026: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // arXiv 2603.05493 v1 2026-03-05 (NVIDIA technical report). "Current methods are fragmented: fast
+  // planners output physically unexecutable trajectories"; "cuRoboV2 achieves 99.7% success under
+  // 3kg payload (where baselines achieve only 72--77%)".
+  {
+    id: 'curobo-v2-2026',
+    title: 'cuRoboV2: Dynamics-Aware Motion Generation with Depth-Fused Distance Fields for High-DoF Robots',
+    authors: ['Balakumar Sundaralingam', 'Adithyavairavan Murali', 'Stan Birchfield'],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2603.05493',
+    url: 'https://arxiv.org/abs/2603.05493',
+    type: 'paper',
+  },
+  // dope-2018: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // arXiv 1809.10790 abstract: "this is the first deep network trained only on synthetic data that
+  // is able to achieve state-of-the-art performance on 6-DoF object pose estimation", "perform
+  // competitively against a state-of-the-art network trained on a combination of real and synthetic
+  // data" and "estimating object poses with sufficient accuracy for real-world semantic grasping of
+  // known household objects in clutter by a real robot".
+  {
+    id: 'dope-2018',
+    title: 'Deep Object Pose Estimation for Semantic Robotic Grasping of Household Objects',
+    authors: ['Jonathan Tremblay', 'Thang To', 'Balakumar Sundaralingam', 'Yu Xiang', 'Dieter Fox', 'Stan Birchfield'],
+    year: 2018,
+    venue: 'Conference on Robot Learning (CoRL) 2018',
+    arxiv: '1809.10790',
+    url: 'https://arxiv.org/abs/1809.10790',
+    type: 'paper',
+  },
+  // enebuse-2022: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // PLOS ONE 17(10): e0273261, published 2022-10-19 (article page and Crossref). Abstract: "the
+  // simultaneous methods are more resistant to rotation noise, whereas the separate methods are
+  // better at dealing with translation noise. Additionally, while increasing the robot rotation
+  // motion span during calibration enhances the accuracy of the separate methods, it has a negative
+  // effect on the simultaneous methods. Conversely, increasing the translation motion range improves
+  // the accuracy of simultaneous methods but degrades the accuracy of the separate methods. These
+  // findings suggest that those conditions should be considered when benchmarking algorithms or
+  // performing a calibration process". Body: "we used a UR5e robot arm".
+  {
+    id: 'enebuse-2022',
+    title: 'Accuracy evaluation of hand-eye calibration techniques for vision-guided robots',
+    authors: ['Ikenna Enebuse', 'Babul K. S. M. Kader Ibrahim', 'Mathias Foo', 'Ranveer S. Matharu', 'Hafiz Ahmed'],
+    year: 2022,
+    venue: 'PLOS ONE',
+    url: 'https://doi.org/10.1371/journal.pone.0273261',
+    type: 'paper',
+  },
+  // realsense-spinout-2025: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // Press release dated July 11, 2025 (datePublished 2025-07-11): "RealSense, a pioneer in
+  // AI-powered computer vision, today announced its successful spinout from Intel Corporation and
+  // the close of a $50 million Series A funding round."
+  {
+    id: 'realsense-spinout-2025',
+    title: 'RealSense Completes Spinout from Intel, Raises $50 Million to Accelerate AI-Powered Vision for Robotics and Biometrics',
+    authors: ['RealSense'],
+    year: 2025,
+    venue: 'RealSense press release',
+    url: 'https://www.realsenseai.com/news-insights/news/realsense-completes-spin-out-from-intel-raises-50-million-to-accelerate-ai-powered-vision-for-robotics-and-biometrics/',
+    type: 'press',
+  },
+  // foundationstereo-2025: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // arXiv 2501.09898 abstract: "a foundation model for stereo depth estimation designed to achieve
+  // strong zero-shot generalization" and "we first construct a large-scale (1M stereo pairs)
+  // synthetic training dataset featuring large diversity and high photorealism".
+  {
+    id: 'foundationstereo-2025',
+    title: 'FoundationStereo: Zero-Shot Stereo Matching',
+    authors: ['Bowen Wen', 'Matthew Trepte', 'Joseph Aribido', 'Jan Kautz', 'Orazio Gallo', 'Stan Birchfield'],
+    year: 2025,
+    venue: 'arXiv preprint (CVPR 2025)',
+    arxiv: '2501.09898',
+    url: 'https://arxiv.org/abs/2501.09898',
+    type: 'paper',
+  },
+  // depth-pro-2024: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // arXiv 2410.02073 abstract: "The predictions are metric, with absolute scale, without relying on
+  // the availability of metadata such as camera intrinsics. And the model is fast, producing a
+  // 2.25-megapixel depth map in 0.3 seconds on a standard GPU."
+  {
+    id: 'depth-pro-2024',
+    title: 'Depth Pro: Sharp Monocular Metric Depth in Less Than a Second',
+    authors: ['Aleksei Bochkovskii', 'Amaël Delaunoy', 'Hugo Germain', 'Marcel Santos', 'Yichao Zhou', 'Stephan R. Richter', 'Vladlen Koltun'],
+    year: 2024,
+    venue: 'arXiv preprint (ICLR 2025)',
+    arxiv: '2410.02073',
+    url: 'https://arxiv.org/abs/2410.02073',
+    type: 'paper',
+  },
+  // prompt-depth-anything-2024: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // arXiv 2412.14015 abstract: "we use a low-cost LiDAR as the prompt to guide the Depth Anything
+  // model for accurate metric depth output, achieving up to 4K resolution".
+  {
+    id: 'prompt-depth-anything-2024',
+    title: 'Prompting Depth Anything for 4K Resolution Accurate Metric Depth Estimation',
+    authors: ['Haotong Lin', 'Sida Peng', 'Jingxiao Chen', 'Songyou Peng', 'Jiaming Sun', 'Minghuan Liu', 'Hujun Bao', 'Jiashi Feng', 'Xiaowei Zhou', 'Bingyi Kang'],
+    year: 2024,
+    venue: 'arXiv preprint (CVPR 2025)',
+    arxiv: '2412.14015',
+    url: 'https://arxiv.org/abs/2412.14015',
+    type: 'paper',
+  },
+  // transcg-2022: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // arXiv 2202.08471 abstract: "ordinary depth sensors usually fail to produce accurate depth
+  // information for transparent objects owing to the reflection and refraction of light" and
+  // "contains 57,715 RGB-D images from 130 different scenes".
+  {
+    id: 'transcg-2022',
+    title: 'TransCG: A Large-Scale Real-World Dataset for Transparent Object Depth Completion and a Grasping Baseline',
+    authors: ['Hongjie Fang', 'Hao-Shu Fang', 'Sheng Xu', 'Cewu Lu'],
+    year: 2022,
+    venue: 'IEEE Robotics and Automation Letters',
+    arxiv: '2202.08471',
+    url: 'https://arxiv.org/abs/2202.08471',
+    type: 'paper',
+  },
+  // dreds-2022: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // arXiv 2208.03792 abstract: "Commercial depth sensors usually generate noisy and missing depths,
+  // especially on specular and transparent objects", "simulate an active stereo depth system using
+  // physically based rendering", "130K photorealistic RGB images along with their simulated depths
+  // carrying realistic sensor noises" and "trained on DREDS, our SwinDRNet can seamlessly generalize
+  // to other real depth datasets".
+  {
+    id: 'dreds-2022',
+    title: 'Domain Randomization-Enhanced Depth Simulation and Restoration for Perceiving and Grasping Specular and Transparent Objects',
+    authors: ['Qiyu Dai', 'Jiyao Zhang', 'Qiwei Li', 'Tianhao Wu', 'Hao Dong', 'Ziyuan Liu', 'Ping Tan', 'He Wang'],
+    year: 2022,
+    venue: 'arXiv preprint (ECCV 2022)',
+    arxiv: '2208.03792',
+    url: 'https://arxiv.org/abs/2208.03792',
+    type: 'paper',
+  },
+  // mask-rcnn-2017: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // arXiv 1703.06870 abstract: "The method, called Mask R-CNN, extends Faster R-CNN by adding a
+  // branch for predicting an object mask in parallel with the existing branch for bounding box
+  // recognition."
+  {
+    id: 'mask-rcnn-2017',
+    title: 'Mask R-CNN',
+    authors: ['Kaiming He', 'Georgia Gkioxari', 'Piotr Dollár', 'Ross Girshick'],
+    year: 2017,
+    venue: 'arXiv preprint (ICCV 2017)',
+    arxiv: '1703.06870',
+    url: 'https://arxiv.org/abs/1703.06870',
+    type: 'paper',
+  },
+  // owlv2-2023: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // arXiv 2306.09683 abstract: "self-training, which uses an existing detector to generate
+  // pseudo-box annotations on image-text pairs", "with OWL-ST, we can scale to over 1B examples" and
+  // "With an L/14 architecture, OWL-ST improves AP on LVIS rare classes, for which the model has
+  // seen no human box annotations, from 31.2% to 44.6%".
+  {
+    id: 'owlv2-2023',
+    title: 'Scaling Open-Vocabulary Object Detection',
+    authors: ['Matthias Minderer', 'Alexey Gritsenko', 'Neil Houlsby'],
+    year: 2023,
+    arxiv: '2306.09683',
+    url: 'https://arxiv.org/abs/2306.09683',
+    type: 'paper',
+  },
+  // grounding-dino-1-5-2024: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // arXiv 2405.10300 abstract: "the Grounding DINO 1.5 Edge model, when optimized with TensorRT,
+  // achieves a speed of 75.2 FPS while attaining a zero-shot performance of 36.2 AP on the
+  // LVIS-minival benchmark".
+  {
+    id: 'grounding-dino-1-5-2024',
+    title: 'Grounding DINO 1.5: Advance the "Edge" of Open-Set Object Detection',
+    authors: ['Tianhe Ren', 'Qing Jiang', 'Shilong Liu', 'Zhaoyang Zeng', 'Wenlong Liu', 'Han Gao', 'Hongjie Huang', 'Zhengyu Ma', 'Xiaoke Jiang', 'Yihao Chen', 'Yuda Xiong', 'Hao Zhang', 'Feng Li', 'Peijun Tang', 'Kent Yu', 'Lei Zhang'],
+    year: 2024,
+    arxiv: '2405.10300',
+    url: 'https://arxiv.org/abs/2405.10300',
+    type: 'paper',
+  },
+  // dinov3-2025: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // arXiv 2508.10104 abstract: "we introduce a new method called Gram anchoring, which effectively
+  // addresses the known yet unsolved issue of dense feature maps degrading during long training
+  // schedules".
+  {
+    id: 'dinov3-2025',
+    title: 'DINOv3',
+    authors: ['Oriane Siméoni', 'Huy V. Vo', 'Maximilian Seitzer', 'Federico Baldassarre', 'Maxime Oquab', 'Cijo Jose', 'Vasil Khalidov', 'Marc Szafraniec', 'Seungeun Yi', 'Michaël Ramamonjisoa', 'Francisco Massa', 'Daniel Haziza', 'Luca Wehrstedt', 'Jianyuan Wang', 'Timothée Darcet', 'Théo Moutakanni', 'Leonel Sentana', 'Claire Roberts', 'Andrea Vedaldi', 'Jamie Tolan', 'John Brandt', 'Camille Couprie', 'Julien Mairal', 'Hervé Jégou', 'Patrick Labatut', 'Piotr Bojanowski'],
+    year: 2025,
+    venue: 'arXiv technical report',
+    arxiv: '2508.10104',
+    url: 'https://arxiv.org/abs/2508.10104',
+    type: 'paper',
+  },
+  // sam3-2025: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // arXiv 2511.16719 abstract: "based on concept prompts, which we define as either short noun
+  // phrases (e.g., "yellow school bus"), image exemplars, or a combination of both", "returns
+  // segmentation masks and unique identities for all matching object instances", "a high-quality
+  // dataset with 4M unique concept labels" and "SAM 3 doubles the accuracy of existing systems in
+  // both image and video PCS".
+  {
+    id: 'sam3-2025',
+    title: 'SAM 3: Segment Anything with Concepts',
+    authors: ['Nicolas Carion', 'Laura Gustafson', 'Yuan-Ting Hu', 'Shoubhik Debnath', 'Ronghang Hu', 'Didac Suris', 'Chaitanya Ryali', 'Kalyan Vasudev Alwala', 'Haitham Khedr', 'Andrew Huang', 'Jie Lei', 'Tengyu Ma', 'Baishan Guo', 'Arpit Kalla', 'Markus Marks', 'Joseph Greer', 'Meng Wang', 'Peize Sun', 'Roman Rädle', 'Triantafyllos Afouras', 'Effrosyni Mavroudi', 'Katherine Xu', 'Tsung-Han Wu', 'Yu Zhou', 'Liliane Momeni', 'Rishi Hazra', 'Shuangrui Ding', 'Sagar Vaze', 'Francois Porcher', 'Feng Li', 'Siyuan Li', 'Aishwarya Kamath', 'Ho Kei Cheng', 'Piotr Dollár', 'Nikhila Ravi', 'Kate Saenko', 'Pengchuan Zhang', 'Christoph Feichtenhofer'],
+    year: 2025,
+    arxiv: '2511.16719',
+    url: 'https://arxiv.org/abs/2511.16719',
+    type: 'paper',
+  },
+  // grounded-sam-2024: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // arXiv 2401.14159 abstract: "uses Grounding DINO as an open-set object detector to combine with
+  // the segment anything model (SAM)" and "achieving 48.7 mean AP on SegInW (Segmentation in the
+  // wild) zero-shot benchmark".
+  {
+    id: 'grounded-sam-2024',
+    title: 'Grounded SAM: Assembling Open-World Models for Diverse Visual Tasks',
+    authors: ['Tianhe Ren', 'Shilong Liu', 'Ailing Zeng', 'Jing Lin', 'Kunchang Li', 'He Cao', 'Jiayu Chen', 'Xinyu Huang', 'Yukang Chen', 'Feng Yan', 'Zhaoyang Zeng', 'Hao Zhang', 'Feng Li', 'Jie Yang', 'Hongyang Li', 'Qing Jiang', 'Lei Zhang'],
+    year: 2024,
+    arxiv: '2401.14159',
+    url: 'https://arxiv.org/abs/2401.14159',
+    type: 'paper',
+  },
+  // cnos-2023: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // arXiv 2307.11067 abstract: "segment unseen objects in RGB images using their CAD models",
+  // "Leveraging recent powerful foundation models, DINOv2 and Segment Anything, we create
+  // descriptors and generate proposals", "matching proposals with reference descriptors created from
+  // CAD models" and "surpassing existing approaches on the seven core datasets of the BOP challenge
+  // by 19.8% AP".
+  {
+    id: 'cnos-2023',
+    title: 'CNOS: A Strong Baseline for CAD-based Novel Object Segmentation',
+    authors: ['Van Nguyen Nguyen', 'Thibault Groueix', 'Georgy Ponimatkin', 'Vincent Lepetit', 'Tomas Hodan'],
+    year: 2023,
+    venue: 'ICCV 2023 R6D Workshop',
+    arxiv: '2307.11067',
+    url: 'https://arxiv.org/abs/2307.11067',
+    type: 'paper',
+  },
+  // nocs-2019: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // arXiv 1901.02970 abstract: "estimate the 6D pose and dimensions of unseen object instances" and
+  // "our problem assumes that no exact object CAD models are available during either training or
+  // testing time".
+  {
+    id: 'nocs-2019',
+    title: 'Normalized Object Coordinate Space for Category-Level 6D Object Pose and Size Estimation',
+    authors: ['He Wang', 'Srinath Sridhar', 'Jingwei Huang', 'Julien Valentin', 'Shuran Song', 'Leonidas J. Guibas'],
+    year: 2019,
+    venue: 'arXiv preprint (CVPR 2019)',
+    arxiv: '1901.02970',
+    url: 'https://arxiv.org/abs/1901.02970',
+    type: 'paper',
+  },
+  // sam6d-2023: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // arXiv 2311.15707 abstract: "ISM takes SAM as an advanced starting point to generate all possible
+  // object proposals" and "By treating pose estimation as a partial-to-partial point matching
+  // problem" on "cluttered RGB-D images".
+  {
+    id: 'sam6d-2023',
+    title: 'SAM-6D: Segment Anything Model Meets Zero-Shot 6D Object Pose Estimation',
+    authors: ['Jiehong Lin', 'Lihua Liu', 'Dekun Lu', 'Kui Jia'],
+    year: 2023,
+    venue: 'arXiv preprint (CVPR 2024)',
+    arxiv: '2311.15707',
+    url: 'https://arxiv.org/abs/2311.15707',
+    type: 'paper',
+  },
+  // any6d-2025: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // arXiv 2503.18673 abstract: "requires only a single RGB-D anchor image to estimate both the 6D
+  // pose and size of unknown objects in novel scenes".
+  {
+    id: 'any6d-2025',
+    title: 'Any6D: Model-free 6D Pose Estimation of Novel Objects',
+    authors: ['Taeyeop Lee', 'Bowen Wen', 'Minjun Kang', 'Gyuree Kang', 'In So Kweon', 'Kuk-Jin Yoon'],
+    year: 2025,
+    venue: 'arXiv preprint (CVPR 2025)',
+    arxiv: '2503.18673',
+    url: 'https://arxiv.org/abs/2503.18673',
+    type: 'paper',
+  },
+  // sam3d-2025: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // arXiv 2511.16624 abstract: "predicting geometry, texture, and layout from a single image" and
+  // "with at least a 5:1 win rate in human preference tests on real-world objects and scenes".
+  {
+    id: 'sam3d-2025',
+    title: 'SAM 3D: 3Dfy Anything in Images',
+    authors: ['SAM 3D Team', 'Xingyu Chen', 'Fu-Jen Chu', 'Pierre Gleize', 'Kevin J Liang', 'Alexander Sax', 'Hao Tang', 'Weiyao Wang', 'Michelle Guo', 'Thibaut Hardin', 'Xiang Li', 'Aohan Lin', 'Jiawei Liu', 'Ziqi Ma', 'Anushka Sagar', 'Bowen Song', 'Xiaodong Wang', 'Jianing Yang', 'Bowen Zhang', 'Piotr Dollár', 'Georgia Gkioxari', 'Matt Feiszli', 'Jitendra Malik'],
+    year: 2025,
+    arxiv: '2511.16624',
+    url: 'https://arxiv.org/abs/2511.16624',
+    type: 'paper',
+  },
+  // bop-2020: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // arXiv 2009.07378 abstract: "Methods based on deep neural networks have finally caught up with
+  // methods based on point pair features, which were dominating previous editions of the challenge."
+  // The 2023 report defers threshold grids to this report (as the original page states).
+  {
+    id: 'bop-2020',
+    title: 'BOP Challenge 2020 on 6D Object Localization',
+    authors: ['Tomas Hodan', 'Martin Sundermeyer', 'Bertram Drost', 'Yann Labbe', 'Eric Brachmann', 'Frank Michel', 'Carsten Rother', 'Jiri Matas'],
+    year: 2020,
+    venue: 'ECCV 2020 Workshops',
+    arxiv: '2009.07378',
+    url: 'https://arxiv.org/abs/2009.07378',
+    type: 'paper',
+  },
+  // cosypose-2020: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // arXiv 2008.08465 abstract: "solving an object-level bundle adjustment problem that refines the
+  // poses of cameras and objects to minimize the reprojection error in all views".
+  {
+    id: 'cosypose-2020',
+    title: 'CosyPose: Consistent multi-view multi-object 6D pose estimation',
+    authors: ['Yann Labbé', 'Justin Carpentier', 'Mathieu Aubry', 'Josef Sivic'],
+    year: 2020,
+    venue: 'arXiv preprint (ECCV 2020)',
+    arxiv: '2008.08465',
+    url: 'https://arxiv.org/abs/2008.08465',
+    type: 'paper',
+  },
+  // bop-2024: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // arXiv 2504.02812 abstract: "the best 2024 method for model-based 6D localization of unseen
+  // objects (FreeZeV2.1) achieves 22% higher accuracy on BOP-Classic-Core than the best 2023 method
+  // (GenFlow), and is only 4% behind the best 2023 method for seen objects (GPose2023) although
+  // being significantly slower (24.9 vs 2.7s per image)", "Co-op which takes only 0.8s per image and
+  // is 13% more accurate than GenFlow", "we introduced new model-free tasks, where no 3D object
+  // models are available and methods need to onboard objects just from provided reference videos"
+  // and "the 2D detection stage is consequently the main bottleneck of existing pipelines for 6D
+  // localization/detection of unseen objects".
+  {
+    id: 'bop-2024',
+    title: 'BOP Challenge 2024 on Model-Based and Model-Free 6D Object Pose Estimation',
+    authors: ['Van Nguyen Nguyen', 'Stephen Tyree', 'Andrew Guo', 'Mederic Fourmy', 'Anas Gouda', 'Taeyeop Lee', 'Sungphill Moon', 'Hyeontae Son', 'Lukas Ranftl', 'Jonathan Tremblay', 'Eric Brachmann', 'Bertram Drost', 'Vincent Lepetit', 'Carsten Rother', 'Stan Birchfield', 'Jiri Matas', 'Yann Labbe', 'Martin Sundermeyer', 'Tomas Hodan'],
+    year: 2025,
+    arxiv: '2504.02812',
+    url: 'https://arxiv.org/abs/2504.02812',
+    type: 'paper',
+  },
+  // hutchinson-hager-corke-1996: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // Crossref 10.1109/70.538972 (IEEE T-RA 12(5), 1996); byline printed with initials. Pack quote:
+  // "We then present a taxonomy of visual servo control systems. The two major classes of systems,
+  // position-based and image-based systems, are then discussed in detail."
+  {
+    id: 'hutchinson-hager-corke-1996',
+    title: 'A tutorial on visual servo control',
+    authors: ['S. Hutchinson', 'G. D. Hager', 'P. I. Corke'],
+    year: 1996,
+    venue: 'IEEE Transactions on Robotics and Automation',
+    url: 'https://doi.org/10.1109/70.538972',
+    type: 'paper',
+  },
+  // bateux-2018: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // Crossref 10.1109/ICRA.2018.8461068 (ICRA 2018). Pack quote: "A convolutional neural network is
+  // fine-tuned to estimate the relative pose between the current and desired images and a pose-based
+  // visual servoing control law is considered to reach the desired pose."
+  {
+    id: 'bateux-2018',
+    title: 'Training Deep Neural Networks for Visual Servoing',
+    authors: ['Quentin Bateux', 'Eric Marchand', 'Jürgen Leitner', 'François Chaumette', 'Peter Corke'],
+    year: 2018,
+    venue: '2018 IEEE International Conference on Robotics and Automation (ICRA)',
+    url: 'https://doi.org/10.1109/ICRA.2018.8461068',
+    type: 'paper',
+  },
+  // ros2-distributions-2026: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // Distribution table: Lyrical Luth released May 22, 2026, EOL May 2031; Jazzy EOL May 2029; Humble
+  // EOL May 2027; "Nodes are not guaranteed to be able to communicate across distributions."
+  {
+    id: 'ros2-distributions-2026',
+    title: 'Distributions',
+    authors: ['ROS 2 Project'],
+    year: 2026,
+    venue: 'ROS 2 Documentation, as of 2026-10-04',
+    url: 'https://docs.ros.org/en/lyrical/Releases.html',
+    type: 'docs',
+  },
+  // ros-llm-2024: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // arXiv 2406.19741; published as Nature Machine Intelligence 8, 313-325 (2026). Executes ROS
+  // actions/services from LLM output.
+  {
+    id: 'ros-llm-2024',
+    title: 'ROS-LLM: A ROS framework for embodied AI with task feedback and structured reasoning',
+    authors: ['Christopher E. Mower', 'Yuhui Wan', 'Hongzhan Yu', 'Antoine Grosnit', 'Jonas Gonzalez-Billandon', 'Matthieu Zimmer', 'Jinlong Wang', 'Xinyu Zhang', 'Yao Zhao', 'Anbang Zhai', 'Puze Liu', 'Daniel Palenicek', 'Davide Tateo', 'Cesar Cadena', 'Marco Hutter', 'Jan Peters', 'Guangjian Tian', 'Yuzheng Zhuang', 'Kun Shao', 'Xingyue Quan', 'Jianye Hao', 'Jun Wang', 'Haitham Bou-Ammar'],
+    year: 2024,
+    arxiv: '2406.19741',
+    url: 'https://arxiv.org/abs/2406.19741',
+    type: 'paper',
+  },
+  // ros2-dds-design-2014: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // ROS 2 design article by William Woodall, written 2014-06 (modified 2019-07). "Control over
+  // several parameters of reliability, what DDS calls Quality of Service (QoS) ...".
+  {
+    id: 'ros2-dds-design-2014',
+    title: 'ROS on DDS',
+    authors: ['William Woodall'],
+    year: 2014,
+    venue: 'ROS 2 Design',
+    url: 'https://design.ros2.org/articles/ros_on_dds.html',
+    type: 'docs',
+  },
+  // ros2-latency-2021: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // arXiv 2101.02074. "end-to-end latency strongly depends on the used DDS middleware" and "ROS2 can
+  // lead to 50% latency overhead".
+  {
+    id: 'ros2-latency-2021',
+    title: 'Latency Analysis of ROS2 Multi-Node Systems',
+    authors: ['Tobias Kronauer', 'Joshwa Pohlmann', 'Maximilian Matthe', 'Till Smejkal', 'Gerhard Fettweis'],
+    year: 2021,
+    arxiv: '2101.02074',
+    url: 'https://arxiv.org/abs/2101.02074',
+    type: 'paper',
+  },
+  // ros2-kilted-2025: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // Kilted Kaiju release notes (May 2025): "The rmw_zenoh_cpp is now considered Tier 1."; ros2 bag
+  // play --message-order {received,sent}.
+  {
+    id: 'ros2-kilted-2025',
+    title: 'Kilted Kaiju (codename \'kilted\'; May, 2025)',
+    authors: ['ROS 2 Project'],
+    year: 2025,
+    venue: 'ROS 2 Documentation',
+    url: 'https://docs.ros.org/en/lyrical/Releases/Release-Kilted-Kaiju.html',
+    type: 'docs',
+  },
+  // mcap-spec-2026: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // MCAP message record: log_time "Time at which the message was recorded"; publish_time "Time at
+  // which the message was published".
+  {
+    id: 'mcap-spec-2026',
+    title: 'MCAP Format Specification',
+    authors: ['Foxglove'],
+    year: 2026,
+    venue: 'mcap.dev, as of 2026-10-04',
+    url: 'https://mcap.dev/spec',
+    type: 'docs',
+  },
+  // ros2-tracing-2022: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // arXiv 2201.00393; IEEE RA-L 7(3), 6511-6518, July 2022. "the end-to-end message latency
+  // overhead, when enabling all ROS 2 instrumentation, is on average 0.0033 ms".
+  {
+    id: 'ros2-tracing-2022',
+    title: 'ros2_tracing: Multipurpose Low-Overhead Framework for Real-Time Tracing of ROS 2',
+    authors: ['Christophe Bédard', 'Ingo Lütkebohle', 'Michel Dagenais'],
+    year: 2022,
+    venue: 'IEEE Robotics and Automation Letters',
+    arxiv: '2201.00393',
+    url: 'https://arxiv.org/abs/2201.00393',
+    type: 'paper',
+  },
+  // ros2-clock-design: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // ROS 2 design article "Clock and Time" (Tully Foote). The page shows no date, so it is registered
+  // as undated with the access date.
+  {
+    id: 'ros2-clock-design',
+    title: 'Clock and Time',
+    authors: ['Tully Foote'],
+    year: 'n.d.',
+    accessedOn: '2026-10-04',
+    venue: 'ROS 2 Design',
+    url: 'https://design.ros2.org/articles/clock_and_time.html',
+    type: 'docs',
+  },
+  // tf2-docs-2026: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // "tf2 maintains the relationship between coordinate frames in a tree structure buffered in time
+  // ..."; static transforms broadcast separately.
+  {
+    id: 'tf2-docs-2026',
+    title: 'Tf2',
+    authors: ['ROS 2 Project'],
+    year: 2026,
+    venue: 'ROS 2 Documentation, as of 2026-10-04',
+    url: 'https://docs.ros.org/en/lyrical/ROS-Framework/interfaces/About-Tf2/About-Tf2.html',
+    type: 'docs',
+  },
+  // tf2-time-tutorial-2026: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // "Once the timeout has been reached (fifty milliseconds in this case), an exception will be
+  // raised only if the transform is still not available."
+  {
+    id: 'tf2-time-tutorial-2026',
+    title: 'Using time (C++)',
+    authors: ['ROS 2 Project'],
+    year: 2026,
+    venue: 'ROS 2 Documentation, as of 2026-10-04',
+    url: 'https://docs.ros.org/en/lyrical/ROS-Framework/client-libraries/Working-with-Client-Libraries/Tf2/Learning-About-Tf2-And-Time-Cpp.html',
+    type: 'docs',
+  },
+  // ros2-iron-mcap-2023: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts; also drafts/data-hardware/robot-learning-stack.citations.ts.
+  // Same release notes as the Lyrical-docs copy at /en/lyrical/Releases/Release-Iron-Irwini.html,
+  // whose quote "This release switches to using mcap as the default file format for writing new
+  // bags." was re-fetched 2026-10-04.
+  {
+    id: 'ros2-iron-mcap-2023',
+    title: 'Iron Irwini (iron)',
+    authors: ['ROS 2 Project'],
+    year: 2023,
+    venue: 'ROS 2 Documentation: Iron',
+    url: 'https://docs.ros.org/en/iron/Releases/Release-Iron-Irwini.html',
+    type: 'docs',
+  },
+  // ros2-lifecycle-design-2015: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // ROS 2 design article "Managed nodes" (Geoffrey Biggs, Tully Foote), written 2015-06, modified
+  // 2021-02.
+  {
+    id: 'ros2-lifecycle-design-2015',
+    title: 'Managed nodes',
+    authors: ['Geoffrey Biggs', 'Tully Foote'],
+    year: 2015,
+    venue: 'ROS 2 Design',
+    url: 'https://design.ros2.org/articles/node_lifecycle.html',
+    type: 'docs',
+  },
+  // ros2-realtime-docs-2026: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // "we must avoid nondeterministic operations in the execution path, things like: pagefault events,
+  // dynamic memory allocation/deallocation, and synchronization primitives that block indefinitely."
+  {
+    id: 'ros2-realtime-docs-2026',
+    title: 'Understanding real-time programming',
+    authors: ['ROS 2 Project'],
+    year: 2026,
+    venue: 'ROS 2 Documentation, as of 2026-10-04',
+    url: 'https://docs.ros.org/en/lyrical/Capabilities/Motion-planning/Real-Time-Programming.html',
+    type: 'docs',
+  },
+  // ros2-executors-2026: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // EventsCBGExecutor (Lyrical onward) reduces CPU overhead; "there is no limit to the number of
+  // events that can be added to the queue."
+  {
+    id: 'ros2-executors-2026',
+    title: 'Executors',
+    authors: ['ROS 2 Project'],
+    year: 2026,
+    venue: 'ROS 2 Documentation, as of 2026-10-04',
+    url: 'https://docs.ros.org/en/lyrical/ROS-Framework/client-libraries/About-Executors/About-Executors.html',
+    type: 'docs',
+  },
+  // ros2-buffer-backends-2026: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // rosidl::Buffer: "the bytes of a uint8[] field can live in CPU memory, GPU memory, or any other
+  // memory domain a vendor provides".
+  {
+    id: 'ros2-buffer-backends-2026',
+    title: 'About rosidl::Buffer backends',
+    authors: ['ROS 2 Project'],
+    year: 2026,
+    venue: 'ROS 2 Documentation, as of 2026-10-04',
+    url: 'https://docs.ros.org/en/lyrical/ROS-Framework/interfaces/Working-with-interfaces/Buffer-Backends/About-Buffer-Backends.html',
+    type: 'docs',
+  },
+  // isaac-ros-nitros-2026: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // README: "NITROS is deprecated." / "Update 2026-09-21: Deprecated NITROS in favor of
+  // rosidl::Buffer and the CUDA buffer backend".
+  {
+    id: 'isaac-ros-nitros-2026',
+    title: 'Isaac ROS NITROS',
+    authors: ['NVIDIA'],
+    year: 2026,
+    venue: 'GitHub, as of 2026-10-04',
+    url: 'https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_nitros',
+    type: 'docs',
+  },
+  // isaac-ros-rosidl-buffer-2026: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // "Copying those bytes to a CPU vector only to publish them, and then copying them back to the
+  // device in a subscriber, adds latency and consumes CPU and memory bandwidth."
+  {
+    id: 'isaac-ros-rosidl-buffer-2026',
+    title: 'rosidl::Buffer and Buffer Backends',
+    authors: ['NVIDIA'],
+    year: 2026,
+    venue: 'Isaac ROS Documentation, as of 2026-10-04',
+    url: 'https://nvidia-isaac-ros.github.io/concepts/rosidl_buffer/index.html',
+    type: 'docs',
+  },
+  // smac-planner-2024: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts; also drafts/classical/scene-representation.citations.ts.
+  // arXiv 2401.13078 (rev. 2025-05). "Smac Planner now powers thousands of robots worldwide"
+  // (authors' claim).
+  {
+    id: 'smac-planner-2024',
+    title: 'Open-Source, Cost-Aware Kinematically Feasible Planning for Mobile and Surface Robotics',
+    authors: ['Steve Macenski', 'Matthew Booker', 'Joshua Wallace', 'Tobias Fischer'],
+    year: 2024,
+    arxiv: '2401.13078',
+    url: 'https://arxiv.org/abs/2401.13078',
+    type: 'paper',
+  },
+  // nav2-costmap-2d-2026: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts; also drafts/classical/scene-representation.citations.ts.
+  // "a number of sensor processing plugins (AI outputs, depth sensor obstacle buffering, semantic
+  // information, etc)".
+  {
+    id: 'nav2-costmap-2d-2026',
+    title: 'Costmap 2D',
+    authors: ['Nav2 Project'],
+    year: 2026,
+    venue: 'Nav2 Documentation (Lyrical), as of 2026-10-04',
+    url: 'https://docs.nav2.org/lyrical/configuration_and_development/configuration_guide/core_servers/costmap_2d/',
+    type: 'docs',
+  },
+  // ros2-middleware-vendors-2026: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // "While the different DDS implementations may be compatible in limited circumstances, this is not
+  // guaranteed."
+  {
+    id: 'ros2-middleware-vendors-2026',
+    title: 'Different ROS 2 middleware vendors',
+    authors: ['ROS 2 Project'],
+    year: 2026,
+    venue: 'ROS 2 Documentation, as of 2026-10-04',
+    url: 'https://docs.ros.org/en/lyrical/ROS-Framework/client-libraries/About-Different-Middleware-Vendors.html',
+    type: 'docs',
+  },
+  // noetic-eol-2025: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // Canonical Ubuntu blog, August 2025: "As of May 2025, the Robot Operating System (ROS) Noetic
+  // Ninjemys officially reached its end of life (EOL)."
+  {
+    id: 'noetic-eol-2025',
+    title: 'ROS Noetic is EOL – take action to maintain fleet security',
+    authors: ['Florencia Cabral Berenfus'],
+    year: 2025,
+    venue: 'Ubuntu blog (Canonical)',
+    url: 'https://ubuntu.com/blog/ros-noetic-is-eol-take-action-to-maintain-fleet-security',
+    type: 'blog',
+  },
+  // neural-fields-survey-2024: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // arXiv 2410.20220 abstract: "based on over 200 papers. First, we present four key Neural Fields
+  // frameworks: Occupancy Networks, Signed Distance Fields, Neural Radiance Fields, and Gaussian
+  // Splatting."
+  {
+    id: 'neural-fields-survey-2024',
+    title: 'Neural Fields in Robotics: A Survey',
+    authors: ['Muhammad Zubair Irshad', 'Mauro Comi', 'Yen-Chen Lin', 'Nick Heppert', 'Abhinav Valada', 'Rares Ambrus', 'Zsolt Kira', 'Jonathan Tremblay'],
+    year: 2024,
+    arxiv: '2410.20220',
+    url: 'https://arxiv.org/abs/2410.20220',
+    type: 'paper',
+  },
+  // octomap-2013: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // Crossref 10.1007/s10514-012-9321-0 (Autonomous Robots 34(3), 2013). Pack quote: "It explicitly
+  // represents not only occupied space, but also free and unknown areas."
+  {
+    id: 'octomap-2013',
+    title: 'OctoMap: an efficient probabilistic 3D mapping framework based on octrees',
+    authors: ['Armin Hornung', 'Kai M. Wurm', 'Maren Bennewitz', 'Cyrill Stachniss', 'Wolfram Burgard'],
+    year: 2013,
+    venue: 'Autonomous Robots',
+    url: 'https://doi.org/10.1007/s10514-012-9321-0',
+    type: 'paper',
+  },
+  // cut3r-2025: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // arXiv 2501.12387 abstract: "it can also infer unseen regions of the scene by probing at virtual,
+  // unobserved views".
+  {
+    id: 'cut3r-2025',
+    title: 'Continuous 3D Perception Model with Persistent State',
+    authors: ['Qianqian Wang', 'Yifei Zhang', 'Aleksander Holynski', 'Alexei A. Efros', 'Angjoo Kanazawa'],
+    year: 2025,
+    arxiv: '2501.12387',
+    url: 'https://arxiv.org/abs/2501.12387',
+    type: 'paper',
+  },
+  // voxblox-2016: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // arXiv 1611.03631 abstract: "We show that we can build TSDFs faster than Octomaps, and that it is
+  // more accurate to build ESDFs out of TSDFs than occupancy maps."
+  {
+    id: 'voxblox-2016',
+    title: 'Voxblox: Incremental 3D Euclidean Signed Distance Fields for On-Board MAV Planning',
+    authors: ['Helen Oleynikova', 'Zachary Taylor', 'Marius Fehr', 'Juan Nieto', 'Roland Siegwart'],
+    year: 2016,
+    venue: 'arXiv preprint (IROS 2017)',
+    arxiv: '1611.03631',
+    url: 'https://arxiv.org/abs/1611.03631',
+    type: 'paper',
+  },
+  // nvblox-2023: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // arXiv 2311.00626 abstract: "achieving up to a 177x speed-up in surface reconstruction, and up to
+  // a 31x improvement in distance field computation".
+  {
+    id: 'nvblox-2023',
+    title: 'nvblox: GPU-Accelerated Incremental Signed Distance Field Mapping',
+    authors: ['Alexander Millane', 'Helen Oleynikova', 'Emilie Wirbel', 'Remo Steiner', 'Vikram Ramasamy', 'David Tingdahl', 'Roland Siegwart'],
+    year: 2023,
+    venue: 'arXiv preprint (ICRA 2024)',
+    arxiv: '2311.00626',
+    url: 'https://arxiv.org/abs/2311.00626',
+    type: 'paper',
+  },
+  // voxel-hashing-2013: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // Crossref 10.1145/2508363.2508374 (ACM Transactions on Graphics 32(6), 2013). Pack quote:
+  // "Surface data is only stored densely where measurements are observed."
+  {
+    id: 'voxel-hashing-2013',
+    title: 'Real-time 3D reconstruction at scale using voxel hashing',
+    authors: ['Matthias Nießner', 'Michael Zollhöfer', 'Shahram Izadi', 'Marc Stamminger'],
+    year: 2013,
+    venue: 'ACM Transactions on Graphics',
+    url: 'https://doi.org/10.1145/2508363.2508374',
+    type: 'paper',
+  },
+  // nerfpp-2020: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // arXiv 2010.07492 (v1 2020-10-15). Full text: "Such phenomena are encapsulated in the
+  // shape-radiance ambiguity (Figure 1, left), wherein one can fit a set of training images
+  // perfectly for an arbitrary incorrect geometry by a suitable choice of outgoing 2D radiance at
+  // each surface point. We empirically show that the specific MLP structure used in NeRF plays an
+  // important role in avoiding such ambiguities"; preceding sentence: "in the absence of any
+  // regularization".
+  {
+    id: 'nerfpp-2020',
+    title: 'NeRF++: Analyzing and Improving Neural Radiance Fields',
+    authors: ['Kai Zhang', 'Gernot Riegler', 'Noah Snavely', 'Vladlen Koltun'],
+    year: 2020,
+    arxiv: '2010.07492',
+    url: 'https://arxiv.org/abs/2010.07492',
+    type: 'paper',
+  },
+  // vggt-2025: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // arXiv 2503.11651 abstract: "directly infers all key 3D attributes of a scene, including camera
+  // parameters, point maps, depth maps, and 3D point tracks, from one, a few, or hundreds of its
+  // views" and "reconstructing images in under one second".
+  {
+    id: 'vggt-2025',
+    title: 'VGGT: Visual Geometry Grounded Transformer',
+    authors: ['Jianyuan Wang', 'Minghao Chen', 'Nikita Karaev', 'Andrea Vedaldi', 'Christian Rupprecht', 'David Novotny'],
+    year: 2025,
+    venue: 'arXiv preprint (CVPR 2025)',
+    arxiv: '2503.11651',
+    url: 'https://arxiv.org/abs/2503.11651',
+    type: 'paper',
+  },
+  // mapanything-2025: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // arXiv 2509.13414 abstract: "ingests one or more images along with optional geometric inputs such
+  // as camera intrinsics, poses, depth, or partial reconstructions, and then directly regresses the
+  // metric 3D scene geometry and cameras".
+  {
+    id: 'mapanything-2025',
+    title: 'MapAnything: Universal Feed-Forward Metric 3D Reconstruction',
+    authors: ['Nikhil Keetha', 'Norman Müller', 'Johannes Schönberger', 'Lorenzo Porzi', 'Yuchen Zhang', 'Tobias Fischer', 'Arno Knapitsch', 'Duncan Zauss', 'Ethan Weber', 'Nelson Antunes', 'Jonathon Luiten', 'Manuel Lopez-Antequera', 'Samuel Rota Bulò', 'Christian Richardt', 'Deva Ramanan', 'Sebastian Scherer', 'Peter Kontschieder'],
+    year: 2025,
+    venue: 'arXiv preprint (3DV 2026)',
+    arxiv: '2509.13414',
+    url: 'https://arxiv.org/abs/2509.13414',
+    type: 'paper',
+  },
+  // pi3-2025: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // arXiv 2507.13347 abstract: "Previous methods often anchor their reconstructions to a designated
+  // viewpoint, an inductive bias that can lead to instability and failures if the reference is
+  // suboptimal."
+  {
+    id: 'pi3-2025',
+    title: 'π³: Permutation-Equivariant Visual Geometry Learning',
+    authors: ['Yifan Wang', 'Jianjun Zhou', 'Haoyi Zhu', 'Wenzheng Chang', 'Yang Zhou', 'Zizun Li', 'Junyi Chen', 'Jiangmiao Pang', 'Chunhua Shen', 'Tong He'],
+    year: 2025,
+    arxiv: '2507.13347',
+    url: 'https://arxiv.org/abs/2507.13347',
+    type: 'paper',
+  },
+  // depth-anything-3-2025: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // arXiv 2511.10647 abstract (authors' claim): "surpassing prior SOTA VGGT by an average of 44.3%
+  // in camera pose accuracy and 25.1% in geometric accuracy".
+  {
+    id: 'depth-anything-3-2025',
+    title: 'Depth Anything 3: Recovering the Visual Space from Any Views',
+    authors: ['Haotong Lin', 'Sili Chen', 'Junhao Liew', 'Donny Y. Chen', 'Zhenyu Li', 'Guang Shi', 'Jiashi Feng', 'Bingyi Kang'],
+    year: 2025,
+    arxiv: '2511.10647',
+    url: 'https://arxiv.org/abs/2511.10647',
+    type: 'paper',
+  },
+  // sugar-2023: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // arXiv 2311.12775 abstract: "a regularization term that encourages the gaussians to align well
+  // with the surface of the scene" and "extract a mesh from the Gaussians using Poisson
+  // reconstruction".
+  {
+    id: 'sugar-2023',
+    title: 'SuGaR: Surface-Aligned Gaussian Splatting for Efficient 3D Mesh Reconstruction and High-Quality Mesh Rendering',
+    authors: ['Antoine Guédon', 'Vincent Lepetit'],
+    year: 2023,
+    arxiv: '2311.12775',
+    url: 'https://arxiv.org/abs/2311.12775',
+    type: 'paper',
+  },
+  // 2dgs-2024: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // arXiv 2403.17888 abstract: "3DGS fails to accurately represent surfaces due to the multi-view
+  // inconsistent nature of 3D Gaussians", "collapse the 3D volume into a set of 2D oriented planar
+  // Gaussian disks" and "2D Gaussians provide view-consistent geometry".
+  {
+    id: '2dgs-2024',
+    title: '2D Gaussian Splatting for Geometrically Accurate Radiance Fields',
+    authors: ['Binbin Huang', 'Zehao Yu', 'Anpei Chen', 'Andreas Geiger', 'Shenghua Gao'],
+    year: 2024,
+    arxiv: '2403.17888',
+    url: 'https://arxiv.org/abs/2403.17888',
+    type: 'paper',
+  },
+  // phystwin-2025: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts; also drafts/world-models/world-models-vs-simulators.citations.ts.
+  {
+    id: 'phystwin-2025',
+    title: 'PhysTwin: Physics-Informed Reconstruction and Simulation of Deformable Objects from Videos',
+    authors: ['Hanxiao Jiang', 'Hao-Yu Hsu', 'Kaifeng Zhang', 'Hsin-Ni Yu', 'Shenlong Wang', 'Yunzhu Li'],
+    year: 2025,
+    arxiv: '2503.17973',
+    url: 'https://arxiv.org/abs/2503.17973',
+    type: 'paper',
+  },
+  // f3rm-2023: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // arXiv 2308.07931 abstract: "leveraging distilled feature fields to combine accurate 3D geometry
+  // with rich semantics from 2D foundation models" and "a few-shot learning method for 6-DOF
+  // grasping and placing".
+  {
+    id: 'f3rm-2023',
+    title: 'Distilled Feature Fields Enable Few-Shot Language-Guided Manipulation',
+    authors: ['William Shen', 'Ge Yang', 'Alan Yu', 'Jansen Wong', 'Leslie Pack Kaelbling', 'Phillip Isola'],
+    year: 2023,
+    venue: 'arXiv preprint (CoRL 2023)',
+    arxiv: '2308.07931',
+    url: 'https://arxiv.org/abs/2308.07931',
+    type: 'paper',
+  },
+  // dbow2-2012: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // Crossref 10.1109/TRO.2012.2197158 (IEEE T-RO 28(5), 2012); Crossref prints the byline with
+  // initials. Pack quote: "The whole technique, including feature extraction, requires 22 ms/frame
+  // in a sequence with 26 300 images that is one order of magnitude faster than previous
+  // approaches."
+  {
+    id: 'dbow2-2012',
+    title: 'Bags of Binary Words for Fast Place Recognition in Image Sequences',
+    authors: ['D. Galvez-López', 'J. D. Tardos'],
+    year: 2012,
+    venue: 'IEEE Transactions on Robotics',
+    url: 'https://doi.org/10.1109/TRO.2012.2197158',
+    type: 'paper',
+  },
+  // droid-slam-2021: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // arXiv 2108.10869 abstract: "DROID-SLAM consists of recurrent iterative updates of camera pose
+  // and pixelwise depth through a Dense Bundle Adjustment layer."
+  {
+    id: 'droid-slam-2021',
+    title: 'DROID-SLAM: Deep Visual SLAM for Monocular, Stereo, and RGB-D Cameras',
+    authors: ['Zachary Teed', 'Jia Deng'],
+    year: 2021,
+    arxiv: '2108.10869',
+    url: 'https://arxiv.org/abs/2108.10869',
+    type: 'paper',
+  },
+  // anyloc-2023: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // arXiv 2308.00688 abstract: "general-purpose feature representations derived from off-the-shelf
+  // self-supervised models with no VPR-specific training", "(urban, outdoors, indoors, aerial,
+  // underwater, and subterranean environments) without any re-training or fine-tuning" and "to
+  // achieve up to 4X significantly higher performance than existing approaches".
+  {
+    id: 'anyloc-2023',
+    title: 'AnyLoc: Towards Universal Visual Place Recognition',
+    authors: ['Nikhil Keetha', 'Avneesh Mishra', 'Jay Karhade', 'Krishna Murthy Jatavallabhula', 'Sebastian Scherer', 'Madhava Krishna', 'Sourav Garg'],
+    year: 2023,
+    venue: 'arXiv preprint (IEEE RA-L 2023)',
+    arxiv: '2308.00688',
+    url: 'https://arxiv.org/abs/2308.00688',
+    type: 'paper',
+  },
+  // gnc-2019: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // arXiv 1909.08605 abstract: "Although GNC's global optimality cannot be guaranteed, we
+  // demonstrate the empirical robustness" and "Our solvers are robust to 70-80% of outliers,
+  // outperform RANSAC".
+  {
+    id: 'gnc-2019',
+    title: 'Graduated Non-Convexity for Robust Spatial Perception: From Non-Minimal Solvers to Global Outlier Rejection',
+    authors: ['Heng Yang', 'Pasquale Antonante', 'Vasileios Tzoumas', 'Luca Carlone'],
+    year: 2019,
+    venue: 'IEEE Robotics and Automation Letters',
+    arxiv: '1909.08605',
+    url: 'https://arxiv.org/abs/1909.08605',
+    type: 'paper',
+  },
+  // splatam-2023: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // arXiv 2312.02126 abstract: "It utilizes a silhouette mask to elegantly capture the presence of
+  // scene density." and "quickly determining if areas have been previously mapped".
+  {
+    id: 'splatam-2023',
+    title: 'SplaTAM: Splat, Track & Map 3D Gaussians for Dense RGB-D SLAM',
+    authors: ['Nikhil Keetha', 'Jay Karhade', 'Krishna Murthy Jatavallabhula', 'Gengshan Yang', 'Sebastian Scherer', 'Deva Ramanan', 'Jonathon Luiten'],
+    year: 2023,
+    venue: 'arXiv preprint (CVPR 2024)',
+    arxiv: '2312.02126',
+    url: 'https://arxiv.org/abs/2312.02126',
+    type: 'paper',
+  },
+  // monogs-2023: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // arXiv 2312.06741 abstract: "Our method, which runs live at 3fps, utilises Gaussians as the only
+  // 3D representation".
+  {
+    id: 'monogs-2023',
+    title: 'Gaussian Splatting SLAM',
+    authors: ['Hidenobu Matsuki', 'Riku Murai', 'Paul H. J. Kelly', 'Andrew J. Davison'],
+    year: 2023,
+    venue: 'arXiv preprint (CVPR 2024)',
+    arxiv: '2312.06741',
+    url: 'https://arxiv.org/abs/2312.06741',
+    type: 'paper',
+  },
+  // mast3r-slam-2024: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts; also drafts/classical/state-estimation.citations.ts.
+  {
+    id: 'mast3r-slam-2024',
+    title: 'MASt3R-SLAM: Real-Time Dense SLAM with 3D Reconstruction Priors',
+    authors: ['Riku Murai', 'Eric Dexheimer', 'Andrew J. Davison'],
+    year: 2024,
+    venue: 'arXiv preprint (CVPR 2025)',
+    arxiv: '2412.12392',
+    url: 'https://arxiv.org/abs/2412.12392',
+    type: 'paper',
+  },
+  // slam3r-2024: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // arXiv 2412.09401 abstract: "all without explicitly solving any camera parameters" and
+  // "maintaining real-time performance at 20+ FPS".
+  {
+    id: 'slam3r-2024',
+    title: 'SLAM3R: Real-Time Dense Scene Reconstruction from Monocular RGB Videos',
+    authors: ['Yuzheng Liu', 'Siyan Dong', 'Shuzhe Wang', 'Yingda Yin', 'Yanchao Yang', 'Qingnan Fan', 'Baoquan Chen'],
+    year: 2024,
+    venue: 'arXiv preprint (CVPR 2025)',
+    arxiv: '2412.09401',
+    url: 'https://arxiv.org/abs/2412.09401',
+    type: 'paper',
+  },
+  // vggt-slam-2025: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // arXiv 2505.12549 abstract: "the scene can only be reconstructed up to a 15-degrees-of-freedom
+  // projective transformation of the true geometry".
+  {
+    id: 'vggt-slam-2025',
+    title: 'VGGT-SLAM: Dense RGB SLAM Optimized on the SL(4) Manifold',
+    authors: ['Dominic Maggio', 'Hyungtae Lim', 'Luca Carlone'],
+    year: 2025,
+    arxiv: '2505.12549',
+    url: 'https://arxiv.org/abs/2505.12549',
+    type: 'paper',
+  },
+  // cartographer-2016: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // Crossref 10.1109/ICRA.2016.7487258 (ICRA 2016). Pack quote: "We present the approach used in our
+  // backpack mapping platform which achieves real-time mapping and loop closure at a 5 cm
+  // resolution."
+  {
+    id: 'cartographer-2016',
+    title: 'Real-time loop closure in 2D LIDAR SLAM',
+    authors: ['Wolfgang Hess', 'Damon Kohler', 'Holger Rapp', 'Daniel Andor'],
+    year: 2016,
+    venue: '2016 IEEE International Conference on Robotics and Automation (ICRA)',
+    url: 'https://doi.org/10.1109/ICRA.2016.7487258',
+    type: 'paper',
+  },
+  // hydra-2022: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // arXiv 2201.13360 abstract: "these algorithms build a local Euclidean Signed Distance Function
+  // (ESDF) around the current robot location, extract a topological map of places from the ESDF, and
+  // then segment the places into rooms".
+  {
+    id: 'hydra-2022',
+    title: 'Hydra: A Real-time Spatial Perception System for 3D Scene Graph Construction and Optimization',
+    authors: ['Nathan Hughes', 'Yun Chang', 'Luca Carlone'],
+    year: 2022,
+    venue: 'Robotics: Science and Systems (RSS) 2022',
+    arxiv: '2201.13360',
+    url: 'https://arxiv.org/abs/2201.13360',
+    type: 'paper',
+  },
+  // conceptfusion-2023: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // arXiv 2302.07241 abstract: "We demonstrate that pixel-aligned open-set features can be fused
+  // into 3D maps via traditional SLAM and multi-view fusion approaches."
+  {
+    id: 'conceptfusion-2023',
+    title: 'ConceptFusion: Open-set Multimodal 3D Mapping',
+    authors: ['Krishna Murthy Jatavallabhula', 'Alihusein Kuwajerwala', 'Qiao Gu', 'Mohd Omama', 'Tao Chen', 'Alaa Maalouf', 'Shuang Li', 'Ganesh Iyer', 'Soroush Saryazdi', 'Nikhil Keetha', 'Ayush Tewari', 'Joshua B. Tenenbaum', 'Celso Miguel de Melo', 'Madhava Krishna', 'Liam Paull', 'Florian Shkurti', 'Antonio Torralba'],
+    year: 2023,
+    venue: 'Robotics: Science and Systems (RSS) 2023',
+    arxiv: '2302.07241',
+    url: 'https://arxiv.org/abs/2302.07241',
+    type: 'paper',
+  },
+  // conceptgraphs-2023: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // arXiv 2309.16650 abstract: "these approaches tend to produce maps with per-point feature
+  // vectors, which do not scale well in larger environments".
+  {
+    id: 'conceptgraphs-2023',
+    title: 'ConceptGraphs: Open-Vocabulary 3D Scene Graphs for Perception and Planning',
+    authors: ['Qiao Gu', 'Alihusein Kuwajerwala', 'Sacha Morin', 'Krishna Murthy Jatavallabhula', 'Bipasha Sen', 'Aditya Agarwal', 'Corban Rivera', 'William Paul', 'Kirsty Ellis', 'Rama Chellappa', 'Chuang Gan', 'Celso Miguel de Melo', 'Joshua B. Tenenbaum', 'Antonio Torralba', 'Florian Shkurti', 'Liam Paull'],
+    year: 2023,
+    arxiv: '2309.16650',
+    url: 'https://arxiv.org/abs/2309.16650',
+    type: 'paper',
+  },
+  // gordon-salmond-smith-1993: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
+  // Crossref 10.1049/ip-f-2.1993.0015 (IEE Proc. F 140(2), 1993); byline printed with initials. Pack
+  // quote: "The method is not restricted by assumptions of linearity or Gaussian noise: it may be
+  // applied to any state transition or measurement model."
+  {
+    id: 'gordon-salmond-smith-1993',
+    title: 'Novel approach to nonlinear/non-Gaussian Bayesian state estimation',
+    authors: ['N. J. Gordon', 'D. J. Salmond', 'A. F. M. Smith'],
+    year: 1993,
+    venue: 'IEE Proceedings F (Radar and Signal Processing)',
+    url: 'https://doi.org/10.1049/ip-f-2.1993.0015',
+    type: 'paper',
+  },
+  // dellaert-mcl-1999: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
+  // Crossref 10.1109/ROBOT.1999.772544 (ICRA 1999; Crossref carries no issued year, 1999 is the
+  // conference year); byline printed with initials. Pack quote: "We show experimentally that the
+  // resulting method is able to efficiently localize a mobile robot without knowledge of its
+  // starting location."
+  {
+    id: 'dellaert-mcl-1999',
+    title: 'Monte Carlo localization for mobile robots',
+    authors: ['F. Dellaert', 'D. Fox', 'W. Burgard', 'S. Thrun'],
+    year: 1999,
+    venue: 'ICRA 1999',
+    url: 'https://doi.org/10.1109/ROBOT.1999.772544',
+    type: 'paper',
+  },
+  // kalman-bucy-1961: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
+  // Crossref 10.1115/1.3658902 (J. Basic Engineering 83(1), 1961); byline printed with initials.
+  // Pack quote: "A nonlinear differential equation of the Riccati type is derived for the covariance
+  // matrix of the optimal filtering error."
+  {
+    id: 'kalman-bucy-1961',
+    title: 'New Results in Linear Filtering and Prediction Theory',
+    authors: ['R. E. Kalman', 'R. S. Bucy'],
+    year: 1961,
+    venue: 'J. Basic Engineering',
+    url: 'https://doi.org/10.1115/1.3658902',
+    type: 'paper',
+  },
+  // julier-uhlmann-2004: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
+  // Crossref 10.1109/JPROC.2003.823141 (Proc. IEEE 92(3), 2004); byline printed with initials. Pack
+  // quote: "more than 35 years of experience in the estimation community has shown that is difficult
+  // to implement, difficult to tune, and only reliable for systems that are almost linear on the
+  // time scale of the updates".
+  {
+    id: 'julier-uhlmann-2004',
+    title: 'Unscented Filtering and Nonlinear Estimation',
+    authors: ['S. J. Julier', 'J. K. Uhlmann'],
+    year: 2004,
+    venue: 'Proceedings of the IEEE',
+    url: 'https://doi.org/10.1109/JPROC.2003.823141',
+    type: 'paper',
+  },
+  // li-mourikis-2013: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
+  // Crossref 10.1177/0278364913481251 (IJRR 32(6), 2013). Pack quote: "we prove that both types of
+  // EKF approaches are inconsistent, due to the way in which Jacobians are computed" / "which causes
+  // the filters to underestimate the uncertainty in the state estimates".
+  {
+    id: 'li-mourikis-2013',
+    title: 'High-precision, consistent EKF-based visual-inertial odometry',
+    authors: ['Mingyang Li', 'Anastasios I. Mourikis'],
+    year: 2013,
+    venue: 'Int. J. Robotics Research',
+    url: 'https://doi.org/10.1177/0278364913481251',
+    type: 'paper',
+  },
+  // hartley-inekf-2019: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
+  // arXiv 1904.09251 v1 2019-04-19 (IJRR 2020). "unlike the standard EKF, neither the linearized
+  // error dynamics nor the linearized observation model depend on the current state estimate".
+  {
+    id: 'hartley-inekf-2019',
+    title: 'Contact-Aided Invariant Extended Kalman Filtering for Robot State Estimation',
+    authors: ['Ross Hartley', 'Maani Ghaffari', 'Ryan M. Eustice', 'Jessy W. Grizzle'],
+    year: 2019,
+    venue: 'arXiv preprint (Int. J. Robotics Research 2020)',
+    arxiv: '1904.09251',
+    url: 'https://arxiv.org/abs/1904.09251',
+    type: 'paper',
+  },
+  // eqvio-2022: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
+  // arXiv 2205.01980 v1 2022-05-04; journal ref IEEE T-RO 39(5):3567-3585, Oct. 2023. "the
+  // equivariant filter (EqF) based on this Lie group is a consistent estimator for VIO with lower
+  // linearisation error in the propagation of state dynamics".
+  {
+    id: 'eqvio-2022',
+    title: 'EqVIO: An Equivariant Filter for Visual Inertial Odometry',
+    authors: ['Pieter van Goor', 'Robert Mahony'],
+    year: 2022,
+    venue: 'IEEE Trans. Robotics',
+    arxiv: '2205.01980',
+    url: 'https://arxiv.org/abs/2205.01980',
+    type: 'paper',
+  },
+  // gtsam-4-3-2026: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
+  // GitHub release page read 2026-10-04 (published 2026-09-18). "GTSAM 4.3 moves to C++17 and modern
+  // Eigen versions"; "GTSAM 4.3 introduces experimental CUDA acceleration for both bundle adjustment
+  // and more general nonlinear optimization."; "EKF and invariant-EKF infrastructure, equivariant
+  // filtering and EqVIO support"; "several legged-state-estimation implementations". Distinct from
+  // gtsam-2026 (gtsam.org homepage).
+  {
+    id: 'gtsam-4-3-2026',
+    title: 'GTSAM 4.3.0',
+    authors: ['Frank Dellaert', 'GTSAM Contributors'],
+    year: 2026,
+    venue: 'borglab/gtsam GitHub release, 2026-09-18',
+    url: 'https://github.com/borglab/gtsam/releases/tag/4.3.0',
+    type: 'docs',
+  },
+  // rauch-tung-striebel-1965: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
+  // Crossref 10.2514/3.3166 (AIAA Journal 3(8), 1965); Crossref prints the byline in capitals with
+  // initials. Pack quote: "Difference equations relating the estimates for the problems of filtering
+  // and smoothing are derived" / "A numerical example is included to show the advantage of smoothing
+  // in reducing the errors in estimation."
+  {
+    id: 'rauch-tung-striebel-1965',
+    title: 'Maximum likelihood estimates of linear dynamic systems',
+    authors: ['H. E. Rauch', 'F. Tung', 'C. T. Striebel'],
+    year: 1965,
+    venue: 'AIAA Journal',
+    url: 'https://doi.org/10.2514/3.3166',
+    type: 'paper',
+  },
+  // grisetti-gmapping-2007: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
+  // Crossref 10.1109/TRO.2006.889486 (IEEE T-RO 23(1), 2007). Pack quote: "This approach uses a
+  // particle filter in which each particle carries an individual map of the environment."
+  {
+    id: 'grisetti-gmapping-2007',
+    title: 'Improved Techniques for Grid Mapping With Rao-Blackwellized Particle Filters',
+    authors: ['Giorgio Grisetti', 'Cyrill Stachniss', 'Wolfram Burgard'],
+    year: 2007,
+    venue: 'IEEE Trans. Robotics',
+    url: 'https://doi.org/10.1109/TRO.2006.889486',
+    type: 'paper',
+  },
+  // msckf-2007: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
+  // Crossref 10.1109/ROBOT.2007.364024 (ICRA 2007). Pack quote: "This measurement model does not
+  // require including the 3D feature position in the state vector of the EKF and is optimal, up to
+  // linearization errors."
+  {
+    id: 'msckf-2007',
+    title: 'A Multi-State Constraint Kalman Filter for Vision-aided Inertial Navigation',
+    authors: ['Anastasios I. Mourikis', 'Stergios I. Roumeliotis'],
+    year: 2007,
+    venue: 'ICRA 2007',
+    url: 'https://doi.org/10.1109/ROBOT.2007.364024',
+    type: 'paper',
+  },
+  // okvis-2014: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
+  // Crossref 10.1177/0278364914554813 (IJRR; Crossref issued 2014, issue 34(3) dated 2015). Pack
+  // quote: "advancements in visual estimation suggest that nonlinear optimization offers superior
+  // accuracy, while still tractable in complexity thanks to the sparsity of the underlying problem."
+  {
+    id: 'okvis-2014',
+    title: 'Keyframe-based visual–inertial odometry using nonlinear optimization',
+    authors: ['Stefan Leutenegger', 'Simon Lynen', 'Michael Bosse', 'Roland Siegwart', 'Paul Furgale'],
+    year: 2014,
+    venue: 'Int. J. Robotics Research',
+    url: 'https://doi.org/10.1177/0278364914554813',
+    type: 'paper',
+  },
+  // backprop-kf-2016: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
+  // arXiv 1605.07148 v1 2016-05-23 (NIPS 2016). "the parameters of the latent state distribution are
+  // directly optimized as a deterministic computation graph"; "raw camera images, which must be
+  // processed using expressive nonlinear function approximators such as convolutional neural
+  // networks"; "the connection to probabilistic filtering allows us to design a network architecture
+  // that is particularly well suited for state estimation".
+  {
+    id: 'backprop-kf-2016',
+    title: 'Backprop KF: Learning Discriminative Deterministic State Estimators',
+    authors: ['Tuomas Haarnoja', 'Anurag Ajay', 'Sergey Levine', 'Pieter Abbeel'],
+    year: 2016,
+    venue: 'NIPS 2016',
+    arxiv: '1605.07148',
+    url: 'https://arxiv.org/abs/1605.07148',
+    type: 'paper',
+  },
+  // tlio-2020: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
+  // arXiv 2007.01867 v1 2020-07-06 (IEEE RA-L). "This paper demonstrates a network that regresses 3D
+  // displacement estimates and its uncertainty, giving us the ability to tightly fuse the relative
+  // state measurement into a stochastic cloning EKF".
+  {
+    id: 'tlio-2020',
+    title: 'TLIO: Tight Learned Inertial Odometry',
+    authors: ['Wenxin Liu', 'David Caruso', 'Eddy Ilg', 'Jing Dong', 'Anastasios I. Mourikis', 'Kostas Daniilidis', 'Vijay Kumar', 'Jakob Engel'],
+    year: 2020,
+    venue: 'IEEE Robotics and Automation Letters',
+    arxiv: '2007.01867',
+    url: 'https://arxiv.org/abs/2007.01867',
+    type: 'paper',
+  },
+  // airio-2025: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
+  // arXiv 2501.15659 v1 2025-01-26. "Combined with a data-driven IMU correction model (AirIMU) and
+  // an uncertainty-aware Extended Kalman Filter (EKF), our approach ensures robust state estimation
+  // under aggressive UAV maneuvers".
+  {
+    id: 'airio-2025',
+    title: 'AirIO: Learning Inertial Odometry with Enhanced IMU Feature Observability',
+    authors: ['Yuheng Qiu', 'Can Xu', 'Yutian Chen', 'Shibo Zhao', 'Junyi Geng', 'Sebastian Scherer'],
+    year: 2025,
+    venue: 'arXiv preprint',
+    arxiv: '2501.15659',
+    url: 'https://arxiv.org/abs/2501.15659',
+    type: 'paper',
+  },
+  // mac-vo-2024: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
+  // arXiv 2409.09479 v1 2024-09-14 (ICRA 2025). "we design a metrics-aware covariance model to
+  // capture the spatial error during keypoint registration and the correlations between different
+  // axes. Integrating this covariance model into pose graph optimization enhances the robustness and
+  // reliability of pose estimation".
+  {
+    id: 'mac-vo-2024',
+    title: 'MAC-VO: Metrics-aware Covariance for Learning-based Stereo Visual Odometry',
+    authors: ['Yuheng Qiu', 'Yutian Chen', 'Zihao Zhang', 'Wenshan Wang', 'Sebastian Scherer'],
+    year: 2024,
+    venue: 'arXiv preprint (ICRA 2025)',
+    arxiv: '2409.09479',
+    url: 'https://arxiv.org/abs/2409.09479',
+    type: 'paper',
+  },
+  // tartan-imu-2025: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
+  // CVF open-access PDF read 2026-10-04 (CVPR 2025); byline from the PDF. "a pre-trained foundation
+  // model leverages over 100 hours of multi-platform data to establish general motion knowledge,
+  // achieving 36% improvement in ATE over specialized models"; "allowing the model to continuously
+  // "learn as it operates" at 200 FPS in real-time".
+  {
+    id: 'tartan-imu-2025',
+    title: 'Tartan IMU: A Light Foundation Model for Inertial Positioning in Robotics',
+    authors: ['Shibo Zhao', 'Sifan Zhou', 'Raphael Blanchard', 'Yuheng Qiu', 'Wenshan Wang', 'Sebastian Scherer'],
+    year: 2025,
+    venue: 'CVPR 2025',
+    url: 'https://openaccess.thecvf.com/content/CVPR2025/papers/Zhao_Tartan_IMU_A_Light_Foundation_Model_for_Inertial_Positioning_in_CVPR_2025_paper.pdf',
+    type: 'paper',
+  },
+  // gait-2026: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
+  // arXiv 2606.14160 v1 2026-06-12. "the proposed method learns this behavior without relying on an
+  // explicit contact estimator or on explicit measurement updates based on a stationary contact
+  // assumption"; "we conducted experiments on a Unitree Go1 robot"; "also improves performance over
+  // contact-aided model-based methods".
+  {
+    id: 'gait-2026',
+    title: 'GAIT: Legged Robot Proprioceptive State Estimation with Attention over Inertial-Leg Tokens',
+    authors: ['Young-Rang Seo', 'Hajun Kim', 'Sangmin Kim', 'Dongyun Kang', 'Hae-Won Park'],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2606.14160',
+    url: 'https://arxiv.org/abs/2606.14160',
+    type: 'paper',
+  },
+  // planet-2018: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts; also drafts/world-models/latent-dynamics.citations.ts.
+  // "a multi-step variational inference objective".
+  {
+    id: 'planet-2018',
+    title: 'Learning Latent Dynamics for Planning from Pixels',
+    authors: ['Danijar Hafner', 'Timothy Lillicrap', 'Ian Fischer', 'Ruben Villegas', 'David Ha', 'Honglak Lee', 'James Davidson'],
+    year: 2018,
+    arxiv: '1811.04551',
+    url: 'https://arxiv.org/abs/1811.04551',
+    type: 'paper',
+  },
+  // dreamerv3-nature-2025: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts; also drafts/world-models/latent-dynamics.citations.ts.
+  // Pack quote: "Dreamer learns a model of the environment and improves its behaviour by imagining
+  // future scenarios."
+  {
+    id: 'dreamerv3-nature-2025',
+    title: 'Mastering diverse control tasks through world models',
+    authors: ['Danijar Hafner', 'Jurgis Pasukonis', 'Jimmy Ba', 'Timothy Lillicrap'],
+    year: 2025,
+    venue: 'Nature 640, 647-653',
+    url: 'https://doi.org/10.1038/s41586-025-08744-2',
+    type: 'paper',
+  },
+  // li-mourikis-temporal-2014: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
+  // Crossref 10.1177/0278364913515286 (IJRR 33(7), 2014). Pack quote: "When fusing visual and
+  // inertial measurements for motion estimation, each measurement's sampling time must be precisely
+  // known." / "We show that the offset is locally identifiable, except in a small number of
+  // degenerate motion cases".
+  {
+    id: 'li-mourikis-temporal-2014',
+    title: 'Online temporal calibration for camera–IMU systems: Theory and algorithms',
+    authors: ['Mingyang Li', 'Anastasios I. Mourikis'],
+    year: 2014,
+    venue: 'Int. J. Robotics Research',
+    url: 'https://doi.org/10.1177/0278364913515286',
+    type: 'paper',
+  },
+  // li-rolling-shutter-2013: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
+  // Crossref 10.1109/ICRA.2013.6631248 (ICRA 2013). Pack quote: "the vast majority of consumer-grade
+  // cameras use rolling-shutter sensors, which capture each row of pixels at a slightly different
+  // time instant".
+  {
+    id: 'li-rolling-shutter-2013',
+    title: 'Real-time motion tracking on a cellphone using inertial sensing and a rolling-shutter camera',
+    authors: ['Mingyang Li', 'Byung Hyung Kim', 'Anastasios I. Mourikis'],
+    year: 2013,
+    venue: 'ICRA 2013',
+    url: 'https://doi.org/10.1109/ICRA.2013.6631248',
+    type: 'paper',
+  },
+  // openvins-2020: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
+  // Crossref 10.1109/ICRA40945.2020.9196524 (ICRA 2020). Pack quote: "(i) on-manifold sliding window
+  // Kalman filter, (ii) online camera intrinsic and extrinsic calibration, (iii) camera to inertial
+  // sensor time offset calibration".
+  {
+    id: 'openvins-2020',
+    title: 'OpenVINS: A Research Platform for Visual-Inertial Estimation',
+    authors: ['Patrick Geneva', 'Kevin Eckenhoff', 'Woosik Lee', 'Yulin Yang', 'Guoquan Huang'],
+    year: 2020,
+    venue: 'ICRA 2020',
+    url: 'https://doi.org/10.1109/ICRA40945.2020.9196524',
+    type: 'paper',
+  },
+  // grandtour-2026: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
+  // arXiv 2602.18164 v1 2026-02-20. "it includes high-precision ground-truth trajectories from
+  // satellite-based RTK-GNSS and a Leica Geosystems total station"; "GrandTour represents the
+  // largest open-access legged-robotics dataset to date".
+  {
+    id: 'grandtour-2026',
+    title: 'GrandTour: A Legged Robotics Dataset in the Wild for Multi-Modal Perception and State Estimation',
+    authors: ['Turcan Tuna', 'Jonas Frey', 'Frank Fu', 'Katharine Patterson', 'Tianao Xu', 'Maurice Fallon', 'Cesar Cadena', 'Marco Hutter'],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2602.18164',
+    url: 'https://arxiv.org/abs/2602.18164',
+    type: 'paper',
+  },
+  // eyerobot-2-2026: domain pass 2026-10-06, KOL intake note of Ken Goldberg, from drafts/classical/perception.citations.ts.
+  // Refresh 2026-10-06 against mission HEAD 8c34ffbb, KOL intake note of Ken Goldberg.
+  // Title, authors and abstract read on the arXiv abstract page on 2026-10-06 (v1 2 Oct 2026).
+  {
+    id: 'eyerobot-2-2026',
+    title: 'EyeRobot 2.0: Active Gaze for Precise Manipulation without Wrist Cameras',
+    authors: ['Kush Hari', 'Justin Kerr', 'Nidhya Shivakumar', 'Samarth Mahapatra', 'Carmelo Sferrazza', 'Jiahui Lei', 'Jitendra Malik', 'C. Karen Liu', 'Ken Goldberg', 'Angjoo Kanazawa'],
+    year: 2026,
+    arxiv: '2610.03710',
+    url: 'https://arxiv.org/abs/2610.03710',
+    type: 'paper',
+  },
+  // forcetwin-2026: domain pass 2026-10-06, KOL intake note of Marco Hutter.
+  // KOL backlog step of 2026-10-07: abstract page and PDF first page fetched 2026-10-07; v1 submitted
+  // 18 September 2026. ETH Zurich, NVIDIA, Microsoft and University of Bonn.
+  {
+    id: 'forcetwin-2026',
+    title: 'ForceTwin: Physics-informed Digital Twins for Robotic Manipulation from Instrumented Human Interaction',
+    authors: ['Tim Engelbracht', 'René Zurbrügg', 'Mayank Mittal', 'Marco Hutter', 'Marc Pollefeys', 'Hermann Blum', 'Zuria Bauer'],
+    year: 2026,
+    arxiv: '2609.21751',
+    url: 'https://arxiv.org/abs/2609.21751',
+    type: 'paper',
+  },
+  // particlesplat-2026: domain pass 2026-10-06, KOL intake note of Deepak Pathak.
+  // KOL backlog step of 2026-10-07: abstract page and PDF first page fetched 2026-10-07; v1 submitted
+  // 16 September 2026. Robotics Institute, Carnegie Mellon University.
+  {
+    id: 'particlesplat-2026',
+    title: 'ParticleSplat: Self-supervised Object-centric Latent Particle Splatting',
+    authors: ['Lyuxing He', 'Daniel Guo', 'Elizabeth Terveen', 'Deepak Pathak', 'David Held', 'Tal Daniel'],
+    year: 2026,
+    arxiv: '2609.19463',
+    url: 'https://arxiv.org/abs/2609.19463',
+    type: 'paper',
+  },
+  // scenelm-2026: domain pass 2026-10-06, KOL intake note of Jitendra Malik.
+  // KOL backlog step of 2026-10-07: abstract page and PDF first page fetched 2026-10-07; v1 submitted
+  // 18 September 2026. Chalmers, Zenseact, Stanford, UC Berkeley and NVIDIA.
+  {
+    id: 'scenelm-2026',
+    title: 'A Scene Language Model for Open-Vocabulary Scene Mapping',
+    authors: ['Adam Lilja', 'Fabio Hübel', 'Siming He', 'Junsheng Fu', 'Claire Tomlin', 'Lars Hammarstrand', 'Jitendra Malik', 'Jonas Frey', 'Marco Pavone'],
+    year: 2026,
+    arxiv: '2609.21400',
+    url: 'https://arxiv.org/abs/2609.21400',
+    type: 'paper',
+  },
+  // tacdyn-wam-2026: domain pass 2026-10-06, KOL intake note of Cheng Chi.
+  // KOL backlog step of 2026-10-07: abstract page, HTML and PDF first page fetched 2026-10-07; v1 submitted
+  // 30 September 2026. The paper places its Cheng Chi at Renmin University's School of Information; the
+  // sentence credits the first and corresponding authors, both at Tsinghua University's AIR.
+  {
+    id: 'tacdyn-wam-2026',
+    title: 'TacDyn-WAM: Learning Implicit Tactile Dynamics in a Heterogeneous Visuo-Tactile World Action Model',
+    authors: [
+      'Enyi Wang', 'Mingxin Wang', 'Quan Shi', 'Hetian Guo', 'Hongyu Wang', 'Xi Wang', 'Bin Qian', 'Yupeng Zheng',
+      'Wenxuan Song', 'Houde Liu', 'Yong Xu', 'Cheng Chi', 'Wenchao Ding', 'Yilun Chen', 'Yan Wang',
+    ],
+    year: 2026,
+    arxiv: '2610.00638',
+    url: 'https://arxiv.org/abs/2610.00638',
+    type: 'paper',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));
@@ -11910,6 +14727,7 @@ export const ORGANIZATION_CHIP_NAMES: ReadonlyMap<string, string> = new Map([
   ['Generalist Team', 'Generalist Team'],
   ['Google DeepMind', 'Google DeepMind'],
   ['Hugging Face', 'Hugging Face'],
+  ['IEEE Standards Association', 'IEEE Standards Association'],
   ['International Federation of Robotics', 'International Federation of Robotics'],
   ['Intuitive Surgical', 'Intuitive Surgical'],
   ['Lean Enterprise Institute', 'Lean Enterprise Institute'],
@@ -11917,15 +14735,18 @@ export const ORGANIZATION_CHIP_NAMES: ReadonlyMap<string, string> = new Map([
   ['Moon Surgical', 'Moon Surgical'],
   ['MoveIt Maintainers', 'MoveIt Maintainers'],
   ['NASA Jet Propulsion Laboratory', 'NASA Jet Propulsion Laboratory'],
+  ['Nav2 Project', 'Nav2 Project'],
   ['Northrop Grumman', 'Northrop Grumman'],
   ['Occupational Safety and Health Administration', 'OSHA'],
   ['Ocado Group', 'Ocado Group'],
   ['Octo Model Team', 'Octo Model Team'],
   ['Open X-Embodiment Collaboration', 'Open X-Embodiment Collaboration'],
   ['Physical Intelligence', 'Physical Intelligence'],
+  ['PickNik Robotics', 'PickNik Robotics'],
   ['Robotics and AI Institute', 'RAI Institute'],
   ['Rocking Robots', 'Rocking Robots'],
   ['ROS 2 Project', 'ROS 2 Project'],
+  ['SAM 3D Team', 'SAM 3D Team'],
   ['Sanctuary AI', 'Sanctuary AI'],
   ['SCSC Assurance Case Working Group', 'SCSC'],
   ['Seeed Studio', 'Seeed Studio'],

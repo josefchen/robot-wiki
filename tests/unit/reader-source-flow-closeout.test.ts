@@ -10,6 +10,9 @@ import {
 } from '@/lib/brand-v2-baseline';
 import { committedSource, preservedApprovalPacket } from '../helpers/continuation-integration';
 import { readerTruthAt, READER_RELEASE_BASE } from '../helpers/reader-integration';
+// The 2026-10-06 domain pass rewrote scene representation from the owner's draft;
+// its reviewed successor hands this check the article as it stood before.
+import { preDomainPass } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
 const base = '328ae3600521c094c464b3ddc7ba62c159f95882';
@@ -105,7 +108,8 @@ describe('bounded remaining reader Source flow, zero original completions', () =
     const path = cases[0].path;
     const section = (text: string) => text.split('### Signed-distance fields\n')[1]
       .split('### Meshes, and then neural fields')[0];
-    expect(section(read(path))).toBe(section(before(path)));
+    const live = preDomainPass(path).toString();
+    expect(section(live)).toBe(section(before(path)));
     for (const phrase of [
       'projective TSDF from a true discrete signed-distance field',
       'correct exactly at the surface or for an isolated point measurement',
@@ -113,7 +117,7 @@ describe('bounded remaining reader Source flow, zero original completions', () =
       'Near the zero level set',
       'assumes the field gradient is orthogonal',
       'trilinearly interpolated field values',
-    ]) expect(section(read(path))).toContain(phrase);
+    ]) expect(section(live)).toContain(phrase);
   });
 
   it('leaves TD3 reduction, rather than elimination, byte-identical', () => {

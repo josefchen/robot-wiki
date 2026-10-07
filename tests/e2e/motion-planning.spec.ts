@@ -2,6 +2,7 @@ import { expect, test, type Page } from './helpers/motion-planning-offline-fixtu
 import AxeBuilder from '@axe-core/playwright';
 import { writeFileSync } from 'node:fs';
 import { waitForHydration } from './interaction-ready';
+import { citedSourceCount, leadWords, MAX_LEAD_WORDS, MIN_CITED_SOURCES } from './helpers/brevity-bar';
 
 const ROUTE = '/classical/motion-planning/';
 function explorer(page: Page) {
@@ -86,18 +87,17 @@ test.describe('classical motion-planning module', () => {
       main.getByText(/TrajOpt/i).filter({ visible: true }).first(),
     ).toBeVisible();
 
-    // Substantive long-form body: several hundred words at minimum.
+    // Brevity bar: at least 30 distinct cited sources and a lead of 60 words or fewer.
     const visibleText = await visibleArticleText(page);
-    expect(visibleText.split(/\s+/).filter(Boolean).length).toBeGreaterThan(
-      800,
-    );
+    expect(await citedSourceCount(page)).toBeGreaterThanOrEqual(MIN_CITED_SOURCES);
+    expect(leadWords('classical/motion-planning')).toBeLessThanOrEqual(MAX_LEAD_WORDS);
 
     // Conditional trajectory-source correction coverage; execute only after
     // the three original records and their coupled endpoints are integrated.
-    expect(visibleText).toContain('CHOMP: a smoothness metric, not a local step-size rule');
+    expect(visibleText).toContain('CHOMP: covariant gradient descent');
     expect(visibleText).toContain('three seconds per CHOMP initialization');
-    expect(visibleText).toContain('thirty-second full-body OMPL limit');
-    expect(visibleText).toContain('The full-body results omit CHOMP');
+    expect(visibleText).toContain('thirty seconds for full-body OMPL');
+    expect(visibleText).toContain('The full-body comparison omits CHOMP');
     expect(visibleText).not.toContain('thin obstacles cannot slip between samples');
     expect(visibleText).not.toContain('trusting the answer only within a shrinking region');
     expect(visibleText).not.toContain('The standard industrial pipeline therefore');
@@ -118,9 +118,9 @@ test.describe('classical motion-planning module', () => {
       prose.locator('a[href="https://ompl.kavrakilab.org/"]'),
     ).toHaveCount(1);
     const text = await visibleArticleText(page);
-    expect(text).toContain('lists implementations of PRM and RRT');
-    expect(text).toContain('benchmarking tools for comparing planners');
-    expect(text).toContain('external collision-checking and visualization components');
+    expect(text).toContain('The library implements PRM and RRT');
+    expect(text).toContain('includes benchmarking tools');
+    expect(text).toContain('plugs into external collision checkers and visualizers');
     expect(text).not.toMatch(
       /Most practitioners never implement|ships tested versions|reference implementation the field benchmarks against/,
     );
@@ -166,10 +166,9 @@ test.describe('classical motion-planning module', () => {
     // A chip is keyboard-focusable and reveals its metadata on focus.
     const rrtChip = main.getByRole('link', { name: 'LaValle 1998' }).first();
     await rrtChip.focus();
-    // Five legitimate current occurrences share this source title (the RRT
-    // algorithm correction added two). Bind the popup to the focused chip
-    // rather than querying every hidden sibling.
-    await expect(main.locator('[data-cite-id="lavalle-1998"]')).toHaveCount(5);
+    // Four legitimate current occurrences share this source title. Bind the
+    // popup to the focused chip rather than querying every hidden sibling.
+    await expect(main.locator('[data-cite-id="lavalle-1998"]')).toHaveCount(4);
     const tooltipId = await rrtChip.getAttribute('aria-describedby');
     expect(tooltipId).toBeTruthy();
     const tooltip = main.locator(`[id="${tooltipId}"]`);

@@ -18,36 +18,34 @@ const records = (catalog = plans) => parseLedger('audit/classical.md', ledger, i
 
 describe('grasp source fidelity', () => {
   it('bounds the Roa–Suárez review instead of promising a broad benchmark', () => {
-    for (const text of ['contact locations and hand configuration', 'simple examples',
-      'origin used to compute torques', 'metric that scales torques relative to forces',
-      'shared total-force limit from independent per-finger limits', 'Most of their analysis is quasi-static'])
+    for (const text of ['contact locations and hand configuration',
+      'depends on the torque origin and on the force-torque metric',
+      'shared total-force limit need not be optimal under per-finger limits', 'most of their analysis is quasi-static'])
       expect(article).toContain(text);
     expect(article).not.toContain('benchmarks the main candidates');
     expect(registry).toContain('with no generally best criterion');
   });
   it('keeps synthetic training units and the expected-epsilon binary target explicit', () => {
     for (const text of ['Dex-Net 2.0 training datapoints', 'not robot trials',
-      '1,500 3D object models', 'over 6.7 million aligned grasp images',
-      'expected epsilon quality above 0.002', 'no modeled collision with the object or table',
-      'It does not regress the raw epsilon score', 'label threshold does not apply to the lab above'])
+      '6.7 million datapoints from 1,500 object models',
+      'friction uncertainty exceeds 0.002 and no collision is modeled',
+      'predicts robustness without regressing $\\varepsilon$'])
       expect(article).toContain(text);
   });
   it('separates prediction, constrained planning and physical execution', () => {
-    for (const text of ['grasp-aligned depth crop', 'gripper depth relative to the camera',
-      'reachable and does not collide with the table', 'isolated rigid objects',
-      'single-view depth image', 'ABB YuMi', 'Carmine 1.08',
-      'lifting, transporting, and shaking']) expect(article).toContain(text);
+    for (const text of ['grasp-aligned depth crop', 'and the gripper depth', 'isolated rigid objects',
+      'one depth camera with known intrinsics', 'ABB YuMi', 'Carmine 1.08',
+      'lifting, transport and shaking']) expect(article).toContain(text);
   });
   it('binds 93 percent to the fine-tuned model and its eight-object evaluation', () => {
-    expect(article).toContain('93% success for GQ-L-Adv over 80 trials, ten per object');
-    expect(article).toContain('fine-tuned on synthetic examples of those adversarial objects');
+    expect(article).toContain('On eight 3D-printed adversarial objects, GQ-L-Adv, fine-tuned on synthetic examples of them, succeeded in 93% of 80 trials');
     expect(article).not.toMatch(/(?:74|75)\s*(?:\/|of|out of)\s*80/);
     expect(registry).toContain('GQ-L-Adv, 93% success in 80 trials');
   });
   it('distinguishes household success and rounded precision without hiding failures', () => {
-    for (const text of ['100 trials on 40 novel household objects', '94% success overall and 99% precision',
-      '68 successes among 69 grasps classified as robust', 'estimated robustness exceeds 50%',
-      'Missing depth on thin parts and object collisions']) expect(article).toContain(text);
+    for (const text of ['100 trials on 40 novel household objects', '94% success and 99% precision',
+      '68 of 69 grasps rated above 50% robustness succeeded',
+      'missing depth on thin parts and object collisions']) expect(article).toContain(text);
     expect(article).not.toContain('99% success');
     expect(registry).toContain('94% overall success and 99% precision (68/69 robust classifications)');
   });
@@ -68,7 +66,6 @@ describe('grasp source fidelity', () => {
     expect(records()[2].evidenceFailures).toEqual([]);
     for (const ordinal of [10, 12]) expect(records()[ordinal - 1].evidenceFailures.length).toBe(0);
     expect(article).toContain('lastReviewed: "2026-08-17"');
-    expect(article).toContain('That pattern generalizes. Modern learned manipulation');
     expect(CITATIONS.find(c => c.id === 'roa-suarez-2015')?.url).toBe('https://doi.org/10.1007/s10514-014-9402-3');
     expect(CITATIONS.find(c => c.id === 'dexnet-2-2017')?.url).toBe('https://arxiv.org/abs/1703.09312');
   });

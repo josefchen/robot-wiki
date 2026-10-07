@@ -13,6 +13,7 @@ import {
 import { verifyKrogerReaderObservation } from '../../lib/audit-corrected-disposition';
 import { currentDataHardwareMotionArtifact, loadDataHardwareMotionReview } from '../../lib/audit-data-hardware-motion-continuity';
 import { round6ProseRestorePredecessor } from '../../lib/audit-round6-prose-restores-continuity';
+import { withoutDomainPassRegistryCorrections } from '../helpers/domain-pass';
 import { KOL_BACKLOG_ADDITIONS } from '../helpers/industrial-integration';
 import { preFigureMigration } from '../helpers/figure-migration';
 import { withPreSeoPassLabelCode } from '../helpers/seo-pass';
@@ -63,7 +64,7 @@ describe('finite Kroger source and historical correction continuation', () => {
     // restore the label code the 2026-10-02 SEO pass replaced.
     const intakeAdditions = /  \{\n    \/\/ arXiv abs page and HTML v2 full text both fetched 2026-09-25;[\s\S]*?id: 'perry-dong-post-training-2026',[\s\S]*?type: 'blog',\n  \},\n/;
     const robopointNote = /    \/\/ Where2Place point-in-mask accuracies[\s\S]*?\n(?=    id: 'robopoint-2024',)/;
-    const withoutIntake = withPreSeoPassLabelCode(read('data/citations.ts'))
+    const withoutIntake = withPreSeoPassLabelCode(withoutDomainPassRegistryCorrections(read('data/citations.ts')))
       .replace(intakeAdditions, '').replace(robopointNote, '').replace(KOL_BACKLOG_ADDITIONS, '');
     expect(verifyTechnologyWithdrawalRegistryTransition(merged, withoutIntake)).toBe(true);
     expect(verifyTechnologyWithdrawalRegistryTransition(merged, read('data/citations.ts'))).toBe(false);

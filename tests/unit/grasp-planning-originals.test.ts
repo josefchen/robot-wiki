@@ -403,11 +403,11 @@ describe('grasp-planning originals: approved deltas', () => {
 
 describe('grasp-planning originals: regression guards (green before and after)', () => {
   it('keeps the other audited spans byte-identical and applies only the paywall re-scope', () => {
-    expect(article).toContain('the wrenches along the cone edges at unit normal force');
-    expect(article).toContain('Reuleaux stated it in 1875 and Somoff in 1897');
-    expect(article).toContain('three contacts are necessary and sufficient in the plane and four in space');
-    expect(article).toContain('per unit of normal force at the contacts');
-    expect(article).toContain('The default tripod of top, right, and bottom contacts is force closure at $\\mu = 0.7$');
+    expect(article).toContain('along the cone edges at unit normal force');
+    expect(article).toContain('as Reuleaux noted in 1875 and Somoff in 1897');
+    expect(article).toContain('three fingers are necessary and sufficient to grasp any planar object, and four in space');
+    expect(article).toContain('the worst-case disturbance the grasp absorbs per unit of contact force');
+    expect(article).toContain('The default tripod of top, right and bottom contacts is force closure at $\\mu = 0.7$');
     // 20260917a paywall re-scope: the theorem statement as printed, without
     // the "strictly" the paywalled Nguyen body never showed under a fetch
     expect(article).toContain('lies inside both friction cones <Cite id="nguyen-1988" />');

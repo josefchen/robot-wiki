@@ -103,61 +103,56 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
       const prose = page.locator('div.prose[data-pagefind-body]');
       const checks = [
         {
-                "start": "Stereo",
+                "start": "RealSense's D415/D435 tuning guide",
                 "parts": [
-                        "RealSense's tuning checklist",
-                        "D415 and D435",
-                        "D400 depth error scales as the square of distance",
+                        "D400 depth error scales with the square of distance",
                         "staying outside the minimum operating distance, MinZ",
                         "resolution and range trade-offs",
-                        "focus and different left/right views"
+                        "differing left and right views"
                 ]
         },
         {
                 "start": "Time of flight",
                 "parts": [
-                        "Microsoft's Azure Kinect DK documentation",
-                        "outside the active IR illumination mask",
+                        "Azure Kinect DK documentation",
+                        "outside the IR illumination mask",
                         "saturated IR signal",
                         "low IR signal",
                         "filter outlier",
                         "multi-path interference",
-                        "the surface has not been measured at zero distance",
+                        "Invalid pixels carry depth zero",
                         "one wall onto another in a corner",
-                        "mixed foreground/background",
-                        "raw-depth exposure interval"
+                        "foreground and background mix at object edges",
+                        "Fast motion can increase edge invalidation"
                 ]
         },
         {
-                "start": "The examples below distinguish",
+                "start": "The 2% figure is measured",
                 "parts": [
-                        "Other depth-sensing families need their own evaluation on these surfaces"
+                        "publishes no target condition",
+                        "is not disclosed in either datasheet"
                 ]
         },
         {
-                "start": "Dark surfaces and low signal.",
+                "start": "Dark surfaces and low light weaken the signal.",
                 "parts": [
                         "IR signal is too weak",
                         "underexposure and overexposure",
-                        "leaving the projector on",
-                        "a visibly dark object does not always lose depth"
+                        "with the projector on"
                 ]
         },
         {
-                "start": "Thin objects versus repetitive structures.",
+                "start": "RealSense names fences and wire grids",
                 "parts": [
                         "fences and wire grids",
                         "best and second-best",
-                        "even when they differ",
-                        "DSSecondPeakThreshold",
-                        "it makes no blanket failure claim for every thin object"
+                        "DSSecondPeakThreshold"
                 ]
         },
         {
-                "start": "Self-occlusion versus view-dependent invalidation.",
+                "start": "Azure Kinect notes that a surface",
                 "parts": [
-                        "may reappear from another",
-                        "does not establish recovery of every missing surface by multi-view capture or describe generic self-occlusion"
+                        "can reappear from another"
                 ]
         }
 ];

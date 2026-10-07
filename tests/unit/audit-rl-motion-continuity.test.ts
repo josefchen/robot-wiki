@@ -9,7 +9,7 @@ import {
   parseRlMotionContinuity,
   rlMotionContinuityDigest,
 } from '../../lib/audit-rl-motion-continuity.ts';
-import { preSeoPass } from '../helpers/seo-pass.ts';
+import { preDomainPass, preSeoPass } from '../helpers/seo-pass.ts';
 
 const root = join(import.meta.dirname, '../..');
 const entries = loadRlMotionContinuity(root);
@@ -39,6 +39,7 @@ function fixture() {
     // The SEO pass rebuilds its predecessors from these reviews.
     'audit/evidence/seo-pass-20261002/source-transition.json',
     'audit/evidence/seo-pass-20261002/checker-transition.json',
+    'audit/evidence/domain-pass-20261006/checker-transition.json',
     ...entries.flatMap((entry) => [entry.snapshot.path, entry.current.path]),
   ]) {
     const to = join(destination, path);
@@ -93,6 +94,8 @@ it('retains all four exact historical articles and independently pins active dis
     'audit/evidence/figure-migration-20261001/checker-transition.json'), 'utf8'));
   const seoPassChecker = JSON.parse(readFileSync(join(root,
     'audit/evidence/seo-pass-20261002/checker-transition.json'), 'utf8'));
+  const domainPassChecker = JSON.parse(readFileSync(join(root,
+    'audit/evidence/domain-pass-20261006/checker-transition.json'), 'utf8'));
   expect(checker.after.bytes).toBe(worldChecker.before.bytes);
   expect(checker.after.sha256).toBe(worldChecker.before.sha256);
   expect(worldChecker.after.bytes).toBe(dataHardwareChecker.before.bytes);
@@ -123,6 +126,8 @@ it('retains all four exact historical articles and independently pins active dis
   expect(remainingRepairsChecker.after.sha256).toBe(figureMigrationChecker.before.sha256);
   expect(figureMigrationChecker.after.bytes).toBe(seoPassChecker.before.bytes);
   expect(figureMigrationChecker.after.sha256).toBe(seoPassChecker.before.sha256);
+  expect(seoPassChecker.after.bytes).toBe(domainPassChecker.before.bytes);
+  expect(seoPassChecker.after.sha256).toBe(domainPassChecker.before.sha256);
   expect(domainPairsChecker.before.path)
     .toBe('audit/evidence/motion-domain-pairs-20260928/audit-local-basis-before.ts.txt');
   expect(domainPairsChecker.after.path).toBe('lib/audit-local-basis.ts');
@@ -160,6 +165,10 @@ it('retains all four exact historical articles and independently pins active dis
   // migration's endpoint, is rebuilt from the live checker.
   expect(seoPassChecker.before.path).toBe('lib/audit-local-basis.ts');
   expect(seoPassChecker.after.path).toBe('lib/audit-local-basis.ts');
+  // Nor does the domain-pass revision: the SEO pass's endpoint is rebuilt
+  // from the live checker as well.
+  expect(domainPassChecker.before.path).toBe('lib/audit-local-basis.ts');
+  expect(domainPassChecker.after.path).toBe('lib/audit-local-basis.ts');
   for (const artifact of [checker.before, worldChecker.before, dataHardwareChecker.before,
     frontierChecker.before, domainPairsChecker.before, domainPairsChecker.after,
     proofReaderChecker.before, proofReaderChecker.after, articleTruthChecker.before,
@@ -169,7 +178,7 @@ it('retains all four exact historical articles and independently pins active dis
     proseRestoresChecker.before, proseRestoresChecker.after,
     remainingRepairsChecker.before, remainingRepairsChecker.after,
     figureMigrationChecker.before, figureMigrationChecker.after,
-    seoPassChecker.before, seoPassChecker.after]) {
+    seoPassChecker.before, seoPassChecker.after, domainPassChecker.before, domainPassChecker.after]) {
     const path = artifact === domainPairsChecker.after ? proofReaderChecker.before.path :
       artifact === proofReaderChecker.after ? articleTruthChecker.before.path :
       artifact === articleTruthChecker.after ? sharedUiChecker.before.path :
@@ -181,7 +190,9 @@ it('retains all four exact historical articles and independently pins active dis
       artifact === proseRestoresChecker.after ? remainingRepairsChecker.before.path :
       artifact === remainingRepairsChecker.after ? figureMigrationChecker.before.path : artifact.path;
     const bytes = artifact === figureMigrationChecker.after || artifact === seoPassChecker.before
-      ? preSeoPass(path) : readFileSync(join(root, path));
+      ? preSeoPass(path)
+      : artifact === seoPassChecker.after || artifact === domainPassChecker.before
+        ? preDomainPass(path) : readFileSync(join(root, path));
     expect(bytes.length).toBe(artifact.bytes);
     expect(createHash('sha256').update(bytes).digest('hex')).toBe(artifact.sha256);
   }

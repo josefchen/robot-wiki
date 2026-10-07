@@ -3,6 +3,7 @@ import { createHash } from 'node:crypto';
 import { committedSource, preservedApprovalPacket, preservedCompoundPacket } from '../helpers/continuation-integration';
 import { headReanchorFor } from './helpers/continuation-merge-ledger';
 import { preSeoPassHash } from '../helpers/seo-pass';
+import { domainPassEndpoint, isDomainPassEdge } from '../helpers/domain-pass';
 import matter from 'gray-matter';
 import { beforeAll, describe, expect, it } from 'vitest';
 import { CITATIONS } from '../../data/citations';
@@ -51,6 +52,14 @@ const oldStores = 'Signed distance to the nearest surface plus a fusion weight, 
 const newStores = 'A truncated projective signed-distance estimate plus a fusion weight, used to reconstruct the observed surface.';
 const oldNormal = 'the gradient of the field is the surface normal, which is what a collision query wants';
 const newNormal = 'KinectFusion estimates a normal from numerical field derivatives near the surface, under an orthogonality assumption';
+// The 2026-10-06 pre-audit corrected the header's footprint claim: the
+// module's own footprint() bills the band at more bytes than the grid at every
+// spacing, so the band holds fewer cells rather than being cheaper.
+const oldFootprint = ` * which is the reason a signed-distance field is cheaper than the
+ * occupancy grid it looks like it should cost the same as.`;
+const newFootprint = ` * which is the reason a narrow-band signed-distance field holds fewer cells
+ * than the occupancy grid it resembles and grows more slowly as the spacing
+ * shrinks, even though each of its cells costs more bytes.`;
 
 describe('scene original 10: source-scoped TSDF correction', { timeout: 30_000 }, () => {
   beforeAll(() => {
@@ -61,12 +70,12 @@ describe('scene original 10: source-scoped TSDF correction', { timeout: 30_000 }
 
   it('replaces universal collision promises with the four qualified paper operations', () => {
     for (const text of [
-      'KinectFusion distinguishes its projective TSDF from a true discrete signed-distance field.',
-      'correct exactly at the surface or for an isolated point measurement',
-      'approximate pseudo-Euclidean distance metric',
-      'Near the zero level set, the method assumes the field gradient is orthogonal',
-      'Surface prediction marches along each ray to a zero crossing',
-      'approximates the intersection using trilinearly interpolated field values <Cite id="kinectfusion-2011" />',
+      'Its projective TSDF caps visible-space values at the truncation distance $\\mu$',
+      'is exact at the surface',
+      'approximate pseudo-Euclidean distance',
+      'Normals come from numerical derivatives near the zero level set',
+      'ray marching finds surfaces',
+      'by trilinear interpolation <Cite id="kinectfusion-2011" />',
     ]) expect(scene).toContain(text);
     expect(scene).not.toContain('stored distance *is* the collision margin');
     expect(scene).not.toContain('a collision query is a lookup rather than a search');
@@ -86,7 +95,9 @@ describe('scene original 10: source-scoped TSDF correction', { timeout: 30_000 }
     expect(interactive).toContain(newNormal);
     expect(interactive).not.toContain(oldStores);
     expect(interactive).not.toContain(oldNormal);
-    expect(hash(interactive.replace(newStores, oldStores).replace(newNormal, oldNormal)))
+    expect(interactive).toContain(newFootprint);
+    expect(interactive).not.toContain(oldFootprint);
+    expect(hash(interactive.replace(newStores, oldStores).replace(newNormal, oldNormal).replace(newFootprint, oldFootprint)))
       .toBe('327adc4bd8e96fb552c4fc86ed9f47013f2e3efde66b068e5e625dd09943194d');
   });
 
@@ -210,10 +221,10 @@ describe('scene original 10: source-scoped TSDF correction', { timeout: 30_000 }
         expect(sourceFlow.newHash).not.toBe(merge.newHash);
         latestHash = merge.newHash;
       }
-      // The 2026-10-02 SEO pass is checked last, from the endpoint the
-      // earlier ledger reached.
+      // The 2026-10-02 SEO pass and the 2026-10-06 domain pass are checked
+      // last, in that order, from the endpoint the earlier ledger reached.
       const isSeoPass = (entry: ApprovedDelta) => entry.id.startsWith('seo-pass-20261002-');
-      const preSeoPass = entries.filter((entry) => !isSeoPass(entry));
+      const preSeoPass = entries.filter((entry) => !isSeoPass(entry) && !isDomainPassEdge(entry));
       for (const later of preSeoPass.slice(preSeoPass.indexOf(delta) + 1).filter((entry) =>
         entry.manifest === delta.manifest && entry.memberId === delta.memberId &&
         !entry.id.startsWith('continuation-merge-') && entry.id !== 'reader-source-flow-20260923-1')) {
@@ -228,7 +239,12 @@ describe('scene original 10: source-scoped TSDF correction', { timeout: 30_000 }
       expect(seo.length).toBeLessThanOrEqual(1);
       if (seo[0]?.reconciles) expect(seo[0].reconciles.at(-1)!.newHash).toBe(endpoint);
       else if (seo[0]) expect(seo[0].oldHash).toBe(endpoint);
-      expect(seo[0]?.newHash ?? endpoint).toBe(buildManifest(delta.manifest, [inputs[index]]).members[0].hash);
+      const seoEndpoint = seo[0]?.newHash ?? endpoint;
+      const domainPass = entries.find((entry) => isDomainPassEdge(entry) &&
+        entry.manifest === delta.manifest && entry.memberId === delta.memberId &&
+        (entry.oldHash === seoEndpoint || (entry.reconciles ?? []).some((binding) => binding.newHash === seoEndpoint)));
+      expect((domainPass ? domainPassEndpoint(entries, domainPass).newHash : undefined) ?? seoEndpoint)
+        .toBe(buildManifest(delta.manifest, [inputs[index]]).members[0].hash);
     });
   });
 

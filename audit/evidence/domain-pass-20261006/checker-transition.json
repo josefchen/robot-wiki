@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "domain-pass-checker-revision-v1",
+  "name": "domain-pass-reader",
+  "reviewedBy": "integration worker for the domain passes of 2026-10-06 (not independent acceptance)",
+  "rationale": "The domain passes bring the assertions of a few historical verification suites up to date with the rewritten articles. The checker lists each such suite with the one live version its retained snapshot stays compatible with, so each of those entries gets the suite's new live hash. Every edit swaps one currentTestHash line inside its own suite entry; no computation, threshold, ledger rule, snapshot or negative check changes.",
+  "observedAt": "2026-10-06T15:16:18Z",
+  "archivedFrom": "5856973cc0ccc4fc276c6bf323f4f1806c5139c3",
+  "before": {
+    "path": "lib/audit-local-basis.ts",
+    "bytes": 114290,
+    "sha256": "f115c68135aaac380af0e10ebecc721bcb613d5434f24b007f51879ed6829f3e"
+  },
+  "after": {
+    "path": "lib/audit-local-basis.ts",
+    "bytes": 114290,
+    "sha256": "593edb1358888d4ca8a827ddd9360540ea8f75808e6a9737b8a8348899397294"
+  },
+  "edits": [
+    {
+      "suite": "tests/unit/classical-closure-evidence.test.ts",
+      "before": "    currentTestHash: 'cf53d3e938e03ddeef8028aa289edecaee34eb30e5a943756fad8d3bf35b4eb9',\n",
+      "after": "    currentTestHash: '28cda95ec399bde3b339630a35239882d53e606c5fec8d0cbca5845de283b148',\n"
+    }
+  ]
+}

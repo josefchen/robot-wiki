@@ -152,47 +152,47 @@
     "minutes": 6
   },
   "classical/kinematics": {
-    "words": 2239,
-    "minutes": 11
+    "words": 2082,
+    "minutes": 10
   },
   "classical/motion-planning": {
-    "words": 3905,
-    "minutes": 20
-  },
-  "classical/control": {
-    "words": 3202,
+    "words": 3290,
     "minutes": 16
   },
+  "classical/control": {
+    "words": 2877,
+    "minutes": 14
+  },
   "classical/state-estimation": {
-    "words": 3064,
-    "minutes": 15
+    "words": 2798,
+    "minutes": 14
   },
   "classical/grasp-planning": {
-    "words": 2389,
-    "minutes": 12
+    "words": 2106,
+    "minutes": 11
   },
   "classical/perception": {
-    "words": 5469,
-    "minutes": 27
+    "words": 4400,
+    "minutes": 22
   },
   "classical/scene-representation": {
-    "words": 3338,
-    "minutes": 17
+    "words": 2973,
+    "minutes": 15
   },
   "classical/calibration": {
-    "words": 1239,
-    "minutes": 6
+    "words": 1098,
+    "minutes": 5
   },
   "classical/ros2-for-ml-engineers": {
-    "words": 1327,
-    "minutes": 7
+    "words": 1158,
+    "minutes": 6
   },
   "frontier/reliability-gap": {
     "words": 1655,
     "minutes": 8
   },
   "frontier/dexterity": {
-    "words": 2787,
+    "words": 2856,
     "minutes": 14
   },
   "frontier/generalization": {

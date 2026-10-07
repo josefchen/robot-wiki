@@ -19,16 +19,14 @@ const records = (catalog = plans) =>
 
 describe('source-scoped neural SLAM prose', () => {
   it('separates the iMAP dense map from retained optimization state and online timing', () => {
-    const block = source.split('\n\n').find((text) => text.startsWith('iMAP learns'));
+    const block = source.split('\n\n').find((text) => text.startsWith('The iMAP system learns'));
     expect(block).toBeDefined();
     for (const text of [
-      'without prior training data',
-      "not the system's only stored data",
-      'RGB-D keyframes and poses are retained for replay',
-      'tracking at 10 Hz and mapping at 2 Hz',
-      'fine map detail takes minutes',
-      'room-scale mapping',
-      'rendering uses camera intrinsics',
+      'from scratch',
+      'retaining keyframes for replay',
+      'tracks at 10 Hz and maps at 2 Hz',
+      'at room scale',
+      'on a desktop CPU and GPU',
       '<Cite id="imap-2021" />',
     ]) expect(block).toContain(text);
     expect(source).not.toContain('Learned components entered at the map, not at the optimiser.');
@@ -36,19 +34,15 @@ describe('source-scoped neural SLAM prose', () => {
   });
 
   it('keeps NICE-SLAM priors, multiple decoders, local/global state and bounded runtime scope', () => {
-    const block = source.split('\n\n').find((text) => text.startsWith('NICE-SLAM uses'));
+    const block = source.split('\n\n').find((text) => text.startsWith('The iMAP system learns'));
     expect(block).toBeDefined();
     for (const text of [
-      'three fixed, pretrained geometry decoders',
-      'a colour decoder optimised online',
-      'Synthetic Indoor Scene Dataset',
-      'static-scene mapping formulation',
-      'a global keyframe list is retained',
-      'does not perform loop closure',
+      'NICE-SLAM uses hierarchical feature grids',
+      'pretrained geometry decoders',
+      'reconstructs a multi-room apartment',
+      'performs no loop closure',
       '47 ms tracking and 130 ms mapping',
-      '200 tracking pixels and 1,000 mapping pixels',
-      'RTX 3090/Intel i7-10700K',
-      'not a latency guarantee for the apartment',
+      'small pixel samples on an RTX 3090',
       '<Cite id="nice-slam-2022" />',
     ]) expect(block).toContain(text);
   });
@@ -153,10 +147,11 @@ describe('source-scoped neural SLAM prose', () => {
 
   it('keeps the earlier costmap and front-end source repairs in the article', () => {
     const block = source.split('\n\n').find((text) =>
-      text.includes('proposed and implemented layered costmaps in the ROS Navigation stack'));
+      text.includes("Lu, Hershberger and Smart's layered costmaps"));
     expect(block).toBeDefined();
-    expect(block).toContain('remains configurable <Cite id="layered-costmaps-2014" />.');
-    expect(block).toContain('Navigation2 uses a layered costmap <Cite id="nav2-2020" />.');
+    expect(block).toContain('decides whether sensed obstacles overwrite static-map costs <Cite id="layered-costmaps-2014" />.');
+    expect(source).toContain('Navigation2, built on ROS 2, uses a layered costmap.');
+    expect(source).toContain('each a plugin in an asynchronous server <Cite id="nav2-2020" />.');
     expect(block).not.toMatch(/Source:|<br\b|className="block"/);
     expect(source).toContain('Cadena and colleagues separate a sensor-dependent front end');
   });

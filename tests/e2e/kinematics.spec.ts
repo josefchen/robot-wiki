@@ -7,6 +7,7 @@ import { createHash } from 'node:crypto';
 import { join } from 'node:path';
 import { getTerm } from '../../data/glossary';
 import { recomputeLocalDerivation } from '../../lib/audit-local-basis';
+import { citedSourceCount, leadWords, MAX_LEAD_WORDS, MIN_CITED_SOURCES } from './helpers/brevity-bar';
 
 const ROUTE = '/classical/kinematics/';
 
@@ -58,7 +59,7 @@ test('classical closure mounted observations at desktop and mobile', async ({ pa
     for (const absent of ['Wampler', 'Levenberg-Marquardt', 'residual decreases monotonically']) {
       await expect(main).not.toContainText(absent);
     }
-    for (const id of ['wampler-1986', 'levenberg-1944', 'marquardt-1963', 'denavit-hartenberg-1955']) {
+    for (const id of ['wampler-1986', 'levenberg-1944', 'marquardt-1963']) {
       await expect(main.locator(`[data-cite-id="${id}"],[data-reference-id="${id}"]`)).toHaveCount(0);
     }
     await expect(main.getByRole('link', { name: '3D kinematics playground' })).toHaveAttribute('href', '/playground/');
@@ -75,7 +76,7 @@ test('classical closure mounted observations at desktop and mobile', async ({ pa
     }
     await main.getByRole('heading', { name: 'Denavit-Hartenberg parameters', exact: true }).scrollIntoViewIfNeeded();
     await capture(`kinematics-${viewport.width}`, { surface: 'kinematics', glossary,
-      checkedText: ['LaValle describes', '3D kinematics playground', '±0.5mm'] });
+      checkedText: ['LaValle gives the', '3D kinematics playground', '±0.5mm'] });
 
     await ready('/classical/motion-planning/');
     await page.clock.pauseAt(new Date(await page.evaluate(() => Date.now()) + 1000));
@@ -210,9 +211,10 @@ test.describe('classical kinematics module', () => {
     await expect(main.getByText(/inverse kinematics/i).filter({ visible: true }).first()).toBeVisible();
     await expect(main.getByText(/singularit/i).filter({ visible: true }).first()).toBeVisible();
 
-    // Substantive long-form body: several hundred words at minimum.
+    // Brevity bar: at least 30 distinct cited sources and a lead of 60 words or fewer.
     const visibleText = await visibleArticleText(page);
-    expect(visibleText.split(/\s+/).filter(Boolean).length).toBeGreaterThan(800);
+    expect(await citedSourceCount(page)).toBeGreaterThanOrEqual(MIN_CITED_SOURCES);
+    expect(leadWords('classical/kinematics')).toBeLessThanOrEqual(MAX_LEAD_WORDS);
 
     // No raw MDX or component source leaks into the rendered page.
     expect(visibleText).not.toContain('import {');

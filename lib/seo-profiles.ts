@@ -229,7 +229,7 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     title: 'Robot Motion Planning: RRT, RRT* and TrajOpt',
     headTerm: 'robot motion planning',
     description:
-      'Robot motion planning finds collision-free paths: configuration space, PRM, RRT and RRT*, CHOMP and TrajOpt, and the handoff to learned policies.',
+      'Robot motion planning finds collision-free paths: configuration space, PRM, RRT and RRT*, CHOMP, TrajOpt, GPU planners and the handoff to learned policies.',
     queries: ['robot motion planning', 'RRT vs RRT*', 'trajectory optimization robotics'],
   },
   '/classical/control/': {
@@ -278,7 +278,7 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     title: 'ROS 2 for ML Engineers: Topics, QoS, tf2',
     headTerm: 'ROS 2',
     description:
-      'ROS 2 for machine-learning engineers: topics, services, actions, QoS, tf2, rosbag2 and MoveIt around a deployed robot policy.',
+      'ROS 2 for machine-learning engineers: topics, services, actions, QoS, tf2, rosbag2, MoveIt and GPU message buffers around a deployed robot policy.',
     queries: ['ROS 2 for machine learning', 'ROS 2 tutorial for ML engineers'],
   },
   '/rl-sim2real/': {

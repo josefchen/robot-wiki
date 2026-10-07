@@ -36,10 +36,20 @@ export type DomainPassReview = {
 
 // BEGIN domain-pass pins (written by scripts/record-domain-pass-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 392658, sha256: '79c8de159abcc9cb6c7404fe9f7b9cf3df270a7893939613883777350b538f61' };
+const reviewPin = { bytes: 686733, sha256: '87cee6426c17736e753809d34579aa9cac469d0003b1a64e36e5b766d6d7918a' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
+  ['content/classical/calibration.mdx', [9689, 'f05b9f74bfefac02ed215bb3f4110b0afd3ec2ef1ed5cc5679c9e51be0943500']],
+  ['content/classical/control.mdx', [19659, '4f68142d7a05a8e6ee80d1297c0a6c0c69f3ab42430f29f8a485ee2728b6d86b']],
+  ['content/classical/grasp-planning.mdx', [13593, 'c70f1a6b072d4df15c6422bbb825cbdb8abc17c4559804770556931c8d21215f']],
+  ['content/classical/kinematics.mdx', [11586, '36c66a5df19a38696991d78b5ef7cd030f2259282f44e209f48882106e4afa5d']],
+  ['content/classical/motion-planning.mdx', [20454, 'ebc07401ea182cb0334d7037c3ed272cb7ecf0a38c807bfed847edaffa878cd1']],
+  ['content/classical/perception.mdx', [28234, 'a7db2b82791e81cba3b759f8601ed8b97d7074f19db5e17e5df51127a7f22cff']],
+  ['content/classical/ros2-for-ml-engineers.mdx', [9592, '1dfd445c34d55ac5c92957fa838df7e4a4918c9a13e7309546bebc7f13b34f34']],
+  ['content/classical/scene-representation.mdx', [19360, 'af7d61ef547fa23cb7765c5bcc8e81341a4c090caf2d92813fb36107bd51f52d']],
+  ['content/classical/state-estimation.mdx', [15410, '96b92f0aa260583ff52b6cd3e7867c14891b61fe8bb1379d04bea15d7ca30329']],
+  ['content/frontier/dexterity.mdx', [18761, '91e3c09b8b032560e4fc843db142f558447434e8f078f1d596324687e83381a1']],
   ['content/manipulation/action-chunking.mdx', [12714, 'a08054d5b2b91c7f0a47b42a5f1851087634420845b7fba5f89f42d4c2d4ed84']],
   ['content/manipulation/action-spaces.mdx', [10574, '885130648006e720419bc1e074513c2c5631d3d1e2f5be6acab2c1ae41df7320']],
   ['content/manipulation/bc-foundations.mdx', [13674, 'cda4f9c5f5ceb8886e1ca3000ca9604e38688ebd1c5a13f61b7e5fe8794c8042']],
@@ -73,11 +83,11 @@ const mounts = (source: string) => [...source.slice(frontmatter(source)?.length 
   .filter((m) => !INLINE.has(m[1]) && !REMOVED_BOXES.has(m[1]))
   .map((m) => `${m[1]}${m[2].replace(/\s+/g, ' ').trimEnd()}`);
 
-function applyExact(text: string, edits: readonly (readonly [string, string])[]): string {
+function applyExact(text: string, edits: readonly (readonly [string, string])[], message = drift): string {
   let result = text;
   for (const [from, to] of edits) {
     const parts = result.split(from);
-    if (!from || parts.length !== 2) throw new Error(drift);
+    if (!from || parts.length !== 2) throw new Error(message);
     // Joined rather than String#replace: a `$'` in the text would be read as a replacement pattern.
     result = parts.join(to);
   }
@@ -213,4 +223,85 @@ export function domainPassPredecessor(root: string, ref: Artifact, live: Buffer)
   const liveHash = digest(live);
   if (liveHash !== pinned[1] || (ref.bytes === live.length && ref.sha256 === liveHash)) return live;
   return rebuiltPrior(root, ref.path, live);
+}
+
+const checkerReviewFile = `${DOMAIN_PASS_CONTINUITY_DIR}checker-transition.json`;
+const checkerDrift = 'domain pass checker continuity drift';
+const checkerPath = 'lib/audit-local-basis.ts';
+export type DomainPassCheckerEdit = DomainPassEdit & { suite: string };
+export type DomainPassCheckerReview = {
+  schemaVersion: 'domain-pass-checker-revision-v1';
+  name: 'domain-pass-reader';
+  reviewedBy: string;
+  rationale: string;
+  observedAt: string;
+  archivedFrom: string;
+  before: Artifact;
+  after: Artifact;
+  edits: DomainPassCheckerEdit[];
+};
+
+// BEGIN domain-pass checker pins (written by scripts/record-domain-pass-continuity.ts --checker)
+/** The reviewed checker evidence file; a changed review needs a reviewed code change too. */
+const checkerReviewPin = { bytes: 1372, sha256: '6ce1b59ac71fd7fbd76b4fe023b4293378e764e13310228ee39409e447d57958' };
+
+/** The SEO-pass reader head the revision edits, and the reviewed revision. */
+const checkerBefore = { bytes: 114290, sha256: 'f115c68135aaac380af0e10ebecc721bcb613d5434f24b007f51879ed6829f3e' };
+const checkerAfter = { bytes: 114290, sha256: '593edb1358888d4ca8a827ddd9360540ea8f75808e6a9737b8a8348899397294' };
+// END domain-pass checker pins
+
+/** The one checker line a domain-pass revision may change: a suite's reviewed live hash. */
+const suiteHashLine = /^ {4}currentTestHash: '[0-9a-f]{64}',\n$/;
+/** The historical-verification entry of one suite, from its key line to its closing brace. */
+const suiteEntry = (checker: string, suite: string) => {
+  const start = checker.indexOf(`\n  '${suite}': {\n`);
+  return start < 0 ? '' : checker.slice(start, checker.indexOf('\n  },\n', start) + 1);
+};
+
+export function loadDomainPassCheckerReview(root: string): DomainPassCheckerReview {
+  let bytes: Buffer;
+  let review: DomainPassCheckerReview;
+  try {
+    bytes = readFileSync(join(root, checkerReviewFile));
+    review = JSON.parse(bytes.toString()) as DomainPassCheckerReview;
+  } catch (error) {
+    throw new Error(`${checkerDrift}: ${(error as Error).message}`);
+  }
+  if (bytes.length !== checkerReviewPin.bytes || digest(bytes) !== checkerReviewPin.sha256 ||
+    review?.schemaVersion !== 'domain-pass-checker-revision-v1' || review.name !== 'domain-pass-reader' ||
+    !review.reviewedBy || !(review.rationale?.length > 80) || !Number.isFinite(Date.parse(review.observedAt)) ||
+    Date.parse(review.observedAt) > Date.now() || !/^[0-9a-f]{40}$/.test(review.archivedFrom ?? '') ||
+    !same(review.before, checkerPath, checkerBefore.bytes, checkerBefore.sha256) ||
+    !same(review.after, checkerPath, checkerAfter.bytes, checkerAfter.sha256) || !review.edits?.length ||
+    new Set(review.edits.map(({ suite }) => suite)).size !== review.edits.length ||
+    review.edits.some(({ suite, before, after }) => typeof suite !== 'string' || !/^tests\/[a-z0-9/-]+\.test\.ts$/.test(suite) ||
+      typeof before !== 'string' || typeof after !== 'string' ||
+      !suiteHashLine.test(before) || !suiteHashLine.test(after) || before === after)) {
+    throw new Error(checkerDrift);
+  }
+  return review;
+}
+
+/**
+ * The checker bytes the SEO-pass checker layer should see. Checker bytes
+ * other than the reviewed revision come back unchanged, so the older layers
+ * still decide them. The reviewed revision is admitted only as edits that
+ * each swap the reviewed live hash of one historical verification suite
+ * whose assertions a domain pass brought up to date, inside that suite's own
+ * entry, and the SEO-pass head is rebuilt from it and returned.
+ */
+export function domainPassCheckerPredecessor(root: string, live: Buffer): Buffer {
+  if (live.length !== checkerAfter.bytes || digest(live) !== checkerAfter.sha256) return live;
+  const review = loadDomainPassCheckerReview(root);
+  const current = live.toString();
+  const edits = review.edits.map(({ before, after }) => [before, after] as const);
+  const rebuilt = applyExact(current, edits.map(([from, to]) => [to, from] as const).reverse(), checkerDrift);
+  const prior = Buffer.from(rebuilt);
+  if (!same(review.before, checkerPath, prior.length, digest(prior)) ||
+    applyExact(rebuilt, edits, checkerDrift) !== current ||
+    review.edits.some(({ suite, before, after }) => suiteEntry(rebuilt, suite).split(before).length !== 2 ||
+      suiteEntry(current, suite).split(after).length !== 2)) {
+    throw new Error(checkerDrift);
+  }
+  return prior;
 }

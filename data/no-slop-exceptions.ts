@@ -214,4 +214,45 @@ export const NO_SLOP_EXCEPTIONS: SlopQuotationException[] = [
       "The citation registry records the IFR-hosted public executive-summary extract at ifr.org/img/worldrobotics/Executive_Summary_WR_2025_Industrial_Robots.pdf under this exact title; the stored title matches the document's own cover naming.",
     verifiedOn: '2026-09-16',
   },
+  /* ------------------------------------------------------------------ *
+   * Verbatim source titles added with the classical draft rewrite
+   * (2026-10-07). Each is the cited document's own title as its
+   * publisher prints it, rendered in a classical References entry.
+   * ------------------------------------------------------------------ */
+  {
+    id: 'corke-dh-2007',
+    quote: 'A Simple and Systematic Approach to Assigning Denavit–Hartenberg Parameters',
+    reason:
+      "Published title of Corke's IEEE T-RO paper, rendered verbatim in the kinematics module's References entry. The en dash joining the two surnames is the journal's own title punctuation, not our prose; titles are never reworded.",
+    verifiedBy:
+      'Crossref API record for doi:10.1109/TRO.2007.896765 (fetched 2026-10-07) returns this title with U+2013 in "Denavit–Hartenberg" exactly where this entry has it.',
+    verifiedOn: '2026-10-07',
+  },
+  {
+    id: 'noetic-eol-2025',
+    quote: 'ROS Noetic is EOL – take action to maintain fleet security',
+    reason:
+      "Headline of Canonical's Ubuntu blog post, rendered verbatim in the ROS 2 module's References entry. The en dash is the publisher's own headline punctuation, not our prose; titles are never reworded.",
+    verifiedBy:
+      'Fetched the live post at ubuntu.com/blog/ros-noetic-is-eol-take-action-to-maintain-fleet-security on 2026-10-07: both its <title> and its <h1> carry U+2013 (bytes e2 80 93) after "EOL", exactly where this entry has it.',
+    verifiedOn: '2026-10-07',
+  },
+  {
+    id: 'okvis-2014',
+    quote: 'Keyframe-based visual–inertial odometry using nonlinear optimization',
+    reason:
+      "Published title of the OKVIS paper in IJRR, rendered verbatim in the state-estimation module's References entry. The en dash in 'visual–inertial' is the journal's own title punctuation, not our prose; titles are never reworded.",
+    verifiedBy:
+      'Crossref API record for doi:10.1177/0278364914554813 (fetched 2026-10-07) returns this title with U+2013 in "visual–inertial" exactly where this entry has it.',
+    verifiedOn: '2026-10-07',
+  },
+  {
+    id: 'li-mourikis-temporal-2014',
+    quote: 'Online temporal calibration for camera–IMU systems: Theory and algorithms',
+    reason:
+      "Published title of Li and Mourikis's IJRR paper, rendered verbatim in the state-estimation module's References entry. The en dash in 'camera–IMU' is the journal's own title punctuation, not our prose; titles are never reworded.",
+    verifiedBy:
+      'Crossref API record for doi:10.1177/0278364913515286 (fetched 2026-10-07) returns this title with U+2013 in "camera–IMU" exactly where this entry has it.',
+    verifiedOn: '2026-10-07',
+  },
 ];

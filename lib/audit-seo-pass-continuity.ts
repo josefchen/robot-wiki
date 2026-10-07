@@ -18,7 +18,7 @@
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { domainPassPredecessor } from './audit-domain-pass-continuity.ts';
+import { domainPassCheckerPredecessor, domainPassPredecessor } from './audit-domain-pass-continuity.ts';
 import { kolBacklogPredecessor } from './audit-kol-backlog-continuity.ts';
 import { readerFirstPredecessor } from './audit-reader-first-continuity.ts';
 
@@ -402,9 +402,11 @@ const checkerEdits: readonly (readonly [string, string])[] = [
  * Checker bytes other than the reviewed revision come back unchanged, so the
  * figure-migration layer still decides them. The reviewed revision is
  * admitted only as the exact reader edit above the figure-migration head,
- * and that head is rebuilt from it and returned.
+ * and that head is rebuilt from it and returned. The 2026-10-06 domain-pass
+ * checker layer sees the live checker first.
  */
-export function seoPassCheckerPredecessor(root: string, live: Buffer): Buffer {
+export function seoPassCheckerPredecessor(root: string, checker: Buffer): Buffer {
+  const live = domainPassCheckerPredecessor(root, checker);
   if (live.length !== checkerAfter.bytes || digest(live) !== checkerAfter.sha256) return live;
   const review = parse<Review & { before: Artifact; after: Artifact }>(
     readEvidence(root, `${directory}checker-transition.json`, checkerDrift), checkerDrift);

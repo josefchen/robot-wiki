@@ -76,9 +76,8 @@ test('trajectory benchmark tables retain every value and keyboard-reachable righ
       await expect(region).not.toBeFocused();
     }
     const prose = page.locator('div.prose[data-pagefind-body]');
-    for (const text of ['The full-body results omit CHOMP', 'three seconds per CHOMP initialization',
-      'thirty-second full-body OMPL limit', 'not a separate smoothness measurement',
-      'does not identify the processor']) {
+    for (const text of ['The full-body comparison omits CHOMP', 'three seconds per CHOMP initialization',
+      'thirty seconds for full-body OMPL']) {
       await expect(prose).toContainText(text);
     }
     expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(0);

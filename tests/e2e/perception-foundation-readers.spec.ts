@@ -102,30 +102,22 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
       await open(page, info);
       const prose = page.locator('div.prose[data-pagefind-body]');
       const checks = [
-        { start: 'Classical detection returns', parts: [
-          'feature enhancer, language-guided query selection and cross-modality decoder',
-          'weak referring-expression performance without REC training data', '52.5 AP on COCO 2017 validation',
-          'Grounding DINO L with a Swin-L backbone', 'O365, OpenImage and GoldG',
-          'Its object categories may still occur in pretraining',
+        { start: 'Classical detectors return boxes', parts: [
+          'Mask R-CNN extends Faster R-CNN', 'feature enhancer, query selection and decoder',
+          'performs weakly on referring expressions without REC training data', '52.5 AP on COCO 2017 validation',
+          'Swin-L model', 'O365, OpenImage and GoldG', 'without COCO training images',
         ] },
-        { start: 'DINOv2 learns', parts: ['LVD-142M', 'image encoder frozen while training task-specific predictors',
-          'linear or DPT depth heads', 'downstream predictors are trained'] },
-        { start: 'Segment Anything (SAM, 2023)', parts: ['1.1 billion automatically generated masks from 11 million images',
-          'samples and filters masks', 'with no accounting of every mask used', 'multiple candidate masks'] },
-        { start: 'The paper evaluates zero-shot', parts: ["ground-truth mask's center", "SAM's most confident mask",
-          '16 of those 23 datasets', 'oracle result selects the best mask using ground truth',
-          'separately trained, CLIP-conditioned proof of concept', 'precomputed image embedding',
-          'heavy image encoder prevents overall real-time performance'] },
-        { start: 'SAM 2 extends', parts: ['28 October 2024', 'SAM 2.1', 'simulated comparison on nine',
-          'Hiera-B+ at resolution 1024', 'three clicks', 'IoU falls below 0.75',
-          'IoU exceeds 0.8', 'Those baseline descriptions do not fully agree'] },
-        { start: 'The image-speed comparison', parts: ['SA-1B-only', 'Hiera-B+', 'ViT-H', '58.9 versus 58.1',
-          '130.1 versus 21.7 images per second', 'one A100, with image batches of 10',
-          'PyTorch 2.3.1, CUDA 12.1, bfloat16',
-          'single-image latency, video-tracking speed and robot control frequency need separate measurements',
-          '37 datasets', '17 datasets'] },
-        { start: 'These are model- and protocol-specific', parts: ['61.4', '61.9', 'unresolved source inconsistency',
-          'OVIS is not strictly zero-shot', 'MOSE training data'] },
+        { start: 'DINOv2 learns', parts: ['LVD-142M', 'freeze the encoder and train linear heads for classification and segmentation',
+          'linear or DPT heads for depth'] },
+        { start: 'A box around a mug', parts: ['Segment Anything (SAM, 2023)',
+          '1.1 billion automatically generated masks on 11 million images', 'several candidate masks'] },
+        { start: "In SAM's single-point test", parts: ["ground-truth mask's center", "SAM's most confident mask",
+          "beats RITM's mIoU on 16", 'separately trained, CLIP-conditioned proof of concept',
+          'assumes a precomputed embedding', 'heavy image encoder prevents overall real-time performance'] },
+        { start: 'SAM 2 extends', parts: ['SAM 2.1', 'Hiera-B+ at resolution 1024', 'three clicks', 'nine video datasets',
+          'actual user effort was not measured', 'SA-1B-only', '58.9 one-click mIoU',
+          '130.1 images per second against 21.7', 'one A100 with image batches of 10', 'bfloat16', '37 datasets',
+          'Objects are inferred independently'] },
       ];
       await page.mouse.move(0, 0);
       await capture(page, info, 'article-top');

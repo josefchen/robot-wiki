@@ -37,10 +37,7 @@ describe('kinematics originals integration (2026-09-15)', () => {
       'command a task-space velocity and invert the Jacobian to obtain joint rates',
     );
     expect(article).toContain(
-      'the operator commands desired hand motion along axes relevant to the task',
-    );
-    expect(article).toContain(
-      'the classical rate-control relations then invert the Jacobian',
+      'let an operator command hand motion along task axes <Cite id="whitney-1969" />, with the inverse Jacobian',
     );
   });
 
@@ -212,7 +209,7 @@ describe('kinematics originals: 20260917a paywall row 10 (iterative IK citation 
     expect(section).toContain('no frontmatter-p1 plan exists for classical/kinematics');
     // the span carries the Cite immediately before the delta-q display
     expect(article).toContain(
-      'the general tool is iterative: linearize around the current configuration, take a step, repeat, <Cite id="modern-robotics-2017" />',
+      'The general tool is iterative: linearize, step, repeat <Cite id="modern-robotics-2017" />',
     );
     // frontmatter unchanged: modern-robotics-2017 was already declared
     expect(article).toContain('  - modern-robotics-2017\n');
@@ -254,10 +251,10 @@ describe('kinematics originals: 20260917a book-retry row 5 (near-parallel DH re-
 
   it('re-scopes the article span to the fetched ill-conditioning wording', () => {
     expect(article).toContain(
-      "the parameters become ill-conditioned: as two consecutive joint axes drift toward parallel, the common normal they define can vary wildly with small changes in the axes' orientation",
+      'DH parameters are ill-conditioned when consecutive axes are nearly parallel <Cite id="modern-robotics-2017" />',
     );
     expect(article).toContain(
-      'The product-of-exponentials formulation avoids that ill-conditioning',
+      'Product-of-exponentials (POE) parameters vary smoothly as the axes change',
     );
     // the overstated prior wording is gone
     expect(article).not.toContain('Frame assignment is discontinuous');

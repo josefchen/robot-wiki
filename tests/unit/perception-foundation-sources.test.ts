@@ -46,34 +46,34 @@ const strictSource = (plan: CompoundPlan, ordinal: typeof selected[number]) => {
 
 describe('perception foundation corrections', () => {
   it('qualifies Grounding DINO fusion, REC and the COCO result', () => {
-    expect(article).toContain('language-guided query selection');
-    expect(article).toContain('weak referring-expression performance without REC training data');
+    expect(article).toContain('query selection and decoder');
+    expect(article).toContain('performs weakly on referring expressions without REC training data');
     expect(article).toContain('52.5 AP on COCO 2017 validation');
     expect(article).toContain('Swin-L');
     expect(article).toContain('O365');
-    expect(article).toContain('Its object categories may still occur in pretraining');
+    expect(article).toContain('without COCO training images');
   });
   it('distinguishes frozen DINOv2 encoders from trained predictors', () => {
-    expect(article).toContain('while training task-specific predictors');
-    expect(article).toContain('linear or DPT depth heads');
+    expect(article).toContain('freeze the encoder and train linear heads');
+    expect(article).toContain('linear or DPT heads for depth');
     expect(article).not.toContain('objects at deployment were not in any label set');
   });
   it('makes the SAM Stat a dataset population, not training consumption', () => {
     expect(article).toContain('note="SAM; SA-1B: 1.1 billion masks on 11 million images"');
     expect(article).not.toContain('trained on over a billion masks');
-    expect(article).toContain('training recipe samples and filters masks');
+    expect(article).toContain('automatically generated masks');
   });
   it('preserves SAM ambiguity, evaluation, text training and timing boundaries', () => {
-    for (const text of ['multiple candidate masks', '16 of those 23 datasets',
-      'most confident mask', 'separately trained, CLIP-conditioned', 'precomputed image embedding',
+    for (const text of ['several candidate masks', 'across 23 datasets', 'mIoU on 16',
+      'most confident mask', 'separately trained, CLIP-conditioned', 'precomputed embedding',
       'heavy image encoder']) expect(article).toContain(text);
   });
   it('keeps SAM 2.1 interactions and throughput in their own protocols', () => {
-    for (const text of ['SAM 2.1', 'nine densely annotated video datasets',
-      'SAM+XMem++', 'SAM+Cutie', '130.1 versus 21.7', 'image batches of 10',
-      'PyTorch 2.3.1', 'CUDA 12.1', 'bfloat16', '61.4', '61.9',
-      'OVIS']) expect(article).toContain(text);
-    expect(article).toContain('the appendix instead reconstructs masks with clicks until IoU exceeds 0.8');
+    for (const text of ['SAM 2.1', 'nine video datasets',
+      'SAM+XMem++', 'SAM+Cutie', '130.1 images per second against 21.7', 'image batches of 10',
+      'one A100', 'compiled encoders', 'bfloat16', '58.9', '58.1',
+      '37 datasets']) expect(article).toContain(text);
+    expect(article).toContain('three clicks per interacted frame');
     expect(readFileSync('audit/classical.md', 'utf8')).toContain('Appendix F.1.4 click reconstruction to IoU>0.8');
     expect(article).not.toContain('running six times faster than SAM on images');
   });

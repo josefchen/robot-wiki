@@ -219,8 +219,8 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'end-effector',
     term: 'end effector',
     definition:
-      'The last link of a robot arm and whatever is attached to it: the gripper, hand, or tool whose pose the arm exists to place. Kinematics is conventionally written as the map from joint angles to the end-effector pose, and most action spaces in learned manipulation are defined as end-effector deltas rather than joint targets, because a task is specified in the space where the hand meets the world.',
-    citations: ['modern-robotics-2017'],
+      'The last link of a robot arm and whatever is attached to it: the gripper, hand, or tool whose pose the arm exists to place. Kinematics is conventionally written as the map from joint angles to the end-effector pose. Many learned manipulation policies act in end-effector deltas and others in joint targets; across 13,000+ real rollouts, joint space favored control stability and task space favored generalization.',
+    citations: ['modern-robotics-2017', 'action-space-design-2026', 'act-aloha-2023'],
   },
   {
     id: 'jacobian',

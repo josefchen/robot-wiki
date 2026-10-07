@@ -103,33 +103,25 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
       const prose = page.locator('div.prose[data-pagefind-body]');
       const checks = [
   {
-    "start": "Once you have depth you have a point",
+    "start": "Depth yields a",
     "parts": [
-      "losing some geometry. Small neighbourhoods can contain too few samples, so its density-adaptive variants combine information across scales"
+      "Density-adaptive variants combine scales where small neighbourhoods hold too few samples"
     ]
   },
   {
-    "start": "Dense Object Nets learns a descriptor vector for",
+    "start": "Dense Object Nets learns a descriptor for each RGB pixel",
     "parts": [
-      "Their class-consistent training mode generalizes across sufficiently similar hats, shoes and mugs, while instance-specific training distinguishes objects"
+      "Class-consistent training generalizes across sufficiently similar hats, shoes and mugs, while instance-specific training distinguishes objects",
+      "Learning a new object takes about 20 minutes",
+      "the gripper's 6-DoF orientation needs further information"
     ]
   },
   {
-    "start": "The paper's 20-minute estimate is for learning a",
+    "start": "Dex-Net 2.0 scores parallel-jaw grasp candidates",
     "parts": [
-      "mapped into depth geometry for grasp planning; the gripper's 6-DoF orientation requires additional information"
-    ]
-  },
-  {
-    "start": "Dex-Net 2.0 learns to score candidate parallel-jaw grasps",
-    "parts": [
-      "camera. Its labels use thresholded robust epsilon quality and collision constraints; physical grasp success is evaluated separately"
-    ]
-  },
-  {
-    "start": "The Dex-Net planner samples and ranks antipodal candidates,",
-    "parts": [
-      "Missing depth on thin parts and collisions remain failure modes; its pile-handling demonstration separates objects before grasping"
+      "analytic robust-epsilon quality label",
+      "checks reachability and table collision",
+      "Missing depth on thin parts and collisions remain failure modes, and its pile demonstration separates objects before grasping"
     ]
   }
 ];

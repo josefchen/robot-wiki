@@ -79,6 +79,19 @@ function throughSeoPass(path: string) {
       expect(last.oldHash).toBe(sealedHash);
       expect(batches ? last.reconciles.some(r => r.newHash === from) : last.reconciles.at(-1)!.newHash === from)
         .toBe(true);
+    } else if (batches) {
+      // A later batch may also continue with a plain edge from the previous
+      // batch's endpoint; the chain must still lead back to `from`.
+      let link = last;
+      while (link.oldHash !== from && !link.reconciles) {
+        const previous = edges.find(e => e.newHash === link.oldHash);
+        expect(previous, `${id}: no earlier batch ends at ${link.oldHash}`).toBeDefined();
+        link = previous!;
+      }
+      if (link.reconciles) {
+        expect(link.oldHash).toBe(sealedHash);
+        expect(link.reconciles.some(r => r.newHash === from)).toBe(true);
+      }
     } else {
       expect(last.oldHash).toBe(from);
     }
@@ -100,7 +113,9 @@ function throughSeoPass(path: string) {
   const preDomain = hashOf(preDomainPass(path).toString('utf8'));
   edge(['kol-backlog-20261005-'], preKol, preDomain);
   // The 2026-10-06 domain pass rewrote some articles from the owner's
-  // drafts; its edge binds the KOL endpoint and reaches the live article.
+  // drafts; its edges bind the KOL endpoint and reach the live article
+  // (scene-representation takes the 2026-10-07 KOL intake first, then the
+  // classical draft).
   edge(['domain-pass-20261006-'], preDomain, hashOf(readLive(path)), true);
 }
 
