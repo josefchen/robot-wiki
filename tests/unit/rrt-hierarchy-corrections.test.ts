@@ -136,9 +136,9 @@ describe('RRT and hierarchy whole-current-claim corrections', () => {
   it('applies all RRT reader endpoints while preserving the toy and article date', () => {
     const article = readFileSync('content/classical/motion-planning.mdx', 'utf8');
     const glossary = readFileSync('data/glossary.ts', 'utf8');
-    for (const phrase of ['October 1998', 'entire local paths', 'fixed time interval',
-      'Euler approximation', 'Runge-Kutta', 'initial obstacle-free construction',
-      "nearest point in the tree's swath", 'Figure 5.18 splits the edge']) expect(article).toContain(phrase);
+    for (const phrase of ['October 1998', 'validating whole local paths', 'fixed time interval',
+      'the Euler step is', 'Runge-Kutta', "nearest point on the tree's swath",
+      'splitting an edge when needed']) expect(article).toContain(phrase);
     expect(article).toContain(String.raw`x_{new} \approx x + f(x,u)\Delta t`);
     expect(article).toContain('\n$$\n' + String.raw`x_{new} \approx x + f(x,u)\Delta t` + '\n$$\n');
     expect(article).not.toContain(String.raw`q_{new} = q_{near} + \epsilon`);

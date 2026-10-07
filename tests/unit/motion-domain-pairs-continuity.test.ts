@@ -60,6 +60,7 @@ describe('historical RL proof dependency continuity', () => {
         'audit/evidence/figure-migration-20261001/checker-transition.json',
         'audit/evidence/figure-migration-20261001/audit-local-basis-before.ts.txt',
         'audit/evidence/seo-pass-20261002/checker-transition.json',
+        'audit/evidence/domain-pass-20261006/checker-transition.json',
         'audit/evidence/motion-domain-pairs-20260928/checker-transition.json',
         'audit/evidence/motion-domain-pairs-20260928/audit-local-basis-before.ts.txt']) {
         mkdirSync(dirname(join(destination, path)), { recursive: true });
@@ -106,6 +107,7 @@ describe('historical RL proof dependency continuity', () => {
           'audit/evidence/figure-migration-20261001/checker-transition.json',
           'audit/evidence/figure-migration-20261001/audit-local-basis-before.ts.txt',
           'audit/evidence/seo-pass-20261002/checker-transition.json',
+          'audit/evidence/domain-pass-20261006/checker-transition.json',
           'audit/evidence/motion-proof-reader-efficiency-20260928/checker-transition.json',
           'audit/evidence/motion-proof-reader-efficiency-20260928/audit-local-basis-before.ts.txt',
           'audit/evidence/motion-domain-pairs-20260928/checker-transition.json',

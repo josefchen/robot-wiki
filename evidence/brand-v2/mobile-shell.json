@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "d1ff4c5da2de6ac299d8b8ca5d1faf4083c033b759cea107c561ca655eda0c62",
+  "fingerprint": "ce01aded28c3c37abce7d62b0b4b95e0c5fc93a567e05a0c8a1340db6f36ce2d",
   "viewport": "375x812",
   "routes": [
     "/",
@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3138,
+      "visibleTextLength": 3051,
       "header": {
         "present": true,
         "display": "flex",
@@ -1541,7 +1541,7 @@
     },
     {
       "route": "/classical/calibration/",
-      "visibleTextLength": 11867,
+      "visibleTextLength": 16443,
       "header": {
         "present": true,
         "display": "flex",
@@ -1704,7 +1704,7 @@
     },
     {
       "route": "/classical/control/",
-      "visibleTextLength": 23841,
+      "visibleTextLength": 27242,
       "header": {
         "present": true,
         "display": "flex",
@@ -1867,7 +1867,7 @@
     },
     {
       "route": "/classical/grasp-planning/",
-      "visibleTextLength": 16497,
+      "visibleTextLength": 20266,
       "header": {
         "present": true,
         "display": "flex",
@@ -2030,7 +2030,7 @@
     },
     {
       "route": "/classical/kinematics/",
-      "visibleTextLength": 14347,
+      "visibleTextLength": 18500,
       "header": {
         "present": true,
         "display": "flex",
@@ -2193,7 +2193,7 @@
     },
     {
       "route": "/classical/motion-planning/",
-      "visibleTextLength": 27282,
+      "visibleTextLength": 29071,
       "header": {
         "present": true,
         "display": "flex",
@@ -2356,7 +2356,7 @@
     },
     {
       "route": "/classical/perception/",
-      "visibleTextLength": 41944,
+      "visibleTextLength": 41534,
       "header": {
         "present": true,
         "display": "flex",
@@ -2519,7 +2519,7 @@
     },
     {
       "route": "/classical/ros2-for-ml-engineers/",
-      "visibleTextLength": 11734,
+      "visibleTextLength": 14388,
       "header": {
         "present": true,
         "display": "flex",
@@ -2682,7 +2682,7 @@
     },
     {
       "route": "/classical/scene-representation/",
-      "visibleTextLength": 27805,
+      "visibleTextLength": 31680,
       "header": {
         "present": true,
         "display": "flex",
@@ -2845,7 +2845,7 @@
     },
     {
       "route": "/classical/state-estimation/",
-      "visibleTextLength": 20619,
+      "visibleTextLength": 24025,
       "header": {
         "present": true,
         "display": "flex",
@@ -3823,7 +3823,7 @@
     },
     {
       "route": "/data-hardware/hardware-taxonomy/",
-      "visibleTextLength": 26540,
+      "visibleTextLength": 26529,
       "header": {
         "present": true,
         "display": "flex",
@@ -5119,7 +5119,7 @@
     },
     {
       "route": "/frontier/dexterity/",
-      "visibleTextLength": 24347,
+      "visibleTextLength": 25084,
       "header": {
         "present": true,
         "display": "flex",
@@ -5771,7 +5771,7 @@
     },
     {
       "route": "/glossary/",
-      "visibleTextLength": 83867,
+      "visibleTextLength": 84051,
       "header": {
         "present": true,
         "display": "flex",

@@ -41,14 +41,15 @@ describe('servo source scope', () => {
   it('retains depth, local stability, visibility and Part I scope',()=>{
     expect(section).toContain('image-based and position-based control');
     expect(section).not.toContain('deletes the pose-estimation term');
-    expect(section).toMatch(/depth/); expect(section).toMatch(/local/); expect(section).toMatch(/poor estimates/);
-    expect(section).toMatch(/Part I[\s\S]*performance and stability/);
+    expect(section).toMatch(/depth/); expect(section).toMatch(/local/); expect(section).toMatch(/poor ones can make the system unstable/);
+    expect(section).toMatch(/Part I[\s\S]*Part II \(2007\)/);
     // A later packet added a sixth 2006 cite (the field-of-view sentence).
     const atServo = committedText('ae0846177a7000a7e69a00d330956a9acb2cf8a0', 'content/classical/perception.mdx')
       .split('## Visual servoing:')[1]?.split('## ')[0] ?? '';
     expect(atServo.match(/<Cite id="chaumette-hutchinson-2006" \/>/g)).toHaveLength(6);
-    expect(section.match(/<Cite id="chaumette-hutchinson-2006" \/>/g)).toHaveLength(6);
-    expect(section.match(/<Cite id="chaumette-hutchinson-2007" \/>/g)).toHaveLength(2);
+    // The 2026-10-06 domain pass merged the servo paragraphs, two chips each.
+    expect(section.match(/<Cite id="chaumette-hutchinson-2006" \/>/g)).toHaveLength(2);
+    expect(section.match(/<Cite id="chaumette-hutchinson-2007" \/>/g)).toHaveLength(1);
   });
   it('uses the source titles and complete accented bylines without repinning DOI URLs',()=>{
     for(const [id,title,url] of [

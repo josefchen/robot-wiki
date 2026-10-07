@@ -14,17 +14,40 @@ citations:
   - moveit-planning-scene-2026
   - nav2-2020
   - modern-robotics-2017
+  - ros2-science-robotics-2022
+  - ros2-distributions-2026
+  - ros-llm-2024
+  - rep-103-2010
+  - ros2-dds-design-2014
+  - ros2-latency-2021
+  - ros2-kilted-2025
+  - mcap-spec-2026
+  - ros2-tracing-2022
+  - ros2-clock-design
+  - tf2-docs-2026
+  - tf-library-2013
+  - tf2-time-tutorial-2026
+  - rep-105-2010
+  - urdf-dataset-2023
+  - ros2-iron-mcap-2023
+  - rlds-2021
+  - ros2-lifecycle-design-2015
+  - ros2-realtime-docs-2026
+  - ros2-executors-2026
+  - ros2-buffer-backends-2026
+  - isaac-ros-nitros-2026
+  - isaac-ros-rosidl-buffer-2026
+  - smac-planner-2024
+  - nav2-costmap-2d-2026
+  - ros2-middleware-vendors-2026
+  - noetic-eol-2025
 seeAlso:
   - "manipulation/realtime-execution"
   - "frontier/safety-and-assurance"
   - "data-hardware/industrial-deployment"
 ---
 
-ROS 2 is the integration layer around a robot policy. It carries sensor streams, coordinate transforms, commands, task requests, logs and lifecycle state between processes. It is not an operating system and it is not the controller itself. For a machine-learning engineer, the shortest useful mental model is a typed, distributed dataflow graph with explicit delivery policies and a shared transform tree.
-
-As of August 2026, Lyrical Luth is the current ROS 2 long-term-support release, released in May 2026 and supported through May 2031 <Cite id="ros2-lyrical-2026" />. Choose a supported stable distribution for a product; use Rolling only when contributing to the next release.
-
-Try the check below and choose the ROS interface that matches a long-running robot task with feedback and cancellation.
+ROS 2 is the second generation of the Robot Operating System, a modular framework of freely available robot software, rebuilt from the ground up because ROS 1 lacked production-grade features <Cite id="ros2-science-robotics-2022" />. Lyrical Luth, the current long-term-support release, shipped on 22 May 2026 and is supported until May 2031 <Cite id="ros2-lyrical-2026" /> <Cite id="ros2-distributions-2026" />.
 
 <SelfCheck
   prompt="A task request tells the robot to fetch an object, takes 30 seconds, reports progress and may need to be cancelled. Which ROS 2 interface fits?"
@@ -51,95 +74,42 @@ Try the check below and choose the ROS interface that matches a long-running rob
 
 ## The graph: nodes and typed interfaces
 
-A **node** is one participant in the graph. Keep its responsibility narrow: camera driver, state estimator, policy server, controller bridge or task executive. Nodes discover one another through the ROS middleware and communicate through named, typed interfaces.
-
-ROS 2 defines three primary interface patterns <Cite id="ros2-interfaces-2026" />:
-
-- **topics** for asynchronous streams such as images, joint states and commands;
-- **services** for short request-response operations such as resetting a component or querying configuration;
-- **actions** for long-running goals that need progress, result and cancellation.
-
-The interface definition is a contract. Put units and frame conventions in message documentation, and prefer standard message types when their semantics fit. A `geometry_msgs/PoseStamped` includes both a timestamp and a frame identifier; a bare array does not tell the next node what its seven numbers mean.
+A node is one participant in the graph, such as a camera driver, policy server or controller bridge. Nodes talk through topics for continuous streams, services for short request-response calls, and actions for long-running goals with feedback, cancellation and a result <Cite id="ros2-interfaces-2026" />. ROS-LLM attaches language-model agents through the same actions and services <Cite id="ros-llm-2024" />. A `geometry_msgs/PoseStamped` carries the timestamp and frame identifier that a bare array lacks. REP 103 standardizes ROS on SI units <Cite id="rep-103-2010" />.
 
 ## QoS is part of the model input
 
-Quality of Service controls delivery behavior. Reliability, durability, history, depth, deadline and lifespan can change which messages arrive and how old they are. ROS 2's sensor-data profile favors timely latest samples with best-effort reliability, while the default profile is reliable with a deeper queue <Cite id="ros2-qos-2026" />.
+ROS 2 inherits Quality of Service (QoS) from DDS, which exposes reliability and related parameters to control communication <Cite id="ros2-dds-design-2014" />. The default profile keeps the last 10 messages and delivers reliably; the sensor-data profile uses best effort and a smaller queue, because timely readings matter more than complete ones <Cite id="ros2-qos-2026" />. Lifespan silently drops messages older than its limit, and endpoints with incompatible policies never connect <Cite id="ros2-qos-2026" />.
 
-For policy inference, stale data is often worse than a dropped frame. A reliable camera subscription with a large queue can deliver every image and make the policy act on the past. A best-effort queue of one may be the correct contract on a local robot network. State and command channels may need different choices.
-
-Publisher and subscriber QoS must be compatible or they will not connect. Treat a silent topic as a possible QoS mismatch before debugging the neural code.
-
-Record message age at the policy boundary. The tensor may have the right shape while the physical state it describes is already obsolete.
+A reliable camera subscription with a deep queue can make a policy act on old images, so log message age at the policy boundary. End-to-end latency depends strongly on the DDS implementation, and ROS 2 can add 50% over raw DDS <Cite id="ros2-latency-2021" />. Since Kilted Kaiju (May 2025), Zenoh's `rmw_zenoh_cpp` is a Tier 1 middleware <Cite id="ros2-kilted-2025" />.
 
 ## Time and synchronization
 
-Every observation used together should refer to a defensible time. Camera, depth, joint state and force streams arrive at different rates and latencies. Use acquisition timestamps alongside arrival times. Decide whether to use exact synchronization, approximate synchronization or interpolation of the robot state to the image timestamp.
-
-Separate three clocks in logs: source timestamp, receipt timestamp and inference completion. Then you can decompose latency into sensing, transport, preprocessing, model execution and command delivery.
-
-Simulation introduces ROS time, where `/clock` can advance faster, slower or discontinuously relative to wall time. Nodes that mix the two will produce timeouts and derivative estimates that look like random instability.
-
-The [calibration guide](/classical/calibration) covers the spatial and temporal alignment needed before transitions become training examples.
+Camera, depth, joint and force streams arrive at different rates, so a policy's inputs need acquisition timestamps as well as arrival times. MCAP records both a publish time and a log time for every message <Cite id="mcap-spec-2026" />. Logging source, receipt and inference-completion times splits latency into sensing, transport, model execution and command delivery, and ros2_tracing instruments ROS 2 at an average overhead of 0.0033 ms per message <Cite id="ros2-tracing-2022" />. With `use_sim_time` set, ROS time follows the latest `/clock` message <Cite id="ros2-clock-design" />, so nodes that mix it with wall time see spurious timeouts. The [calibration guide](/classical/calibration) covers spatial and temporal alignment.
 
 ## tf2: the coordinate-frame graph
 
-tf2 maintains time-indexed rigid transforms between frames such as `map`, `odom`, `base_link`, camera optical frames, wrist and tool. A transform lookup asks where one frame was relative to another at a particular time.
+tf2 keeps a time-buffered tree of coordinate frames, transforms data between any two frames at any time, and can broadcast static transforms that never change <Cite id="tf2-docs-2026" />. Its predecessor, tf, was built because frame bookkeeping was a common source of bugs <Cite id="tf-library-2013" />. A lookup at an image timestamp can wait for the transform; the tf2 tutorial raises an exception only if it is still unavailable after a 50 ms timeout <Cite id="tf2-time-tutorial-2026" />.
 
-The tree should reflect ownership. Static transforms describe fixed mounting geometry. Dynamic transforms come from state estimation and joint state. Avoid publishing two authorities for the same edge. Name optical frames according to their axis convention rather than silently reusing a mechanical camera frame.
-
-At the policy boundary, transform observations and actions deliberately. If training used base-frame <Term id="end-effector">end-effector</Term> deltas, deployment must not send tool-frame deltas with the same tensor layout. The geometry behind these transformations is developed in *Modern Robotics* <Cite id="modern-robotics-2017" />.
+REP 105 defines `odom` as a drifting short-term reference and `map` as a frame whose poses can jump <Cite id="rep-105-2010" />. Camera optical frames take an `_optical` suffix and a different axis convention <Cite id="rep-103-2010" />. If training used base-frame <Term id="end-effector">end-effector</Term> deltas, deployment cannot send tool-frame deltas in the same layout; *Modern Robotics* covers the geometry <Cite id="modern-robotics-2017" />.
 
 ## URDF, robot state and MoveIt
 
-URDF describes the robot's links, joints, geometry and limits. `robot_state_publisher` combines that model with joint states to publish the kinematic frame tree. The model is the shared reference for visualization, collision checking, planning and controllers.
-
-MoveIt 2 sits above that representation for manipulation planning. Its Planning Scene combines current robot state, robot model and world geometry, supporting forward and inverse kinematics, constraints and collision checking <Cite id="moveit-planning-scene-2026" />.
-
-A learned policy can use MoveIt in several ways:
-
-- plan a collision-free approach, then hand off to a contact policy;
-- validate a predicted waypoint or reject one in collision;
-- provide a classical baseline for the same task;
-- execute a policy's Cartesian target through a controller with joint limits.
-
-Do not ask MoveIt to fix an undefined action convention. It needs a target frame, robot state and constraints just as the learner does.
+URDF, the most common robot-description format <Cite id="urdf-dataset-2023" />, lists links, joints, geometry and limits, and `robot_state_publisher` combines it with joint states to publish the frame tree. MoveIt 2's Planning Scene combines robot state, robot model and world geometry for forward and inverse kinematics, constraint checks and collision checking <Cite id="moveit-planning-scene-2026" />. A learned policy can use it to plan a collision-free approach, reject waypoints in collision, or provide a classical baseline.
 
 ## rosbag2 is the experiment record
 
-rosbag2 records topic messages with timestamps for replay. It is invaluable for debugging and dataset capture, but a bag is not automatically a machine-learning dataset.
-
-Record the raw sensor topics, transforms, joint state, commands, controller state, task events, software version and calibration identity. Preserve QoS information and verify that high-bandwidth topics were actually recorded. Replay a small bag through preprocessing in continuous integration so schema drift fails early.
-
-Convert bags into immutable training shards with a versioned transformation. Keep the bag URI and message timestamps in provenance so a suspicious sample can be traced back to raw traffic as well as its tensor file.
+rosbag2 records timestamped messages for replay, in MCAP by default since Iron Irwini <Cite id="ros2-iron-mcap-2023" />. Since Kilted, `ros2 bag play --message-order sent` replays in publication order instead of the default receipt order <Cite id="ros2-kilted-2025" />. A bag is a raw record. Learning pipelines convert it to episode formats such as RLDS, a standard lossless format <Cite id="rlds-2021" />.
 
 ## A production policy layout
 
-A robust learned-policy graph often has six nodes or components:
+One robust layout for a learned-policy graph separates drivers, state assembly, a policy server, a command gate, a controller bridge and a supervisor. The supervisor can drive ROS 2 managed nodes, which leave a primary state only at an external supervisor's request or on an error in the Active state <Cite id="ros2-lifecycle-design-2015" />. Inference stays outside the hard real-time loop unless its worst case fits; ROS 2's real-time guidance keeps page faults, dynamic allocation and indefinitely blocking synchronization out of that path <Cite id="ros2-realtime-docs-2026" />. Lyrical's EventsCBGExecutor cuts executor CPU overhead, but its event queue is unbounded <Cite id="ros2-executors-2026" />.
 
-1. **drivers** publish raw, timestamped sensor and robot state;
-2. **state assembly** synchronizes, transforms and validates observations;
-3. **policy server** owns preprocessing, model inference and model version;
-4. **command gate** checks freshness, limits and task state;
-5. **controller bridge** converts the action contract into the hardware interface;
-6. **supervisor** handles lifecycle, faults, reset and recovery.
-
-Keep inference out of the safety-critical feedback loop unless its worst-case latency and failure behavior meet that loop's requirements. A position or impedance controller can run at high rate while the learned policy updates a slower target.
-
-Publish diagnostics for model version, observation age, inference duration, action clipping, dropped frames and fallback state. A system that logs only success has no evidence for why it failed.
+Lyrical's `rosidl::Buffer` lets a `uint8[]` field live in GPU memory without changing the .msg file <Cite id="ros2-buffer-backends-2026" />. NVIDIA deprecated its NITROS transport on 21 September 2026 in favor of `rosidl::Buffer` with a CUDA backend <Cite id="isaac-ros-nitros-2026" />, noting that host round-trips add latency and consume CPU and memory bandwidth <Cite id="isaac-ros-rosidl-buffer-2026" />.
 
 ## Navigation uses the same architecture
 
-Nav2 is the reference ROS 2 navigation stack and applies a similar split: global planning over a map, local control against current obstacles, behavior coordination and recovery <Cite id="nav2-2020" />. Learned components can work within this graph.
-
-A learned local controller can consume the same costmap and goal interface as a classical one. That preserves test harnesses and fallback behavior. The [scene-representation module](/classical/scene-representation) explains why planning, rendering and learning can call for different representations of the map.
+Nav2 uses a behavior tree to orchestrate planner, controller and recovery servers <Cite id="nav2-2020" />. Its standard planner, Smac Planner, powers thousands of robots, its authors report <Cite id="smac-planner-2024" />. Costmap 2D accepts sensor-processing plugins for AI outputs and semantic information <Cite id="nav2-costmap-2d-2026" />, so a learned local controller can consume the same costmap and goal interface as a classical one and keep its test harness and fallback. The [scene-representation module](/classical/scene-representation) explains the map choices.
 
 ## Common integration failures
 
-- **Correct tensor, wrong frame:** training and deployment disagree about base, tool or camera coordinates.
-- **Reliable but stale:** a queue preserves old images and hides latency.
-- **Two command publishers:** teleoperation and policy both control the same interface without arbitration.
-- **Bag without transforms:** images and joints were recorded but cannot be reconstructed in a common frame.
-- **Simulation-only time assumptions:** a node uses wall time and breaks under `/clock`.
-- **One giant node:** drivers, inference and hardware commands share a failure domain and cannot be replayed independently.
-
-The remedy is explicit contracts. Topics carry timestamped state, tf2 carries geometry, QoS carries delivery intent, and the controller bridge carries action semantics. The learned model is then replaceable without rewriting the robot around it, which is the production property ROS 2 should provide.
+Frequent failures are a policy deployed in a different frame from its training data, a reliable queue that hides latency, and two command publishers without arbitration. Others are bags without transforms, wall-time assumptions under `/clock`, and one node holding drivers, inference and hardware commands. DDS implementations are compatible only in limited circumstances, so a system should use one ROS version and one RMW implementation <Cite id="ros2-middleware-vendors-2026" />. Nodes are not guaranteed to communicate across distributions; Jazzy is supported until May 2029 and Humble until May 2027 <Cite id="ros2-distributions-2026" />. ROS 1 ended when Noetic reached end of life in May 2025 <Cite id="noetic-eol-2025" />.

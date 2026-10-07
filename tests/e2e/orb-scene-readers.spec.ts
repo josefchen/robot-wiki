@@ -144,12 +144,12 @@ test('ORB readers: qualified prose, short Cite metadata and full footnote author
   await open(page, ARTICLE);
   const prose = page.locator('.prose');
   for (const qualification of [
-    'candidates, which require geometric validation', 'discard an immature map',
+    'loop candidates that need geometric validation', 'starts a new map after persistent tracking loss',
     'geometric and covisibility checks', 'gravity-direction checks',
-    'slow motion can leave inertial initialization poorly constrained',
-    'This is not a guarantee that every revisit removes all error',
-    'This is not a universal ranking of the cost of every false match against every missed match',
-    'motion information can also inform this belief', "Direct Sparse Odometry's formulation",
+    'slow motion can delay inertial initialization',
+    'can reduce odometric drift and in some cases correct it',
+    'false negatives discard useful measurements',
+    'motion information can also inform that belief', 'Direct Sparse Odometry skips the detector',
   ]) await expect(prose).toContainText(qualification);
 
   for (const id of ['orb-slam-2015', 'orb-slam3-2021']) {
@@ -200,8 +200,8 @@ test('ORB readers: qualified prose, short Cite metadata and full footnote author
     await finalTextVisible(page, ref, citation.authors.at(-1)!);
     await capture(page, info, `reference-${id}`);
   }
-  for (const caveat of ['slow motion can leave inertial initialization poorly constrained',
-    'This is not a universal ranking of the cost of every false match against every missed match']) {
+  for (const caveat of ['slow motion can delay inertial initialization',
+    'false negatives discard useful measurements']) {
     const p = prose.locator(':scope > p').filter({ hasText: caveat }).first();
     await p.evaluate(e => e.scrollIntoView({ block: 'center', behavior: 'instant' }));
     await finalTextVisible(page, p, caveat);

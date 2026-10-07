@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "af7b0df61f567ea4a33515aef668cba2133c4f9795d3d15c8e19a3b77aba935a",
+  "fingerprint": "a3ce445f9d6974851deaa96402ae52c0a961f95c86c2b0099b247bf4d38a5db8",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -254,7 +254,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3376,
+      "visibleTextLength": 3289,
       "route": "/",
       "viewport": "1440x900"
     },
@@ -1397,7 +1397,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 12304,
+      "visibleTextLength": 16880,
       "route": "/classical/calibration/",
       "viewport": "1440x900"
     },
@@ -1524,7 +1524,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24278,
+      "visibleTextLength": 27679,
       "route": "/classical/control/",
       "viewport": "1440x900"
     },
@@ -1651,7 +1651,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 16934,
+      "visibleTextLength": 20703,
       "route": "/classical/grasp-planning/",
       "viewport": "1440x900"
     },
@@ -1778,7 +1778,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 14784,
+      "visibleTextLength": 18937,
       "route": "/classical/kinematics/",
       "viewport": "1440x900"
     },
@@ -1893,19 +1893,19 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Motion Planning: RRT, RRT* and TrajOpt | Robot Wiki",
-        "description": "Robot motion planning finds collision-free paths: configuration space, PRM, RRT and RRT*, CHOMP and TrajOpt, and the handoff to learned policies.",
+        "description": "Robot motion planning finds collision-free paths: configuration space, PRM, RRT and RRT*, CHOMP, TrajOpt, GPU planners and the handoff to learned policies.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "Motion Planning",
-        "ogDescription": "Robot motion planning finds collision-free paths: configuration space, PRM, RRT and RRT*, CHOMP and TrajOpt, and the handoff to learned policies.",
+        "ogDescription": "Robot motion planning finds collision-free paths: configuration space, PRM, RRT and RRT*, CHOMP, TrajOpt, GPU planners and the handoff to learned policies.",
         "ogImageAlt": "Open graph card for the Robot Wiki article Motion Planning",
         "ogImage": "https://robot-wiki.com/og/classical/motion-planning.png",
         "twitterTitle": "Motion Planning",
-        "twitterDescription": "Robot motion planning finds collision-free paths: configuration space, PRM, RRT and RRT*, CHOMP and TrajOpt, and the handoff to learned policies.",
+        "twitterDescription": "Robot motion planning finds collision-free paths: configuration space, PRM, RRT and RRT*, CHOMP, TrajOpt, GPU planners and the handoff to learned policies.",
         "canonical": "https://robot-wiki.com/classical/motion-planning/"
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27719,
+      "visibleTextLength": 29508,
       "route": "/classical/motion-planning/",
       "viewport": "1440x900"
     },
@@ -2032,7 +2032,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 42374,
+      "visibleTextLength": 41971,
       "route": "/classical/perception/",
       "viewport": "1440x900"
     },
@@ -2147,19 +2147,19 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "ROS 2 for ML Engineers: Topics, QoS, tf2 | Robot Wiki",
-        "description": "ROS 2 for machine-learning engineers: topics, services, actions, QoS, tf2, rosbag2 and MoveIt around a deployed robot policy.",
+        "description": "ROS 2 for machine-learning engineers: topics, services, actions, QoS, tf2, rosbag2, MoveIt and GPU message buffers around a deployed robot policy.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "ROS 2 for Machine Learning Engineers",
-        "ogDescription": "ROS 2 for machine-learning engineers: topics, services, actions, QoS, tf2, rosbag2 and MoveIt around a deployed robot policy.",
+        "ogDescription": "ROS 2 for machine-learning engineers: topics, services, actions, QoS, tf2, rosbag2, MoveIt and GPU message buffers around a deployed robot policy.",
         "ogImageAlt": "Open graph card for the Robot Wiki article ROS 2 for Machine Learning Engineers",
         "ogImage": "https://robot-wiki.com/og/classical/ros2-for-ml-engineers.png",
         "twitterTitle": "ROS 2 for Machine Learning Engineers",
-        "twitterDescription": "ROS 2 for machine-learning engineers: topics, services, actions, QoS, tf2, rosbag2 and MoveIt around a deployed robot policy.",
+        "twitterDescription": "ROS 2 for machine-learning engineers: topics, services, actions, QoS, tf2, rosbag2, MoveIt and GPU message buffers around a deployed robot policy.",
         "canonical": "https://robot-wiki.com/classical/ros2-for-ml-engineers/"
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 12171,
+      "visibleTextLength": 14825,
       "route": "/classical/ros2-for-ml-engineers/",
       "viewport": "1440x900"
     },
@@ -2286,7 +2286,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 28242,
+      "visibleTextLength": 32117,
       "route": "/classical/scene-representation/",
       "viewport": "1440x900"
     },
@@ -2413,7 +2413,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 21054,
+      "visibleTextLength": 24462,
       "route": "/classical/state-estimation/",
       "viewport": "1440x900"
     },
@@ -3175,7 +3175,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 26935,
+      "visibleTextLength": 26924,
       "route": "/data-hardware/hardware-taxonomy/",
       "viewport": "1440x900"
     },
@@ -4191,7 +4191,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24698,
+      "visibleTextLength": 25435,
       "route": "/frontier/dexterity/",
       "viewport": "1440x900"
     },
@@ -4699,7 +4699,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 84105,
+      "visibleTextLength": 84289,
       "route": "/glossary/",
       "viewport": "1440x900"
     },
@@ -4826,7 +4826,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 863,
+      "visibleTextLength": 854,
       "route": "/how-robots-work/",
       "viewport": "1440x900"
     },
@@ -9825,7 +9825,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3138,
+      "visibleTextLength": 3051,
       "route": "/",
       "viewport": "375x812"
     },
@@ -10968,7 +10968,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 11867,
+      "visibleTextLength": 16443,
       "route": "/classical/calibration/",
       "viewport": "375x812"
     },
@@ -11095,7 +11095,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 23841,
+      "visibleTextLength": 27242,
       "route": "/classical/control/",
       "viewport": "375x812"
     },
@@ -11222,7 +11222,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 16497,
+      "visibleTextLength": 20266,
       "route": "/classical/grasp-planning/",
       "viewport": "375x812"
     },
@@ -11349,7 +11349,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 14347,
+      "visibleTextLength": 18500,
       "route": "/classical/kinematics/",
       "viewport": "375x812"
     },
@@ -11464,19 +11464,19 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Motion Planning: RRT, RRT* and TrajOpt | Robot Wiki",
-        "description": "Robot motion planning finds collision-free paths: configuration space, PRM, RRT and RRT*, CHOMP and TrajOpt, and the handoff to learned policies.",
+        "description": "Robot motion planning finds collision-free paths: configuration space, PRM, RRT and RRT*, CHOMP, TrajOpt, GPU planners and the handoff to learned policies.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "Motion Planning",
-        "ogDescription": "Robot motion planning finds collision-free paths: configuration space, PRM, RRT and RRT*, CHOMP and TrajOpt, and the handoff to learned policies.",
+        "ogDescription": "Robot motion planning finds collision-free paths: configuration space, PRM, RRT and RRT*, CHOMP, TrajOpt, GPU planners and the handoff to learned policies.",
         "ogImageAlt": "Open graph card for the Robot Wiki article Motion Planning",
         "ogImage": "https://robot-wiki.com/og/classical/motion-planning.png",
         "twitterTitle": "Motion Planning",
-        "twitterDescription": "Robot motion planning finds collision-free paths: configuration space, PRM, RRT and RRT*, CHOMP and TrajOpt, and the handoff to learned policies.",
+        "twitterDescription": "Robot motion planning finds collision-free paths: configuration space, PRM, RRT and RRT*, CHOMP, TrajOpt, GPU planners and the handoff to learned policies.",
         "canonical": "https://robot-wiki.com/classical/motion-planning/"
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27282,
+      "visibleTextLength": 29071,
       "route": "/classical/motion-planning/",
       "viewport": "375x812"
     },
@@ -11603,7 +11603,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 41944,
+      "visibleTextLength": 41534,
       "route": "/classical/perception/",
       "viewport": "375x812"
     },
@@ -11718,19 +11718,19 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "ROS 2 for ML Engineers: Topics, QoS, tf2 | Robot Wiki",
-        "description": "ROS 2 for machine-learning engineers: topics, services, actions, QoS, tf2, rosbag2 and MoveIt around a deployed robot policy.",
+        "description": "ROS 2 for machine-learning engineers: topics, services, actions, QoS, tf2, rosbag2, MoveIt and GPU message buffers around a deployed robot policy.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "ROS 2 for Machine Learning Engineers",
-        "ogDescription": "ROS 2 for machine-learning engineers: topics, services, actions, QoS, tf2, rosbag2 and MoveIt around a deployed robot policy.",
+        "ogDescription": "ROS 2 for machine-learning engineers: topics, services, actions, QoS, tf2, rosbag2, MoveIt and GPU message buffers around a deployed robot policy.",
         "ogImageAlt": "Open graph card for the Robot Wiki article ROS 2 for Machine Learning Engineers",
         "ogImage": "https://robot-wiki.com/og/classical/ros2-for-ml-engineers.png",
         "twitterTitle": "ROS 2 for Machine Learning Engineers",
-        "twitterDescription": "ROS 2 for machine-learning engineers: topics, services, actions, QoS, tf2, rosbag2 and MoveIt around a deployed robot policy.",
+        "twitterDescription": "ROS 2 for machine-learning engineers: topics, services, actions, QoS, tf2, rosbag2, MoveIt and GPU message buffers around a deployed robot policy.",
         "canonical": "https://robot-wiki.com/classical/ros2-for-ml-engineers/"
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 11734,
+      "visibleTextLength": 14388,
       "route": "/classical/ros2-for-ml-engineers/",
       "viewport": "375x812"
     },
@@ -11857,7 +11857,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27805,
+      "visibleTextLength": 31680,
       "route": "/classical/scene-representation/",
       "viewport": "375x812"
     },
@@ -11984,7 +11984,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 20619,
+      "visibleTextLength": 24025,
       "route": "/classical/state-estimation/",
       "viewport": "375x812"
     },
@@ -12746,7 +12746,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 26540,
+      "visibleTextLength": 26529,
       "route": "/data-hardware/hardware-taxonomy/",
       "viewport": "375x812"
     },
@@ -13762,7 +13762,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24347,
+      "visibleTextLength": 25084,
       "route": "/frontier/dexterity/",
       "viewport": "375x812"
     },
@@ -14270,7 +14270,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 83867,
+      "visibleTextLength": 84051,
       "route": "/glossary/",
       "viewport": "375x812"
     },

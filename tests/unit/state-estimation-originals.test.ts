@@ -49,14 +49,14 @@ describe('state-estimation originals: article endpoints', () => {
   it('replaces the unsupported GTSAM reference-implementation epithet with the source-printed characterization (row 14)', () => {
     expect(article).not.toContain('with GTSAM as the reference implementation');
     expect(article).toContain(
-      'GTSAM, a BSD-licensed C++ library that implements smoothing and mapping using factor graphs and Bayes networks, powers many such systems in academia and industry <Cite id="gtsam-2026" />',
+      'GTSAM is a BSD-licensed C++ library that implements sensor fusion for robotics and computer vision using factor graphs <Cite id="gtsam-2026" />',
     );
   });
 
   it('corrects the preintegration count to the paper\'s printed range (row 15)', () => {
     expect(article).not.toContain('collapsing hundreds of IMU readings');
     expect(article).toContain(
-      'collapsing anywhere from a small number to hundreds of IMU readings between two keyframes into a single preintegrated factor <Cite id="forster-2017" />',
+      'collapses anywhere from a few to hundreds of IMU readings between two keyframes into one factor <Cite id="forster-2017" />',
     );
   });
 

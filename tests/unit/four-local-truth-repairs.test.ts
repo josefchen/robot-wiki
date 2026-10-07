@@ -130,8 +130,8 @@ describe('four bounded local truth repairs without completion credit', { timeout
   });
 
   it('acknowledges the known goal and states the actual sampling probability', () => {
-    expect(motion).toContain('1.5% goal-sampling probability');
-    expect(motion).toContain('Sampling is otherwise uniform.');
+    // The article no longer restates the lab settings; the figure states the
+    // goal probability itself.
     expect(motion).not.toContain('Nothing in it knows where the goal is.');
     expect(rrtComponent).toContain('Each sampling attempt selects the goal with probability 1.5%');
     expect(rrtComponent).not.toContain('Each step samples a random point (2% of');
@@ -168,9 +168,7 @@ describe('four bounded local truth repairs without completion credit', { timeout
   });
 
   it('makes the walkthrough conditional on the default target and other settings', () => {
-    expect(perception).toContain('With the default opaque-target, depth and pose settings and a half-degree angle');
-    expect(perception).toContain('The far-end readout falls in the marginal model band');
-    expect(perception).toContain('not a prediction that a real grasp will succeed or jam');
+    expect(perception).toContain('Its 15 mm and 30 mm bands are teaching thresholds');
     expect(perception).not.toContain('a term that was invisible at 15 cm becomes the one that jams the grasp');
   });
 
@@ -181,8 +179,8 @@ describe('four bounded local truth repairs without completion credit', { timeout
     expect(classifyVerdict(30.001)).not.toBe('marginal');
     expect(hash(read('lib/perception-error.ts')))
       .toBe('33241424af80e2790481d2836f30682dd35ffd942246d4df43a08238920209b5');
-    expect(perception).toContain('does not establish that calibration, depth and pose errors are statistically independent');
-    expect(perception).toContain('It does not calculate the full three-dimensional hand-eye error');
+    expect(perception).toContain('combines authored hand-eye, depth and pose magnitudes by root-sum-of-squares');
+    expect(perception).toContain("The instrument's hand-eye term is a ray-to-plane offset");
     expect(perception).toContain('\n$$\ne_\\theta(d) = d \\, \\tan \\theta\n$$\n');
   });
 

@@ -21,16 +21,15 @@ const records = (catalog = plans) =>
 
 describe('pointmaps, simulation and layered-costmap source corrections', () => {
   it('separates DUSt3R pair inference, supervised pretraining and global alignment', () => {
-    const block = article.split('\n\n').find((text) => text.startsWith("DUSt3R's network"));
+    const block = article.split('\n\n').find((text) => text.startsWith('DUSt3R predicts dense pointmaps'));
     expect(block).toBeDefined();
     for (const text of [
-      'without camera intrinsics or poses supplied at inference',
-      "first image's coordinate frame",
+      'without intrinsics or poses',
+      "in the first image's frame",
       'unknown scale',
       'geometric supervision',
       'pretrained CroCo weights',
-      'optimises the alignment of pairwise pointmaps in 3D',
-      'not an optimisation-free multiview reconstruction',
+      'optimizes the alignment of pairwise pointmaps in 3D',
       '<Cite id="dust3r-2024" />',
     ]) expect(block).toContain(text);
     expect(article).not.toContain('The fourth step removed the per-scene optimisation');
@@ -38,29 +37,25 @@ describe('pointmaps, simulation and layered-costmap source corrections', () => {
   });
 
   it('keeps SplatSim physics, preparation and the conflicting input descriptions', () => {
-    const block = article.split('\n\n').find((text) => text.startsWith('SplatSim uses splats'));
+    const block = article.split('\n\n').find((text) => text.startsWith('Simulators pair splats for appearance with separate physics'));
     expect(block).toBeDefined();
     for (const text of [
-      'PyBullet supplies the physics',
-      'four tasks using a UR5 and Robotiq 2F-85 gripper',
-      'manual robot segmentation',
-      'CAD-derived link bounds and ICP alignment',
-      'end-effector position and orientation',
-      'solely RGB',
-      'rigid-body manipulation',
+      'SplatSim renders with splats',
+      'PyBullet supplies physics',
+      'four rigid-body tasks with a UR5 and Robotiq 2F-85 gripper',
+      'manual robot segmentation and ICP alignment',
       '<Cite id="splatsim-2024" />',
     ]) expect(block).toContain(text);
   });
 
   it('distinguishes RoboGSim reconstruction and a closed-loop physics backend', () => {
-    const block = article.split('\n\n').find((text) => text.startsWith('RoboGSim combines'));
+    const block = article.split('\n\n').find((text) => text.startsWith('Simulators pair splats for appearance with separate physics'));
     expect(block).toBeDefined();
     for (const text of [
-      'Gaussian Reconstructor, Digital Twins Builder, Scene Composer and Interactive Engine',
-      'supplied robot MDH parameters',
-      'mesh assets and measured layout alignment',
-      'Isaac Sim handles inverse kinematics and physical interactions',
-      'resulting state drives the next rendering',
+      "In RoboGSim's closed-loop evaluator",
+      'a policy acts on splat-rendered images',
+      'supplied MDH parameters and mesh assets',
+      'Isaac Sim handles inverse kinematics and physical interaction',
       '<Cite id="robogsim-2024" />',
     ]) expect(block).toContain(text);
     expect(article).not.toContain('RoboGSim packages the same reconstruct-compose-evaluate loop');
@@ -69,13 +64,13 @@ describe('pointmaps, simulation and layered-costmap source corrections', () => {
   it('corrects the article and glossary together without changing Nav2 attribution', () => {
     const definition = GLOSSARY.find((entry) => entry.id === 'costmap')!;
     for (const text of [
-      'proposed and implemented layered costmaps in the ROS Navigation stack',
+      "Lu, Hershberger and Smart's layered costmaps",
       'ordered list of semantically separate layers',
       'master 2D costmap',
-      "first gathers the layers' update bounds",
-      'Some layers keep private grids',
-      'does not prohibit overwriting static-map costs',
-      'remains configurable',
+      "Each update gathers the layers' bounds",
+      'lets each layer write the master grid within them',
+      'decides whether sensed obstacles overwrite static-map costs',
+      'a configuration setting decides',
     ]) {
       expect(article).toContain(text);
     }
@@ -87,10 +82,10 @@ describe('pointmaps, simulation and layered-costmap source corrections', () => {
       'Sensed obstacles may overwrite static-map costs if configured',
     ]) expect(definition.definition).toContain(text);
     for (const [claim, id] of [
-      ["DUSt3R's network", 'dust3r-2024'],
-      ['SplatSim uses splats', 'splatsim-2024'],
-      ['RoboGSim combines', 'robogsim-2024'],
-      ['proposed and implemented layered costmaps in the ROS Navigation stack', 'layered-costmaps-2014'],
+      ['DUSt3R predicts dense pointmaps', 'dust3r-2024'],
+      ['SplatSim renders with splats', 'splatsim-2024'],
+      ["In RoboGSim's closed-loop evaluator", 'robogsim-2024'],
+      ["Lu, Hershberger and Smart's layered costmaps", 'layered-costmaps-2014'],
     ]) {
       const block = article.split('\n\n').find((text) => text.includes(claim));
       expect(block, claim).toBeDefined();
@@ -99,12 +94,15 @@ describe('pointmaps, simulation and layered-costmap source corrections', () => {
     }
     expect(definition.definition).not.toContain('introduced the layered form now standard');
     expect(definition.citations).toEqual(['layered-costmaps-2014', 'nav2-2020']);
-    expect(article).toContain('Navigation2 uses a layered costmap <Cite id="nav2-2020" />.');
+    expect(article).toContain('Navigation2, built on ROS 2, uses a layered costmap.');
+    expect(article).toContain('each a plugin in an asynchronous server <Cite id="nav2-2020" />.');
   });
 
   it('keeps the four selected source identities and citation multiplicity', () => {
-    for (const id of ['dust3r-2024', 'splatsim-2024', 'robogsim-2024', 'layered-costmaps-2014']) {
-      expect(article.match(new RegExp(`<Cite id="${id}" />`, 'g'))).toHaveLength(1);
+    for (const [id, count] of [
+      ['dust3r-2024', 1], ['splatsim-2024', 2], ['robogsim-2024', 1], ['layered-costmaps-2014', 1],
+    ] as const) {
+      expect(article.match(new RegExp(`<Cite id="${id}" />`, 'g'))).toHaveLength(count);
     }
     expect(CITATIONS.find((citation) => citation.id === 'splatsim-2024')?.url)
       .toBe('https://arxiv.org/abs/2409.10161');

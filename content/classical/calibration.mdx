@@ -17,17 +17,42 @@ citations:
   - hwangbo-2019
   - espiau-1992
   - foundationpose-2024
+  - roth-mooring-ravani-1987
+  - halo-payload-2026
+  - kannala-brandt-2006
+  - anycalib-2025
+  - khoshelham-kinect-2012
+  - herrera-depth-color-2012
+  - camera-depth-models-2025
+  - park-martin-1994
+  - daniilidis-1999
+  - apriltag-2011
+  - opencv-hand-eye-docs-2026
+  - moveit-hand-eye-tutorial-2026
+  - dream-2019
+  - easyhec-2023
+  - kalib-2024
+  - hydra-hand-eye-2025
+  - drhec-2026
+  - humanoid-geometric-calibration-2025
+  - omnicalib-2026
+  - kalibr-2013
+  - ieee-1588-2019
+  - realtime-vla-v2-2026
+  - atkeson-an-hollerbach-1986
+  - swevers-excitation-1997
+  - gaz-panda-dynamics-2019
+  - spi-active-2025
+  - bjelonic-sim2real-2025
+  - droid-2024
+  - calib-all-2025
 seeAlso:
   - "manipulation/action-spaces"
   - "data-hardware/datasets"
   - "rl-sim2real/sim2real-transfer"
 ---
 
-Calibration is the work that makes measurements and commands refer to the same physical world. A camera pixel, depth value, joint encoder and motor command each has its own coordinate system, clock and error. A robot policy can learn around a stable bias; it cannot reliably absorb a transform that changes after every camera bump or a label stream shifted by a variable delay.
-
-The useful unit is not one calibration file. It is a chain with a validation residual at every link: intrinsics, depth, camera-to-robot transform, robot kinematics, time alignment and actuator response.
-
-Try the check below and choose the diagnostic that separates a fixed hand-eye error from random policy error.
+Robot calibration is the estimation of the parameters that make a robot's measurements and commands refer to the same physical world. Classical kinematic calibration has four steps: modeling, measurement, identification and correction <Cite id="roth-mooring-ravani-1987" />. A learning system adds cameras, depth, clocks and actuators to the chain.
 
 <SelfCheck
   prompt="A grasp misses by almost the same small offset in one direction across many objects, and the miss grows as targets move farther from the wrist camera. What should you inspect first?"
@@ -54,74 +79,42 @@ Try the check below and choose the diagnostic that separates a fixed hand-eye er
 
 ## The calibration chain
 
-A manipulation system commonly carries these transforms and models:
-
-1. <Term id="camera-intrinsics">camera intrinsics</Term> and lens distortion;
-2. depth scale and depth-to-color alignment;
-3. camera extrinsics relative to the robot base or wrist;
-4. joint encoder zeroes and link parameters;
-5. tool-center-point and payload parameters;
-6. timestamps and sensor-to-command latency;
-7. actuator or controller response.
-
-The output of one stage is the input to the next. A 6-DoF pose estimator can be accurate in camera coordinates and still place the gripper incorrectly because the hand-eye transform is wrong. FoundationPose can estimate and track novel-object poses under model-based or model-free inputs <Cite id="foundationpose-2024" />; it does not calibrate the camera to the arm for you.
+A manipulation system carries <Term id="camera-intrinsics">camera intrinsics</Term>, depth alignment, camera extrinsics, joint zeroes and link parameters, tool and payload parameters, timestamps and latency, and actuator response. Each stage feeds the next. FoundationPose estimates and tracks novel-object poses with or without a model <Cite id="foundationpose-2024" />, yet a wrong hand-eye transform still sends the gripper to the wrong place. HALO first calibrates a humanoid's nominal model from real data, then identifies an unknown payload's mass distribution <Cite id="halo-payload-2026" />.
 
 ## Camera intrinsics
 
-Intrinsics map pixels to rays. The core parameters are focal lengths, principal point and lens distortion. Zhang's planar-target method recovers them from several views of a flat pattern at unknown orientations, followed by nonlinear refinement <Cite id="zhang-2000-calibration" />. Its practical strength is that the target pose need not be measured.
-
-Good calibration images cover the full field of view, vary distance and tilt, keep the target sharp, and avoid collecting many near-duplicate views. Report reprojection error and inspect its spatial pattern. A low mean can hide a bad corner of the image or a few dominant views.
-
-Do not transfer intrinsics across a changed focus, resolution or crop without validation. Image resizing requires a corresponding scale of focal length and principal point. A model trained on undistorted images must receive the same transformation at deployment.
+Intrinsics map pixels to rays through focal lengths, principal point and lens distortion. Zhang's method recovers them from a planar pattern seen at a few unknown orientations, with a closed-form solution and nonlinear refinement <Cite id="zhang-2000-calibration" />. Kannala and Brandt's generic model covers conventional, wide-angle and fisheye lenses <Cite id="kannala-brandt-2006" />. AnyCalib estimates intrinsics from one in-the-wild image for pinhole, Brown-Conrady and Kannala-Brandt models <Cite id="anycalib-2025" />. Intrinsics need revalidation after any change of focus, resolution or crop.
 
 ## Depth is a measurement model
 
-Depth cameras do not produce uniformly accurate metric state. Stereo error grows with range, repetitive patterns create ambiguous matches, and low texture or specular surfaces can invalidate measurements. The RealSense tuning guide describes the distance-squared growth and the effects of scene texture and lighting <Cite id="realsense-tuning-2026" />. The D400 family datasheet documents false depth and saturation failure cases, so a single accuracy number would conceal these differences <Cite id="realsense-d400-datasheet-2026" />.
-
-Calibrate depth scale against known distances across the operating range. Plot residual against range and image location. Measure invalid-pixel rate on the actual materials in the task. If color and depth sensors are separate, validate their registration after every resolution or firmware change.
+Stereo depth error scales with the square of distance, and repetitive structures make matches ambiguous <Cite id="realsense-tuning-2026" />. The D400 datasheet lists false depth from repetitive patterns and saturation from specular reflections <Cite id="realsense-d400-datasheet-2026" />. Kinect random error grows from a few millimeters to about 4 cm at maximum range <Cite id="khoshelham-kinect-2012" />, and a joint depth-color calibration with a depth-distortion model beat the manufacturer's calibration <Cite id="herrera-depth-color-2012" />. Learned camera depth models reach nearly simulation-level depth accuracy for manipulation <Cite id="camera-depth-models-2025" />.
 
 ## Hand-eye calibration
 
-Hand-eye calibration solves the rigid relationship between camera motion and robot motion. For a wrist camera, the unknown is usually the transform from gripper to camera; for a fixed camera, it is base to camera. Shiu and Ahmad framed wrist-mounted sensor calibration as solving homogeneous transform equations of the form $AX = XB$ <Cite id="shiu-ahmad-1989" />; Tsai and Lenz gave the classic efficient solution <Cite id="tsai-lenz-1989" />.
+Hand-eye calibration finds the gripper-to-camera transform for a wrist camera, or base-to-camera for a fixed one. Shiu and Ahmad cast it as $AX = XB$ <Cite id="shiu-ahmad-1989" />. Tsai and Lenz's solution takes about ${}100 + 64N$ arithmetic operations for $N$ robot stations, and a few milliseconds <Cite id="tsai-lenz-1989" />. Park and Martin derived closed-form exact and least-squares solutions on the Euclidean group <Cite id="park-martin-1994" />, and Daniilidis solved rotation and translation together with dual quaternions <Cite id="daniilidis-1999" />. AprilTag targets give a full 6-DoF pose from one image <Cite id="apriltag-2011" />.
 
-The dataset needs rotational diversity. Motions around nearly one axis leave parts of the transform weakly constrained. Use many poses across the workspace, reject target detections with poor geometry, and hold out some poses to validate the solution.
+OpenCV needs at least two motions with non-parallel rotation axes, so three poses, and strongly recommends many more <Cite id="opencv-hand-eye-docs-2026" />. MoveIt's tutorial reports that accuracy plateaus after about 12 or 15 samples in most cases <Cite id="moveit-hand-eye-tutorial-2026" />. Validation belongs in robot coordinates, because reprojection error alone does not close that loop.
 
-Validate in the units the task cares about. Place the calibration target at several distances and orientations, transform its detected pose into the robot frame, and measure translation and rotation residuals. Then execute slow reaches to independent landmarks. Reprojection error alone does not close the robot-coordinate loop.
+Markerless methods now rival targets. DREAM's single-image accuracy is comparable to multi-frame offline calibration <Cite id="dream-2019" />. EasyHeC uses differentiable rendering and automatic joint-space exploration <Cite id="easyhec-2023" />, and Kalib needs only the kinematic chain and a tracked reference point <Cite id="kalib-2024" />. Hydra reaches 5 mm task-space accuracy against 7 mm for classical methods <Cite id="hydra-hand-eye-2025" />. DRHeC's authors report 88.9% grasp success on a UR5e, 46.3 points above EasyHeC <Cite id="drhec-2026" />.
 
 ## Kinematic and tool calibration
 
-Nominal link lengths and joint zeroes describe the design. Encoder offsets, compliance and tool mounting error can shift the assembled machine's end effector. The forward-kinematics model in [kinematics](/classical/kinematics) shows how each parameter contributes to the final pose <Cite id="modern-robotics-2017" />.
-
-At minimum, define and verify the tool center point. Touch a fixed physical point from several tool orientations. If the estimated point moves, the tool transform is wrong. For higher accuracy, fit joint offsets and selected link parameters from external pose measurements, then validate on a held-out workspace grid.
-
-Do not fit every possible parameter without an observability analysis. Flexible models can trade one incorrect link length against another and reproduce the calibration poses while extrapolating poorly.
+Manufacturing errors and joint compliance shift an assembled arm from its nominal [kinematics](/classical/kinematics) <Cite id="modern-robotics-2017" />. A tool center point is checked by touching one fixed point from several orientations. Fitting every parameter without an observability check lets errors trade off. Nguyen and colleagues calibrated a humanoid from 31 chosen postures and cut RMS error 2.3-fold against the manufacturer's model <Cite id="humanoid-geometric-calibration-2025" />. OmniCalib found CAD wrist-camera extrinsics off by up to 10.56 mm and 1.74 degrees, and writes back only corrections its observability checks support <Cite id="omnicalib-2026" />.
 
 ## Time calibration
 
-Spatial calibration assumes simultaneous measurements. A camera frame at time $t$ paired with joint state at $t + \Delta t$ creates a pose error proportional to motion speed. At slow motion the system looks calibrated; at production speed it misses.
-
-Use hardware timestamps where available. Record camera exposure time, robot-state time, command time and arrival time separately. Estimate offset by correlating a motion visible in both streams, such as a tracked tool moving through a known trajectory. Repeat under load because buffering and network transport can add variable latency.
-
-For learned policies, perform alignment before forming observation-action pairs. A fixed temporal shift changes the apparent control law and can make a policy look temporally unstable.
+A camera frame at time $t$ paired with joint state at $t + \Delta t$ creates a pose error proportional to speed. Kalibr estimates time offsets jointly with spatial transforms, to a fraction of the smallest measurement period <Cite id="kalibr-2013" />. IEEE 1588 clock synchronization reaches sub-microsecond accuracy across networked devices <Cite id="ieee-1588-2019" />. On a RealSense D435 and Airbot Play rig, Realtime-VLA V2 measured camera, proprioception and motion delays of 55, 50 and 150 ms <Cite id="realtime-vla-v2-2026" />.
 
 ## Dynamics and actuator calibration
 
-Sim-to-real work often calls this system identification. Measure how commanded position, velocity or torque becomes realized motion. Fit latency, gains, friction and actuator response at the operating amplitudes and rates.
+Sim-to-real work calls this system identification. Atkeson, An and Hollerbach identified load and link inertial parameters by least squares, beating CAD-derived predictions <Cite id="atkeson-an-hollerbach-1986" />. Swevers and colleagues optimize finite-Fourier-series excitation for parameter uncertainty <Cite id="swevers-excitation-1997" />. Gaz and colleagues first identified the Franka Panda's dynamics, joint friction and feasible parameters <Cite id="gaz-panda-dynamics-2019" />.
 
-Hwangbo and colleagues identified actuator-model error as a central transfer obstacle on ANYmal and learned an actuator network from real measurements to replace the inadequate analytic component <Cite id="hwangbo-2019" />. This is calibration by residual learning: known rigid-body structure remains, while the hard actuator mapping is estimated from data.
-
-Record both commands and measured response. A dataset that stores only the command cannot distinguish policy error from controller tracking error.
+Hwangbo and colleagues found actuator dynamics central to ANYmal's transfer gap and learned an actuator network from real measurements <Cite id="hwangbo-2019" />. SPI-Active chooses identification data actively and beats baselines by 42 to 63% in locomotion transfer <Cite id="spi-active-2025" />. Bjelonic and colleagues transferred policies to 13 legged robots without randomizing dynamics <Cite id="bjelonic-sim2real-2025" />. A dataset that stores commands without measured response cannot separate policy error from tracking error.
 
 ## Calibration versus visual servoing
 
-Visual servoing closes the loop on image error and can reduce sensitivity to an imperfect global pose estimate. The task-function formulation uses the relationship between feature motion and camera motion to drive features toward a target <Cite id="espiau-1992" />.
-
-It does not make calibration irrelevant. The interaction model, velocity command and safety geometry still need consistent conventions. It changes which errors become steady-state bias and which bend the path.
+Visual servoing puts the vision sensor inside the control loop and drives image features toward a target through a task function <Cite id="espiau-1992" />. Its interaction model, velocity commands and safety geometry still need consistent conventions.
 
 ## Drift and ownership
 
-Calibration is an operational asset. Store it with hardware serial numbers, camera settings, tool identity, software version, date, temperature where relevant, procedure and validation results. Define triggers for revalidation: camera remount, collision, tool change, firmware update, focus change or a residual crossing its threshold.
-
-Build a short automated check that can run before data collection and evaluation. Fixed landmarks should transform into the robot frame within tolerance; timestamps should stay within a bound; commanded and measured motion should agree under a standard sequence.
-
-Record the measured residuals, operating range and owner as the calibration output. That record helps distinguish a learner's failure from a disagreement between coordinates.
+Calibrations drift. DROID's per-session checkerboard calibrations were not always accurate, and the dataset provides camera-to-base calibrations for about 36,000 scenes <Cite id="droid-2024" />. Most public datasets lack extrinsics, and CalibAll recovered them for about 97,000 episodes across 16 datasets <Cite id="calib-all-2025" />. Each calibration should be stored with hardware serials, camera settings, tool, software version, date, procedure and residuals, and redone after a remount, collision, tool or firmware change.

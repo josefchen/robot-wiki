@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parseLedger, parseCompoundPlans, originalClaimDigest } from '../../lib/audit-ledger.ts';
 import { CITATIONS } from '../../data/citations.ts';
+import { preDomainPassCitations } from '../helpers/domain-pass';
 
 /**
  * Pins the 2026-09-17a single-leftovers 4-row integration: the four applied
@@ -42,7 +43,7 @@ const declaredCitations = (domain: string, slug: string) => {
     if (!match) break;
     ids.push(match[1]);
   }
-  return ids;
+  return [...preDomainPassCitations(domain, slug, ids)];
 };
 const sectionsOf = (ledgerPath: string) => {
   const compoundPlans = loadPlans();

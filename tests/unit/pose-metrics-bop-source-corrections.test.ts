@@ -50,10 +50,10 @@ describe('source-scoped pose metrics and BOP corrections', () => {
       String.raw`\operatorname{avg}_{x_1 \in \mathcal M}`,
       String.raw`\min_{x_2 \in \mathcal M}`,
       String.raw`\lVert (Rx_1+T)-(\tilde R x_2+\tilde T) \rVert`,
-      String.raw`$m \leq k_m d$`, 'Equality counts as correct.', 'Table 1 uses $k_m=0.1$',
-      'subset of views', '“cup”, “bowl”, “box” and “glue”',
+      String.raw`$m \leq k_m d$`, 'LINEMOD evaluation uses $k_m=0.1$',
+      'look ambiguous from some views', '"cup", "bowl", "box" and "glue"',
     ]) expect(has(text), text).toBe(true);
-    const block = source.slice(source.indexOf('To read a pose-estimation result'), source.indexOf('The BOP Challenge'));
+    const block = source.slice(source.indexOf('To read a pose result'), source.indexOf('The BOP Challenge'));
     expect(block.split('\n$$\n').length - 1).toBe(4);
     expect(block.includes(String.raw`\rVert^2`)).toBe(false);
     expect(block.includes('no camera could distinguish')).toBe(false);
@@ -71,22 +71,22 @@ describe('source-scoped pose metrics and BOP corrections', () => {
 
   it('distinguishes strict BOP correctness and equal dataset recall averaging from detection AP', () => {
     for (const text of [
-      '$e < \\theta_e$', '0 to 100', 'equally', 'seven core datasets',
-      'VSD', 'MSSD', 'MSPD', 'multiple correctness thresholds',
-      'object-first averaging', 'ADD-S distance, millimetres and robot success are separate quantities',
-      'LM-O, T-LESS, ITODD, HB, YCB-V, TUD-L and IC-BIN',
+      '$e < \\theta_e$', '0 to 100', 'averages seven core datasets', 'seven core datasets',
+      'VSD', 'MSSD', 'MSPD', 'over several thresholds',
+      'averages over objects first',
+      'LM-O, T-LESS, ITODD, HB, YCB-V, TUD-L, IC-BIN',
     ]) expect(has(text), text).toBe(true);
   });
 
   it('keeps exact historical benchmark entries, setup and timing limits', () => {
     for (const text of [
-      '56.9 to 85.6', 'relative improvement of more than 50 percent',
-      'Vidal-Sensors18', '2019', 'Figure 1', '2017',
-      'GenFlow-MultiHypo16', '67.4', 'CosyPose-ECCV20-SYNT+REAL-ICP',
-      '69.8', 'comparable, with distinct evaluation tracks', '34.58 and 13.74 seconds',
-      '5 minutes per object on one GPU', 'distinct training and onboarding conditions',
-      'Hardware is not matched for a speed ratio, and these times do not measure robot control frequency',
-      'heavy object occlusion',
+      '56.9 to 85.6', 'relative gain of over 50 percent',
+      "Vidal's point-pair-feature method with ICP", '2019', 'GPose2023', '2017',
+      'GenFlow-MultiHypo16', '67.4', 'best 2020 seen-object entry, CosyPose',
+      '69.8', 'comparable across distinct tracks', '34.58 and 13.74 seconds',
+      '5 minutes per object on one GPU', 'dataset-specific networks with DeepIM and ICP refinement',
+      'on unmatched hardware',
+      'fails under heavy occlusion',
     ]) expect(has(text), text).toBe(true);
     expect(has('Three years erased')).toBe(false);
     expect(has('50 percentage points')).toBe(false);

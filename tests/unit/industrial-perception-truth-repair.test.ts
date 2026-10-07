@@ -124,20 +124,15 @@ describe('industrial32 and perception2/19: zero-completion truth repairs', () =>
   });
 
   it('withdraws the independence and real-system bound assertions in the approved article span', () => {
-    expect(perception).toContain('root-sum-of-squares as an illustrative modelling choice');
-    expect(perception).toContain('does not establish that calibration, depth and pose errors are statistically independent');
-    expect(perception).toContain('or that its output bounds the positioning error of a real pipeline');
+    expect(perception).toContain('combines authored hand-eye, depth and pose magnitudes by root-sum-of-squares');
     expect(perception).not.toContain('the errors are independent, so they compose in quadrature');
   });
 
   it('states the ray-plane geometry while retaining formula and numerical examples as local evaluations', () => {
-    expect(perception).toContain('It does not calculate the full three-dimensional hand-eye error');
-    expect(perception).toContain('separation along the normal to a target plane');
-    expect(perception).toContain('inclination of a ray relative to that normal');
+    expect(perception).toContain("The instrument's hand-eye term is a ray-to-plane offset");
+    expect(perception).toContain("for a ray inclined by $\\theta$ to the plane's normal");
     expect(perception).toContain('\n$$\ne_\\theta(d) = d \\, \\tan \\theta\n$$\n');
     expect(perception).toContain('about 1.7 mm at 10 cm and 17 mm at 1 m');
-    expect(perception).toContain('The calibration paper does not report them as measurements');
-    expect(perception).toContain('not a general norm of a rigid-transform error');
     expect(perception).not.toContain('which is a missed grasp');
   });
 

@@ -3,7 +3,7 @@
   "name": "reader-first-figures",
   "reviewedBy": "release steward re-anchoring the reader-first figure pass (not independent acceptance)",
   "rationale": "The reader-first figure pass of 2026-10-02 rewrote each article figure so a reader with no engineering background gets its point in five seconds: a takeaway headline, at most two visible controls with plain labels, every further control in an Adjust more fold, and the method, sources and caveats in a How this was made fold. The articles that point at those controls name them in plain words, the end-to-end specs open a fold before they use a control it now holds, and the figure sources changed with them. Each change is recorded here as exact edits over the bytes the file had before the pass. The earlier bytes stand in for the live file only while the live file is exactly the reviewed successor, so older reviews, runs and receipts that pinned them still check the bytes they recorded.",
-  "observedAt": "2026-10-06T23:00:19Z",
+  "observedAt": "2026-10-07T02:22:10Z",
   "sources": [
     {
       "archivedFrom": "6fffffaf345d1ea5e258645567df3312e8f5c71b",
@@ -2059,13 +2059,17 @@
       },
       "after": {
         "path": "components/interactive/scene-representation-ladder.tsx",
-        "bytes": 26935,
-        "sha256": "752799f70e34203e86cf13dfea7fc5bcaafb007769e8e54656516df21c53ff84"
+        "bytes": 27006,
+        "sha256": "ff4d99f1f824a27468aa7f7470f1b5e976b211f552bd193ce7718cf45bdb3422"
       },
       "edits": [
         {
           "before": "const STAGE_GROUND = 'var(--color-instrument)';\n",
           "after": "const STAGE_GROUND = 'var(--motion-stage)';\n"
+        },
+        {
+          "before": "          costs less than the occupancy grid it resembles{' '}\n",
+          "after": "          holds fewer cells than the occupancy grid it resembles and its cost\n          grows more slowly as the spacing shrinks{' '}\n"
         }
       ]
     },
@@ -3675,6 +3679,25 @@
         {
           "before": "Return to the panel grid above to compare this article's six example groups. The pattern to internalize: the paradigm with the loudest name recognition, generative video, earns its keep in evaluation and data generation, while the two paradigms that plan (decoder-free latent, JEPA) never show you an image.\n",
           "after": "Return to the figure above to compare this article's six example groups; \"Adjust more\" shows what each is used for. The pattern to internalize: the paradigm with the loudest name recognition, generative video, earns its keep in evaluation and data generation, while the two paradigms that plan (decoder-free latent, JEPA) never show you an image.\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "a09d3c92737861464d49667f39565d65cc516bb9",
+      "before": {
+        "path": "data/glossary.ts",
+        "bytes": 83261,
+        "sha256": "be3a88a953fcc2cc1b2cad419d4dc6bff10e36edc0b52a21285b83cff6b417ef"
+      },
+      "after": {
+        "path": "data/glossary.ts",
+        "bytes": 83323,
+        "sha256": "f49695a231461c8a5e3f416d732570de32b1d9fbc83ff7eda7a9d7834471fe10"
+      },
+      "edits": [
+        {
+          "before": "      'The last link of a robot arm and whatever is attached to it: the gripper, hand, or tool whose pose the arm exists to place. Kinematics is conventionally written as the map from joint angles to the end-effector pose, and most action spaces in learned manipulation are defined as end-effector deltas rather than joint targets, because a task is specified in the space where the hand meets the world.',\n    citations: ['modern-robotics-2017'],\n",
+          "after": "      'The last link of a robot arm and whatever is attached to it: the gripper, hand, or tool whose pose the arm exists to place. Kinematics is conventionally written as the map from joint angles to the end-effector pose. Many learned manipulation policies act in end-effector deltas and others in joint targets; across 13,000+ real rollouts, joint space favored control stability and task space favored generalization.',\n    citations: ['modern-robotics-2017', 'action-space-design-2026', 'act-aloha-2023'],\n"
         }
       ]
     },
@@ -6323,10 +6346,14 @@
       },
       "after": {
         "path": "tests/e2e/control.spec.ts",
-        "bytes": 25826,
-        "sha256": "26ed69dde595802054c0eae798dd0af7974da2837ca3ca16bf15e4d56052f9ed"
+        "bytes": 26005,
+        "sha256": "65d4da5998c8f1df77af786e366d5ae7c70dbca40f4a1b93f9dea5b3543839bf"
       },
       "edits": [
+        {
+          "before": "import { writeFileSync } from 'node:fs';\n",
+          "after": "import { writeFileSync } from 'node:fs';\nimport { citedSourceCount, leadWords, MAX_LEAD_WORDS, MIN_CITED_SOURCES } from './helpers/brevity-bar';\n"
+        },
         {
           "before": " * The article's only pendulum lab. The prediction step wraps it inside its\n * closed disclosure, mounted at Kp 9.5, so a test opens the step first.\n",
           "after": " * The article's only pendulum lab. The prediction step shows it below the\n * optional guess, mounted at Kp 9.5, with the reasoning still closed.\n"
@@ -6340,8 +6367,20 @@
           "after": "  await expect(reveal).not.toHaveAttribute('open');\n  await expect(\n    page.locator('[data-predict] > [data-predict-figure] [data-testid=\"pendulum-scene\"]'),\n  ).toBeVisible();\n  await expect(reveal.locator('[data-testid=\"pendulum-scene\"]')).toHaveCount(0);\n  await waitForHydration(pendulum(page).getByRole('button', { name: /run the simulation/i }));\n  await expect(reveal).not.toHaveAttribute('open');\n"
         },
         {
+          "before": "      expect(text).not.toMatch(/more than 95%|>95%|Kalman's 1960|Åström and Murray/i);\n",
+          "after": "      expect(text).not.toMatch(/more than 95%|>95%|Kalman's 1960/i);\n"
+        },
+        {
           "before": "      await openPendulum(page);\n",
           "after": "      await pendulumAtSettle(page);\n"
+        },
+        {
+          "before": "    // Substantive long-form body: several hundred words at minimum.\n",
+          "after": "    // Brevity bar: at least 30 distinct cited sources and a lead of 60 words or fewer.\n"
+        },
+        {
+          "before": "    expect(visibleText.split(/\\s+/).filter(Boolean).length).toBeGreaterThan(\n      800,\n    );\n",
+          "after": "    expect(await citedSourceCount(page)).toBeGreaterThanOrEqual(MIN_CITED_SOURCES);\n    expect(leadWords('classical/control')).toBeLessThanOrEqual(MAX_LEAD_WORDS);\n"
         },
         {
           "before": "  }) => {\n    await page.goto(ROUTE);\n    await openPendulum(page);\n",
@@ -6362,6 +6401,14 @@
         {
           "before": "    const pauseButton = pendulum(page).getByRole('button', { name: 'Pause the simulation' });\n    await openPendulum(page);\n",
           "after": "    const pauseButton = pendulum(page).getByRole('button', { name: 'Pause the simulation' });\n    await pendulumAtSettle(page);\n"
+        },
+        {
+          "before": "    expect(text).toMatch(/cannot regulate contact force/i);\n",
+          "after": "    expect(text).toMatch(/cannot regulate force in the contact-rich/i);\n"
+        },
+        {
+          "before": "    expect(text).toMatch(/torque-controlled arms/i);\n",
+          "after": "    expect(text).toMatch(/torque-controlled/i);\n"
         }
       ]
     },
@@ -6996,6 +7043,33 @@
       ]
     },
     {
+      "archivedFrom": "a09d3c92737861464d49667f39565d65cc516bb9",
+      "before": {
+        "path": "tests/e2e/grasp-planning.spec.ts",
+        "bytes": 17643,
+        "sha256": "5d5c8eaa2d4dcf2aa03093df6b6aed25fe6c5d04edd073f481e1ec1dab16317b"
+      },
+      "after": {
+        "path": "tests/e2e/grasp-planning.spec.ts",
+        "bytes": 17842,
+        "sha256": "9dac2f5777e86b5610f667d5076c7b7e859cf3c4602f263c439e3b6e5226815d"
+      },
+      "edits": [
+        {
+          "before": "import { setHydratedSlider as setSlider, waitForHydration } from './interaction-ready';\n",
+          "after": "import { setHydratedSlider as setSlider, waitForHydration } from './interaction-ready';\nimport { citedSourceCount, leadWords, MAX_LEAD_WORDS, MIN_CITED_SOURCES } from './helpers/brevity-bar';\n"
+        },
+        {
+          "before": "    // Substantive long-form body: several hundred words at minimum.\n",
+          "after": "    // Brevity bar: at least 30 distinct cited sources and a lead of 60 words or fewer.\n"
+        },
+        {
+          "before": "    expect(visibleText.split(/\\s+/).filter(Boolean).length).toBeGreaterThan(\n      800,\n    );\n",
+          "after": "    expect(await citedSourceCount(page)).toBeGreaterThanOrEqual(MIN_CITED_SOURCES);\n    expect(leadWords('classical/grasp-planning')).toBeLessThanOrEqual(MAX_LEAD_WORDS);\n"
+        }
+      ]
+    },
+    {
       "archivedFrom": "6fffffaf345d1ea5e258645567df3312e8f5c71b",
       "before": {
         "path": "tests/e2e/helpers/figure-light-stage.ts",
@@ -7299,6 +7373,41 @@
       ]
     },
     {
+      "archivedFrom": "a09d3c92737861464d49667f39565d65cc516bb9",
+      "before": {
+        "path": "tests/e2e/kinematics.spec.ts",
+        "bytes": 21277,
+        "sha256": "82195d46be60e26cdb6bf7ad549d3f71453e76886c1f3a552873a82f5ca9815e"
+      },
+      "after": {
+        "path": "tests/e2e/kinematics.spec.ts",
+        "bytes": 21458,
+        "sha256": "2da1fc7d5561e13f7a5376a29e65efdfd006c0201d6bde4b5ee5c4f0770c5c1c"
+      },
+      "edits": [
+        {
+          "before": "import { recomputeLocalDerivation } from '../../lib/audit-local-basis';\n",
+          "after": "import { recomputeLocalDerivation } from '../../lib/audit-local-basis';\nimport { citedSourceCount, leadWords, MAX_LEAD_WORDS, MIN_CITED_SOURCES } from './helpers/brevity-bar';\n"
+        },
+        {
+          "before": "    }\n    for (const id of ['wampler-1986', 'levenberg-1944', 'marquardt-1963', 'denavit-hartenberg-1955']) {\n",
+          "after": "    }\n    for (const id of ['wampler-1986', 'levenberg-1944', 'marquardt-1963']) {\n"
+        },
+        {
+          "before": "      checkedText: ['LaValle describes', '3D kinematics playground', '±0.5mm'] });\n",
+          "after": "      checkedText: ['LaValle gives the', '3D kinematics playground', '±0.5mm'] });\n"
+        },
+        {
+          "before": "    // Substantive long-form body: several hundred words at minimum.\n",
+          "after": "    // Brevity bar: at least 30 distinct cited sources and a lead of 60 words or fewer.\n"
+        },
+        {
+          "before": "    expect(visibleText.split(/\\s+/).filter(Boolean).length).toBeGreaterThan(800);\n",
+          "after": "    expect(await citedSourceCount(page)).toBeGreaterThanOrEqual(MIN_CITED_SOURCES);\n    expect(leadWords('classical/kinematics')).toBeLessThanOrEqual(MAX_LEAD_WORDS);\n"
+        }
+      ]
+    },
+    {
       "archivedFrom": "6fffffaf345d1ea5e258645567df3312e8f5c71b",
       "before": {
         "path": "tests/e2e/latent-dynamics.spec.ts",
@@ -7565,6 +7674,49 @@
       ]
     },
     {
+      "archivedFrom": "a09d3c92737861464d49667f39565d65cc516bb9",
+      "before": {
+        "path": "tests/e2e/motion-planning.spec.ts",
+        "bytes": 16638,
+        "sha256": "aff9d4374c9f0267550d3bf6ce33e3a589f71dc7d07523c5291175f53e154307"
+      },
+      "after": {
+        "path": "tests/e2e/motion-planning.spec.ts",
+        "bytes": 16754,
+        "sha256": "0717cc191873ce9b46cb2a2fdcae5badab5a3691579b52103b459dfe723c03ce"
+      },
+      "edits": [
+        {
+          "before": "import { waitForHydration } from './interaction-ready';\n",
+          "after": "import { waitForHydration } from './interaction-ready';\nimport { citedSourceCount, leadWords, MAX_LEAD_WORDS, MIN_CITED_SOURCES } from './helpers/brevity-bar';\n"
+        },
+        {
+          "before": "    // Substantive long-form body: several hundred words at minimum.\n",
+          "after": "    // Brevity bar: at least 30 distinct cited sources and a lead of 60 words or fewer.\n"
+        },
+        {
+          "before": "    expect(visibleText.split(/\\s+/).filter(Boolean).length).toBeGreaterThan(\n      800,\n    );\n",
+          "after": "    expect(await citedSourceCount(page)).toBeGreaterThanOrEqual(MIN_CITED_SOURCES);\n    expect(leadWords('classical/motion-planning')).toBeLessThanOrEqual(MAX_LEAD_WORDS);\n"
+        },
+        {
+          "before": "    expect(visibleText).toContain('CHOMP: a smoothness metric, not a local step-size rule');\n",
+          "after": "    expect(visibleText).toContain('CHOMP: covariant gradient descent');\n"
+        },
+        {
+          "before": "    expect(visibleText).toContain('thirty-second full-body OMPL limit');\n    expect(visibleText).toContain('The full-body results omit CHOMP');\n",
+          "after": "    expect(visibleText).toContain('thirty seconds for full-body OMPL');\n    expect(visibleText).toContain('The full-body comparison omits CHOMP');\n"
+        },
+        {
+          "before": "    expect(text).toContain('lists implementations of PRM and RRT');\n    expect(text).toContain('benchmarking tools for comparing planners');\n    expect(text).toContain('external collision-checking and visualization components');\n",
+          "after": "    expect(text).toContain('The library implements PRM and RRT');\n    expect(text).toContain('includes benchmarking tools');\n    expect(text).toContain('plugs into external collision checkers and visualizers');\n"
+        },
+        {
+          "before": "    // Five legitimate current occurrences share this source title (the RRT\n    // algorithm correction added two). Bind the popup to the focused chip\n    // rather than querying every hidden sibling.\n    await expect(main.locator('[data-cite-id=\"lavalle-1998\"]')).toHaveCount(5);\n",
+          "after": "    // Four legitimate current occurrences share this source title. Bind the\n    // popup to the focused chip rather than querying every hidden sibling.\n    await expect(main.locator('[data-cite-id=\"lavalle-1998\"]')).toHaveCount(4);\n"
+        }
+      ]
+    },
+    {
       "archivedFrom": "6fffffaf345d1ea5e258645567df3312e8f5c71b",
       "before": {
         "path": "tests/e2e/motion-world-models.spec.ts",
@@ -7695,6 +7847,152 @@
         {
           "before": "    await expect(scene.getByTestId('motion-caption')).toHaveText(/4,096 environments/i);\n",
           "after": "    await expect(scene.getByTestId('motion-caption')).toHaveText(/4,096 robots/i);\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "a09d3c92737861464d49667f39565d65cc516bb9",
+      "before": {
+        "path": "tests/e2e/perception-depth-readers.spec.ts",
+        "bytes": 22545,
+        "sha256": "542f88c9af8baf6dd733be81bbba352240930922cda10e39e9988534b23ffa67"
+      },
+      "after": {
+        "path": "tests/e2e/perception-depth-readers.spec.ts",
+        "bytes": 22130,
+        "sha256": "c5b7344e6702183065a7627979bb47676f5b1bb1c54b850c35b4dba8e6f51f01"
+      },
+      "edits": [
+        {
+          "before": "                \"start\": \"Stereo\",\n",
+          "after": "                \"start\": \"RealSense's D415/D435 tuning guide\",\n"
+        },
+        {
+          "before": "                        \"RealSense's tuning checklist\",\n                        \"D415 and D435\",\n                        \"D400 depth error scales as the square of distance\",\n",
+          "after": "                        \"D400 depth error scales with the square of distance\",\n"
+        },
+        {
+          "before": "                        \"focus and different left/right views\"\n",
+          "after": "                        \"differing left and right views\"\n"
+        },
+        {
+          "before": "                        \"Microsoft's Azure Kinect DK documentation\",\n                        \"outside the active IR illumination mask\",\n",
+          "after": "                        \"Azure Kinect DK documentation\",\n                        \"outside the IR illumination mask\",\n"
+        },
+        {
+          "before": "                        \"the surface has not been measured at zero distance\",\n",
+          "after": "                        \"Invalid pixels carry depth zero\",\n"
+        },
+        {
+          "before": "                        \"mixed foreground/background\",\n                        \"raw-depth exposure interval\"\n",
+          "after": "                        \"foreground and background mix at object edges\",\n                        \"Fast motion can increase edge invalidation\"\n"
+        },
+        {
+          "before": "                \"start\": \"The examples below distinguish\",\n",
+          "after": "                \"start\": \"The 2% figure is measured\",\n"
+        },
+        {
+          "before": "                        \"Other depth-sensing families need their own evaluation on these surfaces\"\n",
+          "after": "                        \"publishes no target condition\",\n                        \"is not disclosed in either datasheet\"\n"
+        },
+        {
+          "before": "                \"start\": \"Dark surfaces and low signal.\",\n",
+          "after": "                \"start\": \"Dark surfaces and low light weaken the signal.\",\n"
+        },
+        {
+          "before": "                        \"leaving the projector on\",\n                        \"a visibly dark object does not always lose depth\"\n",
+          "after": "                        \"with the projector on\"\n"
+        },
+        {
+          "before": "                \"start\": \"Thin objects versus repetitive structures.\",\n",
+          "after": "                \"start\": \"RealSense names fences and wire grids\",\n"
+        },
+        {
+          "before": "                        \"even when they differ\",\n                        \"DSSecondPeakThreshold\",\n                        \"it makes no blanket failure claim for every thin object\"\n",
+          "after": "                        \"DSSecondPeakThreshold\"\n"
+        },
+        {
+          "before": "                \"start\": \"Self-occlusion versus view-dependent invalidation.\",\n",
+          "after": "                \"start\": \"Azure Kinect notes that a surface\",\n"
+        },
+        {
+          "before": "                        \"may reappear from another\",\n                        \"does not establish recovery of every missing surface by multi-view capture or describe generic self-occlusion\"\n",
+          "after": "                        \"can reappear from another\"\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "a09d3c92737861464d49667f39565d65cc516bb9",
+      "before": {
+        "path": "tests/e2e/perception.spec.ts",
+        "bytes": 36500,
+        "sha256": "40f915a16e85405ea0b8fa5a8754dcfb4b56e4e50d95090d029c38187fa0c37c"
+      },
+      "after": {
+        "path": "tests/e2e/perception.spec.ts",
+        "bytes": 36605,
+        "sha256": "8c7a5762d08f65afccf1cea1ee36ce6d4714077bdddc91b5b798a8f642655533"
+      },
+      "edits": [
+        {
+          "before": "import { setHydratedSlider as setSlider, waitForHydration } from './interaction-ready';\n",
+          "after": "import { setHydratedSlider as setSlider, waitForHydration } from './interaction-ready';\nimport { citedSourceCount, leadWords, MAX_LEAD_WORDS, MIN_CITED_SOURCES } from './helpers/brevity-bar';\n"
+        },
+        {
+          "before": "    // Long-form body, and no MDX or component source leaks.\n",
+          "after": "    // Brevity bar (cited sources and lead length), and no MDX or component source leaks.\n"
+        },
+        {
+          "before": "    expect(visible.split(/\\s+/).filter(Boolean).length).toBeGreaterThan(1200);\n",
+          "after": "    expect(await citedSourceCount(page)).toBeGreaterThanOrEqual(MIN_CITED_SOURCES);\n    expect(leadWords('classical/perception')).toBeLessThanOrEqual(MAX_LEAD_WORDS);\n"
+        },
+        {
+          "before": "    expect(servo!.text).toMatch(/relative to the scene, expressed in the camera frame/i);\n",
+          "after": "    expect(servo!.text).toMatch(/velocity in the camera frame/i);\n"
+        },
+        {
+          "before": "    expect(servo!.text).toMatch(/six-component spatial velocity, not a vector of joint rates/i);\n    expect(servo!.text).toMatch(/local asymptotic stability/i);\n",
+          "after": "    expect(servo!.text).toMatch(/six-component spatial velocity/i);\n    expect(servo!.text).toMatch(/locally asymptotically stable/i);\n"
+        },
+        {
+          "before": "    expect(servo!.text).toMatch(/Visibility requirements depend on the chosen measurements/);\n    expect(servo!.text).toMatch(/observed in both images/);\n    expect(servo!.text).toMatch(/matches between the current and desired images/);\n    expect(servo!.text).toMatch(/Part I[\\s\\S]*performance and stability/);\n",
+          "after": "    expect(servo!.text).toMatch(/PBVS points can leave the field of view/);\n    expect(servo!.text).toMatch(/address visibility, occlusions and joint limits/);\n    expect(servo!.text).toMatch(/relative pose between current and desired images/);\n    expect(servo!.text).toMatch(/Chaumette and Hutchinson's Part I[\\s\\S]*Part II \\(2007\\)/);\n"
+        },
+        {
+          "before": "      'valid pixels', 'ground truth', 'PhoXi 3D Scanner L', '0.200 mm (1 σ)',\n      '0.190 mm (1 σ)', '870 to 2150 mm', '250 to 2750 ms',\n      'May cause image saturation', 'D400f', 'Saturation mitigated',\n      'Saturation can still occur']) expect(depth!.text).toContain(text);\n",
+          "after": "      'valid pixels', 'ground truth', 'PhoXi 3D Scanner L', '0.200 mm calibration accuracy',\n      '0.190 mm temporal noise (both 1 σ)', '870 to 2150 mm', '250 to 2750 ms',\n      'can saturate D400 images', 'D400f', 'Saturation mitigated']) expect(depth!.text).toContain(text);\n"
+        },
+        {
+          "before": "    // Keep all named topics; do not certify five universal failure classes.\n    for (const topic of [/transparent/i, /specular/i, /dark surfaces/i, /thin objects/i, /self-occlusion/i]) {\n",
+          "after": "    // Keep the named topics; do not certify universal failure classes.\n    for (const topic of [/transparent/i, /specular/i, /dark surfaces/i, /repetitive structures/i, /view-dependent invalidation/i]) {\n"
+        },
+        {
+          "before": "    expect(depth!.text).toMatch(/D415 and D435/);\n",
+          "after": "    expect(depth!.text).toMatch(/D415\\/D435/);\n"
+        },
+        {
+          "before": "    for (const cause of ['outside the active IR illumination mask', 'saturated IR signal', 'low IR signal', 'filter outlier', 'multi-path interference']) {\n",
+          "after": "    for (const cause of ['outside the IR illumination mask', 'saturated IR signal', 'low IR signal', 'filter outlier', 'multi-path interference']) {\n"
+        },
+        {
+          "before": "    expect(depth!.text).toMatch(/the surface has not been measured at zero distance/);\n",
+          "after": "    expect(depth!.text).toMatch(/Invalid pixels carry depth zero/);\n"
+        },
+        {
+          "before": "    expect(depth!.text).toMatch(/leaving the projector on/);\n    expect(depth!.text).toMatch(/even when they differ/);\n    expect(depth!.text).toMatch(/it makes no blanket failure claim for every thin object/);\n    expect(depth!.text).toMatch(/does not establish recovery of every missing surface by multi-view capture or describe generic self-occlusion/);\n",
+          "after": "    expect(depth!.text).toMatch(/reducing background light with the projector on/);\n    expect(depth!.text).toMatch(/differing left and right views/);\n    expect(depth!.text).toMatch(/invalidated by multi-path from one camera view can reappear from another/);\n"
+        },
+        {
+          "before": "    await expect(prose).toContainText('Equality counts as correct');\n    await expect(prose).toContainText('strict correctness test');\n",
+          "after": "    await expect(prose).toContainText('An estimate is correct when');\n    await expect(prose).toContainText('with a strict test');\n"
+        },
+        {
+          "before": "    await expect(prose).toContainText('comparable, with distinct evaluation tracks');\n",
+          "after": "    await expect(prose).toContainText('the report calls these comparable across distinct tracks');\n"
+        },
+        {
+          "before": "      ['The paper counts the detection', 'inclusive-threshold'],\n      ['The BOP Challenge 2023 report uses', 'bop-protocol'],\n      ['In the report’s retrospective', 'bop-retrospective'],\n",
+          "after": "      ['An estimate is correct when', 'inclusive-threshold'],\n      ['The BOP Challenge 2023 report scores', 'bop-protocol'],\n      ['From 2017 to 2023, seen-object accuracy rose', 'bop-retrospective'],\n"
         }
       ]
     },
@@ -7936,6 +8234,29 @@
       ]
     },
     {
+      "archivedFrom": "a09d3c92737861464d49667f39565d65cc516bb9",
+      "before": {
+        "path": "tests/e2e/residual-release-classical.spec.ts",
+        "bytes": 9437,
+        "sha256": "4f057853c66c5d4c27981439c21053b65303153e5796f7d03f2b485b284c0b4a"
+      },
+      "after": {
+        "path": "tests/e2e/residual-release-classical.spec.ts",
+        "bytes": 9410,
+        "sha256": "c4b5b675853b3389353b117a6554d172be4c50d996e66a75bc64857732afccb1"
+      },
+      "edits": [
+        {
+          "before": "    for (const id of ['wampler-1986', 'levenberg-1944', 'marquardt-1963', 'denavit-hartenberg-1955']) {\n",
+          "after": "    for (const id of ['wampler-1986', 'levenberg-1944', 'marquardt-1963']) {\n"
+        },
+        {
+          "before": "      checkedText: ['LaValle describes', '3D kinematics playground', '±0.5mm'] });\n",
+          "after": "      checkedText: ['LaValle gives the', '3D kinematics playground', '±0.5mm'] });\n"
+        }
+      ]
+    },
+    {
       "archivedFrom": "f9e1a826d63b409da4cd2438c9d120b02b500131",
       "before": {
         "path": "tests/e2e/residual-release-final-seven.spec.ts",
@@ -8159,6 +8480,61 @@
       ]
     },
     {
+      "archivedFrom": "a09d3c92737861464d49667f39565d65cc516bb9",
+      "before": {
+        "path": "tests/e2e/scene-representation.spec.ts",
+        "bytes": 25254,
+        "sha256": "4ebf6119e96116f6ef3029e68a5533e4f59d7d5dc618962ec2f12ceab3268288"
+      },
+      "after": {
+        "path": "tests/e2e/scene-representation.spec.ts",
+        "bytes": 25417,
+        "sha256": "75b016a0e6663e7b424045cefc202d21ff0b930ee7aac1f2fff346e78162326f"
+      },
+      "edits": [
+        {
+          "before": "import { publishedModules } from '../../data/modules';\n",
+          "after": "import { publishedModules } from '../../data/modules';\nimport { citedSourceCount, leadWords, MAX_LEAD_WORDS, MIN_CITED_SOURCES } from './helpers/brevity-bar';\n"
+        },
+        {
+          "before": "      ['moravec-elfes-1985', 0, 2, 'two-dimensional horizontal', 'https://doi.org/10.1109/ROBOT.1985.1087316'],\n      ['moravec-elfes-1985', 1, 2, 'Zero represents unknown occupancy', 'https://doi.org/10.1109/ROBOT.1985.1087316'],\n",
+          "after": "      ['moravec-elfes-1985', 0, 1, 'projected wide-angle sonar readings', 'https://doi.org/10.1109/ROBOT.1985.1087316'],\n      ['moravec-elfes-1985', 0, 1, 'Zero represented unknown occupancy', 'https://doi.org/10.1109/ROBOT.1985.1087316'],\n"
+        },
+        {
+          "before": "      ['cadena-2016', 0, 1, 'range and external-light limitations', 'https://arxiv.org/abs/1606.05830'],\n",
+          "after": "      ['cadena-2016', 0, 1, 'face range and external-light limits', 'https://arxiv.org/abs/1606.05830'],\n"
+        },
+        {
+          "before": "    await expect(page.locator('.prose > p [data-cite-id=\"moravec-elfes-1985\"]')).toHaveCount(2);\n    await expect(page.locator('.prose > p [data-cite-id=\"cadena-2016\"]')).toHaveCount(5);\n",
+          "after": "    await expect(page.locator('.prose > p [data-cite-id=\"moravec-elfes-1985\"]')).toHaveCount(1);\n    await expect(page.locator('.prose > p [data-cite-id=\"cadena-2016\"]')).toHaveCount(7);\n"
+        },
+        {
+          "before": "    // Long-form body, and no MDX or component source leaks.\n",
+          "after": "    // Brevity bar (cited sources and lead length), and no MDX or component source leaks.\n"
+        },
+        {
+          "before": "    expect(visible.split(/\\s+/).filter(Boolean).length).toBeGreaterThan(1200);\n",
+          "after": "    expect(await citedSourceCount(page)).toBeGreaterThanOrEqual(MIN_CITED_SOURCES);\n    expect(leadWords('classical/scene-representation')).toBeLessThanOrEqual(MAX_LEAD_WORDS);\n"
+        },
+        {
+          "before": "    for (const caveat of ['geometric and covisibility checks', 'gravity-direction checks', 'This is not a guarantee that every revisit removes all error', 'This is not a universal ranking of the cost of every false match']) expect(visible).toContain(caveat);\n",
+          "after": "    for (const caveat of ['geometric and covisibility checks', 'gravity-direction checks', 'can reduce odometric drift and in some cases correct it', 'false negatives discard useful measurements']) expect(visible).toContain(caveat);\n"
+        },
+        {
+          "before": "      ['lowry-2016-place-recognition', /motion information can also inform this belief/, 'https://doi.org/10.1109/TRO.2015.2496823'],\n      ['dellaert-kaess-2006', /QR of the measurement Jacobian or Cholesky of the information matrix/, 'https://doi.org/10.1177/0278364906072768'],\n      ['kaess-2012', /large loop closures can cost as much as a batch solve/, 'https://doi.org/10.1177/0278364911430419'],\n",
+          "after": "      ['lowry-2016-place-recognition', /motion information can also inform that belief/, 'https://doi.org/10.1109/TRO.2015.2496823'],\n      ['dellaert-kaess-2006', /solves successive linearized systems by QR or Cholesky/, 'https://doi.org/10.1177/0278364906072768'],\n      ['kaess-2012', /a large loop closure can cost as much as a batch solve/, 'https://doi.org/10.1177/0278364911430419'],\n"
+        },
+        {
+          "before": "      /not a calibrated free\\/occupied\\/unknown cell classification/i,\n",
+          "after": "      /no free, occupied or unknown label/i,\n"
+        },
+        {
+          "before": "    expect(visible).toMatch(/not an explicit triangle surface carrying contact normals/i);\n    expect(visible).toMatch(/does not make surface extraction impossible/i);\n",
+          "after": "    expect(visible).toMatch(/the stored primitive is a volumetric Gaussian/i);\n    expect(visible).toMatch(/extracted meshes by Poisson reconstruction/i);\n"
+        }
+      ]
+    },
+    {
       "archivedFrom": "d58c896a6900c75fde37824f8b30a8b7b2b765a0",
       "before": {
         "path": "tests/e2e/sim2real-local-evidence.spec.ts",
@@ -8245,6 +8621,33 @@
         {
           "before": "    await expect(page.getByTestId('recon-panel')).toBeVisible();\n\n",
           "after": "    await expect(page.getByTestId('recon-panel')).toBeVisible();\n\n    // Clean, Some noise and Very noisy are the visible presets; the slider is in Adjust more.\n    const teacher = page.locator('div.prose [data-figure-frame=\"teacher-student\"]');\n    await expect(teacher.getByRole('button', { name: 'Some noise' })).toHaveAttribute('aria-pressed', 'true');\n    const clean = teacher.getByRole('button', { name: 'Clean' });\n    await waitForHydration(clean);\n    await clean.click();\n    await expect(clean).toHaveAttribute('aria-pressed', 'true');\n    await expect(page.getByTestId('divergence-readout')).toHaveText('0.00');\n    await openAdjustMore(teacher);\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "a09d3c92737861464d49667f39565d65cc516bb9",
+      "before": {
+        "path": "tests/e2e/state-estimation.spec.ts",
+        "bytes": 13500,
+        "sha256": "03cf55b5f93b2f885762ebccbc61ed38b7ad06c77a669c6b88cef8ef697606e0"
+      },
+      "after": {
+        "path": "tests/e2e/state-estimation.spec.ts",
+        "bytes": 13701,
+        "sha256": "875e6996499a6fc6e59d3180c9da8b569fef00d733387b22835da5ae46899cca"
+      },
+      "edits": [
+        {
+          "before": "import { openAdjustMore } from './helpers/figure-fold';\n",
+          "after": "import { openAdjustMore } from './helpers/figure-fold';\nimport { citedSourceCount, leadWords, MAX_LEAD_WORDS, MIN_CITED_SOURCES } from './helpers/brevity-bar';\n"
+        },
+        {
+          "before": "    // Substantive long-form body: several hundred words at minimum.\n",
+          "after": "    // Brevity bar: at least 30 distinct cited sources and a lead of 60 words or fewer.\n"
+        },
+        {
+          "before": "    expect(visibleText.split(/\\s+/).filter(Boolean).length).toBeGreaterThan(\n      800,\n    );\n",
+          "after": "    expect(await citedSourceCount(page)).toBeGreaterThanOrEqual(MIN_CITED_SOURCES);\n    expect(leadWords('classical/state-estimation')).toBeLessThanOrEqual(MAX_LEAD_WORDS);\n"
         }
       ]
     },
@@ -8491,6 +8894,33 @@
       ]
     },
     {
+      "archivedFrom": "a09d3c92737861464d49667f39565d65cc516bb9",
+      "before": {
+        "path": "tests/unit/classical-closure-evidence.test.ts",
+        "bytes": 16288,
+        "sha256": "cf53d3e938e03ddeef8028aa289edecaee34eb30e5a943756fad8d3bf35b4eb9"
+      },
+      "after": {
+        "path": "tests/unit/classical-closure-evidence.test.ts",
+        "bytes": 16186,
+        "sha256": "28cda95ec399bde3b339630a35239882d53e606c5fec8d0cbca5845de283b148"
+      },
+      "edits": [
+        {
+          "before": "      'denavit-hartenberg-1955', 'residual decreases monotonically', '\\\\lambda^2 I']) {\n",
+          "after": "      'residual decreases monotonically', '\\\\lambda^2 I']) {\n"
+        },
+        {
+          "before": "      'product-of-exponentials', '±0.5mm']) expect(article).toContain(retained);\n",
+          "after": "      'Product-of-exponentials (POE)', '±0.5mm']) expect(article).toContain(retained);\n"
+        },
+        {
+          "before": "  it('labels the fixed RRT as authored and extensions as capped, not all equal length', () => {\n    expect(read('content/classical/motion-planning.mdx')).toContain('19981001');\n",
+          "after": "  it('labels the fixed RRT as authored and extensions as capped, not all equal length', () => {\n"
+        }
+      ]
+    },
+    {
       "archivedFrom": "1d7319ce83d92621c5b51dd24bffe106b10e924f",
       "before": {
         "path": "tests/unit/main-merge-approved-deltas.test.ts",
@@ -8671,8 +9101,8 @@
       },
       "after": {
         "path": "tests/unit/reader-release-integration.test.ts",
-        "bytes": 19817,
-        "sha256": "bbdf2acf3dd06ef909c61a7fab69c41ed8008d3e715f0eab8696787793c842ce"
+        "bytes": 20518,
+        "sha256": "7c332e8fef3fe45c7cf2018d25825a35d8761d487fca3603b05850a4ec5ac378"
       },
       "edits": [
         {
@@ -8684,8 +9114,12 @@
           "after": "  const edge = (prefixes: string[], from: string, to: string, batches = false) => {\n    const edges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id\n      && prefixes.some(prefix => a.id.startsWith(prefix)));\n"
         },
         {
+          "before": "        .toBe(true);\n",
+          "after": "        .toBe(true);\n    } else if (batches) {\n      // A later batch may also continue with a plain edge from the previous\n      // batch's endpoint; the chain must still lead back to `from`.\n      let link = last;\n      while (link.oldHash !== from && !link.reconciles) {\n        const previous = edges.find(e => e.newHash === link.oldHash);\n        expect(previous, `${id}: no earlier batch ends at ${link.oldHash}`).toBeDefined();\n        link = previous!;\n      }\n      if (link.reconciles) {\n        expect(link.oldHash).toBe(sealedHash);\n        expect(link.reconciles.some(r => r.newHash === from)).toBe(true);\n      }\n"
+        },
+        {
           "before": "  const seo = edge('seo-pass-20261002-', hashOf(read(path)), hashOf(readSeoSuccessor(path)));\n  edge('reader-first-20261002-', seo, hashOf(readLive(path)), true);\n",
-          "after": "  const seo = edge(['seo-pass-20261002-'], hashOf(read(path)), hashOf(readSeoSuccessor(path)));\n  // The optional prediction step later moved some of these articles on with\n  // one plain edge from the reader-first endpoint to the live article.\n  const predict = approvals.filter(a => a.manifest === 'prose' && a.memberId === id\n    && a.id.startsWith('reader-first-20261003-predict-'));\n  // The 2026-10-03 figure batches belong to the same reader-first pass.\n  // The 2026-10-05 KOL backlog batch then adds dated paragraphs to some of\n  // them, with one resolution edge per article from the pre-batch endpoint.\n  const preKol = hashOf(preKolBacklog(path).toString('utf8'));\n  const readerFirst = edge(['reader-first-20261002-', 'reader-first-20261003-prose-'], seo,\n    predict.length ? predict[0].oldHash : preKol, true);\n  edge(['reader-first-20261003-predict-'], readerFirst, preKol);\n  const preDomain = hashOf(preDomainPass(path).toString('utf8'));\n  edge(['kol-backlog-20261005-'], preKol, preDomain);\n  // The 2026-10-06 domain pass rewrote some articles from the owner's\n  // drafts; its edge binds the KOL endpoint and reaches the live article.\n  edge(['domain-pass-20261006-'], preDomain, hashOf(readLive(path)), true);\n"
+          "after": "  const seo = edge(['seo-pass-20261002-'], hashOf(read(path)), hashOf(readSeoSuccessor(path)));\n  // The optional prediction step later moved some of these articles on with\n  // one plain edge from the reader-first endpoint to the live article.\n  const predict = approvals.filter(a => a.manifest === 'prose' && a.memberId === id\n    && a.id.startsWith('reader-first-20261003-predict-'));\n  // The 2026-10-03 figure batches belong to the same reader-first pass.\n  // The 2026-10-05 KOL backlog batch then adds dated paragraphs to some of\n  // them, with one resolution edge per article from the pre-batch endpoint.\n  const preKol = hashOf(preKolBacklog(path).toString('utf8'));\n  const readerFirst = edge(['reader-first-20261002-', 'reader-first-20261003-prose-'], seo,\n    predict.length ? predict[0].oldHash : preKol, true);\n  edge(['reader-first-20261003-predict-'], readerFirst, preKol);\n  const preDomain = hashOf(preDomainPass(path).toString('utf8'));\n  edge(['kol-backlog-20261005-'], preKol, preDomain);\n  // The 2026-10-06 domain pass rewrote some articles from the owner's\n  // drafts; its edges bind the KOL endpoint and reach the live article\n  // (scene-representation takes the 2026-10-07 KOL intake first, then the\n  // classical draft).\n  edge(['domain-pass-20261006-'], preDomain, hashOf(readLive(path)), true);\n"
         }
       ]
     },

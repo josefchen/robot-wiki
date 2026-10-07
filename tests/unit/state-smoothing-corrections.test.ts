@@ -26,13 +26,12 @@ describe('state smoothing scientific corrections', () => {
     for (const phrase of [
       'trajectory and landmark map',
       'known data associations',
-      'Gaussian process and measurement models',
+      'Gaussian models',
       'uniform landmark prior',
-      'initial reference frame fixed',
+      'a fixed initial frame',
       'successive linearized systems',
-      'QR acts on the measurement Jacobian',
-      'Cholesky acts on the information matrix',
-      'Variable ordering controls fill-in',
+      'by QR on the measurement Jacobian or Cholesky on the information matrix',
+      'variable ordering sets fill-in and cost',
     ]) expect(article).toContain(phrase);
     expect(article).not.toContain('factor it once');
   });
@@ -41,9 +40,8 @@ describe('state smoothing scientific corrections', () => {
     for (const phrase of [
       'affected cliques and their ancestors',
       'reattaches unaffected subtrees',
-      'Changes in estimates can still propagate',
-      'thresholds trade accuracy for computation',
-      'large loop closures can be as expensive as a batch solution',
+      'Thresholds trade accuracy for computation',
+      'a large loop closure can cost as much as a batch solve',
     ]) expect(article).toContain(phrase);
     expect(article).not.toContain('updates stay local even as the map grows');
   });
@@ -51,12 +49,12 @@ describe('state smoothing scientific corrections', () => {
   it('qualifies marginalization, chronology, convergence and resource comparisons', () => {
     for (const phrase of [
       'In EKF-based SLAM',
-      'cannot later relinearize those discarded pose variables',
-      'does not guarantee that nonlinear optimization reaches the global minimum',
+      'cannot be relinearized later',
+      'nonlinear optimization is not guaranteed to reach the global minimum',
       '1986 to 2004',
       '2004 to 2015',
-      'EKF-based systems with state-of-the-art performance',
-      'information-loss tradeoffs in sparsification',
+      'EKF systems with state-of-the-art performance',
+      'information loss under sparsification',
     ]) expect(article).toContain(phrase);
     expect(article).not.toContain('impossible once the past has been marginalized');
     expect(article).not.toContain('smoothing wins almost everywhere else');

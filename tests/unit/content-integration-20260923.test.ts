@@ -16,7 +16,7 @@ import {
 import { collectArticleTruthManifests } from '../../scripts/brand-v2-baseline';
 import { headReanchorFor, ledgerAt, sealedHash, showAt } from './helpers/continuation-merge-ledger';
 import { RELEASE_BASE as CONTINUATION_RELEASE_BASE } from '../helpers/continuation-integration';
-import { DOMAIN_PASS_CITATION_IDS } from '../helpers/domain-pass';
+import { DOMAIN_PASS_CITATION_IDS, withoutDomainPassRegistryCorrections } from '../helpers/domain-pass';
 
 /**
  * The 2026-09-23 content integration merged release/seo-content-fixes onto
@@ -151,7 +151,7 @@ describe('content integration of 2026-09-23', () => {
     // Every registry entry the release base carried is still present, except the
     // later Control closeout which retired the unused Åström member and the
     // later Technology.org withdrawal which retired the HTTP 403 secondary.
-    const current = read('data/citations.ts');
+    const current = withoutDomainPassRegistryCorrections(read('data/citations.ts'));
     const retired = new Set(['astrom-murray-2008', 'technology-org-deployed-2026']);
     const laterCorrected = new Set(['astrom-murray-2008', 'kalman-1960', 'kroger-ocado-closures-2025', 'technology-org-deployed-2026']);
     for (const id of baseIds) expect(CITATIONS.some((c) => c.id === id), id).toBe(!retired.has(id));

@@ -27,8 +27,9 @@
  * layouts, not measurements of any particular implementation, and the
  * component says so on screen. Volumetric representations pay for the
  * whole volume; surface representations pay for the observed area only,
- * which is the reason a signed-distance field is cheaper than the
- * occupancy grid it looks like it should cost the same as.
+ * which is the reason a narrow-band signed-distance field holds fewer cells
+ * than the occupancy grid it resembles and grows more slowly as the spacing
+ * shrinks, even though each of its cells costs more bytes.
  */
 
 export type RepresentationId =

@@ -13,6 +13,35 @@ citations:
   - so-arm100-repo-2026
   - act-aloha-2023
   - isaac-gr00t-repo-2026
+  - denavit-hartenberg-1955
+  - corke-dh-2007
+  - okamura-park-1996
+  - brockett-1984
+  - urdf-dataset-2023
+  - yoshikawa-1985
+  - siciliano-slotine-1991
+  - nakamura-hanafusa-1986
+  - raghavan-roth-1993
+  - manocha-canny-1994
+  - ikfast-diankov-2010
+  - trac-ik-2015
+  - curobo-2023
+  - pyroki-2025
+  - ikflow-2021
+  - openvla-2024
+  - diffusion-policy-2023
+  - action-space-design-2026
+  - rl-action-spaces-2026
+  - gr00t-n1-2025
+  - gr00t-n1-6-2025
+  - latent-action-diffusion-2025
+  - rotation-continuity-2018
+  - gello-2023
+  - gmr-retargeting-2025
+  - rep-103-2010
+  - rep-105-2010
+  - tf-library-2013
+  - lerobot-so101-docs-2026
 seeAlso:
   - "manipulation/cross-embodiment"
   - "data-hardware/teleop-rigs"
@@ -21,11 +50,7 @@ seeAlso:
 import { PlanarFkArm } from '@/components/interactive/planar-fk-arm';
 import { DhParameterTable } from '@/components/mdx/dh-parameter-table';
 
-Kinematics is the geometry of a robot's motion, studied without modelling its forces or torques. Joint angles and link lengths determine where the end of an arm lands. Simulators integrate dynamics on top of a kinematic chain, <Term id="teleoperation">teleoperation</Term> rigs map an operator's hand through one, and learned manipulation policies eventually emit commands in the robot's coordinates.
-
-Two directions dominate. <Term id="forward-kinematics">Forward kinematics</Term> takes joint angles and computes the <Term id="end-effector">end-effector</Term> pose. <Term id="inverse-kinematics">Inverse kinematics</Term> asks the reverse question: which joint angles place the end effector here? The first direction is a plain composition of transforms, cheap and unique. The second is a nonlinear inverse problem that can have no solution, one solution, or many. Most of the classical machinery, and most of this module, concerns that asymmetry.
-
-In the arm lab below, move the base joint slider and watch every downstream link move with it. Then try to put the fingertip at a chosen point using the sliders alone. That is the inverse problem.
+Kinematics is the geometry of robot motion, studied without forces or torques. <Term id="forward-kinematics">Forward kinematics</Term> maps joint angles to the <Term id="end-effector">end-effector</Term> pose, a unique composition of transforms. <Term id="inverse-kinematics">Inverse kinematics</Term> maps a pose back to joint angles and can have no solution, one, or many <Cite id="modern-robotics-2017" />.
 
 <PlanarFkArm className="my-6" />
 
@@ -38,35 +63,31 @@ In the arm lab below, move the base joint slider and watch every downstream link
 
 ## Forward kinematics
 
-A serial arm is a chain: a fixed base, then alternating rigid links and joints. Attach a coordinate frame to each link at its joint. Each joint contributes one rigid transform from the frame below it to the frame above it, parameterized by the joint variable, and multiplying the transforms in order carries the base frame to the tool frame.
-
-A rigid transform packages a rotation $R$ and a translation $p$ into one matrix:
+A serial arm is a chain of rigid links and joints, with a coordinate frame on each link. A rigid transform packs a rotation $R$ and a translation $p$ into one matrix <Cite id="modern-robotics-2017" />:
 
 $$
 T = \begin{bmatrix} R & p \\ 0 & 1 \end{bmatrix}
 $$
 
-The forward-kinematics map is the ordered product, one factor per joint:
+The ordered product of one transform per joint carries the base frame to the tool frame <Cite id="modern-robotics-2017" />:
 
 $$
 T_0^{n}(q) = T_0^1(q_1)\,T_1^2(q_2)\,\cdots\,T_{n-1}^{n}(q_n)
 $$
 
-Evaluating it costs $n$ matrix multiplications. The map is deterministic and smooth in the joint angles, and one evaluation is cheap enough to run inside every control cycle. That is the entire forward problem <Cite id="modern-robotics-2017" />.
-
-In the plane the product collapses into something you can watch. Each link is a vector of length $l_i$ pointing along the cumulative angle $q_1 + \cdots + q_i$, and the end-effector position is the running sum of those vectors:
+The map is a product of $n$ joint transforms, smooth in the joint angles and cheap to evaluate <Cite id="modern-robotics-2017" />. In the plane, each link is a vector of length $l_i$ along the cumulative angle, and the end effector sits at their sum <Cite id="lavalle-2006" />:
 
 $$
 x = \sum_{i=1}^{n} l_i \cos\left(q_1 + \cdots + q_i\right) \qquad y = \sum_{i=1}^{n} l_i \sin\left(q_1 + \cdots + q_i\right)
 $$
 
-The arm at the top of this module evaluates exactly that expression: three revolute joints, each angle measured relative to its parent link. Keep the downstream dependence in mind; it is the seed of the <Term id="jacobian">Jacobian</Term>.
+Moving one joint moves every later link, the dependence the <Term id="jacobian">Jacobian</Term> captures <Cite id="modern-robotics-2017" />.
 
 ## Denavit-Hartenberg parameters
 
-The transform product answers the question once the frames are fixed, but the frames still need assigning. LaValle describes the <Term id="denavit-hartenberg-parameters">Denavit-Hartenberg convention</Term> for a chain connected by revolute joints using four parameters: an offset along a rotation axis, an angle about that axis, the distance between successive rotation axes, and the angle between those axes <Cite id="lavalle-2006" />. His notation is $d_i$, $\theta_i$, $a_{i-1}$ and $\alpha_{i-1}$; the page's distance-definition sentence instead writes $a_i$. Frame assignment and transform order matter: the matrix below defines the convention used for this example, rather than reproducing LaValle's matrix.
+Denavit and Hartenberg's 1955 matrix notation describes the kinematics of all lower-pair mechanisms <Cite id="denavit-hartenberg-1955" />. LaValle gives the <Term id="denavit-hartenberg-parameters">Denavit-Hartenberg convention</Term> four parameters per revolute joint: an offset along a rotation axis, an angle about it, the distance between successive axes, and the angle between them <Cite id="lavalle-2006" />. LaValle writes them $d_i$, $\theta_i$, $a_{i-1}$ and $\alpha_{i-1}$; the example here uses $a_i$ and $\alpha_i$.
 
-The per-joint transform is a fixed sequence of four elementary motions, rotation about $z$, translation along $z$, translation along $x$, rotation about $x$:
+Standard and modified variants coexist, and Corke factors a string of elementary motions into either <Cite id="corke-dh-2007" />. The standard form is <Cite id="corke-dh-2007" />:
 
 $$
 A_i = \mathrm{Rot}_z(\theta_i)\,\mathrm{Trans}_z(d_i)\,\mathrm{Trans}_x(a_i)\,\mathrm{Rot}_x(\alpha_i)
@@ -87,68 +108,66 @@ R_i = \begin{bmatrix}
 \end{bmatrix}
 $$
 
-For the planar arm above the table is short. All motion stays in one plane, so every twist and offset is zero, and the whole chain reduces to three link lengths and three angles.
+A planar arm has zero twists and offsets, leaving link lengths and angles <Cite id="lavalle-2006" />.
 
 <DhParameterTable className="my-6" />
 
-This represents the inter-link geometry with four parameters. It has costs. Frame assignment is fiddly, and the parameters become ill-conditioned: as two consecutive joint axes drift toward parallel, the common normal they define can vary wildly with small changes in the axes' orientation, so a small mechanical change can jump a table entry. The product-of-exponentials formulation avoids that ill-conditioning by describing each joint as a screw about a fixed axis, and it is the treatment Modern Robotics uses throughout <Cite id="modern-robotics-2017" />. The output of either notation is the same transform product; the convention is a choice of bookkeeping.
+DH parameters are ill-conditioned when consecutive axes are nearly parallel <Cite id="modern-robotics-2017" />. Product-of-exponentials (POE) parameters vary smoothly as the axes change, removing DH's ad hoc singularity fixes <Cite id="okamura-park-1996" />. POE, which Brockett applied to manipulators in 1984, treats each joint as a screw about a fixed axis, the form Modern Robotics uses <Cite id="brockett-1984" /> <Cite id="modern-robotics-2017" />.
 
 <Image id="puma-560-nasa-ames" />
 
-The 3D playground reads the SO-101 chain directly from its URDF, a tree of links and joints where each joint carries an origin transform and a rotation axis <Cite id="so-arm100-repo-2026" />.
+The 3D playground reads the SO-101 chain from its URDF, where each joint carries an origin transform and a rotation axis <Cite id="so-arm100-repo-2026" />. URDF is the most common description format, yet a dataset of 322 URDF files held only 195 unique robots <Cite id="urdf-dataset-2023" />.
 
 ## The Jacobian
 
-Forward kinematics maps angles to pose. The Jacobian is the derivative of that map: the linear relation between joint velocities and end-effector velocity,
+The Jacobian relates joint velocities to end-effector velocity, one column per joint <Cite id="modern-robotics-2017" />:
 
 $$
 \dot{x} = J(q)\,\dot{q}
 $$
 
-with one column per joint. For revolute joint $i$ with axis $z_i$ located at $p_i$, the column is the cross product of the axis with the vector from the joint to the end effector, stacked above the axis itself; a prismatic joint contributes its axis directly:
+A revolute joint $i$ with axis $z_i$ at $p_i$ contributes its axis crossed with the vector to the end effector, stacked above the axis; a prismatic joint contributes its axis:
 
 $$
 J_i = \begin{bmatrix} z_i \times (p_\mathrm{ee} - p_i) \\ z_i \end{bmatrix}
 $$
 
-The same matrix does double duty in statics: the transpose maps a wrench at the end effector to the joint torques that balance it, $\tau = J^{T}(q)\,F$. Velocities map one way through $J$, forces the other way through $J^{T}$ <Cite id="modern-robotics-2017" />.
+The transpose maps an end-effector wrench to balancing joint torques, $\tau = J^{T}(q)\,F$ <Cite id="modern-robotics-2017" />. At singularities, such as a fully extended arm, the Jacobian loses rank, and nearby a modest end-effector speed demands unbounded joint speeds <Cite id="modern-robotics-2017" />. Yoshikawa's 1985 manipulability measure scores how well an arm can position and orient its end effector <Cite id="yoshikawa-1985" />.
 
-The Jacobian depends on configuration, and it can lose rank. When the arm is fully extended, or when joint axes line up, columns become dependent and the velocity map stops covering every task-space direction. Those configurations are singularities. Near one, a modest end-effector speed can demand arbitrarily large joint speeds, because the inverse of a nearly rank-deficient matrix blows up. Any velocity-level controller has to say what happens there.
-
-Whitney's resolved motion rate control gave the classical answer in 1969: the operator commands desired hand motion along axes relevant to the task <Cite id="whitney-1969" />; the classical rate-control relations then invert the Jacobian to obtain joint rates,
+Whitney's resolved motion rate control (1969) let an operator command hand motion along task axes <Cite id="whitney-1969" />, with the inverse Jacobian giving joint rates:
 
 $$
 \dot{q} = J^{-1}(q)\,\dot{x}
 $$
 
-or, when the arm is redundant and $J$ is not square, use the pseudoinverse $J^{+} = J^{T}(JJ^{T})^{-1}$, whose extra degrees of freedom can absorb secondary objectives such as staying away from joint limits. The idea turned the Jacobian from a descriptive quantity into a control law, and it is still the skeleton of most task-space controllers.
+A redundant arm uses the pseudoinverse $J^{+} = J^{T}(JJ^{T})^{-1}$, whose spare freedom can serve goals such as avoiding joint limits <Cite id="modern-robotics-2017" />. Siciliano and Slotine's 1991 task-priority framework manages such goals alongside the end-effector task <Cite id="siciliano-slotine-1991" />. Near singular points, Nakamura and Hanafusa's singularity-robust inverse returns a motion close to the desired path <Cite id="nakamura-hanafusa-1986" />.
 
 ## Inverse kinematics
 
-Inverse kinematics asks for the preimage: given a target $x_d$, find $q$ with $k(q) = x_d$. Three facts make it hard. The map $k$ is nonlinear in $q$, so no single matrix inversion applies. It is many-to-one where it is onto: a point inside the workspace is usually reachable with several distinct configurations, elbow left or elbow right, and a redundant arm reaches the same pose through a continuum of postures. And it is not onto everywhere: targets outside the workspace have no solution at all, and a solver should say so rather than pretend otherwise.
+Inverse kinematics seeks $q$ with $k(q) = x_d$ for a target $x_d$. The map is nonlinear: a reachable target can have several configurations, such as elbow left or right, a redundant arm has a continuum, and an unreachable target has none <Cite id="modern-robotics-2017" />.
 
-Closed-form solutions exist for special geometries, most famously six-revolute arms whose last three axes intersect at the wrist, but the general tool is iterative: linearize around the current configuration, take a step, repeat, <Cite id="modern-robotics-2017" />
+Closed forms exist for special geometries, such as six-revolute arms with intersecting wrist axes <Cite id="modern-robotics-2017" />. A general 6R arm reduces to one minimum-degree polynomial in a single joint variable <Cite id="raghavan-roth-1993" />, which Manocha and Canny's 1994 algorithm solved in 11 ms on average on an IBM RS/6000 workstation <Cite id="manocha-canny-1994" />. Diankov's IKFast generates closed-form solvers that answer in about 6 microseconds, against about 10 milliseconds for most numerical solvers <Cite id="ikfast-diankov-2010" />. The general tool is iterative: linearize, step, repeat <Cite id="modern-robotics-2017" />:
 
 $$
 \Delta x = J(q)\,\Delta q \qquad \Delta q = J^{+}(q)\,\Delta x
 $$
 
-
-
-
-
-<Callout variant="info" title="Drive the full solver">
-  Explore the SO-101 arm in the [3D kinematics playground](/playground): joint sliders for forward kinematics, click-to-reach targets for inverse kinematics, and a live residual and iteration count in the HUD. The arm model comes from TheRobotStudio's SO-ARM100 project <Cite id="so-arm100-repo-2026" />.
-</Callout>
+KDL's pseudoinverse solver repeatedly reports false failures on humanoids, and TRAC-IK finds solutions much more often <Cite id="trac-ik-2015" />. cuRobo solves over 7,000 collision-free IK queries per second <Cite id="curobo-2023" />, and PyRoki reports running 1.4 to 1.7 times faster than cuRobo's IK <Cite id="pyroki-2025" />. For redundant arms, IKFlow samples 2,000 solutions in under 10 ms, within 10 mm and 2 degrees of exact <Cite id="ikflow-2021" />. The [3D kinematics playground](/playground) solves IK on TheRobotStudio's SO-101 arm with a live residual and iteration count <Cite id="so-arm100-repo-2026" />.
 
 ## The same geometry, inside learned policies
 
-It is fair to ask how much of this matters once policies learn end to end. The learned part still lives inside the kinematic structure, in practice. [Action chunking](/manipulation/action-chunking) with ACT predicts continuous joint-space targets, fourteen dimensions across two 6-DoF arms and their grippers <Cite id="act-aloha-2023" />. GR00T's recent releases shifted to a shared relative end-effector action space so that human hand data and robot grippers live in one frame, a coordinate choice with direct consequences for what pretraining data is usable <Cite id="isaac-gr00t-repo-2026" />. Simulators integrate a kinematic chain under their dynamics either way, teleoperation rigs still retarget human motion into joint space, and a residual policy trained on top of a classical controller inherits its coordinate system. The policies changed who picks the numbers. They did not change what the numbers mean.
+[Action chunking](/manipulation/action-chunking) with ACT predicts 14 joint-space targets for two 6-DoF arms and their grippers <Cite id="act-aloha-2023" />. OpenVLA predicts 7-dimensional single-arm end-effector actions <Cite id="openvla-2024" />. Diffusion Policy did consistently better with position than velocity actions <Cite id="diffusion-policy-2023" />.
 
-Forward kinematics multiplies transforms in order. Inverse kinematics searches for joint angles that reach a target. Planning, control, and learning use both operations.
+Across 13,000+ real rollouts and 500+ models, delta actions consistently helped, joint space favored stability, and task space favored generalization <Cite id="action-space-design-2026" />. In vision-based reinforcement learning for picking and pushing, joint velocity beat three other action spaces for smoothness and final performance <Cite id="rl-action-spaces-2026" />.
+
+GR00T N1 uses embodiment-specific action decoders. In its simulation benchmarks, a Panda arm acts in relative end-effector position and rotation, and the GR-1 humanoid in joint positions <Cite id="gr00t-n1-2025" />. N1.6 predicts state-relative chunks for most embodiments; NVIDIA reports smoother, more accurate motion than with absolute actions, but error accumulation on small datasets <Cite id="gr00t-n1-6-2025" />. NVIDIA says N1.7 shares one relative end-effector action space across robot and human data <Cite id="isaac-gr00t-repo-2026" />.
+
+Differing action spaces hinder cross-embodiment learning, and a learned shared latent space raised success by up to 25.3% <Cite id="latent-action-diffusion-2025" />. Quaternions and Euler angles are discontinuous and hard for networks to learn, while 5D and 6D rotation representations are continuous <Cite id="rotation-continuity-2018" />.
+
+<Term id="teleoperation">Teleoperation</Term> runs through the same chain: a GELLO leader copies its target arm's kinematic structure <Cite id="gello-2023" />. Retargeting artifacts such as foot sliding significantly reduce the robustness of humanoid tracking policies <Cite id="gmr-retargeting-2025" />.
 
 ## Treat coordinate frames as an API
 
-The learned and classical stacks meet at a coordinate contract. A Cartesian policy output is incomplete until it names the reference frame, translation units, rotation representation, composition order and whether the command is absolute or relative. A joint-space output needs the joint ordering, sign convention, limits and controller interpretation. Shape agreement is not semantic agreement: the dataset, policy, controller and robot must interpret a command as the same physical motion.
+A Cartesian action must name its frame, units, rotation representation, composition order, and whether it is absolute or relative; a joint action needs joint order, signs, limits and controller semantics. ROS REP 103 makes frames right-handed, with x forward, y left and z up, and lists quaternions first, as compact and free of singularities <Cite id="rep-103-2010" />. REP 105 separates the drifting `odom` frame from the `map` frame, which can jump <Cite id="rep-105-2010" />. ROS built tf because developers often misapplied transforms <Cite id="tf-library-2013" />.
 
-Make that contract executable. Round-trip known poses through forward and inverse kinematics, verify frame transforms against measured calibration targets, and test commands at workspace and singularity boundaries. Record the URDF and calibration versions beside every dataset and checkpoint. The [calibration guide](/classical/calibration) covers how those transforms are estimated; the [action-space guide](/manipulation/action-spaces) covers how a policy should expose them. When a learned policy fails after a robot or camera change, this boundary is the first place to test.
+Round-trip kinematics tests and versioned URDF and calibration files keep the contract testable. LeRobot calibrates SO-101 leader and follower arms to read the same values in the same pose, so a network trained on one robot works on another <Cite id="lerobot-so101-docs-2026" />. See the [calibration guide](/classical/calibration) and the [action-space guide](/manipulation/action-spaces).

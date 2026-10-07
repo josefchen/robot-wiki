@@ -24,27 +24,27 @@ test('RRT report correction, bibliography date and full configuration-space defi
   await expect(page.getByText('17 August 2026', { exact: true })).toBeVisible();
   const prose = page.locator('div.prose[data-pagefind-body]');
   const paragraphs = prose.locator(':scope > p');
-  const origin = paragraphs.filter({ hasText: "LaValle's report introduces" });
-  for (const text of ['Technical Report 98-11, October 1998', 'fixed time interval', 'entire local paths']) await expect(origin).toContainText(text);
+  const origin = paragraphs.filter({ hasText: 'LaValle introduced the rapidly-exploring random tree' });
+  for (const text of ['Technical Report 98-11, October 1998', 'fixed time interval', 'keeping vertices and edge paths in free space']) await expect(origin).toContainText(text);
   await show(origin, 'report-origin-and-algorithm');
   const equation = prose.locator('.katex-display').filter({ has: page.locator('annotation').filter({ hasText: 'x_{new}' }) });
   await expect(equation).toHaveCount(1);
   await expect(equation.locator('annotation')).toHaveText(String.raw`x_{new} \approx x + f(x,u)\Delta t`);
   await expect(equation.locator('.katex-html')).toBeVisible();
   await show(equation, 'euler-approximation');
-  const integration = paragraphs.filter({ hasText: 'A fixed integration interval does not impose' });
+  const integration = paragraphs.filter({ hasText: 'the report recommends a higher-order integrator' });
   await expect(integration).toContainText('higher-order integrator such as Runge-Kutta');
   await show(integration, 'integration-qualification');
-  const swath = paragraphs.filter({ hasText: "LaValle's 2006 Section 5.5" });
-  for (const text of ['initial obstacle-free construction', "nearest point in the tree's swath", 'Figure 5.18 splits the edge']) await expect(swath).toContainText(text);
+  const swath = paragraphs.filter({ hasText: "LaValle's 2006 book drops the step size" });
+  for (const text of ["nearest point on the tree's swath", 'splitting an edge when needed']) await expect(swath).toContainText(text);
   await show(swath, 'distinct-book-construction');
   const stats = prose.locator(':scope > div.grid');
   await expect(stats).toContainText('1998');
   await expect(stats).toContainText("Iowa State TR 98-11; date in LaValle's bibliography");
   await show(stats, 'bibliography-attributed-stat');
   for (const [id, count, title, meta, url] of [
-    ['lavalle-1998', 5, 'Rapidly-exploring Random Trees: A New Tool for Path Planning', 'Steven M. LaValle, Iowa State University TR 98-11, 1998', 'https://lavalle.pl/papers/Lav98c.pdf'],
-    ['lavalle-2006', 7, 'Planning Algorithms', 'Steven M. LaValle, Cambridge University Press, 2006', 'https://lavalle.pl/planning/'],
+    ['lavalle-1998', 4, 'Rapidly-exploring Random Trees: A New Tool for Path Planning', 'Steven M. LaValle, Iowa State University TR 98-11, 1998', 'https://lavalle.pl/papers/Lav98c.pdf'],
+    ['lavalle-2006', 6, 'Planning Algorithms', 'Steven M. LaValle, Cambridge University Press, 2006', 'https://lavalle.pl/planning/'],
   ] as const) {
     const chips = prose.locator(`[data-cite-id="${id}"]`);
     await expect(chips).toHaveCount(count);

@@ -2,11 +2,12 @@ import fs from 'node:fs';
 import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
 import { parseLedger, parseCompoundPlans, compoundPartDigest } from '../../lib/audit-ledger';
-import { buildManifest } from '../../lib/brand-v2-baseline';
+import { buildManifest, type ApprovedDelta } from '../../lib/brand-v2-baseline';
 import { CITATIONS } from '../../data/citations';
 import { committedSource } from '../helpers/continuation-integration';
 import { preFigureMigration } from '../helpers/figure-migration';
-import { preSeoPassText } from '../helpers/seo-pass';
+import { preDomainPass, preSeoPassText } from '../helpers/seo-pass';
+import { domainPassEndpoint, isDomainPassEdge, preDomainPassCitations } from '../helpers/domain-pass';
 const read = (p: string) => fs.readFileSync(p, 'utf8');
 const endpoints = [
   {
@@ -42,7 +43,7 @@ const endpoints = [
   {
     "id": "ompl-prose",
     "path": "content/classical/motion-planning.mdx",
-    "text": "The Open Motion Planning Library's project documentation lists implementations of PRM and RRT, along with benchmarking tools for comparing planners. The core library is designed to integrate with external collision-checking and visualization components <Cite id=\"ompl-2012\" />."
+    "text": "The library implements PRM and RRT, includes benchmarking tools and plugs into external collision checkers and visualizers <Cite id=\"ompl-2012\" />."
   },
   {
     "id": "ompl-registry-comment",
@@ -66,8 +67,7 @@ describe('Optimal sampling and OMPL source-bound endpoints', () => {
       const digest = (text: string) => buildManifest('prose', [{
         id: memberId, value: { path: e.path, body: matter(text).content.trim() },
       }]).members[0].hash;
-      const entries = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries as
-        Array<{ id: string; oldHash: string; newHash: string }>;
+      const entries = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries as ApprovedDelta[];
       const delta = entries.find((entry) => entry.id === 'motion-classical-humanizer-v3-20260927-prose-motion-planning')!;
       expect(delta.oldHash).toBe(digest(committedSource('34ab0a9', e.path)));
       // The round-5 first-screen c/d pass later swapped the two mount lines
@@ -93,15 +93,20 @@ describe('Optimal sampling and OMPL source-bound endpoints', () => {
       // reaches the live article.
       const seo = entries.filter((entry) => entry.oldHash === migrated[0].newHash);
       expect(seo.map((entry) => entry.id)).toEqual(['seo-pass-20261002-prose-classical-motion-planning']);
-      expect(seo[0].newHash).toBe(digest(read(e.path)));
+      expect(seo[0].newHash).toBe(digest(preDomainPass(e.path).toString('utf8')));
+      // The 2026-10-06 domain pass, which rewrote the article from the
+      // owner's draft, continues the SEO endpoint to the live article.
+      const domainPass = entries.find((entry) => isDomainPassEdge(entry) && entry.manifest === 'prose' &&
+        entry.memberId === memberId && (entry.oldHash === seo[0].newHash ||
+          (entry.reconciles ?? []).some((binding) => binding.newHash === seo[0].newHash)));
+      expect(domainPass).toBeDefined();
+      expect(domainPassEndpoint(entries, domainPass!).newHash).toBe(digest(read(e.path)));
       if (e.id.startsWith('row9-')) {
-        expect(read(e.path)).toContain('Differential constraints fall outside this setup');
-        expect(read(e.path)).toContain('The latter\'s conservative condition is');
+        expect(read(e.path)).toContain('which excludes differential constraints');
+        expect(read(e.path)).toContain('the conservative one is');
       } else {
-        expect(read(e.path)).toContain('Its linear expected-cost convergence calculation assumes no obstacles');
-        expect(read(e.path)).toContain('They do not establish a universal speedup');
-        expect(read(e.path)).toContain('when the informed set covers the planning domain, the heuristic supplies no focusing advantage');
-        expect(read(e.path)).toContain('The paper\'s description of its Sample routine says every sampled state admits an improving path');
+        expect(read(e.path)).toContain('it gains nothing once the set covers the domain');
+        expect(read(e.path)).toContain('its states need not be collision-free, so collision checks remain');
       }
     }
   });
@@ -110,7 +115,9 @@ describe('Optimal sampling and OMPL source-bound endpoints', () => {
     expect(article).toContain('lastReviewed: "2026-08-17"');
     const sourceIds = ['lozano-perez-1983', 'kavraki-1996', 'lavalle-1998', 'lavalle-kuffner-2001', 'karaman-frazzoli-2011', 'gammell-2014', 'ratliff-2009', 'schulman-2013', 'lavalle-2006', 'ompl-2012'];
     const front = article.split('citations:\n')[1].split('seeAlso:')[0];
-    expect(front.trim().split('\n').map(x => x.trim().replace('- ', ''))).toEqual(sourceIds);
+    // The domain pass appended its sources after the ten this row certified.
+    expect(preDomainPassCitations('classical', 'motion-planning',
+      front.trim().split('\n').map(x => x.trim().replace('- ', '')))).toEqual(sourceIds);
     expect(article).not.toMatch(/Most practitioners never implement|ships tested versions|reference implementation the field benchmarks against/);
   });
 });

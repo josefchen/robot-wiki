@@ -15,6 +15,7 @@ import {
 // The 2026-10-01 figure migration later edited the three repaired specs; its
 // reviewed successor returns the bytes this review names.
 import { carriesThroughFigureMigration, preFigureMigration } from '../helpers/figure-migration';
+import { preDomainPass, preReaderFirst } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
 const directory = 'audit/evidence/motion-round6-remaining-repairs-20260929/';
@@ -395,13 +396,15 @@ it('admits only the exact remaining-repairs reader revision above the round6 pro
 });
 
 it('names the live classical-closure suite as the budget-only edit of the archived suite', () => {
-  const suite = read('tests/unit/classical-closure-evidence.test.ts');
+  // The suite and the checker as the reader-first and domain-pass layers hand them back.
+  const suite = preReaderFirst('tests/unit/classical-closure-evidence.test.ts');
+  const checker = preDomainPass('lib/audit-local-basis.ts').toString();
   const archived = read(suiteArchivePath);
   expect(digest(suite)).toBe('cf53d3e938e03ddeef8028aa289edecaee34eb30e5a943756fad8d3bf35b4eb9');
   expect(digest(archived)).toBe('42cfb7e1f3f5d73652d11fe6950188dde4aeb1d7928cc0100f1d223c70ec6a38');
-  expect(read('lib/audit-local-basis.ts').toString().split(testHashLine(digest(suite)))).toHaveLength(2);
+  expect(checker.split(testHashLine(digest(suite)))).toHaveLength(2);
   expect(read(checkerArchivePath).toString().split(testHashLine(digest(archived)))).toHaveLength(2);
-  expect(read('lib/audit-local-basis.ts').toString().split(testHashLine(digest(archived)))).toHaveLength(1);
+  expect(checker.split(testHashLine(digest(archived)))).toHaveLength(1);
 });
 
 it.each(['missing-review', 'missing-predecessor', 'corrupt-predecessor', 'missing-suite', 'corrupt-suite',
@@ -410,7 +413,8 @@ it.each(['missing-review', 'missing-predecessor', 'corrupt-predecessor', 'missin
   const destination = copied([checkerReviewPath, checkerArchivePath, suiteArchivePath,
     'audit/evidence/figure-migration-20261001/checker-transition.json',
     'audit/evidence/figure-migration-20261001/audit-local-basis-before.ts.txt',
-    'audit/evidence/seo-pass-20261002/checker-transition.json']);
+    'audit/evidence/seo-pass-20261002/checker-transition.json',
+    'audit/evidence/domain-pass-20261006/checker-transition.json']);
   try {
     const live = read('lib/audit-local-basis.ts');
     expect(round6RemainingRepairsCheckerPredecessor(destination, live)).toEqual(read(checkerArchivePath));

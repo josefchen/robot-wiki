@@ -23,14 +23,13 @@ const records = (catalog = plans) =>
 
 describe('classical SLAM source corrections', () => {
   it('keeps sensor-dependent abstraction, association and back-end feedback together', () => {
-    const block = article.split('\n\n').find((text) => text.startsWith('Cadena and colleagues separate a sensor-dependent front end'));
+    const block = article.split('\n\n').find((text) => text.startsWith('Simultaneous localization and mapping (SLAM) builds such maps'));
     expect(block).toBeDefined();
     for (const text of [
       'sensor-dependent front end',
-      'abstracts measurements into models suitable for estimation',
-      'associates observations with state variables',
+      'abstracts measurements and associates them with state variables',
       'back end that performs inference',
-      'feed information back to support loop-closure detection and validation',
+      'feeds information back for loop-closure detection and validation',
       '<Cite id="cadena-2016" />.',
     ]) expect(block).toContain(text);
     expect(block).not.toMatch(/Source:|<br\b|className="block"/);

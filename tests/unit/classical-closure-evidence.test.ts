@@ -33,14 +33,13 @@ describe('classical closure recipes and reader corrections', () => {
     const article = read('content/classical/kinematics.mdx');
     expect(article).toContain('lavalle-2006');
     for (const absent of ['Wampler', 'Levenberg-Marquardt', 'wampler-1986', 'levenberg-1944', 'marquardt-1963',
-      'denavit-hartenberg-1955', 'residual decreases monotonically', '\\lambda^2 I']) {
+      'residual decreases monotonically', '\\lambda^2 I']) {
       expect(article).not.toContain(absent);
     }
     for (const retained of ['<PlanarFkArm', '<DhParameterTable', '/playground', 'A_i = \\begin{bmatrix}',
-      'product-of-exponentials', '±0.5mm']) expect(article).toContain(retained);
+      'Product-of-exponentials (POE)', '±0.5mm']) expect(article).toContain(retained);
   });
   it('labels the fixed RRT as authored and extensions as capped, not all equal length', () => {
-    expect(read('content/classical/motion-planning.mdx')).toContain('19981001');
     const component = read('components/interactive/rrt-explorer.tsx');
     expect(component).toMatch(/authored/i);
     expect(component).not.toContain('fixed length toward it');

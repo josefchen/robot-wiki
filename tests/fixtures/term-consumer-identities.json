@@ -100,24 +100,23 @@
     },
     {
       "route": "/classical/kinematics/",
-      "rawOpeningTags": 7,
+      "rawOpeningTags": 6,
       "termIds": [
-        "teleoperation",
         "forward-kinematics",
         "end-effector",
         "inverse-kinematics",
         "jacobian",
         "denavit-hartenberg-parameters",
-        "degrees-of-freedom"
+        "teleoperation"
       ]
     },
     {
       "route": "/classical/motion-planning/",
       "rawOpeningTags": 3,
       "termIds": [
-        "trajectory-optimization",
         "configuration-space",
-        "degrees-of-freedom"
+        "degrees-of-freedom",
+        "trajectory-optimization"
       ]
     },
     {

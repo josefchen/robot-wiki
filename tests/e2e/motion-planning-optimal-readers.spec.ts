@@ -12,10 +12,10 @@ const PROSE = 'div.prose[data-pagefind-body]';
 // Pinned from inspected registry metadata, not from citationMeta or rendered output.
 // These are reader expectations, not a fresh bibliographic/source certification.
 const SOURCES = [
-  { id: 'karaman-frazzoli-2011', count: 5, title: 'Sampling-based Algorithms for Optimal Motion Planning',
+  { id: 'karaman-frazzoli-2011', count: 6, title: 'Sampling-based Algorithms for Optimal Motion Planning',
     authors: ['Sertac Karaman', 'Emilio Frazzoli'], year: 2011, venue: 'arXiv preprint',
     meta: 'Sertac Karaman, Emilio Frazzoli, arXiv preprint, 2011', url: 'https://arxiv.org/abs/1105.1186' },
-  { id: 'gammell-2014', count: 3, title: 'Informed RRT*: Optimal Sampling-based Path Planning Focused via Direct Sampling of an Admissible Ellipsoidal Heuristic',
+  { id: 'gammell-2014', count: 2, title: 'Informed RRT*: Optimal Sampling-based Path Planning Focused via Direct Sampling of an Admissible Ellipsoidal Heuristic',
     authors: ['Jonathan D. Gammell', 'Siddhartha S. Srinivasa', 'Timothy D. Barfoot'], year: 2014, venue: 'IROS 2014',
     meta: 'Jonathan D. Gammell, Siddhartha S. Srinivasa, Timothy D. Barfoot, IROS 2014', url: 'https://arxiv.org/abs/1404.2334' },
   { id: 'ompl-2012', count: 1, title: 'The Open Motion Planning Library',
@@ -129,15 +129,13 @@ test('optimal corrections retain qualifications, three repaired display blocks a
   e.record({ name: 'reference-feature-measurements', measurements, acceptance: 'Collected, not a reference pass; evaluate every locked anchor independently.' });
   const prose = page.locator(PROSE);
   const groups = [
-    ['forest-building version', 'rejects connections within an already connected component', 'fixed-radius simplified PRM'],
-    ['keeps its feasible nearest parent', 'collision-free route through the new vertex lowers their cost'],
-    ['print different sufficient bounds', 'not a claim that the coefficient is minimal'],
-    ['bounded Euclidean domain', 'Differential constraints fall outside this setup', 'weak clearance', 'bounded-variation norm'],
-    ['a finite budget may still leave a suboptimal path', 'measure zero'],
-    ["not bound every iteration's elapsed time", 'collision-check count grows'],
-    ['admissible lower bound', 'need not be collision-free', 'Before the first finite-cost solution, it samples globally'],
-    ['do not establish a universal speedup', '100 runs per variation', '60 seconds', 'no focusing advantage'],
-    ['a stronger claim than the admissible-superset construction', 'ongoing work', 'without a settled new threshold', 'project documentation lists implementations', 'external collision-checking and visualization components'],
+    ['forest-building version', 'rejects connections inside a connected component', 'Fixed-radius sPRM, which allows them, is asymptotically optimal'],
+    ['least-cost parent selection and rewiring', 'cheapest collision-free parent among nearby vertices', 'neighbors reattach to it only when that lowers their cost'],
+    ['two sufficient bounds', 'the conservative one is'],
+    ['bounded Euclidean domain', 'which excludes differential constraints', 'weak clearance', 'bounded-variation norm'],
+    ['so a finite budget can return a suboptimal path', 'measure zero', 'within a constant factor of RRT', 'collision checks per iteration'],
+    ['This prolate hyperspheroid', 'contains every state on a strictly improving path', 'need not be collision-free', '100 runs per variation', '60 seconds', 'it gains nothing once the set covers the domain'],
+    ['The library implements PRM and RRT', 'includes benchmarking tools', 'external collision checkers and visualizers'],
   ];
   for (const [index, expected] of groups.entries()) {
     const paragraph = prose.locator(':scope > p').filter({ hasText: expected[0] });
@@ -228,7 +226,16 @@ test('all affected optimal and OMPL citation occurrences expose bounded metadata
     await page.goBack(); await expect(page).toHaveURL(new RegExp(ROUTE + '$'));
     e.record({ name: 'citation-return', id: source.id, url: page.url(), focus: await page.evaluate(() => document.activeElement?.tagName), focusRestorationAccepted: false });
   }
-  const expectedIds = ['lozano-perez-1983', 'kavraki-1996', 'lavalle-1998', 'lavalle-kuffner-2001', 'karaman-frazzoli-2011', 'gammell-2014', 'ratliff-2009', 'schulman-2013', 'lavalle-2006', 'ompl-2012'];
+  const expectedIds = [
+    'lozano-perez-1983', 'kavraki-1996', 'lavalle-1998', 'lavalle-kuffner-2001', 'karaman-frazzoli-2011',
+    'gammell-2014', 'ratliff-2009', 'schulman-2013', 'lavalle-2006', 'ompl-2012', 'solovey-complexity-2020',
+    'mcvamp-2026', 'flask-2026', 'rrt-connect-2000', 'orthey-review-2023', 'vamp-2023', 'prrtc-2025', 'ompl-2-2026',
+    'ompl-release-notes-2026', 'fmt-star-2013', 'bit-star-2017', 'aorrtc-2025', 'gcs-2022', 'chomp-ijrr-2013',
+    'stomp-2011', 'trajopt-ijrr-2014', 'curobo-2023', 'industrial-curobo-2025', 'mr-pop-2026', 'hauser-shortcut-2010',
+    'moveit-trajectory-processing-2026', 'moveit-time-parameterization-2026', 'moveit-pro-10-1-2026', 'mpinets-2022',
+    'neural-mp-2024', 'deep-reactive-policy-2025', 'mayne-2000', 'diffusion-policy-2023', 'totg-2012', 'ruckig-2021',
+    'curobo-v2-2026',
+  ];
   expect(await page.locator('[data-reference-id]').evaluateAll(els => els.map(el => el.getAttribute('data-reference-id')))).toEqual(expectedIds);
   await e.textCapture(page.locator('section[aria-labelledby="references-heading"]'), 'complete-references');
   await e.clear(); await e.axe('#main-content', 'citation-reader-axe');
