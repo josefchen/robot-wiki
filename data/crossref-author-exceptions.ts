@@ -321,8 +321,9 @@ export const CROSSREF_AUTHOR_EXCEPTIONS: CrossrefAuthorExceptionEntry[] = [
     skip: 'author',
     authorIndex: 1,
     reason:
-      'Registry "Daniel E. Whitney" vs Crossref "Daniel Whitney" for the 1969 TMMS record; other Crossref Whitney records print "Daniel E.".',
-    verified: 'Crossref record 10.1109/TMMS.1969.299896 read 2026-08-20.',
+      'Registry "Daniel E. Whitney" vs Crossref "Daniel Whitney" for the 1969 TMMS record. The publisher\'s own record prints the middle initial.',
+    verified:
+      'Crossref record 10.1109/TMMS.1969.299896 read 2026-08-20. IEEE Xplore record for document 4081862 ("Resolved Motion Rate Control of Manipulators and Human Prostheses"), read 2026-10-07 through the author endpoint behind its landing page: "Daniel E. Whitney", Department of Mechanical Engineering, Massachusetts Institute of Technology. DBLP was behind a bot check the same day.',
   },
   {
     id: 'wampler-1986',
