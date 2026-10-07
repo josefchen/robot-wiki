@@ -4,6 +4,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { CITATIONS } from '../../data/citations';
 import { openAdjustMore } from './helpers/figure-fold';
+import { waitForHydration } from './interaction-ready';
 
 const evidenceRoot = process.env.ROBOT_WIKI_EVIDENCE_ROOT;
 const observations = new WeakMap<Page, { consoleErrors: string[]; pageErrors: string[]; blockedRequests: string[] }>();
@@ -110,6 +111,8 @@ for (const id of ['ecot-2024', 'hi-robot-2025']) {
     const chip = page.locator(`[data-cite-id="${id}"]`).first();
     const outbound = chip.locator('a').first();
     await outbound.scrollIntoViewIfNeeded();
+    // Escape is handled by the hydrated chip; before hydration the tooltip only shows.
+    await waitForHydration(outbound);
     await outbound.focus();
     const tip = chip.getByRole('tooltip');
     await expect(tip).toBeVisible();

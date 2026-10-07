@@ -66,9 +66,11 @@ export interface SliderInfo {
 }
 
 const SUFFIX_MULT: Record<string, number> = { k: 1e3, m: 1e6, b: 1e9 };
+const WORD_MULT: Record<string, number> = { thousand: 1e3, million: 1e6, billion: 1e9 };
 
 /**
  * Leading-number parser for labels and prose tokens: "1k h" -> 1000,
+ * "1 million" -> 1000000 (the generalization chart's last tick),
  * "4,096" -> 4096, "0.80" -> 0.8, "100-step" -> 100 (x-mention use),
  * "21.5%" -> 21.5. Returns null when the string does not start with a
  * number ("DROID", "T(T+1)/2").
@@ -79,8 +81,8 @@ const SUFFIX_MULT: Record<string, number> = { k: 1e3, m: 1e6, b: 1e9 };
  * Pure dimension words ("vs", "log") mean no unit.
  */
 const UNIT_WORDS = new Set([
-  's', 'sec', 'secs', 'second', 'seconds', 'ms', 'min', 'mins', 'h', 'hr',
-  'hrs', 'hours', 'hz', 'step', 'steps', 'tick', 'ticks', 'k', 'env',
+  's', 'sec', 'secs', 'second', 'seconds', 'ms', 'min', 'mins', 'minute',
+  'minutes', 'h', 'hr', 'hrs', 'hour', 'hours', 'hz', 'step', 'steps', 'tick', 'ticks', 'k', 'env',
   'envs', 'episode', 'episodes', 'env.', 'µ', 'mu', 'x',
 ]);
 
@@ -97,9 +99,9 @@ export function labelUnit(raw: string): string | null {
 }
 export function parseNumericToken(raw: string): number | null {
   const s = raw.trim().replace(/,/g, '');
-  const m = s.match(/^(?:[A-Za-z]=)?(-?\d+(?:\.\d+)?)([kKmMbB])?/);
+  const m = s.match(/^(?:[A-Za-z]=)?(-?\d+(?:\.\d+)?)(?:([kKmMbB])|\s+(thousand|million|billion)\b)?/);
   if (!m) return null;
-  const mult = m[2] ? SUFFIX_MULT[m[2].toLowerCase()] : 1;
+  const mult = m[2] ? SUFFIX_MULT[m[2].toLowerCase()] : m[3] ? WORD_MULT[m[3]] : 1;
   return parseFloat(m[1]) * mult;
 }
 
@@ -279,9 +281,20 @@ export interface ClauseAResult {
  * different quantity (or the same one in a unit the gate cannot
  * convert) and are skipped as non-comparable.
  */
+/**
+ * Spellings of one unit share a stem: a "time (s)" table and an axis
+ * titled "seconds" measure the same thing. Without this the bare "s"
+ * stemmed to "" and read as a different unit from "seconds".
+ */
+const UNIT_SYNONYMS: Record<string, string> = {
+  s: 'second', sec: 'second', secs: 'second', second: 'second', seconds: 'second',
+  min: 'minute', mins: 'minute', minute: 'minute', minutes: 'minute',
+  h: 'hour', hr: 'hour', hrs: 'hour', hour: 'hour', hours: 'hour',
+};
+
 function stem(unit: string): string {
   if (unit === 'ms') return 'ms'; // milliseconds are not the plural of "m"
-  return unit.replace(/s$/, '');
+  return UNIT_SYNONYMS[unit] ?? unit.replace(/s$/, '');
 }
 
 function axisQuantityComparable(chart: ChartSnapshot): { ok: boolean; why: string } {

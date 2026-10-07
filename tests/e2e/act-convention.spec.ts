@@ -132,7 +132,12 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     expect(metrics.proseFamily).toContain('Newsreader');
     expect(metrics.h1Family.toLowerCase()).toContain('tektur');
     expect(metrics.katexErrors).toBe(0);
-    expect(metrics.sourceCount).toBe(16);
+    // The bibliography lists every source the article declares or cites, once each.
+    const manuscript = readFileSync(new URL('../../content/manipulation/action-chunking.mdx', import.meta.url), 'utf8');
+    const declared = manuscript.match(/\ncitations:\n((?: {2}- [^\n]+\n)*)/)?.[1].match(/(?<=- ).+/g) ?? [];
+    const cited = [...manuscript.matchAll(/<Cite\s+id="([^"]+)"/g)].map((m) => m[1]);
+    expect(cited.length).toBeGreaterThan(0);
+    expect(metrics.sourceCount).toBe(new Set([...declared, ...cited]).size);
     const axe = await new AxeBuilder({ page }).analyze();
     writeFileSync(join(dir, `act-${viewport.width}-metrics.json`), JSON.stringify({ viewport, metrics, errors, axeViolations: axe.violations, svgSha256: createHash('sha256').update(svg).digest('hex') }, null, 2));
     expect(errors).toEqual([]);
