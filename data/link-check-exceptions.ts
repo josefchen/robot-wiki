@@ -147,10 +147,10 @@ export const LINK_CHECK_EXCEPTIONS: LinkCheckException[] = [
     id: 'gtsam-2026',
     covers: ['title-mismatch'],
     reason:
-      'gtsam.org serves a tagline as <title> ("GTSAM | GTSAM is a BSD-licensed C++ library..."), not the project name the registry cites; the page has no DOI.',
+      'gtsam.org serves a site title, not the project name the registry cites: a tagline in August 2026 ("GTSAM | GTSAM is a BSD-licensed C++ library..."), the release title "GTSAM 4.3 | GTSAM" since the 4.3 release. The page has no DOI and does not print the expansion. The registry title is the project name as the project\'s own README heading prints it, "GTSAM: Georgia Tech Smoothing and Mapping Library".',
     verifiedBy:
-      'Fetched page body (2026-08-18, live): the page states "Georgia Tech Smoothing and Mapping" in its project description.',
-    verifiedOn: '2026-08-18',
+      'Fetched https://gtsam.org/ on 2026-10-07: HTTP 200, title "GTSAM 4.3 | GTSAM", the GTSAM 4.3 release home page; "Georgia" does not occur on it. The 2026-08-18 note that the page body states "Georgia Tech Smoothing and Mapping" did not reproduce, as the 2026-10-04 source audit also found for the live page and its Wayback captures of 2026-06-27 and 2026-09-07. Fetched https://github.com/borglab/gtsam the same day: HTTP 200, README heading "GTSAM: Georgia Tech Smoothing and Mapping Library", and "GTSAM was developed in the lab of Frank Dellaert at the Georgia Institute of Technology".',
+    verifiedOn: '2026-10-07',
   },
   {
     id: 'sutton-bitter-lesson-2019',
@@ -316,5 +316,14 @@ export const LINK_CHECK_EXCEPTIONS: LinkCheckException[] = [
     verifiedBy:
       'Browser read on 2026-08-22: the page lists ANSI/RIA R15.08-1-2020 (Part 1, the industrial mobile robot) and ANSI/A3 R15.08-2-2023 (Part 2, IMR systems and applications) as available, and marks R15.06 Part 3 as forthcoming. That published-parts split is exactly what the article cites it for.',
     verifiedOn: '2026-08-22',
+  },
+  {
+    id: 'opencv-hand-eye-docs-2026',
+    covers: ['blocked'],
+    reason:
+      'docs.opencv.org redirects the 4.x URL (HTTP 301) to the current release path /4.13.0/d9/d0c/group__calib3d.html and answers HTTP 403 there to both checkers (measured 2026-10-07; the drafting lane met the same 403 on 2026-10-04). Library documentation has no DOI, so Crossref cannot stand in.',
+    verifiedBy:
+      'Independent fetch of the exact URL on 2026-10-07: HTTP 200, title "OpenCV: Camera Calibration and 3D Reconstruction", OpenCV 4.13.0. Its calibrateHandEye() entry defaults to CALIB_HAND_EYE_TSAI and states "A minimum of 2 motions with non parallel rotation axes are necessary to determine the hand-eye transformation. So at least 3 different poses are required, but it is strongly recommended to use many more poses.", the passage the calibration and perception articles cite.',
+    verifiedOn: '2026-10-07',
   },
 ];
