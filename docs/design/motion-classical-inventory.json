@@ -145,14 +145,14 @@
     "element": "KalmanPredictUpdate",
     "decision": "keep",
     "sceneId": "kalman-predict-update",
-    "teachingGoal": "Follow prior, prediction, measurement and update with uncertainty on one shared timeline.",
-    "reason": "The existing classical reference scene already uses the bounded stage, captions, controls and reduced-motion end-states."
+    "teachingGoal": "Guess, measure and blend one filter step along a robot's track, see the blend come out narrower than either, then watch the step's own numbers turn into the update rule.",
+    "reason": "The classical flagship scene: the camera closes on the gap from the guess to the reading while the blend lands, the reading rises with a staggered reveal, and the worked step is written glyph by glyph before its numbers give way to symbols; the finished frame carries no symbol and the method fold keeps the full rule."
   },
   {
     "article": "state-estimation",
     "element": "Clip:kalman-episode",
     "decision": "keep",
-    "teachingGoal": "Watch the offline-rendered filter episode with native video controls and a text alternative.",
-    "reason": "Its inspected native clip demonstrates the longer episode while the live scene explains one filter update."
+    "teachingGoal": "Watch noisy, patchy readings still give a steady track, and see the uncertainty band widen where readings go missing.",
+    "reason": "The live scene explains one filter step; the clip shows a whole run with one plain play button beside the native controls, a marked gap, and its method in the fold."
   }
 ]

@@ -3,6 +3,7 @@ import AxeBuilder from '@axe-core/playwright';
 import { setHydratedSlider as setSlider, waitForHydration } from './interaction-ready';
 import { writeFileSync } from 'node:fs';
 import { citedSourceCount, leadWords, MAX_LEAD_WORDS, MIN_CITED_SOURCES } from './helpers/brevity-bar';
+import { openAdjustMore } from './helpers/figure-fold';
 
 const ROUTE = '/classical/control/';
 
@@ -24,12 +25,18 @@ async function pendulumAtSettle(page: Page): Promise<void> {
     page.locator('[data-predict] > [data-predict-figure] [data-testid="pendulum-scene"]'),
   ).toBeVisible();
   await expect(reveal.locator('[data-testid="pendulum-scene"]')).toHaveCount(0);
-  await waitForHydration(pendulum(page).getByRole('button', { name: /run the simulation/i }));
+  await waitForHydration(pendulum(page).getByRole('button', { name: /give it a push/i }));
   await expect(reveal).not.toHaveAttribute('open');
+}
+
+/** The gain sliders, Run and Reset sit in the lab's "Adjust more" fold. */
+async function openPendulumAdjust(page: Page): Promise<void> {
+  await openAdjustMore(pendulum(page));
 }
 
 /** The stock gain the loop settles at; the step mounts the lab below the threshold. */
 async function setStockKp(page: Page): Promise<void> {
+  await openPendulumAdjust(page);
   await setSlider(pendulum(page).getByRole('slider', { name: /proportional gain kp/i }), 25);
   await expect(pendulum(page).getByTestId('pendulum-gain-kp-value')).toHaveText('25.0');
 }
@@ -86,6 +93,7 @@ test.describe('classical control module', () => {
       await expect(page.getByTestId('pendulum-scene')).toHaveCount(1);
       await expect(page.getByTestId('impedance-lab')).toBeVisible();
       await pendulumAtSettle(page);
+      await openPendulumAdjust(page);
       const run = pendulum(page).getByRole('button', { name: /run the simulation/i });
       await run.click();
       await expect(pendulum(page).getByRole('button', { name: /pause the simulation/i })).toBeVisible();
@@ -230,7 +238,16 @@ test.describe('classical control module', () => {
     await expect(scene).toBeVisible();
     await expect(pendulum(page).getByTestId('pendulum-rod')).toBeVisible();
     await expect(pendulum(page).getByTestId('pendulum-mass')).toBeVisible();
-    await expect(pendulum(page).getByTestId('pendulum-payload')).toBeVisible();
+    // The main view: the motor's push against gravity's pull, the two
+    // correction strengths and the push.
+    await expect(pendulum(page).getByTestId('pendulum-motor')).toBeVisible();
+    await expect(pendulum(page).getByTestId('pendulum-gravity-arrow')).toBeVisible();
+    await expect(pendulum(page).getByRole('button', { name: 'Too gentle' })).toHaveAttribute('aria-pressed', 'true');
+    await expect(pendulum(page).getByRole('button', { name: 'Strong enough' })).toBeVisible();
+    await expect(
+      pendulum(page).getByRole('button', { name: /give it a push/i }),
+    ).toBeVisible();
+    await openPendulumAdjust(page);
     await expect(
       pendulum(page).getByRole('slider', { name: /proportional gain kp/i }),
     ).toBeVisible();
@@ -242,9 +259,6 @@ test.describe('classical control module', () => {
     ).toBeVisible();
     await expect(
       pendulum(page).getByRole('button', { name: /run the simulation/i }),
-    ).toBeVisible();
-    await expect(
-      pendulum(page).getByRole('button', { name: /push the pole/i }),
     ).toBeVisible();
     await expect(pendulum(page).getByRole('button', { name: /reset/i })).toBeVisible();
     // Initial readouts: the 12-degree release, not yet running.
@@ -325,7 +339,7 @@ test.describe('classical control module', () => {
     );
     const before = await angleDeg(page);
 
-    await pendulum(page).getByRole('button', { name: /push the pole/i }).click();
+    await pendulum(page).getByRole('button', { name: /give it a push/i }).click();
     // The 2 rad/s kick is immediately visible in the angle readout.
     await expect
       .poll(async () => Math.abs(await angleDeg(page)), { timeout: 5_000 })
@@ -340,6 +354,7 @@ test.describe('classical control module', () => {
   test('the interactive is keyboard-operable', async ({ page }) => {
     await page.goto(ROUTE);
     await pendulumAtSettle(page);
+    await openPendulumAdjust(page);
     const kd = pendulum(page).getByRole('slider', { name: /derivative gain kd/i });
     await kd.focus();
     await expect(kd).toBeFocused();
@@ -365,7 +380,7 @@ test.describe('classical control module', () => {
     const runButton = pendulum(page).getByRole('button', { name: /run the simulation/i });
     const pauseButton = pendulum(page).getByRole('button', { name: 'Pause the simulation' });
     await pendulumAtSettle(page);
-    // At the mount's Kp 9.5 the pole falls away; the stock gain pulls it in.
+    // At the mount's Kp 9.5 the pole sags away; the stock gain pulls it in.
     await setStockKp(page);
     await runButton.click();
     await expect(pauseButton).toHaveCount(1);
@@ -495,6 +510,11 @@ test.describe('classical control module', () => {
     await expect(lab).toBeVisible();
     await expect(lab.getByTestId('impedance-hardware-torque')).toBeChecked();
     await expect(lab.getByTestId('impedance-force-trace')).toBeVisible();
+    // The main view names the first bump against the crush line; the exact
+    // readouts sit in "Adjust more".
+    await expect(lab.locator('[data-figure-annotation]')).toHaveText(/First bump: just under/);
+    await expect(lab.getByTestId('impedance-stiffness-slider')).toBeVisible();
+    await openAdjustMore(lab);
     const peak = await lab
       .getByTestId('impedance-peak-readout')
       .innerText();
@@ -509,6 +529,7 @@ test.describe('classical control module', () => {
     const lab = page.getByTestId('impedance-lab');
     const slider = lab.getByTestId('impedance-stiffness-slider');
     const readout = lab.getByTestId('impedance-peak-readout');
+    await openAdjustMore(lab);
 
     await setSlider(slider, 100);
     const soft = Number.parseFloat(((await readout.innerText()) ?? '').replace(' N', ''));
@@ -529,6 +550,7 @@ test.describe('classical control module', () => {
     const k = lab.getByTestId('impedance-stiffness-slider');
     const d = lab.getByTestId('impedance-damping-slider');
     const peak = lab.getByTestId('impedance-peak-readout');
+    await openAdjustMore(lab);
 
     // Numeric in the torque default.
     expect(await k.isEnabled()).toBe(true);
@@ -574,7 +596,9 @@ test.describe('classical control module', () => {
     const lab = page.getByTestId('impedance-lab');
 
     // Every enabled control is tab-reachable in visual order with a
-    // visible focus indicator (the design system's accent outline).
+    // visible focus indicator (the design system's accent outline). The
+    // depth slider sits in "Adjust more", which a reader opens first.
+    await openAdjustMore(lab);
     const focusTrace: string[] = [];
     const depth = lab.getByTestId('impedance-depth-slider');
     await depth.focus();

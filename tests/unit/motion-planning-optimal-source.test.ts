@@ -48,7 +48,7 @@ const endpoints = [
   {
     "id": "ompl-registry-comment",
     "path": "data/citations.ts",
-    "text": "    // This entry links to project documentation, not a version-pinned copy\n    // of the associated 2012 paper. The fetched project page lists PRM/RRT\n    // implementations and benchmarking/integration capabilities; it does\n    // not establish field-wide adoption or testing certification. The\n    // paper title, authors and year below remain a separate P1 identity check."
+    "text": "    // The 2012 paper itself (Crossref, 2026-10-08: IEEE RAM 19(4):72-82,\n    // December 2012). The authors' preprint lists PRM and RRT among the\n    // implemented planners, describes the Benchmark class, and says OMPL\n    // includes no collision checker or visualization and plugs into host\n    // systems that do. It does not establish field-wide adoption or testing\n    // certification."
   }
 ];
 const cases = [[9, 7, 7, 21], [10, 5, 5, 15], [11, 3, 4, 4]] as const;

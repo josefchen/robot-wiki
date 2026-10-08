@@ -55803,11 +55803,11 @@
     ]
   },
   {
-    "id": "kinematics-7-jacobian-20260915",
+    "id": "kinematics-7-jacobian-screw-20261008",
     "ledgerPath": "audit/classical.md",
     "articleSlug": "kinematics",
     "rowOrdinal": 7,
-    "originalCellsDigest": "610ae90f35dbea1569450402c915edad044d1688cbb3435f3f2788b62d8738fd",
+    "originalCellsDigest": "bf22e38e9e3b2bb714818fd32370b564fe114e7512577bece66dfdf2fbd356a8",
     "kind": "explicit-parts",
     "parts": [
       {
@@ -55818,17 +55818,17 @@
         ]
       },
       {
-        "id": "jacobian-column-form-local",
-        "text": "The article's geometric column form (revolute: z_i x (p_ee - p_i) stacked over z_i; prismatic: its axis) is consistent with lib/ik.ts and with the 5.1.1 screw-axis column derivation, but the cross-product form itself is a local-AND item, not a verbatim fetched sentence.",
+        "id": "jacobian-screw-axis-columns",
+        "text": "In Modern Robotics' space Jacobian, column i is the screw axis of joint i in fixed (base) frame coordinates at the current joint values; a revolute joint's screw axis is (omega_i, -omega_i x q_i) for unit axis omega_i and any point q_i on it, and a prismatic joint's is (0, v_i) for unit direction v_i.",
         "requiredCitationIds": [
           "modern-robotics-2017"
         ]
       }
     ],
     "planReview": {
-      "reviewedBy": "kinematics-integrator-20260915 (session 6692d993, model review pass, reasoning effort max)",
-      "rationale": "Packet record kinematics:7 (ready-source-correction-with-local-AND): jacobian-linear-map needle-verified FULL; jacobian-column-form-local re-proven against lib/ik.ts at HEAD b082ad8. Integrator review 2026-09-15T18:58:29Z: packet plan reviewed; every evidence passage needle-verified against the retained fetch text preserved in the source lane (see integration lane needle-verification.json; 20/21 FULL, the so101-six-revolute item verified literally against the sha256-matched retained URDF receipt); citation ids confirmed registered; zero retrieval by this integrator. Local-AND re-proven this session at HEAD b082ad8: lib/ik.ts builds each revolute Jacobian column as cross(joint.axisWorld, sub(eePosition, joint.position)), i.e. z_i x (p_ee - p_i); pinned in tests/unit/kinematics-originals.test.ts. Zero retrieval performed by this integrator.",
-      "planDigest": "3a8253714cff446aa1e7e8a01dc3f5419454f5fe9fdf3cf50ecc293c5a849fd1"
+      "reviewedBy": "classical domain pass of 2026-10-08 (source re-read of the author-hosted Modern Robotics preprint)",
+      "rationale": "Successor of kinematics-7-jacobian-20260915 (retained verbatim in audit/evidence/domain-pass-20261008/prior-plans.json) after the article restated the Jacobian columns in Modern Robotics' screw-axis form on 2026-10-08 (VAL-OPUS-152). jacobian-linear-map keeps the 2026-09-15 companion-page part and passage unchanged. jacobian-column-form-local, which rested on lib/ik.ts rather than a source sentence, gives way to jacobian-screw-axis-columns, read in the preprint PDF (curl GET 200 on 2026-10-08T11:10:57Z, 7,322,483 bytes, sha256 47f446567bb4ba500fced69890c4c039f8180c2a3dfd0ffdd679d9ac0a421368; pdftotext extraction read): p. 178 states the column rule and p. 140 states the revolute and prismatic screw axes. lib/ik.ts is unchanged and still builds the playground's geometric Jacobian; the article no longer describes that code path.",
+      "planDigest": "c53684b9962003d705bdb3b8e0b540d798a3f023812210426acf059a65865318"
     },
     "evidence": [
       {
@@ -55838,26 +55838,26 @@
         "supportingPassage": "The Jacobian J maps the joint velocities to v_tip. For this 2R robot, the Jacobian has two columns, one for each joint, which we call J_1 and J_2. Each column is the contribution to v_tip when the speed at that joint is 1 and the speed at all other joints is zero."
       },
       {
-        "partId": "jacobian-column-form-local",
+        "partId": "jacobian-screw-axis-columns",
         "citationId": "modern-robotics-2017",
-        "sourceUrl": "https://modernrobotics.northwestern.edu/nu-gm-book-resource/5-1-1-space-jacobian/",
-        "supportingPassage": "Any other column i of the space Jacobian is given by the screw axis S_i premultiplied by the transformation that expresses the screw axis in the {s} frame for arbitrary joint positions."
+        "sourceUrl": "https://hades.mech.northwestern.edu/images/2/25/MR-v2.pdf",
+        "supportingPassage": "Therefore, the ith column Jsi (θ) of Js (θ) is simply the screw vector describing joint axis i, expressed in fixed-frame coordinates, as a function of the joint variables θ1 , . . . , θi−1 . ... each column Jsi (θ) is the screw vector describing joint axis i, expressed in fixed-frame coordinates, but for arbitrary θ rather than θ = 0. ... Sn = (ωn , vn ) is the screw axis of joint n as expressed in the fixed base frame. If joint n is revolute (corresponding to a screw motion of zero pitch) then ωn ∈ R3 is a unit vector in the positive direction of joint axis n; vn = −ωn × qn , with qn any arbitrary point on joint axis n as written in coordinates in the fixed base frame; and θn is the joint angle. If joint n is prismatic then ωn = 0, vn ∈ R3 is a unit vector in the direction of positive translation, and θn represents the prismatic extension/retraction."
       }
     ],
     "adjudications": [
       {
         "partId": "jacobian-linear-map",
         "outcome": "supported",
-        "reviewedBy": "kinematics-integrator-20260915 (session 6692d993, model review pass, reasoning effort max)",
-        "rationale": "Passage needle-verified FULL against the retained fetch text in the source lane. Evidence: https://modernrobotics.northwestern.edu/nu-gm-book-resource/5-1-1-space-jacobian/",
-        "evidenceDigest": "eeef5f29dc8f93d39e0b205e50bacf25deaa550476340d3a3f30b58cec3035da"
+        "reviewedBy": "classical domain pass of 2026-10-08 (source re-read of the author-hosted Modern Robotics preprint)",
+        "rationale": "Passage unchanged since the 2026-09-15 review of kinematics-7-jacobian-20260915; re-bound to the successor plan. Evidence: https://modernrobotics.northwestern.edu/nu-gm-book-resource/5-1-1-space-jacobian/",
+        "evidenceDigest": "985ff42a391e0dc35e75e4dffdba7b939329d8199086a1eec390eb5e427ea5dd"
       },
       {
-        "partId": "jacobian-column-form-local",
+        "partId": "jacobian-screw-axis-columns",
         "outcome": "supported",
-        "reviewedBy": "kinematics-integrator-20260915 (session 6692d993, model review pass, reasoning effort max)",
-        "rationale": "Passage needle-verified FULL against the retained fetch text in the source lane. Evidence: https://modernrobotics.northwestern.edu/nu-gm-book-resource/5-1-1-space-jacobian/",
-        "evidenceDigest": "237be7c35350bbe4e6fca131602bcabcf99060deae547622fdaa35ae5bef1b7b"
+        "reviewedBy": "classical domain pass of 2026-10-08 (source re-read of the author-hosted Modern Robotics preprint)",
+        "rationale": "Both passages read on 2026-10-08 in the pdftotext extraction of the preprint and quoted with line breaks joined. Evidence: https://hades.mech.northwestern.edu/images/2/25/MR-v2.pdf",
+        "evidenceDigest": "93ebe426f0ce842a8bf026e0d70719efcbfcf6f4a4bacd8242977a39cf4e3137"
       }
     ]
   },

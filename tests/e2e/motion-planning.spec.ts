@@ -2,6 +2,7 @@ import { expect, test, type Page } from './helpers/motion-planning-offline-fixtu
 import AxeBuilder from '@axe-core/playwright';
 import { writeFileSync } from 'node:fs';
 import { waitForHydration } from './interaction-ready';
+import { openAdjustMore } from './helpers/figure-fold';
 import { citedSourceCount, leadWords, MAX_LEAD_WORDS, MIN_CITED_SOURCES } from './helpers/brevity-bar';
 
 const ROUTE = '/classical/motion-planning/';
@@ -115,7 +116,7 @@ test.describe('classical motion-planning module', () => {
     await page.goto(ROUTE);
     const prose = page.locator('div.prose[data-pagefind-body]');
     await expect(
-      prose.locator('a[href="https://ompl.kavrakilab.org/"]'),
+      prose.locator('a[href="https://doi.org/10.1109/MRA.2012.2205651"]'),
     ).toHaveCount(1);
     const text = await visibleArticleText(page);
     expect(text).toContain('The library implements PRM and RRT');
@@ -206,22 +207,26 @@ test.describe('classical motion-planning module', () => {
     await expect(page.getByTestId('rrt-goal')).toBeVisible();
     expect(await page.getByTestId(/^rrt-obstacle/).count()).toBe(5);
     await expect(
-      explorer(page).getByRole('button', { name: /run the exploration/i }),
+      explorer(page).getByRole('button', { name: /grow the tree/i }),
     ).toBeVisible();
+    const slider = page.getByRole('slider', { name: /exploration iteration/i });
+    await expect(slider).toBeVisible();
+    // Step forward, Reset and the readouts sit in "Adjust more".
+    await openAdjustMore(explorer(page));
     await expect(
       explorer(page).getByRole('button', { name: /step forward/i }),
     ).toBeVisible();
     await expect(explorer(page).getByRole('button', { name: 'Reset', exact: true })).toBeVisible();
-    await expect(
-      page.getByRole('slider', { name: /exploration iteration/i }),
-    ).toBeVisible();
-    // Initial readouts: only the root node, no path yet.
-    await expect(page.getByTestId('rrt-node-readout')).toHaveText('1');
-    await expect(page.getByTestId('rrt-path')).toHaveCount(0);
+    // Opening readouts: the finished tree with the found path lit.
+    await expect(page.getByTestId('rrt-node-readout')).toHaveText('289');
+    await expect(page.getByTestId('rrt-path')).toBeVisible();
 
     // No layout shift: the scene box is stable before and after interaction.
     const before = await scene.boundingBox();
-    await waitForHydration(explorer(page).getByRole('button', { name: 'Step forward' }));
+    await waitForHydration(slider);
+    await slider.focus();
+    await page.keyboard.press('Home');
+    await expect(page.getByTestId('rrt-node-readout')).toHaveText('1');
     await explorer(page).getByRole('button', { name: 'Step forward' }).click();
     await expect(page.getByTestId('rrt-node-readout')).toHaveText('2');
     const after = await scene.boundingBox();
@@ -229,20 +234,24 @@ test.describe('classical motion-planning module', () => {
     expect(after?.height).toBe(before?.height);
   });
 
-  test('running grows the tree to a highlighted path; reset clears it (VAL-CLASS-013)', async ({
+  test('growing replays the tree to a highlighted path; reset returns to it (VAL-CLASS-013)', async ({
     page,
   }) => {
     test.setTimeout(60_000);
     await page.goto(ROUTE);
+    const slider = page.getByRole('slider', { name: /exploration iteration/i });
 
-    // Step once: one new edge appears.
-    await waitForHydration(explorer(page).getByRole('button', { name: 'Step forward' }));
+    // From the start, step once: one new edge appears.
+    await waitForHydration(slider);
+    await openAdjustMore(explorer(page));
+    await slider.focus();
+    await page.keyboard.press('Home');
     await explorer(page).getByRole('button', { name: 'Step forward' }).click();
     await expect(page.getByTestId('rrt-node-readout')).toHaveText('2');
     expect(await page.locator('[data-testid="rrt-tree"] line').count()).toBe(1);
 
-    // Run to completion: the tree fills in and the path lights up.
-    await explorer(page).getByRole('button', { name: /run the exploration/i }).click();
+    // Grow to completion: the tree fills in and the path lights up.
+    await explorer(page).getByRole('button', { name: /grow the tree/i }).click();
     await expect(page.getByTestId('rrt-path')).toBeVisible({
       timeout: 30_000,
     });
@@ -254,11 +263,14 @@ test.describe('classical motion-planning module', () => {
       /units/i,
     );
 
-    // Reset returns the scene to the initial state.
-    await explorer(page).getByRole('button', { name: 'Reset', exact: true }).click();
-    await expect(page.getByTestId('rrt-node-readout')).toHaveText('1');
+    // Scrubbed back, Reset returns the scene to its opening state.
+    await slider.focus();
+    await page.keyboard.press('Home');
     await expect(page.getByTestId('rrt-path')).toHaveCount(0);
-    expect(await page.locator('[data-testid="rrt-tree"] line').count()).toBe(0);
+    await explorer(page).getByRole('button', { name: 'Reset', exact: true }).click();
+    await expect(page.getByTestId('rrt-node-readout')).toHaveText('289');
+    await expect(page.getByTestId('rrt-path')).toBeVisible();
+    expect(await page.locator('[data-testid="rrt-tree"] line').count()).toBe(288);
   });
 
   test('the interactive is keyboard-operable', async ({ page }) => {
@@ -269,14 +281,16 @@ test.describe('classical motion-planning module', () => {
     await waitForHydration(slider);
     await slider.focus();
     await expect(slider).toBeFocused();
+    await page.keyboard.press('Home');
+    await expect(page.getByTestId('rrt-node-readout')).toHaveText('1');
     await page.keyboard.press('ArrowRight');
     await expect(page.getByTestId('rrt-node-readout')).toHaveText('2');
-    // The run control takes focus and toggles with the keyboard.
-    const run = explorer(page).getByRole('button', { name: /run the exploration/i });
+    // The grow control takes focus and toggles with the keyboard.
+    const run = explorer(page).getByRole('button', { name: /grow the tree/i });
     await run.focus();
     await page.keyboard.press('Enter');
     await expect(
-      explorer(page).getByRole('button', { name: /pause the exploration/i }),
+      explorer(page).getByRole('button', { name: /pause the growth/i }),
     ).toBeVisible();
     // Stop it again so the spec leaves no timer running.
     await page.keyboard.press('Enter');
@@ -294,9 +308,10 @@ test.describe('classical motion-planning module', () => {
     const page = await context.newPage();
     await page.goto(ROUTE);
     const readout = page.getByTestId('rrt-iteration-readout');
-    await expect(readout).toHaveText(/^0 /);
-    await waitForHydration(explorer(page).getByRole('button', { name: /run the exploration/i }));
-    await explorer(page).getByRole('button', { name: /run the exploration/i }).click();
+    // The figure opens on the finished tree; growing replays it from 0.
+    await expect(readout).toHaveText(/^288 /);
+    await waitForHydration(explorer(page).getByRole('button', { name: /grow the tree/i }));
+    await explorer(page).getByRole('button', { name: /grow the tree/i }).click();
     await expect(readout).toHaveAttribute('data-playback-cadence', 'coarse');
     await expect
       .poll(async () => (await readout.textContent()) ?? '', { timeout: 5_000 })
@@ -315,22 +330,26 @@ test.describe('classical motion-planning module', () => {
   }) => {
     await page.goto(ROUTE);
     const readout = page.getByTestId('rrt-iteration-readout');
-    await waitForHydration(explorer(page).getByRole('button', { name: /run the exploration/i }));
+    await waitForHydration(explorer(page).getByRole('button', { name: /grow the tree/i }));
     const iteration = async () =>
       Number.parseInt((await readout.textContent()) ?? '0', 10);
 
     // Preference changed after mount but before playback.
     await page.emulateMedia({ reducedMotion: 'reduce' });
-    await explorer(page).getByRole('button', { name: /run the exploration/i }).click();
+    await explorer(page).getByRole('button', { name: /grow the tree/i }).click();
     await expect(readout).toHaveAttribute('data-playback-cadence', 'coarse');
     await expect.poll(iteration, { timeout: 5_000 }).toBeGreaterThan(0);
-    await explorer(page).getByRole('button', { name: /pause the exploration/i }).click();
+    await explorer(page).getByRole('button', { name: /pause the growth/i }).click();
     expect((await iteration()) % 25).toBe(0);
 
-    // Preference changed again while smooth playback is active.
+    // Preference changed again while smooth playback is active. Reset
+    // returns to the finished tree, so growing replays from 0.
+    await openAdjustMore(explorer(page));
     await explorer(page).getByRole('button', { name: 'Reset', exact: true }).click();
+    await expect(readout).toHaveText(/^288 /);
     await page.emulateMedia({ reducedMotion: 'no-preference' });
-    await explorer(page).getByRole('button', { name: /run the exploration/i }).click();
+    await explorer(page).getByRole('button', { name: /grow the tree/i }).click();
+    await expect(readout).toHaveAttribute('data-playback-cadence', 'smooth');
     await expect
       .poll(async () => {
         const value = await iteration();
@@ -343,7 +362,7 @@ test.describe('classical motion-planning module', () => {
     await expect
       .poll(iteration, { timeout: 5_000, intervals: [100] })
       .not.toBe(transitionedAt);
-    await explorer(page).getByRole('button', { name: /pause the exploration/i }).click();
+    await explorer(page).getByRole('button', { name: /pause the growth/i }).click();
     const coarseAdvance = (await iteration()) - transitionedAt;
     expect(coarseAdvance).toBeGreaterThanOrEqual(25);
     expect(coarseAdvance % 25).toBe(0);

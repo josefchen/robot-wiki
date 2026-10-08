@@ -1,9 +1,8 @@
-One Kalman filter, a whole run — schematic clip, 18 seconds.
-The seeded filter tracks a wandering target; its uncertainty band widens in dropouts and narrows on readings.
+One Kalman filter, a whole run — illustrative clip, 16 seconds.
+Sensors are noisy and sometimes go quiet; the filter still tracks the target and shows how sure it is.
 Transcript:
-- A target wanders through one dimension; the dashed line is its true position, step by step.
-- A noisy position sensor reports on most steps and stays silent on about one in five.
-- One fusion up close: the wide predicted belief meets a reading, and the gain K narrows the posterior between them.
-- Run the whole episode: the estimate drifts through each dropout and corrects on each reading, staying close to the truth.
-- Predict widens the belief, update narrows it; that alternation, repeated forever, is the filter.
-Seeded toy filter; schematic, not measured hardware.
+- A target drifts back and forth; the dashed line shows where it really is at each moment.
+- A noisy sensor reports its position, and on about one step in five it reports nothing.
+- The filter's track follows the target, and the shaded band around it shows how unsure it is.
+- Where readings drop out the band widens, and the next reading pulls it tight again.
+Illustrative: a simulated run, not measured on hardware.

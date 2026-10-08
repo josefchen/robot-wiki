@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { setSlider } from './slider';
+import { openAdjustMore } from './helpers/figure-fold';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { join } from 'node:path';
@@ -82,22 +83,29 @@ test('classical closure mounted observations at desktop and mobile', async ({ pa
         mountId: 'mount:/classical/motion-planning/:RrtExplorer:1', caseId, prestate, action, poststate: name,
         readouts: display.map((text, i) => ({ selector: `[data-testid="${rrtReadouts[i]}"]`, text })) });
     };
-    await rrtState('opening', 0, 'unmounted', 'navigate to article', 'default');
+    // The figure opens on the finished tree; Step forward, Reset and the
+    // readouts sit in its "Adjust more" fold.
+    await openAdjustMore(page.locator('[data-figure-frame="rrt-explorer"]'));
+    const rrtTotal = Number(await rrtControl.getAttribute('max'));
+    await rrtState('opening', rrtTotal, 'unmounted', 'navigate to article', 'default');
+    await setSlider(rrtControl, 0);
     await page.getByRole('button', { name: 'Step forward', exact: true }).click();
-    await rrtState('step', 1, 'opening', 'Step forward', 'slider-boundaries-and-anchors');
+    await rrtState('step', 1, 'scrubbed to 0', 'Step forward', 'slider-boundaries-and-anchors');
     await page.getByRole('button', { name: 'Reset', exact: true }).click();
-    await page.getByRole('button', { name: 'Run the exploration', exact: true }).click();
+    await page.getByRole('button', { name: 'Grow the tree', exact: true }).click();
     await expect(page.getByTestId('rrt-iteration-readout')).toHaveAttribute('data-playback-cadence', 'smooth');
     await page.clock.runFor(50);
-    await page.getByRole('button', { name: 'Pause the exploration', exact: true }).click();
-    await rrtState('playback', 3, 'reset at 0', 'Run, one 50ms timer tick, Pause', 'slider-boundaries-and-anchors');
+    await page.getByRole('button', { name: 'Pause the growth', exact: true }).click();
+    await rrtState('playback', 3, 'reset to the finished tree', 'Grow the tree (replays from 0), one 50ms timer tick, Pause', 'slider-boundaries-and-anchors');
     await setSlider(rrtControl, 100);
     await rrtState('scrub', 100, 'playback at 3', 'set iteration slider to 100', 'slider-boundaries-and-anchors');
     await page.getByRole('button', { name: 'Reset', exact: true }).click();
-    await rrtState('reset', 0, 'scrub at 100', 'Reset', 'reset');
+    await rrtState('reset', rrtTotal, 'scrub at 100', 'Reset', 'reset');
     await page.clock.resume();
 
     await ready('/classical/perception/');
+    // The budget readouts, target and Reset sit in the figure's "Adjust more" fold.
+    await openAdjustMore(page.getByTestId('perception-budget'));
     const base = { handEyeDeg: .5, depthPct: 2, poseMm: 3, workingDistanceM: .5, target: 'opaque' };
     const perceptionReadouts = ['perception-total-readout', 'perception-depth-readout', 'perception-verdict-readout'];
     const state = async (name: string, inputs: typeof base, prestate: string, action: string, caseId: string) => {

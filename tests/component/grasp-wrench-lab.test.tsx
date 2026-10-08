@@ -184,9 +184,9 @@ describe('GraspWrenchLab main view', () => {
     expect(container.querySelector('[data-figure-title]')).toHaveTextContent(
       'Three well-placed fingers hold firm against any push',
     );
-    const surface = screen.getByRole('slider', { name: /^Surface: friction coefficient mu/ });
+    const surface = screen.getByRole('slider', { name: /^How rough the surface is: friction coefficient mu/ });
     expect(surface.closest('details')).toBeNull();
-    expect(container.querySelector('label[for="grasp-mu"]')).toHaveTextContent(/^Surfacegrippy$/);
+    expect(container.querySelector('label[for="grasp-mu"]')).toHaveTextContent(/^How rough the surface isfairly rough$/);
     const adjust = fold(container, 'adjust');
     for (const name of [/contact 1 position/i, /contact 3 position/i]) {
       expect(adjust).toContainElement(screen.getByRole('slider', { name }));

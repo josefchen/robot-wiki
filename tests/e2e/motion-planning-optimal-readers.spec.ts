@@ -5,6 +5,7 @@ import { createHash } from 'node:crypto';
 import AxeBuilder from '@axe-core/playwright';
 import { ownedEvidencePath } from './helpers/keypoint-reader-oracle';
 import { readerGateInputs } from './helpers/reader-gate-inputs';
+import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
 import { collectBrowserReferenceFeatures, type BrowserReferenceFeatureConfig } from '../../lib/brand-v2-reference-rubric';
 
 const ROUTE = '/classical/motion-planning/';
@@ -20,7 +21,7 @@ const SOURCES = [
     meta: 'Jonathan D. Gammell, Siddhartha S. Srinivasa, Timothy D. Barfoot, IROS 2014', url: 'https://arxiv.org/abs/1404.2334' },
   { id: 'ompl-2012', count: 1, title: 'The Open Motion Planning Library',
     authors: ['Ioan A. Șucan', 'Mark Moll', 'Lydia E. Kavraki'], year: 2012, venue: 'IEEE Robotics & Automation Magazine',
-    meta: 'Ioan A. Șucan, Mark Moll, Lydia E. Kavraki, IEEE Robotics & Automation Magazine, 2012', url: 'https://ompl.kavrakilab.org/' },
+    meta: 'Ioan A. Șucan, Mark Moll, Lydia E. Kavraki, IEEE Robotics & Automation Magazine, 2012', url: 'https://doi.org/10.1109/MRA.2012.2205651' },
 ] as const;
 const DEFINITIONS = {
   'trajectory-optimization': 'Motion planning as numerical optimization over a candidate trajectory. CHOMP combines a dynamics prior with a workspace arc-length obstacle cost and uses inverse-metric covariant updates; TrajOpt uses sequential convex subproblems, nonlinear constraint penalties, and a trust region that can expand or shrink. Local optimization can fail and depends on its initial trajectory. Ratliff and colleagues describe a feasible-path-then-refinement pattern for PRM/RRT, while Schulman and colleagues also study planning from infeasible seeds. Neither source establishes that this is the standard industrial pipeline, and their collision-handling assumptions are not unconditional safety guarantees.',
@@ -110,8 +111,10 @@ async function openReader(page: Page) {
 
 test('optimal corrections retain qualifications, three repaired display blocks and bounded math', async ({ page }, info) => {
   const e = evidence(page, info); await openReader(page);
-  const roles = await page.evaluate(() => ['article h1', 'div.prose[data-pagefind-body] > p', '#rrt-iteration ~ div button', '[data-testid="rrt-node-readout"]'].map((selector, index) => {
-    const element = index === 2 ? document.querySelector('[aria-label="Run the exploration"]')! : document.querySelector(selector)!;
+  // Figure readouts are set in IBM Plex Sans on the one figure system, so the
+  // mono role is read from the header's citation count.
+  const roles = await page.evaluate(() => ['article h1', 'div.prose[data-pagefind-body] > p', '[data-testid="rrt-grow"]', '[data-header-citation-count]'].map((selector) => {
+    const element = document.querySelector(selector)!;
     const cs = getComputedStyle(element); return { selector, family: cs.fontFamily, size: cs.fontSize, lineHeight: cs.lineHeight, loaded: document.fonts.check('16px ' + cs.fontFamily.split(',')[0]) };
   }));
   e.record({ name: 'four-font-roles', roles });
@@ -255,20 +258,30 @@ test('actual RRT controls, disclosure and compact navigation remain keyboard ope
     await page.keyboard.press('Escape'); await expect(dialog).toHaveCount(0); await expect(menu).toBeFocused();
   }
   const scene = page.getByTestId('rrt-scene'), container = scene.locator('xpath=ancestor::*[@data-brand-module-signature="instrument-frame"][1]'), slider = page.getByRole('slider', { name: /exploration iteration/i });
-  await expect(container.getByRole('slider')).toHaveCount(1); await expect(container.getByRole('button')).toHaveCount(3);
+  // At settle the main view shows the grow button and the slider; the fold holds the other two buttons.
+  await expect(container.getByRole('slider')).toHaveCount(1); await expect(container.getByRole('button')).toHaveCount(1);
+  await expect(container.getByRole('button', { includeHidden: true })).toHaveCount(3);
   await expect(container.getByRole('radio')).toHaveCount(0); await expect(container.getByRole('tab')).toHaveCount(0);
   await e.textCapture(container, 'rrt-default');
-  await slider.focus(); await page.keyboard.press('ArrowRight'); await expect(page.getByTestId('rrt-node-readout')).toHaveText('2');
+  // The figure opens on the finished tree; Step forward, Reset and the readouts sit in "Adjust more".
+  await expect(slider).toHaveValue('288'); await expect(page.getByTestId('rrt-path')).toBeVisible();
+  await openAdjustMore(container);
+  await slider.focus(); await page.keyboard.press('Home'); await expect(page.getByTestId('rrt-node-readout')).toHaveText('1');
+  await page.keyboard.press('ArrowRight'); await expect(page.getByTestId('rrt-node-readout')).toHaveText('2');
   await page.keyboard.press('End'); await expect(slider).toHaveValue('288'); await expect(page.getByTestId('rrt-node-readout')).toHaveText('289');
   await expect(page.getByTestId('rrt-path')).toBeVisible(); await expect(container.getByRole('button', { name: 'Step forward' })).toBeDisabled();
   await e.textCapture(container, 'rrt-completed');
+  await slider.focus(); await page.keyboard.press('Home'); await expect(page.getByTestId('rrt-path')).toHaveCount(0);
   const reset = container.getByRole('button', { name: 'Reset', exact: true }); await reset.focus(); await page.keyboard.press('Enter');
-  await expect(slider).toHaveValue('0'); await expect(page.getByTestId('rrt-node-readout')).toHaveText('1'); await expect(page.getByTestId('rrt-path')).toHaveCount(0);
+  await expect(slider).toHaveValue('288'); await expect(page.getByTestId('rrt-node-readout')).toHaveText('289'); await expect(page.getByTestId('rrt-path')).toBeVisible();
   await e.textCapture(container, 'rrt-reset');
-  const details = container.locator('details'); await expect(details).toHaveCount(1);
+  // Two figure folds plus the data disclosure inside "How this was made".
+  await expect(container.locator('details')).toHaveCount(3);
+  await openHowThisWasMade(container);
+  const details = container.locator('details[data-chart-data]'); await expect(details).toHaveCount(1);
   await details.locator('summary').focus(); await page.keyboard.press('Enter'); await expect(details).toHaveAttribute('open', '');
   await e.textCapture(details, 'rrt-disclosure'); await details.locator('summary').focus(); await page.keyboard.press('Enter'); await expect(details).not.toHaveAttribute('open', '');
-  e.record({ name: 'control-inventory', sliders: 1, buttons: 3, disclosures: 1, radios: 0, tabs: 0, selfChecks: await page.locator('[data-self-check]').count(), authoredOriginal15Complete: false });
+  e.record({ name: 'control-inventory', sliders: 1, buttons: 3, disclosures: 3, radios: 0, tabs: 0, selfChecks: await page.locator('[data-self-check]').count(), authoredOriginal15Complete: false });
   await e.axe('#main-content', 'controls-reader-axe');
 });
 

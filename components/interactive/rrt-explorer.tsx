@@ -14,14 +14,17 @@ import {
   InstrumentReset,
   LegendItem,
   PlotStage,
+  SliderEnds,
 } from '@/components/ui/instrument';
-import { FigureStage, StageNumber } from '@/components/motion/figure-frame';
+import { FigureStage, StageNumber, StageStatus } from '@/components/motion/figure-frame';
 import {
-  CHART_HATCH,
   CHART_STROKE,
   CHART_STRUCTURE,
+  CHART_TYPE,
+  CHART_UNCERTAINTY,
   CHART_VIEW_WIDTH,
   LegendSwatch,
+  StageAnnotation,
   roleColour,
 } from '@/components/motion/chart';
 import {
@@ -32,32 +35,40 @@ import {
   nodesUpTo,
   pathIfReached,
   playbackCadence,
+  type RrtResult,
 } from '@/lib/rrt';
 
 /**
- * RrtExplorer: watch a rapidly-exploring random tree grow toward a goal.
+ * RrtExplorer: a rapidly-exploring random tree grown toward a goal.
  *
  * The scene is a 100x64 planning world with a partial wall and four
  * circular obstacles between the start (left) and the goal (right). The
  * full tree is precomputed from a fixed seed, so the growth is identical
- * on every load; the controls only reveal it: Run plays the growth on an
- * interval, Step adds one iteration, the slider scrubs, Reset clears back
- * to the bare scene. Once the tree connects to the goal, the start-to-goal
- * path is highlighted with its length in the readout.
+ * on every load; the controls only reveal it. The figure opens on the
+ * finished tree with the found path lit, because that frame is the point.
+ * "Grow the tree" replays the growth from the start (or resumes it from
+ * a scrubbed iteration), the slider scrubs, and Step forward and Reset sit
+ * in "Adjust more"; Reset returns to the finished tree.
  *
  * Interactive contract: deterministic render, native buttons and range
- * input (keyboard-accessible), visible readouts, reset control, fixed SVG
- * viewport (no layout shift). Playback runs on an interval (not rAF) and
- * degrades to coarse discrete jumps under prefers-reduced-motion.
+ * input (keyboard-accessible), readouts in the fold, reset control, fixed
+ * SVG viewport (no layout shift). Playback runs on an interval (not rAF)
+ * and degrades to coarse discrete jumps under prefers-reduced-motion.
  */
 
 const WIDTH = CHART_VIEW_WIDTH;
 /** Stage units per world unit: the 100x64 world maps to 320x204.8. */
 const SCALE = 3.2;
 const INSET_X = 10;
-const INSET_Y = 8;
-const HEIGHT = 221;
-const HATCH_ID = 'rrt-explorer-hatch';
+/** The world sits under a band that holds the stage note. */
+const INSET_Y = 44;
+const HEIGHT = Number((INSET_Y + RRT_SCENE.height * SCALE + 8).toFixed(1));
+/** Baseline of the note's last line, and where its leader leaves the band. */
+const NOTE_LAST_Y = 34;
+const NOTE_LEADER_Y = 39;
+const NOTE_X = 12;
+const LINE_STEP = CHART_TYPE.labelPx * 1.25;
+const STAGE_GROUND = 'var(--motion-stage)';
 
 const px = (v: number) => Number((INSET_X + v * SCALE).toFixed(2));
 const py = (v: number) => Number((INSET_Y + v * SCALE).toFixed(2));
@@ -79,34 +90,59 @@ function statusText(iteration: number, goalIteration: number | null): string {
   return 'exploring free space';
 }
 
-/** The fixed world: its boundary, the hatched obstacles and the goal region. */
+/**
+ * The one stage note and the point it names: the found path once a branch
+ * reaches the goal, otherwise the newest branch tip, or the start before
+ * the tree has grown.
+ */
+function stageNote(result: RrtResult, iteration: number, goalReached: boolean) {
+  if (goalReached) {
+    // The path's highest point is where it slips over the wall.
+    const over = result.path.reduce((top, p) => (p.y < top.y ? p : top));
+    return { lines: ['The first branch to reach the goal', 'becomes the path'], at: over };
+  }
+  if (iteration <= 0) return { lines: ['The tree grows from the start'], at: RRT_SCENE.start };
+  return {
+    lines: ['New branches reach toward random spots,', 'so they fill open space first'],
+    at: result.nodes[Math.min(iteration, result.nodes.length - 1)],
+  };
+}
+
+/** A word on the stage, haloed so it reads over the branches. */
+function StageWord({ x, y, children }: { x: number; y: number; children: string }) {
+  return (
+    <text
+      x={x}
+      y={y}
+      textAnchor="middle"
+      fontSize={CHART_TYPE.labelPx}
+      fontWeight={600}
+      fill={CHART_STRUCTURE.label}
+      stroke={STAGE_GROUND}
+      strokeWidth={3}
+      strokeLinejoin="round"
+      paintOrder="stroke"
+    >
+      {children}
+    </text>
+  );
+}
+
+/** The fixed world: its boundary, the soft obstacles and the flagged goal. */
 function PlanningWorld() {
   const constraint = roleColour('constraint');
-  const hatchedObstacle = {
-    fill: `url(#${HATCH_ID})`,
+  const reference = roleColour('reference');
+  const softObstacle = {
+    fill: constraint,
+    fillOpacity: CHART_UNCERTAINTY.fillAlpha,
     stroke: constraint,
-    strokeWidth: CHART_HATCH.width,
+    strokeWidth: CHART_STROKE.structure,
+    strokeOpacity: 0.6,
   };
+  const gx = px(RRT_SCENE.goal.x);
+  const gy = py(RRT_SCENE.goal.y);
   return (
     <>
-      <defs>
-        <pattern
-          id={HATCH_ID}
-          width={CHART_HATCH.spacing}
-          height={CHART_HATCH.spacing}
-          patternUnits="userSpaceOnUse"
-          patternTransform={`rotate(${CHART_HATCH.angle})`}
-        >
-          <line
-            x1={0}
-            y1={0}
-            x2={0}
-            y2={CHART_HATCH.spacing}
-            stroke={constraint}
-            strokeWidth={CHART_HATCH.width}
-          />
-        </pattern>
-      </defs>
       <g data-scene-structure="planning-world">
         <rect
           x={px(0)}
@@ -128,7 +164,7 @@ function PlanningWorld() {
               cx={px(obstacle.x)}
               cy={py(obstacle.y)}
               r={len(obstacle.r)}
-              {...hatchedObstacle}
+              {...softObstacle}
             />
           ) : (
             <rect
@@ -138,21 +174,22 @@ function PlanningWorld() {
               y={py(obstacle.y)}
               width={len(obstacle.w)}
               height={len(obstacle.h)}
-              {...hatchedObstacle}
+              {...softObstacle}
             />
           ),
         )}
       </g>
       <g data-testid="rrt-goal" data-series="rrt-goal" data-chart-role="reference">
         <circle
-          cx={px(RRT_SCENE.goal.x)}
-          cy={py(RRT_SCENE.goal.y)}
+          cx={gx}
+          cy={gy}
           r={len(RRT_SCENE.goalRadius)}
           fill="none"
-          stroke={roleColour('reference')}
+          stroke={reference}
           strokeWidth={CHART_STROKE.reference}
-          strokeDasharray={CHART_STROKE.dash}
         />
+        <line x1={gx} y1={gy} x2={gx} y2={gy - 17} stroke={reference} strokeWidth={CHART_STROKE.reference} strokeLinecap="round" />
+        <path d={`M${gx} ${gy - 17} L${gx + 10} ${gy - 13.5} L${gx} ${gy - 10} Z`} fill={reference} />
       </g>
     </>
   );
@@ -162,7 +199,7 @@ export function RrtExplorer({ className }: { className?: string }) {
   const descriptionId = `${useId()}-description`;
   const result = useMemo(() => buildRrt(RRT_SCENE), []);
   const total = result.nodes.length - 1;
-  const [iteration, setIteration] = useState(0);
+  const [iteration, setIteration] = useState(total);
   const [playing, setPlaying] = useState(false);
   // Track the live preference so a change after mount, including during
   // playback, rebuilds the timer instead of leaving a smooth cadence
@@ -181,7 +218,9 @@ export function RrtExplorer({ className }: { className?: string }) {
   }, []);
 
   // Mirror of `iteration` for the interval callback, so the timer does not
-  // have to be recreated on every tick just to read the latest count.
+  // have to be recreated on every tick just to read the latest count. It
+  // is declared before the playback effect so a replay that rewinds to 0
+  // and starts in one batch seeds the timer from 0.
   const iterationRef = useRef(iteration);
   useEffect(() => {
     iterationRef.current = iteration;
@@ -250,7 +289,16 @@ export function RrtExplorer({ className }: { className?: string }) {
     setIteration(Math.min(total, Math.max(0, next)));
   };
 
-  const reset = () => scrub(0);
+  const reset = () => scrub(total);
+
+  const grow = () => {
+    if (playing) {
+      setPlaying(false);
+      return;
+    }
+    if (iteration >= total) setIteration(0);
+    setPlaying(true);
+  };
 
   const status = statusText(iteration, result.goalNodeId);
   // The path clause has two honest forms: before the connection the
@@ -263,18 +311,36 @@ export function RrtExplorer({ className }: { className?: string }) {
       : 'path length is n/a until a branch first reaches the goal';
   const state = roleColour('state');
   const highlight = roleColour('highlight');
+  const note = stageNote(result, iteration, goalReached);
+  const target: [number, number] = [px(note.at.x), py(note.at.y)];
+  const pathLengthText = goalReached ? `${formatLength(result.pathLength)} units` : 'n/a';
 
   return (
     <InstrumentFigure
       figureId="rrt-explorer"
       className={className}
-      heading="Rapidly-exploring random tree"
+      kicker="Rapidly-exploring random tree (RRT)"
+      heading="Random branches feel their way around obstacles to the goal"
       controls={
         <>
+          <button
+            data-testid="rrt-grow"
+            data-brand-control-id="control:secondary-action"
+            data-pagefind-ignore
+            type="button"
+            onClick={grow}
+            aria-label={playing ? 'Pause the growth' : undefined}
+            className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
+          >
+            {playing ? (
+              <Pause size={14} weight="bold" aria-hidden />
+            ) : (
+              <Play size={14} weight="bold" aria-hidden />
+            )}
+            {playing ? 'Pause' : 'Grow the tree'}
+          </button>
           <ControlField>
-            <ControlLabel htmlFor="rrt-iteration" value={`${iteration} / ${total}`}>
-              Exploration iteration
-            </ControlLabel>
+            <ControlLabel htmlFor="rrt-iteration">How far the search has grown</ControlLabel>
             <input
               id="rrt-iteration"
               type="range"
@@ -284,28 +350,15 @@ export function RrtExplorer({ className }: { className?: string }) {
               step={1}
               value={iteration}
               onChange={(e) => scrub(Number(e.target.value))}
-              aria-label={`Exploration iteration, currently ${iteration} of ${total}`}
+              aria-label={`How far the search has grown: exploration iteration ${iteration} of ${total}`}
               className={INSTRUMENT_SLIDER_CLASS}
             />
+            <SliderEnds low="beginning" high="path found" />
           </ControlField>
-          <button
-            data-brand-control-id="control:secondary-action"
-            data-pagefind-ignore
-            type="button"
-            onClick={() => setPlaying((p) => !p)}
-            disabled={!playing && iteration >= total}
-            aria-label={
-              playing ? 'Pause the exploration' : 'Run the exploration'
-            }
-            className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
-          >
-            {playing ? (
-              <Pause size={14} weight="bold" aria-hidden />
-            ) : (
-              <Play size={14} weight="bold" aria-hidden />
-            )}
-            {playing ? 'Pause' : 'Run'}
-          </button>
+        </>
+      }
+      adjust={
+        <>
           <button
             data-brand-control-id="control:secondary-action"
             data-pagefind-ignore
@@ -317,6 +370,26 @@ export function RrtExplorer({ className }: { className?: string }) {
             Step forward
           </button>
           <InstrumentReset onClick={reset} />
+          <InstrumentReadout className="flex basis-full flex-wrap gap-x-3">
+            <span>
+              iteration{' '}
+              <span ref={cadenceSignalRef} data-testid="rrt-iteration-readout">
+                <StageNumber>
+                  {iteration} / {total}
+                </StageNumber>
+              </span>
+            </span>
+            <span>
+              nodes <StageNumber data-testid="rrt-node-readout">{nodes.length}</StageNumber>
+            </span>
+            <span data-testid="rrt-status-readout">{status}</span>
+            <span>
+              path length{' '}
+              <span data-testid="rrt-path-readout" style={goalReached ? { color: highlight } : undefined}>
+                {pathLengthText}
+              </span>
+            </span>
+          </InstrumentReadout>
         </>
       }
       stage={
@@ -325,57 +398,14 @@ export function RrtExplorer({ className }: { className?: string }) {
             <>
               <InstrumentLegend>
                 <LegendItem series="rrt-tree" swatch={<LegendSwatch role="state" mark="line" />}>
-                  tree
+                  tree branches
                 </LegendItem>
-                <LegendItem swatch={<LegendSwatch role="state" mark="dot" />}>start</LegendItem>
-                <LegendItem series="rrt-obstacles" swatch={<LegendSwatch role="constraint" mark="hatch" />}>
+                <LegendItem series="rrt-obstacles" swatch={<LegendSwatch role="constraint" mark="band" />}>
                   obstacle
                 </LegendItem>
-                <LegendItem series="rrt-goal" swatch={<LegendSwatch role="reference" mark="dash" />}>
-                  goal region
-                </LegendItem>
-                <LegendItem swatch={<LegendSwatch role="highlight" mark="line" />}>
-                  highlighted start-to-goal path
-                </LegendItem>
+                <LegendItem swatch={<LegendSwatch role="highlight" mark="line" />}>path found</LegendItem>
               </InstrumentLegend>
-              <InstrumentReadout className="flex flex-wrap gap-x-3">
-                <span>
-                  iteration{' '}
-                  <span ref={cadenceSignalRef} data-testid="rrt-iteration-readout">
-                    <StageNumber>
-                      {iteration} / {total}
-                    </StageNumber>
-                  </span>
-                </span>
-                <span>
-                  nodes <StageNumber data-testid="rrt-node-readout">{nodes.length}</StageNumber>
-                </span>
-                <span data-testid="rrt-status-readout">{status}</span>
-                <span>
-                  path length{' '}
-                  <span
-                    data-testid="rrt-path-readout"
-                    style={goalReached ? { color: highlight } : undefined}
-                  >
-                    {goalReached ? `${formatLength(result.pathLength)} units` : 'n/a'}
-                  </span>
-                </span>
-              </InstrumentReadout>
-              <ChartDescription
-                id={descriptionId}
-                form="state"
-                summary="Current RRT tree state"
-                description={`The RRT tree is at iteration ${iteration} of ${total} with ${nodes.length} ${nodes.length === 1 ? 'node' : 'nodes'} and status ${status}; ${pathClause}.`}
-                states={[
-                  { label: 'iteration', value: `${iteration} / ${total}` },
-                  { label: 'nodes', value: String(nodes.length) },
-                  { label: 'status', value: status },
-                  {
-                    label: 'path length',
-                    value: goalReached ? `${formatLength(result.pathLength)} units` : 'n/a',
-                  },
-                ]}
-              />
+              <StageStatus>Illustrative: one run on a made-up map</StageStatus>
             </>
           }
         >
@@ -386,7 +416,7 @@ export function RrtExplorer({ className }: { className?: string }) {
             data-testid="rrt-scene"
           >
             <PlanningWorld />
-            <g data-testid="rrt-tree" data-series="rrt-tree" data-chart-role="state">
+            <g data-testid="rrt-tree" data-series="rrt-tree" data-chart-role="state" strokeOpacity={0.5}>
               {edges.map((edge) => (
                 <line
                   key={edge.to.id}
@@ -414,7 +444,7 @@ export function RrtExplorer({ className }: { className?: string }) {
               />
             ) : null}
             {/* The start is the tree's root, so it joins the tree series; it
-                is drawn last so neither the tree nor the path covers it. */}
+                is drawn after the tree so neither the tree nor the path covers it. */}
             <g data-testid="rrt-start" data-series="rrt-tree" data-chart-role="state">
               <circle
                 cx={px(RRT_SCENE.start.x)}
@@ -423,11 +453,44 @@ export function RrtExplorer({ className }: { className?: string }) {
                 fill={state}
               />
             </g>
+            <StageWord x={px(RRT_SCENE.start.x)} y={py(RRT_SCENE.start.y) + 22}>Start</StageWord>
+            <StageWord x={px(RRT_SCENE.goal.x)} y={py(RRT_SCENE.goal.y) + len(RRT_SCENE.goalRadius) + 18}>
+              Goal
+            </StageWord>
+            <StageAnnotation
+              x={NOTE_X}
+              y={NOTE_LAST_Y - LINE_STEP * (note.lines.length - 1)}
+              lines={note.lines}
+              target={target}
+              from={[Math.min(Math.max(target[0], NOTE_X + 8), 140), NOTE_LEADER_Y]}
+            />
           </PlotStage>
         </FigureStage>
       }
-      caption="Each accepted step grows from the tree node nearest a random sample, so the tree spreads into open space."
-      source="Authored fixed-seed scene. Each sampling attempt selects the goal with probability 1.5% and otherwise samples uniformly; steps are capped at 2 world units."
+      caption="Rather than check every route, the robot's search grows random branches into open space until one reaches the goal."
+      method={
+        <>
+          <p>
+            Authored fixed-seed scene. Each sampling attempt selects the goal with probability 1.5% and otherwise
+            samples uniformly; steps are capped at 2 world units. Each accepted step grows from the tree node
+            nearest a random sample, so the tree spreads into open space. Every iteration adds one node; with this
+            seed a branch first reaches the goal at iteration {goalIteration ?? total}, and the path it gives
+            measures {formatLength(result.pathLength)} units.
+          </p>
+          <ChartDescription
+            id={descriptionId}
+            form="state"
+            summary="Current RRT tree state"
+            description={`The RRT tree is at iteration ${iteration} of ${total} with ${nodes.length} ${nodes.length === 1 ? 'node' : 'nodes'} and status ${status}; ${pathClause}.`}
+            states={[
+              { label: 'iteration', value: `${iteration} / ${total}` },
+              { label: 'nodes', value: String(nodes.length) },
+              { label: 'status', value: status },
+              { label: 'path length', value: pathLengthText },
+            ]}
+          />
+        </>
+      }
     />
   );
 }

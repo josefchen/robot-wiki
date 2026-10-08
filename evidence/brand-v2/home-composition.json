@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "fingerprint": "71e2fd0e30a7634868c6475411cd5d198c41e4c0ba91a8219cd3ca79cbe6f0f4",
+  "fingerprint": "87275e411fb8cc022870a1ae9d6343ba076c1820f5c9fe5ba217c20c050303b4",
   "viewport": "1440x900",
   "route": "/",
-  "visibleTextLength": 2920,
+  "visibleTextLength": 2955,
   "documentScrollWidthPx": 1440,
   "documentClientWidthPx": 1440,
   "heroLockups": [
@@ -610,8 +610,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "What Is a World Model?",
-      "href": "/world-models/taxonomy/",
+      "accessibleName": "Generative Simulation",
+      "href": "/world-models/generative-sim/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 932.28,
@@ -718,8 +718,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Robot Calibration",
-      "href": "/classical/calibration/",
+      "accessibleName": "Kinematics",
+      "href": "/classical/kinematics/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2392.34,
@@ -727,8 +727,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "ROS 2 for Machine Learning Engineers",
-      "href": "/classical/ros2-for-ml-engineers/",
+      "accessibleName": "Control",
+      "href": "/classical/control/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2423.34,
@@ -736,8 +736,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Control",
-      "href": "/classical/control/",
+      "accessibleName": "Perception for Manipulation",
+      "href": "/classical/perception/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2454.34,
@@ -745,8 +745,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Grasp Planning",
-      "href": "/classical/grasp-planning/",
+      "accessibleName": "Robot Calibration",
+      "href": "/classical/calibration/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2485.34,
@@ -754,8 +754,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Kinematics",
-      "href": "/classical/kinematics/",
+      "accessibleName": "ROS 2 for Machine Learning Engineers",
+      "href": "/classical/ros2-for-ml-engineers/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2516.34,
@@ -985,8 +985,8 @@
     {
       "label": "Featured article",
       "signature": "plain/module-heading/lead-excerpt",
-      "prose": "A world model is a model that predicts how an environment evolves in a form useful for a robot's decisions.",
-      "text": "Featured article What Is a World Model? A world model is a model that predicts how an environment evolves in a form useful for a robot's decisions."
+      "prose": "Generative simulation is the use of generative models to author a simulator's content while the dynamics stay in a physics engine.",
+      "text": "Featured article Generative Simulation Generative simulation is the use of generative models to author a simulator's content while the dynamics stay in a physics engine."
     },
     {
       "label": "Featured scene",
@@ -1004,7 +1004,7 @@
       "label": "Recently updated",
       "signature": "plain/module-heading/dated-links",
       "prose": "",
-      "text": "Recently updated 2026-10-07 Robot Calibration 2026-10-07 ROS 2 for Machine Learning Engineers 2026-10-07 Control 2026-10-07 Grasp Planning 2026-10-07 Kinematics"
+      "text": "Recently updated 2026-10-08 Kinematics 2026-10-08 Control 2026-10-08 Perception for Manipulation 2026-10-07 Robot Calibration 2026-10-07 ROS 2 for Machine Learning Engineers"
     },
     {
       "label": "Tools",

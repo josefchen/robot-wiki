@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/classical/control/",
+  "mount": "mount:/classical/control/:PendulumController:1",
+  "screenshots": {
+    "375": "evidence/reader-first/classical--control--pendulum-controller.375.png",
+    "1280": "evidence/reader-first/classical--control--pendulum-controller.1280.png"
+  },
+  "takeaway": "To hold the pole upright the motor must push back harder than gravity pulls; push too gently and the pole sags over.",
+  "sentence": "To keep a pole balanced upright, the motor at its base has to push back harder than gravity pulls it over, because a gentle correction lets it fall.",
+  "unclearTerms": [
+    "Correction strength",
+    "the small green triangle or arrowhead near the pole, just below the 'upright' line",
+    "the green line sticking out down-left from the base: is it the motor's push or a pointer to the label?",
+    "the circles around the base of the pole",
+    "whether 'Too gentle' or 'Strong enough' is currently selected",
+    "Adjust more"
+  ],
+  "samePoint": "yes",
+  "reason": "My sentence says the motor must push back harder than gravity and a gentle correction lets the pole fall, which matches.",
+  "verdict": "fail",
+  "screenshotCommit": "0e0d9540ac9737d4b8ea94c1210852e27417110d",
+  "date": "2026-10-08",
+  "reviewerSession": "reader-session-3ddc4e3a",
+  "sourceDigest": "9adb73289ffe9b1ce1d7b6e44f7d779e52b3cfed57944ebe35f42c8038a1ece2"
+}

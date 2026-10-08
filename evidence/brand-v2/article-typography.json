@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "0aec8c34ecaaccb985e46ca56bb0557424c2af9782a8dd8b4d57ebb1430c3ce3",
+  "fingerprint": "a597c3be1f13ff177092c67184378dc9a09b272593f837b1eb366f89c464b705",
   "viewports": [
     "375x812",
     "1440x900"
@@ -143,7 +143,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3072,
+      "visibleTextLength": 3107,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -4092,7 +4092,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 1599,
+      "visibleTextLength": 1710,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -4328,7 +4328,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 17107,
+      "visibleTextLength": 17069,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -4500,7 +4500,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Schematic: errors from three different studies, not one robo"
+          "text": "Schematic: not drawn to scale"
         },
         {
           "familyHead": "ibm plex sans",
@@ -5068,7 +5068,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27242,
+      "visibleTextLength": 26580,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -5225,14 +5225,23 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 335,
+          "widthPx": 92,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "angle +12.0°rate +0.0°/sintegral 0.00torque -2.0 N·mstatus h"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "A deterministic simulation: a 1 kg point mass on a massless "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
@@ -5459,19 +5468,28 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 332,
+          "widthPx": 92,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "steady 1.6 Npeak 23.7 Noutcome task succeeded"
+          "text": "softness 800 N/msettles at 1.6 Npeak 23.7 Noutcome object in"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "An illustrative model, not measured: a 4 kg fingertip mass s"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "On the torque-controlled arm at depth 2.0 mm, stiffness 800 "
+          "text": "On the arm that controls its own push at press depth 2.0 mm,"
         },
         {
           "familyHead": "newsreader",
@@ -5893,6 +5911,38 @@
         },
         {
           "tag": "button",
+          "text": "Too gentle",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Strong enough",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Give it a push",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Run",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
@@ -5901,15 +5951,15 @@
         },
         {
           "tag": "button",
-          "text": "Push",
+          "text": "Reset",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
         {
-          "tag": "button",
-          "text": "Reset",
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -5932,8 +5982,24 @@
           "controlId": "control:secondary-action"
         },
         {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
           "tag": "button",
           "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -6014,7 +6080,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19700,
+      "visibleTextLength": 19795,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -6857,7 +6923,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18500,
+      "visibleTextLength": 18517,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -6917,7 +6983,7 @@
         "h1Count": 1,
         "h1Text": "Kinematics",
         "summaryCount": 1,
-        "summaryText": "Forward and inverse kinematics, DH parameters, and the Jacobian; the theory behi",
+        "summaryText": "How joint angles place a robot's hand, and how to find the angles that reach a t",
         "breadcrumbLabels": [
           "Home",
           "Classical Foundations",
@@ -6996,19 +7062,28 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 235,
+          "widthPx": 92,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "end effector x +0.45 y +1.89 link units"
+          "text": "shoulder 110°; hand at x +0.45, y +1.89 link units from the "
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Computed on chosen link lengths of 1.00, 0.75 and 0.55 link "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "With base 110 degrees, elbow -45 degrees and wrist -35 degre"
+          "text": "With the shoulder at 110 degrees, the elbow at -45 degrees a"
         },
         {
           "familyHead": "newsreader",
@@ -7107,7 +7182,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A revolute joint iii with axis ziz_izi​ at pip_ipi​ contribu"
+          "text": "In Modern Robotics' space Jacobian, column iii is joint iii'"
         },
         {
           "familyHead": "newsreader",
@@ -7384,7 +7459,7 @@
         },
         {
           "kind": "citation",
-          "count": 104,
+          "count": 108,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -7394,7 +7469,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 104,
+              "count": 108,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -7574,7 +7649,47 @@
         },
         {
           "tag": "button",
+          "text": "Reach up",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Reach out",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Tuck in",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -7639,7 +7754,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 29071,
+      "visibleTextLength": 28896,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -7784,19 +7899,37 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 335,
+          "widthPx": 92,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "iteration 0 / 288nodes 1tree not startedpath length n/a"
+          "text": "iteration 288 / 288nodes 289goal reached at iteration 288pat"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative: one run on a made-up map"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Authored fixed-seed scene. Each sampling attempt selects the"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "The RRT tree is at iteration 0 of 288 with 1 node and status"
+          "text": "The RRT tree is at iteration 288 of 288 with 289 nodes and s"
         },
         {
           "familyHead": "newsreader",
@@ -8549,7 +8682,15 @@
         },
         {
           "tag": "button",
-          "text": "Run",
+          "text": "Grow the tree",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -8566,6 +8707,14 @@
         {
           "tag": "button",
           "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -8614,7 +8763,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 41534,
+      "visibleTextLength": 39970,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -8674,18 +8823,18 @@
         "h1Count": 1,
         "h1Text": "Perception for Manipulation",
         "summaryCount": 1,
-        "summaryText": "Calibration through 6-DoF pose: the pipeline that finds the object, and its erro",
+        "summaryText": "How a robot turns camera images into an object's position and orientation: calib",
         "breadcrumbLabels": [
           "Home",
           "Classical Foundations",
           "Perception for Manipulation"
         ],
         "lastReviewed": "2026-08-22",
-        "readingMinutes": 22,
+        "readingMinutes": 21,
         "citationCount": 61,
         "reviewDateText": "22 August 2026",
         "reviewDateTime": "2026-08-22",
-        "readingTimeText": "22 min",
+        "readingTimeText": "21 min",
         "citationCountText": "61",
         "bibliographyIds": [
           "zhang-2000-calibration",
@@ -8779,7 +8928,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 335,
+          "widthPx": 92,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "composed 11.32 mm · depth term 10.00 mm at 2.0% · model band"
@@ -8788,14 +8937,50 @@
           "familyHead": "ibm plex sans",
           "sizePx": 13,
           "lineHeightRatio": 1.38,
-          "widthPx": 335,
+          "widthPx": 92,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "The opaque box case uses an authored depth floor of 2% of th"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: the tilt is drawn far steeper than it is"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is the hand-eye term of the budget: a line of si"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The depth term here is modelled as range-independent, evalua"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 1,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "A camera's assumed line of sight is tilted 0.5 degrees from "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
@@ -9589,8 +9774,32 @@
           "controlId": "control:secondary-action"
         },
         {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
           "tag": "button",
           "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Current camera tilt and miss",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -9751,7 +9960,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15230,
+      "visibleTextLength": 15243,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -11457,7 +11666,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24025,
+      "visibleTextLength": 24126,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -11600,10 +11809,10 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 208.47,
+          "widthPx": 0,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "beat 5 / 5 σ 0.94 → 1.27 → 0.79 K 0.62 z 0.82"
+          "text": "beat 5 / 5"
         },
         {
           "familyHead": "ibm plex sans",
@@ -11612,7 +11821,43 @@
           "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Schematic of step 41 of the seeded constant-velocity filter "
+          "text": "Illustrative: one step of a simulated robot, drawn to scale."
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "In symbols, the update is x^k=x^k−+K(z−x^k−)\\hat{x}_k = \\hat"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Here the gain is 0.62, the reading is 0.82, the predicted po"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The bells are step 41 of the seeded constant-velocity filter"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The steps, in order:"
         },
         {
           "familyHead": "newsreader",
@@ -11685,6 +11930,51 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "McGee and Schmidt's 1985 NASA history credits Schmidt's Ames"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "A seeded toy simulation (seed 1): a target drifts along a li"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Each step has two halves, which Kalman filters call predict "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The band spans two standard deviations either side of the fi"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The note marks steps 436 to 439, the longest run of missing "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The clip is rendered offline from the same filter code as th"
         },
         {
           "familyHead": "newsreader",
@@ -12182,6 +12472,30 @@
         {
           "tag": "button",
           "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play the run",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -15223,7 +15537,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26529,
+      "visibleTextLength": 26591,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -17881,7 +18195,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15349,
+      "visibleTextLength": 15398,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -25162,7 +25476,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 22472,
+      "visibleTextLength": 22521,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -26205,7 +26519,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18307,
+      "visibleTextLength": 18377,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -28857,7 +29171,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19669,
+      "visibleTextLength": 19718,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -32594,7 +32908,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24043,
+      "visibleTextLength": 24105,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -37637,7 +37951,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15616,
+      "visibleTextLength": 15686,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -38449,7 +38763,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23765,
+      "visibleTextLength": 23827,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -51615,7 +51929,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16253,
+      "visibleTextLength": 16315,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -55743,7 +56057,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 3310,
+      "visibleTextLength": 3345,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -59692,7 +60006,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 2036,
+      "visibleTextLength": 2147,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -59928,7 +60242,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 17544,
+      "visibleTextLength": 17506,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -60100,7 +60414,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Schematic: errors from three different studies, not one robo"
+          "text": "Schematic: not drawn to scale"
         },
         {
           "familyHead": "ibm plex sans",
@@ -60668,7 +60982,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27679,
+      "visibleTextLength": 27017,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -60825,14 +61139,23 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 542,
+          "widthPx": 92,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "angle +12.0°rate +0.0°/sintegral 0.00torque -2.0 N·mstatus h"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "A deterministic simulation: a 1 kg point mass on a massless "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
@@ -61059,19 +61382,28 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 332,
+          "widthPx": 92,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "steady 1.6 Npeak 23.7 Noutcome task succeeded"
+          "text": "softness 800 N/msettles at 1.6 Npeak 23.7 Noutcome object in"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "An illustrative model, not measured: a 4 kg fingertip mass s"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "On the torque-controlled arm at depth 2.0 mm, stiffness 800 "
+          "text": "On the arm that controls its own push at press depth 2.0 mm,"
         },
         {
           "familyHead": "newsreader",
@@ -61493,6 +61825,38 @@
         },
         {
           "tag": "button",
+          "text": "Too gentle",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Strong enough",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Give it a push",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Run",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
@@ -61501,15 +61865,15 @@
         },
         {
           "tag": "button",
-          "text": "Push",
+          "text": "Reset",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
         {
-          "tag": "button",
-          "text": "Reset",
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -61532,8 +61896,24 @@
           "controlId": "control:secondary-action"
         },
         {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
           "tag": "button",
           "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -61614,7 +61994,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20137,
+      "visibleTextLength": 20232,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -62457,7 +62837,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18937,
+      "visibleTextLength": 18954,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -62517,7 +62897,7 @@
         "h1Count": 1,
         "h1Text": "Kinematics",
         "summaryCount": 1,
-        "summaryText": "Forward and inverse kinematics, DH parameters, and the Jacobian; the theory behi",
+        "summaryText": "How joint angles place a robot's hand, and how to find the angles that reach a t",
         "breadcrumbLabels": [
           "Home",
           "Classical Foundations",
@@ -62596,19 +62976,28 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 235,
+          "widthPx": 92,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "end effector x +0.45 y +1.89 link units"
+          "text": "shoulder 110°; hand at x +0.45, y +1.89 link units from the "
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Computed on chosen link lengths of 1.00, 0.75 and 0.55 link "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "With base 110 degrees, elbow -45 degrees and wrist -35 degre"
+          "text": "With the shoulder at 110 degrees, the elbow at -45 degrees a"
         },
         {
           "familyHead": "newsreader",
@@ -62707,7 +63096,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A revolute joint iii with axis ziz_izi​ at pip_ipi​ contribu"
+          "text": "In Modern Robotics' space Jacobian, column iii is joint iii'"
         },
         {
           "familyHead": "newsreader",
@@ -62984,7 +63373,7 @@
         },
         {
           "kind": "citation",
-          "count": 104,
+          "count": 108,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -62994,7 +63383,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-              "count": 104,
+              "count": 108,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -63174,7 +63563,47 @@
         },
         {
           "tag": "button",
+          "text": "Reach up",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Reach out",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Tuck in",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -63239,7 +63668,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 29508,
+      "visibleTextLength": 29333,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -63384,19 +63813,37 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 384,
+          "widthPx": 92,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "iteration 0 / 288nodes 1tree not startedpath length n/a"
+          "text": "iteration 288 / 288nodes 289goal reached at iteration 288pat"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative: one run on a made-up map"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Authored fixed-seed scene. Each sampling attempt selects the"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "The RRT tree is at iteration 0 of 288 with 1 node and status"
+          "text": "The RRT tree is at iteration 288 of 288 with 289 nodes and s"
         },
         {
           "familyHead": "newsreader",
@@ -64149,7 +64596,15 @@
         },
         {
           "tag": "button",
-          "text": "Run",
+          "text": "Grow the tree",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -64166,6 +64621,14 @@
         {
           "tag": "button",
           "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -64214,7 +64677,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 41971,
+      "visibleTextLength": 40407,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -64274,18 +64737,18 @@
         "h1Count": 1,
         "h1Text": "Perception for Manipulation",
         "summaryCount": 1,
-        "summaryText": "Calibration through 6-DoF pose: the pipeline that finds the object, and its erro",
+        "summaryText": "How a robot turns camera images into an object's position and orientation: calib",
         "breadcrumbLabels": [
           "Home",
           "Classical Foundations",
           "Perception for Manipulation"
         ],
         "lastReviewed": "2026-08-22",
-        "readingMinutes": 22,
+        "readingMinutes": 21,
         "citationCount": 61,
         "reviewDateText": "22 August 2026",
         "reviewDateTime": "2026-08-22",
-        "readingTimeText": "22 min",
+        "readingTimeText": "21 min",
         "citationCountText": "61",
         "bibliographyIds": [
           "zhang-2000-calibration",
@@ -64379,7 +64842,7 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 530,
+          "widthPx": 92,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "composed 11.32 mm · depth term 10.00 mm at 2.0% · model band"
@@ -64388,14 +64851,50 @@
           "familyHead": "ibm plex sans",
           "sizePx": 13,
           "lineHeightRatio": 1.38,
-          "widthPx": 715,
+          "widthPx": 92,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "The opaque box case uses an authored depth floor of 2% of th"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: the tilt is drawn far steeper than it is"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is the hand-eye term of the budget: a line of si"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The depth term here is modelled as range-independent, evalua"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 1,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "A camera's assumed line of sight is tilted 0.5 degrees from "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
@@ -65189,8 +65688,32 @@
           "controlId": "control:secondary-action"
         },
         {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
           "tag": "button",
           "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Current camera tilt and miss",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -65351,7 +65874,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15667,
+      "visibleTextLength": 15680,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -67057,7 +67580,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24462,
+      "visibleTextLength": 24563,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -67200,10 +67723,10 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 208.47,
+          "widthPx": 0,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "beat 5 / 5 σ 0.94 → 1.27 → 0.79 K 0.62 z 0.82"
+          "text": "beat 5 / 5"
         },
         {
           "familyHead": "ibm plex sans",
@@ -67212,7 +67735,43 @@
           "widthPx": 715,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Schematic of step 41 of the seeded constant-velocity filter "
+          "text": "Illustrative: one step of a simulated robot, drawn to scale."
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "In symbols, the update is x^k=x^k−+K(z−x^k−)\\hat{x}_k = \\hat"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Here the gain is 0.62, the reading is 0.82, the predicted po"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The bells are step 41 of the seeded constant-velocity filter"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The steps, in order:"
         },
         {
           "familyHead": "newsreader",
@@ -67285,6 +67844,51 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "McGee and Schmidt's 1985 NASA history credits Schmidt's Ames"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "A seeded toy simulation (seed 1): a target drifts along a li"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Each step has two halves, which Kalman filters call predict "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The band spans two standard deviations either side of the fi"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The note marks steps 436 to 439, the longest run of missing "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The clip is rendered offline from the same filter code as th"
         },
         {
           "familyHead": "newsreader",
@@ -67782,6 +68386,30 @@
         {
           "tag": "button",
           "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play the run",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -70823,7 +71451,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26924,
+      "visibleTextLength": 26986,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -73481,7 +74109,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15744,
+      "visibleTextLength": 15793,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -80762,7 +81390,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 23115,
+      "visibleTextLength": 23164,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -81805,7 +82433,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18950,
+      "visibleTextLength": 19020,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -84457,7 +85085,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20312,
+      "visibleTextLength": 20361,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -88194,7 +88822,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24686,
+      "visibleTextLength": 24748,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -93237,7 +93865,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16259,
+      "visibleTextLength": 16329,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -94049,7 +94677,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24408,
+      "visibleTextLength": 24470,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -107215,7 +107843,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16753,
+      "visibleTextLength": 16815,
       "tekturRoles": [
         {
           "role": "shell-wordmark",

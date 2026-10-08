@@ -1,30 +1,42 @@
 {
   "375 reduced poster": {
-    "textCount": 10,
-    "markCount": 10,
+    "textCount": 4,
+    "markCount": 8,
     "intersections": [],
     "overflow": [],
     "contrast": [
       {
-        "control": "Play the motion scene: Kalman filter: predict and update",
+        "control": "Play the motion scene: Kalman filter: guess, measure, blend",
         "ratio": 19.67,
         "foreground": "rgb(255, 255, 255)",
         "background": "rgb(11, 11, 12)"
       },
       {
-        "control": "Step back one beat",
+        "control": "Adjust more",
         "ratio": 12.95,
         "foreground": "rgb(36, 45, 51)",
         "background": "rgb(245, 246, 247)"
+      },
+      {
+        "control": "Step back one beat",
+        "ratio": 19.67,
+        "foreground": "rgb(11, 11, 12)",
+        "background": "rgb(255, 255, 255)"
       },
       {
         "control": "Step forward one beat",
-        "ratio": 12.95,
-        "foreground": "rgb(36, 45, 51)",
-        "background": "rgb(245, 246, 247)"
+        "ratio": 19.67,
+        "foreground": "rgb(11, 11, 12)",
+        "background": "rgb(255, 255, 255)"
       },
       {
         "control": "Reset the scene to its poster still",
+        "ratio": 19.67,
+        "foreground": "rgb(11, 11, 12)",
+        "background": "rgb(255, 255, 255)"
+      },
+      {
+        "control": "How this was made",
         "ratio": 12.95,
         "foreground": "rgb(36, 45, 51)",
         "background": "rgb(245, 246, 247)"
@@ -33,31 +45,43 @@
     "lowContrast": []
   },
   "375 poster": {
-    "textCount": 10,
-    "markCount": 10,
+    "textCount": 4,
+    "markCount": 8,
     "intersections": [],
     "overflow": [],
     "contrast": [
       {
-        "control": "Play the motion scene: Kalman filter: predict and update",
+        "control": "Play the motion scene: Kalman filter: guess, measure, blend",
         "ratio": 19.67,
         "foreground": "rgb(255, 255, 255)",
         "background": "rgb(11, 11, 12)"
       },
       {
-        "control": "Step back one beat",
+        "control": "Adjust more",
         "ratio": 12.95,
         "foreground": "rgb(36, 45, 51)",
         "background": "rgb(245, 246, 247)"
+      },
+      {
+        "control": "Step back one beat",
+        "ratio": 19.67,
+        "foreground": "rgb(11, 11, 12)",
+        "background": "rgb(255, 255, 255)"
       },
       {
         "control": "Step forward one beat",
-        "ratio": 12.95,
-        "foreground": "rgb(36, 45, 51)",
-        "background": "rgb(245, 246, 247)"
+        "ratio": 19.67,
+        "foreground": "rgb(11, 11, 12)",
+        "background": "rgb(255, 255, 255)"
       },
       {
         "control": "Reset the scene to its poster still",
+        "ratio": 19.67,
+        "foreground": "rgb(11, 11, 12)",
+        "background": "rgb(255, 255, 255)"
+      },
+      {
+        "control": "How this was made",
         "ratio": 12.95,
         "foreground": "rgb(36, 45, 51)",
         "background": "rgb(245, 246, 247)"
@@ -66,8 +90,8 @@
     "lowContrast": []
   },
   "375 beat 1": {
-    "textCount": 9,
-    "markCount": 3,
+    "textCount": 1,
+    "markCount": 2,
     "intersections": [],
     "overflow": [],
     "contrast": [
@@ -78,35 +102,47 @@
         "background": "rgb(36, 45, 51)"
       },
       {
-        "control": "Step back one beat",
-        "ratio": 18.18,
-        "foreground": "rgb(11, 11, 12)",
+        "control": "Adjust more",
+        "ratio": 12.95,
+        "foreground": "rgb(36, 45, 51)",
         "background": "rgb(245, 246, 247)"
+      },
+      {
+        "control": "Step back one beat",
+        "ratio": 19.67,
+        "foreground": "rgb(11, 11, 12)",
+        "background": "rgb(255, 255, 255)"
       },
       {
         "control": "Step forward one beat",
-        "ratio": 18.18,
+        "ratio": 19.67,
         "foreground": "rgb(11, 11, 12)",
-        "background": "rgb(245, 246, 247)"
+        "background": "rgb(255, 255, 255)"
       },
       {
         "control": "Reset the scene to its poster still",
-        "ratio": 18.18,
+        "ratio": 19.67,
         "foreground": "rgb(11, 11, 12)",
-        "background": "rgb(245, 246, 247)"
+        "background": "rgb(255, 255, 255)"
       },
       {
         "control": "Scene timeline",
-        "ratio": 11.83,
-        "foreground": "rgb(198, 255, 25)",
-        "background": "rgb(36, 45, 51)"
+        "ratio": 12.95,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(245, 246, 247)"
+      },
+      {
+        "control": "How this was made",
+        "ratio": 12.95,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(245, 246, 247)"
       }
     ],
     "lowContrast": []
   },
   "375 beat 2": {
-    "textCount": 9,
-    "markCount": 5,
+    "textCount": 2,
+    "markCount": 4,
     "intersections": [],
     "overflow": [],
     "contrast": [
@@ -117,34 +153,46 @@
         "background": "rgb(36, 45, 51)"
       },
       {
-        "control": "Step back one beat",
-        "ratio": 18.18,
-        "foreground": "rgb(11, 11, 12)",
+        "control": "Adjust more",
+        "ratio": 12.95,
+        "foreground": "rgb(36, 45, 51)",
         "background": "rgb(245, 246, 247)"
+      },
+      {
+        "control": "Step back one beat",
+        "ratio": 19.67,
+        "foreground": "rgb(11, 11, 12)",
+        "background": "rgb(255, 255, 255)"
       },
       {
         "control": "Step forward one beat",
-        "ratio": 18.18,
+        "ratio": 19.67,
         "foreground": "rgb(11, 11, 12)",
-        "background": "rgb(245, 246, 247)"
+        "background": "rgb(255, 255, 255)"
       },
       {
         "control": "Reset the scene to its poster still",
-        "ratio": 18.18,
+        "ratio": 19.67,
         "foreground": "rgb(11, 11, 12)",
-        "background": "rgb(245, 246, 247)"
+        "background": "rgb(255, 255, 255)"
       },
       {
         "control": "Scene timeline",
-        "ratio": 11.83,
-        "foreground": "rgb(198, 255, 25)",
-        "background": "rgb(36, 45, 51)"
+        "ratio": 12.95,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(245, 246, 247)"
+      },
+      {
+        "control": "How this was made",
+        "ratio": 12.95,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(245, 246, 247)"
       }
     ],
     "lowContrast": []
   },
   "375 beat 3": {
-    "textCount": 9,
+    "textCount": 3,
     "markCount": 8,
     "intersections": [],
     "overflow": [],
@@ -156,35 +204,47 @@
         "background": "rgb(36, 45, 51)"
       },
       {
-        "control": "Step back one beat",
-        "ratio": 18.18,
-        "foreground": "rgb(11, 11, 12)",
+        "control": "Adjust more",
+        "ratio": 12.95,
+        "foreground": "rgb(36, 45, 51)",
         "background": "rgb(245, 246, 247)"
+      },
+      {
+        "control": "Step back one beat",
+        "ratio": 19.67,
+        "foreground": "rgb(11, 11, 12)",
+        "background": "rgb(255, 255, 255)"
       },
       {
         "control": "Step forward one beat",
-        "ratio": 18.18,
+        "ratio": 19.67,
         "foreground": "rgb(11, 11, 12)",
-        "background": "rgb(245, 246, 247)"
+        "background": "rgb(255, 255, 255)"
       },
       {
         "control": "Reset the scene to its poster still",
-        "ratio": 18.18,
+        "ratio": 19.67,
         "foreground": "rgb(11, 11, 12)",
-        "background": "rgb(245, 246, 247)"
+        "background": "rgb(255, 255, 255)"
       },
       {
         "control": "Scene timeline",
-        "ratio": 11.83,
-        "foreground": "rgb(198, 255, 25)",
-        "background": "rgb(36, 45, 51)"
+        "ratio": 12.95,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(245, 246, 247)"
+      },
+      {
+        "control": "How this was made",
+        "ratio": 12.95,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(245, 246, 247)"
       }
     ],
     "lowContrast": []
   },
   "375 beat 4": {
-    "textCount": 10,
-    "markCount": 10,
+    "textCount": 13,
+    "markCount": 8,
     "intersections": [],
     "overflow": [],
     "contrast": [
@@ -195,35 +255,47 @@
         "background": "rgb(36, 45, 51)"
       },
       {
-        "control": "Step back one beat",
-        "ratio": 18.18,
-        "foreground": "rgb(11, 11, 12)",
+        "control": "Adjust more",
+        "ratio": 12.95,
+        "foreground": "rgb(36, 45, 51)",
         "background": "rgb(245, 246, 247)"
+      },
+      {
+        "control": "Step back one beat",
+        "ratio": 19.67,
+        "foreground": "rgb(11, 11, 12)",
+        "background": "rgb(255, 255, 255)"
       },
       {
         "control": "Step forward one beat",
-        "ratio": 18.18,
+        "ratio": 19.67,
         "foreground": "rgb(11, 11, 12)",
-        "background": "rgb(245, 246, 247)"
+        "background": "rgb(255, 255, 255)"
       },
       {
         "control": "Reset the scene to its poster still",
-        "ratio": 18.18,
+        "ratio": 19.67,
         "foreground": "rgb(11, 11, 12)",
-        "background": "rgb(245, 246, 247)"
+        "background": "rgb(255, 255, 255)"
       },
       {
         "control": "Scene timeline",
-        "ratio": 11.83,
-        "foreground": "rgb(198, 255, 25)",
-        "background": "rgb(36, 45, 51)"
+        "ratio": 12.95,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(245, 246, 247)"
+      },
+      {
+        "control": "How this was made",
+        "ratio": 12.95,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(245, 246, 247)"
       }
     ],
     "lowContrast": []
   },
   "375 beat 5": {
-    "textCount": 10,
-    "markCount": 10,
+    "textCount": 4,
+    "markCount": 8,
     "intersections": [],
     "overflow": [],
     "contrast": [
@@ -234,58 +306,82 @@
         "background": "rgb(36, 45, 51)"
       },
       {
-        "control": "Step back one beat",
-        "ratio": 18.18,
-        "foreground": "rgb(11, 11, 12)",
+        "control": "Adjust more",
+        "ratio": 12.95,
+        "foreground": "rgb(36, 45, 51)",
         "background": "rgb(245, 246, 247)"
+      },
+      {
+        "control": "Step back one beat",
+        "ratio": 19.67,
+        "foreground": "rgb(11, 11, 12)",
+        "background": "rgb(255, 255, 255)"
       },
       {
         "control": "Step forward one beat",
-        "ratio": 18.18,
+        "ratio": 19.67,
         "foreground": "rgb(11, 11, 12)",
-        "background": "rgb(245, 246, 247)"
+        "background": "rgb(255, 255, 255)"
       },
       {
         "control": "Reset the scene to its poster still",
-        "ratio": 18.18,
+        "ratio": 19.67,
         "foreground": "rgb(11, 11, 12)",
-        "background": "rgb(245, 246, 247)"
+        "background": "rgb(255, 255, 255)"
       },
       {
         "control": "Scene timeline",
-        "ratio": 11.83,
-        "foreground": "rgb(198, 255, 25)",
-        "background": "rgb(36, 45, 51)"
+        "ratio": 12.95,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(245, 246, 247)"
+      },
+      {
+        "control": "How this was made",
+        "ratio": 12.95,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(245, 246, 247)"
       }
     ],
     "lowContrast": []
   },
   "1440 reduced poster": {
-    "textCount": 10,
-    "markCount": 10,
+    "textCount": 4,
+    "markCount": 8,
     "intersections": [],
     "overflow": [],
     "contrast": [
       {
-        "control": "Play the motion scene: Kalman filter: predict and update",
+        "control": "Play the motion scene: Kalman filter: guess, measure, blend",
         "ratio": 19.67,
         "foreground": "rgb(255, 255, 255)",
         "background": "rgb(11, 11, 12)"
       },
       {
-        "control": "Step back one beat",
+        "control": "Adjust more",
         "ratio": 12.95,
         "foreground": "rgb(36, 45, 51)",
         "background": "rgb(245, 246, 247)"
+      },
+      {
+        "control": "Step back one beat",
+        "ratio": 19.67,
+        "foreground": "rgb(11, 11, 12)",
+        "background": "rgb(255, 255, 255)"
       },
       {
         "control": "Step forward one beat",
-        "ratio": 12.95,
-        "foreground": "rgb(36, 45, 51)",
-        "background": "rgb(245, 246, 247)"
+        "ratio": 19.67,
+        "foreground": "rgb(11, 11, 12)",
+        "background": "rgb(255, 255, 255)"
       },
       {
         "control": "Reset the scene to its poster still",
+        "ratio": 19.67,
+        "foreground": "rgb(11, 11, 12)",
+        "background": "rgb(255, 255, 255)"
+      },
+      {
+        "control": "How this was made",
         "ratio": 12.95,
         "foreground": "rgb(36, 45, 51)",
         "background": "rgb(245, 246, 247)"
@@ -294,31 +390,43 @@
     "lowContrast": []
   },
   "1440 poster": {
-    "textCount": 10,
-    "markCount": 10,
+    "textCount": 4,
+    "markCount": 8,
     "intersections": [],
     "overflow": [],
     "contrast": [
       {
-        "control": "Play the motion scene: Kalman filter: predict and update",
+        "control": "Play the motion scene: Kalman filter: guess, measure, blend",
         "ratio": 19.67,
         "foreground": "rgb(255, 255, 255)",
         "background": "rgb(11, 11, 12)"
       },
       {
-        "control": "Step back one beat",
+        "control": "Adjust more",
         "ratio": 12.95,
         "foreground": "rgb(36, 45, 51)",
         "background": "rgb(245, 246, 247)"
+      },
+      {
+        "control": "Step back one beat",
+        "ratio": 19.67,
+        "foreground": "rgb(11, 11, 12)",
+        "background": "rgb(255, 255, 255)"
       },
       {
         "control": "Step forward one beat",
-        "ratio": 12.95,
-        "foreground": "rgb(36, 45, 51)",
-        "background": "rgb(245, 246, 247)"
+        "ratio": 19.67,
+        "foreground": "rgb(11, 11, 12)",
+        "background": "rgb(255, 255, 255)"
       },
       {
         "control": "Reset the scene to its poster still",
+        "ratio": 19.67,
+        "foreground": "rgb(11, 11, 12)",
+        "background": "rgb(255, 255, 255)"
+      },
+      {
+        "control": "How this was made",
         "ratio": 12.95,
         "foreground": "rgb(36, 45, 51)",
         "background": "rgb(245, 246, 247)"
@@ -327,8 +435,8 @@
     "lowContrast": []
   },
   "1440 beat 1": {
-    "textCount": 9,
-    "markCount": 3,
+    "textCount": 1,
+    "markCount": 2,
     "intersections": [],
     "overflow": [],
     "contrast": [
@@ -339,35 +447,47 @@
         "background": "rgb(36, 45, 51)"
       },
       {
-        "control": "Step back one beat",
-        "ratio": 18.18,
-        "foreground": "rgb(11, 11, 12)",
+        "control": "Adjust more",
+        "ratio": 12.95,
+        "foreground": "rgb(36, 45, 51)",
         "background": "rgb(245, 246, 247)"
+      },
+      {
+        "control": "Step back one beat",
+        "ratio": 19.67,
+        "foreground": "rgb(11, 11, 12)",
+        "background": "rgb(255, 255, 255)"
       },
       {
         "control": "Step forward one beat",
-        "ratio": 18.18,
+        "ratio": 19.67,
         "foreground": "rgb(11, 11, 12)",
-        "background": "rgb(245, 246, 247)"
+        "background": "rgb(255, 255, 255)"
       },
       {
         "control": "Reset the scene to its poster still",
-        "ratio": 18.18,
+        "ratio": 19.67,
         "foreground": "rgb(11, 11, 12)",
-        "background": "rgb(245, 246, 247)"
+        "background": "rgb(255, 255, 255)"
       },
       {
         "control": "Scene timeline",
-        "ratio": 11.83,
-        "foreground": "rgb(198, 255, 25)",
-        "background": "rgb(36, 45, 51)"
+        "ratio": 12.95,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(245, 246, 247)"
+      },
+      {
+        "control": "How this was made",
+        "ratio": 12.95,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(245, 246, 247)"
       }
     ],
     "lowContrast": []
   },
   "1440 beat 2": {
-    "textCount": 9,
-    "markCount": 5,
+    "textCount": 2,
+    "markCount": 4,
     "intersections": [],
     "overflow": [],
     "contrast": [
@@ -378,34 +498,46 @@
         "background": "rgb(36, 45, 51)"
       },
       {
-        "control": "Step back one beat",
-        "ratio": 18.18,
-        "foreground": "rgb(11, 11, 12)",
+        "control": "Adjust more",
+        "ratio": 12.95,
+        "foreground": "rgb(36, 45, 51)",
         "background": "rgb(245, 246, 247)"
+      },
+      {
+        "control": "Step back one beat",
+        "ratio": 19.67,
+        "foreground": "rgb(11, 11, 12)",
+        "background": "rgb(255, 255, 255)"
       },
       {
         "control": "Step forward one beat",
-        "ratio": 18.18,
+        "ratio": 19.67,
         "foreground": "rgb(11, 11, 12)",
-        "background": "rgb(245, 246, 247)"
+        "background": "rgb(255, 255, 255)"
       },
       {
         "control": "Reset the scene to its poster still",
-        "ratio": 18.18,
+        "ratio": 19.67,
         "foreground": "rgb(11, 11, 12)",
-        "background": "rgb(245, 246, 247)"
+        "background": "rgb(255, 255, 255)"
       },
       {
         "control": "Scene timeline",
-        "ratio": 11.83,
-        "foreground": "rgb(198, 255, 25)",
-        "background": "rgb(36, 45, 51)"
+        "ratio": 12.95,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(245, 246, 247)"
+      },
+      {
+        "control": "How this was made",
+        "ratio": 12.95,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(245, 246, 247)"
       }
     ],
     "lowContrast": []
   },
   "1440 beat 3": {
-    "textCount": 9,
+    "textCount": 3,
     "markCount": 8,
     "intersections": [],
     "overflow": [],
@@ -417,35 +549,47 @@
         "background": "rgb(36, 45, 51)"
       },
       {
-        "control": "Step back one beat",
-        "ratio": 18.18,
-        "foreground": "rgb(11, 11, 12)",
+        "control": "Adjust more",
+        "ratio": 12.95,
+        "foreground": "rgb(36, 45, 51)",
         "background": "rgb(245, 246, 247)"
+      },
+      {
+        "control": "Step back one beat",
+        "ratio": 19.67,
+        "foreground": "rgb(11, 11, 12)",
+        "background": "rgb(255, 255, 255)"
       },
       {
         "control": "Step forward one beat",
-        "ratio": 18.18,
+        "ratio": 19.67,
         "foreground": "rgb(11, 11, 12)",
-        "background": "rgb(245, 246, 247)"
+        "background": "rgb(255, 255, 255)"
       },
       {
         "control": "Reset the scene to its poster still",
-        "ratio": 18.18,
+        "ratio": 19.67,
         "foreground": "rgb(11, 11, 12)",
-        "background": "rgb(245, 246, 247)"
+        "background": "rgb(255, 255, 255)"
       },
       {
         "control": "Scene timeline",
-        "ratio": 11.83,
-        "foreground": "rgb(198, 255, 25)",
-        "background": "rgb(36, 45, 51)"
+        "ratio": 12.95,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(245, 246, 247)"
+      },
+      {
+        "control": "How this was made",
+        "ratio": 12.95,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(245, 246, 247)"
       }
     ],
     "lowContrast": []
   },
   "1440 beat 4": {
-    "textCount": 10,
-    "markCount": 10,
+    "textCount": 13,
+    "markCount": 8,
     "intersections": [],
     "overflow": [],
     "contrast": [
@@ -456,35 +600,47 @@
         "background": "rgb(36, 45, 51)"
       },
       {
-        "control": "Step back one beat",
-        "ratio": 18.18,
-        "foreground": "rgb(11, 11, 12)",
+        "control": "Adjust more",
+        "ratio": 12.95,
+        "foreground": "rgb(36, 45, 51)",
         "background": "rgb(245, 246, 247)"
+      },
+      {
+        "control": "Step back one beat",
+        "ratio": 19.67,
+        "foreground": "rgb(11, 11, 12)",
+        "background": "rgb(255, 255, 255)"
       },
       {
         "control": "Step forward one beat",
-        "ratio": 18.18,
+        "ratio": 19.67,
         "foreground": "rgb(11, 11, 12)",
-        "background": "rgb(245, 246, 247)"
+        "background": "rgb(255, 255, 255)"
       },
       {
         "control": "Reset the scene to its poster still",
-        "ratio": 18.18,
+        "ratio": 19.67,
         "foreground": "rgb(11, 11, 12)",
-        "background": "rgb(245, 246, 247)"
+        "background": "rgb(255, 255, 255)"
       },
       {
         "control": "Scene timeline",
-        "ratio": 11.83,
-        "foreground": "rgb(198, 255, 25)",
-        "background": "rgb(36, 45, 51)"
+        "ratio": 12.95,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(245, 246, 247)"
+      },
+      {
+        "control": "How this was made",
+        "ratio": 12.95,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(245, 246, 247)"
       }
     ],
     "lowContrast": []
   },
   "1440 beat 5": {
-    "textCount": 10,
-    "markCount": 10,
+    "textCount": 4,
+    "markCount": 8,
     "intersections": [],
     "overflow": [],
     "contrast": [
@@ -495,28 +651,40 @@
         "background": "rgb(36, 45, 51)"
       },
       {
-        "control": "Step back one beat",
-        "ratio": 18.18,
-        "foreground": "rgb(11, 11, 12)",
+        "control": "Adjust more",
+        "ratio": 12.95,
+        "foreground": "rgb(36, 45, 51)",
         "background": "rgb(245, 246, 247)"
+      },
+      {
+        "control": "Step back one beat",
+        "ratio": 19.67,
+        "foreground": "rgb(11, 11, 12)",
+        "background": "rgb(255, 255, 255)"
       },
       {
         "control": "Step forward one beat",
-        "ratio": 18.18,
+        "ratio": 19.67,
         "foreground": "rgb(11, 11, 12)",
-        "background": "rgb(245, 246, 247)"
+        "background": "rgb(255, 255, 255)"
       },
       {
         "control": "Reset the scene to its poster still",
-        "ratio": 18.18,
+        "ratio": 19.67,
         "foreground": "rgb(11, 11, 12)",
-        "background": "rgb(245, 246, 247)"
+        "background": "rgb(255, 255, 255)"
       },
       {
         "control": "Scene timeline",
-        "ratio": 11.83,
-        "foreground": "rgb(198, 255, 25)",
-        "background": "rgb(36, 45, 51)"
+        "ratio": 12.95,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(245, 246, 247)"
+      },
+      {
+        "control": "How this was made",
+        "ratio": 12.95,
+        "foreground": "rgb(36, 45, 51)",
+        "background": "rgb(245, 246, 247)"
       }
     ],
     "lowContrast": []

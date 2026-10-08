@@ -25,8 +25,9 @@ import { MOTION_STAGE } from '@/lib/motion-tokens';
  * supervisor receives the task goal as an action and drives the policy
  * server, gate and bridge through lifecycle transitions on a dashed rail.
  *
- * A static schematic: no controls, no state. Every QoS setting, timeout
- * and source sits in "How this was made".
+ * A static schematic: no controls, no state. The stage names every node
+ * and link in plain words; the ROS 2 names, every QoS setting, timeout and
+ * source sit in "How this was made".
  */
 
 const W = CHART_VIEW_WIDTH;
@@ -45,24 +46,28 @@ const gapHeight = (lines: number) => GAP_FIRST + (lines - 1) * LINE + 16;
 const SUP = { x: 196, y: 52, w: W - 6 - 196, h: 30 };
 const RAIL_X = 326;
 const TASK_END_X = 96;
-const ACTION_LABEL_Y = 100;
 
 const HEAD_LEN = 7;
 const HEAD_HALF = 4;
 
 type NodeId = 'drivers' | 'state' | 'policy' | 'gate' | 'bridge' | 'hardware';
 
-/** Box label, and how many label lines the gap under the box needs. */
-const NODES: { id: NodeId; label: string; gapLines: number }[] = [
-  { id: 'drivers', label: 'camera and joint drivers', gapLines: 2 },
-  { id: 'state', label: 'state assembly', gapLines: 3 },
-  { id: 'policy', label: 'policy server', gapLines: 2 },
-  { id: 'gate', label: 'command gate', gapLines: 2 },
-  { id: 'bridge', label: 'controller bridge', gapLines: 1 },
-  { id: 'hardware', label: 'robot hardware', gapLines: 0 },
+/**
+ * Box label in plain words, the node's ROS 2 name for the method fold, and
+ * how many label lines the gap under the box needs.
+ */
+const NODES: { id: NodeId; label: string; name: string; gapLines: number }[] = [
+  { id: 'drivers', label: 'camera and joint sensors', name: 'camera and joint drivers', gapLines: 2 },
+  { id: 'state', label: 'combines the readings', name: 'state assembly', gapLines: 3 },
+  { id: 'policy', label: 'AI that suggests moves', name: 'policy server', gapLines: 2 },
+  { id: 'gate', label: 'safety check', name: 'command gate', gapLines: 2 },
+  { id: 'bridge', label: 'runs the motors', name: 'controller bridge', gapLines: 1 },
+  { id: 'hardware', label: 'motors', name: 'robot hardware', gapLines: 0 },
 ];
+const SUPERVISOR = { label: 'task manager', name: 'supervisor' };
+const STORE_NAMES = { label: 'arm positions', name: 'tf2 frame tree' };
 
-const FIRST_BOX_Y = 116;
+const FIRST_BOX_Y = 104;
 
 /** Each box's top edge, stacked with the gap its outgoing label needs. */
 const BOX_Y = NODES.reduce<Record<NodeId, number>>(
@@ -81,9 +86,11 @@ const STORE_LABEL_X = 196;
 
 type Edge = {
   id: string;
-  /** The interface line on the stage: kind and payload. */
+  /** What the link carries, in plain words, one entry per stage line. */
+  stage: readonly string[];
+  /** The ROS 2 interface: kind and payload. */
   kind: string;
-  /** The QoS or timing line on the stage. */
+  /** The QoS or timing setting. */
   note?: string;
   /** The method-fold entry: QoS and caveats in full. */
   method: string;
@@ -94,6 +101,7 @@ type Edge = {
 const DOWN_EDGES: Partial<Record<NodeId, Edge>> = {
   drivers: {
     id: 'drivers-to-state',
+    stage: ['camera pictures, joint positions', 'late readings may be skipped'],
     kind: 'topic: camera images, joint states',
     note: 'sensor data: best effort, small queue',
     method:
@@ -102,6 +110,7 @@ const DOWN_EDGES: Partial<Record<NodeId, Edge>> = {
   },
   state: {
     id: 'state-to-policy',
+    stage: ['newest readings', 'checked to be recent'],
     kind: 'topic: observation',
     note: 'log message age here',
     method:
@@ -110,6 +119,7 @@ const DOWN_EDGES: Partial<Record<NodeId, Edge>> = {
   },
   policy: {
     id: 'policy-to-gate',
+    stage: ['suggested moves,', 'all delivered'],
     kind: 'topic: proposed actions',
     note: 'reliable',
     method:
@@ -118,6 +128,7 @@ const DOWN_EDGES: Partial<Record<NodeId, Edge>> = {
   },
   gate: {
     id: 'gate-to-bridge',
+    stage: ['checked moves', 'the only path to the motors'],
     kind: 'topic: commands',
     note: 'the only command publisher',
     method:
@@ -126,6 +137,7 @@ const DOWN_EDGES: Partial<Record<NodeId, Edge>> = {
   },
   bridge: {
     id: 'bridge-to-hardware',
+    stage: ['at steady, exact intervals'],
     kind: 'real-time loop',
     method:
       "Controller bridge to the robot hardware, in the real-time loop. ROS 2's real-time guidance keeps page faults, dynamic allocation and indefinitely blocking synchronization out of this path, so inference stays outside it unless its worst case fits.",
@@ -135,17 +147,17 @@ const DOWN_EDGES: Partial<Record<NodeId, Edge>> = {
 
 const TF2_EDGE: Edge = {
   id: 'tf2-to-state',
+  stage: ['arm position at', 'the moment the', 'photo was taken'],
   kind: 'tf2 lookup',
   note: "frames at the image's timestamp",
   method:
     "tf2 frame tree to state assembly, as a tf2 lookup. tf2 keeps a time-buffered tree of coordinate frames. A lookup at the image's timestamp can wait for the transform; the tf2 tutorial raises an exception only if it is still unavailable after a 50 ms timeout.",
   sources: ['tf2-docs-2026', 'tf2-time-tutorial-2026'],
 };
-/** The tf2 lookup label, wrapped to fit between the store and the rail. */
-const TF2_LABEL = ['tf2 lookup:', 'frames at the', "image's timestamp"];
 
 const TASK_EDGE: Edge = {
   id: 'task-to-supervisor',
+  stage: [],
   kind: 'action: task goal with feedback and cancel',
   method:
     'Task request to the supervisor, as an action: a long-running goal with feedback, cancellation and a result.',
@@ -154,13 +166,12 @@ const TASK_EDGE: Edge = {
 
 const LIFECYCLE_EDGE: Edge = {
   id: 'supervisor-lifecycle',
+  stage: ['starts and stops', 'these three parts'],
   kind: 'lifecycle: start, stop, deactivate',
   method:
     "Supervisor to the policy server, command gate and controller bridge, through lifecycle transitions. ROS 2 managed nodes leave a primary state only at an external supervisor's request or on an error in the Active state.",
   sources: ['ros2-lifecycle-design-2015'],
 };
-/** The lifecycle label, wrapped between the first two rail branches. */
-const LIFECYCLE_LABEL = ['lifecycle: start,', 'stop, deactivate'];
 const SUPERVISED: NodeId[] = ['policy', 'gate', 'bridge'];
 
 /** Every edge in reading order, for the method list and the description. */
@@ -304,18 +315,15 @@ function PolicyGraph({ descriptionId }: { descriptionId: string }) {
   return (
     <PlotStage
       viewBox={`0 0 ${W} ${VIEW_H}`}
-      aria-label="ROS 2 graph for a learned policy, top to bottom: camera and joint drivers, state assembly reading the tf2 frame tree, policy server, command gate, controller bridge and robot hardware. A supervisor takes the task goal and starts or stops the policy server, command gate and controller bridge."
+      aria-label="ROS 2 graph for a learned policy, top to bottom: camera and joint sensors (drivers), a node that combines the readings (state assembly) using the arm positions (tf2 frame tree), the AI that suggests moves (policy server), a safety check (command gate), the part that runs the motors (controller bridge) and the robot's motors. A task manager (supervisor) takes the task request and starts and stops the AI, the safety check and the part that runs the motors."
       aria-describedby={descriptionId}
       data-testid="ros2-policy-graph"
     >
-      <StageAnnotation x={8} y={18} lines={['Only the command gate talks', 'to the controller']} />
+      <StageAnnotation x={8} y={18} lines={['Only the safety check sends', 'moves to the motors']} />
 
       <StageText x={8} y={SUP.y + SUP.h / 2 + BASELINE_DROP}>task request</StageText>
-      <NodeBox id="supervisor" x={SUP.x} y={SUP.y} w={SUP.w} label="supervisor" />
-      <StageText x={8} y={ACTION_LABEL_Y} secondary>
-        {TASK_EDGE.kind}
-      </StageText>
-      {LIFECYCLE_LABEL.map((line, i) => (
+      <NodeBox id="supervisor" x={SUP.x} y={SUP.y} w={SUP.w} label={SUPERVISOR.label} />
+      {LIFECYCLE_EDGE.stage.map((line, i) => (
         <StageText
           key={line}
           x={RAIL_X - 8}
@@ -339,10 +347,10 @@ function PolicyGraph({ descriptionId }: { descriptionId: string }) {
           strokeWidth={CHART_STROKE.structure}
         />
         <StageText x={(STORE.x + STORE.right) / 2} y={stateMid + BASELINE_DROP} anchor="middle" weight={500}>
-          tf2 frame tree
+          {STORE_NAMES.label}
         </StageText>
       </g>
-      {TF2_LABEL.map((line, i) => (
+      {TF2_EDGE.stage.map((line, i) => (
         <StageText
           key={line}
           x={STORE_LABEL_X}
@@ -359,14 +367,11 @@ function PolicyGraph({ descriptionId }: { descriptionId: string }) {
         const top = BOX_Y[node.id] + BOX.h + GAP_FIRST;
         return (
           <g key={edge.id} data-edge-label={edge.id}>
-            <StageText x={LABEL_X} y={top}>
-              {edge.kind}
-            </StageText>
-            {edge.note ? (
-              <StageText x={LABEL_X} y={top + LINE} secondary>
-                {edge.note}
+            {edge.stage.map((line, i) => (
+              <StageText key={line} x={LABEL_X} y={top + i * LINE} secondary={i > 0}>
+                {line}
               </StageText>
-            ) : null}
+            ))}
           </g>
         );
       })}
@@ -416,21 +421,21 @@ export function Ros2PolicyLayout({ className }: { className?: string }) {
     <InstrumentFigure
       figureId="ros2-policy-layout"
       className={className}
-      kicker="ROS 2 policy layout"
-      heading="Keep the model one gate away from the motors"
+      kicker="ROS 2 software layout"
+      heading="The AI's moves pass a safety check first"
       stage={
         <FigureStage
           footer={
             <>
               <InstrumentLegend>
                 <LegendItem series="sensing" swatch={<LegendSwatch role="state" mark="line" />}>
-                  sensor data and frames
+                  what the robot senses
                 </LegendItem>
                 <LegendItem series="commands" swatch={<LegendSwatch role="action" mark="line" />}>
-                  goals, actions and commands
+                  tasks and moves
                 </LegendItem>
                 <LegendItem series="lifecycle" swatch={<LegendSwatch role="reference" mark="dash" />}>
-                  supervisor start and stop
+                  starting and stopping parts
                 </LegendItem>
               </InstrumentLegend>
               <StageStatus>Schematic: one recommended layout, not a required one</StageStatus>
@@ -443,13 +448,15 @@ export function Ros2PolicyLayout({ className }: { className?: string }) {
           </div>
         </FigureStage>
       }
-      caption="Separate nodes let you test, stop or swap the learned policy without touching drivers or the real-time controller."
+      caption="Separate parts let engineers test, stop or swap the AI without touching what moves the robot."
       method={
         <>
           <div>
             One robust layout for a learned-policy graph, as the article recommends: drivers, state assembly, a
-            policy server, a command gate, a controller bridge and a supervisor, each its own node. Each link below
-            names its ROS 2 interface, its QoS or timing, and its source.
+            policy server, a command gate, a controller bridge and a supervisor, each its own node. The drawing
+            names them in plain words:{' '}
+            {[...NODES, SUPERVISOR, STORE_NAMES].map((node) => `"${node.label}" is the ${node.name}`).join('; ')}.
+            Each link below names its ROS 2 interface, its QoS or timing, and its source.
           </div>
           <ul data-testid="ros2-policy-edges" className="list-disc space-y-1.5 pl-5">
             {ALL_EDGES.map((edge) => (

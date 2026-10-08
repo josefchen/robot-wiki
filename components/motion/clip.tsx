@@ -13,16 +13,22 @@
  * through aria-describedby, so the clip has a complete text alternative
  * without playing it.
  *
- * The clip sits in the shared figure frame, like the live scenes: a
- * one-line title, the video on the graphite stage, one caption, and the
- * status note as the source line. Its beat captions play inside the video,
- * so the frame exports their word counts for the figure check the way a
- * scene does. A playing clip pauses when it leaves the viewport or the tab
+ * The clip sits in the shared figure frame, like the live scenes: the
+ * kicker and the headline, one plain play button, the video on the stage,
+ * one caption, the method in "How this was made", and the status note as
+ * the source line. The play button drives the same native element, whose
+ * own controls stay on it. Its beat captions play inside the video, so the
+ * frame exports their word counts for the figure check the way a scene
+ * does. A playing clip pauses when it leaves the viewport or the tab
  * hides, matching the player contract the live scenes keep.
  */
+import { Pause, Play } from '@phosphor-icons/react';
 import { useEffect, useRef, useState } from 'react';
 import { FigureStage } from '@/components/motion/figure-frame';
-import { InstrumentFigure } from '@/components/ui/instrument';
+import {
+  INSTRUMENT_PRIMARY_CONTROL_CLASS,
+  InstrumentFigure,
+} from '@/components/ui/instrument';
 import { words } from '@/lib/figure-system-paint';
 import { getMotionClip } from '@/lib/motion-clips';
 
@@ -36,6 +42,19 @@ export function Clip({ id, className }: ClipProps) {
   const clip = getMotionClip(id);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [posterVisible, setPosterVisible] = useState(true);
+  const [playing, setPlaying] = useState(false);
+
+  const togglePlay = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused || video.ended) {
+      // play() rejects when the browser refuses playback; the button then
+      // stays on "Play the run" because no play event arrives.
+      void video.play()?.catch(() => setPlaying(false));
+    } else {
+      video.pause();
+    }
+  };
 
   // Pause offscreen and on hidden tabs: the reader's attention, and the
   // machine's frame budget, are not spent on a clip nobody is watching.
@@ -87,16 +106,26 @@ export function Clip({ id, className }: ClipProps) {
       aria-label={`Cinematic clip: ${clip.title}`}
       aria-describedby={alternativeId}
       className={className}
-      heading={clip.title}
+      kicker={clip.kicker}
+      heading={clip.headline}
+      controls={
+        <ClipPlayButton playing={playing} onToggle={togglePlay} />
+      }
       stage={
         <FigureStage data-motion-clip-stage>
           <div className="relative">
             <video
               ref={videoRef}
               controls
+              controlsList="nodownload noremoteplayback"
+              disablePictureInPicture
+              disableRemotePlayback
               preload="none"
               poster={clip.files.poster}
               onLoadedData={() => setPosterVisible(false)}
+              onPlay={() => setPlaying(true)}
+              onPause={() => setPlaying(false)}
+              onEnded={() => setPlaying(false)}
               width={clip.width}
               height={clip.height}
               playsInline
@@ -133,11 +162,41 @@ export function Clip({ id, className }: ClipProps) {
       }
       caption={clip.teaches}
       captionProps={{ 'data-testid': 'motion-clip-caption' }}
+      method={clip.method.map((paragraph) => (
+        <p key={paragraph}>{paragraph}</p>
+      ))}
       source={clip.statusNote}
     >
       <div id={alternativeId} className="sr-only">
         {clip.textAlternative}
       </div>
     </InstrumentFigure>
+  );
+}
+
+function ClipPlayButton({
+  playing,
+  onToggle,
+}: {
+  playing: boolean;
+  onToggle: () => void;
+}) {
+  return (
+    <button
+      data-brand-control-id="control:primary-action"
+      data-pagefind-ignore
+      data-testid="motion-clip-play"
+      type="button"
+      onClick={onToggle}
+      aria-label={playing ? 'Pause the run' : 'Play the run'}
+      className={INSTRUMENT_PRIMARY_CONTROL_CLASS}
+    >
+      {playing ? (
+        <Pause size={14} weight="bold" aria-hidden />
+      ) : (
+        <Play size={14} weight="bold" aria-hidden />
+      )}
+      {playing ? 'Pause' : 'Play the run'}
+    </button>
   );
 }

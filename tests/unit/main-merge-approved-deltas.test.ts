@@ -662,12 +662,13 @@ const howRobotsWork20261005Appends = [
 // The 2026-10-06 opus-pass domain passes append theirs after that, one block
 // per article group, in the same shape as the KOL backlog batch.
 const domainPass20261006Appends = merged.filter(x => x.id.startsWith('domain-pass-20261006-')).map(x => x.id);
-// The 2026-10-07 classical pass appends its block after that, in commit
-// order: the accessible names its reader-first figure rewrites moved, the
-// prose edges of articles that mount a new figure, and the edges its text
-// and registry fixes move.
+// The 2026-10-07 classical pass, continued on 2026-10-08, appends its block
+// after that, in commit order: the accessible names its reader-first figure
+// rewrites moved, the prose edges of articles that mount a new figure, the
+// edges its text and registry fixes move, and the plain-words rework that
+// followed its five-second reader tests.
 const classicalPass20261007Appends = merged
-  .filter(x => /^(reader-first|figure-mounts|domain-pass)-20261007-/.test(x.id)).map(x => x.id);
+  .filter(x => /^(reader-first|figure-mounts|domain-pass)-2026100[78]-/.test(x.id)).map(x => x.id);
 const laterThanSeoPass = [...allReaderFirstAppends, ...kolBacklog20261005Appends, ...howRobotsWork20261005Appends,
   ...domainPass20261006Appends, ...classicalPass20261007Appends];
 const beforeReaderFirst = (entries: ApprovedDelta[]) => entries.filter(x => !laterThanSeoPass.includes(x.id));

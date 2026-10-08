@@ -1,7 +1,7 @@
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { renderToString } from 'react-dom/server';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { KalmanPredictUpdate, KALMAN_SCENE, KALMAN_STEP_DETAIL, covarianceEllipse, kalmanFrameAt } from '@/components/motion/scenes/kalman-predict-update';
+import { KalmanPredictUpdate, KALMAN_BUMPS, KALMAN_SCENE, KALMAN_STEP_DETAIL, kalmanFrameAt } from '@/components/motion/scenes/kalman-predict-update';
 import {
   DiffusionDenoising,
   DIFFUSION_SCENE,
@@ -59,7 +59,7 @@ describe('motion scene mount', () => {
     // at the final frame and the recap caption, with no scrubber. Play is
     // the one control in the header; the step and reset controls wait in
     // the closed "Adjust more" fold, and none of them is disabled.
-    expect(screen.getByTestId('motion-caption')).toHaveTextContent(/written out/i);
+    expect(screen.getByTestId('motion-caption')).toHaveTextContent(/never knows exactly where it is/i);
     expect(screen.queryByTestId('motion-scrubber')).not.toBeInTheDocument();
     expect((poster as HTMLButtonElement).disabled).toBe(false);
     const fold = document.querySelector('[data-figure-fold="adjust"]') as HTMLDetailsElement;
@@ -73,12 +73,25 @@ describe('motion scene mount', () => {
       .getAllByRole('button')
       .filter((button) => (button as HTMLButtonElement).disabled);
     expect(disabled.length).toBe(0);
-    // The poster belief ellipse is exactly the posterior's.
+    // The main view speaks in plain words: a headline, three labelled
+    // bells and one highlighted note; the symbols wait in the method fold.
+    const frame = document.querySelector('[data-motion-scene="kalman-predict-update"]')!;
+    expect(frame).toHaveTextContent('Blend a guess and a noisy reading: sharper than either');
+    const stage = frame.querySelector('[data-motion-stage] svg')!;
+    expect([...stage.querySelectorAll('text')].map((text) => text.textContent)).toEqual([
+      'my guess',
+      'the sensor says',
+      'best blend',
+      '62% of the way to the reading',
+    ]);
+    expect(stage.querySelector('[data-figure-annotation]')).toHaveTextContent('62% of the way to the reading');
+    expect(stage.querySelector('[data-scene-equation]')).toBeNull();
+    expect(frame.querySelector('[data-scene-equation] .katex')).not.toBeNull();
+    // The poster's blend is exactly the filter's posterior position.
     const posterFrame = kalmanFrameAt(8000);
-    expect(covarianceEllipse(posterFrame.belief.cov).rx).toBeCloseTo(
-      covarianceEllipse(KALMAN_STEP_DETAIL.posterior.cov).rx,
-      6,
-    );
+    expect(posterFrame.blend.mean).toBeCloseTo(KALMAN_STEP_DETAIL.posterior.mean[0], 6);
+    expect(posterFrame.blend.sigma).toBeCloseTo(Math.sqrt(KALMAN_STEP_DETAIL.posterior.cov.p00), 6);
+    expect(posterFrame.blend).toEqual(KALMAN_BUMPS.blend);
   });
 
   it('links the complete alternative in SSR and remains unique across poster mounts', () => {
@@ -178,7 +191,7 @@ describe('motion scene mount', () => {
     expect(
       screen.getByRole('button', { name: /play the scene/i }),
     ).toBeInTheDocument();
-    expect(screen.getByTestId('motion-caption')).toHaveTextContent(/written out/i);
+    expect(screen.getByTestId('motion-caption')).toHaveTextContent(/never knows exactly where it is/i);
   });
 });
 
@@ -191,7 +204,7 @@ describe('motion scene player', () => {
 
   it('opens on the poster still, captioned by the recap beat', () => {
     mountPlayer();
-    expect(screen.getByTestId('motion-caption')).toHaveTextContent(/written out/i);
+    expect(screen.getByTestId('motion-caption')).toHaveTextContent(/never knows exactly where it is/i);
     expect(screen.getByTestId('motion-beat-count')).toHaveTextContent('beat 5 / 5');
     expect(
       screen.getByRole('button', { name: /play the scene/i }),
@@ -210,11 +223,11 @@ describe('motion scene player', () => {
       screen.getByRole('button', { name: /pause the scene/i }),
     ).toBeInTheDocument();
     const caption = screen.getByTestId('motion-caption');
-    expect(caption).toHaveTextContent(/prior belief/i);
+    expect(caption).toHaveTextContent(/Guess: from where it was/);
     act(() => {
-      vi.advanceTimersByTime(1100);
+      vi.advanceTimersByTime(2100);
     });
-    expect(caption).toHaveTextContent(/predict/i);
+    expect(caption).toHaveTextContent(/Measure: a sensor/);
     expect(screen.getByTestId('motion-beat-count')).toHaveTextContent('beat 2 / 5');
   });
 
@@ -233,7 +246,7 @@ describe('motion scene player', () => {
       });
     }
     expect(screen.getByRole('button', { name: /play the scene/i })).toBeInTheDocument();
-    expect(screen.getByTestId('motion-caption')).toHaveTextContent(/written out/i);
+    expect(screen.getByTestId('motion-caption')).toHaveTextContent(/never knows exactly where it is/i);
     expect(document.querySelector('[data-scene-hint]')).toHaveTextContent(
       'Drag the timeline to look again',
     );
@@ -256,18 +269,18 @@ describe('motion scene player', () => {
     ).toBeInTheDocument();
     // Home, then step forward through the beats.
     fireEvent.keyDown(shell, { key: 'Home' });
-    expect(caption).toHaveTextContent(/prior belief/i);
+    expect(caption).toHaveTextContent(/Guess: from where it was/);
     fireEvent.keyDown(shell, { key: 'ArrowRight' });
-    expect(caption).toHaveTextContent(/prior belief/i);
+    expect(caption).toHaveTextContent(/Guess: from where it was/);
     fireEvent.keyDown(shell, { key: 'ArrowRight' });
-    expect(caption).toHaveTextContent(/predict/i);
+    expect(caption).toHaveTextContent(/Measure: a sensor/);
     expect(screen.getByTestId('motion-beat-count')).toHaveTextContent('beat 2 / 5');
     fireEvent.keyDown(shell, { key: 'ArrowRight' });
-    expect(caption).toHaveTextContent(/measurement arrives/i);
+    expect(caption).toHaveTextContent(/Blend: the robot mixes/);
     fireEvent.keyDown(shell, { key: 'ArrowLeft' });
-    expect(caption).toHaveTextContent(/predict/i);
+    expect(caption).toHaveTextContent(/Measure: a sensor/);
     fireEvent.keyDown(shell, { key: 'End' });
-    expect(caption).toHaveTextContent(/written out/i);
+    expect(caption).toHaveTextContent(/never knows exactly where it is/i);
     // Space toggles when focus is off the buttons.
     fireEvent.keyDown(shell, { key: ' ' });
     expect(
@@ -281,10 +294,10 @@ describe('motion scene player', () => {
     expect(scrubber).toHaveAttribute('aria-label', 'Scene timeline');
     const caption = screen.getByTestId('motion-caption');
     fireEvent.change(scrubber, { target: { value: '5000' } });
-    expect(caption).toHaveTextContent(/update/i);
+    expect(caption).toHaveTextContent(/Blend: the robot mixes/);
     expect(scrubber.getAttribute('aria-valuetext')).toBe(caption.textContent);
     fireEvent.change(scrubber, { target: { value: '2500' } });
-    expect(caption).toHaveTextContent(/predict/i);
+    expect(caption).toHaveTextContent(/Measure: a sensor/);
   });
 
   it('step buttons walk the diffusion beats and clamp at the ends', () => {
@@ -335,7 +348,7 @@ describe('motion scene player', () => {
     fireEvent.click(
       screen.getByRole('button', { name: /reset the scene to its poster still/i }),
     );
-    expect(screen.getByTestId('motion-caption')).toHaveTextContent(/written out/i);
+    expect(screen.getByTestId('motion-caption')).toHaveTextContent(/never knows exactly where it is/i);
     expect(
       screen.getByRole('button', { name: /play the scene/i }),
     ).toBeInTheDocument();
@@ -353,35 +366,45 @@ describe('motion scene player', () => {
     // The click that activated the scene was the play consent; under
     // reduced motion the clock advances in held beat end-states from the
     // top, never tweened.
-    expect(screen.getByTestId('motion-caption')).toHaveTextContent(/prior belief/i);
+    expect(screen.getByTestId('motion-caption')).toHaveTextContent(/Guess: from where it was/);
     act(() => {
       vi.advanceTimersByTime(850);
     });
     // The first held end-state completes beat 1; the second beat 2.
-    expect(screen.getByTestId('motion-caption')).toHaveTextContent(/prior belief/i);
+    expect(screen.getByTestId('motion-caption')).toHaveTextContent(/Guess: from where it was/);
     act(() => {
       vi.advanceTimersByTime(800);
     });
-    expect(screen.getByTestId('motion-caption')).toHaveTextContent(/predict/i);
+    expect(screen.getByTestId('motion-caption')).toHaveTextContent(/Measure: a sensor/);
     act(() => {
       vi.advanceTimersByTime(800);
     });
-    expect(screen.getByTestId('motion-caption')).toHaveTextContent(/measurement arrives/i);
+    expect(screen.getByTestId('motion-caption')).toHaveTextContent(/Blend: the robot mixes/);
     // The scrubber still works under reduced motion.
     fireEvent.click(screen.getByRole('button', { name: /pause the scene/i }));
     fireEvent.change(screen.getByTestId('motion-scrubber'), {
       target: { value: '1000' },
     });
-    expect(screen.getByTestId('motion-caption')).toHaveTextContent(/prior belief/i);
+    expect(screen.getByTestId('motion-caption')).toHaveTextContent(/Guess: from where it was/);
   });
 
   it('is deterministic: the frame functions are pure and keep the models\' numbers', () => {
-    for (const t of [0, 400, 1000, 3300, 7999, 8000]) {
+    for (const t of [0, 400, 1000, 3300, 5999, 6000, 7999, 8000]) {
       expect(kalmanFrameAt(t)).toEqual(kalmanFrameAt(t));
     }
-    // The demonstrated step keeps the filter's own numbers.
+    // The demonstrated step keeps the filter's own numbers, and the bells
+    // are its position estimates: the guess widens from the prior, and the
+    // blend is the product of guess and reading, narrower than both.
     expect(KALMAN_STEP_DETAIL.gain.toFixed(2)).toBe('0.62');
     expect(KALMAN_STEP_DETAIL.measurement).not.toBeNull();
+    const { prior, guess, reading, blend } = KALMAN_BUMPS;
+    expect(kalmanFrameAt(0).guess).toEqual(prior);
+    expect(guess.sigma).toBeGreaterThan(prior.sigma);
+    const precision = 1 / guess.sigma ** 2 + 1 / reading.sigma ** 2;
+    expect(blend.sigma).toBeCloseTo(Math.sqrt(1 / precision), 6);
+    expect(blend.mean).toBeCloseTo((guess.mean / guess.sigma ** 2 + reading.mean / reading.sigma ** 2) / precision, 6);
+    expect(blend.sigma).toBeLessThan(Math.min(guess.sigma, reading.sigma));
+    expect((blend.mean - guess.mean) / (reading.mean - guess.mean)).toBeCloseTo(KALMAN_STEP_DETAIL.gain, 6);
     // Diffusion samples: the end state is the model's target set.
     const trajectory = generateDenoisingTrajectory();
     expect(trajectory.targets).toHaveLength(SAMPLE_COUNT);

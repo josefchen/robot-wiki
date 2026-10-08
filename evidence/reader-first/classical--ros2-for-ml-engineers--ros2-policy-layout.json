@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/classical/ros2-for-ml-engineers/",
+  "mount": "mount:/classical/ros2-for-ml-engineers/:Ros2PolicyLayout:1",
+  "screenshots": {
+    "375": "evidence/reader-first/classical--ros2-for-ml-engineers--ros2-policy-layout.375.png",
+    "1280": "evidence/reader-first/classical--ros2-for-ml-engineers--ros2-policy-layout.1280.png"
+  },
+  "takeaway": "The AI never drives the motors itself: every move it suggests passes a safety check first.",
+  "sentence": "In the robot's software, the AI's suggested moves have to go through a separate safety check before anything reaches the motors.",
+  "unclearTerms": [
+    "task manager",
+    "late readings may be skipped",
+    "combines the readings",
+    "checked to be recent",
+    "arm position at the moment the photo was taken",
+    "suggested moves, all delivered",
+    "at steady, exact intervals",
+    "starts and stops these three parts (which three?)",
+    "the dashed lines and arrows coming from the task manager",
+    "the difference between \"runs the motors\" and \"motors\"",
+    "the grey-filled \"motors\" box"
+  ],
+  "samePoint": "yes",
+  "reason": "My sentence also said that the AI's suggested moves must pass a separate safety check before reaching the motors.",
+  "verdict": "fail",
+  "screenshotCommit": "0e0d9540ac9737d4b8ea94c1210852e27417110d",
+  "date": "2026-10-08",
+  "reviewerSession": "reader-session-ec98138f",
+  "sourceDigest": "47de037a448f40e2a18c67efe05373a66f1320e24d1afab2320bc85dac1860fc"
+}

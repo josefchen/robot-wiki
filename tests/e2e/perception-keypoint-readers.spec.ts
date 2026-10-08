@@ -66,6 +66,8 @@ for (const route of ['/classical/perception/', '/manipulation/hierarchical/']) {
     }
     const perception = route.includes('/perception/');
     if (perception) {
+      // The target, the readouts and Reset sit in the budget's "Adjust more" fold.
+      await openAdjustMore(page.getByTestId('perception-budget'));
       const original = await page.getByTestId('perception-total-readout').innerText(); await page.getByTestId('perception-target-specular').check();
       await expect(page.getByTestId('perception-depth-readout')).toContainText('6.0%'); await setSlider(page.getByTestId('perception-distance-slider'), 1.35);
       await textCapture(page.getByTestId('perception-chart'), 'calculator-changed'); await page.getByRole('button', { name: /reset the error budget/i }).click();

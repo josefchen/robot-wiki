@@ -138,7 +138,7 @@ describe('state-form chart descriptions', () => {
   it('RrtExplorer describes the tree state', () => {
     const { container } = render(<RrtExplorer />);
     const { text } = assertDescribed(screen.getByTestId('rrt-scene'), container);
-    expect(text).toMatch(/tree not started|iteration 0/);
+    expect(text).toMatch(/goal reached at iteration 288/);
     fireEvent.change(screen.getByRole('slider', { name: /exploration iteration/i }), {
       target: { value: '40' },
     });
@@ -151,7 +151,7 @@ describe('state-form chart descriptions', () => {
     const img = screen.getByRole('img');
     const { text } = assertDescribed(img, container);
     expect(text).toMatch(/110/);
-    fireEvent.change(screen.getByRole('slider', { name: /base joint/i }), {
+    fireEvent.change(screen.getByRole('slider', { name: /shoulder joint/i }), {
       target: { value: '40' },
     });
     const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
